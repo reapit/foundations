@@ -1,0 +1,15 @@
+{
+	"rulesDirectory": ["tslint-plugin-prettier"],
+	"rules": {
+		"prettier": [true, { "singleQuote": true, "printWidth": 120, "semi": false }],
+		"no-floating-promises": false
+	},
+	"jsRules": {
+		"prettier": [true, { "singleQuote": true, "printWidth": 120, "semi": false  }],
+		"no-floating-promises": false
+	},
+	"extends": ["tslint-config-standard", "tslint-config-prettier"],
+	"cliOptions": {
+		"exclude": ["node_modules", "public", "src/tests/coverage"]
+	}
+}

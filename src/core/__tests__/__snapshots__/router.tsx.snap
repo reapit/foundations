@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Router should match a snapshot 1`] = `
+<BrowserRouter>
+  <Route
+    exact={true}
+    path="/"
+    render={[Function]}
+  />
+  <Route
+    path="/item/"
+    render={[Function]}
+  />
+</BrowserRouter>
+`;
