@@ -13,6 +13,7 @@
     "stop": "killall -SIGINT react-app",
     "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
     "bundle-analyse": "node ./src/scripts/bundle-phobia.js && yarn build && webpack-bundle-analyzer ./public/dist/stats.json",
+    "fetch-definitions": "node ./src/scripts/fetch-definitions.js",
     "lint": "tslint --fix --project tsconfig.json --format stylish",
     "start-webdriver": "wdio ./src/scripts/wdio.conf.js",
     "start-lighthouse": "npx jest --config='src/tests/lighthouse/jest.config.js'",
@@ -22,6 +23,7 @@
     "test-e2e": "yarn build && concurrently \"yarn start\" \"yarn start-webdriver\" -k"
   },
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "react": "~16.8.6",
     "react-dom": "~16.8.6",
     "react-redux": "~7.0.3",
@@ -30,6 +32,7 @@
     "redux": "~4.0.1",
     "redux-saga": "^1.0.3",
     "styled-components": "~4.2.1",
+    "sw2dts": "^2.6.2",
     "ts-optchain": "~0.1.7"
   },
   "devDependencies": {
@@ -52,6 +55,8 @@
     "chai": "~4.2.0",
     "chrome-launcher": "~0.10.7",
     "chromedriver": "~2.46.0",
+    "dotenv": "^8.0.0",
+    "dotenv-webpack": "^1.7.0",
     "enzyme": "~3.10.0",
     "enzyme-adapter-react-16": "~1.14.0",
     "enzyme-to-json": "~3.3.5",
