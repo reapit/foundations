@@ -2,6 +2,7 @@ const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
   context: process.cwd(),
@@ -39,6 +40,9 @@ module.exports = {
       generateStatsFile: true,
       analyzerMode: 'disabled',
       generateStatsFile: true
+    }),
+    new Dotenv({
+      path: './src/constants/.env'
     })
   ],
   module: {
