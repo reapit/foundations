@@ -4,3 +4,6 @@ src/tests/coverage
 src/constants/.env
 .vscode
 .DS_Store
+
+# test reports
+.jest-junit-reports

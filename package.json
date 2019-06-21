@@ -18,6 +18,7 @@
     "start-webdriver": "wdio ./src/scripts/wdio.conf.js",
     "start-lighthouse": "npx jest --config='src/tests/lighthouse/jest.config.js'",
     "test": "jest --coverage --silent",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test-dev": "jest --watch --verbose",
     "test-perf": "yarn build && concurrently \"yarn start\" \"yarn start-lighthouse\" -k",
     "test-e2e": "yarn build && concurrently \"yarn start\" \"yarn start-webdriver\" -k"
@@ -67,6 +68,7 @@
     "husky": "~2.3.0",
     "jest": "~24.8.0",
     "jest-fetch-mock": "~2.1.2",
+    "jest-junit": "^6.4.0",
     "lighthouse": "~5.0.0",
     "lint-staged": "~8.1.7",
     "prettier": "~1.17.1",
@@ -87,39 +89,26 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testPathIgnorePatterns": [
-      "<rootDir>/src/tests/"
-    ],
-    "setupFiles": [
-      "<rootDir>/src/scripts/jest-setup.js"
-    ],
-    "collectCoverageFrom": [
-      "<rootDir>/src/**/*.ts",
-      "<rootDir>/src/**/*.tsx"
-    ],
+    "testPathIgnorePatterns": ["<rootDir>/src/tests/"],
+    "setupFiles": ["<rootDir>/src/scripts/jest-setup.js"],
+    "collectCoverageFrom": ["<rootDir>/src/**/*.ts", "<rootDir>/src/**/*.tsx"],
     "coverageDirectory": "./src/tests/coverage",
     "coveragePathIgnorePatterns": [
       "<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]"
     ],
-    "modulePathIgnorePatterns": [
-      "<rootDir>[/\\\\](node_modules)[/\\\\]"
-    ]
+    "modulePathIgnorePatterns": ["<rootDir>[/\\\\](node_modules)[/\\\\]"]
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
+      "pre-push": "yarn test --ci --no-color"
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "yarn lint",
-      "git add"
-    ]
+    "*.{ts,tsx}": ["yarn lint", "git add"]
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 10"
-  ]
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 10"],
+  "jest-junit": {
+    "outputDirectory": "./.jest-junit-reports"
+  }
 }
