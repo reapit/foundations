@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Client should match a snapshot 1`] = `
+<div>
+  Client page
+  <br />
+  <button
+    onClick={[Function]}
+  >
+    Logout
+  </button>
+</div>
+`;
