@@ -3,6 +3,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const Dotenv = require('dotenv-webpack')
+const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 
 module.exports = {
   context: process.cwd(),
@@ -14,6 +15,9 @@ module.exports = {
     filename: '[name].js'
   },
   plugins: [
+    new ResolveTSPathsToWebpackAlias({
+      tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json')
+    }),
     new ForkTsCheckerWebpackPlugin({
       async: false,
       useTypescriptIncrementalApi: true,
@@ -54,6 +58,9 @@ module.exports = {
     ]
   },
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/')
+    },
     extensions: ['.tsx', '.ts', '.js']
   },
   optimization: {
