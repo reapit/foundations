@@ -76,6 +76,7 @@
     "source-map-loader": "~0.2.4",
     "ts-jest": "~24.0.2",
     "ts-loader": "~6.0.1",
+    "ts-paths-to-webpack-alias": "^0.3.1",
     "tslint": "~5.16.0",
     "tslint-config-prettier": "~1.18.0",
     "tslint-config-standard": "~8.0.1",
@@ -87,17 +88,6 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "~3.3.2",
     "webpack-dev-server": "~3.4.1"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testPathIgnorePatterns": ["<rootDir>/src/tests/"],
-    "setupFiles": ["<rootDir>/src/scripts/jest-setup.js"],
-    "collectCoverageFrom": ["<rootDir>/src/**/*.ts", "<rootDir>/src/**/*.tsx"],
-    "coverageDirectory": "./src/tests/coverage",
-    "coveragePathIgnorePatterns": [
-      "<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]"
-    ],
-    "modulePathIgnorePatterns": ["<rootDir>[/\\\\](node_modules)[/\\\\]"]
   },
   "husky": {
     "hooks": {

@@ -3,6 +3,7 @@ const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-web
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 
 module.exports = {
   context: process.cwd(),
@@ -15,6 +16,9 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
+    new ResolveTSPathsToWebpackAlias({
+      tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json')
+    }),
     new ForkTsCheckerWebpackPlugin({
       tslint: true,
       useTypescriptIncrementalApi: true

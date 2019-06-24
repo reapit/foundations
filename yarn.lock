@@ -8190,6 +8190,11 @@ strip-json-comments@2.0.1, strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
+strip-json-comments@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.0.1.tgz#85713975a91fb87bf1b305cca77395e40d2a64a7"
+  integrity sha512-VTyMAUfdm047mwKl+u79WIdrZxtFtn+nBxHeb844XBQ9uMNTuTHdx2hc5RiAJYqwTj3wc/xe5HLSdJSkJ+WfZw==
+
 styled-components@~4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.2.1.tgz#494e35525b5557f7ce7b3c0040fcb0a46af40886"
@@ -8522,6 +8527,20 @@ ts-optchain@~0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/ts-optchain/-/ts-optchain-0.1.7.tgz#525b8cde0909b06b4fe3258f7fc16eb6a9446895"
   integrity sha512-akxVhbQjWFU9J4jbu+hWmJSou8yZmh6J0GynYlIOq2qNoVD02wQcMZlce6Gs3hShynMpUjKFy0ivqNH028oh3Q==
+
+ts-paths-to-alias-core@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/ts-paths-to-alias-core/-/ts-paths-to-alias-core-0.1.1.tgz#2ed7c6ab722b3c2f77701d0afd87e087c20c547c"
+  integrity sha512-bYaX/YNGVMSCLatnRh/5XGb9XlefZoPPKm6jpIbsS3LyGHRv8509S8k6WohV9E9Y/o+bjYD4NwLPkLkPTvvOAw==
+  dependencies:
+    strip-json-comments "^3.0.1"
+
+ts-paths-to-webpack-alias@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/ts-paths-to-webpack-alias/-/ts-paths-to-webpack-alias-0.3.1.tgz#765d658aaf21604fca8e26ddfc6d1ac27ab0c3d5"
+  integrity sha512-B2rWV5zfW9e5JoHdekPNZWocPKO/km74X/EqEN5MJHxrF6zguO/NvygsOXip0epQ8naQpn/emxkBxYbPfI9vsA==
+  dependencies:
+    ts-paths-to-alias-core "0.1.1"
 
 tslib@1.9.0:
   version "1.9.0"

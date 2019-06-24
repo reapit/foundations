@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import Router from './router'
 import { Provider } from 'react-redux'
 import Store from './store'
-import GlobalStyle from '../styles/global'
+import GlobalStyle from '@/styles/global'
 
 const rootElement = document.querySelector('#root') as Element
 
