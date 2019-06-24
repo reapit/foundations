@@ -5,6 +5,7 @@ import { ReduxState } from '../../types/core'
 import { HomeState } from '../../reducers/home'
 import { homeClearData, homeRequestData } from '../../actions/home'
 import Routes from '../../constants/routes'
+import Loader from '../ui/loader'
 
 export interface HomeMappedActions {
   homeClearData: () => void
@@ -37,7 +38,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({ homeClearData, homeRe
       </li>
     </ul>
     {homeState.loading ? (
-      <h4 className="h4">Loading</h4>
+      <Loader />
     ) : (
       <div className="list-group">
         {homeState.homeData &&

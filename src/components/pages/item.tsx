@@ -5,6 +5,7 @@ import { ReduxState } from '../../types/core'
 import { ItemState } from '../../reducers/item'
 import { itemClearData, itemRequestData } from '../../actions/item'
 import Routes from '../../constants/routes'
+import Loader from '../ui/loader'
 
 export interface ItemMappedActions {
   itemClearData: () => void
@@ -37,7 +38,7 @@ export const Item: React.FunctionComponent<ItemProps> = ({ itemClearData, itemRe
       </li>
     </ul>
     {itemState.loading ? (
-      <h4 className="h4">Loading</h4>
+      <Loader />
     ) : (
       <div className="list-group">
         {itemState.itemData &&
