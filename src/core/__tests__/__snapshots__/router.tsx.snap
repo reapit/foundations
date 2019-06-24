@@ -11,5 +11,25 @@ exports[`Router should match a snapshot 1`] = `
     path="/item/"
     render={[Function]}
   />
+  <Route
+    exact={true}
+    path="/login"
+    render={[Function]}
+  />
+  <Connect(Component)
+    component={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "load": [Function],
+        "preload": [Function],
+        "render": [Function],
+      }
+    }
+    exact={true}
+    path="/client"
+  />
+  <Redirect
+    to="/login"
+  />
 </BrowserRouter>
 `;

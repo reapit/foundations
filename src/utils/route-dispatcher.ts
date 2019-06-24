@@ -12,6 +12,9 @@ const routeDispatcher = (route: RouteValue) => {
     case Routes.ITEM:
       Store.dispatch(itemRequestData())
       break
+    case Routes.LOGIN:
+    case Routes.CLIENT:
+      break
     default:
       console.error('Route not found, nothing to fetch')
   }
