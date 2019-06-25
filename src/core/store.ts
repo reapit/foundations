@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxS
 import home from '../reducers/home'
 import item from '../reducers/item'
 import auth from '../reducers/auth'
+import error from '../reducers/error'
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
@@ -27,7 +28,8 @@ export class Store {
   static reducers = combineReducers({
     home,
     item,
-    auth
+    auth,
+    error
   })
 
   static sagas = function*() {

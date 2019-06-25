@@ -18,7 +18,7 @@ describe('fetcher', () => {
   })
 
   it('fetches and catches an error if status code is over 400', async () => {
-    const errorSpy = jest.spyOn(console, 'error')
+    ;(console.error as any) = jest.fn()
     window.fetch = jest.fn().mockReturnValue({
       status: 400
     })
@@ -27,7 +27,7 @@ describe('fetcher', () => {
     const response = await fetcher({ url, method: 'GET' })
 
     expect(response).toBeUndefined()
-    expect(errorSpy).toHaveBeenCalledWith(
+    expect(console.error).toHaveBeenCalledWith(
       'API ERROR: ',
       JSON.stringify(`ERROR FETCHING GET ${BASE_URL}${url} {"status":400}`)
     )

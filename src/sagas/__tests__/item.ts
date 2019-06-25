@@ -5,6 +5,8 @@ import { URLS } from '../../constants/api'
 import { call, put, takeEvery, all, fork } from '@redux-saga/core/effects'
 import { itemLoading, itemReceiveData } from '../../actions/item'
 
+jest.mock('../../core/store')
+
 describe('item thunks', () => {
   describe('itemDataFetch', () => {
     it('should trigger loading, call api then return data', () => {

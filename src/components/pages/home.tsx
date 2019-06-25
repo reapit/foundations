@@ -6,6 +6,7 @@ import { HomeState } from '../../reducers/home'
 import { homeClearData, homeRequestData } from '../../actions/home'
 import Routes from '../../constants/routes'
 import Loader from '../ui/loader'
+import ErrorBoundary from '../hocs/error-boundary'
 
 export interface HomeMappedActions {
   homeClearData: () => void
@@ -40,16 +41,18 @@ export const Home: React.FunctionComponent<HomeProps> = ({ homeClearData, homeRe
     {homeState.loading ? (
       <Loader />
     ) : (
-      <div className="list-group">
-        {homeState.homeData &&
-          homeState.homeData.data.children.map(child => (
-            <div key={child.data.id}>
-              <a className="list-group-item list-group-item-action" target="_blank" href={child.data.url}>
-                {child.data.title}
-              </a>
-            </div>
-          ))}
-      </div>
+      <ErrorBoundary>
+        <div className="list-group">
+          {homeState.homeData &&
+            homeState.homeData.data.children.map(child => (
+              <div key={child.data.id}>
+                <a className="list-group-item list-group-item-action" target="_blank" href={child.data.url}>
+                  {child.data.title}
+                </a>
+              </div>
+            ))}
+        </div>
+      </ErrorBoundary>
     )}
   </div>
 )

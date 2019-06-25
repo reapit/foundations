@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast should match a snapshot for a componentError 1`] = `
+<styled.div
+  isVisible={true}
+  onClick={[MockFunction]}
+>
+  <button
+    className="btn btn-danger btn-lg btn-block"
+  >
+    Something went wrong with this component
+  </button>
+</styled.div>
+`;
+
+exports[`Toast should match a snapshot for a serverError 1`] = `
+<styled.div
+  isVisible={true}
+  onClick={[MockFunction]}
+>
+  <button
+    className="btn btn-danger btn-lg btn-block"
+  >
+    Something went wrong fetching data
+  </button>
+</styled.div>
+`;
