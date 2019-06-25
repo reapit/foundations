@@ -1,4 +1,11 @@
-import { authLogin, authLoginFailure, authLoginSuccess, authLogout, authLogoutSuccess } from '../auth'
+import {
+  authLogin,
+  authLoginFailure,
+  authLoginSuccess,
+  authLogout,
+  authLogoutSuccess,
+  authChangeLoginType
+} from '../auth'
 import ActionTypes from '../../constants/action-types'
 
 describe('auth actions', () => {
@@ -20,5 +27,10 @@ describe('auth actions', () => {
 
   it('should create a authLogoutSuccess action', () => {
     expect(authLogoutSuccess.type).toEqual(ActionTypes.AUTH_LOGOUT_SUCCESS)
+  })
+
+  it('should create a authChangeLoginType action', () => {
+    expect(authChangeLoginType.type).toEqual(ActionTypes.AUTH_CHANGE_LOGIN_TYPE)
+    expect(authChangeLoginType('CLIENT').data).toEqual('CLIENT')
   })
 })

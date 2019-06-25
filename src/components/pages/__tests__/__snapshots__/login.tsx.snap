@@ -3,6 +3,24 @@
 exports[`Login should match a snapshot 1`] = `
 <styled.div>
   <styled.div>
+    <Tabs
+      tabConfigs={
+        Array [
+          Object {
+            "active": true,
+            "displayText": "I am a client",
+            "onTabClick": [MockFunction],
+            "tabIdentifier": "CLIENT",
+          },
+          Object {
+            "active": false,
+            "displayText": "I am a developer",
+            "onTabClick": [MockFunction],
+            "tabIdentifier": "DEVELOPER",
+          },
+        ]
+      }
+    />
     <Formik
       enableReinitialize={false}
       initialValues={
@@ -18,15 +36,6 @@ exports[`Login should match a snapshot 1`] = `
       validateOnBlur={true}
       validateOnChange={true}
     />
-    <div
-      className="mt-4"
-    >
-      <Link
-        to="/register"
-      >
-        Create new account
-      </Link>
-    </div>
   </styled.div>
 </styled.div>
 `;

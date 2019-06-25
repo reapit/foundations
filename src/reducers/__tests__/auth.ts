@@ -31,4 +31,16 @@ describe('auth reducer', () => {
     const expected = defaultState
     expect(newState).toEqual(expected)
   })
+
+  it('should update the loginType state when the AUTH_CHANGE_LOGIN_TYPE action is called', () => {
+    const newState = authReducer(undefined, {
+      type: ActionTypes.AUTH_CHANGE_LOGIN_TYPE as ActionType,
+      data: 'DEVELOPER'
+    })
+    const expected = {
+      ...defaultState,
+      loginType: 'DEVELOPER'
+    }
+    expect(newState).toEqual(expected)
+  })
 })

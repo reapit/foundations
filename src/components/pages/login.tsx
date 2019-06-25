@@ -5,17 +5,23 @@ import { ReduxState } from '../../types/core'
 import Alert from '../ui/alert'
 import { Formik, Form } from 'formik'
 import Input from '../form/input'
-import { authLogin } from '../../actions/auth'
+import { authLogin, authChangeLoginType } from '../../actions/auth'
 import { LoginContainer, LoginFormWrapper } from '../../styles/pages/login'
 import { validate } from '../../utils/form/login'
+import Tabs, { TabConfig } from '../ui/tabs'
+import { LoginType } from '../../reducers/auth'
+import { Dispatch } from 'redux'
+import Routes from '../../constants/routes'
 
 export interface LoginMappedActions {
   login: () => void
+  authChangeLoginType: (loginType: string) => void
 }
 
 export interface LoginMappedProps {
   isLogin: boolean
   error: boolean
+  loginType: LoginType
 }
 
 export interface LoginFormValues {
@@ -25,8 +31,24 @@ export interface LoginFormValues {
 
 export type LoginProps = LoginMappedActions & LoginMappedProps
 
-export const Login: React.FunctionComponent<LoginProps> = ({ isLogin, error, login }) => {
+export const tabConfigs = ({ loginType, authChangeLoginType }: LoginProps): TabConfig[] => [
+  {
+    tabIdentifier: 'CLIENT',
+    displayText: 'I am a client',
+    onTabClick: authChangeLoginType,
+    active: loginType === 'CLIENT'
+  },
+  {
+    tabIdentifier: 'DEVELOPER',
+    displayText: 'I am a developer',
+    onTabClick: authChangeLoginType,
+    active: loginType === 'DEVELOPER'
+  }
+]
+
+export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const { isLogin, error, login } = props
   React.useEffect(() => {
     if (error) {
       setIsSubmitting(false)
@@ -38,6 +60,7 @@ export const Login: React.FunctionComponent<LoginProps> = ({ isLogin, error, log
   return (
     <LoginContainer>
       <LoginFormWrapper>
+        <Tabs tabConfigs={tabConfigs(props)} />
         <Formik
           validate={validate}
           initialValues={{ email: '', password: '' } as LoginFormValues}
@@ -59,9 +82,11 @@ export const Login: React.FunctionComponent<LoginProps> = ({ isLogin, error, log
             </Form>
           )}
         />
-        <div className="mt-4">
-          <Link to="/register">Create new account</Link>
-        </div>
+        {props.loginType === 'DEVELOPER' && (
+          <div className="mt-4">
+            <Link to={Routes.REGISTER}>Create new account</Link>
+          </div>
+        )}
       </LoginFormWrapper>
     </LoginContainer>
   )
@@ -69,11 +94,13 @@ export const Login: React.FunctionComponent<LoginProps> = ({ isLogin, error, log
 
 const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
   isLogin: state.auth.isLogin,
-  error: state.auth.error
+  error: state.auth.error,
+  loginType: state.auth.loginType
 })
 
-const mapDispatchToProps = (dispatch: any): LoginMappedActions => ({
-  login: () => dispatch(authLogin())
+const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
+  login: () => dispatch(authLogin()),
+  authChangeLoginType: (loginType: string) => dispatch(authChangeLoginType(loginType as LoginType))
 })
 
 export default connect(

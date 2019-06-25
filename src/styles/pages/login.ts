@@ -17,4 +17,8 @@ export const LoginFormWrapper = styled.div`
   max-width: 420px;
   padding: 30px;
   border-radius: 8px;
+
+  > .nav-tabs {
+    margin-bottom: 1rem;
+  }
 `
