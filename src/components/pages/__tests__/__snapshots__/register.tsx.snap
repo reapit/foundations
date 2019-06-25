@@ -1,13 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login should match a snapshot 1`] = `
+exports[`Register should match a snapshot 1`] = `
 <styled.div>
   <styled.div>
     <Formik
       enableReinitialize={false}
       initialValues={
         Object {
+          "confirmPassword": "",
           "email": "",
+          "firstName": "",
+          "lastName": "",
           "password": "",
         }
       }
@@ -18,15 +21,6 @@ exports[`Login should match a snapshot 1`] = `
       validateOnBlur={true}
       validateOnChange={true}
     />
-    <div
-      className="mt-4"
-    >
-      <Link
-        to="/register"
-      >
-        Create new account
-      </Link>
-    </div>
   </styled.div>
 </styled.div>
 `;

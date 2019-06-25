@@ -1,6 +1,5 @@
 import { isEmail } from '../validate'
-import { LoginFormValues } from '../../components/pages/login'
-import {} from 'formik'
+import { LoginFormValues } from '@/components/pages/login'
 
 export interface LoginFormError {
   email?: string

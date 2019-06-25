@@ -2,7 +2,8 @@ const Routes = {
   HOME: '/',
   ITEM: '/item/',
   LOGIN: '/login',
-  CLIENT: '/client'
+  CLIENT: '/client',
+  REGISTER: '/register'
 }
 
 export default Routes
