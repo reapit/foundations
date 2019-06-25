@@ -6,6 +6,7 @@ import { ItemState } from '../../reducers/item'
 import { itemClearData, itemRequestData } from '../../actions/item'
 import Routes from '../../constants/routes'
 import Loader from '../ui/loader'
+import ErrorBoundary from '../hocs/error-boundary'
 
 export interface ItemMappedActions {
   itemClearData: () => void
@@ -40,16 +41,18 @@ export const Item: React.FunctionComponent<ItemProps> = ({ itemClearData, itemRe
     {itemState.loading ? (
       <Loader />
     ) : (
-      <div className="list-group">
-        {itemState.itemData &&
-          itemState.itemData.data.children.map(child => (
-            <div key={child.data.id}>
-              <a className="list-group-item list-group-item-action" target="_blank" href={child.data.url}>
-                {child.data.title}
-              </a>
-            </div>
-          ))}
-      </div>
+      <ErrorBoundary>
+        <div className="list-group">
+          {itemState.itemData &&
+            itemState.itemData.data.children.map(child => (
+              <div key={child.data.id}>
+                <a className="list-group-item list-group-item-action" target="_blank" href={child.data.url}>
+                  {child.data.title}
+                </a>
+              </div>
+            ))}
+        </div>
+      </ErrorBoundary>
     )}
   </div>
 )

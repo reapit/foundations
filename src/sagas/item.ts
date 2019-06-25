@@ -4,6 +4,8 @@ import { itemLoading, itemReceiveData } from '../actions/item'
 import { ItemItem } from '../reducers/item'
 import { put, call, fork, takeEvery, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
+import { errorThrownServer } from '../actions/error'
+import errorMessages from '../constants/error-messages'
 
 export const itemDataFetch = function*() {
   yield put(itemLoading(true))
@@ -13,8 +15,13 @@ export const itemDataFetch = function*() {
 
     yield put(itemReceiveData(redditData))
   } catch (err) {
-    // TODO - should dispatch to error handler state
     console.error(err.message)
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR
+      })
+    )
   }
 }
 

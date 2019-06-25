@@ -1,0 +1,88 @@
+import * as React from 'react'
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
+import { Toast, ToastProps } from '../toast'
+import errorMessages from '../../../constants/error-messages'
+import { StyledToast } from '../../../styles/blocks/toast'
+
+const defaultProps = {
+  serverError: {
+    type: 'SERVER',
+    message: errorMessages.DEFAULT_SERVER_ERROR
+  },
+  componentError: {
+    type: 'COMPONENT',
+    message: errorMessages.DEFAULT_COMPONENT_ERROR
+  },
+  errorClearedServer: jest.fn(),
+  errorClearedComponent: jest.fn()
+} as ToastProps
+
+const props = (newProps?: Partial<ToastProps>): ToastProps => ({
+  ...defaultProps,
+  ...newProps
+})
+
+describe('Toast', () => {
+  it('should match a snapshot for a serverError', () => {
+    const newProps = {
+      componentError: null
+    }
+    expect(toJson(shallow(<Toast {...props(newProps)} />))).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for a componentError', () => {
+    const newProps = {
+      serverError: null
+    }
+    expect(toJson(shallow(<Toast {...props(newProps)} />))).toMatchSnapshot()
+  })
+
+  it('should dismiss a server error onClick', () => {
+    const newProps = {
+      componentError: null
+    }
+    shallow(<Toast {...props(newProps)} />)
+      .find(StyledToast)
+      .first()
+      .simulate('click')
+
+    expect(defaultProps.errorClearedServer).toHaveBeenCalledTimes(1)
+  })
+
+  it('should dismiss a component error onClick', () => {
+    const newProps = {
+      serverError: null
+    }
+    shallow(<Toast {...props(newProps)} />)
+      .find(StyledToast)
+      .first()
+      .simulate('click')
+
+    expect(defaultProps.errorClearedComponent).toHaveBeenCalledTimes(1)
+  })
+
+  it('should dismiss a server error after 5 seconds', () => {
+    jest.useFakeTimers()
+    const newProps = {
+      componentError: null
+    }
+    shallow(<Toast {...props(newProps)} />)
+    jest.runAllTimers()
+    expect(defaultProps.errorClearedServer).toHaveBeenCalledTimes(1)
+  })
+
+  it('should dismiss a component error after 5 seconds', () => {
+    jest.useFakeTimers()
+    const newProps = {
+      serverError: null
+    }
+    shallow(<Toast {...props(newProps)} />)
+    jest.runAllTimers()
+    expect(defaultProps.errorClearedComponent).toHaveBeenCalledTimes(1)
+  })
+
+  afterEach(() => {
+    jest.resetAllMocks()
+  })
+})

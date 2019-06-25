@@ -5,6 +5,8 @@ import { URLS } from '../../constants/api'
 import { call, put, takeEvery, all, fork } from '@redux-saga/core/effects'
 import { homeLoading, homeReceiveData } from '../../actions/home'
 
+jest.mock('../../core/store')
+
 describe('home thunks', () => {
   describe('homeDataFetch', () => {
     it('should trigger loading, call api then return data', () => {

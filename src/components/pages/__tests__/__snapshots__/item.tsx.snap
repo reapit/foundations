@@ -43,20 +43,22 @@ exports[`Item should match a snapshot 1`] = `
       </Link>
     </li>
   </ul>
-  <div
-    className="list-group"
-  >
+  <Connect(ErrorBoundary)>
     <div
-      key="someid"
+      className="list-group"
     >
-      <a
-        className="list-group-item list-group-item-action"
-        href="http://something.com"
-        target="_blank"
+      <div
+        key="someid"
       >
-        Title
-      </a>
+        <a
+          className="list-group-item list-group-item-action"
+          href="http://something.com"
+          target="_blank"
+        >
+          Title
+        </a>
+      </div>
     </div>
-  </div>
+  </Connect(ErrorBoundary)>
 </div>
 `;

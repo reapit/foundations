@@ -3,6 +3,7 @@ import ActionTypes from '../constants/action-types'
 import { HomeState } from '../reducers/home'
 import { ItemState } from '../reducers/item'
 import { AuthState } from '../reducers/auth'
+import { ErrorState } from '../reducers/error'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -28,6 +29,5 @@ export interface ReduxState {
   home: HomeState
   item: ItemState
   auth: AuthState
+  error: ErrorState
 }
-
-// export type ReduxDispatch = ThunkDispatch<ReduxState, void, Action<any>>
