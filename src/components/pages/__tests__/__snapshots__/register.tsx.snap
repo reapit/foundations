@@ -21,6 +21,15 @@ exports[`Register should match a snapshot 1`] = `
       validateOnBlur={true}
       validateOnChange={true}
     />
+    <div
+      className="mt-4"
+    >
+      <Link
+        to="/login"
+      >
+        Login
+      </Link>
+    </div>
   </styled.div>
 </styled.div>
 `;
