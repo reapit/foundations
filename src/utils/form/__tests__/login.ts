@@ -1,5 +1,5 @@
 import { validate, LoginFormError } from '../login'
-import { LoginFormValues } from '../../../components/pages/login'
+import { LoginFormValues } from '@/components/pages/login'
 
 type InputOutput = [LoginFormValues, LoginFormError]
 

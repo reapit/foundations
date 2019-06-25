@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { ReduxState } from '../../types/core'
 import Alert from '../ui/alert'
 import { Formik, Form } from 'formik'
@@ -59,6 +59,9 @@ export const Login: React.FunctionComponent<LoginProps> = ({ isLogin, error, log
             </Form>
           )}
         />
+        <div className="mt-4">
+          <Link to="/register">Create new account</Link>
+        </div>
       </LoginFormWrapper>
     </LoginContainer>
   )

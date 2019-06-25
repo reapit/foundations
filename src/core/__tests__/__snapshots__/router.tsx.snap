@@ -16,6 +16,11 @@ exports[`Router should match a snapshot 1`] = `
     path="/login"
     render={[Function]}
   />
+  <Route
+    exact={true}
+    path="/register"
+    render={[Function]}
+  />
   <Connect(Component)
     component={
       Object {
@@ -27,9 +32,6 @@ exports[`Router should match a snapshot 1`] = `
     }
     exact={true}
     path="/client"
-  />
-  <Redirect
-    to="/login"
   />
 </BrowserRouter>
 `;
