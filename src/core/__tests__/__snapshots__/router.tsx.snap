@@ -33,5 +33,17 @@ exports[`Router should match a snapshot 1`] = `
     exact={true}
     path="/client"
   />
+  <Connect(Component)
+    component={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "load": [Function],
+        "preload": [Function],
+        "render": [Function],
+      }
+    }
+    exact={true}
+    path="/developer"
+  />
 </BrowserRouter>
 `;

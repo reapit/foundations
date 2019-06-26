@@ -30,7 +30,7 @@ export const Register: React.FunctionComponent<RegisterProps> = ({}) => {
   const disabled = formState === 'submitting'
   return (
     <LoginContainer>
-      <LoginFormWrapper>
+      <LoginFormWrapper disabled={disabled}>
         {formState === 'success' ? (
           <Alert message="Check you email to confirm your account" type="success" className="mb-0" />
         ) : (

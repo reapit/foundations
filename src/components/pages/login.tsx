@@ -55,11 +55,11 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
     }
   }, [error])
   if (isLogin) {
-    return <Redirect to="/client" />
+    return <Redirect to={props.loginType === 'DEVELOPER' ? Routes.DEVELOPER : Routes.CLIENT} />
   }
   return (
     <LoginContainer>
-      <LoginFormWrapper>
+      <LoginFormWrapper disabled={isSubmitting}>
         <Tabs tabConfigs={tabConfigs(props)} />
         <Formik
           validate={validate}
