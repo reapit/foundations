@@ -2,7 +2,9 @@
 
 exports[`Register should match a snapshot 1`] = `
 <styled.div>
-  <styled.div>
+  <styled.div
+    disabled={false}
+  >
     <Formik
       enableReinitialize={false}
       initialValues={

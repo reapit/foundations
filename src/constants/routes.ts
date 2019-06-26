@@ -3,6 +3,7 @@ const Routes = {
   ITEM: '/item/',
   LOGIN: '/login',
   CLIENT: '/client',
+  DEVELOPER: '/developer',
   REGISTER: '/register'
 }
 

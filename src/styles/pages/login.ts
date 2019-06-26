@@ -11,12 +11,13 @@ export const LoginContainer = styled.div`
   padding: 20px;
 `
 
-export const LoginFormWrapper = styled.div`
+export const LoginFormWrapper = styled.div<{ disabled: boolean }>`
   background-color: ${colors.white};
   width: 100%;
   max-width: 420px;
   padding: 30px;
   border-radius: 8px;
+  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
 
   > .nav-tabs {
     margin-bottom: 1rem;

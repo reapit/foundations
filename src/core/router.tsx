@@ -9,6 +9,7 @@ const Home = loadable(() => import('../components/pages/home'))
 const Item = loadable(() => import('../components/pages/item'))
 const Login = loadable(() => import('../components/pages/login'))
 const Client = loadable(() => import('../components/pages/client'))
+const Developer = loadable(() => import('../components/pages/developer'))
 const Register = loadable(() => import('../components/pages/register'))
 
 const Router = () => (
@@ -18,6 +19,7 @@ const Router = () => (
     <Route path={Routes.LOGIN} exact render={props => <RouteFetcher routerProps={props} Component={Login} />} />
     <Route path={Routes.REGISTER} exact render={props => <RouteFetcher routerProps={props} Component={Register} />} />
     <PrivateRoute path={Routes.CLIENT} exact component={Client} />
+    <PrivateRoute path={Routes.DEVELOPER} exact component={Developer} />
   </BrowserRouter>
 )
 

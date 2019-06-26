@@ -14,6 +14,7 @@ const routeDispatcher = (route: RouteValue) => {
       break
     case Routes.LOGIN:
     case Routes.CLIENT:
+    case Routes.DEVELOPER:
       break
     default:
       console.error('Route not found, nothing to fetch')
