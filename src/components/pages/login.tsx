@@ -64,15 +64,15 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
         <Formik
           validate={validate}
           initialValues={{ email: '', password: '' } as LoginFormValues}
-          onSubmit={(values, actions) => {
+          onSubmit={values => {
             console.log(values)
             setIsSubmitting(true)
             login()
           }}
-          render={props => (
-            <Form>
-              <Input type="email" label="Email" id="email" name="email" />
-              <Input type="password" label="Password" id="password" name="password" />
+          render={() => (
+            <Form data-test="login-form">
+              <Input dataTest="login-email" type="email" label="Email" id="email" name="email" />
+              <Input dataTest="login-password" type="password" label="Password" id="password" name="password" />
               <button type="submit" className="btn btn-primary btn-block" disabled={isSubmitting}>
                 Login
               </button>

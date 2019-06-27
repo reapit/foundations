@@ -9,9 +9,9 @@ http
     try {
       const requestUrl = url.parse(request.url)
       const fsPath = `${__dirname}/dist${path.normalize(requestUrl.pathname)}` // need to use path.normalize so people can't access directories underneath baseDirectory
-      const fileStream = (/\.(js|css|woff|gif|jpg|jpeg|tiff|png)$/i).test(fsPath)
+      const fileStream = /\.(js|css|woff|gif|jpg|jpeg|tiff|png)$/i.test(fsPath)
         ? fs.createReadStream(fsPath)
-        : fs.createReadStream( `${__dirname}/dist/index.html`)
+        : fs.createReadStream(`${__dirname}/dist/index.html`)
 
       fileStream.pipe(response)
       fileStream.on('open', () => {
@@ -30,4 +30,9 @@ http
   .listen(port)
 
 process.title = process.argv[2]
-console.log(`Listening on port ${port}, app name ${process.title}`)
+process.on('SIGINT', () => {
+  console.log(`Gracefully shutting down ${process.title}`)
+  process.exit()
+})
+
+console.log(`Listening on port ${port}`)

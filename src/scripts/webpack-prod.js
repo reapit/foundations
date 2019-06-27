@@ -4,15 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const Dotenv = require('dotenv-webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
+const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 
 module.exports = {
   context: process.cwd(),
-  entry: {
-    main: ['./src/core/index.tsx']
-  },
+  entry: './src/core/index.tsx',
   output: {
     path: path.join(process.cwd(), 'public', 'dist'),
-    filename: '[name].js'
+    filename: '[name].[hash].js'
   },
   plugins: [
     new ResolveTSPathsToWebpackAlias({
@@ -47,7 +46,8 @@ module.exports = {
     }),
     new Dotenv({
       path: './src/constants/.env'
-    })
+    }),
+    new HashedModuleIdsPlugin()
   ],
   module: {
     rules: [
@@ -66,14 +66,7 @@ module.exports = {
   optimization: {
     nodeEnv: 'production',
     splitChunks: {
-      chunks: 'all',
-      minChunks: 2,
-      cacheGroups: {
-        default: {
-          minChunks: 2,
-          reuseExistingChunk: true
-        }
-      }
+      chunks: 'all'
     }
   }
 }

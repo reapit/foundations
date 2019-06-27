@@ -2,11 +2,13 @@
 	"rulesDirectory": ["tslint-plugin-prettier"],
 	"rules": {
 		"prettier": [true, { "singleQuote": true, "printWidth": 120, "semi": false }],
-		"no-floating-promises": false
+		"no-floating-promises": false,
+		"deprecation": false
 	},
 	"jsRules": {
 		"prettier": [true, { "singleQuote": true, "printWidth": 120, "semi": false  }],
-		"no-floating-promises": false
+		"no-floating-promises": false,
+		"deprecation": false
 	},
 	"extends": ["tslint-config-standard", "tslint-config-prettier"],
 	"cliOptions": {

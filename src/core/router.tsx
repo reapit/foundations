@@ -1,25 +1,33 @@
 import * as React from 'react'
-import { Route, BrowserRouter } from 'react-router-dom'
-import loadable from '@loadable/component'
+import { Route, BrowserRouter, Redirect, Switch } from 'react-router-dom'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import Routes from '../constants/routes'
 import PrivateRoute from '../core/private-route'
 
-const Home = loadable(() => import('../components/pages/home'))
-const Item = loadable(() => import('../components/pages/item'))
-const Login = loadable(() => import('../components/pages/login'))
-const Client = loadable(() => import('../components/pages/client'))
-const Developer = loadable(() => import('../components/pages/developer'))
-const Register = loadable(() => import('../components/pages/register'))
+const Home = React.lazy(() => import('../components/pages/home'))
+const Item = React.lazy(() => import('../components/pages/item'))
+const Login = React.lazy(() => import('../components/pages/login'))
+const Client = React.lazy(() => import('../components/pages/client'))
+const Register = React.lazy(() => import('../components/pages/register'))
+const Developer = React.lazy(() => import('../components/pages/developer'))
 
 const Router = () => (
   <BrowserRouter>
-    <Route path={Routes.HOME} exact render={props => <RouteFetcher routerProps={props} Component={Home} />} />
-    <Route path={Routes.ITEM} render={props => <RouteFetcher routerProps={props} Component={Item} />} />
-    <Route path={Routes.LOGIN} exact render={props => <RouteFetcher routerProps={props} Component={Login} />} />
-    <Route path={Routes.REGISTER} exact render={props => <RouteFetcher routerProps={props} Component={Register} />} />
-    <PrivateRoute path={Routes.CLIENT} exact component={Client} />
-    <PrivateRoute path={Routes.DEVELOPER} exact component={Developer} />
+    <React.Suspense fallback={null}>
+      <Switch>
+        <Route path={Routes.HOME} exact render={props => <RouteFetcher routerProps={props} Component={Home} />} />
+        <Route path={Routes.ITEM} exact render={props => <RouteFetcher routerProps={props} Component={Item} />} />
+        <Route path={Routes.LOGIN} exact render={props => <RouteFetcher routerProps={props} Component={Login} />} />
+        <Route
+          path={Routes.REGISTER}
+          exact
+          render={props => <RouteFetcher routerProps={props} Component={Register} />}
+        />
+        <PrivateRoute path={Routes.CLIENT} exact component={Client} />
+        <PrivateRoute path={Routes.DEVELOPER} exact component={Developer} />
+        <Redirect to={Routes.LOGIN} />
+      </Switch>
+    </React.Suspense>
   </BrowserRouter>
 )
 

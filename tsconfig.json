@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "module": "esnext",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "allowJs": true,
     "noEmit": true,
     "strict": true,
     "jsx": "react",
-    "types": ["jest", "node", "react"],
+    "types": ["jest", "node", "react", "@types/webdriverio"],
     "typeRoots": ["./src/types/index.d.ts", "./node_modules/@types"],
     "baseUrl": "./",
     "paths": {

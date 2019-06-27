@@ -4,14 +4,13 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
 import RouteFetcher from '../components/hocs/route-fetcher'
-import { LoadableComponent } from '@loadable/component'
 
 export interface PrivateRouteConnectProps {
   isLogin: boolean
 }
 
 export interface PrivateRouteProps extends PrivateRouteConnectProps {
-  component: LoadableComponent<any> | React.FunctionComponent
+  component: React.FunctionComponent
 }
 
 export const PrivateRoute = ({ component, isLogin, ...rest }: PrivateRouteProps & RouteProps) => {
