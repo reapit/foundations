@@ -7,9 +7,10 @@ export interface InputProps {
   id: string
   label: string
   name: string
+  dataTest?: string
 }
 
-const Input = ({ type, name, label, id, placeholder = '' }: InputProps) => (
+const Input = ({ type, name, label, id, dataTest, placeholder = '' }: InputProps) => (
   <Field
     name={name}
     render={({ field, form: { touched, errors } }) => {
@@ -18,6 +19,7 @@ const Input = ({ type, name, label, id, placeholder = '' }: InputProps) => (
         <div className="form-group">
           <label htmlFor={id}>{label}</label>
           <input
+            data-test={dataTest || ''}
             type={type}
             id={id}
             placeholder={placeholder}

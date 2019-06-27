@@ -2,48 +2,58 @@
 
 exports[`Router should match a snapshot 1`] = `
 <BrowserRouter>
-  <Route
-    exact={true}
-    path="/"
-    render={[Function]}
-  />
-  <Route
-    path="/item/"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    path="/login"
-    render={[Function]}
-  />
-  <Route
-    exact={true}
-    path="/register"
-    render={[Function]}
-  />
-  <Connect(Component)
-    component={
-      Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "load": [Function],
-        "preload": [Function],
-        "render": [Function],
-      }
-    }
-    exact={true}
-    path="/client"
-  />
-  <Connect(Component)
-    component={
-      Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "load": [Function],
-        "preload": [Function],
-        "render": [Function],
-      }
-    }
-    exact={true}
-    path="/developer"
-  />
+  <Suspense
+    fallback={null}
+  >
+    <Switch>
+      <Route
+        exact={true}
+        path="/"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/item/"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/login"
+        render={[Function]}
+      />
+      <Route
+        exact={true}
+        path="/register"
+        render={[Function]}
+      />
+      <Connect(Component)
+        component={
+          Object {
+            "$$typeof": Symbol(react.lazy),
+            "_ctor": [Function],
+            "_result": null,
+            "_status": -1,
+          }
+        }
+        exact={true}
+        path="/client"
+      />
+      <Connect(Component)
+        component={
+          Object {
+            "$$typeof": Symbol(react.lazy),
+            "_ctor": [Function],
+            "_result": null,
+            "_status": -1,
+          }
+        }
+        exact={true}
+        path="/developer"
+      />
+      <Redirect
+        to="/login"
+      />
+    </Switch>
+  </Suspense>
 </BrowserRouter>
 `;

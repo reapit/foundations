@@ -7,13 +7,10 @@ const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 
 module.exports = {
   context: process.cwd(),
-  entry: {
-    main: ['./src/core/index.tsx']
-  },
+  entry: './src/core/index.tsx',
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: '[name].js',
-    publicPath: '/'
+    path: path.join(process.cwd(), 'public', 'dist'),
+    filename: '[name].[hash].js'
   },
   plugins: [
     new ResolveTSPathsToWebpackAlias({
@@ -68,14 +65,7 @@ module.exports = {
   optimization: {
     nodeEnv: 'development',
     splitChunks: {
-      chunks: 'all',
-      minChunks: 2,
-      cacheGroups: {
-        default: {
-          minChunks: 2,
-          reuseExistingChunk: true
-        }
-      }
+      chunks: 'all'
     }
   }
 }

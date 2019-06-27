@@ -7,3 +7,4 @@ src/constants/.env
 # test reports
 .jest-junit-reports
 src/constants/.env
+src/tests/webdriver/screenshots

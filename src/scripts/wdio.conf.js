@@ -1,16 +1,5 @@
 exports.config = {
   //
-  // ====================
-  // Runner Configuration
-  // ====================
-  //
-  // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
-  // on a remote machine).
-  runner: 'local',
-  //
-  // Override default path ('/wd/hub') for chromedriver service.
-  path: '/',
-  //
   // ==================
   // Specify Test Files
   // ==================
@@ -19,7 +8,9 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
-  specs: ['./src/tests/webdriver/specs/**/*.js'],
+  specs: ['./src/tests/webdriver/specs/**/*.ts'],
+
+  filesToWatch: ['./src/tests/webdriver/page-objects/**/*.ts', './src/tests/webdriver/specs/**/*.ts'],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -53,11 +44,12 @@ exports.config = {
       // 5 instances get started at a time.
       maxInstances: 5,
       //
-      browserName: 'chrome'
-      // If outputDir is provided WebdriverIO can capture driver session logs
-      // it is possible to configure which logTypes to include/exclude.
-      // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-      // excludeDriverLogs: ['bugreport', 'server'],
+      browserName: 'chrome',
+      'goog:chromeOptions': {
+        // to run chrome headless the following flags are required
+        // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
+        args: ['--headless', '--disable-gpu']
+      }
     }
   ],
   //
@@ -66,35 +58,35 @@ exports.config = {
   // ===================
   // Define all options that are relevant for the WebdriverIO instance here
   //
-  // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: 'info',
+  // By default WebdriverIO commands are executed in a synchronous way using
+  // the wdio-sync package. If you still want to run your tests in an async way
+  // e.g. using promises you can set the sync option to false.
+  sync: true,
   //
-  // Set specific log levels per logger
-  // loggers:
-  // - webdriver, webdriverio
-  // - @wdio/applitools-service, @wdio/browserstack-service, @wdio/devtools-service, @wdio/sauce-service
-  // - @wdio/mocha-framework, @wdio/jasmine-framework
-  // - @wdio/local-runner, @wdio/lambda-runner
-  // - @wdio/sumologic-reporter
-  // - @wdio/cli, @wdio/config, @wdio/sync, @wdio/utils
-  // Level of logging verbosity: trace | debug | info | warn | error | silent
-  // logLevels: {
-  // webdriver: 'info',
-  // '@wdio/applitools-service': 'info'
-  // },
+  // Level of logging verbosity: silent | verbose | command | data | result | error
+  logLevel: 'silent',
+  //
+  // Enables colors for log output.
+  coloredLogs: true,
+  //
+  // Warns when a deprecated command is used
+  deprecationWarnings: true,
   //
   // If you only want to run your tests until a specific amount of tests have failed use
   // bail (default is 0 - don't bail, run all tests).
   bail: 0,
   //
+  // Saves a screenshot to a given path if a command fails.
+  screenshotPath: './src/tests/webdriver/screenshots',
+  //
   // Set a base URL in order to shorten url command calls. If your `url` parameter starts
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: 'http://localhost',
+  baseUrl: 'http://localhost:8080',
   //
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 10000,
+  waitforTimeout: 20000,
   //
   // Default timeout in milliseconds for request
   // if Selenium Grid doesn't send response
@@ -102,36 +94,66 @@ exports.config = {
   //
   // Default request retries count
   connectionRetryCount: 3,
+
+  specFileRetries: 3,
+  //
+  // Initialize the browser instance with a WebdriverIO plugin. The object should have the
+  // plugin name as key and the desired plugin options as properties. Make sure you have
+  // the plugin installed before running any tests. The following plugins are currently
+  // available:
+  // WebdriverCSS: https://github.com/webdriverio/webdrivercss
+  // WebdriverRTC: https://github.com/webdriverio/webdriverrtc
+  // Browserevent: https://github.com/webdriverio/browserevent
+  // plugins: {
+  //     webdrivercss: {
+  //         screenshotRoot: 'my-shots',
+  //         failedComparisonsRoot: 'diffs',
+  //         misMatchTolerance: 0.05,
+  //         screenWidth: [320,480,640,1024]
+  //     },
+  //     webdriverrtc: {},
+  //     browserevent: {}
+  // },
   //
   // Test runner services
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
   services: ['chromedriver'],
+  // chromedriver defaults to :9515/
+  port: '9515',
+  path: '/',
   //
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
-  // see also: https://webdriver.io/docs/frameworks.html
+  // see also: http://webdriver.io/guide/testrunner/frameworks.html
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: 'mocha',
-  //
-  // The number of times to retry the entire specfile when it fails as a whole
-  // specFileRetries: 1,
+  framework: 'jasmine',
+
+  jasmineNodeOpts: {
+    defaultTimeoutInterval: 20000,
+    expectationResultHandler: function(passed, assertion) {
+      /**
+       * only take screenshot if assertion failed
+       */
+      if (passed) {
+        return
+      }
+
+      browser.saveScreenshot('./src/tests/webdriver/screenshots/assertionError_' + assertion.error.message + '.png')
+    }
+  },
   //
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
-  // see also: https://webdriver.io/docs/dot-reporter.html
+  // see also: http://webdriver.io/guide/reporters/dot.html
   reporters: ['spec'],
 
   //
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/
-  mochaOpts: {
-    ui: 'bdd',
-    timeout: 60000
-  },
   //
   // =====
   // Hooks
@@ -163,9 +185,9 @@ exports.config = {
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
   before: function(capabilities, specs) {
-    var chai = require('chai')
-    global.expect = chai.expect
-    chai.Should()
+    require('ts-node').register({
+      project: 'src/tests/webdriver/tsconfig.json'
+    })
   }
   /**
    * Runs before a WebdriverIO command gets executed.
@@ -194,13 +216,13 @@ exports.config = {
   // beforeHook: function () {
   // },
   /**
-   * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
+   * Hook that gets executed _after_ a hook within the suite ends (e.g. runs after calling
    * afterEach in Mocha)
    */
   // afterHook: function () {
   // },
   /**
-   * Function to be executed after a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
+   * Function to be executed after a test (in Mocha/Jasmine) or a step (in Cucumber) ends.
    * @param {Object} test test details
    */
   // afterTest: function (test) {
@@ -239,20 +261,11 @@ exports.config = {
   // afterSession: function (config, capabilities, specs) {
   // },
   /**
-   * Gets executed after all workers got shut down and the process is about to exit. An error
-   * thrown in the onComplete hook will result in the test run failing.
+   * Gets executed after all workers got shut down and the process is about to exit.
    * @param {Object} exitCode 0 - success, 1 - fail
    * @param {Object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
-   * @param {<Object>} results object containing test results
    */
-  // onComplete: function(exitCode, config, capabilities, results) {
-  // },
-  /**
-   * Gets executed when a refresh happens.
-   * @param {String} oldSessionId session ID of the old session
-   * @param {String} newSessionId session ID of the new session
-   */
-  //onReload: function(oldSessionId, newSessionId) {
-  //}
+  // onComplete: function(exitCode, config, capabilities) {
+  // }
 }

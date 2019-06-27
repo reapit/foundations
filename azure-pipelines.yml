@@ -32,6 +32,8 @@ steps:
 
 - script: yarn build
 
+- script: yarn test-e2e:ci
+
 - task: PublishPipelineArtifact@1
   inputs:
     path: $(System.DefaultWorkingDirectory)/public/dist
