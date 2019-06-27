@@ -2,12 +2,34 @@
 
 exports[`Client should match a snapshot 1`] = `
 <div>
-  Client page
-  <br />
   <button
     onClick={[Function]}
   >
     Logout
   </button>
+  <div
+    className="container"
+  >
+    <Connect(ErrorBoundary)>
+      <div
+        className="row"
+      >
+        <div
+          className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+          key="1"
+        >
+          <AppCard
+            appName="string"
+            approved={false}
+            developerId="string"
+            developerName="string"
+            displayImage="string"
+            displayText="string"
+            id="1"
+          />
+        </div>
+      </div>
+    </Connect(ErrorBoundary)>
+  </div>
 </div>
 `;

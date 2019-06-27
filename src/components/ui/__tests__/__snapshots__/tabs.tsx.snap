@@ -3,11 +3,11 @@
 exports[`Tabs should match a snapshot 1`] = `
 <ul
   className="nav nav-tabs"
+  role="tablist"
 >
   <li
     className="nav-item"
     key="CLIENT"
-    role="tablist"
   >
     <a
       aria-controls="CLIENT"
@@ -24,7 +24,6 @@ exports[`Tabs should match a snapshot 1`] = `
   <li
     className="nav-item"
     key="DEVELOPER"
-    role="tablist"
   >
     <a
       aria-controls="DEVELOPER"

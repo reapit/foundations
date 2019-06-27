@@ -17,9 +17,9 @@ export const selectTab = (event: React.SyntheticEvent, tabConfig: TabConfig) => 
 }
 
 const Tabs: React.FunctionComponent<TabsProps> = ({ tabConfigs }) => (
-  <ul className="nav nav-tabs">
+  <ul className="nav nav-tabs" role="tablist">
     {tabConfigs.map(tabConfig => (
-      <li className="nav-item" key={tabConfig.tabIdentifier} role="tablist">
+      <li className="nav-item" key={tabConfig.tabIdentifier}>
         <a
           id={tabConfig.tabIdentifier}
           href={`#${tabConfig.tabIdentifier}`}

@@ -3,6 +3,8 @@ import Routes from '../constants/routes'
 import Store from '../core/store'
 import { homeRequestData } from '../actions/home'
 import { itemRequestData } from '../actions/item'
+import { clientRequestData } from '../actions/client'
+import { developerRequestData } from '../actions/developer'
 
 const routeDispatcher = (route: RouteValue) => {
   switch (route) {
@@ -12,10 +14,13 @@ const routeDispatcher = (route: RouteValue) => {
     case Routes.ITEM:
       Store.dispatch(itemRequestData())
       break
-    case Routes.LOGIN:
     case Routes.CLIENT:
-    case Routes.DEVELOPER:
+      Store.dispatch(clientRequestData())
       break
+    case Routes.DEVELOPER:
+      Store.dispatch(developerRequestData())
+      break
+    case Routes.LOGIN:
     default:
       console.error('Route not found, nothing to fetch')
   }
