@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppCard should match a snapshot 1`] = `
+<div
+  className="card"
+>
+  <img
+    alt="My app"
+    className="card-img-top"
+    src="https://picsum.photos/300/150"
+  />
+  <div
+    className="card-body"
+  >
+    <h5
+      className="card-title mb-0"
+    >
+      My app
+    </h5>
+    <p>
+      <small>
+        By: 
+        John Doe
+      </small>
+    </p>
+    <p
+      className="card-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+  </div>
+</div>
+`;
