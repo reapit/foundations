@@ -3,6 +3,7 @@ import ActionTypes from '../constants/action-types'
 import { HomeState } from '../reducers/home'
 import { ItemState } from '../reducers/item'
 import { ClientState } from '../reducers/client'
+import { MyAppsState } from '../reducers/my-apps'
 import { DeveloperState } from '../reducers/developer'
 import { AuthState } from '../reducers/auth'
 import { ErrorState } from '../reducers/error'
@@ -31,6 +32,7 @@ export interface ReduxState {
   home: HomeState
   item: ItemState
   client: ClientState
+  myApps: MyAppsState
   developer: DeveloperState
   auth: AuthState
   error: ErrorState

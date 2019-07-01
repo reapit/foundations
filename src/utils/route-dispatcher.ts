@@ -4,6 +4,7 @@ import Store from '../core/store'
 import { homeRequestData } from '../actions/home'
 import { itemRequestData } from '../actions/item'
 import { clientRequestData } from '../actions/client'
+import { myAppsRequestData } from '../actions/my-apps'
 import { developerRequestData } from '../actions/developer'
 
 const routeDispatcher = (route: RouteValue) => {
@@ -17,9 +18,13 @@ const routeDispatcher = (route: RouteValue) => {
     case Routes.CLIENT:
       Store.dispatch(clientRequestData())
       break
+    case Routes.MY_APPS:
+      Store.dispatch(myAppsRequestData())
+      break
     case Routes.DEVELOPER:
       Store.dispatch(developerRequestData())
       break
+    case Routes.SUBMIT_APP:
     case Routes.LOGIN:
     default:
       console.error('Route not found, nothing to fetch')
