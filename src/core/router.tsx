@@ -2,12 +2,13 @@ import * as React from 'react'
 import { Route, BrowserRouter, Redirect, Switch } from 'react-router-dom'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import Routes from '../constants/routes'
-import PrivateRoute from '../core/private-route'
+import PrivateRouteWrapper from './private-route-wrapper'
 
 const Home = React.lazy(() => import('../components/pages/home'))
 const Item = React.lazy(() => import('../components/pages/item'))
 const Login = React.lazy(() => import('../components/pages/login'))
 const Client = React.lazy(() => import('../components/pages/client'))
+const MyApps = React.lazy(() => import('../components/pages/my-apps'))
 const Register = React.lazy(() => import('../components/pages/register'))
 const Developer = React.lazy(() => import('../components/pages/developer'))
 
@@ -23,9 +24,19 @@ const Router = () => (
           exact
           render={props => <RouteFetcher routerProps={props} Component={Register} />}
         />
-        <PrivateRoute path={Routes.CLIENT} exact component={Client} />
-        <PrivateRoute path={Routes.DEVELOPER} exact component={Developer} />
-        <Redirect to={Routes.LOGIN} />
+        <PrivateRouteWrapper path="/">
+          <Route path={Routes.CLIENT} exact render={props => <RouteFetcher routerProps={props} Component={Client} />} />
+          <Route
+            path={Routes.MY_APPS}
+            exact
+            render={props => <RouteFetcher routerProps={props} Component={MyApps} />}
+          />
+          <Route
+            path={Routes.DEVELOPER}
+            exact
+            render={props => <RouteFetcher routerProps={props} Component={Developer} />}
+          />
+        </PrivateRouteWrapper>
       </Switch>
     </React.Suspense>
   </BrowserRouter>

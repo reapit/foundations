@@ -17,24 +17,21 @@ export interface DeveloperMappedProps {
 export type DeveloperProps = DeveloperMappedActions & DeveloperMappedProps
 
 export const Developer: React.FunctionComponent<DeveloperProps> = ({ logout, developerState }) => (
-  <div>
-    <button onClick={() => logout()}>Logout</button>
-    <div className="container">
-      {developerState.loading ? (
-        <Loader />
-      ) : (
-        <ErrorBoundary>
-          <div className="row">
-            {developerState.developerData &&
-              developerState.developerData.data.map(child => (
-                <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={child.id}>
-                  <AppCard {...child} />
-                </div>
-              ))}
-          </div>
-        </ErrorBoundary>
-      )}
-    </div>
+  <div className="container pt-5">
+    {developerState.loading ? (
+      <Loader />
+    ) : (
+      <ErrorBoundary>
+        <div className="row">
+          {developerState.developerData &&
+            developerState.developerData.data.map(child => (
+              <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={child.id}>
+                <AppCard {...child} />
+              </div>
+            ))}
+        </div>
+      </ErrorBoundary>
+    )}
   </div>
 )
 

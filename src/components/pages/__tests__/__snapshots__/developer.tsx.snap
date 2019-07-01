@@ -1,34 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Developer should match a snapshot 1`] = `
-<div>
-  <button
-    onClick={[Function]}
-  >
-    Logout
-  </button>
-  <div
-    className="container"
-  >
-    <Connect(ErrorBoundary)>
+<div
+  className="container pt-5"
+>
+  <Connect(ErrorBoundary)>
+    <div
+      className="row"
+    >
       <div
-        className="row"
+        className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+        key="1"
       >
-        <div
-          className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
-          key="1"
-        >
-          <AppCard
-            appName="string"
-            developerId="string"
-            developerName="string"
-            displayImage="string"
-            displayText="string"
-            id="1"
-          />
-        </div>
+        <AppCard
+          appName="string"
+          developerId="string"
+          developerName="string"
+          displayImage="string"
+          displayText="string"
+          id="1"
+        />
       </div>
-    </Connect(ErrorBoundary)>
-  </div>
+    </div>
+  </Connect(ErrorBoundary)>
 </div>
 `;

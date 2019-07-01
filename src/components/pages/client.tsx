@@ -21,24 +21,21 @@ export interface ClientMappedProps {
 export type ClientProps = ClientMappedActions & ClientMappedProps
 
 export const Client: React.FunctionComponent<ClientProps> = ({ logout, clientState }) => (
-  <div>
-    <button onClick={() => logout()}>Logout</button>
-    <div className="container">
-      {clientState.loading ? (
-        <Loader />
-      ) : (
-        <ErrorBoundary>
-          <div className="row">
-            {clientState.clientData &&
-              clientState.clientData.data.map(child => (
-                <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={child.id}>
-                  <AppCard {...child} />
-                </div>
-              ))}
-          </div>
-        </ErrorBoundary>
-      )}
-    </div>
+  <div className="container pt-5">
+    {clientState.loading ? (
+      <Loader />
+    ) : (
+      <ErrorBoundary>
+        <div className="row">
+          {clientState.clientData &&
+            clientState.clientData.data.map(child => (
+              <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={child.id}>
+                <AppCard {...child} />
+              </div>
+            ))}
+        </div>
+      </ErrorBoundary>
+    )}
   </div>
 )
 
