@@ -1,19 +1,18 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { Developer, DeveloperProps } from '../developer'
+import { DeveloperHome, DeveloperHomeProps } from '../developer-home'
 import { developerDataStub } from '@/sagas/__stubs__/developer'
 
-const props: DeveloperProps = {
-  logout: jest.fn(),
+const props: DeveloperHomeProps = {
   developerState: {
     loading: false,
     developerData: developerDataStub
   }
 }
 
-describe('Developer', () => {
+describe('DeveloperHome', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Developer {...props} />))).toMatchSnapshot()
+    expect(toJson(shallow(<DeveloperHome {...props} />))).toMatchSnapshot()
   })
 })

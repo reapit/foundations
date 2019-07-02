@@ -95,16 +95,9 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "yarn lint",
-      "git add"
-    ]
+    "*.{ts,tsx}": ["yarn lint", "git add"]
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 10"
-  ],
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 10"],
   "jest-junit": {
     "outputDirectory": "./.jest-junit-reports"
   }

@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Field } from 'formik'
 
 export interface InputProps {
-  type: 'text' | 'password' | 'email' | 'tel'
   placeholder?: string
   id: string
   label: string
@@ -10,7 +9,7 @@ export interface InputProps {
   dataTest?: string
 }
 
-const Input = ({ type, name, label, id, dataTest, placeholder = '' }: InputProps) => (
+const TextArea = ({ name, label, id, dataTest, placeholder = '' }: InputProps) => (
   <Field
     name={name}
     render={({ field, form: { touched, errors } }) => {
@@ -18,9 +17,8 @@ const Input = ({ type, name, label, id, dataTest, placeholder = '' }: InputProps
       return (
         <div className="form-group">
           <label htmlFor={id}>{label}</label>
-          <input
+          <textarea
             data-test={dataTest || ''}
-            type={type}
             id={id}
             placeholder={placeholder}
             className={'form-control' + (hasError ? ' is-invalid' : '')}
@@ -33,4 +31,4 @@ const Input = ({ type, name, label, id, dataTest, placeholder = '' }: InputProps
   />
 )
 
-export default Input
+export default TextArea
