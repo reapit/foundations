@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Developer should match a snapshot 1`] = `
+exports[`DeveloperHome should match a snapshot 1`] = `
 <div
   className="container pt-5"
 >

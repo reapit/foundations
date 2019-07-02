@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperSubmitApp should match a snapshot 1`] = `
+<styled.div>
+  <styled.div
+    disabled={false}
+  >
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "appName": "",
+          "companyName": "",
+          "companyReg": "",
+          "contactPhone": "",
+          "country": "",
+          "description": "",
+          "lineOne": "",
+          "lineTwo": "",
+          "postcode": "",
+          "town": "",
+        }
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validate={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    />
+  </styled.div>
+</styled.div>
+`;

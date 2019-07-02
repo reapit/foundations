@@ -1,22 +1,18 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { authLogout } from '@/actions/auth'
 import Loader from '@/components/ui/loader'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { DeveloperState } from '@/reducers/developer'
 import AppCard from '@/components/ui/app-card'
 
-export interface DeveloperMappedActions {
-  logout: () => void
-}
-
-export interface DeveloperMappedProps {
+export interface DeveloperHomeMappedProps {
   developerState: DeveloperState
 }
-export type DeveloperProps = DeveloperMappedActions & DeveloperMappedProps
 
-export const Developer: React.FunctionComponent<DeveloperProps> = ({ logout, developerState }) => (
+export type DeveloperHomeProps = DeveloperHomeMappedProps
+
+export const DeveloperHome: React.FunctionComponent<DeveloperHomeProps> = ({ developerState }) => (
   <div className="container pt-5">
     {developerState.loading ? (
       <Loader />
@@ -35,15 +31,8 @@ export const Developer: React.FunctionComponent<DeveloperProps> = ({ logout, dev
   </div>
 )
 
-const mapStateToProps = (state: ReduxState): DeveloperMappedProps => ({
+const mapStateToProps = (state: ReduxState): DeveloperHomeMappedProps => ({
   developerState: state.developer
 })
 
-const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
-  logout: () => dispatch(authLogout())
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Developer)
+export default connect(mapStateToProps)(DeveloperHome)

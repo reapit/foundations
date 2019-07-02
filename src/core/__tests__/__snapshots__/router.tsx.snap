@@ -19,24 +19,36 @@ exports[`Router should match a snapshot 1`] = `
       <Connect(Component)
         path="/"
       >
-        <Switch>
-          <Route
-            exact={true}
-            path="/client"
-            render={[Function]}
-          />
-          <Route
-            exact={true}
-            path="/client/my-apps"
-            render={[Function]}
-          />
-          <Route
-            exact={true}
-            path="/developer"
-            render={[Function]}
-          />
-        </Switch>
+        <Route
+          exact={true}
+          path="/client"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/client/my-apps"
+          render={[Function]}
+        />
+        <Route
+          exact={true}
+          path="/developer"
+          render={[Function]}
+        />
+        <Route
+          component={
+            Object {
+              "$$typeof": Symbol(react.lazy),
+              "_ctor": [Function],
+              "_result": null,
+              "_status": -1,
+            }
+          }
+          path="/developer/submit-app"
+        />
       </Connect(Component)>
+      <Redirect
+        to="/login"
+      />
     </Switch>
   </Suspense>
 </BrowserRouter>
