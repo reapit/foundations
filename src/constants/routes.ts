@@ -1,6 +1,4 @@
 const Routes = {
-  HOME: '/',
-  ITEM: '/item/',
   LOGIN: '/login',
   CLIENT: '/client',
   MY_APPS: '/client/my-apps',

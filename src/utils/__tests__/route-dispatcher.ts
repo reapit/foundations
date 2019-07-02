@@ -2,22 +2,22 @@ import routeDispatcher from '../route-dispatcher'
 import Store from '../../core/store'
 import Routes from '../../constants/routes'
 import { RouteValue } from '../../types/core'
-import { homeRequestData } from '../../actions/home'
-import { itemRequestData } from '../../actions/item'
+import { clientRequestData } from '../../actions/client'
+import { developerRequestData } from '../../actions/developer'
 
 jest.mock('../../utils/fetcher')
 jest.mock('../../core/store')
-jest.mock('../../sagas/home')
-jest.mock('../../sagas/item')
+jest.mock('../../sagas/client')
+jest.mock('../../sagas/developer')
 
 describe('routeDispatcher', () => {
-  it('should dispatch to homeDataFetch for the home route', () => {
-    routeDispatcher(Routes.HOME as RouteValue)
-    expect(Store.dispatch).toHaveBeenCalledWith(homeRequestData())
+  it('should dispatch to clientDataFetch for the client route', () => {
+    routeDispatcher(Routes.CLIENT as RouteValue)
+    expect(Store.dispatch).toHaveBeenCalledWith(clientRequestData())
   })
 
-  it('should dispatch to itemDataFetch for the item route', () => {
-    routeDispatcher(Routes.ITEM as RouteValue)
-    expect(Store.dispatch).toHaveBeenCalledWith(itemRequestData())
+  it('should dispatch to developerDataFetch for the developer route', () => {
+    routeDispatcher(Routes.DEVELOPER as RouteValue)
+    expect(Store.dispatch).toHaveBeenCalledWith(developerRequestData())
   })
 })

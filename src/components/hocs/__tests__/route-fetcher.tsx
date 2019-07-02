@@ -12,7 +12,7 @@ const props = {
   Component: () => <div>I am a component!</div>,
   routerProps: {
     match: {
-      path: Routes.HOME
+      path: Routes.CLIENT
     }
   } as RouteComponentProps<any, StaticContext, any>
 }

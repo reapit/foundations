@@ -1,7 +1,5 @@
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
-import { HomeState } from '../reducers/home'
-import { ItemState } from '../reducers/item'
 import { ClientState } from '../reducers/client'
 import { MyAppsState } from '../reducers/my-apps'
 import { DeveloperState } from '../reducers/developer'
@@ -29,8 +27,6 @@ export interface FetcherParams<T> {
 }
 
 export interface ReduxState {
-  home: HomeState
-  item: ItemState
   client: ClientState
   myApps: MyAppsState
   developer: DeveloperState

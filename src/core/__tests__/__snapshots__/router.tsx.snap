@@ -8,16 +8,6 @@ exports[`Router should match a snapshot 1`] = `
     <Switch>
       <Route
         exact={true}
-        path="/"
-        render={[Function]}
-      />
-      <Route
-        exact={true}
-        path="/item/"
-        render={[Function]}
-      />
-      <Route
-        exact={true}
         path="/login"
         render={[Function]}
       />
@@ -29,21 +19,23 @@ exports[`Router should match a snapshot 1`] = `
       <Connect(Component)
         path="/"
       >
-        <Route
-          exact={true}
-          path="/client"
-          render={[Function]}
-        />
-        <Route
-          exact={true}
-          path="/client/my-apps"
-          render={[Function]}
-        />
-        <Route
-          exact={true}
-          path="/developer"
-          render={[Function]}
-        />
+        <Switch>
+          <Route
+            exact={true}
+            path="/client"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/client/my-apps"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/developer"
+            render={[Function]}
+          />
+        </Switch>
       </Connect(Component)>
     </Switch>
   </Suspense>
