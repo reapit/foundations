@@ -4,10 +4,12 @@ import { ReduxState } from '@/types/core'
 import Alert from '@/components/ui/alert'
 import { Formik, Form } from 'formik'
 import Input from '@/components/form/input'
-import { LoginContainer, LoginFormWrapper } from '@/styles/pages/login'
+import styles from '@/styles/pages/login.scss'
 import { registerValidate } from '@/utils/form/register'
 import { Link } from 'react-router-dom'
 import Routes from '../../constants/routes'
+import bulma from '@/styles/vendor/bulma.scss'
+import Button from '../form/button'
 
 export interface RegisterMappedActions {}
 
@@ -29,8 +31,8 @@ export const Register: React.FunctionComponent<RegisterProps> = ({}) => {
   const [formState, setFormState] = React.useState<FormState>('done')
   const disabled = formState === 'submitting'
   return (
-    <LoginContainer>
-      <LoginFormWrapper disabled={disabled}>
+    <div className={styles.container}>
+      <div className={`${styles.wrapper} ${disabled && styles.disabled}`}>
         {formState === 'success' ? (
           <Alert message="Check you email to confirm your account" type="success" className="mb-0" />
         ) : (
@@ -54,20 +56,24 @@ export const Register: React.FunctionComponent<RegisterProps> = ({}) => {
                   <Input type="email" label="Email" id="email" name="email" />
                   <Input type="password" label="Password" id="password" name="password" />
                   <Input type="password" label="Confirm password" id="confirmPassword" name="confirmPassword" />
-                  <button type="submit" className="btn btn-primary btn-block" disabled={disabled}>
-                    Register
-                  </button>
+                  <div className={bulma.level}>
+                    <div className={bulma['level-left']}>
+                      <Button type="submit" loading variant="primary" disabled={disabled}>
+                        Register
+                      </Button>
+                    </div>
+                    <div className={bulma['level-right']}>
+                      <Link to={Routes.LOGIN}>Login</Link>
+                    </div>
+                  </div>
                   {formState === 'error' && <Alert message="Failed to register" type="danger" className="mt-4 mb-1" />}
                 </Form>
               )}
             />
-            <div className="mt-4">
-              <Link to={Routes.LOGIN}>Login</Link>
-            </div>
           </>
         )}
-      </LoginFormWrapper>
-    </LoginContainer>
+      </div>
+    </div>
   )
 }
 

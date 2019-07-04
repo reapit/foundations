@@ -1,15 +1,13 @@
 import * as React from 'react'
-import StyledLoader, { StyledLoaderProps } from '../../styles/blocks/loader'
+import styles from '@/styles/blocks/loader.scss'
 
-interface LoaderProps extends Partial<StyledLoaderProps> {}
-
-const Loader: React.FunctionComponent<LoaderProps> = ({ body = true }) => (
-  <StyledLoader body={body}>
+const Loader: React.FunctionComponent<{ body?: boolean }> = ({ body = true }) => (
+  <div className={`${styles.loader} ${body && styles.body}`}>
     <div />
     <div />
     <div />
     <div />
-  </StyledLoader>
+  </div>
 )
 
 export default Loader

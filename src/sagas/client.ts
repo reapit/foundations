@@ -10,8 +10,8 @@ import errorMessages from '../constants/error-messages'
 export const mockClientData: ClientItem = {
   data: Array.from({ length: 20 }, (i, k) => k).map(i => ({
     id: i.toString(),
-    appName: 'Team',
-    developerName: 'microsoft',
+    appName: 'Teams',
+    developerName: 'Microsoft',
     developerId: 'dfJ28xl',
     displayImage: '',
     approved: Math.round(Math.random() * 2) % 2 === 0,

@@ -3,7 +3,11 @@ import Routes from './routes'
 const NavMenu = {
   DEVELOPER: [
     {
-      text: 'Browser',
+      text: 'Manage Apps',
+      to: Routes.MY_APPS
+    },
+    {
+      text: 'Manage Keys',
       to: Routes.DEVELOPER
     },
     {
@@ -13,11 +17,11 @@ const NavMenu = {
   ],
   CLIENT: [
     {
-      text: 'Browser',
+      text: 'Browse Apps',
       to: Routes.CLIENT
     },
     {
-      text: 'My apps',
+      text: 'Installed Apps',
       to: Routes.MY_APPS
     }
   ]

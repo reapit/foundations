@@ -1,0 +1,9 @@
+@import "../base/colors.scss";
+
+.avatar {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background-color: $grey;
+}

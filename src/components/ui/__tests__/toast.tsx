@@ -3,7 +3,6 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { Toast, ToastProps } from '../toast'
 import errorMessages from '../../../constants/error-messages'
-import { StyledToast } from '../../../styles/blocks/toast'
 
 const defaultProps = {
   serverError: {
@@ -43,7 +42,7 @@ describe('Toast', () => {
       componentError: null
     }
     shallow(<Toast {...props(newProps)} />)
-      .find(StyledToast)
+      .find('[data-test="toast-wrapper"]')
       .first()
       .simulate('click')
 
@@ -55,7 +54,7 @@ describe('Toast', () => {
       serverError: null
     }
     shallow(<Toast {...props(newProps)} />)
-      .find(StyledToast)
+      .find('[data-test="toast-wrapper"]')
       .first()
       .simulate('click')
 

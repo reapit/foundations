@@ -1,4 +1,5 @@
 import * as React from 'react'
+import bulma from '@/styles/vendor/bulma.scss'
 
 export interface TabConfig {
   tabIdentifier: string
@@ -16,24 +17,27 @@ export const selectTab = (event: React.SyntheticEvent, tabConfig: TabConfig) => 
   tabConfig.onTabClick(tabConfig.tabIdentifier)
 }
 
+const tabsClasses = `${bulma.tabs} ${bulma['is-toggle']} ${bulma['is-fullwidth']} ${bulma['is-medium']}`
+
 const Tabs: React.FunctionComponent<TabsProps> = ({ tabConfigs }) => (
-  <ul className="nav nav-tabs" role="tablist">
-    {tabConfigs.map(tabConfig => (
-      <li className="nav-item" key={tabConfig.tabIdentifier}>
-        <a
-          id={tabConfig.tabIdentifier}
-          href={`#${tabConfig.tabIdentifier}`}
-          role="tab"
-          className={`nav-link ${tabConfig.active && 'active'}`}
-          aria-controls={tabConfig.tabIdentifier}
-          aria-selected={tabConfig.active}
-          onClick={(error: React.SyntheticEvent) => selectTab(error, tabConfig)}
-        >
-          {tabConfig.displayText}
-        </a>
-      </li>
-    ))}
-  </ul>
+  <div className={tabsClasses} role="tablist">
+    <ul>
+      {tabConfigs.map(tabConfig => (
+        <li className={`${tabConfig.active ? bulma['is-active'] : ''}`} key={tabConfig.tabIdentifier}>
+          <a
+            id={tabConfig.tabIdentifier}
+            href={`#${tabConfig.tabIdentifier}`}
+            role="tab"
+            aria-controls={tabConfig.tabIdentifier}
+            aria-selected={tabConfig.active}
+            onClick={(error: React.SyntheticEvent) => selectTab(error, tabConfig)}
+          >
+            {tabConfig.displayText}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 )
 
 export default Tabs

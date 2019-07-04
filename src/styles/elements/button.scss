@@ -1,0 +1,19 @@
+// This version works but we can't theme as I am importing as raw CSS
+// .callToAction {
+//   composes: button is-primary from '../../../node_modules/bulma/css/bulma.css';
+// }
+
+// Webpack alias does not work
+// .callToAction {
+//   composes: button is-primary is-large from '~bulma/bulma.css'
+// }
+
+// Both versions below throw an unknown variable error
+// .callToAction {
+//   composes: button is-primary is-large from '../../../node_modules/bulma/sass/elements/button.sass'
+// }
+
+// This is the ideal way to use Bulma - we are using the version with our vaiable overrides
+// .callToAction {
+//   composes: button is-primary is-large from '../vendor/bulma.scss';
+// }

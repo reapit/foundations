@@ -6,12 +6,14 @@ import Alert from '../ui/alert'
 import { Formik, Form } from 'formik'
 import Input from '../form/input'
 import { authLogin, authChangeLoginType } from '../../actions/auth'
-import { LoginContainer, LoginFormWrapper } from '../../styles/pages/login'
 import { validate } from '../../utils/form/login'
 import Tabs, { TabConfig } from '../ui/tabs'
 import { LoginType } from '../../reducers/auth'
 import { Dispatch } from 'redux'
 import Routes from '../../constants/routes'
+import loginStyles from '@/styles/pages/login.scss'
+import Button from '../form/button'
+import bulma from '@/styles/vendor/bulma.scss'
 
 export interface LoginMappedActions {
   login: () => void
@@ -49,6 +51,8 @@ export const tabConfigs = ({ loginType, authChangeLoginType }: LoginProps): TabC
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { isLogin, error, login } = props
+  const { disabled, wrapper, container } = loginStyles
+
   React.useEffect(() => {
     if (error) {
       setIsSubmitting(false)
@@ -57,9 +61,10 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   if (isLogin) {
     return <Redirect to={props.loginType === 'DEVELOPER' ? Routes.DEVELOPER : Routes.CLIENT} />
   }
+
   return (
-    <LoginContainer>
-      <LoginFormWrapper disabled={isSubmitting}>
+    <div className={container}>
+      <div className={`${wrapper} ${isSubmitting && disabled}`}>
         <Tabs tabConfigs={tabConfigs(props)} />
         <Formik
           validate={validate}
@@ -71,24 +76,28 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
           }}
           render={() => (
             <Form data-test="login-form">
-              <Input dataTest="login-email" type="email" label="Email" id="email" name="email" />
+              <Input dataTest="login-email" type="text" label="Email" id="email" name="email" />
               <Input dataTest="login-password" type="password" label="Password" id="password" name="password" />
-              <button type="submit" className="btn btn-primary btn-block" disabled={isSubmitting}>
-                Login
-              </button>
+              <div className={bulma.level}>
+                <div className={bulma['level-left']}>
+                  <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
+                    Login
+                  </Button>
+                </div>
+                {props.loginType === 'DEVELOPER' && (
+                  <div className={bulma['level-right']}>
+                    <Link to={Routes.REGISTER}>Create new account</Link>
+                  </div>
+                )}
+              </div>
               {error && (
                 <Alert message="Login failed, user credentials not recognised" type="danger" className="mt-4 mb-1" />
               )}
             </Form>
           )}
         />
-        {props.loginType === 'DEVELOPER' && (
-          <div className="mt-4">
-            <Link to={Routes.REGISTER}>Create new account</Link>
-          </div>
-        )}
-      </LoginFormWrapper>
-    </LoginContainer>
+      </div>
+    </div>
   )
 }
 

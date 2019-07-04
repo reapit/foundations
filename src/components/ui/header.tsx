@@ -4,11 +4,12 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import { Link } from 'react-router-dom'
 import { ReduxState } from '@/types/core'
 import { authLogout } from '@/actions/auth'
-import { StyledAvatar } from '@/styles/blocks/avatar'
+import avatarStyles from '@/styles/blocks/avatar.scss'
 import { LoginType } from '@/reducers/auth'
 import NavMenu from '@/constants/nav'
 import Logo from '@/components/svg/logo'
-import { StyledNavBranch } from '@/styles/blocks/header'
+import headerStyles from '@/styles/blocks/header.scss'
+import bulma from '@/styles/vendor/bulma.scss'
 
 export interface HeaderMappedProps {
   loginType: LoginType
@@ -25,52 +26,48 @@ export const Header: React.FunctionComponent<HeaderProps> = ({ logout, loginType
   const { pathname } = location
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container">
-        <StyledNavBranch className="navbar-brand" href="#">
+    <nav className={`${bulma.navbar} ${bulma['is-primary']}`}>
+      <div className={bulma['navbar-brand']}>
+        <a className={`${bulma['navbar-item']} ${headerStyles.branch}`} href="#">
           <Logo width="20px" height="25px" className="mr-2" />
-          <span>Marketplace</span>
-        </StyledNavBranch>
+          <span>Foundations</span>
+        </a>
+      </div>
+      <div className={bulma['navbar-start']}>
+        {NavMenu[loginType].map(({ to, text }) => (
+          <Link className={bulma['navbar-item']} key={to} to={to}>
+            {text}
+          </Link>
+        ))}
+      </div>
+      <div className={bulma['navbar-end']}>
+        <div className={`${bulma['navbar-item']} ${bulma['has-dropdown']} ${isOpen ? bulma['is-active'] : ''}`}>
+          <a
+            className={bulma['navbar-link']}
+            data-test="account-menu"
+            onClick={e => {
+              e.preventDefault()
+              setIsOpen(!isOpen)
+            }}
+          >
+            Account
+          </a>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            {NavMenu[loginType].map(({ to, text }) => (
-              <li className={'nav-item' + (to === pathname ? ' active' : '')} key={to}>
-                <Link className="nav-link" to={to}>
-                  {text}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item dropdown">
-              <div className="pt-2 pb-1">
-                <StyledAvatar
-                  className="avatar"
-                  href="#"
-                  onClick={e => {
-                    e.preventDefault()
-                    setIsOpen(!isOpen)
-                  }}
-                />
-              </div>
-              <div
-                className={'dropdown-menu dropdown-menu-right' + (isOpen ? ' show' : '')}
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <a
-                  className="dropdown-item logout-link"
-                  href="#"
-                  onClick={e => {
-                    e.preventDefault()
-                    logout()
-                  }}
-                >
-                  Logout
-                </a>
-              </div>
-            </li>
-          </ul>
+          <div className={`${bulma['navbar-dropdown']} ${bulma['is-right']}`}>
+            <a className={bulma['navbar-item']}>Option</a>
+            <a className={bulma['navbar-item']}>Option</a>
+            <hr className={bulma['navbar-divider']} />
+            <a
+              className={bulma['navbar-item']}
+              data-test="logout-cta"
+              onClick={e => {
+                e.preventDefault()
+                logout()
+              }}
+            >
+              Logout
+            </a>
+          </div>
         </div>
       </div>
     </nav>

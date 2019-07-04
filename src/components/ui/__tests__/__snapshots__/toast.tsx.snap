@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toast should match a snapshot for a componentError 1`] = `
-<styled.div
-  isVisible={true}
+<div
+  className="undefined undefined"
+  data-test="toast-wrapper"
   onClick={[MockFunction]}
 >
   <button
@@ -10,12 +11,13 @@ exports[`Toast should match a snapshot for a componentError 1`] = `
   >
     Something went wrong with this component
   </button>
-</styled.div>
+</div>
 `;
 
 exports[`Toast should match a snapshot for a serverError 1`] = `
-<styled.div
-  isVisible={true}
+<div
+  className="undefined undefined"
+  data-test="toast-wrapper"
   onClick={[MockFunction]}
 >
   <button
@@ -23,5 +25,5 @@ exports[`Toast should match a snapshot for a serverError 1`] = `
   >
     Something went wrong fetching data
   </button>
-</styled.div>
+</div>
 `;

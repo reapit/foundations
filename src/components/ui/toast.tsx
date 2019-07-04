@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { StyledToast } from '../../styles/blocks/toast'
 import { ReduxState } from '../../types/core'
 import { ErrorData } from '../../reducers/error'
 import { errorClearedServer, errorClearedComponent } from '../../actions/error'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
+import styles from '@/styles/blocks/toast.scss'
 
 /**
  * TODO: Expand component to accept types info and success actions
@@ -39,9 +39,13 @@ export const Toast: React.FC<ToastProps> = ({
   }
 
   return (
-    <StyledToast onClick={errorClearHandler} isVisible={isVisible}>
+    <div
+      data-test="toast-wrapper"
+      className={`${styles.toast} ${isVisible && styles.visible}`}
+      onClick={errorClearHandler}
+    >
       <button className="btn btn-danger btn-lg btn-block">{error && error.message}</button>
-    </StyledToast>
+    </div>
   )
 }
 

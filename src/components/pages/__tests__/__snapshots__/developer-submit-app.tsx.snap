@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperSubmitApp should match a snapshot 1`] = `
-<styled.div>
-  <styled.div
-    disabled={false}
+<div>
+  <div
+    className="undefined "
   >
     <Formik
       enableReinitialize={false}
@@ -28,6 +28,6 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
       validateOnBlur={true}
       validateOnChange={true}
     />
-  </styled.div>
-</styled.div>
+  </div>
+</div>
 `;

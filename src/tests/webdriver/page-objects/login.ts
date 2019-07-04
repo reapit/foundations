@@ -33,7 +33,7 @@ class LoginPage extends Base {
   }
 
   get errorMessages() {
-    return $$('.invalid-feedback')
+    return $$('[data-test="input-error"]')
   }
 
   get allTabs() {
