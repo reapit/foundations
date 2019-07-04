@@ -1,0 +1,15 @@
+/* These are the Bulma initialisers - have to come before overides */
+@import "../base/colors.scss";
+@import "../base/fonts.scss";
+@import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
+
+/* Bulma override defaults 
+Things that can be customised here: https://bulma.io/documentation/customize/variables/
+*/
+$family-primary: $family-sans-serif;
+$grey-dark: $grey;
+$grey-light: $grey-lightest;
+$primary: $reapit-mid-blue;
+$link: $reapit-mid-blue;
+
+@import "../../../node_modules/bulma/bulma.sass";

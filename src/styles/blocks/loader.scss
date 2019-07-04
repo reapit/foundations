@@ -1,21 +1,20 @@
-import styled from 'styled-components'
-import colors from '../variables/colors'
-import layout from '../variables/layout'
+@import '../base/layout.scss';
+@import '../base/colors.scss';
 
-export interface StyledLoaderProps {
-  body: boolean
-}
+.loader {
+  display: inline-block;
+  margin: auto;
+  width: $layout-triple;
+  height: $layout-two-half;
 
-const StyledLoader = styled.div<StyledLoaderProps>`
-  display: ${props => !props.body && 'inline-block'};
-  margin: ${props => (props.body ? '100px auto' : 'auto')};
-  width: ${layout.triple};
-  height: ${layout.twoHalf};
+  &.body {
+    margin: 100px auto,
+  }
 
   > div {
-    background-color: ${colors.grey};
+    background-color: $grey;
     height: 100%;
-    width: ${layout.third};
+    width: $layout-third;
     margin: 2px;
     display: inline-block;
     border-radius: 15%;
@@ -49,6 +48,4 @@ const StyledLoader = styled.div<StyledLoaderProps>`
       transform: scaleY(1);
     }
   }
-`
-
-export default StyledLoader
+}

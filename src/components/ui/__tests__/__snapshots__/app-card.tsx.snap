@@ -2,32 +2,46 @@
 
 exports[`AppCard should match a snapshot 1`] = `
 <div
-  className="card"
+  className="undefined undefined"
 >
-  <img
-    alt="My app"
-    className="card-img-top"
-    src="https://picsum.photos/300/150"
-  />
-  <div
-    className="card-body"
-  >
-    <h5
-      className="card-title mb-0"
+  <div>
+    <figure
+      className="undefined undefined"
     >
-      My app
-    </h5>
-    <p>
-      <small>
-        By: 
-        John Doe
-      </small>
-    </p>
-    <p
-      className="card-text"
-    >
+      <img
+        alt="My app"
+        src="https://bulma.io/images/placeholders/1280x960.png"
+      />
+    </figure>
+  </div>
+  <div>
+    <div>
+      <div>
+        <figure
+          className="undefined undefined"
+        >
+          <img
+            alt="My app"
+            src="https://bulma.io/images/placeholders/96x96.png"
+          />
+        </figure>
+      </div>
+      <div>
+        <p
+          className="undefined undefined"
+        >
+          My app
+        </p>
+        <p
+          className="undefined undefined"
+        >
+          John Doe
+        </p>
+      </div>
+    </div>
+    <div>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </p>
+    </div>
   </div>
 </div>
 `;

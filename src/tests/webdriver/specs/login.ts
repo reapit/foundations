@@ -13,7 +13,7 @@ describe('LoginPage', () => {
   it('should load the form correctly', () => {
     expect(LoginPage.allTabs.length).toEqual(2)
     expect(LoginPage.allInputs.length).toEqual(2)
-    expect(LoginPage.emailInput.getAttribute('type')).toEqual('email')
+    expect(LoginPage.emailInput.getAttribute('type')).toEqual('text')
     expect(LoginPage.passwordInput.getAttribute('type')).toEqual('password')
   })
 

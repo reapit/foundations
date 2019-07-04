@@ -50,11 +50,35 @@ module.exports = {
             outputPath: path.resolve(__dirname, 'public', 'dist', 'assets')
           }
         }
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              includePaths: ['node_modules']
+            }
+          }
+        ]
       }
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass'],
+    alias: {
+      '@': path.resolve(__dirname, 'src/')
+    }
   },
   devtool: 'inline-source-map',
   devServer: {

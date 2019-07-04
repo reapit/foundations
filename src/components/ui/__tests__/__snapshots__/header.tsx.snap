@@ -2,13 +2,11 @@
 
 exports[`Header should match a snapshot 1`] = `
 <nav
-  className="navbar navbar-expand-lg navbar-light bg-light"
+  className="undefined undefined"
 >
-  <div
-    className="container"
-  >
-    <styled.a
-      className="navbar-brand"
+  <div>
+    <a
+      className="undefined undefined"
       href="#"
     >
       <Logo
@@ -17,68 +15,51 @@ exports[`Header should match a snapshot 1`] = `
         width="20px"
       />
       <span>
-        Marketplace
+        Foundations
       </span>
-    </styled.a>
-    <div
-      className="collapse navbar-collapse"
-      id="navbarNav"
+    </a>
+  </div>
+  <div>
+    <Link
+      key="/client"
+      to="/client"
     >
-      <ul
-        className="navbar-nav"
+      Browse Apps
+    </Link>
+    <Link
+      key="/client/my-apps"
+      to="/client/my-apps"
+    >
+      Installed Apps
+    </Link>
+  </div>
+  <div>
+    <div
+      className="undefined undefined "
+    >
+      <a
+        data-test="account-menu"
+        onClick={[Function]}
       >
-        <li
-          className="nav-item active"
-          key="/client"
-        >
-          <Link
-            className="nav-link"
-            to="/client"
-          >
-            Browser
-          </Link>
-        </li>
-        <li
-          className="nav-item"
-          key="/client/my-apps"
-        >
-          <Link
-            className="nav-link"
-            to="/client/my-apps"
-          >
-            My apps
-          </Link>
-        </li>
-      </ul>
-      <ul
-        className="navbar-nav ml-auto"
+        Account
+      </a>
+      <div
+        className="undefined undefined"
       >
-        <li
-          className="nav-item dropdown"
+        <a>
+          Option
+        </a>
+        <a>
+          Option
+        </a>
+        <hr />
+        <a
+          data-test="logout-cta"
+          onClick={[Function]}
         >
-          <div
-            className="pt-2 pb-1"
-          >
-            <styled.a
-              className="avatar"
-              href="#"
-              onClick={[Function]}
-            />
-          </div>
-          <div
-            aria-labelledby="navbarDropdownMenuLink"
-            className="dropdown-menu dropdown-menu-right"
-          >
-            <a
-              className="dropdown-item logout-link"
-              href="#"
-              onClick={[Function]}
-            >
-              Logout
-            </a>
-          </div>
-        </li>
-      </ul>
+          Logout
+        </a>
+      </div>
     </div>
   </div>
 </nav>

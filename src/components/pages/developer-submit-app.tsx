@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Formik, Form } from 'formik'
 import Input from '../form/input'
 import TextArea from '../form/textarea'
-import { Container, FormWrapper } from '@/styles/pages/submit-app-form'
+import styles from '@/styles/pages/submit-app-form.scss'
 import { validate } from '@/utils/form/submit-app'
 
 export interface SubmitAppFormValues {
@@ -25,7 +25,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = () => {
   const [succeeded, setSucceeded] = React.useState(false)
 
   return (
-    <Container>
+    <div className={styles.container}>
       {succeeded ? (
         <div>
           <strong className="block mb-6">Submit success</strong>
@@ -34,7 +34,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = () => {
           </button>
         </div>
       ) : (
-        <FormWrapper disabled={isSubmitting}>
+        <div className={`${styles.wrapper} ${isSubmitting ? 'disabled' : ''}`}>
           <Formik
             validate={validate}
             initialValues={
@@ -94,9 +94,9 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = () => {
               </Form>
             )}
           />
-        </FormWrapper>
+        </div>
       )}
-    </Container>
+    </div>
   )
 }
 

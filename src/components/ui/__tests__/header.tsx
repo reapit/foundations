@@ -17,23 +17,10 @@ describe('Header', () => {
     expect(toJson(shallow(<Header {...props} />))).toMatchSnapshot()
   })
 
-  it('a tag with href /client should have active class', () => {
-    const wrapper = shallow(<Header {...props} />)
-    expect(wrapper.find('.nav-item.active [to="/client"]')).toHaveLength(1)
-  })
-
   it('simulates logout click flow', () => {
     const wrapper = shallow(<Header {...props} />)
-    expect(wrapper.find('.dropdown-menu.dropdown-menu-right.show')).toHaveLength(0)
     wrapper
-      .find('.avatar')
-      .first()
-      .simulate('click', {
-        preventDefault: jest.fn()
-      })
-    expect(wrapper.find('.dropdown-menu.dropdown-menu-right.show')).toHaveLength(1)
-    wrapper
-      .find('.logout-link')
+      .find('[data-test="logout-cta"]')
       .first()
       .simulate('click', {
         preventDefault: jest.fn()
