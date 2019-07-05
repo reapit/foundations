@@ -27,9 +27,16 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = () => {
   return (
     <div className={styles.container}>
       {succeeded ? (
-        <div>
-          <strong className="block mb-6">Submit success</strong>
-          <button type="button" className="btn btn-primary btn-block" onClick={() => setSucceeded(false)}>
+        <div data-test="submit-success-section">
+          <strong className="block mb-6" data-test="submit-success-message">
+            Submit success
+          </strong>
+          <button
+            type="button"
+            className="btn btn-primary btn-block"
+            data-test="submit-another-button"
+            onClick={() => setSucceeded(false)}
+          >
             Submit another
           </button>
         </div>
@@ -55,6 +62,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = () => {
               console.log(values)
               setIsSubmitting(true)
               setTimeout(() => {
+                setIsSubmitting(false)
                 setSucceeded(true)
               }, 1000)
             }}
