@@ -66,6 +66,13 @@ class LoginPage extends Base {
     this.populateValidForm()
     this.submitForm()
   }
+
+  logAsDeveloper() {
+    this.open()
+    this.selectDeveloperTab()
+    this.populateValidForm()
+    this.submitForm()
+  }
 }
 
 export default new LoginPage()
