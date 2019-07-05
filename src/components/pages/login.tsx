@@ -13,7 +13,7 @@ import { Dispatch } from 'redux'
 import Routes from '../../constants/routes'
 import loginStyles from '@/styles/pages/login.scss'
 import Button from '../form/button'
-import bulma from '@/styles/vendor/bulma.scss'
+import bulma from '@/styles/vendor/bulma.scss?mod'
 
 export interface LoginMappedActions {
   login: () => void

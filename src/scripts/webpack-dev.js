@@ -53,25 +53,48 @@ module.exports = {
       },
       {
         test: /\.(sass|scss)$/,
-        use: [
+        oneOf: [
           {
-            loader: 'style-loader'
+            resourceQuery: /\?mod$/,
+            use: [
+              {
+                loader: 'style-loader'
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  localsConvention: 'camelCase',
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true,
+                  includePaths: ['node_modules']
+                }
+              }
+            ]
           },
           {
-            loader: 'css-loader',
-            options: {
-              modules: true
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              includePaths: ['node_modules']
-            }
+            use: [
+              {
+                loader: 'style-loader'
+              },
+              {
+                loader: 'css-loader',
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true,
+                  includePaths: ['node_modules']
+                }
+              }
+            ]
           }
         ]
-      }
+      },
     ]
   },
   resolve: {
