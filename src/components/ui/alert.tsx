@@ -7,11 +7,12 @@ export interface AlertProps {
   closable?: boolean
   type?: alertType
   className?: string
+  dataTest?: string
   afterClose?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const Alert = ({ message, afterClose, className, closable = false, type = 'primary' }: AlertProps) => (
-  <div className={`alert alert-${type}` + (className ? ` ${className}` : '')} role="alert">
+const Alert = ({ message, afterClose, className, closable = false, type = 'primary', dataTest = '' }: AlertProps) => (
+  <div className={`alert alert-${type}` + (className ? ` ${className}` : '')} role="alert" data-test={dataTest}>
     {message}
     {closable && (
       <button

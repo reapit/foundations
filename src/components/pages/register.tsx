@@ -34,7 +34,12 @@ export const Register: React.FunctionComponent<RegisterProps> = ({}) => {
     <div className={styles.container}>
       <div className={`${styles.wrapper} ${disabled && styles.disabled}`}>
         {formState === 'success' ? (
-          <Alert message="Check you email to confirm your account" type="success" className="mb-0" />
+          <Alert
+            dataTest="register-success-message"
+            message="Check you email to confirm your account"
+            type="success"
+            className="mb-0"
+          />
         ) : (
           <>
             <Formik
@@ -50,12 +55,18 @@ export const Register: React.FunctionComponent<RegisterProps> = ({}) => {
                 }, 300)
               }}
               render={props => (
-                <Form>
-                  <Input type="text" label="First name" id="firstName" name="firstName" />
-                  <Input type="text" label="Last name" id="lastName" name="lastName" />
-                  <Input type="email" label="Email" id="email" name="email" />
-                  <Input type="password" label="Password" id="password" name="password" />
-                  <Input type="password" label="Confirm password" id="confirmPassword" name="confirmPassword" />
+                <Form data-test="register-form">
+                  <Input dataTest="register-firstname" type="text" label="First name" id="firstName" name="firstName" />
+                  <Input dataTest="register-lastname" type="text" label="Last name" id="lastName" name="lastName" />
+                  <Input dataTest="register-email" type="email" label="Email" id="email" name="email" />
+                  <Input dataTest="register-password" type="password" label="Password" id="password" name="password" />
+                  <Input
+                    dataTest="register-confirm-password"
+                    type="password"
+                    label="Confirm password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                  />
                   <div className={bulma.level}>
                     <div className={bulma['level-left']}>
                       <Button type="submit" loading variant="primary" disabled={disabled}>
@@ -66,7 +77,14 @@ export const Register: React.FunctionComponent<RegisterProps> = ({}) => {
                       <Link to={Routes.LOGIN}>Login</Link>
                     </div>
                   </div>
-                  {formState === 'error' && <Alert message="Failed to register" type="danger" className="mt-4 mb-1" />}
+                  {formState === 'error' && (
+                    <Alert
+                      message="Failed to register"
+                      type="danger"
+                      className="mt-4 mb-1"
+                      dataTest="register-error-message"
+                    />
+                  )}
                 </Form>
               )}
             />
