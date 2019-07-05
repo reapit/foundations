@@ -60,6 +60,12 @@ class LoginPage extends Base {
   open() {
     super.open(this.loginRoute)
   }
+
+  logAsClient() {
+    this.open()
+    this.populateValidForm()
+    this.submitForm()
+  }
 }
 
 export default new LoginPage()
