@@ -8,7 +8,7 @@ import styles from '@/styles/pages/login.scss'
 import { registerValidate } from '@/utils/form/register'
 import { Link } from 'react-router-dom'
 import Routes from '../../constants/routes'
-import bulma from '@/styles/vendor/bulma.scss'
+import bulma from '@/styles/vendor/bulma.scss?mod'
 import Button from '../form/button'
 
 export interface RegisterMappedActions {}

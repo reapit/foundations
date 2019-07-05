@@ -66,26 +66,55 @@ module.exports = {
       },
       {
         test: /\.(sass|scss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
+        oneOf: [
           {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: true
-            }
+            resourceQuery: /\?mod$/,
+            use: [
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 1,
+                  modules: true,
+                  localsConvention: 'camelCase',
+                }
+              },
+              {
+                loader: '@americanexpress/purgecss-loader',
+                options: {
+                  paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`)
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: false
+                }
+              }
+            ]
           },
           {
-            loader: '@americanexpress/purgecss-loader',
-            options: {
-              paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`)
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: false
-            }
+            use: [
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 1,
+                }
+              },
+              {
+                loader: '@americanexpress/purgecss-loader',
+                options: {
+                  paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`)
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: false
+                }
+              }
+            ]
           }
         ]
       }

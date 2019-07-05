@@ -1,5 +1,5 @@
 import * as React from 'react'
-import bulma from '@/styles/vendor/bulma.scss'
+import bulma from '@/styles/vendor/bulma.scss?mod'
 
 export interface TabConfig {
   tabIdentifier: string

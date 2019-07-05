@@ -1,5 +1,5 @@
 import * as React from 'react'
-import bulma from '@/styles/vendor/bulma.scss'
+import bulma from '@/styles/vendor/bulma.scss?mod'
 
 export interface ButtonProps {
   type: 'submit' | 'reset'
@@ -8,10 +8,10 @@ export interface ButtonProps {
   loading: boolean
 }
 
-export const button = `${bulma['button']} ${bulma['is-medium']} ${bulma['is-rounded']}`
-export const buttonPrimary = `${button} ${bulma['is-primary']}`
-export const buttonSecondary = `${button} ${bulma['is-secondary']}`
-export const loading = ` ${bulma['is-loading']}`
+export const button = `${bulma.button} ${bulma.isMedium} ${bulma.isRounded}`
+export const buttonPrimary = `${button} ${bulma.isPrimary}`
+export const buttonSecondary = `${button} ${bulma.isSecondary}`
+export const loading = ` ${bulma.isLoading}`
 
 const Button: React.SFC<ButtonProps> = ({ type, variant, disabled, loading, children }) => {
   const className = variant === 'primary' ? buttonPrimary : buttonSecondary

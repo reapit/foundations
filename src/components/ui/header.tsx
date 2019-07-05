@@ -9,7 +9,7 @@ import { LoginType } from '@/reducers/auth'
 import NavMenu from '@/constants/nav'
 import Logo from '@/components/svg/logo'
 import headerStyles from '@/styles/blocks/header.scss'
-import bulma from '@/styles/vendor/bulma.scss'
+import bulma from '@/styles/vendor/bulma.scss?mod'
 
 export interface HeaderMappedProps {
   loginType: LoginType

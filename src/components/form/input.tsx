@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Field } from 'formik'
-import bulma from '@/styles/vendor/bulma.scss'
+import bulma from '@/styles/vendor/bulma.scss?mod'
 
 export interface InputProps {
   type: 'text' | 'password' | 'email' | 'tel'
