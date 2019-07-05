@@ -26,7 +26,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({ logout, clientSta
       <Loader />
     ) : (
       <ErrorBoundary>
-        <div className="row">
+        <div className="row" data-test="client-card-container">
           {clientState.clientData &&
             clientState.clientData.data.map(child => (
               <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={child.id}>
