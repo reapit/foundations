@@ -13,7 +13,7 @@ export interface AuthState {
 export const defaultState: AuthState = {
   isLogin: !!window.localStorage.getItem('token'),
   error: false,
-  loginType: 'CLIENT'
+  loginType: (window.localStorage.getItem('loginType') as LoginType) || 'CLIENT'
 }
 
 const authReducer = (state: AuthState = defaultState, action: Action<any>): AuthState => {
