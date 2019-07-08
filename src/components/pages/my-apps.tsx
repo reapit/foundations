@@ -25,7 +25,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({ myAppsState }) =>
       <Loader />
     ) : (
       <ErrorBoundary>
-        <div className={`${columns} ${isMultiLine}`}>
+        <div data-test="my-app-container" className={`${columns} ${isMultiLine}`}>
           {myAppsState.myAppsData &&
             myAppsState.myAppsData.data.map((child, index) => (
               <div className={`${isResponsiveColumn}`} key={child.id}>

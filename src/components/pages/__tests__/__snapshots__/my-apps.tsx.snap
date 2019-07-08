@@ -7,6 +7,7 @@ exports[`MyApps should match a snapshot 1`] = `
   <Connect(ErrorBoundary)>
     <div
       className="columns isMultiLine"
+      data-test="my-app-container"
     >
       <div
         className="column isMultiLine isHalfTablet isThirdDesktop isQuarterWidescreen isQuarterFullhd"
