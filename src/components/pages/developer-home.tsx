@@ -5,6 +5,8 @@ import Loader from '@/components/ui/loader'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { DeveloperState } from '@/reducers/developer'
 import AppCard from '@/components/ui/app-card'
+import bulma from '../../styles/vendor/bulma'
+import bulmaUtils from '../../styles/vendor/bulma-utils'
 
 export interface DeveloperHomeMappedProps {
   developerState: DeveloperState
@@ -12,16 +14,19 @@ export interface DeveloperHomeMappedProps {
 
 export type DeveloperHomeProps = DeveloperHomeMappedProps
 
+const { container, columns, isMultiLine } = bulma
+const { isResponsiveColumn } = bulmaUtils
+
 export const DeveloperHome: React.FunctionComponent<DeveloperHomeProps> = ({ developerState }) => (
-  <div className="container pt-5">
+  <div className={container}>
     {developerState.loading ? (
       <Loader />
     ) : (
       <ErrorBoundary>
-        <div className="row">
+        <div className={`${columns} ${isMultiLine}`}>
           {developerState.developerData &&
             developerState.developerData.data.map(child => (
-              <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={child.id}>
+              <div className={`${isResponsiveColumn}`} key={child.id}>
                 <AppCard {...child} />
               </div>
             ))}

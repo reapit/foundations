@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Field } from 'formik'
-import bulma from '@/styles/vendor/bulma.scss?mod'
+import bulma from '@/styles/vendor/bulma'
 
 export interface InputProps {
   type: 'text' | 'password' | 'email' | 'tel'
@@ -11,11 +11,11 @@ export interface InputProps {
   dataTest?: string
 }
 
-export const { input, control } = bulma
+export const { input, control, isMedium, isRounded, isPrimary, isDanger } = bulma
 export const bulmaField = bulma.field
-export const inputBase = `${input} ${bulma['is-medium']} ${bulma['is-rounded']}`
-export const inputPrimary = `${inputBase} ${bulma['is-primary']}`
-export const inputError = `${inputBase} ${bulma['is-danger']}`
+export const inputBase = `${input} ${isMedium} ${isRounded}`
+export const inputPrimary = `${inputBase} ${isPrimary}`
+export const inputError = `${inputBase} ${isDanger}`
 
 const Input = ({ type, name, label, id, dataTest, placeholder = '' }: InputProps) => (
   <Field

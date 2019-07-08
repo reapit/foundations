@@ -2,12 +2,12 @@
 
 exports[`Tabs should match a snapshot 1`] = `
 <div
-  className="undefined undefined undefined undefined"
+  className="tabs isToggle isFullwidth isMedium"
   role="tablist"
 >
   <ul>
     <li
-      className="undefined"
+      className="isActive"
       key="CLIENT"
     >
       <a

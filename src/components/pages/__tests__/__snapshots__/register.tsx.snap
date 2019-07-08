@@ -3,7 +3,7 @@
 exports[`Register should match a snapshot 1`] = `
 <div>
   <div
-    className="undefined false"
+    className="undefined "
   >
     <Formik
       enableReinitialize={false}

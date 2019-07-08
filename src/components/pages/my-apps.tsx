@@ -5,6 +5,8 @@ import { MyAppsState } from '@/reducers/my-apps'
 import Loader from '@/components/ui/loader'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import AppCard from '../ui/app-card'
+import bulma from '@/styles/vendor/bulma'
+import bulmaUtils from '../../styles/vendor/bulma-utils'
 
 export interface MyAppsMappedActions {}
 
@@ -14,16 +16,19 @@ export interface MyAppsMappedProps {
 
 export type MyAppsProps = MyAppsMappedActions & MyAppsMappedProps
 
+const { container, columns, isMultiLine } = bulma
+const { isResponsiveColumn } = bulmaUtils
+
 export const MyApps: React.FunctionComponent<MyAppsProps> = ({ myAppsState }) => (
-  <div className="container pt-5">
+  <div className={container}>
     {myAppsState.loading ? (
       <Loader />
     ) : (
       <ErrorBoundary>
-        <div className="row">
+        <div className={`${columns} ${isMultiLine}`}>
           {myAppsState.myAppsData &&
-            myAppsState.myAppsData.data.map(child => (
-              <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={child.id}>
+            myAppsState.myAppsData.data.map((child, index) => (
+              <div className={`${isResponsiveColumn}`} key={child.id}>
                 <AppCard {...child} />
               </div>
             ))}

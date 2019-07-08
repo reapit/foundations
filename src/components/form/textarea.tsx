@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Field } from 'formik'
+import bulma from '@/styles/vendor/bulma'
 
 export interface InputProps {
   placeholder?: string
@@ -9,22 +10,26 @@ export interface InputProps {
   dataTest?: string
 }
 
+const { textarea, isPrimary, isDanger, isMedium, control } = bulma
+export const bulmaField = bulma.field
+
+export const textareaBase = `${textarea} ${isMedium}`
+export const textareaPrimary = `${textareaBase} ${isPrimary}`
+export const textareaError = `${textareaBase} ${isDanger}`
+
 const TextArea = ({ name, label, id, dataTest, placeholder = '' }: InputProps) => (
   <Field
     name={name}
     render={({ field, form: { touched, errors } }) => {
       const hasError = touched[field.name] && errors[field.name]
+      const className = hasError ? textareaError : textareaPrimary
       return (
-        <div className="form-group">
-          <label htmlFor={id}>{label}</label>
-          <textarea
-            data-test={dataTest || ''}
-            id={id}
-            placeholder={placeholder}
-            className={'form-control' + (hasError ? ' is-invalid' : '')}
-            {...field}
-          />
-          {hasError && <div className="invalid-feedback">{errors[field.name]}</div>}
+        <div className={bulmaField}>
+          <div className={control}>
+            <label htmlFor={id}>{label}</label>
+            <textarea data-test={dataTest || ''} id={id} placeholder={placeholder} className={className} {...field} />
+          </div>
+          {hasError && <div className="input-error">{errors[field.name]}</div>}
         </div>
       )
     }}

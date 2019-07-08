@@ -2,8 +2,9 @@ import * as React from 'react'
 import { Formik, Form } from 'formik'
 import Input from '../form/input'
 import TextArea from '../form/textarea'
-import styles from '@/styles/pages/submit-app-form.scss'
+import styles from '@/styles/pages/submit-app-form.scss?mod'
 import { validate } from '@/utils/form/submit-app'
+import Button from '../form/button'
 
 export interface SubmitAppFormValues {
   appName: string
@@ -28,17 +29,10 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = () => {
     <div className={styles.container}>
       {succeeded ? (
         <div data-test="submit-success-section">
-          <strong className="block mb-6" data-test="submit-success-message">
-            Submit success
-          </strong>
-          <button
-            type="button"
-            className="btn btn-primary btn-block"
-            data-test="submit-another-button"
-            onClick={() => setSucceeded(false)}
-          >
+          <strong data-test="submit-success-message">Submit success</strong>
+          <Button type="submit" variant="primary" dataTest="submit-another-button" onClick={() => setSucceeded(false)}>
             Submit another
-          </button>
+          </Button>
         </div>
       ) : (
         <div className={`${styles.wrapper} ${isSubmitting ? 'disabled' : ''}`}>
@@ -96,9 +90,9 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = () => {
                 <Input dataTest="submit-app-city" type="text" label="City" id="city" name="town" />
                 <Input dataTest="submit-app-country" type="text" label="Country" id="country" name="country" />
                 <Input dataTest="submit-app-postcode" type="text" label="Postcode" id="postcode" name="postcode" />
-                <button type="submit" className="btn btn-primary btn-block">
+                <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
                   Submit
-                </button>
+                </Button>
               </Form>
             )}
           />

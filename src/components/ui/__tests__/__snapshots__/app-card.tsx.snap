@@ -2,11 +2,14 @@
 
 exports[`AppCard should match a snapshot 1`] = `
 <div
-  className="undefined undefined"
+  className="card undefined"
+  data-test="app-card"
 >
-  <div>
+  <div
+    className="cardImage"
+  >
     <figure
-      className="undefined undefined"
+      className="image is4by3"
     >
       <img
         alt="My app"
@@ -14,11 +17,17 @@ exports[`AppCard should match a snapshot 1`] = `
       />
     </figure>
   </div>
-  <div>
-    <div>
-      <div>
+  <div
+    className="cardContent"
+  >
+    <div
+      className="media"
+    >
+      <div
+        className="mediaLeft"
+      >
         <figure
-          className="undefined undefined"
+          className="image is48x48"
         >
           <img
             alt="My app"
@@ -26,20 +35,24 @@ exports[`AppCard should match a snapshot 1`] = `
           />
         </figure>
       </div>
-      <div>
+      <div
+        className="mediaContent"
+      >
         <p
-          className="undefined undefined"
+          className="title is4"
         >
           My app
         </p>
         <p
-          className="undefined undefined"
+          className="subtitle is6"
         >
           John Doe
         </p>
       </div>
     </div>
-    <div>
+    <div
+      className="content"
+    >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </div>
   </div>

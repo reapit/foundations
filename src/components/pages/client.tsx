@@ -6,6 +6,8 @@ import { ClientState } from '@/reducers/client'
 import Loader from '@/components/ui/loader'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import AppCard from '../ui/app-card'
+import bulma from '@/styles/vendor/bulma'
+import bulmaUtils from '../../styles/vendor/bulma-utils'
 
 export interface ClientMappedProps {
   clientState: ClientState
@@ -20,16 +22,19 @@ export interface ClientMappedProps {
 }
 export type ClientProps = ClientMappedActions & ClientMappedProps
 
+const { container, columns, isMultiLine } = bulma
+const { isResponsiveColumn } = bulmaUtils
+
 export const Client: React.FunctionComponent<ClientProps> = ({ logout, clientState }) => (
-  <div className="container pt-5">
+  <div className={container}>
     {clientState.loading ? (
       <Loader />
     ) : (
       <ErrorBoundary>
-        <div className="row" data-test="client-card-container">
+        <div className={`${columns} ${isMultiLine}`} data-test="client-card-container">
           {clientState.clientData &&
             clientState.clientData.data.map(child => (
-              <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={child.id}>
+              <div className={`${isResponsiveColumn}`} key={child.id}>
                 <AppCard {...child} />
               </div>
             ))}
