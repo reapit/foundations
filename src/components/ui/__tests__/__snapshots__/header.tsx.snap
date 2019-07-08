@@ -2,58 +2,73 @@
 
 exports[`Header should match a snapshot 1`] = `
 <nav
-  className="undefined undefined"
+  className="navbar isPrimary"
 >
-  <div>
+  <div
+    className="navbarBrand"
+  >
     <a
-      className="undefined undefined"
+      className="navbarItem undefined"
       href="#"
     >
       <Logo
-        className="mr-2"
-        height="25px"
-        width="20px"
+        height="65px"
+        width="150px"
       />
       <span>
         Foundations
       </span>
     </a>
   </div>
-  <div>
+  <div
+    className="navbarStart"
+  >
     <Link
+      className="navbarItem"
       key="/client"
       to="/client"
     >
       Browse Apps
     </Link>
     <Link
+      className="navbarItem"
       key="/client/my-apps"
       to="/client/my-apps"
     >
       Installed Apps
     </Link>
   </div>
-  <div>
+  <div
+    className="navbarEnd"
+  >
     <div
-      className="undefined undefined "
+      className="navbarItem hasDropdown "
     >
       <a
+        className="navbarLink"
         data-test="account-menu"
         onClick={[Function]}
       >
         Account
       </a>
       <div
-        className="undefined undefined"
+        className="navbarDropdown isRight"
       >
-        <a>
-          Option
-        </a>
-        <a>
-          Option
-        </a>
-        <hr />
         <a
+          className="navbarItem"
+        >
+          Option
+        </a>
+        <a
+          className="navbarItem"
+        >
+          Option
+        </a>
+        <hr
+          className="navbarDivider"
+        />
+        <a
+          className="navbarItem"
           data-test="logout-cta"
           onClick={[Function]}
         >

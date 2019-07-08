@@ -1,8 +1,10 @@
 import * as React from 'react'
-import styles from '@/styles/blocks/loader.scss'
+import loaderStyles from '@/styles/blocks/loader.scss?mod'
+
+const { loader } = loaderStyles
 
 const Loader: React.FunctionComponent<{ body?: boolean }> = ({ body = true }) => (
-  <div className={`${styles.loader} ${body && styles.body}`}>
+  <div className={`${loader} ${body ? loaderStyles.body : ''}`}>
     <div />
     <div />
     <div />

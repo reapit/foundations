@@ -2,14 +2,14 @@
 
 exports[`DeveloperHome should match a snapshot 1`] = `
 <div
-  className="container pt-5"
+  className="container"
 >
   <Connect(ErrorBoundary)>
     <div
-      className="row"
+      className="columns isMultiLine"
     >
       <div
-        className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+        className="column isMultiLine isHalfTablet isThirdDesktop isQuarterWidescreen isQuarterFullhd"
         key="1"
       >
         <AppCard

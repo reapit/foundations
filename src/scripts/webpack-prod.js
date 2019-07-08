@@ -75,8 +75,10 @@ module.exports = {
                 loader: 'css-loader',
                 options: {
                   importLoaders: 1,
-                  modules: true,
-                  localsConvention: 'camelCase',
+                  modules: {
+                    localIdentName: '[hash:base64:5]'
+                  },
+                  localsConvention: 'camelCase'
                 }
               },
               {
@@ -99,7 +101,7 @@ module.exports = {
               {
                 loader: 'css-loader',
                 options: {
-                  importLoaders: 1,
+                  importLoaders: 1
                 }
               },
               {

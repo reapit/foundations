@@ -11,9 +11,9 @@ import Tabs, { TabConfig } from '../ui/tabs'
 import { LoginType } from '../../reducers/auth'
 import { Dispatch } from 'redux'
 import Routes from '../../constants/routes'
-import loginStyles from '@/styles/pages/login.scss'
+import loginStyles from '@/styles/pages/login.scss?mod'
 import Button from '../form/button'
-import bulma from '@/styles/vendor/bulma.scss?mod'
+import bulma from '@/styles/vendor/bulma'
 
 export interface LoginMappedActions {
   login: () => void
@@ -52,6 +52,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { isLogin, error, login } = props
   const { disabled, wrapper, container } = loginStyles
+  const { level, levelLeft, levelRight } = bulma
 
   React.useEffect(() => {
     if (error) {
@@ -78,21 +79,19 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
             <Form data-test="login-form">
               <Input dataTest="login-email" type="text" label="Email" id="email" name="email" />
               <Input dataTest="login-password" type="password" label="Password" id="password" name="password" />
-              <div className={bulma.level}>
-                <div className={bulma['level-left']}>
+              <div className={level}>
+                <div className={levelLeft}>
                   <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
                     Login
                   </Button>
                 </div>
                 {props.loginType === 'DEVELOPER' && (
-                  <div className={bulma['level-right']}>
+                  <div className={levelRight}>
                     <Link to={Routes.REGISTER}>Create new account</Link>
                   </div>
                 )}
               </div>
-              {error && (
-                <Alert message="Login failed, user credentials not recognised" type="danger" className="mt-4 mb-1" />
-              )}
+              {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
             </Form>
           )}
         />

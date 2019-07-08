@@ -4,11 +4,11 @@ import { ReduxState } from '@/types/core'
 import Alert from '@/components/ui/alert'
 import { Formik, Form } from 'formik'
 import Input from '@/components/form/input'
-import styles from '@/styles/pages/login.scss'
+import loginStyles from '@/styles/pages/login.scss?mod'
 import { registerValidate } from '@/utils/form/register'
 import { Link } from 'react-router-dom'
 import Routes from '../../constants/routes'
-import bulma from '@/styles/vendor/bulma.scss?mod'
+import bulma from '@/styles/vendor/bulma'
 import Button from '../form/button'
 
 export interface RegisterMappedActions {}
@@ -27,12 +27,15 @@ export type RegisterProps = RegisterMappedActions & RegisterMappedProps
 
 type FormState = 'done' | 'submitting' | 'error' | 'success'
 
+const { level, levelLeft, levelRight } = bulma
+const { container, wrapper, disabled } = loginStyles
+
 export const Register: React.FunctionComponent<RegisterProps> = ({}) => {
   const [formState, setFormState] = React.useState<FormState>('done')
-  const disabled = formState === 'submitting'
+  const isDisabled = formState === 'submitting'
   return (
-    <div className={styles.container}>
-      <div className={`${styles.wrapper} ${disabled && styles.disabled}`}>
+    <div className={container}>
+      <div className={`${wrapper} ${isDisabled ? disabled : ''}`}>
         {formState === 'success' ? (
           <Alert
             dataTest="register-success-message"
@@ -67,23 +70,18 @@ export const Register: React.FunctionComponent<RegisterProps> = ({}) => {
                     id="confirmPassword"
                     name="confirmPassword"
                   />
-                  <div className={bulma.level}>
-                    <div className={bulma['level-left']}>
-                      <Button type="submit" loading variant="primary" disabled={disabled}>
+                  <div className={level}>
+                    <div className={levelLeft}>
+                      <Button type="submit" loading={isDisabled} variant="primary" disabled={isDisabled}>
                         Register
                       </Button>
                     </div>
-                    <div className={bulma['level-right']}>
+                    <div className={levelRight}>
                       <Link to={Routes.LOGIN}>Login</Link>
                     </div>
                   </div>
                   {formState === 'error' && (
-                    <Alert
-                      message="Failed to register"
-                      type="danger"
-                      className="mt-4 mb-1"
-                      dataTest="register-error-message"
-                    />
+                    <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
                   )}
                 </Form>
               )}

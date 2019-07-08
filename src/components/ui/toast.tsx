@@ -4,7 +4,8 @@ import { ErrorData } from '../../reducers/error'
 import { errorClearedServer, errorClearedComponent } from '../../actions/error'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import styles from '@/styles/blocks/toast.scss'
+import toastStyles from '@/styles/blocks/toast.scss?mod'
+import Button from '../form/button'
 
 /**
  * TODO: Expand component to accept types info and success actions
@@ -23,6 +24,7 @@ interface ToastMappedProps {
 }
 
 export type ToastProps = ToastMappedActions & ToastMappedProps
+const { toast, visible } = toastStyles
 
 export const Toast: React.FC<ToastProps> = ({
   serverError,
@@ -39,12 +41,10 @@ export const Toast: React.FC<ToastProps> = ({
   }
 
   return (
-    <div
-      data-test="toast-wrapper"
-      className={`${styles.toast} ${isVisible && styles.visible}`}
-      onClick={errorClearHandler}
-    >
-      <button className="btn btn-danger btn-lg btn-block">{error && error.message}</button>
+    <div data-test="toast-wrapper" className={`${toast} ${isVisible ? visible : ''}`} onClick={errorClearHandler}>
+      <Button type="reset" variant="danger" isFullWidth>
+        {error && error.message}
+      </Button>
     </div>
   )
 }

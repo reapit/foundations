@@ -5,10 +5,10 @@
   padding: 0 $layout-base;
   position: fixed;
   z-index: 1;
-  bottom: -2rem;
+  bottom: -3rem;
   transition: bottom 0.2s ease-in-out;
 
   &.visible {
-    margin: $layout-base;
+    bottom: 1rem;
   }
 }

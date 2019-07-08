@@ -63,8 +63,10 @@ module.exports = {
               {
                 loader: 'css-loader',
                 options: {
-                  modules: true,
-                  localsConvention: 'camelCase',
+                  modules: {
+                    localIdentName: '[name]-[local]-[hash:base64:5]'
+                  },
+                  localsConvention: 'camelCase'
                 }
               },
               {
@@ -82,7 +84,7 @@ module.exports = {
                 loader: 'style-loader'
               },
               {
-                loader: 'css-loader',
+                loader: 'css-loader'
               },
               {
                 loader: 'sass-loader',
@@ -94,7 +96,7 @@ module.exports = {
             ]
           }
         ]
-      },
+      }
     ]
   },
   resolve: {
