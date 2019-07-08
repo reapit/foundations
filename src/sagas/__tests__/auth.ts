@@ -1,13 +1,13 @@
 import authSagas, { doLogin, doLogout, loginListen, logoutListen } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { put, all, fork, takeLatest } from '@redux-saga/core/effects'
-import { authLoginSuccess, authLogoutSuccess } from '../../actions/auth'
+import { put, all, take, takeLatest, call } from '@redux-saga/core/effects'
+import { authLoginSuccess, authLogoutSuccess, AuthLoginParams } from '../../actions/auth'
+import { Action } from '@/types/core'
 
 describe('auth thunks', () => {
   describe('authLogin', () => {
     it('should redirect to an auth page', () => {
-      const gen = doLogin()
-
+      const gen = doLogin({ data: { loginType: 'CLIENT' } } as Action<AuthLoginParams>)
       expect(gen.next().value).toEqual(put(authLoginSuccess()))
       expect(gen.next().done).toBe(true)
     })
@@ -26,7 +26,8 @@ describe('auth thunks', () => {
     it('should trigger login action', () => {
       const gen = loginListen()
 
-      expect(gen.next().value).toEqual(takeLatest(ActionTypes.AUTH_LOGIN, doLogin))
+      expect(gen.next().value).toEqual(take(ActionTypes.AUTH_LOGIN))
+      expect(gen.next({}).value).toEqual(call(doLogin, {} as Action<AuthLoginParams>))
       expect(gen.next().done).toBe(true)
     })
   })

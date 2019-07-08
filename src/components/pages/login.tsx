@@ -5,7 +5,7 @@ import { ReduxState } from '../../types/core'
 import Alert from '../ui/alert'
 import { Formik, Form } from 'formik'
 import Input from '../form/input'
-import { authLogin, authChangeLoginType } from '../../actions/auth'
+import { authLogin, authChangeLoginType, AuthLoginParams } from '../../actions/auth'
 import { validate } from '../../utils/form/login'
 import Tabs, { TabConfig } from '../ui/tabs'
 import { LoginType } from '../../reducers/auth'
@@ -16,7 +16,7 @@ import Button from '../form/button'
 import bulma from '@/styles/vendor/bulma'
 
 export interface LoginMappedActions {
-  login: () => void
+  login: (params: AuthLoginParams) => void
   authChangeLoginType: (loginType: string) => void
 }
 
@@ -71,9 +71,8 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
           validate={validate}
           initialValues={{ email: '', password: '' } as LoginFormValues}
           onSubmit={values => {
-            console.log(values)
             setIsSubmitting(true)
-            login()
+            login({ ...values, loginType: props.loginType })
           }}
           render={() => (
             <Form data-test="login-form">
@@ -107,7 +106,7 @@ const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
-  login: () => dispatch(authLogin()),
+  login: (params: AuthLoginParams) => dispatch(authLogin(params)),
   authChangeLoginType: (loginType: string) => dispatch(authChangeLoginType(loginType as LoginType))
 })
 
