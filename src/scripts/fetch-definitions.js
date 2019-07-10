@@ -10,10 +10,17 @@ const BASE_URL = 'https://reapit.cloud.tyk.io'
 
 const apiSchema = [
   {
-    definitionFile: `${__dirname}/../types/tyke-api-schema.ts`,
+    definitionFile: `${__dirname}/../types/platform-api-schema.ts`,
     endpoint: `${BASE_URL}/api/swagger/v1/swagger.json`,
     headers: {
-      Authorisation: process.env.REAPIT_API_KEY
+      Authorisation: process.env.PLATFORM_API_KEY
+    }
+  },
+  {
+    definitionFile: `${__dirname}/../types/marketplace-api-schema.ts`,
+    endpoint: `${BASE_URL}/api/marketplace/swagger/v1/swagger.json`,
+    headers: {
+      Authorisation: process.env.MARKETPLACE_API_KEY
     }
   }
 ]

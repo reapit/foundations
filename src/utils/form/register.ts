@@ -1,23 +1,17 @@
 import { isEmail } from '../validate'
 import { RegisterFormValues } from '@/components/pages/register'
 
-export interface RegisterFormError {
-  email?: string
-  firstName?: string
-  lastName?: string
-  password?: string
-  confirmPassword?: string
-}
+export type RegisterFormError = Partial<RegisterFormValues>
 
 export function registerValidate(values: RegisterFormValues) {
   let errors = {} as RegisterFormError
 
-  if (!values.firstName) {
-    errors.firstName = 'Required'
+  if (!values.name) {
+    errors.name = 'Required'
   }
 
-  if (!values.lastName) {
-    errors.lastName = 'Required'
+  if (!values.companyName) {
+    errors.companyName = 'Required'
   }
 
   if (!values.email) {
@@ -26,15 +20,19 @@ export function registerValidate(values: RegisterFormValues) {
     errors.email = 'Invalid email address'
   }
 
-  if (!values.password) {
-    errors.password = 'Required'
-  } else {
-    if (!values.confirmPassword) {
-      errors.confirmPassword = 'Required'
-    } else if (values.password !== values.confirmPassword) {
-      errors.confirmPassword = 'Password does not match'
-    }
+  if (!values.telephone) {
+    errors.telephone = 'Required'
   }
+
+  // if (!values.password) {
+  //   errors.password = 'Required'
+  // } else {
+  //   if (!values.confirmPassword) {
+  //     errors.confirmPassword = 'Required'
+  //   } else if (values.password !== values.confirmPassword) {
+  //     errors.confirmPassword = 'Password does not match'
+  //   }
+  // }
 
   return errors
 }

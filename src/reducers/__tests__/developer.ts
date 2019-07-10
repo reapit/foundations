@@ -38,4 +38,16 @@ describe('developer reducer', () => {
     }
     expect(newState).toEqual(expected)
   })
+
+  it('should set formState when DEVELOPER_SET_FORM_STATE is called', () => {
+    const newState = developerReducer(undefined, {
+      type: ActionTypes.DEVELOPER_SET_FORM_STATE as ActionType,
+      data: 'SUCCESS'
+    })
+    const expected = {
+      ...defaultState,
+      formState: 'SUCCESS'
+    }
+    expect(newState).toEqual(expected)
+  })
 })

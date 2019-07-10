@@ -16,14 +16,21 @@ export interface ActionCreator<T> {
   (data: T): Action<T>
 }
 
+export interface StringMap {
+  [key: string]: string
+}
+
 export type RouteValue = keyof typeof Routes
 
 export type ActionType = keyof typeof ActionTypes
+
+export type FormState = 'PENDING' | 'DONE' | 'SUBMITTING' | 'ERROR' | 'SUCCESS'
 
 export interface FetcherParams<T> {
   method: 'GET' | 'POST' | 'PUT' | 'DELETE'
   url: string
   body?: T
+  headers: StringMap
 }
 
 export interface ReduxState {

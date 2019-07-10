@@ -1,5 +1,5 @@
 import fetcher from '../fetcher'
-import { BASE_URL } from '../../constants/api'
+import { REAPIT_API_BASE_URL, MARKETPLACE_HEADERS } from '../../constants/api'
 
 const stub = {
   name: 'bob'
@@ -12,7 +12,7 @@ describe('fetcher', () => {
       json: () => stub
     })
 
-    const response = await fetcher({ url: 'some-url', method: 'GET' })
+    const response = await fetcher({ url: 'some-url', method: 'GET', headers: MARKETPLACE_HEADERS })
 
     expect(response).toEqual(stub)
   })
@@ -24,12 +24,12 @@ describe('fetcher', () => {
     })
 
     const url = '/some-url'
-    const response = await fetcher({ url, method: 'GET' })
+    const response = await fetcher({ url, method: 'GET', headers: MARKETPLACE_HEADERS })
 
     expect(response).toBeUndefined()
     expect(console.error).toHaveBeenCalledWith(
       'API ERROR: ',
-      JSON.stringify(`ERROR FETCHING GET ${BASE_URL}${url} {"status":400}`)
+      JSON.stringify(`ERROR FETCHING GET ${REAPIT_API_BASE_URL}${url} {"status":400}`)
     )
   })
 })

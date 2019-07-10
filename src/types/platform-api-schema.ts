@@ -14,11 +14,32 @@ export interface AddStoreModel {
    * Date/Time record was last amended
    */
   amend?: string // date-time
+  /**
+   * The code of the associated entity whose type is defined in TypeFrom
+   */
   codeFrom?: string
+  /**
+   * The code of the associated entity whose type is defined in TypeTo
+   */
   codeTo?: string
+  /**
+   * Type of record this entity links from
+   */
   typeFrom?: string
+  /**
+   * Type of record this entity links to
+   */
   typeTo?: string
-  vars?: string
+  /**
+   * Additional information about this entity
+   */
+  vars?: {
+    [name: string]: {}
+  }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Appliance representation
@@ -66,6 +87,10 @@ export interface ApplianceModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * ApplianceType representation
@@ -105,6 +130,10 @@ export interface ApplianceTypeModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Applicant representation
@@ -267,10 +296,6 @@ export interface ApplicantModel {
    */
   shared?: string
   /**
-   * The code of the country in which this applicant resides
-   */
-  country?: string
-  /**
    * Date on which applicant was last contacted
    */
   lastCall?: string // date-time
@@ -298,6 +323,9 @@ export interface ApplicantModel {
    * Decoration value
    */
   decoration?: number // int32
+  /**
+   * Applicant buying/selling position and buying reason codes
+   */
   position?: string
   /**
    * True if applicant is prepared to pay agent's fee to find property Matches against properties marked as 'clients only'
@@ -396,6 +424,10 @@ export interface AppointmentModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Area representation
@@ -456,6 +488,10 @@ export interface AreaModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * AuctionLotFee representation
@@ -503,6 +539,10 @@ export interface AuctionLotFeeModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * AuctionLot representation
@@ -525,7 +565,8 @@ export interface AuctionLotModel {
    */
   dateTime?: string // date-time
   /**
-   * The code of the auction this lot is linked to
+   * The code of the auction this lot is linked to in a multi-lot auction
+   * This field will not be populated for single lot auctions for a single property
    */
   auctCode?: string
   /**
@@ -570,6 +611,10 @@ export interface AuctionLotModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Auction representation
@@ -605,6 +650,10 @@ export interface AuctionModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * BankAccount representation
@@ -692,6 +741,10 @@ export interface BankAccountModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Certification representation
@@ -743,6 +796,10 @@ export interface CertificationModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * ClientAccount representation
@@ -760,15 +817,34 @@ export interface ClientAccountModel {
    * Date/Time record was last amended
    */
   amend?: string // date-time
+  /**
+   * Date that this account was last reconciled
+   */
   statTo?: string // date-time
+  /**
+   * Client Account name
+   */
   name?: string
+  /**
+   * Reference code of associated bank account details
+   */
   bank?: string
+  /**
+   * Reference code of sweep account providing interest for deposits in client account
+   */
   sweepAc?: string
+  /**
+   * Reference code of associated bank company
+   */
   cmpCode?: string
   /**
-   * The type of client account: P - Primary | W - Sweep | D - Deposit | T - Trust Account - Marketing | S - Trust Account - Sales [Blank] - Secondary
+   * The type of client account
+   * P - Primary | W - Sweep | D - Deposit | T - Trust Account - Marketing | S - Trust Account - Sales | [Blank] - Secondary
    */
   type?: string
+  /**
+   * Balance of client account used in three way reconciliation
+   */
   balance?: number // double
   /**
    * Additional information about this entity
@@ -776,6 +852,10 @@ export interface ClientAccountModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * ConfigurationSetting representation
@@ -896,6 +976,10 @@ export interface ContactModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * ContactRelationship representation
@@ -940,6 +1024,10 @@ export interface ContactRelationshipModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * DefaultFee representation
@@ -983,6 +1071,10 @@ export interface DefaultFeeModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Department representation
@@ -1098,6 +1190,10 @@ export interface DepartmentModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Document representation
@@ -1172,6 +1268,10 @@ export interface ExtraModel {
   vars?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Contact IdCheck representation
@@ -1234,6 +1334,129 @@ export interface IdCheckModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+}
+/**
+ * InternetRegistration representation
+ */
+export interface InternetRegistrationModel {
+  /**
+   * Date/Time record was created
+   */
+  register?: string // date-time
+  /**
+   * Date/Time record was last amended
+   */
+  amend?: string // date-time
+  /**
+   * Unique identifier code
+   */
+  ref?: number // int32
+  /**
+   * House number
+   */
+  hseNo?: string
+  /**
+   * House name or flat number
+   */
+  hseName?: string
+  /**
+   * Street or village name
+   */
+  address1?: string
+  /**
+   * Address line 2
+   */
+  address2?: string
+  /**
+   * Address line 3
+   */
+  address3?: string
+  /**
+   * Address line 4
+   */
+  address4?: string
+  /**
+   * Postcode
+   */
+  postCode?: string
+  /**
+   * ISO 2 letter country code
+   */
+  country?: string
+  /**
+   * The source of this Internet Registration
+   */
+  source?: string
+  /**
+   * Office code related to this entity
+   */
+  offCode?: string
+  /**
+   * A comma separated list of codes of properties this Internet Registration relates to
+   */
+  prpCodes?: string
+  /**
+   * The title of the person making the enquiry
+   */
+  title?: string
+  /**
+   * The initials or first name of the person making the enquiry
+   */
+  initials?: string
+  /**
+   * The surname of the person making the enquiry
+   */
+  surname?: string
+  /**
+   * The contact details of the person making the enquiry
+   */
+  phone?: string
+  /**
+   * Any additional notes that have been provided by the person making the enquiry
+   */
+  notes?: string
+  /**
+   * The position/type relating to this Internet Registration
+   * Blank - Buyer/Tenant enquiry | V - Valuation enquiry | OM - Has property to sell that is on the market already
+   * OF - Has property to sell that is not yet on the market
+   */
+  position?: string
+  /**
+   * The state of the Internet Registration after a negotiator has processed it
+   * Blank - Not yet processed | A - Added | R - Rejected | D - Already in RPS | M/N - Duplicate | S - Spam
+   */
+  action?: string
+  /**
+   * The marketing type of this enquiry
+   * Blank - Unknown | S - Sales | L - Lettings
+   */
+  type?: string
+  /**
+   * The lower bound of the price range the person making the enquiry is willing to pay for a sales/lettings property
+   */
+  minPrice?: number // int32
+  /**
+   * The upper bound of the price range the person making the enquiry is willing to pay for a sales/lettings property
+   */
+  maxPrice?: number // int32
+  /**
+   * The number of bedrooms the person making the enquiry is looking for in their property
+   */
+  ag5?: number // int32
+  /**
+   * Additional information about this entity
+   */
+  extra?: {
+    [name: string]: {}
+  }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * InvoiceDetail representation
@@ -1408,6 +1631,10 @@ export interface InvoiceHeaderModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * JournalEntry representation
@@ -1470,7 +1697,6 @@ export interface LandlordModel {
    * Deduct tax from landlord payments: Y - Yes | N - No
    */
   deductTax?: string
-  country?: string
   /**
    * True if landlord is inactive
    */
@@ -1489,6 +1715,10 @@ export interface LandlordModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Represents a HyperMedia Link in
@@ -1506,6 +1736,25 @@ export interface LinkModel {
    * The HTTP verb to be issued
    */
   action?: string
+}
+/**
+ * A class to provide a lookup along with a name and description
+ */
+export interface LookupListModel {
+  /**
+   * Name of the lookup list
+   */
+  name?: string
+  /**
+   * Description of the lookup
+   */
+  description?: string
+  /**
+   * Lookups converted to a dictionary format
+   */
+  lookups?: {
+    [name: string]: string
+  }
 }
 /**
  * Lookup representation
@@ -1539,6 +1788,10 @@ export interface LookupModel {
    * The code of the associated entity whose type is defined in TypeFrom
    */
   codeFrom?: string
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Message representation
@@ -1610,6 +1863,10 @@ export interface MessageModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Negotiator representation
@@ -1647,6 +1904,10 @@ export interface NegotiatorModel {
    * Negotiator contact details
    */
   phone?: string
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * NominalAccount representation
@@ -1664,7 +1925,13 @@ export interface NominalAccountModel {
    * Date/Time record was last amended
    */
   amend?: string // date-time
+  /**
+   * Name of nominal account
+   */
   name?: string
+  /**
+   * True if nominal account can be linked to works orders
+   */
   workOrd?: boolean
   /**
    * Additional information about this entity
@@ -1672,6 +1939,10 @@ export interface NominalAccountModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * NominalAllocation representation
@@ -1689,9 +1960,21 @@ export interface NominalAllocationModel {
    * Date/Time record was last amended
    */
   amend?: string // date-time
+  /**
+   * Code of first nominal transaction being allocated
+   */
   tranFr?: string
+  /**
+   * Code of second nominal transaction being allocated
+   */
   tranTo?: string
+  /**
+   * Reference code of the user creating the allocation
+   */
   negCode?: string
+  /**
+   * Net amount of money being allocated
+   */
   netAmt?: number // double
   /**
    * Additional information about this entity
@@ -1699,6 +1982,10 @@ export interface NominalAllocationModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * NominalTransaction representation
@@ -1716,8 +2003,17 @@ export interface NominalTransactionModel {
    * Date/Time record was last amended
    */
   amend?: string // date-time
+  /**
+   * Date transaction raised
+   */
   date?: string // date-time
+  /**
+   * Statement date used where transaction represents a movement of funds
+   */
   statdate?: string // date-time
+  /**
+   * Transaction code denoting source of funds where transaction represents a transfer from another ledger (eg rent from tenant to landlord)
+   */
   transfer?: string
   /**
    * Deposit - DEP | Invoice - INV | Payment - PAY | Credit Note Correction - CRN | Credit Note Repayment - CRP | Credit Note Refund - CRR | Credit Note Write off - CRW | Credit Note Good will payment - CRG | Debit Adjustment - ADR | Credit Adjustment - ACR | Journal - JNL | Transfer - TRN | Opening Balance DR - ODR | Opening Balance CR - OCR | Float - FLT | Reserve Funds - RES
@@ -1731,18 +2027,45 @@ export interface NominalTransactionModel {
    * Advertising Charge - AD | Account Transfer - AT | Bank Charges - BC | Buyer Admin Fee - BA | Buyer Deposit - BD | Buyer Payment - BP | Deposit - DP | Deposit Deduction - DD | Deposit Refund - DR | Deposit Transfer - DT | Deposit Transfer to Agent - DA | Deposit Transfer to Landlord - DL | Deposit Transfer to Scheme - DS | Estate Payment - EP | Estate Service Charge - EC | Estate Works Order - WE | External Credit - ER | External Agent Fee - EF | Float - FL | Good will payment - GW | Introducing Tenant Fee - IF | Landlord Admin Fee - LA | Landlord Tax - LT | Landlord Payment - LP | Landlord to Supplier Payment - LS | Landlord Works Order - WL | Letting Fee - LF | Management Fee - MF | Payment Surcharge - SC | Receipt - RC | Rent - RE | Rent Guarantee - RG | Recovery Payment - RP | Tenant Admin Fee - TF | Tenant Payment - TP | Tenant to Landlord Payment - TL | Tenant to Supplier Payment - TS | Trust Accounting Invoice - TV | Tenant Works Order - WT | Vacant Management Fee - VF | Vendor Admin Fee - VA | Vendor Commission - VC | Vendor Payment - VP | Works Order Payment - WP
    */
   category?: string
+  /**
+   * Transaction narrative
+   */
   descr?: string
+  /**
+   * Reference code of associated company (typically a supplier)
+   */
   cmpCode?: string
+  /**
+   * Reference code of associated landlord
+   */
   lldCode?: string
+  /**
+   * Reference code of associated tenancy
+   */
   tenCode?: string
+  /**
+   * Reference code of associated property
+   */
   prpCode?: string
+  /**
+   * Reference code of the user raising this transaction
+   */
   negCode?: string
+  /**
+   * Double-entry debit nominal account code
+   */
   drNom?: string
+  /**
+   * Double-entry credit nominal account code
+   */
   crNom?: string
   /**
    * VAT code associated with this record
    */
   vatCode?: string
+  /**
+   * Invoice/internal reference - usage includes holding external supplier invoice numbers; transaction codes linking floats to landlord payment records; fee or rent invoice numbers
+   */
   intRef?: string
   /**
    * Bankers Draft - BD | Bank Transfer - TF | Cash - CA | Cheque - CH | Credit Card - CC | Debit Card - DC | Direct Debit - DD | Housing Benefit - HB | Standing Order - SO
@@ -1752,12 +2075,22 @@ export interface NominalTransactionModel {
    * Awaiting Authorisation - A | Authorised - Awaiting posting - W | Posted - P | Rejected - R
    */
   authStat?: string
+  /**
+   * Nominal transaction code showing source of funds - used for clearance checking
+   */
   payTran?: string
   /**
    * Unallocated amount
    */
   unalloc?: number // double
+  /**
+   * Receipt is marked as cleared once reconciled wtih a bank statement
+   */
   cleared?: boolean
+  /**
+   * Landlord transactions are marked with statement number once statement is prepared;
+   * -1 indicates transaction should not be shown on statement
+   */
   lldStat?: number // int32
   /**
    * Net cost
@@ -1767,6 +2100,9 @@ export interface NominalTransactionModel {
    * VAT amount
    */
   vatAmt?: number // double
+  /**
+   * Reference code of associated estate - used for block management accounting functionality
+   */
   estCode?: string
   /**
    * Code of client account to which this transaction relates
@@ -1778,6 +2114,10 @@ export interface NominalTransactionModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Offer representation
@@ -1861,6 +2201,10 @@ export interface OfferModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Office representation
@@ -1926,6 +2270,10 @@ export interface OfficeModel {
    * Office contact details
    */
   phone?: string
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Paid representation
@@ -1943,10 +2291,26 @@ export interface PaidModel {
    * Date/Time record was last amended
    */
   amend?: string // date-time
+  /**
+   * Payment method
+   * B - BACS | C - Cheque | M - Manual
+   */
   type?: string
+  /**
+   * Reference of associated batch when all payments are made at the same time
+   */
   batch?: string
+  /**
+   * Total amount paid
+   */
   amount?: number // double
+  /**
+   * Number of items included in the payment
+   */
   items?: number // int32
+  /**
+   * Cheque number
+   */
   chequeNo?: number // int32
   /**
    * Additional information about this entity
@@ -1954,6 +2318,10 @@ export interface PaidModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Payment representation
@@ -2024,16 +2392,23 @@ export interface PaymentModel {
    */
   cleared?: boolean
   /**
-   *
+   * If set on the Agent VAT Report, payment will be excluded from future reports
    */
   agtVat?: boolean
-  clnacfr?: string
+  /**
+   * Reference code of the client account that this payment was made from
+   */
+  clnAcFr?: string
   /**
    * Additional information about this entity
    */
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * PermissionGroup representation
@@ -2057,49 +2432,15 @@ export interface PermissionGroupModel {
   name?: string
   type?: string
   /**
+   * The security settings applied by this group
+   */
+  settings?: SecuritySettingModel[]
+  /**
    * Additional information about this entity
    */
   extra?: {
     [name: string]: {}
   }
-}
-/**
- * PermissionSet representation
- */
-export interface PermissionSetModel {
-  /**
-   * Unique identifier code
-   */
-  code?: string
-  /**
-   * Date/Time record was created
-   */
-  register?: string // date-time
-  /**
-   * Date/Time record was last amended
-   */
-  amend?: string // date-time
-  /**
-   * The code of the PermissionGroup that this PermissionSet is associated with
-   */
-  groupCode?: string
-  /**
-   * The office ownership scope that the permission set applies to
-   */
-  offScope?: string
-  /**
-   * The negotiator ownership scope that the permission set applies to
-   */
-  negScope?: string
-  /**
-   * When true, all conditions specified by OffScope and NegScope must be satisifed
-   * When false, a minimum of one condition needs to be satisfied
-   */
-  orMode?: boolean
-  /**
-   * The settings applied by this PermissionSet
-   */
-  settings?: string
 }
 /**
  * Property representation
@@ -2436,6 +2777,10 @@ export interface PropertyModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * PropertyPicture representation
@@ -2542,6 +2887,10 @@ export interface ReferralModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * ReportDefinition representation
@@ -2591,6 +2940,10 @@ export interface ReportDefinitionModel {
    * The type of entity this report definition should run against
    */
   type?: string
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Room representation
@@ -2612,6 +2965,23 @@ export interface RoomModel {
    * The room image
    */
   image?: string
+}
+/**
+ * Representation of a single security setting
+ */
+export interface SecuritySettingModel {
+  /**
+   * The name of this security setting
+   */
+  settingName?: string
+  /**
+   * The value of this security setting, either allow or deny
+   */
+  type?: string
+  /**
+   * The office ids that this security grant applies to. If a particular setting denies access wholesale, this collection will be empty
+   */
+  officeIds?: string[]
 }
 /**
  * Source representation
@@ -2651,6 +3021,10 @@ export interface SourceModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * StatementItem representation
@@ -2668,22 +3042,77 @@ export interface StatementItemModel {
    * Date/Time record was last amended
    */
   amend?: string // date-time
+  /**
+   * Client account statement item paid from/to
+   */
   clientAc?: string
+  /**
+   * Statement item type (as taken from original bank statement)
+   */
   statType?: string
+  /**
+   * Type of receipt
+   * BD - | Bankers Draft, CA - Cash | CH - Cheque | CC - Credit Card | DC - Debit Card | DD -  Direct Debit
+   * HB - Housing Benefit | SO - Standing Order | TF - Bank Transfer
+   */
   recType?: string
+  /**
+   * Reference code of associated tenancy
+   */
   tenCode?: string
+  /**
+   * Reference code of associated landlord
+   */
   lldCode?: string
+  /**
+   * Nominal transaction record linked to statement item (or paid record for payments out)
+   */
   nomTran?: string
+  /**
+   * Reference code of the parent statement item where statement items have been split into multiple reciepts (or grouped)
+   */
   parent?: string
+  /**
+   * Statement narrative
+   */
   descr?: string
+  /**
+   * Code inicating how receipt was allocated
+   * T - Tenant | L - Landlord | S - Supplier
+   * A - Automatic | M - Manual
+   */
   allocated?: string
+  /**
+   * Amount of statement item
+   */
   amount?: number // double
+  /**
+   * True when receipt is required
+   */
   receipt?: boolean
+  /**
+   * True when receipt has been posted
+   */
   recptPost?: boolean
+  /**
+   * True when reconciliation item selected
+   */
   recon?: boolean
+  /**
+   * True when reconciliation item posted
+   */
   reconPost?: boolean
+  /**
+   * Date of statement
+   */
   statDate?: string // date-time
+  /**
+   * Reference code of associated property
+   */
   prpCode?: string
+  /**
+   * Reference code of associated company (typically a supplier)
+   */
   cmpCode?: string
   /**
    * Additional information about this entity
@@ -2691,6 +3120,10 @@ export interface StatementItemModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Subscription representation
@@ -2726,6 +3159,10 @@ export interface SubscriptionModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * TaskPlanItem representation
@@ -2784,6 +3221,10 @@ export interface TaskPlanItemModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * TaskPlan representation
@@ -2829,6 +3270,10 @@ export interface TaskPlanModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * TenancyCheck representation
@@ -2880,6 +3325,10 @@ export interface TenancyCheckModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * TenancyExtension representation
@@ -2979,6 +3428,10 @@ export interface TenancyExtensionModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Tenancy representation
@@ -3142,6 +3595,53 @@ export interface TenancyModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+}
+/**
+ * Translation representation - only available when system translations are enabled
+ */
+export interface TranslationModel {
+  /**
+   * Unique identifier code
+   */
+  code?: string
+  /**
+   * Date/Time record was created
+   */
+  register?: string // date-time
+  /**
+   * Date/Time record was last amended
+   */
+  amend?: string // date-time
+  /**
+   * The original, untranslated text
+   */
+  orig?: string
+  /**
+   * The translated text
+   */
+  trans?: string
+  /**
+   * Comma separated list of the codes of the office(s) that this translation should be applied to
+   */
+  offCodes?: string
+  /**
+   * Comma separated list of the codes of the negotiator(s) that this translation should be applied to
+   */
+  negCodes?: string
+  /**
+   * Additional information about this entity
+   */
+  extra?: {
+    [name: string]: {}
+  }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * WorksOrderDetail representation
@@ -3210,6 +3710,10 @@ export interface WorksOrderDetailModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * WorksOrder representation
@@ -3277,4 +3781,8 @@ export interface WorksOrderModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
