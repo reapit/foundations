@@ -1,17 +1,17 @@
-export const API_CONSTANTS = {
-  // headers not required yet, uncomment as appropriate
-  // headers: { 'Content-Type': 'application/json'},
-  // dataType: 'json',
-  // credentials: 'include',
-  // xhrFields: {
-  //   withCredentials: true
-  // }
-}
+import { StringMap } from '../types/core'
 
-export const BASE_URL = 'https://www.reddit.com/r'
+export const MARKETPLACE_HEADERS = {
+  'Content-Type': 'application/json',
+  Authorization: process.env.MARKETPLACE_API_KEY
+} as StringMap
+
+export const PLATFORM_HEADERS = {
+  'Content-Type': 'application/json',
+  Authorization: process.env.PLATFORM_API_KEY
+} as StringMap
+
 export const REAPIT_API_BASE_URL = 'https://reapit.cloud.tyk.io'
 
 export const URLS = {
-  react: '/reactjs/.json',
-  node: '/node/.json'
+  developerCreate: '/marketplace/developers'
 }

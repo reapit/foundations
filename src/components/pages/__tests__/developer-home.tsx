@@ -7,7 +7,8 @@ import { developerDataStub } from '@/sagas/__stubs__/developer'
 const props: DeveloperHomeProps = {
   developerState: {
     loading: false,
-    developerData: developerDataStub
+    developerData: developerDataStub,
+    formState: 'PENDING'
   }
 }
 

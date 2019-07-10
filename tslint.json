@@ -10,7 +10,8 @@
       }
     ],
     "no-floating-promises": false,
-    "deprecation": false
+    "deprecation": false,
+    "class-name": false
   },
   "jsRules": {
     "prettier": [
@@ -22,7 +23,8 @@
       }
     ],
     "no-floating-promises": false,
-    "deprecation": false
+    "deprecation": false,
+    "class-name": false
   },
   "extends": ["tslint-config-standard", "tslint-config-prettier"],
   "cliOptions": {

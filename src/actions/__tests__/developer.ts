@@ -1,6 +1,14 @@
-import { developerLoading, developerReceiveData, developerRequestData, developerClearData } from '../developer'
+import {
+  developerLoading,
+  developerReceiveData,
+  developerRequestData,
+  developerClearData,
+  developerCreate,
+  developerSetFormState
+} from '../developer'
 import ActionTypes from '../../constants/action-types'
 import { developerDataStub } from '../../sagas/__stubs__/developer'
+import { CreateDeveloperModel } from '../../types/marketplace-api-schema'
 
 describe('developer actions', () => {
   it('should create a developerLoading action', () => {
@@ -21,5 +29,21 @@ describe('developer actions', () => {
   it('should create a developerClearData action', () => {
     expect(developerClearData.type).toEqual(ActionTypes.DEVELOPER_CLEAR_DATA)
     expect(developerClearData(null).data).toEqual(null)
+  })
+
+  it('should create a developerCreate action', () => {
+    const newDeveloper: CreateDeveloperModel = {
+      name: 'Bob',
+      companyName: 'Acme',
+      email: 'bob@acme.com',
+      telephone: '0123456789'
+    }
+    expect(developerCreate.type).toEqual(ActionTypes.DEVELOPER_CREATE)
+    expect(developerCreate(newDeveloper).data).toEqual(newDeveloper)
+  })
+
+  it('should create a developerSetFormState action', () => {
+    expect(developerSetFormState.type).toEqual(ActionTypes.DEVELOPER_SET_FORM_STATE)
+    expect(developerSetFormState('DONE').data).toEqual('DONE')
   })
 })

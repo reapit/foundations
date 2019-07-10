@@ -98,7 +98,7 @@ const bulma = {
   isToggle: bulmaStyles['is-toggle'] || 'isToggle',
   isFullwidth: bulmaStyles['is-fullwidth'] || 'isFullwidth',
 
-  notification: bulmaStyles.notificiation || 'notification'
+  notification: bulmaStyles.notification || 'notification'
 }
 
 export default bulma

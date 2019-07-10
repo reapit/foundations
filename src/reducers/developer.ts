@@ -1,6 +1,12 @@
-import { Action } from '../types/core'
+import { Action, FormState } from '../types/core'
 import { isType } from '../utils/actions'
-import { developerLoading, developerReceiveData, developerClearData } from '../actions/developer'
+import {
+  developerLoading,
+  developerReceiveData,
+  developerClearData,
+  developerCreate,
+  developerSetFormState
+} from '../actions/developer'
 
 export interface DeveloperItem {
   data: {
@@ -16,11 +22,13 @@ export interface DeveloperItem {
 export interface DeveloperState {
   loading: boolean
   developerData: DeveloperItem | null
+  formState: FormState
 }
 
 export const defaultState: DeveloperState = {
   loading: false,
-  developerData: null
+  developerData: null,
+  formState: 'PENDING'
 }
 
 const developerReducer = (state: DeveloperState = defaultState, action: Action<any>): DeveloperState => {
@@ -44,6 +52,13 @@ const developerReducer = (state: DeveloperState = defaultState, action: Action<a
       ...state,
       loading: false,
       developerData: action.data
+    }
+  }
+
+  if (isType(action, developerSetFormState)) {
+    return {
+      ...state,
+      formState: action.data
     }
   }
 

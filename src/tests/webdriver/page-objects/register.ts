@@ -7,21 +7,25 @@ class RegisterPage extends Base {
 
   get validFormData() {
     return {
-      firstName: 'John',
-      lastName: 'Doe',
+      name: 'John Doe',
+      companyName: 'Acme',
       email: 'test@mail.com',
-      password: 'Password123',
-      confirmPassword: 'Password123'
+      telephone: '123456789'
+      // ,
+      // password: 'Password123',
+      // confirmPassword: 'Password123'
     }
   }
 
   get invalidFormData() {
     return {
-      firstName: 'John',
-      lastName: 'Doe',
+      name: 'John Doe',
+      companyName: 'Acme',
       email: 'invalid.com',
-      password: 'Password123',
-      confirmPassword: 'Password456'
+      telephone: '123456789'
+      // ,
+      // password: 'Password123',
+      // confirmPassword: 'Password456'
     }
   }
 
@@ -29,12 +33,16 @@ class RegisterPage extends Base {
     return $('[data-test="register-form"]')
   }
 
-  get firstNameInput() {
-    return $('[data-test="register-firstname"]')
+  get nameInput() {
+    return $('[data-test="register-name"]')
   }
 
-  get lastNameInput() {
-    return $('[data-test="register-lastname"]')
+  get companyNameInput() {
+    return $('[data-test="register-company-name"]')
+  }
+
+  get telephoneInput() {
+    return $('[data-test="register-telephone"]')
   }
 
   get emailInput() {
@@ -70,19 +78,21 @@ class RegisterPage extends Base {
   }
 
   populateInvalidForm() {
-    this.firstNameInput.setValue(this.invalidFormData.firstName)
-    this.lastNameInput.setValue(this.invalidFormData.lastName)
+    this.nameInput.setValue(this.invalidFormData.name)
+    this.companyNameInput.setValue(this.invalidFormData.companyName)
     this.emailInput.setValue(this.invalidFormData.email)
-    this.passwordInput.setValue(this.invalidFormData.password)
-    this.confirmPasswordInput.setValue(this.invalidFormData.confirmPassword)
+    this.telephoneInput.setValue(this.invalidFormData.telephone)
+    // this.passwordInput.setValue(this.invalidFormData.password)
+    // this.confirmPasswordInput.setValue(this.invalidFormData.confirmPassword)
   }
 
   populateValidForm() {
-    this.firstNameInput.setValue(this.validFormData.firstName)
-    this.lastNameInput.setValue(this.validFormData.lastName)
+    this.nameInput.setValue(this.validFormData.name)
+    this.companyNameInput.setValue(this.validFormData.companyName)
     this.emailInput.setValue(this.validFormData.email)
-    this.passwordInput.setValue(this.validFormData.password)
-    this.confirmPasswordInput.setValue(this.validFormData.confirmPassword)
+    this.telephoneInput.setValue(this.validFormData.telephone)
+    // this.passwordInput.setValue(this.validFormData.password)
+    // this.confirmPasswordInput.setValue(this.validFormData.confirmPassword)
   }
 
   submitForm() {

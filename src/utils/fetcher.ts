@@ -1,22 +1,26 @@
-import { API_CONSTANTS, BASE_URL } from '../constants/api'
+import { REAPIT_API_BASE_URL } from '../constants/api'
 import { FetcherParams } from '../types/core'
 import Store from '../core/store'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 
-const fetcher = async <T, B>({ url, method, body }: FetcherParams<B>) => {
-  const path = `${BASE_URL}${url}`
+const fetcher = async <T, B>({ url, method, body, headers }: FetcherParams<B>) => {
+  const path = `${REAPIT_API_BASE_URL}${url}`
 
   try {
     const res = await fetch(path, {
-      ...API_CONSTANTS,
+      headers,
       method,
-      body
+      body: JSON.stringify(body)
     } as RequestInit)
 
     if (res.status < 400) {
-      const jsonVal = await res.json()
-      return jsonVal as T
+      try {
+        const jsonVal = await res.json()
+        return jsonVal as T
+      } catch (err) {
+        return res.ok
+      }
     }
     throw new Error(`ERROR FETCHING ${method} ${path} ${JSON.stringify(res)}`)
   } catch (error) {

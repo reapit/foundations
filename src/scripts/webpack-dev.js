@@ -3,6 +3,7 @@ const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-web
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 
 module.exports = {
@@ -23,6 +24,9 @@ module.exports = {
     new ForkTsCheckerNotifierWebpackPlugin({
       title: 'TypeScript',
       excludeWarnings: false
+    }),
+    new Dotenv({
+      path: path.join(process.cwd(), 'src', 'constants', '.env')
     }),
     new HtmlWebpackPlugin({
       inject: true,

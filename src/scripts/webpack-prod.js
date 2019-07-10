@@ -51,7 +51,7 @@ module.exports = {
       generateStatsFile: true
     }),
     new Dotenv({
-      path: './src/constants/.env'
+      path: path.join(process.cwd(), 'src', 'constants', '.env')
     }),
     new HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
