@@ -44,6 +44,7 @@ const bulma = {
   isLoading: bulmaStyles['is-loading'] || 'isLoading',
   isDanger: bulmaStyles['is-danger'] || 'isDanger',
   isActive: bulmaStyles['is-active'] || 'isActive',
+  isLarge: bulmaStyles['is-large'] || 'isLarge',
 
   // Form
   button: bulmaStyles['button'] || 'button',
@@ -51,6 +52,7 @@ const bulma = {
   input: bulmaStyles.input || 'input',
   textarea: bulmaStyles.textarea || 'textarea',
   control: bulmaStyles.control || 'control',
+  delete: bulmaStyles.delete || 'delete',
 
   // Card
   card: bulmaStyles.card || 'card',
@@ -60,12 +62,16 @@ const bulma = {
   // Media
   media: bulmaStyles.media || 'media',
   mediaLeft: bulmaStyles['media-left'] || 'mediaLeft',
-  mediaContent: bulmaStyles['is-48x48'] || 'mediaContent',
+  mediaContent: bulmaStyles['media-content'] || 'mediaContent',
 
   // Image
   image: bulmaStyles.image || 'image',
+  is2by1: bulmaStyles['is-2by1'] || 'is2by1',
   is4by3: bulmaStyles['is-4by3'] || 'is4by3',
-  is48x48: bulmaStyles[''] || 'is48x48',
+  is48x48: bulmaStyles['is-48x48'] || 'is48x48',
+  is64x64: bulmaStyles['is-64x64'] || 'is64x64',
+  is96x96: bulmaStyles['is-96x96'] || 'is96x96',
+  is128x128: bulmaStyles['is-128x128'] || 'is128x128',
 
   // Titles
   title: bulmaStyles.title || 'title',
@@ -97,6 +103,24 @@ const bulma = {
   tabs: bulmaStyles.tabs || 'tabs',
   isToggle: bulmaStyles['is-toggle'] || 'isToggle',
   isFullwidth: bulmaStyles['is-fullwidth'] || 'isFullwidth',
+
+  // Modal
+  modal: bulmaStyles.modal || 'modal',
+  modalBackground: bulmaStyles.modalBackground || 'modal-background',
+  modalCard: bulmaStyles.modalCard || 'modal-card',
+  modalCardHead: bulmaStyles.modalCardHead || 'modal-card-head',
+  modalCardTitle: bulmaStyles.modalCardTitle || 'modal-card-title',
+  modalCardBody: bulmaStyles.modalCardBody || 'modal-card-body',
+  modalCardFoot: bulmaStyles.modalCardFoot || 'modal-card-foot',
+  modalClose: bulmaStyles.modalClose || 'modal-close',
+  modalContent: bulmaStyles.modalContent || 'modal-content',
+
+  // box
+  box: bulmaStyles.box || 'box',
+
+  // Text colors
+  hasTextPrimary: bulmaStyles.hasTextPrimary || 'has-text-primary',
+  hasTextLink: bulmaStyles.hasTextLink || 'has-text-link',
 
   notification: bulmaStyles.notification || 'notification'
 }

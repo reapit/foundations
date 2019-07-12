@@ -8,7 +8,11 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 
 export const mockClientData: ClientItem = {
-  data: Array.from({ length: 20 }, (i, k) => k).map(i => ({
+  data: [
+    '8af0b9f1-3b45-48be-ae7c-8d31b622f4d0',
+    '93d27798-bb48-4165-89bd-1e4cc48df4ad',
+    '9b6fd5f7-2c15-483d-b925-01b650538e52'
+  ].map(i => ({
     id: i.toString(),
     appName: 'Teams',
     developerName: 'Microsoft',

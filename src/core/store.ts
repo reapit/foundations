@@ -3,12 +3,14 @@ import auth from '../reducers/auth'
 import client from '../reducers/client'
 import myApps from '../reducers/my-apps'
 import developer from '../reducers/developer'
+import appDetail from '../reducers/app-detail'
 import error from '../reducers/error'
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
 import authSagas from '../sagas/auth'
 import clientSagas from '../sagas/client'
+import appDetailSagas from '../sagas/app-detail'
 import myAppsSagas from '../sagas/my-apps'
 import developerSagas from '../sagas/developer'
 
@@ -32,11 +34,12 @@ export class Store {
     myApps,
     developer,
     auth,
+    appDetail,
     error
   })
 
   static sagas = function*() {
-    yield all([fork(authSagas), fork(clientSagas), fork(myAppsSagas), fork(developerSagas)])
+    yield all([fork(authSagas), fork(clientSagas), fork(myAppsSagas), fork(developerSagas), fork(appDetailSagas)])
   }
 
   static composeEnhancers =

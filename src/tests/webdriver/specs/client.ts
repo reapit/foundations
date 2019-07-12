@@ -9,7 +9,7 @@ describe('ClientPage', () => {
   it('should load the page correctly', () => {
     // TODO: this is a fake test for mock data render
     // should be more relevant tests when integrate with the real API(s)
-    expect(ClientPage.allCards.length).toBe(20)
+    expect(ClientPage.allCards.length).toBe(3)
   })
 
   afterEach(() => {

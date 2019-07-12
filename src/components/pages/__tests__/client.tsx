@@ -5,7 +5,8 @@ import { Client, ClientProps } from '../client'
 import { clientDataStub } from '@/sagas/__stubs__/client'
 
 const props: ClientProps = {
-  logout: jest.fn(),
+  appDetail: { appDetailData: { data: { id: 'xxxx' } }, error: false, loading: false },
+  fetchAppDetail: jest.fn(),
   clientState: {
     loading: false,
     clientData: clientDataStub

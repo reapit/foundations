@@ -4,6 +4,7 @@ import { ClientState } from '../reducers/client'
 import { MyAppsState } from '../reducers/my-apps'
 import { DeveloperState } from '../reducers/developer'
 import { AuthState } from '../reducers/auth'
+import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
 
 export interface Action<T> {
@@ -36,6 +37,7 @@ export interface FetcherParams<T> {
 export interface ReduxState {
   client: ClientState
   myApps: MyAppsState
+  appDetail: AppDetailState
   developer: DeveloperState
   auth: AuthState
   error: ErrorState
