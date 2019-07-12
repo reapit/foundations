@@ -9,6 +9,7 @@ export interface AppCardProps {
   displayImage: string
   displayText: string
   className?: string
+  onClick?: (event: React.MouseEvent) => void
 }
 
 const {
@@ -33,9 +34,10 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({
   developerName,
   displayImage,
   displayText,
+  onClick,
   className
 }: AppCardProps) => (
-  <div className={`${card} ${className}`} data-test="app-card">
+  <div className={`${card} ${className}`} data-test="app-card" onClick={onClick}>
     <div className={cardImage}>
       <figure className={`${image} ${is4by3}`}>
         <img src="https://bulma.io/images/placeholders/1280x960.png" alt={appName} />

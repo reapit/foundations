@@ -21,9 +21,14 @@ exports[`Client should match a snapshot 1`] = `
           displayImage="string"
           displayText="string"
           id="1"
+          onClick={[Function]}
         />
       </div>
     </div>
+    <Component
+      afterClose={[Function]}
+      visible={false}
+    />
   </Connect(ErrorBoundary)>
 </div>
 `;

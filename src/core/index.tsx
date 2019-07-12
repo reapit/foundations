@@ -5,12 +5,15 @@ import Router from './router'
 import { Provider } from 'react-redux'
 import Store from './store'
 import Toast from '../components/ui/toast'
+import { PortalProvider } from '@/hooks/use-portal'
 
 const rootElement = document.querySelector('#root') as Element
 
 const App = () => (
   <Provider store={Store.reduxStore}>
-    <Router />
+    <PortalProvider>
+      <Router />
+    </PortalProvider>
     <Toast />
   </Provider>
 )
