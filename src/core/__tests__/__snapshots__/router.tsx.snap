@@ -1,7 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Router should match a snapshot 1`] = `
-<BrowserRouter>
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
   <Suspense
     fallback={null}
   >
@@ -80,5 +101,5 @@ exports[`Router should match a snapshot 1`] = `
       />
     </Switch>
   </Suspense>
-</BrowserRouter>
+</Router>
 `;

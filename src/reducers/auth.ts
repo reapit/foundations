@@ -1,22 +1,36 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authChangeLoginType } from '../actions/auth'
+import { getLoginSession } from '../utils/session'
 
 export type LoginType = 'DEVELOPER' | 'CLIENT'
+
+export interface LoginSession {
+  userName: string
+  loginType: LoginType
+  refreshToken: string
+  accessToken: string
+  sessionExpiry: number
+}
 
 export interface AuthState {
   isLogin: boolean
   error: boolean
   loginType: LoginType
+  loginSession: LoginSession | null
 }
 
-export const defaultState: AuthState = {
-  isLogin: !!window.localStorage.getItem('token'),
-  error: false,
-  loginType: (window.localStorage.getItem('loginType') as LoginType) || 'CLIENT'
+export const defaultState = (): AuthState => {
+  const loginSession = getLoginSession()
+  return {
+    isLogin: !!loginSession,
+    error: false,
+    loginType: loginSession ? loginSession.loginType : 'CLIENT',
+    loginSession
+  }
 }
 
-const authReducer = (state: AuthState = defaultState, action: Action<any>): AuthState => {
+const authReducer = (state: AuthState = defaultState(), action: Action<any>): AuthState => {
   if (isType(action, authLogin)) {
     return {
       ...state,
@@ -29,7 +43,8 @@ const authReducer = (state: AuthState = defaultState, action: Action<any>): Auth
     return {
       ...state,
       error: false,
-      isLogin: true
+      isLogin: true,
+      loginSession: action.data
     }
   }
 
