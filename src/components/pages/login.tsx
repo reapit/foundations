@@ -60,7 +60,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
     }
   }, [error])
   if (isLogin) {
-    return <Redirect to={props.loginType === 'DEVELOPER' ? Routes.DEVELOPER : Routes.CLIENT} />
+    return <Redirect to={props.loginType === 'DEVELOPER' ? Routes.DEVELOPER_MY_APPS : Routes.CLIENT} />
   }
 
   return (

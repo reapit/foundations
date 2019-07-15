@@ -19,32 +19,61 @@ exports[`Router should match a snapshot 1`] = `
       <Connect(Component)
         path="/"
       >
-        <Route
-          exact={true}
-          path="/client"
-          render={[Function]}
-        />
-        <Route
-          exact={true}
-          path="/client/my-apps"
-          render={[Function]}
-        />
-        <Route
-          exact={true}
-          path="/developer"
-          render={[Function]}
-        />
-        <Route
-          component={
-            Object {
-              "$$typeof": Symbol(react.lazy),
-              "_ctor": [Function],
-              "_result": null,
-              "_status": -1,
+        <Switch>
+          <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
             }
-          }
-          path="/developer/submit-app"
-        />
+            exact={true}
+            fetcher={true}
+            path="/client"
+          />
+          <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            fetcher={true}
+            path="/client/my-apps"
+          />
+          <Connect(Component)
+            allow="DEVELOPER"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            fetcher={true}
+            path="/developer/my-apps"
+          />
+          <Connect(Component)
+            allow="DEVELOPER"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            path="/developer/submit-app"
+          />
+        </Switch>
       </Connect(Component)>
       <Redirect
         to="/login"

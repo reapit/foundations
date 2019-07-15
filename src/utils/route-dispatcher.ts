@@ -13,11 +13,8 @@ const routeDispatcher = (route: RouteValue) => {
     case Routes.MY_APPS:
       Store.dispatch(myAppsRequestData())
       break
-    case Routes.DEVELOPER:
+    case Routes.DEVELOPER_MY_APPS:
       Store.dispatch(developerRequestData())
-      break
-    case Routes.SUBMIT_APP:
-    case Routes.LOGIN:
       break
     default:
       console.error('Route not found, nothing to fetch')

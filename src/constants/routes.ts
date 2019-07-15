@@ -3,6 +3,7 @@ const Routes = {
   CLIENT: '/client',
   MY_APPS: '/client/my-apps',
   DEVELOPER: '/developer',
+  DEVELOPER_MY_APPS: '/developer/my-apps',
   SUBMIT_APP: '/developer/submit-app',
   REGISTER: '/register'
 }

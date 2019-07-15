@@ -17,7 +17,7 @@ describe('routeDispatcher', () => {
   })
 
   it('should dispatch to developerDataFetch for the developer route', () => {
-    routeDispatcher(Routes.DEVELOPER as RouteValue)
+    routeDispatcher(Routes.DEVELOPER_MY_APPS as RouteValue)
     expect(Store.dispatch).toHaveBeenCalledWith(developerRequestData())
   })
 })
