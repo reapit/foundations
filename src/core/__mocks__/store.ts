@@ -1,3 +1,4 @@
 export default {
-  dispatch: jest.fn()
+  dispatch: jest.fn(),
+  state: {}
 }

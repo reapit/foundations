@@ -2,7 +2,7 @@ import { StringMap } from '../types/core'
 
 export const MARKETPLACE_HEADERS = {
   'Content-Type': 'application/json',
-  Authorization: process.env.MARKETPLACE_API_KEY
+  Authorization: process.env.MARKETPLACE_API_KEY // To be replaced with getAccessToken() in fetcher
 } as StringMap
 
 export const PLATFORM_HEADERS = {

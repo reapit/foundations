@@ -3,12 +3,33 @@ import ActionTypes from '../../constants/action-types'
 import { put, all, take, takeLatest, call } from '@redux-saga/core/effects'
 import { authLoginSuccess, authLogoutSuccess, AuthLoginParams } from '../../actions/auth'
 import { Action } from '@/types/core'
+import { cognitoLogin } from '../../utils/cognito'
+import { removeLoginSession, setLoginSession } from '../../utils/session'
+import { history } from '../../core/router'
+import Routes from '../../constants/routes'
+
+jest.mock('../../utils/cognito')
+jest.mock('../../utils/session')
+jest.mock('../../core/router', () => ({
+  history: {
+    push: jest.fn()
+  }
+}))
 
 describe('auth thunks', () => {
   describe('authLogin', () => {
-    it('should redirect to an auth page', () => {
-      const gen = doLogin({ data: { loginType: 'CLIENT' } } as Action<AuthLoginParams>)
-      expect(gen.next().value).toEqual(put(authLoginSuccess()))
+    it('should correctly login', () => {
+      const data: AuthLoginParams = { loginType: 'CLIENT', email: 'bob@acme.com', password: 'xxxxxx' }
+      const gen = doLogin({ data } as Action<AuthLoginParams>)
+      const loginParams = {
+        userName: data.email,
+        password: data.password,
+        loginType: data.loginType
+      }
+      expect(gen.next().value).toEqual(call(cognitoLogin, loginParams))
+      gen.next()
+      expect(setLoginSession).toHaveBeenCalledTimes(1)
+      expect(gen.next().value).toEqual(put(authLoginSuccess(undefined as any)))
       expect(gen.next().done).toBe(true)
     })
   })
@@ -16,8 +37,12 @@ describe('auth thunks', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-
+      gen.next()
+      expect(removeLoginSession).toHaveBeenCalledTimes(1)
       expect(gen.next().value).toEqual(put(authLogoutSuccess()))
+      gen.next()
+      expect(history.push).toHaveBeenCalledTimes(1)
+      expect(history.push).toHaveBeenLastCalledWith(Routes.LOGIN)
       expect(gen.next().done).toBe(true)
     })
   })
@@ -26,8 +51,7 @@ describe('auth thunks', () => {
     it('should trigger login action', () => {
       const gen = loginListen()
 
-      expect(gen.next().value).toEqual(take(ActionTypes.AUTH_LOGIN))
-      expect(gen.next({}).value).toEqual(call(doLogin, {} as Action<AuthLoginParams>))
+      expect(gen.next().value).toEqual(takeLatest(ActionTypes.AUTH_LOGIN, doLogin))
       expect(gen.next().done).toBe(true)
     })
   })

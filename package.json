@@ -25,6 +25,7 @@
     "test-perf:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-perf\" -k"
   },
   "dependencies": {
+    "amazon-cognito-identity-js": "^3.0.13",
     "bulma": "~0.7.5",
     "formik": "~1.5.7",
     "react": "~16.8.6",

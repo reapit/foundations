@@ -1,15 +1,27 @@
 import { REAPIT_API_BASE_URL } from '../constants/api'
 import { FetcherParams } from '../types/core'
-import Store from '../core/store'
+import store from '../core/store'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
+// When Cognito back end flow is finished
+// import { getAccessToken } from '../utils/cognito'
+// import { authLogout } from '../actions/auth'
 
 const fetcher = async <T, B>({ url, method, body, headers }: FetcherParams<B>) => {
   const path = `${REAPIT_API_BASE_URL}${url}`
+  // const accessToken = await getAccessToken()
+
+  // if (!accessToken) {
+  //   return store.dispatch(authLogout())
+  // }
 
   try {
     const res = await fetch(path, {
-      headers,
+      headers: {
+        ...headers
+        // ,
+        // Authorization: accessToken
+      },
       method,
       body: JSON.stringify(body)
     } as RequestInit)
@@ -24,7 +36,7 @@ const fetcher = async <T, B>({ url, method, body, headers }: FetcherParams<B>) =
     }
     throw new Error(`ERROR FETCHING ${method} ${path} ${JSON.stringify(res)}`)
   } catch (error) {
-    Store.dispatch(
+    store.dispatch(
       errorThrownServer({
         type: 'SERVER',
         message: errorMessages.DEFAULT_SERVER_ERROR

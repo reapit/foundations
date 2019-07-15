@@ -10,6 +10,7 @@ import bulma from '@/styles/vendor/bulma'
 import bulmaUtils from '../../styles/vendor/bulma-utils'
 import AppDetailModal from '@/components/ui/app-detail-modal'
 import { AppDetailState } from '@/reducers/app-detail'
+
 export interface ClientMappedProps {
   clientState: ClientState
 }

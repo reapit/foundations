@@ -1,8 +1,11 @@
 import * as React from 'react'
-import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
+import { createBrowserHistory } from 'history'
+
+export const history = createBrowserHistory()
 
 const Login = React.lazy(() => import('../components/pages/login'))
 const Client = React.lazy(() => import('../components/pages/client'))
@@ -12,7 +15,7 @@ const DeveloperHome = React.lazy(() => import('../components/pages/developer-hom
 const DeveloperSubmitApp = React.lazy(() => import('../components/pages/developer-submit-app'))
 
 const Router = () => (
-  <BrowserRouter>
+  <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
         <Route path={Routes.LOGIN} exact render={() => <Login />} />
