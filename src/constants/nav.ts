@@ -4,7 +4,7 @@ const NavMenu = {
   DEVELOPER: [
     {
       text: 'Manage Apps',
-      to: Routes.MY_APPS
+      to: Routes.DEVELOPER_MY_APPS
     },
     {
       text: 'Manage Keys',

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
-import RouteFetcher from '../components/hocs/route-fetcher'
 import Routes from '../constants/routes'
+import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
 
 const Login = React.lazy(() => import('../components/pages/login'))
@@ -15,25 +15,15 @@ const Router = () => (
   <BrowserRouter>
     <React.Suspense fallback={null}>
       <Switch>
-        <Route path={Routes.LOGIN} exact render={props => <RouteFetcher routerProps={props} Component={Login} />} />
-        <Route
-          path={Routes.REGISTER}
-          exact
-          render={props => <RouteFetcher routerProps={props} Component={Register} />}
-        />
+        <Route path={Routes.LOGIN} exact render={() => <Login />} />
+        <Route path={Routes.REGISTER} exact render={() => <Register />} />
         <PrivateRouteWrapper path="/">
-          <Route path={Routes.CLIENT} exact render={props => <RouteFetcher routerProps={props} Component={Client} />} />
-          <Route
-            path={Routes.MY_APPS}
-            exact
-            render={props => <RouteFetcher routerProps={props} Component={MyApps} />}
-          />
-          <Route
-            path={Routes.DEVELOPER}
-            exact
-            render={props => <RouteFetcher routerProps={props} Component={DeveloperHome} />}
-          />
-          <Route path={Routes.SUBMIT_APP} component={DeveloperSubmitApp} />
+          <Switch>
+            <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
+            <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher />
+            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />
+            <PrivateRoute allow="DEVELOPER" path={Routes.SUBMIT_APP} component={DeveloperSubmitApp} />
+          </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
       </Switch>
