@@ -11,6 +11,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+- group: aws
+
 steps:
 - task: NodeTool@0
   inputs:
@@ -18,6 +21,13 @@ steps:
   displayName: 'Install Node.js'
 
 - script: yarn install
+
+- bash: printenv > src/constants/.env
+  env:
+    COGNITO_CLIENT_ID: $(COGNITO_CLIENT_ID)
+    COGNITO_USERPOOL_ID: $(COGNITO_USERPOOL_ID)
+    MARKETPLACE_API_KEY: $(MARKETPLACE_API_KEY)
+    REAPIT_API_KEY: $(REAPIT_API_KEY)
 
 - script: yarn test:ci
 
@@ -30,9 +40,9 @@ steps:
     failTaskOnFailedTests: true # Optional
     publishRunAttachments: true # Optional
 
-- script: yarn build
-
 - script: yarn test-e2e:ci
+
+- script: yarn build
 
 - task: PublishPipelineArtifact@1
   inputs:
