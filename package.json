@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy-version": "ts-node ./lambda-utils/deploy-version",
+    "build-version": "ts-node ./lambda-utils/build-version",
     "ping": "ts-node ./lambda-utils/ping-lambda",
-    "build": "tsc && ts-node ./lambda-utils/build-version",
+    "prod-install": "yarn install --modules-folder ./public/node_modules --production",
+    "build": "tsc && yarn prod-install && yarn build-version",
     "dev": "ts-node ./src/app.dev"
   },
   "repository": {
@@ -22,14 +24,14 @@
   },
   "homepage": "https://github.com/reapit/cognitio-auth#readme",
   "dependencies": {
-    "@types/aws-serverless-express": "^3.3.1",
-    "@types/express": "^4.17.0",
-    "aws-sdk": "^2.493.0",
-    "aws-serverless-express": "^3.3.6",
-    "express": "^4.17.1"
+    "aws-serverless-express": "~3.3.6",
+    "express": "~4.17.1"
   },
   "devDependencies": {
-    "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "@types/aws-serverless-express": "~3.3.1",
+    "@types/express": "~4.17.0",
+    "aws-sdk": "~2.493.0",
+    "ts-node": "~8.3.0",
+    "typescript": "~3.5.3"
   }
 }

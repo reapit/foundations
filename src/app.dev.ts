@@ -1,6 +1,6 @@
-import expressApp from './express'
+import router from './core/router'
   
 const port = 3000
 
-expressApp.listen(port, () => console.log(`Example app listening on port ${port}!`))
+router.listen(port, () => console.log(`Dev app listening on port ${port}!`))
 
