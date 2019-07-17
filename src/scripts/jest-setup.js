@@ -6,26 +6,26 @@ Enzyme.configure({ adapter: new Adapter() })
 global.fetch = fetchMock
 
 const mockStorage = (() => {
-  let store = {};
+  let store = {}
   return {
-    getItem: (key) => {
-      return store[key];
+    getItem: key => {
+      return store[key]
     },
     setItem: (key, value) => {
-      store[key] = value.toString();
+      store[key] = value.toString()
     },
-    removeItem: (key) => {
+    removeItem: key => {
       store[key] = undefined
     },
     clear: () => {
-      store = {};
+      store = {}
     }
-  };
-})();
+  }
+})()
 
-Object.defineProperty(window, 'localStorage', { 
-  value: mockStorage,
-});
+Object.defineProperty(window, 'localStorage', {
+  value: mockStorage
+})
 
 // https://github.com/akiran/react-slick/issues/742
 window.matchMedia =

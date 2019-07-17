@@ -5,7 +5,9 @@ const Routes = {
   DEVELOPER: '/developer',
   DEVELOPER_MY_APPS: '/developer/my-apps',
   SUBMIT_APP: '/developer/submit-app',
-  REGISTER: '/register'
+  REGISTER: '/register',
+  ADMIN: '/admin',
+  ADMIN_LOGIN: '/admin/login'
 }
 
 export default Routes

@@ -4,7 +4,7 @@ import { authLoginSuccess, authLoginFailure, authLogoutSuccess, AuthLoginParams 
 import { Action } from '@/types/core.ts'
 import { cognitoLogin } from '../utils/cognito'
 import { removeLoginSession, setLoginSession } from '../utils/session'
-import { LoginSession } from '../reducers/auth'
+import { LoginSession, LoginType } from '../reducers/auth'
 import { history } from '../core/router'
 import Routes from '../constants/routes'
 
@@ -25,11 +25,11 @@ export const doLogin = function*({ data }: Action<AuthLoginParams>) {
   }
 }
 
-export const doLogout = function*() {
+export const doLogout = function*({ data }: Action<LoginType>) {
   try {
     yield removeLoginSession()
     yield put(authLogoutSuccess())
-    yield history.push(Routes.LOGIN)
+    yield history.push(data !== 'ADMIN' ? Routes.LOGIN : Routes.ADMIN_LOGIN)
   } catch (err) {
     console.error(err.message)
   }

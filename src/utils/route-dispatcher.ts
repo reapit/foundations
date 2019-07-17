@@ -3,6 +3,7 @@ import Routes from '../constants/routes'
 import store from '../core/store'
 import { clientRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
+import { adminRequestRevisions } from '../actions/admin'
 import { developerRequestData } from '../actions/developer'
 
 const routeDispatcher = (route: RouteValue) => {
@@ -15,6 +16,9 @@ const routeDispatcher = (route: RouteValue) => {
       break
     case Routes.DEVELOPER_MY_APPS:
       store.dispatch(developerRequestData())
+      break
+    case Routes.ADMIN:
+      store.dispatch(adminRequestRevisions())
       break
     default:
       console.error('Route not found, nothing to fetch')

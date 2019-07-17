@@ -15,7 +15,7 @@ export interface HeaderMappedProps {
 }
 
 export interface HeaderMappedActions {
-  logout: () => void
+  logout: (loginType: LoginType) => void
 }
 
 export type HeaderProps = HeaderMappedProps & HeaderMappedActions & RouteComponentProps & {}
@@ -76,7 +76,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({ logout, loginType
               data-test="logout-cta"
               onClick={e => {
                 e.preventDefault()
-                logout()
+                logout(loginType)
               }}
             >
               Logout
@@ -93,7 +93,7 @@ const mapStateToProps = (state: ReduxState): HeaderMappedProps => ({
 })
 
 const mapDispatchToProps = (dispatch: any): HeaderMappedActions => ({
-  logout: () => dispatch(authLogout())
+  logout: (loginType: LoginType) => dispatch(authLogout(loginType))
 })
 
 export default withRouter(

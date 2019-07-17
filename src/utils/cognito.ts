@@ -22,8 +22,8 @@ export const tokenExpired = (expiry: number) => {
  * Convenience method to log the user out when Cognito fails and ensure LoginSession is restored to
  * null in Redux
  */
-export const logOutUser = () => {
-  store.dispatch(authLogout())
+export const logOutUser = (loginType: LoginType) => {
+  store.dispatch(authLogout(loginType))
   return null
 }
 
@@ -48,7 +48,7 @@ export const getRefreshedSession = async (loginSession: LoginSession): Promise<L
     store.dispatch(authLoginSuccess(newSession))
     return newSession
   }
-  return logOutUser()
+  return logOutUser(loginSession.loginType)
 }
 
 /**
@@ -59,10 +59,10 @@ export const getRefreshedSession = async (loginSession: LoginSession): Promise<L
  * If that fails, logout
  */
 export const getAccessToken = async (): Promise<string | null> => {
-  const { loginSession } = store.state.auth
+  const { loginSession, loginType } = store.state.auth
 
   if (!loginSession) {
-    return logOutUser()
+    return logOutUser(loginType)
   }
 
   const sessionExpired = tokenExpired(loginSession.sessionExpiry)
@@ -77,7 +77,7 @@ export const getAccessToken = async (): Promise<string | null> => {
     return refreshedSession.accessToken
   }
 
-  return logOutUser()
+  return logOutUser(loginType)
 }
 
 export const getNewUser = (userName: string) => {

@@ -24,6 +24,12 @@ const NavMenu = {
       text: 'Installed Apps',
       to: Routes.MY_APPS
     }
+  ],
+  ADMIN: [
+    {
+      text: 'App Revisions',
+      to: Routes.ADMIN
+    }
   ]
 }
 

@@ -13,12 +13,14 @@ const MyApps = React.lazy(() => import('../components/pages/my-apps'))
 const Register = React.lazy(() => import('../components/pages/register'))
 const DeveloperHome = React.lazy(() => import('../components/pages/developer-home'))
 const DeveloperSubmitApp = React.lazy(() => import('../components/pages/developer-submit-app'))
+const AdminPage = React.lazy(() => import('../components/pages/admin'))
 
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
         <Route path={Routes.LOGIN} exact render={() => <Login />} />
+        <Route path={Routes.ADMIN_LOGIN} exact render={() => <Login />} />
         <Route path={Routes.REGISTER} exact render={() => <Register />} />
         <PrivateRouteWrapper path="/">
           <Switch>
@@ -26,6 +28,7 @@ const Router = () => (
             <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher />
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />
             <PrivateRoute allow="DEVELOPER" path={Routes.SUBMIT_APP} component={DeveloperSubmitApp} />
+            <PrivateRoute allow="ADMIN" path={Routes.ADMIN} component={AdminPage} exact fetcher />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

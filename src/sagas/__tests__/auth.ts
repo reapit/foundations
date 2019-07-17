@@ -7,6 +7,7 @@ import { cognitoLogin } from '../../utils/cognito'
 import { removeLoginSession, setLoginSession } from '../../utils/session'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
+import { LoginType } from '../../reducers/auth'
 
 jest.mock('../../utils/cognito')
 jest.mock('../../utils/session')
@@ -36,7 +37,7 @@ describe('auth thunks', () => {
 
   describe('authLogout', () => {
     it('should redirect to login page', () => {
-      const gen = doLogout()
+      const gen = doLogout({ data: 'CLIENT' } as Action<LoginType>)
       gen.next()
       expect(removeLoginSession).toHaveBeenCalledTimes(1)
       expect(gen.next().value).toEqual(put(authLogoutSuccess()))

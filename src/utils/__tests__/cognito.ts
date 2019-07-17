@@ -51,9 +51,9 @@ describe('Cognito Utils', () => {
 
   describe('logOutUser', () => {
     it('should dispatch a logout action and return null', () => {
-      expect(logOutUser()).toBeNull()
+      expect(logOutUser('CLIENT')).toBeNull()
       expect(store.dispatch).toHaveBeenCalledTimes(1)
-      expect(store.dispatch).toHaveBeenCalledWith(authLogout())
+      expect(store.dispatch).toHaveBeenCalledWith(authLogout('CLIENT'))
     })
   })
 
@@ -82,12 +82,13 @@ describe('Cognito Utils', () => {
     it('should return logout if no loginSession', async () => {
       ;(store.state as any) = {
         auth: {
+          loginType: 'CLIENT',
           loginSession: null
         }
       }
       await getAccessToken()
       expect(store.dispatch).toHaveBeenCalledTimes(1)
-      expect(store.dispatch).toHaveBeenCalledWith(authLogout())
+      expect(store.dispatch).toHaveBeenCalledWith(authLogout('CLIENT'))
     })
 
     it('should the accessToken if not expired', async () => {

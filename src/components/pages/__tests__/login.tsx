@@ -8,7 +8,11 @@ const props: LoginProps = {
   isLogin: false,
   login: jest.fn(),
   authChangeLoginType: jest.fn(),
-  loginType: 'CLIENT'
+  loginType: 'CLIENT',
+  // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
+  location: {
+    pathname: '/client'
+  }
 }
 
 describe('Login', () => {
