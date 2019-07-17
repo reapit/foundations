@@ -26,7 +26,14 @@ export const cognitoLogin = async ({
 }
 
 export const loginApi = async (req: Request, res: Response) => {
-  const { userName, password } = req.body
+
+  const { body } = req.body || req.apiGateway.event
+
+  if (!body) {
+    return handleError(res, 400, 'Bad request, no body received')
+  }
+
+  const { userName, password } = body
 
   if (!userName || !password) {
     return handleError(res, 400, 'Bad request, both password and username are required')
@@ -36,8 +43,11 @@ export const loginApi = async (req: Request, res: Response) => {
 
     const loginResponse = await cognitoLogin({userName, password})
     if (loginResponse) {
-      res.status(200)
-      res.json(loginResponse)
+      res.json({
+        isBase64Encoded: false,
+        statusCode: 200,
+        body: loginResponse
+      })
       res.end()
     }
   } catch (err) {

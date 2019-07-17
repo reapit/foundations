@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+import { Response } from 'aws-serverless-express'
 
 export const handleError = (res: Response, status: number, message?: string) => {
   res.status(status)
@@ -14,7 +14,9 @@ export const handleError = (res: Response, status: number, message?: string) => 
 
 export const handle404 = (req: Request, res: Response) => {
   console.log('404 error', req, res)
-  res.json({
+  res
+  
+  .json({
     error: {
       name: 'Error',
       status: 404,

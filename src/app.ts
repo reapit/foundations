@@ -1,5 +1,4 @@
 import 'isomorphic-fetch'
-
 import * as awsServerlessExpress from 'aws-serverless-express'
 import { Context } from 'aws-lambda';
 import server from './core/server'
