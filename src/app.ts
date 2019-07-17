@@ -1,6 +1,10 @@
+import 'isomorphic-fetch'
+
 import * as awsServerlessExpress from 'aws-serverless-express'
 import { Context } from 'aws-lambda';
-import router from './core/router'
+import server from './core/server'
+
+(global as any).navigator = {}
 
 const binaryMimeTypes = [
 	'application/octet-stream',
@@ -12,5 +16,5 @@ const binaryMimeTypes = [
 	'image/svg+xml'
 ]
 
-const app = awsServerlessExpress.createServer(router, () => null, binaryMimeTypes);
+const app = awsServerlessExpress.createServer(server, () => null, binaryMimeTypes);
 export const handler = (event: any, context: Context) => awsServerlessExpress.proxy(app, event, context)
