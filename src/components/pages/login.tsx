@@ -14,6 +14,7 @@ import Routes from '../../constants/routes'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import Button from '../form/button'
 import bulma from '@/styles/vendor/bulma'
+import { withRouter, RouteComponentProps } from 'react-router'
 
 export interface LoginMappedActions {
   login: (params: AuthLoginParams) => void
@@ -31,7 +32,7 @@ export interface LoginFormValues {
   password: string
 }
 
-export type LoginProps = LoginMappedActions & LoginMappedProps
+export type LoginProps = LoginMappedActions & LoginMappedProps & RouteComponentProps
 
 export const tabConfigs = ({ loginType, authChangeLoginType }: LoginProps): TabConfig[] => [
   {
@@ -50,7 +51,7 @@ export const tabConfigs = ({ loginType, authChangeLoginType }: LoginProps): TabC
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const { isLogin, error, login } = props
+  const { isLogin, error, login, loginType, location, authChangeLoginType } = props
   const { disabled, wrapper, container } = loginStyles
   const { level, levelLeft, levelRight } = bulma
 
@@ -59,20 +60,31 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
       setIsSubmitting(false)
     }
   }, [error])
+
+  if (location.pathname === Routes.ADMIN_LOGIN) {
+    authChangeLoginType('ADMIN')
+  }
+
   if (isLogin) {
-    return <Redirect to={props.loginType === 'DEVELOPER' ? Routes.DEVELOPER_MY_APPS : Routes.CLIENT} />
+    return (
+      <Redirect
+        to={
+          loginType === 'DEVELOPER' ? Routes.DEVELOPER_MY_APPS : loginType === 'CLIENT' ? Routes.CLIENT : Routes.ADMIN
+        }
+      />
+    )
   }
 
   return (
     <div className={container}>
       <div className={`${wrapper} ${isSubmitting && disabled}`}>
-        <Tabs tabConfigs={tabConfigs(props)} />
+        {loginType !== 'ADMIN' && <Tabs tabConfigs={tabConfigs(props)} />}
         <Formik
           validate={validate}
           initialValues={{ email: '', password: '' } as LoginFormValues}
           onSubmit={values => {
             setIsSubmitting(true)
-            login({ ...values, loginType: props.loginType })
+            login({ ...values, loginType })
           }}
           render={() => (
             <Form data-test="login-form">
@@ -84,7 +96,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                     Login
                   </Button>
                 </div>
-                {props.loginType === 'DEVELOPER' && (
+                {loginType === 'DEVELOPER' && (
                   <div className={levelRight}>
                     <Link to={Routes.REGISTER}>Create new account</Link>
                   </div>
@@ -110,7 +122,9 @@ const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
   authChangeLoginType: (loginType: string) => dispatch(authChangeLoginType(loginType as LoginType))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Login)
+)

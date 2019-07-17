@@ -3,7 +3,7 @@ import { isType } from '../utils/actions'
 import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authChangeLoginType } from '../actions/auth'
 import { getLoginSession } from '../utils/session'
 
-export type LoginType = 'DEVELOPER' | 'CLIENT'
+export type LoginType = 'DEVELOPER' | 'CLIENT' | 'ADMIN'
 
 export interface LoginSession {
   userName: string

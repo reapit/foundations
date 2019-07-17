@@ -6,6 +6,7 @@ import { DeveloperState } from '../reducers/developer'
 import { AuthState } from '../reducers/auth'
 import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
+import { AdminState } from '../reducers/admin'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -41,4 +42,5 @@ export interface ReduxState {
   developer: DeveloperState
   auth: AuthState
   error: ErrorState
+  admin: AdminState
 }
