@@ -1,9 +1,12 @@
-import * as express from 'express'
+import { Router } from 'express'
+import { loginApi } from '../api/login'
+import { refreshApi } from '../api/refresh'
+import { handle404 } from '../utils/error-handler'
 
-const expressApp = express()
+const router = Router()
 
-expressApp.get('/', (_req, res) => res.send('Hello World!'))
-expressApp.get('/login', (_req, res) => res.send('Login'))
-expressApp.get('/refresh', (_req, res) => res.send('Refresh'))
+router.post('/login', (req, res) => loginApi(req, res))
+router.post('/refresh',  (req, res) => refreshApi(req, res))
+router.use(handle404)
 
-export default expressApp
+export default router
