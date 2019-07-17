@@ -1,6 +1,6 @@
 import * as awsServerlessExpress from 'aws-serverless-express'
 import { Context } from 'aws-lambda';
-import expressApp from './express'
+import router from './core/router'
 
 const binaryMimeTypes = [
 	'application/octet-stream',
@@ -12,5 +12,5 @@ const binaryMimeTypes = [
 	'image/svg+xml'
 ]
 
-const app = awsServerlessExpress.createServer(expressApp, () => null, binaryMimeTypes);
+const app = awsServerlessExpress.createServer(router, () => null, binaryMimeTypes);
 export const handler = (event: any, context: Context) => awsServerlessExpress.proxy(app, event, context)
