@@ -1,6 +1,6 @@
 import { RouteValue } from '../types/core'
 import Routes from '../constants/routes'
-import store from '../core/store'
+import Store from '../core/store'
 import { clientRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
 import { adminRequestRevisions } from '../actions/admin'
@@ -9,16 +9,16 @@ import { developerRequestData } from '../actions/developer'
 const routeDispatcher = (route: RouteValue) => {
   switch (route) {
     case Routes.CLIENT:
-      store.dispatch(clientRequestData())
+      Store.dispatch(clientRequestData())
       break
     case Routes.MY_APPS:
-      store.dispatch(myAppsRequestData())
+      Store.dispatch(myAppsRequestData())
       break
     case Routes.DEVELOPER_MY_APPS:
-      store.dispatch(developerRequestData())
+      Store.dispatch(developerRequestData())
       break
     case Routes.ADMIN:
-      store.dispatch(adminRequestRevisions())
+      Store.dispatch(adminRequestRevisions())
       break
     default:
       console.error('Route not found, nothing to fetch')

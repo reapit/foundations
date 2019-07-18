@@ -1,26 +1,81 @@
-import { validate, SubmitAppFormError } from '../submit-app'
+import { validate, SubmitAppFormErrorKeys } from '../submit-app'
 import { SubmitAppFormValues } from '@/components/pages/developer-submit-app'
-
-type InputOutput = [SubmitAppFormValues, SubmitAppFormError]
-
-const invalidValues: InputOutput[] = [
-  [{ appName: '', companyName: '' }, { appName: 'Required', companyName: 'Required' }],
-  [{ appName: '', companyName: '12345678' }, { appName: 'Required' }],
-  [{ appName: 'Test app', companyName: '' }, { companyName: 'Required' }]
-]
-
-const validValues: InputOutput[] = [[{ appName: 'Test app', companyName: '1234567' }, {}]]
+import errorMessages from '@/constants/error-messages'
 
 describe('submitAppValidation', () => {
-  it('invalid values', () => {
-    invalidValues.forEach(([input, output]) => {
-      expect(validate(input)).toEqual(output)
+  it('validate require all field', () => {
+    const input: SubmitAppFormValues = {
+      screen4ImageData: '',
+      screen3ImageData: '',
+      screen2ImageData: '',
+      screen1ImageData: '',
+      name: '',
+      telephone: '',
+      supportEmail: '',
+      launchUri: '',
+      iconImageData: '',
+      homePage: '',
+      description: '',
+      summary: ''
+    }
+
+    const validateRequiredKeys = [
+      'name',
+      'telephone',
+      'supportEmail',
+      'launchUri',
+      'iconImageData',
+      'homePage',
+      'description',
+      'screen1ImageData',
+      'summary'
+    ]
+
+    const output = {}
+    for (let key of validateRequiredKeys) {
+      output[key] = errorMessages.FIELD_REQUIRED
+    }
+
+    expect(validate(input)).toEqual(output)
+  })
+
+  it('validate email field support email', () => {
+    const input: SubmitAppFormValues = {
+      screen4ImageData: 'test',
+      screen3ImageData: 'test',
+      screen2ImageData: 'test',
+      screen1ImageData: 'test',
+      name: 'test',
+      telephone: 'test',
+      supportEmail: 'invalid email',
+      launchUri: 'test',
+      iconImageData: 'test',
+      homePage: 'test',
+      description: 'test',
+      summary: 'test'
+    }
+
+    expect(validate(input)).toEqual({
+      supportEmail: errorMessages.FIELD_WRONG_EMAIL_FORMAT
     })
   })
 
-  it('valid values', () => {
-    validValues.forEach(([input, output]) => {
-      expect(validate(input)).toEqual(output)
-    })
+  it('return empty object it everything is valid', () => {
+    const input: SubmitAppFormValues = {
+      screen4ImageData: 'test',
+      screen3ImageData: 'test',
+      screen2ImageData: 'test',
+      screen1ImageData: 'test',
+      name: 'test',
+      telephone: 'test',
+      supportEmail: 'test@test.com',
+      launchUri: 'test',
+      iconImageData: 'test',
+      homePage: 'test',
+      description: 'test',
+      summary: 'test'
+    }
+
+    expect(validate(input)).toEqual({})
   })
 })

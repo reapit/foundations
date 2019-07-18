@@ -18,7 +18,7 @@ const { container, columns, isMultiLine } = bulma
 const { isResponsiveColumn } = bulmaUtils
 
 export const DeveloperHome: React.FunctionComponent<DeveloperHomeProps> = ({ developerState }) => (
-  <div className={container}>
+  <div data-test="developer-home-container" className={container}>
     {developerState.loading ? (
       <Loader />
     ) : (

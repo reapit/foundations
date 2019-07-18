@@ -1,10 +1,18 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { SubmitApp } from '../developer-submit-app'
+import { SubmitApp, SubmitAppProps } from '../developer-submit-app'
+
+const props: SubmitAppProps = {
+  submitApp: jest.fn(),
+  submitAppSetFormState: jest.fn(),
+  submitAppState: {
+    formState: 'DONE'
+  }
+}
 
 describe('DeveloperSubmitApp', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<SubmitApp />))).toMatchSnapshot()
+    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
   })
 })

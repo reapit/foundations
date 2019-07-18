@@ -1,30 +1,25 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.15.2/libexec/bin/yarn.js add @types/react-slic -D
+  /usr/local/Cellar/node/11.7.0/bin/node /usr/local/Cellar/yarn/1.13.0/libexec/bin/yarn.js dev
 
 PATH: 
-  /Users/zlatan/Downloads/google-cloud-sdk/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/zlatan/Downloads/google-cloud-sdk/bin:/Users/zlatan/go/bin:/usr/local/opt/go/libexec/bin:/usr/local/mongodb/bin:/Users/zlatan/go/bin:/usr/local/opt/go/libexec/bin:/usr/local/mongodb/bin
+  /usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Users/phmngocnghia/go:/Users/phmngocnghia/go/bin:/usr/local/go/bin:/Users/phmngocnghia/go:/Users/phmngocnghia/go/bin
 
 Yarn version: 
-  1.15.2
+  1.13.0
 
 Node version: 
-  11.10.1
+  10.13.0
 
 Platform: 
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2freact-slic: Not found
-      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:66058:18)
-      at Request.self.callback (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:129541:22)
-      at Request.emit (events.js:197:13)
-      at Request.<anonymous> (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:130513:10)
-      at Request.emit (events.js:197:13)
-      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.15.2/libexec/lib/cli.js:130435:12)
-      at Object.onceWrapper (events.js:285:13)
-      at IncomingMessage.emit (events.js:202:15)
-      at endReadableNT (_stream_readable.js:1129:12)
-      at processTicksAndRejections (internal/process/next_tick.js:76:17)
+  SyntaxError: /Users/phmngocnghia/Desktop/app-store/package.json: Unexpected token } in JSON at position 1474
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.13.0/libexec/lib/cli.js:315:13
 
 npm manifest: 
   {
@@ -51,9 +46,11 @@ npm manifest:
       "test-dev-e2e": "wdio ./src/scripts/wdio.conf.js --watch",
       "test-e2e:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e\" -k",
       "test-perf": "npx jest --config='src/tests/lighthouse/jest.config.js'",
-      "test-perf:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-perf\" -k"
+      "test-perf:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-perf\" -k",
+      "nghia": "wdio ./src/scripts/wdio.conf.js --spec './src/tests/webdriver/specs/developer-submit-app.ts'",
     },
     "dependencies": {
+      "amazon-cognito-identity-js": "^3.0.13",
       "bulma": "~0.7.5",
       "formik": "~1.5.7",
       "react": "~16.8.6",
@@ -68,6 +65,7 @@ npm manifest:
     },
     "devDependencies": {
       "@americanexpress/purgecss-loader": "~1.0.0",
+      "@redux-saga/testing-utils": "^1.0.5",
       "@types/enzyme": "~3.9.3",
       "@types/jasmine": "~3.3.13",
       "@types/jest": "~24.0.13",
@@ -77,6 +75,7 @@ npm manifest:
       "@types/react-redux": "~7.0.9",
       "@types/react-router": "~5.0.1",
       "@types/react-router-dom": "~4.3.3",
+      "@types/react-slick": "^0.23.4",
       "@types/webdriverio": "~4.13.3",
       "bundle-phobia-cli": "~0.13.0",
       "chromedriver": "~2.43.1",
@@ -490,6 +489,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@redux-saga/symbols/-/symbols-1.0.1.tgz#46512ae1275f88df061c42168d0f600ddb170c1e"
     integrity sha512-akKkzcVnb1RzJaZV2LQFbi51abvdICMuAKwwLoCjjxLbLAGIw9EJxk5ucNnWSSCEsoEQMeol5tkAcK+Xzuv1Bg==
   
+  "@redux-saga/testing-utils@^1.0.5":
+    version "1.0.5"
+    resolved "https://registry.yarnpkg.com/@redux-saga/testing-utils/-/testing-utils-1.0.5.tgz#600493f5796f8cc7e630635f344a35c34fc91ca7"
+    integrity sha512-XsUbxo2lpWDP6Bt37ilRcx4C2elK4FeQEvk0hln4wXAqkLeUHMwogqUUefKVbdSF4JTfwbXPG5rSOz71QVvnoA==
+    dependencies:
+      "@redux-saga/symbols" "^1.0.1"
+      "@redux-saga/types" "^1.0.2"
+  
   "@redux-saga/types@^1.0.2":
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/@redux-saga/types/-/types-1.0.2.tgz#1d94f02800b094753f9271c206a26c2a06ca14ee"
@@ -666,6 +673,13 @@ Lockfile:
     integrity sha512-sdMN284GEOcqDEMS/hE/XD06Abw2fws30+xkZf3C9cSRcWopiv/HDTmunYI7DKLYKVRaWFkq1lkuJ6qeYu0E7A==
     dependencies:
       "@types/history" "*"
+      "@types/react" "*"
+  
+  "@types/react-slick@^0.23.4":
+    version "0.23.4"
+    resolved "https://registry.yarnpkg.com/@types/react-slick/-/react-slick-0.23.4.tgz#c97e2a9e7e3d1933c68593b8e82752fab1e8ce53"
+    integrity sha512-vXoIy4GUfB7/YgqubR4H7RALo+pRdMYCeLgWwV3MPwl5pggTlEkFBTF19R7u+LJc85uMqC7RfsbkqPLMQ4ab+A==
+    dependencies:
       "@types/react" "*"
   
   "@types/react@*", "@types/react@~16.8.19":
@@ -935,6 +949,15 @@ Lockfile:
       fast-json-stable-stringify "^2.0.0"
       json-schema-traverse "^0.4.1"
       uri-js "^4.2.2"
+  
+  amazon-cognito-identity-js@^3.0.13:
+    version "3.0.13"
+    resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js/-/amazon-cognito-identity-js-3.0.13.tgz#26d600d8dc08b840b4cf7ffce168ad38ae3999ec"
+    integrity sha512-E9s0gc5nidRq7Kfv4Tf6qQpwq8gFNWJQ6rl7yN4PaMayPc14vT52rcu3ER4PoKgzxM311lDuBkDvQZ4UawaO7w==
+    dependencies:
+      buffer "4.9.1"
+      crypto-js "^3.1.9-1"
+      js-cookie "^2.1.4"
   
   amdefine@>=0.0.4:
     version "1.0.1"
@@ -1578,7 +1601,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/buffer-xor/-/buffer-xor-1.0.3.tgz#26e61ed1422fb70dd42e6e36729ed51d855fe8d9"
     integrity sha1-JuYe0UIvtw3ULm42cp7VHYVf6Nk=
   
-  buffer@^4.3.0:
+  buffer@4.9.1, buffer@^4.3.0:
     version "4.9.1"
     resolved "https://registry.yarnpkg.com/buffer/-/buffer-4.9.1.tgz#6d1bb601b07a4efced97094132093027c95bc298"
     integrity sha1-bRu2AbB6TvztlwlBMgkwJ8lbwpg=
@@ -2341,6 +2364,11 @@ Lockfile:
       public-encrypt "^4.0.0"
       randombytes "^2.0.0"
       randomfill "^1.0.3"
+  
+  crypto-js@^3.1.9-1:
+    version "3.1.9-1"
+    resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
+    integrity sha1-/aGedh/Ad+Af+/3G6f38WeiAbNg=
   
   crypto-random-string@^1.0.0:
     version "1.0.0"
@@ -5229,6 +5257,11 @@ Lockfile:
     version "2.5.1"
     resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.1.tgz#1efa39ef2c5f7980bb1784ade4a8af2de3291121"
     integrity sha512-M7kLczedRMYX4L8Mdh4MzyAMM9O5osx+4FcOQuTvr3A9F2D9S5JXheN0ewNbrvK2UatkTRhL5ejGmGSjNMiZuw==
+  
+  js-cookie@^2.1.4:
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.0.tgz#1b2c279a6eece380a12168b92485265b35b1effb"
+    integrity sha1-Gywnmm7s44ChIWi5JIUmWzWx7/s=
   
   js-library-detector@^5.4.0:
     version "5.4.0"

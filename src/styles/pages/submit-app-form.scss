@@ -10,7 +10,6 @@
 .wrapper {
   background-color: $white;
   width: 100%;
-  max-width: 420px;
   padding: 30px;
   border-radius: 8px;
   pointer-events: auto;
@@ -23,3 +22,12 @@
     margin-bottom: 1rem;
   }
 }
+
+.column {
+  max-width: 600px;
+
+  &:nth-child(2) {
+    margin-left: auto
+  }
+}
+

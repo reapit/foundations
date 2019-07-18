@@ -1,4 +1,5 @@
 import bulmaStyles from './bulma.scss?mod'
+console.log(bulmaStyles)
 
 /**
  * This file is to map bulma CSS classes to TS. Am doing this for 2 reasons;
@@ -120,8 +121,19 @@ const bulma = {
 
   // Text colors
   hasTextPrimary: bulmaStyles.hasTextPrimary || 'has-text-primary',
+  hasTextDanger: bulmaStyles.hasTextDanger || 'has-text-primary',
   hasTextLink: bulmaStyles.hasTextLink || 'has-text-link',
 
+  // Fileupload
+  hasFile: bulmaStyles['has-file'] || 'hasFile',
+  file: bulmaStyles['file'] || 'file',
+  fileInput: bulmaStyles['file-input'] || 'fileInput',
+  fileLabel: bulmaStyles['file-label'] || 'fileLabel',
+  fileCta: bulmaStyles['file-cta'] || 'fileCta',
+  fileIcon: bulmaStyles['file-icon'] || 'fileIcon',
+  fileName: bulmaStyles['file-name'] || 'fileName',
+
+  // Notification
   notification: bulmaStyles.notification || 'notification'
 }
 

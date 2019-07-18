@@ -1,4 +1,6 @@
 import Base from './base'
+import ClientHome from './client'
+import DeveloperHome from './developer-home'
 
 class LoginPage extends Base {
   get loginRoute() {
@@ -7,8 +9,8 @@ class LoginPage extends Base {
 
   get validFormData() {
     return {
-      email: 'test@mail.com',
-      password: 'Password123'
+      email: 'wmcvay@reapit.com',
+      password: 'NewPassword123'
     }
   }
 
@@ -45,8 +47,8 @@ class LoginPage extends Base {
   }
 
   populateValidForm() {
-    this.emailInput.setValue(this.validFormData.email)
-    this.passwordInput.setValue(this.validFormData.password)
+    this.emailInput.setValue('wmcvay@reapit.com')
+    this.passwordInput.setValue('NewPassword123')
   }
 
   submitForm() {
@@ -65,6 +67,7 @@ class LoginPage extends Base {
     this.open()
     this.populateValidForm()
     this.submitForm()
+    ClientHome.cardContainer.waitForVisible()
   }
 
   logAsDeveloper() {
@@ -72,6 +75,7 @@ class LoginPage extends Base {
     this.selectDeveloperTab()
     this.populateValidForm()
     this.submitForm()
+    DeveloperHome.cardContainer.waitForVisible()
   }
 }
 

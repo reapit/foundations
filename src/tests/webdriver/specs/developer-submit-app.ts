@@ -1,4 +1,5 @@
 import DeveloperSubmitAppPage from '../page-objects/developer-submit-app'
+import errorMessages from '../../../constants/error-messages'
 
 describe('DeveloperSubmitAppPage', () => {
   beforeEach(() => {
@@ -7,29 +8,49 @@ describe('DeveloperSubmitAppPage', () => {
   })
 
   it('should load the form correctly', () => {
-    expect(DeveloperSubmitAppPage.allInputs.length).toBe(9)
-    expect(DeveloperSubmitAppPage.appNameInput.getAttribute('type')).toEqual('text')
-    expect(DeveloperSubmitAppPage.appDescription.getAttribute('type')).toEqual('textarea')
+    expect(DeveloperSubmitAppPage.allInputs.length).toBe(12)
+
+    expect(DeveloperSubmitAppPage.name.getAttribute('type')).toEqual('text')
+
+    expect(DeveloperSubmitAppPage.description.getAttribute('type')).toEqual('textarea')
+    expect(DeveloperSubmitAppPage.summary.getAttribute('type')).toEqual('textarea')
+
+    expect(DeveloperSubmitAppPage.supportEmail.getAttribute('type')).toEqual('text')
+    expect(DeveloperSubmitAppPage.telephone.getAttribute('type')).toEqual('tel')
+    expect(DeveloperSubmitAppPage.homePage.getAttribute('type')).toEqual('text')
+
+    expect(DeveloperSubmitAppPage.launchUri.getAttribute('type')).toEqual('text')
+    // expect(DeveloperSubmitAppPage.screenshot1.getAttribute('type')).toEqual('file')
+    // expect(DeveloperSubmitAppPage.screenshot2.getAttribute('type')).toEqual('file')
+    // expect(DeveloperSubmitAppPage.screenshot3.getAttribute('type')).toEqual('file')
+    // expect(DeveloperSubmitAppPage.screenshot4.getAttribute('type')).toEqual('file')
   })
 
-  it('should not submit and instead show a validation messages if data invalid', () => {
+  it('should not submit and instead show a validation messages if required data is not filled', () => {
     DeveloperSubmitAppPage.submitForm()
-    expect(DeveloperSubmitAppPage.errorMessages.length).toBe(2)
-    expect(DeveloperSubmitAppPage.errorMessages[0].getText()).toEqual('Required')
-    expect(DeveloperSubmitAppPage.errorMessages[1].getText()).toEqual('Required')
+    expect(DeveloperSubmitAppPage.errorMessages.length).toBe(9)
+    for (let i = 0; i < 9; i++) {
+      expect(DeveloperSubmitAppPage.errorMessages[0].getText()).toEqual(errorMessages.FIELD_REQUIRED)
+    }
+  })
+
+  it('should not submit if email is invalid', () => {
+    DeveloperSubmitAppPage.populateValidForm()
+    DeveloperSubmitAppPage.supportEmail.setValue('invalid email address')
+    DeveloperSubmitAppPage.submitForm()
+    expect(DeveloperSubmitAppPage.errorMessages.length).toBe(1)
+    expect(DeveloperSubmitAppPage.errorMessages[0].getText()).toEqual(errorMessages.FIELD_WRONG_EMAIL_FORMAT)
   })
 
   it('should show success message after submit, should re-show the form with all clean fields after click Submit another button', () => {
     DeveloperSubmitAppPage.populateValidForm()
     DeveloperSubmitAppPage.submitForm()
-    DeveloperSubmitAppPage.submitSuccessSection.waitForVisible()
-    expect(DeveloperSubmitAppPage.successMessage.getText()).toEqual('Submit success')
+    DeveloperSubmitAppPage.successMessage.waitForVisible()
     DeveloperSubmitAppPage.submitAnother()
-    expect(DeveloperSubmitAppPage.appNameInput.getValue()).toEqual('')
-    expect(DeveloperSubmitAppPage.companyNameInput.getValue()).toEqual('')
+    DeveloperSubmitAppPage.form.waitForVisible()
   })
 
   afterEach(() => {
-    browser.localStorage('DELETE', 'token')
+    browser.localStorage('DELETE')
   })
 })
