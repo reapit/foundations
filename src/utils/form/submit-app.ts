@@ -1,26 +1,39 @@
 import { SubmitAppFormValues } from '@/components/pages/developer-submit-app'
+import { validateRequire, validateEmail } from '../validators'
 
-export interface SubmitAppFormError {
-  appName?: string
-  companyName?: string
-  companyReg?: string
-  contactPhone?: string
-  lineOne?: string
-  town?: string
-  country?: string
-  postcode?: string
-}
+export type SubmitAppFormErrorKeys =
+  | 'name'
+  | 'telephone'
+  | 'supportEmail'
+  | 'launchUri'
+  | 'iconImageData'
+  | 'homePage'
+  | 'description'
+  | 'summary'
+  | 'screen1ImageData'
 
-export function validate(values: SubmitAppFormValues) {
-  let errors = {} as SubmitAppFormError
+export const validate = (values: SubmitAppFormValues) => {
+  let errors = validateRequire<SubmitAppFormValues, SubmitAppFormErrorKeys>({
+    values,
+    currentErrors: {},
+    keys: [
+      'name',
+      'telephone',
+      'supportEmail',
+      'launchUri',
+      'iconImageData',
+      'homePage',
+      'description',
+      'summary',
+      'screen1ImageData'
+    ]
+  })
 
-  if (!values.appName) {
-    errors.appName = 'Required'
-  }
-
-  if (!values.companyName) {
-    errors.companyName = 'Required'
-  }
+  errors = validateEmail({
+    values,
+    currentErrors: errors,
+    keys: ['supportEmail']
+  })
 
   return errors
 }

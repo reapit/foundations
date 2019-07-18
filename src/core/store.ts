@@ -6,6 +6,7 @@ import developer from '../reducers/developer'
 import appDetail from '../reducers/app-detail'
 import error from '../reducers/error'
 import admin from '../reducers/admin'
+import submitApp from '../reducers/submit-app'
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
@@ -15,6 +16,7 @@ import appDetailSagas from '../sagas/app-detail'
 import myAppsSagas from '../sagas/my-apps'
 import developerSagas from '../sagas/developer'
 import adminSagas from '../sagas/admin'
+import submitAppSagas from '../sagas/submit-app'
 
 export class Store {
   static _instance: Store
@@ -38,7 +40,8 @@ export class Store {
     auth,
     appDetail,
     error,
-    admin
+    admin,
+    submitApp
   })
 
   static sagas = function*() {
@@ -48,7 +51,8 @@ export class Store {
       fork(myAppsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
-      fork(adminSagas)
+      fork(adminSagas),
+      fork(appDetailSagas)
     ])
   }
 

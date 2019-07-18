@@ -7,6 +7,7 @@ import { AuthState } from '../reducers/auth'
 import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
 import { AdminState } from '../reducers/admin'
+import { SubmitAppState } from '../reducers/submit-app'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -21,6 +22,8 @@ export interface ActionCreator<T> {
 export interface StringMap {
   [key: string]: string
 }
+
+export type PartialRecord<K extends keyof any, T> = { [P in K]?: T }
 
 export type RouteValue = keyof typeof Routes
 
@@ -43,4 +46,5 @@ export interface ReduxState {
   auth: AuthState
   error: ErrorState
   admin: AdminState
+  submitApp: SubmitAppState
 }

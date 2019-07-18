@@ -10,7 +10,7 @@ export interface InputProps {
   dataTest?: string
 }
 
-const { textarea, isPrimary, isDanger, isMedium, control } = bulma
+const { textarea, hasTextDanger, isPrimary, isDanger, isMedium, control } = bulma
 export const bulmaField = bulma.field
 
 export const textareaBase = `${textarea} ${isMedium}`
@@ -29,7 +29,11 @@ const TextArea = ({ name, label, id, dataTest, placeholder = '' }: InputProps) =
             <label htmlFor={id}>{label}</label>
             <textarea data-test={dataTest || ''} id={id} placeholder={placeholder} className={className} {...field} />
           </div>
-          {hasError && <div className="input-error">{errors[field.name]}</div>}
+          {hasError && (
+            <div data-test="input-error" className={hasTextDanger}>
+              {errors[field.name]}
+            </div>
+          )}
         </div>
       )
     }}

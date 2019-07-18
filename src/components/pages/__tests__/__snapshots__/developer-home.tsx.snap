@@ -3,6 +3,7 @@
 exports[`DeveloperHome should match a snapshot 1`] = `
 <div
   className="container"
+  data-test="developer-home-container"
 >
   <Connect(ErrorBoundary)>
     <div

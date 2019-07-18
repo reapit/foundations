@@ -11,7 +11,7 @@ export interface InputProps {
   dataTest?: string
 }
 
-export const { input, control, isMedium, isRounded, isPrimary, isDanger } = bulma
+export const { input, hasTextDanger, control, isMedium, isRounded, isPrimary, isDanger } = bulma
 export const bulmaField = bulma.field
 export const inputBase = `${input} ${isMedium} ${isRounded}`
 export const inputPrimary = `${inputBase} ${isPrimary}`
@@ -36,7 +36,11 @@ const Input = ({ type, name, label, id, dataTest, placeholder = '' }: InputProps
               {...field}
             />
           </div>
-          {hasError && <div data-test="input-error">{errors[field.name]}</div>}
+          {hasError && (
+            <div className={hasTextDanger} data-test="input-error">
+              {errors[field.name]}
+            </div>
+          )}
         </div>
       )
     }}

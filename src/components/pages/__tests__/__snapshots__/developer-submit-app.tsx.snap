@@ -3,26 +3,28 @@
 exports[`DeveloperSubmitApp should match a snapshot 1`] = `
 <div>
   <div
-    className="undefined "
+    className="undefined container "
   >
     <Formik
       enableReinitialize={false}
       initialValues={
         Object {
-          "appName": "",
-          "companyName": "",
-          "companyReg": "",
-          "contactPhone": "",
-          "country": "",
           "description": "",
-          "lineOne": "",
-          "lineTwo": "",
-          "postcode": "",
-          "town": "",
+          "homePage": "",
+          "iconImageData": "",
+          "launchUri": "",
+          "name": "",
+          "screen1ImageData": "",
+          "screen2ImageData": "",
+          "screen3ImageData": "",
+          "screen4ImageData": "",
+          "summary": "",
+          "supportEmail": "",
+          "telephone": "",
         }
       }
       isInitialValid={false}
-      onSubmit={[Function]}
+      onSubmit={[MockFunction]}
       render={[Function]}
       validate={[Function]}
       validateOnBlur={true}

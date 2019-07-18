@@ -23,6 +23,7 @@ export interface ClientMappedProps {
   clientState: ClientState
   appDetail: AppDetailState
 }
+
 export type ClientProps = ClientMappedActions & ClientMappedProps
 
 const { container, columns, isMultiLine } = bulma
