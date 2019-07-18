@@ -4,9 +4,12 @@
   "description": "Simple wrapper around AWS Cognito for basic authentication flow",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "yarn build && serverless deploy",
+    "test": "jest --coverage --silent",
+    "test-dev": "jest --watch --verbose",
+    "lint": "tslint --fix --project tsconfig.json --format stylish",
     "build": "tsc",
+    "serverless": "serverless deploy",
+    "deploy": "yarn lint && yarn test && yarn build && yarn serverless",
     "dev": "nodemon"
   },
   "repository": {
@@ -31,9 +34,44 @@
     "@types/dotenv": "~6.1.1",
     "@types/express": "~4.17.0",
     "@types/isomorphic-fetch": "~0.0.35",
+    "@types/jest": "~24.0.15",
     "dotenv": "~8.0.0",
+    "husky": "~3.0.0",
+    "jest": "~24.8.0",
+    "lint-staged": "~9.2.0",
     "nodemon": "~1.19.1",
+    "prettier": "~1.18.2",
+    "ts-jest": "~24.0.2",
     "ts-node": "~8.3.0",
+    "tslint": "~5.18.0",
+    "tslint-config-prettier": "~1.18.0",
+    "tslint-config-standard": "~8.0.1",
+    "tslint-plugin-prettier": "~2.0.1",
     "typescript": "~3.5.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.ts"
+    ],
+    "coverageDirectory": "./coverage",
+    "coveragePathIgnorePatterns": [
+      "<rootDir>[/\\\\](node_modules)[/\\\\]"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>[/\\\\](node_modules)[/\\\\]"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
+    }
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "yarn lint",
+      "git add"
+    ]
   }
 }

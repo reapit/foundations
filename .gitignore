@@ -1,6 +1,7 @@
 # package directories
 node_modules
 public
+coverage
 .env
 .DS_Store
 .serverless
