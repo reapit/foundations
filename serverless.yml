@@ -1,0 +1,12 @@
+service: cognito-auth-api
+provider:
+ name: aws
+ runtime: nodejs10.x
+ stage: dev
+ region: eu-west-2
+functions:
+ server:
+   handler: public/app.handler
+   events:
+     - http: ANY /
+     - http: 'ANY {proxy+}'

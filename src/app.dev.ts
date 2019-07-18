@@ -2,7 +2,7 @@ import 'isomorphic-fetch'
 import * as dotenv from 'dotenv'
 import server from './core/server'
 
-(global as any).navigator = {};
+(global as any).navigator = {}
 
 dotenv.config()
   

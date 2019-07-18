@@ -5,11 +5,8 @@
   "main": "handler.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy-version": "ts-node ./lambda-utils/deploy-version",
-    "build-version": "ts-node ./lambda-utils/build-version",
-    "ping": "ts-node ./lambda-utils/ping-lambda",
-    "prod-install": "yarn install --modules-folder ./public/node_modules --production",
-    "build": "tsc && yarn prod-install && yarn build-version",
+    "deploy": "yarn build && serverless deploy",
+    "build": "tsc",
     "dev": "nodemon"
   },
   "repository": {
@@ -24,19 +21,19 @@
   },
   "homepage": "https://github.com/reapit/cognitio-auth#readme",
   "dependencies": {
-    "amazon-cognito-identity-js": "^3.0.13",
-    "aws-serverless-express": "~3.3.6",
+    "amazon-cognito-identity-js": "~3.0.13",
     "express": "~4.17.1",
-    "isomorphic-fetch": "~2.2.1"
+    "isomorphic-fetch": "~2.2.1",
+    "serverless-http": "~2.0.2"
   },
   "devDependencies": {
     "@types/aws-serverless-express": "~3.3.1",
-    "@types/dotenv": "^6.1.1",
+    "@types/dotenv": "~6.1.1",
     "@types/express": "~4.17.0",
-    "@types/isomorphic-fetch": "^0.0.35",
-    "aws-sdk": "~2.493.0",
-    "dotenv": "^8.0.0",
-    "nodemon": "^1.19.1",
+    "@types/isomorphic-fetch": "~0.0.35",
+    "dotenv": "~8.0.0",
+    "nodemon": "~1.19.1",
+    "ts-node": "~8.3.0",
     "typescript": "~3.5.3"
   }
 }
