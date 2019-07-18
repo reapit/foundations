@@ -1,4 +1,4 @@
-import { Router } from 'express'
+import { Router, Response, Request } from 'express'
 import { loginApi } from '../api/login'
 import { refreshApi } from '../api/refresh'
 import errorHandler from '../utils/error-handler'
@@ -8,6 +8,10 @@ const router = Router()
 
 router.post('/login', (req, res) => loginApi(req, res))
 router.post('/refresh',  (req, res) => refreshApi(req, res))
-router.use('*', (_req, res) => errorHandler(res, 404, errorStrings.NOT_FOUND))
+router.use((err: Error, _req: Request, res: Response) => {
+  console.error(errorStrings.NOT_FOUND, JSON.stringify(err))
+  errorHandler(res, 404, errorStrings.NOT_FOUND, err)
+})
+
 
 export default router
