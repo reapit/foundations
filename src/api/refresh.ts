@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response } from 'express'
 import errorStrings from '../constants/error-strings'
 import errorHandler from '../utils/error-handler'
 import { LoginSession, getNewUser, getLoginSession } from '../utils/cognito'
@@ -35,7 +35,7 @@ export const refreshApi = async (req: Request, res: Response) => {
   }
 
   try {
-    const refreshResponse = await cognitoRefreshSession({userName, refreshToken})
+    const refreshResponse = await cognitoRefreshSession({ userName, refreshToken })
 
     if (refreshResponse) {
       res.status(200)

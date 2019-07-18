@@ -1,18 +1,15 @@
-import { Request, Response } from 'express';
+import { Request, Response } from 'express'
 import { LoginSession, getNewUser, getLoginSession } from '../utils/cognito'
-import { AuthenticationDetails } from 'amazon-cognito-identity-js';
+import { AuthenticationDetails } from 'amazon-cognito-identity-js'
 import errorHandler from '../utils/error-handler'
-import errorStrings from '../constants/error-strings';
+import errorStrings from '../constants/error-strings'
 
 export interface LoginParams {
   userName: string
   password: string
 }
 
-export const cognitoLogin = async ({
-  userName,
-  password
-}: LoginParams): Promise<LoginSession | undefined> => {
+export const cognitoLogin = async ({ userName, password }: LoginParams): Promise<LoginSession | undefined> => {
   return new Promise((resolve, reject) => {
     const authenticationData = {
       Username: userName,
@@ -32,7 +29,6 @@ export const cognitoLogin = async ({
 }
 
 export const loginApi = async (req: Request, res: Response) => {
-
   const { userName, password } = req.body
 
   if (!userName || !password) {
@@ -40,7 +36,7 @@ export const loginApi = async (req: Request, res: Response) => {
   }
 
   try {
-    const loginResponse = await cognitoLogin({userName, password})
+    const loginResponse = await cognitoLogin({ userName, password })
 
     if (loginResponse) {
       res.status(200)
