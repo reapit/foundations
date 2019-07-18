@@ -1,24 +1,33 @@
-import { RouteValue } from '../types/core'
+import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
-import Store from '../core/store'
+import store from '../core/store'
 import { clientRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
 import { adminRequestRevisions } from '../actions/admin'
 import { developerRequestData } from '../actions/developer'
 
-const routeDispatcher = (route: RouteValue) => {
+const routeDispatcher = (route: RouteValue, params?: StringMap) => {
   switch (route) {
     case Routes.CLIENT:
-      Store.dispatch(clientRequestData())
+      store.dispatch(clientRequestData(1))
+      break
+    case Routes.CLIENT_PAGINATE:
+      store.dispatch(clientRequestData(params && params.page ? Number(params.page) : 1))
       break
     case Routes.MY_APPS:
-      Store.dispatch(myAppsRequestData())
+      store.dispatch(myAppsRequestData(1))
+      break
+    case Routes.MY_APPS_PAGINATE:
+      store.dispatch(myAppsRequestData(params && params.page ? Number(params.page) : 1))
       break
     case Routes.DEVELOPER_MY_APPS:
-      Store.dispatch(developerRequestData())
+      store.dispatch(developerRequestData(1))
+      break
+    case Routes.DEVELOPER_MY_APPS_PAGINATE:
+      store.dispatch(developerRequestData(params && params.page ? Number(params.page) : 1))
       break
     case Routes.ADMIN:
-      Store.dispatch(adminRequestRevisions())
+      store.dispatch(adminRequestRevisions())
       break
     default:
       console.error('Route not found, nothing to fetch')

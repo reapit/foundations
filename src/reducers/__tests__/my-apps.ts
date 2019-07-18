@@ -1,7 +1,7 @@
 import myAppsReducer, { defaultState } from '../my-apps'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
-import { myAppsDataStub } from '../../sagas/__stubs__/my-apps'
+import { appsDataStub } from '../../sagas/__stubs__/apps'
 
 describe('my-apps reducer', () => {
   it('should return default state if action not matched', () => {
@@ -21,11 +21,11 @@ describe('my-apps reducer', () => {
   it('should set my-apps item data when MY_APPS_RECEIVE_DATA action is called', () => {
     const newState = myAppsReducer(undefined, {
       type: ActionTypes.MY_APPS_RECEIVE_DATA as ActionType,
-      data: myAppsDataStub
+      data: appsDataStub
     })
     const expected = {
       ...defaultState,
-      myAppsData: myAppsDataStub
+      myAppsData: appsDataStub
     }
     expect(newState).toEqual(expected)
   })

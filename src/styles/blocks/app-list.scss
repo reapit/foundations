@@ -1,0 +1,19 @@
+.container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.loader-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-is-loading {
+  opacity: 0.75;
+}

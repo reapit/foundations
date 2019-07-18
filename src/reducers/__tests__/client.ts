@@ -1,7 +1,7 @@
 import clientReducer, { defaultState } from '../client'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
-import { clientDataStub } from '../../sagas/__stubs__/client'
+import { appsDataStub } from '../../sagas/__stubs__/apps'
 
 describe('client reducer', () => {
   it('should return default state if action not matched', () => {
@@ -21,11 +21,11 @@ describe('client reducer', () => {
   it('should set client item data when CLIENT_RECEIVE_DATA action is called', () => {
     const newState = clientReducer(undefined, {
       type: ActionTypes.CLIENT_RECEIVE_DATA as ActionType,
-      data: clientDataStub
+      data: appsDataStub
     })
     const expected = {
       ...defaultState,
-      clientData: clientDataStub
+      clientData: appsDataStub
     }
     expect(newState).toEqual(expected)
   })

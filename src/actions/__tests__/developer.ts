@@ -7,7 +7,7 @@ import {
   developerSetFormState
 } from '../developer'
 import ActionTypes from '../../constants/action-types'
-import { developerDataStub } from '../../sagas/__stubs__/developer'
+import { appsDataStub } from '../../sagas/__stubs__/apps'
 import { CreateDeveloperModel } from '../../types/marketplace-api-schema'
 
 describe('developer actions', () => {
@@ -18,12 +18,12 @@ describe('developer actions', () => {
 
   it('should create a developerReceiveData action', () => {
     expect(developerReceiveData.type).toEqual(ActionTypes.DEVELOPER_RECEIVE_DATA)
-    expect(developerReceiveData(developerDataStub).data).toEqual(developerDataStub)
+    expect(developerReceiveData(appsDataStub).data).toEqual(appsDataStub)
   })
 
   it('should create a developerRequestData action', () => {
     expect(developerRequestData.type).toEqual(ActionTypes.DEVELOPER_REQUEST_DATA)
-    expect(developerRequestData().data).toEqual(undefined)
+    expect(developerRequestData(1).data).toEqual(1)
   })
 
   it('should create a developerClearData action', () => {

@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination Should match a snapshot 1`] = `
+<nav
+  aria-label="pagination"
+  className="pagination isCentered"
+  role="navigation"
+>
+  <Link
+    className="paginationPrevious"
+    disabled={false}
+    onClick={[Function]}
+    to="/page/3"
+  >
+    Previous
+  </Link>
+  <Link
+    className="paginationNext"
+    disabled={false}
+    onClick={[Function]}
+    to="/page/5"
+  >
+    Next page
+  </Link>
+  <ul
+    className="paginationList"
+  >
+    <li
+      key="0"
+    >
+      <Link
+        aria-label="Goto page 1"
+        className="paginationLink"
+        onClick={[Function]}
+        to="/page/0"
+      >
+        1
+      </Link>
+    </li>
+    <li
+      key="1"
+    >
+      <Link
+        aria-label="Goto page 2"
+        className="paginationLink"
+        onClick={[Function]}
+        to="/page/1"
+      >
+        2
+      </Link>
+    </li>
+    <li
+      key="2"
+    >
+      <Link
+        aria-label="Goto page 3"
+        className="paginationLink"
+        onClick={[Function]}
+        to="/page/2"
+      >
+        3
+      </Link>
+    </li>
+    <li
+      key="3"
+    >
+      <Link
+        aria-label="Goto page 4"
+        className="paginationLink isCurrent"
+        onClick={[Function]}
+        to="/page/3"
+      >
+        4
+      </Link>
+    </li>
+    <li
+      key="4"
+    >
+      <Link
+        aria-label="Goto page 5"
+        className="paginationLink"
+        onClick={[Function]}
+        to="/page/4"
+      >
+        5
+      </Link>
+    </li>
+    <li
+      key="5"
+    >
+      <Link
+        aria-label="Goto page 6"
+        className="paginationLink"
+        onClick={[Function]}
+        to="/page/5"
+      >
+        6
+      </Link>
+    </li>
+    <li
+      key="6"
+    >
+      <span
+        className="paginationEllipsis has-text-grey"
+      >
+        …
+      </span>
+    </li>
+    <li
+      key="7"
+    >
+      <Link
+        aria-label="Goto page 1099"
+        className="paginationLink"
+        onClick={[Function]}
+        to="/page/7"
+      >
+        1099
+      </Link>
+    </li>
+  </ul>
+</nav>
+`;

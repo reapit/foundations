@@ -24,9 +24,18 @@ const Router = () => (
         <Route path={Routes.REGISTER} exact render={() => <Register />} />
         <PrivateRouteWrapper path="/">
           <Switch>
+            <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={MyApps} fetcher />
+            <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher exact />
+            <PrivateRoute allow="CLIENT" path={Routes.CLIENT_PAGINATE} component={Client} fetcher />
             <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
-            <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher />
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />
+            <PrivateRoute
+              allow="DEVELOPER"
+              path={Routes.DEVELOPER_MY_APPS_PAGINATE}
+              component={DeveloperHome}
+              exact
+              fetcher
+            />
             <PrivateRoute allow="DEVELOPER" path={Routes.SUBMIT_APP} component={DeveloperSubmitApp} />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN} component={AdminPage} exact fetcher />
           </Switch>

@@ -1,5 +1,4 @@
 import bulmaStyles from './bulma.scss?mod'
-console.log(bulmaStyles)
 
 /**
  * This file is to map bulma CSS classes to TS. Am doing this for 2 reasons;
@@ -46,6 +45,10 @@ const bulma = {
   isDanger: bulmaStyles['is-danger'] || 'isDanger',
   isActive: bulmaStyles['is-active'] || 'isActive',
   isLarge: bulmaStyles['is-large'] || 'isLarge',
+  isCentered: bulmaStyles['is-centered'] || 'isCentered',
+  isCurrent: bulmaStyles['is-current'] || 'isCurrent',
+  isDisabled: bulmaStyles['is-disalbed'] || 'isDisabled',
+  isRelative: bulmaStyles['is-relative'] || 'isRelative',
 
   // Form
   button: bulmaStyles['button'] || 'button',
@@ -123,6 +126,7 @@ const bulma = {
   hasTextPrimary: bulmaStyles.hasTextPrimary || 'has-text-primary',
   hasTextDanger: bulmaStyles.hasTextDanger || 'has-text-primary',
   hasTextLink: bulmaStyles.hasTextLink || 'has-text-link',
+  hasTextGrey: bulmaStyles.hasTextGrey || 'has-text-grey',
 
   // Fileupload
   hasFile: bulmaStyles['has-file'] || 'hasFile',
@@ -134,7 +138,15 @@ const bulma = {
   fileName: bulmaStyles['file-name'] || 'fileName',
 
   // Notification
-  notification: bulmaStyles.notification || 'notification'
+  notification: bulmaStyles.notification || 'notification',
+
+  // pagination
+  pagination: bulmaStyles['pagination'] || 'pagination',
+  paginationList: bulmaStyles['pagination-list'] || 'paginationList',
+  paginationPrevious: bulmaStyles['pagination-previous'] || 'paginationPrevious',
+  paginationNext: bulmaStyles['pagination-next'] || 'paginationNext',
+  paginationLink: bulmaStyles['pagination-link'] || 'paginationLink',
+  paginationEllipsis: bulmaStyles['pagination-ellipsis'] || 'paginationEllipsis'
 }
 
 export default bulma

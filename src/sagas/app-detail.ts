@@ -11,7 +11,7 @@ export const appDetailDataFetch = function*({ data: id }) {
   yield put(appDetailLoading(true))
   try {
     const response = yield call(fetcher, {
-      url: `${URLS.app}/${id}`,
+      url: `${URLS.apps}/${id}`,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })

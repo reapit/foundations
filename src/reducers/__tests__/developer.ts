@@ -1,7 +1,7 @@
 import developerReducer, { defaultState } from '../developer'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
-import { developerDataStub } from '../../sagas/__stubs__/developer'
+import { appsDataStub } from '../../sagas/__stubs__/apps'
 
 describe('developer reducer', () => {
   it('should return default state if action not matched', () => {
@@ -21,11 +21,11 @@ describe('developer reducer', () => {
   it('should set developer item data when DEVELOPER_RECEIVE_DATA action is called', () => {
     const newState = developerReducer(undefined, {
       type: ActionTypes.DEVELOPER_RECEIVE_DATA as ActionType,
-      data: developerDataStub
+      data: appsDataStub
     })
     const expected = {
       ...defaultState,
-      developerData: developerDataStub
+      developerData: appsDataStub
     }
     expect(newState).toEqual(expected)
   })

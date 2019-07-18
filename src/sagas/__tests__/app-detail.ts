@@ -15,7 +15,7 @@ describe('app-detail fetch data', () => {
   expect(gen.next().value).toEqual(put(appDetailLoading(true)))
   expect(gen.next().value).toEqual(
     call(fetcher, {
-      url: `${URLS.app}/${params.data}`,
+      url: `${URLS.apps}/${params.data}`,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })
@@ -36,7 +36,7 @@ describe('app-detail fetch data', () => {
 
 describe('app-detail thunks', () => {
   describe('appDetailDataListen', () => {
-    it('should trigger loading', () => {
+    it('should trigger request data when called', () => {
       const gen = appDetailDataListen()
       expect(gen.next().value).toEqual(
         takeLatest<Action<String>>(ActionTypes.APP_DETAIL_REQUEST_DATA, appDetailDataFetch)
@@ -46,7 +46,7 @@ describe('app-detail thunks', () => {
   })
 
   describe('appDetailSagas', () => {
-    it('should trigger loading', () => {
+    it('should listen data request', () => {
       const gen = appDetailSagas()
 
       expect(gen.next().value).toEqual(all([fork(appDetailDataListen)]))
