@@ -1,8 +1,13 @@
 import { Request, Response } from 'express';
-import { LoginParams, LoginSession, getNewUser, getLoginSession } from '../utils/cognito'
+import { LoginSession, getNewUser, getLoginSession } from '../utils/cognito'
 import { AuthenticationDetails } from 'amazon-cognito-identity-js';
 import errorHandler from '../utils/error-handler'
 import errorStrings from '../constants/error-strings';
+
+export interface LoginParams {
+  userName: string
+  password: string
+}
 
 export const cognitoLogin = async ({
   userName,
@@ -17,7 +22,7 @@ export const cognitoLogin = async ({
     const cognitoUser = getNewUser(userName)
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: session => {
-        resolve(getLoginSession(session, userName))
+        resolve(getLoginSession(session))
       },
       onFailure: err => {
         reject(`LOGIN ERROR ${err}`)
@@ -38,10 +43,11 @@ export const loginApi = async (req: Request, res: Response) => {
     const loginResponse = await cognitoLogin({userName, password})
 
     if (loginResponse) {
+      res.status(200)
       res.json(loginResponse)
       res.end()
     }
   } catch (err) {
-    errorHandler(res, 400, errorStrings.AUTHENTICATION_FAILED)
+    errorHandler(res, 400, errorStrings.AUTHENTICATION_FAILED, err)
   }
 }
