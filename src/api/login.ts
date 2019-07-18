@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
 import { LoginParams, LoginSession, getNewUser, getLoginSession } from '../utils/cognito'
 import { AuthenticationDetails } from 'amazon-cognito-identity-js';
-import { handleError } from '../utils/error-handler'
+import errorHandler from '../utils/error-handler'
+import errorStrings from '../constants/error-strings';
 
 export const cognitoLogin = async ({
   userName,
@@ -27,31 +28,20 @@ export const cognitoLogin = async ({
 
 export const loginApi = async (req: Request, res: Response) => {
 
-  const { body } = req.body || req.apiGateway.event
-
-  if (!body) {
-    return handleError(res, 400, 'Bad request, no body received')
-  }
-
-  const { userName, password } = body
+  const { userName, password } = req.body
 
   if (!userName || !password) {
-    return handleError(res, 400, 'Bad request, both password and username are required')
+    return errorHandler(res, 400, errorStrings.USERNAME_PASSWORD_REQUIRED)
   }
 
   try {
-
     const loginResponse = await cognitoLogin({userName, password})
+
     if (loginResponse) {
-      res.json({
-        isBase64Encoded: false,
-        statusCode: 200,
-        body: loginResponse
-      })
+      res.json(loginResponse)
       res.end()
     }
   } catch (err) {
-    console.error('ERR is ', err)
-    handleError(res, 400, 'Bad request, user failed to authenticate')
+    errorHandler(res, 400, errorStrings.AUTHENTICATION_FAILED)
   }
 }
