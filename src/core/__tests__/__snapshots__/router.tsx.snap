@@ -56,9 +56,22 @@ exports[`Router should match a snapshot 1`] = `
                 "_status": -1,
               }
             }
+            fetcher={true}
+            path="/client/my-apps/:page"
+          />
+          <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
             exact={true}
             fetcher={true}
-            path="/client"
+            path="/client/my-apps"
           />
           <Connect(Component)
             allow="CLIENT"
@@ -71,7 +84,21 @@ exports[`Router should match a snapshot 1`] = `
               }
             }
             fetcher={true}
-            path="/client/my-apps"
+            path="/client/:page"
+          />
+          <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            fetcher={true}
+            path="/client"
           />
           <Connect(Component)
             allow="DEVELOPER"
@@ -86,6 +113,20 @@ exports[`Router should match a snapshot 1`] = `
             exact={true}
             fetcher={true}
             path="/developer/my-apps"
+          />
+          <Connect(Component)
+            allow="DEVELOPER"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            fetcher={true}
+            path="/developer/my-apps/:page"
           />
           <Connect(Component)
             allow="DEVELOPER"

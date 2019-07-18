@@ -10,7 +10,7 @@ interface RouteFetcherProps {
 }
 
 const RouteFetcher: React.FunctionComponent<RouteFetcherProps> = ({ routerProps, Component }) => {
-  routeDispatcher(routerProps.match.path as RouteValue)
+  routeDispatcher(routerProps.match.path as RouteValue, routerProps.match.params)
   return <Component />
 }
 

@@ -11,7 +11,7 @@ export const submitApp = function*({ data }: Action<any>) {
   yield put(submitAppSetFormState('SUBMITTING'))
   try {
     const regResponse: true | undefined = yield call(fetcher, {
-      url: URLS.app,
+      url: URLS.apps,
       method: 'POST',
       body: data,
       headers: MARKETPLACE_HEADERS

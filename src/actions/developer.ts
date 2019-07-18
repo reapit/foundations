@@ -4,7 +4,8 @@ import { DeveloperItem } from '../reducers/developer'
 import { CreateDeveloperModel } from '../types/marketplace-api-schema'
 import { FormState } from '../types/core'
 
-export const developerRequestData = actionCreator<void>(ActionTypes.DEVELOPER_REQUEST_DATA)
+export const developerRequestData = actionCreator<number>(ActionTypes.DEVELOPER_REQUEST_DATA)
+export const developerRequestDataFailure = actionCreator<void>(ActionTypes.DEVELOPER_REQUEST_DATA_FAILURE)
 export const developerLoading = actionCreator<boolean>(ActionTypes.DEVELOPER_LOADING)
 export const developerReceiveData = actionCreator<DeveloperItem | undefined>(ActionTypes.DEVELOPER_RECEIVE_DATA)
 export const developerClearData = actionCreator<null>(ActionTypes.DEVELOPER_CLEAR_DATA)

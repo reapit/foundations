@@ -1,31 +1,27 @@
-// import fetcher from '../utils/fetcher'
-// import { URLS } from '../constants/api'
-import { myAppsLoading, myAppsReceiveData } from '../actions/my-apps'
-import { MyAppsItem } from '../reducers/my-apps'
-import { put, delay, fork, takeLatest, all } from '@redux-saga/core/effects'
+import { myAppsLoading, myAppsReceiveData, myAppsRequestDataFailure } from '../actions/my-apps'
+import { put, fork, takeLatest, call, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
+import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
+import fetcher from '@/utils/fetcher'
+import { Action } from '@/types/core'
+import { APPS_PER_PAGE } from '@/constants/paginator'
 
-export const mockMyAppsData: MyAppsItem = {
-  data: Array.from({ length: 7 }, (i, k) => k).map(i => ({
-    id: i.toString(),
-    appName: 'Team',
-    developerName: 'microsoft',
-    developerId: 'dfJ28xl',
-    displayImage: '',
-    approved: Math.round(Math.random() * 2) % 2 === 0,
-    displayText:
-      'Brings everything together in a shared workspace where you can chat, meet, share files, and work with business apps'
-  }))
-}
-
-export const myAppsDataFetch = function*() {
+export const myAppsDataFetch = function*({ data: page }) {
   yield put(myAppsLoading(true))
 
   try {
-    yield delay(1000)
-    yield put(myAppsReceiveData(mockMyAppsData))
+    const response = yield call(fetcher, {
+      url: `${URLS.apps}?PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
+      method: 'GET',
+      headers: MARKETPLACE_HEADERS
+    })
+    if (response) {
+      yield put(myAppsReceiveData({ data: response }))
+    } else {
+      yield put(myAppsRequestDataFailure())
+    }
   } catch (err) {
     console.error(err.message)
     yield put(
@@ -38,7 +34,7 @@ export const myAppsDataFetch = function*() {
 }
 
 export const myAppsDataListen = function*() {
-  yield takeLatest(ActionTypes.MY_APPS_REQUEST_DATA, myAppsDataFetch)
+  yield takeLatest<Action<number>>(ActionTypes.MY_APPS_REQUEST_DATA, myAppsDataFetch)
 }
 
 const myAppsSagas = function*() {

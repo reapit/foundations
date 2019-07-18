@@ -15,17 +15,12 @@ jest.mock('../../sagas/developer')
 describe('routeDispatcher', () => {
   it('should dispatch to clientDataFetch for the client route', () => {
     routeDispatcher(Routes.CLIENT as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(clientRequestData())
-  })
-
-  it('should dispatch to myAppsRequestData for the my-apps route', () => {
-    routeDispatcher(Routes.MY_APPS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(myAppsRequestData())
+    expect(store.dispatch).toHaveBeenCalledWith(clientRequestData(1))
   })
 
   it('should dispatch to developerDataFetch for the developer route', () => {
     routeDispatcher(Routes.DEVELOPER_MY_APPS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData())
+    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData(1))
   })
 
   it('should dispatch to adminRequestRevisions for the admin route', () => {

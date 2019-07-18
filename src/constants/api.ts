@@ -14,5 +14,5 @@ export const REAPIT_API_BASE_URL = 'https://reapit.cloud.tyk.io'
 
 export const URLS = {
   developerCreate: '/marketplace/developers',
-  app: '/marketplace/apps'
+  apps: '/marketplace/apps'
 }

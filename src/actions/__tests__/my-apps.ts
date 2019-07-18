@@ -1,6 +1,6 @@
 import { myAppsLoading, myAppsReceiveData, myAppsRequestData, myAppsClearData } from '../my-apps'
 import ActionTypes from '../../constants/action-types'
-import { myAppsDataStub } from '../../sagas/__stubs__/my-apps'
+import { appsDataStub } from '../../sagas/__stubs__/apps'
 
 describe('myApps actions', () => {
   it('should create a myAppsLoading action', () => {
@@ -10,12 +10,12 @@ describe('myApps actions', () => {
 
   it('should create a myAppsReceiveData action', () => {
     expect(myAppsReceiveData.type).toEqual(ActionTypes.MY_APPS_RECEIVE_DATA)
-    expect(myAppsReceiveData(myAppsDataStub).data).toEqual(myAppsDataStub)
+    expect(myAppsReceiveData(appsDataStub).data).toEqual(appsDataStub)
   })
 
   it('should create a myAppsRequestData action', () => {
     expect(myAppsRequestData.type).toEqual(ActionTypes.MY_APPS_REQUEST_DATA)
-    expect(myAppsRequestData().data).toEqual(undefined)
+    expect(myAppsRequestData(1).data).toEqual(1)
   })
 
   it('should create a myAppsClearData action', () => {

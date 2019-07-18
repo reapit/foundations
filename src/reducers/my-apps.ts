@@ -1,17 +1,10 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { myAppsLoading, myAppsReceiveData, myAppsClearData } from '../actions/my-apps'
+import { myAppsLoading, myAppsReceiveData, myAppsClearData, myAppsRequestDataFailure } from '../actions/my-apps'
+import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
 
 export interface MyAppsItem {
-  data: {
-    id: string
-    appName: string
-    developerName: string
-    developerId: string
-    displayImage: string
-    displayText: string
-    approved: boolean
-  }[]
+  data: PagedResultAppSummaryModel_
 }
 
 export interface MyAppsState {
@@ -45,6 +38,13 @@ const myAppsReducer = (state: MyAppsState = defaultState, action: Action<any>): 
       ...state,
       loading: false,
       myAppsData: action.data
+    }
+  }
+
+  if (isType(action, myAppsRequestDataFailure)) {
+    return {
+      ...state,
+      loading: false
     }
   }
 

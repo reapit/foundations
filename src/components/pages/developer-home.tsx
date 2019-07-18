@@ -4,40 +4,53 @@ import { ReduxState } from '@/types/core'
 import Loader from '@/components/ui/loader'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { DeveloperState } from '@/reducers/developer'
-import AppCard from '@/components/ui/app-card'
-import bulma from '../../styles/vendor/bulma'
-import bulmaUtils from '../../styles/vendor/bulma-utils'
+import Pagination from '@/components/ui/pagination'
+import routes from '@/constants/routes'
+import { oc } from 'ts-optchain'
+import AppList from '@/components/ui/app-list'
+import { withRouter, RouteComponentProps } from 'react-router'
 
-export interface DeveloperHomeMappedProps {
+export interface DeveloperMappedActions {}
+
+export interface DeveloperMappedProps {
   developerState: DeveloperState
 }
 
-export type DeveloperHomeProps = DeveloperHomeMappedProps
+export type DeveloperProps = DeveloperMappedActions & DeveloperMappedProps & RouteComponentProps<{ page?: any }>
 
-const { container, columns, isMultiLine } = bulma
-const { isResponsiveColumn } = bulmaUtils
+export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({ developerState, match }) => {
+  const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 9999
+  const unfetched = !developerState.developerData
+  const loading = developerState.loading
+  const list = oc<DeveloperState>(developerState).developerData.data.data([])
+  const { totalCount, pageSize } = oc<DeveloperState>(developerState).developerData.data({})
 
-export const DeveloperHome: React.FunctionComponent<DeveloperHomeProps> = ({ developerState }) => (
-  <div data-test="developer-home-container" className={container}>
-    {developerState.loading ? (
-      <Loader />
-    ) : (
-      <ErrorBoundary>
-        <div className={`${columns} ${isMultiLine}`}>
-          {developerState.developerData &&
-            developerState.developerData.data.map(child => (
-              <div className={`${isResponsiveColumn}`} key={child.id}>
-                <AppCard {...child} />
-              </div>
-            ))}
-        </div>
-      </ErrorBoundary>
-    )}
-  </div>
-)
+  if (unfetched && loading) {
+    return <Loader />
+  }
 
-const mapStateToProps = (state: ReduxState): DeveloperHomeMappedProps => ({
+  return (
+    <ErrorBoundary>
+      <AppList list={list} loading={loading} />
+      <Pagination
+        baseUrl={routes.DEVELOPER_MY_APPS}
+        totalCount={totalCount}
+        pageSize={pageSize}
+        pageNumber={pageNumber}
+      />
+    </ErrorBoundary>
+  )
+}
+
+const mapStateToProps = (state: ReduxState): DeveloperMappedProps => ({
   developerState: state.developer
 })
 
-export default connect(mapStateToProps)(DeveloperHome)
+const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({})
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(DeveloperHome)
+)

@@ -2,14 +2,18 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { Client, ClientProps } from '../client'
-import { clientDataStub } from '@/sagas/__stubs__/client'
+import { appsDataStub } from '@/sagas/__stubs__/apps'
 
 const props: ClientProps = {
-  appDetail: { appDetailData: { data: { id: 'xxxx' } }, error: false, loading: false },
-  fetchAppDetail: jest.fn(),
   clientState: {
     loading: false,
-    clientData: clientDataStub
+    clientData: appsDataStub
+  },
+  // @ts-ignore: just pick the needed props for the test
+  match: {
+    params: {
+      page: '2'
+    }
   }
 }
 
