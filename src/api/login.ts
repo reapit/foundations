@@ -22,7 +22,7 @@ export const cognitoLogin = async ({ userName, password }: LoginParams): Promise
         resolve(getLoginSession(session))
       },
       onFailure: err => {
-        reject(`LOGIN ERROR ${err}`)
+        reject(`LOGIN ERROR ${JSON.stringify(err)}`)
       }
     })
   })

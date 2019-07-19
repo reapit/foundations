@@ -1,9 +1,9 @@
 import express from 'express'
-import * as bodyParser from 'body-parser'
+import bodyParser from 'body-parser'
 import router from './router'
 
 const expressApp = express()
-
+expressApp.use(bodyParser.urlencoded({ extended: true }))
 expressApp.use(bodyParser.json())
 expressApp.use('/api', router)
 

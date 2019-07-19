@@ -27,7 +27,7 @@ export const getLoginSession = (session: CognitoUserSession): LoginSession => ({
 export const getNewUser = (userName: string) => {
   const poolData = {
     UserPoolId: process.env.COGNITO_USERPOOL_ID as string,
-    ClientId: process.env.COGNITO_USERPOOL_ID as string
+    ClientId: process.env.COGNITO_CLIENT_ID as string
   }
   const userPool = new CognitoUserPool(poolData)
   const userData = {
