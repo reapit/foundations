@@ -19,7 +19,7 @@ export interface MyAppsMappedProps {
 export type MyAppsProps = MyAppsMappedActions & MyAppsMappedProps & RouteComponentProps<{ page?: any }>
 
 export const MyApps: React.FunctionComponent<MyAppsProps> = ({ myAppsState, match }) => {
-  const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 9999
+  const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !myAppsState.myAppsData
   const loading = myAppsState.loading
   const list = oc<MyAppsState>(myAppsState).myAppsData.data.data([])

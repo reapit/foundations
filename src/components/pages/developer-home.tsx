@@ -19,7 +19,7 @@ export interface DeveloperMappedProps {
 export type DeveloperProps = DeveloperMappedActions & DeveloperMappedProps & RouteComponentProps<{ page?: any }>
 
 export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({ developerState, match }) => {
-  const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 9999
+  const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !developerState.developerData
   const loading = developerState.loading
   const list = oc<DeveloperState>(developerState).developerData.data.data([])
