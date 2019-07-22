@@ -1,4 +1,4 @@
-import { SubmitAppFormValues } from '@/components/pages/developer-submit-app'
+import { CreateAppModel } from '@/types/marketplace-api-schema'
 import { validateRequire, validateEmail } from '../validators'
 
 export type SubmitAppFormErrorKeys =
@@ -12,8 +12,8 @@ export type SubmitAppFormErrorKeys =
   | 'summary'
   | 'screen1ImageData'
 
-export const validate = (values: SubmitAppFormValues) => {
-  let errors = validateRequire<SubmitAppFormValues, SubmitAppFormErrorKeys>({
+export const validate = (values: CreateAppModel) => {
+  let errors = validateRequire<CreateAppModel, SubmitAppFormErrorKeys>({
     values,
     currentErrors: {},
     keys: [

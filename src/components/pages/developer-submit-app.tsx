@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ReduxState } from '@/types/core'
+import { ReduxState, FormState } from '@/types/core'
 import { Formik, Form } from 'formik'
 import Input from '../form/input'
 import ImageInput from '../form/image-input'
@@ -11,44 +11,11 @@ import bulma from '@/styles/vendor/bulma'
 import { connect } from 'react-redux'
 import { submitApp, submitAppSetFormState } from '@/actions/submit-app'
 import { SubmitAppState } from '@/reducers/submit-app'
-
-export interface SubmitAppFormValues {
-  name: string
-  description: string
-  supportEmail: string
-  telephone: string
-  homePage: string
-  launchUri: string
-  summary: string
-
-  iconImageData: string
-  screen1ImageData: string
-
-  screen2ImageData?: string
-  screen3ImageData?: string
-  screen4ImageData?: string
-  // appName: string
-  // companyName: string
-  // companyReg?: string
-  // contactPhone?: string
-  // lineOne?: string
-  // lineTwo?: string
-  // town?: string
-  // country?: string
-  // postcode?: string
-
-  // displaySummary?: string
-  // businessAddress?: string
-  // county?: string
-  // developerId?: string
-  // policy?: string
-  // endpoint?: string
-  // acceptedTerms?: string
-}
+import { CreateAppModel } from '@/types/marketplace-api-schema'
 
 export interface SubmitAppMappedActions {
-  submitApp: (data: any) => void
-  submitAppSetFormState: (data: string) => void
+  submitApp: (appModel: CreateAppModel) => void
+  submitAppSetFormState: (formState: FormState) => void
 }
 
 export interface SubmitAppMappedProps {
@@ -98,7 +65,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                 homePage: '',
                 description: '',
                 summary: ''
-              } as SubmitAppFormValues
+              } as CreateAppModel
             }
             onSubmit={submitApp}
             render={({ errors }) => {
@@ -257,8 +224,8 @@ const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
 })
 
 const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
-  submitApp: data => dispatch(submitApp(data)),
-  submitAppSetFormState: data => dispatch(submitAppSetFormState(data))
+  submitApp: appModel => dispatch(submitApp(appModel)),
+  submitAppSetFormState: formState => dispatch(submitAppSetFormState(formState))
 })
 
 export default connect(
