@@ -1,10 +1,11 @@
 import { validate, SubmitAppFormErrorKeys } from '../submit-app'
-import { SubmitAppFormValues } from '@/components/pages/developer-submit-app'
+import { CreateAppModel } from '@/types/marketplace-api-schema'
+
 import errorMessages from '@/constants/error-messages'
 
 describe('submitAppValidation', () => {
   it('validate require all field', () => {
-    const input: SubmitAppFormValues = {
+    const input: CreateAppModel = {
       screen4ImageData: '',
       screen3ImageData: '',
       screen2ImageData: '',
@@ -40,7 +41,7 @@ describe('submitAppValidation', () => {
   })
 
   it('validate email field support email', () => {
-    const input: SubmitAppFormValues = {
+    const input: CreateAppModel = {
       screen4ImageData: 'test',
       screen3ImageData: 'test',
       screen2ImageData: 'test',
@@ -61,7 +62,7 @@ describe('submitAppValidation', () => {
   })
 
   it('return empty object it everything is valid', () => {
-    const input: SubmitAppFormValues = {
+    const input: CreateAppModel = {
       screen4ImageData: 'test',
       screen3ImageData: 'test',
       screen2ImageData: 'test',
