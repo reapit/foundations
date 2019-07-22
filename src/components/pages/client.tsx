@@ -19,7 +19,7 @@ export interface ClientMappedProps {
 export type ClientProps = ClientMappedActions & ClientMappedProps & RouteComponentProps<{ page?: any }>
 
 export const Client: React.FunctionComponent<ClientProps> = ({ clientState, match }) => {
-  const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 9999
+  const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !clientState.clientData
   const loading = clientState.loading
   const list = oc<ClientState>(clientState).clientData.data.data([])

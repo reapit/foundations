@@ -42,7 +42,7 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
     return null
   }
 
-  const paginator = generatePagination(pageNumber, maxPage + 999)
+  const paginator = generatePagination(pageNumber, maxPage)
 
   return (
     <nav className={bulma.pagination + ' ' + bulma.isCentered} role="navigation" aria-label="pagination">
@@ -89,7 +89,7 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
           return (
             <li key={i}>
               <Link
-                to={`${baseUrl}/${i}`}
+                to={`${baseUrl}/${pg}`}
                 className={bulma.paginationLink + (pg === pageNumber ? ` ${bulma.isCurrent}` : '')}
                 onClick={e => {
                   if (pg === pageNumber) {

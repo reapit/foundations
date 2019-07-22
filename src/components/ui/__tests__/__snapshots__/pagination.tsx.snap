@@ -32,7 +32,7 @@ exports[`Pagination Should match a snapshot 1`] = `
         aria-label="Goto page 1"
         className="paginationLink"
         onClick={[Function]}
-        to="/page/0"
+        to="/page/1"
       >
         1
       </Link>
@@ -44,7 +44,7 @@ exports[`Pagination Should match a snapshot 1`] = `
         aria-label="Goto page 2"
         className="paginationLink"
         onClick={[Function]}
-        to="/page/1"
+        to="/page/2"
       >
         2
       </Link>
@@ -56,7 +56,7 @@ exports[`Pagination Should match a snapshot 1`] = `
         aria-label="Goto page 3"
         className="paginationLink"
         onClick={[Function]}
-        to="/page/2"
+        to="/page/3"
       >
         3
       </Link>
@@ -68,7 +68,7 @@ exports[`Pagination Should match a snapshot 1`] = `
         aria-label="Goto page 4"
         className="paginationLink isCurrent"
         onClick={[Function]}
-        to="/page/3"
+        to="/page/4"
       >
         4
       </Link>
@@ -80,7 +80,7 @@ exports[`Pagination Should match a snapshot 1`] = `
         aria-label="Goto page 5"
         className="paginationLink"
         onClick={[Function]}
-        to="/page/4"
+        to="/page/5"
       >
         5
       </Link>
@@ -92,7 +92,7 @@ exports[`Pagination Should match a snapshot 1`] = `
         aria-label="Goto page 6"
         className="paginationLink"
         onClick={[Function]}
-        to="/page/5"
+        to="/page/6"
       >
         6
       </Link>
@@ -110,12 +110,12 @@ exports[`Pagination Should match a snapshot 1`] = `
       key="7"
     >
       <Link
-        aria-label="Goto page 1099"
+        aria-label="Goto page 100"
         className="paginationLink"
         onClick={[Function]}
-        to="/page/7"
+        to="/page/100"
       >
-        1099
+        100
       </Link>
     </li>
   </ul>

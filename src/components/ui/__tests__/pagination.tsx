@@ -20,6 +20,11 @@ describe('Pagination', () => {
     expect(wrapper.find('[aria-label="Goto page 4"]').hasClass('isCurrent')).toBeTruthy()
   })
 
+  it('Page 4 should have link /page/4', () => {
+    const wrapper = shallow(<Pagination {...props} />)
+    expect(wrapper.find('[aria-label="Goto page 4"]').prop('to')).toBe('/page/4')
+  })
+
   it('Previous link should be /3 and next link should be /5', () => {
     const wrapper = shallow(<Pagination {...props} />)
     const previousLink = wrapper.find('.paginationPrevious')
