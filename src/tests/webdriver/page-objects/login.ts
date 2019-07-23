@@ -53,6 +53,7 @@ class LoginPage extends Base {
 
   submitForm() {
     this.submitButton.click()
+    browser.pause(5000)
   }
 
   selectDeveloperTab() {

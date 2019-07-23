@@ -2,7 +2,7 @@ import Base from './base'
 
 class DeveloperHome extends Base {
   get cardContainer() {
-    return $('[data-test="developer-home-container"]')
+    return $('[data-test="app-list-container"]')
   }
 }
 

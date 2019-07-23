@@ -206,7 +206,13 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                     </div>
                   </div>
 
-                  <Button type="submit" variant="primary" loading={Boolean(isLoading)} disabled={Boolean(isLoading)}>
+                  <Button
+                    type="submit"
+                    dataTest="submit-app-button"
+                    variant="primary"
+                    loading={Boolean(isLoading)}
+                    disabled={Boolean(isLoading)}
+                  >
                     Submit
                   </Button>
                 </Form>

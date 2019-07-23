@@ -1,4 +1,5 @@
 import DeveloperInstalledApps from '../page-objects/developer-installed-apps'
+import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
 describe('DeveloperInstalledApps', () => {
   beforeEach(() => {
@@ -12,6 +13,6 @@ describe('DeveloperInstalledApps', () => {
   })
 
   afterEach(() => {
-    browser.localStorage('DELETE', 'token')
+    browser.localStorage('DELETE', LOCAL_STORAGE_SESSION_KEY)
   })
 })

@@ -1,4 +1,5 @@
 import LoginPage from '../page-objects/login'
+import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
 interface LoginSession {
   value: string | null
@@ -22,13 +23,13 @@ describe('LoginPage', () => {
     LoginPage.submitForm()
     // TODO - this localstorage method is deprecated in v5 of Webdriver. Will need to change
     // when we upgrade
-    expect((browser.localStorage('GET', 'token') as LoginSession).value).not.toBeNull()
+    expect((browser.localStorage('GET', LOCAL_STORAGE_SESSION_KEY) as LoginSession).value).not.toBeNull()
     expect(browser.getUrl()).toContain('/client')
   })
 
   it('should not submit and instead show a validation messages if data invalid', () => {
     LoginPage.submitForm()
-    expect((browser.localStorage('GET', 'token') as LoginSession).value).toBeNull()
+    expect((browser.localStorage('GET', LOCAL_STORAGE_SESSION_KEY) as LoginSession).value).toBeNull()
     expect(browser.getUrl()).not.toContain('/client')
     expect(LoginPage.errorMessages.length).toBe(2)
     expect(LoginPage.errorMessages[0].getText()).toEqual('Required')
@@ -47,11 +48,11 @@ describe('LoginPage', () => {
     LoginPage.selectDeveloperTab()
     LoginPage.populateValidForm()
     LoginPage.submitForm()
-    expect((browser.localStorage('GET', 'token') as LoginSession).value).not.toBeNull()
+    expect((browser.localStorage('GET', LOCAL_STORAGE_SESSION_KEY) as LoginSession).value).not.toBeNull()
     expect(browser.getUrl()).toContain('/developer')
   })
 
   afterEach(() => {
-    browser.localStorage('DELETE', 'token')
+    browser.localStorage('DELETE', LOCAL_STORAGE_SESSION_KEY)
   })
 })

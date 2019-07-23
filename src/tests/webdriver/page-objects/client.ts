@@ -7,7 +7,7 @@ class ClientPage extends Base {
   }
 
   get cardContainer() {
-    return $('[data-test="client-card-container"]')
+    return $('[data-test="app-list-container"]')
   }
 
   get allCards() {
