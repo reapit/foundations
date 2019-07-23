@@ -7,7 +7,7 @@ class DeveloperInstalledAppsPage extends Base {
   }
 
   get cardContainer() {
-    return $('[data-test="my-app-container"]')
+    return $('[data-test="app-list-container"]')
   }
 
   get allCards() {

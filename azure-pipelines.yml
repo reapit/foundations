@@ -40,9 +40,9 @@ steps:
     failTaskOnFailedTests: true # Optional
     publishRunAttachments: true # Optional
 
-- script: yarn test-e2e:ci
-
 - script: yarn build
+
+- script: yarn test-e2e:ci
 
 - task: PublishPipelineArtifact@1
   inputs:

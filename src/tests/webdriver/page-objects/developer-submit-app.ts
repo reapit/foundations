@@ -78,7 +78,7 @@ class DeveloperSubmitAppPage extends Base {
   }
 
   get submitButton() {
-    return $('button[type="submit"]')
+    return $('[data-test="submit-app-button"]')
   }
 
   get allInputs() {

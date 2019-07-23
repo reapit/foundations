@@ -1,4 +1,5 @@
 import RegisterPage from '../page-objects/register'
+import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
 describe('RegisterPage', () => {
   beforeEach(() => {
@@ -44,6 +45,6 @@ describe('RegisterPage', () => {
   })
 
   afterEach(() => {
-    browser.localStorage('DELETE', 'token')
+    browser.localStorage('DELETE', LOCAL_STORAGE_SESSION_KEY)
   })
 })

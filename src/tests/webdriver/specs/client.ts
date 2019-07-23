@@ -1,4 +1,5 @@
 import ClientPage from '../page-objects/client'
+import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
 describe('ClientPage', () => {
   beforeEach(() => {
@@ -12,6 +13,6 @@ describe('ClientPage', () => {
   })
 
   afterEach(() => {
-    browser.localStorage('DELETE', 'token')
+    browser.localStorage('DELETE', LOCAL_STORAGE_SESSION_KEY)
   })
 })
