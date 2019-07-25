@@ -2,8 +2,8 @@ import * as React from 'react'
 import { Field } from 'formik'
 import bulmaStyles from '@/styles/vendor/bulma'
 import fileInputStyles from './file-input.scss?mod'
-const { isPrimary, isDanger, hasTextDanger } = bulmaStyles
 
+const { isPrimary, isDanger, hasTextDanger } = bulmaStyles
 const { useState } = React
 
 interface FileInputTestProps {
@@ -22,15 +22,17 @@ export interface FileInputProps {
 }
 
 const FileInput = ({ testProps, name, dataTest, id = name, label, accept = '' }: FileInputProps) => {
-  const [fileName, setFileName] = useState('')
+  const [fileName, setFileName] = useState()
 
   return (
     <Field
       name={name}
       render={({ field, form: { touched, errors, setFieldValue } }) => {
         const hasError = touched[field.name] && errors[field.name]
-        const hasFile = fileName !== ''
-        const containerClassName = `${hasError ? isDanger : isPrimary} ${bulmaStyles.file}`
+        const hasFile = fileName || field.value
+        const containerClassName = `${hasError ? isDanger : isPrimary} ${bulmaStyles.file} ${
+          hasFile ? bulmaStyles.hasName : ''
+        }`
 
         const onChange = e => {
           const file = e.target.files[0]
@@ -71,10 +73,20 @@ const FileInput = ({ testProps, name, dataTest, id = name, label, accept = '' }:
                 </span>
                 {hasFile && (
                   <span data-test="fileUploadFileName" className={bulmaStyles.fileName}>
-                    {fileName}
+                    {fileName || field.value}
                   </span>
                 )}
               </label>
+              {hasFile && (
+                <a
+                  className={`${bulmaStyles.delete} ml-2 mt-2`}
+                  onClick={e => {
+                    e.preventDefault()
+                    setFieldValue(name, '')
+                    setFileName('')
+                  }}
+                />
+              )}
             </div>
             {hasError && (
               <div className={hasTextDanger} data-test="input-error">

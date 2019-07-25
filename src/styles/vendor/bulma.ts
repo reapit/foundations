@@ -49,6 +49,8 @@ const bulma = {
   isCurrent: bulmaStyles['is-current'] || 'isCurrent',
   isDisabled: bulmaStyles['is-disalbed'] || 'isDisabled',
   isRelative: bulmaStyles['is-relative'] || 'isRelative',
+  isHidden: bulmaStyles['is-hidden'] || 'isHidden',
+  isSmall: bulmaStyles['is-small'] || 'isSmall',
 
   // Form
   button: bulmaStyles['button'] || 'button',
@@ -124,12 +126,13 @@ const bulma = {
 
   // Text colors
   hasTextPrimary: bulmaStyles.hasTextPrimary || 'has-text-primary',
-  hasTextDanger: bulmaStyles.hasTextDanger || 'has-text-primary',
+  hasTextDanger: bulmaStyles.hasTextDanger || 'has-text-danger',
   hasTextLink: bulmaStyles.hasTextLink || 'has-text-link',
   hasTextGrey: bulmaStyles.hasTextGrey || 'has-text-grey',
 
   // Fileupload
   hasFile: bulmaStyles['has-file'] || 'hasFile',
+  hasName: bulmaStyles['has-name'] || 'hasName',
   file: bulmaStyles['file'] || 'file',
   fileInput: bulmaStyles['file-input'] || 'fileInput',
   fileLabel: bulmaStyles['file-label'] || 'fileLabel',
@@ -146,7 +149,10 @@ const bulma = {
   paginationPrevious: bulmaStyles['pagination-previous'] || 'paginationPrevious',
   paginationNext: bulmaStyles['pagination-next'] || 'paginationNext',
   paginationLink: bulmaStyles['pagination-link'] || 'paginationLink',
-  paginationEllipsis: bulmaStyles['pagination-ellipsis'] || 'paginationEllipsis'
+  paginationEllipsis: bulmaStyles['pagination-ellipsis'] || 'paginationEllipsis',
+
+  // checkbox
+  checkbox: bulmaStyles['checkbox'] || 'checkbox'
 }
 
 export default bulma

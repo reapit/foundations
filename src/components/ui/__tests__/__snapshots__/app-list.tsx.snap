@@ -71,9 +71,5 @@ exports[`AppList should match a snapshot 1`] = `
       />
     </div>
   </div>
-  <Component
-    afterClose={[Function]}
-    visible={false}
-  />
 </div>
 `;

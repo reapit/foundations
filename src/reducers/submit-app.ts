@@ -14,7 +14,7 @@ const submitAppReducer = (state: SubmitAppState | undefined = defaultState, acti
   if (isType(action, submitAppSetFormState)) {
     return {
       ...state,
-      formState: (action.data as FormState) || null
+      formState: action.data || null
     }
   }
 

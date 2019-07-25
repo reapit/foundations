@@ -11,6 +11,10 @@ export interface AppDetailModel {
    */
   developerId?: string // uuid
   /**
+   * Gets client id of this application
+   */
+  externalId?: string
+  /**
    * Gets the full name of the app
    */
   name?: string
@@ -38,6 +42,14 @@ export interface AppDetailModel {
    * Gets the home page of the developer, or the app/product specific page on the developer's website
    */
   homePage?: string
+  /**
+   * Gets the Uri at which the app is launched
+   */
+  launchUri?: string
+  /**
+   * Gets a flag determining whether or not the app is currently listed on the marketplace
+   */
+  isListed?: boolean
   /**
    * Gets a collection of media objects associated with the app
    */
@@ -129,6 +141,10 @@ export interface AppSummaryModel {
    */
   iconUri?: string
   /**
+   * Gets the time stamp of the installed date
+   */
+  installedOn?: string // date-time
+  /**
    * Gets the links associated to this model
    */
   readonly links?: LinkModel[]
@@ -159,63 +175,80 @@ export interface ApprovalModel {
   readonly links?: LinkModel[]
 }
 /**
+ * The model responsible for the approval of an app revision
+ */
+export interface ApproveModel {
+  /**
+   * Sets the name of the admin approving
+   */
+  name?: string
+  /**
+   * Sets the email of the admin approving
+   */
+  email?: string
+}
+/**
  * The model responsible for creation of an app definition
  */
 export interface CreateAppModel {
   /**
-   * Gets the developer's id (uuid) of the app
-   */
-  developerId?: string
-  /**
-   * Gets the full name of the app
+   * Sets the full name of the app
    */
   name?: string
   /**
-   * Gets the description of the app
+   * Sets the description of the app
    */
   description?: string
   /**
-   * Gets a short summary of the app
+   * Sets a short summary of the app
    */
   summary?: string
   /**
-   * Gets the email address of the developer's helpdesk responsible for providing support of the app
+   * Sets the email address of the developer's helpdesk responsible for providing support of the app
    */
   supportEmail?: string
   /**
-   * Gets the telephone number of the developer's helpdesk responsible for providing support of the app
+   * Sets the telephone number of the developer's helpdesk responsible for providing support of the app
    */
   telephone?: string
   /**
-   * Gets the home page of the developer, or the application/product specific page on the developer's website
+   * Sets the home page of the developer, or the application/product specific page on the developer's website
    */
   homePage?: string
   /**
-   * Gets the apps launch uri
+   * Sets the apps launch uri
    */
   launchUri?: string
   /**
-   * Base64 encoded data representing the app icon image
+   * Sets the unique identifer of the developer registering the app
+   */
+  developerId?: string // uuid
+  /**
+   * Sets the list of scope keys required for this app to run
+   */
+  scopes?: string[]
+  /**
+   * Sets the base64 encoded data representing the app icon image
    */
   iconImageData?: string
   /**
-   * Base64 encoded data representing the app first app screenshot image
+   * Sets the base64 encoded data representing the app first app screenshot image
    */
   screen1ImageData?: string
   /**
-   * Base64 encoded data representing the app second (optional) app screenshot image
+   * Sets the base64 encoded data representing the app second (optional) app screenshot image
    */
   screen2ImageData?: string
   /**
-   * Base64 encoded data representing the app third (optional) app screenshot image
+   * Sets the base64 encoded data representing the app third (optional) app screenshot image
    */
   screen3ImageData?: string
   /**
-   * Base64 encoded data representing the app fourth (optional) app screenshot image
+   * Sets the base64 encoded data representing the app fourth (optional) app screenshot image
    */
   screen4ImageData?: string
   /**
-   * Base64 encoded data representing the app fifth (optional) app screenshot image
+   * Sets the base64 encoded data representing the app fifth (optional) app screenshot image
    */
   screen5ImageData?: string
 }
@@ -224,93 +257,154 @@ export interface CreateAppModel {
  */
 export interface CreateAppRevisionModel {
   /**
-   * Gets the full name of the app revision
+   * Sets the full name of the app revision
    */
   name?: string
   /**
-   * Gets the description of the app revision
+   * Sets the description of the app revision
    */
   description?: string
   /**
-   * Gets a short summary of the app revision
+   * Sets a short summary of the app revision
    */
   summary?: string
   /**
-   * Gets the email address of the developer's helpdesk responsible for providing support of the app revision
+   * Sets the email address of the developer's helpdesk responsible for providing support of the app revision
    */
   supportEmail?: string
   /**
-   * Gets the telephone number of the developer's helpdesk responsible for providing support of the app revision
+   * Sets the telephone number of the developer's helpdesk responsible for providing support of the app revision
    */
   telephone?: string
   /**
-   * Gets the home page of the developer, or the application/product specific page on the developer's website
+   * Sets the home page of the developer, or the application/product specific page on the developer's website
    */
   homePage?: string
   /**
-   * Gets the apps launch uri
+   * Sets the unique identifier of the developer associated with this app revision
+   */
+  developerId?: string // uuid
+  /**
+   * Sets the base64 encoded data representing the app icon image
+   */
+  iconImageData?: string
+  /**
+   * Sets the base64 encoded data representing the app first app screenshot image
+   */
+  screen1ImageData?: string
+  /**
+   * Sets the base64 encoded data representing the app second (optional) app screenshot image
+   */
+  screen2ImageData?: string
+  /**
+   * Sets the base64 encoded data representing the app third (optional) app screenshot image
+   */
+  screen3ImageData?: string
+  /**
+   * Sets the base64 encoded data representing the app fourth (optional) app screenshot image
+   */
+  screen4ImageData?: string
+  /**
+   * Sets the base64 encoded data representing the app fifth (optional) app screenshot image
+   */
+  screen5ImageData?: string
+  /**
+   * Sets the apps launch uri
    */
   launchUri?: string
+  /**
+   * Sets the listed status of the app
+   * When false, the app will not be visible in marketplace app listings
+   */
+  isListed?: boolean
+  scopes?: string[]
 }
 /**
  * The model responsible for creation of a developer
  */
 export interface CreateDeveloperModel {
   /**
-   * Gets the full name of this developer
+   * Sets the full name of this developer
    */
   name?: string
   /**
-   * Gets the company to which this developer is acting on behalf of
+   * Sets the password the developer uses to log in
+   */
+  password?: string
+  /**
+   * Sets the company to which this developer is acting on behalf of
    */
   companyName?: string
   /**
-   * Gets the job title for this developer
+   * Sets the job title for this developer
    */
   jobTitle?: string
   /**
-   * Gets the email address of the developer
+   * Sets the email address of the developer
    */
   email?: string
   /**
-   * Gets the telephone number of the developer
+   * Sets the telephone number of the developer
    */
   telephone?: string
 }
 /**
- * The model responsible for creation of a relationship between a specific client and app
+ * The model responsible for creation of an installation between a specific client and app
  */
-export interface CreateRelationshipModel {
+export interface CreateInstallationModel {
   /**
-   * The unique identifier of the company this relationship is being created for
+   * Sets the unique identifier of the app that this installation will be associated with
    */
-  companyId?: string
+  appId?: string // uuid
   /**
-   * The email address of the user that has approved this app (and created the relationship)
+   * Sets the unique identifier of the client this installation is being created for
+   */
+  clientId?: string
+  /**
+   * Sets the email address of the user that has approved this app (and created the installation)
    */
   approvedBy?: string
   /**
-   * The expiry date of the relationship (this could be used for app trials etc)
+   * Sets the termination date of the installation (this could be used for app trials etc)
    */
-  expiresOn?: string // date-time
+  terminatesOn?: string // date-time
 }
 /**
- * The model responsible for ending the relationship between a specific client and app
+ * Installation representation
  */
-export interface EndRelationshipModel {
+export interface InstallationModel {
   /**
-   * The email address of the person removing access to this app for the client
-   * specified in the relationship
+   * Gets the unique identifier of the installation
    */
-  endedBy?: string
+  id?: string // uuid
   /**
-   * The reason that app access has been removed
+   * Gets the unique identifier of the app the installation is associated with
    */
-  endedReason?: string
+  appId?: string // uuid
   /**
-   * The date at which the app should become unavailable to the client (optional - if not passed the app will become unavailable immediately)
+   * Gets the date/time the installation was created
    */
-  endsOn?: string // date-time
+  created?: string // date-time
+  /**
+   * Gets the id of the client that has granted access to the app (or revoked it)
+   */
+  client?: string
+  /**
+   * Gets the status of this installation
+   */
+  status?: string
+  /**
+   * Gets the reason that access to associated app was removed
+   */
+  terminatedReason?: string
+  /**
+   * Gets the date that access to the associated app was terminated, or is due to terminate on
+   */
+  terminatesOn?: string // date-time
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Represents a HyperMedia Link in
@@ -388,4 +482,69 @@ export interface PagedResultApprovalModel_ {
   pageSize?: number // int32
   pageCount?: number // int32
   totalCount?: number // int32
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface PagedResultInstallationModel_ {
+  /**
+   * List of paged data
+   */
+  data?: InstallationModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+}
+/**
+ * The model responsible for rejection of a revision
+ */
+export interface RejectRevisionModel {
+  /**
+   * Sets the name of the admin rejecting
+   */
+  name?: string
+  /**
+   * Sets the email of the admin rejecting
+   */
+  email?: string
+  /**
+   * Sets the reason the revision is rejected
+   */
+  rejectionReason?: string
+}
+/**
+ * Model that represents a scope
+ */
+export interface ScopeModel {
+  /**
+   * Gets the name of the scope
+   */
+  name?: string
+  /**
+   * Gets the description of the scope
+   */
+  description?: string
+}
+/**
+ * The model responsible for terminating the installation between a specific client and app
+ */
+export interface TerminateInstallationModel {
+  /**
+   * Sets the unique identifier of the associated app for which the installation is being terminated
+   */
+  appId?: string // uuid
+  /**
+   * Sets the email address of the person removing access to this app for the client
+   * specified in the installation
+   */
+  terminatedBy?: string
+  /**
+   * Sets the reason that app access has been removed
+   */
+  terminatedReason?: string
+  /**
+   * Sets the date at which the app should become unavailable to the client (optional - if not passed the app will become unavailable immediately)
+   */
+  terminatesOn?: string // date-time
 }
