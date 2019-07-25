@@ -163,6 +163,10 @@ export interface ApprovalModel {
  */
 export interface CreateAppModel {
   /**
+   * Gets the developer's id (uuid) of the app
+   */
+  developerId?: string
+  /**
    * Gets the full name of the app
    */
   name?: string

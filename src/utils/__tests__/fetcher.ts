@@ -1,4 +1,4 @@
-import fetcher from '../fetcher'
+import fetcher, { FetchError } from '../fetcher'
 import { REAPIT_API_BASE_URL, MARKETPLACE_HEADERS } from '../../constants/api'
 
 const stub = {
@@ -24,12 +24,13 @@ describe('fetcher', () => {
     })
 
     const url = '/some-url'
-    const response = await fetcher({ url, method: 'GET', headers: MARKETPLACE_HEADERS })
+    try {
+      const response = await fetcher({ url, method: 'GET', headers: MARKETPLACE_HEADERS })
+      expect(response).toBeUndefined()
+    } catch (err) {
+      expect(err).toBeInstanceOf(FetchError)
+    }
 
-    expect(response).toBeUndefined()
-    expect(console.error).toHaveBeenCalledWith(
-      'API ERROR: ',
-      JSON.stringify(`ERROR FETCHING GET ${REAPIT_API_BASE_URL}${url} {"status":400}`)
-    )
+    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING GET ${REAPIT_API_BASE_URL}${url} {"status":400}`)
   })
 })
