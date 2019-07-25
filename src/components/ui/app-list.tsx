@@ -11,22 +11,13 @@ import { connect } from 'react-redux'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
 
-export interface AppListMappedProps {
-  appDetail: AppDetailState
-}
-
-export interface AppListMappedActions {
-  fetchAppDetail: (id: string) => void
-}
-
 export type AppListProps = {
   list: AppSummaryModel[]
   loading: boolean
-} & AppListMappedActions &
-  AppListMappedProps
+  onCardClick?: (app: AppSummaryModel) => void
+}
 
-export const AppList: React.FunctionComponent<AppListProps> = ({ list, loading, fetchAppDetail, appDetail }) => {
-  const [visible, setVisible] = React.useState(false)
+export const AppList: React.FunctionComponent<AppListProps> = ({ list, loading, onCardClick }) => {
   return (
     <div className={`${bulma.container} ${bulma.isRelative} ${styles.container}`} data-test="app-list-container">
       <div className={`${bulma.columns} ${bulma.isMultiLine} ${loading ? styles.contentIsLoading : ''}`}>
@@ -35,10 +26,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({ list, loading, 
             <AppCard
               app={app}
               onClick={() => {
-                setVisible(true)
-                if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
-                  fetchAppDetail(app.id)
-                }
+                typeof onCardClick === 'function' && onCardClick(app)
               }}
             />
           </div>
@@ -49,20 +37,8 @@ export const AppList: React.FunctionComponent<AppListProps> = ({ list, loading, 
           <Loader />
         </div>
       )}
-      <AppDetailModal visible={visible} afterClose={() => setVisible(false)} />
     </div>
   )
 }
 
-const mapStateToProps = (state: ReduxState): AppListMappedProps => ({
-  appDetail: state.appDetail
-})
-
-const mapDispatchToProps = (dispatch: any): AppListMappedActions => ({
-  fetchAppDetail: (id: string) => dispatch(appDetailRequestData(id))
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppList)
+export default AppList

@@ -2,12 +2,13 @@ import * as React from 'react'
 import bulma from '@/styles/vendor/bulma'
 
 export interface ButtonProps {
-  type: 'submit' | 'reset'
+  type: 'submit' | 'reset' | 'button'
   variant: 'primary' | 'secondary' | 'danger'
   onClick?: () => void
   disabled?: boolean
   loading?: boolean
   isFullWidth?: boolean
+  className?: string
   dataTest?: string
 }
 
@@ -20,6 +21,7 @@ export const buttonDanger = `${buttonBase} ${isDanger}`
 const Button: React.SFC<ButtonProps> = ({
   type,
   variant,
+  className = '',
   disabled = false,
   loading = false,
   children,
@@ -27,12 +29,12 @@ const Button: React.SFC<ButtonProps> = ({
   onClick,
   dataTest = ''
 }) => {
-  const className = variant === 'primary' ? buttonPrimary : variant === 'secondary' ? buttonSecondary : buttonDanger
+  const theme = variant === 'primary' ? buttonPrimary : variant === 'secondary' ? buttonSecondary : buttonDanger
 
   return (
     <button
       type={type}
-      className={`${className} ${isFullWidth ? isFullwidth : ''} ${loading ? isLoading : ''}`}
+      className={`${theme} ${isFullWidth ? isFullwidth : ''} ${loading ? isLoading : ''} ${className}`}
       disabled={disabled}
       onClick={onClick}
       data-test={dataTest}

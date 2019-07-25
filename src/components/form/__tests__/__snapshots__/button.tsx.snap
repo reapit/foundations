@@ -2,7 +2,7 @@
 
 exports[`Button should match a snapshot 1`] = `
 <button
-  className="button isMedium isRounded isPrimary  "
+  className="button isMedium isRounded isPrimary   "
   data-test="some-selector"
   disabled={false}
   onClick={[MockFunction]}

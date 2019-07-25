@@ -2,7 +2,7 @@
 
 exports[`DeveloperHome should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <Connect(Component)
+  <Component
     list={
       Array [
         Object {
@@ -50,12 +50,17 @@ exports[`DeveloperHome should match a snapshot 1`] = `
       ]
     }
     loading={false}
+    onCardClick={[Function]}
   />
   <Component
     baseUrl="/developer/my-apps"
     pageNumber={2}
     pageSize={2}
     totalCount={6}
+  />
+  <Component
+    afterClose={[Function]}
+    visible={false}
   />
 </Connect(ErrorBoundary)>
 `;

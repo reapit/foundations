@@ -67,7 +67,7 @@ describe('FileInput', () => {
     // validate function of is asynchornous and non blocking. use setimeout to push assertion function into event loop queue
     setTimeout(() => {
       wrapper.update()
-      const error = wrapper.find('.has-text-primary')
+      const error = wrapper.find('.has-text-danger')
       console.log(error.at(0).html())
 
       done()

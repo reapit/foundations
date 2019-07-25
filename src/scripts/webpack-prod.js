@@ -82,7 +82,7 @@ module.exports = {
                 }
               },
               {
-                loader: '@americanexpress/purgecss-loader',
+                loader: path.resolve('./src/scripts/purgecss-loader.js'),
                 options: {
                   paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`)
                 }
@@ -105,9 +105,10 @@ module.exports = {
                 }
               },
               {
-                loader: '@americanexpress/purgecss-loader',
+                loader: path.resolve('./src/scripts/purgecss-loader.js'),
                 options: {
-                  paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`)
+                  paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`),
+                  whitelistPatterns: [/^slick/]
                 }
               },
               {

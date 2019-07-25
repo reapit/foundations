@@ -8,6 +8,7 @@ import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
 import { AdminState } from '../reducers/admin'
 import { SubmitAppState } from '../reducers/submit-app'
+import { SubmitRevisionState } from '@/reducers/submit-revision'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -47,4 +48,5 @@ export interface ReduxState {
   error: ErrorState
   admin: AdminState
   submitApp: SubmitAppState
+  submitRevision: SubmitRevisionState
 }
