@@ -45,13 +45,11 @@ module.exports = {
         ]
       },
       {
-        test: /\.(svg|png|jpg|jpeg|gif)$/,
-        include: path.resolve(__dirname, 'src', 'assets'),
+        test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
         use: {
           loader: 'file-loader',
           options: {
-            name: '[path][name].[ext]',
-            outputPath: path.resolve(__dirname, 'public', 'dist', 'assets')
+            name: '[name].[ext]'
           }
         }
       },
