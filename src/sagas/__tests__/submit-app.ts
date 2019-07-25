@@ -1,15 +1,16 @@
 import { submitApp as submitAppSaga, submitAppDataListen, submitAppSagas } from '../submit-app'
 import ActionTypes from '@/constants/action-types'
+import errorMessages from '@/constants/error-messages'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
-import { submitApp, submitAppSetFormState } from '@/actions/submit-app'
+import { submitAppSetFormState, SubmitAppArgs } from '@/actions/submit-app'
+import { errorThrownServer } from '@/actions/error'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import fetcher from '@/utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
-import { CreateAppModel } from '@/types/marketplace-api-schema'
-import { appSubmitStub } from '../__stubs__/apps-submit'
+import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
 
-const params: Action<CreateAppModel> = { data: appSubmitStub.data, type: 'DEVELOPER_SUBMIT_APP' }
+const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
 
 describe('submit-app post data', () => {
   const gen = cloneableGenerator(submitAppSaga)(params)
@@ -19,20 +20,29 @@ describe('submit-app post data', () => {
     call(fetcher, {
       url: URLS.apps,
       method: 'POST',
-      body: params.data,
+      body: appSubmitStub.data,
       headers: MARKETPLACE_HEADERS
     })
   )
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(true).value).toEqual(put(submitAppSetFormState('SUCCESS')))
+    expect(clone.next().value).toEqual(put(submitAppSetFormState('SUCCESS')))
     expect(clone.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const clone = gen.clone()
-    expect(clone.next(undefined).value).toEqual(put(submitAppSetFormState('ERROR')))
+    // @ts-ignore
+    expect(clone.throw(new Error('')).value).toEqual(put(submitAppSetFormState('ERROR')))
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
+    )
     expect(clone.next().done).toBe(true)
   })
 })
@@ -42,7 +52,7 @@ describe('submit-app thunks', () => {
     it('should submit data when called', () => {
       const gen = submitAppDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<CreateAppModel>>(ActionTypes.DEVELOPER_SUBMIT_APP, submitAppSaga)
+        takeLatest<Action<SubmitAppArgs>>(ActionTypes.DEVELOPER_SUBMIT_APP, submitAppSaga)
       )
       expect(gen.next().done).toBe(true)
     })

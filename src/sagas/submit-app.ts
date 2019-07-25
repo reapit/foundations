@@ -5,22 +5,35 @@ import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
+import { SubmitAppArgs } from '@/actions/submit-app'
 import errorMessages from '../constants/error-messages'
-import { CreateAppModel } from '@/types/marketplace-api-schema'
+import { getApiErrorsFromResponse } from '@/utils/form/errors'
+import { FetchError } from '@/utils/fetcher'
 
-export const submitApp = function*({ data }: Action<CreateAppModel>) {
+export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
+  const { actions, ...values } = data
+  actions.setStatus(undefined)
+
   yield put(submitAppSetFormState('SUBMITTING'))
   try {
-    const regResponse: true | undefined = yield call(fetcher, {
+    yield call(fetcher, {
       url: URLS.apps,
       method: 'POST',
-      body: data,
+      body: values,
       headers: MARKETPLACE_HEADERS
     })
-    const status = regResponse ? 'SUCCESS' : 'ERROR'
-    yield put(submitAppSetFormState(status))
+    yield put(submitAppSetFormState('SUCCESS'))
   } catch (err) {
-    console.error(err.message)
+    console.error(err)
+
+    if (err instanceof FetchError) {
+      const formErrors = getApiErrorsFromResponse(err.response)
+      if (formErrors) {
+        actions.setErrors(formErrors)
+      }
+    }
+
+    yield put(submitAppSetFormState('ERROR'))
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -31,7 +44,7 @@ export const submitApp = function*({ data }: Action<CreateAppModel>) {
 }
 
 export const submitAppDataListen = function*() {
-  yield takeLatest<Action<CreateAppModel>>(ActionTypes.DEVELOPER_SUBMIT_APP, submitApp)
+  yield takeLatest<Action<SubmitAppArgs>>(ActionTypes.DEVELOPER_SUBMIT_APP, submitApp)
 }
 
 export const submitAppSagas = function*() {

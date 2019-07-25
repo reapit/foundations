@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { ReduxState, FormState } from '@/types/core'
 import { Formik, Form } from 'formik'
+import { ReduxState, FormState } from '@/types/core'
 import Input from '../form/input'
 import ImageInput from '../form/image-input'
 import TextArea from '../form/textarea'
@@ -9,12 +9,12 @@ import { validate } from '@/utils/form/submit-app'
 import Button from '../form/button'
 import bulma from '@/styles/vendor/bulma'
 import { connect } from 'react-redux'
-import { submitApp, submitAppSetFormState } from '@/actions/submit-app'
+import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/actions/submit-app'
 import { SubmitAppState } from '@/reducers/submit-app'
 import { CreateAppModel } from '@/types/marketplace-api-schema'
 
 export interface SubmitAppMappedActions {
-  submitApp: (appModel: CreateAppModel) => void
+  submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions) => void
   submitAppSetFormState: (formState: FormState) => void
 }
 
@@ -73,7 +73,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                 <Form>
                   <div data-test="submit-app-form" className={`${bulma.columns}`}>
                     <div className={`${bulma.column} ${styles.column}`}>
-                      <Input dataTest="submit-app-name" type="text" label="name" id="name" name="name" />
+                      <Input dataTest="submit-app-name" type="text" label="Name" id="name" name="name" />
                       <TextArea
                         id="description"
                         dataTest="submit-app-description"
@@ -230,7 +230,8 @@ const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
 })
 
 const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
-  submitApp: appModel => dispatch(submitApp(appModel)),
+  submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions) =>
+    dispatch(submitApp({ ...appModel, actions })),
   submitAppSetFormState: formState => dispatch(submitAppSetFormState(formState))
 })
 
