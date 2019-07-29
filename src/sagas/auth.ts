@@ -2,23 +2,33 @@ import { takeLatest, put, call, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess, AuthLoginParams } from '../actions/auth'
 import { Action } from '@/types/core.ts'
-import { cognitoLogin } from '../utils/cognito'
 import { removeLoginSession, setLoginSession } from '../utils/session'
 import { LoginSession, LoginType } from '../reducers/auth'
 import { history } from '../core/router'
 import Routes from '../constants/routes'
+import fetcher from '@/utils/fetcher'
+import { COGNITO_API_BASE_URL, COGNITO_HEADERS } from '../constants/api'
 
 export const doLogin = function*({ data }: Action<AuthLoginParams>) {
   try {
-    const { email, password, loginType } = data
-    const loginDetails: LoginSession = yield call(cognitoLogin, {
-      userName: email,
-      password: password,
-      loginType
+    const { email: userName, password, loginType } = data
+
+    const loginDetails: LoginSession | undefined = yield call(fetcher, {
+      url: `/login`,
+      api: COGNITO_API_BASE_URL,
+      method: 'POST',
+      body: { userName, password },
+      headers: COGNITO_HEADERS,
+      isPrivate: false
     })
 
-    yield setLoginSession(loginDetails)
-    yield put(authLoginSuccess(loginDetails))
+    if (loginDetails) {
+      const detailsWithLoginType = { ...loginDetails, loginType }
+      yield call(setLoginSession, detailsWithLoginType)
+      yield put(authLoginSuccess(detailsWithLoginType))
+    } else {
+      yield put(authLoginFailure())
+    }
   } catch (err) {
     console.error(err.message)
     yield put(authLoginFailure())

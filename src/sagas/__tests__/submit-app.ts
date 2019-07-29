@@ -9,6 +9,7 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import fetcher from '@/utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
+import { REAPIT_API_BASE_URL } from '../../constants/api'
 
 const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
 
@@ -19,6 +20,7 @@ describe('submit-app post data', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: URLS.apps,
+      api: REAPIT_API_BASE_URL,
       method: 'POST',
       body: appSubmitStub.data,
       headers: MARKETPLACE_HEADERS

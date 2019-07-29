@@ -10,7 +10,12 @@ export const PLATFORM_HEADERS = {
   Authorization: process.env.PLATFORM_API_KEY
 } as StringMap
 
+export const COGNITO_HEADERS = {
+  'Content-Type': 'application/json'
+} as StringMap
+
 export const REAPIT_API_BASE_URL = 'https://reapit.cloud.tyk.io'
+export const COGNITO_API_BASE_URL = 'https://1wke0xp728.execute-api.eu-west-2.amazonaws.com/dev/api'
 
 export const URLS = {
   developerCreate: '/marketplace/developers',

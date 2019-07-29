@@ -8,6 +8,7 @@ import fetcher from '@/utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
 import { revisionSubmitStub } from '../__stubs__/revision-submit'
+import { REAPIT_API_BASE_URL } from '../../constants/api'
 
 const params: Action<CreateAppRevisionModel & { id: string }> = {
   data: { ...revisionSubmitStub.data, id: '1' },
@@ -22,6 +23,7 @@ describe('submit-revision post data', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${id}/revisions`,
+      api: REAPIT_API_BASE_URL,
       method: 'POST',
       body,
       headers: MARKETPLACE_HEADERS

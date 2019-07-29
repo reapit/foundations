@@ -1,5 +1,5 @@
 import fetcher from '../utils/fetcher'
-import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import { submitAppSetFormState } from '../actions/submit-app'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -18,6 +18,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
   try {
     yield call(fetcher, {
       url: URLS.apps,
+      api: REAPIT_API_BASE_URL,
       method: 'POST',
       body: values,
       headers: MARKETPLACE_HEADERS

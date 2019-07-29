@@ -8,6 +8,7 @@ import fetcher from '@/utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
+import { REAPIT_API_BASE_URL } from '../../constants/api'
 
 const params = { data: 1 }
 
@@ -18,6 +19,7 @@ describe('client fetch data', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}?PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
+      api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })

@@ -7,6 +7,7 @@ import { Action } from '@/types/core'
 import fetcher from '@/utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
+import { REAPIT_API_BASE_URL } from '../../constants/api'
 
 const params = { data: '9b6fd5f7-2c15-483d-b925-01b650538e52' }
 
@@ -16,6 +17,7 @@ describe('app-detail fetch data', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${params.data}`,
+      api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })
