@@ -1,5 +1,5 @@
 import fetcher from '../utils/fetcher'
-import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import { submitRevisionSetFormState } from '../actions/submit-revision'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -14,6 +14,7 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
     const { id, ...body } = data
     const regResponse: true | undefined = yield call(fetcher, {
       url: `${URLS.apps}/${id}/revisions`,
+      api: REAPIT_API_BASE_URL,
       method: 'POST',
       body,
       headers: MARKETPLACE_HEADERS

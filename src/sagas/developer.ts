@@ -1,5 +1,5 @@
 import fetcher from '../utils/fetcher'
-import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import {
   developerLoading,
   developerReceiveData,
@@ -21,6 +21,7 @@ export const developerDataFetch = function*({ data: page }) {
     const response = yield call(fetcher, {
       url: `${URLS.apps}?PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
       method: 'GET',
+      api: REAPIT_API_BASE_URL,
       headers: MARKETPLACE_HEADERS
     })
     if (response) {
@@ -45,6 +46,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
   try {
     const regResponse: true | undefined = yield call(fetcher, {
       url: URLS.developerCreate,
+      api: REAPIT_API_BASE_URL,
       method: 'POST',
       body: data,
       headers: MARKETPLACE_HEADERS

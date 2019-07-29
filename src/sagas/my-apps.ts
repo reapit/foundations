@@ -7,6 +7,7 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import fetcher from '@/utils/fetcher'
 import { Action } from '@/types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
+import { REAPIT_API_BASE_URL } from '../constants/api'
 
 export const myAppsDataFetch = function*({ data: page }) {
   yield put(myAppsLoading(true))
@@ -15,6 +16,7 @@ export const myAppsDataFetch = function*({ data: page }) {
     const response = yield call(fetcher, {
       url: `${URLS.apps}?PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
       method: 'GET',
+      api: REAPIT_API_BASE_URL,
       headers: MARKETPLACE_HEADERS
     })
     if (response) {

@@ -34,9 +34,11 @@ export type FormState = 'PENDING' | 'DONE' | 'SUBMITTING' | 'ERROR' | 'SUCCESS'
 
 export interface FetcherParams<T> {
   method: 'GET' | 'POST' | 'PUT' | 'DELETE'
+  api: string
   url: string
-  body?: T
   headers: StringMap
+  isPrivate?: boolean
+  body?: T
 }
 
 export interface ReduxState {

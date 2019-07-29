@@ -7,10 +7,12 @@ export type LoginType = 'DEVELOPER' | 'CLIENT' | 'ADMIN'
 
 export interface LoginSession {
   userName: string
-  loginType: LoginType
-  refreshToken: string
   accessToken: string
-  sessionExpiry: number
+  accessTokenExpiry: number
+  idToken: string
+  idTokenExpiry: number
+  refreshToken: string
+  loginType: LoginType
 }
 
 export interface AuthState {

@@ -1,13 +1,16 @@
 import authSagas, { doLogin, doLogout, loginListen, logoutListen } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { put, all, take, takeLatest, call } from '@redux-saga/core/effects'
-import { authLoginSuccess, authLogoutSuccess, AuthLoginParams } from '../../actions/auth'
+import { put, all, takeLatest, call } from '@redux-saga/core/effects'
+import { authLoginSuccess, authLogoutSuccess, AuthLoginParams, authLoginFailure } from '../../actions/auth'
 import { Action } from '@/types/core'
-import { cognitoLogin } from '../../utils/cognito'
+import fetcher from '../../utils/fetcher'
 import { removeLoginSession, setLoginSession } from '../../utils/session'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
 import { LoginType } from '../../reducers/auth'
+import { cloneableGenerator } from '@redux-saga/testing-utils'
+import { COGNITO_HEADERS, COGNITO_API_BASE_URL } from '@/constants/api'
+import { mockLoginSession } from '@/utils/__mocks__/cognito'
 
 jest.mock('../../utils/cognito')
 jest.mock('../../utils/session')
@@ -17,24 +20,35 @@ jest.mock('../../core/router', () => ({
   }
 }))
 
-describe('auth thunks', () => {
-  describe('authLogin', () => {
-    it('should correctly login', () => {
-      const data: AuthLoginParams = { loginType: 'CLIENT', email: 'bob@acme.com', password: 'xxxxxx' }
-      const gen = doLogin({ data } as Action<AuthLoginParams>)
-      const loginParams = {
-        userName: data.email,
-        password: data.password,
-        loginType: data.loginType
-      }
-      expect(gen.next().value).toEqual(call(cognitoLogin, loginParams))
-      gen.next()
-      expect(setLoginSession).toHaveBeenCalledTimes(1)
-      expect(gen.next().value).toEqual(put(authLoginSuccess(undefined as any)))
-      expect(gen.next().done).toBe(true)
+describe('login submit', () => {
+  const data: AuthLoginParams = { loginType: 'CLIENT', email: 'bob@acme.com', password: 'xxxxxx' }
+  const gen = cloneableGenerator(doLogin)({ data } as Action<AuthLoginParams>)
+  expect(gen.next().value).toEqual(
+    call(fetcher, {
+      url: `/login`,
+      api: COGNITO_API_BASE_URL,
+      method: 'POST',
+      body: { userName: data.email, password: data.password },
+      headers: COGNITO_HEADERS,
+      isPrivate: false
     })
+  )
+
+  test('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next(mockLoginSession).value).toEqual(call(setLoginSession, mockLoginSession))
+    expect(clone.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))
+    expect(clone.next().done).toBe(true)
   })
 
+  test('api call fail', () => {
+    const clone = gen.clone()
+    expect(clone.next(undefined).value).toEqual(put(authLoginFailure()))
+    expect(clone.next().done).toBe(true)
+  })
+})
+
+describe('auth thunks', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout({ data: 'CLIENT' } as Action<LoginType>)

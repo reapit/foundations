@@ -12,7 +12,13 @@ describe('fetcher', () => {
       json: () => stub
     })
 
-    const response = await fetcher({ url: 'some-url', method: 'GET', headers: MARKETPLACE_HEADERS })
+    const response = await fetcher({
+      api: 'http://some-api/',
+      url: 'some-url',
+      method: 'GET',
+      headers: MARKETPLACE_HEADERS,
+      isPrivate: false
+    })
 
     expect(response).toEqual(stub)
   })
@@ -24,13 +30,20 @@ describe('fetcher', () => {
     })
 
     const url = '/some-url'
+    const api = 'http://some-api/'
     try {
-      const response = await fetcher({ url, method: 'GET', headers: MARKETPLACE_HEADERS })
+      const response = await fetcher({
+        api,
+        url,
+        method: 'GET',
+        headers: MARKETPLACE_HEADERS,
+        isPrivate: false
+      })
       expect(response).toBeUndefined()
     } catch (err) {
       expect(err).toBeInstanceOf(FetchError)
     }
 
-    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING GET ${REAPIT_API_BASE_URL}${url} {"status":400}`)
+    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING GET ${api}${url} {"status":400}`)
   })
 })

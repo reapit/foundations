@@ -1,5 +1,5 @@
 import fetcher from '../utils/fetcher'
-import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import { appDetailLoading, appDetailReceiveData, appDetailFailure } from '../actions/app-detail'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -12,6 +12,7 @@ export const appDetailDataFetch = function*({ data: id }) {
   try {
     const response = yield call(fetcher, {
       url: `${URLS.apps}/${id}`,
+      api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })

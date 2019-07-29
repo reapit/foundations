@@ -13,6 +13,7 @@ import fetcher from '@/utils/fetcher'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { appsDataStub } from '../__stubs__/apps'
 import { Action } from '@/types/core'
+import { REAPIT_API_BASE_URL } from '../../constants/api'
 
 jest.mock('../../utils/fetcher')
 
@@ -25,6 +26,7 @@ describe('developer fetch data', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}?PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
+      api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })

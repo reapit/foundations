@@ -7,7 +7,7 @@ import {
   authChangeLoginType
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { LoginType } from '../../reducers/auth'
+import { LoginType, LoginSession } from '../../reducers/auth'
 
 describe('auth actions', () => {
   it('should create a authLogin action', () => {
@@ -18,10 +18,10 @@ describe('auth actions', () => {
     const loginSession = {
       loginType: 'CLIENT' as LoginType,
       userName: 'bob@acme.com',
+      accessTokenExpiry: 1,
       accessToken: '',
-      refreshToken: '',
-      sessionExpiry: 1
-    }
+      refreshToken: ''
+    } as LoginSession
     expect(authLoginSuccess.type).toEqual(ActionTypes.AUTH_LOGIN_SUCCESS)
     expect(authLoginSuccess(loginSession).data).toEqual(loginSession)
   })

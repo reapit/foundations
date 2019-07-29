@@ -1,7 +1,6 @@
-import { REAPIT_API_BASE_URL } from '../constants/api'
 import { FetcherParams } from '../types/core'
 // When Cognito back end flow is finished
-// import { getAccessToken } from '../utils/cognito'
+import { getAccessToken } from '../utils/cognito'
 // import { authLogout } from '../actions/auth'
 
 export class FetchError extends Error {
@@ -19,13 +18,21 @@ export class FetchError extends Error {
   }
 }
 
-const fetcher = async <T, B>({ url, method, body, headers }: FetcherParams<B>): Promise<any | FetchError> => {
-  const path = `${REAPIT_API_BASE_URL}${url}`
-  // const accessToken = await getAccessToken()
+const fetcher = async <T, B>({
+  api,
+  url,
+  method,
+  body,
+  headers,
+  isPrivate = true
+}: FetcherParams<B>): Promise<any | FetchError> => {
+  const path = `${api}${url}`
+  const accessToken = isPrivate ? await getAccessToken() : null
 
-  // if (!accessToken) {
-  //   return store.dispatch(authLogout())
-  // }
+  if (isPrivate && !accessToken) {
+    const error = new FetchError(`ERROR FETCHING ${method} ${path} `)
+    return Promise.reject(error)
+  }
 
   const res = await fetch(path, {
     headers: {
