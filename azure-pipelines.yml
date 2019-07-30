@@ -11,43 +11,110 @@ trigger:
     include:
     - 'AS-*'
 
-pool:
-  vmImage: 'ubuntu-latest'
+jobs:
+- job: buildWebApp
+  displayName: Build & publish web app
+  pool:
+    vmImage: 'ubuntu-latest'
+  variables:
+  - group: aws
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: yarn install
+    displayName: Install deps
+    failOnStderr: true
 
-variables:
-- group: aws
+  - bash: printenv > src/constants/.env
+    displayName: Injects ENVs
+    env:
+      COGNITO_CLIENT_ID: $(COGNITO_CLIENT_ID)
+      COGNITO_USERPOOL_ID: $(COGNITO_USERPOOL_ID)
+      MARKETPLACE_API_KEY: $(MARKETPLACE_API_KEY)
+      REAPIT_API_KEY: $(REAPIT_API_KEY)
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+  - script: yarn test:ci
+    displayName: Unit tests
 
-- script: yarn install
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+      testResultsFiles: '*.xml'
+      searchFolder: '$(System.DefaultWorkingDirectory)/.jest-junit-reports' # Optional
+      mergeTestResults: false # Optional
+      failTaskOnFailedTests: true # Optional
+      publishRunAttachments: true # Optional
 
-- bash: printenv > src/constants/.env
-  env:
-    COGNITO_CLIENT_ID: $(COGNITO_CLIENT_ID)
-    COGNITO_USERPOOL_ID: $(COGNITO_USERPOOL_ID)
-    MARKETPLACE_API_KEY: $(MARKETPLACE_API_KEY)
-    REAPIT_API_KEY: $(REAPIT_API_KEY)
+  - script: yarn build
+    displayName: Build static assets
+    failOnStderr: true
 
-- script: yarn test:ci
+  - task: PublishPipelineArtifact@1
+    inputs:
+      path: $(System.DefaultWorkingDirectory)/public/dist
+      artifact: AppStoreBundle
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-    testResultsFiles: '*.xml'
-    searchFolder: '$(System.DefaultWorkingDirectory)/.jest-junit-reports' # Optional
-    mergeTestResults: false # Optional
-    failTaskOnFailedTests: true # Optional
-    publishRunAttachments: true # Optional
+  - script: yarn test-e2e:ci
+    displayName: E2E Tests
+    continueOnError: true
 
-- script: yarn build
+- deployment: S3DeployWebDev
+  displayName: 'Dev | S3 Deployment'
+  dependsOn: buildWebApp
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  pool:
+    vmImage: 'ubuntu-latest'
+  environment: 'reapit-app-store-dev'
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - task: S3Upload@1
+          displayName: Deploy assets to S3
+          inputs:
+            awsCredentials: 'df-huy'
+            regionName: 'eu-west-2'
+            bucketName: 'reapit-app-store'
+            sourceFolder: '$(System.DefaultWorkingDirectory)/_reapit.app-store/AppStoreBundle'
+            globExpressions: '**'
+            filesAcl: 'public-read'
+            createBucket: true
 
-- script: yarn test-e2e:ci
+- deployment: S3DeployWebProd
+  displayName: 'Prod | S3 Deployment'
+  dependsOn: buildWebApp
+  condition: and(succeeded(), contains(variables['Build.SourceBranch'], 'refs/tags/AS-'))
+  pool:
+    vmImage: 'ubuntu-latest'
+  environment: 'reapit-app-store-prod'
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - task: S3Upload@1
+          displayName: Deploy assets to S3
+          inputs:
+            awsCredentials: 'df-huy'
+            regionName: 'eu-west-2'
+            bucketName: 'reapit-app-store-prod'
+            sourceFolder: '$(System.DefaultWorkingDirectory)/_reapit.app-store/AppStoreBundle'
+            globExpressions: '**'
+            filesAcl: 'public-read'
+            createBucket: true
 
-- task: PublishPipelineArtifact@1
-  inputs:
-    path: $(System.DefaultWorkingDirectory)/public/dist
-    artifact: AppStoreBundle
+# no benefits as we only have 1 parallel jobs
+# - job: e2e
+#   displayName: E2E Test
+#   steps:
+#   - task: NodeTool@0
+#     inputs:
+#       versionSpec: '10.x'
+#     displayName: 'Install Node.js'
+#   - script: yarn install
+#     displayName: Install deps
+#     failOnStderr: true
+#   - script: yarn test-e2e:ci
+#     displayName: E2E Tests
+#     continueOnError: true
