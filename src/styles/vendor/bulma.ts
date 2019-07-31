@@ -40,6 +40,7 @@ const bulma = {
   isMedium: bulmaStyles['is-medium'] || 'isMedium',
   isRounded: bulmaStyles['is-rounded'] || 'isRounded',
   isPrimary: bulmaStyles['is-primary'] || 'isPrimary',
+  isLink: bulmaStyles['is-link'] || 'isLink',
   isSecondary: bulmaStyles['is-secondary'] || 'isSecondary',
   isLoading: bulmaStyles['is-loading'] || 'isLoading',
   isDanger: bulmaStyles['is-danger'] || 'isDanger',
@@ -152,7 +153,11 @@ const bulma = {
   paginationEllipsis: bulmaStyles['pagination-ellipsis'] || 'paginationEllipsis',
 
   // checkbox
-  checkbox: bulmaStyles['checkbox'] || 'checkbox'
+  checkbox: bulmaStyles['checkbox'] || 'checkbox',
+
+  // table
+  table: bulmaStyles['table'] || 'table',
+  isBordered: bulmaStyles['is-bordered'] || 'isBordered'
 }
 
 export default bulma

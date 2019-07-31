@@ -23,7 +23,7 @@ export const doLogin = function*({ data }: Action<AuthLoginParams>) {
     })
 
     if (loginDetails) {
-      const detailsWithLoginType = { ...loginDetails, loginType }
+      const detailsWithLoginType = { ...loginDetails, userName, loginType }
       yield call(setLoginSession, detailsWithLoginType)
       yield put(authLoginSuccess(detailsWithLoginType))
     } else {

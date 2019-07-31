@@ -14,6 +14,7 @@ const Register = React.lazy(() => import('../components/pages/register'))
 const DeveloperHome = React.lazy(() => import('../components/pages/developer-home'))
 const DeveloperSubmitApp = React.lazy(() => import('../components/pages/developer-submit-app'))
 const AdminPage = React.lazy(() => import('../components/pages/admin'))
+const AdminApprovalsPage = React.lazy(() => import('../components/pages/admin-approvals'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -38,6 +39,8 @@ const Router = () => (
             />
             <PrivateRoute allow="DEVELOPER" path={Routes.SUBMIT_APP} component={DeveloperSubmitApp} />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN} component={AdminPage} exact fetcher />
+            <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
+            <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />

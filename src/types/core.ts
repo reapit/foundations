@@ -9,6 +9,7 @@ import { ErrorState } from '../reducers/error'
 import { AdminState } from '../reducers/admin'
 import { SubmitAppState } from '../reducers/submit-app'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
+import { AdminApprovalsState } from '@/reducers/admin-approvals'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -51,4 +52,5 @@ export interface ReduxState {
   admin: AdminState
   submitApp: SubmitAppState
   submitRevision: SubmitRevisionState
+  adminApprovals: AdminApprovalsState
 }
