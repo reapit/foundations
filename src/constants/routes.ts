@@ -10,6 +10,8 @@ const Routes = {
   SUBMIT_APP: '/developer/submit-app',
   REGISTER: '/register',
   ADMIN: '/admin',
+  ADMIN_APPROVALS: '/admin/approvals',
+  ADMIN_APPROVALS_PAGINATE: '/admin/approvals/:page',
   ADMIN_LOGIN: '/admin/login'
 }
 

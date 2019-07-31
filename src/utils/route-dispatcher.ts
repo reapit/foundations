@@ -5,6 +5,7 @@ import { clientRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
 import { adminRequestRevisions } from '../actions/admin'
 import { developerRequestData } from '../actions/developer'
+import { adminApprovalsRequestData } from '../actions/admin-approvals'
 
 const routeDispatcher = (route: RouteValue, params?: StringMap) => {
   switch (route) {
@@ -28,6 +29,12 @@ const routeDispatcher = (route: RouteValue, params?: StringMap) => {
       break
     case Routes.ADMIN:
       store.dispatch(adminRequestRevisions())
+      break
+    case Routes.ADMIN_APPROVALS:
+      store.dispatch(adminApprovalsRequestData(1))
+      break
+    case Routes.ADMIN_APPROVALS_PAGINATE:
+      store.dispatch(adminApprovalsRequestData(params && params.page ? Number(params.page) : 1))
       break
     default:
       console.error('Route not found, nothing to fetch')

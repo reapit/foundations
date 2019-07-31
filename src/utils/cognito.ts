@@ -53,11 +53,14 @@ export const getAccessToken = async (): Promise<string | null> => {
     return loginSession.accessToken
   }
 
-  const refreshedSession = await refreshSession(loginSession)
-
-  if (refreshedSession) {
-    store.dispatch(authLoginSuccess(refreshedSession))
-    return refreshedSession.accessToken
+  try {
+    const refreshedSession = await refreshSession(loginSession)
+    if (refreshedSession) {
+      store.dispatch(authLoginSuccess(refreshedSession))
+      return refreshedSession.accessToken
+    }
+  } catch (err) {
+    console.error(err)
   }
 
   return logOutUser(loginType)
