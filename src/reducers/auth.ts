@@ -2,8 +2,26 @@ import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authChangeLoginType } from '../actions/auth'
 import { getLoginSession } from '../utils/session'
+import jwt from 'jsonwebtoken'
 
 export type LoginType = 'DEVELOPER' | 'CLIENT' | 'ADMIN'
+
+export interface LoginIdentity {
+  sub: string
+  email_verified: boolean
+  iss: string
+  phone_number_verified: boolean
+  'cognito:username': string
+  'custom:reapit:developerId': string
+  aud: string
+  token_use: string
+  auth_time: number
+  name: string
+  phone_number: string
+  exp: number
+  iat: number
+  email: string
+}
 
 export interface LoginSession {
   userName: string
@@ -20,6 +38,7 @@ export interface AuthState {
   error: boolean
   loginType: LoginType
   loginSession: LoginSession | null
+  loginIdentity: LoginIdentity | null
 }
 
 export const defaultState = (): AuthState => {
@@ -28,7 +47,8 @@ export const defaultState = (): AuthState => {
     isLogin: !!loginSession,
     error: false,
     loginType: loginSession ? loginSession.loginType : 'CLIENT',
-    loginSession
+    loginSession,
+    loginIdentity: loginSession && loginSession.idToken ? (jwt.decode(loginSession.idToken) as LoginIdentity) : null
   }
 }
 
@@ -46,7 +66,8 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
       ...state,
       error: false,
       isLogin: true,
-      loginSession: action.data
+      loginSession: action.data,
+      loginIdentity: jwt.decode(action.data.idToken) as LoginIdentity
     }
   }
 

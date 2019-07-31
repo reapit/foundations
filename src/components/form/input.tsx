@@ -3,7 +3,7 @@ import { Field } from 'formik'
 import bulma from '@/styles/vendor/bulma'
 
 export interface InputProps {
-  type: 'text' | 'password' | 'email' | 'tel'
+  type: 'text' | 'password' | 'email' | 'tel' | 'hidden'
   placeholder?: string
   id: string
   label: string
@@ -26,7 +26,7 @@ const Input = ({ type, name, label, id, dataTest, placeholder = '' }: InputProps
       return (
         <div className={bulmaField}>
           <div className={control}>
-            <label htmlFor={id}>{label}</label>
+            {type !== 'hidden' && <label htmlFor={id}>{label}</label>}
             <input
               data-test={dataTest || ''}
               type={type}

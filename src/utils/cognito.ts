@@ -66,17 +66,17 @@ export const getAccessToken = async (): Promise<string | null> => {
   return logOutUser(loginType)
 }
 
-const refreshSession = async ({ userName, refreshToken }) => {
-  const refreshedSession = (await fetcher({
+const refreshSession = async ({ userName, refreshToken, loginType }) => {
+  const refreshedSession: Partial<LoginSession> | undefined = await fetcher({
     url: '/refresh',
     method: 'POST',
     api: COGNITO_API_BASE_URL,
     body: { userName, refreshToken },
     isPrivate: false,
     headers: COGNITO_HEADERS
-  })) as LoginSession | undefined
+  })
 
-  return refreshedSession
+  return { ...refreshedSession, loginType, userName } as LoginSession
 }
 
 export default refreshSession
