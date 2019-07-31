@@ -24,15 +24,15 @@ export function registerValidate(values: RegisterFormValues) {
     errors.telephone = 'Required'
   }
 
-  // if (!values.password) {
-  //   errors.password = 'Required'
-  // } else {
-  //   if (!values.confirmPassword) {
-  //     errors.confirmPassword = 'Required'
-  //   } else if (values.password !== values.confirmPassword) {
-  //     errors.confirmPassword = 'Password does not match'
-  //   }
-  // }
+  if (!values.password) {
+    errors.password = 'Required'
+  } else {
+    if (!values.confirmPassword) {
+      errors.confirmPassword = 'Required'
+    } else if (values.password !== values.confirmPassword) {
+      errors.confirmPassword = 'Password does not match'
+    }
+  }
 
   return errors
 }

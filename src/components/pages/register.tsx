@@ -28,8 +28,8 @@ export interface RegisterFormValues {
   companyName: string
   email: string
   telephone: string
-  // password: string
-  // confirmPassword: string
+  password: string
+  confirmPassword: string
 }
 
 export type RegisterProps = RegisterMappedActions & RegisterMappedProps
@@ -60,7 +60,9 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
                   name: '',
                   companyName: '',
                   email: '',
-                  telephone: '' /*, password: '', confirmPassword: ''*/
+                  telephone: '',
+                  password: '',
+                  confirmPassword: ''
                 } as RegisterFormValues
               }
               onSubmit={values => developerCreate(values as CreateDeveloperModel)}
@@ -76,14 +78,14 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
                   />
                   <Input dataTest="register-email" type="email" label="Email" id="email" name="email" />
                   <Input dataTest="register-telephone" type="text" label="Telephone" id="telephone" name="telephone" />
-                  {/* <Input dataTest="register-password" type="password" label="Password" id="password" name="password" />
+                  <Input dataTest="register-password" type="password" label="Password" id="password" name="password" />
                   <Input
                     dataTest="register-confirm-password"
                     type="password"
                     label="Confirm password"
                     id="confirmPassword"
                     name="confirmPassword"
-                  /> */}
+                  />
                   <div className={level}>
                     <div className={levelLeft}>
                       <Button type="submit" loading={isDisabled} variant="primary" disabled={isDisabled}>

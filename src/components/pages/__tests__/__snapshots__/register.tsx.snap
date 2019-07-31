@@ -10,8 +10,10 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
       initialValues={
         Object {
           "companyName": "",
+          "confirmPassword": "",
           "email": "",
           "name": "",
+          "password": "",
           "telephone": "",
         }
       }

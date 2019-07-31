@@ -10,10 +10,9 @@ class RegisterPage extends Base {
       name: 'John Doe',
       companyName: 'Acme',
       email: 'test@mail.com',
-      telephone: '123456789'
-      // ,
-      // password: 'Password123',
-      // confirmPassword: 'Password123'
+      telephone: '123456789',
+      password: 'Password123',
+      confirmPassword: 'Password123'
     }
   }
 
@@ -22,10 +21,9 @@ class RegisterPage extends Base {
       name: 'John Doe',
       companyName: 'Acme',
       email: 'invalid.com',
-      telephone: '123456789'
-      // ,
-      // password: 'Password123',
-      // confirmPassword: 'Password456'
+      telephone: '123456789',
+      password: 'Password123',
+      confirmPassword: 'Password456'
     }
   }
 
@@ -82,8 +80,8 @@ class RegisterPage extends Base {
     this.companyNameInput.setValue(this.invalidFormData.companyName)
     this.emailInput.setValue(this.invalidFormData.email)
     this.telephoneInput.setValue(this.invalidFormData.telephone)
-    // this.passwordInput.setValue(this.invalidFormData.password)
-    // this.confirmPasswordInput.setValue(this.invalidFormData.confirmPassword)
+    this.passwordInput.setValue(this.invalidFormData.password)
+    this.confirmPasswordInput.setValue(this.invalidFormData.confirmPassword)
   }
 
   populateValidForm() {
@@ -91,8 +89,8 @@ class RegisterPage extends Base {
     this.companyNameInput.setValue(this.validFormData.companyName)
     this.emailInput.setValue(this.validFormData.email)
     this.telephoneInput.setValue(this.validFormData.telephone)
-    // this.passwordInput.setValue(this.validFormData.password)
-    // this.confirmPasswordInput.setValue(this.validFormData.confirmPassword)
+    this.passwordInput.setValue(this.validFormData.password)
+    this.confirmPasswordInput.setValue(this.validFormData.confirmPassword)
   }
 
   submitForm() {

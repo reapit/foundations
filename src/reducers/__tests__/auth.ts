@@ -2,6 +2,13 @@ import authReducer, { defaultState, LoginType } from '../auth'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
 
+jest.mock('jsonwebtoken', () => ({
+  __esModule: true,
+  default: {
+    decode: () => 'DECODED_ID'
+  }
+}))
+
 describe('auth reducer', () => {
   it('should return default state if action not matched', () => {
     const newState = authReducer(undefined, { type: 'UNKNOWN' as ActionType, data: undefined })
@@ -23,7 +30,7 @@ describe('auth reducer', () => {
       sessionExpiry: 1
     }
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_LOGIN_SUCCESS as ActionType, data })
-    const expected = { ...defaultState(), isLogin: true, loginSession: data }
+    const expected = { ...defaultState(), isLogin: true, loginSession: data, loginIdentity: 'DECODED_ID' }
     expect(newState).toEqual(expected)
   })
 

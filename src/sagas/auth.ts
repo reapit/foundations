@@ -13,7 +13,7 @@ export const doLogin = function*({ data }: Action<AuthLoginParams>) {
   try {
     const { email: userName, password, loginType } = data
 
-    const loginDetails: LoginSession | undefined = yield call(fetcher, {
+    const loginDetails: Partial<LoginSession> | undefined = yield call(fetcher, {
       url: `/login`,
       api: COGNITO_API_BASE_URL,
       method: 'POST',
@@ -23,7 +23,7 @@ export const doLogin = function*({ data }: Action<AuthLoginParams>) {
     })
 
     if (loginDetails) {
-      const detailsWithLoginType = { ...loginDetails, userName, loginType }
+      const detailsWithLoginType = { ...loginDetails, loginType, userName } as LoginSession
       yield call(setLoginSession, detailsWithLoginType)
       yield put(authLoginSuccess(detailsWithLoginType))
     } else {

@@ -12,6 +12,7 @@ import { connect } from 'react-redux'
 import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/actions/submit-app'
 import { SubmitAppState } from '@/reducers/submit-app'
 import { CreateAppModel } from '@/types/marketplace-api-schema'
+import Checkbox from '../form/checkbox'
 
 export interface SubmitAppMappedActions {
   submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions) => void
@@ -20,6 +21,7 @@ export interface SubmitAppMappedActions {
 
 export interface SubmitAppMappedProps {
   submitAppState: SubmitAppState
+  developerId?: string
 }
 
 export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps
@@ -27,7 +29,8 @@ export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps
 export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
   submitAppSetFormState,
   submitApp,
-  submitAppState
+  submitAppState,
+  developerId
 }) => {
   const { formState } = submitAppState
   const isLoading = formState === 'SUBMITTING'
@@ -64,7 +67,9 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                 iconImageData: '',
                 homePage: '',
                 description: '',
-                summary: ''
+                summary: '',
+                developerId,
+                isListed: true
               } as CreateAppModel
             }
             onSubmit={submitApp}
@@ -89,6 +94,13 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                         name="supportEmail"
                       />
                       <Input dataTest="submit-app-phone" type="tel" label="Telephone" id="phone" name="telephone" />
+                      <Input
+                        dataTest="submit-app-developer-id"
+                        type="hidden"
+                        label="Developer ID"
+                        id="developerId"
+                        name="developerId"
+                      />
                       {/* <Input
                         dataTest="submit-app-company-reg-number"
                         type="text"
@@ -150,13 +162,6 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                         name="businessAddress"
                       />
                       <Input dataTest="submit-app-county" type="text" label="County" id="county" name="County" />
-                      <Input
-                        dataTest="submit-app-developer-id"
-                        type="text"
-                        label="Developer ID"
-                        id="developerId"
-                        name="developerId"
-                      />
                       <Input
                         dataTest="submit-app-display-summary"
                         type="text"
@@ -226,7 +231,8 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
 }
 
 const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
-  submitAppState: state.submitApp
+  submitAppState: state.submitApp,
+  developerId: (state.auth.loginIdentity && state.auth.loginIdentity['custom:reapit:developerId']) || undefined
 })
 
 const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
