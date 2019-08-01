@@ -39,6 +39,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({ clientState, matc
     <ErrorBoundary>
       <AppList
         list={list}
+        title="Browse Apps"
         loading={loading}
         onCardClick={app => {
           setVisible(true)

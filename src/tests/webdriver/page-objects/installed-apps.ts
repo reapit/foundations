@@ -1,9 +1,9 @@
 import Base from './base'
 import LoginPage from './login'
 
-class DeveloperInstalledAppsPage extends Base {
+class InstalledAppsPage extends Base {
   get route() {
-    return '/client/my-apps'
+    return '/client/installed'
   }
 
   get cardContainer() {
@@ -20,4 +20,4 @@ class DeveloperInstalledAppsPage extends Base {
   }
 }
 
-export default new DeveloperInstalledAppsPage()
+export default new InstalledAppsPage()

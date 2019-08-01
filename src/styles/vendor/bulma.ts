@@ -11,8 +11,6 @@ import bulmaStyles from './bulma.scss?mod'
 const bulma = {
   // Layout
   container: bulmaStyles.container || 'container',
-  is4: bulmaStyles['is-4'] || 'is4',
-  is6: bulmaStyles['is-6'] || 'is6',
   isRight: bulmaStyles['is-right'] || 'isRight',
 
   // Levels
@@ -31,9 +29,9 @@ const bulma = {
   columns: bulmaStyles.columns || 'columns',
   column: bulmaStyles.column || 'column',
   isMultiLine: bulmaStyles['is-multiline'] || 'isMultiLine',
-  isHalfTablet: bulmaStyles['is-half-tablet'] || 'isHalfTablet',
-  isThirdDesktop: bulmaStyles['is-one-third-desktop'] || 'isThirdDesktop',
-  isQuarterWidescreen: bulmaStyles['is-one-quarter-widescreen'] || 'isQuarterWidescreen',
+  isFullTablet: bulmaStyles['is-full-tablet'] || 'isFullTablet',
+  isHalfDesktop: bulmaStyles['is-half-desktop'] || 'isHalfDesktop',
+  isThirdWidescreen: bulmaStyles['is-one-third-widescreen'] || 'isThirdWidescreen',
   isQuarterFullhd: bulmaStyles['is-one-quarter-fullhd'] || 'isQuarterFullhd',
 
   // Utility classes
@@ -60,11 +58,14 @@ const bulma = {
   textarea: bulmaStyles.textarea || 'textarea',
   control: bulmaStyles.control || 'control',
   delete: bulmaStyles.delete || 'delete',
+  label: bulmaStyles.label || 'form',
 
   // Card
   card: bulmaStyles.card || 'card',
   cardImage: bulmaStyles['card-image'] || 'cardImage',
   cardContent: bulmaStyles['card-content'] || 'cardContent',
+  cardFooter: bulmaStyles['card-footer'] || 'cardFooter',
+  cardFooterItem: bulmaStyles['card-footer-item'] || 'cardFooterItem',
 
   // Media
   media: bulmaStyles.media || 'media',
@@ -85,23 +86,23 @@ const bulma = {
   subtitle: bulmaStyles.subtitle || 'subtitle',
 
   // Typography
-  isH1: bulmaStyles['is-h1'] || 'isH1',
-  isH2: bulmaStyles['is-h2'] || 'isH2',
-  isH3: bulmaStyles['is-h3'] || 'isH3',
-  isH4: bulmaStyles['is-h4'] || 'isH4',
-  isH5: bulmaStyles['is-h5'] || 'isH5',
-  isH6: bulmaStyles['is-h6'] || 'isH6',
+  isH1: bulmaStyles['is-1'] || 'is1',
+  is2: bulmaStyles['is-2'] || 'is2',
+  is3: bulmaStyles['is-3'] || 'is3',
+  is4: bulmaStyles['is-4'] || 'is4',
+  is5: bulmaStyles['is-5'] || 'is5',
+  is6: bulmaStyles['is-6'] || 'is6',
   content: bulmaStyles.content || 'content',
 
   // Navbar
-  navbar: bulmaStyles.navbar || 'navbar',
-  navbarBrand: bulmaStyles['navbar-brand'] || 'navbarBrand',
-  navbarItem: bulmaStyles['navbar-item'] || 'navbarItem',
-  navbarLink: bulmaStyles['navbar-link'] || 'navbarLink',
-  navbarDropdown: bulmaStyles['navbar-dropdown'] || 'navbarDropdown',
-  navbarDivider: bulmaStyles['navbar-divider'] || 'navbarDivider',
-  navbarStart: bulmaStyles['navbar-start'] || 'navbarStart',
-  navbarEnd: bulmaStyles['navbar-end'] || 'navbarEnd',
+  // navbar: bulmaStyles.navbar || 'navbar',
+  // navbarBrand: bulmaStyles['navbar-brand'] || 'navbarBrand',
+  // navbarItem: bulmaStyles['navbar-item'] || 'navbarItem',
+  // navbarLink: bulmaStyles['navbar-link'] || 'navbarLink',
+  // navbarDropdown: bulmaStyles['navbar-dropdown'] || 'navbarDropdown',
+  // navbarDivider: bulmaStyles['navbar-divider'] || 'navbarDivider',
+  // navbarStart: bulmaStyles['navbar-start'] || 'navbarStart',
+  // navbarEnd: bulmaStyles['navbar-end'] || 'navbarEnd',
 
   // Menu
   hasDropdown: bulmaStyles.hasDropdown || 'hasDropdown',
@@ -157,7 +158,12 @@ const bulma = {
 
   // table
   table: bulmaStyles['table'] || 'table',
-  isBordered: bulmaStyles['is-bordered'] || 'isBordered'
+  isBordered: bulmaStyles['is-bordered'] || 'isBordered',
+
+  // Menu
+  menu: bulmaStyles['menu'] || 'menu',
+  menuLabel: bulmaStyles['menu-label'] || 'menuLabel',
+  menuList: bulmaStyles['menu-list'] || 'menuList'
 }
 
 export default bulma

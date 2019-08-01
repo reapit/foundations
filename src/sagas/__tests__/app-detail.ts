@@ -9,6 +9,8 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 
+jest.mock('../../utils/fetcher')
+
 const params = { data: '9b6fd5f7-2c15-483d-b925-01b650538e52' }
 
 describe('app-detail fetch data', () => {

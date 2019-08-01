@@ -14,6 +14,7 @@ import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 
+jest.mock('../../utils/fetcher')
 const params = { data: 1 }
 
 describe('adminApprovals fetch data', () => {

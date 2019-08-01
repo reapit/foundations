@@ -42,7 +42,7 @@ export const Toast: React.FC<ToastProps> = ({
 
   return (
     <div data-test="toast-wrapper" className={`${toast} ${isVisible ? visible : ''}`} onClick={errorClearHandler}>
-      <Button type="reset" variant="danger" isFullWidth>
+      <Button type="reset" variant="danger" fullWidth>
         {error && error.message}
       </Button>
     </div>

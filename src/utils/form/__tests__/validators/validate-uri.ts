@@ -1,5 +1,5 @@
-import { validateURI } from '@/utils/validators'
 import errorMessages from '@/constants/error-messages'
+import validateURI from '../../../validators/validate-uri'
 
 interface ValueTypes {
   validURI: string

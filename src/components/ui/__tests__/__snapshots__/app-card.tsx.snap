@@ -2,59 +2,39 @@
 
 exports[`AppCard should match a snapshot 1`] = `
 <div
-  className="card undefined"
+  className="card undefined undefined"
   data-test="app-card"
 >
   <div
-    className="cardImage"
+    className="cardContent"
   >
     <figure
-      className="image is4by3"
+      className="image is48x48 undefined"
     >
       <img
         alt="test"
-        src="https://bulma.io/images/placeholders/1280x960.png"
+        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
       />
     </figure>
-  </div>
-  <div
-    className="cardContent"
-  >
-    <div
-      className="media"
+    <h5
+      className="title is5"
     >
-      <div
-        className="mediaLeft"
-      >
-        <figure
-          className="image is48x48"
-        >
-          <img
-            alt="test"
-            src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
-          />
-        </figure>
-      </div>
-      <div
-        className="mediaContent"
-      >
-        <p
-          className="title is4"
-        >
-          test
-        </p>
-        <p
-          className="subtitle is6"
-        >
-          Pete's Proptech World Ltd
-        </p>
-      </div>
-    </div>
-    <div
-      className="content"
+      test
+    </h5>
+    <p
+      className="subtitle is6"
     >
       nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
-    </div>
+    </p>
+  </div>
+  <div
+    className="cardFooter"
+  >
+    <p
+      className="cardFooterItem undefined"
+    >
+      Pete's Proptech World Ltd
+    </p>
   </div>
 </div>
 `;

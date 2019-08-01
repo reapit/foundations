@@ -1,0 +1,30 @@
+.appCard {
+  border-radius: 5px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  figure {
+    
+    margin-bottom: 1rem;
+  }
+
+  p, h5 {
+    text-align: center;
+  }
+
+  h5 {
+    padding-bottom: 0.5rem;
+  }
+}
+
+.isCentered {
+  margin: 0 auto;
+}
+
+.isLeft {
+  justify-content: left;
+}

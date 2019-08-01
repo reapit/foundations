@@ -51,9 +51,10 @@ exports[`Client should match a snapshot 1`] = `
     }
     loading={false}
     onCardClick={[Function]}
+    title="Browse Apps"
   />
   <Component
-    baseUrl="/client"
+    baseUrl="/client/apps"
     pageNumber={2}
     pageSize={2}
     totalCount={6}

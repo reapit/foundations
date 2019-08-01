@@ -6,10 +6,11 @@ const NavMenu = {
       text: 'Manage Apps',
       to: Routes.DEVELOPER_MY_APPS
     },
-    {
-      text: 'Manage Keys',
-      to: Routes.DEVELOPER
-    },
+    // TODO - reinstate when we have requirements
+    // {
+    //   text: 'Manage Keys',
+    //   to: Routes.DEVELOPER
+    // },
     {
       text: 'Submit app',
       to: Routes.SUBMIT_APP

@@ -9,3 +9,4 @@ declare namespace yargs {
 declare module '*.scss'
 declare module '*.scss?mod'
 declare module '*.sass'
+declare module '*.jpg'

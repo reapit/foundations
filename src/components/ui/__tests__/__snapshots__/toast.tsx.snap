@@ -7,7 +7,7 @@ exports[`Toast should match a snapshot for a componentError 1`] = `
   onClick={[MockFunction]}
 >
   <Button
-    isFullWidth={true}
+    fullWidth={true}
     type="reset"
     variant="danger"
   >
@@ -23,7 +23,7 @@ exports[`Toast should match a snapshot for a serverError 1`] = `
   onClick={[MockFunction]}
 >
   <Button
-    isFullWidth={true}
+    fullWidth={true}
     type="reset"
     variant="danger"
   >

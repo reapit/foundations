@@ -11,6 +11,8 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 
+jest.mock('../../utils/fetcher')
+
 const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
 
 describe('submit-app post data', () => {

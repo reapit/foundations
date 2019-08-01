@@ -7,7 +7,7 @@ import toJson from 'enzyme-to-json'
 const props: InputProps = {
   id: 'username',
   name: 'username',
-  label: 'User name',
+  labelText: 'User name',
   type: 'text'
 }
 

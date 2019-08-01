@@ -9,7 +9,7 @@ describe('DeveloperSubmitAppPage', () => {
   })
 
   it('should load the form correctly', () => {
-    expect(DeveloperSubmitAppPage.allInputs.length).toBe(13)
+    expect(DeveloperSubmitAppPage.allInputs.length).toBe(14)
 
     expect(DeveloperSubmitAppPage.name.getAttribute('type')).toEqual('text')
 

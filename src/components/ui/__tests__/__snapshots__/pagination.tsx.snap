@@ -1,123 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination Should match a snapshot 1`] = `
-<nav
-  aria-label="pagination"
-  className="pagination isCentered"
-  role="navigation"
->
-  <Link
-    className="paginationPrevious"
-    disabled={false}
-    onClick={[Function]}
-    to="/page/3"
+<div>
+  <nav
+    aria-label="pagination"
+    className="pagination isCentered"
+    role="navigation"
   >
-    Previous
-  </Link>
-  <Link
-    className="paginationNext"
-    disabled={false}
-    onClick={[Function]}
-    to="/page/5"
-  >
-    Next page
-  </Link>
-  <ul
-    className="paginationList"
-  >
-    <li
-      key="0"
+    <Link
+      className="paginationPrevious"
+      disabled={false}
+      onClick={[Function]}
+      to="/page/3"
     >
-      <Link
-        aria-label="Goto page 1"
-        className="paginationLink"
-        onClick={[Function]}
-        to="/page/1"
-      >
-        1
-      </Link>
-    </li>
-    <li
-      key="1"
+      Previous
+    </Link>
+    <Link
+      className="paginationNext"
+      disabled={false}
+      onClick={[Function]}
+      to="/page/5"
     >
-      <Link
-        aria-label="Goto page 2"
-        className="paginationLink"
-        onClick={[Function]}
-        to="/page/2"
-      >
-        2
-      </Link>
-    </li>
-    <li
-      key="2"
+      Next page
+    </Link>
+    <ul
+      className="paginationList"
     >
-      <Link
-        aria-label="Goto page 3"
-        className="paginationLink"
-        onClick={[Function]}
-        to="/page/3"
+      <li
+        key="0"
       >
-        3
-      </Link>
-    </li>
-    <li
-      key="3"
-    >
-      <Link
-        aria-label="Goto page 4"
-        className="paginationLink isCurrent"
-        onClick={[Function]}
-        to="/page/4"
+        <Link
+          aria-label="Goto page 1"
+          className="paginationLink"
+          onClick={[Function]}
+          to="/page/1"
+        >
+          1
+        </Link>
+      </li>
+      <li
+        key="1"
       >
-        4
-      </Link>
-    </li>
-    <li
-      key="4"
-    >
-      <Link
-        aria-label="Goto page 5"
-        className="paginationLink"
-        onClick={[Function]}
-        to="/page/5"
+        <Link
+          aria-label="Goto page 2"
+          className="paginationLink"
+          onClick={[Function]}
+          to="/page/2"
+        >
+          2
+        </Link>
+      </li>
+      <li
+        key="2"
       >
-        5
-      </Link>
-    </li>
-    <li
-      key="5"
-    >
-      <Link
-        aria-label="Goto page 6"
-        className="paginationLink"
-        onClick={[Function]}
-        to="/page/6"
+        <Link
+          aria-label="Goto page 3"
+          className="paginationLink"
+          onClick={[Function]}
+          to="/page/3"
+        >
+          3
+        </Link>
+      </li>
+      <li
+        key="3"
       >
-        6
-      </Link>
-    </li>
-    <li
-      key="6"
-    >
-      <span
-        className="paginationEllipsis has-text-grey"
+        <Link
+          aria-label="Goto page 4"
+          className="paginationLink isCurrent"
+          onClick={[Function]}
+          to="/page/4"
+        >
+          4
+        </Link>
+      </li>
+      <li
+        key="4"
       >
-        …
-      </span>
-    </li>
-    <li
-      key="7"
-    >
-      <Link
-        aria-label="Goto page 100"
-        className="paginationLink"
-        onClick={[Function]}
-        to="/page/100"
+        <Link
+          aria-label="Goto page 5"
+          className="paginationLink"
+          onClick={[Function]}
+          to="/page/5"
+        >
+          5
+        </Link>
+      </li>
+      <li
+        key="5"
       >
-        100
-      </Link>
-    </li>
-  </ul>
-</nav>
+        <Link
+          aria-label="Goto page 6"
+          className="paginationLink"
+          onClick={[Function]}
+          to="/page/6"
+        >
+          6
+        </Link>
+      </li>
+      <li
+        key="6"
+      >
+        <span
+          className="paginationEllipsis has-text-grey"
+        >
+          …
+        </span>
+      </li>
+      <li
+        key="7"
+      >
+        <Link
+          aria-label="Goto page 100"
+          className="paginationLink"
+          onClick={[Function]}
+          to="/page/100"
+        >
+          100
+        </Link>
+      </li>
+    </ul>
+  </nav>
+</div>
 `;

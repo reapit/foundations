@@ -23,7 +23,7 @@ exports[`AppDetailModalInner should match a snapshot when LOADING true 1`] = `
         className="content"
       >
         <h3
-          className="isH3"
+          className="is3"
           style={
             Object {
               "marginBottom": 0,

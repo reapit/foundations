@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should match a snapshot 1`] = `
+<aside
+  className="menu"
+>
+  <Link
+    to="/client/apps"
+  >
+    <Logo
+      height="65px"
+      width="150px"
+    />
+    <h5
+      className="title is5"
+    >
+      Foundations
+    </h5>
+  </Link>
+  <div>
+    <Memo()
+      isChecked={false}
+      onChange={[Function]}
+    />
+  </div>
+  <div
+    className="undefined "
+  >
+    <p
+      className="menuLabel undefined"
+      onClick={[Function]}
+    >
+      <Memo()
+        isActive={true}
+      />
+      Apps
+    </p>
+    <ul
+      className="menuList undefined undefined"
+    >
+      <li
+        className=""
+        key="/client/apps"
+      >
+        <Link
+          to="/client/apps"
+        >
+          Browse Apps
+        </Link>
+      </li>
+      <li
+        className=""
+        key="/client/installed"
+      >
+        <Link
+          to="/client/installed"
+        >
+          Installed Apps
+        </Link>
+      </li>
+    </ul>
+    <p
+      className="menuLabel undefined"
+      onClick={[Function]}
+    >
+      <Memo()
+        isActive={false}
+      />
+      Account
+    </p>
+    <ul
+      className="menuList undefined "
+    >
+      <li>
+        <a
+          data-test="logout-cta"
+          onClick={[Function]}
+        >
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+`;

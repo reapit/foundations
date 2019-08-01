@@ -3,7 +3,7 @@
 exports[`ImageInput should match a snapshot 1`] = `
 <FileInput
   id="test"
-  label="test"
+  labelText="test"
   name="test"
 />
 `;

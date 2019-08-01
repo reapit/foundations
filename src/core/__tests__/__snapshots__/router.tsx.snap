@@ -57,7 +57,7 @@ exports[`Router should match a snapshot 1`] = `
               }
             }
             fetcher={true}
-            path="/client/my-apps/:page"
+            path="/client/installed/:page"
           />
           <Connect(Component)
             allow="CLIENT"
@@ -71,7 +71,7 @@ exports[`Router should match a snapshot 1`] = `
             }
             exact={true}
             fetcher={true}
-            path="/client/my-apps"
+            path="/client/installed"
           />
           <Connect(Component)
             allow="CLIENT"
@@ -84,7 +84,7 @@ exports[`Router should match a snapshot 1`] = `
               }
             }
             fetcher={true}
-            path="/client/:page"
+            path="/client/apps/:page"
           />
           <Connect(Component)
             allow="CLIENT"
@@ -98,7 +98,7 @@ exports[`Router should match a snapshot 1`] = `
             }
             exact={true}
             fetcher={true}
-            path="/client"
+            path="/client/apps"
           />
           <Connect(Component)
             allow="DEVELOPER"
@@ -112,7 +112,7 @@ exports[`Router should match a snapshot 1`] = `
             }
             exact={true}
             fetcher={true}
-            path="/developer/my-apps"
+            path="/developer/apps"
           />
           <Connect(Component)
             allow="DEVELOPER"
@@ -126,7 +126,7 @@ exports[`Router should match a snapshot 1`] = `
             }
             exact={true}
             fetcher={true}
-            path="/developer/my-apps/:page"
+            path="/developer/apps/:page"
           />
           <Connect(Component)
             allow="DEVELOPER"

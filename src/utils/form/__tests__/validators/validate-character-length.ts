@@ -1,5 +1,5 @@
 import errorMessages from '@/constants/error-messages'
-import { validateMaxCharacterLength, validateMinCharacterLength } from '@/utils/validators'
+import { validateMinCharacterLength, validateMaxCharacterLength } from '../../../validators/validate-character-length'
 
 interface ValueTypes {
   validInput: string

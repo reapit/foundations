@@ -12,6 +12,7 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import { AppDetailState } from '@/reducers/app-detail'
 import { appDetailRequestData } from '@/actions/app-detail'
 import DeveloperAppModal from '../ui/developer-app-modal'
+import bulma from '../../styles/vendor/bulma'
 
 export interface DeveloperMappedActions {
   fetchAppDetail: (id: string) => void
@@ -31,6 +32,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   appDetail
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
+  const { title, is3 } = bulma
   const unfetched = !developerState.developerData
   const loading = developerState.loading
   const list = oc<DeveloperState>(developerState).developerData.data.data([])
@@ -45,6 +47,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
     <ErrorBoundary>
       <AppList
         list={list}
+        title="My Apps"
         loading={loading}
         onCardClick={app => {
           setVisible(true)

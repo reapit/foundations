@@ -7,13 +7,13 @@ export interface ButtonProps {
   onClick?: () => void
   disabled?: boolean
   loading?: boolean
-  isFullWidth?: boolean
+  fullWidth?: boolean
   className?: string
   dataTest?: string
 }
 
-const { button, isMedium, isPrimary, isSecondary, isLoading, isRounded, isDanger, isFullwidth } = bulma
-export const buttonBase = `${button} ${isMedium} ${isRounded}`
+const { button, isPrimary, isSecondary, isLoading, isDanger, isFullwidth } = bulma
+export const buttonBase = `${button}`
 export const buttonPrimary = `${buttonBase} ${isPrimary}`
 export const buttonSecondary = `${buttonBase} ${isSecondary}`
 export const buttonDanger = `${buttonBase} ${isDanger}`
@@ -25,7 +25,7 @@ const Button: React.SFC<ButtonProps> = ({
   disabled = false,
   loading = false,
   children,
-  isFullWidth = false,
+  fullWidth = false,
   onClick,
   dataTest = ''
 }) => {
@@ -34,7 +34,7 @@ const Button: React.SFC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={`${theme} ${isFullWidth ? isFullwidth : ''} ${loading ? isLoading : ''} ${className}`}
+      className={`${theme} ${fullWidth ? isFullwidth : ''} ${loading ? isLoading : ''} ${className}`}
       disabled={disabled}
       onClick={onClick}
       data-test={dataTest}

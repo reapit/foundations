@@ -3,7 +3,7 @@ import LoginPage from './login'
 
 class ClientPage extends Base {
   get route() {
-    return '/client'
+    return '/client/apps'
   }
 
   get cardContainer() {

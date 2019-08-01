@@ -10,6 +10,7 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 
+jest.mock('../../utils/fetcher')
 const params = { data: 1 }
 
 describe('my-apps fetch data', () => {
