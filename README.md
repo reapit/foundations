@@ -13,5 +13,3 @@ App store for Reapit PAAS platform. Initial scaffold from [React App Boilerplate
 - [Version Control](./VERSION_CONTROL.md)
 - [Definition of Done](./src/docs/DEFINITION_OF_DONE.md)
 - [Deployment](./src/docs/DEPLOYMENT.md)
-
-
