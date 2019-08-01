@@ -56,7 +56,6 @@ export class Store {
       fork(clientSagas),
       fork(myAppsSagas),
       fork(developerSagas),
-      fork(appDetailSagas),
       fork(adminSagas),
       fork(appDetailSagas),
       fork(submitAppSagas),
