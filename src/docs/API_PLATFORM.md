@@ -15,6 +15,15 @@ The schema defintion is fetched from a Swagger endpoint by running the command `
 
 If you get an API runtime error because of an incorrect definition, firstly fetch the defintions again so they are up-to-date and if you still have a problem, raise an issue with the Platform Team to update the Swagger defintion.
 
+## Authentication
+
+Because the app has three distinct permissioned areas, you need different dev credentials to access each area of the site.
+
+For a client, you can login at `/login` with `cbryan@reapit.com` and `myPassword12345`
+For a developer, you can login at `/login` with `wmcvay@reapit.com` and `NewPassword123`
+For an admin, you can login at `/admin/login` with `rwilcox@reapit.com` and `myPassword12345`
+
+
 ## Read on:
 
 - [Home](../../README.md)

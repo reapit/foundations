@@ -1,8 +1,19 @@
-import { tokenExpired, logOutUser, getAccessToken } from '../cognito'
+import { tokenExpired, logOutUser, getAccessToken, deserializeIdToken } from '../cognito'
 import store from '../../core/store'
 import { authLogout } from '../../actions/auth'
+import { mockLoginSession } from '../__mocks__/cognito'
 
 jest.mock('../../core/store')
+jest.mock('jsonwebtoken', () => ({
+  __esModule: true,
+  default: {
+    decode: () => ({
+      'custom:reapit:developerId': 'SOME_DEV_ID',
+      'custom:reapit:clientCode': 'SOME_CLIENT_ID',
+      'custom:reapit:marketAdmin': 'SOME_ADMIN_ID'
+    })
+  }
+}))
 
 describe('Cognito Utils', () => {
   describe('tokenExpired', () => {
@@ -64,6 +75,24 @@ describe('Cognito Utils', () => {
         accessTokenExpiry: expiresTwoMinsAgo
       }
       expect(await getAccessToken()).toEqual(refreshedAccessToken)
+    })
+  })
+
+  describe('deserializeIdToken', () => {
+    it('should return a deserialized identity if passed a login with idToken', () => {
+      expect(deserializeIdToken(mockLoginSession)).toEqual({
+        developerId: 'SOME_DEV_ID',
+        clientId: 'SOME_CLIENT_ID',
+        adminId: 'SOME_ADMIN_ID'
+      })
+    })
+
+    it('should return a nulled identity if passed an undefined token', () => {
+      expect(deserializeIdToken(undefined)).toEqual({
+        developerId: null,
+        clientId: null,
+        adminId: null
+      })
     })
   })
 

@@ -2,17 +2,19 @@ import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authChangeLoginType } from '../actions/auth'
 import { getLoginSession } from '../utils/session'
-import jwt from 'jsonwebtoken'
+import { deserializeIdToken } from '../utils/cognito'
 
 export type LoginType = 'DEVELOPER' | 'CLIENT' | 'ADMIN'
 
-export interface LoginIdentity {
+export interface CoginitoIdentity {
   sub: string
   email_verified: boolean
   iss: string
   phone_number_verified: boolean
   'cognito:username': string
-  'custom:reapit:developerId': string
+  'custom:reapit:developerId'?: string
+  'custom:reapit:clientCode'?: string
+  'custom:reapit:marketAdmin'?: string
   aud: string
   token_use: string
   auth_time: number
@@ -23,6 +25,12 @@ export interface LoginIdentity {
   email: string
 }
 
+export interface LoginIdentity {
+  developerId: string | null
+  clientId: string | null
+  adminId: string | null
+}
+
 export interface LoginSession {
   userName: string
   accessToken: string
@@ -31,6 +39,7 @@ export interface LoginSession {
   idTokenExpiry: number
   refreshToken: string
   loginType: LoginType
+  loginIdentity: LoginIdentity
 }
 
 export interface AuthState {
@@ -38,7 +47,6 @@ export interface AuthState {
   error: boolean
   loginType: LoginType
   loginSession: LoginSession | null
-  loginIdentity: LoginIdentity | null
 }
 
 export const defaultState = (): AuthState => {
@@ -47,8 +55,7 @@ export const defaultState = (): AuthState => {
     isLogin: !!loginSession,
     error: false,
     loginType: loginSession ? loginSession.loginType : 'CLIENT',
-    loginSession,
-    loginIdentity: loginSession && loginSession.idToken ? (jwt.decode(loginSession.idToken) as LoginIdentity) : null
+    loginSession
   }
 }
 
@@ -66,8 +73,7 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
       ...state,
       error: false,
       isLogin: true,
-      loginSession: action.data,
-      loginIdentity: jwt.decode(action.data.idToken) as LoginIdentity
+      loginSession: action.data
     }
   }
 

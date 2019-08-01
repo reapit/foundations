@@ -8,6 +8,7 @@ import { history } from '../core/router'
 import Routes from '../constants/routes'
 import fetcher from '@/utils/fetcher'
 import { COGNITO_API_BASE_URL, COGNITO_HEADERS } from '../constants/api'
+import { deserializeIdToken } from '../utils/cognito'
 
 export const doLogin = function*({ data }: Action<AuthLoginParams>) {
   try {
@@ -23,7 +24,8 @@ export const doLogin = function*({ data }: Action<AuthLoginParams>) {
     })
 
     if (loginDetails) {
-      const detailsWithLoginType = { ...loginDetails, loginType, userName } as LoginSession
+      const loginIdentity = deserializeIdToken(loginDetails)
+      const detailsWithLoginType = { ...loginDetails, loginType, userName, loginIdentity } as LoginSession
       yield call(setLoginSession, detailsWithLoginType)
       yield put(authLoginSuccess(detailsWithLoginType))
     } else {

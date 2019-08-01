@@ -21,7 +21,7 @@ export interface SubmitAppMappedActions {
 
 export interface SubmitAppMappedProps {
   submitAppState: SubmitAppState
-  developerId?: string
+  developerId: string | null
 }
 
 export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps
@@ -232,7 +232,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
 
 const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
   submitAppState: state.submitApp,
-  developerId: (state.auth.loginIdentity && state.auth.loginIdentity['custom:reapit:developerId']) || undefined
+  developerId: state.auth.loginSession ? state.auth.loginSession.loginIdentity.developerId : null
 })
 
 const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
