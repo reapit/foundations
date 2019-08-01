@@ -1,5 +1,6 @@
 import * as React from 'react'
 import bulma from '@/styles/vendor/bulma'
+import paginationStyles from '@/styles/blocks/pagination.scss?mod'
 import { Link } from 'react-router-dom'
 
 export interface PaginationProps {
@@ -37,6 +38,7 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
   totalCount = 1
 }) => {
   const maxPage = Math.ceil(totalCount / pageSize)
+  const { paginationContainer } = paginationStyles
 
   if (maxPage < 2) {
     return null
@@ -45,66 +47,68 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
   const paginator = generatePagination(pageNumber, maxPage)
 
   return (
-    <nav className={bulma.pagination + ' ' + bulma.isCentered} role="navigation" aria-label="pagination">
-      {
-        // @ts-ignore: skip bulma link disabled complaint
-        <Link
-          to={`${baseUrl}/${pageNumber - 1}`}
-          onClick={e => {
-            if (pageNumber < 2) {
-              e.preventDefault()
+    <div className={paginationContainer}>
+      <nav className={bulma.pagination + ' ' + bulma.isCentered} role="navigation" aria-label="pagination">
+        {
+          // @ts-ignore: skip bulma link disabled complaint
+          <Link
+            to={`${baseUrl}/${pageNumber - 1}`}
+            onClick={e => {
+              if (pageNumber < 2) {
+                e.preventDefault()
+              }
+            }}
+            className={bulma.paginationPrevious}
+            disabled={pageNumber < 2}
+          >
+            Previous
+          </Link>
+        }
+        {
+          // @ts-ignore: skip bulma link disabled complaint
+          <Link
+            to={`${baseUrl}/${pageNumber + 1}`}
+            onClick={e => {
+              if (pageNumber + 1 > maxPage) {
+                e.preventDefault()
+              }
+            }}
+            className={bulma.paginationNext}
+            disabled={pageNumber + 1 > maxPage}
+          >
+            Next page
+          </Link>
+        }
+        <ul className={bulma.paginationList}>
+          {paginator.map((pg, i) => {
+            if (pg === '...') {
+              return (
+                <li key={i}>
+                  <span className={`${bulma.paginationEllipsis} ${bulma.hasTextGrey}`}>&hellip;</span>
+                </li>
+              )
             }
-          }}
-          className={bulma.paginationPrevious}
-          disabled={pageNumber < 2}
-        >
-          Previous
-        </Link>
-      }
-      {
-        // @ts-ignore: skip bulma link disabled complaint
-        <Link
-          to={`${baseUrl}/${pageNumber + 1}`}
-          onClick={e => {
-            if (pageNumber + 1 > maxPage) {
-              e.preventDefault()
-            }
-          }}
-          className={bulma.paginationNext}
-          disabled={pageNumber + 1 > maxPage}
-        >
-          Next page
-        </Link>
-      }
-      <ul className={bulma.paginationList}>
-        {paginator.map((pg, i) => {
-          if (pg === '...') {
+
             return (
               <li key={i}>
-                <span className={`${bulma.paginationEllipsis} ${bulma.hasTextGrey}`}>&hellip;</span>
+                <Link
+                  to={`${baseUrl}/${pg}`}
+                  className={bulma.paginationLink + (pg === pageNumber ? ` ${bulma.isCurrent}` : '')}
+                  onClick={e => {
+                    if (pg === pageNumber) {
+                      e.preventDefault()
+                    }
+                  }}
+                  aria-label={`Goto page ${pg}`}
+                >
+                  {pg}
+                </Link>
               </li>
             )
-          }
-
-          return (
-            <li key={i}>
-              <Link
-                to={`${baseUrl}/${pg}`}
-                className={bulma.paginationLink + (pg === pageNumber ? ` ${bulma.isCurrent}` : '')}
-                onClick={e => {
-                  if (pg === pageNumber) {
-                    e.preventDefault()
-                  }
-                }}
-                aria-label={`Goto page ${pg}`}
-              >
-                {pg}
-              </Link>
-            </li>
-          )
-        })}
-      </ul>
-    </nav>
+          })}
+        </ul>
+      </nav>
+    </div>
   )
 }
 

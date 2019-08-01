@@ -15,6 +15,7 @@ import loginStyles from '@/styles/pages/login.scss?mod'
 import Button from '../form/button'
 import bulma from '@/styles/vendor/bulma'
 import { withRouter, RouteComponentProps } from 'react-router'
+import logoImage from '@/assets/images/reapit-graphic.jpg'
 
 export interface LoginMappedActions {
   login: (params: AuthLoginParams) => void
@@ -37,13 +38,13 @@ export type LoginProps = LoginMappedActions & LoginMappedProps & RouteComponentP
 export const tabConfigs = ({ loginType, authChangeLoginType }: LoginProps): TabConfig[] => [
   {
     tabIdentifier: 'CLIENT',
-    displayText: 'I am a client',
+    displayText: 'Client',
     onTabClick: authChangeLoginType,
     active: loginType === 'CLIENT'
   },
   {
     tabIdentifier: 'DEVELOPER',
-    displayText: 'I am a developer',
+    displayText: 'Developer',
     onTabClick: authChangeLoginType,
     active: loginType === 'DEVELOPER'
   }
@@ -52,8 +53,8 @@ export const tabConfigs = ({ loginType, authChangeLoginType }: LoginProps): TabC
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { isLogin, error, login, loginType, location, authChangeLoginType } = props
-  const { disabled, wrapper, container } = loginStyles
-  const { level, levelLeft, levelRight } = bulma
+  const { disabled, wrapper, container, image } = loginStyles
+  const { level, title, isH1, isCentered } = bulma
 
   React.useEffect(() => {
     if (error) {
@@ -78,6 +79,8 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   return (
     <div className={container}>
       <div className={`${wrapper} ${isSubmitting && disabled}`}>
+        <h1 className={`${title} ${isH1} ${isCentered}`}>Sign in</h1>
+        <p className="pb-8">Welcome to Reapit Foundations</p>
         {loginType !== 'ADMIN' && <Tabs tabConfigs={tabConfigs(props)} />}
         <Formik
           validate={validate}
@@ -88,24 +91,39 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
           }}
           render={() => (
             <Form data-test="login-form">
-              <Input dataTest="login-email" type="text" label="Email" id="email" name="email" />
-              <Input dataTest="login-password" type="password" label="Password" id="password" name="password" />
+              <Input
+                dataTest="login-email"
+                type="text"
+                labelText="Email"
+                id="email"
+                name="email"
+                placeholder="name@address.com"
+              />
+              <Input
+                dataTest="login-password"
+                type="password"
+                labelText="Password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+              />
               <div className={level}>
-                <div className={levelLeft}>
-                  <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
-                    Login
-                  </Button>
-                </div>
-                {loginType === 'DEVELOPER' && (
-                  <div className={levelRight}>
-                    <Link to={Routes.REGISTER}>Create new account</Link>
-                  </div>
-                )}
+                <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting} fullWidth>
+                  Login
+                </Button>
               </div>
+              {loginType === 'DEVELOPER' && (
+                <div className={level}>
+                  Don't have an account yet?<Link to={Routes.REGISTER}>Register</Link>
+                </div>
+              )}
               {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
             </Form>
           )}
         />
+      </div>
+      <div className={image}>
+        <img src={logoImage} alt="Reapit Graphic" />
       </div>
     </div>
   )

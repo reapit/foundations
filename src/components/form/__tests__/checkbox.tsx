@@ -7,7 +7,7 @@ import toJson from 'enzyme-to-json'
 const props: CheckboxProps = {
   id: 'test',
   name: 'test',
-  label: 'Test checkbox'
+  labelText: 'Test checkbox'
 }
 
 describe('Checkbox', () => {

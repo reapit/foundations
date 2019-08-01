@@ -1,6 +1,7 @@
 import * as React from 'react'
 import bulma from '@/styles/vendor/bulma'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import appCardStyles from '@/styles/blocks/app-card.scss?mod'
 
 export interface AppCardProps {
   app: AppSummaryModel
@@ -8,44 +9,20 @@ export interface AppCardProps {
   onClick?: (event: React.MouseEvent) => void
 }
 
-const {
-  card,
-  image,
-  cardImage,
-  media,
-  mediaLeft,
-  cardContent,
-  mediaContent,
-  is4by3,
-  is48x48,
-  is4,
-  is6,
-  title,
-  subtitle,
-  content
-} = bulma
+const { card, image, cardContent, is48x48, is5, is6, title, subtitle, content, cardFooter, cardFooterItem } = bulma
+const { appCard, isCentered, isLeft } = appCardStyles
 
 const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, className }: AppCardProps) => (
-  <div className={`${card} ${className}`} data-test="app-card" onClick={onClick}>
-    <div className={cardImage}>
-      <figure className={`${image} ${is4by3}`}>
-        <img src="https://bulma.io/images/placeholders/1280x960.png" alt={app.name} />
-      </figure>
-    </div>
+  <div className={`${card} ${className} ${appCard}`} data-test="app-card" onClick={onClick}>
     <div className={cardContent}>
-      <div className={media}>
-        <div className={mediaLeft}>
-          <figure className={`${image} ${is48x48}`}>
-            <img src={app.iconUri} alt={app.name} />
-          </figure>
-        </div>
-        <div className={mediaContent}>
-          <p className={`${title} ${is4}`}>{app.name}</p>
-          <p className={`${subtitle} ${is6}`}>{app.developer}</p>
-        </div>
-      </div>
-
-      <div className={content}>{app.summary}</div>
+      <figure className={`${image} ${is48x48} ${isCentered}`}>
+        <img src={app.iconUri || 'https://bulma.io/images/placeholders/48x48.png'} alt={app.name} />
+      </figure>
+      <h5 className={`${title} ${is5}`}>{app.name}</h5>
+      <p className={`${subtitle} ${is6}`}>{app.summary}</p>
+    </div>
+    <div className={cardFooter}>
+      <p className={`${cardFooterItem} ${isLeft}`}>{app.developer}</p>
     </div>
   </div>
 )

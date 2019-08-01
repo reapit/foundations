@@ -4,5 +4,9 @@
   box-sizing: border-box !important;
 }
 
+html {
+  font-size: 14px !important;
+}
+
 @import './vendor/normalize.scss';
 @import './utilities.scss';

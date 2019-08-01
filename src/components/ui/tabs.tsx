@@ -17,8 +17,8 @@ export const selectTab = (event: React.SyntheticEvent, tabConfig: TabConfig) => 
   tabConfig.onTabClick(tabConfig.tabIdentifier)
 }
 
-const { tabs, isToggle, isFullwidth, isMedium, isActive } = bulma
-const tabsClasses = `${tabs} ${isToggle} ${isFullwidth} ${isMedium}`
+const { tabs, isFullwidth, isActive } = bulma
+const tabsClasses = `${tabs} ${isFullwidth}`
 
 const Tabs: React.FunctionComponent<TabsProps> = ({ tabConfigs }) => (
   <div className={tabsClasses} role="tablist">

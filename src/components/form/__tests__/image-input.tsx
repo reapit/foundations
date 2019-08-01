@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { FileInputProps } from '../file-input/file-input'
+import { FileInputProps } from '../file-input'
 import ImageInput from '../image-input'
 import toJson from 'enzyme-to-json'
 
 const props: FileInputProps = {
   name: 'test',
   id: 'test',
-  label: 'test'
+  labelText: 'test'
 }
 
 describe('ImageInput', () => {

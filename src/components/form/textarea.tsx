@@ -5,19 +5,19 @@ import bulma from '@/styles/vendor/bulma'
 export interface InputProps {
   placeholder?: string
   id: string
-  label: string
+  labelText: string
   name: string
   dataTest?: string
 }
 
-const { textarea, hasTextDanger, isPrimary, isDanger, isMedium, control } = bulma
+const { textarea, hasTextDanger, isPrimary, isDanger, isMedium, control, label } = bulma
 export const bulmaField = bulma.field
 
 export const textareaBase = `${textarea} ${isMedium}`
 export const textareaPrimary = `${textareaBase} ${isPrimary}`
 export const textareaError = `${textareaBase} ${isDanger}`
 
-const TextArea = ({ name, label, id, dataTest, placeholder = '' }: InputProps) => (
+const TextArea = ({ name, labelText, id, dataTest, placeholder = '' }: InputProps) => (
   <Field
     name={name}
     render={({ field, form: { touched, errors } }) => {
@@ -26,7 +26,9 @@ const TextArea = ({ name, label, id, dataTest, placeholder = '' }: InputProps) =
       return (
         <div className={bulmaField}>
           <div className={control}>
-            <label htmlFor={id}>{label}</label>
+            <label className={label} htmlFor={id}>
+              {labelText}
+            </label>
             <textarea data-test={dataTest || ''} id={id} placeholder={placeholder} className={className} {...field} />
           </div>
           {hasError && (

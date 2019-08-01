@@ -93,138 +93,152 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
         </div>
       </div>
       {isEditDetail && (
-        <Formik
-          initialValues={{
-            name,
-            description,
-            developerId,
-            homePage,
-            telephone,
-            supportEmail,
-            summary,
-            launchUri,
-            iconImageData,
-            isListed,
-            ...images
-          }}
-          validate={validate}
-          onSubmit={revision => {
-            if (!id) {
-              return
-            }
-            const data = { ...revision }
-
-            if (iconImageData === data.iconImageData) {
-              delete data.iconImageData
-            }
-
-            Object.keys(images).forEach(key => {
-              if (images[key] === data[key]) {
-                delete data[key]
+        <>
+          <h3 className={`${bulma.title} ${bulma.is3}`}>Edit App Detail</h3>
+          <Formik
+            initialValues={{
+              name,
+              description,
+              developerId,
+              homePage,
+              telephone,
+              supportEmail,
+              summary,
+              launchUri,
+              iconImageData,
+              isListed,
+              ...images
+            }}
+            validate={validate}
+            onSubmit={revision => {
+              if (!id) {
+                return
               }
-            })
+              const data = { ...revision }
 
-            submitRevision(id, data)
-          }}
-          render={({ errors }) => {
-            return (
-              <Form>
-                <Input dataTest="submit-revision-name" type="text" label="name" id="name" name="name" />
-                <Input
-                  dataTest="submit-revision-support-email"
-                  type="text"
-                  label="Support Email"
-                  id="supportEmail"
-                  name="supportEmail"
-                />
-                <Input
-                  dataTest="submit-revision-telephone"
-                  type="text"
-                  label="Telephone"
-                  id="telephone"
-                  name="telephone"
-                />
-                <Input
-                  dataTest="submit-revision-launchUri"
-                  type="text"
-                  label="Launch URI"
-                  id="launchUri"
-                  name="launchUri"
-                />
-                <Input dataTest="submit-revision-homepage" type="text" label="Homepage" id="homePage" name="homePage" />
-                <TextArea
-                  id="description"
-                  dataTest="submit-revision-description"
-                  label="Description"
-                  name="description"
-                />
-                <TextArea id="summary" dataTest="submit-revision-summary" label="Sumary" name="summary" />
+              if (iconImageData === data.iconImageData) {
+                delete data.iconImageData
+              }
 
-                <ImageInput id="iconImageData" dataTest="submit-app-iconImageData" label="Icon" name="iconImageData" />
+              Object.keys(images).forEach(key => {
+                if (images[key] === data[key]) {
+                  delete data[key]
+                }
+              })
 
-                <ImageInput
-                  id="screenshot1"
-                  dataTest="submit-app-screenshoot1"
-                  label="Screenshot 1"
-                  name="screen1ImageData"
-                />
-
-                <ImageInput
-                  id="screenshot2"
-                  dataTest="submit-app-screenshoot2"
-                  label="Screenshot 2"
-                  name="screen2ImageData"
-                />
-
-                <ImageInput
-                  id="screenshot3"
-                  dataTest="submit-app-screenshoot3"
-                  label="Screenshot 3"
-                  name="screen3ImageData"
-                />
-
-                <ImageInput
-                  id="screenshot4"
-                  dataTest="submit-app-screenshoot4"
-                  label="Screenshot 4"
-                  name="screen4ImageData"
-                />
-
-                <ImageInput
-                  id="screenshot5"
-                  dataTest="submit-app-screenshoot5"
-                  label="Screenshot 5"
-                  name="screen5ImageData"
-                />
-
-                <Checkbox id="isListed" dataTest="submit-revision-isListed" label="Is listed" name="isListed" />
-
-                <Button type="submit" variant="primary" loading={Boolean(isLoading)} disabled={Boolean(isLoading)}>
-                  Submit revision
-                </Button>
-
-                <Button
-                  type="button"
-                  className="ml-2"
-                  variant="secondary"
-                  disabled={Boolean(isLoading)}
-                  onClick={() => setIsEditDetail(false)}
-                >
-                  Cancel
-                </Button>
-
-                {isSuccessed && (
-                  <Alert
-                    className="mt-5"
-                    message="Revision was sent successfully"
-                    type="success"
-                    dataTest="submit-revision-success-message"
+              submitRevision(id, data)
+            }}
+            render={({ errors }) => {
+              return (
+                <Form>
+                  <Input dataTest="submit-revision-name" type="text" labelText="Name" id="name" name="name" />
+                  <Input
+                    dataTest="submit-revision-support-email"
+                    type="text"
+                    labelText="Support Email"
+                    id="supportEmail"
+                    name="supportEmail"
                   />
-                )}
-              </Form>
-            )
-          }}
-        />
+                  <Input
+                    dataTest="submit-revision-telephone"
+                    type="text"
+                    labelText="Telephone"
+                    id="telephone"
+                    name="telephone"
+                  />
+                  <Input
+                    dataTest="submit-revision-launchUri"
+                    type="text"
+                    labelText="Launch URI"
+                    id="launchUri"
+                    name="launchUri"
+                  />
+                  <Input
+                    dataTest="submit-revision-homepage"
+                    type="text"
+                    labelText="Homepage"
+                    id="homePage"
+                    name="homePage"
+                  />
+                  <TextArea
+                    id="description"
+                    dataTest="submit-revision-description"
+                    labelText="Description"
+                    name="description"
+                  />
+                  <TextArea id="summary" dataTest="submit-revision-summary" labelText="Sumary" name="summary" />
+
+                  <ImageInput
+                    id="iconImageData"
+                    dataTest="submit-app-iconImageData"
+                    labelText="Icon"
+                    name="iconImageData"
+                  />
+
+                  <ImageInput
+                    id="screenshot1"
+                    dataTest="submit-app-screenshoot1"
+                    labelText="Screenshot 1"
+                    name="screen1ImageData"
+                  />
+
+                  <ImageInput
+                    id="screenshot2"
+                    dataTest="submit-app-screenshoot2"
+                    labelText="Screenshot 2"
+                    name="screen2ImageData"
+                  />
+
+                  <ImageInput
+                    id="screenshot3"
+                    dataTest="submit-app-screenshoot3"
+                    labelText="Screenshot 3"
+                    name="screen3ImageData"
+                  />
+
+                  <ImageInput
+                    id="screenshot4"
+                    dataTest="submit-app-screenshoot4"
+                    labelText="Screenshot 4"
+                    name="screen4ImageData"
+                  />
+
+                  <ImageInput
+                    id="screenshot5"
+                    dataTest="submit-app-screenshoot5"
+                    labelText="Screenshot 5"
+                    name="screen5ImageData"
+                  />
+
+                  <Checkbox id="isListed" dataTest="submit-revision-isListed" labelText="Is listed" name="isListed" />
+
+                  <Button type="submit" variant="primary" loading={Boolean(isLoading)} disabled={Boolean(isLoading)}>
+                    Submit revision
+                  </Button>
+
+                  <Button
+                    type="button"
+                    className="ml-2"
+                    variant="secondary"
+                    disabled={Boolean(isLoading)}
+                    onClick={() => setIsEditDetail(false)}
+                  >
+                    Cancel
+                  </Button>
+
+                  {isSuccessed && (
+                    <Alert
+                      className="mt-5"
+                      message="Revision was sent successfully"
+                      type="success"
+                      dataTest="submit-revision-success-message"
+                    />
+                  )}
+                </Form>
+              )
+            }}
+          />
+        </>
       )}
     </>
   )

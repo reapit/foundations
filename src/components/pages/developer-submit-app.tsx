@@ -52,6 +52,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
         </div>
       ) : (
         <div className={`${styles.wrapper} ${bulma.container} ${isLoading ? 'disabled' : ''}`}>
+          <h3 className={`${bulma.title} ${bulma.is3}`}>Submit App</h3>
           <Formik
             validate={validate}
             initialValues={
@@ -68,8 +69,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                 homePage: '',
                 description: '',
                 summary: '',
-                developerId,
-                isListed: true
+                developerId
               } as CreateAppModel
             }
             onSubmit={submitApp}
@@ -78,56 +78,56 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                 <Form>
                   <div data-test="submit-app-form" className={`${bulma.columns}`}>
                     <div className={`${bulma.column} ${styles.column}`}>
-                      <Input dataTest="submit-app-name" type="text" label="Name" id="name" name="name" />
+                      <Input dataTest="submit-app-name" type="text" labelText="Name" id="name" name="name" />
                       <TextArea
                         id="description"
                         dataTest="submit-app-description"
-                        label="Description"
+                        labelText="Description"
                         name="description"
                       />
-                      <TextArea id="summary" dataTest="submit-app-summary" label="Summary" name="summary" />
+                      <TextArea id="summary" dataTest="submit-app-summary" labelText="Summary" name="summary" />
                       <Input
                         dataTest="submit-app-support-email"
                         type="text"
-                        label="Support email"
+                        labelText="Support email"
                         id="supportEmail"
                         name="supportEmail"
                       />
-                      <Input dataTest="submit-app-phone" type="tel" label="Telephone" id="phone" name="telephone" />
+                      <Input dataTest="submit-app-phone" type="tel" labelText="Telephone" id="phone" name="telephone" />
                       <Input
                         dataTest="submit-app-developer-id"
                         type="hidden"
-                        label="Developer ID"
+                        labelText="Developer ID"
                         id="developerId"
                         name="developerId"
                       />
                       {/* <Input
                         dataTest="submit-app-company-reg-number"
                         type="text"
-                        label="Company reg number"
+                        labelText="Company reg number"
                         id="companyReg"
                         name="companyReg"
                       />
                       <Input
                         dataTest="submit-app-address1"
                         type="text"
-                        label="Address 1"
+                        labelText="Address 1"
                         id="address1"
                         name="lineOne"
                       />
                       <Input
                         dataTest="submit-app-address2"
                         type="text"
-                        label="Address 2"
+                        labelText="Address 2"
                         id="address2"
                         name="lineTwo"
                       />
-                      <Input dataTest="submit-app-city" type="text" label="City" id="city" name="town" />
-                      <Input dataTest="submit-app-country" type="text" label="Country" id="country" name="country" />
+                      <Input dataTest="submit-app-city" type="text" labelText="City" id="city" name="town" />
+                      <Input dataTest="submit-app-country" type="text" labelText="Country" id="country" name="country" />
                       <Input
                         dataTest="submit-app-postcode"
                         type="text"
-                        label="Postcode"
+                        labelText="Postcode"
                         id="postcode"
                         name="postcode"
                       /> */}
@@ -136,76 +136,83 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                       <Input
                         dataTest="submit-app-home-page"
                         type="text"
-                        label="Home page"
+                        labelText="Home page"
                         id="homePage"
                         name="homePage"
                       />
                       <Input
                         dataTest="submit-app-launch-uri"
                         type="text"
-                        label="Launch Url"
+                        labelText="Launch Url"
                         id="launch Url"
                         name="launchUri"
                       />
                       {/* <Input
                         dataTest="submit-app-display-summary"
                         type="text"
-                        label="Display summary"
+                        labelText="Display summary"
                         id="displaySummary"
                         name="displaySummary"
                       />
                       <Input
                         dataTest="submit-app-business-address"
                         type="text"
-                        label="Business address"
+                        labelText="Business address"
                         id="businessAddress"
                         name="businessAddress"
                       />
-                      <Input dataTest="submit-app-county" type="text" label="County" id="county" name="County" />
+                      <Input dataTest="submit-app-county" type="text" labelText="County" id="county" name="County" />
+                      <Input
+                        dataTest="submit-app-developer-id"
+                        type="text"
+                        labelText="Developer ID"
+                        id="developerId"
+                        name="developerId"
+                      />
                       <Input
                         dataTest="submit-app-display-summary"
                         type="text"
-                        label="Display summary"
+                        labelText="Display summary"
                         id="displaySummary"
                         name="Developer ID"
                       />
-                      <Input dataTest="submit-app-policy" type="text" label="Policy" id="pollicy" name="pollicy" />
+                      <Input dataTest="submit-app-policy" type="text" labelText="Policy" id="pollicy" name="pollicy" />
                       <Input
                         dataTest="submit-app-endpoint"
                         type="text"
-                        label="Endpoint"
+                        labelText="Endpoint"
                         id="endpoint"
                         name="endpoint"
                       />
                       <TextArea
                         dataTest="submit-app-accepted-terms"
-                        label="Accepted Terms"
+                        labelText="Accepted Terms"
                         id="acceptedTerms"
                         name="acceptedTerms"
                       /> */}
-                      <ImageInput id="iconImage" dataTest="submit-app-icon" label="Icon" name="iconImageData" />
+                      <ImageInput id="iconImage" dataTest="submit-app-icon" labelText="Icon" name="iconImageData" />
                       <ImageInput
                         id="screenshot1"
                         dataTest="submit-app-screenshoot1"
-                        label="Screenshot 1"
+                        labelText="Screenshot 1"
                         name="screen1ImageData"
                       />
                       <ImageInput
                         id="screenshot2"
                         dataTest="submit-app-screenshoot2"
-                        label="Screenshot 2"
+                        labelText="Screenshot 2"
                         name="screen2ImageData"
                       />
                       <ImageInput
                         id="screenshot3"
                         dataTest="submit-app-screenshoot3"
-                        label="Screenshot 3"
+                        labelText="Screenshot 3"
                         name="screen3ImageData"
                       />
                       <ImageInput
                         id="screenshot4"
                         dataTest="submit-app-screenshoot4"
-                        label="Screenshot 4"
+                        labelText="Screenshot 4"
                         name="screen4ImageData"
                       />
                     </div>

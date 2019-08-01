@@ -10,6 +10,8 @@ import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
 import { revisionSubmitStub } from '../__stubs__/revision-submit'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 
+jest.mock('../../utils/fetcher')
+
 const params: Action<CreateAppRevisionModel & { id: string }> = {
   data: { ...revisionSubmitStub.data, id: '1' },
   type: 'DEVELOPER_SUBMIT_REVISION'

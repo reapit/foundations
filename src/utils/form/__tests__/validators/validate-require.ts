@@ -1,5 +1,5 @@
-import { validateRequire } from '@/utils/validators'
 import errorMessages from '@/constants/error-messages'
+import validateRequire from '../../../validators/validate-require'
 
 interface ValueTypes {
   valid: string

@@ -2,8 +2,10 @@ import * as React from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
-import Header from '@/components/ui/header'
+import Menu from '@/components/ui/menu'
 import Loader from '@/components/ui/loader'
+import pageContainerStyles from '../styles/pages/page-container.scss?mod'
+import Routes from '../constants/routes'
 
 const { Suspense } = React
 
@@ -17,13 +19,17 @@ export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectProps & {
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children, isLogin }) => {
   if (!isLogin) {
-    return <Redirect to="/login" />
+    return <Redirect to={Routes.LOGIN} />
   }
 
+  const { menuContainer, pageContainer, pageWrapper } = pageContainerStyles
+
   return (
-    <>
-      <Header />
-      <main className="main">
+    <div className={pageWrapper}>
+      <div className={menuContainer}>
+        <Menu />
+      </div>
+      <main className={pageContainer}>
         <Suspense
           fallback={
             <div className="pt-5">
@@ -34,7 +40,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
           {children}
         </Suspense>
       </main>
-    </>
+    </div>
   )
 }
 

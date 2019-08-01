@@ -4,19 +4,19 @@ import bulma from '@/styles/vendor/bulma'
 
 export interface CheckboxProps {
   id: string
-  label: string
+  labelText: string
   name: string
   dataTest?: string
 }
 
-const Checkbox = ({ name, label, id, dataTest }: CheckboxProps) => (
+const Checkbox = ({ name, labelText, id, dataTest }: CheckboxProps) => (
   <Field
     name={name}
     render={({ field }) => (
       <div className={bulma.field}>
         <label className={bulma.checkbox}>
           <input type="checkbox" id={id} data-test={dataTest || ''} {...field} checked={field.value} />
-          <span className="ml-2">{label}</span>
+          <span className="ml-2">{labelText}</span>
         </label>
       </div>
     )}

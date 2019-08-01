@@ -1,7 +1,7 @@
 import * as React from 'react'
 import bulma from '@/styles/vendor/bulma'
 import { usePortal } from '@/hooks/use-portal'
-const { modal, modalContent, modalClose, modalBackground, box, isActive, isLarge, isH4 } = bulma
+const { modal, modalContent, modalClose, modalBackground, box, isActive, isLarge, is4 } = bulma
 
 export interface ModalProps {
   children: React.ReactChild
@@ -16,7 +16,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({ title, children, afterClos
       <div className={modalBackground} data-test="modal-background" />
       <div className={modalContent} data-test="modal-content">
         <div className={box}>
-          {title && <h4 className={bulma.title + ' ' + isH4}>{title}</h4>}
+          {title && <h4 className={`${bulma.title} ${is4}`}>{title}</h4>}
           {children}
         </div>
       </div>

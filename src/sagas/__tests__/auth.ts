@@ -12,6 +12,7 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { COGNITO_HEADERS, COGNITO_API_BASE_URL } from '@/constants/api'
 import { mockLoginSession } from '@/utils/__mocks__/cognito'
 
+jest.mock('../../utils/fetcher')
 jest.mock('../../utils/cognito')
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({

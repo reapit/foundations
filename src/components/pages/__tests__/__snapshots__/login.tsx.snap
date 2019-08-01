@@ -5,18 +5,28 @@ exports[`Login should match a snapshot 1`] = `
   <div
     className="undefined false"
   >
+    <h1
+      className="title is1 isCentered"
+    >
+      Sign in
+    </h1>
+    <p
+      className="pb-8"
+    >
+      Welcome to Reapit Foundations
+    </p>
     <Tabs
       tabConfigs={
         Array [
           Object {
             "active": true,
-            "displayText": "I am a client",
+            "displayText": "Client",
             "onTabClick": [MockFunction],
             "tabIdentifier": "CLIENT",
           },
           Object {
             "active": false,
-            "displayText": "I am a developer",
+            "displayText": "Developer",
             "onTabClick": [MockFunction],
             "tabIdentifier": "DEVELOPER",
           },
@@ -37,6 +47,12 @@ exports[`Login should match a snapshot 1`] = `
       validate={[Function]}
       validateOnBlur={true}
       validateOnChange={true}
+    />
+  </div>
+  <div>
+    <img
+      alt="Reapit Graphic"
+      src=""
     />
   </div>
 </div>

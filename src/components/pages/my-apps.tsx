@@ -40,6 +40,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({ myAppsState, matc
     <ErrorBoundary>
       <AppList
         list={list}
+        title="Installed Apps"
         loading={loading}
         onCardClick={app => {
           setVisible(true)

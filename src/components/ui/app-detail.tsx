@@ -48,7 +48,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({ data }) => 
         </div>
         <div className={bulma.mediaContent}>
           <div className={bulma.content}>
-            <h3 className={bulma.isH3} style={{ marginBottom: 0 }}>
+            <h3 className={bulma.is3} style={{ marginBottom: 0 }}>
               {name}
             </h3>
             <p>

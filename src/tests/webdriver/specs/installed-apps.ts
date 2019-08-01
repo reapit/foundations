@@ -1,15 +1,15 @@
-import DeveloperInstalledApps from '../page-objects/developer-installed-apps'
+import InstalledAppsPage from '../page-objects/installed-apps'
 import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
-describe('DeveloperInstalledApps', () => {
+describe('InstalledAppsPage', () => {
   beforeEach(() => {
-    DeveloperInstalledApps.open()
-    DeveloperInstalledApps.cardContainer.waitForVisible()
+    InstalledAppsPage.open()
+    InstalledAppsPage.cardContainer.waitForVisible()
   })
 
   it('should load the page correctly', () => {
     // TODO: will re-write the test after e2e test for login is ready
-    // expect(DeveloperInstalledApps.allCards.length).toBe(7)
+    // expect(InstalledAppsPage.allCards.length).toBe(7)
   })
 
   afterEach(() => {

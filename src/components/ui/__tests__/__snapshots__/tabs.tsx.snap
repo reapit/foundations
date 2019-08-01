@@ -2,7 +2,7 @@
 
 exports[`Tabs should match a snapshot 1`] = `
 <div
-  className="tabs isToggle isFullwidth isMedium"
+  className="tabs isFullwidth"
   role="tablist"
 >
   <ul>
@@ -18,7 +18,7 @@ exports[`Tabs should match a snapshot 1`] = `
         onClick={[Function]}
         role="tab"
       >
-        I am a client
+        Client
       </a>
     </li>
     <li
@@ -33,7 +33,7 @@ exports[`Tabs should match a snapshot 1`] = `
         onClick={[Function]}
         role="tab"
       >
-        I am a developer
+        Developer
       </a>
     </li>
   </ul>

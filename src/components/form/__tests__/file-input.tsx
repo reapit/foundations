@@ -1,13 +1,13 @@
 import * as React from 'react'
-import { shallow, render, mount } from 'enzyme'
-import FileInput, { FileInputProps } from '../file-input/file-input'
+import { shallow, mount } from 'enzyme'
+import FileInput, { FileInputProps } from '../file-input'
 import { Formik } from 'formik'
 import toJson from 'enzyme-to-json'
 
 const props: FileInputProps = {
   name: 'test',
   id: 'test',
-  label: 'test'
+  labelText: 'test'
 }
 
 describe('FileInput', () => {
@@ -21,7 +21,7 @@ describe('FileInput', () => {
         initialValues={{ test: '' }}
         onSubmit={jest.fn()}
         render={() => {
-          return <FileInput id="test" label="test" name="test" />
+          return <FileInput id="test" labelText="test" name="test" />
         }}
       />
     )
@@ -54,7 +54,7 @@ describe('FileInput', () => {
           submitForm = handleSubmit
 
           // force form vaidate to test
-          return <FileInput id="test" label="test" name="test" />
+          return <FileInput id="test" labelText="test" name="test" />
         }}
       />
     )
@@ -105,7 +105,7 @@ describe('FileInput', () => {
                 waitUntilDataReaderLoadResolver
               }}
               id="test"
-              label="test"
+              labelText="test"
               name="test"
             />
           )
@@ -154,7 +154,7 @@ describe('FileInput', () => {
                 waitUntilDataReaderLoadResolver
               }}
               id="test"
-              label="test"
+              labelText="test"
               name="test"
             />
           )

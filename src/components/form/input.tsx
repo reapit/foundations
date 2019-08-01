@@ -6,27 +6,31 @@ export interface InputProps {
   type: 'text' | 'password' | 'email' | 'tel' | 'hidden'
   placeholder?: string
   id: string
-  label: string
+  labelText: string
   name: string
   dataTest?: string
 }
 
-export const { input, hasTextDanger, control, isMedium, isRounded, isPrimary, isDanger } = bulma
+export const { input, hasTextDanger, control, isMedium, isRounded, isPrimary, isDanger, label } = bulma
 export const bulmaField = bulma.field
-export const inputBase = `${input} ${isMedium} ${isRounded}`
+export const inputBase = `${input}`
 export const inputPrimary = `${inputBase} ${isPrimary}`
 export const inputError = `${inputBase} ${isDanger}`
 
-const Input = ({ type, name, label, id, dataTest, placeholder = '' }: InputProps) => (
+const Input = ({ type, name, labelText, id, dataTest, placeholder = '' }: InputProps) => (
   <Field
     name={name}
     render={({ field, form: { touched, errors } }) => {
       const hasError = touched[field.name] && errors[field.name]
       const className = hasError ? inputError : inputPrimary
       return (
-        <div className={bulmaField}>
+        <div className={`${bulmaField} pb-2`}>
           <div className={control}>
-            {type !== 'hidden' && <label htmlFor={id}>{label}</label>}
+            {type !== 'hidden' && (
+              <label className={label} htmlFor={id}>
+                {labelText}
+              </label>
+            )}
             <input
               data-test={dataTest || ''}
               type={type}

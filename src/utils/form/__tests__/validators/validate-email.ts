@@ -1,5 +1,5 @@
-import { validateEmail } from '@/utils/validators'
 import errorMessages from '@/constants/error-messages'
+import validateEmail from '../../../validators/validate-email'
 
 interface ValueTypes {
   validEmail: string

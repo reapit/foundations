@@ -8,7 +8,7 @@ const props: ButtonProps = {
   variant: 'primary',
   disabled: false,
   loading: false,
-  isFullWidth: false,
+  fullWidth: false,
   dataTest: 'some-selector',
   onClick: jest.fn()
 }

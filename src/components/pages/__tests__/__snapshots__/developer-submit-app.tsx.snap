@@ -5,6 +5,11 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
   <div
     className="undefined container "
   >
+    <h3
+      className="title is3"
+    >
+      Submit App
+    </h3>
     <Formik
       enableReinitialize={false}
       initialValues={
@@ -13,7 +18,6 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
           "developerId": null,
           "homePage": "",
           "iconImageData": "",
-          "isListed": true,
           "launchUri": "",
           "name": "",
           "screen1ImageData": "",

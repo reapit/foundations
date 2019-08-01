@@ -5,11 +5,14 @@ exports[`AppList should match a snapshot 1`] = `
   className="container isRelative undefined"
   data-test="app-list-container"
 >
+  <h3
+    className="title is3"
+  />
   <div
     className="columns isMultiLine "
   >
     <div
-      className="column isMultiLine isHalfTablet isThirdDesktop isQuarterWidescreen isQuarterFullhd"
+      className="column isMultiLine isFullTablet isHalfDesktop isThirdWidescreen isQuarterFullhd"
       key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
     >
       <AppCard
@@ -40,7 +43,7 @@ exports[`AppList should match a snapshot 1`] = `
       />
     </div>
     <div
-      className="column isMultiLine isHalfTablet isThirdDesktop isQuarterWidescreen isQuarterFullhd"
+      className="column isMultiLine isFullTablet isHalfDesktop isThirdWidescreen isQuarterFullhd"
       key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
     >
       <AppCard

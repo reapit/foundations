@@ -12,7 +12,7 @@ module.exports = {
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
   moduleNameMapper: {
-    '^.+\.(?=.*scss|sass|css).*': '<rootDir>/src/scripts/css-stub.js',
+    '^.+\.(?=.*scss|sass|css|jpg).*': '<rootDir>/src/scripts/css-stub.js',
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
     })
