@@ -55,7 +55,7 @@ module.exports = {
     }),
     new HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].bundle.css'
+      filename: 'css/[name].[hash].css'
     })
   ],
   module: {
