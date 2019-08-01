@@ -4,7 +4,8 @@ import {
   authLoginSuccess,
   authLogout,
   authLogoutSuccess,
-  authChangeLoginType
+  authChangeLoginType,
+  authSetDesktopSession
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { LoginType, LoginSession } from '../../reducers/auth'
@@ -41,5 +42,15 @@ describe('auth actions', () => {
   it('should create a authChangeLoginType action', () => {
     expect(authChangeLoginType.type).toEqual(ActionTypes.AUTH_CHANGE_LOGIN_TYPE)
     expect(authChangeLoginType('CLIENT').data).toEqual('CLIENT')
+  })
+
+  it('should create a authSetDesktopSession action', () => {
+    const refreshParams = {
+      loginType: 'CLIENT' as LoginType,
+      refreshToken: 'REFRESH_TOKEN',
+      userName: 'bob@acme.com'
+    }
+    expect(authSetDesktopSession.type).toEqual(ActionTypes.AUTH_SET_DESKTOP_SESSION)
+    expect(authSetDesktopSession(refreshParams).data).toEqual(refreshParams)
   })
 })

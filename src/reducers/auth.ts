@@ -1,8 +1,15 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authChangeLoginType } from '../actions/auth'
+import {
+  authLogin,
+  authLoginFailure,
+  authLoginSuccess,
+  authLogoutSuccess,
+  authChangeLoginType,
+  authSetDesktopSession
+} from '../actions/auth'
 import { getLoginSession } from '../utils/session'
-import { deserializeIdToken } from '../utils/cognito'
+import { RefreshParams } from '../utils/cognito'
 
 export type LoginType = 'DEVELOPER' | 'CLIENT' | 'ADMIN'
 
@@ -47,6 +54,7 @@ export interface AuthState {
   error: boolean
   loginType: LoginType
   loginSession: LoginSession | null
+  desktopSession: RefreshParams | null
 }
 
 export const defaultState = (): AuthState => {
@@ -55,7 +63,8 @@ export const defaultState = (): AuthState => {
     isLogin: !!loginSession,
     error: false,
     loginType: loginSession ? loginSession.loginType : 'CLIENT',
-    loginSession
+    loginSession,
+    desktopSession: null
   }
 }
 
@@ -97,6 +106,13 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
     return {
       ...state,
       loginType: action.data
+    }
+  }
+
+  if (isType(action, authSetDesktopSession)) {
+    return {
+      ...state,
+      desktopSession: action.data
     }
   }
 

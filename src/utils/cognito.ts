@@ -14,6 +14,7 @@ export interface LoginParams {
 export interface RefreshParams {
   userName: string
   refreshToken: string
+  loginType: LoginType
 }
 
 /**
@@ -42,20 +43,24 @@ export const logOutUser = (loginType: LoginType) => {
  * If that fails, logout
  */
 export const getAccessToken = async (): Promise<string | null> => {
-  const { loginSession, loginType } = store.state.auth
+  const { loginSession, loginType, desktopSession } = store.state.auth
 
-  if (!loginSession) {
+  if (loginSession) {
+    const sessionExpired = tokenExpired(loginSession.accessTokenExpiry)
+
+    if (!sessionExpired) {
+      return loginSession.accessToken
+    }
+  }
+
+  if (!loginSession && !desktopSession) {
     return logOutUser(loginType)
   }
 
-  const sessionExpired = tokenExpired(loginSession.accessTokenExpiry)
-
-  if (!sessionExpired) {
-    return loginSession.accessToken
-  }
+  const sessionToRefresh = (loginSession || desktopSession) as RefreshParams
 
   try {
-    const refreshedSession = await refreshSession(loginSession)
+    const refreshedSession = await refreshSession(sessionToRefresh)
     if (refreshedSession) {
       store.dispatch(authLoginSuccess(refreshedSession))
       return refreshedSession.accessToken
@@ -67,7 +72,7 @@ export const getAccessToken = async (): Promise<string | null> => {
   return logOutUser(loginType)
 }
 
-export const refreshSession = async ({ userName, refreshToken, loginType }) => {
+export const refreshSession = async ({ userName, refreshToken, loginType }: RefreshParams) => {
   const refreshedSession: Partial<LoginSession> | undefined = await fetcher({
     url: '/refresh',
     method: 'POST',
