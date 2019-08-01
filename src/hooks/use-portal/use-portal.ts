@@ -21,7 +21,9 @@ export function usePortal(component: React.ComponentType<any>) {
       context.hidePortal(key)
     }
 
-    return () => context.hidePortal(key)
+    return () => {
+      context.hidePortal(key)
+    }
   }, [portal, isShown])
 
   return [showPortal, hidePortal]

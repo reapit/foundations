@@ -11,19 +11,21 @@ export const PortalProvider: React.FunctionComponent<PortalProviderProps> = ({ c
 
   const showPortal = React.useCallback(
     (key: string, modal: React.ComponentType<any>) => {
-      setPortals({
-        ...portals,
+      setPortals(prevPortals => ({
+        ...prevPortals,
         [key]: modal
-      })
+      }))
     },
     [portals]
   )
 
   const hidePortal = React.useCallback(
     (key: string) => {
-      const newPortals = { ...portals }
-      delete newPortals[key]
-      setPortals(newPortals)
+      setPortals(prevPortals => {
+        const newPortals = { ...prevPortals }
+        delete newPortals[key]
+        return newPortals
+      })
     },
     [portals]
   )
