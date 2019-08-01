@@ -22,21 +22,25 @@ const App: React.FunctionComponent<any> = ({ defaultVisible = false }: { default
   )
 }
 
-// const AppWithMultipleModal: React.FunctionComponent<any> = () => {
-//   const [visible, setVisible] = React.useState<boolean>(false)
-//   return (
-//     <>
-//       <Modal visible={true}>
-//         <div>
-//           <button data-test="show-second-modal" onClick={() => setVisible(true)} />
-//           <Modal visible={visible}>
-//             <div>modal child 2</div>
-//           </Modal>
-//         </div>
-//       </Modal>
-//     </>
-//   )
-// }
+const InnerComponentWithAnotherModal = () => {
+  const [visible, setVisible] = React.useState<boolean>(false)
+  return (
+    <div>
+      <button data-test="show-second-modal" onClick={() => setVisible(true)} />
+      <Modal visible={visible}>
+        <div>modal child 2</div>
+      </Modal>
+    </div>
+  )
+}
+
+const AppModalInsideModal: React.FunctionComponent<any> = () => {
+  return (
+    <Modal visible={true}>
+      <InnerComponentWithAnotherModal />
+    </Modal>
+  )
+}
 
 describe('Modal', () => {
   it('should show Modal when visible prop is true', () => {
@@ -55,15 +59,26 @@ describe('Modal', () => {
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(0)
   })
 
-  // TODO: will make the test pass later
-  // it('Should render multiple Modals correctly', () => {
-  //   const wrapper = mount(renderWithPortalProvider(<AppWithMultipleModal />))
-  //   const showSecondModalButton = wrapper.find('[data-test="show-second-modal"]')
-  //   expect(wrapper.find('[data-test="modal"]')).toHaveLength(1)
-  //   expect(showSecondModalButton).toHaveLength(1)
-  //   showSecondModalButton.simulate('click')
-  //   expect(wrapper.find('[data-test="modal"]')).toHaveLength(2)
-  // })
+  it('Should render multiple Modals correctly', () => {
+    const wrapper = mount(
+      renderWithPortalProvider(
+        <>
+          <Modal visible={true}>Modal 1</Modal>
+          <Modal visible={true}>Modal 2</Modal>
+        </>
+      )
+    )
+    expect(wrapper.find('[data-test="modal"]')).toHaveLength(2)
+  })
+
+  it('Should render a component containing a Modal inside a Modal', () => {
+    const wrapper = mount(renderWithPortalProvider(<AppModalInsideModal />))
+    const showSecondModalButton = wrapper.find('[data-test="show-second-modal"]')
+    expect(wrapper.find('[data-test="modal"]')).toHaveLength(1)
+    expect(showSecondModalButton).toHaveLength(1)
+    showSecondModalButton.simulate('click')
+    expect(wrapper.find('[data-test="modal"]')).toHaveLength(2)
+  })
 
   afterEach(() => {
     jest.resetAllMocks()
