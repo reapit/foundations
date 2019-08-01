@@ -8,7 +8,8 @@ const props: SubmitAppProps = {
   submitAppSetFormState: jest.fn(),
   submitAppState: {
     formState: 'DONE'
-  }
+  },
+  developerId: null
 }
 
 describe('DeveloperSubmitApp', () => {

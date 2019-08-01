@@ -10,7 +10,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
       initialValues={
         Object {
           "description": "",
-          "developerId": undefined,
+          "developerId": null,
           "homePage": "",
           "iconImageData": "",
           "isListed": true,

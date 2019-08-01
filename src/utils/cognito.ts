@@ -1,6 +1,7 @@
+import jwt from 'jsonwebtoken'
 import store from '../core/store'
 import { authLoginSuccess, authLogout } from '../actions/auth'
-import { LoginSession, LoginType } from '../reducers/auth'
+import { LoginSession, LoginType, LoginIdentity, CoginitoIdentity } from '../reducers/auth'
 import fetcher from './fetcher'
 import { COGNITO_API_BASE_URL, COGNITO_HEADERS } from '../constants/api'
 
@@ -66,7 +67,7 @@ export const getAccessToken = async (): Promise<string | null> => {
   return logOutUser(loginType)
 }
 
-const refreshSession = async ({ userName, refreshToken, loginType }) => {
+export const refreshSession = async ({ userName, refreshToken, loginType }) => {
   const refreshedSession: Partial<LoginSession> | undefined = await fetcher({
     url: '/refresh',
     method: 'POST',
@@ -76,7 +77,17 @@ const refreshSession = async ({ userName, refreshToken, loginType }) => {
     headers: COGNITO_HEADERS
   })
 
-  return { ...refreshedSession, loginType, userName } as LoginSession
+  const loginIdentity = deserializeIdToken(refreshedSession)
+
+  return { ...refreshedSession, loginType, userName, loginIdentity } as LoginSession
 }
 
-export default refreshSession
+export const deserializeIdToken = (loginSession: Partial<LoginSession> | undefined): LoginIdentity => {
+  const decoded = loginSession && loginSession.idToken ? (jwt.decode(loginSession.idToken) as CoginitoIdentity) : {}
+
+  return {
+    developerId: decoded['custom:reapit:developerId'] || null,
+    clientId: decoded['custom:reapit:clientCode'] || null,
+    adminId: decoded['custom:reapit:marketAdmin'] || null
+  }
+}
