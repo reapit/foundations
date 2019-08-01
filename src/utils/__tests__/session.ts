@@ -1,5 +1,5 @@
 import { mockLoginSession } from '../__mocks__/cognito'
-import { setLoginSession, getLoginSession, removeLoginSession } from '../session'
+import { setLoginSession, getLoginSession, removeLoginSession, getTokenFromQueryString } from '../session'
 import { LOCAL_STORAGE_SESSION_KEY } from '../../constants/session'
 
 describe('session utils', () => {
@@ -31,6 +31,22 @@ describe('session utils', () => {
       removeLoginSession()
       expect(window.localStorage.removeItem).toHaveBeenCalledWith(LOCAL_STORAGE_SESSION_KEY)
       expect(window.localStorage.getItem(LOCAL_STORAGE_SESSION_KEY)).toBeUndefined()
+    })
+  })
+
+  describe('getTokenFromQueryString', () => {
+    it('should correctly return RefreshParams', () => {
+      const validQuery = '?username=wmcvay@reapit.com&desktopToken=TOKEN'
+      expect(getTokenFromQueryString(validQuery)).toEqual({
+        refreshToken: 'TOKEN',
+        userName: 'wmcvay@reapit.com',
+        loginType: 'CLIENT'
+      })
+    })
+
+    it('should correctly return null for an invalid string', () => {
+      const invalidQuery = '?somerandomquery=wmcvay@reapit.com&somerandomtoken=TOKEN'
+      expect(getTokenFromQueryString(invalidQuery)).toBe(null)
     })
   })
 })

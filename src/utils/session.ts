@@ -1,5 +1,6 @@
-import { LoginSession } from '../reducers/auth'
+import { LoginSession, LoginType } from '../reducers/auth'
 import { LOCAL_STORAGE_SESSION_KEY } from '../constants/session'
+import { RefreshParams } from './cognito'
 
 export const setLoginSession = (session: LoginSession): void => {
   try {
@@ -29,4 +30,20 @@ export const removeLoginSession = (): void => {
   } catch (err) {
     console.error('ERROR REMOVING SESSION', err.message)
   }
+}
+
+export const getTokenFromQueryString = (queryString: string, loginType: LoginType = 'CLIENT'): RefreshParams | null => {
+  const params = new URLSearchParams(queryString)
+  const refreshToken = params.get('desktopToken')
+  const userName = params.get('username')
+
+  if (refreshToken && userName) {
+    return {
+      refreshToken,
+      userName,
+      loginType
+    }
+  }
+
+  return null
 }

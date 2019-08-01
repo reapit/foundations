@@ -42,7 +42,7 @@ exports[`Router should match a snapshot 1`] = `
         path="/register"
         render={[Function]}
       />
-      <Connect(Component)
+      <withRouter(Connect(Component))
         path="/"
       >
         <Switch>
@@ -182,7 +182,7 @@ exports[`Router should match a snapshot 1`] = `
             path="/admin/approvals/:page"
           />
         </Switch>
-      </Connect(Component)>
+      </withRouter(Connect(Component))>
       <Redirect
         to="/login"
       />

@@ -16,11 +16,19 @@
   padding: 0 1.5rem;
 }
 
+.pageContainer.isDesktop {
+  width: 100%;
+}
+
 .menuContainer {
   width: $menu-width;
   padding: 1rem 1rem 0 1rem;
   border-right: 1px solid $grey-lighter;
   border-bottom: 1px solid $grey-lighter;
+}
+
+.menuContainer.isDesktop {
+  display: none;
 }
 
 .menuContainer, .pageContainer {
