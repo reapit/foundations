@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "bulma": "~0.7.5",
+    "diff": "^4.0.1",
     "formik": "~1.5.7",
     "jsonwebtoken": "^8.5.1",
     "react": "~16.8.6",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.0.5",
+    "@types/diff": "^4.0.2",
     "@types/enzyme": "~3.9.3",
     "@types/jasmine": "~3.3.13",
     "@types/jest": "~24.0.13",

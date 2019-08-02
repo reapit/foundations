@@ -1,0 +1,17 @@
+@import '../base/colors';
+
+.container {
+  background-color: $grey-lightest;
+  border: 1px solid $grey-lighter;
+  border-radius: 3px;
+  padding: 10px;
+  color: $black;
+}
+
+.green {
+  background-color: $green-lighter;
+}
+
+.red {
+  background-color: $red-lighter;
+}
