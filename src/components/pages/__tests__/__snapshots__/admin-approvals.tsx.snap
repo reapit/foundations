@@ -4,7 +4,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
   <div
     className="container isRelative py-8"
-    data-test="app-list-container"
+    data-test="revision-list-container"
   >
     <table
       className="table isFullwidth"
@@ -44,7 +44,8 @@ exports[`AdminApproval should match a snapshot 1`] = `
           </th>
           <th>
             <button
-              className="button isPrimary mr-2"
+              className="button isPrimary"
+              onClick={[Function]}
             >
               View details
             </button>
@@ -67,7 +68,8 @@ exports[`AdminApproval should match a snapshot 1`] = `
           </th>
           <th>
             <button
-              className="button isPrimary mr-2"
+              className="button isPrimary"
+              onClick={[Function]}
             >
               View details
             </button>
@@ -90,7 +92,8 @@ exports[`AdminApproval should match a snapshot 1`] = `
           </th>
           <th>
             <button
-              className="button isPrimary mr-2"
+              className="button isPrimary"
+              onClick={[Function]}
             >
               View details
             </button>
@@ -113,7 +116,8 @@ exports[`AdminApproval should match a snapshot 1`] = `
           </th>
           <th>
             <button
-              className="button isPrimary mr-2"
+              className="button isPrimary"
+              onClick={[Function]}
             >
               View details
             </button>
@@ -136,7 +140,8 @@ exports[`AdminApproval should match a snapshot 1`] = `
           </th>
           <th>
             <button
-              className="button isPrimary mr-2"
+              className="button isPrimary"
+              onClick={[Function]}
             >
               View details
             </button>
@@ -159,7 +164,8 @@ exports[`AdminApproval should match a snapshot 1`] = `
           </th>
           <th>
             <button
-              className="button isPrimary mr-2"
+              className="button isPrimary"
+              onClick={[Function]}
             >
               View details
             </button>
@@ -182,7 +188,8 @@ exports[`AdminApproval should match a snapshot 1`] = `
           </th>
           <th>
             <button
-              className="button isPrimary mr-2"
+              className="button isPrimary"
+              onClick={[Function]}
             >
               View details
             </button>
@@ -205,7 +212,8 @@ exports[`AdminApproval should match a snapshot 1`] = `
           </th>
           <th>
             <button
-              className="button isPrimary mr-2"
+              className="button isPrimary"
+              onClick={[Function]}
             >
               View details
             </button>
@@ -228,7 +236,8 @@ exports[`AdminApproval should match a snapshot 1`] = `
           </th>
           <th>
             <button
-              className="button isPrimary mr-2"
+              className="button isPrimary"
+              onClick={[Function]}
             >
               View details
             </button>
@@ -251,7 +260,8 @@ exports[`AdminApproval should match a snapshot 1`] = `
           </th>
           <th>
             <button
-              className="button isPrimary mr-2"
+              className="button isPrimary"
+              onClick={[Function]}
             >
               View details
             </button>
@@ -266,5 +276,9 @@ exports[`AdminApproval should match a snapshot 1`] = `
       totalCount={69}
     />
   </div>
+  <Component
+    afterClose={[Function]}
+    visible={false}
+  />
 </Connect(ErrorBoundary)>
 `;

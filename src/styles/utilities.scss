@@ -43,3 +43,23 @@ $units: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
     padding-bottom: ($unit * 1rem/4);
   }
 }
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}

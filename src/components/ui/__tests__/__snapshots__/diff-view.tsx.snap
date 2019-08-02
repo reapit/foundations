@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiffViewer should match a snapshot 1`] = `
+<div>
+  <span
+    key="0"
+  >
+    abc
+  </span>
+  <span
+    key="1"
+  >
+    axxxxxxxxxxxbc
+  </span>
+</div>
+`;

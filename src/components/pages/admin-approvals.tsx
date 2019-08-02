@@ -11,31 +11,47 @@ import routes from '@/constants/routes'
 import { AppDetailState } from '@/reducers/app-detail'
 import bulma from '@/styles/vendor/bulma'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
+import { revisionDetailRequestData, RevisionDetailRequestParams } from '@/actions/revision-detail'
+import AdminApprovalModal from '../ui/admin-approval-modal'
+import { appDetailRequestData } from '@/actions/app-detail'
+import { RevisionDetailState } from '@/reducers/revision-detail'
 
-export interface AdminApprovalsMappedActions {}
+export interface AdminApprovalsMappedActions {
+  fetchRevisionDetail: (params: RevisionDetailRequestParams) => void
+  fetchAppDetail: (appId: string) => void
+}
 
 export interface AdminApprovalsMappedProps {
   approvalsState: AdminApprovalsState
   appDetail: AppDetailState
+  revisionDetail: RevisionDetailState
 }
 
 export type AdminApprovalsProps = AdminApprovalsMappedActions &
   AdminApprovalsMappedProps &
   RouteComponentProps<{ page?: any }>
 
-export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({ approvalsState, match }) => {
+export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
+  approvalsState,
+  match,
+  fetchRevisionDetail,
+  fetchAppDetail,
+  appDetail,
+  revisionDetail
+}) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !approvalsState.adminApprovalsData
   const loading = approvalsState.loading
   const list = oc<AdminApprovalsState>(approvalsState).adminApprovalsData.data.data([])
   const { totalCount, pageSize } = oc<AdminApprovalsState>(approvalsState).adminApprovalsData.data({})
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
 
   if (unfetched && loading) {
     return <Loader />
   }
   return (
     <ErrorBoundary>
-      <div className={`${bulma.container} ${bulma.isRelative} py-8`} data-test="app-list-container">
+      <div className={`${bulma.container} ${bulma.isRelative} py-8`} data-test="revision-list-container">
         <table className={`${bulma.table} ${bulma.isFullwidth}`}>
           <thead>
             <tr>
@@ -54,7 +70,27 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({ a
                 <th>{revision.type}</th>
                 <th>{revision.description}</th>
                 <th>
-                  <button className={`${bulma.button} ${bulma.isPrimary} mr-2`}>View details</button>
+                  <button
+                    className={`${bulma.button} ${bulma.isPrimary}`}
+                    onClick={() => {
+                      const { appId, appRevisionId } = revision
+                      if (appRevisionId && appId) {
+                        const currentRevisionId = oc<RevisionDetailState>(revisionDetail).revisionDetailData.data.id(
+                          undefined
+                        )
+                        const currentAppId = oc<AppDetailState>(appDetail).appDetailData.data.id(undefined)
+                        if (currentRevisionId !== appRevisionId) {
+                          fetchRevisionDetail({ appId, appRevisionId })
+                        }
+                        if (currentAppId !== appId) {
+                          fetchAppDetail(appId)
+                        }
+                        setIsModalOpen(true)
+                      }
+                    }}
+                  >
+                    View details
+                  </button>
                 </th>
               </tr>
             ))}
@@ -67,16 +103,21 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({ a
           pageNumber={pageNumber}
         />
       </div>
+      <AdminApprovalModal visible={isModalOpen} afterClose={() => setIsModalOpen(false)} />
     </ErrorBoundary>
   )
 }
 
 const mapStateToProps = (state: ReduxState): AdminApprovalsMappedProps => ({
   approvalsState: state.adminApprovals,
-  appDetail: state.appDetail
+  appDetail: state.appDetail,
+  revisionDetail: state.revisionDetail
 })
 
-const mapDispatchToProps = (dispatch: any): AdminApprovalsMappedActions => ({})
+const mapDispatchToProps = (dispatch: any): AdminApprovalsMappedActions => ({
+  fetchRevisionDetail: param => dispatch(revisionDetailRequestData(param)),
+  fetchAppDetail: (appId: string) => dispatch(appDetailRequestData(appId))
+})
 
 export default withRouter(
   connect(
