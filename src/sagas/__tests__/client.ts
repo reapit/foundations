@@ -1,6 +1,6 @@
-import clientSagas, { clientDataFetch, clientDataListen } from '../client'
+import clientSagas, { clientDataFetch, clientDataListen, selectClientId } from '../client'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
+import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import { clientLoading, clientReceiveData, clientRequestDataFailure } from '@/actions/client'
 import { appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -9,17 +9,22 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
+import { errorThrownServer } from '@/actions/error'
+import errorMessages from '@/constants/error-messages'
 
 jest.mock('../../utils/fetcher')
 const params = { data: 1 }
 
 describe('client fetch data', () => {
   const gen = cloneableGenerator(clientDataFetch)(params)
+  const clientId = 'DAC'
 
   expect(gen.next().value).toEqual(put(clientLoading(true)))
-  expect(gen.next().value).toEqual(
+  expect(gen.next().value).toEqual(select(selectClientId))
+
+  expect(gen.next(clientId).value).toEqual(
     call(fetcher, {
-      url: `${URLS.apps}?PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
+      url: `${URLS.apps}?clientId=${clientId}&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
@@ -37,6 +42,23 @@ describe('client fetch data', () => {
     expect(clone.next(undefined).value).toEqual(put(clientRequestDataFailure()))
     expect(clone.next().done).toBe(true)
   })
+})
+
+describe('client fetch data error', () => {
+  const gen = cloneableGenerator(clientDataFetch)(params)
+
+  expect(gen.next().value).toEqual(put(clientLoading(true)))
+  expect(gen.next().value).toEqual(select(selectClientId))
+
+  // @ts-ignore
+  expect(gen.throw(new Error('Client id is not exists')).value).toEqual(
+    put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR
+      })
+    )
+  )
 })
 
 describe('client thunks', () => {

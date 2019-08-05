@@ -1,3 +1,4 @@
+import { oc } from 'ts-optchain'
 import fetcher from '../utils/fetcher'
 import { URLS, PLATFORM_HEADERS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import {
@@ -6,20 +7,29 @@ import {
   developerSetFormState,
   developerRequestDataFailure
 } from '../actions/developer'
-import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
+import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { CreateDeveloperModel } from '../types/marketplace-api-schema'
-import { Action } from '../types/core'
+import { Action, ReduxState } from '../types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
+
+export const selectDeveloperId = (state: ReduxState) => {
+  return oc<ReduxState>(state).auth.loginSession.loginIdentity.developerId
+}
 
 export const developerDataFetch = function*({ data: page }) {
   yield put(developerLoading(true))
 
   try {
+    const developerId = yield select(selectDeveloperId)
+    if (!developerId) {
+      throw new Error('Developer id is not exists')
+    }
+
     const response = yield call(fetcher, {
-      url: `${URLS.apps}?PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
+      url: `${URLS.apps}?developerId=${developerId}&PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
       method: 'GET',
       api: REAPIT_API_BASE_URL,
       headers: MARKETPLACE_HEADERS
