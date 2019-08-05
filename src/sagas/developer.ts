@@ -1,4 +1,3 @@
-import { oc } from 'ts-optchain'
 import fetcher from '../utils/fetcher'
 import { URLS, PLATFORM_HEADERS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import {
@@ -16,7 +15,7 @@ import { Action, ReduxState } from '../types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 
 export const selectDeveloperId = (state: ReduxState) => {
-  return oc<ReduxState>(state).auth.loginSession.loginIdentity.developerId
+  return state.auth.loginSession!.loginIdentity.developerId
 }
 
 export const developerDataFetch = function*({ data: page }) {
