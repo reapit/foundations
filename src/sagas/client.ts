@@ -1,20 +1,30 @@
+import { oc } from 'ts-optchain'
 import { clientLoading, clientReceiveData, clientRequestDataFailure } from '../actions/client'
-import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
+import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import fetcher from '@/utils/fetcher'
-import { Action } from '@/types/core'
+import { Action, ReduxState } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../constants/api'
+
+export const selectClientId = (state: ReduxState) => {
+  return oc<ReduxState>(state).auth.loginSession.loginIdentity.clientId
+}
 
 export const clientDataFetch = function*({ data: page }) {
   yield put(clientLoading(true))
 
   try {
+    const clientId = yield select(selectClientId)
+    if (!clientId) {
+      throw new Error('Client id is not exists')
+    }
+
     const response = yield call(fetcher, {
-      url: `${URLS.apps}?PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
+      url: `${URLS.apps}?clientId=${clientId}&PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
