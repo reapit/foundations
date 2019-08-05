@@ -1,4 +1,3 @@
-import { oc } from 'ts-optchain'
 import { clientLoading, clientReceiveData, clientRequestDataFailure } from '../actions/client'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -11,7 +10,7 @@ import { Action, ReduxState } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../constants/api'
 
 export const selectClientId = (state: ReduxState) => {
-  return oc<ReduxState>(state).auth.loginSession.loginIdentity.clientId
+  return state.auth.loginSession!.loginIdentity.clientId
 }
 
 export const clientDataFetch = function*({ data: page }) {
