@@ -37,6 +37,7 @@
     "react-slick": "^0.24.0",
     "redux": "~4.0.1",
     "redux-saga": "~1.0.3",
+    "swagger-ui-react": "^3.23.3",
     "ts-optchain": "~0.1.7"
   },
   "devDependencies": {

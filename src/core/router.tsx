@@ -15,6 +15,7 @@ const DeveloperHome = React.lazy(() => import('../components/pages/developer-hom
 const DeveloperSubmitApp = React.lazy(() => import('../components/pages/developer-submit-app'))
 const AdminPage = React.lazy(() => import('../components/pages/admin'))
 const AdminApprovalsPage = React.lazy(() => import('../components/pages/admin-approvals'))
+const ApiDocsPage = React.lazy(() => import('../components/pages/api-docs'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -38,6 +39,7 @@ const Router = () => (
               fetcher
             />
             <PrivateRoute allow="DEVELOPER" path={Routes.SUBMIT_APP} component={DeveloperSubmitApp} />
+            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} exact component={ApiDocsPage} />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN} component={AdminPage} exact fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />

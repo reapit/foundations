@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApiDocs should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <div
+    className="swagger"
+  >
+    <Loader />
+    <div
+      className="swagger-loading"
+    >
+      <SwaggerUI
+        onComplete={[Function]}
+        requestInterceptor={[Function]}
+        url="https://reapit.cloud.tyk.io/api/swagger/v1/swagger.json"
+      />
+    </div>
+  </div>
+</Connect(ErrorBoundary)>
+`;

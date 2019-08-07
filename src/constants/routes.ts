@@ -7,6 +7,7 @@ const Routes = {
   DEVELOPER: '/developer',
   DEVELOPER_MY_APPS: '/developer/apps',
   DEVELOPER_MY_APPS_PAGINATE: '/developer/apps/:page',
+  DEVELOPER_API_DOCS: '/developer/api-docs',
   SUBMIT_APP: '/developer/submit-app',
   REGISTER: '/register',
   ADMIN: '/admin',

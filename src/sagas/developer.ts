@@ -13,9 +13,10 @@ import errorMessages from '../constants/error-messages'
 import { CreateDeveloperModel } from '../types/marketplace-api-schema'
 import { Action, ReduxState } from '../types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
+import { oc } from 'ts-optchain'
 
 export const selectDeveloperId = (state: ReduxState) => {
-  return state.auth.loginSession!.loginIdentity.developerId
+  return oc<ReduxState>(state).auth.loginSession.loginIdentity.developerId(undefined)
 }
 
 export const developerDataFetch = function*({ data: page }) {
@@ -23,8 +24,9 @@ export const developerDataFetch = function*({ data: page }) {
 
   try {
     const developerId = yield select(selectDeveloperId)
+
     if (!developerId) {
-      throw new Error('Developer id is not exists')
+      throw new Error('Developer id does not exist in state')
     }
 
     const response = yield call(fetcher, {

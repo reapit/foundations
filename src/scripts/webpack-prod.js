@@ -75,6 +75,18 @@ module.exports = {
         }
       },
       {
+        test: /\.(css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          }
+        ]
+      },
+      {
         test: /\.(sass|scss)$/,
         oneOf: [
           {
@@ -118,7 +130,7 @@ module.exports = {
                 loader: path.resolve('./src/scripts/purgecss-loader.js'),
                 options: {
                   paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`),
-                  whitelistPatterns: [/^slick/]
+                  whitelistPatterns: [/^(slick)/]
                 }
               },
               {

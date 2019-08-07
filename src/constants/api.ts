@@ -20,5 +20,6 @@ export const COGNITO_API_BASE_URL = 'https://1wke0xp728.execute-api.eu-west-2.am
 export const URLS = {
   developerCreate: '/marketplace/developers',
   apps: '/marketplace/apps',
-  approvals: '/marketplace/approvals'
+  approvals: '/marketplace/approvals',
+  swagger: '/api/swagger/v1/swagger.json'
 }

@@ -8,9 +8,10 @@ import { APPS_PER_PAGE } from '@/constants/paginator'
 import fetcher from '@/utils/fetcher'
 import { Action, ReduxState } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../constants/api'
+import { oc } from 'ts-optchain'
 
 export const selectClientId = (state: ReduxState) => {
-  return state.auth.loginSession!.loginIdentity.clientId
+  return oc<ReduxState>(state).auth.loginSession.loginIdentity.clientId(undefined)
 }
 
 export const clientDataFetch = function*({ data: page }) {
@@ -18,8 +19,9 @@ export const clientDataFetch = function*({ data: page }) {
 
   try {
     const clientId = yield select(selectClientId)
+
     if (!clientId) {
-      throw new Error('Client id is not exists')
+      throw new Error('Client id does not exist in state')
     }
 
     const response = yield call(fetcher, {

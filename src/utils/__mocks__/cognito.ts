@@ -16,3 +16,4 @@ export const mockLoginSession = {
 
 export const cognitoLogin = jest.fn()
 export const deserializeIdToken = jest.fn(() => mockLoginSession.loginIdentity)
+export const getAccessToken = jest.fn()
