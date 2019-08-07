@@ -18,7 +18,7 @@ const apiSchema = [
   },
   {
     definitionFile: `${__dirname}/../types/marketplace-api-schema.ts`,
-    endpoint: `${BASE_URL}/api/marketplace/swagger/v1/swagger.json`,
+    endpoint: `${BASE_URL}/marketplace/swagger/v1/swagger.json`,
     headers: {
       Authorisation: process.env.MARKETPLACE_API_KEY
     }

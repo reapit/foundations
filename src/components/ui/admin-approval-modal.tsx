@@ -2,18 +2,22 @@ import * as React from 'react'
 import bulma from '@/styles/vendor/bulma'
 import Modal, { ModalProps } from '@/components/ui/modal'
 import { connect } from 'react-redux'
-import { ReduxState, FormState } from '@/types/core'
+import { ReduxState } from '@/types/core'
 import { AppDetailState } from '@/reducers/app-detail'
 import Loader from '@/components/ui/loader'
 import Alert from '@/components/ui/alert'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import DiffViewer from './diff-viewer'
-import { AppRevisionModel } from '@/types/marketplace-api-schema'
+import { AppRevisionModel, MediaModel } from '@/types/marketplace-api-schema'
 import ApproveRevisionModal from './approve-revision-modal'
 import DeclineRevisionModal from './decline-revision-modal'
+import DiffMedia from '@/components/ui/diff-media'
+import DiffCheckbox from './diff-checkbox'
+
 const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   name: 'Name',
   homePage: 'Home page',
+  launchUri: 'Launch URI',
   supportEmail: 'Support Email',
   telephone: 'Telephone',
   summary: 'Summary',
@@ -53,6 +57,18 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
   const revision = revisionDetailState.revisionDetailData.data
   const app = appDetailState.appDetailData.data
 
+  const changedMediaList: { currentMedia?: string; changedMedia?: string; order: number; type: string }[] = (
+    revision.media || []
+  ).map((media: MediaModel) => {
+    const currentMedia = (app.media || []).filter(({ order }) => order === media.order)[0]
+    return {
+      changedMedia: media.uri,
+      currentMedia: currentMedia ? currentMedia.uri : undefined,
+      order: media.order || 0,
+      type: media.type || 'media'
+    }
+  })
+
   return (
     <>
       <div className="flex justify-between">
@@ -90,6 +106,20 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
           </div>
         )
       })}
+
+      <div className="mb-3">
+        <h4 className="mb-2">Is listed</h4>
+        <DiffCheckbox currentChecked={Boolean(app.isListed)} changedChecked={Boolean(revision.isListed)} />
+      </div>
+
+      {changedMediaList.map(media => (
+        <div className="mb-3" key={media.order}>
+          <h4 className="mb-2 capitalize">
+            {media.type} {media.order > 0 && <span>{media.order}</span>}
+          </h4>
+          <DiffMedia changedMedia={media.changedMedia} currentMedia={media.currentMedia} type={media.type} />
+        </div>
+      ))}
     </>
   )
 }
