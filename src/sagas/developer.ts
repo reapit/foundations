@@ -1,5 +1,5 @@
 import fetcher from '../utils/fetcher'
-import { URLS, PLATFORM_HEADERS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import {
   developerLoading,
   developerReceiveData,
@@ -60,7 +60,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
       api: REAPIT_API_BASE_URL,
       method: 'POST',
       body: data,
-      headers: PLATFORM_HEADERS,
+      headers: MARKETPLACE_HEADERS,
       isPrivate: false
     })
     const status = regResponse ? 'SUCCESS' : 'ERROR'
