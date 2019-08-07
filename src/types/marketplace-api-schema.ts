@@ -51,6 +51,10 @@ export interface AppDetailModel {
    */
   isListed?: boolean
   /**
+   * Gets the sandbox status of this app
+   */
+  isSandbox?: boolean
+  /**
    * Gets a collection of media objects associated with the app
    */
   media?: MediaModel[]
@@ -152,6 +156,10 @@ export interface AppSummaryModel {
    * Gets the home page of the developer, or the app/product specific page on the developer's website
    */
   homePage?: string
+  /**
+   * Gets the sandbox status of this app
+   */
+  isSandbox?: boolean
   /**
    * Gets the public Url for accessing this app's icon
    */
@@ -493,6 +501,10 @@ export interface LinkModel {
  */
 export interface MediaModel {
   /**
+   * Gets the unique identifier of the media item
+   */
+  id?: string // uuid
+  /**
    * Gets the URI where this media is located
    */
   readonly uri?: string
@@ -504,6 +516,10 @@ export interface MediaModel {
    * Gets type of media this entity relates to
    */
   readonly type?: string
+  /**
+   * Gets the order of this particular picture in the list of available media
+   */
+  order?: number // int32
   /**
    * Gets the links associated to this model
    */

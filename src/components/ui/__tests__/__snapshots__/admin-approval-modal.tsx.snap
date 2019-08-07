@@ -74,6 +74,21 @@ exports[`AdminRevisionModalInner should match a snapshot when LOADING false 1`] 
   </div>
   <div
     className="mb-3"
+    key="launchUri"
+  >
+    <h4
+      className="mb-2"
+    >
+      Launch URI
+    </h4>
+    <DiffViewer
+      changedString=""
+      currentString=""
+      type="words"
+    />
+  </div>
+  <div
+    className="mb-3"
     key="supportEmail"
   >
     <h4
@@ -138,6 +153,19 @@ Never miss a deal or a discount with easy access to Lighting Deals and Deal of t
 Get notifications when a new deal is available."
       currentString="enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co"
       type="words"
+    />
+  </div>
+  <div
+    className="mb-3"
+  >
+    <h4
+      className="mb-2"
+    >
+      Is listed
+    </h4>
+    <DiffCheckbox
+      changedChecked={false}
+      currentChecked={false}
     />
   </div>
 </Fragment>

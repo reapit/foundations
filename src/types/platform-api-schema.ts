@@ -1233,6 +1233,10 @@ export interface DocumentModel {
   extra?: {
     [name: string]: {}
   }
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Extra representation
@@ -1668,6 +1672,10 @@ export interface JournalEntryModel {
    * Entry text
    */
   entry?: string
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
 }
 /**
  * Landlord representation
@@ -2671,7 +2679,7 @@ export interface PropertyModel {
    */
   price?: number // int32
   /**
-   * Price qualifier code: AP - Asking Price FP - Fixed Price GP - Guide Price OO - Offers Over OE - Offers in excess of OR - Configurable, defaults to: Offers in the region of PA - Price on Application PR - Price Reduced to
+   * Price qualifier code: AP - Asking Price | FP - Fixed Price | GP - Guide Price | OO - Offers Over | OE - Offers in excess of | OR - Configurable, defaults to: Offers in the region of | PA - Price on Application | PR - Price Reduced to
    */
   priceQual?: string
   /**
@@ -2687,15 +2695,15 @@ export interface PropertyModel {
    */
   letTenure?: number // int32
   /**
-   * Disposal AV - By Auction CF - Confidential OI - Offers Invited PT - Private Treaty TE - By Tender
+   * Disposal AV - By Auction | CF - Confidential | OI - Offers Invited | PT - Private Treaty | TE - By Tender
    */
   disposal?: string
   /**
-   * Agency AS - Marketing for Associate CO - Clients Only CP - Comparable HC - Sub Agent JS - Joint Sole JF - Joint Sole - Fee Available MU - Multiple MF - Multiple - Fee Available OS - Own to Sell RF - Sole Selling Rights - Fee Available SA - Sole Agent SF - Sole Agent - Fee Available SS - Sole Selling Rights
+   * Agency AS - Marketing for Associate | CO - Clients Only | CP - Comparable | HC - Sub Agent | JS - Joint Sole | JF - Joint Sole - Fee Available | MU - Multiple | MF - Multiple - Fee Available | OS - Own to Sell | RF - Sole Selling Rights - Fee Available | SA - Sole Agent | SF - Sole Agent - Fee Available | SS - Sole Selling Rights
    */
   agency?: string
   /**
-   * Agent's role CC - Collect first rent payment CO - Letting only IT - Introducing tenant MT - Managed tenancy RC - Rent collection
+   * Agent's role CC - Collect first rent payment | CO - Letting only | IT - Introducing tenant | MT - Managed tenancy | RC - Rent collection
    */
   role?: string
   /**

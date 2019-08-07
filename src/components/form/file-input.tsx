@@ -15,14 +15,22 @@ export interface FileInputProps {
   dataTest?: string
   id?: string
   accept?: string
-
+  allowClear?: boolean
   // props specialized for unit test
   testProps?: FileInputTestProps
 }
 
 const { file, hasName, fileName, fileLabel, fileInput, fileCta, control } = bulmaStyles
 
-const FileInput = ({ testProps, name, dataTest, id = name, labelText, accept = '' }: FileInputProps) => {
+const FileInput = ({
+  testProps,
+  name,
+  dataTest,
+  id = name,
+  labelText,
+  accept = '',
+  allowClear = false
+}: FileInputProps) => {
   const [fileUrl, setFileName] = useState()
 
   return (
@@ -75,7 +83,7 @@ const FileInput = ({ testProps, name, dataTest, id = name, labelText, accept = '
                       {fileUrl || field.value}
                     </span>
                   )}
-                  {hasFile && (
+                  {hasFile && allowClear && (
                     <a
                       className={`${bulmaStyles.delete} ml-2 mt-2`}
                       onClick={e => {

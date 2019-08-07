@@ -190,30 +190,40 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                         id="acceptedTerms"
                         name="acceptedTerms"
                       /> */}
-                      <ImageInput id="iconImage" dataTest="submit-app-icon" labelText="Icon" name="iconImageData" />
+                      <ImageInput
+                        id="iconImage"
+                        dataTest="submit-app-icon"
+                        labelText="Icon"
+                        name="iconImageData"
+                        allowClear
+                      />
                       <ImageInput
                         id="screenshot1"
                         dataTest="submit-app-screenshoot1"
                         labelText="Screenshot 1"
                         name="screen1ImageData"
+                        allowClear
                       />
                       <ImageInput
                         id="screenshot2"
                         dataTest="submit-app-screenshoot2"
                         labelText="Screenshot 2"
                         name="screen2ImageData"
+                        allowClear
                       />
                       <ImageInput
                         id="screenshot3"
                         dataTest="submit-app-screenshoot3"
                         labelText="Screenshot 3"
                         name="screen3ImageData"
+                        allowClear
                       />
                       <ImageInput
                         id="screenshot4"
                         dataTest="submit-app-screenshoot4"
                         labelText="Screenshot 4"
                         name="screen4ImageData"
+                        allowClear
                       />
                     </div>
                   </div>

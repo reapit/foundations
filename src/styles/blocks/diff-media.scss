@@ -1,0 +1,64 @@
+@import '../base/colors';
+
+.container {
+  background-color: $grey-lightest;
+  border: 1px solid $grey-lighter;
+  border-radius: 3px;
+  padding: 10px;
+  color: $black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.green {
+  background-color: $green-lighter;
+}
+
+.red {
+  background-color: $red-lighter;
+}
+
+.grey {
+  background-color: $grey-lighter;
+}
+
+.block {
+  border-radius: 4px;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  font-size: 18px;
+  color: $grey;
+}
+
+.iconBlock {
+  width: 90px;
+  height: 90px;
+}
+
+.iconImage {
+  width: 80px;
+  height: 80px;
+}
+
+.mediaBlock {
+  width: 150px;
+  height: 210px;
+}
+
+.mediaImage {
+  width: 140px;
+  height: 200px;
+}
