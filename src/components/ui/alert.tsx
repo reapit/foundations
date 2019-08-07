@@ -12,10 +12,10 @@ export interface AlertProps {
   afterClose?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-const { notification, isPrimary, isDanger } = bulma
+const { notification, isPrimary, isSuccess, isDanger } = bulma
 
 const Alert = ({ message, afterClose, className, closable = false, type = 'primary', dataTest = '' }: AlertProps) => {
-  const alertType = type === 'warning' || type === 'danger' ? isDanger : isPrimary
+  const alertType = type === 'warning' || type === 'danger' ? isDanger : type === 'success' ? isSuccess : isPrimary
   return (
     <div
       className={`${notification} ${alertType}` + (className ? ` ${className}` : '')}

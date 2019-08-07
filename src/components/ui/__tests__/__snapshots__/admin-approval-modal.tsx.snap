@@ -20,15 +20,27 @@ exports[`AdminRevisionModalInner should match a snapshot when LOADING false 1`] 
     <div>
       <button
         className="button isPrimary mr-2"
+        onClick={[Function]}
       >
         Approve
       </button>
       <button
         className="button isDanger"
+        onClick={[Function]}
       >
         Decline
       </button>
     </div>
+    <Connect(Component)
+      afterClose={[Function]}
+      onApproveSuccess={[Function]}
+      visible={false}
+    />
+    <Connect(Component)
+      afterClose={[Function]}
+      onDeclineSuccess={[Function]}
+      visible={false}
+    />
   </div>
   <div
     className="mb-3"

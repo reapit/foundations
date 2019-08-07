@@ -1,11 +1,13 @@
-import { Action } from '../types/core'
+import { Action, FormState } from '../types/core'
 import { isType } from '../utils/actions'
 import { AppRevisionModel } from '@/types/marketplace-api-schema'
 import {
   revisionDetailLoading,
   revisionDetailReceiveData,
   revisionDetailClearData,
-  revisionDetailFailure
+  revisionDetailFailure,
+  approveRevisionSetFormState,
+  declineRevisionSetFormState
 } from '../actions/revision-detail'
 
 export interface RevisionDetailItem {
@@ -16,12 +18,16 @@ export interface RevisionDetailState {
   loading: boolean
   error: boolean
   revisionDetailData: RevisionDetailItem | null
+  approveFormState: FormState
+  declineFormState: FormState
 }
 
 export const defaultState: RevisionDetailState = {
   loading: false,
   error: false,
-  revisionDetailData: null
+  revisionDetailData: null,
+  approveFormState: 'PENDING',
+  declineFormState: 'PENDING'
 }
 
 const revisionDetailReducer = (state: RevisionDetailState = defaultState, action: Action<any>): RevisionDetailState => {
@@ -29,6 +35,8 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
     return {
       ...state,
       error: false,
+      approveFormState: 'PENDING',
+      declineFormState: 'PENDING',
       loading: action.data
     }
   }
@@ -56,6 +64,20 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
       ...state,
       loading: false,
       error: true
+    }
+  }
+
+  if (isType(action, approveRevisionSetFormState)) {
+    return {
+      ...state,
+      approveFormState: action.data
+    }
+  }
+
+  if (isType(action, declineRevisionSetFormState)) {
+    return {
+      ...state,
+      declineFormState: action.data
     }
   }
 

@@ -31,7 +31,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           key="4afb0bb9-c1f8-403a-8fd6-1c92b4244906"
         >
           <th>
-            11
+            1
           </th>
           <th>
             ddc8b25e-42a2-468e-aa8f-4091eee6958f
@@ -55,7 +55,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           key="0d55cee6-b8c0-4fb9-be45-506c5992d267"
         >
           <th>
-            12
+            2
           </th>
           <th>
             c9cbb8cd-74c3-4cc7-b632-d8e86b0b7d26
@@ -79,7 +79,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           key="1c6f4453-06c6-424b-855a-9a77a718f83f"
         >
           <th>
-            13
+            3
           </th>
           <th>
             bbd8ed62-64a5-4bb9-a269-7aa987923897
@@ -103,7 +103,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           key="371e1640-6d07-413c-8be2-214a6ee32c14"
         >
           <th>
-            14
+            4
           </th>
           <th>
             38c30c86-984f-4e20-8133-93c42f69a283
@@ -127,7 +127,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           key="ca0e95f2-8dbe-4d62-b533-a7c695f5de9b"
         >
           <th>
-            15
+            5
           </th>
           <th>
             b50fe8e3-0195-4ce5-9150-d6b6250aa93f
@@ -151,7 +151,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           key="9ec2b8e8-209c-422f-a221-7d45e832a848"
         >
           <th>
-            16
+            6
           </th>
           <th>
             ce069a76-6be1-4640-b412-b3c2a1e80dff
@@ -175,7 +175,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           key="c5d25de8-93e7-4f64-af41-e35833868ec4"
         >
           <th>
-            17
+            7
           </th>
           <th>
             e5854bf2-8a2b-4d41-b51b-c226dbac3ffb
@@ -199,7 +199,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           key="ff820e01-6444-409f-be13-466b6f527c76"
         >
           <th>
-            18
+            8
           </th>
           <th>
             2421665e-7154-4bf7-bf7b-ad80bc7ed191
@@ -223,7 +223,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           key="76b5b475-22d9-4437-b9bf-44a6afb5df14"
         >
           <th>
-            19
+            9
           </th>
           <th>
             2baf738b-ab70-4de2-8a62-547a5ff68866
@@ -247,7 +247,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           key="c6d3160b-b299-4764-87bf-e1f26065d282"
         >
           <th>
-            20
+            10
           </th>
           <th>
             d36137d1-cc86-4b9a-a164-069183065f37
