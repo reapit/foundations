@@ -1,7 +1,5 @@
 import { FetcherParams } from '../types/core'
-// When Cognito back end flow is finished
 import { getAccessToken } from '../utils/cognito'
-// import { authLogout } from '../actions/auth'
 
 export class FetchError extends Error {
   public name: string
@@ -35,11 +33,7 @@ const fetcher = async <T, B>({
   }
 
   const res = await fetch(path, {
-    headers: {
-      ...headers
-      // ,
-      // Authorization: accessToken
-    },
+    headers,
     method,
     body: JSON.stringify(body)
   } as RequestInit)
