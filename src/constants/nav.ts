@@ -12,7 +12,11 @@ const NavMenu = {
     //   to: Routes.DEVELOPER
     // },
     {
-      text: 'Submit app',
+      text: 'API Documentation',
+      to: Routes.DEVELOPER_API_DOCS
+    },
+    {
+      text: 'Submit App',
       to: Routes.SUBMIT_APP
     }
   ],

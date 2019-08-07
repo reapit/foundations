@@ -20,6 +20,7 @@ export interface PrivateRouteWrapperConnectActions {
 
 export interface PrivateRouteWrapperConnectState {
   isLogin: boolean
+  isDesktopLogin: boolean
 }
 
 export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
@@ -32,13 +33,16 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   setDesktopSession,
   children,
   isLogin,
-  location
+  location,
+  isDesktopLogin
 }) => {
   const desktopLogin = getTokenFromQueryString(location.search)
-  if (!isLogin) {
-    if (!desktopLogin) {
-      return <Redirect to={Routes.LOGIN} />
-    }
+
+  if (!isLogin && !desktopLogin && !isDesktopLogin) {
+    return <Redirect to={Routes.LOGIN} />
+  }
+
+  if (desktopLogin && !isDesktopLogin) {
     setDesktopSession(desktopLogin)
   }
 
@@ -46,10 +50,10 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   return (
     <div className={pageWrapper}>
-      <div className={`${menuContainer} ${desktopLogin ? isDesktop : ''}`}>
+      <div className={`${menuContainer} ${desktopLogin || isDesktopLogin ? isDesktop : ''}`}>
         <Menu />
       </div>
-      <main className={`${pageContainer} ${desktopLogin ? isDesktop : ''}`}>
+      <main className={`${pageContainer} ${desktopLogin || isDesktopLogin ? isDesktop : ''}`}>
         <Suspense
           fallback={
             <div className="pt-5">
@@ -65,7 +69,8 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 }
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
-  isLogin: state.auth.isLogin
+  isLogin: state.auth.isLogin,
+  isDesktopLogin: !!state.auth.desktopSession
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({

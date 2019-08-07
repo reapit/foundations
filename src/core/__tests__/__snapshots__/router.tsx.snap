@@ -141,6 +141,19 @@ exports[`Router should match a snapshot 1`] = `
             path="/developer/submit-app"
           />
           <Connect(Component)
+            allow="DEVELOPER"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            path="/developer/api-docs"
+          />
+          <Connect(Component)
             allow="ADMIN"
             component={
               Object {

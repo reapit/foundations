@@ -6,8 +6,11 @@ import { myAppsRequestData } from '../actions/my-apps'
 import { adminRequestRevisions } from '../actions/admin'
 import { developerRequestData } from '../actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
+import { getAccessToken } from './cognito'
 
-const routeDispatcher = (route: RouteValue, params?: StringMap) => {
+const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
+  await getAccessToken()
+
   switch (route) {
     case Routes.CLIENT:
       store.dispatch(clientRequestData(1))
