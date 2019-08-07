@@ -15,6 +15,7 @@ import { revisionDetailRequestData, RevisionDetailRequestParams } from '@/action
 import AdminApprovalModal from '../ui/admin-approval-modal'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
+import Modal from '../ui/modal'
 
 export interface AdminApprovalsMappedActions {
   fetchRevisionDetail: (params: RevisionDetailRequestParams) => void
@@ -45,6 +46,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
   const list = oc<AdminApprovalsState>(approvalsState).adminApprovalsData.data.data([])
   const { totalCount, pageSize } = oc<AdminApprovalsState>(approvalsState).adminApprovalsData.data({})
   const [isModalOpen, setIsModalOpen] = React.useState(false)
+  const pageNumberInState = oc<AdminApprovalsState>(approvalsState).adminApprovalsData.data.pageNumber(1)
 
   if (unfetched && loading) {
     return <Loader />
@@ -52,6 +54,11 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
   return (
     <ErrorBoundary>
       <div className={`${bulma.container} ${bulma.isRelative} py-8`} data-test="revision-list-container">
+        {loading && (
+          <div className="pin absolute flex items-center justify-center">
+            <Loader />
+          </div>
+        )}
         <table className={`${bulma.table} ${bulma.isFullwidth}`}>
           <thead>
             <tr>
@@ -65,7 +72,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
           <tbody>
             {list.map((revision, index) => (
               <tr key={revision.appRevisionId}>
-                <th>{(pageNumber - 1) * REVISIONS_PER_PAGE + index + 1}</th>
+                <th>{(pageNumberInState - 1) * REVISIONS_PER_PAGE + index + 1}</th>
                 <th>{revision.appId}</th>
                 <th>{revision.type}</th>
                 <th>{revision.description}</th>

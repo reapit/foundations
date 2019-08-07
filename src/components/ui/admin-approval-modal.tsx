@@ -9,7 +9,8 @@ import Alert from '@/components/ui/alert'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import DiffViewer from './diff-viewer'
 import { AppRevisionModel } from '@/types/marketplace-api-schema'
-
+import ApproveRevisionModal from './approve-revision-modal'
+import DeclineRevisionModal from './decline-revision-modal'
 const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   name: 'Name',
   homePage: 'Home page',
@@ -22,17 +23,21 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
 export interface AdminApprovalModalMappedProps {
   revisionDetailState: RevisionDetailState
   appDetailState: AppDetailState
+  closeParentModal?: () => void
 }
 
 export interface AdminApprovalModalMappedActions {}
 
-export type AdminApprovalInnerProps = AdminApprovalModalMappedProps & AdminApprovalModalMappedActions & {}
-export type AdminApprovalModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & {}
+export type AdminApprovalInnerProps = AdminApprovalModalMappedProps & AdminApprovalModalMappedActions
+export type AdminApprovalModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & AdminApprovalModalOwnProps
 
 export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInnerProps> = ({
   revisionDetailState,
-  appDetailState
+  appDetailState,
+  closeParentModal
 }) => {
+  const [isApproveModalOpen, setIsApproveModalOpen] = React.useState(false)
+  const [isDeclineModalOpen, setIsDeclineModalOpen] = React.useState(false)
   if (revisionDetailState.loading || appDetailState.loading) {
     return <Loader />
   }
@@ -53,9 +58,29 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
       <div className="flex justify-between">
         <h3 className={`${bulma.title} ${bulma.is3}`}>Detailed changes</h3>
         <div>
-          <button className={`${bulma.button} ${bulma.isPrimary} mr-2`}>Approve</button>
-          <button className={`${bulma.button} ${bulma.isDanger}`}>Decline</button>
+          <button className={`${bulma.button} ${bulma.isPrimary} mr-2`} onClick={() => setIsApproveModalOpen(true)}>
+            Approve
+          </button>
+          <button className={`${bulma.button} ${bulma.isDanger}`} onClick={() => setIsDeclineModalOpen(true)}>
+            Decline
+          </button>
         </div>
+        <ApproveRevisionModal
+          visible={isApproveModalOpen}
+          afterClose={() => setIsApproveModalOpen(false)}
+          onApproveSuccess={() => {
+            closeParentModal && closeParentModal()
+            setIsApproveModalOpen(false)
+          }}
+        />
+        <DeclineRevisionModal
+          visible={isDeclineModalOpen}
+          afterClose={() => setIsDeclineModalOpen(false)}
+          onDeclineSuccess={() => {
+            closeParentModal && closeParentModal()
+            setIsDeclineModalOpen(false)
+          }}
+        />
       </div>
       {Object.keys(diffStringList).map(key => {
         return (
@@ -69,9 +94,13 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
   )
 }
 
-const mapStateToProps = (state: ReduxState): AdminApprovalModalMappedProps => ({
+interface AdminApprovalModalOwnProps {
+  closeParentModal?: () => void
+}
+const mapStateToProps = (state: ReduxState, ownState: AdminApprovalModalOwnProps): AdminApprovalModalMappedProps => ({
   revisionDetailState: state.revisionDetail,
-  appDetailState: state.appDetail
+  appDetailState: state.appDetail,
+  closeParentModal: ownState.closeParentModal
 })
 
 const mapDispatchToProps = (dispatch: any): AdminApprovalModalMappedActions => ({})
@@ -86,8 +115,8 @@ export const AdminApprovalModal: React.FunctionComponent<AdminApprovalModalProps
   afterClose
 }) => {
   return (
-    <Modal visible={visible} afterClose={afterClose}>
-      <AdminApprovalInnerWithConnect />
+    <Modal visible={visible} afterClose={afterClose} deps={[]}>
+      <AdminApprovalInnerWithConnect closeParentModal={afterClose} />
     </Modal>
   )
 }

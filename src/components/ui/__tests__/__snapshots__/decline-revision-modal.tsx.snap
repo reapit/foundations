@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeclineRevisionModal should match a snapshot 1`] = `
+<Modal
+  afterClose={[Function]}
+  size="small"
+  visible={true}
+>
+  <Formik
+    enableReinitialize={false}
+    initialValues={
+      Object {
+        "email": "email",
+        "name": "name",
+        "rejectionReason": "",
+      }
+    }
+    isInitialValid={false}
+    onSubmit={[Function]}
+    render={[Function]}
+    validate={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+  />
+</Modal>
+`;

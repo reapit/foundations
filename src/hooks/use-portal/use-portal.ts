@@ -6,11 +6,11 @@ const generatePortalKey = (() => {
   return () => `${++count}`
 })()
 
-export function usePortal(component: React.ComponentType<any>) {
+export function usePortal(component: React.ComponentType<any>, deps: any[] = []) {
   const context = React.useContext(PortalContext)
   const key = React.useMemo(generatePortalKey, [])
   const [isShown, setShown] = React.useState(false)
-  const portal = React.useMemo(() => component, [])
+  const portal = React.useMemo(() => component, deps)
   const showPortal = React.useCallback(() => setShown(true), [])
   const hidePortal = React.useCallback(() => setShown(false), [])
 
@@ -20,11 +20,12 @@ export function usePortal(component: React.ComponentType<any>) {
     } else {
       context.hidePortal(key)
     }
+  }, [portal, isShown])
 
+  React.useEffect(() => {
     return () => {
       context.hidePortal(key)
     }
-  }, [portal, isShown])
-
+  }, [])
   return [showPortal, hidePortal]
 }

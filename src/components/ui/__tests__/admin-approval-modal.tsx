@@ -7,7 +7,13 @@ import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 
 const props = (loading: boolean, error: boolean): AdminApprovalInnerProps => ({
   appDetailState: { loading, error, appDetailData: { data: appDetailDataStub.data } },
-  revisionDetailState: { loading, error, revisionDetailData: { data: revisionDetailDataStub.data } }
+  revisionDetailState: {
+    loading,
+    error,
+    revisionDetailData: { data: revisionDetailDataStub.data },
+    approveFormState: 'PENDING',
+    declineFormState: 'PENDING'
+  }
 })
 
 describe('AdminRevisionModalInner', () => {

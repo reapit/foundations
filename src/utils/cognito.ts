@@ -91,6 +91,8 @@ export const deserializeIdToken = (loginSession: Partial<LoginSession> | undefin
   const decoded = loginSession && loginSession.idToken ? (jwt.decode(loginSession.idToken) as CoginitoIdentity) : {}
 
   return {
+    name: decoded['name'],
+    email: decoded['email'],
     developerId: decoded['custom:reapit:developerId'] || null,
     clientId: decoded['custom:reapit:clientCode'] || null,
     adminId: decoded['custom:reapit:marketAdmin'] || null

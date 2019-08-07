@@ -104,6 +104,22 @@ export interface AppRevisionModel {
    */
   homePage?: string
   /**
+   * Gets the app revisions launch uri
+   */
+  launchUri?: string
+  /**
+   * Gets the listed status of the app revision
+   */
+  isListed?: boolean
+  /**
+   * Gets the scopes that have been associated to this revision
+   */
+  scopes?: string[]
+  /**
+   * Gets a collection of media objects associated with the app
+   */
+  media?: MediaModel[]
+  /**
    * Gets the links associated to this model
    */
   readonly links?: LinkModel[]
@@ -169,6 +185,10 @@ export interface ApprovalModel {
    * App revision unique identifier
    */
   appRevisionId?: string // uuid
+  /**
+   * Gets the date the revision was created
+   */
+  readonly created?: string // date-time
   /**
    * Gets the links associated to this model
    */
@@ -370,6 +390,51 @@ export interface CreateInstallationModel {
   terminatesOn?: string // date-time
 }
 /**
+ * Model that represents a developer
+ */
+export interface DeveloperModel {
+  /**
+   * Gets the id of this developer
+   */
+  readonly id?: string
+  /**
+   * Gets the id of this developer held in the gateway
+   */
+  readonly externalId?: string
+  /**
+   * Gets the full name of this developer
+   */
+  readonly name?: string
+  /**
+   * Gets the company to which this developer is acting on behalf of
+   */
+  readonly company?: string
+  /**
+   * Gets the job title for this developer
+   */
+  readonly jobTitle?: string
+  /**
+   * Gets the email address of the developer
+   */
+  readonly email?: string
+  /**
+   * Gets the telephone number of the developer
+   */
+  readonly telephone?: string
+  /**
+   * Gets or sets the timestamp of entity creation
+   */
+  readonly created?: string // date-time
+  /**
+   * Gets or sets the timestamp of entity modification
+   */
+  readonly modified?: string // date-time
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+}
+/**
  * Installation representation
  */
 export interface InstallationModel {
@@ -478,6 +543,19 @@ export interface PagedResultApprovalModel_ {
    * List of paged data
    */
   data?: ApprovalModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+}
+/**
+ * Model to handle paged data and information
+ */
+export interface PagedResultDeveloperModel_ {
+  /**
+   * List of paged data
+   */
+  data?: DeveloperModel[]
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32

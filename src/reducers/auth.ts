@@ -33,6 +33,8 @@ export interface CoginitoIdentity {
 }
 
 export interface LoginIdentity {
+  email: string
+  name: string
   developerId: string | null
   clientId: string | null
   adminId: string | null

@@ -42,6 +42,7 @@ const bulma = {
   isSecondary: bulmaStyles['is-secondary'] || 'isSecondary',
   isLoading: bulmaStyles['is-loading'] || 'isLoading',
   isDanger: bulmaStyles['is-danger'] || 'isDanger',
+  isSuccess: bulmaStyles['is-success'] || 'isSuccess',
   isActive: bulmaStyles['is-active'] || 'isActive',
   isLarge: bulmaStyles['is-large'] || 'isLarge',
   isCentered: bulmaStyles['is-centered'] || 'isCentered',

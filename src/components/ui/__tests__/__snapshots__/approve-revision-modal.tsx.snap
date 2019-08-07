@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApproveRevisionModal should match a snapshot 1`] = `
+<Modal
+  afterClose={[Function]}
+  size="small"
+  visible={true}
+>
+  <Formik
+    data-test="approve-revision-form"
+    enableReinitialize={false}
+    initialValues={
+      Object {
+        "email": "email",
+        "name": "name",
+      }
+    }
+    isInitialValid={false}
+    onSubmit={[Function]}
+    render={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+  />
+</Modal>
+`;
