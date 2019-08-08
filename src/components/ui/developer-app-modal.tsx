@@ -37,6 +37,11 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
   submitRevisionSetFormState,
   submitRevisionState
 }) => {
+  const { formState } = submitRevisionState
+
+  const isLoading = formState === 'SUBMITTING'
+  const isSucceeded = formState === 'SUCCESS'
+
   React.useEffect(() => {
     return () => {
       submitRevisionSetFormState('PENDING')
@@ -44,6 +49,12 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
   }, [])
 
   const [isEditDetail, setIsEditDetail] = React.useState(false)
+
+  React.useEffect(() => {
+    if (isSucceeded) {
+      setIsEditDetail(false)
+    }
+  }, [isSucceeded])
 
   if (appDetailState.loading) {
     return <Loader />
@@ -57,11 +68,6 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     return null
   }
 
-  const { formState } = submitRevisionState
-
-  const isLoading = formState === 'SUBMITTING'
-  const isSuccessed = formState === 'SUCCESS'
-
   const {
     id,
     description,
@@ -73,7 +79,8 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     launchUri,
     media,
     name,
-    isListed
+    isListed,
+    pendingRevisions
   } = appDetailState.appDetailData.data
 
   const icon = (media || []).filter(({ type }) => type === 'icon')[0]
@@ -86,9 +93,9 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     <>
       <div className={isEditDetail ? bulma.isHidden : ''}>
         <AppDetail data={appDetailState.appDetailData.data} />
-        <div className="mt-5">
-          <Button type="button" variant="primary" onClick={() => setIsEditDetail(true)}>
-            Edit Detail
+        <div className="mt-5 flex justify-end">
+          <Button type="button" variant="primary" onClick={() => setIsEditDetail(true)} disabled={pendingRevisions}>
+            {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
           </Button>
         </div>
       </div>
@@ -212,28 +219,20 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
 
                   <Checkbox id="isListed" dataTest="submit-revision-isListed" labelText="Is listed" name="isListed" />
 
-                  <Button type="submit" variant="primary" loading={Boolean(isLoading)} disabled={Boolean(isLoading)}>
-                    Submit revision
-                  </Button>
-
-                  <Button
-                    type="button"
-                    className="ml-2"
-                    variant="secondary"
-                    disabled={Boolean(isLoading)}
-                    onClick={() => setIsEditDetail(false)}
-                  >
-                    Cancel
-                  </Button>
-
-                  {isSuccessed && (
-                    <Alert
-                      className="mt-5"
-                      message="Revision was sent successfully"
-                      type="success"
-                      dataTest="submit-revision-success-message"
-                    />
-                  )}
+                  <div className="flex justify-end">
+                    <Button
+                      type="button"
+                      className="mr-2"
+                      variant="secondary"
+                      disabled={Boolean(isLoading)}
+                      onClick={() => setIsEditDetail(false)}
+                    >
+                      Cancel
+                    </Button>
+                    <Button type="submit" variant="primary" loading={Boolean(isLoading)} disabled={Boolean(isLoading)}>
+                      Submit revision
+                    </Button>
+                  </div>
                 </Form>
               )
             }}
