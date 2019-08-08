@@ -55,6 +55,10 @@ export interface AppDetailModel {
    */
   isSandbox?: boolean
   /**
+   * Gets the status of whether the app has pending revisions
+   */
+  pendingRevisions?: boolean
+  /**
    * Gets a collection of media objects associated with the app
    */
   media?: MediaModel[]
@@ -641,4 +645,25 @@ export interface TerminateInstallationModel {
    * Sets the date at which the app should become unavailable to the client (optional - if not passed the app will become unavailable immediately)
    */
   terminatesOn?: string // date-time
+}
+/**
+ * The model responsible for updating of a developer
+ */
+export interface UpdateDeveloperModel {
+  /**
+   * Sets the full name of this developer
+   */
+  name?: string
+  /**
+   * Sets the company to which this developer is acting on behalf of
+   */
+  companyName?: string
+  /**
+   * Sets the job title for this developer
+   */
+  jobTitle?: string
+  /**
+   * Sets the telephone number of the developer
+   */
+  telephone?: string
 }

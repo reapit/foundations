@@ -16,6 +16,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action, ReduxState } from '@/types/core'
 import { adminApprovalsDataFetch } from './admin-approvals'
+import { oc } from 'ts-optchain'
 
 export const revisionDetailDataFetch = function*({
   data: { appId, appRevisionId }
@@ -52,7 +53,7 @@ export const revisionDetailDataListen = function*() {
 }
 
 export const getApprovalPageNumber = (state: ReduxState) => ({
-  pageNumber: state.adminApprovals.adminApprovalsData!.data.pageNumber
+  pageNumber: oc<ReduxState>(state).adminApprovals.adminApprovalsData.data.pageNumber(1)
 })
 
 export const approveRevision = function*({ data: params }: Action<RevisionApproveRequestParams>) {

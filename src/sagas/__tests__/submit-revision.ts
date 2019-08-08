@@ -9,6 +9,7 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
 import { revisionSubmitStub } from '../__stubs__/revision-submit'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
+import { appDetailDataFetch } from '../app-detail'
 
 jest.mock('../../utils/fetcher')
 
@@ -34,7 +35,8 @@ describe('submit-revision post data', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(true).value).toEqual(put(submitRevisionSetFormState('SUCCESS')))
+    expect(clone.next({}).value).toEqual(call(appDetailDataFetch, { data: id }))
+    expect(clone.next().value).toEqual(put(submitRevisionSetFormState('SUCCESS')))
     expect(clone.next().done).toBe(true)
   })
 

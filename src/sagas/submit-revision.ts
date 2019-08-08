@@ -1,12 +1,13 @@
 import fetcher from '../utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import { submitRevisionSetFormState } from '../actions/submit-revision'
-import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
+import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
-import { Action } from '../types/core'
+import { Action, ReduxState } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
+import { appDetailDataFetch } from './app-detail'
 
 export const submitRevision = function*({ data }: Action<CreateAppRevisionModel & { id: string }>) {
   yield put(submitRevisionSetFormState('SUBMITTING'))
@@ -20,6 +21,9 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
       headers: MARKETPLACE_HEADERS
     })
     const status = regResponse ? 'SUCCESS' : 'ERROR'
+    if (status === 'SUCCESS') {
+      yield call(appDetailDataFetch, { data: id })
+    }
     yield put(submitRevisionSetFormState(status))
   } catch (err) {
     console.error(err.message)

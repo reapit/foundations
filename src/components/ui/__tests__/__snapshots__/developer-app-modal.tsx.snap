@@ -44,7 +44,7 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
       }
     />
     <div
-      className="mt-5"
+      className="mt-5 flex justify-end"
     >
       <Button
         onClick={[Function]}
