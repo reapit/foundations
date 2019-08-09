@@ -48,7 +48,6 @@ exports[`AppDetailModalInner should match a snapshot when LOADING true 1`] = `
   <div>
     <Slider
       dots={false}
-      infinite={true}
       nextArrow={
         <SlickButtonNav>
           <ChevronLeft />
@@ -59,11 +58,8 @@ exports[`AppDetailModalInner should match a snapshot when LOADING true 1`] = `
           <ChevronLeft />
         </SlickButtonNav>
       }
-      slidesToScroll={1}
-      slidesToShow={3}
       speed={500}
-      useCSS={true}
-      variableWidth={false}
+      variableWidth={true}
     >
       <div
         key="0"
