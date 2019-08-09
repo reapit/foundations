@@ -58,7 +58,6 @@ $slide-height: 310px;
   height: $slide-height;
   outline: none;
   img {
-    max-height: 100%;
-    max-width: auto !important;
+    height: 100%;
   }
 }

@@ -20,10 +20,8 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({ data }) => 
 
   const settings: Settings = {
     dots: false,
-    infinite: true,
     speed: 500,
-    useCSS: true,
-    variableWidth: false,
+    variableWidth: true,
     prevArrow: (
       // @ts-ignore
       <SlickButtonNav>
@@ -35,9 +33,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({ data }) => 
       <SlickButtonNav>
         <ChevronLeftIcon />
       </SlickButtonNav>
-    ),
-    slidesToShow: 3,
-    slidesToScroll: 1
+    )
   }
 
   return (
