@@ -1,6 +1,8 @@
 import InstalledAppsPage from '../page-objects/installed-apps'
 import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
+const ITEMS_PER_PAGE = 10
+
 describe('InstalledAppsPage', () => {
   beforeEach(() => {
     InstalledAppsPage.open()
@@ -8,8 +10,8 @@ describe('InstalledAppsPage', () => {
   })
 
   it('should load the page correctly', () => {
-    // TODO: will re-write the test after e2e test for login is ready
-    // expect(InstalledAppsPage.allCards.length).toBe(7)
+    expect(InstalledAppsPage.heading.getText()).toEqual('Installed Apps')
+    expect(InstalledAppsPage.allCards.length).toBeLessThanOrEqual(ITEMS_PER_PAGE)
   })
 
   afterEach(() => {

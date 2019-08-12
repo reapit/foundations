@@ -6,6 +6,10 @@ class InstalledAppsPage extends Base {
     return '/client/installed'
   }
 
+  get heading() {
+    return $('[data-test="app-list-container"] > h3')
+  }
+
   get cardContainer() {
     return $('[data-test="app-list-container"]')
   }
