@@ -21,5 +21,6 @@ export const URLS = {
   developerCreate: '/marketplace/developers',
   apps: '/marketplace/apps',
   approvals: '/marketplace/approvals',
-  swagger: '/api/swagger/v1/swagger.json'
+  swagger: '/api/swagger/v1/swagger.json',
+  installations: '/marketplace/installations'
 }

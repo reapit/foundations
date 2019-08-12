@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppDetailModal should match a snapshot when appInstallFormState = DONE 1`] = `
+<div>
+  <h3
+    className="title is3 undefined"
+  >
+    Permission Require
+  </h3>
+  <div>
+    <b>
+      name: 
+      tets
+    </b>
+    <p>
+      description: 
+      test
+    </p>
+  </div>
+  <Button
+    loading={false}
+    onClick={[MockFunction]}
+    type="button"
+    variant="primary"
+  >
+    Install
+  </Button>
+</div>
+`;
+
+exports[`AppDetailModal should match a snapshot when appInstallFormState = ERROR 1`] = `
+<div>
+  <h3
+    className="title is3 undefined"
+  >
+    Permission Require
+  </h3>
+  <div>
+    <b>
+      name: 
+      tets
+    </b>
+    <p>
+      description: 
+      test
+    </p>
+  </div>
+  <Button
+    loading={false}
+    onClick={[MockFunction]}
+    type="button"
+    variant="primary"
+  >
+    Install
+  </Button>
+</div>
+`;
+
+exports[`AppDetailModal should match a snapshot when appInstallFormState = PENDING 1`] = `
+<div>
+  <h3
+    className="title is3 undefined"
+  >
+    Permission Require
+  </h3>
+  <div>
+    <b>
+      name: 
+      tets
+    </b>
+    <p>
+      description: 
+      test
+    </p>
+  </div>
+  <Button
+    loading={false}
+    onClick={[MockFunction]}
+    type="button"
+    variant="primary"
+  >
+    Install
+  </Button>
+</div>
+`;
+
+exports[`AppDetailModal should match a snapshot when appInstallFormState = SUBMITTING 1`] = `
+<div>
+  <h3
+    className="title is3 undefined"
+  >
+    Permission Require
+  </h3>
+  <div>
+    <b>
+      name: 
+      tets
+    </b>
+    <p>
+      description: 
+      test
+    </p>
+  </div>
+  <Button
+    loading={true}
+    onClick={[MockFunction]}
+    type="button"
+    variant="primary"
+  >
+    Install
+  </Button>
+</div>
+`;
+
+exports[`AppDetailModal should match a snapshot when appInstallFormState = SUCCESS 1`] = `
+<Alert
+  className="mt-5"
+  message="App installed successfully"
+  type="success"
+/>
+`;

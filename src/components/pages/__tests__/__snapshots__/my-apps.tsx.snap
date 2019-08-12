@@ -59,7 +59,7 @@ exports[`MyApps should match a snapshot 1`] = `
     pageSize={2}
     totalCount={6}
   />
-  <Component
+  <Connect(Component)
     afterClose={[Function]}
     visible={false}
   />

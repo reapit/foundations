@@ -10,7 +10,8 @@ jest.mock('jsonwebtoken', () => ({
     decode: () => ({
       'custom:reapit:developerId': 'SOME_DEV_ID',
       'custom:reapit:clientCode': 'SOME_CLIENT_ID',
-      'custom:reapit:marketAdmin': 'SOME_ADMIN_ID'
+      'custom:reapit:marketAdmin': 'SOME_ADMIN_ID',
+      email: 'SOME_EMAIL'
     })
   }
 }))
@@ -83,7 +84,8 @@ describe('Cognito Utils', () => {
       expect(deserializeIdToken(mockLoginSession)).toEqual({
         developerId: 'SOME_DEV_ID',
         clientId: 'SOME_CLIENT_ID',
-        adminId: 'SOME_ADMIN_ID'
+        adminId: 'SOME_ADMIN_ID',
+        email: 'SOME_EMAIL'
       })
     })
 
@@ -91,7 +93,8 @@ describe('Cognito Utils', () => {
       expect(deserializeIdToken(undefined)).toEqual({
         developerId: null,
         clientId: null,
-        adminId: null
+        adminId: null,
+        email: undefined
       })
     })
   })
