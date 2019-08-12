@@ -8,6 +8,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
   >
     <table
       className="table isFullwidth"
+      data-test="revision-list"
     >
       <thead>
         <tr>
@@ -45,6 +46,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           <th>
             <button
               className="button isPrimary"
+              data-test="view-details-button"
               onClick={[Function]}
             >
               View details
@@ -69,6 +71,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           <th>
             <button
               className="button isPrimary"
+              data-test="view-details-button"
               onClick={[Function]}
             >
               View details
@@ -93,6 +96,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           <th>
             <button
               className="button isPrimary"
+              data-test="view-details-button"
               onClick={[Function]}
             >
               View details
@@ -117,6 +121,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           <th>
             <button
               className="button isPrimary"
+              data-test="view-details-button"
               onClick={[Function]}
             >
               View details
@@ -141,6 +146,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           <th>
             <button
               className="button isPrimary"
+              data-test="view-details-button"
               onClick={[Function]}
             >
               View details
@@ -165,6 +171,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           <th>
             <button
               className="button isPrimary"
+              data-test="view-details-button"
               onClick={[Function]}
             >
               View details
@@ -189,6 +196,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           <th>
             <button
               className="button isPrimary"
+              data-test="view-details-button"
               onClick={[Function]}
             >
               View details
@@ -213,6 +221,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           <th>
             <button
               className="button isPrimary"
+              data-test="view-details-button"
               onClick={[Function]}
             >
               View details
@@ -237,6 +246,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           <th>
             <button
               className="button isPrimary"
+              data-test="view-details-button"
               onClick={[Function]}
             >
               View details
@@ -261,6 +271,7 @@ exports[`AdminApproval should match a snapshot 1`] = `
           <th>
             <button
               className="button isPrimary"
+              data-test="view-details-button"
               onClick={[Function]}
             >
               View details

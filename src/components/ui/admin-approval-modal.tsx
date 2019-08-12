@@ -71,13 +71,21 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
 
   return (
     <>
-      <div className="flex justify-between">
+      <div data-test="revision-detail-modal" className="flex justify-between">
         <h3 className={`${bulma.title} ${bulma.is3}`}>Detailed changes</h3>
         <div>
-          <button className={`${bulma.button} ${bulma.isPrimary} mr-2`} onClick={() => setIsApproveModalOpen(true)}>
+          <button
+            className={`${bulma.button} ${bulma.isPrimary} mr-2`}
+            onClick={() => setIsApproveModalOpen(true)}
+            data-test="revision-approve-button"
+          >
             Approve
           </button>
-          <button className={`${bulma.button} ${bulma.isDanger}`} onClick={() => setIsDeclineModalOpen(true)}>
+          <button
+            className={`${bulma.button} ${bulma.isDanger}`}
+            onClick={() => setIsDeclineModalOpen(true)}
+            data-test="revision-decline-button"
+          >
             Decline
           </button>
         </div>

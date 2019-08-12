@@ -85,7 +85,7 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
             submitApproveRevision({ appId, appRevisionId, ...formValues })
           }
         }}
-        data-test="approve-revision-form"
+        data-test="revision-approve-form"
         render={() => {
           return isSuccessed ? (
             <Alert message="Revision was approved!" type="success" dataTest="approve-revision-success-message" />
@@ -99,7 +99,7 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
                   className="mr-2"
                   disabled={Boolean(isLoading)}
                   onClick={() => afterClose && afterClose()}
-                  dataTest="approve-revision-cancel-btn"
+                  dataTest="revision-approve-cancel"
                 >
                   Cancel
                 </Button>
@@ -108,7 +108,7 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
                   variant="primary"
                   loading={Boolean(isLoading)}
                   disabled={Boolean(isLoading)}
-                  dataTest="approve-revision-submit-btn"
+                  dataTest="revision-approve-submit"
                 >
                   Approve
                 </Button>
