@@ -1,15 +1,18 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
 import auth from '../reducers/auth'
+import appInstall from '../reducers/app-install'
 import client from '../reducers/client'
 import myApps from '../reducers/my-apps'
 import developer from '../reducers/developer'
 import appDetail from '../reducers/app-detail'
 import error from '../reducers/error'
 import admin from '../reducers/admin'
+import appPermission from '../reducers/app-permission'
 import submitApp from '../reducers/submit-app'
 import submitRevision from '../reducers/submit-revision'
 import adminApprovals from '../reducers/admin-approvals'
 import revisionDetail from '../reducers/revision-detail'
+import appDetailModal from '../reducers/app-detail-modal'
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
@@ -23,6 +26,8 @@ import submitAppSagas from '../sagas/submit-app'
 import submitRevisionSagas from '../sagas/submit-revision'
 import adminApprovalSagas from '../sagas/admin-approvals'
 import revisionDetailSagas from '../sagas/revision-detail'
+import appPermissionSagas from '../sagas/app-permission'
+import appInstallSagas from '../sagas/app-install'
 
 export class Store {
   static _instance: Store
@@ -50,7 +55,10 @@ export class Store {
     submitApp,
     submitRevision,
     adminApprovals,
-    revisionDetail
+    revisionDetail,
+    appPermission,
+    appDetailModal,
+    appInstall
   })
 
   static sagas = function*() {
@@ -64,7 +72,9 @@ export class Store {
       fork(submitAppSagas),
       fork(submitRevisionSagas),
       fork(adminApprovalSagas),
-      fork(revisionDetailSagas)
+      fork(revisionDetailSagas),
+      fork(appPermissionSagas),
+      fork(appInstallSagas)
     ])
   }
 

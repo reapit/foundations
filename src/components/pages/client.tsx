@@ -11,7 +11,7 @@ import Pagination from '@/components/ui/pagination'
 import routes from '@/constants/routes'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
-import AppDetailModal from '../ui/app-detail-modal'
+import AppDetailModal from '@/components/ui/app-detail-modal'
 
 export interface ClientMappedActions {
   fetchAppDetail: (id: string) => void

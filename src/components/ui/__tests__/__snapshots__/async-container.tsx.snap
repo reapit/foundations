@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AsyncContainer should match a snapshot when data = null 1`] = `
+<Alert
+  message="No data"
+  type="danger"
+/>
+`;
+
+exports[`AsyncContainer should match a snapshot when error = true 1`] = `
+<Alert
+  message="Failed to fetch. Please try later."
+  type="danger"
+/>
+`;
+
+exports[`AsyncContainer should match a snapshot when loading = true 1`] = `<Loader />`;

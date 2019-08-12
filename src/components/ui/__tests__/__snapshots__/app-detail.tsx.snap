@@ -22,26 +22,33 @@ exports[`AppDetailModalInner should match a snapshot when LOADING true 1`] = `
       <div
         className="content"
       >
-        <h3
-          className="is3"
-          style={
-            Object {
-              "marginBottom": 0,
+        <div>
+          <h3
+            className="is3"
+            style={
+              Object {
+                "marginBottom": 0,
+              }
             }
-          }
-        >
-          Peter's Properties
-        </h3>
-        <p>
-          <small
-            className="has-text-link"
           >
-            Pete's Proptech World Ltd
-          </small>
-        </p>
+            Peter's Properties
+          </h3>
+          <p>
+            <small
+              className="has-text-link"
+            >
+              Pete's Proptech World Ltd
+            </small>
+          </p>
+        </div>
         <p>
           vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!
         </p>
+        <a
+          onClick={[Function]}
+        >
+          Install App
+        </a>
       </div>
     </div>
   </div>

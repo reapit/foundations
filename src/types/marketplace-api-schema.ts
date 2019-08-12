@@ -11,6 +11,10 @@ export interface AppDetailModel {
    */
   developerId?: string // uuid
   /**
+   * Gets the GUID of the installation
+   */
+  installationId?: string // uuid
+  /**
    * Gets client id of this application
    */
   externalId?: string
@@ -46,6 +50,10 @@ export interface AppDetailModel {
    * Gets the Uri at which the app is launched
    */
   launchUri?: string
+  /**
+   * Gets the date the app was installed for a specific client
+   */
+  installedOn?: string // date-time
   /**
    * Gets a flag determining whether or not the app is currently listed on the marketplace
    */
@@ -160,6 +168,10 @@ export interface AppSummaryModel {
    * Gets the home page of the developer, or the app/product specific page on the developer's website
    */
   homePage?: string
+  /**
+   * Gets a flag determining whether or not the app is currently listed on the marketplace
+   */
+  isListed?: boolean
   /**
    * Gets the sandbox status of this app
    */

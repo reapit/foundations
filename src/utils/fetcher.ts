@@ -54,7 +54,6 @@ const fetcher = async <T, B>({
   } catch (err) {
     error.response = res
   }
-
   return Promise.reject(error)
 }
 

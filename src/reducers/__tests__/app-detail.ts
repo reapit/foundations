@@ -18,9 +18,9 @@ describe('app-detail reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set error to false when APP_DETAIL_REQUEST_DATA__FAILURE action is called', () => {
+  it('should set error to false when APP_DETAIL_REQUEST_DATA_FAILURE action is called', () => {
     const newState = appDetailReducer(undefined, {
-      type: ActionTypes.APP_DETAIL_REQUEST_DATA__FAILURE as ActionType,
+      type: ActionTypes.APP_DETAIL_REQUEST_DATA_FAILURE as ActionType,
       data: true
     })
     const expected = {
