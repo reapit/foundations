@@ -2,6 +2,7 @@ const path = require('path')
 const glob = require('glob')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const Dotenv = require('dotenv-webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
@@ -43,6 +44,26 @@ module.exports = {
         minifyJS: true,
         minifyCSS: true,
         minifyURLs: true
+      }
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './public/logo.png',
+      emitStats: false,
+      persistentCache: true,
+      inject: true,
+      background: '#fff',
+      title: 'Reapit',
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false
       }
     }),
     new BundleAnalyzerPlugin({

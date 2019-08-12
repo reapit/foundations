@@ -2,6 +2,7 @@ const path = require('path')
 const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
@@ -31,6 +32,26 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: 'public/index.html'
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './public/logo.png',
+      emitStats: false,
+      persistentCache: true,
+      inject: true,
+      background: '#fff',
+      title: 'Reapit',
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false
+      }
     })
   ],
   module: {
