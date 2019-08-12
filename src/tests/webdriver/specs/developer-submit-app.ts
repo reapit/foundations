@@ -2,6 +2,9 @@ import DeveloperSubmitAppPage from '../page-objects/developer-submit-app'
 import errorMessages from '../../../constants/error-messages'
 import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
+const NUMBER_OF_FIELDS = 14
+const NUMBER_OF_REQUIRED_FIELDS = 9
+
 describe('DeveloperSubmitAppPage', () => {
   beforeEach(() => {
     DeveloperSubmitAppPage.open()
@@ -9,7 +12,7 @@ describe('DeveloperSubmitAppPage', () => {
   })
 
   it('should load the form correctly', () => {
-    expect(DeveloperSubmitAppPage.allInputs.length).toBe(14)
+    expect(DeveloperSubmitAppPage.allInputs.length).toBe(NUMBER_OF_FIELDS)
 
     expect(DeveloperSubmitAppPage.name.getAttribute('type')).toEqual('text')
 
@@ -21,18 +24,19 @@ describe('DeveloperSubmitAppPage', () => {
     expect(DeveloperSubmitAppPage.homePage.getAttribute('type')).toEqual('text')
 
     expect(DeveloperSubmitAppPage.launchUri.getAttribute('type')).toEqual('text')
-    // expect(DeveloperSubmitAppPage.screenshot1.getAttribute('type')).toEqual('file')
-    // expect(DeveloperSubmitAppPage.screenshot2.getAttribute('type')).toEqual('file')
-    // expect(DeveloperSubmitAppPage.screenshot3.getAttribute('type')).toEqual('file')
-    // expect(DeveloperSubmitAppPage.screenshot4.getAttribute('type')).toEqual('file')
+    expect(DeveloperSubmitAppPage.screenshot1.getAttribute('type')).toEqual('file')
+    expect(DeveloperSubmitAppPage.screenshot2.getAttribute('type')).toEqual('file')
+    expect(DeveloperSubmitAppPage.screenshot3.getAttribute('type')).toEqual('file')
+    expect(DeveloperSubmitAppPage.screenshot4.getAttribute('type')).toEqual('file')
   })
 
   it('should not submit and instead show a validation messages if required data is not filled', () => {
     DeveloperSubmitAppPage.submitForm()
-    expect(DeveloperSubmitAppPage.errorMessages.length).toBe(9)
-    for (let i = 0; i < 9; i++) {
-      expect(DeveloperSubmitAppPage.errorMessages[0].getText()).toEqual(errorMessages.FIELD_REQUIRED)
-    }
+    expect(DeveloperSubmitAppPage.errorMessages.length).toBe(NUMBER_OF_REQUIRED_FIELDS)
+
+    DeveloperSubmitAppPage.errorMessages.forEach(messageField =>
+      expect(messageField.getText()).toEqual(errorMessages.FIELD_REQUIRED)
+    )
   })
 
   it('should not submit if email is invalid', () => {

@@ -2,16 +2,51 @@ import Base from './base'
 import ClientHome from './client'
 import DeveloperHome from './developer-home'
 
+const ACCOUNTS = {
+  CLIENT: {
+    EMAIL: 'cbryan@reapit.com',
+    PWD: 'myPassword12345'
+  },
+  DEV: {
+    EMAIL: 'wmcvay@reapit.com',
+    PWD: 'NewPassword123'
+  }
+}
+
+const ROLES = {
+  CLIENT: 'client',
+  DEV: 'developer'
+}
+
 class LoginPage extends Base {
+  currRole
+
   get loginRoute() {
+    this.currRole = ROLES.CLIENT
+
     return '/login'
   }
 
   get validFormData() {
-    return {
-      email: 'wmcvay@reapit.com',
-      password: 'NewPassword123'
+    let result
+
+    switch (this.currRole) {
+      case ROLES.DEV:
+        result = {
+          email: ACCOUNTS.DEV.EMAIL,
+          password: ACCOUNTS.DEV.PWD
+        }
+        break
+
+      default:
+        result = {
+          email: ACCOUNTS.CLIENT.EMAIL,
+          password: ACCOUNTS.CLIENT.PWD
+        }
+        break
     }
+
+    return result
   }
 
   get form() {
@@ -47,8 +82,19 @@ class LoginPage extends Base {
   }
 
   populateValidForm() {
-    this.emailInput.setValue('wmcvay@reapit.com')
-    this.passwordInput.setValue('NewPassword123')
+    switch (this.currRole) {
+      case ROLES.DEV:
+        this.emailInput.setValue(ACCOUNTS.DEV.EMAIL)
+        this.passwordInput.setValue(ACCOUNTS.DEV.PWD)
+
+        break
+
+      default:
+        this.emailInput.setValue(ACCOUNTS.CLIENT.EMAIL)
+        this.passwordInput.setValue(ACCOUNTS.CLIENT.PWD)
+
+        break
+    }
   }
 
   submitForm() {
@@ -68,7 +114,6 @@ class LoginPage extends Base {
     this.open()
     this.populateValidForm()
     this.submitForm()
-    ClientHome.cardContainer.waitForVisible()
   }
 
   logAsDeveloper() {
@@ -76,7 +121,6 @@ class LoginPage extends Base {
     this.selectDeveloperTab()
     this.populateValidForm()
     this.submitForm()
-    DeveloperHome.cardContainer.waitForVisible()
   }
 }
 

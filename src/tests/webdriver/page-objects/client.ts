@@ -6,6 +6,10 @@ class ClientPage extends Base {
     return '/client/apps'
   }
 
+  get heading() {
+    return $('[data-test="app-list-container"] > h3')
+  }
+
   get cardContainer() {
     return $('[data-test="app-list-container"]')
   }

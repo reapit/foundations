@@ -1,6 +1,8 @@
 import ClientPage from '../page-objects/client'
 import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
+const ITEMS_PER_PAGE = 10
+
 describe('ClientPage', () => {
   beforeEach(() => {
     ClientPage.open()
@@ -8,8 +10,8 @@ describe('ClientPage', () => {
   })
 
   it('should load the page correctly', () => {
-    // TODO: will re-write the test after e2e test for login is ready
-    // expect(ClientPage.allCards.length).toBe(3)
+    expect(ClientPage.heading.getText()).toEqual('Browse Apps')
+    expect(ClientPage.allCards.length).toBeLessThanOrEqual(ITEMS_PER_PAGE)
   })
 
   afterEach(() => {
