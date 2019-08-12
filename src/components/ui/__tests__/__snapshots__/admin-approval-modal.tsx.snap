@@ -11,6 +11,7 @@ exports[`AdminRevisionModalInner should match a snapshot when LOADING false 1`] 
 <Fragment>
   <div
     className="flex justify-between"
+    data-test="revision-detail-modal"
   >
     <h3
       className="title is3"
@@ -20,12 +21,14 @@ exports[`AdminRevisionModalInner should match a snapshot when LOADING false 1`] 
     <div>
       <button
         className="button isPrimary mr-2"
+        data-test="revision-approve-button"
         onClick={[Function]}
       >
         Approve
       </button>
       <button
         className="button isDanger"
+        data-test="revision-decline-button"
         onClick={[Function]}
       >
         Decline

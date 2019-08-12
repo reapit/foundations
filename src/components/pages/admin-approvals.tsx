@@ -59,7 +59,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
             <Loader />
           </div>
         )}
-        <table className={`${bulma.table} ${bulma.isFullwidth}`}>
+        <table className={`${bulma.table} ${bulma.isFullwidth}`} data-test="revision-list">
           <thead>
             <tr>
               <th>#</th>
@@ -78,6 +78,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
                 <th>{revision.description}</th>
                 <th>
                   <button
+                    data-test="view-details-button"
                     className={`${bulma.button} ${bulma.isPrimary}`}
                     onClick={() => {
                       const { appId, appRevisionId } = revision

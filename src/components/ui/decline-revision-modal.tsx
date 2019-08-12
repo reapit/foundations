@@ -84,6 +84,7 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
     >
       <Formik
         initialValues={{ email, name, rejectionReason } as RejectRevisionModel}
+        data-test="revision-decline-form"
         validate={validate}
         onSubmit={(formValues: RejectRevisionModel) => {
           if (appId && appRevisionId) {
@@ -96,11 +97,16 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
             <Alert
               message="Revision was declined successfully!"
               type="success"
-              dataTest="approve-revision-success-message"
+              dataTest="decline-revision-success-message"
             />
           ) : (
             <Form>
-              <TextArea name="rejectionReason" id="rejectionReason" labelText="Rejection reason" />
+              <TextArea
+                name="rejectionReason"
+                id="rejectionReason"
+                labelText="Rejection reason"
+                dataTest="revision-rejection-reason"
+              />
               <div className="flex justify-end">
                 <Button
                   type="button"
@@ -108,10 +114,17 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
                   className="mr-2"
                   disabled={Boolean(isLoading)}
                   onClick={() => afterClose && afterClose()}
+                  dataTest="revision-decline-cancel"
                 >
                   Cancel
                 </Button>
-                <Button type="submit" variant="danger" loading={Boolean(isLoading)} disabled={Boolean(isLoading)}>
+                <Button
+                  type="submit"
+                  variant="danger"
+                  loading={Boolean(isLoading)}
+                  disabled={Boolean(isLoading)}
+                  dataTest="revision-decline-submit"
+                >
                   Decline
                 </Button>
               </div>

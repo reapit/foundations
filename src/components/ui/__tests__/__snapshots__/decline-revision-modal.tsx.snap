@@ -7,6 +7,7 @@ exports[`DeclineRevisionModal should match a snapshot 1`] = `
   visible={true}
 >
   <Formik
+    data-test="revision-decline-form"
     enableReinitialize={false}
     initialValues={
       Object {
