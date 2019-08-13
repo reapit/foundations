@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CallToAction should match a snapshot 1`] = `
+<div
+  className=""
+  data-test=""
+>
+  <h3>
+    <span
+      className="undefined undefined"
+    >
+      <Check />
+    </span>
+    <span>
+      My title
+    </span>
+  </h3>
+  <p />
+  <button
+    className="button isPrimary"
+    data-test=""
+  >
+    My button
+  </button>
+</div>
+`;
