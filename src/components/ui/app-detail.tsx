@@ -1,6 +1,6 @@
 import * as React from 'react'
 import bulma from '@/styles/vendor/bulma'
-import { ReduxState } from '@/types/core'
+import { ReduxState, FormState } from '@/types/core'
 import Slider, { Settings } from 'react-slick'
 import carouselStyles from '../../styles/elements/carousel.scss?mod'
 import ChevronLeftIcon from '@/components/svg/chevron-left'
@@ -10,6 +10,8 @@ import { setAppDetailModalStatePermission } from '@/actions/app-detail-modal'
 import { appPermissionRequestData } from '@/actions/app-permission'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { withRouter } from 'react-router'
+import Button from '../form/button'
+import { appUninstallRequestData } from '@/actions/app-uninstall'
 
 const { useState } = React
 
@@ -19,11 +21,13 @@ export interface AppDetailModalInnerProps {
 
 export interface AppDetailModalMappedProps {
   isCurrentLoggedUserClient: boolean
+  appUninstallFormState: FormState
 }
 
 export interface AppDetailModalMappedActions {
   setAppDetailModalStatePermission: () => void
   fetchAppPermission: (id: string) => void
+  requestUninstall: () => void
 }
 
 export type AppDetailProps = AppDetailModalMappedActions & AppDetailModalMappedProps & AppDetailModalInnerProps
@@ -35,7 +39,9 @@ const SlickButtonNav = ({ currentSlide, setAppDetailModalStatePermission, slideC
 export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   data,
   setAppDetailModalStatePermission,
-  fetchAppPermission
+  fetchAppPermission,
+  requestUninstall,
+  appUninstallFormState
 }) => {
   if (!data) {
     return null
@@ -44,6 +50,8 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   const { id, media = [], description, name, summary, developer, installedOn } = data
   const icon = media.filter(({ type }) => type === 'icon')[0]
   const carouselImages = media.filter(({ type }) => type === 'image')
+
+  const isLoadingUninstall = appUninstallFormState === 'SUBMITTING'
 
   const settings: Settings = {
     dots: false,
@@ -80,7 +88,17 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
               </p>
             </div>
             <p>{summary}</p>
-            {!installedOn && (
+            {installedOn ? (
+              <Button
+                type="button"
+                variant="primary"
+                loading={Boolean(isLoadingUninstall)}
+                disabled={Boolean(isLoadingUninstall)}
+                onClick={requestUninstall}
+              >
+                Uninstall App
+              </Button>
+            ) : (
               <a
                 onClick={() => {
                   if (!id) {
@@ -115,13 +133,15 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
 
 const mapStateToProps = (state: ReduxState): AppDetailModalMappedProps => {
   return {
-    isCurrentLoggedUserClient: state.auth.loginType === 'CLIENT'
+    isCurrentLoggedUserClient: state.auth.loginType === 'CLIENT',
+    appUninstallFormState: state.appUninstall.formState
   }
 }
 
 const mapDispatchToProps = (dispatch: any): AppDetailModalMappedActions => ({
   setAppDetailModalStatePermission: () => dispatch(setAppDetailModalStatePermission()),
-  fetchAppPermission: appId => dispatch(appPermissionRequestData(appId))
+  fetchAppPermission: appId => dispatch(appPermissionRequestData(appId)),
+  requestUninstall: () => dispatch(appUninstallRequestData())
 })
 
 const AppDetailWithConnect = connect(

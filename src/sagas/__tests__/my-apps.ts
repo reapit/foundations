@@ -1,4 +1,4 @@
-import myAppsSagas, { myAppsDataFetch, myAppsDataListen, selectClientId } from '../my-apps'
+import myAppsSagas, { myAppsDataFetch, myAppsDataListen } from '../my-apps'
 import { appsDataStub } from '../__stubs__/apps'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
@@ -11,6 +11,7 @@ import { APPS_PER_PAGE } from '@/constants/paginator'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+import { selectClientId } from '@/selector/client'
 
 jest.mock('../../utils/fetcher')
 const params = { data: 1 }
@@ -23,7 +24,7 @@ describe('my-apps fetch data', () => {
   expect(gen.next().value).toEqual(select(selectClientId))
   expect(gen.next(clientId).value).toEqual(
     call(fetcher, {
-      url: `${URLS.apps}?clientId=${clientId}&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
+      url: `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: MARKETPLACE_HEADERS

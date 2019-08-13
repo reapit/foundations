@@ -21,32 +21,32 @@ describe('AppDetailModal', () => {
     }
 
     expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
-  })
-  it('should match a snapshot when appInstallFormState = PENDING', () => {
-    const props: AppPermissionInnerProps = {
-      requestInstall: jest.fn(),
-      permissions: [{ description: 'test', name: 'tets' }],
-      appInstallFormState: 'PENDING'
-    }
+  }),
+    it('should match a snapshot when appInstallFormState = PENDING', () => {
+      const props: AppPermissionInnerProps = {
+        requestInstall: jest.fn(),
+        permissions: [{ description: 'test', name: 'tets' }],
+        appInstallFormState: 'PENDING'
+      }
 
-    expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
-  })
-  it('should match a snapshot when appInstallFormState = SUBMITTING', () => {
-    const props: AppPermissionInnerProps = {
-      requestInstall: jest.fn(),
-      permissions: [{ description: 'test', name: 'tets' }],
-      appInstallFormState: 'SUBMITTING'
-    }
+      expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
+    }),
+    it('should match a snapshot when appInstallFormState = SUBMITTING', () => {
+      const props: AppPermissionInnerProps = {
+        requestInstall: jest.fn(),
+        permissions: [{ description: 'test', name: 'tets' }],
+        appInstallFormState: 'SUBMITTING'
+      }
 
-    expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
-  })
-  it('should match a snapshot when appInstallFormState = SUCCESS', () => {
-    const props: AppPermissionInnerProps = {
-      requestInstall: jest.fn(),
-      permissions: [{ description: 'test', name: 'tets' }],
-      appInstallFormState: 'SUCCESS'
-    }
+      expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
+    }),
+    it('should match a snapshot when appInstallFormState = SUCCESS', () => {
+      const props: AppPermissionInnerProps = {
+        requestInstall: jest.fn(),
+        permissions: [{ description: 'test', name: 'tets' }],
+        appInstallFormState: 'SUCCESS'
+      }
 
-    expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
-  })
+      expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
+    })
 })

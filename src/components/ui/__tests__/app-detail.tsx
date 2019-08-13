@@ -8,7 +8,9 @@ const props: AppDetailProps = {
   data: appDetailDataStub.data,
   fetchAppPermission: jest.fn(),
   setAppDetailModalStatePermission: jest.fn(),
-  isCurrentLoggedUserClient: true
+  requestUninstall: jest.fn(),
+  isCurrentLoggedUserClient: true,
+  appUninstallFormState: 'PENDING'
 }
 
 describe('AppDetailModalInner', () => {
