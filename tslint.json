@@ -28,6 +28,6 @@
   },
   "extends": ["tslint-config-standard", "tslint-config-prettier"],
   "cliOptions": {
-    "exclude": ["node_modules", "public", "src/tests/coverage"]
+    "exclude": ["node_modules", "public"]
   }
 }
