@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
 import auth from '../reducers/auth'
 import appInstall from '../reducers/app-install'
+import appUninstall from '../reducers/app-uninstall'
 import client from '../reducers/client'
 import myApps from '../reducers/my-apps'
 import developer from '../reducers/developer'
@@ -28,6 +29,7 @@ import adminApprovalSagas from '../sagas/admin-approvals'
 import revisionDetailSagas from '../sagas/revision-detail'
 import appPermissionSagas from '../sagas/app-permission'
 import appInstallSagas from '../sagas/app-install'
+import appUninstallSagas from '../sagas/app-uninstall'
 
 export class Store {
   static _instance: Store
@@ -58,7 +60,8 @@ export class Store {
     revisionDetail,
     appPermission,
     appDetailModal,
-    appInstall
+    appInstall,
+    appUninstall
   })
 
   static sagas = function*() {
@@ -74,7 +77,8 @@ export class Store {
       fork(adminApprovalSagas),
       fork(revisionDetailSagas),
       fork(appPermissionSagas),
-      fork(appInstallSagas)
+      fork(appInstallSagas),
+      fork(appUninstallSagas)
     ])
   }
 

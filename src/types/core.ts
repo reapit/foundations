@@ -14,6 +14,7 @@ import { RevisionDetailState } from '@/reducers/revision-detail'
 import { AppPermissionState } from '@/reducers/app-permission'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { AppInstallState } from '@/reducers/app-install'
+import { AppUninstallState } from '@/reducers/app-uninstall'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -61,4 +62,5 @@ export interface ReduxState {
   appPermission: AppPermissionState
   appDetailModal: AppDetailModalState
   appInstall: AppInstallState
+  appUninstall: AppUninstallState
 }
