@@ -9,5 +9,5 @@ html {
 }
 
 @import './vendor/normalize.scss';
-@import './utilities.scss';
-@import './vendor/bulma.module.scss';
+@import './base/utilities.scss';
+@import './vendor/bulma.scss';

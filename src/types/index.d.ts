@@ -4,16 +4,12 @@
 
 declare module '*.jpg'
 
-declare module '*.module.css' 
-// {
-//   const classes: { [key: string]: string };
-//   export default classes;
-// }
+declare module '*.css' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
  
-declare module '*.module.scss' 
-// {
-//   const classes: { [key: string]: string };
-//   export default classes;
-// }
-
-declare module 'swagger-ui-react'
+declare module '*.scss' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
