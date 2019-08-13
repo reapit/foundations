@@ -10,7 +10,7 @@ export interface InputProps {
   dataTest?: string
 }
 
-const Input = ({ type, name, labelText, id, dataTest, placeholder = '' }: InputProps) => (
+export const Input = ({ type, name, labelText, id, dataTest, placeholder = '' }: InputProps) => (
   <Field
     name={name}
     render={({ field, form: { touched, errors } }) => {
@@ -43,5 +43,3 @@ const Input = ({ type, name, labelText, id, dataTest, placeholder = '' }: InputP
     }}
   />
 )
-
-export default Input

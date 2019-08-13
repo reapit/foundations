@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import Input, { InputProps } from '../index'
+import { Input, InputProps } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
 
