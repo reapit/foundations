@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "public/index.js",
