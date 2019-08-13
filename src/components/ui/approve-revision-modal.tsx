@@ -2,13 +2,13 @@ import * as React from 'react'
 import Modal, { ModalProps } from '@/components/ui/modal'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import Alert from '@/components/ui/alert'
 import { ApproveModel } from '@/types/marketplace-api-schema'
 import Button from '../form/button'
 import { Form, Formik } from 'formik'
 import { approveRevision, RevisionApproveRequestParams } from '@/actions/revision-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { oc } from 'ts-optchain'
+import CallToAction from './call-to-action'
 
 interface ApproveRevisionModalWithConnectOwnProps {
   closeModal?: () => void
@@ -60,19 +60,13 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
   const isLoading = approveFormState === 'SUBMITTING'
   const isSuccessed = approveFormState === 'SUCCESS'
 
-  React.useEffect(() => {
-    if (isSuccessed) {
-      setTimeout(() => {
-        onApproveSuccess()
-      }, 1000)
-    }
-  }, [isSuccessed])
-
   return (
     <Modal
       visible={visible}
       afterClose={() => {
-        if (!isLoading && afterClose) {
+        if (isSuccessed) {
+          onApproveSuccess()
+        } else if (!isLoading && afterClose) {
           afterClose()
         }
       }}
@@ -88,7 +82,17 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
         data-test="revision-approve-form"
         render={() => {
           return isSuccessed ? (
-            <Alert message="Revision was approved!" type="success" dataTest="approve-revision-success-message" />
+            <CallToAction
+              title="Approved!"
+              buttonText="Back to List"
+              dataTest="approve-revision-success-message"
+              onButtonClick={() => {
+                onApproveSuccess()
+              }}
+              isCenter
+            >
+              Revision has been approved successfully.
+            </CallToAction>
           ) : (
             <Form>
               <p className="mb-4">Do you want to approve this revision?</p>

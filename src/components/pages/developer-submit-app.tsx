@@ -13,6 +13,9 @@ import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/acti
 import { SubmitAppState } from '@/reducers/submit-app'
 import { CreateAppModel } from '@/types/marketplace-api-schema'
 import Checkbox from '../form/checkbox'
+import { Link } from 'react-router-dom'
+import Routes from '@/constants/routes'
+import CallToAction from '../ui/call-to-action'
 
 export interface SubmitAppMappedActions {
   submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions) => void
@@ -39,17 +42,17 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
   return (
     <div className={styles.container}>
       {isSuccessed ? (
-        <div data-test="submit-success-section">
-          <strong data-test="submit-app-success-message">Submit success</strong>
-          <Button
-            type="submit"
-            variant="primary"
-            dataTest="submit-another-button"
-            onClick={() => submitAppSetFormState('SUBMITTING')}
-          >
-            Submit another
-          </Button>
-        </div>
+        <CallToAction
+          data-test="submit-success-section"
+          onButtonClick={() => submitAppSetFormState('SUBMITTING')}
+          title="Submit Success"
+          buttonText="Submit Another App"
+          buttonDataTest="submit-another-button"
+          isCard
+        >
+          You have successfully submitted your App. You will be notified via email once your app has been approved.
+          Please see <Link to={Routes.DEVELOPER_MY_APPS}>Manage Apps</Link> to see the current status
+        </CallToAction>
       ) : (
         <div className={`${styles.wrapper} ${bulma.container} ${isLoading ? 'disabled' : ''}`}>
           <h3 className={`${bulma.title} ${bulma.is3}`}>Submit App</h3>

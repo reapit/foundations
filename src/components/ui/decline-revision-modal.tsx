@@ -2,7 +2,6 @@ import * as React from 'react'
 import Modal, { ModalProps } from '@/components/ui/modal'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import Alert from '@/components/ui/alert'
 import { RejectRevisionModel } from '@/types/marketplace-api-schema'
 import Button from '../form/button'
 import TextArea from '../form/textarea'
@@ -11,6 +10,7 @@ import { validate } from '@/utils/form/reject-revision'
 import { declineRevision, RevisionDeclineRequestParams } from '@/actions/revision-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { oc } from 'ts-optchain'
+import CallToAction from './call-to-action'
 
 interface DeclineRevisionInnerWithConnectOwnProps {
   closeModal?: () => void
@@ -64,20 +64,14 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
   const isLoading = declineFormState === 'SUBMITTING'
   const isSuccessed = declineFormState === 'SUCCESS'
 
-  React.useEffect(() => {
-    if (isSuccessed) {
-      setTimeout(() => {
-        onDeclineSuccess()
-      }, 1000)
-    }
-  }, [isSuccessed])
-
   return (
     <Modal
       visible={visible}
       size="small"
       afterClose={() => {
-        if (!isLoading && afterClose) {
+        if (isSuccessed) {
+          onDeclineSuccess()
+        } else if (!isLoading && afterClose) {
           afterClose()
         }
       }}
@@ -94,11 +88,17 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
         }}
         render={() => {
           return isSuccessed ? (
-            <Alert
-              message="Revision was declined successfully!"
-              type="success"
+            <CallToAction
+              title="Rejected!"
+              buttonText="Back to List"
               dataTest="decline-revision-success-message"
-            />
+              onButtonClick={() => {
+                onDeclineSuccess()
+              }}
+              isCenter
+            >
+              Revision has been declined successfully.
+            </CallToAction>
           ) : (
             <Form>
               <TextArea
