@@ -46,4 +46,4 @@ A collection of React components and utilities for building apps for Reapit Mark
 - You should add as many variants of your component as is helpful for future devs - these are our live docs.
 - All future component work for generic components should be "Storybook" first if possible.
 - To run a local Storybook instance with a dev server run `yarn storybook`.
-- To build and publish to Github Pages at https://reapit.github.io/elements/ run `yarn deploy-storybook`.
+- To build and publish to Github Pages at https://reapit.github.io/elements/ run `yarn deploy-storybook` - this happens by default in a postpublish hook when you deploy to NPM.

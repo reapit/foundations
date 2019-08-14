@@ -11,6 +11,8 @@
   ],
   "scripts": {
     "test": "jest --coverage --silent",
+    "test-dev": "jest --watch --verbose",
+    "postpublish": "yarn deploy-storybook",
     "prebuild": "rimraf dist",
     "prepublish": "yarn test && yarn build",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c",
@@ -94,6 +96,6 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 1"
+    "not ie <= 11"
   ]
 }
