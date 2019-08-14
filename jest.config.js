@@ -4,7 +4,7 @@ module.exports = {
   setupFiles: ['<rootDir>/src/scripts/jest-setup.js'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coveragePathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
+    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|)[/\\\\]', '.stories.tsx', 'src/index.tsx'
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public)[/\\\\]']
 };
