@@ -1,7 +1,11 @@
 node_modules
 public
+dist
 coverage
 .vscode
 .DS_Store
+.npmrc
 yarn-error.log
-
+.rts2_cache_cjs
+.rts2_cache_esm
+.rts2_cache_umd

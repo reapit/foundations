@@ -12,11 +12,12 @@ export default [
     plugins: [
       scss({
         output: (styles, styleNodes) => {
-          const content = ['./public/**/*.js']
+          const content = ['./dist/elements.esm.js']
           const options = {
-            output: 'public/index.css',
-            minify: true,
-            rejected: true
+            output: 'dist/index.css',
+            minify: true
+            // Uncomment this line if you want to see the CSS purified from the package
+            // rejected: true
           }
 
           purify(content, styles, options)
