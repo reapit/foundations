@@ -39,3 +39,11 @@ A collection of React components and utilities for building apps for Reapit Mark
 - You will need an NPM token to install the package - this should be added to the `.npmrc` file.
 - `yarn add @reapit/elements`to your project - you can then import the modules with your chosen module system.
 - You will need to globally install / add the CSS file from `@reapit/elements/dist/index.css`.
+
+### Storybook
+
+- All React components should have their own Storybook stories in their own folder using the `component.stories.tsx` convention.
+- You should add as many variants of your component as is helpful for future devs - these are our live docs.
+- All future component work for generic components should be "Storybook" first if possible.
+- To run a local Storybook instance with a dev server run `yarn storybook`.
+- To build and publish to Github Pages at https://reapit.github.io/elements/ run `yarn deploy-storybook`.
