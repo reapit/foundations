@@ -56,8 +56,21 @@ jobs:
       path: $(System.DefaultWorkingDirectory)/public/dist
       artifact: AppStoreBundle
 
-  - script: yarn test-e2e:ci
-    displayName: E2E Tests
+  - task: BrowserStackConfig@0
+    inputs:
+      BrowserStackServiceEndPoint: 'BrowserStack connection'
+      browserstackLocal: true
+      bsLocalOptions: '{"verbose": true, "forceLocal": true}'
+
+  - script: yarn test-e2e:bstack:ci
+    displayName: Run E2E Tests on BrowserStack
+    continueOnError: true
+    env:
+      BROWSER_STACK_BUILD: $(Build.BuildNumber)
+
+  - task: BrowserStackStopLocal@0
+
+  - task: BrowserStackResults@0
     continueOnError: true
 
 - deployment: S3DeployWebDev
