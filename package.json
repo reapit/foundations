@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -12,7 +12,7 @@
   "scripts": {
     "test": "jest --coverage --silent",
     "prebuild": "rimraf dist",
-    "prepublish": "yarn build && yarn np --publish=false",
+    "prepublish": "yarn build",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c",
     "start": "cross-env NODE_ENV=development tsdx watch",
     "lint": "tslint --fix --project tsconfig.json --format stylish"
@@ -64,9 +64,9 @@
     "bulma": "^0.7.5"
   },
   "peerDependencies": {
+    "formik": "^1.5.8",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "formik": "^1.5.8"
+    "react-dom": "^16.8.6"
   },
   "husky": {
     "hooks": {
