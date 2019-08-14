@@ -17,7 +17,7 @@ const DiffMedia = ({ currentMedia, changedMedia, type }: DiffMediaProps) => {
         <div className={`${styles.image} ${imageStyle}`} style={{ backgroundImage: `url(${currentMedia})` }} />
       </div>
       <span className={styles.arrow}>&#8594;</span>
-      <div className={`${styles.block} ${blockStyle} ${changedMedia ? styles.green : styles.empty}`}>
+      <div className={`${styles.block} ${blockStyle} ${styles.green}`}>
         <div className={`${styles.image} ${imageStyle}`} style={{ backgroundImage: `url(${changedMedia})` }} />
       </div>
     </div>

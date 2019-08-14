@@ -361,6 +361,9 @@ export interface CreateAppRevisionModel {
    * When false, the app will not be visible in marketplace app listings
    */
   isListed?: boolean
+  /**
+   * Sets the list of scope keys required for this app revision
+   */
   scopes?: string[]
 }
 /**
@@ -496,7 +499,7 @@ export interface InstallationModel {
   readonly links?: LinkModel[]
 }
 /**
- * Represents a HyperMedia Link in
+ * Represents a HyperMedia Link
  */
 export interface LinkModel {
   /**
