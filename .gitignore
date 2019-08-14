@@ -4,7 +4,6 @@ dist
 coverage
 .vscode
 .DS_Store
-.npmrc
 yarn-error.log
 .rts2_cache_cjs
 .rts2_cache_esm
