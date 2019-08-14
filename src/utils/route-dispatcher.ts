@@ -6,6 +6,7 @@ import { myAppsRequestData } from '../actions/my-apps'
 import { adminRequestRevisions } from '../actions/admin'
 import { developerRequestData } from '../actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
+import { submitAppRequestData } from '../actions/submit-app'
 import { getAccessToken } from './cognito'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
@@ -38,6 +39,9 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
       break
     case Routes.ADMIN_APPROVALS_PAGINATE:
       store.dispatch(adminApprovalsRequestData(params && params.page ? Number(params.page) : 1))
+      break
+    case Routes.SUBMIT_APP:
+      store.dispatch(submitAppRequestData())
       break
     default:
       console.error('Route not found, nothing to fetch')

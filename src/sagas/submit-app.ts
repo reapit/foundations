@@ -1,6 +1,6 @@
 import fetcher from '../utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
-import { submitAppSetFormState } from '../actions/submit-app'
+import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
@@ -44,12 +44,40 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
   }
 }
 
+export const submitAppsDataFetch = function*() {
+  yield put(submitAppLoading(true))
+
+  try {
+    const response = yield call(fetcher, {
+      url: `${URLS.scopes}`,
+      method: 'GET',
+      api: REAPIT_API_BASE_URL,
+      headers: MARKETPLACE_HEADERS
+    })
+    yield put(submitAppLoading(false))
+    yield put(submitAppReceiveData(response))
+  } catch (err) {
+    yield put(submitAppLoading(false))
+    console.error(err.message)
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR
+      })
+    )
+  }
+}
+
+export const submitAppDataFetchListen = function*() {
+  yield takeLatest<Action<void>>(ActionTypes.DEVELOPER_SUBMIT_APP_REQUEST_DATA, submitAppsDataFetch)
+}
+
 export const submitAppDataListen = function*() {
   yield takeLatest<Action<SubmitAppArgs>>(ActionTypes.DEVELOPER_SUBMIT_APP, submitApp)
 }
 
 export const submitAppSagas = function*() {
-  yield all([fork(submitAppDataListen)])
+  yield all([fork(submitAppDataListen), fork(submitAppDataFetchListen)])
 }
 
 export default submitAppSagas
