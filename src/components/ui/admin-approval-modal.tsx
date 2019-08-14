@@ -30,6 +30,13 @@ export interface AdminApprovalModalMappedProps {
   closeParentModal?: () => void
 }
 
+interface DiffMediaModel {
+  currentMedia?: string
+  changedMedia?: string
+  order: number
+  type: string
+}
+
 export interface AdminApprovalModalMappedActions {}
 
 export type AdminApprovalInnerProps = AdminApprovalModalMappedProps & AdminApprovalModalMappedActions
@@ -57,17 +64,35 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
   const revision = revisionDetailState.revisionDetailData.data
   const app = appDetailState.appDetailData.data
 
-  const changedMediaList: { currentMedia?: string; changedMedia?: string; order: number; type: string }[] = (
-    revision.media || []
-  ).map((media: MediaModel) => {
-    const currentMedia = (app.media || []).filter(({ order }) => order === media.order)[0]
-    return {
-      changedMedia: media.uri,
-      currentMedia: currentMedia ? currentMedia.uri : undefined,
-      order: media.order || 0,
-      type: media.type || 'media'
+  const changedMediaList: DiffMediaModel[] = (revision.media || [])
+      .map((media: MediaModel) => {
+        const currentMedia = (app.media || []).filter(({ order }) => order === media.order)[0]
+        return {
+          changedMedia: media.uri,
+          currentMedia: currentMedia ? currentMedia.uri : undefined,
+          order: media.order || 0,
+          type: media.type || 'media'
+        }
+      })
+      .filter(({ changedMedia, currentMedia }) => changedMedia !== currentMedia)
+
+    // verify which image has been removed
+  ;(app.media || []).forEach((media: MediaModel) => {
+    const nonExist =
+      (revision.media || []).findIndex(({ order }: MediaModel) => {
+        return order === media.order
+      }) === -1
+    if (nonExist) {
+      changedMediaList.push({
+        changedMedia: '',
+        currentMedia: media.uri,
+        order: media.order || 0,
+        type: media.type || 'media'
+      })
     }
   })
+
+  changedMediaList.sort((a, b) => a.order - b.order)
 
   return (
     <>

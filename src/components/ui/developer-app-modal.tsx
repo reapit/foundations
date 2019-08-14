@@ -83,10 +83,10 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     pendingRevisions
   } = appDetailState.appDetailData.data
 
-  const icon = (media || []).filter(({ type }) => type === 'icon')[0]
+  const icon = (media || []).filter(({ order }) => order === 0)[0]
   const images = (media || [])
-    .filter(({ type }) => type !== 'icon')
-    .reduce((a, c, i) => ({ ...a, [`screen${i + 1}ImageData`]: c.uri }), {})
+    .filter(({ order }) => order !== 0)
+    .reduce((a, c) => ({ ...a, [`screen${c.order}ImageData`]: c.uri }), {})
   const iconImageData = icon ? icon.uri : ''
 
   return (
@@ -121,19 +121,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
               if (!id) {
                 return
               }
-              const data = { ...revision }
-
-              if (iconImageData === data.iconImageData) {
-                delete data.iconImageData
-              }
-
-              Object.keys(images).forEach(key => {
-                if (images[key] === data[key]) {
-                  delete data[key]
-                }
-              })
-
-              submitRevision(id, data)
+              submitRevision(id, revision)
             }}
             render={({ errors }) => {
               return (
@@ -194,6 +182,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                     dataTest="submit-app-screenshoot2"
                     labelText="Screenshot 2"
                     name="screen2ImageData"
+                    allowClear
                   />
 
                   <ImageInput
@@ -201,6 +190,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                     dataTest="submit-app-screenshoot3"
                     labelText="Screenshot 3"
                     name="screen3ImageData"
+                    allowClear
                   />
 
                   <ImageInput
@@ -208,6 +198,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                     dataTest="submit-app-screenshoot4"
                     labelText="Screenshot 4"
                     name="screen4ImageData"
+                    allowClear
                   />
 
                   <ImageInput
@@ -215,6 +206,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                     dataTest="submit-app-screenshoot5"
                     labelText="Screenshot 5"
                     name="screen5ImageData"
+                    allowClear
                   />
 
                   <Checkbox id="isListed" dataTest="submit-revision-isListed" labelText="Is listed" name="isListed" />
