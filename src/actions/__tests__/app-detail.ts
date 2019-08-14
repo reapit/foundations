@@ -21,7 +21,7 @@ describe('appDetail actions', () => {
 
   it('should create a appDetailRequestData action', () => {
     expect(appDetailRequestData.type).toEqual(ActionTypes.APP_DETAIL_REQUEST_DATA)
-    expect(appDetailRequestData('xxxx').data).toEqual('xxxx')
+    expect(appDetailRequestData({ id: '1', clientId: '1' }).data).toEqual({ id: '1', clientId: '1' })
   })
 
   it('should create a appDetailClearData action', () => {
