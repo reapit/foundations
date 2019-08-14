@@ -13,7 +13,7 @@ storiesOf('Input', module).add('Sample Form', () => (
         action('Form Values' + values)
       }}
       render={() => (
-        <Form data-test="login-form">
+        <Form>
           <div className="column is-half-desktop">
             <Input id="text" type="text" placeholder="Some text here" name="text" labelText="Text" />
             <Input id="email" type="email" placeholder="bob@acme.com" name="email" labelText="Email" />
