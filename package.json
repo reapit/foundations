@@ -11,9 +11,8 @@
   ],
   "scripts": {
     "test": "jest --coverage --silent",
-    "deploy": "yarn np",
     "prebuild": "rimraf dist",
-    "prepublish": "npm run build",
+    "prepublish": "yarn build && yarn np --publish=false",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c",
     "start": "cross-env NODE_ENV=development tsdx watch",
     "lint": "tslint --fix --project tsconfig.json --format stylish"
