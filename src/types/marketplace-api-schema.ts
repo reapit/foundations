@@ -1,3 +1,5 @@
+import { ScopeObject } from '@/utils/common'
+
 /**
  * App detailed representation
  */
@@ -270,7 +272,7 @@ export interface CreateAppModel {
   /**
    * Sets the list of scope keys required for this app to run
    */
-  scopes?: string[]
+  scopes?: ScopeObject | string[]
   /**
    * Sets the base64 encoded data representing the app icon image
    */

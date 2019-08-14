@@ -4,6 +4,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
 <div>
   <div
     className="undefined container "
+    data-test="app-input-form"
   >
     <h3
       className="title is3"

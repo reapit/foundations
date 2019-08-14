@@ -1,17 +1,19 @@
 import * as React from 'react'
 import { Formik, Form } from 'formik'
 import { ReduxState, FormState } from '@/types/core'
+import Loader from '@/components/ui/loader'
 import Input from '../form/input'
 import ImageInput from '../form/image-input'
 import TextArea from '../form/textarea'
 import styles from '@/styles/pages/submit-app-form.scss?mod'
 import { validate } from '@/utils/form/submit-app'
+import { transformObjectToDotNotation, ScopeObject } from '@/utils/common'
 import Button from '../form/button'
 import bulma from '@/styles/vendor/bulma'
 import { connect } from 'react-redux'
 import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/actions/submit-app'
 import { SubmitAppState } from '@/reducers/submit-app'
-import { CreateAppModel } from '@/types/marketplace-api-schema'
+import { CreateAppModel, ScopeModel } from '@/types/marketplace-api-schema'
 import Checkbox from '../form/checkbox'
 import { Link } from 'react-router-dom'
 import Routes from '@/constants/routes'
@@ -29,15 +31,25 @@ export interface SubmitAppMappedProps {
 
 export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps
 
+export const renderScopesCheckbox = (scopes: ScopeModel[] = []) =>
+  scopes.map((item: ScopeModel) => (
+    <Checkbox name={`scopes.${item.name}`} labelText={item.description || ''} id={item.name || ''} />
+  ))
+
 export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
   submitAppSetFormState,
   submitApp,
   submitAppState,
   developerId
 }) => {
-  const { formState } = submitAppState
-  const isLoading = formState === 'SUBMITTING'
+  const { formState, loading, submitAppData } = submitAppState
+  const scopes = (submitAppData && submitAppData.scopes) || []
+  const isSubmitting = formState === 'SUBMITTING'
   const isSuccessed = formState === 'SUCCESS'
+
+  if (loading) {
+    return <Loader />
+  }
 
   return (
     <div className={styles.container}>
@@ -54,7 +66,10 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
           Please see <Link to={Routes.DEVELOPER_MY_APPS}>Manage Apps</Link> to see the current status
         </CallToAction>
       ) : (
-        <div className={`${styles.wrapper} ${bulma.container} ${isLoading ? 'disabled' : ''}`}>
+        <div
+          data-test="app-input-form"
+          className={`${styles.wrapper} ${bulma.container} ${isSubmitting ? 'disabled' : ''}`}
+        >
           <h3 className={`${bulma.title} ${bulma.is3}`}>Submit App</h3>
           <Formik
             validate={validate}
@@ -76,7 +91,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
               } as CreateAppModel
             }
             onSubmit={submitApp}
-            render={({ errors }) => {
+            render={() => {
               return (
                 <Form>
                   <div data-test="submit-app-form" className={`${bulma.columns}`}>
@@ -193,6 +208,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                         id="acceptedTerms"
                         name="acceptedTerms"
                       /> */}
+                      {renderScopesCheckbox(scopes)}
                       <ImageInput
                         id="iconImage"
                         dataTest="submit-app-icon"
@@ -202,28 +218,28 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                       />
                       <ImageInput
                         id="screenshot1"
-                        dataTest="submit-app-screenshoot1"
+                        dataTest="submit-app-screenshot1"
                         labelText="Screenshot 1"
                         name="screen1ImageData"
                         allowClear
                       />
                       <ImageInput
                         id="screenshot2"
-                        dataTest="submit-app-screenshoot2"
+                        dataTest="submit-app-screenshot2"
                         labelText="Screenshot 2"
                         name="screen2ImageData"
                         allowClear
                       />
                       <ImageInput
                         id="screenshot3"
-                        dataTest="submit-app-screenshoot3"
+                        dataTest="submit-app-screenshot3"
                         labelText="Screenshot 3"
                         name="screen3ImageData"
                         allowClear
                       />
                       <ImageInput
                         id="screenshot4"
-                        dataTest="submit-app-screenshoot4"
+                        dataTest="submit-app-screenshot4"
                         labelText="Screenshot 4"
                         name="screen4ImageData"
                         allowClear
@@ -235,8 +251,8 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                     type="submit"
                     dataTest="submit-app-button"
                     variant="primary"
-                    loading={Boolean(isLoading)}
-                    disabled={Boolean(isLoading)}
+                    loading={Boolean(isSubmitting)}
+                    disabled={Boolean(isSubmitting)}
                   >
                     Submit
                   </Button>
@@ -256,8 +272,10 @@ const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
 })
 
 const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
-  submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions) =>
-    dispatch(submitApp({ ...appModel, actions })),
+  submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions) => {
+    const scopes = transformObjectToDotNotation(appModel.scopes as ScopeObject)
+    dispatch(submitApp({ ...appModel, actions, scopes }))
+  },
   submitAppSetFormState: formState => dispatch(submitAppSetFormState(formState))
 })
 
