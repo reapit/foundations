@@ -5,7 +5,10 @@ src/constants/.env
 .vscode
 .DS_Store
 yarn-error.log
+
 # test reports
 .jest-junit-reports
+browserstack-reports
+
 src/constants/.env
 src/tests/webdriver/screenshots
