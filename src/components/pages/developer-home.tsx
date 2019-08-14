@@ -73,7 +73,7 @@ const mapStateToProps = (state: ReduxState): DeveloperMappedProps => ({
 })
 
 const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
-  fetchAppDetail: (id: string) => dispatch(appDetailRequestData(id))
+  fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id }))
 })
 
 export default withRouter(

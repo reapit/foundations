@@ -14,9 +14,10 @@ import { AppDetailState } from '@/reducers/app-detail'
 import AppDetailModal from '../ui/app-detail-modal'
 import { myAppsRequestData } from '@/actions/my-apps'
 import { appUninstallDone } from '@/actions/app-uninstall'
+import { selectClientId } from '@/selector/client'
 
 export interface MyAppsMappedActions {
-  fetchAppDetail: (id: string) => void
+  fetchAppDetail: (id: string, clientId: string) => void
   fetchMyApp: (page: number) => void
   appUninstallDone: () => void
 }
@@ -25,12 +26,14 @@ export interface MyAppsMappedProps {
   myAppsState: MyAppsState
   appDetail: AppDetailState
   appUninstallFormState: FormState
+  clientId: string
 }
 
 export type MyAppsProps = MyAppsMappedActions & MyAppsMappedProps & RouteComponentProps<{ page?: any }>
 
 export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   myAppsState,
+  clientId,
   match,
   fetchMyApp,
   fetchAppDetail,
@@ -67,7 +70,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
         onCardClick={app => {
           setVisible(true)
           if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
-            fetchAppDetail(app.id)
+            fetchAppDetail(app.id, clientId)
           }
         }}
       />
@@ -80,11 +83,12 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
 const mapStateToProps = (state: ReduxState): MyAppsMappedProps => ({
   myAppsState: state.myApps,
   appDetail: state.appDetail,
+  clientId: selectClientId(state),
   appUninstallFormState: state.appUninstall.formState
 })
 
 const mapDispatchToProps = (dispatch: any): MyAppsMappedActions => ({
-  fetchAppDetail: (id: string) => dispatch(appDetailRequestData(id)),
+  fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
   fetchMyApp: (page: number) => dispatch(myAppsRequestData(page)),
   appUninstallDone: () => dispatch(appUninstallDone())
 })

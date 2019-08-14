@@ -3,7 +3,6 @@ import { AppDetailItem } from '@/reducers/app-detail'
 export const appDetailDataStub: AppDetailItem = {
   data: {
     id: '9b6fd5f7-2c15-483d-b925-01b650538e52',
-    installationId: '7b2517b3-aad3-4ad8-b31c-988a4b3d112d',
     name: "Peter's Properties",
     summary: 'vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!',
     description:

@@ -19,7 +19,7 @@ import Modal from '../ui/modal'
 
 export interface AdminApprovalsMappedActions {
   fetchRevisionDetail: (params: RevisionDetailRequestParams) => void
-  fetchAppDetail: (appId: string) => void
+  fetchAppDetail: (id: string) => void
 }
 
 export interface AdminApprovalsMappedProps {
@@ -124,7 +124,7 @@ const mapStateToProps = (state: ReduxState): AdminApprovalsMappedProps => ({
 
 const mapDispatchToProps = (dispatch: any): AdminApprovalsMappedActions => ({
   fetchRevisionDetail: param => dispatch(revisionDetailRequestData(param)),
-  fetchAppDetail: (appId: string) => dispatch(appDetailRequestData(appId))
+  fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id }))
 })
 
 export default withRouter(

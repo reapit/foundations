@@ -12,19 +12,27 @@ import routes from '@/constants/routes'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
 import AppDetailModal from '@/components/ui/app-detail-modal'
+import { selectClientId } from '@/selector/client'
 
 export interface ClientMappedActions {
-  fetchAppDetail: (id: string) => void
+  fetchAppDetail: (id: string, clientId: string) => void
 }
 
 export interface ClientMappedProps {
   clientState: ClientState
   appDetail: AppDetailState
+  clientId: string
 }
 
 export type ClientProps = ClientMappedActions & ClientMappedProps & RouteComponentProps<{ page?: any }>
 
-export const Client: React.FunctionComponent<ClientProps> = ({ clientState, match, fetchAppDetail, appDetail }) => {
+export const Client: React.FunctionComponent<ClientProps> = ({
+  clientState,
+  match,
+  fetchAppDetail,
+  appDetail,
+  clientId
+}) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !clientState.clientData
   const loading = clientState.loading
@@ -44,7 +52,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({ clientState, matc
         onCardClick={app => {
           setVisible(true)
           if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
-            fetchAppDetail(app.id)
+            fetchAppDetail(app.id, clientId)
           }
         }}
       />
@@ -56,11 +64,12 @@ export const Client: React.FunctionComponent<ClientProps> = ({ clientState, matc
 
 const mapStateToProps = (state: ReduxState): ClientMappedProps => ({
   clientState: state.client,
-  appDetail: state.appDetail
+  appDetail: state.appDetail,
+  clientId: selectClientId(state)
 })
 
 const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
-  fetchAppDetail: (id: string) => dispatch(appDetailRequestData(id))
+  fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId }))
 })
 
 export default withRouter(

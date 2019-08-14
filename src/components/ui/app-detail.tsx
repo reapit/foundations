@@ -41,7 +41,8 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   setAppDetailModalStatePermission,
   fetchAppPermission,
   requestUninstall,
-  appUninstallFormState
+  appUninstallFormState,
+  isCurrentLoggedUserClient
 }) => {
   if (!data) {
     return null
@@ -88,29 +89,30 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
               </p>
             </div>
             <p>{summary}</p>
-            {installedOn ? (
-              <Button
-                type="button"
-                variant="primary"
-                loading={Boolean(isLoadingUninstall)}
-                disabled={Boolean(isLoadingUninstall)}
-                onClick={requestUninstall}
-              >
-                Uninstall App
-              </Button>
-            ) : (
-              <a
-                onClick={() => {
-                  if (!id) {
-                    return
-                  }
-                  fetchAppPermission(id)
-                  setAppDetailModalStatePermission()
-                }}
-              >
-                Install App
-              </a>
-            )}
+            {isCurrentLoggedUserClient &&
+              (installedOn ? (
+                <Button
+                  type="button"
+                  variant="primary"
+                  loading={Boolean(isLoadingUninstall)}
+                  disabled={Boolean(isLoadingUninstall)}
+                  onClick={requestUninstall}
+                >
+                  Uninstall App
+                </Button>
+              ) : (
+                <a
+                  onClick={() => {
+                    if (!id) {
+                      return
+                    }
+                    fetchAppPermission(id)
+                    setAppDetailModalStatePermission()
+                  }}
+                >
+                  Install App
+                </a>
+              ))}
           </div>
         </div>
       </div>
