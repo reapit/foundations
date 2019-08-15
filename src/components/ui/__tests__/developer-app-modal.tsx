@@ -3,9 +3,7 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { DeveloperAppModalInner, DeveloperAppInnerProps } from '../developer-app-modal'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
-import { FormState } from '@/types/core'
-import Button from '@/components/form/button'
+import { Button } from '@reapit/elements'
 import { Formik } from 'formik'
 
 // @ts-ignore: just need to pick relevant props to test
