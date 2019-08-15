@@ -9,14 +9,10 @@ import Alert from '@/components/ui/alert'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
 import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
-import Button from '../form/button'
-import Input from '../form/input'
-import TextArea from '../form/textarea'
+import { Input, Button, ImageInput, Checkbox, TextArea } from '@reapit/elements'
 import { Form, Formik } from 'formik'
 import { validate } from '@/utils/form/submit-revision'
 import AppDetail from './app-detail'
-import ImageInput from '../form/image-input'
-import Checkbox from '../form/checkbox'
 
 export interface DeveloperAppModalMappedProps {
   appDetailState: AppDetailState

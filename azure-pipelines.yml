@@ -26,6 +26,8 @@ jobs:
   - script: yarn install
     displayName: Install deps
     failOnStderr: true
+    env:
+      NPM_TOKEN: $(NPM_TOKEN)
 
   - bash: printenv > src/constants/.env
     displayName: Injects ENVs
@@ -37,6 +39,8 @@ jobs:
 
   - script: yarn test:ci
     displayName: Unit tests
+    env:
+      NPM_TOKEN: $(NPM_TOKEN)
 
   - task: PublishTestResults@2
     inputs:
@@ -50,6 +54,8 @@ jobs:
   - script: yarn build
     displayName: Build static assets
     failOnStderr: true
+    env:
+      NPM_TOKEN: $(NPM_TOKEN)
 
   - task: PublishPipelineArtifact@1
     inputs:
@@ -67,6 +73,7 @@ jobs:
     continueOnError: true
     env:
       BROWSER_STACK_BUILD: $(Build.BuildNumber)
+      NPM_TOKEN: $(NPM_TOKEN)
 
   - task: BrowserStackStopLocal@0
 

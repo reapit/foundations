@@ -4,7 +4,7 @@ import { FormState, ReduxState } from '@/types/core'
 import { ScopeModel } from '@/types/marketplace-api-schema'
 import bulma from '@/styles/vendor/bulma'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import Button from '@/components/form/button'
+import { Button } from '@reapit/elements'
 import { appInstallRequestData } from '@/actions/app-install'
 import Alert from '@/components/ui/alert'
 

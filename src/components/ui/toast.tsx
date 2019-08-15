@@ -5,7 +5,7 @@ import { errorClearedServer, errorClearedComponent } from '../../actions/error'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import toastStyles from '@/styles/blocks/toast.scss?mod'
-import Button from '../form/button'
+import { Button } from '@reapit/elements'
 
 /**
  * TODO: Expand component to accept types info and success actions

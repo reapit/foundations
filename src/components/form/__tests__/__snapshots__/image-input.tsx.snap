@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`ImageInput should match a snapshot 1`] = `
-<FileInput
-  id="test"
-  labelText="test"
-  name="test"
-/>
-`;

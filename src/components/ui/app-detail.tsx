@@ -9,8 +9,7 @@ import { connect } from 'react-redux'
 import { setAppDetailModalStatePermission } from '@/actions/app-detail-modal'
 import { appPermissionRequestData } from '@/actions/app-permission'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
-import { withRouter } from 'react-router'
-import Button from '../form/button'
+import { Button } from '@reapit/elements'
 import { appUninstallRequestData } from '@/actions/app-uninstall'
 
 const { useState } = React
