@@ -8,6 +8,7 @@ import fetcher from '@/utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
+import { scopes } from '../../sagas/__stubs__/apps'
 
 jest.mock('../../utils/fetcher')
 
@@ -33,10 +34,27 @@ describe('app-detail fetch data with clientId', () => {
       headers: MARKETPLACE_HEADERS
     })
   )
+  expect(gen.next(appDetailDataStub.data).value).toEqual(
+    call(fetcher, {
+      url: `${URLS.apps}/${appDetailDataStub.data.id}/scopes`,
+      api: REAPIT_API_BASE_URL,
+      method: 'GET',
+      headers: MARKETPLACE_HEADERS
+    })
+  )
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(put(appDetailReceiveData(appDetailDataStub)))
+    expect(clone.next(scopes).value).toEqual(
+      put(
+        appDetailReceiveData({
+          data: {
+            ...appDetailDataStub.data,
+            scopes
+          }
+        })
+      )
+    )
     expect(clone.next().done).toBe(true)
   })
 
@@ -50,7 +68,6 @@ describe('app-detail fetch data with clientId', () => {
 describe('app-detail fetch data without clientId', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(params)
   expect(gen.next().value).toEqual(put(appDetailLoading(true)))
-
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${params.data.id}`,
@@ -60,9 +77,27 @@ describe('app-detail fetch data without clientId', () => {
     })
   )
 
+  expect(gen.next(appDetailDataStub.data).value).toEqual(
+    call(fetcher, {
+      url: `${URLS.apps}/${appDetailDataStub.data.id}/scopes`,
+      api: REAPIT_API_BASE_URL,
+      method: 'GET',
+      headers: MARKETPLACE_HEADERS
+    })
+  )
+
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appDetailDataStub.data).value).toEqual(put(appDetailReceiveData(appDetailDataStub)))
+    expect(clone.next(scopes).value).toEqual(
+      put(
+        appDetailReceiveData({
+          data: {
+            ...appDetailDataStub.data,
+            scopes
+          }
+        })
+      )
+    )
     expect(clone.next().done).toBe(true)
   })
 

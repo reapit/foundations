@@ -21,3 +21,23 @@ export const transformObjectToDotNotation = (scopes: ScopeObject | undefined): s
   })
   return result
 }
+
+export const transformDotNotationToObject = (scopesModel: ScopeModel[] | undefined): ScopeObject => {
+  if (!scopesModel) {
+    return {}
+  }
+  const scopes = scopesModel.map((scopeModel: ScopeModel) => scopeModel.name)
+  const result: ScopeObject = {}
+  scopes.forEach((scope: string | undefined) => {
+    const scopeArray = scope && scope.split('.')
+    const key = scopeArray && scopeArray[0]
+    const childKey = scopeArray && scopeArray[1]
+    if (key && childKey) {
+      result[key] = {
+        ...result[key],
+        [childKey]: true
+      }
+    }
+  })
+  return result
+}
