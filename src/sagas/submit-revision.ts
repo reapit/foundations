@@ -8,6 +8,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
 import { appDetailDataFetch } from './app-detail'
+import { appDetailRequestData } from '@/actions/app-detail'
 
 export const submitRevision = function*({ data }: Action<CreateAppRevisionModel & { id: string }>) {
   yield put(submitRevisionSetFormState('SUBMITTING'))
@@ -22,7 +23,7 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
     })
     const status = regResponse ? 'SUCCESS' : 'ERROR'
     if (status === 'SUCCESS') {
-      yield call(appDetailDataFetch, { data: id })
+      yield put(appDetailRequestData({ id }))
     }
     yield put(submitRevisionSetFormState(status))
   } catch (err) {
