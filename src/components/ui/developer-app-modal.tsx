@@ -8,13 +8,15 @@ import Loader from '@/components/ui/loader'
 import Alert from '@/components/ui/alert'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
-import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
+import { CreateAppRevisionModel, ScopeModel } from '@/types/marketplace-api-schema'
 import { Input, Button, ImageInput, Checkbox, TextArea } from '@reapit/elements'
 import { Form, Formik } from 'formik'
 import { validate } from '@/utils/form/submit-revision'
+import { transformDotNotationToObject, ScopeObject, transformObjectToDotNotation } from '@/utils/common'
 import AppDetail from './app-detail'
 
 export interface DeveloperAppModalMappedProps {
+  allScopes: ScopeModel[]
   appDetailState: AppDetailState
   submitRevisionState: SubmitRevisionState
 }
@@ -27,7 +29,13 @@ export interface DeveloperAppModalMappedActions {
 export type DeveloperAppInnerProps = DeveloperAppModalMappedProps & DeveloperAppModalMappedActions & {}
 export type DeveloperAppModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & {}
 
+export const renderScopesCheckbox = (scopes: ScopeModel[] = []) =>
+  scopes.map((item: ScopeModel) => (
+    <Checkbox name={`scopes.${item.name}`} labelText={item.description || ''} id={item.name || ''} />
+  ))
+
 export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerProps> = ({
+  allScopes,
   appDetailState,
   submitRevision,
   submitRevisionSetFormState,
@@ -76,7 +84,8 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     media,
     name,
     isListed,
-    pendingRevisions
+    pendingRevisions,
+    scopes: appScopes
   } = appDetailState.appDetailData.data
 
   const icon = (media || []).filter(({ order }) => order === 0)[0]
@@ -110,6 +119,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
               launchUri,
               iconImageData,
               isListed,
+              scopes: transformDotNotationToObject(appScopes),
               ...images
             }}
             validate={validate}
@@ -119,7 +129,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
               }
               submitRevision(id, revision)
             }}
-            render={({ errors }) => {
+            render={() => {
               return (
                 <Form>
                   <Input dataTest="submit-revision-name" type="text" labelText="Name" id="name" name="name" />
@@ -158,7 +168,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                     name="description"
                   />
                   <TextArea id="summary" dataTest="submit-revision-summary" labelText="Sumary" name="summary" />
-
+                  {renderScopesCheckbox(allScopes)}
                   <ImageInput
                     id="iconImageData"
                     dataTest="submit-app-iconImageData"
@@ -232,12 +242,16 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
 }
 
 const mapStateToProps = (state: ReduxState): DeveloperAppModalMappedProps => ({
+  allScopes: (state.developer.developerData && state.developer.developerData.scopes) || [],
   appDetailState: state.appDetail,
   submitRevisionState: state.submitRevision
 })
 
 const mapDispatchToProps = (dispatch: any): DeveloperAppModalMappedActions => ({
-  submitRevision: (id, revision) => dispatch(submitRevision({ ...revision, id })),
+  submitRevision: (id, revision) => {
+    const scopes = transformObjectToDotNotation(revision.scopes as ScopeObject)
+    dispatch(submitRevision({ ...revision, id, scopes }))
+  },
   submitRevisionSetFormState: formState => dispatch(submitRevisionSetFormState(formState))
 })
 

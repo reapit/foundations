@@ -1,4 +1,5 @@
 import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
+import { ScopeObject } from '@/utils/common'
 
 export const appsDataStub: { data: PagedResultAppSummaryModel_ } = {
   data: {
@@ -56,3 +57,14 @@ export const appsDataStub: { data: PagedResultAppSummaryModel_ } = {
     totalCount: 6
   }
 }
+
+export const scopes = [
+  {
+    name: 'Marketplace/developers.read',
+    description: 'Read data about developers'
+  },
+  {
+    name: 'Marketplace/developers.write',
+    description: 'Write data about developers'
+  }
+]

@@ -1,7 +1,7 @@
 import fetcher from '../utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import { appDetailLoading, appDetailReceiveData, appDetailFailure, AppDetailParams } from '../actions/app-detail'
-import { put, call, fork, takeLatest, all, select } from '@redux-saga/core/effects'
+import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
@@ -17,8 +17,14 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })
-    if (response) {
-      yield put(appDetailReceiveData({ data: response }))
+    const appScopes = yield call(fetcher, {
+      url: `${URLS.apps}/${response.id}/scopes`,
+      api: REAPIT_API_BASE_URL,
+      method: 'GET',
+      headers: MARKETPLACE_HEADERS
+    })
+    if (response && appScopes) {
+      yield put(appDetailReceiveData({ data: { ...response, scopes: appScopes } }))
     } else {
       yield put(appDetailFailure())
     }

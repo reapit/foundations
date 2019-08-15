@@ -14,6 +14,7 @@ import { CreateDeveloperModel } from '../types/marketplace-api-schema'
 import { Action, ReduxState } from '../types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { oc } from 'ts-optchain'
+import { DeveloperItem } from '@/reducers/developer'
 
 export const selectDeveloperId = (state: ReduxState) => {
   return oc<ReduxState>(state).auth.loginSession.loginIdentity.developerId(undefined)
@@ -29,14 +30,27 @@ export const developerDataFetch = function*({ data: page }) {
       throw new Error('Developer id does not exist in state')
     }
 
-    const response = yield call(fetcher, {
-      url: `${URLS.apps}?developerId=${developerId}&PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
-      method: 'GET',
-      api: REAPIT_API_BASE_URL,
-      headers: MARKETPLACE_HEADERS
-    })
-    if (response) {
-      yield put(developerReceiveData({ data: response }))
+    const [appsData, scopes] = yield all([
+      call(fetcher, {
+        url: `${URLS.apps}?developerId=${developerId}&PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
+        method: 'GET',
+        api: REAPIT_API_BASE_URL,
+        headers: MARKETPLACE_HEADERS
+      }),
+      call(fetcher, {
+        url: `${URLS.scopes}`,
+        method: 'GET',
+        api: REAPIT_API_BASE_URL,
+        headers: MARKETPLACE_HEADERS
+      })
+    ])
+
+    const developerData: DeveloperItem = {
+      data: appsData,
+      scopes
+    }
+    if (developerData.data && developerData.scopes) {
+      yield put(developerReceiveData(developerData))
     } else {
       yield put(developerRequestDataFailure())
     }

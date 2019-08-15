@@ -12,11 +12,12 @@ import { MARKETPLACE_HEADERS, URLS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import fetcher from '@/utils/fetcher'
 import { APPS_PER_PAGE } from '@/constants/paginator'
-import { appsDataStub } from '../__stubs__/apps'
+import { appsDataStub, scopes } from '../__stubs__/apps'
 import { Action } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+import { DeveloperItem } from '@/reducers/developer'
 
 jest.mock('../../utils/fetcher')
 
@@ -29,23 +30,44 @@ describe('developer fetch data', () => {
   expect(gen.next().value).toEqual(put(developerLoading(true)))
   expect(gen.next().value).toEqual(select(selectDeveloperId))
   expect(gen.next(developerId).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}?developerId=${developerId}&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
-      api: REAPIT_API_BASE_URL,
-      method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
+    all([
+      call(fetcher, {
+        url: `${URLS.apps}?developerId=${developerId}&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
+        method: 'GET',
+        api: REAPIT_API_BASE_URL,
+        headers: MARKETPLACE_HEADERS
+      }),
+      call(fetcher, {
+        url: `${URLS.scopes}`,
+        method: 'GET',
+        api: REAPIT_API_BASE_URL,
+        headers: MARKETPLACE_HEADERS
+      })
+    ])
   )
 
   it('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appsDataStub.data).value).toEqual(put(developerReceiveData(appsDataStub)))
+    expect(clone.next([appsDataStub.data, scopes]).value).toEqual(
+      put(developerReceiveData({ ...appsDataStub, scopes }))
+    )
     expect(clone.next().done).toBe(true)
   })
 
-  it('api call fail', () => {
+  it('api call fail when data undefined', () => {
     const clone = gen.clone()
-    expect(clone.next(undefined).value).toEqual(put(developerRequestDataFailure()))
+    expect(clone.next([undefined, scopes]).value).toEqual(put(developerRequestDataFailure()))
+    expect(clone.next().done).toBe(true)
+  })
+
+  it('api call fail when scopes undefined', () => {
+    const clone = gen.clone()
+    expect(clone.next([appsDataStub.data, undefined]).value).toEqual(put(developerRequestDataFailure()))
+    expect(clone.next().done).toBe(true)
+  })
+  it('api call fail when all scopes undefined', () => {
+    const clone = gen.clone()
+    expect(clone.next([undefined, undefined]).value).toEqual(put(developerRequestDataFailure()))
     expect(clone.next().done).toBe(true)
   })
 })

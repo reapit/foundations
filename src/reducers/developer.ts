@@ -7,10 +7,11 @@ import {
   developerCreate,
   developerSetFormState
 } from '../actions/developer'
-import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
+import { PagedResultAppSummaryModel_, ScopeModel } from '@/types/marketplace-api-schema'
 
 export interface DeveloperItem {
   data: PagedResultAppSummaryModel_
+  scopes: ScopeModel[]
 }
 
 export interface DeveloperState {

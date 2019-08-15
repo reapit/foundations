@@ -2,12 +2,15 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { DeveloperHome, DeveloperProps } from '../developer-home'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
+import { appsDataStub, scopes } from '@/sagas/__stubs__/apps'
 
 const props: DeveloperProps = {
   developerState: {
     loading: false,
-    developerData: appsDataStub,
+    developerData: {
+      ...appsDataStub,
+      scopes
+    },
     formState: 'PENDING'
   },
   // @ts-ignore: just pick the needed props for the test

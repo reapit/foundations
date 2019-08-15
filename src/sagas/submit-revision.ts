@@ -7,7 +7,6 @@ import { Action, ReduxState } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
-import { appDetailDataFetch } from './app-detail'
 import { appDetailRequestData } from '@/actions/app-detail'
 
 export const submitRevision = function*({ data }: Action<CreateAppRevisionModel & { id: string }>) {

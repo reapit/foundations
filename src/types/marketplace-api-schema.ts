@@ -69,6 +69,10 @@ export interface AppDetailModel {
    */
   pendingRevisions?: boolean
   /**
+   * Gets the scopes that have been associated to this revision
+   */
+  scopes?: ScopeModel[]
+  /**
    * Gets a collection of media objects associated with the app
    */
   media?: MediaModel[]
@@ -366,7 +370,7 @@ export interface CreateAppRevisionModel {
   /**
    * Sets the list of scope keys required for this app revision
    */
-  scopes?: string[]
+  scopes?: ScopeObject | string[]
 }
 /**
  * The model responsible for creation of a developer
