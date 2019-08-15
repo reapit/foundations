@@ -11,8 +11,15 @@ import { REAPIT_API_BASE_URL } from '../../constants/api'
 
 jest.mock('../../utils/fetcher')
 
-const paramsClientId = { data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52', clientId: 'DAC' } }
-const params = { data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52' } }
+const paramsClientId: Action<AppDetailParams> = {
+  data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52', clientId: 'DAC' },
+  type: 'APP_DETAIL_REQUEST_DATA'
+}
+
+const params: Action<AppDetailParams> = {
+  data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52' },
+  type: 'APP_DETAIL_REQUEST_DATA'
+}
 
 describe('app-detail fetch data with clientId', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(paramsClientId)

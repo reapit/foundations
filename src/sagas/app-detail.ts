@@ -7,7 +7,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 
-export const appDetailDataFetch = function*({ data }) {
+export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
   const { id, clientId } = data
   yield put(appDetailLoading(true))
   try {
