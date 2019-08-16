@@ -5,20 +5,26 @@ import { ReduxState } from '@/types/core'
 import AppDetail from '@/components/ui/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
 import AppPermission from '@/components/ui/app-permission'
+import AppInstallConfirm from '@/components/ui/app-confirm-install'
 
 export interface AppDetailInnerMappedProps {
   appDetailModalState: AppDetailModalState
   appDetailState: AppDetailState
 }
 
-const mapStateToProps = (state: ReduxState): AppDetailInnerMappedProps => ({
+export const mapStateToProps = (state: ReduxState): AppDetailInnerMappedProps => ({
   appDetailModalState: state.appDetailModal,
   appDetailState: state.appDetail
 })
 
-export const AppDetailInner: React.FunctionComponent<AppDetailInnerMappedProps> = ({
+type AppDetailInnerProps = AppDetailInnerMappedProps & {
+  afterClose?: () => void
+}
+
+export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   appDetailModalState,
-  appDetailState
+  appDetailState,
+  afterClose
 }) => {
   if (appDetailModalState === 'VIEW_DETAIL') {
     if (!appDetailState.appDetailData || !appDetailState.appDetailData.data) {
@@ -28,7 +34,11 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerMappedProps> 
   }
 
   if (appDetailModalState === 'VIEW_PERMISSION') {
-    return <AppPermission />
+    return <AppPermission afterClose={afterClose} />
+  }
+
+  if (appDetailModalState === 'VIEW_CONFIRM_INSTALL') {
+    return <AppInstallConfirm afterClose={afterClose} />
   }
 
   return null

@@ -150,4 +150,6 @@ const AppDetailWithConnect = connect(
   mapDispatchToProps
 )(AppDetail)
 
+AppDetailWithConnect.displayName = 'AppDetailWithConnect'
+
 export default AppDetailWithConnect

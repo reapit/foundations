@@ -1,65 +1,92 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { FormState, ReduxState } from '@/types/core'
+import { ReduxState } from '@/types/core'
 import { ScopeModel } from '@/types/marketplace-api-schema'
 import bulma from '@/styles/vendor/bulma'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button } from '@reapit/elements'
-import { appInstallRequestData } from '@/actions/app-install'
-import Alert from '@/components/ui/alert'
+import { setAppDetailModalStateView, setAppDetailModalStateViewConfirm } from '@/actions/app-detail-modal'
 
 export interface AppPermissionModalMappedProps {
   permissions: ScopeModel[]
-  appInstallFormState: FormState
+  appName: string
 }
 
 export interface AppPermissionModalMappedActions {
-  requestInstall: () => void
+  setAppDetailModalStateConfirm: () => void
+  setAppDetailModalStateView: () => void
 }
-export type AppPermissionInnerProps = AppPermissionModalMappedProps & AppPermissionModalMappedActions & {}
-
-export const AppPermissionContent = ({ permissions, requestInstall, appInstallFormState }: AppPermissionInnerProps) => {
-  const isLoading = appInstallFormState === 'SUBMITTING'
-  const isSuccessed = appInstallFormState === 'SUCCESS'
-
-  if (isSuccessed) {
-    return <Alert className="mt-5" message="App installed successfully" type="success" />
+export type AppPermissionInnerProps = AppPermissionModalMappedProps &
+  AppPermissionModalMappedActions & {
+    setAppDetailModalStateView: () => void
+    afterClose?: () => void
   }
 
+export const handleCloseModal = (afterClose, setAppDetailModalStateView) => () => {
+  afterClose()
+  setAppDetailModalStateView()
+}
+export const AppPermissionContent = ({
+  permissions,
+  setAppDetailModalStateConfirm,
+  appName,
+  afterClose,
+  setAppDetailModalStateView
+}: AppPermissionInnerProps) => {
   return (
     <div>
-      <h3 className={`${bulma.title} ${bulma.is3} ${appPermissionContentStyles.heading}`}>Permission Require</h3>
-      {permissions.map(({ name, description }) => (
-        <div className={appPermissionContentStyles.permissionBlock}>
-          <b>name: {name}</b>
-          <p>description: {description}</p>
-        </div>
-      ))}
-      <Button
-        loading={Boolean(isLoading)}
-        className={appPermissionContentStyles.installButton}
-        type="button"
-        variant="primary"
-        onClick={requestInstall}
-      >
-        Install
-      </Button>
+      <h3 className={`${bulma.title} ${bulma.is3} ${appPermissionContentStyles.heading}`}>Permissions Required</h3>
+      <h6 className={appPermissionContentStyles.subtitle}>
+        {appName} requires the following permissions to integrate with the platform. By installing you are consenting to
+        the the following:
+      </h6>
+      <ul className={appPermissionContentStyles.permissionList}>
+        {permissions.map(({ description }) => (
+          <li className={appPermissionContentStyles.permissionListItem}>{description}</li>
+        ))}
+      </ul>
+      <div className={appPermissionContentStyles.installButtonContainer}>
+        <Button
+          className={appPermissionContentStyles.installButton}
+          type="button"
+          variant="primary"
+          onClick={setAppDetailModalStateConfirm}
+        >
+          Install
+        </Button>
+        <Button
+          className={appPermissionContentStyles.installButton}
+          type="button"
+          variant="danger"
+          onClick={handleCloseModal(afterClose, setAppDetailModalStateView)}
+        >
+          Dismiss
+        </Button>
+      </div>
     </div>
   )
 }
 
-const mapStateToProps = (state: ReduxState): AppPermissionModalMappedProps => ({
+export const mapStateToProps = (state: ReduxState): AppPermissionModalMappedProps => ({
   permissions: state.appPermission.appPermissionData || [],
-  appInstallFormState: state.appInstall.formState
+  appName:
+    (state.appDetail &&
+      state.appDetail.appDetailData &&
+      state.appDetail.appDetailData.data &&
+      state.appDetail.appDetailData.data.name) ||
+    ''
 })
 
-const mapDispatchToProps = (dispatch: any): AppPermissionModalMappedActions => ({
-  requestInstall: () => dispatch(appInstallRequestData())
+export const mapDispatchToProps = (dispatch: any): AppPermissionModalMappedActions => ({
+  setAppDetailModalStateView: () => dispatch(setAppDetailModalStateView()),
+  setAppDetailModalStateConfirm: () => dispatch(setAppDetailModalStateViewConfirm())
 })
 
 const AppPermissionContentInnerWithConnect = connect(
   mapStateToProps,
   mapDispatchToProps
 )(AppPermissionContent)
+
+AppPermissionContentInnerWithConnect.displayName = 'AppPermissionContentInnerWithConnect'
 
 export default AppPermissionContentInnerWithConnect
