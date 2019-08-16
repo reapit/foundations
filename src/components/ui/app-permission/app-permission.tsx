@@ -3,10 +3,10 @@ import * as React from 'react'
 import AppPermissionAsyncContainer from './app-permission-async-container'
 import AppPermissionWithConnect from './app-permission-content'
 
-const AppPermission = () => {
+const AppPermission = ({ afterClose }) => {
   return (
     <AppPermissionAsyncContainer>
-      <AppPermissionWithConnect />
+      <AppPermissionWithConnect afterClose={afterClose} />
     </AppPermissionAsyncContainer>
   )
 }

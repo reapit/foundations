@@ -7,9 +7,23 @@
 }
 
 .installButtonContainer {
-  display: flex
+  display: flex;
 }
 
 .installButton {
-  width: 100%
+  margin: 0 1rem;
+  width: 100%;
+}
+
+.subtitle {
+  padding: 0 1rem;
+  margin: 0;
+}
+
+.permissionList {
+  padding: 1rem 3rem;
+}
+
+.permissionListItem {
+  list-style-type: circle;
 }

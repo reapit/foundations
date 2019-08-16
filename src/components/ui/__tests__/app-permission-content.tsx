@@ -6,45 +6,55 @@ import { AppPermissionInnerProps, AppPermissionContent } from '../app-permission
 describe('AppDetailModal', () => {
   it('should match a snapshot when appInstallFormState = DONE', () => {
     const props: AppPermissionInnerProps = {
-      requestInstall: jest.fn(),
-      permissions: [{ description: 'test', name: 'tets' }],
-      appInstallFormState: 'DONE'
+      appName: 'mockAppName',
+      setAppDetailModalStateConfirm: jest.fn(),
+      afterClose: jest.fn(),
+      setAppDetailModalStateView: jest.fn(),
+      permissions: [{ description: 'test', name: 'tets' }]
     }
 
     expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
   })
   it('should match a snapshot when appInstallFormState = ERROR', () => {
     const props: AppPermissionInnerProps = {
-      requestInstall: jest.fn(),
-      permissions: [{ description: 'test', name: 'tets' }],
-      appInstallFormState: 'ERROR'
+      appName: 'mockAppName',
+      setAppDetailModalStateConfirm: jest.fn(),
+      afterClose: jest.fn(),
+      setAppDetailModalStateView: jest.fn(),
+      permissions: [{ description: 'test', name: 'tets' }]
     }
 
     expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
   }),
     it('should match a snapshot when appInstallFormState = PENDING', () => {
       const props: AppPermissionInnerProps = {
-        requestInstall: jest.fn(),
-        permissions: [{ description: 'test', name: 'tets' }],
-        appInstallFormState: 'PENDING'
+        appName: 'mockAppName',
+        setAppDetailModalStateConfirm: jest.fn(),
+        afterClose: jest.fn(),
+        setAppDetailModalStateView: jest.fn(),
+        permissions: [{ description: 'test', name: 'tets' }]
       }
 
       expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
     }),
     it('should match a snapshot when appInstallFormState = SUBMITTING', () => {
       const props: AppPermissionInnerProps = {
-        requestInstall: jest.fn(),
-        permissions: [{ description: 'test', name: 'tets' }],
-        appInstallFormState: 'SUBMITTING'
+        appName: 'mockAppName',
+        setAppDetailModalStateConfirm: jest.fn(),
+        afterClose: jest.fn(),
+        setAppDetailModalStateView: jest.fn(),
+        permissions: [{ description: 'test', name: 'tets' }]
       }
 
       expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()
     }),
     it('should match a snapshot when appInstallFormState = SUCCESS', () => {
       const props: AppPermissionInnerProps = {
-        requestInstall: jest.fn(),
-        permissions: [{ description: 'test', name: 'tets' }],
-        appInstallFormState: 'SUCCESS'
+        appName: 'mockAppName',
+        setAppDetailModalStateConfirm: jest.fn(),
+        afterClose: jest.fn(),
+        setAppDetailModalStateView: jest.fn(),
+        permissions: [{ description: 'test', name: 'tets' }]
       }
 
       expect(toJson(shallow(<AppPermissionContent {...props} />))).toMatchSnapshot()

@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppConfirmInstallContent render correctly 1`] = `
+<div
+  data-test="confirm-content"
+>
+  <h3
+    className="title is3 undefined"
+  >
+    Do you want to install it?
+  </h3>
+  <h6>
+    This 
+    mockAppName
+     equires the following permissions, please click ‘Agree’ to continue to the installation.
+  </h6>
+  <ul>
+    <li>
+      Read data about developers
+    </li>
+  </ul>
+  <div>
+    <Button
+      data-test="agree-btn"
+      loading={false}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Agree
+    </Button>
+    <Button
+      data-test="disagree-btn"
+      loading={false}
+      onClick={[Function]}
+      type="button"
+      variant="danger"
+    >
+      Disagree
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`AppConfirmInstallContent render correctly 2`] = `
+<div
+  data-test="confirm-content"
+>
+  <h3
+    className="title is3 undefined"
+  >
+    Do you want to install it?
+  </h3>
+  <h6>
+    This 
+    mockAppName
+     equires the following permissions, please click ‘Agree’ to continue to the installation.
+  </h6>
+  <ul>
+    <li>
+      Read data about developers
+    </li>
+  </ul>
+  <div>
+    <Button
+      data-test="agree-btn"
+      loading={false}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Agree
+    </Button>
+    <Button
+      data-test="disagree-btn"
+      loading={false}
+      onClick={[Function]}
+      type="button"
+      variant="danger"
+    >
+      Disagree
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`AppConfirmInstallContent render correctly 3`] = `
+<div
+  data-test="confirm-content"
+>
+  <h3
+    className="title is3 undefined"
+  >
+    Do you want to install it?
+  </h3>
+  <h6>
+    This 
+    mockAppName
+     equires the following permissions, please click ‘Agree’ to continue to the installation.
+  </h6>
+  <ul>
+    <li>
+      Read data about developers
+    </li>
+  </ul>
+  <div>
+    <Button
+      data-test="agree-btn"
+      loading={true}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Agree
+    </Button>
+    <Button
+      data-test="disagree-btn"
+      loading={true}
+      onClick={[Function]}
+      type="button"
+      variant="danger"
+    >
+      Disagree
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`AppConfirmInstallContent render correctly 4`] = `
+<div
+  data-test="confirm-content"
+>
+  <h3
+    className="title is3 undefined"
+  >
+    Do you want to install it?
+  </h3>
+  <h6>
+    This 
+    mockAppName
+     equires the following permissions, please click ‘Agree’ to continue to the installation.
+  </h6>
+  <ul>
+    <li>
+      Read data about developers
+    </li>
+  </ul>
+  <div>
+    <Button
+      data-test="agree-btn"
+      loading={false}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Agree
+    </Button>
+    <Button
+      data-test="disagree-btn"
+      loading={false}
+      onClick={[Function]}
+      type="button"
+      variant="danger"
+    >
+      Disagree
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`AppConfirmInstallContent render correctly 5`] = `
+<Alert
+  className="mt-5"
+  message="App installed successfully"
+  type="success"
+/>
+`;
