@@ -11,7 +11,7 @@ class ApprovalsPage extends Base {
   }
 
   get viewDetailsButton() {
-    return $('[data-test="view-details-button"]')
+    return $('[data-test*="view-details-button"]')
   }
 
   get detailModal() {

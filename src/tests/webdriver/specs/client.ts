@@ -1,7 +1,6 @@
 import ClientPage from '../page-objects/client'
 import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
-
-const ITEMS_PER_PAGE = 10
+import { APPS_PER_PAGE } from '../../../constants/paginator'
 
 describe('ClientPage', () => {
   beforeEach(() => {
@@ -11,7 +10,7 @@ describe('ClientPage', () => {
 
   it('should load the page correctly', () => {
     expect(ClientPage.heading.getText()).toEqual('Browse Apps')
-    expect(ClientPage.allCards.length).toBeLessThanOrEqual(ITEMS_PER_PAGE)
+    expect(ClientPage.allCards.length).toBeLessThanOrEqual(APPS_PER_PAGE)
   })
 
   afterEach(() => {

@@ -15,7 +15,7 @@ class ClientPage extends Base {
   }
 
   get allCards() {
-    return $$('[data-test="app-card"]')
+    return $$('[data-test*="app-card"]')
   }
 
   open() {

@@ -13,7 +13,11 @@ const { card, image, cardContent, is48x48, is5, is6, title, subtitle, content, c
 const { appCard, isCentered, isLeft } = appCardStyles
 
 const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, className }: AppCardProps) => (
-  <div className={`${card} ${className} ${appCard}`} data-test="app-card" onClick={onClick}>
+  <div
+    className={`${card} ${className} ${appCard}`}
+    data-test={`app-card_${app.id}_${app.pendingRevisions ? null : 'pendingRevisions'}_${app.name}`}
+    onClick={onClick}
+  >
     <div className={cardContent}>
       <figure className={`${image} ${is48x48} ${isCentered}`}>
         <img src={app.iconUri || 'https://bulma.io/images/placeholders/48x48.png'} alt={app.name} />

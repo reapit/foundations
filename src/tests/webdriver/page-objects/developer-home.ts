@@ -15,12 +15,21 @@ class DeveloperHomePage extends Base {
   }
 
   get allCards() {
-    return $$('[data-test="app-card"]')
+    return $$('[data-test*="app-card"]')
+  }
+
+  get editableApp() {
+    return $('[data-test*="pendingRevisions"]')
   }
 
   open() {
     LoginPage.logAsDeveloper()
     super.open(this.route)
+  }
+
+  selectEditableApp() {
+    this.editableApp.click()
+    return this.editableApp.getAttribute('data-test').split('_')[1]
   }
 }
 

@@ -194,6 +194,10 @@ export interface AppSummaryModel {
    * Gets the links associated to this model
    */
   readonly links?: LinkModel[]
+  /**
+   * Gets the pendingRevisions status of this app
+   */
+  pendingRevisions?: boolean
 }
 /**
  * Approval representation

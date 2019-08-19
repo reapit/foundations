@@ -99,11 +99,18 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
       <div className={isEditDetail ? bulma.isHidden : ''}>
         <AppDetail data={appDetailState.appDetailData.data} />
         <div className="mt-5 flex justify-end">
-          <Button type="button" variant="primary" onClick={() => setIsEditDetail(true)} disabled={pendingRevisions}>
+          <Button
+            type="button"
+            variant="primary"
+            onClick={() => setIsEditDetail(true)}
+            disabled={pendingRevisions}
+            dataTest="detail-modal-edit-button"
+          >
             {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
           </Button>
         </div>
       </div>
+
       {isEditDetail && (
         <>
           <h3 className={`${bulma.title} ${bulma.is3}`}>Edit App Detail</h3>
@@ -223,11 +230,18 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                       className="mr-2"
                       variant="secondary"
                       disabled={Boolean(isLoading)}
+                      dataTest="submit-revision-modal-cancel-button"
                       onClick={() => setIsEditDetail(false)}
                     >
                       Cancel
                     </Button>
-                    <Button type="submit" variant="primary" loading={Boolean(isLoading)} disabled={Boolean(isLoading)}>
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      loading={Boolean(isLoading)}
+                      disabled={Boolean(isLoading)}
+                      dataTest="submit-revision-modal-edit-button"
+                    >
                       Submit revision
                     </Button>
                   </div>
