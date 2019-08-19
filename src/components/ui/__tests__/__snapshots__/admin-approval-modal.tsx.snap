@@ -169,6 +169,7 @@ Get notifications when a new deal is available."
     <DiffCheckbox
       changedChecked={false}
       currentChecked={false}
+      dataTest="revision-diff-isListed"
     />
   </div>
   <div

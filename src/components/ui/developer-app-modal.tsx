@@ -96,9 +96,8 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
 
   return (
     <>
-      <div className={isEditDetail ? bulma.isHidden : ''}>
-        <AppDetail data={appDetailState.appDetailData.data} />
-        <div className="mt-5 flex justify-end">
+      <div className={isEditDetail ? bulma.isHidden : ''} data-test="app-detail-modal">
+        <div className="flex justify-end">
           <Button
             type="button"
             variant="primary"
@@ -109,6 +108,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
             {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
           </Button>
         </div>
+        <AppDetail data={appDetailState.appDetailData.data} />
       </div>
 
       {isEditDetail && (

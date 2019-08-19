@@ -66,8 +66,33 @@ class ApprovalsPage extends Base {
     return $('[data-test="approve-revision-success-message"]')
   }
 
+  get isListedCurrentCheckbox() {
+    return $('[data-test="revision-diff-isListed"] [data-test="current"]')
+  }
+
+  get isListedChangedCheckbox() {
+    return $('[data-test="revision-diff-isListed"] [data-test="changed"]')
+  }
+
+  getAppViewDetailButtonbyId(appId: string) {
+    return $(`[data-test="view-details-button_${appId}"]`)
+  }
+
   populateValidDeclineForm() {
     this.rejectionReasonTextarea.setValue('any reason')
+  }
+
+  submitDecline() {
+    this.openDeclineModalButton.click()
+    this.declineSubmitButton.waitForVisible()
+    this.populateValidDeclineForm()
+    this.declineSubmitButton.click()
+  }
+
+  submitApproval() {
+    this.openApproveModalButton.click()
+    this.approvalSubmitButton.waitForVisible()
+    this.approvalSubmitButton.click()
   }
 
   open() {

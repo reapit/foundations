@@ -86,6 +86,7 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
               title="Approved!"
               buttonText="Back to List"
               dataTest="approve-revision-success-message"
+              buttonDataTest="approve-revision-success-button"
               onButtonClick={() => {
                 onApproveSuccess()
               }}

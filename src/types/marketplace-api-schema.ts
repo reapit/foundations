@@ -191,13 +191,13 @@ export interface AppSummaryModel {
    */
   installedOn?: string // date-time
   /**
+   * Gets the status of whether the app has pending revisions
+   */
+  pendingRevisions?: boolean
+  /**
    * Gets the links associated to this model
    */
   readonly links?: LinkModel[]
-  /**
-   * Gets the pendingRevisions status of this app
-   */
-  pendingRevisions?: boolean
 }
 /**
  * Approval representation

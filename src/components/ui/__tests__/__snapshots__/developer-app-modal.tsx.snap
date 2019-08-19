@@ -11,7 +11,20 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
 <Fragment>
   <div
     className=""
+    data-test="app-detail-modal"
   >
+    <div
+      className="flex justify-end"
+    >
+      <Button
+        dataTest="detail-modal-edit-button"
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Edit Detail
+      </Button>
+    </div>
     <AppDetailWithConnect
       data={
         Object {
@@ -43,18 +56,6 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
         }
       }
     />
-    <div
-      className="mt-5 flex justify-end"
-    >
-      <Button
-        dataTest="detail-modal-edit-button"
-        onClick={[Function]}
-        type="button"
-        variant="primary"
-      >
-        Edit Detail
-      </Button>
-    </div>
   </div>
 </Fragment>
 `;

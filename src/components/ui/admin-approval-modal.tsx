@@ -142,7 +142,11 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
 
       <div className="mb-3">
         <h4 className="mb-2">Is listed</h4>
-        <DiffCheckbox currentChecked={Boolean(app.isListed)} changedChecked={Boolean(revision.isListed)} />
+        <DiffCheckbox
+          currentChecked={Boolean(app.isListed)}
+          changedChecked={Boolean(revision.isListed)}
+          dataTest="revision-diff-isListed"
+        />
       </div>
 
       {changedMediaList.map(media => (
