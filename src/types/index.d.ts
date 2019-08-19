@@ -13,3 +13,5 @@ declare module '*.scss' {
   const classes: { [key: string]: string };
   export default classes;
 }
+
+export type PartialRecord<K extends keyof any, T> = { [P in K]?: T }
