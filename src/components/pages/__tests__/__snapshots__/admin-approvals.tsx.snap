@@ -1,11 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdminApproval should match a snapshot 1`] = `
+exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
   <div
     className="container isRelative py-8"
     data-test="revision-list-container"
   >
+    <div
+      className="pin absolute flex items-center justify-center"
+    >
+      <Loader />
+    </div>
     <table
       className="table isFullwidth"
       data-test="revision-list"
@@ -303,3 +308,5 @@ exports[`AdminApproval should match a snapshot 1`] = `
   />
 </Connect(ErrorBoundary)>
 `;
+
+exports[`AdminApproval should match a snapshot when LOADING true 1`] = `<Loader />`;

@@ -15,7 +15,6 @@ import { revisionDetailRequestData, RevisionDetailRequestParams } from '@/action
 import AdminApprovalModal from '../ui/admin-approval-modal'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
-import Modal from '../ui/modal'
 
 export interface AdminApprovalsMappedActions {
   fetchRevisionDetail: (params: RevisionDetailRequestParams) => void

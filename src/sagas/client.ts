@@ -9,10 +9,7 @@ import fetcher from '@/utils/fetcher'
 import { Action, ReduxState } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../constants/api'
 import { oc } from 'ts-optchain'
-
-export const selectClientId = (state: ReduxState) => {
-  return oc<ReduxState>(state).auth.loginSession.loginIdentity.clientId(undefined)
-}
+import { selectClientId } from '@/selector/client'
 
 export const clientDataFetch = function*({ data: page }) {
   yield put(clientLoading(true))

@@ -8,6 +8,8 @@ import fetcher from '@/utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
+import { errorThrownServer } from '@/actions/error'
+import errorMessages from '@/constants/error-messages'
 import { scopes } from '../../sagas/__stubs__/apps'
 
 jest.mock('../../utils/fetcher')
@@ -62,6 +64,19 @@ describe('app-detail fetch data with clientId', () => {
     const clone = gen.clone()
     expect(clone.next().value).toEqual(put(appDetailFailure()))
     expect(clone.next().done).toBe(true)
+  })
+
+  test('api call error', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw('error').value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
+    )
   })
 })
 

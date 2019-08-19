@@ -13,6 +13,8 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
+import { errorThrownServer } from '@/actions/error'
+import errorMessages from '@/constants/error-messages'
 
 jest.mock('../../utils/fetcher')
 const params = { data: 1 }
@@ -40,6 +42,19 @@ describe('adminApprovals fetch data', () => {
     const clone = gen.clone()
     expect(clone.next(undefined).value).toEqual(put(adminApprovalsRequestDataFailure()))
     expect(clone.next().done).toBe(true)
+  })
+
+  test('api call error', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw('error').value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
+    )
   })
 })
 
