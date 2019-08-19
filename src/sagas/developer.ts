@@ -13,12 +13,8 @@ import errorMessages from '../constants/error-messages'
 import { CreateDeveloperModel } from '../types/marketplace-api-schema'
 import { Action, ReduxState } from '../types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
-import { oc } from 'ts-optchain'
+import { selectDeveloperId } from '@/selector/developer'
 import { DeveloperItem } from '@/reducers/developer'
-
-export const selectDeveloperId = (state: ReduxState) => {
-  return oc<ReduxState>(state).auth.loginSession.loginIdentity.developerId(undefined)
-}
 
 export const developerDataFetch = function*({ data: page }) {
   yield put(developerLoading(true))

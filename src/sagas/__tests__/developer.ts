@@ -2,8 +2,7 @@ import developerSagas, {
   developerDataFetch,
   developerRequestDataListen,
   developerCreate,
-  developerCreateListen,
-  selectDeveloperId
+  developerCreateListen
 } from '../developer'
 import ActionTypes from '@/constants/action-types'
 import { call, put, takeLatest, all, fork, select } from '@redux-saga/core/effects'
@@ -17,6 +16,7 @@ import { Action } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+import { selectDeveloperId } from '@/selector/developer'
 import { DeveloperItem } from '@/reducers/developer'
 
 jest.mock('../../utils/fetcher')
@@ -70,23 +70,19 @@ describe('developer fetch data', () => {
     expect(clone.next([undefined, undefined]).value).toEqual(put(developerRequestDataFailure()))
     expect(clone.next().done).toBe(true)
   })
-})
 
-describe('Developer fetch data error', () => {
-  const gen = cloneableGenerator(developerDataFetch)(params)
-
-  expect(gen.next().value).toEqual(put(developerLoading(true)))
-  expect(gen.next().value).toEqual(select(selectDeveloperId))
-
-  // @ts-ignore
-  expect(gen.throw(new Error('Developer id is not exists')).value).toEqual(
-    put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+  test('api call error', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw('error').value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
     )
-  )
+  })
 })
 
 describe('developer thunks', () => {

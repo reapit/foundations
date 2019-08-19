@@ -13,6 +13,8 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { selectClientId } from '@/selector/client'
+import { errorThrownServer } from '@/actions/error'
+import errorMessages from '@/constants/error-messages'
 
 jest.mock('../../utils/fetcher')
 jest.mock('@/selector/client')
@@ -44,6 +46,37 @@ describe('app-permission sagas', () => {
       expect(clone.next(undefined).value).toEqual(put(appPermissionRequestDataFailure()))
       expect(clone.next().done).toBe(true)
     })
+    test('api call error', () => {
+      const clone = gen.clone()
+      // @ts-ignore
+      expect(clone.throw('error').value).toEqual(
+        put(
+          errorThrownServer({
+            type: 'SERVER',
+            message: errorMessages.DEFAULT_SERVER_ERROR
+          })
+        )
+      )
+      expect(gen.next().value).toEqual(put(appPermissionRequestDataFailure()))
+    })
+  })
+
+  describe('app-permission fetch data error', () => {
+    const gen = cloneableGenerator(appPermissionDataFetch)(params)
+
+    expect(gen.next().value).toEqual(put(appPermissionLoading(true)))
+    expect(gen.next().value).toEqual(select(selectClientId))
+
+    // @ts-ignore
+    expect(gen.throw(new Error('Client id is not exists')).value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
+    )
+    expect(gen.next().value).toEqual(put(appPermissionRequestDataFailure()))
   })
 
   describe('app-detail thunks', () => {

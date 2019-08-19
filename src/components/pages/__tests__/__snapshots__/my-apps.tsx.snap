@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MyApps should match a snapshot 1`] = `
+exports[`MyApps should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
   <Component
     list={
@@ -49,7 +49,7 @@ exports[`MyApps should match a snapshot 1`] = `
         },
       ]
     }
-    loading={false}
+    loading={true}
     onCardClick={[Function]}
     title="Installed Apps"
   />
@@ -65,3 +65,5 @@ exports[`MyApps should match a snapshot 1`] = `
   />
 </Connect(ErrorBoundary)>
 `;
+
+exports[`MyApps should match a snapshot when LOADING true 1`] = `<Loader />`;

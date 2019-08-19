@@ -26,7 +26,7 @@ describe('app-uninstall sagas', () => {
     expect(gen.next(1).value).toEqual(select(selectLoggedUserEmail))
     expect(gen.next('1').value).toEqual(select(selectAppDetailInstallationId))
 
-    test('clientId not exist', () => {
+    test('installationId does not exist', () => {
       const clone = gen.clone()
       expect(clone.next().value).toEqual(put(appUninstallRequestDataFailure()))
       expect(clone.next().value).toEqual(
@@ -53,7 +53,7 @@ describe('app-uninstall sagas', () => {
       expect(clone.next().value).toEqual(put(appUninstallRequestSuccess()))
     })
 
-    test('abc', () => {
+    test('api call failure', () => {
       const clone = gen.clone()
       expect(clone.next().value).toEqual(put(appUninstallRequestDataFailure()))
       expect(clone.next().value).toEqual(
