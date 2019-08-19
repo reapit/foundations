@@ -71,14 +71,14 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
           </thead>
           <tbody>
             {list.map((revision, index) => (
-              <tr key={revision.appRevisionId}>
+              <tr key={revision.appRevisionId} data-app-id={revision.appId}>
                 <th>{(pageNumberInState - 1) * REVISIONS_PER_PAGE + index + 1}</th>
                 <th>{revision.appId}</th>
                 <th>{revision.type}</th>
                 <th>{revision.description}</th>
                 <th>
                   <button
-                    data-test="view-details-button"
+                    data-test={`view-details-button_${revision.appId}`}
                     className={`${bulma.button} ${bulma.isPrimary}`}
                     onClick={() => {
                       const { appId, appRevisionId } = revision

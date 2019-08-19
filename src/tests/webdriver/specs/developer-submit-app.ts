@@ -2,7 +2,7 @@ import DeveloperSubmitAppPage from '../page-objects/developer-submit-app'
 import errorMessages from '../../../constants/error-messages'
 import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
-const NUMBER_OF_FIELDS = 14
+const NUMBER_OF_FIELDS = 17
 const NUMBER_OF_REQUIRED_FIELDS = 9
 
 describe('DeveloperSubmitAppPage', () => {

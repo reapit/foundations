@@ -22,8 +22,6 @@ class LoginPage extends Base {
   currRole
 
   get loginRoute() {
-    this.currRole = ROLES.CLIENT
-
     return '/login'
   }
 
@@ -111,12 +109,16 @@ class LoginPage extends Base {
   }
 
   logAsClient() {
+    this.currRole = ROLES.CLIENT
+
     this.open()
     this.populateValidForm()
     this.submitForm()
   }
 
   logAsDeveloper() {
+    this.currRole = ROLES.DEV
+
     this.open()
     this.selectDeveloperTab()
     this.populateValidForm()

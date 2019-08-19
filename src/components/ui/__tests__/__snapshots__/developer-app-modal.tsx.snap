@@ -47,6 +47,7 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
       className="mt-5 flex justify-end"
     >
       <Button
+        dataTest="detail-modal-edit-button"
         onClick={[Function]}
         type="button"
         variant="primary"

@@ -3,7 +3,7 @@
 exports[`AppCard should match a snapshot 1`] = `
 <div
   className="card undefined undefined"
-  data-test="app-card"
+  data-test="app-card_09043eb8-9e5e-4650-b7f1-f0cb62699027_pendingRevisions_test"
 >
   <div
     className="cardContent"
