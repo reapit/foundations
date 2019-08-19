@@ -25,10 +25,7 @@ describe('AdminApprovalPage', () => {
     if (viewDetailsButton.isExisting()) {
       viewDetailsButton.click()
       ApprovalsPage.detailModal.waitForVisible()
-      ApprovalsPage.openDeclineModalButton.click()
-      ApprovalsPage.declineSubmitButton.waitForVisible()
-      ApprovalsPage.populateValidDeclineForm()
-      ApprovalsPage.declineSubmitButton.click()
+      ApprovalsPage.submitDecline()
       ApprovalsPage.declineSuccessMessage.waitForVisible()
     }
   })
@@ -38,9 +35,7 @@ describe('AdminApprovalPage', () => {
     if (viewDetailsButton.isExisting()) {
       viewDetailsButton.click()
       ApprovalsPage.detailModal.waitForVisible()
-      ApprovalsPage.openApproveModalButton.click()
-      ApprovalsPage.approvalSubmitButton.waitForVisible()
-      ApprovalsPage.approvalSubmitButton.click()
+      ApprovalsPage.submitApproval()
       ApprovalsPage.approveSuccessMessage.waitForVisible()
     }
   })
