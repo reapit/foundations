@@ -1,4 +1,4 @@
-import { PartialRecord } from '../types'
+import { PartialRecord } from './index'
 
 interface ValidateBaseProps<ValuesType, ErrorKeys extends string> {
   values: ValuesType

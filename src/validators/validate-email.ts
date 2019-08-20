@@ -1,6 +1,6 @@
 import { validateBase, ValidateCustomParams } from './validate-base'
 import errorMessages from './error-messages'
-import { PartialRecord } from '../types'
+import { PartialRecord } from './index'
 
 export const isEmail = email => {
   // RFC 5322 email specfication

@@ -1,5 +1,5 @@
 import { validateBase, ValidateCustomParams } from './validate-base'
-import { PartialRecord } from '../types'
+import { PartialRecord } from './index'
 
 export const minLengthValidator = (length: number) => (str: string) => {
   return !!str && str.length >= length
