@@ -34,7 +34,7 @@ const AppDelete = ({ appName, formState, setDeveloperAppModalStateViewDetail, ap
       </h6>
       <div className={appPermissionContentStyles.installButtonContainer}>
         <Button
-          data-test="agree-btn"
+          dataTest="agree-btn"
           loading={Boolean(isLoading)}
           className={appPermissionContentStyles.installButton}
           type="button"
@@ -44,7 +44,7 @@ const AppDelete = ({ appName, formState, setDeveloperAppModalStateViewDetail, ap
           Confirm
         </Button>
         <Button
-          data-test="disagree-btn"
+          dataTest="disagree-btn"
           loading={Boolean(isLoading)}
           className={appPermissionContentStyles.installButton}
           type="button"

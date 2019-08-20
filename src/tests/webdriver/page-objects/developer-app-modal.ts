@@ -1,4 +1,8 @@
 class DeveloperAppModal {
+  get btnDeleteApp() {
+    return $('[data-test="btnAppDetailDeleteApp"]')
+  }
+
   get editDetailButton() {
     return $('[data-test="detail-modal-edit-button"]')
   }
