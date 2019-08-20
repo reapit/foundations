@@ -96,9 +96,9 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
             {isCurrentLoggedUserClient &&
               (installedOn ? (
                 <Button
-                  dataTest="btnAppDetailUninstallApp"
                   type="button"
                   variant="primary"
+                  dataTest="btnAppDetailUninstallApp"
                   loading={Boolean(isLoadingUninstall)}
                   disabled={Boolean(isLoadingUninstall)}
                   onClick={requestUninstall}

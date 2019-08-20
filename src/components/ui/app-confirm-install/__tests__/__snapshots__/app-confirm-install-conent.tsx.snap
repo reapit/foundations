@@ -21,7 +21,7 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
   </ul>
   <div>
     <Button
-      data-test="agree-btn"
+      dataTest="agree-btn"
       loading={false}
       onClick={[MockFunction]}
       type="button"
@@ -30,7 +30,7 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
       Agree
     </Button>
     <Button
-      data-test="disagree-btn"
+      dataTest="disagree-btn"
       loading={false}
       onClick={[Function]}
       type="button"
@@ -63,7 +63,7 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
   </ul>
   <div>
     <Button
-      data-test="agree-btn"
+      dataTest="agree-btn"
       loading={false}
       onClick={[MockFunction]}
       type="button"
@@ -72,7 +72,7 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
       Agree
     </Button>
     <Button
-      data-test="disagree-btn"
+      dataTest="disagree-btn"
       loading={false}
       onClick={[Function]}
       type="button"
@@ -105,7 +105,7 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
   </ul>
   <div>
     <Button
-      data-test="agree-btn"
+      dataTest="agree-btn"
       loading={true}
       onClick={[MockFunction]}
       type="button"
@@ -114,7 +114,7 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
       Agree
     </Button>
     <Button
-      data-test="disagree-btn"
+      dataTest="disagree-btn"
       loading={true}
       onClick={[Function]}
       type="button"
@@ -147,7 +147,7 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
   </ul>
   <div>
     <Button
-      data-test="agree-btn"
+      dataTest="agree-btn"
       loading={false}
       onClick={[MockFunction]}
       type="button"
@@ -156,7 +156,7 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
       Agree
     </Button>
     <Button
-      data-test="disagree-btn"
+      dataTest="disagree-btn"
       loading={false}
       onClick={[Function]}
       type="button"
@@ -171,6 +171,7 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
 exports[`AppConfirmInstallContent render correctly 5`] = `
 <Alert
   className="mt-5"
+  dataTest="alertInstalledSuccess"
   message="App installed successfully"
   type="success"
 />

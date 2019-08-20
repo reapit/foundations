@@ -68,7 +68,7 @@ describe('AppConfirmInstallContent', () => {
       appInstallFormState: 'SUBMITTING' as FormState
     }
     const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
-    expect(wrapper.find('[data-test="agree-btn"]').prop('loading')).toEqual(true)
+    expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
   })
 
   it('button disagree show loading when agree install', () => {
@@ -81,7 +81,7 @@ describe('AppConfirmInstallContent', () => {
       appInstallFormState: 'SUBMITTING' as FormState
     }
     const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
-    expect(wrapper.find('[data-test="disagree-btn"]').prop('loading')).toEqual(true)
+    expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
   })
   it('handleCloseModal', () => {
     const afterClose = jest.fn()

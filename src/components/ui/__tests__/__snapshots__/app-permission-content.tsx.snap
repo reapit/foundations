@@ -18,6 +18,7 @@ exports[`AppDetailModal should match a snapshot when appInstallFormState = DONE 
   </ul>
   <div>
     <Button
+      dataTest="btnInstall"
       onClick={[MockFunction]}
       type="button"
       variant="primary"
@@ -53,6 +54,7 @@ exports[`AppDetailModal should match a snapshot when appInstallFormState = ERROR
   </ul>
   <div>
     <Button
+      dataTest="btnInstall"
       onClick={[MockFunction]}
       type="button"
       variant="primary"
@@ -88,6 +90,7 @@ exports[`AppDetailModal should match a snapshot when appInstallFormState = PENDI
   </ul>
   <div>
     <Button
+      dataTest="btnInstall"
       onClick={[MockFunction]}
       type="button"
       variant="primary"
@@ -123,6 +126,7 @@ exports[`AppDetailModal should match a snapshot when appInstallFormState = SUBMI
   </ul>
   <div>
     <Button
+      dataTest="btnInstall"
       onClick={[MockFunction]}
       type="button"
       variant="primary"
@@ -158,6 +162,7 @@ exports[`AppDetailModal should match a snapshot when appInstallFormState = SUCCE
   </ul>
   <div>
     <Button
+      dataTest="btnInstall"
       onClick={[MockFunction]}
       type="button"
       variant="primary"

@@ -95,9 +95,23 @@ class ApprovalsPage extends Base {
     this.approvalSubmitButton.click()
   }
 
+  getViewDetailButtonOfAppId(appId) {
+    return $(`[data-test*="${appId}"]`)
+  }
+
   open() {
     LoginAdminPage.login()
     super.open(this.route)
+  }
+
+  approveAppChange(appId) {
+    this.revisionContainer.waitForVisible()
+    this.getViewDetailButtonOfAppId(appId).click()
+    this.detailModal.waitForVisible()
+    this.openApproveModalButton.click()
+    this.approvalSubmitButton.waitForVisible()
+    this.approvalSubmitButton.click()
+    this.approveSuccessMessage.waitForVisible()
   }
 }
 

@@ -47,6 +47,7 @@ export const AppPermissionContent = ({
       </ul>
       <div className={appPermissionContentStyles.installButtonContainer}>
         <Button
+          dataTest="btnInstall"
           className={appPermissionContentStyles.installButton}
           type="button"
           variant="primary"

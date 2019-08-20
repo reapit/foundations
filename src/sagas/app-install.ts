@@ -1,6 +1,7 @@
 import fetcher from '../utils/fetcher'
 import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import { appInstallRequestSuccess, appInstallRequestDataFailure, appInstallLoading } from '@/actions/app-install'
+import { appDetailRequestData } from '@/actions/app-detail'
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
@@ -29,6 +30,12 @@ export const appInstallSaga = function*() {
       body: { appId, clientId, approvedBy: email }
     })
     yield put(appInstallRequestSuccess())
+    yield put(
+      appDetailRequestData({
+        id: appId,
+        clientId
+      })
+    )
   } catch (err) {
     yield put(appInstallRequestDataFailure())
     yield put(

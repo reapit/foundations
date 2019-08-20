@@ -163,6 +163,7 @@ Get notifications when a new deal is available."
   >
     <h4
       className="mb-2"
+      data-test="chkIsListed"
     >
       Is listed
     </h4>

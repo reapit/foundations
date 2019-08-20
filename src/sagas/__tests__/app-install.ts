@@ -4,6 +4,7 @@ import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import { appInstallRequestSuccess, appInstallRequestDataFailure, appInstallLoading } from '@/actions/app-install'
+import { appDetailRequestData } from '@/actions/app-detail'
 import { selectAppDetailId } from '@/selector/app-detail'
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { Action } from '@/types/core'
@@ -19,7 +20,7 @@ describe('app-install sagas', () => {
     const gen = cloneableGenerator(appInstallSaga)()
     expect(gen.next().value).toEqual(put(appInstallLoading()))
     expect(gen.next().value).toEqual(select(selectAppDetailId))
-    expect(gen.next(1).value).toEqual(select(selectLoggedUserEmail))
+    expect(gen.next('1').value).toEqual(select(selectLoggedUserEmail))
     expect(gen.next('1').value).toEqual(select(selectClientId))
 
     test('clientId not exist', () => {
@@ -37,19 +38,27 @@ describe('app-install sagas', () => {
 
     test('api call success', () => {
       const clone = gen.clone()
-      expect(clone.next(1).value).toEqual(
+      expect(clone.next('1').value).toEqual(
         call(fetcher, {
           url: `${URLS.installations}`,
           api: REAPIT_API_BASE_URL,
           method: 'POST',
           headers: MARKETPLACE_HEADERS,
-          body: { appId: 1, clientId: 1, approvedBy: '1' }
+          body: { appId: '1', clientId: '1', approvedBy: '1' }
         })
       )
       expect(clone.next().value).toEqual(put(appInstallRequestSuccess()))
+      expect(clone.next().value).toEqual(
+        put(
+          appDetailRequestData({
+            id: '1',
+            clientId: '1'
+          })
+        )
+      )
     })
 
-    test('abc', () => {
+    test('api fail sagas', () => {
       const clone = gen.clone()
       expect(clone.next().value).toEqual(put(appInstallRequestDataFailure()))
       expect(clone.next().value).toEqual(
