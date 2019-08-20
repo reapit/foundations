@@ -1,5 +1,5 @@
 import { validateBase, ValidateCustomParams } from './validate-base'
-import { PartialRecord } from '../types'
+import { PartialRecord } from './index'
 import errorMessages from './error-messages'
 
 export const validateRequire = <ValuesType, ErrorKeys extends string>({

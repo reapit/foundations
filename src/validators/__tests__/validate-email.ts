@@ -1,6 +1,50 @@
 import { isEmail, validateEmail } from '../validate-email'
+import errorMessages from '../error-messages'
+
+interface ValueTypes {
+  validEmail: string
+  invalidEmail: string
+}
+
+type ErrorKeys = 'validEmail' | 'invalidEmail'
 
 describe('validate-email', () => {
+  describe('Validate email function', () => {
+    it('work correctly', () => {
+      const values = {
+        validEmail: 'test@mail.com',
+        invalidEmail: 'test'
+      }
+
+      expect(
+        validateEmail<ValueTypes, ErrorKeys>({
+          values,
+          currentErrors: {},
+          keys: ['invalidEmail', 'validEmail']
+        })
+      ).toStrictEqual({
+        invalidEmail: errorMessages.FIELD_WRONG_EMAIL_FORMAT
+      })
+    })
+
+    it('should not override existed error key', () => {
+      const values = {
+        validEmail: 'test@mail.com',
+        invalidEmail: 'test'
+      }
+
+      expect(
+        validateEmail<ValueTypes, ErrorKeys>({
+          values,
+          currentErrors: { invalidEmail: 'test' },
+          keys: ['invalidEmail', 'validEmail']
+        })
+      ).toStrictEqual({
+        invalidEmail: 'test'
+      })
+    })
+  })
+
   describe('isEmail', () => {
     it('should return true', () => {
       const input = 'tanphamhaiduong@gmail.com'
