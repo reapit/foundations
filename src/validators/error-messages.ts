@@ -8,7 +8,7 @@ const errorMessages = {
   FIELD_REQUIRED: 'Required',
   FIELD_WRONG_EMAIL_FORMAT: 'Invalid email format',
   FIELD_WRONG_URI_FORMAT: 'Invalid uri format',
-  MINIMUM_CHARACTER_LENGTH: maxCharLengthErrMessage,
+  MINIMUM_CHARACTER_LENGTH: minCharLengthErrMessage,
   MAXIMUM_CHARACTER_LENGTH: maxCharLengthErrMessage
 }
 
