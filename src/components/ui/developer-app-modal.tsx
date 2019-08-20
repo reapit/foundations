@@ -14,16 +14,22 @@ import { Form, Formik } from 'formik'
 import { validate } from '@/utils/form/submit-revision'
 import { transformDotNotationToObject, ScopeObject, transformObjectToDotNotation } from '@/utils/common'
 import AppDetail from './app-detail'
+import { DeveloperAppModalState } from '@/reducers/developer-app-modal'
+import { setDeveloperAppModalStateEditDetail, setDeveloperAppModalStateViewDetail } from '@/actions/developer-app-modal'
+import AppDelete from '@/components/ui/app-delete'
 
 export interface DeveloperAppModalMappedProps {
   allScopes: ScopeModel[]
   appDetailState: AppDetailState
   submitRevisionState: SubmitRevisionState
+  modalState: DeveloperAppModalState
 }
 
 export interface DeveloperAppModalMappedActions {
   submitRevision: (id: string, revision: CreateAppRevisionModel) => void
   submitRevisionSetFormState: (formState: FormState) => void
+  setDeveloperAppModalStateEditDetail: () => void
+  setDeveloperAppModalStateViewDetail: () => void
 }
 
 export type DeveloperAppInnerProps = DeveloperAppModalMappedProps & DeveloperAppModalMappedActions & {}
@@ -39,7 +45,10 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
   appDetailState,
   submitRevision,
   submitRevisionSetFormState,
-  submitRevisionState
+  submitRevisionState,
+  modalState,
+  setDeveloperAppModalStateEditDetail,
+  setDeveloperAppModalStateViewDetail
 }) => {
   const { formState } = submitRevisionState
 
@@ -52,11 +61,9 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     }
   }, [])
 
-  const [isEditDetail, setIsEditDetail] = React.useState(false)
-
   React.useEffect(() => {
     if (isSucceeded) {
-      setIsEditDetail(false)
+      setDeveloperAppModalStateViewDetail()
     }
   }, [isSucceeded])
 
@@ -94,171 +101,174 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     .reduce((a, c) => ({ ...a, [`screen${c.order}ImageData`]: c.uri }), {})
   const iconImageData = icon ? icon.uri : ''
 
-  return (
-    <>
-      <div className={isEditDetail ? bulma.isHidden : ''} data-test="app-detail-modal">
-        <div className="flex justify-end">
+  if (modalState === 'DELETE_APP_CONFIRM') {
+    return <AppDelete />
+  }
+
+  if (modalState === 'VIEW_DETAIL') {
+    return (
+      <div>
+        <AppDetail data={appDetailState.appDetailData.data} />
+        <div className="mt-5 flex justify-end">
           <Button
             type="button"
             variant="primary"
-            onClick={() => setIsEditDetail(true)}
-            disabled={pendingRevisions}
             dataTest="detail-modal-edit-button"
+            onClick={setDeveloperAppModalStateEditDetail}
+            disabled={pendingRevisions}
           >
             {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
           </Button>
         </div>
-        <AppDetail data={appDetailState.appDetailData.data} />
       </div>
+    )
+  }
 
-      {isEditDetail && (
-        <>
-          <h3 className={`${bulma.title} ${bulma.is3}`}>Edit App Detail</h3>
-          <Formik
-            initialValues={{
-              name,
-              description,
-              developerId,
-              homePage,
-              telephone,
-              supportEmail,
-              summary,
-              launchUri,
-              iconImageData,
-              isListed,
-              scopes: transformDotNotationToObject(appScopes),
-              ...images
-            }}
-            validate={validate}
-            onSubmit={revision => {
-              if (!id) {
-                return
-              }
-              submitRevision(id, revision)
-            }}
-            render={() => {
-              return (
-                <Form>
-                  <Input dataTest="submit-revision-name" type="text" labelText="Name" id="name" name="name" />
-                  <Input
-                    dataTest="submit-revision-support-email"
-                    type="text"
-                    labelText="Support Email"
-                    id="supportEmail"
-                    name="supportEmail"
-                  />
-                  <Input
-                    dataTest="submit-revision-telephone"
-                    type="text"
-                    labelText="Telephone"
-                    id="telephone"
-                    name="telephone"
-                  />
-                  <Input
-                    dataTest="submit-revision-launchUri"
-                    type="text"
-                    labelText="Launch URI"
-                    id="launchUri"
-                    name="launchUri"
-                  />
-                  <Input
-                    dataTest="submit-revision-homepage"
-                    type="text"
-                    labelText="Homepage"
-                    id="homePage"
-                    name="homePage"
-                  />
-                  <TextArea
-                    id="description"
-                    dataTest="submit-revision-description"
-                    labelText="Description"
-                    name="description"
-                  />
-                  <TextArea id="summary" dataTest="submit-revision-summary" labelText="Sumary" name="summary" />
-                  {renderScopesCheckbox(allScopes)}
-                  <ImageInput
-                    id="iconImageData"
-                    dataTest="submit-app-iconImageData"
-                    labelText="Icon"
-                    name="iconImageData"
-                  />
+  if (modalState === 'EDIT_APP_DETAIL') {
+    return (
+      <div>
+        {' '}
+        <h3 className={`${bulma.title} ${bulma.is3}`}>Edit App Detail</h3>
+        <Formik
+          initialValues={{
+            name,
+            description,
+            developerId,
+            homePage,
+            telephone,
+            supportEmail,
+            summary,
+            launchUri,
+            iconImageData,
+            isListed,
+            scopes: transformDotNotationToObject(appScopes),
+            ...images
+          }}
+          validate={validate}
+          onSubmit={revision => {
+            if (!id) {
+              return
+            }
+            submitRevision(id, revision)
+          }}
+          render={() => {
+            return (
+              <Form>
+                <Input dataTest="submit-revision-name" type="text" labelText="Name" id="name" name="name" />
+                <Input
+                  dataTest="submit-revision-support-email"
+                  type="text"
+                  labelText="Support Email"
+                  id="supportEmail"
+                  name="supportEmail"
+                />
+                <Input
+                  dataTest="submit-revision-telephone"
+                  type="text"
+                  labelText="Telephone"
+                  id="telephone"
+                  name="telephone"
+                />
+                <Input
+                  dataTest="submit-revision-launchUri"
+                  type="text"
+                  labelText="Launch URI"
+                  id="launchUri"
+                  name="launchUri"
+                />
+                <Input
+                  dataTest="submit-revision-homepage"
+                  type="text"
+                  labelText="Homepage"
+                  id="homePage"
+                  name="homePage"
+                />
+                <TextArea
+                  id="description"
+                  dataTest="submit-revision-description"
+                  labelText="Description"
+                  name="description"
+                />
+                <TextArea id="summary" dataTest="submit-revision-summary" labelText="Sumary" name="summary" />
+                {renderScopesCheckbox(allScopes)}
+                <ImageInput
+                  id="iconImageData"
+                  dataTest="submit-app-iconImageData"
+                  labelText="Icon"
+                  name="iconImageData"
+                />
 
-                  <ImageInput
-                    id="screenshot1"
-                    dataTest="submit-app-screenshoot1"
-                    labelText="Screenshot 1"
-                    name="screen1ImageData"
-                  />
+                <ImageInput
+                  id="screenshot1"
+                  dataTest="submit-app-screenshoot1"
+                  labelText="Screenshot 1"
+                  name="screen1ImageData"
+                />
 
-                  <ImageInput
-                    id="screenshot2"
-                    dataTest="submit-app-screenshoot2"
-                    labelText="Screenshot 2"
-                    name="screen2ImageData"
-                    allowClear
-                  />
+                <ImageInput
+                  id="screenshot2"
+                  dataTest="submit-app-screenshoot2"
+                  labelText="Screenshot 2"
+                  name="screen2ImageData"
+                  allowClear
+                />
 
-                  <ImageInput
-                    id="screenshot3"
-                    dataTest="submit-app-screenshoot3"
-                    labelText="Screenshot 3"
-                    name="screen3ImageData"
-                    allowClear
-                  />
+                <ImageInput
+                  id="screenshot3"
+                  dataTest="submit-app-screenshoot3"
+                  labelText="Screenshot 3"
+                  name="screen3ImageData"
+                  allowClear
+                />
 
-                  <ImageInput
-                    id="screenshot4"
-                    dataTest="submit-app-screenshoot4"
-                    labelText="Screenshot 4"
-                    name="screen4ImageData"
-                    allowClear
-                  />
+                <ImageInput
+                  id="screenshot4"
+                  dataTest="submit-app-screenshoot4"
+                  labelText="Screenshot 4"
+                  name="screen4ImageData"
+                  allowClear
+                />
 
-                  <ImageInput
-                    id="screenshot5"
-                    dataTest="submit-app-screenshoot5"
-                    labelText="Screenshot 5"
-                    name="screen5ImageData"
-                    allowClear
-                  />
+                <ImageInput
+                  id="screenshot5"
+                  dataTest="submit-app-screenshoot5"
+                  labelText="Screenshot 5"
+                  name="screen5ImageData"
+                  allowClear
+                />
 
-                  <Checkbox id="isListed" dataTest="submit-revision-isListed" labelText="Is listed" name="isListed" />
+                <Checkbox id="isListed" dataTest="submit-revision-isListed" labelText="Is listed" name="isListed" />
 
-                  <div className="flex justify-end">
-                    <Button
-                      type="button"
-                      className="mr-2"
-                      variant="secondary"
-                      disabled={Boolean(isLoading)}
-                      dataTest="submit-revision-modal-cancel-button"
-                      onClick={() => setIsEditDetail(false)}
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      loading={Boolean(isLoading)}
-                      disabled={Boolean(isLoading)}
-                      dataTest="submit-revision-modal-edit-button"
-                    >
-                      Submit revision
-                    </Button>
-                  </div>
-                </Form>
-              )
-            }}
-          />
-        </>
-      )}
-    </>
-  )
+                <div className="flex justify-end">
+                  <Button
+                    type="button"
+                    className="mr-2"
+                    variant="secondary"
+                    disabled={Boolean(isLoading)}
+                    onClick={setDeveloperAppModalStateViewDetail}
+                  >
+                    Cancel
+                  </Button>
+                  <Button type="submit" variant="primary" loading={Boolean(isLoading)} disabled={Boolean(isLoading)}>
+                    Submit revision
+                  </Button>
+                </div>
+              </Form>
+            )
+          }}
+        />
+      </div>
+    )
+  }
+
+  return <div />
 }
 
 const mapStateToProps = (state: ReduxState): DeveloperAppModalMappedProps => ({
   allScopes: (state.developer.developerData && state.developer.developerData.scopes) || [],
   appDetailState: state.appDetail,
-  submitRevisionState: state.submitRevision
+  submitRevisionState: state.submitRevision,
+  modalState: state.developerAppModalState
 })
 
 const mapDispatchToProps = (dispatch: any): DeveloperAppModalMappedActions => ({
@@ -266,7 +276,9 @@ const mapDispatchToProps = (dispatch: any): DeveloperAppModalMappedActions => ({
     const scopes = transformObjectToDotNotation(revision.scopes as ScopeObject)
     dispatch(submitRevision({ ...revision, id, scopes }))
   },
-  submitRevisionSetFormState: formState => dispatch(submitRevisionSetFormState(formState))
+  submitRevisionSetFormState: formState => dispatch(submitRevisionSetFormState(formState)),
+  setDeveloperAppModalStateEditDetail: () => dispatch(setDeveloperAppModalStateEditDetail()),
+  setDeveloperAppModalStateViewDetail: () => dispatch(setDeveloperAppModalStateViewDetail())
 })
 
 const DeveloperAppInnerWithConnect = connect(

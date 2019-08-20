@@ -14,6 +14,8 @@ import submitRevision from '../reducers/submit-revision'
 import adminApprovals from '../reducers/admin-approvals'
 import revisionDetail from '../reducers/revision-detail'
 import appDetailModal from '../reducers/app-detail-modal'
+import appDeleteReducer from '../reducers/app-delete'
+import appDeveloperModalReducer from '../reducers/developer-app-modal'
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
@@ -30,6 +32,7 @@ import revisionDetailSagas from '../sagas/revision-detail'
 import appPermissionSagas from '../sagas/app-permission'
 import appInstallSagas from '../sagas/app-install'
 import appUninstallSagas from '../sagas/app-uninstall'
+import appDeleteSagas from '../sagas/app-delete'
 
 export class Store {
   static _instance: Store
@@ -61,7 +64,9 @@ export class Store {
     appPermission,
     appDetailModal,
     appInstall,
-    appUninstall
+    appUninstall,
+    appDelete: appDeleteReducer,
+    developerAppModalState: appDeveloperModalReducer
   })
 
   static sagas = function*() {
@@ -78,7 +83,8 @@ export class Store {
       fork(revisionDetailSagas),
       fork(appPermissionSagas),
       fork(appInstallSagas),
-      fork(appUninstallSagas)
+      fork(appUninstallSagas),
+      fork(appDeleteSagas)
     ])
   }
 

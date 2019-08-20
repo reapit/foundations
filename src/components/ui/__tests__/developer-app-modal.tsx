@@ -25,14 +25,6 @@ describe('DeveloperAppModalInner', () => {
     expect(toJson(shallow(<DeveloperAppModalInner {...props(false, true)} />))).toMatchSnapshot()
   })
 
-  it('should toggle form when click Edit Detail button', () => {
-    const wrapper = shallow(<DeveloperAppModalInner {...props(false, false)} />)
-    expect(wrapper.find('form')).toHaveLength(0)
-    const editEdtailButton = wrapper.find(Button)
-    editEdtailButton.simulate('click')
-    expect(wrapper.find(Formik)).toHaveLength(1)
-  })
-
   describe('renderScopesCheckbox run correctly', () => {
     it('when renderScopesCheckBox have scope', () => {
       const scopes = [

@@ -13,9 +13,13 @@ import { AppDetailState } from '@/reducers/app-detail'
 import { appDetailRequestData } from '@/actions/app-detail'
 import DeveloperAppModal from '../ui/developer-app-modal'
 import bulma from '../../styles/vendor/bulma'
+import { setDeveloperAppModalStateViewDetail } from '@/actions/developer-app-modal'
+import { appDeleteSetInitFormState } from '@/actions/app-delete'
 
 export interface DeveloperMappedActions {
   fetchAppDetail: (id: string) => void
+  setDeveloperAppModalStateViewDetail: () => void
+  appDeleteSetInitFormState: () => void
 }
 
 export interface DeveloperMappedProps {
@@ -29,6 +33,8 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   developerState,
   match,
   fetchAppDetail,
+  setDeveloperAppModalStateViewDetail,
+  appDeleteSetInitFormState,
   appDetail
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
@@ -51,6 +57,8 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
         loading={loading}
         onCardClick={app => {
           setVisible(true)
+          setDeveloperAppModalStateViewDetail()
+          appDeleteSetInitFormState()
           if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
             fetchAppDetail(app.id)
           }
@@ -73,7 +81,9 @@ const mapStateToProps = (state: ReduxState): DeveloperMappedProps => ({
 })
 
 const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
-  fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id }))
+  fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id })),
+  setDeveloperAppModalStateViewDetail: () => dispatch(setDeveloperAppModalStateViewDetail()),
+  appDeleteSetInitFormState: () => dispatch(appDeleteSetInitFormState())
 })
 
 export default withRouter(
