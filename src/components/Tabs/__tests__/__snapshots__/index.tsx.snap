@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs should match a snapshot 1`] = `
+<div
+  className="tabs is-fullwidth"
+  role="tablist"
+>
+  <ul>
+    <li
+      className="is-active"
+      key="ITEMONE"
+    >
+      <a
+        aria-controls="ITEMONE"
+        aria-selected={true}
+        href="#ITEMONE"
+        id="ITEMONE"
+        onClick={[Function]}
+        role="tab"
+      >
+        Item one
+      </a>
+    </li>
+    <li
+      className=""
+      key="ITEMTWO"
+    >
+      <a
+        aria-controls="ITEMTWO"
+        aria-selected={false}
+        href="#ITEMTWO"
+        id="ITEMTWO"
+        onClick={[Function]}
+        role="tab"
+      >
+        Item two
+      </a>
+    </li>
+  </ul>
+</div>
+`;
