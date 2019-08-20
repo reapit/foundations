@@ -11,6 +11,7 @@ import { appPermissionRequestData } from '@/actions/app-permission'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { Button } from '@reapit/elements'
 import { appUninstallRequestData } from '@/actions/app-uninstall'
+import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 
 const { useState } = React
 
@@ -20,6 +21,7 @@ export interface AppDetailModalInnerProps {
 
 export interface AppDetailModalMappedProps {
   isCurrentLoggedUserClient: boolean
+  isCurrentLoggedUserDeveloper: boolean
   appUninstallFormState: FormState
 }
 
@@ -27,6 +29,7 @@ export interface AppDetailModalMappedActions {
   setAppDetailModalStatePermission: () => void
   fetchAppPermission: (id: string) => void
   requestUninstall: () => void
+  setDeveloperAppModalStateDelete: () => void
 }
 
 export type AppDetailProps = AppDetailModalMappedActions & AppDetailModalMappedProps & AppDetailModalInnerProps
@@ -41,7 +44,9 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   fetchAppPermission,
   requestUninstall,
   appUninstallFormState,
-  isCurrentLoggedUserClient
+  isCurrentLoggedUserClient,
+  isCurrentLoggedUserDeveloper,
+  setDeveloperAppModalStateDelete
 }) => {
   if (!data) {
     return null
@@ -91,6 +96,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
             {isCurrentLoggedUserClient &&
               (installedOn ? (
                 <Button
+                  dataTest="btnAppDetailUninstallApp"
                   type="button"
                   variant="primary"
                   loading={Boolean(isLoadingUninstall)}
@@ -101,6 +107,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                 </Button>
               ) : (
                 <a
+                  data-test="btnAppDetailInstallApp"
                   onClick={() => {
                     if (!id) {
                       return
@@ -112,6 +119,16 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                   Install App
                 </a>
               ))}
+            {isCurrentLoggedUserDeveloper && (
+              <Button
+                dataTest="btnAppDetailDeleteApp"
+                type="button"
+                variant="primary"
+                onClick={setDeveloperAppModalStateDelete}
+              >
+                Delete App
+              </Button>
+            )}
           </div>
         </div>
       </div>
@@ -132,17 +149,19 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   )
 }
 
-const mapStateToProps = (state: ReduxState): AppDetailModalMappedProps => {
+export const mapStateToProps = (state: ReduxState): AppDetailModalMappedProps => {
   return {
     isCurrentLoggedUserClient: state.auth.loginType === 'CLIENT',
+    isCurrentLoggedUserDeveloper: state.auth.loginType === 'DEVELOPER',
     appUninstallFormState: state.appUninstall.formState
   }
 }
 
-const mapDispatchToProps = (dispatch: any): AppDetailModalMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): AppDetailModalMappedActions => ({
   setAppDetailModalStatePermission: () => dispatch(setAppDetailModalStatePermission()),
   fetchAppPermission: appId => dispatch(appPermissionRequestData(appId)),
-  requestUninstall: () => dispatch(appUninstallRequestData())
+  requestUninstall: () => dispatch(appUninstallRequestData()),
+  setDeveloperAppModalStateDelete: () => dispatch(setDeveloperAppModalStateDelete())
 })
 
 const AppDetailWithConnect = connect(

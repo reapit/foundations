@@ -15,10 +15,15 @@ import { AppPermissionState } from '@/reducers/app-permission'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { AppInstallState } from '@/reducers/app-install'
 import { AppUninstallState } from '@/reducers/app-uninstall'
+import { DeveloperAppModalState } from '@/reducers/developer-app-modal'
 
 export interface Action<T> {
   readonly type: ActionType
   readonly data: T
+}
+
+export interface RequestState {
+  formState: FormState
 }
 
 export interface ActionCreator<T> {
@@ -63,4 +68,6 @@ export interface ReduxState {
   appDetailModal: AppDetailModalState
   appInstall: AppInstallState
   appUninstall: AppUninstallState
+  appDelete: RequestState
+  developerAppModalState: DeveloperAppModalState
 }
