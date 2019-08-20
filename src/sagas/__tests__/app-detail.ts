@@ -36,24 +36,13 @@ describe('app-detail fetch data with clientId', () => {
       headers: MARKETPLACE_HEADERS
     })
   )
-  expect(gen.next(appDetailDataStub.data).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}/${appDetailDataStub.data.id}/scopes`,
-      api: REAPIT_API_BASE_URL,
-      method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
-  )
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(scopes).value).toEqual(
+    expect(clone.next(appDetailDataStub.data).value).toEqual(
       put(
         appDetailReceiveData({
-          data: {
-            ...appDetailDataStub.data,
-            scopes
-          }
+          data: appDetailDataStub.data
         })
       )
     )
@@ -92,24 +81,12 @@ describe('app-detail fetch data without clientId', () => {
     })
   )
 
-  expect(gen.next(appDetailDataStub.data).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}/${appDetailDataStub.data.id}/scopes`,
-      api: REAPIT_API_BASE_URL,
-      method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
-  )
-
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(scopes).value).toEqual(
+    expect(clone.next(appDetailDataStub.data).value).toEqual(
       put(
         appDetailReceiveData({
-          data: {
-            ...appDetailDataStub.data,
-            scopes
-          }
+          data: appDetailDataStub.data
         })
       )
     )
