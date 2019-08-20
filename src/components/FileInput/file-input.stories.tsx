@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import { FileInput } from '.'
 import { Form, Formik } from 'formik'
 
-storiesOf('FileInput', module).add('File Input', () => (
+storiesOf('form/FileInput', module).add('File Input', () => (
   <section className="section">
     <Formik
       initialValues={{ fileInput: '' }}
