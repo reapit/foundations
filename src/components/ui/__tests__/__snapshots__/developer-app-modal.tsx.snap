@@ -50,6 +50,16 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
             },
           ],
           "name": "Peter's Properties",
+          "scopes": Array [
+            Object {
+              "description": "Read data about developers",
+              "name": "Marketplace/developers.read",
+            },
+            Object {
+              "description": "Write data about developers",
+              "name": "Marketplace/developers.write",
+            },
+          ],
           "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
           "supportEmail": "support@reapit.com",
           "telephone": "0113 288 2900",

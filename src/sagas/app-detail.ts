@@ -17,14 +17,8 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })
-    const appScopes = yield call(fetcher, {
-      url: `${URLS.apps}/${response.id}/scopes`,
-      api: REAPIT_API_BASE_URL,
-      method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
-    if (response && appScopes) {
-      yield put(appDetailReceiveData({ data: { ...response, scopes: appScopes } }))
+    if (response) {
+      yield put(appDetailReceiveData({ data: response }))
     } else {
       yield put(appDetailFailure())
     }
