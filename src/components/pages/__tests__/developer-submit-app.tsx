@@ -49,7 +49,7 @@ describe('DeveloperSubmitApp', () => {
       developerId: null
     }
     const wrapper = shallow(<SubmitApp {...props} />)
-    expect(wrapper.find('[data-test="submit-success-section"]')).toHaveLength(1)
+    expect(wrapper.find('[dataTest="submit-success-section"]')).toHaveLength(1)
   })
 
   it('should disabled form when submit form', () => {

@@ -1,6 +1,4 @@
 import Base from './base'
-import ClientHome from './client'
-import DeveloperHome from './developer-home'
 
 const ACCOUNTS = {
   CLIENT: {
@@ -120,6 +118,15 @@ class LoginPage extends Base {
     this.open()
     this.selectDeveloperTab()
     this.populateValidForm()
+    this.submitForm()
+  }
+
+  logAsDeveloperUsingCustomAccount({ email, password }) {
+    this.open()
+    this.currRole = ROLES.DEV
+    this.selectDeveloperTab()
+    this.emailInput.setValue(email)
+    this.passwordInput.setValue(password)
     this.submitForm()
   }
 }

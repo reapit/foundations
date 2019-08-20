@@ -15,9 +15,9 @@ class DeveloperSubmitAppPage extends Base {
         .slice(-5),
       telephone: '0123456789',
       supportEmail: 'nghia@gmail.com',
-      launchUri: 'http://google.com',
+      launchUri: 'https://google.com',
       iconImageData: '12345',
-      homePage: 'http://google.com/abc',
+      homePage: 'https://google.com/abc',
       description:
         'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVK',
       summary:
@@ -62,19 +62,19 @@ class DeveloperSubmitAppPage extends Base {
   }
 
   get screenshot1() {
-    return $('[data-test="submit-app-screenshoot1"]')
+    return $('[data-test="submit-app-screenshot1"]')
   }
 
   get screenshot2() {
-    return $('[data-test="submit-app-screenshoot2"]')
+    return $('[data-test="submit-app-screenshot2"]')
   }
 
   get screenshot3() {
-    return $('[data-test="submit-app-screenshoot3"]')
+    return $('[data-test="submit-app-screenshot3"]')
   }
 
   get screenshot4() {
-    return $('[data-test="submit-app-screenshoot4"]')
+    return $('[data-test="submit-app-screenshot4"]')
   }
 
   get submitButton() {
@@ -85,8 +85,8 @@ class DeveloperSubmitAppPage extends Base {
     return $$('input, textarea')
   }
 
-  get successMessage() {
-    return $('[data-test="submit-app-success-message"]')
+  get successMessageSection() {
+    return $('[data-test="submit-success-section"]')
   }
 
   get errorMessages() {
@@ -97,8 +97,8 @@ class DeveloperSubmitAppPage extends Base {
     return $('[data-test="submit-another-button"]')
   }
 
-  populateValidForm() {
-    this.name.setValue(this.validFormData.name)
+  populateValidForm(appName?: string) {
+    this.name.setValue(appName || this.validFormData.name)
     this.supportEmail.setValue(this.validFormData.supportEmail)
     this.telephone.setValue(this.validFormData.telephone)
     this.summary.setValue(this.validFormData.summary)
@@ -109,7 +109,7 @@ class DeveloperSubmitAppPage extends Base {
     // image
     const file = path.join(__dirname, './image.png')
     browser.chooseFile('[data-test="submit-app-icon"]', file)
-    browser.chooseFile('[data-test="submit-app-screenshoot1"]', file)
+    browser.chooseFile('[data-test="submit-app-screenshot1"]', file)
   }
 
   submitForm() {
@@ -123,6 +123,18 @@ class DeveloperSubmitAppPage extends Base {
   open() {
     LoginPage.logAsDeveloper()
     super.open(this.route)
+  }
+
+  openUsingCustomAccount({ email, password }) {
+    LoginPage.logAsDeveloperUsingCustomAccount({ email, password })
+    super.open(this.route)
+  }
+
+  submitApp(appName) {
+    this.form.waitForVisible()
+    this.populateValidForm(appName)
+    this.submitForm()
+    this.successMessageSection.waitForVisible()
   }
 }
 

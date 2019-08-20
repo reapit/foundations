@@ -23,6 +23,7 @@ describe('LoginPage', () => {
     LoginPage.submitForm()
     // TODO - this localstorage method is deprecated in v5 of Webdriver. Will need to change
     // when we upgrade
+    browser.pause(2000)
     expect((browser.localStorage('GET', LOCAL_STORAGE_SESSION_KEY) as LoginSession).value).not.toBeNull()
     expect(browser.getUrl()).toContain('/client')
   })

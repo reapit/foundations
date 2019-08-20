@@ -20,6 +20,7 @@ describe('DeveloperSubmitRevision', () => {
     browser.pause(2000)
     DeveloperAppModal.clickEditDetailButton()
 
+    browser.pause(1000)
     DeveloperAppModalInner.populateValidFormForUpdating()
     DeveloperAppModalInner.clickSubmitRevisionButton()
     browser.pause(2000)

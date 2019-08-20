@@ -1,13 +1,20 @@
 import DeveloperSubmitAppPage from '../page-objects/developer-submit-app'
+import CommonPage from '../page-objects/common'
 import errorMessages from '../../../constants/error-messages'
+import DeveloperHomePage from '../page-objects/developer-home'
+import ApprovalsPage from '../page-objects/approvals'
 import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
 const NUMBER_OF_FIELDS = 17
 const NUMBER_OF_REQUIRED_FIELDS = 9
 
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000
 describe('DeveloperSubmitAppPage', () => {
   beforeEach(() => {
-    DeveloperSubmitAppPage.open()
+    DeveloperSubmitAppPage.openUsingCustomAccount({
+      email: 'phmngocnghia@gmail.com',
+      password: 'myPassword12345'
+    })
     DeveloperSubmitAppPage.form.waitForVisible()
   })
 
@@ -47,16 +54,32 @@ describe('DeveloperSubmitAppPage', () => {
     expect(DeveloperSubmitAppPage.errorMessages[0].getText()).toEqual(errorMessages.FIELD_WRONG_EMAIL_FORMAT)
   })
 
-  // Skip for now, developerId is not present in submitApp request so test will always fail
-  xit('should show success message after submit, should re-show the form with all clean fields after click Submit another button', () => {
-    DeveloperSubmitAppPage.populateValidForm()
-    DeveloperSubmitAppPage.submitForm()
-    DeveloperSubmitAppPage.successMessage.waitForVisible()
-    DeveloperSubmitAppPage.submitAnother()
-    DeveloperSubmitAppPage.form.waitForVisible()
+  it('should show success message after submit, should re-show the form with all clean fields after click Submit another button', () => {
+    const appName =
+      'Developer Submit App ' +
+      Math.random()
+        .toString(36)
+        .slice(-5)
+
+    DeveloperSubmitAppPage.submitApp(appName)
+    // ^ Test successfully here but there is something to do
+
+    // Delisted the name submit successfully.
+    // There is a validatiion rule that enforce: developer only have <x> unlisted app
+    DeveloperHomePage.openWithoutLogin()
+    const appId = DeveloperHomePage.getAppId(appName)
+    DeveloperHomePage.enableAppListed(appName)
+
+    // Logout
+    CommonPage.logout()
+
+    // Log as admin to approve merge detail
+    ApprovalsPage.open()
+    ApprovalsPage.approveAppChange(appId)
   })
 
   afterEach(() => {
+    browser.pause(1)
     browser.localStorage('DELETE', LOCAL_STORAGE_SESSION_KEY)
   })
 })

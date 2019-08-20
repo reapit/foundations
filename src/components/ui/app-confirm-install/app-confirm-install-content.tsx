@@ -43,7 +43,9 @@ export const AppConfirmInstallContent = ({
   const isSuccessed = appInstallFormState === 'SUCCESS'
 
   if (isSuccessed) {
-    return <Alert className="mt-5" message="App installed successfully" type="success" />
+    return (
+      <Alert dataTest="alertInstalledSuccess" className="mt-5" message="App installed successfully" type="success" />
+    )
   }
 
   return (
@@ -61,7 +63,7 @@ export const AppConfirmInstallContent = ({
       </ul>
       <div className={appPermissionContentStyles.installButtonContainer}>
         <Button
-          data-test="agree-btn"
+          dataTest="agree-btn"
           loading={Boolean(isLoading)}
           className={appPermissionContentStyles.installButton}
           type="button"
@@ -71,7 +73,7 @@ export const AppConfirmInstallContent = ({
           Agree
         </Button>
         <Button
-          data-test="disagree-btn"
+          dataTest="disagree-btn"
           loading={Boolean(isLoading)}
           className={appPermissionContentStyles.installButton}
           type="button"
