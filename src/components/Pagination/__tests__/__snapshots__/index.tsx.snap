@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination render test Should match a snapshot 1`] = `
+<div
+  className="flex justify-center"
+>
+  <nav
+    aria-label="pagination"
+    className="pagination is-centered"
+    role="navigation"
+  >
+    <a
+      className="pagination-previous"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Previous
+    </a>
+    <a
+      className="pagination-next"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Next page
+    </a>
+    <ul
+      className="pagination-list"
+    >
+      <li
+        key="0"
+      >
+        <a
+          aria-label="Goto page 1"
+          className="pagination-link"
+          onClick={[Function]}
+        >
+          1
+        </a>
+      </li>
+      <li
+        key="1"
+      >
+        <a
+          aria-label="Goto page 2"
+          className="pagination-link"
+          onClick={[Function]}
+        >
+          2
+        </a>
+      </li>
+      <li
+        key="2"
+      >
+        <a
+          aria-label="Goto page 3"
+          className="pagination-link"
+          onClick={[Function]}
+        >
+          3
+        </a>
+      </li>
+      <li
+        key="3"
+      >
+        <a
+          aria-label="Goto page 4"
+          className="pagination-link is-current"
+          onClick={[Function]}
+        >
+          4
+        </a>
+      </li>
+      <li
+        key="4"
+      >
+        <a
+          aria-label="Goto page 5"
+          className="pagination-link"
+          onClick={[Function]}
+        >
+          5
+        </a>
+      </li>
+      <li
+        key="5"
+      >
+        <a
+          aria-label="Goto page 6"
+          className="pagination-link"
+          onClick={[Function]}
+        >
+          6
+        </a>
+      </li>
+      <li
+        key="6"
+      >
+        <span
+          className="pagination-ellipsis has-text-grey"
+        >
+          …
+        </span>
+      </li>
+      <li
+        key="7"
+      >
+        <a
+          aria-label="Goto page 100"
+          className="pagination-link"
+          onClick={[Function]}
+        >
+          100
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
