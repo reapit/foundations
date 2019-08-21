@@ -12,9 +12,9 @@ exports[`App should match a snapshot 1`] = `
     }
   }
 >
-  <Component>
+  <PortalProvider>
     <Component />
-  </Component>
+  </PortalProvider>
   <Connect(Component) />
 </Provider>
 `;

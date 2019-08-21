@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Modal, { ModalProps } from '@/components/ui/modal'
+import { Modal, ModalProps } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
 import { appInstallDone } from '@/actions/app-install'
