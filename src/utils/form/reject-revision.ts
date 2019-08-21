@@ -1,5 +1,5 @@
 import { RejectRevisionModel } from '@/types/marketplace-api-schema'
-import validateRequire from '../validators/validate-require'
+import { validateRequire } from '@reapit/elements'
 
 export type SubmitRevisionFormErrorKeys = keyof RejectRevisionModel
 

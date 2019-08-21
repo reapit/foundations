@@ -1,8 +1,11 @@
 import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
-import { validateMinCharacterLength, validateMaxCharacterLength } from '../validators/validate-character-length'
-import validateEmail from '../validators/validate-email'
-import validateURI from '../validators/validate-uri'
-import validateRequire from '../validators/validate-require'
+import {
+  validateEmail,
+  validateMinCharacterLength,
+  validateMaxCharacterLength,
+  validateURI,
+  validateRequire
+} from '@reapit/elements'
 
 export type SubmitRevisionFormErrorKeys = keyof CreateAppRevisionModel
 

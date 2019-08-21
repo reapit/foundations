@@ -324,10 +324,10 @@
   dependencies:
     stream "^0.0.2"
 
-"@reapit/elements@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.6.tgz#c29a64f23a6ee2f335305c5017117d62f3899e33"
-  integrity sha512-KPJUplXLjVVUgSPFbNIA1NTxegJs8PcTTzw2ZjZSkQqxm0GtpkOgXxcbmyYvX9XdMQZsa+z+a2jJ+aVhNaN8Kg==
+"@reapit/elements@0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.7.tgz#e974dc014b410c3917ea214100cbb360f4c1d27d"
+  integrity sha512-74AmNypXQ6HWGIg72zj65q0wA+gYYbNJxyjpaaiQI8gcgRdiadonCcP2ihTogIda6rD300Y2XHnsZ4Lg6/rR9w==
   dependencies:
     bulma "^0.7.5"
 
