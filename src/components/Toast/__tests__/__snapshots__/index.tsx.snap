@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast should match a snapshot for a componentError 1`] = `
+<div
+  className="toast visible"
+  data-test="toast-wrapper"
+  onClick={[MockFunction]}
+>
+  <Component
+    fullWidth={true}
+    type="reset"
+    variant="danger"
+  >
+    Something went wrong with this component
+  </Component>
+</div>
+`;
+
+exports[`Toast should match a snapshot for a serverError 1`] = `
+<div
+  className="toast visible"
+  data-test="toast-wrapper"
+  onClick={[MockFunction]}
+>
+  <Component
+    fullWidth={true}
+    type="reset"
+    variant="danger"
+  >
+    Something went wrong fetching data
+  </Component>
+</div>
+`;
