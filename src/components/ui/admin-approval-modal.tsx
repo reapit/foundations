@@ -1,6 +1,6 @@
 import * as React from 'react'
 import bulma from '@/styles/vendor/bulma'
-import Modal, { ModalProps } from '@/components/ui/modal'
+import { Modal, ModalProps } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppDetailState } from '@/reducers/app-detail'

@@ -151,7 +151,7 @@ module.exports = {
                 loader: path.resolve('./src/scripts/purgecss-loader.js'),
                 options: {
                   paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`),
-                  whitelistPatterns: [/^(slick)/]
+                  whitelistPatterns: [/^(slick)/, /^(modal)/]
                 }
               },
               {

@@ -5,7 +5,7 @@ import Router from './router'
 import { Provider } from 'react-redux'
 import store from './store'
 import Toast from '../components/ui/toast'
-import { PortalProvider } from '@/hooks/use-portal'
+import { PortalProvider } from '@reapit/elements'
 
 const rootElement = document.querySelector('#root') as Element
 

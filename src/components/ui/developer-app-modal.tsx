@@ -1,6 +1,5 @@
 import * as React from 'react'
 import bulma from '@/styles/vendor/bulma'
-import Modal, { ModalProps } from '@/components/ui/modal'
 import { connect } from 'react-redux'
 import { ReduxState, FormState } from '@/types/core'
 import { AppDetailState } from '@/reducers/app-detail'
@@ -9,7 +8,7 @@ import Alert from '@/components/ui/alert'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
 import { CreateAppRevisionModel, ScopeModel } from '@/types/marketplace-api-schema'
-import { Input, Button, ImageInput, Checkbox, TextArea } from '@reapit/elements'
+import { Input, Button, ImageInput, Checkbox, TextArea, Modal, ModalProps } from '@reapit/elements'
 import { Form, Formik } from 'formik'
 import { validate } from '@/utils/form/submit-revision'
 import { transformDotNotationToObject, ScopeObject, transformObjectToDotNotation } from '@/utils/common'
@@ -107,9 +106,8 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
 
   if (modalState === 'VIEW_DETAIL') {
     return (
-      <div>
-        <AppDetail data={appDetailState.appDetailData.data} />
-        <div className="mt-5 flex justify-end">
+      <div data-test="app-detail-modal">
+        <div className="flex justify-end">
           <Button
             type="button"
             variant="primary"
@@ -120,14 +118,14 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
             {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
           </Button>
         </div>
+        <AppDetail data={appDetailState.appDetailData.data} />
       </div>
     )
   }
 
   if (modalState === 'EDIT_APP_DETAIL') {
     return (
-      <div>
-        {' '}
+      <div data-test="app-detail-modal">
         <h3 className={`${bulma.title} ${bulma.is3}`}>Edit App Detail</h3>
         <Formik
           initialValues={{
@@ -249,7 +247,13 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                   >
                     Cancel
                   </Button>
-                  <Button type="submit" variant="primary" loading={Boolean(isLoading)} disabled={Boolean(isLoading)}>
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    loading={Boolean(isLoading)}
+                    disabled={Boolean(isLoading)}
+                    dataTest="submit-revision-modal-edit-button"
+                  >
                     Submit revision
                   </Button>
                 </div>
