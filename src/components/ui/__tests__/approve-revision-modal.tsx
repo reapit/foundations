@@ -2,6 +2,7 @@ import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { ApproveRevisionModal, ApproveRevisionModalProps } from '../approve-revision-modal'
+import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
 const props: ApproveRevisionModalProps = {
   onApproveSuccess: jest.fn(),
@@ -15,7 +16,8 @@ const props: ApproveRevisionModalProps = {
       data: {
         appId: 'appIDd',
         id: 'revisionID'
-      }
+      },
+      scopes: appPermissionStub
     },
     approveFormState: 'PENDING'
   }

@@ -2,14 +2,15 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { DeveloperHome, DeveloperProps } from '../developer-home'
-import { appsDataStub, scopes } from '@/sagas/__stubs__/apps'
+import { appsDataStub } from '@/sagas/__stubs__/apps'
+import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
 const props: DeveloperProps = {
   developerState: {
     loading: false,
     developerData: {
       ...appsDataStub,
-      scopes
+      scopes: appPermissionStub
     },
     formState: 'PENDING'
   },

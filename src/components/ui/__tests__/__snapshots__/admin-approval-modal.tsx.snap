@@ -160,6 +160,34 @@ Get notifications when a new deal is available."
   </div>
   <div
     className="mb-3"
+    key="Marketplace/developers.read"
+  >
+    <h4
+      className="mb-2"
+    >
+      Read data about developers
+    </h4>
+    <DiffCheckbox
+      changedChecked={true}
+      currentChecked={true}
+    />
+  </div>
+  <div
+    className="mb-3"
+    key="Marketplace/developers.write"
+  >
+    <h4
+      className="mb-2"
+    >
+      Write data about developers
+    </h4>
+    <DiffCheckbox
+      changedChecked={true}
+      currentChecked={true}
+    />
+  </div>
+  <div
+    className="mb-3"
   >
     <h4
       className="mb-2"

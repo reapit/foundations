@@ -7,8 +7,9 @@ import {
   developerSetFormState
 } from '../developer'
 import ActionTypes from '../../constants/action-types'
-import { appsDataStub, scopes } from '../../sagas/__stubs__/apps'
+import { appsDataStub } from '../../sagas/__stubs__/apps'
 import { CreateDeveloperModel } from '../../types/marketplace-api-schema'
+import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
 describe('developer actions', () => {
   it('should create a developerLoading action', () => {
@@ -18,7 +19,10 @@ describe('developer actions', () => {
 
   it('should create a developerReceiveData action', () => {
     expect(developerReceiveData.type).toEqual(ActionTypes.DEVELOPER_RECEIVE_DATA)
-    expect(developerReceiveData({ ...appsDataStub, scopes }).data).toEqual({ ...appsDataStub, scopes })
+    expect(developerReceiveData({ ...appsDataStub, scopes: appPermissionStub }).data).toEqual({
+      ...appsDataStub,
+      scopes: appPermissionStub
+    })
   })
 
   it('should create a developerRequestData action', () => {

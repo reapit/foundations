@@ -57,14 +57,3 @@ export const appsDataStub: { data: PagedResultAppSummaryModel_ } = {
     totalCount: 6
   }
 }
-
-export const scopes = [
-  {
-    name: 'Marketplace/developers.read',
-    description: 'Read data about developers'
-  },
-  {
-    name: 'Marketplace/developers.write',
-    description: 'Write data about developers'
-  }
-]

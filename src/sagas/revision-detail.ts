@@ -29,8 +29,15 @@ export const revisionDetailDataFetch = function*({
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })
-    if (response) {
-      yield put(revisionDetailReceiveData({ data: response }))
+    const scopes = yield call(fetcher, {
+      url: `${URLS.scopes}`,
+      method: 'GET',
+      api: REAPIT_API_BASE_URL,
+      headers: MARKETPLACE_HEADERS
+    })
+
+    if (response && scopes) {
+      yield put(revisionDetailReceiveData({ data: response, scopes }))
     } else {
       yield put(revisionDetailFailure())
     }

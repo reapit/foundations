@@ -8,7 +8,7 @@ import Loader from '@/components/ui/loader'
 import Alert from '@/components/ui/alert'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import DiffViewer from './diff-viewer'
-import { AppRevisionModel, MediaModel } from '@/types/marketplace-api-schema'
+import { AppRevisionModel, MediaModel, ScopeModel } from '@/types/marketplace-api-schema'
 import ApproveRevisionModal from './approve-revision-modal'
 import DeclineRevisionModal from './decline-revision-modal'
 import DiffMedia from '@/components/ui/diff-media'
@@ -42,6 +42,37 @@ export interface AdminApprovalModalMappedActions {}
 export type AdminApprovalInnerProps = AdminApprovalModalMappedProps & AdminApprovalModalMappedActions
 export type AdminApprovalModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & AdminApprovalModalOwnProps
 
+export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: ScopeModel[] = []): boolean => {
+  if (!nameNeedToFind || scopes.length === 0) {
+    return false
+  }
+  const result = scopes.find((item: ScopeModel) => {
+    return item.name === nameNeedToFind
+  })
+  return !!result
+}
+
+export const renderCheckboxesDiff = ({
+  scopes,
+  appScopes,
+  revisionScopes
+}: {
+  scopes: ScopeModel[]
+  appScopes: ScopeModel[] | undefined
+  revisionScopes: ScopeModel[] | undefined
+}) => {
+  return scopes.map((scope: ScopeModel) => {
+    const isCheckedInAppDetail = isAppearInScope(scope.name, appScopes)
+    const isCheckedInRevision = isAppearInScope(scope.name, revisionScopes)
+    return (
+      <div className="mb-3" key={scope.name}>
+        <h4 className="mb-2">{scope.description}</h4>
+        <DiffCheckbox currentChecked={isCheckedInAppDetail} changedChecked={isCheckedInRevision} />
+      </div>
+    )
+  })
+}
+
 export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInnerProps> = ({
   revisionDetailState,
   appDetailState,
@@ -61,7 +92,7 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
     return null
   }
 
-  const revision = revisionDetailState.revisionDetailData.data
+  const { data: revision, scopes } = revisionDetailState.revisionDetailData
   const app = appDetailState.appDetailData.data
 
   const changedMediaList: DiffMediaModel[] = (revision.media || [])
@@ -139,7 +170,7 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
           </div>
         )
       })}
-
+      {renderCheckboxesDiff({ scopes, appScopes: app.scopes, revisionScopes: revision.scopes })}
       <div className="mb-3">
         <h4 data-test="chkIsListed" className="mb-2">
           Is listed
