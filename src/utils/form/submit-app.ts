@@ -1,6 +1,5 @@
 import { CreateAppModel } from '@/types/marketplace-api-schema'
-import validateRequire from '../validators/validate-require'
-import validateEmail from '../validators/validate-email'
+import { validateRequire, validateEmail } from '@reapit/elements'
 
 export type SubmitAppFormErrorKeys =
   | 'name'
