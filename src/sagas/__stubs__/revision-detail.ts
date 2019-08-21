@@ -1,4 +1,5 @@
 import { RevisionDetailItem } from '@/reducers/revision-detail'
+import { appPermissionStub } from './app-permission'
 
 export const revisionDetailDataStub: RevisionDetailItem = {
   data: {
@@ -30,6 +31,8 @@ export const revisionDetailDataStub: RevisionDetailItem = {
         href: 'http://reapit.cloud.tyk.io/marketplace/developers/abbc4353-8ef7-44fc-8181-0e2e68217b62',
         action: 'GET'
       }
-    ]
-  }
+    ],
+    scopes: appPermissionStub
+  },
+  scopes: appPermissionStub
 }

@@ -11,7 +11,8 @@ import { MARKETPLACE_HEADERS, URLS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import fetcher from '@/utils/fetcher'
 import { APPS_PER_PAGE } from '@/constants/paginator'
-import { appsDataStub, scopes } from '../__stubs__/apps'
+import { appsDataStub } from '../__stubs__/apps'
+import { appPermissionStub } from '../__stubs__/app-permission'
 import { Action } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
@@ -48,15 +49,15 @@ describe('developer fetch data', () => {
 
   it('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next([appsDataStub.data, scopes]).value).toEqual(
-      put(developerReceiveData({ ...appsDataStub, scopes }))
+    expect(clone.next([appsDataStub.data, appPermissionStub]).value).toEqual(
+      put(developerReceiveData({ ...appsDataStub, scopes: appPermissionStub }))
     )
     expect(clone.next().done).toBe(true)
   })
 
   it('api call fail when data undefined', () => {
     const clone = gen.clone()
-    expect(clone.next([undefined, scopes]).value).toEqual(put(developerRequestDataFailure()))
+    expect(clone.next([undefined, appPermissionStub]).value).toEqual(put(developerRequestDataFailure()))
     expect(clone.next().done).toBe(true)
   })
 

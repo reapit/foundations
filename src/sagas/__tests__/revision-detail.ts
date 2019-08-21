@@ -46,9 +46,18 @@ describe('revision-detail fetch data', () => {
     })
   )
 
+  expect(gen.next(revisionDetailDataStub.data).value).toEqual(
+    call(fetcher, {
+      url: `${URLS.scopes}`,
+      method: 'GET',
+      api: REAPIT_API_BASE_URL,
+      headers: MARKETPLACE_HEADERS
+    })
+  )
+
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(revisionDetailDataStub.data).value).toEqual(
+    expect(clone.next(revisionDetailDataStub.scopes).value).toEqual(
       put(revisionDetailReceiveData(revisionDetailDataStub))
     )
     expect(clone.next().done).toBe(true)

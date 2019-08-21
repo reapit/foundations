@@ -136,7 +136,7 @@ export interface AppRevisionModel {
   /**
    * Gets the scopes that have been associated to this revision
    */
-  scopes?: string[]
+  scopes?: ScopeModel[]
   /**
    * Gets a collection of media objects associated with the app
    */

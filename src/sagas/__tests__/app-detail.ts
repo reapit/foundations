@@ -10,7 +10,6 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { scopes } from '../../sagas/__stubs__/apps'
 
 jest.mock('../../utils/fetcher')
 

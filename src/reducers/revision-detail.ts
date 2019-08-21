@@ -1,6 +1,6 @@
 import { Action, FormState } from '../types/core'
 import { isType } from '../utils/actions'
-import { AppRevisionModel } from '@/types/marketplace-api-schema'
+import { AppRevisionModel, ScopeModel } from '@/types/marketplace-api-schema'
 import {
   revisionDetailLoading,
   revisionDetailReceiveData,
@@ -12,6 +12,7 @@ import {
 
 export interface RevisionDetailItem {
   data: AppRevisionModel
+  scopes: ScopeModel[]
 }
 
 export interface RevisionDetailState {

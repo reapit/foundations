@@ -1,12 +1,16 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { RevisionDetailItem } from '../reducers/revision-detail'
-import { ApproveModel, RejectRevisionModel } from '@/types/marketplace-api-schema'
+import { ApproveModel, RejectRevisionModel, ScopeModel } from '@/types/marketplace-api-schema'
 import { FormState } from '@/types/core'
 
 export interface RevisionDetailRequestParams {
   appId: string
   appRevisionId: string
+}
+
+export interface RevisionReceiveDataParams extends RevisionDetailItem {
+  scopes: ScopeModel[]
 }
 
 export type RevisionApproveRequestParams = RevisionDetailRequestParams & ApproveModel
@@ -16,7 +20,7 @@ export const revisionDetailRequestData = actionCreator<RevisionDetailRequestPara
   ActionTypes.REVISION_DETAIL_REQUEST_DATA
 )
 export const revisionDetailLoading = actionCreator<boolean>(ActionTypes.REVISION_DETAIL_LOADING)
-export const revisionDetailReceiveData = actionCreator<RevisionDetailItem | undefined>(
+export const revisionDetailReceiveData = actionCreator<RevisionReceiveDataParams>(
   ActionTypes.REVISION_DETAIL_RECEIVE_DATA
 )
 export const revisionDetailFailure = actionCreator<void>(ActionTypes.REVISION_DETAIL_REQUEST_DATA__FAILURE)

@@ -1,4 +1,5 @@
 import { AppDetailItem } from '@/reducers/app-detail'
+import { appPermissionStub } from './app-permission'
 
 export const appDetailDataStub: AppDetailItem = {
   data: {
@@ -28,15 +29,6 @@ export const appDetailDataStub: AppDetailItem = {
         type: 'image'
       }
     ],
-    scopes: [
-      {
-        name: 'Marketplace/developers.read',
-        description: 'Read data about developers'
-      },
-      {
-        name: 'Marketplace/developers.write',
-        description: 'Write data about developers'
-      }
-    ]
+    scopes: appPermissionStub
   }
 }
