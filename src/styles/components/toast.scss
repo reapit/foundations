@@ -1,0 +1,14 @@
+@import '../base/layout.scss';
+
+.toast {
+  width: 100%;
+  padding: 0 $layout-base;
+  position: fixed;
+  z-index: 99;
+  bottom: -3rem;
+  transition: bottom 0.2s ease-in-out;
+
+  &.visible {
+    bottom: 1rem;
+  }
+}
