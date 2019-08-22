@@ -9,8 +9,8 @@ export interface TextAreaProps {
   dataTest?: string
 }
 
-export const textareaPrimary = 'textarea is-medium is-primary'
-export const textareaError = 'textarea is-medium is-danger'
+export const textareaPrimary = 'textarea is-primary'
+export const textareaError = 'textarea is-danger'
 
 export const TextArea = ({ name, labelText, id, dataTest, placeholder = '' }: TextAreaProps) => (
   <Field
