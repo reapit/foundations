@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should render correctly 1`] = `
+<aside
+  className="menu"
+>
+  <Link
+    className="logo"
+    to="/mockHomeUrl"
+  >
+    <div />
+    <h5
+      className="title .is5"
+    >
+      mockTitle
+    </h5>
+  </Link>
+  <div
+    className="toggle-container"
+  >
+    <Component
+      data-test="toogle-btn"
+      isChecked={false}
+      onChange={[Function]}
+    />
+  </div>
+  <div
+    className="\\"menu-bar\\" "
+    data-test="menu-bar"
+  >
+    <p
+      className="menu-label sub-menu-label"
+      data-test="menu-label"
+      onClick={[Function]}
+    >
+      <Component
+        data-test="menu-caret"
+        isActive={false}
+      />
+      mockMenu
+    </p>
+    <ul
+      className="\\"menu-list\\" \\"sub-menu\\" "
+      data-test="menu-item"
+    >
+      <li
+        className=""
+        data-test="sub-menu-label"
+        key="/mockSubmenu"
+      >
+        <a
+          data-test="logout-cta"
+          onClick={[Function]}
+        >
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+`;
