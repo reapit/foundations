@@ -27,7 +27,7 @@ export const Button: React.SFC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={`button ${className} ${theme} ${fullWidth ? 'is-full-width' : ''} ${loading ? 'is-loading' : ''}`}
+      className={`button ${className} ${theme} ${fullWidth ? 'is-fullwidth' : ''} ${loading ? 'is-loading' : ''}`}
       disabled={disabled}
       onClick={onClick}
       data-test={dataTest}
