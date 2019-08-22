@@ -12,7 +12,6 @@ import { Form, Formik } from 'formik'
 import { validate } from '@/utils/form/submit-revision'
 import { transformDotNotationToObject, ScopeObject, transformObjectToDotNotation } from '@/utils/common'
 import AppDetail from './app-detail'
-import { DeveloperAppModalState } from '@/reducers/developer-app-modal'
 import { setDeveloperAppModalStateEditDetail, setDeveloperAppModalStateViewDetail } from '@/actions/developer-app-modal'
 import AppDelete from '@/components/ui/app-delete'
 
@@ -20,7 +19,7 @@ export interface DeveloperAppModalMappedProps {
   allScopes: ScopeModel[]
   appDetailState: AppDetailState
   submitRevisionState: SubmitRevisionState
-  modalState: DeveloperAppModalState
+  closeParentModal?: () => void
 }
 
 export interface DeveloperAppModalMappedActions {
@@ -44,14 +43,17 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
   submitRevision,
   submitRevisionSetFormState,
   submitRevisionState,
-  modalState,
   setDeveloperAppModalStateEditDetail,
-  setDeveloperAppModalStateViewDetail
+  setDeveloperAppModalStateViewDetail,
+  closeParentModal
 }) => {
   const { formState } = submitRevisionState
 
   const isLoading = formState === 'SUBMITTING'
   const isSucceeded = formState === 'SUCCESS'
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
+  const [isEditDetail, setIsEditDetail] = React.useState(false)
 
   React.useEffect(() => {
     return () => {
@@ -99,19 +101,34 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     .reduce((a, c) => ({ ...a, [`screen${c.order}ImageData`]: c.uri }), {})
   const iconImageData = icon ? icon.uri : ''
 
-  if (modalState === 'DELETE_APP_CONFIRM') {
-    return <AppDelete />
-  }
-
-  if (modalState === 'VIEW_DETAIL') {
+  if (!isEditDetail) {
     return (
       <div data-test="app-detail-modal">
-        <div className="flex justify-end">
+        <div className="mb-2 flex justify-end">
+          <AppDelete
+            afterClose={() => setIsDeleteModalOpen(false)}
+            visible={isDeleteModalOpen}
+            onDeleteSuccess={() => {
+              closeParentModal && closeParentModal()
+              setIsDeleteModalOpen(false)
+            }}
+          />
+          <Button
+            type="button"
+            className="mr-2"
+            variant="secondary"
+            dataTest="detail-modal-delete-button"
+            onClick={() => setIsDeleteModalOpen(true)}
+          >
+            Delete App
+          </Button>
           <Button
             type="button"
             variant="primary"
             dataTest="detail-modal-edit-button"
-            onClick={setDeveloperAppModalStateEditDetail}
+            onClick={() => {
+              setIsEditDetail(true)
+            }}
             disabled={pendingRevisions}
           >
             {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
@@ -122,7 +139,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     )
   }
 
-  if (modalState === 'EDIT_APP_DETAIL') {
+  if (isEditDetail) {
     return (
       <div data-test="app-detail-modal">
         <h3 className={`${bulma.title} ${bulma.is3}`}>Edit App Detail</h3>
@@ -242,7 +259,9 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                     className="mr-2"
                     variant="secondary"
                     disabled={Boolean(isLoading)}
-                    onClick={setDeveloperAppModalStateViewDetail}
+                    onClick={() => {
+                      setIsEditDetail(false)
+                    }}
                   >
                     Cancel
                   </Button>
@@ -267,11 +286,15 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
   return <div />
 }
 
-const mapStateToProps = (state: ReduxState): DeveloperAppModalMappedProps => ({
+interface DeveloperAppModalOwnProps {
+  closeParentModal?: () => void
+}
+
+const mapStateToProps = (state: ReduxState, ownState: DeveloperAppModalOwnProps): DeveloperAppModalMappedProps => ({
   allScopes: (state.developer.developerData && state.developer.developerData.scopes) || [],
   appDetailState: state.appDetail,
   submitRevisionState: state.submitRevision,
-  modalState: state.developerAppModalState
+  closeParentModal: ownState.closeParentModal
 })
 
 const mapDispatchToProps = (dispatch: any): DeveloperAppModalMappedActions => ({
@@ -291,8 +314,8 @@ const DeveloperAppInnerWithConnect = connect(
 
 export const DeveloperAppModal: React.FunctionComponent<DeveloperAppModalProps> = ({ visible = true, afterClose }) => {
   return (
-    <Modal visible={visible} afterClose={afterClose}>
-      <DeveloperAppInnerWithConnect />
+    <Modal visible={visible} afterClose={afterClose} deps={[]}>
+      <DeveloperAppInnerWithConnect closeParentModal={afterClose} />
     </Modal>
   )
 }

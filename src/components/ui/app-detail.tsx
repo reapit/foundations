@@ -13,8 +13,6 @@ import { Button } from '@reapit/elements'
 import { appUninstallRequestData } from '@/actions/app-uninstall'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 
-const { useState } = React
-
 export interface AppDetailModalInnerProps {
   data: AppDetailModel
 }
@@ -44,9 +42,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   fetchAppPermission,
   requestUninstall,
   appUninstallFormState,
-  isCurrentLoggedUserClient,
-  isCurrentLoggedUserDeveloper,
-  setDeveloperAppModalStateDelete
+  isCurrentLoggedUserClient
 }) => {
   if (!data) {
     return null
@@ -119,16 +115,6 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                   Install App
                 </a>
               ))}
-            {isCurrentLoggedUserDeveloper && (
-              <Button
-                dataTest="btnAppDetailDeleteApp"
-                type="button"
-                variant="primary"
-                onClick={setDeveloperAppModalStateDelete}
-              >
-                Delete App
-              </Button>
-            )}
           </div>
         </div>
       </div>
