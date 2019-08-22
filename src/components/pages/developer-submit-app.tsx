@@ -51,7 +51,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
       {isSuccessed ? (
         <CallToAction
           dataTest="submit-success-section"
-          onButtonClick={() => submitAppSetFormState('SUBMITTING')}
+          onButtonClick={() => submitAppSetFormState('PENDING')}
           title="Submit Success"
           buttonText="Submit Another App"
           buttonDataTest="submit-another-button"

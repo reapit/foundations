@@ -20,12 +20,6 @@ const props: AppDetailProps = {
 }
 
 describe('AppDetailModalInner', () => {
-  it('Should show delete app button if isCurrentLoggedUserDeveloper = true', () => {
-    const modifiedProps: AppDetailProps = { ...props, isCurrentLoggedUserDeveloper: true }
-    const shallowAppDetailModalInner = shallow(<AppDetail {...modifiedProps} />)
-    expect(shallowAppDetailModalInner.find('[dataTest="btnAppDetailDeleteApp"]')).toHaveLength(1)
-  })
-
   it('Should show uninstall app button if isCurrentLoggedUserClient = true and installedOn exist', () => {
     const modifiedProps: AppDetailProps = { ...props, isCurrentLoggedUserClient: true, data: { installedOn: 'yep' } }
     const shallowAppDetailModalInner = shallow(<AppDetail {...modifiedProps} />)
