@@ -53,8 +53,8 @@ exports[`DeveloperHome should match a snapshot 1`] = `
     onCardClick={[Function]}
     title="My Apps"
   />
-  <Component
-    baseUrl="/developer/apps"
+  <Pagination
+    onChange={[Function]}
     pageNumber={2}
     pageSize={2}
     totalCount={6}

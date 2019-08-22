@@ -6,7 +6,6 @@ import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { oc } from 'ts-optchain'
-import Pagination from '@/components/ui/pagination'
 import routes from '@/constants/routes'
 import { AppDetailState } from '@/reducers/app-detail'
 import bulma from '@/styles/vendor/bulma'
@@ -15,6 +14,7 @@ import { revisionDetailRequestData, RevisionDetailRequestParams } from '@/action
 import AdminApprovalModal from '../ui/admin-approval-modal'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
+import { Pagination } from '@reapit/elements'
 
 export interface AdminApprovalsMappedActions {
   fetchRevisionDetail: (params: RevisionDetailRequestParams) => void
@@ -34,6 +34,7 @@ export type AdminApprovalsProps = AdminApprovalsMappedActions &
 export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
   approvalsState,
   match,
+  history,
   fetchRevisionDetail,
   fetchAppDetail,
   appDetail,
@@ -104,7 +105,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
           </tbody>
         </table>
         <Pagination
-          baseUrl={routes.ADMIN_APPROVALS}
+          onChange={page => history.push(`${routes.ADMIN_APPROVALS}/${page}`)}
           totalCount={totalCount}
           pageSize={pageSize}
           pageNumber={pageNumber}

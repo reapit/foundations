@@ -53,8 +53,8 @@ exports[`Client should match a snapshot 1`] = `
     onCardClick={[Function]}
     title="Browse Apps"
   />
-  <Component
-    baseUrl="/client/apps"
+  <Pagination
+    onChange={[Function]}
     pageNumber={2}
     pageSize={2}
     totalCount={6}

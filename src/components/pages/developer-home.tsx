@@ -4,7 +4,7 @@ import { ReduxState } from '@/types/core'
 import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { DeveloperState } from '@/reducers/developer'
-import Pagination from '@/components/ui/pagination'
+import { Pagination } from '@reapit/elements'
 import routes from '@/constants/routes'
 import { oc } from 'ts-optchain'
 import AppList from '@/components/ui/app-list'
@@ -35,7 +35,8 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   fetchAppDetail,
   setDeveloperAppModalStateViewDetail,
   appDeleteSetInitFormState,
-  appDetail
+  appDetail,
+  history
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const { title, is3 } = bulma
@@ -65,7 +66,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
         }}
       />
       <Pagination
-        baseUrl={routes.DEVELOPER_MY_APPS}
+        onChange={page => history.push(`${routes.DEVELOPER_MY_APPS}/${page}`)}
         totalCount={totalCount}
         pageSize={pageSize}
         pageNumber={pageNumber}

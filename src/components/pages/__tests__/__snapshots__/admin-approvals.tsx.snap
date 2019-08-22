@@ -295,8 +295,8 @@ exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
         </tr>
       </tbody>
     </table>
-    <Component
-      baseUrl="/admin/approvals"
+    <Pagination
+      onChange={[Function]}
       pageNumber={2}
       pageSize={10}
       totalCount={69}
