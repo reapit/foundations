@@ -32,10 +32,6 @@ const NavMenu = {
   ],
   ADMIN: [
     {
-      text: 'App Revisions',
-      to: Routes.ADMIN
-    },
-    {
       text: 'Approvals',
       to: Routes.ADMIN_APPROVALS
     }

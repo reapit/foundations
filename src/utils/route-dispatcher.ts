@@ -3,7 +3,6 @@ import Routes from '../constants/routes'
 import store from '../core/store'
 import { clientRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
-import { adminRequestRevisions } from '../actions/admin'
 import { developerRequestData } from '../actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { submitAppRequestData } from '../actions/submit-app'
@@ -30,9 +29,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
       break
     case Routes.DEVELOPER_MY_APPS_PAGINATE:
       store.dispatch(developerRequestData(params && params.page ? Number(params.page) : 1))
-      break
-    case Routes.ADMIN:
-      store.dispatch(adminRequestRevisions())
       break
     case Routes.ADMIN_APPROVALS:
       store.dispatch(adminApprovalsRequestData(1))
