@@ -82,7 +82,8 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "bulma": "^0.7.5"
+    "bulma": "^0.7.5",
+    "jsonwebtoken": "^8.5.1"
   },
   "peerDependencies": {
     "formik": "^1.5.8",
