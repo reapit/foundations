@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Menu, MenuProps } from '../menu'
+import { Menu, MenuProps, mapStateToProps, mapDispatchToProps, generateMenuConfig } from '../menu'
 import toJson from 'enzyme-to-json'
+import { ReduxState } from '@/types/core'
 
 const props: MenuProps = {
   loginType: 'CLIENT',
@@ -17,18 +18,33 @@ describe('Menu', () => {
     expect(toJson(shallow(<Menu {...props} />))).toMatchSnapshot()
   })
 
-  it('simulates logout click flow', () => {
-    const wrapper = shallow(<Menu {...props} />)
-    wrapper
-      .find('[data-test="logout-cta"]')
-      .first()
-      .simulate('click', {
-        preventDefault: jest.fn()
-      })
-    expect(props.logout).toBeCalledTimes(1)
+  describe('mapStateToProps', () => {
+    it('should return loginType', () => {
+      const input = {
+        auth: {
+          loginType: 'ADMIN'
+        }
+      } as ReduxState
+      const output = { loginType: 'ADMIN' }
+      const result = mapStateToProps(input)
+      expect(output).toEqual(result)
+    })
   })
 
-  afterEach(() => {
-    jest.resetAllMocks()
+  describe('mapDispatchToProps', () => {
+    it('should return loginType', () => {
+      const dispatch = jest.fn()
+      const fn = mapDispatchToProps(dispatch)
+      fn.logout('ADMIN')
+      expect(dispatch).toBeCalled()
+    })
+  })
+
+  describe('generateMenuConfig', () => {
+    it('should return config', () => {
+      const logoutCallback = jest.fn()
+      const result = generateMenuConfig(logoutCallback)
+      expect(result).toBeDefined()
+    })
   })
 })
