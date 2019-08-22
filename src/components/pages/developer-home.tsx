@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import Loader from '@/components/ui/loader'
+import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { DeveloperState } from '@/reducers/developer'
 import Pagination from '@/components/ui/pagination'

@@ -1,17 +1,8 @@
-import * as React from 'react'
-import { ReduxState } from '../../types/core'
-import { ErrorData } from '../../reducers/error'
-import { errorClearedServer, errorClearedComponent } from '../../actions/error'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import toastStyles from '@/styles/blocks/toast.scss?mod'
-import { Button } from '@reapit/elements'
-
-/**
- * TODO: Expand component to accept types info and success actions
- * just need to add appropriate actions and adjust the btn-danger
- * class to primary and success
- */
+import { Toast, ErrorData } from '@reapit/elements'
+import { ReduxState } from '../../types/core'
+import { errorClearedServer, errorClearedComponent } from '../../actions/error'
 
 interface ToastMappedActions {
   errorClearedServer: () => void
@@ -21,32 +12,6 @@ interface ToastMappedActions {
 interface ToastMappedProps {
   serverError: ErrorData | null
   componentError: ErrorData | null
-}
-
-export type ToastProps = ToastMappedActions & ToastMappedProps
-const { toast, visible } = toastStyles
-
-export const Toast: React.FC<ToastProps> = ({
-  serverError,
-  componentError,
-  errorClearedServer,
-  errorClearedComponent
-}) => {
-  const error = componentError || serverError || null
-  const isVisible = Boolean(error)
-  const errorClearHandler = error && error.type === 'SERVER' ? errorClearedServer : errorClearedComponent
-
-  if (isVisible) {
-    setTimeout(errorClearHandler, 5000)
-  }
-
-  return (
-    <div data-test="toast-wrapper" className={`${toast} ${isVisible ? visible : ''}`} onClick={errorClearHandler}>
-      <Button type="reset" variant="danger" fullWidth>
-        {error && error.message}
-      </Button>
-    </div>
-  )
 }
 
 const mapStateToProps = (state: ReduxState): ToastMappedProps => ({
