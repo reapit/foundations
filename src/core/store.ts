@@ -7,7 +7,6 @@ import myApps from '../reducers/my-apps'
 import developer from '../reducers/developer'
 import appDetail from '../reducers/app-detail'
 import error from '../reducers/error'
-import admin from '../reducers/admin'
 import appPermission from '../reducers/app-permission'
 import submitApp from '../reducers/submit-app'
 import submitRevision from '../reducers/submit-revision'
@@ -24,7 +23,6 @@ import clientSagas from '../sagas/client'
 import appDetailSagas from '../sagas/app-detail'
 import myAppsSagas from '../sagas/my-apps'
 import developerSagas from '../sagas/developer'
-import adminSagas from '../sagas/admin'
 import submitAppSagas from '../sagas/submit-app'
 import submitRevisionSagas from '../sagas/submit-revision'
 import adminApprovalSagas from '../sagas/admin-approvals'
@@ -56,7 +54,6 @@ export class Store {
     auth,
     appDetail,
     error,
-    admin,
     submitApp,
     submitRevision,
     adminApprovals,
@@ -75,7 +72,6 @@ export class Store {
       fork(clientSagas),
       fork(myAppsSagas),
       fork(developerSagas),
-      fork(adminSagas),
       fork(appDetailSagas),
       fork(submitAppSagas),
       fork(submitRevisionSagas),

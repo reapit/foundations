@@ -85,11 +85,6 @@ export const generateMenuConfig = logoutCallback => {
           key: 'Apps',
           subMenu: [
             {
-              title: 'App Revisions',
-              key: '/admin',
-              toUrl: '/admin'
-            },
-            {
               title: 'Approvals',
               key: '/admin/approvals',
               toUrl: '/admin/approvals'

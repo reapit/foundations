@@ -6,7 +6,6 @@ import { DeveloperState } from '../reducers/developer'
 import { AuthState } from '../reducers/auth'
 import { AppDetailState } from '../reducers/app-detail'
 import { ErrorState } from '../reducers/error'
-import { AdminState } from '../reducers/admin'
 import { SubmitAppState } from '../reducers/submit-app'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
 import { AdminApprovalsState } from '@/reducers/admin-approvals'
@@ -59,7 +58,6 @@ export interface ReduxState {
   developer: DeveloperState
   auth: AuthState
   error: ErrorState
-  admin: AdminState
   submitApp: SubmitAppState
   submitRevision: SubmitRevisionState
   adminApprovals: AdminApprovalsState

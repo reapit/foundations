@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AdminApprovalsState } from '@/reducers/admin-approvals'
-import { Loader } from '@reapit/elements'
+import { Loader, Pagination } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { oc } from 'ts-optchain'
@@ -14,7 +14,6 @@ import { revisionDetailRequestData, RevisionDetailRequestParams } from '@/action
 import AdminApprovalModal from '../ui/admin-approval-modal'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
-import { Pagination } from '@reapit/elements'
 
 export interface AdminApprovalsMappedActions {
   fetchRevisionDetail: (params: RevisionDetailRequestParams) => void

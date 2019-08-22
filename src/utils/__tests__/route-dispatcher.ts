@@ -5,7 +5,6 @@ import { RouteValue } from '../../types/core'
 import { clientRequestData } from '../../actions/client'
 import { developerRequestData } from '../../actions/developer'
 import { myAppsRequestData } from '../../actions/my-apps'
-import { adminRequestRevisions } from '../../actions/admin'
 import { adminApprovalsRequestData } from '../../actions/admin-approvals'
 import { getAccessToken } from '../cognito'
 
@@ -49,11 +48,6 @@ describe('routeDispatcher', () => {
   it('should dispatch to developerRequestData for the developer paginate route', async () => {
     await routeDispatcher(Routes.DEVELOPER_MY_APPS_PAGINATE as RouteValue, { page: '2' })
     expect(store.dispatch).toHaveBeenCalledWith(developerRequestData(2))
-  })
-
-  it('should dispatch to adminRequestRevisions for the admin route', async () => {
-    await routeDispatcher(Routes.ADMIN as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(adminRequestRevisions())
   })
 
   it('should dispatch to adminApprovalsRequestData for the admin approvals data route', async () => {
