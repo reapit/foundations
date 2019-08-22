@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { AppList, AppListProps } from '../app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import Loader from '../loader'
+import { Loader } from '@reapit/elements'
 
 // @ts-ignore: just pick needed props for the test
 const props: AppListProps = {

@@ -6,7 +6,6 @@ import Alert from '../ui/alert'
 import { Formik, Form } from 'formik'
 import { authLogin, authChangeLoginType, AuthLoginParams } from '../../actions/auth'
 import { validate } from '../../utils/form/login'
-import Tabs, { TabConfig } from '../ui/tabs'
 import { LoginType } from '../../reducers/auth'
 import { Dispatch } from 'redux'
 import Routes from '../../constants/routes'
@@ -14,7 +13,7 @@ import loginStyles from '@/styles/pages/login.scss?mod'
 import bulma from '@/styles/vendor/bulma'
 import { withRouter, RouteComponentProps } from 'react-router'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
-import { Input, Button } from '@reapit/elements'
+import { Input, Button, Tabs, TabConfig } from '@reapit/elements'
 
 export interface LoginMappedActions {
   login: (params: AuthLoginParams) => void
@@ -110,12 +109,15 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                 <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting} fullWidth>
                   Login
                 </Button>
+                {loginType === 'DEVELOPER' && (
+                  <div>
+                    Don't have an account yet?
+                    <Link className="pl-2" to={Routes.REGISTER}>
+                      Register
+                    </Link>
+                  </div>
+                )}
               </div>
-              {loginType === 'DEVELOPER' && (
-                <div className={level}>
-                  Don't have an account yet?<Link to={Routes.REGISTER}>Register</Link>
-                </div>
-              )}
               {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
             </Form>
           )}

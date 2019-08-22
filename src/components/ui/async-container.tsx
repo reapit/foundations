@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Loader from '@/components/ui/loader'
+import { Loader } from '@reapit/elements'
 import Alert from '@/components/ui/alert'
 
 export interface AsyncContainerProps {

@@ -4,7 +4,7 @@ import bulmaUtils from '../../styles/vendor/bulma-utils'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import AppCard from './app-card'
 import styles from '@/styles/blocks/app-list.scss?mod'
-import Loader from './loader'
+import { Loader } from '@reapit/elements'
 
 export type AppListProps = {
   list: AppSummaryModel[]
