@@ -7,7 +7,7 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { oc } from 'ts-optchain'
 import AppList from '@/components/ui/app-list'
-import Pagination from '@/components/ui/pagination'
+import { Pagination } from '@reapit/elements'
 import routes from '@/constants/routes'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
@@ -29,6 +29,7 @@ export type ClientProps = ClientMappedActions & ClientMappedProps & RouteCompone
 export const Client: React.FunctionComponent<ClientProps> = ({
   clientState,
   match,
+  history,
   fetchAppDetail,
   appDetail,
   clientId
@@ -56,7 +57,12 @@ export const Client: React.FunctionComponent<ClientProps> = ({
           }
         }}
       />
-      <Pagination baseUrl={routes.CLIENT} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
+      <Pagination
+        onChange={page => history.push(`${routes.CLIENT}/${page}`)}
+        totalCount={totalCount}
+        pageSize={pageSize}
+        pageNumber={pageNumber}
+      />
       <AppDetailModal visible={visible} afterClose={() => setVisible(false)} />
     </ErrorBoundary>
   )

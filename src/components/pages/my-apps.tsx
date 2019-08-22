@@ -5,7 +5,7 @@ import { ReduxState, FormState } from '@/types/core'
 import { MyAppsState } from '@/reducers/my-apps'
 import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import Pagination from '@/components/ui/pagination'
+import { Pagination } from '@reapit/elements'
 import routes from '@/constants/routes'
 import { oc } from 'ts-optchain'
 import AppList from '@/components/ui/app-list'
@@ -39,7 +39,8 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   fetchAppDetail,
   appDetail,
   appUninstallDone,
-  appUninstallFormState
+  appUninstallFormState,
+  history
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !myAppsState.myAppsData
@@ -74,7 +75,12 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
           }
         }}
       />
-      <Pagination baseUrl={routes.MY_APPS} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
+      <Pagination
+        onChange={page => history.push(`${routes.MY_APPS}/${page}`)}
+        totalCount={totalCount}
+        pageSize={pageSize}
+        pageNumber={pageNumber}
+      />
       <AppDetailModal visible={visible} afterClose={() => setVisible(false)} />
     </ErrorBoundary>
   )
