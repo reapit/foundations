@@ -25,9 +25,17 @@ export const doLogin = function*({ data }: Action<AuthLoginParams>) {
 
     if (loginDetails) {
       const loginIdentity = deserializeIdToken(loginDetails)
-      const detailsWithLoginType = { ...loginDetails, loginType, userName, loginIdentity } as LoginSession
-      yield call(setLoginSession, detailsWithLoginType)
-      yield put(authLoginSuccess(detailsWithLoginType))
+      if (
+        (loginType === 'CLIENT' && !!loginIdentity.clientId) ||
+        (loginType === 'DEVELOPER' && !!loginIdentity.developerId) ||
+        (loginType === 'ADMIN' && !!loginIdentity.adminId)
+      ) {
+        const detailsWithLoginType = { ...loginDetails, loginType, userName, loginIdentity } as LoginSession
+        yield call(setLoginSession, detailsWithLoginType)
+        yield put(authLoginSuccess(detailsWithLoginType))
+      } else {
+        yield put(authLoginFailure())
+      }
     } else {
       yield put(authLoginFailure())
     }
