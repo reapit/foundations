@@ -19,7 +19,7 @@ export const tokenExpired = (expiry: number) => {
  * Return refreshedSession if it's fetched successfully
  * Return null at the end after trying all ways
  */
-export const getAccessToken = async ({ loginSession, desktopSession }): Promise<Partial<LoginSession> | null> => {
+export const getAccessToken = async ({ loginSession, desktopSession }): Promise<LoginSession | null> => {
   if (!loginSession && !desktopSession) {
     return null
   }
@@ -37,7 +37,7 @@ export const getAccessToken = async ({ loginSession, desktopSession }): Promise<
   try {
     const refreshedSession = await refreshSession(sessionToRefresh)
     if (refreshedSession) {
-      return refreshedSession as Partial<LoginSession>
+      return refreshedSession
     }
   } catch (err) {
     console.error(err)
