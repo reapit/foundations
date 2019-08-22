@@ -28,7 +28,7 @@ export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps
 
 export const renderScopesCheckbox = (scopes: ScopeModel[] = []) =>
   scopes.map((item: ScopeModel) => (
-    <Checkbox name={`scopes.${item.name}`} labelText={item.description || ''} id={item.name || ''} />
+    <Checkbox key={item.name} name={`scopes.${item.name}`} labelText={item.description || ''} id={item.name || ''} />
   ))
 
 export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({

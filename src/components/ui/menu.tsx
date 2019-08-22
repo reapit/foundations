@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { withRouter, RouteComponentProps, RouteProps } from 'react-router'
 import { Link } from 'react-router-dom'
 import { ReduxState } from '@/types/core'
 import { authLogout } from '@/actions/auth'
@@ -13,6 +13,215 @@ import Routes from '../../constants/routes'
 import Toggle from './toggle'
 import Caret from './caret'
 
+interface MenuConfig extends RouteProps {
+  title: string
+  logo: React.ReactNode
+  homeUrl: string
+  defaultActiveKey?: string
+  menu: MenuItem[]
+}
+interface MenuItem {
+  title: string
+  key: string
+  callback?: () => void
+  toUrl?: string
+  subMenu?: MenuItem[]
+}
+
+const isActiveSubmenu = (pathname, itemUrl) => {
+  const isValidParams = !!pathname && !!itemUrl
+  if (!isValidParams) {
+    return false
+  }
+  return pathname.split('/')[2] === itemUrl.split('/')[2]
+}
+
+const renderLink = (subItem: MenuItem) => {
+  if (subItem.toUrl) {
+    return <Link to={subItem.toUrl}>{subItem.title}</Link>
+  }
+  return null
+}
+
+const hrefCallBack = (callback: Function) => (e: React.SyntheticEvent) => {
+  e.preventDefault()
+  callback()
+}
+
+const renderHref = (subItem: MenuItem) => {
+  if (subItem.callback) {
+    return (
+      <a data-test="logout-cta" onClick={hrefCallBack(subItem.callback)}>
+        Logout
+      </a>
+    )
+  }
+  return null
+}
+
+const renderSubItem = (items: MenuItem[] | undefined, location) => {
+  if (!items) {
+    return null
+  }
+  return items.map((subItem: MenuItem) => {
+    return (
+      <li key={subItem.key} className={isActiveSubmenu(location.pathname, subItem.toUrl) ? menuStyles.isActive : ''}>
+        {subItem.toUrl ? renderLink(subItem) : renderHref(subItem)}
+      </li>
+    )
+  })
+}
+
+export const generateMenuConfig = logoutCallback => {
+  return {
+    ADMIN: {
+      title: 'Foundations',
+      logo: <Logo />,
+      homeUrl: '/home',
+      defaultActiveKey: 'Apps',
+      menu: [
+        {
+          title: 'Apps',
+          key: 'Apps',
+          subMenu: [
+            {
+              title: 'App Revisions',
+              key: '/admin',
+              toUrl: '/admin'
+            },
+            {
+              title: 'Approvals',
+              key: '/admin/approvals',
+              toUrl: '/admin/approvals'
+            }
+          ]
+        },
+        {
+          title: 'Account',
+          key: 'Account',
+          subMenu: [
+            {
+              title: 'Logout',
+              key: '/logout',
+              callback: logoutCallback
+            }
+          ]
+        }
+      ]
+    },
+    DEVELOPER: {
+      title: 'Foundations',
+      logo: <Logo />,
+      homeUrl: '/home',
+      defaultActiveKey: 'Apps',
+      menu: [
+        {
+          title: 'Apps',
+          key: 'Apps',
+          subMenu: [
+            {
+              title: 'Manage Apps',
+              key: '/developer/apps',
+              toUrl: '/developer/apps'
+            },
+            {
+              title: 'API Documentation',
+              key: '/developer/api-docs',
+              toUrl: '/developer/api-docs'
+            },
+            {
+              title: 'Submit Apps',
+              key: '/developer/submit-app',
+              toUrl: '/developer/submit-app'
+            }
+          ]
+        },
+        {
+          title: 'Account',
+          key: 'Account',
+          subMenu: [
+            {
+              title: 'Logout',
+              key: '/logout',
+              callback: logoutCallback
+            }
+          ]
+        }
+      ]
+    },
+    CLIENT: {
+      title: 'Foundations',
+      logo: <Logo />,
+      homeUrl: '/home',
+      defaultActiveKey: 'Apps',
+      menu: [
+        {
+          title: 'Apps',
+          key: 'Apps',
+          subMenu: [
+            {
+              title: 'Browse Apps',
+              key: '/client/apps',
+              toUrl: '/client/apps'
+            },
+            {
+              title: 'Installed Apps',
+              key: '/client/installed',
+              toUrl: '/client/installed'
+            }
+          ]
+        },
+        {
+          title: 'Account',
+          key: 'Account',
+          subMenu: [
+            {
+              title: 'Logout',
+              key: '/logout',
+              callback: logoutCallback
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+
+export const MenuDynamic: React.FC<MenuConfig> = ({ title, homeUrl, logo, menu, location, defaultActiveKey }) => {
+  const [isOpen, setIsOpen] = React.useState(true)
+  const [caretToggle, setCaretToggle] = React.useState(defaultActiveKey)
+  return (
+    <aside className={`${bulma.menu}`}>
+      <Link className={menuStyles.logo} to={homeUrl}>
+        {logo}
+        <h5 className={`${bulma.title} ${bulma.is5}`}>{title}</h5>
+      </Link>
+      <div className={menuStyles.toggleContainer}>
+        <Toggle onChange={(_e: React.ChangeEvent<HTMLInputElement>) => setIsOpen(!isOpen)} isChecked={isOpen} />
+      </div>
+      <div className={`${menuStyles.menuBar} ${isOpen ? menuStyles.menuIsOpen : ''}`}>
+        {menu.map((item: MenuItem) => {
+          return (
+            <React.Fragment key={item.key}>
+              <p className={`${bulma.menuLabel} ${menuStyles.subMenuLabel}`} onClick={_e => setCaretToggle(item.key)}>
+                <Caret isActive={caretToggle === item.key} />
+                {item.title}
+              </p>
+              <ul
+                className={`${bulma.menuList} ${menuStyles.subMenu} ${
+                  caretToggle === item.key ? menuStyles.menuIsOpen : ''
+                }`}
+              >
+                {renderSubItem(item.subMenu, location)}
+              </ul>
+            </React.Fragment>
+          )
+        })}
+      </div>
+    </aside>
+  )
+}
+
 export interface MenuMappedProps {
   loginType: LoginType
 }
@@ -24,67 +233,16 @@ export interface MenuMappedActions {
 export type MenuProps = MenuMappedProps & MenuMappedActions & RouteComponentProps & {}
 
 export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, location }) => {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const [caretToggle, setCaretToggle] = React.useState('APPS')
-  const { pathname } = location
-  const { logo, menuIsOpen, menuBar, toggleContainer, isActive, subMenu, subMenuLabel } = menuStyles
-  const { menu, menuLabel, menuList, title, is5 } = bulma
-  const { CLIENT, DEVELOPER, ADMIN } = Routes
-
-  return (
-    <aside className={`${menu}`}>
-      <Link className={logo} to={loginType === 'CLIENT' ? CLIENT : loginType === 'DEVELOPER' ? DEVELOPER : ADMIN}>
-        <Logo width="150px" height="65px" />
-        <h5 className={`${title} ${is5}`}>Foundations</h5>
-      </Link>
-      <div className={toggleContainer}>
-        <Toggle onChange={(_e: React.ChangeEvent<HTMLInputElement>) => setIsOpen(!isOpen)} isChecked={isOpen} />
-      </div>
-      <div className={`${menuBar} ${isOpen ? menuIsOpen : ''}`}>
-        <p
-          className={`${menuLabel} ${subMenuLabel}`}
-          onClick={_e => setCaretToggle(caretToggle === 'APPS' ? 'NONE' : 'APPS')}
-        >
-          <Caret isActive={caretToggle === 'APPS'} />
-          Apps
-        </p>
-        <ul className={`${menuList} ${subMenu} ${caretToggle === 'APPS' ? menuIsOpen : ''}`}>
-          {NavMenu[loginType].map(({ to, text }) => (
-            <li key={to} className={pathname.split('/')[2] === to.split('/')[2] ? isActive : ''}>
-              <Link to={to}>{text}</Link>
-            </li>
-          ))}
-        </ul>
-        <p
-          className={`${menuLabel} ${subMenuLabel}`}
-          onClick={_e => setCaretToggle(caretToggle === 'ACCOUNT' ? 'NONE' : 'ACCOUNT')}
-        >
-          <Caret isActive={caretToggle === 'ACCOUNT'} />
-          Account
-        </p>
-        <ul className={`${menuList} ${subMenu} ${caretToggle === 'ACCOUNT' ? menuIsOpen : ''}`}>
-          <li className={isActive}>
-            <a
-              data-test="logout-cta"
-              onClick={e => {
-                e.preventDefault()
-                logout(loginType)
-              }}
-            >
-              Logout
-            </a>
-          </li>
-        </ul>
-      </div>
-    </aside>
-  )
+  const logoutCallback = () => logout(loginType)
+  const menuConfigs = generateMenuConfig(logoutCallback)
+  return <MenuDynamic {...menuConfigs[loginType]} location={location} />
 }
 
-const mapStateToProps = (state: ReduxState): MenuMappedProps => ({
+export const mapStateToProps = (state: ReduxState): MenuMappedProps => ({
   loginType: state.auth.loginType
 })
 
-const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({
   logout: (loginType: LoginType) => dispatch(authLogout(loginType))
 })
 
