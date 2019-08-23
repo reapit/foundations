@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -79,7 +79,10 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "@types/react-router": "^5.0.3",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1"
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
@@ -87,11 +90,7 @@
   },
   "peerDependencies": {
     "formik": "^1.5.8",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "@types/react-router": "^5.0.3",
-    "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1"
+    "react": "^16.8.6"
   },
   "husky": {
     "hooks": {
