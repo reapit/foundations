@@ -3,7 +3,7 @@ import ActionTypes from '../../constants/action-types'
 import { put, all, takeLatest, call } from '@redux-saga/core/effects'
 import { authLoginSuccess, authLogoutSuccess, AuthLoginParams, authLoginFailure } from '../../actions/auth'
 import { Action } from '@/types/core'
-import fetcher from '../../utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { removeLoginSession, setLoginSession } from '../../utils/session'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
@@ -12,7 +12,7 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { COGNITO_HEADERS, COGNITO_API_BASE_URL } from '@/constants/api'
 import { mockLoginSession } from '@/utils/__mocks__/cognito'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 jest.mock('../../utils/cognito')
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({
@@ -30,8 +30,7 @@ describe('login submit', () => {
       api: COGNITO_API_BASE_URL,
       method: 'POST',
       body: { userName: data.email, password: data.password },
-      headers: COGNITO_HEADERS,
-      isPrivate: false
+      headers: COGNITO_HEADERS
     })
   )
 

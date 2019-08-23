@@ -6,13 +6,13 @@ import { put, takeLatest, call, select } from '@redux-saga/core/effects'
 import { appDeleteRequestSuccess, appDeleteRequestLoading, appDeleteRequestFailure } from '@/actions/app-delete'
 import { selectAppDetailId } from '@/selector/app-detail'
 import { Action } from '@/types/core'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { developerRequestData } from '@/actions/developer'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 
 describe('app-delete sagas', () => {
   describe('app-delete request', () => {

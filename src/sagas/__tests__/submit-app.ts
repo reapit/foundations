@@ -12,13 +12,13 @@ import { submitAppSetFormState, SubmitAppArgs, submitAppLoading, submitAppReceiv
 import { errorThrownServer } from '@/actions/error'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { ScopeModel } from '@/types/marketplace-api-schema'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 
 const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
 

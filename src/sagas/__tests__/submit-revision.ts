@@ -4,14 +4,14 @@ import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import { submitRevisionSetFormState } from '@/actions/submit-revision'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
 import { revisionSubmitStub } from '../__stubs__/revision-submit'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { appDetailRequestData } from '@/actions/app-detail'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 
 const params: Action<CreateAppRevisionModel & { id: string }> = {
   data: { ...revisionSubmitStub.data, id: '1' },

@@ -11,12 +11,12 @@ import {
 import { selectAppDetailId, selectAppDetailInstallationId } from '@/selector/app-detail'
 import { selectLoggedUserEmail } from '@/selector/client'
 import { Action } from '@/types/core'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator, SagaIteratorClone } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 
 describe('app-uninstall sagas', () => {
   describe('app-uninstall post data', () => {

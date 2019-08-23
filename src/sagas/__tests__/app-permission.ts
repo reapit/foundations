@@ -8,7 +8,7 @@ import {
   appPermissionReceiveData
 } from '@/actions/app-permission'
 import { Action } from '@/types/core'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
@@ -16,7 +16,7 @@ import { selectClientId } from '@/selector/client'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 jest.mock('@/selector/client')
 
 const params = { data: '1' }

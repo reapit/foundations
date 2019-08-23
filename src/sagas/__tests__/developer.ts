@@ -9,7 +9,7 @@ import { call, put, takeLatest, all, fork, select } from '@redux-saga/core/effec
 import { developerLoading, developerReceiveData, developerRequestDataFailure } from '@/actions/developer'
 import { MARKETPLACE_HEADERS, URLS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { appsDataStub } from '../__stubs__/apps'
 import { appPermissionStub } from '../__stubs__/app-permission'
@@ -20,7 +20,7 @@ import errorMessages from '@/constants/error-messages'
 import { selectDeveloperId } from '@/selector/developer'
 import { DeveloperItem } from '@/reducers/developer'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 
 const params = { data: 1 }
 

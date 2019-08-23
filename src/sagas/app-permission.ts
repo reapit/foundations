@@ -1,4 +1,4 @@
-import fetcher from '../utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import {
   appPermissionLoading,

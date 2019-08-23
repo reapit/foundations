@@ -5,7 +5,7 @@ import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effec
 import { myAppsLoading, myAppsReceiveData, myAppsRequestDataFailure } from '@/actions/my-apps'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
@@ -13,7 +13,7 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectClientId } from '@/selector/client'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 const params = { data: 1 }
 
 describe('my-apps fetch data', () => {

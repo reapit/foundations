@@ -21,13 +21,13 @@ import {
   declineRevisionSetFormState
 } from '@/actions/revision-detail'
 import { Action } from '@/types/core'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { adminApprovalsDataFetch } from '../admin-approvals'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 
 const params: Action<RevisionDetailRequestParams> = {
   type: 'REVISION_DETAIL_RECEIVE_DATA',
