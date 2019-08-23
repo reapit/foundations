@@ -16,6 +16,7 @@ describe('delete app', () => {
     DeveloperAppModal.btnDeleteApp.click()
 
     // Press confirm button
+    DeleteAppModal.btnConfirm.waitForVisible()
     DeleteAppModal.btnConfirm.click()
 
     // delete message should be showed
