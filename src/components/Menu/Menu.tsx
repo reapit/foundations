@@ -88,7 +88,7 @@ export const Menu: React.FC<MenuConfig> = ({ title, homeUrl, logo, menu, locatio
           isChecked={isMenuOpen}
         />
       </div>
-      <div data-test="menu-bar" className={`"menu-bar" ${isMenuOpen ? 'menu-is-open' : ''}`}>
+      <div data-test="menu-bar" className={`menu-bar ${isMenuOpen ? 'menu-is-open' : ''}`}>
         {menu.map((item: MenuItem) => {
           return (
             <React.Fragment key={item.key}>
@@ -102,7 +102,7 @@ export const Menu: React.FC<MenuConfig> = ({ title, homeUrl, logo, menu, locatio
               </p>
               <ul
                 data-test="menu-item"
-                className={`"menu-list" "sub-menu" ${caretToggleKey === item.key ? 'menu-is-open' : ''}`}
+                className={`menu-list sub-menu ${caretToggleKey === item.key ? 'menu-is-open' : ''}`}
               >
                 {renderSubItem(item.subMenu, location)}
               </ul>
