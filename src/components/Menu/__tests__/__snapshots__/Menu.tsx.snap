@@ -25,7 +25,7 @@ exports[`Menu should render correctly 1`] = `
     />
   </div>
   <div
-    className="\\"menu-bar\\" "
+    className="menu-bar "
     data-test="menu-bar"
   >
     <p
@@ -40,7 +40,7 @@ exports[`Menu should render correctly 1`] = `
       mockMenu
     </p>
     <ul
-      className="\\"menu-list\\" \\"sub-menu\\" "
+      className="menu-list sub-menu "
       data-test="menu-item"
     >
       <li

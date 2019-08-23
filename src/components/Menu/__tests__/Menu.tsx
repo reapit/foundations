@@ -155,11 +155,11 @@ describe('Menu', () => {
     const wrapper = shallow(<Menu {...mockProps} />)
     const menuItem = wrapper.find('[data-test="menu-item"]')
     const caret = wrapper.find('[data-test="menu-caret"]')
-    expect(menuItem.prop('className')).toEqual('"menu-list" "sub-menu" menu-is-open')
+    expect(menuItem.prop('className')).toEqual('menu-list sub-menu menu-is-open')
     expect(caret.prop('isActive')).toEqual(true)
   })
 
-  it('should show active menu', () => {
+  it('should show inactive menu', () => {
     const mockLocation = getMockRouterProps({}).location
     const mockProps = {
       title: 'mockTitle',
@@ -186,7 +186,7 @@ describe('Menu', () => {
     const toogleBtn = wrapper.find('[data-test="toogle-btn"]')
     toogleBtn.simulate('onChange')
     const menuBar = wrapper.find('[data-test="menu-bar"]')
-    expect(menuBar.prop('className')).toEqual('"menu-bar" ')
+    expect(menuBar.prop('className')).toEqual('menu-bar ')
   })
   describe('isActiveSubmenu', () => {
     it('should return true', () => {
