@@ -10,7 +10,7 @@ exports[`Menu should render correctly 1`] = `
   >
     <div />
     <h5
-      className="title .is5"
+      className="title is-5"
     >
       mockTitle
     </h5>
