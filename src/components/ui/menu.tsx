@@ -1,17 +1,12 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps, RouteProps } from 'react-router'
-import { Link } from 'react-router-dom'
+import { Menu as Sidebar } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { authLogout } from '@/actions/auth'
 import { LoginType } from '@/reducers/auth'
-import NavMenu from '@/constants/nav'
 import Logo from '@/components/svg/logo'
-import menuStyles from '@/styles/blocks/menu.scss?mod'
-import bulma from '@/styles/vendor/bulma'
 import Routes from '../../constants/routes'
-import Toggle from './toggle'
-import Caret from './caret'
 
 interface MenuConfig extends RouteProps {
   title: string
@@ -28,50 +23,6 @@ interface MenuItem {
   subMenu?: MenuItem[]
 }
 
-const isActiveSubmenu = (pathname, itemUrl) => {
-  const isValidParams = !!pathname && !!itemUrl
-  if (!isValidParams) {
-    return false
-  }
-  return pathname.split('/')[2] === itemUrl.split('/')[2]
-}
-
-const renderLink = (subItem: MenuItem) => {
-  if (subItem.toUrl) {
-    return <Link to={subItem.toUrl}>{subItem.title}</Link>
-  }
-  return null
-}
-
-const hrefCallBack = (callback: Function) => (e: React.SyntheticEvent) => {
-  e.preventDefault()
-  callback()
-}
-
-const renderHref = (subItem: MenuItem) => {
-  if (subItem.callback) {
-    return (
-      <a data-test="logout-cta" onClick={hrefCallBack(subItem.callback)}>
-        Logout
-      </a>
-    )
-  }
-  return null
-}
-
-const renderSubItem = (items: MenuItem[] | undefined, location) => {
-  if (!items) {
-    return null
-  }
-  return items.map((subItem: MenuItem) => {
-    return (
-      <li key={subItem.key} className={isActiveSubmenu(location.pathname, subItem.toUrl) ? menuStyles.isActive : ''}>
-        {subItem.toUrl ? renderLink(subItem) : renderHref(subItem)}
-      </li>
-    )
-  })
-}
-
 export const generateMenuConfig = logoutCallback => {
   return {
     ADMIN: {
@@ -86,8 +37,8 @@ export const generateMenuConfig = logoutCallback => {
           subMenu: [
             {
               title: 'Approvals',
-              key: '/admin/approvals',
-              toUrl: '/admin/approvals'
+              key: Routes.ADMIN_APPROVALS,
+              toUrl: Routes.ADMIN_APPROVALS
             }
           ]
         },
@@ -116,18 +67,18 @@ export const generateMenuConfig = logoutCallback => {
           subMenu: [
             {
               title: 'Manage Apps',
-              key: '/developer/apps',
-              toUrl: '/developer/apps'
+              key: Routes.DEVELOPER_MY_APPS,
+              toUrl: Routes.DEVELOPER_MY_APPS
             },
             {
               title: 'API Documentation',
-              key: '/developer/api-docs',
-              toUrl: '/developer/api-docs'
+              key: Routes.DEVELOPER_API_DOCS,
+              toUrl: Routes.DEVELOPER_API_DOCS
             },
             {
               title: 'Submit Apps',
-              key: '/developer/submit-app',
-              toUrl: '/developer/submit-app'
+              key: Routes.SUBMIT_APP,
+              toUrl: Routes.SUBMIT_APP
             }
           ]
         },
@@ -156,13 +107,13 @@ export const generateMenuConfig = logoutCallback => {
           subMenu: [
             {
               title: 'Browse Apps',
-              key: '/client/apps',
-              toUrl: '/client/apps'
+              key: Routes.CLIENT,
+              toUrl: Routes.CLIENT
             },
             {
               title: 'Installed Apps',
-              key: '/client/installed',
-              toUrl: '/client/installed'
+              key: Routes.MY_APPS,
+              toUrl: Routes.MY_APPS
             }
           ]
         },
@@ -182,41 +133,6 @@ export const generateMenuConfig = logoutCallback => {
   }
 }
 
-export const MenuDynamic: React.FC<MenuConfig> = ({ title, homeUrl, logo, menu, location, defaultActiveKey }) => {
-  const [isOpen, setIsOpen] = React.useState(true)
-  const [caretToggle, setCaretToggle] = React.useState(defaultActiveKey)
-  return (
-    <aside className={`${bulma.menu}`}>
-      <Link className={menuStyles.logo} to={homeUrl}>
-        {logo}
-        <h5 className={`${bulma.title} ${bulma.is5}`}>{title}</h5>
-      </Link>
-      <div className={menuStyles.toggleContainer}>
-        <Toggle onChange={(_e: React.ChangeEvent<HTMLInputElement>) => setIsOpen(!isOpen)} isChecked={isOpen} />
-      </div>
-      <div className={`${menuStyles.menuBar} ${isOpen ? menuStyles.menuIsOpen : ''}`}>
-        {menu.map((item: MenuItem) => {
-          return (
-            <React.Fragment key={item.key}>
-              <p className={`${bulma.menuLabel} ${menuStyles.subMenuLabel}`} onClick={_e => setCaretToggle(item.key)}>
-                <Caret isActive={caretToggle === item.key} />
-                {item.title}
-              </p>
-              <ul
-                className={`${bulma.menuList} ${menuStyles.subMenu} ${
-                  caretToggle === item.key ? menuStyles.menuIsOpen : ''
-                }`}
-              >
-                {renderSubItem(item.subMenu, location)}
-              </ul>
-            </React.Fragment>
-          )
-        })}
-      </div>
-    </aside>
-  )
-}
-
 export interface MenuMappedProps {
   loginType: LoginType
 }
@@ -230,7 +146,7 @@ export type MenuProps = MenuMappedProps & MenuMappedActions & RouteComponentProp
 export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, location }) => {
   const logoutCallback = () => logout(loginType)
   const menuConfigs = generateMenuConfig(logoutCallback)
-  return <MenuDynamic {...menuConfigs[loginType]} location={location} />
+  return <Sidebar {...menuConfigs[loginType]} location={location} />
 }
 
 export const mapStateToProps = (state: ReduxState): MenuMappedProps => ({
