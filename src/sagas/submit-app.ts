@@ -1,4 +1,4 @@
-import fetcher from '../utils/fetcher'
+import { fetcher, FetchError } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
@@ -8,7 +8,6 @@ import { errorThrownServer } from '../actions/error'
 import { SubmitAppArgs } from '@/actions/submit-app'
 import errorMessages from '../constants/error-messages'
 import { getApiErrorsFromResponse } from '@/utils/form/errors'
-import { FetchError } from '@/utils/fetcher'
 
 export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
   const { actions, ...values } = data

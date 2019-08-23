@@ -6,7 +6,7 @@ import { removeLoginSession, setLoginSession } from '../utils/session'
 import { LoginSession, LoginType } from '../reducers/auth'
 import { history } from '../core/router'
 import Routes from '../constants/routes'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { COGNITO_API_BASE_URL, COGNITO_HEADERS } from '../constants/api'
 import { deserializeIdToken } from '../utils/cognito'
 
@@ -19,8 +19,7 @@ export const doLogin = function*({ data }: Action<AuthLoginParams>) {
       api: COGNITO_API_BASE_URL,
       method: 'POST',
       body: { userName, password },
-      headers: COGNITO_HEADERS,
-      isPrivate: false
+      headers: COGNITO_HEADERS
     })
 
     if (loginDetails) {

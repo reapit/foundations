@@ -9,7 +9,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../constants/api'
 

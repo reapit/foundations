@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import store from '../core/store'
 import { authLoginSuccess, authLogout } from '../actions/auth'
 import { LoginSession, LoginType, LoginIdentity, CoginitoIdentity } from '../reducers/auth'
-import fetcher from './fetcher'
+import { fetcher } from '@reapit/elements'
 import { COGNITO_API_BASE_URL, COGNITO_HEADERS } from '../constants/api'
 
 export interface LoginParams {
@@ -78,7 +78,6 @@ export const refreshSession = async ({ userName, refreshToken, loginType }: Refr
     method: 'POST',
     api: COGNITO_API_BASE_URL,
     body: { userName, refreshToken },
-    isPrivate: false,
     headers: COGNITO_HEADERS
   })
 

@@ -1,4 +1,4 @@
-import fetcher from '../utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
 import {
   developerLoading,
@@ -70,8 +70,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
       api: REAPIT_API_BASE_URL,
       method: 'POST',
       body: data,
-      headers: MARKETPLACE_HEADERS,
-      isPrivate: false
+      headers: MARKETPLACE_HEADERS
     })
     const status = regResponse ? 'SUCCESS' : 'ERROR'
     yield put(developerSetFormState(status))

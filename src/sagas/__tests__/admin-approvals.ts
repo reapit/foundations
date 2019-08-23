@@ -8,7 +8,7 @@ import {
 } from '@/actions/admin-approvals'
 import { appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
@@ -16,7 +16,7 @@ import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 const params = { data: 1 }
 
 describe('adminApprovals fetch data', () => {

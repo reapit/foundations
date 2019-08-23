@@ -110,7 +110,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                 placeholder="Enter your password"
               />
               <div className={level}>
-                <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting} fullWidth>
+                <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
                   Login
                 </Button>
                 {loginType === 'DEVELOPER' && (

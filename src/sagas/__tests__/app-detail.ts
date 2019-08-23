@@ -4,14 +4,14 @@ import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { appDetailLoading, appDetailReceiveData, appDetailFailure, AppDetailParams } from '@/actions/app-detail'
 import { Action } from '@/types/core'
-import fetcher from '@/utils/fetcher'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 
 const paramsClientId: Action<AppDetailParams> = {
   data: { id: '9b6fd5f7-2c15-483d-b925-01b650538e52', clientId: 'DAC' },

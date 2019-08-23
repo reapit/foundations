@@ -8,7 +8,7 @@ import { myAppsRequestData } from '../../actions/my-apps'
 import { adminApprovalsRequestData } from '../../actions/admin-approvals'
 import { getAccessToken } from '../cognito'
 
-jest.mock('../../utils/fetcher')
+jest.mock('@reapit/elements')
 jest.mock('../../utils/cognito')
 jest.mock('../../core/store')
 jest.mock('../../sagas/client')
