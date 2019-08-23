@@ -60,22 +60,9 @@ describe('DeveloperSubmitAppPage', () => {
       Math.random()
         .toString(36)
         .slice(-5)
-
     DeveloperSubmitAppPage.submitApp(appName)
-    // ^ Test successfully here but there is something to do
-
-    // Delisted the name submit successfully.
-    // There is a validatiion rule that enforce: developer only have <x> unlisted app
     DeveloperHomePage.openWithoutLogin()
-    const appId = DeveloperHomePage.getAppId(appName)
-    DeveloperHomePage.enableAppListed(appName)
-
-    // Logout
-    CommonPage.logout()
-
-    // Log as admin to approve merge detail
-    ApprovalsPage.open()
-    ApprovalsPage.approveAppChange(appId)
+    DeveloperHomePage.deleteApp(appName)
   })
 
   afterEach(() => {

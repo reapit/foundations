@@ -2,8 +2,9 @@ import Base from './base'
 import EditAppDetailModal from '../page-objects/edit-app-detail-modal'
 import CommonPage from '../page-objects/common'
 import LoginPage from './login'
-import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 import DeveloperAppDetailModal from './developer-app-detail-modal'
+import DeveloperAppModal from './developer-app-modal'
+import DeleteAppModal from '../page-objects/delete-app-modal'
 
 class DeveloperHomePage extends Base {
   get route() {
@@ -77,6 +78,23 @@ class DeveloperHomePage extends Base {
 
   openWithoutLogin() {
     super.open(this.route)
+  }
+
+  deleteApp(appName) {
+    this.openWithoutLogin()
+    this.getAppCardByName(appName).waitForVisible()
+    this.getAppCardByName(appName).click()
+
+    // Press delete button
+    DeveloperAppModal.btnDeleteApp.waitForVisible()
+    DeveloperAppModal.btnDeleteApp.click()
+
+    // Press confirm button
+    DeleteAppModal.btnConfirm.waitForVisible()
+    DeleteAppModal.btnConfirm.click()
+
+    // delete message should be showed
+    DeleteAppModal.alertDeleteAppSuccess.waitForVisible()
   }
 
   enableAppListed(appName) {
