@@ -3,7 +3,6 @@ import DeveloperAppModal from '../page-objects/developer-app-modal'
 import DeveloperAppModalInner from '../page-objects/developer-app-modal-inner'
 import AdminHomePage from '../page-objects/admin'
 import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
-import { getLoginSession } from '../../../utils/session'
 
 describe('DeveloperSubmitRevision', () => {
   beforeEach(() => {

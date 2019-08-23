@@ -5,14 +5,14 @@ import '../../styles/vendor/swagger.scss'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { REAPIT_API_BASE_URL, URLS, MARKETPLACE_HEADERS } from '../../constants/api'
 import { Loader } from '@reapit/elements'
-import { getAccessToken } from '../../utils/cognito'
+import { verifyAccessToken } from '@/utils/session'
 
 const fetchInterceptor = async (params: RequestInit) => {
   return {
     ...params,
     headers: {
       ...MARKETPLACE_HEADERS,
-      Authorization: `Bearer ${await getAccessToken()}`
+      Authorization: `Bearer ${await verifyAccessToken()}`
     }
   }
 }

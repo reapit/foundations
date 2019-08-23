@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken'
 import store from '../core/store'
 import { authLoginSuccess, authLogout } from '../actions/auth'
-import { LoginSession, LoginType, LoginIdentity, CoginitoIdentity } from '../reducers/auth'
-import { fetcher } from '@reapit/elements'
+import { LoginSession, LoginType, LoginIdentity, CoginitoIdentity } from '@reapit/elements'
+import fetcher from './fetcher'
 import { COGNITO_API_BASE_URL, COGNITO_HEADERS } from '../constants/api'
 
 export interface LoginParams {

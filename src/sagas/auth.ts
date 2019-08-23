@@ -3,20 +3,24 @@ import ActionTypes from '../constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess, AuthLoginParams } from '../actions/auth'
 import { Action } from '@/types/core.ts'
 import { removeLoginSession, setLoginSession } from '../utils/session'
-import { LoginSession, LoginType } from '../reducers/auth'
 import { history } from '../core/router'
 import Routes from '../constants/routes'
-import { fetcher } from '@reapit/elements'
-import { COGNITO_API_BASE_URL, COGNITO_HEADERS } from '../constants/api'
-import { deserializeIdToken } from '../utils/cognito'
+import {
+  COGNITO_API_BASE_URL,
+  COGNITO_HEADERS,
+  deserializeIdToken,
+  LoginSession,
+  LoginType,
+  fetcher
+} from '@reapit/elements'
 
 export const doLogin = function*({ data }: Action<AuthLoginParams>) {
   try {
     const { email: userName, password, loginType } = data
 
     const loginDetails: Partial<LoginSession> | undefined = yield call(fetcher, {
-      url: `/login`,
       api: COGNITO_API_BASE_URL,
+      url: `/login`,
       method: 'POST',
       body: { userName, password },
       headers: COGNITO_HEADERS

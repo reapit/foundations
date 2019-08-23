@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps, RouteProps } from 'react-router'
-import { Menu as Sidebar } from '@reapit/elements'
+import { Menu as Sidebar, LoginType } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { authLogout } from '@/actions/auth'
-import { LoginType } from '@/reducers/auth'
 import Logo from '@/components/svg/logo'
 import Routes from '../../constants/routes'
 

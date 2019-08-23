@@ -6,10 +6,10 @@ import { myAppsRequestData } from '../actions/my-apps'
 import { developerRequestData } from '../actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { submitAppRequestData } from '../actions/submit-app'
-import { getAccessToken } from './cognito'
+import { verifyAccessToken } from './session'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
-  await getAccessToken()
+  await verifyAccessToken()
 
   switch (route) {
     case Routes.CLIENT:
