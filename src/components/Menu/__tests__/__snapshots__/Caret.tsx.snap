@@ -5,7 +5,7 @@ exports[`Caret should render correctly 1`] = `
   className="caret-container"
 >
   <span
-    className="\\"caret-arrow\\" caret-active"
+    className="caret-arrow caret-active"
   />
 </span>
 `;
@@ -15,7 +15,7 @@ exports[`Caret should render correctly 2`] = `
   className="caret-container"
 >
   <span
-    className="\\"caret-arrow\\" "
+    className="caret-arrow "
   />
 </span>
 `;
