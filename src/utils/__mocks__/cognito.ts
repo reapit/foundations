@@ -1,4 +1,4 @@
-import { LoginSession } from '../../reducers/auth'
+import { LoginSession } from '@reapit/elements'
 
 export const mockLoginSession = {
   userName: 'bob@acme.com',
@@ -17,3 +17,8 @@ export const mockLoginSession = {
 export const cognitoLogin = jest.fn()
 export const deserializeIdToken = jest.fn(() => mockLoginSession.loginIdentity)
 export const getAccessToken = jest.fn()
+export const fetcher = jest.fn()
+export const COGNITO_API_BASE_URL = 'https://1wke0xp728.execute-api.eu-west-2.amazonaws.com/dev/api'
+export const COGNITO_HEADERS = {
+  'Content-Type': 'application/json'
+}

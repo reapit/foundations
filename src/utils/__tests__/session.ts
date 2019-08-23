@@ -2,6 +2,8 @@ import { mockLoginSession } from '../__mocks__/cognito'
 import { setLoginSession, getLoginSession, removeLoginSession, getTokenFromQueryString } from '../session'
 import { LOCAL_STORAGE_SESSION_KEY } from '../../constants/session'
 
+jest.mock('../../core/store')
+
 describe('session utils', () => {
   describe('setLoginSession', () => {
     it('should correctly set localStorage', () => {

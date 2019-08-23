@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
 import RouteFetcher from '../components/hocs/route-fetcher'
-import { LoginType } from '@/reducers/auth'
+import { LoginType } from '@reapit/elements'
 
 export interface PrivateRouteConnectProps {
   loginType: LoginType

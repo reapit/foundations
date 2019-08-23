@@ -4,6 +4,8 @@ import toJson from 'enzyme-to-json'
 import { MemoryRouter, Route } from 'react-router'
 import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
 
+jest.mock('../store')
+
 // const FakeRoute = ({ path }: { path: string }) => <div className="render-class" />
 
 const props: PrivateRouteWrapperProps = {

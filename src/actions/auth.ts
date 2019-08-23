@@ -1,7 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { LoginType, LoginSession } from '../reducers/auth'
-import { RefreshParams } from '../utils/cognito'
+import { LoginType, LoginSession, RefreshParams } from '@reapit/elements'
 
 export interface AuthLoginParams {
   email: string

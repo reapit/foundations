@@ -3,23 +3,22 @@ import ActionTypes from '../../constants/action-types'
 import { put, all, takeLatest, call } from '@redux-saga/core/effects'
 import { authLoginSuccess, authLogoutSuccess, AuthLoginParams, authLoginFailure } from '../../actions/auth'
 import { Action } from '@/types/core'
-import { fetcher } from '@reapit/elements'
+import { fetcher, LoginType } from '@reapit/elements'
 import { removeLoginSession, setLoginSession } from '../../utils/session'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
-import { LoginType } from '../../reducers/auth'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { COGNITO_HEADERS, COGNITO_API_BASE_URL } from '@/constants/api'
 import { mockLoginSession } from '@/utils/__mocks__/cognito'
 
-jest.mock('@reapit/elements')
-jest.mock('../../utils/cognito')
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({
   history: {
     push: jest.fn()
   }
 }))
+
+jest.mock('@reapit/elements', jest.fn(() => require('../../utils/__mocks__/cognito')))
 
 describe('login submit', () => {
   const data: AuthLoginParams = { loginType: 'CLIENT', email: 'bob@acme.com', password: 'xxxxxx' }
@@ -34,7 +33,7 @@ describe('login submit', () => {
     })
   )
 
-  test('api call success', () => {
+  it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(mockLoginSession).value).toEqual(call(setLoginSession, mockLoginSession))
     expect(clone.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))

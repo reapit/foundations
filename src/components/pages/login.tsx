@@ -6,14 +6,13 @@ import Alert from '../ui/alert'
 import { Formik, Form } from 'formik'
 import { authLogin, authChangeLoginType, AuthLoginParams } from '../../actions/auth'
 import { validate } from '../../utils/form/login'
-import { LoginType } from '../../reducers/auth'
 import { Dispatch } from 'redux'
 import Routes from '../../constants/routes'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import bulma from '@/styles/vendor/bulma'
 import { withRouter, RouteComponentProps } from 'react-router'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
-import { Input, Button, Tabs, TabConfig } from '@reapit/elements'
+import { Input, Button, Tabs, TabConfig, LoginType } from '@reapit/elements'
 
 export interface LoginMappedActions {
   login: (params: AuthLoginParams) => void

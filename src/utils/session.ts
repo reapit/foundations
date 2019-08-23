@@ -1,6 +1,7 @@
-import { LoginSession, LoginType } from '../reducers/auth'
 import { LOCAL_STORAGE_SESSION_KEY } from '../constants/session'
-import { RefreshParams } from './cognito'
+import { RefreshParams, LoginSession, LoginType, getAccessToken } from '@reapit/elements'
+import store from '../core/store'
+import { authLoginSuccess, authLogout } from '../actions/auth'
 
 export const setLoginSession = (session: LoginSession): void => {
   try {
@@ -45,5 +46,19 @@ export const getTokenFromQueryString = (queryString: string, loginType: LoginTyp
     }
   }
 
+  return null
+}
+
+export const verifyAccessToken = async (): Promise<string | null> => {
+  const { loginSession, loginType, desktopSession } = store.state.auth
+
+  const session = await getAccessToken({ loginSession, desktopSession })
+
+  if (session) {
+    store.dispatch(authLoginSuccess(session))
+    return session.accessToken
+  }
+
+  store.dispatch(authLogout(loginType))
   return null
 }

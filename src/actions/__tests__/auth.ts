@@ -8,7 +8,7 @@ import {
   authSetDesktopSession
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { LoginType, LoginSession } from '../../reducers/auth'
+import { LoginType, LoginSession } from '@reapit/elements'
 
 describe('auth actions', () => {
   it('should create a authLogin action', () => {
