@@ -79,7 +79,7 @@ export const Menu: React.FC<MenuConfig> = ({ title, homeUrl, logo, menu, locatio
     <aside className="menu">
       <Link className="logo" to={homeUrl}>
         {logo}
-        <h5 className="title .is5">{title}</h5>
+        <h5 className="title is-5">{title}</h5>
       </Link>
       <div className="toggle-container">
         <Toggle
