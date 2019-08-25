@@ -1,4 +1,5 @@
 import React from 'react';
+import { hot } from 'react-hot-loader/root';
 import logo from './logo.svg';
 import './App.css';
 
@@ -21,6 +22,6 @@ const App: React.FC = () => {
       </header>
     </div>
   );
-}
+};
 
-export default App;
+export default process.env.NODE_ENV === 'development' ? hot(App) : App;
