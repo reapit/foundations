@@ -1,25 +1,15 @@
-## Available Scripts
+# App Store
 
-In the project directory, you can run:
+[![Build Status](https://dev.azure.com/reapit/App%20Store/_apis/build/status/reapit.app-store?branchName=develop)](https://dev.azure.com/reapit/App%20Store/_build/latest?definitionId=12&branchName=develop)
+[![Deployment Status](https://vsrm.dev.azure.com/reapit/_apis/public/Release/badge/ce5c2b72-fc0b-47b0-a94b-cc369120b059/2/2)](https://d3ps8i1lmu75tx.cloudfront.net/)
 
-### `yarn`
-Install dependencies.
+App store for Reapit PAAS platform. Initial scaffold from [React App Boilerplate](https://github.com/reapit/react-app)
 
-### `yarn start`
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Read on:
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Getting Started](./src/docs/GETTING_STARTED.md)
+- [Api Platform](./src/docs/API_PLATFORM.md)
+- [Code Style](./src/docs/CODE_STYLE.md)
+- [Version Control](./VERSION_CONTROL.md)
+- [Definition of Done](./src/docs/DEFINITION_OF_DONE.md)
+- [Deployment](./src/docs/DEPLOYMENT.md)
