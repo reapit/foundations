@@ -1,3 +1,6 @@
+/* eslint @typescript-eslint/explicit-function-return-type: 0 */
+/*  eslint @typescript-eslint/member-delimiter-style: 0 */
+
 // This optional code is used to register a service worker.
 // register() is not called by default.
 

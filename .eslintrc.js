@@ -29,7 +29,6 @@ module.exports = {
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/prefer-interface': 'off',
     'prettier/prettier': ['error'],
-    "@typescript-eslint/member-delimiter-style": 0,
-    "@typescript-eslint/explicit-function-return-type": 0
+    "@typescript-eslint/no-unused-vars": "warn",
   },
 };
