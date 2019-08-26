@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { hot } from 'react-hot-loader/root'
 import { Provider } from 'react-redux'
-import App from '@pages/App'
+import App from '@/pages/App'
 import store from '@/store'
 import * as serviceWorker from './serviceWorker'
 
@@ -14,7 +14,7 @@ const renderApp = (Component: React.ComponentType): void => {
     document.getElementById('root') as HTMLElement,
   )
 }
-
+// eslint-disable-next-line
 const run = async () => {
   // This func will be use for init something before render app
   const isDevelopmentEnv = process.env.NODE_ENV === 'development'
