@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Home: React.FC = () => {
+export type HomeProps = {}
+
+const Home: React.FC<HomeProps> = (): React.ReactElement => {
   return <div>Home Page</div>
 }
 
