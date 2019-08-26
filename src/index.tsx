@@ -1,11 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { hot } from 'react-hot-loader/root'
+import { Provider } from 'react-redux'
 import App from '@pages/App'
+import store from '@/store'
 import * as serviceWorker from './serviceWorker'
 
 const renderApp = (Component: React.ComponentType): void => {
-  ReactDOM.render(<Component />, document.getElementById('root') as HTMLElement)
+  ReactDOM.render(
+    <Provider store={store}>
+      <Component />
+    </Provider>,
+    document.getElementById('root') as HTMLElement,
+  )
 }
 
 const run = async () => {

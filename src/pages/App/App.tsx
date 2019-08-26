@@ -9,7 +9,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <React.Suspense fallback={null}>
         <Switch>
-          <Route path={ROUTES.HOME} exact={true} render={props => <Home />} />
+          <Route path={ROUTES.HOME} exact={true} render={() => <Home />} />
         </Switch>
       </React.Suspense>
     </BrowserRouter>
