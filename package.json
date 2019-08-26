@@ -64,17 +64,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "@/(.*)": "<rootDir>/src/$1",
-      "^@assets[/](.+)": "<rootDir>/src/assets/$1",
-      "^@components": "<rootDir>/src/components",
-      "^@components[/](.+)": "<rootDir>/src/components/$1",
-      "^@constants": "<rootDir>/src/constants",
-      "^@pages": "<rootDir>/src/pages",
-      "^@pages[/](.+)": "<rootDir>/src/pages/$1",
-      "^@helpers": "<rootDir>/src/helpers",
-      "^@helpers[/](.+)": "<rootDir>/src/helpers/$1",
-      "^@typings": "<rootDir>/src/typings",
-      "^@typings[/](.+)": "<rootDir>/src/typings/$1"
+      "@/(.*)": "<rootDir>/src/$1"
     },
     "snapshotSerializers": ["enzyme-to-json/serializer"],
     "setupFiles": ["<rootDir>/setup-test.js"]

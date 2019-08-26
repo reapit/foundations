@@ -19,7 +19,7 @@ const run = async () => {
   // This func will be use for init something before render app
   const isDevelopmentEnv = process.env.NODE_ENV === 'development'
   const newApp = isDevelopmentEnv ? hot(App) : App
-  return await renderApp(newApp)
+  await renderApp(newApp)
 }
 
 run()
