@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme-to-json": "^3.4.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
@@ -36,6 +37,7 @@
     "@typescript-eslint/parser": "^2.0.0",
     "customize-cra": "^0.5.0",
     "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "6.x",
     "eslint-config-prettier": "^6.1.0",
     "eslint-config-react-app": "^5.0.1",
@@ -66,14 +68,9 @@
       "^@helpers[/](.+)": "<rootDir>/src/helpers/$1",
       "^@typings": "<rootDir>/src/typings",
       "^@typings[/](.+)": "<rootDir>/src/typings/$1"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn precommit",
-      "pre-push": "yarn test --coverage --no-cache",
-      "...": "..."
-    }
+    },
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "setupFiles": ["<rootDir>/setupTest.js"]
   },
   "lint-staged": {
     "*.json": ["./node_modules/.bin/prettier --parser json --write", "git add"],
