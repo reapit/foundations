@@ -4,6 +4,8 @@ import Router from './router'
 import { Provider } from 'react-redux'
 import store from './store'
 
+import CurrentLocButton from '../components/container/current-loc-button'
+
 const rootElement = document.querySelector('#root') as Element
 
 const App = () => (
