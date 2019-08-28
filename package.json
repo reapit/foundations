@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -88,12 +88,12 @@
   "dependencies": {
     "bulma": "^0.7.5",
     "jsonwebtoken": "^8.5.1",
+    "formik": "^1.5.8",
     "react-google-map": "^3.1.1",
     "react-google-maps-loader": "^4.2.5",
     "react-icons": "^3.7.0"
   },
   "peerDependencies": {
-    "formik": "^1.5.8",
     "react": "^16.8.6",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1"
