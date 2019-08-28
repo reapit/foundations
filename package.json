@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -88,6 +88,8 @@
   "dependencies": {
     "bulma": "^0.7.5",
     "jsonwebtoken": "^8.5.1",
+    "react-google-map": "^3.1.1",
+    "react-google-maps-loader": "^4.2.5",
     "react-icons": "^3.7.0"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
 import React from 'react'
 import AppointmentTile from '../index'
-import { shallow } from 'enzyme';
+import { shallow } from 'enzyme'
 
 describe('AppointmentTile', () => {
   it('should match snapshot', () => {
