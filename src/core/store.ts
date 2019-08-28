@@ -1,6 +1,8 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
 import home from '../reducers/home'
 import error from '../reducers/error'
+import currentLoc from '../reducers/current-loc'
+
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import homeSagas from '../sagas/home'
@@ -23,7 +25,8 @@ export class Store {
 
   static reducers = combineReducers({
     error,
-    home
+    home,
+    currentLoc
   })
 
   static sagas = function*() {
