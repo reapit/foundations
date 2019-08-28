@@ -26,7 +26,7 @@ export const generateMenuConfig = logoutCallback => {
   return {
     ADMIN: {
       title: 'Foundations',
-      logo: <Logo />,
+      logo: <Logo width="150px" height="65px" />,
       homeUrl: '/home',
       defaultActiveKey: 'Apps',
       menu: [
@@ -56,7 +56,7 @@ export const generateMenuConfig = logoutCallback => {
     },
     DEVELOPER: {
       title: 'Foundations',
-      logo: <Logo />,
+      logo: <Logo width="150px" height="65px" />,
       homeUrl: '/home',
       defaultActiveKey: 'Apps',
       menu: [
@@ -96,7 +96,7 @@ export const generateMenuConfig = logoutCallback => {
     },
     CLIENT: {
       title: 'Foundations',
-      logo: <Logo />,
+      logo: <Logo width="150px" height="65px" />,
       homeUrl: '/home',
       defaultActiveKey: 'Apps',
       menu: [

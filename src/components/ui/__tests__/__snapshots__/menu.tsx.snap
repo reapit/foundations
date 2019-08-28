@@ -9,7 +9,12 @@ exports[`Menu should match a snapshot 1`] = `
       "pathname": "/client",
     }
   }
-  logo={<Logo />}
+  logo={
+    <Logo
+      height="65px"
+      width="150px"
+    />
+  }
   menu={
     Array [
       Object {
