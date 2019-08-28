@@ -18,7 +18,7 @@ describe('AppDetailModel', () => {
     const afterClose = jest.fn()
     const appInstallDone = jest.fn()
     const setAppDetailModalStateView = jest.fn()
-    const fn = handleAfterClose(afterClose, appInstallDone, setAppDetailModalStateView)
+    const fn = handleAfterClose(setAppDetailModalStateView, appInstallDone, afterClose)
     fn()
     expect(afterClose).toBeCalled()
     expect(appInstallDone).toBeCalled()
@@ -28,7 +28,7 @@ describe('AppDetailModel', () => {
     const afterClose = undefined
     const appInstallDone = jest.fn()
     const setAppDetailModalStateView = jest.fn()
-    const fn = handleAfterClose(afterClose, appInstallDone, setAppDetailModalStateView)
+    const fn = handleAfterClose(setAppDetailModalStateView, appInstallDone, afterClose)
     fn()
     expect(setAppDetailModalStateView).toBeCalled()
   })

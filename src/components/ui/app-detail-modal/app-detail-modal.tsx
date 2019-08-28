@@ -27,7 +27,11 @@ const mapStateToProps = (state: ReduxState): ActionDetailModalMappedState => ({
   appInstallFormState: state.appInstall.formState
 })
 
-export const handleAfterClose = (afterClose, appInstallDone, setAppDetailModalStateView) => () => {
+export const handleAfterClose = (
+  setAppDetailModalStateView: () => void,
+  appInstallDone: () => void,
+  afterClose?: () => void
+) => () => {
   if (afterClose) {
     afterClose()
     appInstallDone()
@@ -42,7 +46,7 @@ export const AppDetailModal: React.FunctionComponent<AppDetailModalProps> = ({
   appInstallDone
 }) => {
   return (
-    <Modal visible={visible} afterClose={handleAfterClose(afterClose, appInstallDone, setAppDetailModalStateView)}>
+    <Modal visible={visible} afterClose={handleAfterClose(setAppDetailModalStateView, appInstallDone, afterClose)}>
       <AppDetailAsyncContainer>
         <AppDetailInner afterClose={afterClose} />
       </AppDetailAsyncContainer>

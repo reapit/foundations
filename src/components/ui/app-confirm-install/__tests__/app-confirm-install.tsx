@@ -2,12 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { FormState, ReduxState } from '@/types/core'
-import {
-  AppConfirmInstallContent,
-  handleCloseModal,
-  mapDispatchToProps,
-  mapStateToProps
-} from '../app-confirm-install-content'
+import { AppConfirmInstallContent, handleCloseModal, mapDispatchToProps, mapStateToProps } from '../app-confirm-install'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
@@ -32,7 +27,7 @@ describe('AppConfirmInstallContent', () => {
     expect(toJson(wrapper4)).toMatchSnapshot()
   })
 
-  it('show Alert Success when formState SUCCESS', () => {
+  it('should return null when formState SUCCESS', () => {
     const mockProps = {
       permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
       requestInstall: jest.fn(),
@@ -42,7 +37,7 @@ describe('AppConfirmInstallContent', () => {
       appInstallFormState: 'SUCCESS' as FormState
     }
     const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
-    expect(wrapper.find('Alert')).toHaveLength(1)
+    expect(wrapper).toEqual({})
   })
 
   it('show confirm content', () => {
@@ -110,9 +105,6 @@ describe('AppConfirmInstallContent', () => {
   describe('mapStateToProps', () => {
     it('should return correct Props', () => {
       const mockState = {
-        appPermission: {
-          appPermissionData: appPermissionStub
-        },
         appDetail: {
           appDetailData: appDetailDataStub
         },

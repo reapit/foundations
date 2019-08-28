@@ -1,11 +1,8 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import { AppDetail, AppDetailProps, mapStateToProps, mapDispatchToProps } from '../app-detail'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
+import { AppDetail, AppDetailProps, mapDispatchToProps } from '../app-detail'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import { setAppDetailModalStatePermission } from '@/actions/app-detail-modal'
-import { appPermissionRequestData } from '@/actions/app-permission'
 import { appUninstallRequestData } from '@/actions/app-uninstall'
 
 const props: AppDetailProps = {
@@ -15,7 +12,6 @@ const props: AppDetailProps = {
   appUninstallFormState: 'PENDING',
   isCurrentLoggedUserDeveloper: true,
   isCurrentLoggedUserClient: false,
-  fetchAppPermission: jest.fn,
   data: {}
 }
 
@@ -40,14 +36,6 @@ describe('AppDetailModalInner', () => {
       )
       mappedSetAppDetailModalStatePermission()
       expect(mockedDispatch).toHaveBeenNthCalledWith(1, setAppDetailModalStatePermission())
-    })
-
-    it('should dispatch correctly if mapped fetchAppPermission is called', () => {
-      const mockedDispatch = jest.fn()
-      const fetchAppPermissionInput = '1'
-      const { fetchAppPermission: mappedFetchAppPermission } = mapDispatchToProps(mockedDispatch)
-      mappedFetchAppPermission(fetchAppPermissionInput)
-      expect(mockedDispatch).toHaveBeenNthCalledWith(1, appPermissionRequestData(fetchAppPermissionInput))
     })
 
     it('should dispatch correctly if mapped requestUninstall is called', () => {

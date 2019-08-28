@@ -12,7 +12,9 @@ exports[`AppDetailModal should match a snapshot when appInstallFormState = DONE 
      requires the following permissions to integrate with the platform. By installing you are consenting to the the following:
   </h6>
   <ul>
-    <li>
+    <li
+      key="tets"
+    >
       test
     </li>
   </ul>
@@ -48,7 +50,9 @@ exports[`AppDetailModal should match a snapshot when appInstallFormState = ERROR
      requires the following permissions to integrate with the platform. By installing you are consenting to the the following:
   </h6>
   <ul>
-    <li>
+    <li
+      key="tets"
+    >
       test
     </li>
   </ul>
@@ -84,7 +88,9 @@ exports[`AppDetailModal should match a snapshot when appInstallFormState = PENDI
      requires the following permissions to integrate with the platform. By installing you are consenting to the the following:
   </h6>
   <ul>
-    <li>
+    <li
+      key="tets"
+    >
       test
     </li>
   </ul>
@@ -120,7 +126,9 @@ exports[`AppDetailModal should match a snapshot when appInstallFormState = SUBMI
      requires the following permissions to integrate with the platform. By installing you are consenting to the the following:
   </h6>
   <ul>
-    <li>
+    <li
+      key="tets"
+    >
       test
     </li>
   </ul>
@@ -156,7 +164,9 @@ exports[`AppDetailModal should match a snapshot when appInstallFormState = SUCCE
      requires the following permissions to integrate with the platform. By installing you are consenting to the the following:
   </h6>
   <ul>
-    <li>
+    <li
+      key="tets"
+    >
       test
     </li>
   </ul>

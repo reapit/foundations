@@ -35,4 +35,13 @@ describe('app-detail modal reducer', () => {
     const expected = 'VIEW_CONFIRM_INSTALL'
     expect(newState).toEqual(expected)
   })
+
+  it('should set app-detail item data when SET_APP_DETAIL_MODAL_STATE_SUCCESS action is called', () => {
+    const newState = appDetailModalReducer(undefined, {
+      type: ActionTypes.SET_APP_DETAIL_MODAL_STATE_SUCCESS as ActionType,
+      data: true
+    })
+    const expected = 'VIEW_INSTALL_SUCCESS'
+    expect(newState).toEqual(expected)
+  })
 })

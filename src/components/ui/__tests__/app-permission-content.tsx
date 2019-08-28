@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { AppPermissionInnerProps, AppPermissionContent } from '../app-permission/app-permission-content'
+import { AppPermissionInnerProps, AppPermissionContent } from '../app-permission/app-permission'
 
 describe('AppDetailModal', () => {
   it('should match a snapshot when appInstallFormState = DONE', () => {

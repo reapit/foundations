@@ -3,10 +3,11 @@ import { isType } from '../utils/actions'
 import {
   setAppDetailModalStateView,
   setAppDetailModalStatePermission,
-  setAppDetailModalStateViewConfirm
+  setAppDetailModalStateViewConfirm,
+  setAppDetailModalStateInstallSuccess
 } from '../actions/app-detail-modal'
 
-export type AppDetailModalState = 'VIEW_DETAIL' | 'VIEW_PERMISSION' | 'VIEW_CONFIRM_INSTALL'
+export type AppDetailModalState = 'VIEW_DETAIL' | 'VIEW_PERMISSION' | 'VIEW_CONFIRM_INSTALL' | 'VIEW_INSTALL_SUCCESS'
 
 export const defaultState: AppDetailModalState = 'VIEW_DETAIL'
 
@@ -21,6 +22,10 @@ const appDetailModalReducer = (state: AppDetailModalState = defaultState, action
 
   if (isType(action, setAppDetailModalStateViewConfirm)) {
     return 'VIEW_CONFIRM_INSTALL'
+  }
+
+  if (isType(action, setAppDetailModalStateInstallSuccess)) {
+    return 'VIEW_INSTALL_SUCCESS'
   }
 
   return state

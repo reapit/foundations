@@ -71,7 +71,6 @@ describe('submitRevisionValidation', () => {
       description: gt150CharString,
       summary: gt150CharString
     }
-    console.log(validate(input))
     expect(validate(input)).toEqual({
       summary: errorMessages.MAXIMUM_CHARACTER_LENGTH(150)
     })
