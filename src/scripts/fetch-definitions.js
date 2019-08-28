@@ -10,19 +10,9 @@ const BASE_URL = 'https://reapit.cloud.tyk.io'
 
 const apiSchema = [
   {
-    definitionFile: `${__dirname}/../types/platform-api-schema.ts`,
-    endpoint: `${BASE_URL}/api/swagger/v1/swagger.json`,
-    headers: {
-      Authorisation: process.env.PLATFORM_API_KEY
-    }
+    definitionFile: `${__dirname}/../types/appointments.ts`,
+    endpoint: `${BASE_URL}/appointments/swagger/v1/swagger.json`,
   },
-  {
-    definitionFile: `${__dirname}/../types/marketplace-api-schema.ts`,
-    endpoint: `${BASE_URL}/marketplace/swagger/v1/swagger.json`,
-    headers: {
-      Authorisation: process.env.MARKETPLACE_API_KEY
-    }
-  }
 ]
 
 // Fetch definitions for a given schema
