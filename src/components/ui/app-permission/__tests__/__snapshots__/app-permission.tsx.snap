@@ -1,9 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppDetailInner should match a snapshot when appDetailModalState = VIEW_DETAIL 1`] = `
-<AppPermissionAsyncContainer>
-  <AppPermissionContentInnerWithConnect
-    afterClose={[MockFunction]}
-  />
-</AppPermissionAsyncContainer>
-`;
+exports[`AppPermissionContent render correctly 1`] = `ShallowWrapper {}`;

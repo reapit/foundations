@@ -12,6 +12,7 @@ import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator, SagaIteratorClone } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
+import { setAppDetailModalStateInstallSuccess } from '../../actions/app-detail-modal'
 
 jest.mock('@reapit/elements')
 
@@ -48,6 +49,7 @@ describe('app-install sagas', () => {
         })
       )
       expect(clone.next().value).toEqual(put(appInstallRequestSuccess()))
+      expect(clone.next().value).toEqual(put(setAppDetailModalStateInstallSuccess()))
       expect(clone.next().value).toEqual(
         put(
           appDetailRequestData({

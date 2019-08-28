@@ -7,7 +7,6 @@ import myApps from '../reducers/my-apps'
 import developer from '../reducers/developer'
 import appDetail from '../reducers/app-detail'
 import error from '../reducers/error'
-import appPermission from '../reducers/app-permission'
 import submitApp from '../reducers/submit-app'
 import submitRevision from '../reducers/submit-revision'
 import adminApprovals from '../reducers/admin-approvals'
@@ -26,7 +25,6 @@ import submitAppSagas from '../sagas/submit-app'
 import submitRevisionSagas from '../sagas/submit-revision'
 import adminApprovalSagas from '../sagas/admin-approvals'
 import revisionDetailSagas from '../sagas/revision-detail'
-import appPermissionSagas from '../sagas/app-permission'
 import appInstallSagas from '../sagas/app-install'
 import appUninstallSagas from '../sagas/app-uninstall'
 import appDeleteSagas from '../sagas/app-delete'
@@ -57,7 +55,6 @@ export class Store {
     submitRevision,
     adminApprovals,
     revisionDetail,
-    appPermission,
     appDetailModal,
     appInstall,
     appUninstall,
@@ -75,7 +72,6 @@ export class Store {
       fork(submitRevisionSagas),
       fork(adminApprovalSagas),
       fork(revisionDetailSagas),
-      fork(appPermissionSagas),
       fork(appInstallSagas),
       fork(appUninstallSagas),
       fork(appDeleteSagas)

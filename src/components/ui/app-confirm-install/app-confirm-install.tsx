@@ -6,8 +6,8 @@ import bulma from '@/styles/vendor/bulma'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button } from '@reapit/elements'
 import { appInstallRequestData } from '@/actions/app-install'
-import Alert from '@/components/ui/alert'
 import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
+import { oc } from 'ts-optchain'
 
 export type AppConfirmInstallContentMappedProps = {
   permissions: ScopeModel[]
@@ -26,8 +26,8 @@ export type AppConfirmInstallContentInnerProps = AppConfirmInstallContentMappedP
     afterClose?: () => void
   }
 
-export const handleCloseModal = (afterClose, setAppDetailModalStateView) => () => {
-  afterClose()
+export const handleCloseModal = (setAppDetailModalStateView: () => void, afterClose?: () => void) => () => {
+  if (afterClose) afterClose()
   setAppDetailModalStateView()
 }
 
@@ -43,22 +43,22 @@ export const AppConfirmInstallContent = ({
   const isSuccessed = appInstallFormState === 'SUCCESS'
 
   if (isSuccessed) {
-    return (
-      <Alert dataTest="alertInstalledSuccess" className="mt-5" message="App installed successfully" type="success" />
-    )
+    return null
   }
 
   return (
     <div data-test="confirm-content">
       <h3 className={`${bulma.title} ${bulma.is3} ${appPermissionContentStyles.heading}`}>
-        Do you want to install it?
+        Please confim you agree to the permissions before installing
       </h3>
       <h6 className={appPermissionContentStyles.subtitle}>
         This {appName} equires the following permissions, please click ‘Agree’ to continue to the installation.
       </h6>
       <ul className={appPermissionContentStyles.permissionList}>
-        {permissions.map(({ description }) => (
-          <li className={appPermissionContentStyles.permissionListItem}>{description}</li>
+        {permissions.map(({ description, name }) => (
+          <li key={name} className={appPermissionContentStyles.permissionListItem}>
+            {description}
+          </li>
         ))}
       </ul>
       <div className={appPermissionContentStyles.installButtonContainer}>
@@ -74,11 +74,11 @@ export const AppConfirmInstallContent = ({
         </Button>
         <Button
           dataTest="disagree-btn"
-          loading={Boolean(isLoading)}
+          disabled={Boolean(isLoading)}
           className={appPermissionContentStyles.installButton}
           type="button"
           variant="danger"
-          onClick={handleCloseModal(afterClose, setAppDetailModalStateView)}
+          onClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
         >
           Disagree
         </Button>
@@ -88,13 +88,8 @@ export const AppConfirmInstallContent = ({
 }
 
 export const mapStateToProps = (state: ReduxState): AppConfirmInstallContentMappedProps => ({
-  permissions: (state.appPermission && state.appPermission.appPermissionData) || [],
-  appName:
-    (state.appDetail &&
-      state.appDetail.appDetailData &&
-      state.appDetail.appDetailData.data &&
-      state.appDetail.appDetailData.data.name) ||
-    '',
+  permissions: oc(state).appDetail.appDetailData.data.scopes([]),
+  appName: oc(state).appDetail.appDetailData.data.name(''),
   appInstallFormState: state.appInstall.formState
 })
 

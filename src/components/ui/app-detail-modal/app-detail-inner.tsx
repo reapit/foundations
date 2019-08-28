@@ -4,12 +4,18 @@ import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { ReduxState } from '@/types/core'
 import AppDetail from '@/components/ui/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
-import AppPermission from '@/components/ui/app-permission'
-import AppInstallConfirm from '@/components/ui/app-confirm-install'
+import AppPermission from '@/components/ui/app-permission/app-permission'
+import AppInstallConfirm from '@/components/ui/app-confirm-install/app-confirm-install'
+import CallToAction from '../call-to-action'
+import { handleCloseModal, mapDispatchToProps } from '../app-confirm-install/app-confirm-install'
 
 export interface AppDetailInnerMappedProps {
   appDetailModalState: AppDetailModalState
   appDetailState: AppDetailState
+}
+
+export interface AppDetailInnerMappedActions {
+  setAppDetailModalStateView: () => void
 }
 
 export const mapStateToProps = (state: ReduxState): AppDetailInnerMappedProps => ({
@@ -17,14 +23,16 @@ export const mapStateToProps = (state: ReduxState): AppDetailInnerMappedProps =>
   appDetailState: state.appDetail
 })
 
-type AppDetailInnerProps = AppDetailInnerMappedProps & {
-  afterClose?: () => void
-}
+export type AppDetailInnerProps = AppDetailInnerMappedProps &
+  AppDetailInnerMappedActions & {
+    afterClose?: () => void
+  }
 
 export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   appDetailModalState,
   appDetailState,
-  afterClose
+  afterClose,
+  setAppDetailModalStateView
 }) => {
   if (appDetailModalState === 'VIEW_DETAIL') {
     if (!appDetailState.appDetailData || !appDetailState.appDetailData.data) {
@@ -41,12 +49,26 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
     return <AppInstallConfirm afterClose={afterClose} />
   }
 
+  if (appDetailModalState === 'VIEW_INSTALL_SUCCESS') {
+    return (
+      <CallToAction
+        title="Success!"
+        buttonText="Back to List"
+        dataTest="alertInstalledSuccess"
+        onButtonClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
+        isCenter
+      >
+        App has been successfully installed.
+      </CallToAction>
+    )
+  }
+
   return null
 }
 
 const AppDetailInnerWithConnect = connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(AppDetailInner)
 
 export default AppDetailInnerWithConnect

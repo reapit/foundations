@@ -7,7 +7,6 @@ import ChevronLeftIcon from '@/components/svg/chevron-left'
 import '@/styles/vendor/slick.scss'
 import { connect } from 'react-redux'
 import { setAppDetailModalStatePermission } from '@/actions/app-detail-modal'
-import { appPermissionRequestData } from '@/actions/app-permission'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { Button } from '@reapit/elements'
 import { appUninstallRequestData } from '@/actions/app-uninstall'
@@ -25,7 +24,6 @@ export interface AppDetailModalMappedProps {
 
 export interface AppDetailModalMappedActions {
   setAppDetailModalStatePermission: () => void
-  fetchAppPermission: (id: string) => void
   requestUninstall: () => void
   setDeveloperAppModalStateDelete: () => void
 }
@@ -39,7 +37,6 @@ const SlickButtonNav = ({ currentSlide, setAppDetailModalStatePermission, slideC
 export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   data,
   setAppDetailModalStatePermission,
-  fetchAppPermission,
   requestUninstall,
   appUninstallFormState,
   isCurrentLoggedUserClient
@@ -108,7 +105,6 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                     if (!id) {
                       return
                     }
-                    fetchAppPermission(id)
                     setAppDetailModalStatePermission()
                   }}
                 >
@@ -145,7 +141,6 @@ export const mapStateToProps = (state: ReduxState): AppDetailModalMappedProps =>
 
 export const mapDispatchToProps = (dispatch: any): AppDetailModalMappedActions => ({
   setAppDetailModalStatePermission: () => dispatch(setAppDetailModalStatePermission()),
-  fetchAppPermission: appId => dispatch(appPermissionRequestData(appId)),
   requestUninstall: () => dispatch(appUninstallRequestData()),
   setDeveloperAppModalStateDelete: () => dispatch(setDeveloperAppModalStateDelete())
 })
