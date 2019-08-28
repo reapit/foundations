@@ -6,5 +6,8 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|)[/\\\\]', '.stories.tsx', 'src/index.tsx'
   ],
-  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public)[/\\\\]']
+  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public)[/\\\\]'],
+  transform: {
+    "^.+\\.svg$": "<rootDir>/svg-transform.js"
+ }
 };
