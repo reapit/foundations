@@ -1,4 +1,5 @@
 import * as React from 'react'
+import CurrentLocButton from '@/components/container/current-loc-button'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { HomeState } from '@/reducers/home'
@@ -17,6 +18,14 @@ export const Home: React.FunctionComponent<HomeProps> = () => {
   return (
     <ErrorBoundary>
       <h1>Home Page</h1>
+      <CurrentLocButton />
+      <CurrentLocButton>
+        {({ buttonOnClick, isDisableCurrentLocButton }) => (
+          <button className="test" disabled={isDisableCurrentLocButton} onClick={buttonOnClick}>
+            Test Button
+          </button>
+        )}
+      </CurrentLocButton>
     </ErrorBoundary>
   )
 }

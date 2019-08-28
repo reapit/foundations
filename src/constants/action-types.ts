@@ -2,6 +2,9 @@
  * Please follow the <<STATE>>_<<ACTION_TYPE>> pattern and group actions by STATE
  */
 const ActionTypes = {
+  // CurrentLoc actions
+  SET_CURRENT_LOC: 'SET_CURRENT_LOC',
+
   // Auth actions
   AUTH_LOGIN: 'AUTH_LOGIN',
   AUTH_LOGIN_SUCCESS: 'AUTH_LOGIN_SUCCESS',

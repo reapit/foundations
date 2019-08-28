@@ -24,6 +24,7 @@ http
     } catch (e) {
       response.writeHead(500)
       response.end() // end the response so browsers don't hang
+      
       console.log(e.stack)
     }
   })
