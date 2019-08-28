@@ -23,7 +23,6 @@ export const Tabs: React.FunctionComponent<TabsProps> = ({ tabConfigs }) => (
         <li className={`${tabConfig.active ? 'is-active' : ''}`} key={tabConfig.tabIdentifier}>
           <a
             id={tabConfig.tabIdentifier}
-            href={`#${tabConfig.tabIdentifier}`}
             role="tab"
             aria-controls={tabConfig.tabIdentifier}
             aria-selected={tabConfig.active}
