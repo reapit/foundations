@@ -60,7 +60,6 @@ exports[`Map renderHandler should render correctly when no error 1`] = `
               "anchor": mockConstructor {},
               "origin": mockConstructor {},
               "scaledSize": mockConstructor {},
-              "url": Object {},
             },
             "label": Object {
               "fontSize": "1.5rem",
