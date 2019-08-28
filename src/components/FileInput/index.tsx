@@ -28,6 +28,7 @@ export const FileInput = ({
   allowClear = false
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState()
+  const inputFile = React.useRef<HTMLInputElement>(null)
 
   return (
     <Field
@@ -64,6 +65,7 @@ export const FileInput = ({
               <div className="control pb-2">
                 <label data-test="file-input-label" className="file-label" htmlFor={id}>
                   <input
+                    ref={inputFile}
                     id={id}
                     className="file-input"
                     type="file"
@@ -86,6 +88,9 @@ export const FileInput = ({
                         e.preventDefault()
                         setFieldValue(name, '')
                         setFileName('')
+                        if (inputFile.current) {
+                          inputFile.current.value = ''
+                        }
                       }}
                     />
                   )}
