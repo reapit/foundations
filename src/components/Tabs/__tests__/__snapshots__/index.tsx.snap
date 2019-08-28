@@ -13,7 +13,6 @@ exports[`Tabs should match a snapshot 1`] = `
       <a
         aria-controls="ITEMONE"
         aria-selected={true}
-        href="#ITEMONE"
         id="ITEMONE"
         onClick={[Function]}
         role="tab"
@@ -28,7 +27,6 @@ exports[`Tabs should match a snapshot 1`] = `
       <a
         aria-controls="ITEMTWO"
         aria-selected={false}
-        href="#ITEMTWO"
         id="ITEMTWO"
         onClick={[Function]}
         role="tab"
