@@ -1,3 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppointmentTile should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`AppointmentTile should match snapshot 1`] = `
+<div
+  className="box appointment-tile"
+>
+  <div
+    className="location-marker"
+  >
+    <FaMapMarkerAlt />
+  </div>
+  <div>
+    <h4>
+      <b>
+        mockHeading
+      </b>
+    </h4>
+    <div>
+      City
+    </div>
+    <div>
+      Country
+    </div>
+    <div>
+      PostalCode
+    </div>
+    <div>
+      "contactPerson"
+    </div>
+  </div>
+</div>
+`;
