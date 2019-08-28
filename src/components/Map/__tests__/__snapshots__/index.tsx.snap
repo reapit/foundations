@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map Map should render correctly 1`] = `
+<GoogleMapsLoader
+  params={
+    Object {
+      "key": "mockKey",
+      "libraries": "places,geometry",
+    }
+  }
+  render={[Function]}
+/>
+`;
+
+exports[`Map Map should render correctly when marker undefined 1`] = `
+<GoogleMapsLoader
+  params={
+    Object {
+      "key": "mockKey",
+      "libraries": "places,geometry",
+    }
+  }
+  render={[Function]}
+/>
+`;
+
+exports[`Map renderHandler should render correctly when error 1`] = `
+<div>
+  <div
+    data-test="error-container"
+  >
+    <Component />
+  </div>
+</div>
+`;
+
+exports[`Map renderHandler should render correctly when no error 1`] = `
+<div>
+  <div
+    data-test="map-container"
+    style={
+      Object {
+        "height": "100vh",
+      }
+    }
+  >
+    <t
+      autoFitBounds={false}
+      boundsOffset={0.002}
+      center={
+        Object {
+          "lat": 10.806203,
+          "lng": 106.666807,
+        }
+      }
+      coordinates={
+        Array [
+          Object {
+            "icon": Object {
+              "anchor": mockConstructor {},
+              "origin": mockConstructor {},
+              "scaledSize": mockConstructor {},
+              "url": Object {},
+            },
+            "label": Object {
+              "fontSize": "1.5rem",
+              "fontWeight": "500",
+              "text": "1",
+            },
+            "onLoaded": [Function],
+            "position": Object {
+              "lat": 10.806203,
+              "lng": 106.666807,
+            },
+            "title": "mockTitle",
+          },
+        ]
+      }
+      googleMaps={
+        Object {
+          "InfoWindow": [MockFunction],
+          "Point": [MockFunction] {
+            "calls": Array [
+              Array [
+                25,
+                80,
+              ],
+              Array [
+                0,
+                -10,
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          },
+          "Size": [MockFunction] {
+            "calls": Array [
+              Array [
+                50,
+                100,
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          },
+          "event": Object {
+            "addListener": [MockFunction],
+          },
+        }
+      }
+      onLoaded={[Function]}
+      zoom={16}
+    />
+  </div>
+</div>
+`;
