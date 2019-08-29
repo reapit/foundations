@@ -1,6 +1,7 @@
 const path = require('path')
 const glob = require('glob')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -30,7 +31,7 @@ module.exports = {
       memoryLimit: 4096
     }),
     new HtmlWebpackPlugin({
-      hash: true,
+      hash: false,
       inject: true,
       template: 'public/index.html',
       minify: {
@@ -67,7 +68,6 @@ module.exports = {
       }
     }),
     new BundleAnalyzerPlugin({
-      generateStatsFile: true,
       analyzerMode: 'disabled',
       generateStatsFile: true
     }),
@@ -77,6 +77,14 @@ module.exports = {
     new HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css'
+    }),
+    new GenerateSW({
+      exclude: [/\.jpe?g$/, /\.png$/],
+      clientsClaim: true,
+      skipWaiting: true,
+      navigateFallback: '/index.html',
+      cacheId: 'reapit/geo-diary',
+      cleanupOutdatedCaches: true
     })
   ],
   module: {

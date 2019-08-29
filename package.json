@@ -1,5 +1,5 @@
 {
-  "name": "geo-diary-2",
+  "name": "geo-diary",
   "version": "0.0.1",
   "private": true,
   "description": "Geo Diary App",
@@ -15,7 +15,8 @@
     "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
     "fetch-definitions": "node ./src/scripts/fetch-definitions.js",
     "lint": "tslint --fix --project tsconfig.json --format stylish",
-    "start": "node ./public/index.js geo-diary-2",
+    "start": "node ./public/index.js geo-diary",
+    "serve": "serve public/dist -s -l 8080",
     "test": "jest --coverage --silent",
     "test-dev": "jest --watch --verbose",
     "test-dev-e2e": "wdio ./src/scripts/wdio.conf.js --watch",
@@ -26,12 +27,14 @@
   },
   "dependencies": {
     "@reapit/elements": "latest",
+    "localforage": "^1.7.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
     "redux-saga": "^1.0.3",
     "ts-optchain": "^0.1.7"
   },
@@ -73,6 +76,7 @@
     "prettier-plugin-packagejson": "^2.0.1",
     "purgecss": "^1.3.0",
     "sass-loader": "^7.1.0",
+    "serve": "^11.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "sw2dts": "^2.6.2",
@@ -91,7 +95,9 @@
     "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.14.4",
     "webpack": "^4.32.2",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.4.1"
+    "webpack-dev-server": "^3.4.1",
+    "workbox-webpack-plugin": "^4.3.1"
   }
 }
