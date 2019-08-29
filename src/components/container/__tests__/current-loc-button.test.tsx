@@ -1,12 +1,11 @@
 import * as React from 'react'
 import { setCurrentLoc as setCurrentLocAction } from '@/actions/current-loc'
 import { CurrentLocButton, mapDispatchToProps } from '../current-loc-button'
-import toJson from 'enzyme-to-json'
 import { shallow } from 'enzyme'
 
 describe('CurrentLocButton', () => {
   it('Should match snapshot', () => {
-    expect(toJson(shallow(<CurrentLocButton setCurrentLoc={jest.fn()} />))).toMatchSnapshot()
+    expect(shallow(<CurrentLocButton setCurrentLoc={jest.fn()} />)).toMatchSnapshot()
   })
 
   describe('mapDispatchToProps', () => {

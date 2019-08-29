@@ -1,0 +1,47 @@
+.root {
+  .appointmentDetailSectionModalTitle{
+    display: flex;
+    margin: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .appointmentDetailSection{
+    margin: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .appointmentDetailCommunicationDetail{
+    margin-left: 0.5rem;
+  }
+
+  .appointmentDetailSectionTitle{
+    font-size: 1.5rem;
+    display: inline-block;
+    border: 2px solid;
+    padding: 5px 10px;
+    font-weight: bold;
+  }
+  .appointmentDetailSectionContent{
+    margin: 1rem;
+  }
+
+  .appointmentDetailAttendee{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .appointmentDetailAttendeeName {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .appointmentDetailIsConfirmed{
+    font-size: 1.2rem;
+    color: green;
+  }
+  .appointmentDetailIsNotConfirmed{
+    font-size: 1.2rem;
+    color: red;
+  }
+}

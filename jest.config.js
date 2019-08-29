@@ -17,5 +17,8 @@ module.exports = {
       prefix: '<rootDir>/',
     })
   },
-  globalSetup: "./jest-global-setup.js"
+  globalSetup: "./jest-global-setup.js",
+  snapshotSerializers: [
+    "enzyme-to-json/serializer"
+  ],
 };
