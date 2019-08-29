@@ -64,6 +64,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
   React.useEffect(() => {
     if (isSucceeded) {
       setDeveloperAppModalStateViewDetail()
+      closeParentModal && closeParentModal()
     }
   }, [isSucceeded])
 
