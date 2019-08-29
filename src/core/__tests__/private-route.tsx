@@ -1,12 +1,11 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { MemoryRouter, Route } from 'react-router'
 import { PrivateRoute } from '../private-route'
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<PrivateRoute allow="CLIENT" loginType="CLIENT" component={() => null} />))).toMatchSnapshot()
+    expect(shallow(<PrivateRoute allow="CLIENT" loginType="CLIENT" component={() => null} />)).toMatchSnapshot()
   })
 
   it('should redirect to /404 page if isLogin is false', () => {
