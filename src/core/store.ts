@@ -1,4 +1,6 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
+import { persistStore, persistReducer, Persistor } from 'redux-persist'
+import * as localForage from 'localforage'
 import home from '../reducers/home'
 import error from '../reducers/error'
 import currentLoc from '../reducers/current-loc'
@@ -40,12 +42,21 @@ export class Store {
 
   reduxStore: ReduxStore<ReduxState>
 
+  persistor: Persistor
+
   constructor() {
     const composed = Store.composeEnhancers(applyMiddleware(Store.sagaMiddleware))
 
-    this.reduxStore = createStore(Store.reducers, composed)
+    const persistConfig = {
+      key: 'root',
+      storage: localForage
+    }
+
+    const persistedReducer = persistReducer(persistConfig, Store.reducers)
+    this.reduxStore = createStore(persistedReducer, composed)
 
     Store.sagaMiddleware.run(Store.sagas)
+    this.persistor = persistStore(this.reduxStore)
 
     this.hotModuleReloading()
   }
