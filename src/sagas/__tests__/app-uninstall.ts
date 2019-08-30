@@ -9,12 +9,14 @@ import {
   appUninstallLoading
 } from '@/actions/app-uninstall'
 import { selectAppDetailId, selectAppDetailInstallationId } from '@/selector/app-detail'
-import { selectLoggedUserEmail } from '@/selector/client'
+import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator, SagaIteratorClone } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
+import { setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
+import { appDetailRequestData } from '@/actions/app-detail'
 
 jest.mock('@reapit/elements')
 
@@ -23,7 +25,8 @@ describe('app-uninstall sagas', () => {
     const gen = cloneableGenerator(appUninstallSaga)()
     expect(gen.next().value).toEqual(put(appUninstallLoading()))
     expect(gen.next().value).toEqual(select(selectAppDetailId))
-    expect(gen.next(1).value).toEqual(select(selectLoggedUserEmail))
+    expect(gen.next('1').value).toEqual(select(selectLoggedUserEmail))
+    expect(gen.next('1').value).toEqual(select(selectClientId))
     expect(gen.next('1').value).toEqual(select(selectAppDetailInstallationId))
 
     test('installationId does not exist', () => {
@@ -39,18 +42,40 @@ describe('app-uninstall sagas', () => {
       )
     })
 
+    test('clientId does not exist', () => {
+      const clone = gen.clone()
+      expect(clone.next().value).toEqual(put(appUninstallRequestDataFailure()))
+      expect(clone.next().value).toEqual(
+        put(
+          errorThrownServer({
+            type: 'SERVER',
+            message: errorMessages.DEFAULT_SERVER_ERROR
+          })
+        )
+      )
+    })
+
     test('api call success', () => {
       const clone = gen.clone()
-      expect(clone.next(1).value).toEqual(
+      expect(clone.next('1').value).toEqual(
         call(fetcher, {
           url: `${URLS.installations}/1/terminate`,
           api: REAPIT_API_BASE_URL,
           method: 'POST',
           headers: MARKETPLACE_HEADERS,
-          body: { appId: 1, terminatedBy: '1', terminatedReason: 'User uninstall' }
+          body: { appId: '1', terminatedBy: '1', terminatedReason: 'User uninstall' }
         })
       )
       expect(clone.next().value).toEqual(put(appUninstallRequestSuccess()))
+      expect(clone.next().value).toEqual(put(setAppDetailModalStateSuccess()))
+      expect(clone.next().value).toEqual(
+        put(
+          appDetailRequestData({
+            id: '1',
+            clientId: '1'
+          })
+        )
+      )
     })
 
     test('api call failure', () => {

@@ -51,7 +51,6 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
 
   React.useEffect(() => {
     if (isSuccessed) {
-      setVisible(false)
       appUninstallDone()
       fetchMyApp(pageNumber)
     }

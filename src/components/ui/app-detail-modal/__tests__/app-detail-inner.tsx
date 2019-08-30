@@ -61,9 +61,9 @@ describe('AppDetailInner', () => {
     expect(wrapper.find('AppConfirmInstallContentInnerWithConnect')).toHaveLength(1)
   })
 
-  it('should render CallToAction when appDetailModalState = VIEW_INSTALL_SUCCESS', () => {
+  it('should render CallToAction when appDetailModalState = VIEW_DETAIL_ACTION_SUCCESS', () => {
     const props: AppDetailInnerProps = {
-      appDetailModalState: 'VIEW_INSTALL_SUCCESS',
+      appDetailModalState: 'VIEW_DETAIL_ACTION_SUCCESS',
       appDetailState: { loading: false, error: false, appDetailData: appDetailDataStub },
       setAppDetailModalStateView: jest.fn()
     }

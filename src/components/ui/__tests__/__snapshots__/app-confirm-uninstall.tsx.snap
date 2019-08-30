@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppConfirmUninstall render correctly 1`] = `
+<div
+  data-test="confirm-content"
+>
+  <h6
+    className="mb-5"
+  >
+    Are you sure you wish to uninstall 
+    mockAppName
+     app? This action will uninstall the app for ALL platform users.
+  </h6>
+  <div
+    className="flex"
+  >
+    <Button
+      className="mx-4"
+      dataTest="agree-btn"
+      fullWidth={true}
+      loading={false}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Agree
+    </Button>
+    <Button
+      className="mx-4"
+      dataTest="disagree-btn"
+      disabled={false}
+      fullWidth={true}
+      onClick={[Function]}
+      type="button"
+      variant="danger"
+    >
+      Disagree
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`AppConfirmUninstall render correctly 2`] = `
+<div
+  data-test="confirm-content"
+>
+  <h6
+    className="mb-5"
+  >
+    Are you sure you wish to uninstall 
+    mockAppName
+     app? This action will uninstall the app for ALL platform users.
+  </h6>
+  <div
+    className="flex"
+  >
+    <Button
+      className="mx-4"
+      dataTest="agree-btn"
+      fullWidth={true}
+      loading={false}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Agree
+    </Button>
+    <Button
+      className="mx-4"
+      dataTest="disagree-btn"
+      disabled={false}
+      fullWidth={true}
+      onClick={[Function]}
+      type="button"
+      variant="danger"
+    >
+      Disagree
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`AppConfirmUninstall render correctly 3`] = `
+<div
+  data-test="confirm-content"
+>
+  <h6
+    className="mb-5"
+  >
+    Are you sure you wish to uninstall 
+    mockAppName
+     app? This action will uninstall the app for ALL platform users.
+  </h6>
+  <div
+    className="flex"
+  >
+    <Button
+      className="mx-4"
+      dataTest="agree-btn"
+      fullWidth={true}
+      loading={true}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Agree
+    </Button>
+    <Button
+      className="mx-4"
+      dataTest="disagree-btn"
+      disabled={true}
+      fullWidth={true}
+      onClick={[Function]}
+      type="button"
+      variant="danger"
+    >
+      Disagree
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`AppConfirmUninstall render correctly 4`] = `
+<div
+  data-test="confirm-content"
+>
+  <h6
+    className="mb-5"
+  >
+    Are you sure you wish to uninstall 
+    mockAppName
+     app? This action will uninstall the app for ALL platform users.
+  </h6>
+  <div
+    className="flex"
+  >
+    <Button
+      className="mx-4"
+      dataTest="agree-btn"
+      fullWidth={true}
+      loading={false}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Agree
+    </Button>
+    <Button
+      className="mx-4"
+      dataTest="disagree-btn"
+      disabled={false}
+      fullWidth={true}
+      onClick={[Function]}
+      type="button"
+      variant="danger"
+    >
+      Disagree
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`AppConfirmUninstall render correctly 5`] = `""`;
