@@ -1,8 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppointmentTile should match snapshot 1`] = `
+exports[`AppointmentTile should match snapshot when HIGHTLIGHT false 1`] = `
 <div
-  className="box appointment-tile"
+  className="box appointment-tile "
+>
+  <div
+    className="location-marker"
+  >
+    <FaMapMarkerAlt />
+  </div>
+  <div>
+    <h4>
+      <b>
+        mockHeading
+      </b>
+    </h4>
+    <div>
+      City
+    </div>
+    <div>
+      Country
+    </div>
+    <div>
+      PostalCode
+    </div>
+    <div>
+      "contactPerson"
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AppointmentTile should match snapshot when HIGHTLIGHT true 1`] = `
+<div
+  className="box appointment-tile hightlight"
 >
   <div
     className="location-marker"
