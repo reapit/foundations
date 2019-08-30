@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { Home, HomeProps } from '../home'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
 
@@ -15,6 +14,6 @@ const props: HomeProps = {
 
 describe('AdminApproval', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Home {...props} />))).toMatchSnapshot()
+    expect(shallow(<Home {...props} />)).toMatchSnapshot()
   })
 })
