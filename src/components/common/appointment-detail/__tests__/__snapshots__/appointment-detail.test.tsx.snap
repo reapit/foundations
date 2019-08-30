@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
+<Modal
+  afterClose={[MockFunction]}
+  size="medium"
+  visible={true}
+>
+  <div>
+    <div>
+      <div
+        data-test="title-name"
+      >
+        Chase MacLean
+      </div>
+      <div>
+        Ref:
+        BED1600597
+      </div>
+    </div>
+    <div>
+      65
+       
+       
+      Lindsey Close
+       
+      Great Denham
+       
+      Bedford
+       
+      Bedfordshire
+       
+      MK40 4GT
+       
+    </div>
+    <div
+      key="0"
+    >
+      <div>
+        <div>
+          Chase MacLean
+        </div>
+        <div>
+          <TiTick />
+        </div>
+      </div>
+      <div>
+        <div
+          key="0"
+        >
+          <div>
+            <TiMail />
+            <span>
+              chase.maclean@reapitestates.net
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      key="1"
+    >
+      <div>
+        <div>
+          Chase MacLean
+        </div>
+        <div>
+          <TiTick />
+        </div>
+      </div>
+      <div>
+        <div
+          key="0"
+        >
+          <div>
+            <TiMail />
+            <span>
+              chase.maclean@reapitestates.net
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        Time
+      </div>
+      <div>
+        <span
+          data-test="appointment-date"
+        >
+          18 Dec 2016
+        </span>
+        <b>
+          04:30 PM
+           - 
+          05:30 PM
+        </b>
+      </div>
+    </div>
+  </div>
+</Modal>
+`;
+
+exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
+<div>
+  <div>
+    65
+     
+     
+    Lindsey Close
+     
+    Great Denham
+     
+    Bedford
+     
+    Bedfordshire
+     
+    MK40 4GT
+     
+  </div>
+</div>
+`;
+
+exports[`AppointmentModal renderArrangement should matchSnapshot 1`] = `
+<div>
+  <div>
+    <div>
+      Arrangement
+    </div>
+    <div>
+      123
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AppointmentModal renderAttendees should matchSnapshot 1`] = `
+Array [
+  <div>
+    <div>
+      <div>
+        Chase MacLean
+      </div>
+      <div>
+        <TiTick />
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <TiMail />
+          <span>
+            chase.maclean@reapitestates.net
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div>
+      <div>
+        Chase MacLean
+      </div>
+      <div>
+        <TiTick />
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <TiMail />
+          <span>
+            chase.maclean@reapitestates.net
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`AppointmentModal renderCheckMark should match snapshot 1`] = `
+<div>
+  <TiTick />
+</div>
+`;
+
+exports[`AppointmentModal renderCommunicationDetail should match snapshot 1`] = `
+<div>
+  <div
+    key="0"
+  >
+    <div>
+      <TiMail />
+      <span>
+        chase.maclean@reapitestates.net
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AppointmentModal renderCommunicationType should match snapshot 1`] = `
+<div>
+  <TiMail />
+</div>
+`;
+
+exports[`AppointmentModal renderNotes should matchSnapshot 1`] = `
+<div>
+  <div>
+    <div>
+      Note
+    </div>
+    <div>
+      123
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AppointmentModal renderStartAndEndDate should matchSnapshot 1`] = `
+<div>
+  <div>
+    <div>
+      Time
+    </div>
+    <div>
+      <span
+        data-test="appointment-date"
+      >
+        18 Dec 2016
+      </span>
+      <b>
+        04:30 PM
+         - 
+        05:30 PM
+      </b>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AppointmentModal renderTitle should run correctly 1`] = `
+<div>
+  <div>
+    <div
+      data-test="title-name"
+    >
+      Chase MacLean
+    </div>
+    <div>
+      Ref:
+      BED1600597
+    </div>
+  </div>
+</div>
+`;

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { ErrorBoundary, ErrorState } from '../error-boundary'
 import errorMessages from '../../../constants/error-messages'
 import { ErrorData } from '../../../reducers/error'
@@ -18,7 +17,7 @@ const props = {
 
 describe('ErrorBoundary', () => {
   it('should match a snapshot when no error', () => {
-    expect(toJson(shallow(<ErrorBoundary {...props} />))).toMatchSnapshot()
+    expect(shallow(<ErrorBoundary {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when has an error', () => {
@@ -26,7 +25,7 @@ describe('ErrorBoundary', () => {
     component.setState({
       hasFailed: true
     })
-    expect(toJson(component)).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 
   it('should call the errorThrownComponent and sets the state to hasFailed when it catches', () => {

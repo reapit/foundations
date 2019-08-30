@@ -1,0 +1,153 @@
+import React from 'react'
+import dayjs from 'dayjs'
+import { oc } from 'ts-optchain'
+import { Modal } from '@reapit/elements'
+import { TiTimes, TiTick, TiMail, TiHome, TiPhoneOutline, TiDevicePhone } from 'react-icons/ti'
+import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
+import { getTime, getDate, isSameDay } from '@/utils/datetime'
+import styles from '@/styles/pages/appointment-detail.scss?mod'
+
+export type AppointmentModalProps = {
+  appointment: AppointmentModel
+  visible: boolean
+  afterClose: () => void
+}
+
+export const renderCommunicationType = (communicationLabel: string | undefined) => {
+  switch (communicationLabel) {
+    case 'E-Mail':
+      return <TiMail />
+    case 'Home':
+      return <TiHome />
+    case 'Mobile':
+      return <TiDevicePhone />
+    case 'Work':
+      return <TiPhoneOutline />
+    default:
+      return null
+  }
+}
+
+export const renderCommunicationDetail = (communicationDetails: CommunicationModel[] | undefined) => {
+  if (!communicationDetails) {
+    return null
+  }
+  return communicationDetails.map((communicationDetail: CommunicationModel, index: number) => {
+    return (
+      <div className={styles.appointmentDetailSection} key={index}>
+        <div>
+          {renderCommunicationType(communicationDetail.label)}
+          <span className={styles.appointmentDetailCommunicationDetail}>{communicationDetail.detail}</span>
+        </div>
+      </div>
+    )
+  })
+}
+
+export const renderCheckMark = (isConfirmed: boolean | undefined) => {
+  if (!isConfirmed) {
+    return <TiTimes className={styles.appointmentDetailIsNotConfirmed} />
+  }
+  return <TiTick className={styles.appointmentDetailIsConfirmed} />
+}
+
+export const renderAttendees = (attendees: AttendeeModel[] | undefined) => {
+  if (!attendees) {
+    return null
+  }
+  return attendees.map((attendee: AttendeeModel, index: number) => {
+    return (
+      <div className={styles.appointmentDetailSectionContent} key={index}>
+        <div className={styles.appointmentDetailAttendee}>
+          <div className={styles.appointmentDetailAttendeeName}>{attendee.name}</div>
+          <div>{renderCheckMark(attendee.confirmed)}</div>
+        </div>
+        <div>{renderCommunicationDetail(attendee.communicationDetails)}</div>
+      </div>
+    )
+  })
+}
+
+export const renderAddress = (address: AddressModel | undefined) => {
+  if (!address) {
+    return null
+  }
+  return (
+    <div className={styles.appointmentDetailSection}>
+      {address.buildingNumber} {address.buildingName} {address.line1} {address.line2} {address.line3} {address.line4}{' '}
+      {address.postcode} {address.country}
+    </div>
+  )
+}
+
+export const renderNotes = (description: string | undefined) => {
+  if (!description) {
+    return null
+  }
+  return (
+    <div className={styles.appointmentDetailSection}>
+      <div className={styles.appointmentDetailSectionTitle}>Note</div>
+      <div className={styles.appointmentDetailSectionContent}>{description}</div>
+    </div>
+  )
+}
+
+export const renderArrangement = (arrangement: string | undefined) => {
+  if (!arrangement) {
+    return null
+  }
+  return (
+    <div className={styles.appointmentDetailSection}>
+      <div className={styles.appointmentDetailSectionTitle}>Arrangement</div>
+      <div className={styles.appointmentDetailSectionContent}>{arrangement}</div>
+    </div>
+  )
+}
+
+export const renderStartAndEndDate = (startTime, endTime) => {
+  const startDate = dayjs(startTime)
+  const isToday = isSameDay(startDate)
+  const displayDate = isToday ? 'Today' : getDate(startDate)
+  const displayStart = getTime(startDate, false)
+  const displayEnd = getTime(endTime, false)
+  return (
+    <div className={styles.appointmentDetailSection}>
+      <div className={styles.appointmentDetailSectionTitle}>Time</div>
+      <div className={styles.appointmentDetailSectionContent}>
+        <span data-test="appointment-date">{displayDate}</span>
+        <b>
+          {displayStart} - {displayEnd}
+        </b>
+      </div>
+    </div>
+  )
+}
+
+export const renderTitle = (appointment: AppointmentModel) => {
+  const firstAttendeeName = oc(appointment).attendees[0].name('')
+  return (
+    <div className={styles.appointmentDetailSectionModalTitle}>
+      <div data-test="title-name" className={styles.appointmentDetailSectionTitle}>
+        {firstAttendeeName}
+      </div>
+      <div>Ref:{appointment.id}</div>
+    </div>
+  )
+}
+
+export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment, visible, afterClose }) => {
+  return (
+    <Modal visible={visible} size="medium" afterClose={afterClose}>
+      <div className={styles.root}>
+        {renderTitle(appointment)}
+        {renderAddress(appointment.property)}
+        {renderAttendees(appointment.attendees)}
+        {renderNotes(appointment.description)}
+        {renderArrangement(appointment.arrangements)}
+        {renderStartAndEndDate(appointment.start, appointment.end)}
+      </div>
+    </Modal>
+  )
+}
+
+export default AppointmentModal
