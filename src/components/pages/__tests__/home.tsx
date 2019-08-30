@@ -2,17 +2,14 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { Home, HomeProps } from '../home'
+import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
 
+//  @ts-ignore: pick only needed props for the test
 const props: HomeProps = {
-  approvalsState: {
+  appointmentsState: {
+    appointments: appointmentsDataStub,
     loading: false,
-    homeData: {}
-  },
-  // @ts-ignore: just pick the needed props for the test
-  match: {
-    params: {
-      page: '2'
-    }
+    time: 'Today'
   }
 }
 

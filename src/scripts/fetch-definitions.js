@@ -11,8 +11,8 @@ const BASE_URL = 'https://reapit.cloud.tyk.io'
 const apiSchema = [
   {
     definitionFile: `${__dirname}/../types/appointments.ts`,
-    endpoint: `${BASE_URL}/appointments/swagger/v1/swagger.json`,
-  },
+    endpoint: `${BASE_URL}/appointments/swagger/v1/swagger.json`
+  }
 ]
 
 // Fetch definitions for a given schema

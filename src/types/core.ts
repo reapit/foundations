@@ -3,6 +3,7 @@ import ActionTypes from '../constants/action-types'
 import { ErrorState } from '../reducers/error'
 import { HomeState } from '@/reducers/home'
 import currentLocReducer, { CurrentLocState } from '@/reducers/current-loc'
+import { AppointmentsState } from '@/reducers/appointments'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -39,4 +40,5 @@ export interface ReduxState {
   error: ErrorState
   home: HomeState
   currentLoc: CurrentLocState
+  appointments: AppointmentsState
 }

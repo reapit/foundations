@@ -1,10 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CurrentLocButton Should match snapshot 1`] = `
-<button
+<Button
   disabled={false}
   onClick={[Function]}
+  type="button"
+  variant="primary"
 >
   Get Current Location
-</button>
+</Button>
 `;
