@@ -2,8 +2,811 @@
 
 exports[`AdminApproval should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <h1>
-    Home Page
-  </h1>
+  <Tabs
+    tabConfigs={
+      Array [
+        Object {
+          "active": true,
+          "displayText": "List",
+          "onTabClick": [Function],
+          "tabIdentifier": "LIST",
+        },
+        Object {
+          "active": false,
+          "displayText": "Map",
+          "onTabClick": [Function],
+          "tabIdentifier": "MAP",
+        },
+      ]
+    }
+  />
+  <div
+    className="isCentered buttons hasAddons"
+  >
+    <span
+      className="button isSelected isActive isPrimary"
+      key="Today"
+      onClick={[Function]}
+    >
+      Today
+    </span>
+    <span
+      className="button"
+      key="Tomorrow"
+      onClick={[Function]}
+    >
+      Tomorrow
+    </span>
+    <span
+      className="button"
+      key="Next week"
+      onClick={[Function]}
+    >
+      Next week
+    </span>
+  </div>
+  <Memo()
+    data={
+      Array [
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "enzo.buchanan@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": true,
+              "id": "JWB",
+              "name": "Enzo Buchanan",
+              "type": "negotiator",
+            },
+            Object {
+              "confirmed": true,
+              "id": "BED130221",
+              "name": "Mr and Mrs S Eggleton",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T17:00:15",
+          "end": "2019-05-09T14:00:00",
+          "id": "BED1600537",
+          "modified": "2016-12-14T17:25:22",
+          "property": Object {
+            "buildingName": "Cornerways",
+            "buildingNumber": "68",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 52.135071,
+              "longitude": -0.45936,
+            },
+            "line1": "The Embankment",
+            "line2": "Bedford",
+            "line3": "Bedfordshire",
+            "line4": "",
+            "postcode": "MK40 3PD",
+          },
+          "recurring": false,
+          "start": "2019-05-09T13:30:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "danny.findlay@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "PAE",
+              "name": "Danny Findlay",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "01632 966173",
+                  "label": "Home",
+                },
+                Object {
+                  "detail": "07700 906173",
+                  "label": "Mobile",
+                },
+                Object {
+                  "detail": "020 7946 6173",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "gmcallister696@rpsfiction.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "BUC160036",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T16:56:37",
+          "end": "2019-05-09T14:45:00",
+          "id": "BUC1600211",
+          "modified": "2019-05-12T08:19:24",
+          "property": Object {
+            "buildingName": "The Pines",
+            "buildingNumber": "34",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 51.924759,
+              "longitude": -0.929362,
+            },
+            "line1": "Sandhill Road",
+            "line2": "East Claydon",
+            "line3": "Buckingham",
+            "line4": "Buckinghamshire",
+            "postcode": "MK18 2LZ",
+          },
+          "recurring": false,
+          "start": "2019-05-09T14:15:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "poppy.mcdonald@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": true,
+              "id": "FHA",
+              "name": "Poppy McDonald",
+              "type": "negotiator",
+            },
+            Object {
+              "confirmed": true,
+              "id": "OLY150161",
+              "name": "Mr C Looker",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T16:44:46",
+          "end": "2019-05-09T14:15:00",
+          "id": "BUC1600210",
+          "modified": "2019-05-11T14:45:40",
+          "property": Object {
+            "buildingName": "Wayside",
+            "buildingNumber": "",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 51.989592,
+              "longitude": -1.06774,
+            },
+            "line1": "Little Tingewick",
+            "line2": "Buckingham",
+            "line3": "Buckinghamshire",
+            "line4": "",
+            "postcode": "MK18 4AG",
+          },
+          "recurring": false,
+          "start": "2019-05-09T13:30:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "nikola.kay@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "AG",
+              "name": "Nikola Kay",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "01632 970116",
+                  "label": "Home",
+                },
+                Object {
+                  "detail": "07700 910116",
+                  "label": "Mobile",
+                },
+                Object {
+                  "detail": "020 7946 1011",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "jtennent271@rpsfiction.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "NEP150790",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T16:18:09",
+          "end": "2019-05-09T11:45:00",
+          "id": "STS1600403",
+          "modified": "2019-05-11T10:05:34",
+          "recurring": false,
+          "start": "2019-05-09T11:15:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "zac.mccoll@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "AEN",
+              "name": "Zac McColl",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "01632 963008",
+                  "label": "Home",
+                },
+                Object {
+                  "detail": "07700 903008",
+                  "label": "Mobile",
+                },
+                Object {
+                  "detail": "020 7946 3008",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "hfield6@rpsfiction.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "NEP160059",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T15:39:57",
+          "end": "2019-05-10T16:00:00",
+          "id": "STS1600401",
+          "modified": "2019-05-12T16:39:53",
+          "recurring": false,
+          "start": "2019-05-10T15:15:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "zac.mccoll@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": true,
+              "id": "AEN",
+              "name": "Zac McColl",
+              "type": "negotiator",
+            },
+            Object {
+              "confirmed": true,
+              "id": "NEP150646",
+              "name": "Mr L Balogun",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T14:46:37",
+          "end": "2019-05-08T18:30:00",
+          "id": "STS1600396",
+          "modified": "2019-05-12T12:32:01",
+          "recurring": false,
+          "start": "2019-05-08T18:00:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "enzo.buchanan@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "JWB",
+              "name": "Enzo Buchanan",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "01632 970904",
+                  "label": "Home",
+                },
+                Object {
+                  "detail": "07700 910904",
+                  "label": "Mobile",
+                },
+                Object {
+                  "detail": "020 7946 1090",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "jwilson602@rpsfiction.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "BED160144",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T14:31:27",
+          "end": "2019-05-09T16:15:00",
+          "id": "BED1600534",
+          "modified": "2016-12-18T08:24:24",
+          "property": Object {
+            "buildingName": "The Cottage",
+            "buildingNumber": "",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 52.29491,
+              "longitude": -0.512901,
+            },
+            "line1": "Shelton Road",
+            "line2": "Yielden",
+            "line3": "Bedfordshire",
+            "line4": "",
+            "postcode": "MK44 1AQ",
+          },
+          "recurring": false,
+          "start": "2019-05-09T15:15:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "zac.mccoll@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "AEN",
+              "name": "Zac McColl",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "01632 968195",
+                  "label": "Home",
+                },
+                Object {
+                  "detail": "07700 908195",
+                  "label": "Mobile",
+                },
+                Object {
+                  "detail": "020 7946 8195",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "bpaterson905@rpsfiction.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "MKC150681",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T14:31:25",
+          "end": "2019-05-10T14:30:00",
+          "id": "STS1600394",
+          "modified": "2019-05-12T16:18:48",
+          "recurring": false,
+          "start": "2019-05-10T14:00:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "chase.maclean@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": true,
+              "id": "JJS",
+              "name": "Chase MacLean",
+              "type": "negotiator",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T14:05:42",
+          "end": "2019-05-11T16:30:00",
+          "id": "BED1600532",
+          "modified": "2019-05-12T17:59:02",
+          "property": Object {
+            "buildingName": "",
+            "buildingNumber": "49",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 52.188155,
+              "longitude": -0.604618,
+            },
+            "line1": "The Causeway",
+            "line2": "Carlton",
+            "line3": "Bedford",
+            "line4": "Bedfordshire",
+            "postcode": "MK43 7LU",
+          },
+          "recurring": false,
+          "start": "2019-05-11T15:30:00",
+          "type": "VL",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "amelie.thompson@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "CLD",
+              "name": "Amelie Thompson",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "01632 967539",
+                  "label": "Home",
+                },
+                Object {
+                  "detail": "07700 907539",
+                  "label": "Mobile",
+                },
+                Object {
+                  "detail": "020 7946 7539",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "mmorgan974@rpsfiction.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "MKC160072",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T13:33:25",
+          "end": "2019-05-09T17:00:00",
+          "id": "MKC1600312",
+          "modified": "2019-05-08T13:33:25",
+          "property": Object {
+            "buildingName": "",
+            "buildingNumber": "39",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 52.044516,
+              "longitude": -0.689953,
+            },
+            "line1": "Foxfield",
+            "line2": "Broughton Gate",
+            "line3": "Milton Keynes",
+            "line4": "Buckinghamshire",
+            "postcode": "MK10 7BP",
+          },
+          "recurring": false,
+          "start": "2019-05-09T16:30:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "enzo.buchanan@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "JWB",
+              "name": "Enzo Buchanan",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "01632 970904",
+                  "label": "Home",
+                },
+                Object {
+                  "detail": "07700 910904",
+                  "label": "Mobile",
+                },
+                Object {
+                  "detail": "020 7946 1090",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "jwilson602@rpsfiction.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "BED160144",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T13:18:59",
+          "end": "2019-05-11T17:00:00",
+          "id": "BED1600530",
+          "modified": "2019-05-12T08:33:02",
+          "property": Object {
+            "buildingName": "The Firs",
+            "buildingNumber": "",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 52.105969,
+              "longitude": -0.353784,
+            },
+            "line1": "Bedford Road",
+            "line2": "Northill",
+            "line3": "Bedfordshire",
+            "line4": "",
+            "postcode": "SG18 9AW",
+          },
+          "recurring": false,
+          "start": "2019-05-11T15:00:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "danny.findlay@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "PAE",
+              "name": "Danny Findlay",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "poppy.mcdonald@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "FHA",
+              "name": "Poppy McDonald",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "01632 964515",
+                  "label": "Home",
+                },
+                Object {
+                  "detail": "07700 904515",
+                  "label": "Mobile",
+                },
+                Object {
+                  "detail": "020 7946 4515",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "shussain691@rpsfiction.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "BUC140468",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T13:08:53",
+          "end": "2019-05-09T13:30:00",
+          "id": "BUC1600209",
+          "modified": "2019-05-11T14:45:35",
+          "property": Object {
+            "buildingName": "Wayside",
+            "buildingNumber": "",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 51.989592,
+              "longitude": -1.06774,
+            },
+            "line1": "Little Tingewick",
+            "line2": "Buckingham",
+            "line3": "Buckinghamshire",
+            "line4": "",
+            "postcode": "MK18 4AG",
+          },
+          "recurring": false,
+          "start": "2019-05-09T13:00:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "enzo.buchanan@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": true,
+              "id": "JWB",
+              "name": "Enzo Buchanan",
+              "type": "negotiator",
+            },
+            Object {
+              "confirmed": true,
+              "id": "BED130221",
+              "name": "Mr and Mrs S Eggleton",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T13:02:58",
+          "end": "2019-05-09T14:00:00",
+          "id": "BED1600525",
+          "modified": "2016-12-14T16:30:47",
+          "property": Object {
+            "buildingName": "The Homestead",
+            "buildingNumber": "57",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 52.135071,
+              "longitude": -0.45936,
+            },
+            "line1": "The Embankment",
+            "line2": "Bedford",
+            "line3": "Bedfordshire",
+            "line4": "",
+            "postcode": "MK40 3PD",
+          },
+          "recurring": false,
+          "start": "2019-05-09T13:30:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "enzo.buchanan@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "JWB",
+              "name": "Enzo Buchanan",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "01632 966819",
+                  "label": "Home",
+                },
+                Object {
+                  "detail": "07700 906819",
+                  "label": "Mobile",
+                },
+                Object {
+                  "detail": "020 7946 6819",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "smckenna707@rpsfiction.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "BED160039",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T12:40:52",
+          "end": "2019-05-09T12:00:00",
+          "id": "BED1600523",
+          "modified": "2016-12-13T17:12:40",
+          "property": Object {
+            "buildingName": "",
+            "buildingNumber": "54",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 52.161384,
+              "longitude": -0.461113,
+            },
+            "line1": "Tyne Crescent",
+            "line2": "Bedford",
+            "line3": "Bedfordshire",
+            "line4": "",
+            "postcode": "MK41 7UJ",
+          },
+          "recurring": false,
+          "start": "2019-05-09T11:00:00",
+          "type": "VW",
+        },
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "amelie.thompson@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": true,
+              "id": "CLD",
+              "name": "Amelie Thompson",
+              "type": "negotiator",
+            },
+          ],
+          "cancelled": false,
+          "created": "2019-05-08T12:36:02",
+          "end": "2019-05-11T11:30:00",
+          "id": "MKC1600311",
+          "modified": "2019-05-11T16:40:10",
+          "property": Object {
+            "buildingName": "",
+            "buildingNumber": "8",
+            "country": "",
+            "geolocation": Object {
+              "latitude": 52.04681,
+              "longitude": -0.710721,
+            },
+            "line1": "Deacon Place",
+            "line2": "Middleton",
+            "line3": "Milton Keynes",
+            "line4": "",
+            "postcode": "MK10 9FS",
+          },
+          "recurring": false,
+          "start": "2019-05-11T11:15:00",
+          "type": "VW",
+        },
+      ]
+    }
+  />
 </Connect(ErrorBoundary)>
 `;

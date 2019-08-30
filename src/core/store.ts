@@ -2,12 +2,14 @@ import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxS
 import { persistStore, persistReducer, Persistor } from 'redux-persist'
 import * as localForage from 'localforage'
 import home from '../reducers/home'
+import appointments from '../reducers/appointments'
 import error from '../reducers/error'
 import currentLoc from '../reducers/current-loc'
 
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import homeSagas from '../sagas/home'
+import appointmentsSagas from '../sagas/appointments'
 import { all, fork } from '@redux-saga/core/effects'
 
 export class Store {
@@ -28,11 +30,12 @@ export class Store {
   static reducers = combineReducers({
     error,
     home,
-    currentLoc
+    currentLoc,
+    appointments
   })
 
   static sagas = function*() {
-    yield all([fork(homeSagas)])
+    yield all([fork(homeSagas), fork(appointmentsSagas)])
   }
 
   static composeEnhancers =

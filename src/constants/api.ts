@@ -1,8 +1,13 @@
 import { StringMap } from '../types/core'
 
-export const PLATFORM_HEADERS = {
+// TODO: temporarily hardcode the accessToken
+// This should be removed if the Login flow was done
+const token =
+  'eyJraWQiOiJTSGNVVnpHamIyQXFFSW9MSFpEbHVwR0hHUlwvTmlLKzN0dTEybm5JcXZMOD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI5ZTQxZTlkNC1kMmY1LTRjZmMtOTcwYi0zNjE5Y2JmNGI1MWEiLCJkZXZpY2Vfa2V5IjoiZXUtd2VzdC0yX2VkOTk1OWZlLThhMDAtNGY1NC1iMDIzLWE0NGRmZWM3MzFiMSIsImV2ZW50X2lkIjoiNWI0MjI2NTYtN2Y1NC00ZDhmLThlZjktNTZhNmQ4ZDg0MTIyIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTU2NzA5MDg3OCwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmV1LXdlc3QtMi5hbWF6b25hd3MuY29tXC9ldS13ZXN0LTJfSWhFSHpTVDdiIiwiZXhwIjoxNTY3MDk0NDc4LCJpYXQiOjE1NjcwOTA4NzgsImp0aSI6Ijg1ZmM2NmQ2LWM1NmYtNDM0OC1iZjExLWViMDNiMmI2ZDVjNiIsImNsaWVudF9pZCI6IjV0dmdzazF1MDZicHVtYmxvZmI3azhsZTlkIiwidXNlcm5hbWUiOiI5ZTQxZTlkNC1kMmY1LTRjZmMtOTcwYi0zNjE5Y2JmNGI1MWEifQ.bZLEdew848-EhnfCIt3-XMysrg7OUlIUwpWlc1Uc8_RvkOKuoz1Xju26uyPh88Po36CUM1R5Ef6fcTvveSDaX9c77Ux2RvnXawib-WNUW0Jq0RL6XdU7iCXMUsTp-BtwVO_2CcxavW8t2ihl5KuBJXlkyDpI3Xi_b1LUgTMmR0SE8e5yVlF5wmNsM3G2eGAM77MaF65Q7HlE5vD7DcxfxLIEfdTCTQQ0z55h4_embnbzvBFBpqlnVmx9Lt3hvFDlsvx9JTYa85NNo2dZEYde9losehY0h2CyRnXD7wggYe-2ZDROkML4A5yN6CwOx5p7Om8Z-Bj77O6b8UtdkU9l3A'
+
+export const APPOINTMENTS_HEADERS = {
   'Content-Type': 'application/json',
-  Authorization: process.env.PLATFORM_API_KEY
+  Authorization: `Bearer ${token}`
 } as StringMap
 
 export const COGNITO_HEADERS = {
@@ -12,5 +17,5 @@ export const COGNITO_HEADERS = {
 export const REAPIT_API_BASE_URL = 'https://reapit.cloud.tyk.io'
 
 export const URLS = {
-  developerCreate: '/home'
+  appointments: '/appointments'
 }

@@ -45,6 +45,8 @@ const bulma = {
   isDanger: bulmaStyles['is-danger'] || 'isDanger',
   isSuccess: bulmaStyles['is-success'] || 'isSuccess',
   isActive: bulmaStyles['is-active'] || 'isActive',
+  isSelected: bulmaStyles['is-selected'] || 'isSelected',
+  hasAddons: bulmaStyles['has-addons'] || 'hasAddons',
   isLarge: bulmaStyles['is-large'] || 'isLarge',
   isCentered: bulmaStyles['is-centered'] || 'isCentered',
   isCurrent: bulmaStyles['is-current'] || 'isCurrent',
@@ -55,6 +57,7 @@ const bulma = {
 
   // Form
   button: bulmaStyles['button'] || 'button',
+  buttons: bulmaStyles['buttons'] || 'buttons',
   field: bulmaStyles.field || 'field',
   input: bulmaStyles.input || 'input',
   textarea: bulmaStyles.textarea || 'textarea',

@@ -16,5 +16,6 @@ module.exports = {
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
     })
-  }
+  },
+  globalSetup: "./jest-global-setup.js"
 };

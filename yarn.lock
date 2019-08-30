@@ -326,7 +326,7 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@reapit/elements@latest":
+"@reapit/elements@0.1.19":
   version "0.1.19"
   resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.19.tgz#70403f73c58a0e73e42b7da3760ee8631a9e42e9"
   integrity sha512-K9IDmZUIfuGgkT6gWrIusyh5roBY7NB3vcHdECb4+bRfAzQYOOYhCyzBvWfEnqap4x21BaiHOc0iZO2+yrZV8A==
@@ -2433,6 +2433,11 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
+
+dayjs@^1.8.16:
+  version "1.8.16"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.16.tgz#2a3771de537255191b947957af2fd90012e71e64"
+  integrity sha512-XPmqzWz/EJiaRHjBqSJ2s6hE/BUoCIHKgdS2QPtTQtKcS9E4/Qn0WomoH1lXanWCzri+g7zPcuNV4aTZ8PMORQ==
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"

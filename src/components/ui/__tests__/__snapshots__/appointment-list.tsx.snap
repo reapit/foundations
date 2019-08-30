@@ -1,0 +1,1043 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppointmentList Should match snapshot if having no data 1`] = `
+<div
+  className="py-8 px-3 text-center"
+>
+  No appointments
+</div>
+`;
+
+exports[`AppointmentList Should match snapshot if having no data 2`] = `
+<div
+  className="px-3"
+>
+  <AppointmentTile
+    heading="High Street"
+    key="NEP1600290"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+      </li>
+      <li>
+        Building Number: 
+        56
+      </li>
+      <li>
+        Address 1: 
+        High Street
+      </li>
+      <li>
+        Address 2: 
+        The Stables
+      </li>
+      <li>
+        Address 3: 
+        Old Haversham
+      </li>
+      <li>
+        Address 4: 
+        Milton Keynes
+      </li>
+      <li>
+        Postcode: 
+        MK19 7DZ
+      </li>
+      <li>
+        Start Time: 
+        05:30 PM
+      </li>
+      <li>
+        End Time: 
+        06:00 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="The Embankment"
+    key="BED1600537"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        Cornerways
+      </li>
+      <li>
+        Building Number: 
+        68
+      </li>
+      <li>
+        Address 1: 
+        The Embankment
+      </li>
+      <li>
+        Address 2: 
+        Bedford
+      </li>
+      <li>
+        Address 3: 
+        Bedfordshire
+      </li>
+      <li>
+        Address 4: 
+      </li>
+      <li>
+        Postcode: 
+        MK40 3PD
+      </li>
+      <li>
+        Start Time: 
+        01:30 PM
+      </li>
+      <li>
+        End Time: 
+        02:00 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="Sandhill Road"
+    key="BUC1600211"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        The Pines
+      </li>
+      <li>
+        Building Number: 
+        34
+      </li>
+      <li>
+        Address 1: 
+        Sandhill Road
+      </li>
+      <li>
+        Address 2: 
+        East Claydon
+      </li>
+      <li>
+        Address 3: 
+        Buckingham
+      </li>
+      <li>
+        Address 4: 
+        Buckinghamshire
+      </li>
+      <li>
+        Postcode: 
+        MK18 2LZ
+      </li>
+      <li>
+        Start Time: 
+        02:15 PM
+      </li>
+      <li>
+        End Time: 
+        02:45 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="Little Tingewick"
+    key="BUC1600210"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        Wayside
+      </li>
+      <li>
+        Building Number: 
+      </li>
+      <li>
+        Address 1: 
+        Little Tingewick
+      </li>
+      <li>
+        Address 2: 
+        Buckingham
+      </li>
+      <li>
+        Address 3: 
+        Buckinghamshire
+      </li>
+      <li>
+        Address 4: 
+      </li>
+      <li>
+        Postcode: 
+        MK18 4AG
+      </li>
+      <li>
+        Start Time: 
+        01:30 PM
+      </li>
+      <li>
+        End Time: 
+        02:15 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="---"
+    key="STS1600403"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        ---
+      </li>
+      <li>
+        Building Number: 
+        ---
+      </li>
+      <li>
+        Address 1: 
+        ---
+      </li>
+      <li>
+        Address 2: 
+        ---
+      </li>
+      <li>
+        Address 3: 
+        ---
+      </li>
+      <li>
+        Address 4: 
+        ---
+      </li>
+      <li>
+        Postcode: 
+        ---
+      </li>
+      <li>
+        Start Time: 
+        11:15 AM
+      </li>
+      <li>
+        End Time: 
+        11:45 AM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="---"
+    key="STS1600401"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        ---
+      </li>
+      <li>
+        Building Number: 
+        ---
+      </li>
+      <li>
+        Address 1: 
+        ---
+      </li>
+      <li>
+        Address 2: 
+        ---
+      </li>
+      <li>
+        Address 3: 
+        ---
+      </li>
+      <li>
+        Address 4: 
+        ---
+      </li>
+      <li>
+        Postcode: 
+        ---
+      </li>
+      <li>
+        Start Time: 
+        03:15 PM
+      </li>
+      <li>
+        End Time: 
+        04:00 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="High Street"
+    key="NEP1600288"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+      </li>
+      <li>
+        Building Number: 
+        56
+      </li>
+      <li>
+        Address 1: 
+        High Street
+      </li>
+      <li>
+        Address 2: 
+        The Stables
+      </li>
+      <li>
+        Address 3: 
+        Old Haversham
+      </li>
+      <li>
+        Address 4: 
+        Milton Keynes
+      </li>
+      <li>
+        Postcode: 
+        MK19 7DZ
+      </li>
+      <li>
+        Start Time: 
+        04:30 PM
+      </li>
+      <li>
+        End Time: 
+        05:00 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="---"
+    key="STS1600396"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        ---
+      </li>
+      <li>
+        Building Number: 
+        ---
+      </li>
+      <li>
+        Address 1: 
+        ---
+      </li>
+      <li>
+        Address 2: 
+        ---
+      </li>
+      <li>
+        Address 3: 
+        ---
+      </li>
+      <li>
+        Address 4: 
+        ---
+      </li>
+      <li>
+        Postcode: 
+        ---
+      </li>
+      <li>
+        Start Time: 
+        06:00 PM
+      </li>
+      <li>
+        End Time: 
+        06:30 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="---"
+    key="NEP1600287"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        ---
+      </li>
+      <li>
+        Building Number: 
+        ---
+      </li>
+      <li>
+        Address 1: 
+        ---
+      </li>
+      <li>
+        Address 2: 
+        ---
+      </li>
+      <li>
+        Address 3: 
+        ---
+      </li>
+      <li>
+        Address 4: 
+        ---
+      </li>
+      <li>
+        Postcode: 
+        ---
+      </li>
+      <li>
+        Start Time: 
+        05:30 PM
+      </li>
+      <li>
+        End Time: 
+        06:00 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="Shelton Road"
+    key="BED1600534"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        The Cottage
+      </li>
+      <li>
+        Building Number: 
+      </li>
+      <li>
+        Address 1: 
+        Shelton Road
+      </li>
+      <li>
+        Address 2: 
+        Yielden
+      </li>
+      <li>
+        Address 3: 
+        Bedfordshire
+      </li>
+      <li>
+        Address 4: 
+      </li>
+      <li>
+        Postcode: 
+        MK44 1AQ
+      </li>
+      <li>
+        Start Time: 
+        03:15 PM
+      </li>
+      <li>
+        End Time: 
+        04:15 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="---"
+    key="STS1600394"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        ---
+      </li>
+      <li>
+        Building Number: 
+        ---
+      </li>
+      <li>
+        Address 1: 
+        ---
+      </li>
+      <li>
+        Address 2: 
+        ---
+      </li>
+      <li>
+        Address 3: 
+        ---
+      </li>
+      <li>
+        Address 4: 
+        ---
+      </li>
+      <li>
+        Postcode: 
+        ---
+      </li>
+      <li>
+        Start Time: 
+        02:00 PM
+      </li>
+      <li>
+        End Time: 
+        02:30 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="The Causeway"
+    key="BED1600532"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+      </li>
+      <li>
+        Building Number: 
+        49
+      </li>
+      <li>
+        Address 1: 
+        The Causeway
+      </li>
+      <li>
+        Address 2: 
+        Carlton
+      </li>
+      <li>
+        Address 3: 
+        Bedford
+      </li>
+      <li>
+        Address 4: 
+        Bedfordshire
+      </li>
+      <li>
+        Postcode: 
+        MK43 7LU
+      </li>
+      <li>
+        Start Time: 
+        03:30 PM
+      </li>
+      <li>
+        End Time: 
+        04:30 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VL
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="Foxfield"
+    key="MKC1600312"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+      </li>
+      <li>
+        Building Number: 
+        39
+      </li>
+      <li>
+        Address 1: 
+        Foxfield
+      </li>
+      <li>
+        Address 2: 
+        Broughton Gate
+      </li>
+      <li>
+        Address 3: 
+        Milton Keynes
+      </li>
+      <li>
+        Address 4: 
+        Buckinghamshire
+      </li>
+      <li>
+        Postcode: 
+        MK10 7BP
+      </li>
+      <li>
+        Start Time: 
+        04:30 PM
+      </li>
+      <li>
+        End Time: 
+        05:00 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="Bedford Road"
+    key="BED1600530"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        The Firs
+      </li>
+      <li>
+        Building Number: 
+      </li>
+      <li>
+        Address 1: 
+        Bedford Road
+      </li>
+      <li>
+        Address 2: 
+        Northill
+      </li>
+      <li>
+        Address 3: 
+        Bedfordshire
+      </li>
+      <li>
+        Address 4: 
+      </li>
+      <li>
+        Postcode: 
+        SG18 9AW
+      </li>
+      <li>
+        Start Time: 
+        03:00 PM
+      </li>
+      <li>
+        End Time: 
+        05:00 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="Little Tingewick"
+    key="BUC1600209"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        Wayside
+      </li>
+      <li>
+        Building Number: 
+      </li>
+      <li>
+        Address 1: 
+        Little Tingewick
+      </li>
+      <li>
+        Address 2: 
+        Buckingham
+      </li>
+      <li>
+        Address 3: 
+        Buckinghamshire
+      </li>
+      <li>
+        Address 4: 
+      </li>
+      <li>
+        Postcode: 
+        MK18 4AG
+      </li>
+      <li>
+        Start Time: 
+        01:00 PM
+      </li>
+      <li>
+        End Time: 
+        01:30 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="The Embankment"
+    key="BED1600525"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        The Homestead
+      </li>
+      <li>
+        Building Number: 
+        57
+      </li>
+      <li>
+        Address 1: 
+        The Embankment
+      </li>
+      <li>
+        Address 2: 
+        Bedford
+      </li>
+      <li>
+        Address 3: 
+        Bedfordshire
+      </li>
+      <li>
+        Address 4: 
+      </li>
+      <li>
+        Postcode: 
+        MK40 3PD
+      </li>
+      <li>
+        Start Time: 
+        01:30 PM
+      </li>
+      <li>
+        End Time: 
+        02:00 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="Tyne Crescent"
+    key="BED1600523"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+      </li>
+      <li>
+        Building Number: 
+        54
+      </li>
+      <li>
+        Address 1: 
+        Tyne Crescent
+      </li>
+      <li>
+        Address 2: 
+        Bedford
+      </li>
+      <li>
+        Address 3: 
+        Bedfordshire
+      </li>
+      <li>
+        Address 4: 
+      </li>
+      <li>
+        Postcode: 
+        MK41 7UJ
+      </li>
+      <li>
+        Start Time: 
+        11:00 AM
+      </li>
+      <li>
+        End Time: 
+        12:00 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="Deacon Place"
+    key="MKC1600311"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+      </li>
+      <li>
+        Building Number: 
+        8
+      </li>
+      <li>
+        Address 1: 
+        Deacon Place
+      </li>
+      <li>
+        Address 2: 
+        Middleton
+      </li>
+      <li>
+        Address 3: 
+        Milton Keynes
+      </li>
+      <li>
+        Address 4: 
+      </li>
+      <li>
+        Postcode: 
+        MK10 9FS
+      </li>
+      <li>
+        Start Time: 
+        11:15 AM
+      </li>
+      <li>
+        End Time: 
+        11:30 AM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+  <AppointmentTile
+    heading="---"
+    key="STS1600389"
+  >
+    <ul>
+      <li>
+        Property Address
+      </li>
+      <li>
+        Building Name: 
+        ---
+      </li>
+      <li>
+        Building Number: 
+        ---
+      </li>
+      <li>
+        Address 1: 
+        ---
+      </li>
+      <li>
+        Address 2: 
+        ---
+      </li>
+      <li>
+        Address 3: 
+        ---
+      </li>
+      <li>
+        Address 4: 
+        ---
+      </li>
+      <li>
+        Postcode: 
+        ---
+      </li>
+      <li>
+        Start Time: 
+        02:00 PM
+      </li>
+      <li>
+        End Time: 
+        02:30 PM
+      </li>
+      <li>
+        Type of Appointment: 
+        VW
+      </li>
+    </ul>
+    <div
+      className="mt-4"
+    >
+      <CurrentLocButtonWithConnect />
+    </div>
+  </AppointmentTile>
+</div>
+`;

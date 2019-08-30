@@ -1,40 +1,93 @@
 import * as React from 'react'
-import CurrentLocButton from '@/components/container/current-loc-button'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { HomeState } from '@/reducers/home'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
+import { AppointmentsState, AppointmentsTime } from '@/reducers/appointments'
+import { oc } from 'ts-optchain'
+import { Loader, Tabs, TabConfig } from '@reapit/elements'
+import { AppointmentList } from '../ui/appointment-list'
+import { appointmentsRequestData } from '@/actions/appointments'
+import bulma from '@/styles/vendor/bulma'
 
-export interface HomeMappedActions {}
+export interface HomeMappedActions {
+  requestAppointments: (time: AppointmentsTime) => void
+}
 
 export interface HomeMappedProps {
-  homeState: HomeState
+  appointmentsState: AppointmentsState
 }
 
 export type HomeProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ page?: any }>
 
-export const Home: React.FunctionComponent<HomeProps> = () => {
+export type TabType = 'LIST' | 'MAP'
+
+export const tabConfigs = ({ currentTab, setCurrentTab }): TabConfig[] => [
+  {
+    tabIdentifier: 'LIST',
+    displayText: 'List',
+    onTabClick: () => setCurrentTab('LIST'),
+    active: currentTab === 'LIST'
+  },
+  {
+    tabIdentifier: 'MAP',
+    displayText: 'Map',
+    onTabClick: () => setCurrentTab('MAP'),
+    active: currentTab === 'MAP'
+  }
+]
+
+const filterTimes: AppointmentsTime[] = ['Today', 'Tomorrow', 'Next week']
+
+export const Home: React.FunctionComponent<HomeProps> = ({ appointmentsState, requestAppointments }) => {
+  const unfetched = !appointmentsState.appointments
+  const loading = appointmentsState.loading
+  const list = oc<AppointmentsState>(appointmentsState).appointments.data.data([])
+  const [currentTab, setCurrentTab] = React.useState<TabType>('LIST')
+  const time = appointmentsState.time
+
+  if (unfetched && loading) {
+    return <Loader />
+  }
+
+  const uncancelledList = list.filter(({ cancelled }) => !cancelled)
+
   return (
     <ErrorBoundary>
-      <h1>Home Page</h1>
-      <CurrentLocButton />
-      <CurrentLocButton>
-        {({ buttonOnClick, isDisableCurrentLocButton }) => (
-          <button className="test" disabled={isDisableCurrentLocButton} onClick={buttonOnClick}>
-            Test Button
-          </button>
-        )}
-      </CurrentLocButton>
+      <Tabs tabConfigs={tabConfigs({ currentTab, setCurrentTab })} />
+
+      {currentTab === 'LIST' && (
+        <>
+          <div className={`${bulma.isCentered} ${bulma.buttons} ${bulma.hasAddons}`}>
+            {filterTimes.map(filter => (
+              <span
+                className={
+                  bulma.button + (filter === time ? ` ${bulma.isSelected} ${bulma.isActive} ${bulma.isPrimary}` : '')
+                }
+                key={filter}
+                onClick={() => filter !== time && requestAppointments(filter)}
+              >
+                {filter}
+              </span>
+            ))}
+          </div>
+
+          {loading ? <Loader /> : <AppointmentList data={uncancelledList}></AppointmentList>}
+        </>
+      )}
+
+      {currentTab === 'MAP' && <div>Map go here</div>}
     </ErrorBoundary>
   )
 }
 
 const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
-  homeState: state.home
+  appointmentsState: state.appointments
 })
 
-const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({})
+const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({
+  requestAppointments: (time: AppointmentsTime) => dispatch(appointmentsRequestData({ time }))
+})
 
 export default withRouter(
   connect(
