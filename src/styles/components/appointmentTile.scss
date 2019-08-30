@@ -1,6 +1,9 @@
-.appointment-tile{
+.appointment-tile {
   display: flex;
-  .location-marker{
+  .location-marker {
     padding: 0 1rem;
+  }
+  &.hightlight {
+    border: 2px solid;
   }
 }
