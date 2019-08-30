@@ -6,6 +6,7 @@ import AppDetail from '@/components/ui/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
 import AppPermission from '@/components/ui/app-permission/app-permission'
 import AppInstallConfirm from '@/components/ui/app-confirm-install/app-confirm-install'
+import AppUninstallConfirm from '@/components/ui/app-confirm-uninstall'
 import CallToAction from '../call-to-action'
 import { handleCloseModal, mapDispatchToProps } from '../app-confirm-install/app-confirm-install'
 
@@ -49,7 +50,11 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
     return <AppInstallConfirm afterClose={afterClose} />
   }
 
-  if (appDetailModalState === 'VIEW_INSTALL_SUCCESS') {
+  if (appDetailModalState === 'VIEW_CONFIRM_UNINSTALL') {
+    return <AppUninstallConfirm afterClose={afterClose} />
+  }
+
+  if (appDetailModalState === 'VIEW_DETAIL_ACTION_SUCCESS') {
     return (
       <CallToAction
         title="Success!"

@@ -5,7 +5,7 @@ import { ScopeModel } from '@/types/marketplace-api-schema'
 import bulma from '@/styles/vendor/bulma'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button } from '@reapit/elements'
-import { appInstallRequestData } from '@/actions/app-install'
+import { appInstallRequestData, appInstallDone } from '@/actions/app-install'
 import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
 import { oc } from 'ts-optchain'
 
@@ -18,6 +18,7 @@ export type AppConfirmInstallContentMappedProps = {
 export interface AppConfirmInstallContentMappedActions {
   setAppDetailModalStateView: () => void
   requestInstall: () => void
+  installDone: () => void
 }
 
 export type AppConfirmInstallContentInnerProps = AppConfirmInstallContentMappedProps &
@@ -34,6 +35,7 @@ export const handleCloseModal = (setAppDetailModalStateView: () => void, afterCl
 export const AppConfirmInstallContent = ({
   permissions,
   requestInstall,
+  installDone,
   appInstallFormState,
   appName,
   afterClose,
@@ -43,6 +45,7 @@ export const AppConfirmInstallContent = ({
   const isSuccessed = appInstallFormState === 'SUCCESS'
 
   if (isSuccessed) {
+    installDone()
     return null
   }
 
@@ -95,7 +98,8 @@ export const mapStateToProps = (state: ReduxState): AppConfirmInstallContentMapp
 
 export const mapDispatchToProps = (dispatch: any): AppConfirmInstallContentMappedActions => ({
   setAppDetailModalStateView: () => dispatch(setAppDetailModalStateView()),
-  requestInstall: () => dispatch(appInstallRequestData())
+  requestInstall: () => dispatch(appInstallRequestData()),
+  installDone: () => dispatch(appInstallDone())
 })
 
 const AppConfirmInstallContentInnerWithConnect = connect(

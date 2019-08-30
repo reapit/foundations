@@ -2,85 +2,79 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { FormState, ReduxState } from '@/types/core'
-import { AppConfirmInstallContent, handleCloseModal, mapDispatchToProps, mapStateToProps } from '../app-confirm-install'
+import { AppConfirmUninstall, handleCloseModal, mapDispatchToProps, mapStateToProps } from '../app-confirm-uninstall'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
-describe('AppConfirmInstallContent', () => {
+describe('AppConfirmUninstall', () => {
   it('render correctly', () => {
     const mockProps = {
-      permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
-      requestInstall: jest.fn(),
-      installDone: jest.fn(),
+      requestUninstall: jest.fn(),
+      uninstallDone: jest.fn(),
       appName: 'mockAppName',
       afterClose: jest.fn(),
       setAppDetailModalStateView: jest.fn()
     }
-    const wrapper = shallow(<AppConfirmInstallContent appInstallFormState="PENDING" {...mockProps} />)
+    const wrapper = shallow(<AppConfirmUninstall appUninstallFormState="PENDING" {...mockProps} />)
     expect(toJson(wrapper)).toMatchSnapshot()
-    const wrapper1 = shallow(<AppConfirmInstallContent appInstallFormState="DONE" {...mockProps} />)
+    const wrapper1 = shallow(<AppConfirmUninstall appUninstallFormState="DONE" {...mockProps} />)
     expect(toJson(wrapper1)).toMatchSnapshot()
-    const wrapper2 = shallow(<AppConfirmInstallContent appInstallFormState="SUBMITTING" {...mockProps} />)
+    const wrapper2 = shallow(<AppConfirmUninstall appUninstallFormState="SUBMITTING" {...mockProps} />)
     expect(toJson(wrapper2)).toMatchSnapshot()
-    const wrapper3 = shallow(<AppConfirmInstallContent appInstallFormState="ERROR" {...mockProps} />)
+    const wrapper3 = shallow(<AppConfirmUninstall appUninstallFormState="ERROR" {...mockProps} />)
     expect(toJson(wrapper3)).toMatchSnapshot()
-    const wrapper4 = shallow(<AppConfirmInstallContent appInstallFormState="SUCCESS" {...mockProps} />)
+    const wrapper4 = shallow(<AppConfirmUninstall appUninstallFormState="SUCCESS" {...mockProps} />)
     expect(toJson(wrapper4)).toMatchSnapshot()
   })
 
-  it('should return null when formState SUCCESS', () => {
+  it('should return null when appUninstallFormState SUCCESS', () => {
     const mockProps = {
-      permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
-      requestInstall: jest.fn(),
-      installDone: jest.fn(),
+      requestUninstall: jest.fn(),
+      uninstallDone: jest.fn(),
       appName: 'mockAppName',
       afterClose: jest.fn(),
       setAppDetailModalStateView: jest.fn(),
-      appInstallFormState: 'SUCCESS' as FormState
+      appUninstallFormState: 'SUCCESS' as FormState
     }
-    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
+    const wrapper = shallow(<AppConfirmUninstall {...mockProps} />)
     expect(wrapper).toEqual({})
   })
 
   it('show confirm content', () => {
     const mockProps = {
-      permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
-      requestInstall: jest.fn(),
-      installDone: jest.fn(),
+      requestUninstall: jest.fn(),
+      uninstallDone: jest.fn(),
       appName: 'mockAppName',
       afterClose: jest.fn(),
       setAppDetailModalStateView: jest.fn(),
-      appInstallFormState: 'PENDING' as FormState
+      appUninstallFormState: 'PENDING' as FormState
     }
-    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
+    const wrapper = shallow(<AppConfirmUninstall {...mockProps} />)
     expect(wrapper.find('[data-test="confirm-content"]')).toHaveLength(1)
   })
 
   it('button agree show loading when agree install', () => {
     const mockProps = {
-      permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
-      requestInstall: jest.fn(),
-      installDone: jest.fn(),
+      requestUninstall: jest.fn(),
+      uninstallDone: jest.fn(),
       appName: 'mockAppName',
       afterClose: jest.fn(),
       setAppDetailModalStateView: jest.fn(),
-      appInstallFormState: 'SUBMITTING' as FormState
+      appUninstallFormState: 'SUBMITTING' as FormState
     }
-    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
+    const wrapper = shallow(<AppConfirmUninstall {...mockProps} />)
     expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
   })
 
   it('button disagree show loading when agree install', () => {
     const mockProps = {
-      permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
-      requestInstall: jest.fn(),
-      installDone: jest.fn(),
+      requestUninstall: jest.fn(),
+      uninstallDone: jest.fn(),
       appName: 'mockAppName',
       afterClose: jest.fn(),
       setAppDetailModalStateView: jest.fn(),
-      appInstallFormState: 'SUBMITTING' as FormState
+      appUninstallFormState: 'SUBMITTING' as FormState
     }
-    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
+    const wrapper = shallow(<AppConfirmUninstall {...mockProps} />)
     expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
   })
   it('handleCloseModal', () => {
@@ -98,7 +92,7 @@ describe('AppConfirmInstallContent', () => {
     const setAppDetailModalStateView = jest.fn()
     const fn = mapDispatchToProps(dispatch)
     it('should call dispatch when involke request install', () => {
-      fn.requestInstall()
+      fn.requestUninstall()
       expect(dispatch).toBeCalled()
     })
     it('should call dispatch when involke request install', () => {
@@ -113,14 +107,13 @@ describe('AppConfirmInstallContent', () => {
         appDetail: {
           appDetailData: appDetailDataStub
         },
-        appInstall: {
+        appUninstall: {
           formState: 'PENDING'
         }
       }
       const expected = {
-        permissions: appPermissionStub,
         appName: `Peter's Properties`,
-        appInstallFormState: 'PENDING'
+        appUninstallFormState: 'PENDING'
       }
       const result = mapStateToProps(mockState as ReduxState)
       expect(result).toEqual(expected)
@@ -128,14 +121,13 @@ describe('AppConfirmInstallContent', () => {
 
     it('should return correct Props when no data', () => {
       const mockState = {
-        appInstall: {
+        appUninstall: {
           formState: 'PENDING'
         }
       }
       const expected = {
-        permissions: [],
         appName: '',
-        appInstallFormState: 'PENDING'
+        appUninstallFormState: 'PENDING'
       }
       const result = mapStateToProps(mockState as ReduxState)
       expect(result).toEqual(expected)

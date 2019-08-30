@@ -6,10 +6,9 @@ import carouselStyles from '../../styles/elements/carousel.scss?mod'
 import ChevronLeftIcon from '@/components/svg/chevron-left'
 import '@/styles/vendor/slick.scss'
 import { connect } from 'react-redux'
-import { setAppDetailModalStatePermission } from '@/actions/app-detail-modal'
+import { setAppDetailModalStatePermission, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { Button } from '@reapit/elements'
-import { appUninstallRequestData } from '@/actions/app-uninstall'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 
 export interface AppDetailModalInnerProps {
@@ -24,7 +23,7 @@ export interface AppDetailModalMappedProps {
 
 export interface AppDetailModalMappedActions {
   setAppDetailModalStatePermission: () => void
-  requestUninstall: () => void
+  setAppDetailModalStateUninstall: () => void
   setDeveloperAppModalStateDelete: () => void
 }
 
@@ -37,7 +36,7 @@ const SlickButtonNav = ({ currentSlide, setAppDetailModalStatePermission, slideC
 export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   data,
   setAppDetailModalStatePermission,
-  requestUninstall,
+  setAppDetailModalStateUninstall,
   appUninstallFormState,
   isCurrentLoggedUserClient
 }) => {
@@ -94,7 +93,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                   dataTest="btnAppDetailUninstallApp"
                   loading={Boolean(isLoadingUninstall)}
                   disabled={Boolean(isLoadingUninstall)}
-                  onClick={requestUninstall}
+                  onClick={setAppDetailModalStateUninstall}
                 >
                   Uninstall App
                 </Button>
@@ -141,7 +140,7 @@ export const mapStateToProps = (state: ReduxState): AppDetailModalMappedProps =>
 
 export const mapDispatchToProps = (dispatch: any): AppDetailModalMappedActions => ({
   setAppDetailModalStatePermission: () => dispatch(setAppDetailModalStatePermission()),
-  requestUninstall: () => dispatch(appUninstallRequestData()),
+  setAppDetailModalStateUninstall: () => dispatch(setAppDetailModalStateUninstall()),
   setDeveloperAppModalStateDelete: () => dispatch(setDeveloperAppModalStateDelete())
 })
 

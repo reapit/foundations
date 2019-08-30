@@ -2,13 +2,12 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { AppDetail, AppDetailProps, mapDispatchToProps } from '../app-detail'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
-import { setAppDetailModalStatePermission } from '@/actions/app-detail-modal'
-import { appUninstallRequestData } from '@/actions/app-uninstall'
+import { setAppDetailModalStatePermission, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 
 const props: AppDetailProps = {
   setDeveloperAppModalStateDelete: jest.fn(),
   setAppDetailModalStatePermission: jest.fn(),
-  requestUninstall: jest.fn(),
+  setAppDetailModalStateUninstall: jest.fn(),
   appUninstallFormState: 'PENDING',
   isCurrentLoggedUserDeveloper: true,
   isCurrentLoggedUserClient: false,
@@ -40,9 +39,11 @@ describe('AppDetailModalInner', () => {
 
     it('should dispatch correctly if mapped requestUninstall is called', () => {
       const mockedDispatch = jest.fn()
-      const { requestUninstall: mappedRequestUninstall } = mapDispatchToProps(mockedDispatch)
-      mappedRequestUninstall()
-      expect(mockedDispatch).toHaveBeenNthCalledWith(1, appUninstallRequestData())
+      const { setAppDetailModalStateUninstall: mappedSetAppDetailModalStateUninstall } = mapDispatchToProps(
+        mockedDispatch
+      )
+      mappedSetAppDetailModalStateUninstall()
+      expect(mockedDispatch).toHaveBeenNthCalledWith(1, setAppDetailModalStateUninstall())
     })
 
     it('should dispatch correctly if mapped setDeveloperAppModalStateDelete is called', () => {

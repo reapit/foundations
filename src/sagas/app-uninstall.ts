@@ -11,14 +11,21 @@ import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { selectAppDetailId, selectAppDetailInstallationId } from '@/selector/app-detail'
-import { selectLoggedUserEmail } from '@/selector/client'
+import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
+import { setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
+import { appDetailRequestData } from '@/actions/app-detail'
 
 export const appUninstallSaga = function*() {
   try {
     yield put(appUninstallLoading())
     const appId = yield select(selectAppDetailId)
     const email = yield select(selectLoggedUserEmail)
+    const clientId = yield select(selectClientId)
     const installationId = yield select(selectAppDetailInstallationId)
+
+    if (!clientId) {
+      throw new Error('clientId does not exist')
+    }
 
     if (!installationId) {
       throw new Error('installationId does not exist')
@@ -38,6 +45,13 @@ export const appUninstallSaga = function*() {
       body
     })
     yield put(appUninstallRequestSuccess())
+    yield put(setAppDetailModalStateSuccess())
+    yield put(
+      appDetailRequestData({
+        id: appId,
+        clientId
+      })
+    )
   } catch (err) {
     yield put(appUninstallRequestDataFailure())
     yield put(

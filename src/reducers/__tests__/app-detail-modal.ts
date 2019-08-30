@@ -41,7 +41,7 @@ describe('app-detail modal reducer', () => {
       type: ActionTypes.SET_APP_DETAIL_MODAL_STATE_SUCCESS as ActionType,
       data: true
     })
-    const expected = 'VIEW_INSTALL_SUCCESS'
+    const expected = 'VIEW_DETAIL_ACTION_SUCCESS'
     expect(newState).toEqual(expected)
   })
 })

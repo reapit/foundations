@@ -9,7 +9,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { selectAppDetailId } from '@/selector/app-detail'
 import { selectClientId, selectLoggedUserEmail } from '@/selector/client'
-import { setAppDetailModalStateInstallSuccess } from '../actions/app-detail-modal'
+import { setAppDetailModalStateSuccess } from '../actions/app-detail-modal'
 
 export const appInstallSaga = function*() {
   try {
@@ -31,7 +31,7 @@ export const appInstallSaga = function*() {
       body: { appId, clientId, approvedBy: email }
     })
     yield put(appInstallRequestSuccess())
-    yield put(setAppDetailModalStateInstallSuccess())
+    yield put(setAppDetailModalStateSuccess())
     yield put(
       appDetailRequestData({
         id: appId,
