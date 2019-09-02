@@ -1,9 +1,9 @@
-import { FetcherParams } from '../types/core'
+import { FetcherParams } from '../../types/core'
 
 export class FetchError extends Error {
   public name: string
 
-  constructor(public message: string, public response?: any) {
+  constructor(public message: string, public response?: Response) {
     super(message)
 
     Object.setPrototypeOf(this, new.target.prototype) // restore prototype chain
@@ -39,7 +39,7 @@ export const fetcher = async <T, B>({
     }
   }
 
-  const error = new FetchError(`ERROR FETCHING ${method} ${path} ${JSON.stringify(res)}`)
+  const error = new FetchError(`ERROR FETCHING ${method} ${path} ${JSON.stringify(res)}`, res)
   console.error(error.message)
   try {
     error.response = await res.json()

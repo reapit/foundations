@@ -1,4 +1,4 @@
-import { tokenExpired, getAccessToken, deserializeIdToken } from '../cognito'
+import { tokenExpired, deserializeIdToken } from '../cognito'
 import { mockLoginSession } from '../__mocks__/cognito'
 
 jest.mock('jsonwebtoken', () => ({
