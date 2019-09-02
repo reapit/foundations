@@ -10,68 +10,35 @@ import {
   renderAttendees,
   renderCheckMark,
   renderCommunicationDetail,
-  renderCommunicationType
+  renderCommunicationType,
+  mapStateToProps,
+  mapDispatchToProps
 } from '../appointment-detail'
+import { appointmentDataStub } from '../../../../sagas/__stubs__/appointment'
 
 describe('AppointmentModal', () => {
   describe('AppointmentModal', () => {
     it('should render correctly', () => {
       const mockProps = {
-        appointment: {
-          id: 'BED1600597',
-          created: '2019-05-12T17:58:40',
-          modified: '2016-12-18T16:03:45',
-          start: '2016-12-18T16:30:00',
-          end: '2016-12-18T17:30:00',
-          type: 'IA',
-          recurring: false,
-          cancelled: false,
-          property: {
-            buildingName: '',
-            buildingNumber: '65',
-            line1: 'Lindsey Close',
-            line2: 'Great Denham',
-            line3: 'Bedford',
-            line4: 'Bedfordshire',
-            postcode: 'MK40 4GT',
-            country: '',
-            geolocation: {
-              latitude: 52.1284,
-              longitude: -0.507145
-            }
-          },
-          attendees: [
-            {
-              id: 'JJS',
-              type: 'negotiator',
-              name: 'Chase MacLean',
-              confirmed: true,
-              communicationDetails: [
-                {
-                  label: 'E-Mail',
-                  detail: 'chase.maclean@reapitestates.net'
-                }
-              ]
-            },
-            {
-              id: 'JJS',
-              type: 'seller',
-              name: 'Chase MacLean',
-              confirmed: true,
-              communicationDetails: [
-                {
-                  label: 'E-Mail',
-                  detail: 'chase.maclean@reapitestates.net'
-                }
-              ]
-            }
-          ]
-        },
+        appointment: appointmentDataStub,
         visible: true,
-        afterClose: jest.fn()
+        afterClose: jest.fn(),
+        isLoading: false
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should render correctly when loading', () => {
+      const mockProps = {
+        appointment: appointmentDataStub,
+        visible: true,
+        afterClose: jest.fn(),
+        isLoading: true
+      }
+      const wrapper = shallow(<AppointmentModal {...mockProps} />)
+      expect(wrapper.find('Loader')).toHaveLength(1)
       expect(wrapper).toMatchSnapshot()
     })
   })
@@ -428,6 +395,48 @@ describe('AppointmentModal', () => {
       const input = ''
       const data = renderCommunicationType(input)
       expect(data).toBeNull()
+    })
+  })
+  describe('mapStateToProps', () => {
+    it('should run correctly', () => {
+      const mockState = {
+        appointmentDetail: {
+          appointmentDetail: appointmentDataStub,
+          isModalVisible: true,
+          loading: true
+        }
+      } as any
+      const expected = {
+        appointment: appointmentDataStub,
+        visible: true,
+        isLoading: true
+      }
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual(expected)
+    })
+
+    it('should return {}', () => {
+      const mockState = {
+        appointmentDetail: {
+          isModalVisible: true,
+          loading: true
+        }
+      } as any
+      const expected = {
+        appointment: {},
+        visible: true,
+        isLoading: true
+      }
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual(expected)
+    })
+  })
+  describe('mapDispatchToProps', () => {
+    it('should run correctly', () => {
+      const mockDispatch = jest.fn()
+      const fn = mapDispatchToProps(mockDispatch)
+      fn.afterClose()
+      expect(mockDispatch).toBeCalled()
     })
   })
 })

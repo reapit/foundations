@@ -4,6 +4,7 @@ import { AppointmentModel } from '@/types/appointments'
 import CurrentLocButton from '@/components/container/current-loc-button'
 import { oc } from 'ts-optchain'
 import { getTime } from '@/utils/datetime'
+import ViewDetailButton from '../container/view-detail-button'
 
 export interface AppointmentListProps {
   data: AppointmentModel[]
@@ -43,9 +44,13 @@ export const AppointmentList = memo(({ data }: AppointmentListProps) => {
               <li>End Time: {end}</li>
               <li>Type of Appointment: {type}</li>
             </ul>
-
-            <div className="mt-4">
-              <CurrentLocButton />
+            <div className="flex">
+              <div className="mt-4 mr-4">
+                <ViewDetailButton id={item.id} />
+              </div>
+              <div className="mt-4">
+                <CurrentLocButton />
+              </div>
             </div>
           </AppointmentTile>
         )
