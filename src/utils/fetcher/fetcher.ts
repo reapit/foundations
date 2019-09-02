@@ -2,12 +2,14 @@ import { FetcherParams } from '../../types/core'
 
 export class FetchError extends Error {
   public name: string
+  public status: number
 
   constructor(public message: string, public response?: Response) {
     super(message)
 
     Object.setPrototypeOf(this, new.target.prototype) // restore prototype chain
     this.name = (this.constructor as any).name
+    this.status = (this.constructor as any).status
     this.message = message
 
     Error.captureStackTrace(this, this.constructor)
