@@ -1,15 +1,21 @@
 import React from 'react'
 import dayjs from 'dayjs'
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
 import { oc } from 'ts-optchain'
-import { Modal } from '@reapit/elements'
 import { TiTimes, TiTick, TiMail, TiHome, TiPhoneOutline, TiDevicePhone } from 'react-icons/ti'
+import { Dispatch } from 'redux'
+import { Modal, Loader } from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { getTime, getDate, isSameDay } from '@/utils/datetime'
+import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/appointment-detail.scss?mod'
+import { appointmentDetailHideModal } from '@/actions/appointment-detail'
 
 export type AppointmentModalProps = {
   appointment: AppointmentModel
   visible: boolean
+  isLoading: boolean
   afterClose: () => void
 }
 
@@ -114,7 +120,7 @@ export const renderStartAndEndDate = (startTime, endTime) => {
     <div className={styles.appointmentDetailSection}>
       <div className={styles.appointmentDetailSectionTitle}>Time</div>
       <div className={styles.appointmentDetailSectionContent}>
-        <span data-test="appointment-date">{displayDate}</span>
+        <span data-test="appointment-date">{displayDate}</span>&nbsp;
         <b>
           {displayStart} - {displayEnd}
         </b>
@@ -135,19 +141,52 @@ export const renderTitle = (appointment: AppointmentModel) => {
   )
 }
 
-export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment, visible, afterClose }) => {
+export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment, visible, afterClose, isLoading }) => {
   return (
     <Modal visible={visible} size="medium" afterClose={afterClose}>
-      <div className={styles.root}>
-        {renderTitle(appointment)}
-        {renderAddress(appointment.property)}
-        {renderAttendees(appointment.attendees)}
-        {renderNotes(appointment.description)}
-        {renderArrangement(appointment.arrangements)}
-        {renderStartAndEndDate(appointment.start, appointment.end)}
-      </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className={styles.root}>
+          {renderTitle(appointment)}
+          {renderAddress(appointment.property)}
+          {renderAttendees(appointment.attendees)}
+          {renderNotes(appointment.description)}
+          {renderArrangement(appointment.arrangements)}
+          {renderStartAndEndDate(appointment.start, appointment.end)}
+        </div>
+      )}
     </Modal>
   )
 }
 
-export default AppointmentModal
+export type AppointmentDetailMappedProps = {
+  appointment: AppointmentModel
+  visible: boolean
+  isLoading: boolean
+}
+
+export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps => {
+  return {
+    appointment: oc(state).appointmentDetail.appointmentDetail({}),
+    visible: state.appointmentDetail.isModalVisible,
+    isLoading: state.appointmentDetail.loading
+  }
+}
+
+export type AppointmentDetailMappedAction = {
+  afterClose: () => void
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch): AppointmentDetailMappedAction => ({
+  afterClose: () => dispatch(appointmentDetailHideModal())
+})
+
+const AppointmentDetailWithRedux = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppointmentModal)
+
+AppointmentDetailWithRedux.displayName = 'AppointmentDetailWithRedux'
+
+export default AppointmentDetailWithRedux

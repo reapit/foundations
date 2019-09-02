@@ -8,6 +8,7 @@ import { oc } from 'ts-optchain'
 import { Loader, Tabs, TabConfig } from '@reapit/elements'
 import { AppointmentList } from '../ui/appointment-list'
 import { appointmentsRequestData } from '@/actions/appointments'
+import AppointmentDetailModal from '@/components/common/appointment-detail'
 import bulma from '@/styles/vendor/bulma'
 
 export interface HomeMappedActions {
@@ -77,6 +78,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({ appointmentsState, re
       )}
 
       {currentTab === 'MAP' && <div>Map go here</div>}
+      <AppointmentDetailModal />
     </ErrorBoundary>
   )
 }

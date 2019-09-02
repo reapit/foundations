@@ -91,6 +91,7 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
         >
           18 Dec 2016
         </span>
+         
         <b>
           04:30 PM
            - 
@@ -99,6 +100,16 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
       </div>
     </div>
   </div>
+</Modal>
+`;
+
+exports[`AppointmentModal AppointmentModal should render correctly when loading 1`] = `
+<Modal
+  afterClose={[MockFunction]}
+  size="medium"
+  visible={true}
+>
+  <Loader />
 </Modal>
 `;
 
@@ -232,6 +243,7 @@ exports[`AppointmentModal renderStartAndEndDate should matchSnapshot 1`] = `
       >
         18 Dec 2016
       </span>
+       
       <b>
         04:30 PM
          - 
