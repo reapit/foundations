@@ -61,9 +61,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="NEP1600290"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -115,9 +126,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="BED1600537"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -170,9 +192,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="BUC1600211"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -223,9 +256,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="BUC1600210"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -278,9 +322,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="STS1600403"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -333,9 +388,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="STS1600401"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -387,9 +453,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="NEP1600288"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -442,9 +519,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="STS1600396"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -497,9 +585,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="NEP1600287"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -550,9 +649,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="BED1600534"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -605,9 +715,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="STS1600394"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -659,9 +780,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="BED1600532"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -713,9 +845,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="MKC1600312"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -766,9 +909,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="BED1600530"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -819,9 +973,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="BUC1600209"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -873,9 +1038,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="BED1600525"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -926,9 +1102,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="BED1600523"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -979,9 +1166,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="MKC1600311"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
   <AppointmentTile
@@ -1034,9 +1232,20 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       </li>
     </ul>
     <div
-      className="mt-4"
+      className="flex"
     >
-      <CurrentLocButtonWithConnect />
+      <div
+        className="mt-4 mr-4"
+      >
+        <CurrentLocButtonWithRedux
+          id="STS1600389"
+        />
+      </div>
+      <div
+        className="mt-4"
+      >
+        <CurrentLocButtonWithConnect />
+      </div>
     </div>
   </AppointmentTile>
 </div>

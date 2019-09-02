@@ -10,10 +10,9 @@ import {
 } from '@/actions/appointments'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
-import { URLS, APPOINTMENTS_HEADERS } from '@/constants/api'
+import { APPOINTMENTS_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
-import dayjs from 'dayjs'
 
 jest.mock('@reapit/elements')
 
@@ -23,17 +22,12 @@ const params: Action<AppointmentRequestParams> = {
 }
 
 describe('appointments fetch data', () => {
-  // For today data
-  const start = dayjs(Date.now()).startOf('day')
-  const end = dayjs(Date.now()).endOf('day')
-
   const gen = cloneableGenerator(appointmentsDataFetch)(params)
   expect(gen.next().value).toEqual(put(appointmentsLoading(true)))
   expect(gen.next().value).toEqual(
     call(fetcher, {
-      url: `${
-        URLS.appointments
-      }?Start=${start.toISOString()}&End=${end.toISOString()}&IncludeCancelled=true&IncludeUnconfirmed=true`,
+      url:
+        '/appointments?Start=2019-12-18T00:00:00.000Z&End=2019-12-18T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
       api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: APPOINTMENTS_HEADERS

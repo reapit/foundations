@@ -2,8 +2,9 @@ import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { ErrorState } from '../reducers/error'
 import { HomeState } from '@/reducers/home'
-import currentLocReducer, { CurrentLocState } from '@/reducers/current-loc'
+import { CurrentLocState } from '@/reducers/current-loc'
 import { AppointmentsState } from '@/reducers/appointments'
+import { AppointmentDetailState } from '@/reducers/appointment-detail'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -41,4 +42,5 @@ export interface ReduxState {
   home: HomeState
   currentLoc: CurrentLocState
   appointments: AppointmentsState
+  appointmentDetail: AppointmentDetailState
 }

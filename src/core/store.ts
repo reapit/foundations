@@ -3,6 +3,7 @@ import { persistStore, persistReducer, Persistor } from 'redux-persist'
 import * as localForage from 'localforage'
 import home from '../reducers/home'
 import appointments from '../reducers/appointments'
+import appointmentDetail from '../reducers/appointment-detail'
 import error from '../reducers/error'
 import currentLoc from '../reducers/current-loc'
 
@@ -10,6 +11,7 @@ import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import homeSagas from '../sagas/home'
 import appointmentsSagas from '../sagas/appointments'
+import appointmentDetailSagas from '../sagas/appointment-detail'
 import { all, fork } from '@redux-saga/core/effects'
 
 export class Store {
@@ -31,11 +33,12 @@ export class Store {
     error,
     home,
     currentLoc,
-    appointments
+    appointments,
+    appointmentDetail
   })
 
   static sagas = function*() {
-    yield all([fork(homeSagas), fork(appointmentsSagas)])
+    yield all([fork(homeSagas), fork(appointmentsSagas), fork(appointmentDetailSagas)])
   }
 
   static composeEnhancers =
