@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { fetcher } from '../../utils/fetcher'
+import { fetcher } from '../fetcher/fetcher'
 import { LoginSession, LoginType, LoginIdentity, CoginitoIdentity, LoginParams, RefreshParams } from './types'
 import { COGNITO_API_BASE_URL, COGNITO_HEADERS } from './constants'
 

@@ -8,6 +8,6 @@ module.exports = {
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public)[/\\\\]'],
   transform: {
-    "^.+\\.svg$": "<rootDir>/svg-transform.js"
+    "^.+\\.svg$": "<rootDir>/src/scripts/svg-transform.js"
  }
 };
