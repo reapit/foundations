@@ -1,4 +1,5 @@
 import { AppointmentsData } from '@/reducers/appointments'
+import { StringMap } from '@reapit/elements/dist/types/core'
 
 export const appointmentsDataStub: AppointmentsData = {
   data: {
