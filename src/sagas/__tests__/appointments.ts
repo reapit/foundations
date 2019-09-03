@@ -10,7 +10,7 @@ import {
 } from '@/actions/appointments'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
-import { APPOINTMENTS_HEADERS, REAPIT_API_BASE_URL } from '@/constants/api'
+import { REAPIT_API_BASE_URL } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 
