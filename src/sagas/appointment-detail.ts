@@ -8,20 +8,22 @@ import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { URLS, APPOINTMENTS_HEADERS, REAPIT_API_BASE_URL } from '@/constants/api'
+import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
 import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { AppointmentDetailRequestParams } from '@/actions/appointment-detail'
+import { initAuthorizedRequestHeaders } from '@/utils/api'
 
 export const appointmentDetailDataFetch = function*({ data: { id } }: Action<AppointmentDetailRequestParams>) {
   yield put(appointmentDetailShowModal())
   yield put(appointmentDetailLoading(true))
   try {
+    const headers = yield call(initAuthorizedRequestHeaders)
     const response = yield call(fetcher, {
       url: `${URLS.appointments}/${id}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
-      headers: APPOINTMENTS_HEADERS
+      headers: headers
     })
     if (response) {
       yield put(appointmentDetailReceiveData(response))
