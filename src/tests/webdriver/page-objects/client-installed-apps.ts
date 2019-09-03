@@ -1,9 +1,9 @@
 import Base from './base'
-import LoginPage from './login'
+import Common from '../shared/common'
 
-class ClientPage extends Base {
+class ClientInstalledAppsPage extends Base {
   get route() {
-    return '/client/apps'
+    return '/client/installed'
   }
 
   get heading() {
@@ -18,10 +18,13 @@ class ClientPage extends Base {
     return $$('[data-test*="app-card"]')
   }
 
+  get appCardByName() {
+    return $(`[data-test*='${Common.appName}']`)
+  }
+
   open() {
-    LoginPage.logAsClient()
     super.open(this.route)
   }
 }
 
-export default new ClientPage()
+export default new ClientInstalledAppsPage()

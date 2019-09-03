@@ -1,4 +1,5 @@
 import Base from './base'
+import Common from '../shared/common'
 
 class RegisterPage extends Base {
   get route() {
@@ -7,9 +8,9 @@ class RegisterPage extends Base {
 
   get validFormData() {
     return {
-      name: 'John Doe',
-      companyName: 'Acme',
-      email: 'test@mail.com',
+      name: 'John Doe' + Common.randomString(),
+      companyName: 'Acme' + Common.randomString(),
+      email: Common.randomString() + '@mail.com',
       telephone: '123456789',
       password: 'Password123',
       confirmPassword: 'Password123'

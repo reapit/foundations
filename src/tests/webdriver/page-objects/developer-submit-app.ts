@@ -1,6 +1,6 @@
 import Base from './base'
-import LoginPage from './login'
 import * as path from 'path'
+import Common from '../shared/common'
 
 class DeveloperSubmitAppPage extends Base {
   get route() {
@@ -9,19 +9,16 @@ class DeveloperSubmitAppPage extends Base {
 
   get validFormData() {
     return {
-      // generate random string: https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-      name: Math.random()
-        .toString(36)
-        .slice(-5),
+      name: Common.appName,
       telephone: '0123456789',
-      supportEmail: 'nghia@gmail.com',
+      supportEmail: 'name@gmail.com',
       launchUri: 'https://google.com',
       iconImageData: '12345',
       homePage: 'https://google.com/abc',
       description:
-        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVK',
+        'Lorem ipsum dolor amet organic fashion axe man bun cray kitsch hashtag post-ironic normcore copper mug keytar fam actually street art air plant. Copper mug put a bird on it kombucha pop-up. Man bun kickstarter fam pour-over plaid, franzen blog. Activated charcoal letterpress mlkshk kickstarter master cleanse. Paleo austin actually blue bottle mixtape mustache bicycle rights gochujang humblebrag. Direct trade affogato cliche, asymmetrical sartorial pinterest chambray coloring book.',
       summary:
-        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz'
+        'Lorem ipsum dolor amet messenger bag pinterest af umami. Master cleanse photo booth cardigan, jean shorts dreamcatcher butcher ethical YOLO.'
     }
   }
 
@@ -97,8 +94,8 @@ class DeveloperSubmitAppPage extends Base {
     return $('[data-test="submit-another-button"]')
   }
 
-  populateValidForm(appName?: string) {
-    this.name.setValue(appName || this.validFormData.name)
+  populateValidForm() {
+    this.name.setValue(this.validFormData.name)
     this.supportEmail.setValue(this.validFormData.supportEmail)
     this.telephone.setValue(this.validFormData.telephone)
     this.summary.setValue(this.validFormData.summary)
@@ -121,18 +118,12 @@ class DeveloperSubmitAppPage extends Base {
   }
 
   open() {
-    LoginPage.logAsDeveloper()
     super.open(this.route)
   }
 
-  openUsingCustomAccount({ email, password }) {
-    LoginPage.logAsDeveloperUsingCustomAccount({ email, password })
-    super.open(this.route)
-  }
-
-  submitApp(appName) {
+  submitApp() {
     this.form.waitForVisible()
-    this.populateValidForm(appName)
+    this.populateValidForm()
     this.submitForm()
     this.successMessageSection.waitForVisible()
   }

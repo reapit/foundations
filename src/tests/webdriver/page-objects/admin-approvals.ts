@@ -1,7 +1,8 @@
 import Base from './base'
-import LoginAdminPage from './admin-login'
+import LoginPage from './login'
+import Common from '../shared/common'
 
-class ApprovalsPage extends Base {
+class AdminApprovalsPage extends Base {
   get route() {
     return '/admin/approvals'
   }
@@ -74,8 +75,8 @@ class ApprovalsPage extends Base {
     return $('[data-test="revision-diff-isListed"] [data-test="changed"]')
   }
 
-  getAppViewDetailButtonbyId(appId: string) {
-    return $(`[data-test="view-details-button_${appId}"]`)
+  getAppViewDetailButtonbyId() {
+    return $(`[data-test="view-details-button_${Common.appId}"]`)
   }
 
   populateValidDeclineForm() {
@@ -95,18 +96,18 @@ class ApprovalsPage extends Base {
     this.approvalSubmitButton.click()
   }
 
-  getViewDetailButtonOfAppId(appId) {
-    return $(`[data-test*="${appId}"]`)
+  getViewDetailButtonOfAppId() {
+    return $(`[data-test*="${Common.appId}"]`)
   }
 
   open() {
-    LoginAdminPage.login()
+    LoginPage.loginAsAdmin()
     super.open(this.route)
   }
 
-  approveAppChange(appId) {
+  approveAppChange() {
     this.revisionContainer.waitForVisible()
-    this.getViewDetailButtonOfAppId(appId).click()
+    this.getViewDetailButtonOfAppId().click()
     this.detailModal.waitForVisible()
     this.openApproveModalButton.click()
     this.approvalSubmitButton.waitForVisible()
@@ -115,4 +116,4 @@ class ApprovalsPage extends Base {
   }
 }
 
-export default new ApprovalsPage()
+export default new AdminApprovalsPage()

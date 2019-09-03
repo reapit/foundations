@@ -8,41 +8,28 @@ const ACCOUNTS = {
   DEV: {
     EMAIL: 'wmcvay@reapit.com',
     PWD: 'NewPassword123'
+  },
+  ADMIN: {
+    EMAIL: 'rwilcox@reapit.com',
+    PWD: 'myPassword12345'
   }
 }
 
 const ROLES = {
   CLIENT: 'client',
-  DEV: 'developer'
+  DEV: 'developer',
+  ADMIN: 'admin'
 }
 
 class LoginPage extends Base {
-  currRole
+  currRole = ''
 
   get loginRoute() {
     return '/login'
   }
 
-  get validFormData() {
-    let result
-
-    switch (this.currRole) {
-      case ROLES.DEV:
-        result = {
-          email: ACCOUNTS.DEV.EMAIL,
-          password: ACCOUNTS.DEV.PWD
-        }
-        break
-
-      default:
-        result = {
-          email: ACCOUNTS.CLIENT.EMAIL,
-          password: ACCOUNTS.CLIENT.PWD
-        }
-        break
-    }
-
-    return result
+  get loginAdminRoute() {
+    return '/admin/login'
   }
 
   get form() {
@@ -84,6 +71,11 @@ class LoginPage extends Base {
         this.passwordInput.setValue(ACCOUNTS.DEV.PWD)
 
         break
+      case ROLES.ADMIN:
+        this.emailInput.setValue(ACCOUNTS.ADMIN.EMAIL)
+        this.passwordInput.setValue(ACCOUNTS.ADMIN.PWD)
+
+        break
 
       default:
         this.emailInput.setValue(ACCOUNTS.CLIENT.EMAIL)
@@ -106,9 +98,20 @@ class LoginPage extends Base {
     super.open(this.loginRoute)
   }
 
+  openAdmin() {
+    super.open(this.loginAdminRoute)
+  }
+
   logAsClient() {
     this.currRole = ROLES.CLIENT
     this.open()
+    this.populateValidForm()
+    this.submitForm()
+  }
+
+  loginAsAdmin() {
+    this.currRole = ROLES.ADMIN
+    this.openAdmin()
     this.populateValidForm()
     this.submitForm()
   }

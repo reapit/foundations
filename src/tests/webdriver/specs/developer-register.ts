@@ -1,7 +1,6 @@
 import RegisterPage from '../page-objects/register'
-import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 
-describe('RegisterPage', () => {
+describe('Developer Registration', () => {
   beforeEach(() => {
     RegisterPage.open()
     RegisterPage.form.waitForVisible()
@@ -38,14 +37,10 @@ describe('RegisterPage', () => {
   // TODO - need to stablise this test by stubbing API or similar -
   // will always fail because valid form details are constants and we get a "user already registered"
   // error from the server.
-  xit('should show success message after submit', () => {
+  it('should show success message after submit', () => {
     RegisterPage.populateValidForm()
     RegisterPage.submitForm()
     RegisterPage.successMessage.waitForVisible()
     expect(RegisterPage.successMessage.getText()).toEqual('Check you email to confirm your account')
-  })
-
-  afterEach(() => {
-    browser.localStorage('DELETE', LOCAL_STORAGE_SESSION_KEY)
   })
 })
