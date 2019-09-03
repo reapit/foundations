@@ -1,16 +1,6 @@
-import { StringMap } from '../types/core'
-
-// TODO: temporarily hardcode the accessToken
-// This should be removed if the Login flow was done
-const token =
-  'eyJraWQiOiJTSGNVVnpHamIyQXFFSW9MSFpEbHVwR0hHUlwvTmlLKzN0dTEybm5JcXZMOD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI5ZTQxZTlkNC1kMmY1LTRjZmMtOTcwYi0zNjE5Y2JmNGI1MWEiLCJkZXZpY2Vfa2V5IjoiZXUtd2VzdC0yXzY1NmE0MDY3LTc1MzYtNGQ1YS1iMDNlLTFiMjFmZWY0ZDVjMSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE1NjcxNDIyNjAsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTIuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0yX0loRUh6U1Q3YiIsImV4cCI6MTU2NzE0NTg2MCwiaWF0IjoxNTY3MTQyMjYwLCJqdGkiOiIwMzI3NmM2NC00OGEwLTRiMzAtOWM1NC1kYzlkNDFlM2VkOGQiLCJjbGllbnRfaWQiOiI1dHZnc2sxdTA2YnB1bWJsb2ZiN2s4bGU5ZCIsInVzZXJuYW1lIjoiOWU0MWU5ZDQtZDJmNS00Y2ZjLTk3MGItMzYxOWNiZjRiNTFhIn0.IinhsZHC6YYbxklknzop4F34J0UobI8Us-akJ8n2gAeJdzSaw_PPf8zEwdBxcD7GumqTdw_VoGUvNPEF3h9cxtvOAxgclf3YH3S7ozDdSuJh47IL1N41CUQFhYzEIgvyaa_5quEmoqWhpaEjlZ_A91emb9RtL27_W8FP1gWHGihY0oGhVXI1Ms_kb5RlwzKI6yNNOe_zFNyxYFebGrdl38u8n2VYYhOpHW_UagtAdsJQ5oWJx2TUTqNIkt5kbwL6Frt9O8kp0QUY4I3iBCsg0JfpPDvtSnsDvCJPvfigSsZZ-F72gpGRV03GjxGvJKypg8H4SzkY9bu8UWBAZLBVyg'
+import { StringMap } from '@/types/core'
 
 export const APPOINTMENTS_HEADERS = {
-  'Content-Type': 'application/json',
-  Authorization: `Bearer ${token}`
-} as StringMap
-
-export const COGNITO_HEADERS = {
   'Content-Type': 'application/json'
 } as StringMap
 

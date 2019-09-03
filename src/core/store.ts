@@ -2,18 +2,22 @@ import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxS
 import createSagaMiddleware from 'redux-saga'
 import { persistStore, persistReducer, Persistor } from 'redux-persist'
 import * as localForage from 'localforage'
-import ActionTypes from '../constants/action-types'
-import online from '../reducers/online'
-import home from '../reducers/home'
-import appointments from '../reducers/appointments'
-import appointmentDetail from '../reducers/appointment-detail'
-import error from '../reducers/error'
-import currentLoc from '../reducers/current-loc'
-import { ReduxState } from '../types/core'
-import homeSagas from '../sagas/home'
-import appointmentsSagas from '../sagas/appointments'
-import appointmentDetailSagas from '../sagas/appointment-detail'
+import { ReduxState } from '@/types/core'
 import { all, fork } from '@redux-saga/core/effects'
+import ActionTypes from '@/constants/action-types'
+
+import home from '@/reducers/home'
+import appointments from '@/reducers/appointments'
+import appointmentDetail from '@/reducers/appointment-detail'
+import error from '@/reducers/error'
+import currentLoc from '@/reducers/current-loc'
+import auth from '@/reducers/auth'
+import online from '@/reducers/online'
+
+import authSagas from '@/sagas/auth'
+import homeSagas from '@/sagas/home'
+import appointmentsSagas from '@/sagas/appointments'
+import appointmentDetailSagas from '@/sagas/appointment-detail'
 
 export class Store {
   static _instance: Store
@@ -32,6 +36,7 @@ export class Store {
 
   static reducers = combineReducers({
     online,
+    auth,
     error,
     home,
     currentLoc,
@@ -40,7 +45,7 @@ export class Store {
   })
 
   static sagas = function*() {
-    yield all([fork(homeSagas), fork(appointmentsSagas), fork(appointmentDetailSagas)])
+    yield all([fork(authSagas), fork(homeSagas), fork(appointmentsSagas), fork(appointmentDetailSagas)])
   }
 
   static composeEnhancers =

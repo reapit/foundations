@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { appointmentsLoading, appointmentsReceiveData, appointmentsRequestDataFailure } from '../actions/appointments'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -8,7 +9,7 @@ import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../constants/api'
 import { AppointmentRequestParams } from '@/actions/appointments'
-import dayjs from 'dayjs'
+import { initAuthorizedRequestHeaders } from '@/utils/api'
 
 export const appointmentsDataFetch = function*({ data: { time } }: Action<AppointmentRequestParams>) {
   yield put(appointmentsLoading(true))
@@ -41,13 +42,14 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
   // end = dayjs()
 
   try {
+    const headers = yield call(initAuthorizedRequestHeaders)
     const response = yield call(fetcher, {
       url: `${
         URLS.appointments
       }?Start=${start.toISOString()}&End=${end.toISOString()}&IncludeCancelled=true&IncludeUnconfirmed=true`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
-      headers: APPOINTMENTS_HEADERS
+      headers
     })
     if (response) {
       yield put(appointmentsReceiveData({ data: response }))

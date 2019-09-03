@@ -1,7 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login should match a snapshot 1`] = `
-<h1>
-  Login Page
-</h1>
+<div>
+  <div
+    className="undefined false"
+  >
+    <h1
+      className="title is1 isCentered"
+    >
+      Sign in
+    </h1>
+    <p
+      className="pb-8"
+    >
+      Welcome to GEO Diary
+    </p>
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "email": "",
+          "password": "",
+        }
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validate={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    />
+  </div>
+  <div>
+    <img
+      alt="Reapit Graphic"
+      src=""
+    />
+  </div>
+</div>
 `;

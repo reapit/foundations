@@ -38,7 +38,9 @@ describe('appointment-detail', () => {
     )
     it('api call sucessfully', () => {
       const clone = gen.clone()
-      expect(clone.next(appointmentDataStub).value).toEqual(put(appointmentDetailReceiveData(appointmentDataStub)))
+      expect(clone.next(appointmentDataStub as any).value).toEqual(
+        put(appointmentDetailReceiveData(appointmentDataStub))
+      )
       expect(clone.next().value).toEqual(put(appointmentDetailLoading(false)))
       expect(clone.next().done).toEqual(true)
     })

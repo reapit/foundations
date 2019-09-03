@@ -6,6 +6,7 @@ import { HomeState } from '@/reducers/home'
 import { CurrentLocState } from '@/reducers/current-loc'
 import { AppointmentsState } from '@/reducers/appointments'
 import { AppointmentDetailState } from '@/reducers/appointment-detail'
+import { AuthState } from '@/reducers/auth'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -45,4 +46,5 @@ export interface ReduxState {
   currentLoc: CurrentLocState
   appointments: AppointmentsState
   appointmentDetail: AppointmentDetailState
+  auth: AuthState
 }
