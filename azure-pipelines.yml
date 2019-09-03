@@ -56,29 +56,37 @@ jobs:
     failOnStderr: true
     env:
       NPM_TOKEN: $(NPM_TOKEN)
+  
+   # Temporary fix while browserstack is on free-tier
+  - script: yarn test-e2e:ci
+    displayName: E2E Tests
+    # continueOnError: true
+    env:
+      NPM_TOKEN: $(NPM_TOKEN)
 
   - task: PublishPipelineArtifact@1
     inputs:
       path: $(System.DefaultWorkingDirectory)/public/dist
       artifact: AppStoreBundle
 
-  - task: BrowserStackConfig@0
-    inputs:
-      BrowserStackServiceEndPoint: 'BrowserStack connection'
-      browserstackLocal: true
-      bsLocalOptions: '{"verbose": true, "forceLocal": true}'
+  # Skipping while we are on free-tier as tests not running
+  # - task: BrowserStackConfig@0
+  #   inputs:
+  #     BrowserStackServiceEndPoint: 'BrowserStack connection'
+  #     browserstackLocal: true
+  #     bsLocalOptions: '{"verbose": true, "forceLocal": true}'
 
-  - script: yarn test-e2e:bstack:ci
-    displayName: Run E2E Tests on BrowserStack
-    continueOnError: true
-    env:
-      BROWSER_STACK_BUILD: $(Build.BuildNumber)
-      NPM_TOKEN: $(NPM_TOKEN)
+  # - script: yarn test-e2e:bstack:ci
+  #   displayName: Run E2E Tests on BrowserStack
+  #   continueOnError: true
+  #   env:
+  #     BROWSER_STACK_BUILD: $(Build.BuildNumber)
+  #     NPM_TOKEN: $(NPM_TOKEN)
 
-  - task: BrowserStackStopLocal@0
+  # - task: BrowserStackStopLocal@0
 
-  - task: BrowserStackResults@0
-    continueOnError: true
+  # - task: BrowserStackResults@0
+  #   continueOnError: true
 
 - deployment: S3DeployWebDev
   displayName: 'Dev | S3 Deployment'

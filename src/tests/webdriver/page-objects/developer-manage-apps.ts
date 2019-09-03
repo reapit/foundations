@@ -1,12 +1,11 @@
 import Base from './base'
-import EditAppDetailModal from '../page-objects/edit-app-detail-modal'
-import CommonPage from '../page-objects/common'
+import EditAppDetailModal from './edit-app-detail-modal'
 import LoginPage from './login'
-import DeveloperAppDetailModal from './developer-app-detail-modal'
-import DeveloperAppModal from './developer-app-modal'
-import DeleteAppModal from '../page-objects/delete-app-modal'
+import DeveloperAppDetailModal from './developer-app-modal'
+import DeleteAppModal from './delete-app-modal'
+import Common from '../shared/common'
 
-class DeveloperHomePage extends Base {
+class DeveloperManageAppsPage extends Base {
   get route() {
     return '/developer/apps'
   }
@@ -51,16 +50,15 @@ class DeveloperHomePage extends Base {
     return $('[data-test="modal-close-button"]')
   }
 
-  getAppCardById(appId: string) {
-    return $(`[data-test*="${appId}"]`)
+  getAppCardById() {
+    return $(`[data-test*="${Common.appId}"]`)
   }
 
-  getAppCardByName(name) {
-    return $(`[data-test*='${name}']`)
+  getAppCardByName() {
+    return $(`[data-test*='${Common.appName}']`)
   }
 
   open() {
-    LoginPage.logAsDeveloper()
     super.open(this.route)
   }
 
@@ -69,9 +67,9 @@ class DeveloperHomePage extends Base {
     return this.editableApp.getAttribute('data-test').split('_')[1]
   }
 
-  getAppId(appName) {
-    this.getAppCardByName(appName).waitForVisible()
-    return this.getAppCardByName(appName)
+  getAppId() {
+    this.getAppCardByName().waitForVisible()
+    return this.getAppCardByName()
       .getAttribute('data-test')
       .split('_')[1]
   }
@@ -80,14 +78,14 @@ class DeveloperHomePage extends Base {
     super.open(this.route)
   }
 
-  deleteApp(appName) {
+  deleteApp() {
     this.openWithoutLogin()
-    this.getAppCardByName(appName).waitForVisible()
-    this.getAppCardByName(appName).click()
+    this.getAppCardByName().waitForVisible()
+    this.getAppCardByName().click()
 
     // Press delete button
-    DeveloperAppModal.btnDeleteApp.waitForVisible()
-    DeveloperAppModal.btnDeleteApp.click()
+    DeveloperAppDetailModal.btnDeleteApp.waitForVisible()
+    DeveloperAppDetailModal.btnDeleteApp.click()
 
     // Press confirm button
     DeleteAppModal.btnConfirm.waitForVisible()
@@ -97,24 +95,26 @@ class DeveloperHomePage extends Base {
     DeleteAppModal.alertDeleteAppSuccess.waitForVisible()
   }
 
-  enableAppListed(appName) {
+  enableAppListed() {
     this.openWithoutLogin()
-    this.getAppCardByName(appName).waitForVisible()
-    this.getAppCardByName(appName).click()
-    DeveloperAppDetailModal.submitButton.waitForVisible()
-    DeveloperAppDetailModal.submitButton.click()
+    this.getAppCardByName().waitForVisible()
+    this.getAppCardByName().click()
+
+    DeveloperAppDetailModal.submitRevisionButton.waitForVisible()
+    DeveloperAppDetailModal.submitRevisionButton.click()
 
     EditAppDetailModal.chkIsListed.click()
     // // Hack for bug1: https://reapit.atlassian.net/browse/CLD-81?focusedCommentId=367219&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-367219
-    EditAppDetailModal.populateImageToRequiredImageInputField()
+    // EditAppDetailModal.populateImageToRequiredImageInputField()
     // // Remove if fixed
     EditAppDetailModal.submitForm()
-    CommonPage.closeModal()
+
+    Common.closeModal()
   }
 
-  openAppDetailModal(appName) {
-    this.getAppCardByName(appName).waitForVisible()
-    this.getAppCardByName(appName).click()
+  openAppDetailModal() {
+    this.getAppCardByName().waitForVisible()
+    this.getAppCardByName().click()
   }
 
   openUsingCustomAccount({ email, password }) {
@@ -123,4 +123,4 @@ class DeveloperHomePage extends Base {
   }
 }
 
-export default new DeveloperHomePage()
+export default new DeveloperManageAppsPage()

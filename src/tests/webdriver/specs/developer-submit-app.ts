@@ -1,20 +1,20 @@
 import DeveloperSubmitAppPage from '../page-objects/developer-submit-app'
-import CommonPage from '../page-objects/common'
 import errorMessages from '../../../constants/error-messages'
-import DeveloperHomePage from '../page-objects/developer-home'
-import ApprovalsPage from '../page-objects/approvals'
-import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
+import Common from '../shared/common'
+import LoginPage from '../page-objects/login'
 
 const NUMBER_OF_FIELDS = 17
 const NUMBER_OF_REQUIRED_FIELDS = 9
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 120000
-describe('DeveloperSubmitAppPage', () => {
+
+describe('Developer Submit App Page', () => {
+  beforeAll(() => {
+    LoginPage.logAsDeveloper()
+  })
+
   beforeEach(() => {
-    DeveloperSubmitAppPage.openUsingCustomAccount({
-      email: 'phmngocnghia@gmail.com',
-      password: 'myPassword12345'
-    })
+    DeveloperSubmitAppPage.open()
     DeveloperSubmitAppPage.form.waitForVisible()
   })
 
@@ -54,19 +54,11 @@ describe('DeveloperSubmitAppPage', () => {
     expect(DeveloperSubmitAppPage.errorMessages[0].getText()).toEqual(errorMessages.FIELD_WRONG_EMAIL_FORMAT)
   })
 
-  it('should show success message after submit, should re-show the form with all clean fields after click Submit another button', () => {
-    const appName =
-      'Developer Submit App ' +
-      Math.random()
-        .toString(36)
-        .slice(-5)
-    DeveloperSubmitAppPage.submitApp(appName)
-    DeveloperHomePage.openWithoutLogin()
-    DeveloperHomePage.deleteApp(appName)
+  it('should show success message after submit', () => {
+    DeveloperSubmitAppPage.submitApp()
   })
 
-  afterEach(() => {
-    browser.pause(1)
-    browser.localStorage('DELETE', LOCAL_STORAGE_SESSION_KEY)
+  afterAll(() => {
+    Common.tearDown()
   })
 })

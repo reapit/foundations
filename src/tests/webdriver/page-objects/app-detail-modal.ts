@@ -1,6 +1,6 @@
 import AppPermissionModal from '../page-objects/app-permission-modal'
 import AppInstallConfirmModal from '../page-objects/app-install-confirm-modal'
-import CommonPage from '../page-objects/common'
+import Common from '../shared/common'
 
 class AppDetailModal {
   get btnAppDetailInstallApp() {
@@ -22,7 +22,18 @@ class AppDetailModal {
     // Confirm modal
     AppInstallConfirmModal.btnAgree.click()
     AppPermissionModal.alertInstallSuccess.waitForVisible()
-    CommonPage.closeModal()
+    Common.closeModal()
+  }
+
+  unInstallApp() {
+    this.btnAppDetailUninstallApp.waitForVisible()
+    this.btnAppDetailUninstallApp.click()
+
+    // Confirm modal
+    AppInstallConfirmModal.btnAgree.waitForVisible()
+    AppInstallConfirmModal.btnAgree.click()
+    AppPermissionModal.alertInstallSuccess.waitForVisible()
+    Common.closeModal()
   }
 }
 
