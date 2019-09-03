@@ -12,7 +12,9 @@ import {
   renderCommunicationDetail,
   renderCommunicationType,
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  renderHrefLink,
+  filterLoggedInUser
 } from '../appointment-detail'
 import { appointmentDataStub } from '../../../../sagas/__stubs__/appointment'
 
@@ -23,7 +25,8 @@ describe('AppointmentModal', () => {
         appointment: appointmentDataStub,
         visible: true,
         afterClose: jest.fn(),
-        isLoading: false
+        isLoading: false,
+        loggedInUserEmail: 'cbryan@reapit.com'
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
@@ -35,7 +38,8 @@ describe('AppointmentModal', () => {
         appointment: appointmentDataStub,
         visible: true,
         afterClose: jest.fn(),
-        isLoading: true
+        isLoading: true,
+        loggedInUserEmail: 'cbryan@reapit.com'
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Loader')).toHaveLength(1)
@@ -404,12 +408,18 @@ describe('AppointmentModal', () => {
           appointmentDetail: appointmentDataStub,
           isModalVisible: true,
           loading: true
+        },
+        auth: {
+          loginSession: {
+            userName: 'cbryan@reapit.com'
+          }
         }
       } as any
       const expected = {
         appointment: appointmentDataStub,
         visible: true,
-        isLoading: true
+        isLoading: true,
+        loggedInUserEmail: 'cbryan@reapit.com'
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -420,12 +430,18 @@ describe('AppointmentModal', () => {
         appointmentDetail: {
           isModalVisible: true,
           loading: true
+        },
+        auth: {
+          loginSession: {
+            userName: 'cbryan@reapit.com'
+          }
         }
       } as any
       const expected = {
         appointment: {},
         visible: true,
-        isLoading: true
+        isLoading: true,
+        loggedInUserEmail: 'cbryan@reapit.com'
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -437,6 +453,224 @@ describe('AppointmentModal', () => {
       const fn = mapDispatchToProps(mockDispatch)
       fn.afterClose()
       expect(mockDispatch).toBeCalled()
+    })
+  })
+  describe('renderHrefLink', () => {
+    it('should run correctly and return mailto', () => {
+      const input = 'E-Mail'
+      const output = 'mailto:'
+      const result = renderHrefLink(input)
+      expect(result).toEqual(output)
+    })
+    it('should run correctly and return tel:', () => {
+      const input = 'Home'
+      const output = 'tel:'
+      const result = renderHrefLink(input)
+      expect(result).toEqual(output)
+    })
+  })
+  describe('filterLoggedInUser', () => {
+    it('should run and filter correctly 1', () => {
+      const input = [
+        {
+          id: 'JJS',
+          type: 'negotiator',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'E-Mail',
+              detail: 'chase.maclean@reapitestates.net'
+            }
+          ]
+        },
+        {
+          id: 'JJS',
+          type: 'seller',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'E-Mail',
+              detail: 'cbryan@reapit.com'
+            }
+          ]
+        }
+      ]
+      const output = [
+        {
+          id: 'JJS',
+          type: 'negotiator',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'E-Mail',
+              detail: 'chase.maclean@reapitestates.net'
+            }
+          ]
+        }
+      ]
+      const result = filterLoggedInUser(input, 'cbryan@reapit.com')
+      expect(result).toEqual(output)
+    })
+
+    it('should run and filter correctly 2', () => {
+      const input = [
+        {
+          id: 'JJS',
+          type: 'negotiator',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'E-Mail',
+              detail: 'chase.maclean@reapitestates.net'
+            }
+          ]
+        },
+        {
+          id: 'JJS',
+          type: 'seller',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'E-Mail',
+              detail: 'chase.maclean@reapitestates.net'
+            }
+          ]
+        }
+      ]
+      const output = [
+        {
+          id: 'JJS',
+          type: 'negotiator',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'E-Mail',
+              detail: 'chase.maclean@reapitestates.net'
+            }
+          ]
+        },
+        {
+          id: 'JJS',
+          type: 'seller',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'E-Mail',
+              detail: 'chase.maclean@reapitestates.net'
+            }
+          ]
+        }
+      ]
+      const result = filterLoggedInUser(input, 'cbryan@reapit.com')
+      expect(result).toEqual(output)
+    })
+
+    it('should run and filter correctly 3', () => {
+      const input = [
+        {
+          id: 'JJS',
+          type: 'negotiator',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'Home',
+              detail: '123456789'
+            }
+          ]
+        },
+        {
+          id: 'JJS',
+          type: 'seller',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'Home',
+              detail: '123456789'
+            }
+          ]
+        }
+      ]
+      const output = [
+        {
+          id: 'JJS',
+          type: 'negotiator',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'Home',
+              detail: '123456789'
+            }
+          ]
+        },
+        {
+          id: 'JJS',
+          type: 'seller',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: [
+            {
+              label: 'Home',
+              detail: '123456789'
+            }
+          ]
+        }
+      ]
+      const result = filterLoggedInUser(input, 'cbryan@reapit.com')
+      expect(result).toEqual(output)
+    })
+
+    it('should run and filter correctly 4', () => {
+      const input = [
+        {
+          id: 'JJS',
+          type: 'negotiator',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: []
+        },
+        {
+          id: 'JJS',
+          type: 'seller',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: []
+        }
+      ]
+      const output = [
+        {
+          id: 'JJS',
+          type: 'negotiator',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: []
+        },
+        {
+          id: 'JJS',
+          type: 'seller',
+          name: 'Chase MacLean',
+          confirmed: true,
+          communicationDetails: []
+        }
+      ]
+      const result = filterLoggedInUser(input, 'cbryan@reapit.com')
+      expect(result).toEqual(output)
+    })
+
+    it('should run and filter correctly 5', () => {
+      const input = []
+      const output = []
+      const result = filterLoggedInUser(input, 'cbryan@reapit.com')
+      expect(result).toEqual(output)
     })
   })
 })

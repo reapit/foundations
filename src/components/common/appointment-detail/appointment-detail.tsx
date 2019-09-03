@@ -1,6 +1,5 @@
 import React from 'react'
 import dayjs from 'dayjs'
-import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import { oc } from 'ts-optchain'
 import { TiTimes, TiTick, TiMail, TiHome, TiPhoneOutline, TiDevicePhone } from 'react-icons/ti'
@@ -17,6 +16,7 @@ export type AppointmentModalProps = {
   visible: boolean
   isLoading: boolean
   afterClose: () => void
+  loggedInUserEmail: string
 }
 
 export const renderCommunicationType = (communicationLabel: string | undefined) => {
@@ -34,6 +34,15 @@ export const renderCommunicationType = (communicationLabel: string | undefined) 
   }
 }
 
+export const renderHrefLink = (communicationLabel: string | undefined) => {
+  switch (communicationLabel) {
+    case 'E-Mail':
+      return 'mailto:'
+    default:
+      return 'tel:'
+  }
+}
+
 export const renderCommunicationDetail = (communicationDetails: CommunicationModel[] | undefined) => {
   if (!communicationDetails) {
     return null
@@ -43,7 +52,12 @@ export const renderCommunicationDetail = (communicationDetails: CommunicationMod
       <div className={styles.appointmentDetailSection} key={index}>
         <div>
           {renderCommunicationType(communicationDetail.label)}
-          <span className={styles.appointmentDetailCommunicationDetail}>{communicationDetail.detail}</span>
+          <a
+            href={`${renderHrefLink(communicationDetail.label)}${communicationDetail.detail}`}
+            className={styles.appointmentDetailCommunicationDetail}
+          >
+            {communicationDetail.detail}
+          </a>
         </div>
       </div>
     )
@@ -141,7 +155,32 @@ export const renderTitle = (appointment: AppointmentModel) => {
   )
 }
 
-export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment, visible, afterClose, isLoading }) => {
+export const filterLoggedInUser = (
+  attendees: AttendeeModel[] | undefined,
+  loggedInUserEmail: string
+): AttendeeModel[] => {
+  if (!attendees) {
+    return []
+  }
+  return attendees.filter((attendee: AttendeeModel) => {
+    if (!attendee || !attendee.communicationDetails) {
+      return true
+    }
+    let isNotLogInUser = true
+    attendee.communicationDetails.forEach((communication: CommunicationModel) => {
+      isNotLogInUser = communication.detail !== loggedInUserEmail
+    })
+    return isNotLogInUser
+  })
+}
+
+export const AppointmentModal: React.FC<AppointmentModalProps> = ({
+  appointment,
+  visible,
+  afterClose,
+  isLoading,
+  loggedInUserEmail
+}) => {
   return (
     <Modal visible={visible} size="medium" afterClose={afterClose}>
       {isLoading ? (
@@ -150,7 +189,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment,
         <div className={styles.root}>
           {renderTitle(appointment)}
           {renderAddress(appointment.property)}
-          {renderAttendees(appointment.attendees)}
+          {renderAttendees(filterLoggedInUser(appointment.attendees, loggedInUserEmail))}
           {renderNotes(appointment.description)}
           {renderArrangement(appointment.arrangements)}
           {renderStartAndEndDate(appointment.start, appointment.end)}
@@ -164,13 +203,15 @@ export type AppointmentDetailMappedProps = {
   appointment: AppointmentModel
   visible: boolean
   isLoading: boolean
+  loggedInUserEmail: string
 }
 
 export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps => {
   return {
     appointment: oc(state).appointmentDetail.appointmentDetail({}),
     visible: state.appointmentDetail.isModalVisible,
-    isLoading: state.appointmentDetail.loading
+    isLoading: state.appointmentDetail.loading,
+    loggedInUserEmail: oc(state).auth.loginSession.userName('')
   }
 }
 

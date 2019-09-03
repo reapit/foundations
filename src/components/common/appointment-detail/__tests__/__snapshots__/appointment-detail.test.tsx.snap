@@ -50,9 +50,11 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
         >
           <div>
             <TiMail />
-            <span>
+            <a
+              href="mailto:chase.maclean@reapitestates.net"
+            >
               chase.maclean@reapitestates.net
-            </span>
+            </a>
           </div>
         </div>
       </div>
@@ -74,9 +76,11 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
         >
           <div>
             <TiMail />
-            <span>
+            <a
+              href="mailto:chase.maclean@reapitestates.net"
+            >
               chase.maclean@reapitestates.net
-            </span>
+            </a>
           </div>
         </div>
       </div>
@@ -161,9 +165,11 @@ Array [
       <div>
         <div>
           <TiMail />
-          <span>
+          <a
+            href="mailto:chase.maclean@reapitestates.net"
+          >
             chase.maclean@reapitestates.net
-          </span>
+          </a>
         </div>
       </div>
     </div>
@@ -181,9 +187,11 @@ Array [
       <div>
         <div>
           <TiMail />
-          <span>
+          <a
+            href="mailto:chase.maclean@reapitestates.net"
+          >
             chase.maclean@reapitestates.net
-          </span>
+          </a>
         </div>
       </div>
     </div>
@@ -204,9 +212,11 @@ exports[`AppointmentModal renderCommunicationDetail should match snapshot 1`] = 
   >
     <div>
       <TiMail />
-      <span>
+      <a
+        href="mailto:chase.maclean@reapitestates.net"
+      >
         chase.maclean@reapitestates.net
-      </span>
+      </a>
     </div>
   </div>
 </div>

@@ -12,9 +12,16 @@ import { put, call, takeLatest, all, fork } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+import { initAuthorizedRequestHeaders } from '@/utils/api'
 import appointmentDetailSagas, { appointmentDetailDataFetch, appointmentDetailDataListen } from '../appointment-detail'
 import { appointmentDataStub } from '@/sagas/__stubs__/appointment'
 import ActionTypes from '@/constants/action-types'
+
+jest.mock('../../core/store')
+
+const mockHeaders = {
+  Authorization: '123'
+}
 
 const params: Action<AppointmentDetailRequestParams> = {
   data: {
@@ -28,12 +35,13 @@ describe('appointment-detail', () => {
     const gen = cloneableGenerator(appointmentDetailDataFetch)(params)
     expect(gen.next().value).toEqual(put(appointmentDetailShowModal()))
     expect(gen.next().value).toEqual(put(appointmentDetailLoading(true)))
-    expect(gen.next().value).toEqual(
+    expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+    expect(gen.next(mockHeaders as any).value).toEqual(
       call(fetcher, {
         url: `${URLS.appointments}/${id}`,
         api: REAPIT_API_BASE_URL,
         method: 'GET',
-        headers: APPOINTMENTS_HEADERS
+        headers: mockHeaders
       })
     )
     it('api call sucessfully', () => {
