@@ -73,6 +73,17 @@ exports[`Map renderHandler should render correctly when no error 1`] = `
       googleMaps={
         Object {
           "InfoWindow": [MockFunction],
+          "LatLngBounds": [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          },
           "Point": [MockFunction],
           "Size": [MockFunction],
           "event": Object {
@@ -83,6 +94,26 @@ exports[`Map renderHandler should render correctly when no error 1`] = `
       onLoaded={[Function]}
       zoom={16}
     />
+    <div
+      id="marker-10.806203-106.666807"
+      key="marker-10.806203-106.666807"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+    >
+      <MarkerInfoComponent
+        marker={
+          Object {
+            "content": "mockContent",
+            "lat": 10.806203,
+            "lng": 106.666807,
+            "title": "mockTitle",
+          }
+        }
+      />
+    </div>
   </div>
 </div>
 `;

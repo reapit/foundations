@@ -2,14 +2,12 @@ import React from 'react'
 import GoogleMap from 'react-google-map'
 import ReactGoogleMapLoader from 'react-google-maps-loader'
 
-export type MarkerProps = {
-  title?: string
+export type MarkerProps<T> = T & {
   lat: number
   lng: number
-  content?: string
 }
 
-export type GoogleMapProps = {
+export type GoogleMapProps<T> = {
   autoFitBounds?: boolean
   boundsOffset?: number
   coordinates?: {
@@ -17,44 +15,58 @@ export type GoogleMapProps = {
   }[]
   googleMaps: {}
   onLoaded?: Function | null
-  defaultCenter: MarkerProps
+  defaultCenter: MarkerProps<{}>
   defaultZoom: number
-  markers: MarkerProps[]
+  markers: MarkerProps<T>[]
 }
 
-export const handleOnClickMarker = (infoWindow, map, marker) => () => {
+export const handleOnClickMarker = (infoWindow, map, marker, markerItem) => () => {
   infoWindow.open(map, marker)
+  const markerInfoWindow = document.getElementById(`marker-${markerItem.lat}-${markerItem.lng}`)
+  if (markerInfoWindow) {
+    markerInfoWindow.style.display = 'block'
+  }
 }
 
-export const onLoadedMarkerHandler = markerItem => (googleMaps, map, marker) => {
+export const onLoadedMarkerHandler = (markerItem: MarkerProps<{}>, bounds, defaultCenter, defaultZoom) => (
+  googleMaps,
+  map,
+  marker
+) => {
+  bounds.extend(marker.getPosition())
   const infoWindow = new googleMaps.InfoWindow({
-    content: `
-      <div>
-        <h1>${markerItem.title}<h1>
-        <div>
-          ${markerItem.content}
-        </div>
-      </div>
-    `
+    content: document.getElementById(`marker-${markerItem.lat}-${markerItem.lng}`)
   })
-  googleMaps.event.addListener(marker, 'click', handleOnClickMarker(infoWindow, map, marker))
+  if (!defaultCenter) {
+    map.fitBounds(bounds)
+  }
+  if (!defaultZoom) {
+    map.setCenter(bounds.getCenter())
+  }
+  googleMaps.event.addListener(marker, 'click', handleOnClickMarker(infoWindow, map, marker, markerItem))
 }
 
-export const renderMarker = (googleMaps, markers: MarkerProps[] = []) => {
-  return markers.map((marker: MarkerProps, index: number) => {
+export const renderMarker = (
+  googleMaps,
+  markers: MarkerProps<{ title?: string }>[] = [],
+  defaultCenter,
+  defaultZoom
+) => {
+  const bounds = new googleMaps.LatLngBounds()
+  return markers.map((marker: MarkerProps<{ title?: string }>, index: number) => {
     const label = {
       text: String(index + 1),
       fontSize: '1.5rem',
       fontWeight: '500'
     }
     return {
-      title: marker.title,
+      title: marker.title || '',
       position: {
         lat: marker.lat,
         lng: marker.lng
       },
       label: label,
-      onLoaded: onLoadedMarkerHandler(marker)
+      onLoaded: onLoadedMarkerHandler(marker, bounds, defaultCenter, defaultZoom)
     }
   })
 }
@@ -63,43 +75,62 @@ export const onLoadedMapHandler = (googleMaps, map) => {
   map.setMapTypeId(googleMaps.MapTypeId.ROADMAP)
 }
 
-export const renderHandler = (markers: MarkerProps[], defaultCenter: MarkerProps, defaultZoom: number) => (
-  googleMaps: {},
-  error: any
-) => {
+export const renderMarkerContent = (markers: MarkerProps<any>[] = [], component: any) => {
+  const Component = component
+  return markers.map((markerItem: MarkerProps<{}>) => {
+    return (
+      <div
+        key={`marker-${markerItem.lat}-${markerItem.lng}`}
+        id={`marker-${markerItem.lat}-${markerItem.lng}`}
+        style={{ display: 'none' }}
+      >
+        <Component marker={markerItem} />
+      </div>
+    )
+  })
+}
+
+export const renderHandler = (
+  markers: MarkerProps<any>[],
+  component: any,
+  defaultCenter?: MarkerProps<{}>,
+  defaultZoom?: number
+) => (googleMaps: {}, error: any) => {
   return googleMaps && !error ? (
     <div data-test="map-container" style={{ height: '100vh' }}>
       <GoogleMap
         googleMaps={googleMaps}
         // You can add and remove coordinates on the fly.
         // The map will rerender new markers and remove the old ones.
-        coordinates={renderMarker(googleMaps, markers)}
+        coordinates={renderMarker(googleMaps, markers, defaultCenter, defaultZoom)}
         center={defaultCenter}
         zoom={defaultZoom}
         onLoaded={onLoadedMapHandler}
       />
+      {renderMarkerContent(markers, component)}
     </div>
   ) : (
     <div data-test="error-container">{error}</div>
   )
 }
 
-export type MapProps = {
-  markers: MarkerProps[]
+export type MapProps<T> = {
+  markers: MarkerProps<T>[]
   apiKey: string
   libraries?: string
-  defaultCenter: MarkerProps
-  defaultZoom: number
+  defaultCenter?: MarkerProps<T>
+  defaultZoom?: number
+  component: any
 }
 
-export const Map: React.FC<MapProps> = ({ apiKey, libraries, markers, defaultCenter, defaultZoom }) => {
+export const Map: React.FC<MapProps<any>> = ({ apiKey, libraries, markers, defaultCenter, defaultZoom, component }) => {
   return (
     <ReactGoogleMapLoader
       params={{
         key: apiKey,
         libraries: libraries
       }}
-      render={renderHandler(markers, defaultCenter, defaultZoom)}
+      render={renderHandler(markers, component, defaultCenter, defaultZoom)}
     />
   )
 }
