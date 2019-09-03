@@ -5,6 +5,10 @@ const ActionTypes = {
   // CurrentLoc actions
   SET_CURRENT_LOC: 'SET_CURRENT_LOC',
 
+  // Online actions
+  ONLINE: 'ONLINE',
+  OFFLINE: 'OFFLINE',
+
   // Auth actions
   AUTH_LOGIN: 'AUTH_LOGIN',
   AUTH_LOGIN_SUCCESS: 'AUTH_LOGIN_SUCCESS',

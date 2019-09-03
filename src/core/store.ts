@@ -1,14 +1,15 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import { persistStore, persistReducer, Persistor } from 'redux-persist'
 import * as localForage from 'localforage'
+import ActionTypes from '../constants/action-types'
+import online from '../reducers/online'
 import home from '../reducers/home'
 import appointments from '../reducers/appointments'
 import appointmentDetail from '../reducers/appointment-detail'
 import error from '../reducers/error'
 import currentLoc from '../reducers/current-loc'
-
 import { ReduxState } from '../types/core'
-import createSagaMiddleware from 'redux-saga'
 import homeSagas from '../sagas/home'
 import appointmentsSagas from '../sagas/appointments'
 import appointmentDetailSagas from '../sagas/appointment-detail'
@@ -30,6 +31,7 @@ export class Store {
   static sagaMiddleware = createSagaMiddleware()
 
   static reducers = combineReducers({
+    online,
     error,
     home,
     currentLoc,
@@ -51,20 +53,23 @@ export class Store {
   persistor: Persistor
 
   constructor() {
-    const composed = Store.composeEnhancers(applyMiddleware(Store.sagaMiddleware))
-
     const persistConfig = {
       key: 'root',
-      storage: localForage
+      storage: localForage,
+      blacklist: ['online']
     }
-
     const persistedReducer = persistReducer(persistConfig, Store.reducers)
+    const composed = Store.composeEnhancers(applyMiddleware(Store.sagaMiddleware))
     this.reduxStore = createStore(persistedReducer, composed)
 
     Store.sagaMiddleware.run(Store.sagas)
     this.persistor = persistStore(this.reduxStore)
 
     this.hotModuleReloading()
+
+    // online/offline listeners
+    window.addEventListener('online', () => this.dispatch({ type: ActionTypes.ONLINE }))
+    window.addEventListener('offline', () => this.dispatch({ type: ActionTypes.OFFLINE }))
   }
 
   hotModuleReloading() {
