@@ -7,7 +7,10 @@ storiesOf('Map', module).add('Map', () => {
   return (
     <Map
       apiKey={MY_API_KEY}
-      markers={[{ lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' }]}
+      markers={[
+        { lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' },
+        { lat: 10.814087, lng: 106.665145, title: 'mockTitle', content: 'mockContent' }
+      ]}
       defaultCenter={{ lat: 10.806203, lng: 106.666807 }}
       defaultZoom={16}
     />

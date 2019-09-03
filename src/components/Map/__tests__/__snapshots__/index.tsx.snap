@@ -56,11 +56,6 @@ exports[`Map renderHandler should render correctly when no error 1`] = `
       coordinates={
         Array [
           Object {
-            "icon": Object {
-              "anchor": mockConstructor {},
-              "origin": mockConstructor {},
-              "scaledSize": mockConstructor {},
-            },
             "label": Object {
               "fontSize": "1.5rem",
               "fontWeight": "500",
@@ -78,42 +73,8 @@ exports[`Map renderHandler should render correctly when no error 1`] = `
       googleMaps={
         Object {
           "InfoWindow": [MockFunction],
-          "Point": [MockFunction] {
-            "calls": Array [
-              Array [
-                25,
-                80,
-              ],
-              Array [
-                0,
-                -10,
-              ],
-            ],
-            "results": Array [
-              Object {
-                "type": "return",
-                "value": undefined,
-              },
-              Object {
-                "type": "return",
-                "value": undefined,
-              },
-            ],
-          },
-          "Size": [MockFunction] {
-            "calls": Array [
-              Array [
-                50,
-                100,
-              ],
-            ],
-            "results": Array [
-              Object {
-                "type": "return",
-                "value": undefined,
-              },
-            ],
-          },
+          "Point": [MockFunction],
+          "Size": [MockFunction],
           "event": Object {
             "addListener": [MockFunction],
           },
