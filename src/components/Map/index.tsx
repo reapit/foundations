@@ -41,11 +41,6 @@ export const onLoadedMarkerHandler = markerItem => (googleMaps, map, marker) => 
 }
 
 export const renderMarker = (googleMaps, markers: MarkerProps[] = []) => {
-  const icon = {
-    anchor: new googleMaps.Point(25, 80),
-    origin: new googleMaps.Point(0, -10),
-    scaledSize: new googleMaps.Size(50, 100)
-  }
   return markers.map((marker: MarkerProps, index: number) => {
     const label = {
       text: String(index + 1),
@@ -59,7 +54,6 @@ export const renderMarker = (googleMaps, markers: MarkerProps[] = []) => {
         lng: marker.lng
       },
       label: label,
-      icon: icon,
       onLoaded: onLoadedMarkerHandler(marker)
     }
   })
