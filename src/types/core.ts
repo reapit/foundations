@@ -1,6 +1,7 @@
-import Routes from '../constants/routes'
-import ActionTypes from '../constants/action-types'
-import { ErrorState } from '../reducers/error'
+import Routes from '@/constants/routes'
+import ActionTypes from '@/constants/action-types'
+import { OnlineState } from '@/reducers/online'
+import { ErrorState } from '@/reducers/error'
 import { HomeState } from '@/reducers/home'
 import { CurrentLocState } from '@/reducers/current-loc'
 import { AppointmentsState } from '@/reducers/appointments'
@@ -38,6 +39,7 @@ export interface FetcherParams<T> {
 }
 
 export interface ReduxState {
+  online: OnlineState
   error: ErrorState
   home: HomeState
   currentLoc: CurrentLocState
