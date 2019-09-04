@@ -41,7 +41,7 @@
 .tabsSticky {
   position: sticky;
   top: 73px;
-  z-index: 20;
+  z-index: 9;
   background-color: #fff;
   margin-bottom: 1.5rem;
 
@@ -53,6 +53,6 @@
 .menuSticky {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 10;
   background-color: #fff;
 }
