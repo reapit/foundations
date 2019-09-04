@@ -16,7 +16,6 @@ export type AppointmentModalProps = {
   visible: boolean
   isLoading: boolean
   afterClose: () => void
-  loggedInUserEmail: string
 }
 
 export const renderCommunicationType = (communicationLabel: string | undefined) => {
@@ -155,32 +154,7 @@ export const renderTitle = (appointment: AppointmentModel) => {
   )
 }
 
-export const filterLoggedInUser = (
-  attendees: AttendeeModel[] | undefined,
-  loggedInUserEmail: string
-): AttendeeModel[] => {
-  if (!attendees) {
-    return []
-  }
-  return attendees.filter((attendee: AttendeeModel) => {
-    if (!attendee || !attendee.communicationDetails) {
-      return true
-    }
-    let isNotLogInUser = true
-    attendee.communicationDetails.forEach((communication: CommunicationModel) => {
-      isNotLogInUser = communication.detail !== loggedInUserEmail
-    })
-    return isNotLogInUser
-  })
-}
-
-export const AppointmentModal: React.FC<AppointmentModalProps> = ({
-  appointment,
-  visible,
-  afterClose,
-  isLoading,
-  loggedInUserEmail
-}) => {
+export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment, visible, afterClose, isLoading }) => {
   return (
     <Modal visible={visible} size="medium" afterClose={afterClose}>
       {isLoading ? (
@@ -189,7 +163,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
         <div className={styles.root}>
           {renderTitle(appointment)}
           {renderAddress(appointment.property)}
-          {renderAttendees(filterLoggedInUser(appointment.attendees, loggedInUserEmail))}
+          {renderAttendees(appointment.attendees)}
           {renderNotes(appointment.description)}
           {renderArrangement(appointment.arrangements)}
           {renderStartAndEndDate(appointment.start, appointment.end)}
@@ -203,15 +177,31 @@ export type AppointmentDetailMappedProps = {
   appointment: AppointmentModel
   visible: boolean
   isLoading: boolean
-  loggedInUserEmail: string
+}
+
+export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userCode: string): AttendeeModel[] => {
+  if (!attendees) {
+    return []
+  }
+  return attendees.filter((attendee: AttendeeModel) => {
+    if (!attendee) {
+      return true
+    }
+    return attendee.id !== userCode
+  })
 }
 
 export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps => {
+  const appointment = oc(state).appointmentDetail.appointmentDetail({})
+  const userCode = oc(state).auth.loginSession.loginIdentity.userCode('')
+  const newAppointment = {
+    ...appointment,
+    attendees: filterLoggedInUser(appointment.attendees, userCode)
+  }
   return {
-    appointment: oc(state).appointmentDetail.appointmentDetail({}),
+    appointment: newAppointment,
     visible: state.appointmentDetail.isModalVisible,
-    isLoading: state.appointmentDetail.loading,
-    loggedInUserEmail: oc(state).auth.loginSession.userName('')
+    isLoading: state.appointmentDetail.loading
   }
 }
 
@@ -230,4 +220,4 @@ const AppointmentDetailWithRedux = connect(
 
 AppointmentDetailWithRedux.displayName = 'AppointmentDetailWithRedux'
 
-export default AppointmentDetailWithRedux
+export default React.memo(AppointmentDetailWithRedux)

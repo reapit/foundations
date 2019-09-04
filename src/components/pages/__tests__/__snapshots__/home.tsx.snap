@@ -808,6 +808,6 @@ exports[`AdminApproval should match a snapshot 1`] = `
       ]
     }
   />
-  <AppointmentDetailWithRedux />
+  <Memo(AppointmentDetailWithRedux) />
 </Connect(ErrorBoundary)>
 `;
