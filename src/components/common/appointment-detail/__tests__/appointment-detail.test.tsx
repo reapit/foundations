@@ -26,7 +26,7 @@ describe('AppointmentModal', () => {
         visible: true,
         afterClose: jest.fn(),
         isLoading: false,
-        loggedInUserEmail: 'cbryan@reapit.com'
+        userCode: 'mockUserCode'
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
@@ -39,7 +39,7 @@ describe('AppointmentModal', () => {
         visible: true,
         afterClose: jest.fn(),
         isLoading: true,
-        loggedInUserEmail: 'cbryan@reapit.com'
+        userCode: 'mockUserCode'
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Loader')).toHaveLength(1)
@@ -411,15 +411,14 @@ describe('AppointmentModal', () => {
         },
         auth: {
           loginSession: {
-            userName: 'cbryan@reapit.com'
+            loginIdentity: { userCode: 'cbryan@reapit.com' }
           }
         }
       } as any
       const expected = {
         appointment: appointmentDataStub,
         visible: true,
-        isLoading: true,
-        loggedInUserEmail: 'cbryan@reapit.com'
+        isLoading: true
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -433,15 +432,16 @@ describe('AppointmentModal', () => {
         },
         auth: {
           loginSession: {
-            userName: 'cbryan@reapit.com'
+            loginIdentity: { userCode: 'cbryan@reapit.com' }
           }
         }
       } as any
       const expected = {
-        appointment: {},
         visible: true,
         isLoading: true,
-        loggedInUserEmail: 'cbryan@reapit.com'
+        appointment: {
+          attendees: []
+        }
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -485,7 +485,7 @@ describe('AppointmentModal', () => {
           ]
         },
         {
-          id: 'JJS',
+          id: 'JJS1',
           type: 'seller',
           name: 'Chase MacLean',
           confirmed: true,
@@ -511,14 +511,14 @@ describe('AppointmentModal', () => {
           ]
         }
       ]
-      const result = filterLoggedInUser(input, 'cbryan@reapit.com')
+      const result = filterLoggedInUser(input, 'JJS1')
       expect(result).toEqual(output)
     })
 
     it('should run and filter correctly 2', () => {
       const input = [
         {
-          id: 'JJS',
+          id: 'JJS1',
           type: 'negotiator',
           name: 'Chase MacLean',
           confirmed: true,
@@ -530,7 +530,7 @@ describe('AppointmentModal', () => {
           ]
         },
         {
-          id: 'JJS',
+          id: 'JJS2',
           type: 'seller',
           name: 'Chase MacLean',
           confirmed: true,
@@ -544,7 +544,7 @@ describe('AppointmentModal', () => {
       ]
       const output = [
         {
-          id: 'JJS',
+          id: 'JJS1',
           type: 'negotiator',
           name: 'Chase MacLean',
           confirmed: true,
@@ -556,7 +556,7 @@ describe('AppointmentModal', () => {
           ]
         },
         {
-          id: 'JJS',
+          id: 'JJS2',
           type: 'seller',
           name: 'Chase MacLean',
           confirmed: true,
@@ -568,7 +568,7 @@ describe('AppointmentModal', () => {
           ]
         }
       ]
-      const result = filterLoggedInUser(input, 'cbryan@reapit.com')
+      const result = filterLoggedInUser(input, 'JSS')
       expect(result).toEqual(output)
     })
 
@@ -623,43 +623,6 @@ describe('AppointmentModal', () => {
               detail: '123456789'
             }
           ]
-        }
-      ]
-      const result = filterLoggedInUser(input, 'cbryan@reapit.com')
-      expect(result).toEqual(output)
-    })
-
-    it('should run and filter correctly 4', () => {
-      const input = [
-        {
-          id: 'JJS',
-          type: 'negotiator',
-          name: 'Chase MacLean',
-          confirmed: true,
-          communicationDetails: []
-        },
-        {
-          id: 'JJS',
-          type: 'seller',
-          name: 'Chase MacLean',
-          confirmed: true,
-          communicationDetails: []
-        }
-      ]
-      const output = [
-        {
-          id: 'JJS',
-          type: 'negotiator',
-          name: 'Chase MacLean',
-          confirmed: true,
-          communicationDetails: []
-        },
-        {
-          id: 'JJS',
-          type: 'seller',
-          name: 'Chase MacLean',
-          confirmed: true,
-          communicationDetails: []
         }
       ]
       const result = filterLoggedInUser(input, 'cbryan@reapit.com')
