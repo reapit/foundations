@@ -31,8 +31,28 @@
   display: none;
 }
 
-.menuContainer, .pageContainer {
+.menuContainer,
+.pageContainer {
   @media screen and (max-width: 768px) {
     width: 100%;
   }
+}
+
+.tabsSticky {
+  position: sticky;
+  top: 73px;
+  z-index: 20;
+  background-color: #fff;
+  margin-bottom: 1.5rem;
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+  }
+}
+
+.menuSticky {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: #fff;
 }
