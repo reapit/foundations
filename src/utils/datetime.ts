@@ -15,14 +15,11 @@ export function isSameDay(date: dayjs.ConfigType) {
   return dayjs(date).isSame(toDate, 'day')
 }
 
-export function getUnixTime(date: dayjs.ConfigType) {
-  return dayjs(date).valueOf()
-}
-
-export function closestToNow(datesArray: Array<dayjs.ConfigType>) {
-  const timeCompare = dayjs().valueOf()
+export function closestTo(dateCompare: dayjs.ConfigType, datesArray: Array<dayjs.ConfigType>) {
+  const timeCompare = dayjs(dateCompare).valueOf()
 
   if (isNaN(timeCompare)) {
+    console.log(timeCompare)
     return new Date(NaN)
   }
 

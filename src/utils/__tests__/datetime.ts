@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { getTime, getDate, isSameDay } from '../datetime'
+import { getTime, getDate, isSameDay, closestTo } from '../datetime'
 
 describe('datetime', () => {
   it('getTime', async () => {
@@ -27,5 +27,12 @@ describe('datetime', () => {
       const result = isSameDay(input as dayjs.ConfigType)
       expect(result).toBe(expected)
     })
+  })
+  it('closestToNow', async () => {
+    const dateCompare = '2019-09-06T19:00:00'
+    const datesArray = ['2019-09-06T10:00:00', '2019-09-06T15:00:00', '2019-09-06T21:00:00']
+    const expected = '2019-09-06T21:00:00'
+    const result = closestTo(dateCompare, datesArray)
+    expect(result).toBe(expected)
   })
 })

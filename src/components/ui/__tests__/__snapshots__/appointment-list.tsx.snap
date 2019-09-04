@@ -18,7 +18,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="High Street"
-      hightlight={false}
       key="NEP1600290"
     >
       <ul>
@@ -89,7 +88,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="The Embankment"
-      hightlight={false}
       key="BED1600537"
     >
       <ul>
@@ -160,7 +158,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="Sandhill Road"
-      hightlight={false}
       key="BUC1600211"
     >
       <ul>
@@ -232,7 +229,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="Little Tingewick"
-      hightlight={false}
       key="BUC1600210"
     >
       <ul>
@@ -302,7 +298,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="---"
-      hightlight={false}
       key="STS1600403"
     >
       <ul>
@@ -374,7 +369,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="---"
-      hightlight={false}
       key="STS1600401"
     >
       <ul>
@@ -446,7 +440,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="High Street"
-      hightlight={false}
       key="NEP1600288"
     >
       <ul>
@@ -517,7 +510,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="---"
-      hightlight={false}
       key="STS1600396"
     >
       <ul>
@@ -589,7 +581,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="---"
-      hightlight={true}
       key="NEP1600287"
     >
       <ul>
@@ -661,7 +652,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="Shelton Road"
-      hightlight={false}
       key="BED1600534"
     >
       <ul>
@@ -731,7 +721,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="---"
-      hightlight={false}
       key="STS1600394"
     >
       <ul>
@@ -803,7 +792,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="The Causeway"
-      hightlight={false}
       key="BED1600532"
     >
       <ul>
@@ -874,7 +862,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="Foxfield"
-      hightlight={false}
       key="MKC1600312"
     >
       <ul>
@@ -945,7 +932,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="Bedford Road"
-      hightlight={false}
       key="BED1600530"
     >
       <ul>
@@ -1015,7 +1001,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="Little Tingewick"
-      hightlight={false}
       key="BUC1600209"
     >
       <ul>
@@ -1085,7 +1070,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="The Embankment"
-      hightlight={false}
       key="BED1600525"
     >
       <ul>
@@ -1156,7 +1140,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="Tyne Crescent"
-      hightlight={false}
       key="BED1600523"
     >
       <ul>
@@ -1226,7 +1209,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="Deacon Place"
-      hightlight={false}
       key="MKC1600311"
     >
       <ul>
@@ -1296,7 +1278,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="---"
-      hightlight={false}
       key="STS1600389"
     >
       <ul>

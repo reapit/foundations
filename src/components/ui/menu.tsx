@@ -2,8 +2,8 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps, RouteProps } from 'react-router'
 import { Menu as Sidebar } from '@reapit/elements'
-import { authLogout } from '../../actions/auth'
-import Logo from '../svg/logo'
+import { authLogout } from '@/actions/auth'
+import Logo from '@/components/svg/logo'
 
 interface MenuConfig extends RouteProps {
   title: string
