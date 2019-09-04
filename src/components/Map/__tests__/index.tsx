@@ -7,8 +7,24 @@ import {
   onLoadedMapHandler,
   renderMarker,
   onLoadedMarkerHandler,
-  handleOnClickMarker
+  handleOnClickMarker,
+  renderMarkerContent
 } from '../index'
+
+const MarkerInfoComponent = () => {
+  return (
+    <div>
+      <h1>Test title</h1>
+      <div
+        onClick={() => {
+          console.log('click')
+        }}
+      >
+        Test content
+      </div>
+    </div>
+  )
+}
 
 describe('Map', () => {
   describe('Map', () => {
@@ -18,7 +34,8 @@ describe('Map', () => {
         libraries: 'places,geometry',
         markers: [{ lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' }],
         defaultCenter: { lat: 10.806203, lng: 106.666807 },
-        defaultZoom: 16
+        defaultZoom: 16,
+        component: MarkerInfoComponent
       }
       const wrapper = shallow(<Map {...mockProps} />)
       expect(toJson(wrapper)).toMatchSnapshot()
@@ -30,7 +47,8 @@ describe('Map', () => {
         libraries: 'places,geometry',
         markers: [],
         defaultCenter: { lat: 10.806203, lng: 106.666807 },
-        defaultZoom: 16
+        defaultZoom: 16,
+        component: MarkerInfoComponent
       }
       const wrapper = shallow(<Map {...mockProps} />)
       expect(toJson(wrapper)).toMatchSnapshot()
@@ -45,9 +63,15 @@ describe('Map', () => {
         defaultCenter: { lat: 10.806203, lng: 106.666807 },
         defaultZoom: 16
       }
-      const fn = renderHandler(mockParams1.markers, mockParams1.defaultCenter, mockParams1.defaultZoom)
+      const fn = renderHandler(
+        mockParams1.markers,
+        MarkerInfoComponent,
+        mockParams1.defaultCenter,
+        mockParams1.defaultZoom
+      )
       const mockParams2 = {
         googleMaps: {
+          LatLngBounds: jest.fn(),
           Point: jest.fn(),
           Size: jest.fn(),
           InfoWindow: jest.fn(),
@@ -69,9 +93,16 @@ describe('Map', () => {
         defaultCenter: { lat: 10.806203, lng: 106.666807 },
         defaultZoom: 16
       }
-      const fn = renderHandler(mockParams1.markers, mockParams1.defaultCenter, mockParams1.defaultZoom)
+      const fn = renderHandler(
+        mockParams1.markers,
+        MarkerInfoComponent,
+        mockParams1.defaultCenter,
+        mockParams1.defaultZoom
+      )
       const mockParams2 = {
-        googleMaps: {},
+        googleMaps: {
+          LatLngBounds: jest.fn()
+        },
         error: new Error('Some Error')
       }
       const map = fn(mockParams2.googleMaps, mockParams2.error)
@@ -84,6 +115,7 @@ describe('Map', () => {
   describe('onLoadedMapHandler', () => {
     it('should run correctly', () => {
       const mockGoogleMaps = {
+        LatLngBounds: jest.fn(),
         MapTypeId: {
           ROADMAP: 'roadmap'
         }
@@ -100,21 +132,23 @@ describe('Map', () => {
       const mockParams = {
         markers: [{ lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' }],
         googleMaps: {
+          LatLngBounds: jest.fn(),
           Point: jest.fn(),
           Size: jest.fn()
         }
       }
-      const markers = renderMarker(mockParams.googleMaps, mockParams.markers)
+      const markers = renderMarker(mockParams.googleMaps, mockParams.markers, undefined, undefined)
       expect(markers).toHaveLength(1)
     })
     it('should run correctly when marker undefined', () => {
       const mockParams = {
         googleMaps: {
+          LatLngBounds: jest.fn(),
           Point: jest.fn(),
           Size: jest.fn()
         }
       }
-      const markers = renderMarker(mockParams.googleMaps, undefined)
+      const markers = renderMarker(mockParams.googleMaps, undefined, undefined, undefined)
       expect(markers).toHaveLength(0)
     })
   })
@@ -123,6 +157,7 @@ describe('Map', () => {
       const mockParams = {
         markerItem: { lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' },
         googleMaps: {
+          LatLngBounds: jest.fn(),
           Point: jest.fn(),
           Size: jest.fn(),
           InfoWindow: jest.fn(),
@@ -130,10 +165,54 @@ describe('Map', () => {
             addListener: jest.fn()
           }
         },
-        marker: null,
-        map: null
+        marker: {
+          getPosition: jest.fn()
+        },
+        map: {
+          fitBounds: jest.fn(),
+          setCenter: jest.fn()
+        },
+        bound: {
+          getCenter: jest.fn(),
+          extend: jest.fn()
+        }
       }
-      const fn = onLoadedMarkerHandler(mockParams.markerItem)
+      const fn = onLoadedMarkerHandler(mockParams.markerItem, mockParams.bound, undefined, undefined)
+      fn(mockParams.googleMaps, mockParams.map, mockParams.marker)
+      expect(mockParams.googleMaps.event.addListener).toBeCalled()
+    })
+    it('should run correctly 1', () => {
+      const mockParams = {
+        markerItem: { lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' },
+        googleMaps: {
+          LatLngBounds: jest.fn(),
+          Point: jest.fn(),
+          Size: jest.fn(),
+          InfoWindow: jest.fn(),
+          event: {
+            addListener: jest.fn()
+          }
+        },
+        marker: {
+          getPosition: jest.fn()
+        },
+        map: {
+          fitBounds: jest.fn(),
+          setCenter: jest.fn()
+        },
+        bound: {
+          getCenter: jest.fn(),
+          extend: jest.fn()
+        },
+        setDefaultZoom: 10,
+        setDefaultCenter: { lat: 10.806203, lng: 106.666807 }
+      }
+      const fn = onLoadedMarkerHandler(
+        mockParams.markerItem,
+        mockParams.bound,
+        mockParams.setDefaultCenter,
+        mockParams.setDefaultZoom
+      )
       fn(mockParams.googleMaps, mockParams.map, mockParams.marker)
       expect(mockParams.googleMaps.event.addListener).toBeCalled()
     })
@@ -144,10 +223,21 @@ describe('Map', () => {
         open: jest.fn()
       }
       const map = null
-      const marker = null
-      const fn = handleOnClickMarker(infoWindow, map, marker)
+      const marker = {
+        getPosition: jest.fn()
+      }
+      const markerItem = { lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' }
+      const fn = handleOnClickMarker(infoWindow, map, marker, markerItem)
       fn()
       expect(infoWindow.open).toBeCalledWith(map, marker)
+    })
+  })
+
+  describe('renderMarkerContent', () => {
+    it('should run correctly', () => {
+      const markers = [{ lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' }]
+      const result = renderMarkerContent(markers, MarkerInfoComponent)
+      expect(result).toHaveLength(1)
     })
   })
 })
