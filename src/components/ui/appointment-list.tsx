@@ -4,7 +4,7 @@ import { AppointmentModel } from '@/types/appointments'
 import CurrentLocButton from '@/components/container/current-loc-button'
 import { oc } from 'ts-optchain'
 import ViewDetailButton from '../container/view-detail-button'
-import { getTime, closestToNow } from '@/utils/datetime'
+import { getTime, closestTo } from '@/utils/datetime'
 
 export interface AppointmentListProps {
   data: AppointmentModel[]
@@ -15,7 +15,7 @@ export const AppointmentList = memo(({ data }: AppointmentListProps) => {
     // Get all start date
     const startDatesArray = data.map(item => oc<AppointmentModel>(item).start(''))
     // Find appointment nearest current time
-    return data.find(item => item.start === closestToNow(startDatesArray))
+    return data.find(item => item.start === closestTo(new Date(), startDatesArray))
   }, [data])
 
   const refAppointment = React.useRef<HTMLDivElement>(null)
