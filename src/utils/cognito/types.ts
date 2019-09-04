@@ -37,6 +37,7 @@ export interface LoginIdentity {
   developerId: string | null
   clientId: string | null
   adminId: string | null
+  userCode: string | null
 }
 
 export interface LoginSession {
