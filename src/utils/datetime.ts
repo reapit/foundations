@@ -20,8 +20,7 @@ export function getUnixTime(date: dayjs.ConfigType) {
 }
 
 export function closestToNow(datesArray: Array<dayjs.ConfigType>) {
-  const compareDate = '2019-05-12T10:00:00'
-  const timeCompare = dayjs(compareDate).valueOf()
+  const timeCompare = dayjs().valueOf()
 
   if (isNaN(timeCompare)) {
     return new Date(NaN)
