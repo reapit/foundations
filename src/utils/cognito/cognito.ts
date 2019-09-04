@@ -73,6 +73,7 @@ export const deserializeIdToken = (loginSession: Partial<LoginSession> | undefin
     email: decoded['email'],
     developerId: decoded['custom:reapit:developerId'] || null,
     clientId: decoded['custom:reapit:clientCode'] || null,
-    adminId: decoded['custom:reapit:marketAdmin'] || null
+    adminId: decoded['custom:reapit:marketAdmin'] || null,
+    userCode: decoded['custom:reapit:userCode'] || null
   }
 }
