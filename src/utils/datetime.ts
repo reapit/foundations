@@ -14,3 +14,36 @@ export function isSameDay(date: dayjs.ConfigType) {
   const toDate = dayjs()
   return dayjs(date).isSame(toDate, 'day')
 }
+
+export function getUnixTime(date: dayjs.ConfigType) {
+  return dayjs(date).valueOf()
+}
+
+export function closestToNow(datesArray: Array<dayjs.ConfigType>) {
+  const compareDate = '2019-05-12T10:00:00'
+  const timeCompare = dayjs(compareDate).valueOf()
+
+  if (isNaN(timeCompare)) {
+    return new Date(NaN)
+  }
+
+  let result: any
+  let minDistance: any
+  datesArray.forEach(function(date) {
+    const currentTime = dayjs(date).valueOf()
+
+    if (isNaN(currentTime)) {
+      result = new Date(NaN)
+      minDistance = NaN
+      return
+    }
+
+    const distance = currentTime - timeCompare
+    if (distance > 0 && (result == null || distance < minDistance)) {
+      result = date
+      minDistance = distance
+    }
+  })
+
+  return result
+}

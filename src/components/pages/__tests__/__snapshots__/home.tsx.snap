@@ -2,24 +2,26 @@
 
 exports[`AdminApproval should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <Tabs
-    tabConfigs={
-      Array [
-        Object {
-          "active": true,
-          "displayText": "List",
-          "onTabClick": [Function],
-          "tabIdentifier": "LIST",
-        },
-        Object {
-          "active": false,
-          "displayText": "Map",
-          "onTabClick": [Function],
-          "tabIdentifier": "MAP",
-        },
-      ]
-    }
-  />
+  <div>
+    <Tabs
+      tabConfigs={
+        Array [
+          Object {
+            "active": true,
+            "displayText": "List",
+            "onTabClick": [Function],
+            "tabIdentifier": "LIST",
+          },
+          Object {
+            "active": false,
+            "displayText": "Map",
+            "onTabClick": [Function],
+            "tabIdentifier": "MAP",
+          },
+        ]
+      }
+    />
+  </div>
   <div
     className="isCentered buttons hasAddons"
   >

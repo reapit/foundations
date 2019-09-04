@@ -12,6 +12,7 @@ import AppointmentDetailModal from '@/components/common/appointment-detail'
 import bulma from '@/styles/vendor/bulma'
 import CurrentLocButton from '../container/current-loc-button'
 import MapContainer from '@/components/container/map'
+import containerStyle from '@/styles/pages/page-container.scss?mod'
 
 export interface HomeMappedActions {
   requestAppointments: (time: AppointmentsTime) => void
@@ -57,7 +58,9 @@ export const Home: React.FunctionComponent<HomeProps> = ({ appointmentsState, re
 
   return (
     <ErrorBoundary>
-      <Tabs tabConfigs={tabConfigs({ currentTab, setCurrentTab })} />
+      <div className={containerStyle.tabsSticky}>
+        <Tabs tabConfigs={tabConfigs({ currentTab, setCurrentTab })} />
+      </div>
 
       {currentTab === 'LIST' && (
         <>
@@ -81,7 +84,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({ appointmentsState, re
 
       {currentTab === 'MAP' && (
         <div>
-          <MapContainer />
+          <MapContainer appointments={[]} />
         </div>
       )}
       <AppointmentDetailModal />
