@@ -10,3 +10,4 @@ storybook-static
 public
 out*
 package-lock.json
+.env

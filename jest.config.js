@@ -9,5 +9,8 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public)[/\\\\]'],
   transform: {
     "^.+\\.svg$": "<rootDir>/src/scripts/svg-transform.js"
- }
+ },
+ snapshotSerializers: [
+  "enzyme-to-json/serializer"
+],
 };
