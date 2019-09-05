@@ -15,7 +15,7 @@ describe('online reducer', () => {
     })
     const expected = {
       ...defaultState,
-      online: true
+      value: true
     }
     expect(newState).toEqual(expected)
   })
@@ -27,7 +27,7 @@ describe('online reducer', () => {
     })
     const expected = {
       ...defaultState,
-      online: false
+      value: false
     }
     expect(newState).toEqual(expected)
   })

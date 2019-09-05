@@ -1,17 +1,23 @@
 import dayjs from 'dayjs'
 import { appointmentsLoading, appointmentsReceiveData, appointmentsRequestDataFailure } from '../actions/appointments'
-import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
+import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { URLS, APPOINTMENTS_HEADERS } from '@/constants/api'
+import { URLS } from '@/constants/api'
 import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
+import { selectOnlineStatus } from '@/selectors/online'
 import { REAPIT_API_BASE_URL } from '../constants/api'
 import { AppointmentRequestParams } from '@/actions/appointments'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 
 export const appointmentsDataFetch = function*({ data: { time } }: Action<AppointmentRequestParams>) {
+  const online = yield select(selectOnlineStatus)
+  if (!online) {
+    return
+  }
+
   yield put(appointmentsLoading(true))
 
   let start: dayjs.ConfigType

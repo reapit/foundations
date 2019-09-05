@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Marker Component Should match snapshot 1`] = `
+<div
+  onClick={[Function]}
+>
+  <p>
+    1
+  </p>
+  <p>
+    1
+  </p>
+</div>
+`;
