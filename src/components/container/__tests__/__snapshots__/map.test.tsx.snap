@@ -1,15 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Map Should match snapshot 1`] = `
-<Map
-  component={[Function]}
-  defaultCenter={
-    Object {
-      "lat": 52.158116,
-      "lng": -0.433449,
+<div>
+  <Map
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(Component)",
+        "type": [Function],
+      }
     }
-  }
-  defaultZoom={16}
-  markers={Array []}
-/>
+    defaultCenter={
+      Object {
+        "lat": 52.158116,
+        "lng": -0.433449,
+      }
+    }
+    defaultZoom={16}
+    markers={Array []}
+  />
+</div>
 `;
