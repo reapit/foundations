@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { withRouter } from 'react-router'
 import { ReduxState } from 'src/types/core'
+import Menu from '@/components/ui/menu'
+import pageContainerStyles from '../styles/pages/page-container.scss?mod'
 import Routes from '../constants/routes'
 
 const { Suspense } = React
@@ -36,10 +38,17 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     console.log('Desktop session')
   }
 
+  const { menuContainer, menuSticky, pageWrapper, isDesktop } = pageContainerStyles
+
   return (
-    <main>
-      <Suspense fallback={<div>Loading</div>}>{children}</Suspense>
-    </main>
+    <div className={pageWrapper}>
+      <div className={`${menuContainer} ${menuSticky} ${desktopLogin || isDesktopLogin ? isDesktop : ''}`}>
+        <Menu />
+      </div>
+      <main>
+        <Suspense fallback={<div>Loading</div>}>{children}</Suspense>
+      </main>
+    </div>
   )
 }
 
