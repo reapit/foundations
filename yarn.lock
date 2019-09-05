@@ -326,12 +326,13 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@reapit/elements@0.1.20":
-  version "0.1.20"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.20.tgz#2b2b18c2ae36ba63573e18bc39223bead0adde88"
-  integrity sha512-YJG3swBMRYE8z28F1SsXVbkeMDPuLGdL56JDcUwm8/yqEllExrp36dPMhuNIpMCP4Lk46syjGmA2jaLx/I9ssw==
+"@reapit/elements@0.1.26":
+  version "0.1.26"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.26.tgz#c671e94b2990a95fc67ec97c8e7290bce057c69c"
+  integrity sha512-6lKu2wk0BiqhU6Ous8+1lUnBZKrQiY+evu82waLDhu865sZe8yzalht88dudH5ardZnQOznoWiB9jxct6GFHaQ==
   dependencies:
     bulma "^0.7.5"
+    dayjs "^1.8.16"
     formik "^1.5.8"
     jsonwebtoken "^8.5.1"
     react-google-map "^3.1.1"

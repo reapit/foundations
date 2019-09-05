@@ -1,10 +1,9 @@
 import React, { memo } from 'react'
-import { AppointmentTile } from '@reapit/elements'
+import { AppointmentTile, getTime, closestTo } from '@reapit/elements'
 import { AppointmentModel } from '@/types/appointments'
 import CurrentLocButton from '@/components/container/current-loc-button'
 import { oc } from 'ts-optchain'
 import ViewDetailButton from '../container/view-detail-button'
-import { getTime, closestTo } from '@/utils/datetime'
 
 export interface AppointmentListProps {
   data: AppointmentModel[]
