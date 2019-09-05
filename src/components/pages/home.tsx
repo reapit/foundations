@@ -10,6 +10,8 @@ import { AppointmentList } from '../ui/appointment-list'
 import { appointmentsRequestData } from '@/actions/appointments'
 import AppointmentDetailModal from '@/components/common/appointment-detail'
 import bulma from '@/styles/vendor/bulma'
+import CurrentLocButton from '../container/current-loc-button'
+import MapContainer from '@/components/container/map'
 
 export interface HomeMappedActions {
   requestAppointments: (time: AppointmentsTime) => void
@@ -77,7 +79,11 @@ export const Home: React.FunctionComponent<HomeProps> = ({ appointmentsState, re
         </>
       )}
 
-      {currentTab === 'MAP' && <div>Map go here</div>}
+      {currentTab === 'MAP' && (
+        <div>
+          <MapContainer />
+        </div>
+      )}
       <AppointmentDetailModal />
     </ErrorBoundary>
   )
