@@ -75,7 +75,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({ appointmentsState, re
             ))}
           </div>
 
-          {loading ? <Loader /> : <AppointmentList data={uncancelledList}></AppointmentList>}
+          {loading ? <Loader /> : <AppointmentList data={uncancelledList} />}
         </>
       )}
 

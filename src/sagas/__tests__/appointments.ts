@@ -1,13 +1,13 @@
-import { StringMap } from './../../types/core'
 import appointmentsSagas, { appointmentsDataFetch, appointmentsDataListen } from '@/sagas/appointments'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
+import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import {
   appointmentsLoading,
   appointmentsReceiveData,
   appointmentsRequestDataFailure,
   AppointmentRequestParams
 } from '@/actions/appointments'
+import { selectOnlineStatus } from '@/selectors/online'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
 import { REAPIT_API_BASE_URL } from '@/constants/api'
@@ -24,14 +24,27 @@ const params: Action<AppointmentRequestParams> = {
   type: 'APPOINTMENTS_REQUEST_DATA'
 }
 
+const mockOnlineVal = true
+const mockOfflineVal = false
+
 const mockHeaders = {
   Authorization: '123'
 }
 
-describe('appointments fetch data', () => {
+describe('appointments should not fetch data', () => {
   const gen = cloneableGenerator(appointmentsDataFetch)(params)
 
-  expect(gen.next().value).toEqual(put(appointmentsLoading(true)))
+  expect(gen.next().value).toEqual(select(selectOnlineStatus))
+  // @ts-ignore
+  expect(gen.next(mockOfflineVal).done).toBe(true)
+})
+
+describe('appointments should fetch data', () => {
+  const gen = cloneableGenerator(appointmentsDataFetch)(params)
+
+  expect(gen.next().value).toEqual(select(selectOnlineStatus))
+  // @ts-ignore
+  expect(gen.next(mockOnlineVal).value).toEqual(put(appointmentsLoading(true)))
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
