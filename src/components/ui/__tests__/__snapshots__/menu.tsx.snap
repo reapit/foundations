@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should match a snapshot 1`] = `
+<Menu
+  homeUrl="/"
+  location={
+    Object {
+      "pathname": "/client",
+    }
+  }
+  logo={
+    <Logo
+      height="65px"
+      width="150px"
+    />
+  }
+  menu={
+    Array [
+      Object {
+        "key": "Account",
+        "subMenu": Array [
+          Object {
+            "callback": [Function],
+            "key": "/logout",
+            "title": "Logout",
+          },
+        ],
+        "title": "Account",
+      },
+    ]
+  }
+  title="Geo-diary"
+/>
+`;
