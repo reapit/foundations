@@ -40,59 +40,249 @@ exports[`Map renderHandler should render correctly when no error 1`] = `
     data-test="map-container"
     style={
       Object {
-        "height": "100vh",
+        "height": "90vh",
       }
     }
   >
     <t
-      autoFitBounds={false}
-      boundsOffset={0.002}
+      autoFitBounds={true}
+      boundsOffset={10}
       center={
         Object {
           "lat": 10.806203,
           "lng": 106.666807,
         }
       }
-      coordinates={
-        Array [
-          Object {
-            "label": Object {
-              "fontSize": "1.5rem",
-              "fontWeight": "500",
-              "text": "1",
-            },
-            "onLoaded": [Function],
-            "position": Object {
-              "lat": 10.806203,
-              "lng": 106.666807,
-            },
-            "title": "mockTitle",
-          },
-        ]
-      }
+      coordinates={Array []}
+      fullscreenControl={false}
       googleMaps={
         Object {
-          "InfoWindow": [MockFunction],
-          "LatLngBounds": [MockFunction] {
-            "calls": Array [
-              Array [],
-            ],
-            "results": Array [
-              Object {
-                "type": "return",
-                "value": undefined,
-              },
-            ],
+          "Animation": Object {
+            "BOUNCE": 1,
+            "DROP": 2,
+            "Go": 4,
+            "Lo": 3,
           },
-          "Point": [MockFunction],
-          "Size": [MockFunction],
+          "BicyclingLayer": [MockFunction],
+          "Circle": [MockFunction],
+          "ControlPosition": Object {
+            "BOTTOM": 11,
+            "BOTTOM_CENTER": 11,
+            "BOTTOM_LEFT": 10,
+            "BOTTOM_RIGHT": 12,
+            "CENTER": 13,
+            "LEFT": 5,
+            "LEFT_BOTTOM": 6,
+            "LEFT_CENTER": 4,
+            "LEFT_TOP": 5,
+            "RIGHT": 7,
+            "RIGHT_BOTTOM": 9,
+            "RIGHT_CENTER": 8,
+            "TOP": 2,
+            "TOP_CENTER": 2,
+            "TOP_LEFT": 1,
+            "TOP_RIGHT": 3,
+          },
+          "Data": [MockFunction],
+          "DirectionsRenderer": [MockFunction],
+          "DirectionsService": [MockFunction],
+          "DirectionsStatus": Object {
+            "INVALID_REQUEST": "INVALID_REQUEST",
+            "MAX_WAYPOINTS_EXCEEDED": "MAX_WAYPOINTS_EXCEEDED",
+            "NOT_FOUND": "NOT_FOUND",
+            "OK": "OK",
+            "OVER_QUERY_LIMIT": "OVER_QUERY_LIMIT",
+            "REQUEST_DENIED": "REQUEST_DENIED",
+            "UNKNOWN_ERROR": "UNKNOWN_ERROR",
+            "ZERO_RESULTS": "ZERO_RESULTS",
+          },
+          "DirectionsTravelMode": Object {
+            "BICYCLING": "BICYCLING",
+            "DRIVING": "DRIVING",
+            "TRANSIT": "TRANSIT",
+            "WALKING": "WALKING",
+          },
+          "DirectionsUnitSystem": Object {
+            "IMPERIAL": 1,
+            "METRIC": 0,
+          },
+          "DistanceMatrixElementStatus": Object {
+            "NOT_FOUND": "NOT_FOUND",
+            "OK": "OK",
+            "ZERO_RESULTS": "ZERO_RESULTS",
+          },
+          "DistanceMatrixService": [Function],
+          "DistanceMatrixStatus": Object {
+            "INVALID_REQUEST": "INVALID_REQUEST",
+            "MAX_DIMENSIONS_EXCEEDED": "MAX_DIMENSIONS_EXCEEDED",
+            "MAX_ELEMENTS_EXCEEDED": "MAX_ELEMENTS_EXCEEDED",
+            "OK": "OK",
+            "OVER_QUERY_LIMIT": "OVER_QUERY_LIMIT",
+            "REQUEST_DENIED": "REQUEST_DENIED",
+            "UNKNOWN_ERROR": "UNKNOWN_ERROR",
+          },
+          "ElevationService": [Function],
+          "ElevationStatus": Object {
+            "Co": "DATA_NOT_AVAILABLE",
+            "INVALID_REQUEST": "INVALID_REQUEST",
+            "OK": "OK",
+            "OVER_QUERY_LIMIT": "OVER_QUERY_LIMIT",
+            "REQUEST_DENIED": "REQUEST_DENIED",
+            "UNKNOWN_ERROR": "UNKNOWN_ERROR",
+          },
+          "FusionTablesLayer": [MockFunction],
+          "Geocoder": [Function],
+          "GeocoderLocationType": Object {
+            "APPROXIMATE": "APPROXIMATE",
+            "GEOMETRIC_CENTER": "GEOMETRIC_CENTER",
+            "RANGE_INTERPOLATED": "RANGE_INTERPOLATED",
+            "ROOFTOP": "ROOFTOP",
+          },
+          "GeocoderStatus": Object {
+            "ERROR": "ERROR",
+            "INVALID_REQUEST": "INVALID_REQUEST",
+            "OK": "OK",
+            "OVER_QUERY_LIMIT": "OVER_QUERY_LIMIT",
+            "REQUEST_DENIED": "REQUEST_DENIED",
+            "UNKNOWN_ERROR": "UNKNOWN_ERROR",
+            "ZERO_RESULTS": "ZERO_RESULTS",
+          },
+          "GroundOverlay": [Function],
+          "ImageMapType": [Function],
+          "InfoWindow": [Function],
+          "KmlLayer": [Function],
+          "KmlLayerStatus": Object {
+            "DOCUMENT_NOT_FOUND": "DOCUMENT_NOT_FOUND",
+            "DOCUMENT_TOO_LARGE": "DOCUMENT_TOO_LARGE",
+            "FETCH_ERROR": "FETCH_ERROR",
+            "INVALID_DOCUMENT": "INVALID_DOCUMENT",
+            "INVALID_REQUEST": "INVALID_REQUEST",
+            "LIMITS_EXCEEDED": "LIMITS_EXECEEDED",
+            "OK": "OK",
+            "TIMED_OUT": "TIMED_OUT",
+            "UNKNOWN": "UNKNOWN",
+          },
+          "LatLng": [Function],
+          "LatLngBounds": [Function],
+          "MVCArray": [Function],
+          "MVCObject": [MockFunction],
+          "Map": [MockFunction],
+          "MapTypeControlStyle": Object {
+            "DEFAULT": 0,
+            "DROPDOWN_MENU": 2,
+            "HORIZONTAL_BAR": 1,
+            "INSET": 3,
+            "INSET_LARGE": 4,
+          },
+          "MapTypeId": Object {
+            "HYBRID": "hybrid",
+            "ROADMAP": "roadmap",
+            "SATELLITE": "satellite",
+            "TERRAIN": "terrain",
+          },
+          "MapTypeRegistry": [Function],
+          "Marker": [MockFunction],
+          "MarkerImage": [Function],
+          "MaxZoomService": [Function],
+          "MaxZoomStatus": Object {
+            "ERROR": "ERROR",
+            "OK": "OK",
+          },
+          "NavigationControlStyle": Object {
+            "ANDROID": 2,
+            "DEFAULT": 0,
+            "Mo": 4,
+            "SMALL": 1,
+            "ZOOM_PAN": 3,
+            "ik": 5,
+          },
+          "OverlayView": [Function],
+          "Point": [Function],
+          "Polygon": [Function],
+          "Polyline": [Function],
+          "Rectangle": [Function],
+          "SaveWidget": [Function],
+          "ScaleControlStyle": Object {
+            "DEFAULT": 0,
+          },
+          "Size": [Function],
+          "StreetViewCoverageLayer": [Function],
+          "StreetViewPanorama": [Function],
+          "StreetViewPreference": Object {
+            "BEST": "best",
+            "NEAREST": "nearest",
+          },
+          "StreetViewService": [Function],
+          "StreetViewSource": Object {
+            "DEFAULT": "default",
+            "OUTDOOR": "outdoor",
+          },
+          "StreetViewStatus": Object {
+            "OK": "OK",
+            "UNKNOWN_ERROR": "UNKNOWN_ERROR",
+            "ZERO_RESULTS": "ZERO_RESULTS",
+          },
+          "StrokePosition": Object {
+            "CENTER": 0,
+            "INSIDE": 1,
+            "OUTSIDE": 2,
+          },
+          "StyledMapType": [Function],
+          "SymbolPath": Object {
+            "BACKWARD_CLOSED_ARROW": 3,
+            "BACKWARD_OPEN_ARROW": 4,
+            "CIRCLE": 0,
+            "FORWARD_CLOSED_ARROW": 1,
+            "FORWARD_OPEN_ARROW": 2,
+          },
+          "TrafficLayer": [MockFunction],
+          "TrafficModel": Object {
+            "BEST_GUESS": "bestguess",
+            "OPTIMISTIC": "optimistic",
+            "PESSIMISTIC": "pessimistic",
+          },
+          "TransitLayer": [MockFunction],
+          "TransitMode": Object {
+            "BUS": "BUS",
+            "RAIL": "RAIL",
+            "SUBWAY": "SUBWAY",
+            "TRAIN": "TRAIN",
+            "TRAM": "TRAM",
+          },
+          "TransitRoutePreference": Object {
+            "FEWER_TRANSFERS": "FEWER_TRANSFERS",
+            "LESS_WALKING": "LESS_WALKING",
+          },
+          "TravelMode": Object {
+            "BICYCLING": "BICYCLING",
+            "DRIVING": "DRIVING",
+            "TRANSIT": "TRANSIT",
+            "WALKING": "WALKING",
+          },
+          "UnitSystem": Object {
+            "IMPERIAL": 1,
+            "METRIC": 0,
+          },
+          "ZoomControlStyle": Object {
+            "DEFAULT": 0,
+            "LARGE": 2,
+            "SMALL": 1,
+            "ik": 3,
+          },
+          "__gjsload__": [Function],
           "event": Object {
-            "addListener": [MockFunction],
+            "addListener": [MockFunction addListener],
+            "clearInstanceListeners": [MockFunction clearInstanceListeners],
           },
         }
       }
+      mapTypeControl={false}
       onLoaded={[Function]}
+      rotateControl={false}
+      scaleControl={false}
+      streetViewControl={false}
       zoom={16}
+      zoomControl={true}
     />
     <div
       id="marker-10.806203-106.666807"

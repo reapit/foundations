@@ -37,3 +37,14 @@ window.matchMedia =
       removeListener: function() {}
     }
   }
+
+const mockGeolocation = {
+  getCurrentPosition: jest.fn(),
+  watchPosition: jest.fn()
+};
+
+global.navigator.geolocation = mockGeolocation;
+
+jest.mock('dayjs', () =>
+  jest.fn((...args) => jest.requireActual('dayjs')(args.filter(arg => arg).length > 0 ? args : '2019-12-18T16:30:00'))
+)
