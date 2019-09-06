@@ -7,6 +7,7 @@ import invalidValues from '@/constants/invalid-values'
 import { connect } from 'react-redux'
 import { MarkerComponentWithConnect, MarkerPropsExened } from '@/components/container/marker-component'
 import mapStyles from '@/styles/pages/map.scss?mod'
+import TravelMode from '../ui/travel-mode'
 
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
 
@@ -27,6 +28,7 @@ export const filterInvalidMarker = (markers: MarkerPropsExened[]) => {
 }
 
 export const MapContainer = ({ appointments }: MapContainerProps) => {
+  const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
   const markers: MarkerPropsExened[] = filterInvalidMarker(
     appointments.map(appointment => {
       const lat = oc(appointment).property.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
@@ -45,6 +47,13 @@ export const MapContainer = ({ appointments }: MapContainerProps) => {
     })
   )
 
+  const handleTravelMode = React.useCallback(
+    value => {
+      setTravelMode(value)
+    },
+    [travelMode]
+  )
+
   return (
     <div className={mapStyles.mapContainer}>
       <Map
@@ -53,7 +62,9 @@ export const MapContainer = ({ appointments }: MapContainerProps) => {
         component={MarkerComponentWithConnect}
         defaultCenter={{ lat: 52.158116, lng: -0.433449 }}
         defaultZoom={16}
+        travelMode={travelMode}
       />
+      <TravelMode travelMode={travelMode} onChangeTravelMode={handleTravelMode} />
     </div>
   )
 }
