@@ -24,11 +24,13 @@ export const AppointmentList = memo(({ data, nextAppointment }: AppointmentListP
 
   const [selected, setSelected] = React.useState<AppointmentModel>()
 
-  const onSelectAppointment = item => {
-    if (selected && selected.id === item.id) {
-      setSelected(undefined)
-    } else {
-      setSelected(item)
+  const onSelectAppointment = (e, item) => {
+    if (e.target.type !== 'button') {
+      if (selected && selected.id === item.id) {
+        setSelected(undefined)
+      } else {
+        setSelected(item)
+      }
     }
   }
 
@@ -87,7 +89,7 @@ export const AppointmentList = memo(({ data, nextAppointment }: AppointmentListP
         return (
           <div
             className="mb-4"
-            onClick={() => onSelectAppointment(item)}
+            onClick={e => onSelectAppointment(e, item)}
             key={item.id}
             ref={hightlight ? refAppointment : null}
           >
