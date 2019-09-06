@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TravelMode should match a snapshot 1`] = `
+<div>
+  <div
+    className="control"
+  >
+    <label
+      className="button is-white is-primary"
+    >
+      <input
+        checked={true}
+        className="is-hidden"
+        onChange={[Function]}
+        type="radio"
+        value="DRIVING"
+      />
+      Car
+    </label>
+    <label
+      className="button is-white "
+    >
+      <input
+        checked={false}
+        className="is-hidden"
+        onChange={[Function]}
+        type="radio"
+        value="WALKING"
+      />
+      Walk
+    </label>
+  </div>
+</div>
+`;

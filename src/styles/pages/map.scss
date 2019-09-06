@@ -1,3 +1,5 @@
+@import '../base/colors.scss';
+
 .mapContainer {
   overflow: hidden;
   position: absolute;
@@ -10,5 +12,13 @@
     width: 100vw;
     height: 100vh;
     left: 0;
+  }
+}
+
+.mapTravelMode {
+  position: absolute;
+  top: 0;
+  @media screen and (max-width: 768px) {
+    top: 10%;
   }
 }
