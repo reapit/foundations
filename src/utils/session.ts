@@ -1,7 +1,7 @@
 import { LOGIN_TYPE } from '@/constants/auth'
 import { LOCAL_STORAGE_SESSION_KEY } from '@/constants/session'
 import store from '@/core/store'
-import { RefreshParams, LoginSession, LoginType, getAccessToken } from '@reapit/elements'
+import { RefreshParams, LoginSession, LoginType, tokenExpired, refreshSession } from '@reapit/elements'
 import { authLoginSuccess, authLogout } from '@/actions/auth'
 
 export const setLoginSession = (session: LoginSession): void => {
@@ -52,19 +52,37 @@ export const getTokenFromQueryString = (queryString: string, loginType: LoginTyp
 
 export const verifyAccessToken = async (): Promise<string | null> => {
   const { loginSession, desktopSession } = store.state.auth
-
-  // TODO: will be implemented later in ticket CLD-228
-  const online = true
+  const { online } = store.state.online
 
   if (!online) {
     store.dispatch(authLogout())
     return null
   }
 
-  const session = await getAccessToken({ loginSession, desktopSession })
-  if (session) {
-    store.dispatch(authLoginSuccess(session))
-    return session.accessToken
+  if (!loginSession && !desktopSession) {
+    store.dispatch(authLogout())
+    return null
+  }
+
+  if (loginSession) {
+    const sessionExpired = tokenExpired(loginSession.accessTokenExpiry)
+
+    if (!sessionExpired) {
+      return loginSession.accessToken
+    }
+  }
+
+  const sessionToRefresh = (loginSession || desktopSession) as RefreshParams
+
+  try {
+    const refreshedSession = await refreshSession(sessionToRefresh)
+
+    if (refreshedSession) {
+      store.dispatch(authLoginSuccess(refreshedSession))
+      return refreshedSession.accessToken
+    }
+  } catch (err) {
+    console.error(err)
   }
 
   store.dispatch(authLogout())
