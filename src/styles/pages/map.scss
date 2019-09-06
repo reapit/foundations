@@ -1,7 +1,14 @@
 .mapContainer {
-  position: fixed;
-  top: 2.5rem;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  top: 35px;
+  left: 250px;
+  width: calc(100vw - 250px);
+  height: calc(100vh - 35px);
+
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+  }
 }

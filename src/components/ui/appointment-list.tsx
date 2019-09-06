@@ -4,12 +4,15 @@ import { AppointmentModel } from '@/types/appointments'
 import CurrentLocButton from '@/components/container/current-loc-button'
 import { oc } from 'ts-optchain'
 import ViewDetailButton from '../container/view-detail-button'
+import ETAButton from './eta-button'
+import { NextAppointment } from '@/reducers/next-appointment'
 
 export interface AppointmentListProps {
   data: AppointmentModel[]
+  nextAppointment?: NextAppointment | null
 }
 
-export const AppointmentList = memo(({ data }: AppointmentListProps) => {
+export const AppointmentList = memo(({ data, nextAppointment }: AppointmentListProps) => {
   const appointmentNearest = React.useMemo(() => {
     // Get all start date
     const startDatesArray = data.map(item => oc<AppointmentModel>(item).start(''))
@@ -41,8 +44,9 @@ export const AppointmentList = memo(({ data }: AppointmentListProps) => {
   if (data.length === 0) {
     return <div className="py-8 px-3 text-center">No appointments</div>
   }
+
   return (
-    <div className="px-3">
+    <div className="px-4">
       {data.map(item => {
         const line1 = oc<AppointmentModel>(item).property.line1('---')
         const line2 = oc<AppointmentModel>(item).property.line2('---')
@@ -57,8 +61,36 @@ export const AppointmentList = memo(({ data }: AppointmentListProps) => {
 
         const hightlight = selected ? selected.id === item.id : appointmentNearest && appointmentNearest.id === item.id
 
+        const displayETAButton =
+          nextAppointment &&
+          nextAppointment.id === item.id &&
+          nextAppointment.attendeeHaveMobile &&
+          // less than 10 minutes
+          nextAppointment.durationValue <= 600
+
+        let renderETAButton: React.ReactNode = null
+
+        if (displayETAButton) {
+          const tel = oc(nextAppointment)
+            .attendeeHaveMobile.communicationDetails([])
+            .filter(({ label }) => label === 'Mobile')[0].detail
+          const name = oc(nextAppointment).attendeeHaveMobile[0].name('')
+
+          renderETAButton = (
+            <div className="mt-4 ml-4">
+              <ETAButton tel={tel || ''} body={`Hi ${name}, I will be with you in 10 mins`}>
+                ETA Text
+              </ETAButton>
+            </div>
+          )
+        }
         return (
-          <div onClick={() => onSelectAppointment(item)} key={item.id} ref={hightlight ? refAppointment : null}>
+          <div
+            className="mb-4"
+            onClick={() => onSelectAppointment(item)}
+            key={item.id}
+            ref={hightlight ? refAppointment : null}
+          >
             <AppointmentTile hightlight={hightlight} key={item.id} heading={line1}>
               <ul>
                 <li>Property Address</li>
@@ -81,6 +113,7 @@ export const AppointmentList = memo(({ data }: AppointmentListProps) => {
                 <div className="mt-4">
                   <CurrentLocButton />
                 </div>
+                {renderETAButton}
               </div>
             </AppointmentTile>
           </div>

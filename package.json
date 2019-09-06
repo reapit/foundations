@@ -26,7 +26,7 @@
     "test-e2e:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e\" -k"
   },
   "dependencies": {
-    "@reapit/elements": "0.1.26",
+    "@reapit/elements": "^0.1.26",
     "dayjs": "^1.8.16",
     "formik": "^1.5.8",
     "localforage": "^1.7.3",
@@ -44,6 +44,7 @@
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.0.5",
     "@types/enzyme": "^3.9.3",
+    "@types/googlemaps": "^3.37.5",
     "@types/jest": "^24.0.13",
     "@types/node": "^12.0.2",
     "@types/react": "^16.8.19",
