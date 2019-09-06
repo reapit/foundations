@@ -10,9 +10,10 @@ exports[`AppointmentList Should match snapshot if having no data 1`] = `
 
 exports[`AppointmentList Should match snapshot if having no data 2`] = `
 <div
-  className="px-3"
+  className="px-4"
 >
   <div
+    className="mb-4"
     key="NEP1600290"
     onClick={[Function]}
   >
@@ -83,6 +84,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="BED1600537"
     onClick={[Function]}
   >
@@ -153,6 +155,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="BUC1600211"
     onClick={[Function]}
   >
@@ -224,6 +227,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="BUC1600210"
     onClick={[Function]}
   >
@@ -293,6 +297,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="STS1600403"
     onClick={[Function]}
   >
@@ -364,6 +369,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="STS1600401"
     onClick={[Function]}
   >
@@ -435,6 +441,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="NEP1600288"
     onClick={[Function]}
   >
@@ -505,6 +512,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="STS1600396"
     onClick={[Function]}
   >
@@ -576,6 +584,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="NEP1600287"
     onClick={[Function]}
   >
@@ -647,6 +656,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="BED1600534"
     onClick={[Function]}
   >
@@ -716,6 +726,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="STS1600394"
     onClick={[Function]}
   >
@@ -787,6 +798,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="BED1600532"
     onClick={[Function]}
   >
@@ -857,6 +869,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="MKC1600312"
     onClick={[Function]}
   >
@@ -927,6 +940,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="BED1600530"
     onClick={[Function]}
   >
@@ -996,6 +1010,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="BUC1600209"
     onClick={[Function]}
   >
@@ -1065,6 +1080,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="BED1600525"
     onClick={[Function]}
   >
@@ -1135,6 +1151,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="BED1600523"
     onClick={[Function]}
   >
@@ -1204,6 +1221,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="MKC1600311"
     onClick={[Function]}
   >
@@ -1273,6 +1291,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     </AppointmentTile>
   </div>
   <div
+    className="mb-4"
     key="STS1600389"
     onClick={[Function]}
   >

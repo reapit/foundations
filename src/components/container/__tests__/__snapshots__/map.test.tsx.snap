@@ -20,6 +20,11 @@ exports[`Map Should match snapshot 1`] = `
     }
     defaultZoom={16}
     markers={Array []}
+    travelMode="DRIVING"
+  />
+  <Memo()
+    onChangeTravelMode={[Function]}
+    travelMode="DRIVING"
   />
 </div>
 `;
