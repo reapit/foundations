@@ -1,7 +1,6 @@
 import React from 'react'
 import GoogleMap from 'react-google-map'
 import ReactGoogleMapLoader from 'react-google-maps-loader'
-import currentLocationIcon from './current-location-icon.svg'
 
 export type MarkerProps<T> = T & {
   lat: number
@@ -111,7 +110,6 @@ export const successCallBack = ({
       lng: position.coords.longitude
     },
     icon: {
-      url: currentLocationIcon,
       scaledSize: new googleMaps.Size(20, 20)
     },
     map
