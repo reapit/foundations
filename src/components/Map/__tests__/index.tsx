@@ -1,14 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
+import createGoogleMapsMock from '../../../helpers/mock-google-maps'
 import {
   Map,
   renderHandler,
   onLoadedMapHandler,
-  renderMarker,
-  onLoadedMarkerHandler,
   handleOnClickMarker,
-  renderMarkerContent
+  renderMarkerContent,
+  successCallBack,
+  renderDirection
 } from '../index'
 
 const MarkerInfoComponent = () => {
@@ -61,24 +62,16 @@ describe('Map', () => {
       const mockParams1 = {
         markers: [{ lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' }],
         defaultCenter: { lat: 10.806203, lng: 106.666807 },
-        defaultZoom: 16
+        defaultZoom: 16,
+        autoFitBounds: true,
+        boundsOffset: 10
       }
-      const fn = renderHandler(
-        mockParams1.markers,
-        MarkerInfoComponent,
-        mockParams1.defaultCenter,
-        mockParams1.defaultZoom
-      )
+      const fn = renderHandler({
+        component: MarkerInfoComponent,
+        ...mockParams1
+      })
       const mockParams2 = {
-        googleMaps: {
-          LatLngBounds: jest.fn(),
-          Point: jest.fn(),
-          Size: jest.fn(),
-          InfoWindow: jest.fn(),
-          event: {
-            addListener: jest.fn()
-          }
-        },
+        googleMaps: createGoogleMapsMock(),
         error: null
       }
       const map = fn(mockParams2.googleMaps, mockParams2.error)
@@ -93,16 +86,9 @@ describe('Map', () => {
         defaultCenter: { lat: 10.806203, lng: 106.666807 },
         defaultZoom: 16
       }
-      const fn = renderHandler(
-        mockParams1.markers,
-        MarkerInfoComponent,
-        mockParams1.defaultCenter,
-        mockParams1.defaultZoom
-      )
+      const fn = renderHandler({ component: MarkerInfoComponent, ...mockParams1 })
       const mockParams2 = {
-        googleMaps: {
-          LatLngBounds: jest.fn()
-        },
+        googleMaps: createGoogleMapsMock(),
         error: new Error('Some Error')
       }
       const map = fn(mockParams2.googleMaps, mockParams2.error)
@@ -114,109 +100,53 @@ describe('Map', () => {
 
   describe('onLoadedMapHandler', () => {
     it('should run correctly', () => {
-      const mockGoogleMaps = {
-        LatLngBounds: jest.fn(),
-        MapTypeId: {
-          ROADMAP: 'roadmap'
-        }
-      }
-      const mockMap = {
-        setMapTypeId: jest.fn()
-      }
-      onLoadedMapHandler(mockGoogleMaps, mockMap)
-      expect(mockMap.setMapTypeId).toBeCalledWith(mockGoogleMaps.MapTypeId.ROADMAP)
-    })
-  })
-  describe('renderMarker', () => {
-    it('should run correctly', () => {
-      const mockParams = {
+      const mockProps = {
         markers: [{ lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' }],
-        googleMaps: {
-          LatLngBounds: jest.fn(),
-          Point: jest.fn(),
-          Size: jest.fn()
-        }
+        destinationPoint: { lat: 10.806203, lng: 106.666807 },
+        travelMode: 'DRIVING',
+        onLoaded: jest.fn(),
+        onLoadedDirection: jest.fn(),
+        defaultCenter: { lat: 10.806203, lng: 106.666807}
       }
-      const markers = renderMarker(mockParams.googleMaps, mockParams.markers, undefined, undefined)
-      expect(markers).toHaveLength(1)
-    })
-    it('should run correctly when marker undefined', () => {
       const mockParams = {
-        googleMaps: {
-          LatLngBounds: jest.fn(),
-          Point: jest.fn(),
-          Size: jest.fn()
-        }
+        map: {
+          setMapTypeId: jest.fn()
+        },
+        googleMaps: createGoogleMapsMock(),
       }
-      const markers = renderMarker(mockParams.googleMaps, undefined, undefined, undefined)
-      expect(markers).toHaveLength(0)
+      const fn = onLoadedMapHandler({ ...mockProps })
+      fn(mockParams.googleMaps, mockParams.map)
+      expect(mockProps.onLoaded).toBeCalled()
     })
   })
-  describe('onLoadedMarkerHandler', () => {
+
+  describe('successCallBack', () => {
     it('should run correctly', () => {
-      const mockParams = {
-        markerItem: { lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' },
-        googleMaps: {
-          LatLngBounds: jest.fn(),
-          Point: jest.fn(),
-          Size: jest.fn(),
-          InfoWindow: jest.fn(),
-          event: {
-            addListener: jest.fn()
-          }
-        },
-        marker: {
-          getPosition: jest.fn()
-        },
-        map: {
-          fitBounds: jest.fn(),
-          setCenter: jest.fn()
-        },
-        bound: {
-          getCenter: jest.fn(),
-          extend: jest.fn()
+      const mockDirectionRenderer = {
+        setMap: jest.fn(),
+        setDirections: jest.fn()
+      }
+      const mockProps = {
+        markers: [{ lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' }],
+        destinationPoint: { lat: 10.806203, lng: 106.666807 },
+        travelMode: 'DRIVING',
+        googleMaps: createGoogleMapsMock(),
+        map: jest.fn(),
+        onLoadedDirection: jest.fn(),
+        defaultCenter: { lat: 10.806203, lng: 106.666807}
+      }
+      const mockPosition = {
+        coords: {
+          latitude: 10.806203,
+          longtitude: 106.666807
         }
-      }
-      const fn = onLoadedMarkerHandler(mockParams.markerItem, mockParams.bound, undefined, undefined)
-      fn(mockParams.googleMaps, mockParams.map, mockParams.marker)
-      expect(mockParams.googleMaps.event.addListener).toBeCalled()
-    })
-    it('should run correctly 1', () => {
-      const mockParams = {
-        markerItem: { lat: 10.806203, lng: 106.666807, title: 'mockTitle', content: 'mockContent' },
-        googleMaps: {
-          LatLngBounds: jest.fn(),
-          Point: jest.fn(),
-          Size: jest.fn(),
-          InfoWindow: jest.fn(),
-          event: {
-            addListener: jest.fn()
-          }
-        },
-        marker: {
-          getPosition: jest.fn()
-        },
-        map: {
-          fitBounds: jest.fn(),
-          setCenter: jest.fn()
-        },
-        bound: {
-          getCenter: jest.fn(),
-          extend: jest.fn()
-        },
-        setDefaultZoom: 10,
-        setDefaultCenter: { lat: 10.806203, lng: 106.666807 }
-      }
-      const fn = onLoadedMarkerHandler(
-        mockParams.markerItem,
-        mockParams.bound,
-        mockParams.setDefaultCenter,
-        mockParams.setDefaultZoom
-      )
-      fn(mockParams.googleMaps, mockParams.map, mockParams.marker)
-      expect(mockParams.googleMaps.event.addListener).toBeCalled()
+      } as any
+      const fn = successCallBack({ ...mockProps })
+      fn(mockPosition)
+      expect(mockProps.googleMaps.Marker).toBeCalled()
     })
   })
+
   describe('handleOnClickMarker', () => {
     it('should run correctly', () => {
       const infoWindow = {

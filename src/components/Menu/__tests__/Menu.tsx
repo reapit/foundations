@@ -13,7 +13,7 @@ import {
   handleSetToggleMenu,
   handleSetCaretToggle
 } from '../Menu'
-import { getMockRouterProps } from '../../../helpers/mockRouter'
+import { getMockRouterProps } from '../../../helpers/mock-router'
 
 describe('Menu', () => {
   it('should render correctly', () => {
