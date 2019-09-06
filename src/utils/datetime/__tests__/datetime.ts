@@ -23,7 +23,7 @@ describe('datetime', () => {
   })
 
   it('isSameDay', () => {
-    ;[['2019-09-05T10:30:00', true], ['Fri, 30 Aug 2019 17:44:20', false]].forEach(([input, expected]) => {
+    ;[['2019-12-18T10:30:00', true], ['Fri, 30 Aug 2019 17:44:20', false]].forEach(([input, expected]) => {
       const result = isSameDay(input as dayjs.ConfigType)
       expect(result).toBe(expected)
     })
