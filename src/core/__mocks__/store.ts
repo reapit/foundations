@@ -1,4 +1,10 @@
 export default {
   dispatch: jest.fn(),
-  state: {}
+  state: {
+    auth: {
+      loginSession: '1',
+      desktopSession: '2'
+    },
+    online: true
+  }
 }
