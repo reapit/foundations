@@ -326,7 +326,7 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@reapit/elements@0.1.26":
+"@reapit/elements@^0.1.26":
   version "0.1.26"
   resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.26.tgz#c671e94b2990a95fc67ec97c8e7290bce057c69c"
   integrity sha512-6lKu2wk0BiqhU6Ous8+1lUnBZKrQiY+evu82waLDhu865sZe8yzalht88dudH5ardZnQOznoWiB9jxct6GFHaQ==
@@ -464,6 +464,11 @@
     "@types/events" "*"
     "@types/minimatch" "*"
     "@types/node" "*"
+
+"@types/googlemaps@^3.37.5":
+  version "3.37.5"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.37.5.tgz#f6299b417c8f97e87a41236c54cd5df8a185174c"
+  integrity sha512-lTW3x1V3KbL84fvKaIH4MI7EfEmgI369DFq4VIn7IU7VJJ4fTINVb8Z0GBYsjPo/yRsJZFA6CBXoH/yIKzMXeg==
 
 "@types/history@*":
   version "4.7.3"

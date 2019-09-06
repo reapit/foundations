@@ -9,6 +9,7 @@ import ActionTypes from '@/constants/action-types'
 import home from '@/reducers/home'
 import appointments from '@/reducers/appointments'
 import appointmentDetail from '@/reducers/appointment-detail'
+import nextAppointment from '@/reducers/next-appointment'
 import error from '@/reducers/error'
 import currentLoc from '@/reducers/current-loc'
 import auth from '@/reducers/auth'
@@ -18,6 +19,7 @@ import authSagas from '@/sagas/auth'
 import homeSagas from '@/sagas/home'
 import appointmentsSagas from '@/sagas/appointments'
 import appointmentDetailSagas from '@/sagas/appointment-detail'
+import nextAppointmentSaga from '@/sagas/next-appointment'
 
 export class Store {
   static _instance: Store
@@ -41,11 +43,18 @@ export class Store {
     home,
     currentLoc,
     appointments,
-    appointmentDetail
+    appointmentDetail,
+    nextAppointment
   })
 
   static sagas = function*() {
-    yield all([fork(authSagas), fork(homeSagas), fork(appointmentsSagas), fork(appointmentDetailSagas)])
+    yield all([
+      fork(authSagas),
+      fork(homeSagas),
+      fork(appointmentsSagas),
+      fork(appointmentDetailSagas),
+      fork(nextAppointmentSaga)
+    ])
   }
 
   static composeEnhancers =
