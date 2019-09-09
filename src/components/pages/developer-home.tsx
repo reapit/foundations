@@ -63,6 +63,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
             fetchAppDetail(app.id)
           }
         }}
+        infoType="DEVELOPER_APPS_EMPTY"
       />
       <Pagination
         onChange={page => history.push(`${routes.DEVELOPER_MY_APPS}/${page}`)}

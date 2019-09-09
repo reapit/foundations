@@ -10,7 +10,7 @@ export interface AppCardProps {
 }
 
 const { card, image, cardContent, is48x48, is5, is6, title, subtitle, content, cardFooter, cardFooterItem } = bulma
-const { appCard, isCentered, isLeft } = appCardStyles
+const { appCard, isCentered, isLeft, appCardContent } = appCardStyles
 
 const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, className }: AppCardProps) => {
   const dataTest = ['app-card', app.id]
@@ -24,7 +24,7 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, classNam
           <img src={app.iconUri || 'https://bulma.io/images/placeholders/48x48.png'} alt={app.name} />
         </figure>
         <h5 className={`${title} ${is5}`}>{app.name}</h5>
-        <p className={`${subtitle} ${is6}`}>{app.summary}</p>
+        <p className={`${subtitle} ${is6} ${appCardContent}`}>{app.summary}</p>
       </div>
       <div className={cardFooter}>
         <p className={`${cardFooterItem} ${isLeft}`}>{app.developer}</p>

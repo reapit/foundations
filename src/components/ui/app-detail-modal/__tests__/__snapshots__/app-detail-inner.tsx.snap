@@ -45,5 +45,3 @@ exports[`AppDetailInner should match a snapshot when appDetailModalState = VIEW_
   }
 />
 `;
-
-exports[`AppDetailInner should match a snapshot when appDetailModalState = VIEW_PERMISSION 1`] = `<AppPermissionContentInnerWithConnect />`;

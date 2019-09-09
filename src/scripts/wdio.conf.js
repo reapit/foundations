@@ -14,11 +14,11 @@ exports.config = {
   suites: {
     default: [
       // './src/tests/webdriver/specs/login.ts',
-      // './src/tests/webdriver/specs/register.ts',
+      './src/tests/webdriver/specs/developer-register.ts',
       // './src/tests/webdriver/specs/developer-submit-app.ts',
       // './src/tests/webdriver/specs/developer-manage-apps.ts',
       // './src/tests/webdriver/specs/developer-list-delist-app.ts',
-      './src/tests/webdriver/specs/developer-admin-revision-approvals.ts',
+      // './src/tests/webdriver/specs/developer-admin-revision-approvals.ts',
       // './src/tests/webdriver/specs/client-browse-install-apps.ts'
     ]
   },

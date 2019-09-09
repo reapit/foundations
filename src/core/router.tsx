@@ -4,6 +4,7 @@ import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { createBrowserHistory } from 'history'
+import Info from '../components/pages/info'
 
 export const history = createBrowserHistory()
 
@@ -23,6 +24,7 @@ const Router = () => (
         <Route path={Routes.LOGIN} exact render={() => <Login />} />
         <Route path={Routes.ADMIN_LOGIN} exact render={() => <Login />} />
         <Route path={Routes.REGISTER} exact render={() => <Register />} />
+        <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
         <PrivateRouteWrapper path="/">
           <Switch>
             <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={MyApps} fetcher />

@@ -9,7 +9,7 @@ exports[`AppConfirmUninstall render correctly 1`] = `
   >
     Are you sure you wish to uninstall 
     mockAppName
-     app? This action will uninstall the app for ALL platform users.
+    ? This action will uninstall the app for ALL platform users.
   </h6>
   <div
     className="flex"
@@ -49,7 +49,7 @@ exports[`AppConfirmUninstall render correctly 2`] = `
   >
     Are you sure you wish to uninstall 
     mockAppName
-     app? This action will uninstall the app for ALL platform users.
+    ? This action will uninstall the app for ALL platform users.
   </h6>
   <div
     className="flex"
@@ -89,7 +89,7 @@ exports[`AppConfirmUninstall render correctly 3`] = `
   >
     Are you sure you wish to uninstall 
     mockAppName
-     app? This action will uninstall the app for ALL platform users.
+    ? This action will uninstall the app for ALL platform users.
   </h6>
   <div
     className="flex"
@@ -129,7 +129,7 @@ exports[`AppConfirmUninstall render correctly 4`] = `
   >
     Are you sure you wish to uninstall 
     mockAppName
-     app? This action will uninstall the app for ALL platform users.
+    ? This action will uninstall the app for ALL platform users.
   </h6>
   <div
     className="flex"

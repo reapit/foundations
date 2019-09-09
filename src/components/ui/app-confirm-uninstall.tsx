@@ -48,7 +48,7 @@ export const AppConfirmUninstall = ({
   return (
     <div data-test="confirm-content">
       <h6 className="mb-5">
-        Are you sure you wish to uninstall {appName} app? This action will uninstall the app for ALL platform users.
+        Are you sure you wish to uninstall {appName}? This action will uninstall the app for ALL platform users.
       </h6>
       <div className="flex">
         <Button

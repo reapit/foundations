@@ -42,6 +42,11 @@ exports[`Router should match a snapshot 1`] = `
         path="/register"
         render={[Function]}
       />
+      <Route
+        exact={true}
+        path="/404"
+        render={[Function]}
+      />
       <withRouter(Connect(Component))
         path="/"
       >

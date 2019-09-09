@@ -54,3 +54,17 @@
     height: 300px;
   }
 }
+
+.register {
+  @media screen and (max-width: 768px) {
+    padding-top: 1rem;
+  }
+
+  @media screen and (min-width: 900px) {
+    padding-left: 1rem;
+  }
+
+  @media screen and (min-width: 960px) {
+    padding: 0;
+  }
+}

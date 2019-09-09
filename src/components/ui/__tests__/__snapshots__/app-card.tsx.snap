@@ -22,7 +22,7 @@ exports[`AppCard should match a snapshot 1`] = `
       test
     </h5>
     <p
-      className="subtitle is6"
+      className="subtitle is6 undefined"
     >
       nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
     </p>

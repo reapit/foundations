@@ -59,16 +59,15 @@ exports[`Register should match a snapshot for SUCCESS state 1`] = `
     >
       Reapit Foundations developers
     </p>
-    <Alert
+    <CallToAction
+      buttonText="Login"
       dataTest="register-success-message"
-      message="Check you email to confirm your account"
-      type="success"
-    />
-    <Link
-      to="/login"
+      isCenter={true}
+      onButtonClick={[Function]}
+      title="Success!"
     >
-      Login
-    </Link>
+      Check you email to confirm your account
+    </CallToAction>
   </div>
   <div>
     <img

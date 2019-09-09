@@ -55,6 +55,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
             fetchAppDetail(app.id, clientId)
           }
         }}
+        infoType="CLIENT_APPS_EMPTY"
       />
       <Pagination
         onChange={page => history.push(`${routes.CLIENT}/${page}`)}

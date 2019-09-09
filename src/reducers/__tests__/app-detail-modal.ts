@@ -18,15 +18,6 @@ describe('app-detail modal reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set error to false when SET_APP_DETAIL_MODAL_STATE_PERMISSION action is called', () => {
-    const newState = appDetailModalReducer(undefined, {
-      type: ActionTypes.SET_APP_DETAIL_MODAL_STATE_PERMISSION as ActionType,
-      data: true
-    })
-    const expected = 'VIEW_PERMISSION'
-    expect(newState).toEqual(expected)
-  })
-
   it('should set app-detail item data when SET_APP_DETAIL_MODAL_STATE_CONFIRM action is called', () => {
     const newState = appDetailModalReducer(undefined, {
       type: ActionTypes.SET_APP_DETAIL_MODAL_STATE_CONFIRM as ActionType,

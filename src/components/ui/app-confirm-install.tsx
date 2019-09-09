@@ -52,18 +52,28 @@ export const AppConfirmInstallContent = ({
   return (
     <div data-test="confirm-content">
       <h3 className={`${bulma.title} ${bulma.is3} ${appPermissionContentStyles.heading}`}>
-        Please confim you agree to the permissions before installing
+        Confirm {appName} installation
       </h3>
-      <h6 className={appPermissionContentStyles.subtitle}>
-        This {appName} equires the following permissions, please click ‘Agree’ to continue to the installation.
-      </h6>
-      <ul className={appPermissionContentStyles.permissionList}>
-        {permissions.map(({ description, name }) => (
-          <li key={name} className={appPermissionContentStyles.permissionListItem}>
-            {description}
-          </li>
-        ))}
-      </ul>
+      {permissions.length ? (
+        <>
+          <h6 className={appPermissionContentStyles.subtitle}>
+            This action will install the app for ALL platform users.
+            <br />
+            {appName} requires the permissions below. By installing you are granting permission to your data.
+          </h6>
+          <ul className={appPermissionContentStyles.permissionList}>
+            {permissions.map(({ description, name }) => (
+              <li key={name} className={appPermissionContentStyles.permissionListItem}>
+                {description}
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <h6 className={appPermissionContentStyles.subtitle}>
+          This action will install the app for ALL platform users.
+        </h6>
+      )}
       <div className={appPermissionContentStyles.installButtonContainer}>
         <Button
           dataTest="agree-btn"
@@ -73,7 +83,7 @@ export const AppConfirmInstallContent = ({
           variant="primary"
           onClick={requestInstall}
         >
-          Agree
+          Confirm
         </Button>
         <Button
           dataTest="disagree-btn"
@@ -83,7 +93,7 @@ export const AppConfirmInstallContent = ({
           variant="danger"
           onClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
         >
-          Disagree
+          Cancel
         </Button>
       </div>
     </div>

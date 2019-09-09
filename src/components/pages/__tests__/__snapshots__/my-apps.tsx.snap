@@ -3,6 +3,7 @@
 exports[`MyApps should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
   <Component
+    infoType="INSTALLED_APPS_EMPTY"
     list={
       Array [
         Object {

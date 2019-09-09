@@ -33,7 +33,9 @@ describe('Client Browse Install Apps', () => {
     ClientInstalledAppsPage.open()
     ClientInstalledAppsPage.cardContainer.waitForVisible()
 
-    expect(ClientInstalledAppsPage.appCardByName.getAttribute('data-test').split('_')[1]).toEqual(Common.appId)
+    expect((ClientInstalledAppsPage.appCardByName.getAttribute('data-test') as string).split('_')[1]).toEqual(
+      Common.appId
+    )
   })
 
   it('should correctly uninstall an app', () => {

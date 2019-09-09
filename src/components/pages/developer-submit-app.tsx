@@ -58,7 +58,8 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
           isCard
         >
           You have successfully submitted your App. You will be notified via email once your app has been approved.
-          Please see <Link to={Routes.DEVELOPER_MY_APPS}>Manage Apps</Link> to see the current status
+          Please see <Link to={Routes.DEVELOPER_MY_APPS}>Manage Apps</Link> to edit and set status to be "listed" on the
+          marketplace.
         </CallToAction>
       ) : (
         <div
