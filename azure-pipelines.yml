@@ -88,7 +88,7 @@ jobs:
   - deployment: S3DeployWebDev
     displayName: 'Dev | S3 Deployment'
     dependsOn: buildWebApp
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
     pool:
       vmImage: 'ubuntu-latest'
     environment: 'reapit-geo-diary-dev'
@@ -110,7 +110,7 @@ jobs:
   - deployment: S3DeployWebProd
     displayName: 'Prod | S3 Deployment'
     dependsOn: buildWebApp
-    condition: and(succeeded(), contains(variables['Build.SourceBranch'], 'refs/heads/master'))
+    condition: and(succeeded(), contains(variables['Build.SourceBranch'], 'refs/tags/GD-'))
     pool:
       vmImage: 'ubuntu-latest'
     environment: 'reapit-geo-diary-prod'
