@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MapPanel should match a snapshot when invalid LAT, LONG 1`] = `""`;
+
+exports[`MapPanel should match a snapshot when valid LAT, LONG 1`] = `
+<div>
+  <div>
+    <p
+      className="is-size-4"
+    >
+      15 mins
+    </p>
+    <p>
+      3 miles
+    </p>
+  </div>
+  <Button
+    className="is-large"
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Start Journey
+  </Button>
+</div>
+`;
