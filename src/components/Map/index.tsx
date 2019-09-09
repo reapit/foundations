@@ -223,11 +223,12 @@ export const renderMap = ({
   zoom,
   coordinates,
   component,
+  mapContainerStyles,
   ...restProps
 }) => (googleMaps, error) => {
   if (googleMaps && !error) {
     return (
-      <div style={{ height: '90vh' }}>
+      <div style={{ height: '90vh', ...mapContainerStyles }}>
         <GoogleMap
           googleMaps={googleMaps}
           onLoaded={handleOnLoaded({
@@ -308,6 +309,7 @@ export const Map: React.FC<MapProps<any>> = ({
   destinationPoint,
   travelMode = 'DRIVING',
   onLoadedDirection,
+  mapContainerStyles,
   ...restProps
 }) => {
   const googleMapsRef = React.useRef(null)
@@ -352,6 +354,7 @@ export const Map: React.FC<MapProps<any>> = ({
         zoom,
         coordinates,
         component,
+        mapContainerStyles,
         ...restProps
       })}
     />

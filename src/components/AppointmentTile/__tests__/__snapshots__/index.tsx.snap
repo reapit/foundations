@@ -2,30 +2,36 @@
 
 exports[`AppointmentTile should match snapshot when HIGHTLIGHT false 1`] = `
 <div
-  className="box appointment-tile "
+  className="card appointment-tile "
 >
   <div
-    className="location-marker"
+    className="card-content"
   >
-    <FaMapMarkerAlt />
-  </div>
-  <div>
-    <h4>
-      <b>
-        mockHeading
-      </b>
-    </h4>
-    <div>
-      City
+    <div
+      className="location-marker"
+    >
+      <FaMapMarkerAlt />
+      <h5
+        className="title is-5"
+      >
+        <b>
+          mockHeading
+        </b>
+      </h5>
     </div>
     <div>
-      Country
-    </div>
-    <div>
-      PostalCode
-    </div>
-    <div>
-      "contactPerson"
+      <div>
+        City
+      </div>
+      <div>
+        Country
+      </div>
+      <div>
+        PostalCode
+      </div>
+      <div>
+        "contactPerson"
+      </div>
     </div>
   </div>
 </div>
@@ -33,30 +39,36 @@ exports[`AppointmentTile should match snapshot when HIGHTLIGHT false 1`] = `
 
 exports[`AppointmentTile should match snapshot when HIGHTLIGHT true 1`] = `
 <div
-  className="box appointment-tile hightlight"
+  className="card appointment-tile hightlight"
 >
   <div
-    className="location-marker"
+    className="card-content"
   >
-    <FaMapMarkerAlt />
-  </div>
-  <div>
-    <h4>
-      <b>
-        mockHeading
-      </b>
-    </h4>
-    <div>
-      City
+    <div
+      className="location-marker"
+    >
+      <FaMapMarkerAlt />
+      <h5
+        className="title is-5"
+      >
+        <b>
+          mockHeading
+        </b>
+      </h5>
     </div>
     <div>
-      Country
-    </div>
-    <div>
-      PostalCode
-    </div>
-    <div>
-      "contactPerson"
+      <div>
+        City
+      </div>
+      <div>
+        Country
+      </div>
+      <div>
+        PostalCode
+      </div>
+      <div>
+        "contactPerson"
+      </div>
     </div>
   </div>
 </div>
