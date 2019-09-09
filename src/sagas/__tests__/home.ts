@@ -1,7 +1,7 @@
 import homeSagas, { homeDataFetch, homeDataListen } from '../home'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
-import { homeLoading, homeReceiveData, homeRequestDataFailure } from '@/actions/home'
+import { put, takeLatest, all, fork } from '@redux-saga/core/effects'
+import { homeLoading, homeReceiveData } from '@/actions/home'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 

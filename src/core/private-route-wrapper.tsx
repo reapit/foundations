@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { Redirect, RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 import { withRouter } from 'react-router'
-import { ReduxState } from 'src/types/core'
 import Routes from '../constants/routes'
 
 const { Suspense } = React
@@ -43,12 +41,12 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   )
 }
 
-const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
+const mapStateToProps = (): PrivateRouteWrapperConnectState => ({
   isLogin: true,
   isDesktopLogin: false
 })
 
-const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({})
+const mapDispatchToProps = (): PrivateRouteWrapperConnectActions => ({})
 
 export default withRouter(
   connect(
