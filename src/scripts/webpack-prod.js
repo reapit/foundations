@@ -9,9 +9,23 @@ const Dotenv = require('dotenv-webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const PurgecssWhitelister = require('purgecss-whitelister')
 
 const PATHS = {
   src: path.join(__dirname, '../..', 'src')
+}
+
+const PurgecssLoader = {
+  loader: path.resolve('./src/scripts/purgecss-loader.js'),
+  options: {
+    paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`),
+    whitelistPatterns: [/^(slick)/, /^(modal)/],
+    whitelist: PurgecssWhitelister([
+      'src/styles/utilities.scss',
+      'src/styles/vendor/normalize.scss',
+      'node_modules/@reapit/elements/dist/*.css'
+    ])
+  }
 }
 
 module.exports = {
@@ -132,12 +146,7 @@ module.exports = {
                   localsConvention: 'camelCase'
                 }
               },
-              {
-                loader: path.resolve('./src/scripts/purgecss-loader.js'),
-                options: {
-                  paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`)
-                }
-              },
+              PurgecssLoader,
               {
                 loader: 'sass-loader',
                 options: {
@@ -155,13 +164,7 @@ module.exports = {
                   importLoaders: 1
                 }
               },
-              {
-                loader: path.resolve('./src/scripts/purgecss-loader.js'),
-                options: {
-                  paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`),
-                  whitelistPatterns: [/^(slick)/]
-                }
-              },
+              PurgecssLoader,
               {
                 loader: 'sass-loader',
                 options: {
