@@ -1,43 +1,73 @@
 import * as React from 'react'
+import { MapContainer, mapStateToProps, filterInvalidMarker } from '../map'
 import invalidValues from '@/constants/invalid-values'
-import { MapContainer, filterInvalidMarker } from '../map'
 import { shallow } from 'enzyme'
-
-const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
-
-describe('Map', () => {
-  it('filter invalid marker correctly', () => {
-    const input = [
-      {
-        lat: UNDEFINED_LATLNG_NUMBER,
-        lng: UNDEFINED_LATLNG_NUMBER,
-        id: UNDEFINED_NULL_STRING,
-        address1: 'not ok',
-        address2: 'not ok'
-      },
-      {
-        lat: 0,
-        lng: 0,
-        id: '0',
-        address1: 'ok',
-        address2: 'ok'
-      }
-    ]
-
-    expect(filterInvalidMarker(input)).toEqual([
-      {
-        lat: 0,
-        lng: 0,
-        id: '0',
-        address1: 'ok',
-        address2: 'ok'
-      }
-    ])
-  })
-})
+import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
+import { appointmentDataStub } from '@/sagas/__stubs__/appointment'
 
 describe('Map', () => {
   it('Should match snapshot', () => {
-    expect(shallow(<MapContainer appointments={[]} />)).toMatchSnapshot()
+    const mockProps = {
+      appointments: appointmentsDataStub.data.data,
+      destinationLatLng: { lat: 0, lng: 0 }
+    }
+    const wrapper = shallow(<MapContainer {...mockProps} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('Should match snapshot', () => {
+    const mockProps = {
+      appointments: undefined,
+      destinationLatLng: { lat: 0, lng: 0 }
+    }
+    const wrapper = shallow(<MapContainer {...mockProps} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  describe('mapStateToProps', () => {
+    it('should run correctly', () => {
+      const mockState = {
+        appointments: {
+          appointments: appointmentsDataStub
+        },
+        direction: {
+          destination: appointmentDataStub
+        }
+      } as any
+      const result = mapStateToProps(mockState)
+      const expected = {
+        appointments: appointmentsDataStub.data.data,
+        destinationLatLng: {
+          lat: 52.1284,
+          lng: -0.507145
+        }
+      }
+      expect(result).toEqual(expected)
+    })
+    it('should run correctly', () => {
+      const mockState = {
+        appointments: null,
+        direction: null
+      } as any
+      const result = mapStateToProps(mockState)
+      const expected = {
+        appointments: [],
+        destinationLatLng: {
+          lat: undefined,
+          lng: undefined
+        }
+      }
+      expect(result).toEqual(expected)
+    })
+  })
+  describe('filterInvalidMarker', () => {
+    const markers = [
+      { id: '123', lat: 0, lng: 0 },
+      { id: '3245', lat: 0, lng: 0 },
+      { id: '67876', lat: invalidValues.UNDEFINED_LATLNG_NUMBER, lng: invalidValues.UNDEFINED_LATLNG_NUMBER }
+    ]
+    const expected = [{ id: '123', lat: 0, lng: 0 }, { id: '3245', lat: 0, lng: 0 }]
+    const result = filterInvalidMarker(markers)
+    expect(result).toEqual(expected)
   })
 })

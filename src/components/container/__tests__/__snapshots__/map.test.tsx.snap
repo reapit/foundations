@@ -3,6 +3,7 @@
 exports[`Map Should match snapshot 1`] = `
 <div>
   <Map
+    autoFitBounds={true}
     component={
       Object {
         "$$typeof": Symbol(react.memo),
@@ -12,14 +13,218 @@ exports[`Map Should match snapshot 1`] = `
         "type": [Function],
       }
     }
-    defaultCenter={
-      Object {
-        "lat": 52.158116,
-        "lng": -0.433449,
-      }
+    coordinates={
+      Array [
+        Object {
+          "address1": "High Street",
+          "address2": "The Stables",
+          "id": "NEP1600290",
+          "position": Object {
+            "lat": 52.079532,
+            "lng": -0.790871,
+          },
+        },
+        Object {
+          "address1": "The Embankment",
+          "address2": "Bedford",
+          "id": "BED1600537",
+          "position": Object {
+            "lat": 52.135071,
+            "lng": -0.45936,
+          },
+        },
+        Object {
+          "address1": "Sandhill Road",
+          "address2": "East Claydon",
+          "id": "BUC1600211",
+          "position": Object {
+            "lat": 51.924759,
+            "lng": -0.929362,
+          },
+        },
+        Object {
+          "address1": "Little Tingewick",
+          "address2": "Buckingham",
+          "id": "BUC1600210",
+          "position": Object {
+            "lat": 51.989592,
+            "lng": -1.06774,
+          },
+        },
+        Object {
+          "address1": "",
+          "address2": "",
+          "id": "STS1600403",
+          "position": Object {
+            "lat": 9999,
+            "lng": 9999,
+          },
+        },
+        Object {
+          "address1": "",
+          "address2": "",
+          "id": "STS1600401",
+          "position": Object {
+            "lat": 9999,
+            "lng": 9999,
+          },
+        },
+        Object {
+          "address1": "High Street",
+          "address2": "The Stables",
+          "id": "NEP1600288",
+          "position": Object {
+            "lat": 52.079532,
+            "lng": -0.790871,
+          },
+        },
+        Object {
+          "address1": "",
+          "address2": "",
+          "id": "STS1600396",
+          "position": Object {
+            "lat": 9999,
+            "lng": 9999,
+          },
+        },
+        Object {
+          "address1": "",
+          "address2": "",
+          "id": "NEP1600287",
+          "position": Object {
+            "lat": 9999,
+            "lng": 9999,
+          },
+        },
+        Object {
+          "address1": "Shelton Road",
+          "address2": "Yielden",
+          "id": "BED1600534",
+          "position": Object {
+            "lat": 52.29491,
+            "lng": -0.512901,
+          },
+        },
+        Object {
+          "address1": "",
+          "address2": "",
+          "id": "STS1600394",
+          "position": Object {
+            "lat": 9999,
+            "lng": 9999,
+          },
+        },
+        Object {
+          "address1": "The Causeway",
+          "address2": "Carlton",
+          "id": "BED1600532",
+          "position": Object {
+            "lat": 52.188155,
+            "lng": -0.604618,
+          },
+        },
+        Object {
+          "address1": "Foxfield",
+          "address2": "Broughton Gate",
+          "id": "MKC1600312",
+          "position": Object {
+            "lat": 52.044516,
+            "lng": -0.689953,
+          },
+        },
+        Object {
+          "address1": "Bedford Road",
+          "address2": "Northill",
+          "id": "BED1600530",
+          "position": Object {
+            "lat": 52.105969,
+            "lng": -0.353784,
+          },
+        },
+        Object {
+          "address1": "Little Tingewick",
+          "address2": "Buckingham",
+          "id": "BUC1600209",
+          "position": Object {
+            "lat": 51.989592,
+            "lng": -1.06774,
+          },
+        },
+        Object {
+          "address1": "The Embankment",
+          "address2": "Bedford",
+          "id": "BED1600525",
+          "position": Object {
+            "lat": 52.135071,
+            "lng": -0.45936,
+          },
+        },
+        Object {
+          "address1": "Tyne Crescent",
+          "address2": "Bedford",
+          "id": "BED1600523",
+          "position": Object {
+            "lat": 52.161384,
+            "lng": -0.461113,
+          },
+        },
+        Object {
+          "address1": "Deacon Place",
+          "address2": "Middleton",
+          "id": "MKC1600311",
+          "position": Object {
+            "lat": 52.04681,
+            "lng": -0.710721,
+          },
+        },
+        Object {
+          "address1": "",
+          "address2": "",
+          "id": "STS1600389",
+          "position": Object {
+            "lat": 9999,
+            "lng": 9999,
+          },
+        },
+      ]
     }
     defaultZoom={16}
-    markers={Array []}
+    destinationPoint={
+      Object {
+        "lat": 0,
+        "lng": 0,
+      }
+    }
+    travelMode="DRIVING"
+  />
+  <Memo()
+    onChangeTravelMode={[Function]}
+    travelMode="DRIVING"
+  />
+</div>
+`;
+
+exports[`Map Should match snapshot 2`] = `
+<div>
+  <Map
+    autoFitBounds={true}
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(Component)",
+        "type": [Function],
+      }
+    }
+    coordinates={Array []}
+    defaultZoom={16}
+    destinationPoint={
+      Object {
+        "lat": 0,
+        "lng": 0,
+      }
+    }
     travelMode="DRIVING"
   />
   <Memo()

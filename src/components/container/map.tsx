@@ -1,23 +1,27 @@
 import * as React from 'react'
-import { Map } from '@reapit/elements'
+import { Map, CoordinateProps } from '@reapit/elements'
+import { oc } from 'ts-optchain'
+import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppointmentModel } from '@/types/appointments'
-import { oc } from 'ts-optchain'
 import invalidValues from '@/constants/invalid-values'
-import { connect } from 'react-redux'
-import { MarkerComponentWithConnect, MarkerPropsExened } from '@/components/container/marker-component'
+import { MarkerComponentWithConnect } from '@/components/container/marker-component'
 import mapStyles from '@/styles/pages/map.scss?mod'
 import TravelMode from '../ui/travel-mode'
 
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
 
 export interface MapContainerMappedState {
-  appointments: AppointmentModel[]
+  appointments: AppointmentModel[] | undefined
+  destinationLatLng: {
+    lat: number | undefined
+    lng: number | undefined
+  }
 }
 
 export type MapContainerProps = MapContainerMappedState
 
-export const filterInvalidMarker = (markers: MarkerPropsExened[]) => {
+export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
   return markers.filter(appointments => {
     return (
       appointments.lat !== UNDEFINED_LATLNG_NUMBER &&
@@ -27,19 +31,20 @@ export const filterInvalidMarker = (markers: MarkerPropsExened[]) => {
   })
 }
 
-export const MapContainer = ({ appointments }: MapContainerProps) => {
+export const MapContainer = ({ appointments = [], destinationLatLng }: MapContainerProps) => {
   const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
-  const markers: MarkerPropsExened[] = filterInvalidMarker(
+  const coordinates: CoordinateProps<any> = filterInvalidMarker(
     appointments.map(appointment => {
       const lat = oc(appointment).property.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
       const lng = oc(appointment).property.geolocation.longitude(UNDEFINED_LATLNG_NUMBER)
       const id = oc(appointment).id(UNDEFINED_NULL_STRING)
       const address1 = oc(appointment).property.line1('')
       const address2 = oc(appointment).property.line2('')
-
       return {
-        lat,
-        lng,
+        position: {
+          lat,
+          lng
+        },
         address1,
         address2,
         id
@@ -57,10 +62,11 @@ export const MapContainer = ({ appointments }: MapContainerProps) => {
   return (
     <div className={mapStyles.mapContainer}>
       <Map
+        autoFitBounds={true}
         apiKey={process.env.MAP_API_KEY as string}
-        markers={markers}
+        coordinates={coordinates}
         component={MarkerComponentWithConnect}
-        defaultCenter={{ lat: 52.158116, lng: -0.433449 }}
+        destinationPoint={destinationLatLng}
         defaultZoom={16}
         travelMode={travelMode}
       />
@@ -70,10 +76,15 @@ export const MapContainer = ({ appointments }: MapContainerProps) => {
 }
 
 export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
-  const appointments = oc(state.appointments.appointments).data.data([])
-
+  const appointments = oc(state).appointments.appointments.data.data([])
+  const destinationLat = oc(state).direction.destination.property.geolocation.latitude(undefined)
+  const destinationLng = oc(state).direction.destination.property.geolocation.longitude(undefined)
   return {
-    appointments
+    appointments,
+    destinationLatLng: {
+      lat: destinationLat,
+      lng: destinationLng
+    }
   }
 }
 

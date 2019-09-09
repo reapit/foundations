@@ -1,13 +1,12 @@
 import * as React from 'react'
-import toJson from 'enzyme-to-json'
 import { shallow } from 'enzyme'
-import { MarkerComponent, MarkerComponentProps } from '../marker-component'
+import { MarkerComponent, MarkerComponentProps, mapDispatchToProps } from '../marker-component'
 
 describe('Marker Component', () => {
   it('Should match snapshot', () => {
     const props: MarkerComponentProps = {
-      markerOnClick: jest.fn(),
-      marker: {
+      handleOnClick: jest.fn(),
+      coordinate: {
         lng: 1,
         lat: 1,
         id: '1',
@@ -15,6 +14,22 @@ describe('Marker Component', () => {
         address2: '1'
       }
     }
-    expect(toJson(shallow(<MarkerComponent {...props} />))).toMatchSnapshot()
+    const wrapper = shallow(<MarkerComponent {...props} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('mapDispatchToProps', () => {
+    const mockDispatch = jest.fn()
+    const mockOwnProps = {
+      id: '1'
+    }
+    const { handleOnClick } = mapDispatchToProps(mockDispatch, mockOwnProps)
+    handleOnClick()
+    expect(mockDispatch).toBeCalledWith({
+      data: {
+        id: '1'
+      },
+      type: 'APPOINTMENT_DETAIL_REQUEST_DATA'
+    })
   })
 })

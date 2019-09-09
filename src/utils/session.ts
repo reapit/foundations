@@ -1,4 +1,3 @@
-import { LOGIN_TYPE } from '@/constants/auth'
 import { LOCAL_STORAGE_SESSION_KEY } from '@/constants/session'
 import store from '@/core/store'
 import { RefreshParams, LoginSession, LoginType, tokenExpired, refreshSession } from '@reapit/elements'

@@ -1,15 +1,17 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { homeLoading, homeReceiveData, homeClearData, homeRequestDataFailure } from '../actions/home'
+import { homeLoading, homeReceiveData, homeClearData, homeRequestDataFailure, homeTabChange } from '../actions/home'
 
 export interface HomeState {
   loading: boolean
   homeData: {} | null
+  homeTab: 'LIST' | 'MAP'
 }
 
 export const defaultState: HomeState = {
   loading: false,
-  homeData: null
+  homeData: null,
+  homeTab: 'LIST'
 }
 
 const homeReducer = (state: HomeState = defaultState, action: Action<any>): HomeState => {
@@ -40,6 +42,13 @@ const homeReducer = (state: HomeState = defaultState, action: Action<any>): Home
     return {
       ...state,
       loading: false
+    }
+  }
+
+  if (isType(action, homeTabChange)) {
+    return {
+      ...state,
+      homeTab: action.data
     }
   }
 
