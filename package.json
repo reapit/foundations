@@ -90,6 +90,7 @@
     "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.14.4",
     "webpack": "^4.32.2",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
   }

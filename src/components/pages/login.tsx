@@ -1,7 +1,5 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { ReduxState } from '../../types/core'
-import { Dispatch } from 'redux'
 import { withRouter, RouteComponentProps } from 'react-router'
 
 export interface LoginMappedActions {}
@@ -15,13 +13,13 @@ export interface LoginFormValues {
 
 export type LoginProps = LoginMappedActions & LoginMappedProps & RouteComponentProps
 
-export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
+export const Login: React.FunctionComponent<LoginProps> = () => {
   return <h1>Login Page</h1>
 }
 
-const mapStateToProps = (state: ReduxState): LoginMappedProps => ({})
+const mapStateToProps = (): LoginMappedProps => ({})
 
-const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({})
+const mapDispatchToProps = (): LoginMappedActions => ({})
 
 export default withRouter(
   connect(
