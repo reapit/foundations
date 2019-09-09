@@ -170,7 +170,16 @@ const createGoogleMapsMock = (libraries = []) => {
     },
     GroundOverlay: function() {},
     ImageMapType: function() {},
-    InfoWindow: function() {},
+    InfoWindow: function(opts) {
+      //@ts-ignore
+      this.opts = opts
+      //@ts-ignore
+      createMVCObject(this)
+      //@ts-ignore
+      createMockFuncsFromArray(this, [
+        'setContent'
+      ])
+    },
     KmlLayer: function() {},
     KmlLayerStatus: {
       DOCUMENT_NOT_FOUND: 'DOCUMENT_NOT_FOUND',
@@ -183,14 +192,20 @@ const createGoogleMapsMock = (libraries = []) => {
       TIMED_OUT: 'TIMED_OUT',
       UNKNOWN: 'UNKNOWN',
     },
-    LatLng: function() {},
-    LatLngBounds: function(opts) {
-      //@ts-ignore
-      this.opts = opts
+    LatLng: function(lat, lng) {
       //@ts-ignore
       createMVCObject(this)
       //@ts-ignore
       createMockFuncsFromArray(this, [
+        'setMap'
+      ])
+    },
+    LatLngBounds: function() {
+      //@ts-ignore
+      createMVCObject(this)
+      //@ts-ignore
+      createMockFuncsFromArray(this, [
+        'getCenter',
         'extend'
       ])
     },
