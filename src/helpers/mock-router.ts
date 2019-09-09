@@ -28,16 +28,16 @@ export function getMockRouterProps<P>(data: P | {}) {
       go: jest.fn(),
       goBack: jest.fn(),
       goForward: jest.fn(),
-      block: t => {
+      block: () => {
         // tslint:disable-next-line:no-empty
         const temp: UnregisterCallback = () => {}
         return temp
       },
-      createHref: t => {
+      createHref: () => {
         const temp: Href = ''
         return temp
       },
-      listen: t => {
+      listen: () => {
         // tslint:disable-next-line:no-empty
         const temp: UnregisterCallback = () => {}
         return temp

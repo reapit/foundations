@@ -2,75 +2,99 @@ import React from 'react'
 import GoogleMap from 'react-google-map'
 import ReactGoogleMapLoader from 'react-google-maps-loader'
 
-export type MarkerProps<T> = T & {
+export type Coords = {
   lat: number
   lng: number
 }
 
-export type GoogleMapProps<T> = {
+export type CoordinateProps<T> = T & {
+  position: Coords
+  onLoaded: Function
+}
+
+export type GoogleMapProps<T> = T & {
   autoFitBounds?: boolean
   boundsOffset?: number
-  coordinates?: {
-    onLoaded: Function
-  }[]
-  googleMaps: {}
+  coordinates?: CoordinateProps<any>[]
+  googleMaps?: {}
   onLoaded?: Function | null
-  defaultCenter: MarkerProps<{}>
+  onLoadedDirection?: Function | null
+  defaultCenter: Coords
   defaultZoom: number
-  markers: MarkerProps<T>[]
 }
 
-export const handleOnClickMarker = (infoWindow, map, marker, markerItem) => () => {
-  infoWindow.open(map, marker)
-  const markerInfoWindow = document.getElementById(`marker-${markerItem.lat}-${markerItem.lng}`)
-  if (markerInfoWindow) {
-    markerInfoWindow.style.display = 'block'
+export type MapProps<T> = T &
+  GoogleMapProps<T> & {
+    apiKey: string
+    component?: any
+    libraries?: string
   }
-}
 
-export const renderMarkers = ({ markers, googleMaps, map, defaultCenter }) => {
-  const newMarkers: any[] = []
-  const bounds = new googleMaps.LatLngBounds()
-  markers.forEach((markerItem: MarkerProps<{ title?: string }>, index: number) => {
+export const renderMarkers = ({ coordinates, googleMaps, map }) =>
+  coordinates.map((coordinate: CoordinateProps<any>, index: number) => {
     const label = {
       text: String(index + 1),
       fontSize: '1.5rem',
       fontWeight: '500'
     }
-    const newMarker = new googleMaps.Marker({
+    const marker = new googleMaps.Marker({
       position: {
-        lat: markerItem.lat,
-        lng: markerItem.lng
+        lat: coordinate.position.lat,
+        lng: coordinate.position.lng
       },
-      title: markerItem.title || '',
-      map,
-      label
+      label,
+      map
     })
-    const infoWindow = new googleMaps.InfoWindow({
-      content: document.getElementById(`marker-${markerItem.lat}-${markerItem.lng}`)
+    const infoWindow = new googleMaps.InfoWindow()
+    const markerInfo = document.getElementById(`coordinate-${coordinate.position.lat}-${coordinate.position.lng}`)
+    infoWindow.setContent(markerInfo)
+    googleMaps.event.addListener(marker, 'click', () => {
+      if (markerInfo) {
+        markerInfo.style.display = 'block'
+      }
+      infoWindow.open(map, marker)
     })
-    googleMaps.event.addListener(newMarker, 'click', handleOnClickMarker(infoWindow, map, newMarker, markerItem))
-    bounds.extend(newMarker.getPosition())
-    newMarkers.push(newMarker)
+    return marker
   })
-  if (!defaultCenter) {
-    map.setCenter(bounds.getCenter())
+
+export const getCurrentLocation = ({ googleMaps, position, map }) => {
+  const currentLocation = new googleMaps.Marker({
+    position: {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    },
+    content: 'Your location',
+    map
+  })
+  return currentLocation
+}
+
+export const handleRequestDirectionServiceResponse = ({ currentLocation, onLoadedDirection, directionsRenderer }) => (
+  response,
+  status
+) => {
+  if (status === 'OK') {
+    currentLocation.setMap(null)
+    if (onLoadedDirection) {
+      onLoadedDirection(response)
+    }
+    directionsRenderer.setDirections(response)
+  } else {
+    window.alert('Directions request failed due to ' + status)
   }
-  return newMarkers
 }
 
 export const renderDirection = ({
-  googleMaps,
-  position,
   destinationPoint,
   map,
+  position,
+  googleMaps,
+  directionsService,
+  directionsRenderer,
   travelMode,
-  markers,
-  currentLocation,
-  onLoadedDirection
+  onLoadedDirection,
+  currentLocation
 }) => {
-  const directionsService = new googleMaps.DirectionsService()
-  const directionsRenderer = new googleMaps.DirectionsRenderer()
   directionsRenderer.setMap(map)
   const origin = new googleMaps.LatLng(position.coords.latitude, position.coords.longitude)
   const destination = new googleMaps.LatLng(destinationPoint.lat, destinationPoint.lng)
@@ -80,188 +104,255 @@ export const renderDirection = ({
       destination,
       travelMode
     },
-    function(response, status) {
-      if (status === 'OK') {
-        currentLocation.setMap(null)
-        markers.forEach(item => item.setMap(null))
-        if (onLoadedDirection) {
-          onLoadedDirection(response)
-        }
-        directionsRenderer.setDirections(response)
-      } else {
-        window.alert('Directions request failed due to ' + status)
-      }
-    }
+    handleRequestDirectionServiceResponse({ currentLocation, onLoadedDirection, directionsRenderer })
   )
 }
 
-export const successCallBack = ({
-  markers,
+export const setZoomAndCenter = ({ bounds, center, zoom, map, markers }) => {
+  markers.forEach(marker => bounds.extend(marker.getPosition()))
+  if (!zoom) {
+    map.fitBounds(bounds)
+  }
+  if (!center) {
+    map.setCenter(bounds.getCenter())
+  }
+}
+
+export const renderDirectionAndMarkers = ({
+  googleMapsRef,
+  mapRef,
+  coordinates,
+  center,
+  zoom,
   destinationPoint,
   travelMode,
-  googleMaps,
-  map,
   onLoadedDirection,
-  defaultCenter
-}) => (position: Position) => {
-  const currentLocation = new googleMaps.Marker({
-    position: {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    },
-    icon: {
-      scaledSize: new googleMaps.Size(20, 20)
-    },
-    map
-  })
-  const newMarkers = renderMarkers({ markers, googleMaps, map, defaultCenter })
-  if (destinationPoint) {
-    renderDirection({
-      googleMaps,
-      position,
-      destinationPoint,
-      travelMode,
-      currentLocation,
-      onLoadedDirection,
-      markers: newMarkers,
-      map
+  markersRef,
+  directionsRendererRef,
+  directionsServiceRef,
+  boundsRef
+}) => {
+  const googleMaps = googleMapsRef.current
+  const map = mapRef.current
+  const directionsRenderer = directionsRendererRef.current
+  const directionsService = directionsServiceRef.current
+  const bounds = boundsRef.current
+  let markers = []
+  if (googleMaps && map && navigator.geolocation) {
+    return navigator.geolocation.getCurrentPosition((position: Position) => {
+      const currentLocation = getCurrentLocation({ googleMaps, position, map })
+      const isDrawDrirection = destinationPoint && destinationPoint.lat && destinationPoint.lng
+      if (isDrawDrirection) {
+        renderDirection({
+          destinationPoint,
+          map,
+          position,
+          googleMaps,
+          directionsService,
+          directionsRenderer,
+          travelMode,
+          onLoadedDirection,
+          currentLocation
+        })
+        return
+      }
+      markers = renderMarkers({ coordinates, googleMaps, map })
+      setZoomAndCenter({ bounds, center, zoom, map, markers: [...markers, currentLocation] })
+      markersRef.current = markers
+      return
     })
   }
+  if (googleMaps && map) {
+    const bounds = new googleMaps.LatLngBounds()
+    const markers = renderMarkers({ coordinates, googleMaps, map })
+    setZoomAndCenter({ bounds, center, zoom, map, markers })
+    markersRef.current = markers
+    return
+  }
 }
 
-export const onLoadedMapHandler = ({
-  markers,
-  destinationPoint,
-  travelMode,
-  onLoaded,
-  onLoadedDirection,
-  defaultCenter
+export const handleOnLoaded = ({
+  googleMapsRef,
+  mapRef,
+  directionsServiceRef,
+  directionsRendererRef,
+  boundsRef,
+  onLoaded
 }) => (googleMaps, map) => {
-  map.setMapTypeId(googleMaps.MapTypeId.ROADMAP)
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      successCallBack({ markers, destinationPoint, travelMode, googleMaps, map, onLoadedDirection, defaultCenter })
-    )
-  }
+  googleMapsRef.current = googleMaps
+  mapRef.current = map
+  const bounds = new googleMaps.LatLngBounds()
+  const directionsService = new googleMaps.DirectionsService()
+  const directionsRenderer = new googleMaps.DirectionsRenderer()
+  boundsRef.current = bounds
+  directionsServiceRef.current = directionsService
+  directionsRendererRef.current = directionsRenderer
+
   if (onLoaded) {
-    onLoaded({ googleMaps, map })
+    onLoaded({ googleMaps, map, bounds, directionsService, directionsRenderer })
   }
 }
 
-export const renderMarkerContent = (markers: MarkerProps<any>[] = [], component: any) => {
-  const Component = component
-  return markers.map((markerItem: MarkerProps<{}>) => {
+export type MarkerContentProps = {
+  coordinates: CoordinateProps<any>[]
+  component: any
+}
+
+export const renderMarkersContent = ({ coordinates = [], component: Component }: MarkerContentProps) => {
+  return coordinates.map((coordinate: CoordinateProps<any>, index: number) => {
     return (
       <div
-        key={`marker-${markerItem.lat}-${markerItem.lng}`}
-        id={`marker-${markerItem.lat}-${markerItem.lng}`}
         style={{ display: 'none' }}
+        key={index}
+        id={`coordinate-${coordinate.position.lat}-${coordinate.position.lng}`}
       >
-        <Component marker={markerItem} />
+        <Component coordinate={coordinate} />
       </div>
     )
   })
 }
 
-export type renderHandlerParams = {
-  markers: MarkerProps<any>[]
-  component: any
-  defaultCenter?: MarkerProps<{}>
-  defaultZoom?: number
-  autoFitBounds?: boolean
-  boundsOffset?: number
-  travelMode?: 'DRIVING' | 'WALKING' | 'BICYCLING' | 'TRANSIT'
-  destinationPoint?: MarkerProps<any>
-  onLoaded?: (params: any) => void
-  onLoadedDirection?: (response: any) => void
-}
-
-export const renderHandler = ({
-  markers,
-  component,
-  defaultCenter,
-  defaultZoom,
-  autoFitBounds = true,
-  boundsOffset,
-  travelMode = 'DRIVING',
-  destinationPoint,
+export const renderMap = ({
+  googleMapsRef,
+  mapRef,
   onLoaded,
-  onLoadedDirection
-}: renderHandlerParams) => (googleMaps: {}, error: any) => {
-  return googleMaps && !error ? (
-    <div data-test="map-container" style={{ height: '90vh' }}>
-      <GoogleMap
-        autoFitBounds={autoFitBounds}
-        googleMaps={googleMaps}
-        boundsOffset={boundsOffset}
-        zoomControl={true}
-        mapTypeControl={false}
-        scaleControl={false}
-        streetViewControl={false}
-        rotateControl={false}
-        fullscreenControl={false}
-        center={defaultCenter}
-        zoom={defaultZoom}
-        onLoaded={onLoadedMapHandler({
-          markers,
-          destinationPoint,
-          travelMode,
-          onLoaded,
-          onLoadedDirection,
-          defaultCenter
-        })}
-      />
-      {renderMarkerContent(markers, component)}
-    </div>
-  ) : (
-    <div data-test="error-container">{error}</div>
-  )
+  directionsRendererRef,
+  boundsRef,
+  directionsServiceRef,
+  center,
+  zoom,
+  coordinates,
+  component,
+  ...restProps
+}) => (googleMaps, error) => {
+  if (googleMaps && !error) {
+    return (
+      <div style={{ height: '90vh' }}>
+        <GoogleMap
+          googleMaps={googleMaps}
+          onLoaded={handleOnLoaded({
+            googleMapsRef,
+            mapRef,
+            onLoaded,
+            directionsRendererRef,
+            boundsRef,
+            directionsServiceRef
+          })}
+          center={center}
+          zoom={zoom}
+          {...restProps}
+        />
+        {renderMarkersContent({ coordinates, component })}
+      </div>
+    )
+  }
+  if (error === 'Network Error') {
+    return <div>{error === 'Network Error' ? <p>{error}</p> : <p>isLoading...</p>}</div>
+  }
+  if (error) {
+    return <div>{error}</div>
+  }
+  return null
 }
 
-export type MapProps<T> = {
-  markers: MarkerProps<T>[]
-  apiKey: string
-  libraries?: string
-  defaultCenter?: MarkerProps<T>
-  defaultZoom?: number
-  component: any
-  autoFitBounds?: boolean
-  boundsOffset?: number
-  travelMode?: 'DRIVING' | 'WALKING' | 'BICYCLING' | 'TRANSIT'
-  destinationPoint?: MarkerProps<any>
-  onLoaded?: (params: any) => void
-  onLoadedDirection?: (response: any) => void
+export const clearMap = ({ directionsRendererRef, markersRef }) => () => {
+  if (directionsRendererRef && directionsRendererRef.current) {
+    // @ts-ignore
+    directionsRendererRef.current.setMap(null)
+  }
+  if (markersRef && markersRef.current) {
+    // @ts-ignore
+    markersRef.current.forEach(marker => marker.setMap(null))
+  }
+}
+
+export const handleUseEffect = ({
+  googleMapsRef,
+  mapRef,
+  coordinates,
+  center,
+  zoom,
+  destinationPoint,
+  travelMode,
+  onLoadedDirection,
+  markersRef,
+  directionsRendererRef,
+  directionsServiceRef,
+  boundsRef
+}) => () => {
+  renderDirectionAndMarkers({
+    googleMapsRef,
+    mapRef,
+    coordinates,
+    center,
+    zoom,
+    destinationPoint,
+    travelMode,
+    onLoadedDirection,
+    markersRef,
+    directionsRendererRef,
+    directionsServiceRef,
+    boundsRef
+  })
+  return clearMap({ directionsRendererRef, markersRef })
 }
 
 export const Map: React.FC<MapProps<any>> = ({
   apiKey,
   libraries,
-  markers,
-  defaultCenter,
-  defaultZoom,
+  coordinates,
   component,
-  autoFitBounds,
-  boundsOffset,
-  destinationPoint,
+  center,
+  zoom,
   onLoaded,
-  onLoadedDirection
+  destinationPoint,
+  travelMode = 'DRIVING',
+  onLoadedDirection,
+  ...restProps
 }) => {
+  const googleMapsRef = React.useRef(null)
+  const mapRef = React.useRef()
+  const markersRef = React.useRef([])
+  const directionsRendererRef = React.useRef(null)
+  const boundsRef = React.useRef(null)
+  const directionsServiceRef = React.useRef(null)
+
+  React.useEffect(
+    handleUseEffect({
+      googleMapsRef,
+      mapRef,
+      coordinates,
+      center,
+      zoom,
+      destinationPoint,
+      travelMode,
+      onLoadedDirection,
+      markersRef,
+      directionsRendererRef,
+      directionsServiceRef,
+      boundsRef
+    }),
+    [coordinates, destinationPoint]
+  )
+
   return (
     <ReactGoogleMapLoader
       params={{
         key: apiKey,
         libraries: libraries
       }}
-      render={renderHandler({
-        markers,
-        component,
-        defaultCenter,
-        defaultZoom,
-        autoFitBounds,
-        boundsOffset,
-        destinationPoint,
+      render={renderMap({
+        googleMapsRef,
+        mapRef,
         onLoaded,
-        onLoadedDirection
+        directionsRendererRef,
+        boundsRef,
+        directionsServiceRef,
+        center,
+        zoom,
+        coordinates,
+        component,
+        ...restProps
       })}
     />
   )
