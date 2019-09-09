@@ -73,13 +73,13 @@ describe('session utils', () => {
 
   describe('verifyAccessToken', () => {
     it('should correctly return null when app is not online', () => {
-      store.state.online.online = false
+      store.state.online.value = false
       verifyAccessToken()
       expect(store.dispatch).toHaveBeenCalledWith(authLogout())
     })
 
     it('should correctly return null when sessions are not available', () => {
-      store.state.online.online = true
+      store.state.online.value = true
       store.state.auth.loginSession = null
       store.state.auth.desktopSession = null
       verifyAccessToken()
@@ -87,7 +87,7 @@ describe('session utils', () => {
     })
 
     it('should logout user when need to get refreshed session but it is not correct', () => {
-      store.state.online.online = true
+      store.state.online.value = true
       store.state.auth.loginSession = null
       store.state.auth.desktopSession = {} as RefreshParams
       verifyAccessToken()
@@ -95,7 +95,7 @@ describe('session utils', () => {
     })
 
     it('should correctly return value', () => {
-      store.state.online.online = true
+      store.state.online.value = true
       store.state.auth.loginSession = {} as LoginSession
       store.state.auth.desktopSession = {} as RefreshParams
       verifyAccessToken()
