@@ -3,6 +3,7 @@ import Routes from '../constants/routes'
 import store from '../core/store'
 import { homeRequestData } from '../actions/home'
 
+// @ts-ignore
 const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
   switch (route) {
     case Routes.HOME:

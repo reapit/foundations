@@ -33,7 +33,8 @@
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.3",
-    "ts-optchain": "^0.1.7"
+    "ts-optchain": "^0.1.7",
+    "webpack-bundle-analyzer": "^3.4.1"
   },
   "devDependencies": {
     "@redux-saga/testing-utils": "^1.0.5",
