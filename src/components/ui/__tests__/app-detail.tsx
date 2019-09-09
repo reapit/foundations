@@ -2,11 +2,11 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { AppDetail, AppDetailProps, mapDispatchToProps } from '../app-detail'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
-import { setAppDetailModalStatePermission, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
+import { setAppDetailModalStateViewConfirm, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 
 const props: AppDetailProps = {
   setDeveloperAppModalStateDelete: jest.fn(),
-  setAppDetailModalStatePermission: jest.fn(),
+  setAppDetailModalStateViewConfirm: jest.fn(),
   setAppDetailModalStateUninstall: jest.fn(),
   appUninstallFormState: 'PENDING',
   isCurrentLoggedUserDeveloper: true,
@@ -24,17 +24,17 @@ describe('AppDetailModalInner', () => {
   it('Should show install app button if isCurrentLoggedUserClient = true and installedOn not exist', () => {
     const modifiedProps: AppDetailProps = { ...props, isCurrentLoggedUserClient: true }
     const shallowAppDetailModalInner = shallow(<AppDetail {...modifiedProps} />)
-    expect(shallowAppDetailModalInner.find('[data-test="btnAppDetailInstallApp"]')).toHaveLength(1)
+    expect(shallowAppDetailModalInner.find('[dataTest="btnAppDetailInstallApp"]')).toHaveLength(1)
   })
 
   describe('mapDispatchToProps', () => {
-    it('should dispatch correctly if mapped setAppDetailModalStatePermission is called', () => {
+    it('should dispatch correctly if mapped setAppDetailModalStateViewConfirm is called', () => {
       const mockedDispatch = jest.fn()
-      const { setAppDetailModalStatePermission: mappedSetAppDetailModalStatePermission } = mapDispatchToProps(
+      const { setAppDetailModalStateViewConfirm: mappedsetAppDetailModalStateViewConfirm } = mapDispatchToProps(
         mockedDispatch
       )
-      mappedSetAppDetailModalStatePermission()
-      expect(mockedDispatch).toHaveBeenNthCalledWith(1, setAppDetailModalStatePermission())
+      mappedsetAppDetailModalStateViewConfirm()
+      expect(mockedDispatch).toHaveBeenNthCalledWith(1, setAppDetailModalStateViewConfirm())
     })
 
     it('should dispatch correctly if mapped requestUninstall is called', () => {

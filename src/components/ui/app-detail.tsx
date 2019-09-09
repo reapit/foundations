@@ -6,7 +6,7 @@ import carouselStyles from '../../styles/elements/carousel.scss?mod'
 import ChevronLeftIcon from '@/components/svg/chevron-left'
 import '@/styles/vendor/slick.scss'
 import { connect } from 'react-redux'
-import { setAppDetailModalStatePermission, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
+import { setAppDetailModalStateViewConfirm, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { Button } from '@reapit/elements'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
@@ -22,20 +22,20 @@ export interface AppDetailModalMappedProps {
 }
 
 export interface AppDetailModalMappedActions {
-  setAppDetailModalStatePermission: () => void
+  setAppDetailModalStateViewConfirm: () => void
   setAppDetailModalStateUninstall: () => void
   setDeveloperAppModalStateDelete: () => void
 }
 
 export type AppDetailProps = AppDetailModalMappedActions & AppDetailModalMappedProps & AppDetailModalInnerProps
 
-const SlickButtonNav = ({ currentSlide, setAppDetailModalStatePermission, slideCount, children, ...props }) => (
+const SlickButtonNav = ({ currentSlide, setAppDetailModalStateViewConfirm, slideCount, children, ...props }) => (
   <button {...props}>{children}</button>
 )
 
 export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   data,
-  setAppDetailModalStatePermission,
+  setAppDetailModalStateViewConfirm,
   setAppDetailModalStateUninstall,
   appUninstallFormState,
   isCurrentLoggedUserClient
@@ -98,17 +98,21 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                   Uninstall App
                 </Button>
               ) : (
-                <a
-                  data-test="btnAppDetailInstallApp"
+                <Button
+                  type="button"
+                  variant="primary"
+                  dataTest="btnAppDetailInstallApp"
+                  loading={false}
+                  disabled={false}
                   onClick={() => {
                     if (!id) {
                       return
                     }
-                    setAppDetailModalStatePermission()
+                    setAppDetailModalStateViewConfirm()
                   }}
                 >
                   Install App
-                </a>
+                </Button>
               ))}
           </div>
         </div>
@@ -139,7 +143,7 @@ export const mapStateToProps = (state: ReduxState): AppDetailModalMappedProps =>
 }
 
 export const mapDispatchToProps = (dispatch: any): AppDetailModalMappedActions => ({
-  setAppDetailModalStatePermission: () => dispatch(setAppDetailModalStatePermission()),
+  setAppDetailModalStateViewConfirm: () => dispatch(setAppDetailModalStateViewConfirm()),
   setAppDetailModalStateUninstall: () => dispatch(setAppDetailModalStateUninstall()),
   setDeveloperAppModalStateDelete: () => dispatch(setDeveloperAppModalStateDelete())
 })

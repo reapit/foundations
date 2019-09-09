@@ -14,6 +14,9 @@ import { Dispatch } from 'redux'
 import { developerCreate } from '../../actions/developer'
 import { FormState } from '../../types/core'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
+import CallToAction from '../ui/call-to-action'
+
+// const { history } = React.lazy(() => )
 
 export interface RegisterMappedActions {
   developerCreate: (developer: CreateDeveloperModel) => void
@@ -45,14 +48,19 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
         <h1 className={`${title} ${isH1} ${isCentered}`}>Register</h1>
         <p className="pb-8">Reapit Foundations developers</p>
         {formState === 'SUCCESS' ? (
-          <>
-            <Alert
-              dataTest="register-success-message"
-              message="Check you email to confirm your account"
-              type="success"
-            />
-            <Link to={Routes.LOGIN}>Login</Link>
-          </>
+          <CallToAction
+            title="Success!"
+            buttonText="Login"
+            dataTest="register-success-message"
+            onButtonClick={() =>
+              import('../../core/router').then(router => {
+                router.history.push(Routes.LOGIN)
+              })
+            }
+            isCenter
+          >
+            Check you email to confirm your account
+          </CallToAction>
         ) : (
           <>
             <Formik
@@ -96,7 +104,7 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
                   />
                   <Input
                     dataTest="register-telephone"
-                    type="text"
+                    type="tel"
                     labelText="Telephone"
                     id="telephone"
                     name="telephone"

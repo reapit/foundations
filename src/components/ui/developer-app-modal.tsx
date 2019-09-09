@@ -211,6 +211,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                   dataTest="submit-app-iconImageData"
                   labelText="Icon"
                   name="iconImageData"
+                  allowClear
                 />
 
                 <ImageInput
@@ -218,6 +219,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                   dataTest="submit-app-screenshoot1"
                   labelText="Screenshot 1"
                   name="screen1ImageData"
+                  allowClear
                 />
 
                 <ImageInput

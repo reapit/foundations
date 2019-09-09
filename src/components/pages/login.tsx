@@ -50,7 +50,7 @@ export const tabConfigs = ({ loginType, authChangeLoginType }: LoginProps): TabC
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { isLogin, error, login, loginType, location, authChangeLoginType } = props
-  const { disabled, wrapper, container, image } = loginStyles
+  const { disabled, wrapper, container, image, register } = loginStyles
   const { level, title, isH1, isCentered } = bulma
 
   React.useEffect(() => {
@@ -113,11 +113,9 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                   Login
                 </Button>
                 {loginType === 'DEVELOPER' && (
-                  <div>
-                    Don't have an account yet?
-                    <Link className="pl-2" to={Routes.REGISTER}>
-                      Register
-                    </Link>
+                  <div className={register}>
+                    Don't have an account yet?&nbsp;
+                    <Link to={Routes.REGISTER}>Register</Link>
                   </div>
                 )}
               </div>

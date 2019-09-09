@@ -5,29 +5,35 @@ import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import AppCard from './app-card'
 import styles from '@/styles/blocks/app-list.scss?mod'
 import { Loader } from '@reapit/elements'
+import Info, { InfoType } from '../pages/info'
 
 export type AppListProps = {
   list: AppSummaryModel[]
   loading: boolean
   onCardClick?: (app: AppSummaryModel) => void
   title: string
+  infoType: InfoType
 }
 
-export const AppList: React.FunctionComponent<AppListProps> = ({ list, loading, onCardClick, title }) => {
+export const AppList: React.FunctionComponent<AppListProps> = ({ list, loading, onCardClick, title, infoType }) => {
   return (
     <div className={`${bulma.container} ${bulma.isRelative} ${styles.container}`} data-test="app-list-container">
       <h3 className={`${bulma.title} ${bulma.is3}`}>{title}</h3>
       <div className={`${bulma.columns} ${bulma.isMultiLine} ${loading ? styles.contentIsLoading : ''}`}>
-        {list.map(app => (
-          <div className={`${bulmaUtils.isResponsiveColumn}`} key={app.id}>
-            <AppCard
-              app={app}
-              onClick={() => {
-                typeof onCardClick === 'function' && onCardClick(app)
-              }}
-            />
-          </div>
-        ))}
+        {!list.length && !loading ? (
+          <Info infoType={infoType} />
+        ) : (
+          list.map(app => (
+            <div className={`${bulmaUtils.isResponsiveColumn}`} key={app.id}>
+              <AppCard
+                app={app}
+                onClick={() => {
+                  typeof onCardClick === 'function' && onCardClick(app)
+                }}
+              />
+            </div>
+          ))
+        )}
       </div>
       {loading && (
         <div className={styles.loaderContainer}>

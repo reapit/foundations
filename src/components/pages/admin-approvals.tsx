@@ -14,6 +14,7 @@ import { revisionDetailRequestData, RevisionDetailRequestParams } from '@/action
 import AdminApprovalModal from '../ui/admin-approval-modal'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
+import Info from '../pages/info'
 
 export interface AdminApprovalsMappedActions {
   fetchRevisionDetail: (params: RevisionDetailRequestParams) => void
@@ -58,51 +59,55 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
             <Loader />
           </div>
         )}
-        <table className={`${bulma.table} ${bulma.isFullwidth}`} data-test="revision-list">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>AppId</th>
-              <th>Type</th>
-              <th>Description</th>
-              <th />
-            </tr>
-          </thead>
-          <tbody>
-            {list.map((revision, index) => (
-              <tr key={revision.appRevisionId} data-app-id={revision.appId}>
-                <th>{(pageNumberInState - 1) * REVISIONS_PER_PAGE + index + 1}</th>
-                <th>{revision.appId}</th>
-                <th>{revision.type}</th>
-                <th>{revision.description}</th>
-                <th>
-                  <button
-                    data-test={`view-details-button_${revision.appId}`}
-                    className={`${bulma.button} ${bulma.isPrimary}`}
-                    onClick={() => {
-                      const { appId, appRevisionId } = revision
-                      if (appRevisionId && appId) {
-                        const currentRevisionId = oc<RevisionDetailState>(revisionDetail).revisionDetailData.data.id(
-                          undefined
-                        )
-                        const currentAppId = oc<AppDetailState>(appDetail).appDetailData.data.id(undefined)
-                        if (currentRevisionId !== appRevisionId) {
-                          fetchRevisionDetail({ appId, appRevisionId })
-                        }
-                        if (currentAppId !== appId) {
-                          fetchAppDetail(appId)
-                        }
-                        setIsModalOpen(true)
-                      }
-                    }}
-                  >
-                    View details
-                  </button>
-                </th>
+        {!loading && !list.length ? (
+          <Info infoType="ADMIN_APPROVALS_EMPTY" />
+        ) : (
+          <table className={`${bulma.table} ${bulma.isFullwidth}`} data-test="revision-list">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>AppId</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th />
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {list.map((revision, index) => (
+                <tr key={revision.appRevisionId} data-app-id={revision.appId}>
+                  <th>{(pageNumberInState - 1) * REVISIONS_PER_PAGE + index + 1}</th>
+                  <th>{revision.appId}</th>
+                  <th>{revision.type}</th>
+                  <th>{revision.description}</th>
+                  <th>
+                    <button
+                      data-test={`view-details-button_${revision.appId}`}
+                      className={`${bulma.button} ${bulma.isPrimary}`}
+                      onClick={() => {
+                        const { appId, appRevisionId } = revision
+                        if (appRevisionId && appId) {
+                          const currentRevisionId = oc<RevisionDetailState>(revisionDetail).revisionDetailData.data.id(
+                            undefined
+                          )
+                          const currentAppId = oc<AppDetailState>(appDetail).appDetailData.data.id(undefined)
+                          if (currentRevisionId !== appRevisionId) {
+                            fetchRevisionDetail({ appId, appRevisionId })
+                          }
+                          if (currentAppId !== appId) {
+                            fetchAppDetail(appId)
+                          }
+                          setIsModalOpen(true)
+                        }
+                      }}
+                    >
+                      View details
+                    </button>
+                  </th>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
         <Pagination
           onChange={page => history.push(`${routes.ADMIN_APPROVALS}/${page}`)}
           totalCount={totalCount}

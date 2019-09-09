@@ -7,12 +7,15 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
   <h3
     className="title is3 undefined"
   >
-    Please confim you agree to the permissions before installing
+    Confirm 
+    mockAppName
+     installation
   </h3>
   <h6>
-    This 
+    This action will install the app for ALL platform users.
+    <br />
     mockAppName
-     equires the following permissions, please click ‘Agree’ to continue to the installation.
+     requires the permissions below. By installing you are granting permission to your data.
   </h6>
   <ul>
     <li
@@ -29,7 +32,7 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
       type="button"
       variant="primary"
     >
-      Agree
+      Confirm
     </Button>
     <Button
       dataTest="disagree-btn"
@@ -38,7 +41,7 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
       type="button"
       variant="danger"
     >
-      Disagree
+      Cancel
     </Button>
   </div>
 </div>
@@ -51,12 +54,15 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
   <h3
     className="title is3 undefined"
   >
-    Please confim you agree to the permissions before installing
+    Confirm 
+    mockAppName
+     installation
   </h3>
   <h6>
-    This 
+    This action will install the app for ALL platform users.
+    <br />
     mockAppName
-     equires the following permissions, please click ‘Agree’ to continue to the installation.
+     requires the permissions below. By installing you are granting permission to your data.
   </h6>
   <ul>
     <li
@@ -73,7 +79,7 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
       type="button"
       variant="primary"
     >
-      Agree
+      Confirm
     </Button>
     <Button
       dataTest="disagree-btn"
@@ -82,7 +88,7 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
       type="button"
       variant="danger"
     >
-      Disagree
+      Cancel
     </Button>
   </div>
 </div>
@@ -95,12 +101,15 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
   <h3
     className="title is3 undefined"
   >
-    Please confim you agree to the permissions before installing
+    Confirm 
+    mockAppName
+     installation
   </h3>
   <h6>
-    This 
+    This action will install the app for ALL platform users.
+    <br />
     mockAppName
-     equires the following permissions, please click ‘Agree’ to continue to the installation.
+     requires the permissions below. By installing you are granting permission to your data.
   </h6>
   <ul>
     <li
@@ -117,7 +126,7 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
       type="button"
       variant="primary"
     >
-      Agree
+      Confirm
     </Button>
     <Button
       dataTest="disagree-btn"
@@ -126,7 +135,7 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
       type="button"
       variant="danger"
     >
-      Disagree
+      Cancel
     </Button>
   </div>
 </div>
@@ -139,12 +148,15 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
   <h3
     className="title is3 undefined"
   >
-    Please confim you agree to the permissions before installing
+    Confirm 
+    mockAppName
+     installation
   </h3>
   <h6>
-    This 
+    This action will install the app for ALL platform users.
+    <br />
     mockAppName
-     equires the following permissions, please click ‘Agree’ to continue to the installation.
+     requires the permissions below. By installing you are granting permission to your data.
   </h6>
   <ul>
     <li
@@ -161,7 +173,7 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
       type="button"
       variant="primary"
     >
-      Agree
+      Confirm
     </Button>
     <Button
       dataTest="disagree-btn"
@@ -170,7 +182,7 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
       type="button"
       variant="danger"
     >
-      Disagree
+      Cancel
     </Button>
   </div>
 </div>

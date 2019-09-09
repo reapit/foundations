@@ -3,6 +3,7 @@
 exports[`Client should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
   <Component
+    infoType="CLIENT_APPS_EMPTY"
     list={
       Array [
         Object {

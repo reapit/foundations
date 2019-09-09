@@ -14,14 +14,6 @@ describe('AppDetailInner', () => {
     expect(toJson(shallow(<AppDetailInner {...props} />))).toMatchSnapshot()
   })
 
-  it('should match a snapshot when appDetailModalState = VIEW_PERMISSION', () => {
-    const props: AppDetailInnerProps = {
-      appDetailModalState: 'VIEW_PERMISSION',
-      appDetailState: { loading: false, error: false, appDetailData: appDetailDataStub },
-      setAppDetailModalStateView: jest.fn()
-    }
-    expect(toJson(shallow(<AppDetailInner {...props} />))).toMatchSnapshot()
-  })
   it('should match a snapshot when appDetailModalState = VIEW_CONFIRM_INSTALL', () => {
     const props: AppDetailInnerProps = {
       appDetailModalState: 'VIEW_CONFIRM_INSTALL',
@@ -39,16 +31,6 @@ describe('AppDetailInner', () => {
     }
     const wrapper = shallow(<AppDetailInner {...props} />)
     expect(wrapper.find('AppDetailWithConnect')).toHaveLength(1)
-  })
-
-  it('should render AppPermission when appDetailModalState = VIEW_PERMISSION', () => {
-    const props: AppDetailInnerProps = {
-      appDetailModalState: 'VIEW_PERMISSION',
-      appDetailState: { loading: false, error: false, appDetailData: appDetailDataStub },
-      setAppDetailModalStateView: jest.fn()
-    }
-    const wrapper = shallow(<AppDetailInner {...props} />)
-    expect(wrapper.find('AppPermissionContentInnerWithConnect')).toHaveLength(1)
   })
 
   it('should render AppInstallConfirm when appDetailModalState = VIEW_CONFIRM_INSTALL', () => {

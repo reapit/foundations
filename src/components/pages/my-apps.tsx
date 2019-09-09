@@ -72,6 +72,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
             fetchAppDetail(app.id, clientId)
           }
         }}
+        infoType="INSTALLED_APPS_EMPTY"
       />
       <Pagination
         onChange={page => history.push(`${routes.MY_APPS}/${page}`)}

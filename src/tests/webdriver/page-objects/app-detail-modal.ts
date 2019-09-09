@@ -1,4 +1,4 @@
-import AppPermissionModal from '../page-objects/app-permission-modal'
+// import AppPermissionModal from '../page-objects/app-permission-modal'
 import AppInstallConfirmModal from '../page-objects/app-install-confirm-modal'
 import Common from '../shared/common'
 
@@ -11,17 +11,21 @@ class AppDetailModal {
     return $(`[data-test='btnAppDetailUninstallApp']`)
   }
 
+  get alertInstallSuccess() {
+    return $(`[data-test='alertInstalledSuccess']`)
+  }
+
   installApp() {
     this.btnAppDetailInstallApp.waitForVisible()
     this.btnAppDetailInstallApp.click()
 
     // Permission modal
-    AppPermissionModal.btnInstall.waitForVisible()
-    AppPermissionModal.btnInstall.click()
+    // AppPermissionModal.btnInstall.waitForVisible()
+    // AppPermissionModal.btnInstall.click()
 
     // Confirm modal
     AppInstallConfirmModal.btnAgree.click()
-    AppPermissionModal.alertInstallSuccess.waitForVisible()
+    this.alertInstallSuccess.waitForVisible()
     Common.closeModal()
   }
 
@@ -32,7 +36,7 @@ class AppDetailModal {
     // Confirm modal
     AppInstallConfirmModal.btnAgree.waitForVisible()
     AppInstallConfirmModal.btnAgree.click()
-    AppPermissionModal.alertInstallSuccess.waitForVisible()
+    this.alertInstallSuccess.waitForVisible()
     Common.closeModal()
   }
 }

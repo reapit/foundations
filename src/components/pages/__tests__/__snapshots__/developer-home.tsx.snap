@@ -3,6 +3,7 @@
 exports[`DeveloperHome should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
   <Component
+    infoType="DEVELOPER_APPS_EMPTY"
     list={
       Array [
         Object {

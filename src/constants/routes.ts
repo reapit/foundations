@@ -13,7 +13,8 @@ const Routes = {
   ADMIN: '/admin',
   ADMIN_APPROVALS: '/admin/approvals',
   ADMIN_APPROVALS_PAGINATE: '/admin/approvals/:page',
-  ADMIN_LOGIN: '/admin/login'
+  ADMIN_LOGIN: '/admin/login',
+  FOUR_O_FOUR: '/404'
 }
 
 export default Routes
