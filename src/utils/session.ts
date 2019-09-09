@@ -2,6 +2,7 @@ import { LOCAL_STORAGE_SESSION_KEY } from '@/constants/session'
 import store from '@/core/store'
 import { RefreshParams, LoginSession, LoginType, tokenExpired, refreshSession } from '@reapit/elements'
 import { authLoginSuccess, authLogout } from '@/actions/auth'
+import { selectOnlineStatus } from '@/selectors/online'
 
 export const setLoginSession = (session: LoginSession): void => {
   try {
@@ -51,7 +52,7 @@ export const getTokenFromQueryString = (queryString: string, loginType: LoginTyp
 
 export const verifyAccessToken = async (): Promise<string | null> => {
   const { loginSession, desktopSession } = store.state.auth
-  const { online } = store.state.online
+  const online = selectOnlineStatus(store.state)
 
   if (!online) {
     store.dispatch(authLogout())
