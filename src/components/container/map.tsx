@@ -8,6 +8,7 @@ import invalidValues from '@/constants/invalid-values'
 import { MarkerComponentWithConnect } from '@/components/container/marker-component'
 import mapStyles from '@/styles/pages/map.scss?mod'
 import TravelMode from '../ui/travel-mode'
+import MapPanel from '../ui/map-panel'
 
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
 
@@ -33,6 +34,9 @@ export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
 
 export const MapContainer = ({ appointments = [], destinationLatLng }: MapContainerProps) => {
   const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
+  const [distance, setDistance] = React.useState('')
+  const [duration, setDuration] = React.useState('')
+
   const coordinates: CoordinateProps<any> = filterInvalidMarker(
     appointments.map(appointment => {
       const lat = oc(appointment).property.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
@@ -59,6 +63,15 @@ export const MapContainer = ({ appointments = [], destinationLatLng }: MapContai
     [travelMode]
   )
 
+  const onLoadedDirection = React.useCallback(
+    res => {
+      const { duration, distance } = res.routes[0].legs[0]
+      setDistance(distance.text)
+      setDuration(duration.text)
+    },
+    [destinationLatLng]
+  )
+
   return (
     <div className={mapStyles.mapContainer}>
       <Map
@@ -69,8 +82,10 @@ export const MapContainer = ({ appointments = [], destinationLatLng }: MapContai
         destinationPoint={destinationLatLng}
         defaultZoom={16}
         travelMode={travelMode}
+        onLoadedDirection={onLoadedDirection}
       />
       <TravelMode travelMode={travelMode} onChangeTravelMode={handleTravelMode} />
+      <MapPanel duration={duration} distance={distance} destination={destinationLatLng} />
     </div>
   )
 }
