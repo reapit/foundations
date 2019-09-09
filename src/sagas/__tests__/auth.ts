@@ -1,14 +1,10 @@
-import { cloneableGenerator } from '@redux-saga/testing-utils'
 import authSagas, { doLogin, doLogout, loginListen, logoutListen } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { put, all, takeLatest, call } from '@redux-saga/core/effects'
-import { authLoginSuccess, authLogoutSuccess, authLoginFailure } from '../../actions/auth'
-import { Action } from '@/types/core'
-import { fetcher, LoginType, LoginParams, COGNITO_API_BASE_URL, COGNITO_HEADERS } from '@reapit/elements'
-import { removeLoginSession, setLoginSession } from '../../utils/session'
+import { put, all, takeLatest } from '@redux-saga/core/effects'
+import { authLogoutSuccess } from '../../actions/auth'
+import { removeLoginSession } from '../../utils/session'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
-import { mockLoginSession } from '../../utils/__mocks__/session'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({

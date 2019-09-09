@@ -1,42 +1,30 @@
 import * as React from 'react'
 import { Dispatch } from 'redux'
+import { CoordinateProps } from '@reapit/elements'
 import { appointmentDetailRequestData } from '@/actions/appointment-detail'
 import { connect } from 'react-redux'
-import { MarkerProps } from '@reapit/elements'
 
-interface MarkerPropsExtended {
-  address1: string
-  address2: string
-  id: string
+export type MarkerComponentProps = {
+  handleOnClick: () => void
+  coordinate: CoordinateProps<any>
 }
 
-export type MarkerPropsExened = MarkerProps<MarkerPropsExtended>
-export interface MarkerComponentInnerProps {
-  marker: MarkerPropsExened
-}
-
-export type MapContainerDispatchProps = {
-  markerOnClick: (id: string) => void
-}
-
-export type MarkerComponentProps = MarkerComponentInnerProps & MapContainerDispatchProps
-
-export const MarkerComponent = ({ marker, markerOnClick }: MarkerComponentProps) => {
-  const { address1, address2, id } = marker
-  const onClick = () => {
-    markerOnClick(id)
-  }
-
+export const MarkerComponent = ({ coordinate, handleOnClick }: MarkerComponentProps) => {
+  const { address1, address2 } = coordinate
   return (
-    <div onClick={onClick}>
+    <div onClick={handleOnClick}>
       <p>{address1}</p>
       <p>{address2}</p>
     </div>
   )
 }
 
-export const mapDispatchToProps: (dispatch: Dispatch) => MapContainerDispatchProps = (dispatch: Dispatch) => ({
-  markerOnClick: (id: string) => dispatch(appointmentDetailRequestData({ id }))
+export type ownProps = {
+  id: string
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch, ownProps: ownProps) => ({
+  handleOnClick: () => dispatch(appointmentDetailRequestData({ id: ownProps.id }))
 })
 
 export const MarkerComponentWithConnect = connect(

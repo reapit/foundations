@@ -3,7 +3,7 @@ import { isType } from '../utils/actions'
 import { setOnline, setOffline } from '../actions/online'
 
 export interface OnlineState {
-  value: boolean
+  [key: string]: boolean
 }
 
 export const defaultState: OnlineState = {

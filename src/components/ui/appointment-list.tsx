@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { AppointmentTile, getTime, closestTo } from '@reapit/elements'
 import { AppointmentModel } from '@/types/appointments'
-import CurrentLocButton from '@/components/container/current-loc-button'
+import ViewDirectionButton from '@/components/container/view-direction-button'
 import { oc } from 'ts-optchain'
 import ViewDetailButton from '../container/view-detail-button'
 import ETAButton from './eta-button'
@@ -113,7 +113,7 @@ export const AppointmentList = memo(({ data, nextAppointment }: AppointmentListP
                   <ViewDetailButton id={item.id} />
                 </div>
                 <div className="mt-4">
-                  <CurrentLocButton />
+                  <ViewDirectionButton appointment={item} />
                 </div>
                 {renderETAButton}
               </div>

@@ -1,4 +1,4 @@
-import { ActionCreator, Action, RouteValue } from '../types/core'
+import { ActionCreator, Action } from '../types/core'
 
 export const actionCreator = <T>(type: string): ActionCreator<T> =>
   Object.assign((data: T): any => ({ type, data }), { type })

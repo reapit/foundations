@@ -14,6 +14,8 @@ import MapContainer from '@/components/container/map'
 import containerStyle from '@/styles/pages/page-container.scss?mod'
 import { NextAppointmentState } from '@/reducers/next-appointment'
 import { nextAppointmentValidate } from '@/actions/next-appointment'
+import { homeTabChange } from '@/actions/home'
+import { setDestination } from '@/actions/direction'
 
 export interface HomeMappedActions {
   requestAppointments: (time: AppointmentsTime) => void
@@ -23,23 +25,24 @@ export interface HomeMappedActions {
 export interface HomeMappedProps {
   appointmentsState: AppointmentsState
   nextAppointmentState: NextAppointmentState
+  currentTab: 'LIST' | 'MAP'
 }
 
 export type HomeProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ page?: any }>
 
 export type TabType = 'LIST' | 'MAP'
 
-export const tabConfigs = ({ currentTab, setCurrentTab }): TabConfig[] => [
+export const tabConfigs = ({ currentTab, changeHomeTab }): TabConfig[] => [
   {
     tabIdentifier: 'LIST',
     displayText: 'List',
-    onTabClick: () => setCurrentTab('LIST'),
+    onTabClick: () => changeHomeTab('LIST'),
     active: currentTab === 'LIST'
   },
   {
     tabIdentifier: 'MAP',
     displayText: 'Map',
-    onTabClick: () => setCurrentTab('MAP'),
+    onTabClick: () => changeHomeTab('MAP'),
     active: currentTab === 'MAP'
   }
 ]
@@ -50,12 +53,13 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   appointmentsState,
   requestAppointments,
   requestNextAppointment,
-  nextAppointmentState
+  nextAppointmentState,
+  currentTab,
+  changeHomeTab
 }) => {
   const unfetched = !appointmentsState.appointments
   const loading = appointmentsState.loading
   const list = oc<AppointmentsState>(appointmentsState).appointments.data.data([])
-  const [currentTab, setCurrentTab] = React.useState<TabType>('LIST')
   const time = appointmentsState.time
 
   React.useEffect(() => {
@@ -70,11 +74,10 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   }
 
   const uncancelledList = list.filter(({ cancelled }) => !cancelled)
-
   return (
     <ErrorBoundary>
       <div className={containerStyle.tabsSticky}>
-        <Tabs tabConfigs={tabConfigs({ currentTab, setCurrentTab })} />
+        <Tabs tabConfigs={tabConfigs({ currentTab, changeHomeTab })} />
       </div>
 
       {currentTab === 'LIST' && (
@@ -110,12 +113,22 @@ export const Home: React.FunctionComponent<HomeProps> = ({
 
 const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   appointmentsState: state.appointments,
-  nextAppointmentState: state.nextAppointment
+  nextAppointmentState: state.nextAppointment,
+  currentTab: state.home.homeTab
 })
+
+export interface HomeMappedActions {
+  requestAppointments: (time: AppointmentsTime) => void
+  changeHomeTab: (tab: 'LIST' | 'MAP') => void
+}
 
 const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({
   requestAppointments: (time: AppointmentsTime) => dispatch(appointmentsRequestData({ time })),
-  requestNextAppointment: () => dispatch(nextAppointmentValidate())
+  requestNextAppointment: () => dispatch(nextAppointmentValidate()),
+  changeHomeTab: (tab: 'LIST' | 'MAP') => {
+    dispatch(homeTabChange(tab))
+    dispatch(setDestination(null))
+  }
 })
 
 export default withRouter(

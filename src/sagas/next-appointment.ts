@@ -27,7 +27,7 @@ export const callCurrentPosition = function({
   destination: Position
   travelMode?: google.maps.TravelMode
 }) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve) {
     if (window.google) {
       const origins = [new google.maps.LatLng(origin.lat, origin.lng)]
       const destinations = [new google.maps.LatLng(destination.lat, destination.lng)]
@@ -39,7 +39,7 @@ export const callCurrentPosition = function({
           destinations,
           travelMode
         },
-        (response, status) => {
+        response => {
           resolve(response)
         }
       )

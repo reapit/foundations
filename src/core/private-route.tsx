@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Route, RouteProps } from 'react-router'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { ReduxState } from 'src/types/core'
 import RouteFetcher from '../components/hocs/route-fetcher'
 
 export type LoginType = 'CLIENT' | 'DEVELOPER'
@@ -45,7 +44,7 @@ export const PrivateRoute = ({
   )
 }
 
-const mapStateToProps = (state: ReduxState): PrivateRouteConnectProps => ({
+const mapStateToProps = (): PrivateRouteConnectProps => ({
   loginType: 'CLIENT'
 })
 export default connect(mapStateToProps)(PrivateRoute)

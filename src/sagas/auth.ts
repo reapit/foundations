@@ -16,7 +16,7 @@ import {
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
-    const { userName, password, loginType } = data
+    const { userName, password } = data
 
     const loginDetails: Partial<LoginSession> | undefined = yield call(fetcher, {
       api: COGNITO_API_BASE_URL,

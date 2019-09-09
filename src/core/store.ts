@@ -1,6 +1,8 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
 import createSagaMiddleware from 'redux-saga'
+// @ts-ignore
 import { persistStore, persistReducer, Persistor } from 'redux-persist'
+// @ts-ignore
 import * as localForage from 'localforage'
 import { ReduxState } from '@/types/core'
 import { all, fork } from '@redux-saga/core/effects'
@@ -11,7 +13,7 @@ import appointments from '@/reducers/appointments'
 import appointmentDetail from '@/reducers/appointment-detail'
 import nextAppointment from '@/reducers/next-appointment'
 import error from '@/reducers/error'
-import currentLoc from '@/reducers/current-loc'
+import direction from '@/reducers/direction'
 import auth from '@/reducers/auth'
 import online from '@/reducers/online'
 
@@ -41,7 +43,7 @@ export class Store {
     auth,
     error,
     home,
-    currentLoc,
+    direction,
     appointments,
     appointmentDetail,
     nextAppointment

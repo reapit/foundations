@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Button } from '@reapit/elements'
 import mapStyles from '@/styles/pages/map.scss?mod'
 
 const { mapTravelMode } = mapStyles

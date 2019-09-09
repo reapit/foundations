@@ -2,8 +2,8 @@
  * Please follow the <<STATE>>_<<ACTION_TYPE>> pattern and group actions by STATE
  */
 const ActionTypes = {
-  // CurrentLoc actions
-  SET_CURRENT_LOC: 'SET_CURRENT_LOC',
+  // destination actions
+  SET_DESTINATION: 'SET_DESTINATION',
 
   // Online actions
   ONLINE: 'ONLINE',
@@ -29,6 +29,7 @@ const ActionTypes = {
   HOME_LOADING: 'HOME_LOADING',
   HOME_RECEIVE_DATA: 'HOME_RECEIVE_DATA',
   HOME_CLEAR_DATA: 'HOME_CLEAR_DATA',
+  HOME_TAB_CHANGE: 'HOME_TAB_CHANGE',
 
   // Appointments actions
   APPOINTMENTS_REQUEST_DATA: 'APPOINTMENTS_REQUEST_DATA',

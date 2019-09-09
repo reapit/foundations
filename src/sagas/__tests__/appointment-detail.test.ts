@@ -1,5 +1,5 @@
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { URLS, APPOINTMENTS_HEADERS, REAPIT_API_BASE_URL } from '@/constants/api'
+import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
 import { fetcher } from '@reapit/elements'
 import {
   AppointmentDetailRequestParams,

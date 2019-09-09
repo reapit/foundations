@@ -74,9 +74,7 @@ describe('session utils', () => {
   describe('verifyAccessToken', () => {
     it('should correctly return null when app is not online', () => {
       store.state.online.online = false
-
-      const result = verifyAccessToken()
-
+      verifyAccessToken()
       expect(store.dispatch).toHaveBeenCalledWith(authLogout())
     })
 
@@ -84,9 +82,7 @@ describe('session utils', () => {
       store.state.online.online = true
       store.state.auth.loginSession = null
       store.state.auth.desktopSession = null
-
-      const result = verifyAccessToken()
-
+      verifyAccessToken()
       expect(store.dispatch).toHaveBeenCalledWith(authLogout())
     })
 
@@ -94,9 +90,7 @@ describe('session utils', () => {
       store.state.online.online = true
       store.state.auth.loginSession = null
       store.state.auth.desktopSession = {} as RefreshParams
-
-      const result = verifyAccessToken()
-
+      verifyAccessToken()
       expect(store.dispatch).toHaveBeenCalledTimes(0)
     })
 
@@ -104,9 +98,7 @@ describe('session utils', () => {
       store.state.online.online = true
       store.state.auth.loginSession = {} as LoginSession
       store.state.auth.desktopSession = {} as RefreshParams
-
-      const result = verifyAccessToken()
-
+      verifyAccessToken()
       expect(store.dispatch).toHaveBeenCalledTimes(0)
     })
 

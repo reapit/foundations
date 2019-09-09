@@ -1,3 +1,4 @@
+/* tslint:disable */
 /**
  * Model representing the physical address of a building or premise
  */
@@ -222,8 +223,7 @@ export interface PagedResultAppointmentModel_ {
     totalCount?: number; // int32
 }
 export interface ProblemDetails {
-    [name: string]: {
-    };
+    [key: string]: any
     type?: string;
     title?: string;
     status?: number; // int32

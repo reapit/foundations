@@ -1,13 +1,6 @@
 import nextAppointmentSagas, { nextAppointmentDataListen, validateNextAppointment } from '@/sagas/next-appointment'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
-import {
-  nextAppointmentClear,
-  nextAppointmentValidate,
-  nextAppointmentValidateSuccess
-} from '@/actions/next-appointment'
-import { Action } from '@/types/core'
-import { cloneableGenerator } from '@redux-saga/testing-utils'
+import { takeLatest, all, fork } from '@redux-saga/core/effects'
 
 jest.mock('../../core/store')
 jest.mock('@reapit/elements')

@@ -3,11 +3,11 @@ import ActionTypes from '@/constants/action-types'
 import { OnlineState } from '@/reducers/online'
 import { ErrorState } from '@/reducers/error'
 import { HomeState } from '@/reducers/home'
-import { CurrentLocState } from '@/reducers/current-loc'
 import { AppointmentsState } from '@/reducers/appointments'
 import { AppointmentDetailState } from '@/reducers/appointment-detail'
 import { AuthState } from '@/reducers/auth'
 import { NextAppointmentState } from '@/reducers/next-appointment'
+import { DirectionState } from '@/reducers/direction'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -44,7 +44,7 @@ export interface ReduxState {
   online: OnlineState
   error: ErrorState
   home: HomeState
-  currentLoc: CurrentLocState
+  direction: DirectionState
   appointments: AppointmentsState
   appointmentDetail: AppointmentDetailState
   auth: AuthState

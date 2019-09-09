@@ -3,8 +3,8 @@ import { RouteValue, StringMap } from '@/types/core'
 import Routes from '@/constants/routes'
 import store from '@/core/store'
 import { verifyAccessToken } from '@/utils/session'
-import { homeRequestData } from '@/actions/home'
 
+// @ts-ignore
 const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
   await verifyAccessToken()
 

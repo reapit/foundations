@@ -11,7 +11,8 @@
     ],
     "no-floating-promises": false,
     "deprecation": false,
-    "class-name": false
+    "class-name": false,
+    "no-unused-variable": [ true, "check-parameters" ]
   },
   "jsRules": {
     "prettier": [
