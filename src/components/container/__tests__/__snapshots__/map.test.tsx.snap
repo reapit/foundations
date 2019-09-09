@@ -195,11 +195,22 @@ exports[`Map Should match snapshot 1`] = `
         "lng": 0,
       }
     }
+    onLoadedDirection={[Function]}
     travelMode="DRIVING"
   />
   <Memo()
     onChangeTravelMode={[Function]}
     travelMode="DRIVING"
+  />
+  <Component
+    destination={
+      Object {
+        "lat": 0,
+        "lng": 0,
+      }
+    }
+    distance=""
+    duration=""
   />
 </div>
 `;
@@ -225,11 +236,22 @@ exports[`Map Should match snapshot 2`] = `
         "lng": 0,
       }
     }
+    onLoadedDirection={[Function]}
     travelMode="DRIVING"
   />
   <Memo()
     onChangeTravelMode={[Function]}
     travelMode="DRIVING"
+  />
+  <Component
+    destination={
+      Object {
+        "lat": 0,
+        "lng": 0,
+      }
+    }
+    distance=""
+    duration=""
   />
 </div>
 `;
