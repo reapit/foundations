@@ -331,10 +331,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@reapit/elements@0.1.29":
-  version "0.1.29"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.29.tgz#591a74795290bf532fd5812490e9fe933fc3d56e"
-  integrity sha512-abJnztNINDhDKBw869sKuH/ddDatAKRgjYEuddtGOwIvFzgm4PDiAxNyzvkEK88umHG2+jDryVSF+SuLL2NCuw==
+"@reapit/elements@0.1.31":
+  version "0.1.31"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.31.tgz#507b85b264e7e400968fe0dbd11a1e1f80adc9b6"
+  integrity sha512-5kZpjnyG1jclIg0cIa2X1ESHRCluCdtDt7Rt0+2DOu9ugPaw7CWazqQ1fZZMzjCIOh5GACwsgHJGqUPg2erQvg==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.16"

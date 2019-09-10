@@ -7,7 +7,6 @@ import { AppointmentModel } from '@/types/appointments'
 import invalidValues from '@/constants/invalid-values'
 import { MarkerComponentWithConnect } from '@/components/container/marker-component'
 import mapStyles from '@/styles/pages/map.scss?mod'
-import TravelMode from '../ui/travel-mode'
 import MapPanel from '../ui/map-panel'
 
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
@@ -20,7 +19,9 @@ export interface MapContainerMappedState {
   }
 }
 
-export type MapContainerProps = MapContainerMappedState
+export type MapContainerProps = MapContainerMappedState & {
+  travelMode: 'DRIVING' | 'WALKING'
+}
 
 export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
   return markers.filter(appointments => {
@@ -32,8 +33,7 @@ export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
   })
 }
 
-export const MapContainer = ({ appointments = [], destinationLatLng }: MapContainerProps) => {
-  const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
+export const MapContainer = ({ appointments = [], destinationLatLng, travelMode }: MapContainerProps) => {
   const [distance, setDistance] = React.useState('')
   const [duration, setDuration] = React.useState('')
 
@@ -56,13 +56,6 @@ export const MapContainer = ({ appointments = [], destinationLatLng }: MapContai
     })
   )
 
-  const handleTravelMode = React.useCallback(
-    value => {
-      setTravelMode(value)
-    },
-    [travelMode]
-  )
-
   const onLoadedDirection = React.useCallback(
     res => {
       const { duration, distance } = res.routes[0].legs[0]
@@ -83,8 +76,8 @@ export const MapContainer = ({ appointments = [], destinationLatLng }: MapContai
         defaultZoom={16}
         travelMode={travelMode}
         onLoadedDirection={onLoadedDirection}
+        mapContainerStyles={{ height: '100%' }}
       />
-      <TravelMode travelMode={travelMode} onChangeTravelMode={handleTravelMode} />
       <MapPanel duration={duration} distance={distance} destination={destinationLatLng} />
     </div>
   )

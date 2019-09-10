@@ -1,41 +1,35 @@
 import * as React from 'react'
-import mapStyles from '@/styles/pages/map.scss?mod'
+import bulma from '@/styles/vendor/bulma'
 
-const { mapTravelMode } = mapStyles
+export type TravelMode = 'DRIVING' | 'WALKING'
 
 export interface TravelModeProps {
-  travelMode: 'DRIVING' | 'WALKING'
+  travelMode: TravelMode
   onChangeTravelMode: (mode: string) => void
 }
 
 export const TravelMode = ({ travelMode, onChangeTravelMode }: TravelModeProps) => {
-  const handleChangeMode = e => {
-    onChangeTravelMode(e.target.value)
+  const handleChangeMode = (value: TravelMode) => {
+    onChangeTravelMode(value)
   }
   return (
-    <div className={mapTravelMode}>
-      <div className="control">
-        <label className={`button is-white ${travelMode === 'DRIVING' ? 'is-primary' : ''}`}>
-          <input
-            className="is-hidden"
-            type="radio"
-            value="DRIVING"
-            checked={travelMode === 'DRIVING'}
-            onChange={handleChangeMode}
-          />
-          Car
-        </label>
-        <label className={`button is-white ${travelMode === 'WALKING' ? 'is-primary' : ''}`}>
-          <input
-            className="is-hidden"
-            type="radio"
-            value="WALKING"
-            checked={travelMode === 'WALKING'}
-            onChange={handleChangeMode}
-          />
-          Walk
-        </label>
-      </div>
+    <div className={`${bulma.isCentered} ${bulma.buttons} ${bulma.hasAddons}`}>
+      <span
+        className={
+          bulma.button + (travelMode === 'DRIVING' ? ` ${bulma.isSelected} ${bulma.isActive} ${bulma.isPrimary}` : '')
+        }
+        onClick={() => handleChangeMode('DRIVING')}
+      >
+        Car
+      </span>
+      <span
+        className={
+          bulma.button + (travelMode === 'WALKING' ? ` ${bulma.isSelected} ${bulma.isActive} ${bulma.isPrimary}` : '')
+        }
+        onClick={() => handleChangeMode('WALKING')}
+      >
+        Walk
+      </span>
     </div>
   )
 }

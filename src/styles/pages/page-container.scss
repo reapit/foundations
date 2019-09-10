@@ -1,13 +1,9 @@
-@import '../base/layout.scss';
 @import '../base/colors.scss';
 
 .pageWrapper {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-  }
 
   > main {
     width: 100%;
@@ -15,10 +11,9 @@
 }
 
 .pageContainer {
-  width: $page-container;
-  min-height: 100vh;
+  width: 100vw;
+  height: calc(100vh - 74px);
   background: $grey-lightest;
-  padding: 0 1.5rem;
 }
 
 .pageContainer.isDesktop {
@@ -27,10 +22,13 @@
 
 .menuContainer {
   flex-shrink: 0;
-  width: $menu-width;
+  width: 100vw;
   padding: 1rem 1rem 0 1rem;
   border-right: 1px solid $grey-lighter;
   border-bottom: 1px solid $grey-lighter;
+  position: sticky;
+  z-index: 11;
+  background: #fff;
 }
 
 .menuContainer.isDesktop {
@@ -46,14 +44,9 @@
 
 .tabsSticky {
   position: sticky;
-  top: 73px;
   z-index: 9;
+  top: 0;
   background-color: #fff;
-  margin-bottom: 1.5rem;
-
-  @media screen and (min-width: 768px) {
-    top: 0;
-  }
 }
 
 .menuSticky {
@@ -61,4 +54,34 @@
   top: 0;
   z-index: 10;
   background-color: #fff;
+  padding: 1rem 0;
+  border-bottom: 1px solid $grey-lighter;
+  @media screen and (max-width: 768px) {
+    top: 36px;
+  }
+}
+
+.controlsWrapper {
+  position: absolute;
+  background:rgb(249, 251, 253);
+  height: 50%;
+  height: calc(100% - 73px);
+  width: 300px;
+  left: 0;
+  top: 73px;
+  overflow: scroll;
+  @media screen and (max-width: 768px) {
+    height: 100%;
+  }
+}
+
+.controlsWrapper.isMobile {
+  position: static;
+  width: 100%;
+  overflow: auto;
+}
+
+.appointmentsListWrapper {
+  position: relative;
+  top: 1rem;
 }

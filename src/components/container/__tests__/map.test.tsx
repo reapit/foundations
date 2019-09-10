@@ -4,12 +4,14 @@ import invalidValues from '@/constants/invalid-values'
 import { shallow } from 'enzyme'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
 import { appointmentDataStub } from '@/sagas/__stubs__/appointment'
+import { TravelMode } from '../../ui/travel-mode'
 
 describe('Map', () => {
   it('Should match snapshot', () => {
     const mockProps = {
       appointments: appointmentsDataStub.data.data,
-      destinationLatLng: { lat: 0, lng: 0 }
+      destinationLatLng: { lat: 0, lng: 0 },
+      travelMode: 'WALKING' as TravelMode
     }
     const wrapper = shallow(<MapContainer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -18,7 +20,8 @@ describe('Map', () => {
   it('Should match snapshot', () => {
     const mockProps = {
       appointments: undefined,
-      destinationLatLng: { lat: 0, lng: 0 }
+      destinationLatLng: { lat: 0, lng: 0 },
+      travelMode: 'WALKING' as TravelMode
     }
     const wrapper = shallow(<MapContainer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()

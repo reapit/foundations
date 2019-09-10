@@ -51,7 +51,7 @@ export type MenuProps = MenuMappedActions & RouteComponentProps & {}
 export const Menu: React.FunctionComponent<MenuProps> = ({ logout, location }) => {
   const logoutCallback = () => logout()
   const menuConfigs = generateMenuConfig(logoutCallback)
-  return <Sidebar {...menuConfigs} location={location} />
+  return <Sidebar {...menuConfigs} location={location} isResponsive={false} />
 }
 
 export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({

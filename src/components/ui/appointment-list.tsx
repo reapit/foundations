@@ -6,6 +6,7 @@ import { oc } from 'ts-optchain'
 import ViewDetailButton from '../container/view-detail-button'
 import ETAButton from './eta-button'
 import { NextAppointment } from '@/reducers/next-appointment'
+import containerStyle from '@/styles/pages/page-container.scss?mod'
 
 export interface AppointmentListProps {
   data: AppointmentModel[]
@@ -48,7 +49,7 @@ export const AppointmentList = memo(({ data, nextAppointment }: AppointmentListP
   }
 
   return (
-    <div className="px-4">
+    <div className={`px-4 ${containerStyle.appointmentsListWrapper}`}>
       {data.map(item => {
         const line1 = oc<AppointmentModel>(item).property.line1('---')
         const line2 = oc<AppointmentModel>(item).property.line2('---')

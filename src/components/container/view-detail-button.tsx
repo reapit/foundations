@@ -11,7 +11,7 @@ export type ViewDetailButtonProps = {
 export const ViewDetailButton: React.FC<ViewDetailButtonProps> = ({ onClick }) => {
   return (
     <Button variant="primary" type="button" onClick={onClick}>
-      View Detail
+      Details
     </Button>
   )
 }
