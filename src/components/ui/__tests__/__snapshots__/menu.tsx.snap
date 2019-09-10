@@ -3,6 +3,7 @@
 exports[`Menu should match a snapshot 1`] = `
 <Menu
   homeUrl="/"
+  isResponsive={false}
   location={
     Object {
       "pathname": "/client",

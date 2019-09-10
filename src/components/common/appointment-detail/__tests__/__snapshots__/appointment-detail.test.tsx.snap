@@ -7,44 +7,40 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
   visible={true}
 >
   <div>
-    <div>
-      <div
-        data-test="title-name"
-      >
-        Chase MacLean
-      </div>
-      <div>
-        Ref:
-        BED1600597
-      </div>
-    </div>
-    <div>
+    <AppointmentTile
+      heading="
+      18 Dec 2016 04:30 PM - 05:30 PM,
+      
       65
-       
-       
-      Lindsey Close
-       
-      Great Denham
-       
-      Bedford
-       
-      Bedfordshire
-       
-      MK40 4GT
-       
-    </div>
-    <div
+      Lindsey Close, Ref: BED1600597
+  "
+      hightlight={false}
+    >
+      <ul>
+        <li>
+          Address: 
+           
+          65
+           
+          Lindsey Close
+           
+          Great Denham
+           
+          Bedford
+           
+          Bedfordshire
+           
+          MK40 4GT
+           
+        </li>
+      </ul>
+    </AppointmentTile>
+    <AppointmentTile
+      heading="Chase MacLean"
+      hightlight={false}
       key="0"
     >
       <div>
-        <div>
-          Chase MacLean
-        </div>
-        <div>
-          <TiTick />
-        </div>
-      </div>
-      <div>
         <div
           key="0"
         >
@@ -58,19 +54,13 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
           </div>
         </div>
       </div>
-    </div>
-    <div
+    </AppointmentTile>
+    <AppointmentTile
+      heading="Chase MacLean"
+      hightlight={false}
       key="1"
     >
       <div>
-        <div>
-          Chase MacLean
-        </div>
-        <div>
-          <TiTick />
-        </div>
-      </div>
-      <div>
         <div
           key="0"
         >
@@ -84,25 +74,7 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div>
-        Time
-      </div>
-      <div>
-        <span
-          data-test="appointment-date"
-        >
-          18 Dec 2016
-        </span>
-         
-        <b>
-          04:30 PM
-           - 
-          05:30 PM
-        </b>
-      </div>
-    </div>
+    </AppointmentTile>
   </div>
 </Modal>
 `;
@@ -119,48 +91,56 @@ exports[`AppointmentModal AppointmentModal should render correctly when loading 
 
 exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
 <div>
-  <div>
-    65
-     
-     
-    Lindsey Close
-     
-    Great Denham
-     
-    Bedford
-     
-    Bedfordshire
-     
-    MK40 4GT
-     
-  </div>
+  <AppointmentTile
+    heading="
+      18 Dec 2016 04:30 PM - 05:30 PM,
+      
+      65
+      Lindsey Close, Ref: BED1600597
+  "
+    hightlight={false}
+  >
+    <ul>
+      <li>
+        Address: 
+         
+        65
+         
+        Lindsey Close
+         
+        Great Denham
+         
+        Bedford
+         
+        Bedfordshire
+         
+        MK40 4GT
+         
+      </li>
+    </ul>
+  </AppointmentTile>
 </div>
 `;
 
 exports[`AppointmentModal renderArrangement should matchSnapshot 1`] = `
 <div>
-  <div>
-    <div>
-      Arrangement
-    </div>
+  <AppointmentTile
+    heading="Arrangements"
+    hightlight={false}
+  >
     <div>
       123
     </div>
-  </div>
+  </AppointmentTile>
 </div>
 `;
 
 exports[`AppointmentModal renderAttendees should matchSnapshot 1`] = `
 Array [
-  <div>
-    <div>
-      <div>
-        Chase MacLean
-      </div>
-      <div>
-        <TiTick />
-      </div>
-    </div>
+  <AppointmentTile
+    heading="Chase MacLean"
+    hightlight={false}
+  >
     <div>
       <div>
         <div>
@@ -173,16 +153,11 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-  <div>
-    <div>
-      <div>
-        Chase MacLean
-      </div>
-      <div>
-        <TiTick />
-      </div>
-    </div>
+  </AppointmentTile>,
+  <AppointmentTile
+    heading="Chase MacLean"
+    hightlight={false}
+  >
     <div>
       <div>
         <div>
@@ -195,7 +170,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </AppointmentTile>,
 ]
 `;
 
@@ -230,52 +205,13 @@ exports[`AppointmentModal renderCommunicationType should match snapshot 1`] = `
 
 exports[`AppointmentModal renderNotes should matchSnapshot 1`] = `
 <div>
-  <div>
-    <div>
-      Note
-    </div>
+  <AppointmentTile
+    heading="Notes"
+    hightlight={false}
+  >
     <div>
       123
     </div>
-  </div>
-</div>
-`;
-
-exports[`AppointmentModal renderStartAndEndDate should matchSnapshot 1`] = `
-<div>
-  <div>
-    <div>
-      Time
-    </div>
-    <div>
-      <span
-        data-test="appointment-date"
-      >
-        18 Dec 2016
-      </span>
-       
-      <b>
-        04:30 PM
-         - 
-        05:30 PM
-      </b>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`AppointmentModal renderTitle should run correctly 1`] = `
-<div>
-  <div>
-    <div
-      data-test="title-name"
-    >
-      Chase MacLean
-    </div>
-    <div>
-      Ref:
-      BED1600597
-    </div>
-  </div>
+  </AppointmentTile>
 </div>
 `;
