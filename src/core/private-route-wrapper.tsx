@@ -2,7 +2,10 @@ import * as React from 'react'
 import { Redirect, RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import Routes from '../constants/routes'
+import { Loader } from '@reapit/elements'
+import Menu from '@/components/ui/menu'
+import Routes from '@/constants/routes'
+import pageContainerStyles from '../styles/pages/page-container.scss?mod'
 
 const { Suspense } = React
 
@@ -34,10 +37,25 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     console.log('Desktop session')
   }
 
+  const { menuContainer, pageContainer, pageWrapper, isDesktop } = pageContainerStyles
+
   return (
-    <main>
-      <Suspense fallback={<div>Loading</div>}>{children}</Suspense>
-    </main>
+    <div className={pageWrapper}>
+      <div className={`${menuContainer} ${desktopLogin || isDesktopLogin ? isDesktop : ''}`}>
+        <Menu />
+      </div>
+      <main className={`${pageContainer} ${desktopLogin || isDesktopLogin ? isDesktop : ''}`}>
+        <Suspense
+          fallback={
+            <div className="pt-5">
+              <Loader />
+            </div>
+          }
+        >
+          {children}
+        </Suspense>
+      </main>
+    </div>
   )
 }
 

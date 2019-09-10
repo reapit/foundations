@@ -16,5 +16,8 @@ module.exports = {
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
     })
-  }
+  },
+  snapshotSerializers: [
+    "enzyme-to-json/serializer"
+    ]
 };
