@@ -161,7 +161,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment,
       ) : (
         <div className={styles.root}>
           {renderTitle(appointment)}
-          {renderAddress(appointment.property)}
+          {renderAddress(oc(appointment).property.address())}
           {renderAttendees(appointment.attendees)}
           {renderNotes(appointment.description)}
           {renderArrangement(appointment.arrangements)}
