@@ -39,11 +39,11 @@ export const MapContainer = ({ appointments = [], destinationLatLng, travelMode 
 
   const coordinates: CoordinateProps<any> = filterInvalidMarker(
     appointments.map(appointment => {
-      const lat = oc(appointment).property.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
-      const lng = oc(appointment).property.geolocation.longitude(UNDEFINED_LATLNG_NUMBER)
+      const lat = oc(appointment).property.address.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
+      const lng = oc(appointment).property.address.geolocation.longitude(UNDEFINED_LATLNG_NUMBER)
       const id = oc(appointment).id(UNDEFINED_NULL_STRING)
-      const address1 = oc(appointment).property.line1('')
-      const address2 = oc(appointment).property.line2('')
+      const address1 = oc(appointment).property.address.line1('')
+      const address2 = oc(appointment).property.address.line2('')
       return {
         position: {
           lat,
@@ -85,8 +85,8 @@ export const MapContainer = ({ appointments = [], destinationLatLng, travelMode 
 
 export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
   const appointments = oc(state).appointments.appointments.data.data([])
-  const destinationLat = oc(state).direction.destination.property.geolocation.latitude(undefined)
-  const destinationLng = oc(state).direction.destination.property.geolocation.longitude(undefined)
+  const destinationLat = oc(state).direction.destination.property.address.geolocation.latitude(undefined)
+  const destinationLng = oc(state).direction.destination.property.address.geolocation.longitude(undefined)
   return {
     appointments,
     destinationLatLng: {
