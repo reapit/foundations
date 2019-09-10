@@ -6,6 +6,6 @@ exports[`ViewDetailButton ViewDetailButton should match snapshot 1`] = `
   type="button"
   variant="primary"
 >
-  View Detail
+  Details
 </Button>
 `;

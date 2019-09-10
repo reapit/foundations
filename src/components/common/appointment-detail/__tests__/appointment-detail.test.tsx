@@ -2,7 +2,6 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import {
   AppointmentModal,
-  renderTitle,
   renderStartAndEndDate,
   renderArrangement,
   renderNotes,
@@ -46,117 +45,15 @@ describe('AppointmentModal', () => {
       expect(wrapper).toMatchSnapshot()
     })
   })
-  describe('renderTitle', () => {
-    it('should run correctly', () => {
-      const input = {
-        id: 'BED1600597',
-        created: '2019-05-12T17:58:40',
-        modified: '2016-12-18T16:03:45',
-        start: '2016-12-18T16:30:00',
-        end: '2016-12-18T17:30:00',
-        type: 'IA',
-        recurring: false,
-        cancelled: false,
-        property: {
-          address: {
-            buildingName: '',
-            buildingNumber: '65',
-            line1: 'Lindsey Close',
-            line2: 'Great Denham',
-            line3: 'Bedford',
-            line4: 'Bedfordshire',
-            postcode: 'MK40 4GT',
-            country: '',
-            geolocation: {
-              latitude: 52.1284,
-              longitude: -0.507145
-            }
-          }
-        },
-        attendees: [
-          {
-            id: 'JJS',
-            type: 'negotiator',
-            name: 'Chase MacLean',
-            confirmed: true,
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'chase.maclean@reapitestates.net'
-              }
-            ]
-          },
-          {
-            id: 'JJS',
-            type: 'seller',
-            name: 'Chase MacLean',
-            confirmed: true,
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'chase.maclean@reapitestates.net'
-              }
-            ]
-          }
-        ]
-      }
-      const title = renderTitle(input)
-      const wrapper = shallow(<div>{title}</div>)
-      expect(wrapper).toMatchSnapshot()
-      expect(wrapper.find('[data-test="title-name"]').text()).toEqual('Chase MacLean')
-    })
 
-    it('should run correctly when no attendees', () => {
-      const input = {
-        id: 'BED1600597',
-        created: '2019-05-12T17:58:40',
-        modified: '2016-12-18T16:03:45',
-        start: '2016-12-18T16:30:00',
-        end: '2016-12-18T17:30:00',
-        type: 'IA',
-        recurring: false,
-        cancelled: false,
-        property: {
-          address: {
-            buildingName: '',
-            buildingNumber: '65',
-            line1: 'Lindsey Close',
-            line2: 'Great Denham',
-            line3: 'Bedford',
-            line4: 'Bedfordshire',
-            postcode: 'MK40 4GT',
-            country: '',
-            geolocation: {
-              latitude: 52.1284,
-              longitude: -0.507145
-            }
-          }
-        },
-        attendees: []
-      }
-      const title = renderTitle(input)
-      const wrapper = shallow(<div>{title}</div>)
-      expect(wrapper.find('[data-test="title-name"]').text()).toEqual('')
-    })
-  })
   describe('renderStartAndEndDate', () => {
-    it('should matchSnapshot', () => {
-      const input = {
-        startDate: '2016-12-18T16:30:00',
-        endDate: '2016-12-18T17:30:00'
-      }
-      const dateData = renderStartAndEndDate(input.startDate, input.endDate)
-      const wrapper = shallow(<div>{dateData}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
     it('should run correctly and show Today', () => {
       const input = {
         startDate: '2016-12-18T16:30:00',
         endDate: '2016-12-18T17:30:00'
       }
       const dateData = renderStartAndEndDate(input.startDate, input.endDate)
-      const wrapper = shallow(<div>{dateData}</div>)
-      expect(wrapper.find('[data-test="appointment-date"]').text()).not.toEqual('Today')
+      expect(dateData.indexOf('Today')).toEqual(-1)
     })
     it('should run correctly and not show Today', () => {
       const input = {
@@ -164,8 +61,7 @@ describe('AppointmentModal', () => {
         endDate: '2019-01-01T17:30:00'
       }
       const dateData = renderStartAndEndDate(input.startDate, input.endDate)
-      const wrapper = shallow(<div>{dateData}</div>)
-      expect(wrapper.find('[data-test="appointment-date"]').text()).toEqual('01 Jan 2019')
+      expect(dateData.indexOf('01 Jan 2019')).toBeGreaterThanOrEqual(0)
     })
   })
 
@@ -209,44 +105,69 @@ describe('AppointmentModal', () => {
   describe('renderAddress', () => {
     it('should matchSnapshot', () => {
       const input = {
-        buildingName: '',
-        buildingNumber: '65',
-        line1: 'Lindsey Close',
-        line2: 'Great Denham',
-        line3: 'Bedford',
-        line4: 'Bedfordshire',
-        postcode: 'MK40 4GT',
-        country: '',
-        geolocation: {
-          latitude: 52.1284,
-          longitude: -0.507145
-        }
+        id: 'BED1600597',
+        created: '2019-05-12T17:58:40',
+        modified: '2016-12-18T16:03:45',
+        start: '2016-12-18T16:30:00',
+        end: '2016-12-18T17:30:00',
+        type: 'IA',
+        recurring: false,
+        cancelled: false,
+        property: {
+          address: {
+            buildingName: '',
+            buildingNumber: '65',
+            line1: 'Lindsey Close',
+            line2: 'Great Denham',
+            line3: 'Bedford',
+            line4: 'Bedfordshire',
+            postcode: 'MK40 4GT',
+            country: '',
+            geolocation: {
+              latitude: 52.1284,
+              longitude: -0.507145
+            }
+          }
+        },
+        attendees: []
       }
-      const data = renderAddress(input)
+      const data = renderAddress(input.property.address, input)
       const wrapper = shallow(<div>{data}</div>)
       expect(wrapper).toMatchSnapshot()
     })
     it('should run correctly and show not Today', () => {
       const input = {
-        buildingName: '',
-        buildingNumber: '65',
-        line1: 'Lindsey Close',
-        line2: 'Great Denham',
-        line3: 'Bedford',
-        line4: 'Bedfordshire',
-        postcode: 'MK40 4GT',
-        country: '',
-        geolocation: {
-          latitude: 52.1284,
-          longitude: -0.507145
-        }
+        id: 'BED1600597',
+        created: '2019-05-12T17:58:40',
+        modified: '2016-12-18T16:03:45',
+        start: '2016-12-18T16:30:00',
+        end: '2016-12-18T17:30:00',
+        type: 'IA',
+        recurring: false,
+        cancelled: false,
+        property: {
+          address: {
+            buildingName: '',
+            buildingNumber: '65',
+            line1: 'Lindsey Close',
+            line2: 'Great Denham',
+            line3: 'Bedford',
+            line4: 'Bedfordshire',
+            postcode: 'MK40 4GT',
+            country: '',
+            geolocation: {
+              latitude: 52.1284,
+              longitude: -0.507145
+            }
+          }
+        },
+        attendees: []
       }
-      const data = renderAddress(input)
+      const data = renderAddress(input.property.address, input)
       expect(data).not.toBeNull()
     })
     it('should run correctly and show Today', () => {
-      const input = undefined
-      const data = renderAddress(input)
+      const data = renderAddress(undefined as any, undefined as any)
       expect(data).toBeNull()
     })
   })

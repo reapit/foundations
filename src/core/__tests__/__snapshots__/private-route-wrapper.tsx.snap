@@ -9,15 +9,19 @@ exports[`PrivateRouter should match a snapshot 1`] = `
 exports[`PrivateRouter should match a snapshot for desktop login 1`] = `
 <div>
   <div
-    className="undefined undefined "
+    className="undefined "
   >
     <withRouter(Connect(Component)) />
   </div>
-  <main>
+  <main
+    className="undefined "
+  >
     <Suspense
       fallback={
-        <div>
-          Loading
+        <div
+          className="pt-5"
+        >
+          <Loader />
         </div>
       }
     />

@@ -65,21 +65,25 @@ export const MapContainer = ({ appointments = [], destinationLatLng, travelMode 
     [destinationLatLng]
   )
 
+  const hasMapPanel = destinationLatLng.lng && destinationLatLng.lat
+
   return (
-    <div className={mapStyles.mapContainer}>
-      <Map
-        autoFitBounds={true}
-        apiKey={process.env.MAP_API_KEY as string}
-        coordinates={coordinates}
-        component={MarkerComponentWithConnect}
-        destinationPoint={destinationLatLng}
-        defaultZoom={16}
-        travelMode={travelMode}
-        onLoadedDirection={onLoadedDirection}
-        mapContainerStyles={{ height: '100%' }}
-      />
+    <>
+      <div className={`${mapStyles.mapContainer} ${hasMapPanel ? mapStyles.mapHasPanel : ''}`}>
+        <Map
+          autoFitBounds={true}
+          apiKey={process.env.MAP_API_KEY as string}
+          coordinates={coordinates}
+          component={MarkerComponentWithConnect}
+          destinationPoint={destinationLatLng}
+          defaultZoom={16}
+          travelMode={travelMode}
+          onLoadedDirection={onLoadedDirection}
+          mapContainerStyles={{ height: '100%' }}
+        />
+      </div>
       <MapPanel duration={duration} distance={distance} destination={destinationLatLng} />
-    </div>
+    </>
   )
 }
 

@@ -10,7 +10,7 @@ exports[`AppointmentList Should match snapshot if having no data 1`] = `
 
 exports[`AppointmentList Should match snapshot if having no data 2`] = `
 <div
-  className="px-4"
+  className="px-4 undefined"
 >
   <div
     className="mb-4"
@@ -18,50 +18,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="High Street"
+      heading="56 High Street"
       key="NEP1600290"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          56 High Street The Stables Old Haversham Milton Keynes MK19 7DZ
         </li>
         <li>
-          Building Name: 
-        </li>
-        <li>
-          Building Number: 
-          56
-        </li>
-        <li>
-          Address 1: 
-          High Street
-        </li>
-        <li>
-          Address 2: 
-          The Stables
-        </li>
-        <li>
-          Address 3: 
-          Old Haversham
-        </li>
-        <li>
-          Address 4: 
-          Milton Keynes
-        </li>
-        <li>
-          Postcode: 
-          MK19 7DZ
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           05:30 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           06:00 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -124,22 +96,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "NEP1600290",
                 "modified": "2019-05-09T09:18:06",
                 "property": Object {
-                  "buildingName": "",
-                  "buildingNumber": "56",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 52.079532,
-                    "longitude": -0.790871,
+                  "address": Object {
+                    "buildingName": "",
+                    "buildingNumber": "56",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 52.079532,
+                      "longitude": -0.790871,
+                    },
+                    "line1": "High Street",
+                    "line2": "The Stables",
+                    "line3": "Old Haversham",
+                    "line4": "Milton Keynes",
+                    "postcode": "MK19 7DZ",
                   },
-                  "line1": "High Street",
-                  "line2": "The Stables",
-                  "line3": "Old Haversham",
-                  "line4": "Milton Keynes",
-                  "postcode": "MK19 7DZ",
                 },
                 "recurring": false,
                 "start": "2019-05-11T17:30:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -153,50 +127,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="The Embankment"
+      heading="68 The Embankment"
       key="BED1600537"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          68 The Embankment Bedford Bedfordshire  MK40 3PD
         </li>
         <li>
-          Building Name: 
-          Cornerways
-        </li>
-        <li>
-          Building Number: 
-          68
-        </li>
-        <li>
-          Address 1: 
-          The Embankment
-        </li>
-        <li>
-          Address 2: 
-          Bedford
-        </li>
-        <li>
-          Address 3: 
-          Bedfordshire
-        </li>
-        <li>
-          Address 4: 
-        </li>
-        <li>
-          Postcode: 
-          MK40 3PD
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           01:30 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           02:00 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -242,22 +188,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "BED1600537",
                 "modified": "2016-12-14T17:25:22",
                 "property": Object {
-                  "buildingName": "Cornerways",
-                  "buildingNumber": "68",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 52.135071,
-                    "longitude": -0.45936,
+                  "address": Object {
+                    "buildingName": "Cornerways",
+                    "buildingNumber": "68",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 52.135071,
+                      "longitude": -0.45936,
+                    },
+                    "line1": "The Embankment",
+                    "line2": "Bedford",
+                    "line3": "Bedfordshire",
+                    "line4": "",
+                    "postcode": "MK40 3PD",
                   },
-                  "line1": "The Embankment",
-                  "line2": "Bedford",
-                  "line3": "Bedfordshire",
-                  "line4": "",
-                  "postcode": "MK40 3PD",
                 },
                 "recurring": false,
                 "start": "2019-05-09T13:30:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -271,51 +219,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="Sandhill Road"
+      heading="34 Sandhill Road"
       key="BUC1600211"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          34 Sandhill Road East Claydon Buckingham Buckinghamshire MK18 2LZ
         </li>
         <li>
-          Building Name: 
-          The Pines
-        </li>
-        <li>
-          Building Number: 
-          34
-        </li>
-        <li>
-          Address 1: 
-          Sandhill Road
-        </li>
-        <li>
-          Address 2: 
-          East Claydon
-        </li>
-        <li>
-          Address 3: 
-          Buckingham
-        </li>
-        <li>
-          Address 4: 
-          Buckinghamshire
-        </li>
-        <li>
-          Postcode: 
-          MK18 2LZ
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           02:15 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           02:45 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -378,22 +297,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "BUC1600211",
                 "modified": "2019-05-12T08:19:24",
                 "property": Object {
-                  "buildingName": "The Pines",
-                  "buildingNumber": "34",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 51.924759,
-                    "longitude": -0.929362,
+                  "address": Object {
+                    "buildingName": "The Pines",
+                    "buildingNumber": "34",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 51.924759,
+                      "longitude": -0.929362,
+                    },
+                    "line1": "Sandhill Road",
+                    "line2": "East Claydon",
+                    "line3": "Buckingham",
+                    "line4": "Buckinghamshire",
+                    "postcode": "MK18 2LZ",
                   },
-                  "line1": "Sandhill Road",
-                  "line2": "East Claydon",
-                  "line3": "Buckingham",
-                  "line4": "Buckinghamshire",
-                  "postcode": "MK18 2LZ",
                 },
                 "recurring": false,
                 "start": "2019-05-09T14:15:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -407,49 +328,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="Little Tingewick"
+      heading="Wayside Little Tingewick"
       key="BUC1600210"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          Wayside Little Tingewick Buckingham Buckinghamshire  MK18 4AG
         </li>
         <li>
-          Building Name: 
-          Wayside
-        </li>
-        <li>
-          Building Number: 
-        </li>
-        <li>
-          Address 1: 
-          Little Tingewick
-        </li>
-        <li>
-          Address 2: 
-          Buckingham
-        </li>
-        <li>
-          Address 3: 
-          Buckinghamshire
-        </li>
-        <li>
-          Address 4: 
-        </li>
-        <li>
-          Postcode: 
-          MK18 4AG
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           01:30 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           02:15 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -495,22 +389,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "BUC1600210",
                 "modified": "2019-05-11T14:45:40",
                 "property": Object {
-                  "buildingName": "Wayside",
-                  "buildingNumber": "",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 51.989592,
-                    "longitude": -1.06774,
+                  "address": Object {
+                    "buildingName": "Wayside",
+                    "buildingNumber": "",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 51.989592,
+                      "longitude": -1.06774,
+                    },
+                    "line1": "Little Tingewick",
+                    "line2": "Buckingham",
+                    "line3": "Buckinghamshire",
+                    "line4": "",
+                    "postcode": "MK18 4AG",
                   },
-                  "line1": "Little Tingewick",
-                  "line2": "Buckingham",
-                  "line3": "Buckinghamshire",
-                  "line4": "",
-                  "postcode": "MK18 4AG",
                 },
                 "recurring": false,
                 "start": "2019-05-09T13:30:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -524,51 +420,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="---"
+      heading=" "
       key="STS1600403"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+               
         </li>
         <li>
-          Building Name: 
-          ---
-        </li>
-        <li>
-          Building Number: 
-          ---
-        </li>
-        <li>
-          Address 1: 
-          ---
-        </li>
-        <li>
-          Address 2: 
-          ---
-        </li>
-        <li>
-          Address 3: 
-          ---
-        </li>
-        <li>
-          Address 4: 
-          ---
-        </li>
-        <li>
-          Postcode: 
-          ---
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           11:15 AM
-        </li>
-        <li>
-          End Time: 
+           - 
           11:45 AM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -632,7 +499,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "modified": "2019-05-11T10:05:34",
                 "recurring": false,
                 "start": "2019-05-09T11:15:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -646,51 +513,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="---"
+      heading=" "
       key="STS1600401"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+               
         </li>
         <li>
-          Building Name: 
-          ---
-        </li>
-        <li>
-          Building Number: 
-          ---
-        </li>
-        <li>
-          Address 1: 
-          ---
-        </li>
-        <li>
-          Address 2: 
-          ---
-        </li>
-        <li>
-          Address 3: 
-          ---
-        </li>
-        <li>
-          Address 4: 
-          ---
-        </li>
-        <li>
-          Postcode: 
-          ---
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           03:15 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           04:00 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -754,7 +592,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "modified": "2019-05-12T16:39:53",
                 "recurring": false,
                 "start": "2019-05-10T15:15:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -768,50 +606,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="High Street"
+      heading="56 High Street"
       key="NEP1600288"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          56 High Street The Stables Old Haversham Milton Keynes MK19 7DZ
         </li>
         <li>
-          Building Name: 
-        </li>
-        <li>
-          Building Number: 
-          56
-        </li>
-        <li>
-          Address 1: 
-          High Street
-        </li>
-        <li>
-          Address 2: 
-          The Stables
-        </li>
-        <li>
-          Address 3: 
-          Old Haversham
-        </li>
-        <li>
-          Address 4: 
-          Milton Keynes
-        </li>
-        <li>
-          Postcode: 
-          MK19 7DZ
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           04:30 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           05:00 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -857,22 +667,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "NEP1600288",
                 "modified": "2019-05-08T19:11:22",
                 "property": Object {
-                  "buildingName": "",
-                  "buildingNumber": "56",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 52.079532,
-                    "longitude": -0.790871,
+                  "address": Object {
+                    "buildingName": "",
+                    "buildingNumber": "56",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 52.079532,
+                      "longitude": -0.790871,
+                    },
+                    "line1": "High Street",
+                    "line2": "The Stables",
+                    "line3": "Old Haversham",
+                    "line4": "Milton Keynes",
+                    "postcode": "MK19 7DZ",
                   },
-                  "line1": "High Street",
-                  "line2": "The Stables",
-                  "line3": "Old Haversham",
-                  "line4": "Milton Keynes",
-                  "postcode": "MK19 7DZ",
                 },
                 "recurring": false,
                 "start": "2019-05-09T16:30:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -886,51 +698,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="---"
+      heading=" "
       key="STS1600396"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+               
         </li>
         <li>
-          Building Name: 
-          ---
-        </li>
-        <li>
-          Building Number: 
-          ---
-        </li>
-        <li>
-          Address 1: 
-          ---
-        </li>
-        <li>
-          Address 2: 
-          ---
-        </li>
-        <li>
-          Address 3: 
-          ---
-        </li>
-        <li>
-          Address 4: 
-          ---
-        </li>
-        <li>
-          Postcode: 
-          ---
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           06:00 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           06:30 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -977,7 +760,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "modified": "2019-05-12T12:32:01",
                 "recurring": false,
                 "start": "2019-05-08T18:00:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -991,51 +774,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="---"
+      heading=" "
       key="NEP1600287"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+               
         </li>
         <li>
-          Building Name: 
-          ---
-        </li>
-        <li>
-          Building Number: 
-          ---
-        </li>
-        <li>
-          Address 1: 
-          ---
-        </li>
-        <li>
-          Address 2: 
-          ---
-        </li>
-        <li>
-          Address 3: 
-          ---
-        </li>
-        <li>
-          Address 4: 
-          ---
-        </li>
-        <li>
-          Postcode: 
-          ---
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           05:30 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           06:00 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -1076,7 +830,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "modified": "2019-05-12T13:23:36",
                 "recurring": false,
                 "start": "2019-05-12T17:30:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -1090,49 +844,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="Shelton Road"
+      heading="The Cottage Shelton Road"
       key="BED1600534"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          The Cottage Shelton Road Yielden Bedfordshire  MK44 1AQ
         </li>
         <li>
-          Building Name: 
-          The Cottage
-        </li>
-        <li>
-          Building Number: 
-        </li>
-        <li>
-          Address 1: 
-          Shelton Road
-        </li>
-        <li>
-          Address 2: 
-          Yielden
-        </li>
-        <li>
-          Address 3: 
-          Bedfordshire
-        </li>
-        <li>
-          Address 4: 
-        </li>
-        <li>
-          Postcode: 
-          MK44 1AQ
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           03:15 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           04:15 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -1195,22 +922,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "BED1600534",
                 "modified": "2016-12-18T08:24:24",
                 "property": Object {
-                  "buildingName": "The Cottage",
-                  "buildingNumber": "",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 52.29491,
-                    "longitude": -0.512901,
+                  "address": Object {
+                    "buildingName": "The Cottage",
+                    "buildingNumber": "",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 52.29491,
+                      "longitude": -0.512901,
+                    },
+                    "line1": "Shelton Road",
+                    "line2": "Yielden",
+                    "line3": "Bedfordshire",
+                    "line4": "",
+                    "postcode": "MK44 1AQ",
                   },
-                  "line1": "Shelton Road",
-                  "line2": "Yielden",
-                  "line3": "Bedfordshire",
-                  "line4": "",
-                  "postcode": "MK44 1AQ",
                 },
                 "recurring": false,
                 "start": "2019-05-09T15:15:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -1224,51 +953,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="---"
+      heading=" "
       key="STS1600394"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+               
         </li>
         <li>
-          Building Name: 
-          ---
-        </li>
-        <li>
-          Building Number: 
-          ---
-        </li>
-        <li>
-          Address 1: 
-          ---
-        </li>
-        <li>
-          Address 2: 
-          ---
-        </li>
-        <li>
-          Address 3: 
-          ---
-        </li>
-        <li>
-          Address 4: 
-          ---
-        </li>
-        <li>
-          Postcode: 
-          ---
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           02:00 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           02:30 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -1332,7 +1032,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "modified": "2019-05-12T16:18:48",
                 "recurring": false,
                 "start": "2019-05-10T14:00:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -1346,50 +1046,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="The Causeway"
+      heading="49 The Causeway"
       key="BED1600532"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          49 The Causeway Carlton Bedford Bedfordshire MK43 7LU
         </li>
         <li>
-          Building Name: 
-        </li>
-        <li>
-          Building Number: 
-          49
-        </li>
-        <li>
-          Address 1: 
-          The Causeway
-        </li>
-        <li>
-          Address 2: 
-          Carlton
-        </li>
-        <li>
-          Address 3: 
-          Bedford
-        </li>
-        <li>
-          Address 4: 
-          Bedfordshire
-        </li>
-        <li>
-          Postcode: 
-          MK43 7LU
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           03:30 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           04:30 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VL
         </li>
       </ul>
@@ -1429,22 +1101,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "BED1600532",
                 "modified": "2019-05-12T17:59:02",
                 "property": Object {
-                  "buildingName": "",
-                  "buildingNumber": "49",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 52.188155,
-                    "longitude": -0.604618,
+                  "address": Object {
+                    "buildingName": "",
+                    "buildingNumber": "49",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 52.188155,
+                      "longitude": -0.604618,
+                    },
+                    "line1": "The Causeway",
+                    "line2": "Carlton",
+                    "line3": "Bedford",
+                    "line4": "Bedfordshire",
+                    "postcode": "MK43 7LU",
                   },
-                  "line1": "The Causeway",
-                  "line2": "Carlton",
-                  "line3": "Bedford",
-                  "line4": "Bedfordshire",
-                  "postcode": "MK43 7LU",
                 },
                 "recurring": false,
                 "start": "2019-05-11T15:30:00",
-                "type": "VL",
+                "typeId": "VL",
               }
             }
           />
@@ -1458,50 +1132,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="Foxfield"
+      heading="39 Foxfield"
       key="MKC1600312"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          39 Foxfield Broughton Gate Milton Keynes Buckinghamshire MK10 7BP
         </li>
         <li>
-          Building Name: 
-        </li>
-        <li>
-          Building Number: 
-          39
-        </li>
-        <li>
-          Address 1: 
-          Foxfield
-        </li>
-        <li>
-          Address 2: 
-          Broughton Gate
-        </li>
-        <li>
-          Address 3: 
-          Milton Keynes
-        </li>
-        <li>
-          Address 4: 
-          Buckinghamshire
-        </li>
-        <li>
-          Postcode: 
-          MK10 7BP
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           04:30 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           05:00 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -1564,22 +1210,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "MKC1600312",
                 "modified": "2019-05-08T13:33:25",
                 "property": Object {
-                  "buildingName": "",
-                  "buildingNumber": "39",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 52.044516,
-                    "longitude": -0.689953,
+                  "address": Object {
+                    "buildingName": "",
+                    "buildingNumber": "39",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 52.044516,
+                      "longitude": -0.689953,
+                    },
+                    "line1": "Foxfield",
+                    "line2": "Broughton Gate",
+                    "line3": "Milton Keynes",
+                    "line4": "Buckinghamshire",
+                    "postcode": "MK10 7BP",
                   },
-                  "line1": "Foxfield",
-                  "line2": "Broughton Gate",
-                  "line3": "Milton Keynes",
-                  "line4": "Buckinghamshire",
-                  "postcode": "MK10 7BP",
                 },
                 "recurring": false,
                 "start": "2019-05-09T16:30:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -1593,49 +1241,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="Bedford Road"
+      heading="The Firs Bedford Road"
       key="BED1600530"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          The Firs Bedford Road Northill Bedfordshire  SG18 9AW
         </li>
         <li>
-          Building Name: 
-          The Firs
-        </li>
-        <li>
-          Building Number: 
-        </li>
-        <li>
-          Address 1: 
-          Bedford Road
-        </li>
-        <li>
-          Address 2: 
-          Northill
-        </li>
-        <li>
-          Address 3: 
-          Bedfordshire
-        </li>
-        <li>
-          Address 4: 
-        </li>
-        <li>
-          Postcode: 
-          SG18 9AW
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           03:00 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           05:00 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -1698,22 +1319,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "BED1600530",
                 "modified": "2019-05-12T08:33:02",
                 "property": Object {
-                  "buildingName": "The Firs",
-                  "buildingNumber": "",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 52.105969,
-                    "longitude": -0.353784,
+                  "address": Object {
+                    "buildingName": "The Firs",
+                    "buildingNumber": "",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 52.105969,
+                      "longitude": -0.353784,
+                    },
+                    "line1": "Bedford Road",
+                    "line2": "Northill",
+                    "line3": "Bedfordshire",
+                    "line4": "",
+                    "postcode": "SG18 9AW",
                   },
-                  "line1": "Bedford Road",
-                  "line2": "Northill",
-                  "line3": "Bedfordshire",
-                  "line4": "",
-                  "postcode": "SG18 9AW",
                 },
                 "recurring": false,
                 "start": "2019-05-11T15:00:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -1727,49 +1350,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="Little Tingewick"
+      heading="Wayside Little Tingewick"
       key="BUC1600209"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          Wayside Little Tingewick Buckingham Buckinghamshire  MK18 4AG
         </li>
         <li>
-          Building Name: 
-          Wayside
-        </li>
-        <li>
-          Building Number: 
-        </li>
-        <li>
-          Address 1: 
-          Little Tingewick
-        </li>
-        <li>
-          Address 2: 
-          Buckingham
-        </li>
-        <li>
-          Address 3: 
-          Buckinghamshire
-        </li>
-        <li>
-          Address 4: 
-        </li>
-        <li>
-          Postcode: 
-          MK18 4AG
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           01:00 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           01:30 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -1844,22 +1440,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "BUC1600209",
                 "modified": "2019-05-11T14:45:35",
                 "property": Object {
-                  "buildingName": "Wayside",
-                  "buildingNumber": "",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 51.989592,
-                    "longitude": -1.06774,
+                  "address": Object {
+                    "buildingName": "Wayside",
+                    "buildingNumber": "",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 51.989592,
+                      "longitude": -1.06774,
+                    },
+                    "line1": "Little Tingewick",
+                    "line2": "Buckingham",
+                    "line3": "Buckinghamshire",
+                    "line4": "",
+                    "postcode": "MK18 4AG",
                   },
-                  "line1": "Little Tingewick",
-                  "line2": "Buckingham",
-                  "line3": "Buckinghamshire",
-                  "line4": "",
-                  "postcode": "MK18 4AG",
                 },
                 "recurring": false,
                 "start": "2019-05-09T13:00:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -1873,50 +1471,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="The Embankment"
+      heading="57 The Embankment"
       key="BED1600525"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          57 The Embankment Bedford Bedfordshire  MK40 3PD
         </li>
         <li>
-          Building Name: 
-          The Homestead
-        </li>
-        <li>
-          Building Number: 
-          57
-        </li>
-        <li>
-          Address 1: 
-          The Embankment
-        </li>
-        <li>
-          Address 2: 
-          Bedford
-        </li>
-        <li>
-          Address 3: 
-          Bedfordshire
-        </li>
-        <li>
-          Address 4: 
-        </li>
-        <li>
-          Postcode: 
-          MK40 3PD
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           01:30 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           02:00 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -1962,22 +1532,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "BED1600525",
                 "modified": "2016-12-14T16:30:47",
                 "property": Object {
-                  "buildingName": "The Homestead",
-                  "buildingNumber": "57",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 52.135071,
-                    "longitude": -0.45936,
+                  "address": Object {
+                    "buildingName": "The Homestead",
+                    "buildingNumber": "57",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 52.135071,
+                      "longitude": -0.45936,
+                    },
+                    "line1": "The Embankment",
+                    "line2": "Bedford",
+                    "line3": "Bedfordshire",
+                    "line4": "",
+                    "postcode": "MK40 3PD",
                   },
-                  "line1": "The Embankment",
-                  "line2": "Bedford",
-                  "line3": "Bedfordshire",
-                  "line4": "",
-                  "postcode": "MK40 3PD",
                 },
                 "recurring": false,
                 "start": "2019-05-09T13:30:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -1991,49 +1563,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="Tyne Crescent"
+      heading="54 Tyne Crescent"
       key="BED1600523"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          54 Tyne Crescent Bedford Bedfordshire  MK41 7UJ
         </li>
         <li>
-          Building Name: 
-        </li>
-        <li>
-          Building Number: 
-          54
-        </li>
-        <li>
-          Address 1: 
-          Tyne Crescent
-        </li>
-        <li>
-          Address 2: 
-          Bedford
-        </li>
-        <li>
-          Address 3: 
-          Bedfordshire
-        </li>
-        <li>
-          Address 4: 
-        </li>
-        <li>
-          Postcode: 
-          MK41 7UJ
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           11:00 AM
-        </li>
-        <li>
-          End Time: 
+           - 
           12:00 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -2096,22 +1641,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "BED1600523",
                 "modified": "2016-12-13T17:12:40",
                 "property": Object {
-                  "buildingName": "",
-                  "buildingNumber": "54",
-                  "country": "GB",
-                  "geolocation": Object {
-                    "latitude": 52.161384,
-                    "longitude": -0.461113,
+                  "address": Object {
+                    "buildingName": "",
+                    "buildingNumber": "54",
+                    "country": "GB",
+                    "geolocation": Object {
+                      "latitude": 52.161384,
+                      "longitude": -0.461113,
+                    },
+                    "line1": "Tyne Crescent",
+                    "line2": "Bedford",
+                    "line3": "Bedfordshire",
+                    "line4": "",
+                    "postcode": "MK41 7UJ",
                   },
-                  "line1": "Tyne Crescent",
-                  "line2": "Bedford",
-                  "line3": "Bedfordshire",
-                  "line4": "",
-                  "postcode": "MK41 7UJ",
                 },
                 "recurring": false,
                 "start": "2019-05-09T11:00:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -2125,49 +1672,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="Deacon Place"
+      heading="8 Deacon Place"
       key="MKC1600311"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+          8 Deacon Place Middleton Milton Keynes  MK10 9FS
         </li>
         <li>
-          Building Name: 
-        </li>
-        <li>
-          Building Number: 
-          8
-        </li>
-        <li>
-          Address 1: 
-          Deacon Place
-        </li>
-        <li>
-          Address 2: 
-          Middleton
-        </li>
-        <li>
-          Address 3: 
-          Milton Keynes
-        </li>
-        <li>
-          Address 4: 
-        </li>
-        <li>
-          Postcode: 
-          MK10 9FS
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           11:15 AM
-        </li>
-        <li>
-          End Time: 
+           - 
           11:30 AM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -2207,22 +1727,24 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "id": "MKC1600311",
                 "modified": "2019-05-11T16:40:10",
                 "property": Object {
-                  "buildingName": "",
-                  "buildingNumber": "8",
-                  "country": "",
-                  "geolocation": Object {
-                    "latitude": 52.04681,
-                    "longitude": -0.710721,
+                  "address": Object {
+                    "buildingName": "",
+                    "buildingNumber": "8",
+                    "country": "",
+                    "geolocation": Object {
+                      "latitude": 52.04681,
+                      "longitude": -0.710721,
+                    },
+                    "line1": "Deacon Place",
+                    "line2": "Middleton",
+                    "line3": "Milton Keynes",
+                    "line4": "",
+                    "postcode": "MK10 9FS",
                   },
-                  "line1": "Deacon Place",
-                  "line2": "Middleton",
-                  "line3": "Milton Keynes",
-                  "line4": "",
-                  "postcode": "MK10 9FS",
                 },
                 "recurring": false,
                 "start": "2019-05-11T11:15:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
@@ -2236,51 +1758,22 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     onClick={[Function]}
   >
     <AppointmentTile
-      heading="---"
+      heading=" "
       key="STS1600389"
     >
       <ul>
         <li>
-          Property Address
+          Address: 
+               
         </li>
         <li>
-          Building Name: 
-          ---
-        </li>
-        <li>
-          Building Number: 
-          ---
-        </li>
-        <li>
-          Address 1: 
-          ---
-        </li>
-        <li>
-          Address 2: 
-          ---
-        </li>
-        <li>
-          Address 3: 
-          ---
-        </li>
-        <li>
-          Address 4: 
-          ---
-        </li>
-        <li>
-          Postcode: 
-          ---
-        </li>
-        <li>
-          Start Time: 
+          Time: 
           02:00 PM
-        </li>
-        <li>
-          End Time: 
+           - 
           02:30 PM
         </li>
         <li>
-          Type of Appointment: 
+          Type: 
           VW
         </li>
       </ul>
@@ -2327,7 +1820,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 "modified": "2019-05-09T14:38:50",
                 "recurring": false,
                 "start": "2019-05-09T14:00:00",
-                "type": "VW",
+                "typeId": "VW",
               }
             }
           />
