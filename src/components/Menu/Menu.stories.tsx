@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router'
 import { MenuConfig } from './Menu'
 
 const logo = (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.72 119.06">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269.72 119.06" width="150px" height="65px">
     <title>Reapit_House_RGB</title>
     <g id="House">
       <path
@@ -65,7 +65,7 @@ storiesOf('Menu', module)
     } as MenuConfig
     return (
       <section className="section">
-        <div className="column is-half-desktop">
+        <div className="column is-desktop">
           <Menu {...propsMenu} />
         </div>
       </section>
@@ -107,7 +107,50 @@ storiesOf('Menu', module)
     } as MenuConfig
     return (
       <section className="section">
-        <div className="column is-half-desktop">
+        <div className="column is-desktop">
+          <Menu {...propsMenu} />
+        </div>
+      </section>
+    )
+  })
+  .add('Responsive behaviour disabled', () => {
+    const propsMenu = {
+      title: 'Foundations',
+      logo: logo,
+      homeUrl: '/home',
+      defaultActiveKey: 'NONE',
+      isResponsive: false,
+      menu: [
+        {
+          title: 'Apps',
+          key: 'Apps',
+          subMenu: [
+            {
+              title: 'Approvals',
+              key: '/admin/approvals',
+              toUrl: '/admin/approvals'
+            }
+          ]
+        },
+        {
+          title: 'Account',
+          key: 'Account',
+          subMenu: [
+            {
+              title: 'Logout',
+              key: '/logout',
+              callback: action('logoutCallback')
+            }
+          ]
+        }
+      ],
+      location: {
+        pathname: ''
+      }
+    } as MenuConfig
+    return (
+      <section className="section">
+        <div className="column is-desktop">
           <Menu {...propsMenu} />
         </div>
       </section>

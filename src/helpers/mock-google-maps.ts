@@ -192,6 +192,7 @@ const createGoogleMapsMock = (libraries = []) => {
       TIMED_OUT: 'TIMED_OUT',
       UNKNOWN: 'UNKNOWN',
     },
+    //@ts-ignore
     LatLng: function(lat, lng) {
       //@ts-ignore
       createMVCObject(this)

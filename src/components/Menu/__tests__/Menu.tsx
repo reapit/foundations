@@ -186,7 +186,7 @@ describe('Menu', () => {
     const toogleBtn = wrapper.find('[data-test="toogle-btn"]')
     toogleBtn.simulate('onChange')
     const menuBar = wrapper.find('[data-test="menu-bar"]')
-    expect(menuBar.prop('className')).toEqual('menu-bar ')
+    expect(menuBar.prop('className')).toEqual('menu-bar  is-responsive')
   })
   describe('isActiveSubmenu', () => {
     it('should return true', () => {
@@ -198,15 +198,15 @@ describe('Menu', () => {
       expect(result).toEqual(false)
     })
     it('should return false', () => {
-      const result = isActiveSubmenu(undefined, '/dashboard/admin')
+      const result = isActiveSubmenu('', '/dashboard/admin')
       expect(result).toEqual(false)
     })
     it('should return false', () => {
-      const result = isActiveSubmenu('/admin/admin', undefined)
+      const result = isActiveSubmenu('/admin/admin', '')
       expect(result).toEqual(false)
     })
     it('should return false', () => {
-      const result = isActiveSubmenu(undefined, undefined)
+      const result = isActiveSubmenu('', '')
       expect(result).toEqual(false)
     })
   })

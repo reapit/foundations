@@ -6,6 +6,7 @@ $caret-ease: all 0.5s ease-in-out;
 $caret-thickness: 2px $grey-lighter solid;
 $caret-length: 1rem;
 
+
 .logo {
   display: flex;
   align-items: flex-start;
@@ -21,12 +22,14 @@ $caret-length: 1rem;
   }
 
   @media screen and (min-width: 768px) {
-    flex-direction: column;
-    margin-top: -0.5rem;
-
-    h5 {
-      margin-top: -10px;
-      margin-bottom: 2rem;
+    &.is-responsive {
+      flex-direction: column;
+      margin-top: -0.5rem;
+      
+      h5 {
+        margin-top: -10px;
+        margin-bottom: 2rem;
+      }
     }
   }
 }
@@ -38,7 +41,9 @@ $caret-length: 1rem;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    max-height: 100vh;
+    &.is-responsive {
+      max-height: 100vh;
+    }
   }
 }
 
@@ -186,6 +191,7 @@ li.is-active {
         stroke-dashoffset: 82.801;
         transform-origin: 50% 50%;
         -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
         transform: scale(1);
         transition: stroke-dashoffset 0.5s ease, stroke-dasharray 0.6s ease, transform 0.5s ease, stroke 0.4s ease;
 
@@ -236,6 +242,8 @@ li.is-active {
   }
 
   @media screen and (min-width: 768px) {
-    display: none;
+    &.is-responsive {
+      display: none;
+    }
   }
 }

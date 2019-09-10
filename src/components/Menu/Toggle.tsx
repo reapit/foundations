@@ -3,11 +3,12 @@ import * as React from 'react'
 export interface ToggleProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   isChecked: boolean
+  isResponsive: boolean
 }
 
-export const Toggle: React.SFC<ToggleProps> = ({ onChange, isChecked }) => (
+export const Toggle: React.SFC<ToggleProps> = ({ onChange, isChecked, isResponsive = true }) => (
   <>
-    <label className="toggle">
+    <label className={`toggle ${isResponsive ? 'is-responsive' : ''}`}>
       <input type="checkbox" onChange={onChange} checked={isChecked} />
       <div>
         <div>

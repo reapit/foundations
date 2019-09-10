@@ -2,10 +2,10 @@
 
 exports[`Menu should render correctly 1`] = `
 <aside
-  className="menu"
+  className="menu is-responsive"
 >
   <Link
-    className="logo"
+    className="logo is-responsive"
     to="/mockHomeUrl"
   >
     <div />
@@ -21,11 +21,12 @@ exports[`Menu should render correctly 1`] = `
     <Component
       data-test="toogle-btn"
       isChecked={false}
+      isResponsive={true}
       onChange={[Function]}
     />
   </div>
   <div
-    className="menu-bar "
+    className="menu-bar  is-responsive"
     data-test="menu-bar"
   >
     <p
