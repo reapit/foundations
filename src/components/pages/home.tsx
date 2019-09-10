@@ -16,6 +16,8 @@ import { NextAppointmentState } from '@/reducers/next-appointment'
 import { nextAppointmentValidate } from '@/actions/next-appointment'
 import { homeTabChange } from '@/actions/home'
 import { setDestination } from '@/actions/direction'
+import { isMobile } from '../../utils/device-detection'
+import TravelMode from '../ui/travel-mode'
 
 export interface HomeMappedActions {
   requestAppointments: (time: AppointmentsTime) => void
@@ -26,6 +28,7 @@ export interface HomeMappedProps {
   appointmentsState: AppointmentsState
   nextAppointmentState: NextAppointmentState
   currentTab: 'LIST' | 'MAP'
+  isDesktopLogin: boolean
 }
 
 export type HomeProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ page?: any }>
@@ -55,12 +58,15 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   requestNextAppointment,
   nextAppointmentState,
   currentTab,
-  changeHomeTab
+  changeHomeTab,
+  isDesktopLogin
 }) => {
   const unfetched = !appointmentsState.appointments
   const loading = appointmentsState.loading
   const list = oc<AppointmentsState>(appointmentsState).appointments.data.data([])
   const time = appointmentsState.time
+  const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
+  const isMobileView = isMobile()
 
   React.useEffect(() => {
     const hasAppointments = oc(appointmentsState).appointments.data.data([]).length > 0
@@ -73,38 +79,54 @@ export const Home: React.FunctionComponent<HomeProps> = ({
     return <Loader />
   }
 
+  const handleTravelMode = React.useCallback(
+    value => {
+      setTravelMode(value)
+    },
+    [travelMode]
+  )
+
   const uncancelledList = list.filter(({ cancelled }) => !cancelled)
+
   return (
     <ErrorBoundary>
-      <div className={containerStyle.tabsSticky}>
-        <Tabs tabConfigs={tabConfigs({ currentTab, changeHomeTab })} />
-      </div>
-
-      {currentTab === 'LIST' && (
-        <>
-          <div className={`${bulma.isCentered} ${bulma.buttons} ${bulma.hasAddons}`}>
-            {filterTimes.map(filter => (
-              <span
-                className={
-                  bulma.button + (filter === time ? ` ${bulma.isSelected} ${bulma.isActive} ${bulma.isPrimary}` : '')
-                }
-                key={filter}
-                onClick={() => filter !== time && requestAppointments(filter)}
-              >
-                {filter}
-              </span>
-            ))}
+      <div className={`${containerStyle.controlsWrapper} ${isMobileView ? containerStyle.isMobile : ''}`}>
+        {!isDesktopLogin && isMobileView && (
+          <div className={containerStyle.tabsSticky}>
+            <Tabs tabConfigs={tabConfigs({ currentTab, changeHomeTab })} />
           </div>
+        )}
 
-          {loading ? (
-            <Loader />
-          ) : (
-            <AppointmentList data={uncancelledList} nextAppointment={nextAppointmentState.data}></AppointmentList>
-          )}
-        </>
-      )}
-      <div style={{ display: currentTab === 'MAP' ? 'block' : 'none' }}>
-        <MapContainer />
+        {(currentTab === 'LIST' || !isMobileView) && (
+          <>
+            <div className={`${containerStyle.menuSticky}`}>
+              <div className={`${bulma.isCentered} ${bulma.buttons} ${bulma.hasAddons}`}>
+                {filterTimes.map(filter => (
+                  <span
+                    className={
+                      bulma.button +
+                      (filter === time ? ` ${bulma.isSelected} ${bulma.isActive} ${bulma.isPrimary}` : '')
+                    }
+                    key={filter}
+                    onClick={() => filter !== time && requestAppointments(filter)}
+                  >
+                    {filter}
+                  </span>
+                ))}
+              </div>
+              <TravelMode travelMode={travelMode} onChangeTravelMode={handleTravelMode} />
+            </div>
+
+            {loading ? (
+              <Loader />
+            ) : (
+              <AppointmentList data={uncancelledList} nextAppointment={nextAppointmentState.data}></AppointmentList>
+            )}
+          </>
+        )}
+      </div>
+      <div style={{ display: currentTab === 'MAP' || !isMobileView ? 'block' : 'none' }}>
+        <MapContainer travelMode={travelMode} />
       </div>
       <AppointmentDetailModal />
     </ErrorBoundary>
@@ -114,7 +136,8 @@ export const Home: React.FunctionComponent<HomeProps> = ({
 const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   appointmentsState: state.appointments,
   nextAppointmentState: state.nextAppointment,
-  currentTab: state.home.homeTab
+  currentTab: state.home.homeTab,
+  isDesktopLogin: !!state.auth.desktopSession
 })
 
 export interface HomeMappedActions {
