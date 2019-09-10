@@ -3,6 +3,7 @@ import { RouteProps } from 'react-router'
 import { Link } from 'react-router-dom'
 import { Toggle } from './Toggle'
 import { Caret } from './Caret'
+import { Location } from 'history'
 
 export interface MenuConfig extends RouteProps {
   title: string
@@ -10,6 +11,7 @@ export interface MenuConfig extends RouteProps {
   homeUrl: string
   defaultActiveKey?: string
   menu: MenuItem[]
+  isResponsive?: boolean
 }
 
 export interface MenuItem {
@@ -20,7 +22,7 @@ export interface MenuItem {
   subMenu?: MenuItem[]
 }
 
-export const isActiveSubmenu = (pathname, itemUrl) => {
+export const isActiveSubmenu = (pathname: string, itemUrl: string) => {
   const isValidParams = !!pathname && !!itemUrl
   if (!isValidParams) {
     return false
@@ -51,7 +53,7 @@ export const renderHref = (subItem: MenuItem) => {
   return null
 }
 
-export const renderSubItem = (items: MenuItem[] | undefined, location) => {
+export const renderSubItem = (items: MenuItem[] | undefined, location: Location) => {
   if (!items) {
     return null
   }
@@ -60,7 +62,7 @@ export const renderSubItem = (items: MenuItem[] | undefined, location) => {
       <li
         data-test="sub-menu-label"
         key={subItem.key}
-        className={isActiveSubmenu(location.pathname, subItem.toUrl) ? 'is-active' : ''}
+        className={isActiveSubmenu(location.pathname, subItem.toUrl || '') ? 'is-active' : ''}
       >
         {subItem.toUrl ? renderLink(subItem) : renderHref(subItem)}
       </li>
@@ -68,16 +70,26 @@ export const renderSubItem = (items: MenuItem[] | undefined, location) => {
   })
 }
 
-export const handleSetToggleMenu = (setToggleMenu, isMenuOpen) => () => setToggleMenu(!isMenuOpen)
+export const handleSetToggleMenu = (setToggleMenu: (isMenuOpen: boolean) => void, isMenuOpen: boolean) => () =>
+  setToggleMenu(!isMenuOpen)
 
-export const handleSetCaretToggle = (setCaretToggleKey, item) => () => setCaretToggleKey(item.key)
+export const handleSetCaretToggle = (setCaretToggleKey: (key: string) => void, item: MenuItem) => () =>
+  setCaretToggleKey(item.key)
 
-export const Menu: React.FC<MenuConfig> = ({ title, homeUrl, logo, menu, location, defaultActiveKey }) => {
+export const Menu: React.FC<MenuConfig> = ({
+  title,
+  homeUrl,
+  logo,
+  menu,
+  location,
+  defaultActiveKey,
+  isResponsive = true
+}) => {
   const [isMenuOpen, setToggleMenu] = React.useState(false)
   const [caretToggleKey, setCaretToggleKey] = React.useState(defaultActiveKey)
   return (
-    <aside className="menu">
-      <Link className="logo" to={homeUrl}>
+    <aside className={`menu ${isResponsive ? 'is-responsive' : ''}`}>
+      <Link className={`logo ${isResponsive ? 'is-responsive' : ''}`} to={homeUrl}>
         {logo}
         <h5 className="title is-5">{title}</h5>
       </Link>
@@ -86,9 +98,13 @@ export const Menu: React.FC<MenuConfig> = ({ title, homeUrl, logo, menu, locatio
           data-test="toogle-btn"
           onChange={handleSetToggleMenu(setToggleMenu, isMenuOpen)}
           isChecked={isMenuOpen}
+          isResponsive={isResponsive}
         />
       </div>
-      <div data-test="menu-bar" className={`menu-bar ${isMenuOpen ? 'menu-is-open' : ''}`}>
+      <div
+        data-test="menu-bar"
+        className={`menu-bar ${isMenuOpen ? 'menu-is-open' : ''} ${isResponsive ? 'is-responsive' : ''}`}
+      >
         {menu.map((item: MenuItem) => {
           return (
             <React.Fragment key={item.key}>
@@ -104,7 +120,7 @@ export const Menu: React.FC<MenuConfig> = ({ title, homeUrl, logo, menu, locatio
                 data-test="menu-item"
                 className={`menu-list sub-menu ${caretToggleKey === item.key ? 'menu-is-open' : ''}`}
               >
-                {renderSubItem(item.subMenu, location)}
+                {renderSubItem(item.subMenu, location as Location)}
               </ul>
             </React.Fragment>
           )

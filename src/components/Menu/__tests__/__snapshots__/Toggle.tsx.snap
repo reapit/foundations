@@ -3,7 +3,7 @@
 exports[`Toggle should render correctly 1`] = `
 <Fragment>
   <label
-    className="toggle"
+    className="toggle is-responsive"
   >
     <input
       checked={true}
@@ -51,7 +51,7 @@ exports[`Toggle should render correctly 1`] = `
 exports[`Toggle should render correctly 2`] = `
 <Fragment>
   <label
-    className="toggle"
+    className="toggle is-responsive"
   >
     <input
       checked={false}
