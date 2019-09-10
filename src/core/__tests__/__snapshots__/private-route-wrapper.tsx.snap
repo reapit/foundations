@@ -7,13 +7,24 @@ exports[`PrivateRouter should match a snapshot 1`] = `
 `;
 
 exports[`PrivateRouter should match a snapshot for desktop login 1`] = `
-<main>
-  <Suspense
-    fallback={
-      <div>
-        Loading
-      </div>
-    }
-  />
-</main>
+<div>
+  <div
+    className="undefined "
+  >
+    <MenuWithRouter />
+  </div>
+  <main
+    className="undefined "
+  >
+    <Suspense
+      fallback={
+        <div
+          className="pt-5"
+        >
+          <Loader />
+        </div>
+      }
+    />
+  </main>
+</div>
 `;

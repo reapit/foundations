@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should match snapshot 1`] = `
+<Menu
+  defaultActiveKey="Apps"
+  homeUrl="/home"
+  location={
+    Object {
+      "hash": "mockHash",
+      "key": "mockKey",
+      "pathname": "mockPathname",
+      "search": "mockSearch",
+      "state": Object {},
+    }
+  }
+  logo={
+    <Logo
+      height="65px"
+      width="150px"
+    />
+  }
+  menu={Array []}
+  title="Foundations"
+/>
+`;
