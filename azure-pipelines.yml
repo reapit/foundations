@@ -41,6 +41,7 @@ jobs:
           COGNITO_USERPOOL_ID: $(COGNITO_USERPOOL_ID)
           MARKETPLACE_API_KEY: $(MARKETPLACE_API_KEY)
           REAPIT_API_KEY: $(REAPIT_API_KEY)
+          MAP_API_KEY: $(MAP_API_KEY)
 
       - script: yarn test:ci
         displayName: Unit tests
