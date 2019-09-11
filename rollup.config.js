@@ -15,7 +15,10 @@ export default [
           const content = ['./dist/elements.esm.js']
           const options = {
             output: 'dist/index.css',
-            minify: true
+            minify: true,
+            whitelist: [
+              '*react-datepicker*'
+            ]
             // Uncomment this line if you want to see the CSS purified from the package
             // rejected: true
           }

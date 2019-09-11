@@ -90,6 +90,7 @@
     "dayjs": "^1.8.16",
     "formik": "^1.5.8",
     "jsonwebtoken": "^8.5.1",
+    "react-datepicker": "^2.9.6",
     "react-google-map": "^3.1.1",
     "react-google-maps-loader": "^4.2.5",
     "react-icons": "^3.7.0"
