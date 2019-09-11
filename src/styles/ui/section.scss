@@ -1,0 +1,24 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.checkMarkSection {
+  display: flex;
+  align-items: center;
+}
+
+.statusSection{
+  margin-right: 2rem;
+  align-items: center;
+  display: flex;
+}
+
+.checkMark{
+  font-size: 1.5rem;
+  color: green;
+}
