@@ -6,6 +6,6 @@ exports[`ViewDirectionButton Should match snapshot 1`] = `
   type="button"
   variant="primary"
 >
-  View Direction
+  Directions
 </Button>
 `;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { oc } from 'ts-optchain'
 import { TiTimes, TiTick, TiMail, TiHome, TiPhoneOutline, TiDevicePhone } from 'react-icons/ti'
 import { Dispatch } from 'redux'
-import { Modal, Loader, getTime, getDate, isSameDay } from '@reapit/elements'
+import { Modal, Loader, getTime, getDate, isSameDay, AppointmentTile } from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/appointment-detail.scss?mod'
@@ -75,26 +75,32 @@ export const renderAttendees = (attendees: AttendeeModel[] | undefined) => {
   }
   return attendees.map((attendee: AttendeeModel, index: number) => {
     return (
-      <div className={styles.appointmentDetailSectionContent} key={index}>
-        <div className={styles.appointmentDetailAttendee}>
-          <div className={styles.appointmentDetailAttendeeName}>{attendee.name}</div>
-          <div>{renderCheckMark(attendee.confirmed)}</div>
-        </div>
+      <AppointmentTile key={index} hightlight={false} heading={`${oc(attendee).name('No Attendee Name')}`}>
         <div>{renderCommunicationDetail(attendee.communicationDetails)}</div>
-      </div>
+      </AppointmentTile>
     )
   })
 }
 
-export const renderAddress = (address: AddressModel | undefined) => {
+export const renderAddress = (address: AddressModel | undefined, appointment: AppointmentModel) => {
   if (!address) {
     return null
   }
+  const heading = `
+      ${renderStartAndEndDate(appointment.start || '', appointment.end || '')},
+      ${address.buildingName}
+      ${address.buildingNumber}
+      ${address.line1}, Ref: ${appointment.id}
+  `
   return (
-    <div className={styles.appointmentDetailSection}>
-      {address.buildingNumber} {address.buildingName} {address.line1} {address.line2} {address.line3} {address.line4}{' '}
-      {address.postcode} {address.country}
-    </div>
+    <AppointmentTile hightlight={false} heading={heading}>
+      <ul>
+        <li>
+          Address: {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3}{' '}
+          {address.line4} {address.postcode} {address.country}
+        </li>
+      </ul>
+    </AppointmentTile>
   )
 }
 
@@ -103,10 +109,9 @@ export const renderNotes = (description: string | undefined) => {
     return null
   }
   return (
-    <div className={styles.appointmentDetailSection}>
-      <div className={styles.appointmentDetailSectionTitle}>Note</div>
+    <AppointmentTile hightlight={false} heading="Notes">
       <div className={styles.appointmentDetailSectionContent}>{description}</div>
-    </div>
+    </AppointmentTile>
   )
 }
 
@@ -115,42 +120,19 @@ export const renderArrangement = (arrangement: string | undefined) => {
     return null
   }
   return (
-    <div className={styles.appointmentDetailSection}>
-      <div className={styles.appointmentDetailSectionTitle}>Arrangement</div>
+    <AppointmentTile hightlight={false} heading="Arrangements">
       <div className={styles.appointmentDetailSectionContent}>{arrangement}</div>
-    </div>
+    </AppointmentTile>
   )
 }
 
-export const renderStartAndEndDate = (startTime, endTime) => {
+export const renderStartAndEndDate = (startTime: string, endTime: string) => {
   const startDate = dayjs(startTime)
   const isToday = isSameDay(startDate)
   const displayDate = isToday ? 'Today' : getDate(startDate)
   const displayStart = getTime(startDate, false)
   const displayEnd = getTime(endTime, false)
-  return (
-    <div className={styles.appointmentDetailSection}>
-      <div className={styles.appointmentDetailSectionTitle}>Time</div>
-      <div className={styles.appointmentDetailSectionContent}>
-        <span data-test="appointment-date">{displayDate}</span>&nbsp;
-        <b>
-          {displayStart} - {displayEnd}
-        </b>
-      </div>
-    </div>
-  )
-}
-
-export const renderTitle = (appointment: AppointmentModel) => {
-  const firstAttendeeName = oc(appointment).attendees[0].name('')
-  return (
-    <div className={styles.appointmentDetailSectionModalTitle}>
-      <div data-test="title-name" className={styles.appointmentDetailSectionTitle}>
-        {firstAttendeeName}
-      </div>
-      <div>Ref:{appointment.id}</div>
-    </div>
-  )
+  return `${displayDate} ${displayStart} - ${displayEnd}`
 }
 
 export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment, visible, afterClose, isLoading }) => {
@@ -160,12 +142,10 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment,
         <Loader />
       ) : (
         <div className={styles.root}>
-          {renderTitle(appointment)}
-          {renderAddress(appointment.property)}
+          {renderAddress(oc(appointment).property.address(), appointment)}
           {renderAttendees(appointment.attendees)}
           {renderNotes(appointment.description)}
           {renderArrangement(appointment.arrangements)}
-          {renderStartAndEndDate(appointment.start, appointment.end)}
         </div>
       )}
     </Modal>

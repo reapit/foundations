@@ -3,6 +3,9 @@ import { shallow, mount } from 'enzyme'
 import { MemoryRouter, Route } from 'react-router'
 import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
 
+jest.mock('../../reducers/auth')
+jest.mock('../../core/store')
+
 // const FakeRoute = ({ path }: { path: string }) => <div className="render-class" />
 
 const props: PrivateRouteWrapperProps = {

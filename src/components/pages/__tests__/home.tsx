@@ -9,6 +9,9 @@ const props: HomeProps = {
     appointments: appointmentsDataStub,
     loading: false,
     time: 'Today'
+  },
+  nextAppointmentState: {
+    data: null
   }
 }
 

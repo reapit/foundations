@@ -3,29 +3,32 @@
 .mapContainer {
   overflow: hidden;
   position: absolute;
-  top: 35px;
-  left: 250px;
-  width: calc(100vw - 250px);
-  height: calc(100vh - 35px);
+  left: 300px;
+  width: calc(100vw - 300px);
+  top: 73px;
+  height: calc(100vh - 73px);
 
   @media screen and (max-width: 768px) {
-    width: 100vw;
     left: 0;
+    top: 108px;
+    height: calc(100vh - 108px);
+    width: 100%;
   }
 }
 
-.mapTravelMode {
-  position: absolute;
-  top: 0;
+.mapContainer.mapHasPanel {
+  height: calc(100vh - 165px);
+
   @media screen and (max-width: 768px) {
-    top: 10%;
+    height: calc(100vh - 200px);
   }
 }
 
 .mapPanel {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: calc(100vw - 300px);
+  left: 300px;
   display: flex;
   background-color: #fff;
   padding: 1.5rem;
@@ -37,5 +40,7 @@
     & > * {
       margin-right: 0;
     }
+    left: 0;
+    width: 100%;
   }
 }
