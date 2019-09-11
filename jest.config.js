@@ -12,5 +12,8 @@ module.exports = {
  },
  snapshotSerializers: [
   "enzyme-to-json/serializer"
-  ]
+  ],
+ "moduleNameMapper": {
+    "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+  }
 };
