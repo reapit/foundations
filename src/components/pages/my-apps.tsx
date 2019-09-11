@@ -14,6 +14,8 @@ import AppDetailModal from '../ui/app-detail-modal'
 import { myAppsRequestData } from '@/actions/my-apps'
 import { appUninstallDone } from '@/actions/app-uninstall'
 import { selectClientId } from '@/selector/client'
+import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { handleLaunchApp } from '../../utils/launch-app'
 
 export interface MyAppsMappedActions {
   fetchAppDetail: (id: string, clientId: string) => void
@@ -66,7 +68,8 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
         list={list}
         title="Installed Apps"
         loading={loading}
-        onCardClick={app => {
+        onCardClick={(app: AppSummaryModel) => handleLaunchApp(app)}
+        onSettingsClick={(app: AppSummaryModel) => {
           setVisible(true)
           if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
             fetchAppDetail(app.id, clientId)

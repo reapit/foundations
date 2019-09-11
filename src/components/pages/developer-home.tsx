@@ -14,6 +14,7 @@ import DeveloperAppModal from '../ui/developer-app-modal'
 import bulma from '../../styles/vendor/bulma'
 import { setDeveloperAppModalStateViewDetail } from '@/actions/developer-app-modal'
 import { appDeleteSetInitFormState } from '@/actions/app-delete'
+import { AppSummaryModel } from '@/types/marketplace-api-schema'
 
 export interface DeveloperMappedActions {
   fetchAppDetail: (id: string) => void
@@ -55,7 +56,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
         list={list}
         title="My Apps"
         loading={loading}
-        onCardClick={app => {
+        onCardClick={(app: AppSummaryModel) => {
           setVisible(true)
           setDeveloperAppModalStateViewDetail()
           appDeleteSetInitFormState()

@@ -39,7 +39,6 @@ exports[`AppList should match a snapshot 1`] = `
             "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
           }
         }
-        onClick={[Function]}
       />
     </div>
     <div
@@ -70,7 +69,6 @@ exports[`AppList should match a snapshot 1`] = `
             "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
           }
         }
-        onClick={[Function]}
       />
     </div>
   </div>
