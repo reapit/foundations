@@ -16,6 +16,7 @@ export interface FileInputProps {
   allowClear?: boolean
   // props specialized for unit test
   testProps?: FileInputTestProps
+  inputProps?: Record<string, any>
 }
 
 export const FileInput = ({
@@ -25,7 +26,8 @@ export const FileInput = ({
   id = name,
   labelText,
   accept = '',
-  allowClear = false
+  allowClear = false,
+  inputProps
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState()
   const inputFile = React.useRef<HTMLInputElement>(null)
@@ -65,6 +67,7 @@ export const FileInput = ({
               <div className="control pb-2">
                 <label data-test="file-input-label" className="file-label" htmlFor={id}>
                   <input
+                    {...inputProps}
                     ref={inputFile}
                     id={id}
                     className="file-input"

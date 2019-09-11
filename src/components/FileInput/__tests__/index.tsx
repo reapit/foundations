@@ -7,7 +7,10 @@ import toJson from 'enzyme-to-json'
 const props: FileInputProps = {
   name: 'test',
   id: 'test',
-  labelText: 'test'
+  labelText: 'test',
+  inputProps: {
+    className: 'test'
+  }
 }
 
 describe('FileInput', () => {
@@ -34,9 +37,6 @@ describe('FileInput', () => {
   it('should render error correctly', done => {
     // setup
     let waitUntilFormSubmittedResolver: any = null
-    const waitUntilFormSubmitted = new Promise(resolve => {
-      waitUntilFormSubmittedResolver = resolve
-    })
 
     let submitForm
 
@@ -134,6 +134,30 @@ describe('FileInput', () => {
         done()
       })
     })
+  })
+
+  it('Spread the input props to input element', () => {
+    const Wrapper = () => (
+      <Formik
+        onSubmit={jest.fn()}
+        initialValues={{ test: '' }}
+        render={({ handleSubmit }) => {
+          return (
+            <FileInput
+              inputProps={{
+                demo: 'test'
+              }}
+              id="test"
+              labelText="test"
+              name="test"
+            />
+          )
+        }}
+      />
+    )
+
+    const wrapper = mount(<Wrapper />)
+    expect(wrapper.find('input[demo="test"]').length).toBe(1)
   })
 
   it('should render fileName correctly', done => {
