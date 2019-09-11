@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Form, Formik, FormikFormProps, FormikActions } from 'formik'
+import React, { useRef, useEffect } from 'react'
+import { Form, Formik } from 'formik'
 
 import { storiesOf } from '@storybook/react'
 import { SelectBox, SelectBoxOptions } from '.'

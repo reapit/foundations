@@ -246,6 +246,7 @@ describe('Map', () => {
   describe('renderMap', () => {
     it('should run correctly', () => {
       const fn = renderMap({
+        mapContainerStyles: '',
         googleMapsRef: {
           current: mockGoogleMaps
         },
@@ -274,6 +275,7 @@ describe('Map', () => {
     })
     it('should run correctly when error', () => {
       const fn = renderMap({
+        mapContainerStyles: '',
         googleMapsRef: {
           current: mockGoogleMaps
         },
@@ -301,6 +303,7 @@ describe('Map', () => {
     })
     it('should run correctly when error network', () => {
       const fn = renderMap({
+        mapContainerStyles: '',
         googleMapsRef: {
           current: mockGoogleMaps
         },

@@ -7,7 +7,8 @@ describe('Toggle', () => {
   it('should render correctly', () => {
     const mockProps = {
       isChecked: true,
-      onChange: jest.fn()
+      onChange: jest.fn(),
+      isResponsive: true
     }
     const wrapper = shallow(<Toggle {...mockProps} />)
     expect(toJson(wrapper)).toMatchSnapshot()
@@ -16,7 +17,8 @@ describe('Toggle', () => {
   it('should render correctly', () => {
     const mockProps = {
       isChecked: false,
-      onChange: jest.fn()
+      onChange: jest.fn(),
+      isResponsive: true
     }
     const wrapper = shallow(<Toggle {...mockProps} />)
     expect(toJson(wrapper)).toMatchSnapshot()
@@ -25,7 +27,8 @@ describe('Toggle', () => {
   it('should call onChange when change input', () => {
     const mockProps = {
       isChecked: false,
-      onChange: jest.fn()
+      onChange: jest.fn(),
+      isResponsive: true
     }
     const wrapper = shallow(<Toggle {...mockProps} />)
     const input = wrapper.find('input')
