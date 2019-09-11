@@ -6,21 +6,23 @@ export const appointmentDataStub: AppointmentModel = {
   modified: '2016-12-18T16:03:45',
   start: '2016-12-18T16:30:00',
   end: '2016-12-18T17:30:00',
-  type: 'IA',
+  typeId: 'IA',
   recurring: false,
   cancelled: false,
   property: {
-    buildingName: '',
-    buildingNumber: '65',
-    line1: 'Lindsey Close',
-    line2: 'Great Denham',
-    line3: 'Bedford',
-    line4: 'Bedfordshire',
-    postcode: 'MK40 4GT',
-    country: '',
-    geolocation: {
-      latitude: 52.1284,
-      longitude: -0.507145
+    address: {
+      buildingName: '',
+      buildingNumber: '65',
+      line1: 'Lindsey Close',
+      line2: 'Great Denham',
+      line3: 'Bedford',
+      line4: 'Bedfordshire',
+      postcode: 'MK40 4GT',
+      country: '',
+      geolocation: {
+        latitude: 52.1284,
+        longitude: -0.507145
+      }
     }
   },
   attendees: [

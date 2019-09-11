@@ -51,21 +51,20 @@ export const validateNextAppointment = function*() {
   const appointments = yield select(selectAppointments)
   const appointment = getTodayNextAppointment(appointments)
 
-  if (window.google && appointment && appointment.property && appointment.property.geolocation) {
+  if (window.google && oc(appointment).property.address.geolocation()) {
     try {
       const {
         coords: { latitude, longitude }
       } = yield getCurrentPosition()
 
-      // Enable for testing
-      // const latitude = 52.130189
-      // const longitude = -0.757117
+      const testLatitude = 52.130189
+      const testLongitude = -0.757117
 
       const response: google.maps.DistanceMatrixResponse = yield call(callCurrentPosition, {
         origin: { lat: latitude, lng: longitude },
         destination: {
-          lat: appointment.property.geolocation.latitude as number,
-          lng: appointment.property.geolocation.longitude as number
+          lat: oc(appointment).property.address.geolocation.latitude(testLatitude),
+          lng: oc(appointment).property.address.geolocation.longitude(testLongitude)
         }
       })
 

@@ -7,7 +7,6 @@ import { AppointmentModel } from '@/types/appointments'
 import invalidValues from '@/constants/invalid-values'
 import { MarkerComponentWithConnect } from '@/components/container/marker-component'
 import mapStyles from '@/styles/pages/map.scss?mod'
-import TravelMode from '../ui/travel-mode'
 import MapPanel from '../ui/map-panel'
 
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
@@ -20,7 +19,9 @@ export interface MapContainerMappedState {
   }
 }
 
-export type MapContainerProps = MapContainerMappedState
+export type MapContainerProps = MapContainerMappedState & {
+  travelMode: 'DRIVING' | 'WALKING'
+}
 
 export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
   return markers.filter(appointments => {
@@ -32,18 +33,17 @@ export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
   })
 }
 
-export const MapContainer = ({ appointments = [], destinationLatLng }: MapContainerProps) => {
-  const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
+export const MapContainer = ({ appointments = [], destinationLatLng, travelMode }: MapContainerProps) => {
   const [distance, setDistance] = React.useState('')
   const [duration, setDuration] = React.useState('')
 
   const coordinates: CoordinateProps<any> = filterInvalidMarker(
     appointments.map(appointment => {
-      const lat = oc(appointment).property.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
-      const lng = oc(appointment).property.geolocation.longitude(UNDEFINED_LATLNG_NUMBER)
+      const lat = oc(appointment).property.address.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
+      const lng = oc(appointment).property.address.geolocation.longitude(UNDEFINED_LATLNG_NUMBER)
       const id = oc(appointment).id(UNDEFINED_NULL_STRING)
-      const address1 = oc(appointment).property.line1('')
-      const address2 = oc(appointment).property.line2('')
+      const address1 = oc(appointment).property.address.line1('')
+      const address2 = oc(appointment).property.address.line2('')
       return {
         position: {
           lat,
@@ -56,13 +56,6 @@ export const MapContainer = ({ appointments = [], destinationLatLng }: MapContai
     })
   )
 
-  const handleTravelMode = React.useCallback(
-    value => {
-      setTravelMode(value)
-    },
-    [travelMode]
-  )
-
   const onLoadedDirection = React.useCallback(
     res => {
       const { duration, distance } = res.routes[0].legs[0]
@@ -72,28 +65,32 @@ export const MapContainer = ({ appointments = [], destinationLatLng }: MapContai
     [destinationLatLng]
   )
 
+  const hasMapPanel = destinationLatLng.lng && destinationLatLng.lat
+
   return (
-    <div className={mapStyles.mapContainer}>
-      <Map
-        autoFitBounds={true}
-        apiKey={process.env.MAP_API_KEY as string}
-        coordinates={coordinates}
-        component={MarkerComponentWithConnect}
-        destinationPoint={destinationLatLng}
-        defaultZoom={16}
-        travelMode={travelMode}
-        onLoadedDirection={onLoadedDirection}
-      />
-      <TravelMode travelMode={travelMode} onChangeTravelMode={handleTravelMode} />
+    <>
+      <div className={`${mapStyles.mapContainer} ${hasMapPanel ? mapStyles.mapHasPanel : ''}`}>
+        <Map
+          autoFitBounds={true}
+          apiKey={process.env.MAP_API_KEY as string}
+          coordinates={coordinates}
+          component={MarkerComponentWithConnect}
+          destinationPoint={destinationLatLng}
+          defaultZoom={16}
+          travelMode={travelMode}
+          onLoadedDirection={onLoadedDirection}
+          mapContainerStyles={{ height: '100%' }}
+        />
+      </div>
       <MapPanel duration={duration} distance={distance} destination={destinationLatLng} />
-    </div>
+    </>
   )
 }
 
 export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
   const appointments = oc(state).appointments.appointments.data.data([])
-  const destinationLat = oc(state).direction.destination.property.geolocation.latitude(undefined)
-  const destinationLng = oc(state).direction.destination.property.geolocation.longitude(undefined)
+  const destinationLat = oc(state).direction.destination.property.address.geolocation.latitude(undefined)
+  const destinationLng = oc(state).direction.destination.property.address.geolocation.longitude(undefined)
   return {
     appointments,
     destinationLatLng: {

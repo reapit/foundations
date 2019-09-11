@@ -13,7 +13,7 @@ export type ViewDirectionButtonProps = {
 export const ViewDirectionButton = ({ handleOnClick }: ViewDirectionButtonProps) => {
   return (
     <Button variant="primary" type="button" onClick={handleOnClick}>
-      View Direction
+      Directions
     </Button>
   )
 }
