@@ -1,0 +1,14 @@
+import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { oc } from 'ts-optchain'
+
+export const handleLaunchApp = (app: AppSummaryModel) => {
+  import('../core/store').then((store: any) => {
+    if (app.homePage && app.id) {
+      if (oc(store).state.auth.desktopSession()) {
+        window.location.href = `desktop://app?id=${app.id}&launchUri=${app.homePage}`
+      } else {
+        window.location.href = app.homePage
+      }
+    }
+  })
+}

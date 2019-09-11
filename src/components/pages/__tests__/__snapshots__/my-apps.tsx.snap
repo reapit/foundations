@@ -52,6 +52,7 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
     }
     loading={true}
     onCardClick={[Function]}
+    onSettingsClick={[Function]}
     title="Installed Apps"
   />
   <Pagination

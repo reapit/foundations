@@ -12,6 +12,7 @@ import { appDetailRequestData } from '@/actions/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
 import AppDetailModal from '@/components/ui/app-detail-modal'
 import { selectClientId } from '@/selector/client'
+import { AppSummaryModel } from '@/types/marketplace-api-schema'
 
 export interface ClientMappedActions {
   fetchAppDetail: (id: string, clientId: string) => void
@@ -49,7 +50,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
         list={list}
         title="Browse Apps"
         loading={loading}
-        onCardClick={app => {
+        onCardClick={(app: AppSummaryModel) => {
           setVisible(true)
           if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
             fetchAppDetail(app.id, clientId)

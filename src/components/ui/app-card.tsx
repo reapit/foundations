@@ -2,17 +2,19 @@ import * as React from 'react'
 import bulma from '@/styles/vendor/bulma'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import appCardStyles from '@/styles/blocks/app-card.scss?mod'
+import { FaCog } from 'react-icons/fa'
 
 export interface AppCardProps {
   app: AppSummaryModel
   className?: string
   onClick?: (event: React.MouseEvent) => void
+  onSettingsClick?: (event: React.MouseEvent) => void
 }
 
 const { card, image, cardContent, is48x48, is5, is6, title, subtitle, content, cardFooter, cardFooterItem } = bulma
 const { appCard, isCentered, isLeft, appCardContent } = appCardStyles
 
-const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, className }: AppCardProps) => {
+const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettingsClick, className }: AppCardProps) => {
   const dataTest = ['app-card', app.id]
   !app.pendingRevisions && dataTest.push('isNoPending')
   dataTest.push(app.name)
@@ -28,6 +30,12 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, classNam
       </div>
       <div className={cardFooter}>
         <p className={`${cardFooterItem} ${isLeft}`}>{app.developer}</p>
+        {app.installedOn && onSettingsClick && (
+          <p className={`${cardFooterItem} ${isLeft}`} onClick={onSettingsClick} data-test={`app-settings_${app.id}`}>
+            <FaCog />
+            &nbsp; Settings
+          </p>
+        )}
       </div>
     </div>
   )
