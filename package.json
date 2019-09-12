@@ -17,6 +17,7 @@
     "lint": "tslint --fix --project tsconfig.json --format stylish",
     "start": "node ./public/index.js lifetime-legal",
     "test": "jest --coverage --silent",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test-dev": "jest --watch --verbose",
     "test-dev-e2e": "wdio ./src/scripts/wdio.conf.js --watch",
     "test-e2e": "wdio ./src/scripts/wdio.conf.js",
@@ -64,6 +65,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jest": "^24.8.0",
     "jest-fetch-mock": "^2.1.2",
+    "jest-junit": "^8.0.0",
     "lint-staged": "^8.1.7",
     "loader-utils": "^1.2.3",
     "mini-css-extract-plugin": "^0.7.0",
@@ -93,5 +95,8 @@
     "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
+  },
+  "jest-junit": {
+    "outputDirectory": "./.jest-junit-reports"
   }
 }
