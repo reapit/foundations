@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps, RouteProps } from 'react-router'
 import { Menu as Sidebar } from '@reapit/elements'
+import Routes from '@/constants/routes'
 import Logo from '@/components/svg/logo'
 
 interface MenuConfig extends RouteProps {
@@ -22,9 +23,38 @@ export const generateMenuConfig = (): MenuConfig => {
   return {
     title: 'Foundations',
     logo: <Logo width="150px" height="65px" />,
-    homeUrl: '/home',
-    defaultActiveKey: 'Apps',
-    menu: []
+    homeUrl: '/',
+    defaultActiveKey: Routes.HOME,
+    menu: [
+      {
+        title: 'Background Checklist',
+        key: 'Background Checklist',
+        subMenu: [
+          {
+            title: 'Home',
+            key: Routes.HOME,
+            toUrl: Routes.HOME
+          },
+          {
+            title: 'Client Search',
+            key: Routes.SEARCH,
+            toUrl: Routes.SEARCH
+          },
+          {
+            title: 'Search Results',
+            key: Routes.RESULT,
+            toUrl: Routes.RESULT
+          },
+          {
+            title: 'Logout',
+            key: '/logout',
+            callback: () => {
+              console.log('logout callback')
+            }
+          }
+        ]
+      }
+    ]
   }
 }
 

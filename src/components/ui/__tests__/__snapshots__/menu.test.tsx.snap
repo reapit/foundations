@@ -2,8 +2,8 @@
 
 exports[`Menu should match snapshot 1`] = `
 <Menu
-  defaultActiveKey="Apps"
-  homeUrl="/home"
+  defaultActiveKey="/"
+  homeUrl="/"
   location={
     Object {
       "hash": "mockHash",
@@ -19,7 +19,36 @@ exports[`Menu should match snapshot 1`] = `
       width="150px"
     />
   }
-  menu={Array []}
+  menu={
+    Array [
+      Object {
+        "key": "Background Checklist",
+        "subMenu": Array [
+          Object {
+            "key": "/",
+            "title": "Home",
+            "toUrl": "/",
+          },
+          Object {
+            "key": "/search",
+            "title": "Client Search",
+            "toUrl": "/search",
+          },
+          Object {
+            "key": "/result",
+            "title": "Search Results",
+            "toUrl": "/result",
+          },
+          Object {
+            "callback": [Function],
+            "key": "/logout",
+            "title": "Logout",
+          },
+        ],
+        "title": "Background Checklist",
+      },
+    ]
+  }
   title="Foundations"
 />
 `;
