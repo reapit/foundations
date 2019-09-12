@@ -2,7 +2,7 @@
 
 exports[`Table should match a snapshot 1`] = `
 <table
-  className="table is-striped"
+  className="table is-striped is-fullwidth"
   style={Object {}}
 >
   <thead>

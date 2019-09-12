@@ -19,7 +19,7 @@ export const Table = ({ columns, data }) => {
 
   // Render the UI for your table
   return (
-    <table {...getTableProps()} className="table is-striped">
+    <table {...getTableProps()} className="table is-striped is-fullwidth">
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
