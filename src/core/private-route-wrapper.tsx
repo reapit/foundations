@@ -2,9 +2,11 @@ import * as React from 'react'
 import { Redirect, RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
+import { ReduxState } from '@/types/core'
 import { Loader } from '@reapit/elements'
 import Menu from '@/components/ui/menu'
 import Routes from '@/constants/routes'
+import { selectUserLoginStatus } from '@/selectors/auth'
 import pageContainerStyles from '../styles/pages/page-container.scss?mod'
 
 const { Suspense } = React
@@ -59,8 +61,8 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   )
 }
 
-const mapStateToProps = (): PrivateRouteWrapperConnectState => ({
-  isLogin: true,
+const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
+  isLogin: selectUserLoginStatus(state),
   isDesktopLogin: false
 })
 
