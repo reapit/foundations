@@ -15,7 +15,7 @@ const apiSchema = [
     headers: {
       Authorisation: process.env.PLATFORM_API_KEY
     }
-  },
+  }
 ]
 
 // Fetch definitions for a given schema
