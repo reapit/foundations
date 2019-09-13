@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.1.32",
+  "version": "0.1.33",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -83,7 +83,8 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "prop-types": "^15.5.0"
   },
   "dependencies": {
     "bulma": "^0.7.5",
