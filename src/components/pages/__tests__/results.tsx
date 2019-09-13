@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { PagedResultContactsModel } from '../../../types/contacts'
-import { Result, ResultProps } from '../result'
-import { resultDataStub } from '@/sagas/__stubs__/result'
+import { PagedResultContactModel_ } from '@/types/contact-api-schema'
+import { Result, ResultProps } from '../results'
+import { contacts } from '@/sagas/__stubs__/contacts'
 
-const props = (loading: boolean, contacts: PagedResultContactsModel | null): ResultProps => ({
+const props = (loading: boolean, contacts: PagedResultContactModel_ | null): ResultProps => ({
   resultState: {
     loading: loading,
     search: { name: '1' },
@@ -27,6 +27,6 @@ describe('Result', () => {
   })
 
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<Result {...props(false, resultDataStub)} />))).toMatchSnapshot()
+    expect(toJson(shallow(<Result {...props(false, contacts)} />))).toMatchSnapshot()
   })
 })

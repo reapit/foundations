@@ -11,7 +11,7 @@ const Login = React.lazy(() => import('../components/pages/login'))
 const HomePage = React.lazy(() => import('../components/pages/home'))
 const ChecklistDetail = React.lazy(() => import('../components/pages/checklist-detail'))
 const ClientSearch = React.lazy(() => import('../components/pages/client-search'))
-const Result = React.lazy(() => import('../components/pages/result'))
+const Results = React.lazy(() => import('../components/pages/results'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -23,7 +23,7 @@ const Router = () => (
             <PrivateRoute allow="CLIENT" path={Routes.CHECKLIST_DETAIL} component={ChecklistDetail} fetcher />
             <PrivateRoute allow="CLIENT" exact={true} path={Routes.HOME} component={HomePage} fetcher />
             <PrivateRoute allow="CLIENT" path={Routes.SEARCH} component={ClientSearch} />
-            <PrivateRoute allow="CLIENT" path={Routes.RESULT} component={Result} />
+            <PrivateRoute allow="CLIENT" path={Routes.RESULTS} component={Results} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
