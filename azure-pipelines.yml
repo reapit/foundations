@@ -82,7 +82,7 @@ jobs:
   - deployment: S3DeployWebProd
     displayName: 'Prod | S3 Deployment'
     dependsOn: buildWebApp
-    condition: and(succeeded(), contains(variables['Build.SourceBranch'], 'refs/tags/GD-'))
+    condition: and(succeeded(), contains(variables['Build.SourceBranch'], 'refs/tags/LG-'))
     pool:
       vmImage: 'ubuntu-latest'
     environment: 'reapit-lifetime-legal-prod'
