@@ -1,0 +1,238 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  <div
+    className="mb-5"
+    key="0"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={false}
+      onEdit={[MockFunction]}
+      title="Personal Details"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="1"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={false}
+      onEdit={[MockFunction]}
+      title="Primary ID"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="2"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={false}
+      onEdit={[MockFunction]}
+      title="Secondary ID"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="3"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={true}
+      onEdit={[MockFunction]}
+      title="Address History"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="4"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={false}
+      onEdit={[MockFunction]}
+      title="Declaration and Risk Assessment"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="5"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={true}
+      onEdit={[MockFunction]}
+      title="PEP Search"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="6"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={true}
+      onEdit={[MockFunction]}
+      title="Experian "
+    />
+  </div>
+</div>
+`;
+
+exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Loader />`;
+
+exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
+<Connect(ErrorBoundary)>
+  <div>
+    <div>
+      <a>
+        Back to Client/Logout
+      </a>
+    </div>
+    <div>
+      <a>
+        Customise Form
+      </a>
+    </div>
+  </div>
+  <div
+    className="mb-5"
+  >
+    <Component
+      title="Giacomo"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="0"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={false}
+      title="Personal Details"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="1"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={false}
+      title="Primary ID"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="2"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={false}
+      title="Secondary ID"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="3"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={true}
+      title="Address History"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="4"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={false}
+      title="Declaration and Risk Assessment"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="5"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={true}
+      title="PEP Search"
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="6"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={true}
+      title="Experian "
+    />
+  </div>
+  <Component
+    afterClose={[MockFunction]}
+    contact={
+      Object {
+        "active": true,
+        "addresses": Array [
+          Object {
+            "buildingName": "Tilbrook Farm",
+            "buildingNumber": "",
+            "countryId": "",
+            "line1": "Station Road",
+            "line2": "Bow Brickhill",
+            "line3": "Milton Keynes",
+            "line4": "Buckinghamshire",
+            "postcode": "MK17 9JU",
+            "type": "primary",
+          },
+        ],
+        "communications": Array [
+          Object {
+            "detail": "01632 961556",
+            "label": "Home",
+          },
+          Object {
+            "detail": "07700 901556",
+            "label": "Mobile",
+          },
+          Object {
+            "detail": "020 7946 1556",
+            "label": "Work",
+          },
+          Object {
+            "detail": "schadwick512@rpsfiction.net",
+            "label": "E-Mail",
+          },
+        ],
+        "created": "2019-05-12T17:05:19",
+        "forename": "Saoirse",
+        "id": "MKC16000098",
+        "identityCheck": "unchecked",
+        "marketingConsent": "notAsked",
+        "relationships": Array [
+          Object {
+            "id": "RMK",
+            "type": "negotiator",
+          },
+          Object {
+            "id": "MKC",
+            "type": "office",
+          },
+        ],
+        "surname": "Chadwick",
+        "title": "Ms",
+      }
+    }
+    isSubmitting={true}
+    modalContentType="PROFILE"
+    visible={true}
+  />
+</Connect(ErrorBoundary)>
+`;

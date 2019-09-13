@@ -9,6 +9,7 @@ export const history = createBrowserHistory()
 
 const Login = React.lazy(() => import('../components/pages/login'))
 const HomePage = React.lazy(() => import('../components/pages/home'))
+const ChecklistDetail = React.lazy(() => import('../components/pages/checklist-detail'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -17,7 +18,8 @@ const Router = () => (
         <Route path={Routes.LOGIN} exact render={() => <Login />} />
         <PrivateRouteWrapper path="/">
           <Switch>
-            <PrivateRoute allow="CLIENT" path={Routes.HOME} component={HomePage} fetcher />
+            <PrivateRoute allow="CLIENT" path={Routes.CHECKLIST_DETAIL} component={ChecklistDetail} fetcher />
+            <PrivateRoute allow="CLIENT" exact={true} path={Routes.HOME} component={HomePage} fetcher />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.LOGIN} />
