@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { PagedResultContactsModel } from '@/types/contacts'
+import { PagedResultContactModel_ } from '@/types/contact-api-schema'
 
 export interface SearchParams {
   name?: string
@@ -14,5 +14,5 @@ export type ContactsParams = SearchParams & {
 
 export const resultSetSearchParams = actionCreator<SearchParams>(ActionTypes.RESULT_SET_SEARCH_PARAMS)
 export const resultRequestData = actionCreator<ContactsParams>(ActionTypes.RESULT_REQUEST_DATA)
-export const resultReceiveData = actionCreator<PagedResultContactsModel>(ActionTypes.RESULT_RECEIVE_DATA)
+export const resultReceiveData = actionCreator<PagedResultContactModel_>(ActionTypes.RESULT_RECEIVE_DATA)
 export const resultRequestDataFailure = actionCreator<void>(ActionTypes.RESULT_REQUEST_FAILURE)

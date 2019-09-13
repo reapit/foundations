@@ -1,7 +1,7 @@
 import resultReducer, { defaultState } from '../result'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
-import { resultDataStub } from '@/sagas/__stubs__/result'
+import { contacts } from '@/sagas/__stubs__/contacts'
 
 describe('result reducer', () => {
   it('should return default state if action not matched', () => {
@@ -24,12 +24,12 @@ describe('result reducer', () => {
   it('should set contacts list data when RESULT_RECEIVE_DATA action is called', () => {
     const newState = resultReducer(undefined, {
       type: ActionTypes.RESULT_RECEIVE_DATA as ActionType,
-      data: resultDataStub
+      data: contacts
     })
     const expected = {
       ...defaultState,
       loading: false,
-      contacts: resultDataStub
+      contacts: contacts
     }
     expect(newState).toEqual(expected)
   })

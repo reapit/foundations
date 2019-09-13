@@ -7,12 +7,12 @@ import {
   SearchParams,
   resultSetSearchParams
 } from '../actions/result'
-import { PagedResultContactsModel } from '@/types/contacts'
+import { PagedResultContactModel_ } from '@/types/contact-api-schema'
 
 export interface ResultState {
   loading: boolean
   search: SearchParams | null
-  contacts: PagedResultContactsModel | null
+  contacts: PagedResultContactModel_ | null
 }
 
 export const defaultState: ResultState = {

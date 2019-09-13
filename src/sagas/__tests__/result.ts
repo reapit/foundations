@@ -8,11 +8,16 @@ import { fetcher } from '@reapit/elements'
 import { URLS, REAPIT_API_BASE_URL, CONTACTS_HEADERS } from '@/constants/api'
 import { queryParams } from '@/utils/query-params'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
-import { resultDataStub } from '../__stubs__/result'
+import { contacts } from '../__stubs__/contacts'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+import { initAuthorizedRequestHeaders } from '@/utils/api'
 
 jest.mock('../../core/store')
+
+const mockHeaders = {
+  Authorization: '123'
+}
 
 const params: Action<ContactsParams> = {
   data: {
@@ -24,19 +29,19 @@ const params: Action<ContactsParams> = {
 
 describe('result fetch data', () => {
   const gen = cloneableGenerator(resultFetch)(params)
-
-  expect(gen.next().value).toEqual(
+  expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+  expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
       url: `${URLS.contacts}/?${queryParams({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
-      headers: CONTACTS_HEADERS
+      headers: mockHeaders
     })
   )
 
   it('api call sucessfully', () => {
     const clone = gen.clone()
-    expect(clone.next(resultDataStub as any).value).toEqual(put(resultReceiveData(resultDataStub)))
+    expect(clone.next(contacts as any).value).toEqual(put(resultReceiveData(contacts)))
     expect(clone.next().done).toEqual(true)
   })
 

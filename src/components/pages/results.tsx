@@ -4,9 +4,10 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { ReduxState } from '@/types/core'
 import { ResultState } from '@/reducers/result'
-import { Loader, Pagination } from '@reapit/elements'
+import { Pagination, Table, Button } from '@reapit/elements'
 import { resultRequestData, SearchParams, ContactsParams, resultSetSearchParams } from '@/actions/result'
 import { oc } from 'ts-optchain'
+import bulma from '@/styles/vendor/bulma'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
@@ -23,10 +24,65 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   resultState,
   setSearchParams,
   fetchContacts,
-  location
+  location,
+  history
 }) => {
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Name',
+        id: 'name',
+        accessor: d => `${d.forename} ${d.surname}`
+      },
+      {
+        Header: 'Address',
+        id: 'address',
+        accessor: d => d,
+        Cell: ({ row }) => {
+          return (
+            <div>
+              <span>{row.original.addresses[0].line1}</span>
+            </div>
+          )
+        }
+      },
+      {
+        Header: 'Postcode',
+        id: 'postcode',
+        accessor: d => d,
+        Cell: ({ row }) => {
+          return (
+            <div>
+              <span>{row.original.addresses[0].postcode}</span>
+            </div>
+          )
+        }
+      },
+      {
+        Header: 'Status',
+        accessor: 'identityCheck'
+      },
+      {
+        Header: '',
+        id: 'action',
+        accessor: d => d,
+        Cell: ({ row }) => {
+          return (
+            <Button
+              type="button"
+              variant="primary"
+              onClick={() => history.push(`/checklist-detail/${row.original.id}`)}
+            >
+              Edit
+            </Button>
+          )
+        }
+      }
+    ],
+    []
+  )
   const { loading, search } = resultState
-  const { totalCount, pageSize, data } = oc<ResultState>(resultState).contacts({})
+  const { totalCount, pageSize, data = [] } = oc<ResultState>(resultState).contacts({})
 
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
@@ -47,13 +103,13 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     fetchContacts({ ...search, pageNumber })
   }, [search, pageNumber])
 
-  if (loading) {
-    return <Loader />
-  }
-
   return (
     <ErrorBoundary>
-      <div>Result</div>
+      <div className="my-5">
+        <h3 className={`${bulma.title} ${bulma.is3}`}>Search Results</h3>
+        <Table data={data} columns={columns} />
+        <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
+      </div>
     </ErrorBoundary>
   )
 }
