@@ -6,9 +6,11 @@ import { all, fork } from '@redux-saga/core/effects'
 
 import home from '@/reducers/home'
 import auth from '@/reducers/auth'
+import checklistDetail from '@/reducers/checklist-detail'
 
 import homeSagas from '@/sagas/home'
 import authSagas from '@/sagas/auth'
+import checklistDetailSagas from '@/sagas/checklist-detail'
 
 export class Store {
   static _instance: Store
@@ -28,11 +30,12 @@ export class Store {
   static reducers = combineReducers({
     auth,
     error,
-    home
+    home,
+    checklistDetail
   })
 
   static sagas = function*() {
-    yield all([fork(authSagas), fork(homeSagas)])
+    yield all([fork(authSagas), fork(homeSagas), fork(checklistDetailSagas)])
   }
 
   static composeEnhancers =

@@ -3,6 +3,7 @@ import ActionTypes from '../constants/action-types'
 import { AuthState } from '@/reducers/auth'
 import { ErrorState } from '../reducers/error'
 import { HomeState } from '@/reducers/home'
+import { ChecklistDetailState } from '@/reducers/checklist-detail'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -39,4 +40,5 @@ export interface ReduxState {
   error: ErrorState
   home: HomeState
   auth: AuthState
+  checklistDetail: ChecklistDetailState
 }
