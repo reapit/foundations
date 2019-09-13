@@ -8,128 +8,45 @@ exports[`ClientSearch should match a snapshot 1`] = `
     >
       Client Search
     </h2>
-    <div
-      className="field"
-    >
-      <label
-        className="label"
-      >
-        Enter Name
-      </label>
-      <div
-        className="control flex"
-      >
-        <input
-          className="input mr-4"
-          name="name"
-          onChange={[Function]}
-          placeholder="First or last name"
-          type="text"
-          value=""
-        />
-        <Button
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          Search
-        </Button>
-      </div>
-    </div>
-    <div
-      className="field"
-    >
-      <label
-        className="label"
-      >
-        Enter Address
-      </label>
-      <div
-        className="control flex"
-      >
-        <input
-          className="input mr-4"
-          name="address"
-          onChange={[Function]}
-          placeholder="Streetname, Town or postcode"
-          type="text"
-          value=""
-        />
-        <Button
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          Search
-        </Button>
-      </div>
-    </div>
-    <div
-      className="field"
-    >
-      <label
-        className="label"
-      >
-        Enter Address
-      </label>
-      <div
-        className="control"
-      >
-        <div
-          className="select is-primary mr-4"
-        >
-          <select
-            name="identityCheck"
-            onChange={[Function]}
-            value="PASS"
-          >
-            <option
-              key="PASS"
-              value="PASS"
-            >
-              PASS
-            </option>
-            <option
-              key="FAIL"
-              value="FAIL"
-            >
-              FAIL
-            </option>
-            <option
-              key="PENDING"
-              value="PENDING"
-            >
-              PENDING
-            </option>
-            <option
-              key="CANCELLED"
-              value="CANCELLED"
-            >
-              CANCELLED
-            </option>
-            <option
-              key="WARNINGS"
-              value="WARNINGS"
-            >
-              WARNINGS
-            </option>
-            <option
-              key="UNCHECKED"
-              value="UNCHECKED"
-            >
-              UNCHECKED
-            </option>
-          </select>
-        </div>
-        <Button
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          Search
-        </Button>
-      </div>
-    </div>
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "name": "",
+        }
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    />
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "address": "",
+        }
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    />
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "identityCheck": "",
+        }
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    />
   </div>
 </Connect(ErrorBoundary)>
 `;

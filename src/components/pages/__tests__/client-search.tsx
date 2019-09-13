@@ -5,11 +5,7 @@ import { ClientSearch, ClientSearchProps } from '../client-search'
 
 const props: ClientSearchProps = {
   // @ts-ignore: just pick the needed props for the test
-  match: {
-    params: {
-      page: '2'
-    }
-  }
+  history: {}
 }
 
 describe('ClientSearch', () => {
