@@ -1,6 +1,6 @@
 /* These are the Bulma initialisers - have to come before overides */
 @import '../base/colors.scss';
-// @import "../base/fonts.scss";
+@import '../base/fonts.scss';
 @import '../../../node_modules/bulma/sass/utilities/initial-variables.sass';
 
 /* Bulma override defaults
