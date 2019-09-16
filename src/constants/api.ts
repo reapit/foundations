@@ -1,11 +1,6 @@
-import { StringMap } from '../types/core'
+import { StringMap } from '@/types/core'
 
-export const PLATFORM_HEADERS = {
-  'Content-Type': 'application/json',
-  Authorization: process.env.PLATFORM_API_KEY
-} as StringMap
-
-export const COGNITO_HEADERS = {
+export const CONTACTS_HEADERS = {
   'Content-Type': 'application/json'
 } as StringMap
 

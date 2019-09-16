@@ -1,9 +1,9 @@
 /* These are the Bulma initialisers - have to come before overides */
-@import "../base/colors.scss";
-@import "../base/fonts.scss";
-@import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import '../base/colors.scss';
+@import '../base/fonts.scss';
+@import '../../../node_modules/bulma/sass/utilities/initial-variables.sass';
 
-/* Bulma override defaults 
+/* Bulma override defaults
 Things that can be customised here: https://bulma.io/documentation/customize/variables/
 */
 
@@ -18,7 +18,7 @@ $dark: $grey-dark;
 $orange: $reapit-orange;
 $yellow: $reapit-gold;
 $green: $reapit-green;
-$turquoise:	$reapit-light-blue;
+$turquoise: $reapit-light-blue;
 $cyan: $reapit-teal;
 $blue: $reapit-mid-blue;
 $purple: $reapit-plumb;
@@ -33,4 +33,4 @@ $subtitle-color: $grey;
 
 $modal-background-background-color: rgba($black, 0.3);
 
-@import "../../../node_modules/bulma/bulma.sass";
+@import '../../../node_modules/bulma/bulma.sass';
