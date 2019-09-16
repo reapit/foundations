@@ -35,9 +35,9 @@ exports[`Menu should match snapshot 1`] = `
             "toUrl": "/search",
           },
           Object {
-            "key": "/result",
+            "key": "/results",
             "title": "Search Results",
-            "toUrl": "/result",
+            "toUrl": "/results",
           },
           Object {
             "callback": [Function],
