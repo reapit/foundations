@@ -18,9 +18,9 @@ jobs:
         inputs:
           versionSpec: '10.x'
         displayName: 'Install Node.js'
+
       - script: yarn install
         displayName: Install deps
-        failOnStderr: true
         env:
           NPM_TOKEN: $(NPM_TOKEN)
 
