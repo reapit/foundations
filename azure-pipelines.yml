@@ -15,7 +15,7 @@ jobs:
   - job: buildWebApp
     displayName: Test and build web app
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: 'ubuntu-18.04'
     variables:
       - group: aws
     steps:
