@@ -1,13 +1,27 @@
 @charset "utf-8";
+@import './base/colors.scss';
+@import './vendor/normalize.scss';
+@import './utilities.scss';
+@import '~@reapit/elements/dist/index.css';
 
 * {
   box-sizing: border-box !important;
 }
 
-html {
-  font-size: 14px !important;
-  font-family: Arial, Helvetica, sans-serif;
+html,
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif sans-serif;
+  color: $grey-darkest;
 }
 
-@import './vendor/normalize.scss';
-@import './utilities.scss';
+.container {
+  max-width: 72.25rem;
+  margin: auto;
+  padding-right: 0.9375rem;
+  padding-left: 0.9375rem;
+}
+
+.button.is-primary,
+.button.is-primary[disabled] {
+  background-color: $blue;
+}
