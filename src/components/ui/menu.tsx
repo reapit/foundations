@@ -42,8 +42,8 @@ export const generateMenuConfig = (): MenuConfig => {
           },
           {
             title: 'Search Results',
-            key: Routes.RESULT,
-            toUrl: Routes.RESULT
+            key: Routes.RESULTS,
+            toUrl: Routes.RESULTS
           },
           {
             title: 'Logout',
