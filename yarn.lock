@@ -299,15 +299,16 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@reapit/elements@^0.1.35":
-  version "0.1.35"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.35.tgz#f84661a7c52c7043c124e09294086ac13d7281be"
-  integrity sha512-7xUjQH3opNe4k0s7TNfgYyTuyETUSdgVtX9jyMoqeCNKLv5oN2rxVjfJO1EDpDbq3ruU5t7Z/MZmZC9HcDB5Aw==
+"@reapit/elements@^0.1.39":
+  version "0.1.39"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.39.tgz#477689fe0c881be68e220313311bf6740773bb7d"
+  integrity sha512-CAAYkkmRi+3X183ZaqSvYyi5WvJhVdwe9eB+/6IQeFVuGrDlNSz07yZILz1ScDwQPIOavT7kZXRFSB0fC9HGdA==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.16"
     formik "^1.5.8"
     jsonwebtoken "^8.5.1"
+    prop-types "^15.7.2"
     react-datepicker "^2.9.6"
     react-google-map "^3.1.1"
     react-google-maps-loader "^4.2.5"

@@ -1,5 +1,5 @@
 import React from 'react'
-import ProgressBar from '@/components/ui/progressbar'
+import { ProgressBar } from '@reapit/elements'
 import styles from '@/styles/ui/aml-progressbar.scss?mod'
 
 export type AMLProgressBarProps = {
