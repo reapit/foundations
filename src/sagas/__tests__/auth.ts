@@ -5,8 +5,14 @@ import { authLogoutSuccess } from '../../actions/auth'
 import { removeLoginSession } from '../../utils/session'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
+import store from '@/core/store'
 
 jest.mock('../../utils/session')
+jest.mock('../../core/store', () => ({
+  persistor: {
+    purge: jest.fn()
+  }
+}))
 jest.mock('../../core/router', () => ({
   history: {
     push: jest.fn()
@@ -20,6 +26,8 @@ describe('auth thunks', () => {
       gen.next()
       expect(removeLoginSession).toHaveBeenCalledTimes(1)
       expect(gen.next().value).toEqual(put(authLogoutSuccess()))
+      gen.next()
+      expect(store.persistor.purge).toHaveBeenCalledTimes(1)
       gen.next()
       expect(history.push).toHaveBeenCalledTimes(1)
       expect(history.push).toHaveBeenLastCalledWith(Routes.LOGIN)

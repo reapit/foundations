@@ -75,10 +75,6 @@ export const Home: React.FunctionComponent<HomeProps> = ({
     }
   }, [appointmentsState.appointments, appointmentsState.time, appointmentsState.loading])
 
-  if (unfetched && loading) {
-    return <Loader />
-  }
-
   const handleTravelMode = React.useCallback(
     value => {
       setTravelMode(value)
@@ -88,7 +84,9 @@ export const Home: React.FunctionComponent<HomeProps> = ({
 
   const uncancelledList = list.filter(({ cancelled }) => !cancelled)
 
-  return (
+  return unfetched && loading ? (
+    <Loader />
+  ) : (
     <ErrorBoundary>
       <div className={`${containerStyle.controlsWrapper} ${isMobileView ? containerStyle.isMobile : ''}`}>
         {!isDesktopLogin && isMobileView && (
