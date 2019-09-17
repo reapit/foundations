@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AdminApprovalsState } from '@/reducers/admin-approvals'
-import { Loader, Pagination } from '@reapit/elements'
+import { Loader, Pagination, Table } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { oc } from 'ts-optchain'
@@ -47,10 +47,61 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
   const { totalCount, pageSize } = oc<AdminApprovalsState>(approvalsState).adminApprovalsData.data({})
   const [isModalOpen, setIsModalOpen] = React.useState(false)
   const pageNumberInState = oc<AdminApprovalsState>(approvalsState).adminApprovalsData.data.pageNumber(1)
+  const tableColumns = [
+    {
+      Header: '#',
+      id: 'id',
+      Cell: ({ row: { index } }) => {
+        return <div>{(pageNumberInState - 1) * REVISIONS_PER_PAGE + index + 1}</div>
+      }
+    },
+    {
+      Header: 'AppId',
+      accessor: 'appId'
+    },
+    {
+      Header: 'Type',
+      accessor: 'type'
+    },
+    {
+      Header: 'Description',
+      accessor: 'description'
+    },
+    {
+      Header: '',
+      id: 'buttonColumn',
+      Cell: ({ row: { original } }) => {
+        const { appId } = original
+        return (
+          <button
+            data-test={`view-details-button_${appId}`}
+            className={`${bulma.button} ${bulma.isPrimary}`}
+            onClick={() => {
+              const { appId, appRevisionId } = original
+              if (appRevisionId && appId) {
+                const currentRevisionId = oc<RevisionDetailState>(revisionDetail).revisionDetailData.data.id(undefined)
+                const currentAppId = oc<AppDetailState>(appDetail).appDetailData.data.id(undefined)
+                if (currentRevisionId !== appRevisionId) {
+                  fetchRevisionDetail({ appId, appRevisionId })
+                }
+                if (currentAppId !== appId) {
+                  fetchAppDetail(appId)
+                }
+                setIsModalOpen(true)
+              }
+            }}
+          >
+            View details
+          </button>
+        )
+      }
+    }
+  ]
 
   if (unfetched && loading) {
     return <Loader />
   }
+
   return (
     <ErrorBoundary>
       <div className={`${bulma.container} ${bulma.isRelative} py-8`} data-test="revision-list-container">
@@ -62,51 +113,10 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
         {!loading && !list.length ? (
           <Info infoType="ADMIN_APPROVALS_EMPTY" />
         ) : (
-          <table className={`${bulma.table} ${bulma.isFullwidth}`} data-test="revision-list">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>AppId</th>
-                <th>Type</th>
-                <th>Description</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {list.map((revision, index) => (
-                <tr key={revision.appRevisionId} data-app-id={revision.appId}>
-                  <th>{(pageNumberInState - 1) * REVISIONS_PER_PAGE + index + 1}</th>
-                  <th>{revision.appId}</th>
-                  <th>{revision.type}</th>
-                  <th>{revision.description}</th>
-                  <th>
-                    <button
-                      data-test={`view-details-button_${revision.appId}`}
-                      className={`${bulma.button} ${bulma.isPrimary}`}
-                      onClick={() => {
-                        const { appId, appRevisionId } = revision
-                        if (appRevisionId && appId) {
-                          const currentRevisionId = oc<RevisionDetailState>(revisionDetail).revisionDetailData.data.id(
-                            undefined
-                          )
-                          const currentAppId = oc<AppDetailState>(appDetail).appDetailData.data.id(undefined)
-                          if (currentRevisionId !== appRevisionId) {
-                            fetchRevisionDetail({ appId, appRevisionId })
-                          }
-                          if (currentAppId !== appId) {
-                            fetchAppDetail(appId)
-                          }
-                          setIsModalOpen(true)
-                        }
-                      }}
-                    >
-                      View details
-                    </button>
-                  </th>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div>
+            {' '}
+            <Table data={list} columns={tableColumns} />
+          </div>
         )}
         <Pagination
           onChange={page => history.push(`${routes.ADMIN_APPROVALS}/${page}`)}
