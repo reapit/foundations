@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import Router from './router'
 import { Provider } from 'react-redux'
 import store from './store'
+import '@/styles/index.scss?mod'
 
 const rootElement = document.querySelector('#root') as Element
 

@@ -1,0 +1,36 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  background-color: #0067a0;
+  .logoContainer {
+    background-color: #0067a0;
+    .logoImage {
+      width: 350px;
+      margin-left: 50px;
+    }
+  }
+  .menuContainer {
+    background-color: #0067a0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: 20px;
+    .menuItem {
+      margin: 10px;
+      color: #bfbfbf;
+      border: solid #bfbfbf 1px;
+      padding: 5px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .menuLink {
+      text-decoration: none;
+    }
+    span{
+      color: #bfbfbf;
+      font-size: 2.5rem;
+    }
+  }
+}
