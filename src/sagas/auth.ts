@@ -5,6 +5,7 @@ import Routes from '@/constants/routes'
 import ActionTypes from '@/constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess } from '@/actions/auth'
 import { removeLoginSession, setLoginSession } from '@/utils/session'
+import store from '@/core/store'
 import {
   COGNITO_API_BASE_URL,
   COGNITO_HEADERS,
@@ -48,6 +49,7 @@ export const doLogout = function*() {
   try {
     yield removeLoginSession()
     yield put(authLogoutSuccess())
+    yield store.persistor.purge()
     yield history.push(Routes.LOGIN)
   } catch (err) {
     console.error(err.message)
