@@ -4,22 +4,30 @@ import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { checklistDetailLoading, checklistDetailReceiveData } from '@/actions/checklist-detail'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
-import { URLS, REAPIT_API_BASE_URL, mockHeader } from '@/constants/api'
+import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
 import { checklistDetailDataFetch, checklistDetailDataListen, checklistDetailSagas } from '../checklist-detail'
 import { contact } from '../__stubs__/contact'
+import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+
+jest.mock('../../core/store')
+
+const mockHeaders = {
+  Authorization: '123'
+}
 
 describe('checklist-detail fetch data', () => {
   const id = '123'
   const gen = cloneableGenerator(checklistDetailDataFetch)({ data: id })
   expect(gen.next().value).toEqual(put(checklistDetailLoading(true)))
-  expect(gen.next().value).toEqual(
+  expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+  expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
       url: `${URLS.contacts}/${id}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
-      headers: mockHeader
+      headers: mockHeaders
     })
   )
 

@@ -81,7 +81,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     ],
     []
   )
-  const { loading, search } = resultState
+  const { search } = resultState
   const { totalCount, pageSize, data = [] } = oc<ResultState>(resultState).contacts({})
 
   const [pageNumber, setPageNumber] = React.useState<number>(1)

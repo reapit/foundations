@@ -2,20 +2,21 @@ import { fetcher } from '@reapit/elements'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { URLS, REAPIT_API_BASE_URL, mockHeader } from '@/constants/api'
+import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
+import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '../actions/error'
 import { checklistDetailLoading, checklistDetailReceiveData } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
 
 export const checklistDetailDataFetch = function*({ data: id }) {
   yield put(checklistDetailLoading(true))
-  // const headers = yield call(initAuthorizedRequestHeaders)
+  const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const response = yield call(fetcher, {
       url: `${URLS.contacts}/${id}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
-      headers: mockHeader
+      headers: headers
     })
     yield put(checklistDetailReceiveData({ contact: response }))
   } catch (err) {
