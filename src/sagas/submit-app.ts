@@ -7,7 +7,7 @@ import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import { SubmitAppArgs } from '@/actions/submit-app'
 import errorMessages from '../constants/error-messages'
-import { getApiErrorsFromResponse } from '@/utils/form/errors'
+import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '@/utils/form/errors'
 
 export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
   const { actions, ...values } = data
@@ -27,7 +27,8 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
     console.error(err)
 
     if (err instanceof FetchError) {
-      const formErrors = getApiErrorsFromResponse(err.response)
+      const response = err.response as unknown
+      const formErrors = getApiErrorsFromResponse(response as ApiFormErrorsResponse)
       if (formErrors) {
         actions.setErrors(formErrors)
       }
