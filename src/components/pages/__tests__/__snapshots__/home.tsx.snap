@@ -1,32 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home renderSection should match snapshot 1`] = `
-<div>
-  <div
-    className="mb-5"
-    key="0"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      onEdit={[MockFunction]}
-      title="Personal Details"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="1"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      onEdit={[MockFunction]}
-      title="Primary ID"
-    />
-  </div>
-</div>
-`;
-
 exports[`Home should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
   <div>
@@ -40,90 +13,6 @@ exports[`Home should match a snapshot 1`] = `
         Customise Form
       </a>
     </div>
-  </div>
-  <div
-    className="mb-5"
-  >
-    <Component
-      title="Giacomo"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="0"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      onEdit={[Function]}
-      title="Personal Details"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="1"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      onEdit={[Function]}
-      title="Primary ID"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="2"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      onEdit={[Function]}
-      title="Secondary ID"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="3"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={true}
-      onEdit={[Function]}
-      title="Address History"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="4"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      onEdit={[Function]}
-      title="Declaration and Risk Assessment"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="5"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={true}
-      onEdit={[Function]}
-      title="PEP Search"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="6"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={true}
-      onEdit={[Function]}
-      title="Experian "
-    />
   </div>
 </Connect(ErrorBoundary)>
 `;

@@ -40,7 +40,7 @@ exports[`Menu should match snapshot 1`] = `
             "toUrl": "/results",
           },
           Object {
-            "callback": [Function],
+            "callback": [MockFunction],
             "key": "/logout",
             "title": "Logout",
           },

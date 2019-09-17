@@ -5,7 +5,7 @@ import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/a
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
-import { URLS, REAPIT_API_BASE_URL, CONTACTS_HEADERS } from '@/constants/api'
+import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
 import { queryParams } from '@/utils/query-params'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { contacts } from '../__stubs__/contacts'

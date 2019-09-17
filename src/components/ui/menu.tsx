@@ -1,8 +1,11 @@
 import * as React from 'react'
 import { withRouter, RouteComponentProps, RouteProps } from 'react-router'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 import { Menu as Sidebar } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import Logo from '@/components/svg/logo'
+import { authLogout } from '@/actions/auth'
 
 interface MenuConfig extends RouteProps {
   title: string
@@ -19,7 +22,7 @@ interface MenuItem {
   subMenu?: MenuItem[]
 }
 
-export const generateMenuConfig = (): MenuConfig => {
+export const generateMenuConfig = ({ logout }: { logout: () => void }): MenuConfig => {
   return {
     title: 'Foundations',
     logo: <Logo width="150px" height="65px" />,
@@ -48,9 +51,7 @@ export const generateMenuConfig = (): MenuConfig => {
           {
             title: 'Logout',
             key: '/logout',
-            callback: () => {
-              console.log('logout callback')
-            }
+            callback: logout
           }
         ]
       }
@@ -58,13 +59,28 @@ export const generateMenuConfig = (): MenuConfig => {
   }
 }
 
-export type MenuProps = RouteComponentProps & {}
+export type MenuProps = RouteComponentProps & {
+  logout: () => void
+}
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ location }) => {
-  const menuConfigs = generateMenuConfig()
+export const Menu: React.FunctionComponent<MenuProps> = ({ location, logout }) => {
+  const menuConfigs = generateMenuConfig({ logout })
   return <Sidebar {...menuConfigs} location={location} />
 }
 
-export const MenuWithRouter = withRouter(Menu)
+export const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    logout: () => dispatch(authLogout())
+  }
+}
+
+export const MenuWithRedux = connect(
+  null,
+  mapDispatchToProps
+)(Menu)
+MenuWithRedux.displayName = 'MenuWithRedux'
+
+export const MenuWithRouter = withRouter(MenuWithRedux)
 MenuWithRouter.displayName = 'MenuWithRouter'
+
 export default MenuWithRouter

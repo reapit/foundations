@@ -5,12 +5,12 @@ import {
   mapStateToProps,
   ChecklistDetail,
   CheckListDetailProps,
-  generateSection
+  generateSection,
+  renderSections
 } from '../checklist-detail'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import { getMockRouterProps } from '@/helper/mock-router'
-import { renderSections } from '../home'
 
 describe('checklist-detail', () => {
   describe('mapDispatchToProps', () => {
