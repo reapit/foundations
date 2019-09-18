@@ -8,15 +8,20 @@ const { mapPanel } = mapStyles
 export interface MapPanelProps {
   duration: string
   distance: string
-  destination: { lat: number | undefined; lng: number | undefined }
+  currentLocation: { lat?: number; lng?: number }
+  destination: { lat?: number; lng?: number }
 }
 
-export const MapPanel = ({ duration, distance, destination }: MapPanelProps) => {
+export const MapPanel = ({ duration, distance, currentLocation, destination }: MapPanelProps) => {
   const openDefaultMap = () => {
     if (isIOS()) {
-      window.open(`maps://maps.google.com/maps?daddr=${destination.lat},${destination.lng}&amp;ll=`)
+      window.open(
+        `maps://maps.google.com/maps?saddr=${currentLocation.lat},${currentLocation.lng}&daddr=${destination.lat},${destination.lng}`
+      )
     } else {
-      window.open(`https://maps.google.com/maps?daddr=${destination.lat},${destination.lng}&amp;ll=`)
+      window.open(
+        `https://maps.google.com/maps?saddr=${currentLocation.lat},${currentLocation.lng}&daddr=${destination.lat},${destination.lng}`
+      )
     }
   }
 
