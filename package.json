@@ -30,6 +30,7 @@
     "@reapit/elements": "0.1.39",
     "dayjs": "^1.8.16",
     "formik": "^1.5.8",
+    "hardtack": "^4.1.0",
     "localforage": "^1.7.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
