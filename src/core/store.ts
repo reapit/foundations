@@ -72,7 +72,7 @@ export class Store {
     const persistConfig = {
       key: 'root',
       storage: localForage,
-      blacklist: ['online']
+      blacklist: ['online', 'auth']
     }
     const persistedReducer = persistReducer(persistConfig, Store.reducers)
     const composed = Store.composeEnhancers(applyMiddleware(Store.sagaMiddleware))
