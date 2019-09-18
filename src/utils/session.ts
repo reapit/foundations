@@ -2,6 +2,28 @@ import { LOCAL_STORAGE_SESSION_KEY } from '../constants/session'
 import { RefreshParams, LoginSession, LoginType, getAccessToken } from '@reapit/elements'
 import store from '../core/store'
 import { authLoginSuccess, authLogout } from '../actions/auth'
+import hardtack from 'hardtack'
+
+// TODO - needs test and to remove CloudFront - need to get into prod to check this works first
+export const setCookie = (session: LoginSession): void => {
+  const { href } = window.location
+  const whitelistedHost = href.includes('.reapit.com')
+    ? '.reapit.com'
+    : href.includes('.cloudfront.net')
+    ? '.cloudfront.net'
+    : href.includes('localhost')
+    ? 'localhost'
+    : null
+
+  if (whitelistedHost) {
+    hardtack.set(LOCAL_STORAGE_SESSION_KEY, session.refreshToken, {
+      path: '/',
+      domain: whitelistedHost,
+      expires: new Date(Date.now() + 2629800000).toUTCString(),
+      samesite: 'lax'
+    })
+  }
+}
 
 export const setLoginSession = (session: LoginSession): void => {
   try {

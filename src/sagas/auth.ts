@@ -2,7 +2,7 @@ import { takeLatest, put, call, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess, AuthLoginParams } from '../actions/auth'
 import { Action } from '@/types/core.ts'
-import { removeLoginSession, setLoginSession } from '../utils/session'
+import { removeLoginSession, setLoginSession, setCookie } from '../utils/session'
 import { history } from '../core/router'
 import Routes from '../constants/routes'
 import {
@@ -35,6 +35,7 @@ export const doLogin = function*({ data }: Action<AuthLoginParams>) {
       ) {
         const detailsWithLoginType = { ...loginDetails, loginType, userName, loginIdentity } as LoginSession
         yield call(setLoginSession, detailsWithLoginType)
+        yield call(setCookie, detailsWithLoginType)
         yield put(authLoginSuccess(detailsWithLoginType))
       } else {
         yield put(authLoginFailure())
