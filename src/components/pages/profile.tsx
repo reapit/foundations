@@ -5,12 +5,13 @@ import { Button } from '@reapit/elements'
 import styles from '@/styles/pages/profile.scss?mod'
 import logo from '@/assets/images/lifetimelegalblue.png'
 import { Link } from 'react-router-dom'
+import PersonalDetails from '../ui/personal-details'
 
 const items = [
   {
     title: 'Personal Details',
     complete: true,
-    children: <div>details</div>
+    children: <PersonalDetails contact={{}} />
   },
   {
     title: 'Primary ID',

@@ -32,9 +32,9 @@ exports[`Profile should match a snapshot 1`] = `
         key="Personal Details"
         title="Personal Details"
       >
-        <div>
-          details
-        </div>
+        <Component
+          contact={Object {}}
+        />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
