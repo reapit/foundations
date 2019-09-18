@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileToggle should match snapshot 1`] = `
+<div
+  data-test="profile-toggle"
+>
+  <div
+    aria-expanded={false}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={1}
+  >
+    <h5>
+      Title
+    </h5>
+    <div
+      className="flex items-center"
+    >
+      <div
+        data-test="profile-toggle-status"
+      >
+        <MdClose />
+        Incomplete
+      </div>
+      <span
+        className="undefined undefined"
+      >
+        <MdKeyboardArrowDown />
+      </span>
+    </div>
+  </div>
+  <div>
+    <div>
+      Children
+    </div>
+  </div>
+</div>
+`;

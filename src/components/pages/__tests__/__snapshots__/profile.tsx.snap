@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <div>
+    <div
+      className="container"
+    >
+      <Link
+        to="/"
+      >
+        <img
+          src=""
+        />
+      </Link>
+    </div>
+  </div>
+  <div
+    className="container"
+  >
+    <div>
+      <h2>
+        Mr Phillips
+      </h2>
+      <div>
+        RPS Reference: MX12548
+      </div>
+    </div>
+    <div>
+      <ProfileToggle
+        complete={true}
+        key="Personal Details"
+        title="Personal Details"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Primary ID"
+        title="Primary ID"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Secondary Id"
+        title="Secondary Id"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Address History"
+        title="Address History"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={false}
+        key="Agent checks"
+        title="Agent checks"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+    </div>
+    <div
+      className="flex justify-end mt-10"
+    >
+      <Button
+        disabled={true}
+        type="button"
+        variant="primary"
+      >
+        Submit Record for Checks
+      </Button>
+    </div>
+  </div>
+</Connect(ErrorBoundary)>
+`;
