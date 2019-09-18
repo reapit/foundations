@@ -5,6 +5,7 @@ import Routes from '@/constants/routes'
 import ActionTypes from '@/constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess } from '@/actions/auth'
 import { removeLoginSession, setLoginSession } from '@/utils/session'
+import { setCookie } from '../utils/session'
 import {
   COGNITO_API_BASE_URL,
   COGNITO_HEADERS,
@@ -37,6 +38,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
     const detailsWithLoginType = { ...loginDetails, userName, loginIdentity } as LoginSession
 
     yield call(setLoginSession, detailsWithLoginType)
+    yield call(setCookie, detailsWithLoginType)
     yield put(authLoginSuccess(detailsWithLoginType))
   } catch (err) {
     console.error(err.message)
