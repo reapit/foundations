@@ -4,7 +4,7 @@ import { put, all, takeLatest, call } from '@redux-saga/core/effects'
 import { authLoginSuccess, authLogoutSuccess, AuthLoginParams, authLoginFailure } from '../../actions/auth'
 import { Action } from '@/types/core'
 import { fetcher, LoginType } from '@reapit/elements'
-import { removeLoginSession, setLoginSession } from '../../utils/session'
+import { removeLoginSession, setLoginSession, setCookie } from '../../utils/session'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -36,6 +36,7 @@ describe('login submit', () => {
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(mockLoginSession).value).toEqual(call(setLoginSession, mockLoginSession))
+    expect(clone.next(mockLoginSession).value).toEqual(call(setCookie, mockLoginSession))
     expect(clone.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))
     expect(clone.next().done).toBe(true)
   })
