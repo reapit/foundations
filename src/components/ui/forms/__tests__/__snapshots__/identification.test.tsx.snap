@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`identification forms Identification should render correctly 1`] = `
+<Fragment>
+  <h3
+    className="subtitle"
+  >
+    title
+  </h3>
+  <Formik
+    enableReinitialize={false}
+    initialValues={
+      Object {
+        "expiredDate": undefined,
+        "filePaths": undefined,
+        "idRef": "",
+        "idType": "",
+      }
+    }
+    isInitialValid={false}
+    onSubmit={[Function]}
+    render={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+  />
+</Fragment>
+`;
+
+exports[`identification forms renderFormHandler should render correctly 1`] = `
+<div>
+  <Form>
+    <Input
+      id="idType"
+      labelText="ID Type"
+      name="idType"
+      placeholder="ID Type"
+      type="text"
+    />
+    <Input
+      id="idRef"
+      labelText="ID Reference"
+      name="idRef"
+      placeholder="ID Reference"
+      type="text"
+    />
+    <DatePicker
+      id="expiredDate"
+      labelText="Expired Date"
+      name="expiredDate"
+    />
+    <FileInput
+      id="filePaths"
+      labelText="Upload File/Take a Pic"
+      name="filePaths"
+    />
+    <div
+      className="flex justify-between mt-4"
+    >
+      <div
+        className="flex items-center"
+      >
+        <span>
+          RPS Ref:
+        </span>
+        <span
+          className="ml-1"
+        >
+          MS1039475
+        </span>
+      </div>
+      <div>
+        <Button
+          className="mr-2"
+          loading={false}
+          type="submit"
+          variant="primary"
+        >
+          Submit
+        </Button>
+        <Button
+          className="mr-2"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Next
+        </Button>
+        <Button
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Previous
+        </Button>
+      </div>
+    </div>
+  </Form>
+</div>
+`;

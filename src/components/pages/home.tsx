@@ -4,6 +4,9 @@ import { ReduxState } from '@/types/core'
 import { HomeState } from '@/reducers/home'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
+import AMLProgressBar from '@/components/ui/aml-progressbar'
+import PrimaryIdentification from './components/primary-identification'
+import SecondaryIdentification from './components/secondary-identification'
 import styles from '@/styles/pages/home.scss?mod'
 import { Dispatch } from 'redux'
 import { authLogout } from '@/actions/auth'
@@ -31,6 +34,26 @@ export const Home: React.FunctionComponent<HomeProps> = ({ logout }) => {
           <a>Customise Form</a>
         </div>
       </div>
+      <div className="mb-5">
+        <AMLProgressBar title="Giacomo" />
+      </div>
+
+      <PrimaryIdentification
+        onNextHandler={() => {
+          console.log('handler')
+        }}
+        onPrevHandler={() => {
+          console.log('handler')
+        }}
+      />
+      <SecondaryIdentification
+        onNextHandler={() => {
+          console.log('handler')
+        }}
+        onPrevHandler={() => {
+          console.log('handler')
+        }}
+      />
     </ErrorBoundary>
   )
 }
