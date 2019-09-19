@@ -208,6 +208,12 @@ exports[`Map Should match snapshot 1`] = `
     />
   </div>
   <Component
+    currentLocation={
+      Object {
+        "lat": 9999,
+        "lng": 9999,
+      }
+    }
     destination={
       Object {
         "lat": 0,
@@ -254,6 +260,12 @@ exports[`Map Should match snapshot 2`] = `
     />
   </div>
   <Component
+    currentLocation={
+      Object {
+        "lat": 9999,
+        "lng": 9999,
+      }
+    }
     destination={
       Object {
         "lat": 0,

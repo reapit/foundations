@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Map, CoordinateProps } from '@reapit/elements'
+import { Map, CoordinateProps, Coords } from '@reapit/elements'
 import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
@@ -36,6 +36,10 @@ export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
 export const MapContainer = ({ appointments = [], destinationLatLng, travelMode }: MapContainerProps) => {
   const [distance, setDistance] = React.useState('')
   const [duration, setDuration] = React.useState('')
+  const [currentLocation, setCurrentLocation] = React.useState<Coords>({
+    lat: UNDEFINED_LATLNG_NUMBER,
+    lng: UNDEFINED_LATLNG_NUMBER
+  })
 
   const coordinates: CoordinateProps<any> = filterInvalidMarker(
     appointments.map(appointment => {
@@ -55,6 +59,14 @@ export const MapContainer = ({ appointments = [], destinationLatLng, travelMode 
       }
     })
   )
+
+  React.useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        setCurrentLocation({ ...currentLocation, lat: position.coords.latitude, lng: position.coords.longitude })
+      })
+    }
+  }, [])
 
   const onLoadedDirection = React.useCallback(
     res => {
@@ -82,7 +94,12 @@ export const MapContainer = ({ appointments = [], destinationLatLng, travelMode 
           mapContainerStyles={{ height: '100%' }}
         />
       </div>
-      <MapPanel duration={duration} distance={distance} destination={destinationLatLng} />
+      <MapPanel
+        duration={duration}
+        distance={distance}
+        currentLocation={currentLocation}
+        destination={destinationLatLng}
+      />
     </>
   )
 }
