@@ -157,12 +157,14 @@ export const renderDirectionAndMarkers = ({
           })
           return
         }
+        clearMap({ directionsRendererRef, markersRef })()
         markers = renderMarkers({ coordinates, googleMaps, map })
         setZoomAndCenter({ bounds, center, zoom, map, markers: [...markers, currentLocation] })
         markersRef.current = markers
         return
       },
       () => {
+        clearMap({ directionsRendererRef, markersRef })()
         const markers = renderMarkers({ coordinates, googleMaps, map })
         setZoomAndCenter({ bounds, center, zoom, map, markers })
         markersRef.current = markers
