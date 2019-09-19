@@ -163,7 +163,6 @@ export const renderDirectionAndMarkers = ({
         return
       },
       () => {
-        const bounds = new googleMaps.LatLngBounds()
         const markers = renderMarkers({ coordinates, googleMaps, map })
         setZoomAndCenter({ bounds, center, zoom, map, markers })
         markersRef.current = markers
