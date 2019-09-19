@@ -14,5 +14,20 @@ exports[`Home should match a snapshot 1`] = `
       </a>
     </div>
   </div>
+  <div
+    className="mb-5"
+  >
+    <Component
+      title="Giacomo"
+    />
+  </div>
+  <Connect(Component)
+    onNextHandler={[Function]}
+    onPrevHandler={[Function]}
+  />
+  <Connect(Component)
+    onNextHandler={[Function]}
+    onPrevHandler={[Function]}
+  />
 </Connect(ErrorBoundary)>
 `;

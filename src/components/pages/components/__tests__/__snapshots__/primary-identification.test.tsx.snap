@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`primary identification forms PrimaryIdentification should render correctly 1`] = `
+<Component
+  data={Object {}}
+  loading={false}
+  onNextHandler={[MockFunction]}
+  onPrevHandler={[MockFunction]}
+  onSaveHandler={[MockFunction]}
+  title="Primary ID"
+/>
+`;
