@@ -138,36 +138,38 @@ export const renderDirectionAndMarkers = ({
   const directionsService = directionsServiceRef.current
   const bounds = boundsRef.current
   let markers = []
-  if (googleMaps && map && navigator.geolocation) {
-    return navigator.geolocation.getCurrentPosition((position: Position) => {
-      const currentLocation = getCurrentLocation({ googleMaps, position, map })
-      const isDrawDrirection = destinationPoint && destinationPoint.lat && destinationPoint.lng
-      if (isDrawDrirection) {
-        renderDirection({
-          destinationPoint,
-          map,
-          position,
-          googleMaps,
-          directionsService,
-          directionsRenderer,
-          travelMode,
-          onLoadedDirection,
-          currentLocation
-        })
+  if (googleMaps && map) {
+    return navigator.geolocation.getCurrentPosition(
+      (position: Position) => {
+        const currentLocation = getCurrentLocation({ googleMaps, position, map })
+        const isDrawDrirection = destinationPoint && destinationPoint.lat && destinationPoint.lng
+        if (isDrawDrirection) {
+          renderDirection({
+            destinationPoint,
+            map,
+            position,
+            googleMaps,
+            directionsService,
+            directionsRenderer,
+            travelMode,
+            onLoadedDirection,
+            currentLocation
+          })
+          return
+        }
+        markers = renderMarkers({ coordinates, googleMaps, map })
+        setZoomAndCenter({ bounds, center, zoom, map, markers: [...markers, currentLocation] })
+        markersRef.current = markers
+        return
+      },
+      () => {
+        const bounds = new googleMaps.LatLngBounds()
+        const markers = renderMarkers({ coordinates, googleMaps, map })
+        setZoomAndCenter({ bounds, center, zoom, map, markers })
+        markersRef.current = markers
         return
       }
-      markers = renderMarkers({ coordinates, googleMaps, map })
-      setZoomAndCenter({ bounds, center, zoom, map, markers: [...markers, currentLocation] })
-      markersRef.current = markers
-      return
-    })
-  }
-  if (googleMaps && map) {
-    const bounds = new googleMaps.LatLngBounds()
-    const markers = renderMarkers({ coordinates, googleMaps, map })
-    setZoomAndCenter({ bounds, center, zoom, map, markers })
-    markersRef.current = markers
-    return
+    )
   }
 }
 
