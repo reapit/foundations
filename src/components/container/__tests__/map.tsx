@@ -65,11 +65,17 @@ describe('Map', () => {
   })
   describe('filterInvalidMarker', () => {
     const markers = [
-      { id: '123', lat: 0, lng: 0 },
-      { id: '3245', lat: 0, lng: 0 },
-      { id: '67876', lat: invalidValues.UNDEFINED_LATLNG_NUMBER, lng: invalidValues.UNDEFINED_LATLNG_NUMBER }
+      { position: { id: '123', lat: 0, lng: 0 } },
+      { position: { id: '3245', lat: 0, lng: 0 } },
+      {
+        position: {
+          id: '67876',
+          lat: invalidValues.UNDEFINED_LATLNG_NUMBER,
+          lng: invalidValues.UNDEFINED_LATLNG_NUMBER
+        }
+      }
     ]
-    const expected = [{ id: '123', lat: 0, lng: 0 }, { id: '3245', lat: 0, lng: 0 }]
+    const expected = [{ position: { id: '123', lat: 0, lng: 0 } }, { position: { id: '3245', lat: 0, lng: 0 } }]
     const result = filterInvalidMarker(markers)
     expect(result).toEqual(expected)
   })

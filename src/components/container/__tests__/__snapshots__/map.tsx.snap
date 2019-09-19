@@ -55,24 +55,6 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "",
-            "address2": "",
-            "id": "STS1600403",
-            "position": Object {
-              "lat": 9999,
-              "lng": 9999,
-            },
-          },
-          Object {
-            "address1": "",
-            "address2": "",
-            "id": "STS1600401",
-            "position": Object {
-              "lat": 9999,
-              "lng": 9999,
-            },
-          },
-          Object {
             "address1": "High Street",
             "address2": "The Stables",
             "id": "NEP1600288",
@@ -82,39 +64,12 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "",
-            "address2": "",
-            "id": "STS1600396",
-            "position": Object {
-              "lat": 9999,
-              "lng": 9999,
-            },
-          },
-          Object {
-            "address1": "",
-            "address2": "",
-            "id": "NEP1600287",
-            "position": Object {
-              "lat": 9999,
-              "lng": 9999,
-            },
-          },
-          Object {
             "address1": "Shelton Road",
             "address2": "Yielden",
             "id": "BED1600534",
             "position": Object {
               "lat": 52.29491,
               "lng": -0.512901,
-            },
-          },
-          Object {
-            "address1": "",
-            "address2": "",
-            "id": "STS1600394",
-            "position": Object {
-              "lat": 9999,
-              "lng": 9999,
             },
           },
           Object {
@@ -178,15 +133,6 @@ exports[`Map Should match snapshot 1`] = `
             "position": Object {
               "lat": 52.04681,
               "lng": -0.710721,
-            },
-          },
-          Object {
-            "address1": "",
-            "address2": "",
-            "id": "STS1600389",
-            "position": Object {
-              "lat": 9999,
-              "lng": 9999,
             },
           },
         ]
