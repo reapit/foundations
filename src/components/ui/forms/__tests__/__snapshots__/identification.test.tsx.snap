@@ -29,12 +29,10 @@ exports[`identification forms Identification should render correctly 1`] = `
 exports[`identification forms renderFormHandler should render correctly 1`] = `
 <div>
   <Form>
-    <Input
+    <Connect(Component)
       id="idType"
       labelText="ID Type"
       name="idType"
-      placeholder="ID Type"
-      type="text"
     />
     <Input
       id="idRef"
