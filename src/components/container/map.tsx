@@ -26,8 +26,8 @@ export type MapContainerProps = MapContainerMappedState & {
 export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
   return markers.filter(appointments => {
     return (
-      appointments.lat !== UNDEFINED_LATLNG_NUMBER &&
-      appointments.lng !== UNDEFINED_LATLNG_NUMBER &&
+      appointments.position.lat !== UNDEFINED_LATLNG_NUMBER &&
+      appointments.position.lng !== UNDEFINED_LATLNG_NUMBER &&
       appointments.id !== UNDEFINED_NULL_STRING
     )
   })

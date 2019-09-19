@@ -75,12 +75,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
     }
   }, [appointmentsState.appointments, appointmentsState.time, appointmentsState.loading])
 
-  const handleTravelMode = React.useCallback(
-    value => {
-      setTravelMode(value)
-    },
-    [travelMode]
-  )
+  const handleTravelMode = React.useCallback(value => setTravelMode(value), [travelMode])
 
   const uncancelledList = list.filter(({ cancelled }) => !cancelled)
 
