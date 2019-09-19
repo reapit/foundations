@@ -7,5 +7,6 @@ export const CONTACTS_HEADERS = {
 export const REAPIT_API_BASE_URL = 'https://reapit.cloud.tyk.io'
 
 export const URLS = {
-  contacts: '/contacts'
+  contacts: '/contacts',
+  configuration: '/configuration'
 }

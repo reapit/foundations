@@ -8,11 +8,13 @@ import auth from '@/reducers/auth'
 import checklistDetail from '@/reducers/checklist-detail'
 import error from '@/reducers/error'
 import result from '@/reducers/result'
+import identityTypes from '@/reducers/identity-types'
 
 import resultSagas from '@/sagas/result'
 import homeSagas from '@/sagas/home'
 import authSagas from '@/sagas/auth'
 import checklistDetailSagas from '@/sagas/checklist-detail'
+import identityTypesSagas from '@/sagas/identity-types'
 
 export class Store {
   static _instance: Store
@@ -34,11 +36,18 @@ export class Store {
     error,
     home,
     result,
-    checklistDetail
+    checklistDetail,
+    identityTypes
   })
 
   static sagas = function*() {
-    yield all([fork(authSagas), fork(homeSagas), fork(checklistDetailSagas), fork(resultSagas)])
+    yield all([
+      fork(authSagas),
+      fork(homeSagas),
+      fork(checklistDetailSagas),
+      fork(resultSagas),
+      fork(identityTypesSagas)
+    ])
   }
 
   static composeEnhancers =
