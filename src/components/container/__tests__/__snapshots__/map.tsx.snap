@@ -137,7 +137,6 @@ exports[`Map Should match snapshot 1`] = `
           },
         ]
       }
-      defaultZoom={16}
       destinationPoint={
         Object {
           "lat": 0,
@@ -189,7 +188,6 @@ exports[`Map Should match snapshot 2`] = `
         }
       }
       coordinates={Array []}
-      defaultZoom={16}
       destinationPoint={
         Object {
           "lat": 0,

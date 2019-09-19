@@ -21,7 +21,9 @@ describe('Marker Component', () => {
   it('mapDispatchToProps', () => {
     const mockDispatch = jest.fn()
     const mockOwnProps = {
-      id: '1'
+      coordinate: {
+        id: '1'
+      }
     }
     const { handleOnClick } = mapDispatchToProps(mockDispatch, mockOwnProps)
     handleOnClick()
