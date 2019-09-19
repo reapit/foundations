@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Map, CoordinateProps, Coords } from '@reapit/elements'
+import { CoordinateProps, Coords, Map } from '@reapit/elements'
 import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
@@ -88,7 +88,6 @@ export const MapContainer = ({ appointments = [], destinationLatLng, travelMode 
           coordinates={coordinates}
           component={MarkerComponentWithConnect}
           destinationPoint={destinationLatLng}
-          defaultZoom={16}
           travelMode={travelMode}
           onLoadedDirection={onLoadedDirection}
           mapContainerStyles={{ height: '100%' }}

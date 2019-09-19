@@ -20,11 +20,13 @@ export const MarkerComponent = ({ coordinate, handleOnClick }: MarkerComponentPr
 }
 
 export type ownProps = {
-  id: string
+  coordinate: CoordinateProps<any>
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch, ownProps: ownProps) => ({
-  handleOnClick: () => dispatch(appointmentDetailRequestData({ id: ownProps.id }))
+  handleOnClick: () => {
+    dispatch(appointmentDetailRequestData({ id: ownProps.coordinate.id }))
+  }
 })
 
 export const MarkerComponentWithConnect = connect(
