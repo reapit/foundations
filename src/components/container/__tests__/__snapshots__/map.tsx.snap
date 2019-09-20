@@ -7,15 +7,6 @@ exports[`Map Should match snapshot 1`] = `
   >
     <Map
       autoFitBounds={true}
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Component)",
-          "type": [Function],
-        }
-      }
       coordinates={
         Array [
           Object {
@@ -148,6 +139,7 @@ exports[`Map Should match snapshot 1`] = `
           "height": "100%",
         }
       }
+      markerCallBack={[MockFunction]}
       onLoadedDirection={[Function]}
       travelMode="WALKING"
     />
@@ -178,15 +170,6 @@ exports[`Map Should match snapshot 2`] = `
   >
     <Map
       autoFitBounds={true}
-      component={
-        Object {
-          "$$typeof": Symbol(react.memo),
-          "WrappedComponent": [Function],
-          "compare": null,
-          "displayName": "Connect(Component)",
-          "type": [Function],
-        }
-      }
       coordinates={Array []}
       destinationPoint={
         Object {
@@ -199,6 +182,7 @@ exports[`Map Should match snapshot 2`] = `
           "height": "100%",
         }
       }
+      markerCallBack={[MockFunction]}
       onLoadedDirection={[Function]}
       travelMode="WALKING"
     />
