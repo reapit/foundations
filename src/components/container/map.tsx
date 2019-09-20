@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppointmentModel } from '@/types/appointments'
 import invalidValues from '@/constants/invalid-values'
-import { MarkerComponentWithConnect } from '@/components/container/marker-component'
 import mapStyles from '@/styles/pages/map.scss?mod'
 import MapPanel from '../ui/map-panel'
+import { appointmentDetailRequestData } from '@/actions/appointment-detail'
+import { Dispatch } from 'redux'
 
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
 
@@ -19,9 +20,14 @@ export interface MapContainerMappedState {
   }
 }
 
-export type MapContainerProps = MapContainerMappedState & {
-  travelMode: 'DRIVING' | 'WALKING'
+export type MapContainerMappedActions = {
+  handleOnClick: (id: string) => () => void
 }
+
+export type MapContainerProps = MapContainerMappedState &
+  MapContainerMappedActions & {
+    travelMode: 'DRIVING' | 'WALKING'
+  }
 
 export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
   return markers.filter(appointments => {
@@ -33,7 +39,12 @@ export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
   })
 }
 
-export const MapContainer = ({ appointments = [], destinationLatLng, travelMode }: MapContainerProps) => {
+export const MapContainer = ({
+  appointments = [],
+  destinationLatLng,
+  travelMode,
+  handleOnClick
+}: MapContainerProps) => {
   const [distance, setDistance] = React.useState('')
   const [duration, setDuration] = React.useState('')
   const [currentLocation, setCurrentLocation] = React.useState<Coords>({
@@ -86,7 +97,7 @@ export const MapContainer = ({ appointments = [], destinationLatLng, travelMode 
           autoFitBounds={true}
           apiKey={process.env.MAP_API_KEY as string}
           coordinates={coordinates}
-          component={MarkerComponentWithConnect}
+          markerCallBack={handleOnClick}
           destinationPoint={destinationLatLng}
           travelMode={travelMode}
           onLoadedDirection={onLoadedDirection}
@@ -116,7 +127,16 @@ export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
   }
 }
 
-const MapContainerWithConnect = connect(mapStateToProps)(MapContainer)
+export const mapDispatchToProps = (dispatch: Dispatch): MapContainerMappedActions => ({
+  handleOnClick: (id: string) => () => {
+    dispatch(appointmentDetailRequestData({ id }))
+  }
+})
+
+const MapContainerWithConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MapContainer)
 
 MapContainerWithConnect.displayName = 'CurrentLocButtonWithConnect'
 

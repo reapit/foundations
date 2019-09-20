@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { MapContainer, mapStateToProps, filterInvalidMarker } from '../map'
+import { MapContainer, mapStateToProps, filterInvalidMarker, mapDispatchToProps } from '../map'
 import invalidValues from '@/constants/invalid-values'
 import { shallow } from 'enzyme'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
@@ -11,7 +11,8 @@ describe('Map', () => {
     const mockProps = {
       appointments: appointmentsDataStub.data.data,
       destinationLatLng: { lat: 0, lng: 0 },
-      travelMode: 'WALKING' as TravelMode
+      travelMode: 'WALKING' as TravelMode,
+      handleOnClick: jest.fn()
     }
     const wrapper = shallow(<MapContainer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -21,7 +22,8 @@ describe('Map', () => {
     const mockProps = {
       appointments: undefined,
       destinationLatLng: { lat: 0, lng: 0 },
-      travelMode: 'WALKING' as TravelMode
+      travelMode: 'WALKING' as TravelMode,
+      handleOnClick: jest.fn()
     }
     const wrapper = shallow(<MapContainer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -78,5 +80,19 @@ describe('Map', () => {
     const expected = [{ position: { id: '123', lat: 0, lng: 0 } }, { position: { id: '3245', lat: 0, lng: 0 } }]
     const result = filterInvalidMarker(markers)
     expect(result).toEqual(expected)
+  })
+
+  it('mapDispatchToProps', () => {
+    const mockDispatch = jest.fn()
+    const mockId = '1'
+    const { handleOnClick } = mapDispatchToProps(mockDispatch)
+    const fn = handleOnClick(mockId)
+    fn()
+    expect(mockDispatch).toBeCalledWith({
+      data: {
+        id: '1'
+      },
+      type: 'APPOINTMENT_DETAIL_REQUEST_DATA'
+    })
   })
 })
