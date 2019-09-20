@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
+import { act } from 'react-dom/test-utils'
 import { Modal } from '../'
 import { renderWithPortalProvider } from '../../../hooks/UsePortal/__tests__/portal-provider'
 
@@ -70,6 +71,54 @@ describe('Modal', () => {
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(0)
     showModalButton.simulate('click')
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(1)
+  })
+
+  // CLD-250: https://reapit.atlassian.net/secure/RapidBoard.jspa?rapidView=200&view=planning&selectedIssue=CLD-250
+  it('should close Modal after press escape button', done => {
+    const wrapper = mount(renderWithPortalProvider(<App />))
+    const showModalButton = wrapper.find('[data-test="show-modal-button"]')
+    showModalButton.simulate('click')
+    const evt = new KeyboardEvent('keydown', { key: 'Esc' })
+
+    act(() => {
+      document.dispatchEvent(evt)
+      /**
+       * Put it after react dom render function
+       * In event loop queue
+       */
+      setTimeout(() => {
+        wrapper.update()
+        expect(wrapper.find('[data-test="modal"]')).toHaveLength(0)
+        done()
+      }, 1)
+    })
+  })
+
+  it('should close Modal when click on modal overlay', done => {
+    const wrapper = mount(renderWithPortalProvider(<App />))
+    const showModalButton = wrapper.find('[data-test="show-modal-button"]')
+    showModalButton.simulate('click')
+    const modalOverlay = wrapper.find('[data-test="modal-background"]')
+
+    /**
+     * Bind event to the modal overlay happens in asynchronous manner
+     * Have to put this to the bottom of the Event loop queue
+     */
+    setTimeout(() => {
+      act(() => {
+        modalOverlay.getDOMNode().dispatchEvent(new Event('click'))
+
+        /**
+         * Put it after react dom render function
+         * In event loop queue
+         */
+        setTimeout(() => {
+          wrapper.update()
+          expect(wrapper.find('[data-test="modal"]')).toHaveLength(0)
+          done()
+        }, 1)
+      })
+    }, 1)
   })
 
   it('should hide modal when click on close button', () => {
