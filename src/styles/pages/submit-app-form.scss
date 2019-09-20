@@ -1,4 +1,4 @@
-@import "../base/colors.scss";
+@import '../base/colors.scss';
 
 .container {
   display: flex;
@@ -24,10 +24,7 @@
 }
 
 .column {
-  max-width: 600px;
-
   &:nth-child(2) {
-    margin-left: auto
+    margin-left: auto;
   }
 }
-
