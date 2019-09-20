@@ -5,6 +5,7 @@ import { ErrorState } from '../reducers/error'
 import { HomeState } from '@/reducers/home'
 import { ChecklistDetailState } from '@/reducers/checklist-detail'
 import { ResultState } from '@/reducers/result'
+import { IdentityTypesState } from '@/reducers/identity-types'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -43,4 +44,5 @@ export interface ReduxState {
   auth: AuthState
   checklistDetail: ChecklistDetailState
   result: ResultState
+  identityTypes: IdentityTypesState
 }
