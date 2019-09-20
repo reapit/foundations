@@ -3,7 +3,7 @@ import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
 import { identityTypes } from '@/sagas/__stubs__/identity-types'
 
-describe('Identyti types reducer', () => {
+describe('identity-types reducer', () => {
   it('should return default state if action not matched', () => {
     const newState = identityTypesReducer(undefined, { type: 'UNKNOWN' as ActionType, data: undefined })
     expect(newState).toEqual(defaultState)
