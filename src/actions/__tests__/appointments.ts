@@ -2,7 +2,8 @@ import {
   appointmentsLoading,
   appointmentsReceiveData,
   appointmentsRequestData,
-  appointmentsClearData
+  appointmentsClearData,
+  setSelectedAppointment
 } from '../appointments'
 import ActionTypes from '../../constants/action-types'
 import { appointmentsDataStub } from '../../sagas/__stubs__/appointments'
@@ -25,6 +26,11 @@ describe('appointments actions', () => {
 
   it('should create a appointmentsClearData action', () => {
     expect(appointmentsClearData.type).toEqual(ActionTypes.APPOINTMENTS_CLEAR_DATA)
+    expect(appointmentsClearData(null).data).toEqual(null)
+  })
+
+  it('should create a setSelectedAppointment action', () => {
+    expect(setSelectedAppointment.type).toEqual(ActionTypes.SET_SELECTED_APPOINTMENT)
     expect(appointmentsClearData(null).data).toEqual(null)
   })
 })

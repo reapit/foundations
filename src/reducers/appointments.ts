@@ -5,9 +5,10 @@ import {
   appointmentsLoading,
   appointmentsReceiveData,
   appointmentsClearData,
-  appointmentsRequestDataFailure
+  appointmentsRequestDataFailure,
+  setSelectedAppointment
 } from '../actions/appointments'
-import { PagedResultAppointmentModel_ } from '@/types/appointments'
+import { PagedResultAppointmentModel_, AppointmentModel } from '@/types/appointments'
 
 export type AppointmentsTime = 'Today' | 'Tomorrow' | 'Next week'
 
@@ -19,12 +20,14 @@ export interface AppointmentsState {
   loading: boolean
   appointments: AppointmentsData | null
   time: AppointmentsTime
+  selectedAppointment: AppointmentModel | null
 }
 
 export const defaultState: AppointmentsState = {
   loading: false,
   appointments: null,
-  time: 'Today'
+  time: 'Today',
+  selectedAppointment: null
 }
 
 const appointmentsReducer = (state: AppointmentsState = defaultState, action: Action<any>): AppointmentsState => {
@@ -61,6 +64,13 @@ const appointmentsReducer = (state: AppointmentsState = defaultState, action: Ac
     return {
       ...state,
       loading: false
+    }
+  }
+
+  if (isType(action, setSelectedAppointment)) {
+    return {
+      ...state,
+      selectedAppointment: action.data
     }
   }
 

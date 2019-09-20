@@ -19,6 +19,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="56 High Street"
+      hightlight={true}
       key="NEP1600290"
     >
       <ul>
@@ -128,6 +129,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="68 The Embankment"
+      hightlight={false}
       key="BED1600537"
     >
       <ul>
@@ -220,6 +222,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="34 Sandhill Road"
+      hightlight={false}
       key="BUC1600211"
     >
       <ul>
@@ -329,6 +332,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="Wayside Little Tingewick"
+      hightlight={false}
       key="BUC1600210"
     >
       <ul>
@@ -421,6 +425,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading=" "
+      hightlight={false}
       key="STS1600403"
     >
       <ul>
@@ -514,6 +519,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading=" "
+      hightlight={false}
       key="STS1600401"
     >
       <ul>
@@ -607,6 +613,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="56 High Street"
+      hightlight={false}
       key="NEP1600288"
     >
       <ul>
@@ -699,6 +706,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading=" "
+      hightlight={false}
       key="STS1600396"
     >
       <ul>
@@ -775,6 +783,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading=" "
+      hightlight={false}
       key="NEP1600287"
     >
       <ul>
@@ -845,6 +854,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="The Cottage Shelton Road"
+      hightlight={false}
       key="BED1600534"
     >
       <ul>
@@ -954,6 +964,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading=" "
+      hightlight={false}
       key="STS1600394"
     >
       <ul>
@@ -1047,6 +1058,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="49 The Causeway"
+      hightlight={false}
       key="BED1600532"
     >
       <ul>
@@ -1133,6 +1145,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="39 Foxfield"
+      hightlight={false}
       key="MKC1600312"
     >
       <ul>
@@ -1242,6 +1255,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="The Firs Bedford Road"
+      hightlight={false}
       key="BED1600530"
     >
       <ul>
@@ -1351,6 +1365,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="Wayside Little Tingewick"
+      hightlight={false}
       key="BUC1600209"
     >
       <ul>
@@ -1472,6 +1487,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="57 The Embankment"
+      hightlight={false}
       key="BED1600525"
     >
       <ul>
@@ -1564,6 +1580,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="54 Tyne Crescent"
+      hightlight={false}
       key="BED1600523"
     >
       <ul>
@@ -1673,6 +1690,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading="8 Deacon Place"
+      hightlight={false}
       key="MKC1600311"
     >
       <ul>
@@ -1759,6 +1777,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
   >
     <AppointmentTile
       heading=" "
+      hightlight={false}
       key="STS1600389"
     >
       <ul>

@@ -56,4 +56,16 @@ describe('appointments reducer', () => {
     }
     expect(newState).toEqual(expected)
   })
+
+  it('should set selectedAppointment item data when SET_SELECTED_APPOINTMENT action is called', () => {
+    const newState = appointmentsReducer(undefined, {
+      type: ActionTypes.SET_SELECTED_APPOINTMENT as ActionType,
+      data: appointmentsDataStub.data.data![0]
+    })
+    const expected = {
+      ...defaultState,
+      selectedAppointment: appointmentsDataStub.data.data![0]
+    }
+    expect(newState).toEqual(expected)
+  })
 })
