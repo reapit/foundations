@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik'
 import { CreateIdentityDocumentModel } from '@/types/contact-api-schema'
 import { Button, Input, FileInput, DatePicker } from '@reapit/elements'
 import bulma from '@/styles/vendor/bulma'
+import SelectIdentity from '../inputs/select-identity'
 
 export type IdentificationFormValues = {
   idType: string
@@ -29,7 +30,7 @@ export const initialFormValues = {
 
 export const renderFormHandler = ({ loading, onNextHandler, onPrevHandler }) => (
   <Form>
-    <Input id="idType" name="idType" type="text" placeholder="ID Type" labelText="ID Type" />
+    <SelectIdentity id="idType" name="idType" labelText="ID Type" />
     <Input id="idRef" name="idRef" type="text" placeholder="ID Reference" labelText="ID Reference" />
     <DatePicker id="expiredDate" name="expiredDate" labelText="Expired Date" />
     <FileInput id="filePaths" name="filePaths" labelText="Upload File/Take a Pic" />
