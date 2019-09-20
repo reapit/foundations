@@ -9,7 +9,6 @@ import {
   setZoomAndCenter,
   renderDirectionAndMarkers,
   handleOnLoaded,
-  renderMarkersContent,
   renderMap,
   handleUseEffect,
   clearMap,
@@ -26,6 +25,7 @@ describe('Map', () => {
   let mockDirectionsRenderer: any = null
   let travelMode = 'DRIVING'
   let mockOnLoadedDirection = jest.fn()
+  let markerCallBack = jest.fn()
   let mockCurrentLocation: any = null
   let mockBounds: any = null
   const mockAlert = jest.spyOn(window, 'alert')
@@ -70,7 +70,12 @@ describe('Map', () => {
   })
   describe('renderMarkers', () => {
     it('should run correctly', () => {
-      const result = renderMarkers({ coordinates: mockCoordinates, googleMaps: mockGoogleMaps, map: mockMap })
+      const result = renderMarkers({
+        coordinates: mockCoordinates,
+        googleMaps: mockGoogleMaps,
+        map: mockMap,
+        markerCallBack
+      })
       expect(result).toHaveLength(2)
     })
   })
@@ -202,7 +207,8 @@ describe('Map', () => {
         directionsServiceRef: {
           current: mockDirectionsService
         },
-        boundsRef: mockBounds
+        boundsRef: mockBounds,
+        markerCallBack
       })
       expect(mockMap.fitBounds).not.toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
@@ -228,18 +234,6 @@ describe('Map', () => {
         onLoaded: mockOnLoadedDirection
       })
       expect(mockOnLoadedDirection).toBeCalled()
-    })
-  })
-
-  describe('renderMarkersContent', () => {
-    it('should run correctly', () => {
-      const result = renderMarkersContent({ coordinates: mockCoordinates, component: mockMarkerComponent })
-      expect(result).toHaveLength(2)
-    })
-
-    it('should run correctly when no coordinates', () => {
-      const result = renderMarkersContent({ coordinates: undefined as any, component: mockMarkerComponent })
-      expect(result).toHaveLength(0)
     })
   })
 
@@ -356,7 +350,8 @@ describe('Map', () => {
         travelMode,
         markersRef: {
           current: mockMarkers
-        }
+        },
+        markerCallBack
       })
       expect(result).toBeDefined()
     })
@@ -382,7 +377,8 @@ describe('Map', () => {
         zoom: 10,
         coordinates: mockCoordinates,
         travelMode,
-        markersRef: null
+        markersRef: null,
+        markerCallBack
       })
       expect(result).toBeDefined()
     })
