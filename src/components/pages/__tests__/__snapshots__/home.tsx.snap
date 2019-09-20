@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdminApproval should match a snapshot 1`] = `
+exports[`Home should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
   <div
     className="undefined "
@@ -823,6 +823,71 @@ exports[`AdminApproval should match a snapshot 1`] = `
         ]
       }
       nextAppointment={null}
+      selectedAppointment={
+        Object {
+          "attendees": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "lukas.lang@reapitestates.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "AWM",
+              "name": "Lukas Lang",
+              "type": "negotiator",
+            },
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "01632 968977",
+                  "label": "Home",
+                },
+                Object {
+                  "detail": "07700 908977",
+                  "label": "Mobile",
+                },
+                Object {
+                  "detail": "020 7946 8977",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "rrooney129@rpsfiction.net",
+                  "label": "E-Mail",
+                },
+              ],
+              "confirmed": false,
+              "id": "NEP110356",
+              "type": "applicant",
+            },
+          ],
+          "cancelled": true,
+          "created": "2019-05-08T17:07:39",
+          "end": "2019-05-11T18:00:00",
+          "id": "NEP1600290",
+          "modified": "2019-05-09T09:18:06",
+          "property": Object {
+            "address": Object {
+              "buildingName": "",
+              "buildingNumber": "56",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.079532,
+                "longitude": -0.790871,
+              },
+              "line1": "High Street",
+              "line2": "The Stables",
+              "line3": "Old Haversham",
+              "line4": "Milton Keynes",
+              "postcode": "MK19 7DZ",
+            },
+          },
+          "recurring": false,
+          "start": "2019-05-11T17:30:00",
+          "typeId": "VW",
+        }
+      }
     />
   </div>
   <div

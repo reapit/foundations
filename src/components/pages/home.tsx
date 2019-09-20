@@ -7,7 +7,7 @@ import { AppointmentsState, AppointmentsTime } from '@/reducers/appointments'
 import { oc } from 'ts-optchain'
 import { Loader, Tabs, TabConfig } from '@reapit/elements'
 import { AppointmentList } from '../ui/appointment-list'
-import { appointmentsRequestData } from '@/actions/appointments'
+import { appointmentsRequestData, setSelectedAppointment } from '@/actions/appointments'
 import AppointmentDetailModal from '@/components/common/appointment-detail'
 import bulma from '@/styles/vendor/bulma'
 import MapContainer from '@/components/container/map'
@@ -18,10 +18,12 @@ import { homeTabChange } from '@/actions/home'
 import { setDestination } from '@/actions/direction'
 import { isMobile } from '../../utils/device-detection'
 import TravelMode from '../ui/travel-mode'
+import { AppointmentModel } from '@/types/appointments'
 
 export interface HomeMappedActions {
   requestAppointments: (time: AppointmentsTime) => void
   requestNextAppointment: () => void
+  setSelectedAppointment: (appointment: AppointmentModel | null) => void
 }
 
 export interface HomeMappedProps {
@@ -59,10 +61,12 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   nextAppointmentState,
   currentTab,
   changeHomeTab,
-  isDesktopLogin
+  isDesktopLogin,
+  setSelectedAppointment
 }) => {
   const unfetched = !appointmentsState.appointments
   const loading = appointmentsState.loading
+  const selectedAppointment = appointmentsState.selectedAppointment
   const list = oc<AppointmentsState>(appointmentsState).appointments.data.data([])
   const time = appointmentsState.time
   const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
@@ -101,7 +105,10 @@ export const Home: React.FunctionComponent<HomeProps> = ({
                       (filter === time ? ` ${bulma.isSelected} ${bulma.isActive} ${bulma.isPrimary}` : '')
                     }
                     key={filter}
-                    onClick={() => filter !== time && requestAppointments(filter)}
+                    onClick={() => {
+                      filter !== time && requestAppointments(filter)
+                      setSelectedAppointment(null)
+                    }}
                   >
                     {filter}
                   </span>
@@ -113,7 +120,12 @@ export const Home: React.FunctionComponent<HomeProps> = ({
             {loading ? (
               <Loader />
             ) : (
-              <AppointmentList data={uncancelledList} nextAppointment={nextAppointmentState.data}></AppointmentList>
+              <AppointmentList
+                data={uncancelledList}
+                nextAppointment={nextAppointmentState.data}
+                selectedAppointment={selectedAppointment}
+                setSelectedAppointment={setSelectedAppointment}
+              ></AppointmentList>
             )}
           </>
         )}
@@ -141,6 +153,7 @@ export interface HomeMappedActions {
 const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({
   requestAppointments: (time: AppointmentsTime) => dispatch(appointmentsRequestData({ time })),
   requestNextAppointment: () => dispatch(nextAppointmentValidate()),
+  setSelectedAppointment: (appointment: AppointmentModel | null) => dispatch(setSelectedAppointment(appointment)),
   changeHomeTab: (tab: 'LIST' | 'MAP') => {
     dispatch(homeTabChange(tab))
     dispatch(setDestination(null))

@@ -1,6 +1,7 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { AppointmentsData, AppointmentsTime } from '../reducers/appointments'
+import { AppointmentModel } from '@/types/appointments'
 
 export interface AppointmentRequestParams {
   time: AppointmentsTime
@@ -13,3 +14,4 @@ export const appointmentsReceiveData = actionCreator<AppointmentsData | undefine
   ActionTypes.APPOINTMENTS_RECEIVE_DATA
 )
 export const appointmentsClearData = actionCreator<null>(ActionTypes.APPOINTMENTS_CLEAR_DATA)
+export const setSelectedAppointment = actionCreator<AppointmentModel | null>(ActionTypes.SET_SELECTED_APPOINTMENT)

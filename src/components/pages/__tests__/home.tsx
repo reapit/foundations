@@ -8,14 +8,15 @@ const props: HomeProps = {
   appointmentsState: {
     appointments: appointmentsDataStub,
     loading: false,
-    time: 'Today'
+    time: 'Today',
+    selectedAppointment: appointmentsDataStub.data.data![0]
   },
   nextAppointmentState: {
     data: null
   }
 }
 
-describe('AdminApproval', () => {
+describe('Home', () => {
   it('should match a snapshot', () => {
     expect(shallow(<Home {...props} />)).toMatchSnapshot()
   })
