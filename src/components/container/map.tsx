@@ -18,6 +18,17 @@ export interface MapContainerMappedState {
     lat: number | undefined
     lng: number | undefined
   }
+  isDesktopLogin: boolean
+}
+
+export interface Coordinate {
+  position: {
+    lat: number
+    lng: number
+  }
+  address1: string
+  address2: string
+  id: string
 }
 
 export type MapContainerMappedActions = {
@@ -29,7 +40,7 @@ export type MapContainerProps = MapContainerMappedState &
     travelMode: 'DRIVING' | 'WALKING'
   }
 
-export const filterInvalidMarker = (markers: CoordinateProps<any>) => {
+export const filterInvalidMarker = (markers: Coordinate[]) => {
   return markers.filter(appointments => {
     return (
       appointments.position.lat !== UNDEFINED_LATLNG_NUMBER &&
@@ -43,7 +54,8 @@ export const MapContainer = ({
   appointments = [],
   destinationLatLng,
   travelMode,
-  handleOnClick
+  handleOnClick,
+  isDesktopLogin
 }: MapContainerProps) => {
   const [distance, setDistance] = React.useState('')
   const [duration, setDuration] = React.useState('')
@@ -53,22 +65,24 @@ export const MapContainer = ({
   })
 
   const coordinates: CoordinateProps<any> = filterInvalidMarker(
-    appointments.map(appointment => {
-      const lat = oc(appointment).property.address.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
-      const lng = oc(appointment).property.address.geolocation.longitude(UNDEFINED_LATLNG_NUMBER)
-      const id = oc(appointment).id(UNDEFINED_NULL_STRING)
-      const address1 = oc(appointment).property.address.line1('')
-      const address2 = oc(appointment).property.address.line2('')
-      return {
-        position: {
-          lat,
-          lng
-        },
-        address1,
-        address2,
-        id
+    appointments.map(
+      (appointment: AppointmentModel): Coordinate => {
+        const lat = oc(appointment).property.address.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
+        const lng = oc(appointment).property.address.geolocation.longitude(UNDEFINED_LATLNG_NUMBER)
+        const id = oc(appointment).id(UNDEFINED_NULL_STRING)
+        const address1 = oc(appointment).property.address.line1('')
+        const address2 = oc(appointment).property.address.line2('')
+        return {
+          position: {
+            lat,
+            lng
+          },
+          address1,
+          address2,
+          id
+        }
       }
-    })
+    )
   )
 
   React.useEffect(() => {
@@ -92,7 +106,11 @@ export const MapContainer = ({
 
   return (
     <>
-      <div className={`${mapStyles.mapContainer} ${hasMapPanel ? mapStyles.mapHasPanel : ''}`}>
+      <div
+        className={`${mapStyles.mapContainer} ${isDesktopLogin ? mapStyles.isDesktop : ''} ${
+          hasMapPanel ? mapStyles.mapHasPanel : ''
+        }`}
+      >
         <Map
           autoFitBounds={true}
           apiKey={process.env.MAP_API_KEY as string}
@@ -123,7 +141,8 @@ export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
     destinationLatLng: {
       lat: destinationLat,
       lng: destinationLng
-    }
+    },
+    isDesktopLogin: !!state.auth.desktopSession
   }
 }
 
