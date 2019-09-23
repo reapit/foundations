@@ -92,11 +92,9 @@ export const Home: React.FunctionComponent<HomeProps> = ({
           isMobileView ? containerStyle.isMobile : ''
         }`}
       >
-        {!isDesktopLogin && isMobileView && (
-          <div className={containerStyle.tabsSticky}>
-            <Tabs tabConfigs={tabConfigs({ currentTab, changeHomeTab })} />
-          </div>
-        )}
+        <div className={containerStyle.tabsSticky}>
+          <Tabs tabConfigs={tabConfigs({ currentTab, changeHomeTab })} />
+        </div>
 
         {(currentTab === 'LIST' || !isMobileView) && (
           <>
