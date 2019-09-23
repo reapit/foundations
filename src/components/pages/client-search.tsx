@@ -4,6 +4,7 @@ import { Button, Input, SelectBox } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import searchStyle from '@/styles/pages/client-search.scss?mod'
 import { Formik, Form } from 'formik'
+import Routes from '@/constants/routes'
 
 export type ClientSearchProps = RouteComponentProps<{ page?: any }>
 
@@ -21,7 +22,7 @@ const identityCheckList = [
 
 export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ history }) => {
   const searchContacts = value => {
-    history.push('/result', value)
+    history.push(Routes.RESULTS, value)
   }
 
   return (
