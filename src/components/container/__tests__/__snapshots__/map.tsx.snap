@@ -3,7 +3,7 @@
 exports[`Map Should match snapshot 1`] = `
 <Fragment>
   <div
-    className="undefined "
+    className="undefined  "
   >
     <Map
       autoFitBounds={true}
@@ -166,7 +166,7 @@ exports[`Map Should match snapshot 1`] = `
 exports[`Map Should match snapshot 2`] = `
 <Fragment>
   <div
-    className="undefined "
+    className="undefined  "
   >
     <Map
       autoFitBounds={true}

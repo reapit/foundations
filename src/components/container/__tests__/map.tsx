@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { MapContainer, mapStateToProps, filterInvalidMarker, mapDispatchToProps } from '../map'
+import { MapContainer, mapStateToProps, filterInvalidMarker, mapDispatchToProps, Coordinate } from '../map'
 import invalidValues from '@/constants/invalid-values'
 import { shallow } from 'enzyme'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
@@ -12,7 +12,8 @@ describe('Map', () => {
       appointments: appointmentsDataStub.data.data,
       destinationLatLng: { lat: 0, lng: 0 },
       travelMode: 'WALKING' as TravelMode,
-      handleOnClick: jest.fn()
+      handleOnClick: jest.fn(),
+      isDesktopLogin: false
     }
     const wrapper = shallow(<MapContainer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -23,7 +24,8 @@ describe('Map', () => {
       appointments: undefined,
       destinationLatLng: { lat: 0, lng: 0 },
       travelMode: 'WALKING' as TravelMode,
-      handleOnClick: jest.fn()
+      handleOnClick: jest.fn(),
+      isDesktopLogin: false
     }
     const wrapper = shallow(<MapContainer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -37,6 +39,11 @@ describe('Map', () => {
         },
         direction: {
           destination: appointmentDataStub
+        },
+        auth: {
+          desktopSession: {
+            refereshToken: 'TOKEN'
+          }
         }
       } as any
       const result = mapStateToProps(mockState)
@@ -45,14 +52,18 @@ describe('Map', () => {
         destinationLatLng: {
           lat: 52.1284,
           lng: -0.507145
-        }
+        },
+        isDesktopLogin: true
       }
       expect(result).toEqual(expected)
     })
     it('should run correctly', () => {
       const mockState = {
         appointments: null,
-        direction: null
+        direction: null,
+        auth: {
+          desktopSession: null
+        }
       } as any
       const result = mapStateToProps(mockState)
       const expected = {
@@ -60,13 +71,14 @@ describe('Map', () => {
         destinationLatLng: {
           lat: undefined,
           lng: undefined
-        }
+        },
+        isDesktopLogin: false
       }
       expect(result).toEqual(expected)
     })
   })
   describe('filterInvalidMarker', () => {
-    const markers = [
+    const markers = ([
       { position: { id: '123', lat: 0, lng: 0 } },
       { position: { id: '3245', lat: 0, lng: 0 } },
       {
@@ -76,7 +88,7 @@ describe('Map', () => {
           lng: invalidValues.UNDEFINED_LATLNG_NUMBER
         }
       }
-    ]
+    ] as unknown) as Coordinate[]
     const expected = [{ position: { id: '123', lat: 0, lng: 0 } }, { position: { id: '3245', lat: 0, lng: 0 } }]
     const result = filterInvalidMarker(markers)
     expect(result).toEqual(expected)
