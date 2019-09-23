@@ -454,61 +454,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
             id="STS1600403"
           />
         </div>
-        <div
-          className="mt-4"
-        >
-          <ViewDirectionWithRedux
-            appointment={
-              Object {
-                "attendees": Array [
-                  Object {
-                    "communicationDetails": Array [
-                      Object {
-                        "detail": "nikola.kay@reapitestates.net",
-                        "label": "E-Mail",
-                      },
-                    ],
-                    "confirmed": false,
-                    "id": "AG",
-                    "name": "Nikola Kay",
-                    "type": "negotiator",
-                  },
-                  Object {
-                    "communicationDetails": Array [
-                      Object {
-                        "detail": "01632 970116",
-                        "label": "Home",
-                      },
-                      Object {
-                        "detail": "07700 910116",
-                        "label": "Mobile",
-                      },
-                      Object {
-                        "detail": "020 7946 1011",
-                        "label": "Work",
-                      },
-                      Object {
-                        "detail": "jtennent271@rpsfiction.net",
-                        "label": "E-Mail",
-                      },
-                    ],
-                    "confirmed": false,
-                    "id": "NEP150790",
-                    "type": "applicant",
-                  },
-                ],
-                "cancelled": false,
-                "created": "2019-05-08T16:18:09",
-                "end": "2019-05-09T11:45:00",
-                "id": "STS1600403",
-                "modified": "2019-05-11T10:05:34",
-                "recurring": false,
-                "start": "2019-05-09T11:15:00",
-                "typeId": "VW",
-              }
-            }
-          />
-        </div>
       </div>
     </AppointmentTile>
   </div>
@@ -546,61 +491,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
         >
           <CurrentLocButtonWithRedux
             id="STS1600401"
-          />
-        </div>
-        <div
-          className="mt-4"
-        >
-          <ViewDirectionWithRedux
-            appointment={
-              Object {
-                "attendees": Array [
-                  Object {
-                    "communicationDetails": Array [
-                      Object {
-                        "detail": "zac.mccoll@reapitestates.net",
-                        "label": "E-Mail",
-                      },
-                    ],
-                    "confirmed": false,
-                    "id": "AEN",
-                    "name": "Zac McColl",
-                    "type": "negotiator",
-                  },
-                  Object {
-                    "communicationDetails": Array [
-                      Object {
-                        "detail": "01632 963008",
-                        "label": "Home",
-                      },
-                      Object {
-                        "detail": "07700 903008",
-                        "label": "Mobile",
-                      },
-                      Object {
-                        "detail": "020 7946 3008",
-                        "label": "Work",
-                      },
-                      Object {
-                        "detail": "hfield6@rpsfiction.net",
-                        "label": "E-Mail",
-                      },
-                    ],
-                    "confirmed": false,
-                    "id": "NEP160059",
-                    "type": "applicant",
-                  },
-                ],
-                "cancelled": false,
-                "created": "2019-05-08T15:39:57",
-                "end": "2019-05-10T16:00:00",
-                "id": "STS1600401",
-                "modified": "2019-05-12T16:39:53",
-                "recurring": false,
-                "start": "2019-05-10T15:15:00",
-                "typeId": "VW",
-              }
-            }
           />
         </div>
       </div>
@@ -735,44 +625,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
             id="STS1600396"
           />
         </div>
-        <div
-          className="mt-4"
-        >
-          <ViewDirectionWithRedux
-            appointment={
-              Object {
-                "attendees": Array [
-                  Object {
-                    "communicationDetails": Array [
-                      Object {
-                        "detail": "zac.mccoll@reapitestates.net",
-                        "label": "E-Mail",
-                      },
-                    ],
-                    "confirmed": true,
-                    "id": "AEN",
-                    "name": "Zac McColl",
-                    "type": "negotiator",
-                  },
-                  Object {
-                    "confirmed": true,
-                    "id": "NEP150646",
-                    "name": "Mr L Balogun",
-                    "type": "applicant",
-                  },
-                ],
-                "cancelled": false,
-                "created": "2019-05-08T14:46:37",
-                "end": "2019-05-08T18:30:00",
-                "id": "STS1600396",
-                "modified": "2019-05-12T12:32:01",
-                "recurring": false,
-                "start": "2019-05-08T18:00:00",
-                "typeId": "VW",
-              }
-            }
-          />
-        </div>
       </div>
     </AppointmentTile>
   </div>
@@ -810,38 +662,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
         >
           <CurrentLocButtonWithRedux
             id="NEP1600287"
-          />
-        </div>
-        <div
-          className="mt-4"
-        >
-          <ViewDirectionWithRedux
-            appointment={
-              Object {
-                "attendees": Array [
-                  Object {
-                    "communicationDetails": Array [
-                      Object {
-                        "detail": "lukas.lang@reapitestates.net",
-                        "label": "E-Mail",
-                      },
-                    ],
-                    "confirmed": true,
-                    "id": "AWM",
-                    "name": "Lukas Lang",
-                    "type": "negotiator",
-                  },
-                ],
-                "cancelled": true,
-                "created": "2019-05-08T14:39:24",
-                "end": "2019-05-12T18:00:00",
-                "id": "NEP1600287",
-                "modified": "2019-05-12T13:23:36",
-                "recurring": false,
-                "start": "2019-05-12T17:30:00",
-                "typeId": "VW",
-              }
-            }
           />
         </div>
       </div>
@@ -991,61 +811,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
         >
           <CurrentLocButtonWithRedux
             id="STS1600394"
-          />
-        </div>
-        <div
-          className="mt-4"
-        >
-          <ViewDirectionWithRedux
-            appointment={
-              Object {
-                "attendees": Array [
-                  Object {
-                    "communicationDetails": Array [
-                      Object {
-                        "detail": "zac.mccoll@reapitestates.net",
-                        "label": "E-Mail",
-                      },
-                    ],
-                    "confirmed": false,
-                    "id": "AEN",
-                    "name": "Zac McColl",
-                    "type": "negotiator",
-                  },
-                  Object {
-                    "communicationDetails": Array [
-                      Object {
-                        "detail": "01632 968195",
-                        "label": "Home",
-                      },
-                      Object {
-                        "detail": "07700 908195",
-                        "label": "Mobile",
-                      },
-                      Object {
-                        "detail": "020 7946 8195",
-                        "label": "Work",
-                      },
-                      Object {
-                        "detail": "bpaterson905@rpsfiction.net",
-                        "label": "E-Mail",
-                      },
-                    ],
-                    "confirmed": false,
-                    "id": "MKC150681",
-                    "type": "applicant",
-                  },
-                ],
-                "cancelled": false,
-                "created": "2019-05-08T14:31:25",
-                "end": "2019-05-10T14:30:00",
-                "id": "STS1600394",
-                "modified": "2019-05-12T16:18:48",
-                "recurring": false,
-                "start": "2019-05-10T14:00:00",
-                "typeId": "VW",
-              }
-            }
           />
         </div>
       </div>
@@ -1804,44 +1569,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
         >
           <CurrentLocButtonWithRedux
             id="STS1600389"
-          />
-        </div>
-        <div
-          className="mt-4"
-        >
-          <ViewDirectionWithRedux
-            appointment={
-              Object {
-                "attendees": Array [
-                  Object {
-                    "communicationDetails": Array [
-                      Object {
-                        "detail": "nikola.kay@reapitestates.net",
-                        "label": "E-Mail",
-                      },
-                    ],
-                    "confirmed": true,
-                    "id": "AG",
-                    "name": "Nikola Kay",
-                    "type": "negotiator",
-                  },
-                  Object {
-                    "confirmed": true,
-                    "id": "MKC100651",
-                    "name": "Mr M Siddall",
-                    "type": "applicant",
-                  },
-                ],
-                "cancelled": true,
-                "created": "2019-05-08T11:48:40",
-                "end": "2019-05-09T14:30:00",
-                "id": "STS1600389",
-                "modified": "2019-05-09T14:38:50",
-                "recurring": false,
-                "start": "2019-05-09T14:00:00",
-                "typeId": "VW",
-              }
-            }
           />
         </div>
       </div>
