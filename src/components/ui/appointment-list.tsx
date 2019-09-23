@@ -62,6 +62,8 @@ export const AppointmentList = memo(
           const type = oc<AppointmentModel>(item).typeId()
           const start = getTime(oc<AppointmentModel>(item).start(''))
           const end = getTime(oc<AppointmentModel>(item).end(''))
+          const lat = oc<AppointmentModel>(item).property.address.geolocation.latitude()
+          const lng = oc<AppointmentModel>(item).property.address.geolocation.longitude()
 
           const hightlight = selectedAppointment
             ? selectedAppointment.id === item.id
@@ -111,9 +113,11 @@ export const AppointmentList = memo(
                   <div className="mt-4 mr-4">
                     <ViewDetailButton id={item.id} />
                   </div>
-                  <div className="mt-4">
-                    <ViewDirectionButton appointment={item} />
-                  </div>
+                  {lat && lng ? (
+                    <div className="mt-4">
+                      <ViewDirectionButton appointment={item} />
+                    </div>
+                  ) : null}
                   {renderETAButton}
                 </div>
               </AppointmentTile>
