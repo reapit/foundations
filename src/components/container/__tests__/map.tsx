@@ -39,6 +39,11 @@ describe('Map', () => {
         },
         direction: {
           destination: appointmentDataStub
+        },
+        auth: {
+          desktopSession: {
+            refereshToken: 'TOKEN'
+          }
         }
       } as any
       const result = mapStateToProps(mockState)
@@ -47,14 +52,18 @@ describe('Map', () => {
         destinationLatLng: {
           lat: 52.1284,
           lng: -0.507145
-        }
+        },
+        isDesktopLogin: true
       }
       expect(result).toEqual(expected)
     })
     it('should run correctly', () => {
       const mockState = {
         appointments: null,
-        direction: null
+        direction: null,
+        auth: {
+          desktopSession: null
+        }
       } as any
       const result = mapStateToProps(mockState)
       const expected = {
@@ -62,7 +71,8 @@ describe('Map', () => {
         destinationLatLng: {
           lat: undefined,
           lng: undefined
-        }
+        },
+        isDesktopLogin: false
       }
       expect(result).toEqual(expected)
     })
