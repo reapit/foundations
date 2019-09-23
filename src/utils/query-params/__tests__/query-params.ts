@@ -1,6 +1,6 @@
-import { queryParams } from '../query-params'
+import { setQueryParams } from '../query-params'
 
-describe('queryParams', () => {
+describe('setQueryParams', () => {
   it('should create query params', () => {
     ;[
       [{ name: '1', address: '1' }, 'name=1&address=1'],
@@ -8,7 +8,7 @@ describe('queryParams', () => {
       [{ name: ['a', 'b'], address: '1' }, 'name=a&name=b&address=1'],
       [{ name: null, address: undefined }, '']
     ].forEach(([params, expected]) => {
-      const result = queryParams(params)
+      const result = setQueryParams(params)
       expect(result).toBe(expected)
     })
   })
