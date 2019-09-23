@@ -1,4 +1,4 @@
-export const queryParams = (params: Object) => {
+export const setQueryParams = (params: Object) => {
   return Object.keys(params)
     .filter(key => params[key] !== undefined && params[key] !== null && params[key] !== '')
     .map(key => {
