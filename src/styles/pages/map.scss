@@ -34,6 +34,14 @@
   }
 }
 
+.mapContainer.mapHasPanel.isDesktop {
+  height: calc(100vh - 94px);
+
+  @media screen and (max-width: 768px) {
+    height: calc(100vh - 128px);
+  }
+}
+
 .mapPanel {
   position: absolute;
   bottom: 0;
