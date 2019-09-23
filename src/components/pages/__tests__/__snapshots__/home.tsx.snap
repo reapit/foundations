@@ -5,6 +5,26 @@ exports[`Home should match a snapshot 1`] = `
   <div
     className="undefined  "
   >
+    <div>
+      <Tabs
+        tabConfigs={
+          Array [
+            Object {
+              "active": false,
+              "displayText": "List",
+              "onTabClick": [Function],
+              "tabIdentifier": "LIST",
+            },
+            Object {
+              "active": false,
+              "displayText": "Map",
+              "onTabClick": [Function],
+              "tabIdentifier": "MAP",
+            },
+          ]
+        }
+      />
+    </div>
     <div
       className="undefined "
     >
