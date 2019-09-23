@@ -3,10 +3,10 @@
 exports[`Home should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
   <div
-    className="undefined "
+    className="undefined  "
   >
     <div
-      className="undefined"
+      className="undefined "
     >
       <div
         className="isCentered buttons hasAddons"
