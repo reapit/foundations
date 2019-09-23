@@ -87,7 +87,11 @@ export const Home: React.FunctionComponent<HomeProps> = ({
     <Loader />
   ) : (
     <ErrorBoundary>
-      <div className={`${containerStyle.controlsWrapper} ${isMobileView ? containerStyle.isMobile : ''}`}>
+      <div
+        className={`${containerStyle.controlsWrapper} ${isDesktopLogin ? containerStyle.isDesktop : ''} ${
+          isMobileView ? containerStyle.isMobile : ''
+        }`}
+      >
         {!isDesktopLogin && isMobileView && (
           <div className={containerStyle.tabsSticky}>
             <Tabs tabConfigs={tabConfigs({ currentTab, changeHomeTab })} />
@@ -96,7 +100,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
 
         {(currentTab === 'LIST' || !isMobileView) && (
           <>
-            <div className={`${containerStyle.menuSticky}`}>
+            <div className={`${containerStyle.menuSticky} ${isDesktopLogin ? containerStyle.isDesktop : ''}`}>
               <div className={`${bulma.isCentered} ${bulma.buttons} ${bulma.hasAddons}`}>
                 {filterTimes.map(filter => (
                   <span
