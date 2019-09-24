@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from '@/styles/ui/navbar/navbar.scss?mod'
+import Routes from '@/constants/routes'
 
 export type NavbarProps = {
   logout: () => void
@@ -14,11 +15,11 @@ export const Navbar: React.FC<NavbarProps> = ({ logout }) => {
         </Link>
       </div>
       <div className={styles.menuContainer}>
-        <Link className={styles.menuLink} to="/client-search">
+        <Link className={styles.menuLink} to={Routes.SEARCH}>
           <div className={styles.menuItem}>Client Search</div>
         </Link>
         <span> | </span>
-        <Link className={styles.menuLink} to="/search-result">
+        <Link className={styles.menuLink} to={Routes.RESULTS}>
           <div className={styles.menuItem}>Search Result</div>
         </Link>
         <span> | </span>

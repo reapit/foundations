@@ -1,8 +1,9 @@
 import { StringMap } from '../types/core'
 
-export const PLATFORM_HEADERS = {
+export const CONTACTS_HEADERS = {
   'Content-Type': 'application/json',
-  Authorization: process.env.PLATFORM_API_KEY
+  Authorization:
+    'Bearer eyJraWQiOiJTSGNVVnpHamIyQXFFSW9MSFpEbHVwR0hHUlwvTmlLKzN0dTEybm5JcXZMOD0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI5ZTQxZTlkNC1kMmY1LTRjZmMtOTcwYi0zNjE5Y2JmNGI1MWEiLCJldmVudF9pZCI6IjcwYzE4ZDRiLWJhNWYtNGNkMC1hN2Q0LTQ5NWFkYjU0ZTg5OCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE1NjkyOTY0MzIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTIuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0yX0loRUh6U1Q3YiIsImV4cCI6MTU2OTMwMDAzMiwiaWF0IjoxNTY5Mjk2NDMyLCJqdGkiOiJiMGU0YTYxYi01N2E4LTQwZjQtYjIzMy05Njc5YzExMzdhZmUiLCJjbGllbnRfaWQiOiI1dHZnc2sxdTA2YnB1bWJsb2ZiN2s4bGU5ZCIsInVzZXJuYW1lIjoiOWU0MWU5ZDQtZDJmNS00Y2ZjLTk3MGItMzYxOWNiZjRiNTFhIn0.HCQkWaXYbAS-uMzvqwnzTViP-TbxsrU7yQ9xfrwuc3r9RqhldNtYieTf2ibKkq7EdAaP87jnuiXlDXyTThObqbGoLaqITII0WK20DpvHDamw2I5zg7PMj5j6839LbRrs9W-laCkNVyzEjhZLmUEGRHjeCuY8wf5tR00D14KXAV8lT85JGagB4xTozabx2EJkw12tOG9Qpm5NGRofWqIg6dSGAw6UEYhMuic-ghXqZ4Po3s3mRS7dNyyVO8v3SX53sorThBKtDZg3ixAob-aF5cgUB6jUGu9K5Y_8UHxe6jpfDgxbTA_bOz3YY7DV9LAwR1WF4Q0JfoyKcP-5JwiTgA'
 } as StringMap
 
 export const COGNITO_HEADERS = {
@@ -12,5 +13,5 @@ export const COGNITO_HEADERS = {
 export const REAPIT_API_BASE_URL = 'https://reapit.cloud.tyk.io'
 
 export const URLS = {
-  developerCreate: '/home'
+  contacts: '/contacts'
 }

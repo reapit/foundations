@@ -2,6 +2,7 @@ import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { ErrorState } from '../reducers/error'
 import { HomeState } from '@/reducers/home'
+import { ResultsState } from '@/reducers/results'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -37,4 +38,5 @@ export interface FetcherParams<T> {
 export interface ReduxState {
   error: ErrorState
   home: HomeState
+  results: ResultsState
 }
