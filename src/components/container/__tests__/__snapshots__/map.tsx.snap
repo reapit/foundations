@@ -144,7 +144,7 @@ exports[`Map Should match snapshot 1`] = `
       travelMode="WALKING"
     />
   </div>
-  <Component
+  <MapPanelWithRedux
     currentLocation={
       Object {
         "lat": 9999,
@@ -187,7 +187,7 @@ exports[`Map Should match snapshot 2`] = `
       travelMode="WALKING"
     />
   </div>
-  <Component
+  <MapPanelWithRedux
     currentLocation={
       Object {
         "lat": 9999,

@@ -1,7 +1,13 @@
 import * as React from 'react'
 import { Button } from '@reapit/elements'
+import { oc } from 'ts-optchain'
 import mapStyles from '@/styles/pages/map.scss?mod'
 import { isIOS } from '@/utils/device-detection'
+import { isMobile } from '../../utils/device-detection'
+import { ReduxState } from '@/types/core'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
+import { setDestination } from '@/actions/direction'
 
 const { mapPanel } = mapStyles
 
@@ -10,9 +16,18 @@ export interface MapPanelProps {
   distance: string
   currentLocation: { lat?: number; lng?: number }
   destination: { lat?: number; lng?: number }
+  filterType: string
+  showAllAppointment: () => void
 }
 
-export const MapPanel = ({ duration, distance, currentLocation, destination }: MapPanelProps) => {
+export const MapPanel = ({
+  duration,
+  distance,
+  currentLocation,
+  destination,
+  filterType,
+  showAllAppointment
+}: MapPanelProps) => {
   const openDefaultMap = () => {
     if (isIOS()) {
       window.open(
@@ -35,11 +50,42 @@ export const MapPanel = ({ duration, distance, currentLocation, destination }: M
         <p className="is-size-4">{duration}</p>
         <p>{distance}</p>
       </div>
-      <Button className="is-large" type="button" variant="primary" onClick={openDefaultMap}>
-        Start Journey
-      </Button>
+      <div>
+        <Button className="is-medium" type="button" variant="primary" onClick={openDefaultMap}>
+          Start Journey
+        </Button>
+      </div>
+      {!isMobile() ? (
+        <div>
+          <Button className="is-medium" type="button" variant="primary" onClick={showAllAppointment}>
+            Show all appointments for {filterType}
+          </Button>
+        </div>
+      ) : null}
     </div>
   )
 }
 
-export default MapPanel
+export const mapStateToProps = (state: ReduxState) => {
+  const filterType = oc(state).appointments.time('Today')
+  console.log(filterType)
+  return {
+    filterType
+  }
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    showAllAppointment: () => {
+      dispatch(setDestination(null))
+    }
+  }
+}
+
+const MapPanelWithRedux = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MapPanel)
+MapPanelWithRedux.displayName = 'MapPanelWithRedux'
+
+export default MapPanelWithRedux
