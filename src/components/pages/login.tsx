@@ -19,7 +19,7 @@ export interface LoginMappedActions {
 }
 
 export interface LoginMappedProps {
-  isLogin: boolean
+  hasSession: boolean
   error: boolean
 }
 
@@ -39,7 +39,7 @@ export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginF
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const { isLogin, error, login } = props
+  const { hasSession, error, login } = props
   const { disabled, wrapper, container, image } = loginStyles
   const { level, title, isH1, isCentered } = bulma
 
@@ -49,7 +49,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
     }
   }, [error])
 
-  if (isLogin) {
+  if (hasSession) {
     return <Redirect to={Routes.HOME} />
   }
 
@@ -102,7 +102,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
 }
 
 const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
-  isLogin: state.auth.isLogin,
+  hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
   error: state.auth.error
 })
 

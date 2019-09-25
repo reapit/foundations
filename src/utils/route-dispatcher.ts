@@ -2,11 +2,10 @@ import { appointmentsRequestData } from '@/actions/appointments'
 import { RouteValue, StringMap } from '@/types/core'
 import Routes from '@/constants/routes'
 import store from '@/core/store'
-import { verifyAccessToken } from '@/utils/session'
+import { getAccessToken } from '@/utils/session'
 
-// @ts-ignore
-const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
-  await verifyAccessToken()
+const routeDispatcher = async (route: RouteValue, _params?: StringMap) => {
+  await getAccessToken()
 
   switch (route) {
     case Routes.HOME:
