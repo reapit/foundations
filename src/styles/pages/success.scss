@@ -1,0 +1,50 @@
+@import '../base/colors.scss';
+
+.name {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin: 40px 0 20px 0;
+}
+
+.headerLeft {
+  width: 50%;
+}
+
+.headerRight {
+  width: 50%;
+  padding: 0 40px;
+}
+
+.leftBlock {
+  width: 50%;
+}
+
+.rightBlock {
+  padding: 0 40px;
+  width: 50%;
+}
+
+.successMessage {
+  display: flex;
+  padding: 20px;
+  border: 2px solid $grey-light;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.refCode {
+  font-size: 18px;
+}
+
+.successIcon {
+  color: $green;
+  font-size: 30px;
+  width: 50px;
+  flex-shrink: 0;
+}

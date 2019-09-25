@@ -2,19 +2,7 @@
 
 exports[`Profile should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <div>
-    <div
-      className="container"
-    >
-      <Link
-        to="/"
-      >
-        <img
-          src=""
-        />
-      </Link>
-    </div>
-  </div>
+  <ProfileNav />
   <div
     className="container"
   >

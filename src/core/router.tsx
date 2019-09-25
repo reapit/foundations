@@ -10,6 +10,7 @@ export const history = createBrowserHistory()
 const Login = React.lazy(() => import('../components/pages/login'))
 const HomePage = React.lazy(() => import('../components/pages/home'))
 const ProfilePage = React.lazy(() => import('../components/pages/profile'))
+const SuccessPage = React.lazy(() => import('../components/pages/success'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -18,6 +19,7 @@ const Router = () => (
         <Route path={Routes.LOGIN} exact render={() => <Login />} />
         <PrivateRouteWrapper path="/">
           <Switch>
+            <PrivateRoute allow="CLIENT" path={Routes.SUCCESS} component={SuccessPage} />
             <PrivateRoute allow="CLIENT" path={Routes.PROFILE} component={ProfilePage} fetcher />
             <PrivateRoute allow="CLIENT" path={Routes.HOME} component={HomePage} fetcher />
           </Switch>
