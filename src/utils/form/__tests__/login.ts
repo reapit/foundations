@@ -4,15 +4,15 @@ import { LoginFormValues } from '@/components/pages/login'
 type InputOutput = [LoginFormValues, LoginFormError]
 
 const invalidValues: InputOutput[] = [
-  [{ email: '', password: '' }, { email: 'Required', password: 'Required' }],
-  [{ email: 'invalid.com', password: '' }, { email: 'Invalid email address', password: 'Required' }],
-  [{ email: '', password: '12345678' }, { email: 'Required' }],
-  [{ email: '@@@.org', password: 'password' }, { email: 'Invalid email address' }]
+  [{ userName: '', password: '' }, { userName: 'Required', password: 'Required' }],
+  [{ userName: 'invalid.com', password: '' }, { userName: 'Invalid email address', password: 'Required' }],
+  [{ userName: '', password: '12345678' }, { userName: 'Required' }],
+  [{ userName: '@@@.org', password: 'password' }, { userName: 'Invalid email address' }]
 ]
 
 const validValues: InputOutput[] = [
-  [{ email: 'my@gmail.com', password: '1234567' }, {}],
-  [{ email: 'foo@bar.com.au', password: 'aaaaaaaaaa' }, {}]
+  [{ userName: 'my@gmail.com', password: '1234567' }, {}],
+  [{ userName: 'foo@bar.com.au', password: 'aaaaaaaaaa' }, {}]
 ]
 
 describe('loginValidation', () => {

@@ -58,11 +58,12 @@ jobs:
       NPM_TOKEN: $(NPM_TOKEN)
   
    # Temporary fix while browserstack is on free-tier
-  - script: yarn test-e2e:ci
-    displayName: E2E Tests
-    # continueOnError: true
-    env:
-      NPM_TOKEN: $(NPM_TOKEN)
+  # Disabling e2e tests temporarily while testing new authentication mode
+  # - script: yarn test-e2e:ci
+  #   displayName: E2E Tests
+  #   # continueOnError: true
+  #   env:
+  #     NPM_TOKEN: $(NPM_TOKEN)
 
   - task: PublishPipelineArtifact@1
     inputs:

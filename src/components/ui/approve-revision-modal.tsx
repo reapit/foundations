@@ -29,8 +29,8 @@ const mapStateToProps = (
   ownProps: ApproveRevisionModalWithConnectOwnProps
 ): ApproveRevisionModalMappedProps => ({
   revisionDetail: state.revisionDetail,
-  email: state.auth.loginSession!.loginIdentity.email,
-  name: state.auth.loginSession!.loginIdentity.name,
+  email: oc(state).auth.loginSession.loginIdentity.email(''),
+  name: oc(state).auth.loginSession.loginIdentity.name(''),
   closeModal: ownProps.closeModal,
   onApproveSuccess: ownProps.onApproveSuccess
 })

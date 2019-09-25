@@ -13,7 +13,8 @@ exports[`Login should match a snapshot 1`] = `
     <p
       className="pb-8"
     >
-      Welcome to Reapit Foundations
+      Welcome to Reapit 
+      Marketplace
     </p>
     <Tabs
       tabConfigs={
@@ -37,8 +38,8 @@ exports[`Login should match a snapshot 1`] = `
       enableReinitialize={false}
       initialValues={
         Object {
-          "email": "",
           "password": "",
+          "userName": "",
         }
       }
       isInitialValid={false}

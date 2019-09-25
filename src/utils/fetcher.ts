@@ -1,5 +1,5 @@
 import { FetcherParams } from '../types/core'
-import { verifyAccessToken } from './session'
+import { getAccessToken } from './session'
 
 export class FetchError extends Error {
   public name: string
@@ -25,7 +25,7 @@ const fetcher = async <T, B>({
   isPrivate = true
 }: FetcherParams<B>): Promise<any | FetchError> => {
   const path = `${api}${url}`
-  const accessToken = isPrivate ? await verifyAccessToken() : null
+  const accessToken = isPrivate ? await getAccessToken() : null
 
   if (isPrivate && !accessToken) {
     const error = new FetchError(`ERROR FETCHING ${method} ${path} `)

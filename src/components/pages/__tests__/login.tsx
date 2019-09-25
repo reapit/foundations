@@ -5,7 +5,7 @@ import { Login, LoginProps } from '../login'
 
 const props: LoginProps = {
   error: false,
-  isLogin: false,
+  hasSession: false,
   login: jest.fn(),
   authChangeLoginType: jest.fn(),
   loginType: 'CLIENT',

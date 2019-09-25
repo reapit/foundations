@@ -1,15 +1,13 @@
 import authSagas, { doLogin, doLogout, loginListen, logoutListen } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { put, all, takeLatest, call } from '@redux-saga/core/effects'
-import { authLoginSuccess, authLogoutSuccess, AuthLoginParams, authLoginFailure } from '../../actions/auth'
+import { authLoginSuccess, authLogoutSuccess, authLoginFailure } from '../../actions/auth'
 import { Action } from '@/types/core'
-import { fetcher, LoginType } from '@reapit/elements'
-import { removeLoginSession, setLoginSession, setCookie } from '../../utils/session'
+import { getCognitoSession, removeSessionCookie, LoginParams } from '@reapit/elements'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
-import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { COGNITO_HEADERS, COGNITO_API_BASE_URL } from '@/constants/api'
 import { mockLoginSession } from '@/utils/__mocks__/cognito'
+import { ActionType } from '../../types/core'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({
@@ -17,47 +15,40 @@ jest.mock('../../core/router', () => ({
     push: jest.fn()
   }
 }))
-
-jest.mock('@reapit/elements', jest.fn(() => require('../../utils/__mocks__/cognito')))
+jest.mock('../../core/store')
+jest.mock('@reapit/elements')
 
 describe('login submit', () => {
-  const data: AuthLoginParams = { loginType: 'CLIENT', email: 'bob@acme.com', password: 'xxxxxx' }
-  const gen = cloneableGenerator(doLogin)({ data } as Action<AuthLoginParams>)
-  expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `/login`,
-      api: COGNITO_API_BASE_URL,
-      method: 'POST',
-      body: { userName: data.email, password: data.password },
-      headers: COGNITO_HEADERS
-    })
-  )
+  const loginParams: LoginParams = { loginType: 'CLIENT', userName: 'bob@acme.com', password: 'xxxxxx', mode: 'WEB' }
+  const action: Action<LoginParams> = {
+    type: ActionTypes.AUTH_LOGIN as ActionType,
+    data: loginParams
+  }
 
   it('api call success', () => {
-    const clone = gen.clone()
-    expect(clone.next(mockLoginSession).value).toEqual(call(setLoginSession, mockLoginSession))
-    expect(clone.next(mockLoginSession).value).toEqual(call(setCookie, mockLoginSession))
-    expect(clone.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))
-    expect(clone.next().done).toBe(true)
+    const gen = doLogin(action)
+    expect(gen.next(mockLoginSession).value).toEqual(call(getCognitoSession, loginParams))
+    expect(gen.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))
+    expect(gen.next().done).toBe(true)
   })
 
   test('api call fail', () => {
-    const clone = gen.clone()
-    expect(clone.next(undefined).value).toEqual(put(authLoginFailure()))
-    expect(clone.next().done).toBe(true)
+    const gen = doLogin(action)
+    expect(gen.next(null).value).toEqual(call(getCognitoSession, loginParams))
+    expect(gen.next(null).value).toEqual(put(authLoginFailure()))
+    expect(gen.next().done).toBe(true)
   })
 })
 
 describe('auth thunks', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
-      const gen = doLogout({ data: 'CLIENT' } as Action<LoginType>)
-      gen.next()
-      expect(removeLoginSession).toHaveBeenCalledTimes(1)
-      expect(gen.next().value).toEqual(put(authLogoutSuccess()))
+      const gen = doLogout()
+      expect(gen.next().value).toEqual(call(removeSessionCookie))
       gen.next()
       expect(history.push).toHaveBeenCalledTimes(1)
       expect(history.push).toHaveBeenLastCalledWith(Routes.LOGIN)
+      expect(gen.next().value).toEqual(put(authLogoutSuccess()))
       expect(gen.next().done).toBe(true)
     })
   })

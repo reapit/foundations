@@ -65,6 +65,8 @@ class LoginPage extends Base {
   }
 
   populateValidForm() {
+    this.emailInput.waitForVisible()
+
     switch (this.currRole) {
       case ROLES.DEV:
         this.emailInput.setValue(ACCOUNTS.DEV.EMAIL)
@@ -107,6 +109,7 @@ class LoginPage extends Base {
     this.open()
     this.populateValidForm()
     this.submitForm()
+    browser.pause(1000)
   }
 
   loginAsAdmin() {
@@ -114,6 +117,7 @@ class LoginPage extends Base {
     this.openAdmin()
     this.populateValidForm()
     this.submitForm()
+    browser.pause(1000)
   }
 
   logAsDeveloper() {
@@ -122,6 +126,7 @@ class LoginPage extends Base {
     this.selectDeveloperTab()
     this.populateValidForm()
     this.submitForm()
+    browser.pause(1000)
   }
 
   logAsDeveloperUsingCustomAccount({ email, password }) {
@@ -131,6 +136,7 @@ class LoginPage extends Base {
     this.emailInput.setValue(email)
     this.passwordInput.setValue(password)
     this.submitForm()
+    browser.pause(1000)
   }
 }
 

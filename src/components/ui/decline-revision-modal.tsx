@@ -31,8 +31,8 @@ const mapStateToProps = (
   ownProps: DeclineRevisionInnerWithConnectOwnProps
 ): DeclineRevisionModalMappedProps => ({
   revisionDetail: state.revisionDetail,
-  email: state.auth.loginSession!.loginIdentity.email,
-  name: state.auth.loginSession!.loginIdentity.name,
+  email: oc(state).auth.loginSession.loginIdentity.email(''),
+  name: oc(state).auth.loginSession.loginIdentity.name(''),
   closeModal: ownProps.closeModal,
   onDeclineSuccess: ownProps.onDeclineSuccess,
   visible: ownProps.visible

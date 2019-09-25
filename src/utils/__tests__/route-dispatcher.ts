@@ -6,7 +6,7 @@ import { clientRequestData } from '../../actions/client'
 import { developerRequestData } from '../../actions/developer'
 import { myAppsRequestData } from '../../actions/my-apps'
 import { adminApprovalsRequestData } from '../../actions/admin-approvals'
-import { verifyAccessToken } from '../../utils/session'
+import { getAccessToken } from '../../utils/session'
 
 jest.mock('../../utils/fetcher')
 jest.mock('../../utils/session')
@@ -17,7 +17,7 @@ jest.mock('../../sagas/developer')
 describe('routeDispatcher', () => {
   it('should await for an access token before fetching a route', async () => {
     await routeDispatcher(Routes.CLIENT as RouteValue)
-    expect(verifyAccessToken).toHaveBeenCalledTimes(1)
+    expect(getAccessToken).toHaveBeenCalledTimes(1)
   })
 
   it('should dispatch to clientRequestData for the client route', async () => {

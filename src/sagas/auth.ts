@@ -1,45 +1,19 @@
 import { takeLatest, put, call, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
-import { authLoginSuccess, authLoginFailure, authLogoutSuccess, AuthLoginParams } from '../actions/auth'
+import { authLoginSuccess, authLoginFailure, authLogoutSuccess } from '../actions/auth'
 import { Action } from '@/types/core.ts'
-import { removeLoginSession, setLoginSession, setCookie } from '../utils/session'
 import { history } from '../core/router'
 import Routes from '../constants/routes'
-import {
-  COGNITO_API_BASE_URL,
-  COGNITO_HEADERS,
-  deserializeIdToken,
-  LoginSession,
-  LoginType,
-  fetcher
-} from '@reapit/elements'
+import { LoginSession, LoginParams, getCognitoSession, removeSessionCookie } from '@reapit/elements'
+import store from '../core/store'
+import { oc } from 'ts-optchain'
 
-export const doLogin = function*({ data }: Action<AuthLoginParams>) {
+export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
-    const { email: userName, password, loginType } = data
+    const loginSession: LoginSession | null = yield call(getCognitoSession, data)
 
-    const loginDetails: Partial<LoginSession> | undefined = yield call(fetcher, {
-      api: COGNITO_API_BASE_URL,
-      url: `/login`,
-      method: 'POST',
-      body: { userName, password },
-      headers: COGNITO_HEADERS
-    })
-
-    if (loginDetails) {
-      const loginIdentity = deserializeIdToken(loginDetails)
-      if (
-        (loginType === 'CLIENT' && !!loginIdentity.clientId) ||
-        (loginType === 'DEVELOPER' && !!loginIdentity.developerId) ||
-        (loginType === 'ADMIN' && !!loginIdentity.adminId)
-      ) {
-        const detailsWithLoginType = { ...loginDetails, loginType, userName, loginIdentity } as LoginSession
-        yield call(setLoginSession, detailsWithLoginType)
-        yield call(setCookie, detailsWithLoginType)
-        yield put(authLoginSuccess(detailsWithLoginType))
-      } else {
-        yield put(authLoginFailure())
-      }
+    if (loginSession) {
+      yield put(authLoginSuccess(loginSession))
     } else {
       yield put(authLoginFailure())
     }
@@ -49,11 +23,12 @@ export const doLogin = function*({ data }: Action<AuthLoginParams>) {
   }
 }
 
-export const doLogout = function*({ data }: Action<LoginType>) {
+export const doLogout = function*() {
   try {
-    yield removeLoginSession()
+    const loginType = oc(store).state.auth.loginSession.loginType('CLIENT')
+    yield call(removeSessionCookie)
+    yield history.push(loginType !== 'ADMIN' ? Routes.LOGIN : Routes.ADMIN_LOGIN)
     yield put(authLogoutSuccess())
-    yield history.push(data !== 'ADMIN' ? Routes.LOGIN : Routes.ADMIN_LOGIN)
   } catch (err) {
     console.error(err.message)
   }
