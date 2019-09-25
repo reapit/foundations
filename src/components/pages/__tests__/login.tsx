@@ -7,12 +7,12 @@ describe('Login', () => {
     let mock: any = jest.fn()
 
     const props: LoginProps = {
-      isLogin: false,
       error: false,
       login: mock,
       location: mock,
       history: mock,
-      match: mock
+      match: mock,
+      hasSession: false
     }
 
     expect(shallow(<Login {...props} />)).toMatchSnapshot()

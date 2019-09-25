@@ -13,7 +13,7 @@ describe('Map', () => {
       destinationLatLng: { lat: 0, lng: 0 },
       travelMode: 'WALKING' as TravelMode,
       handleOnClick: jest.fn(),
-      isDesktopLogin: false
+      desktopMode: false
     }
     const wrapper = shallow(<MapContainer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -25,7 +25,7 @@ describe('Map', () => {
       destinationLatLng: { lat: 0, lng: 0 },
       travelMode: 'WALKING' as TravelMode,
       handleOnClick: jest.fn(),
-      isDesktopLogin: false
+      desktopMode: false
     }
     const wrapper = shallow(<MapContainer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -41,8 +41,9 @@ describe('Map', () => {
           destination: appointmentDataStub
         },
         auth: {
-          desktopSession: {
-            refereshToken: 'TOKEN'
+          refreshSession: {
+            refereshToken: 'TOKEN',
+            mode: 'DESKTOP'
           }
         }
       } as any
@@ -53,7 +54,7 @@ describe('Map', () => {
           lat: 52.1284,
           lng: -0.507145
         },
-        isDesktopLogin: true
+        desktopMode: true
       }
       expect(result).toEqual(expected)
     })
@@ -62,7 +63,7 @@ describe('Map', () => {
         appointments: null,
         direction: null,
         auth: {
-          desktopSession: null
+          refreshSession: null
         }
       } as any
       const result = mapStateToProps(mockState)
@@ -72,7 +73,7 @@ describe('Map', () => {
           lat: undefined,
           lng: undefined
         },
-        isDesktopLogin: false
+        desktopMode: false
       }
       expect(result).toEqual(expected)
     })

@@ -4,42 +4,17 @@ import { Action } from '@/types/core.ts'
 import Routes from '@/constants/routes'
 import ActionTypes from '@/constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess } from '@/actions/auth'
-import { removeLoginSession, setLoginSession } from '@/utils/session'
-import { setCookie } from '../utils/session'
-import {
-  COGNITO_API_BASE_URL,
-  COGNITO_HEADERS,
-  deserializeIdToken,
-  LoginSession,
-  fetcher,
-  LoginParams
-} from '@reapit/elements'
+import { LoginSession, LoginParams, getCognitoSession, removeSessionCookie } from '@reapit/elements'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
-    const { userName, password } = data
+    const loginSession: LoginSession | null = yield call(getCognitoSession, data)
 
-    const loginDetails: Partial<LoginSession> | undefined = yield call(fetcher, {
-      api: COGNITO_API_BASE_URL,
-      url: `/login`,
-      method: 'POST',
-      body: { userName, password },
-      headers: COGNITO_HEADERS
-    })
-    if (!loginDetails) {
+    if (loginSession) {
+      yield put(authLoginSuccess(loginSession))
+    } else {
       yield put(authLoginFailure())
     }
-
-    const loginIdentity = deserializeIdToken(loginDetails)
-    if (!loginIdentity.clientId) {
-      yield put(authLoginFailure())
-    }
-
-    const detailsWithLoginType = { ...loginDetails, userName, loginIdentity } as LoginSession
-
-    yield call(setLoginSession, detailsWithLoginType)
-    yield call(setCookie, detailsWithLoginType)
-    yield put(authLoginSuccess(detailsWithLoginType))
   } catch (err) {
     console.error(err.message)
     yield put(authLoginFailure())
@@ -48,9 +23,9 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
 
 export const doLogout = function*() {
   try {
-    yield removeLoginSession()
-    yield put(authLogoutSuccess())
+    yield call(removeSessionCookie)
     yield history.push(Routes.LOGIN)
+    yield put(authLogoutSuccess())
   } catch (err) {
     console.error(err.message)
   }

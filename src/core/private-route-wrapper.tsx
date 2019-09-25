@@ -5,21 +5,21 @@ import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
 import pageContainerStyles from '../styles/pages/page-container.scss?mod'
 import Routes from '../constants/routes'
-import { RefreshParams, Loader } from '@reapit/elements'
-import { getTokenFromQueryString } from '../utils/session'
-import { authSetDesktopSession } from '../actions/auth'
+import { RefreshParams, Loader, getTokenFromQueryString } from '@reapit/elements'
+import { authSetRefreshSession } from '../actions/auth'
 import { Dispatch } from 'redux'
 import { withRouter } from 'react-router'
+import { oc } from 'ts-optchain'
 
 const { Suspense } = React
 
 export interface PrivateRouteWrapperConnectActions {
-  setDesktopSession: (refreshParams: RefreshParams) => void
+  setRefreshSession: (refreshParams: RefreshParams) => void
 }
 
 export interface PrivateRouteWrapperConnectState {
-  isLogin: boolean
-  isDesktopLogin: boolean
+  hasSession: boolean
+  isDesktopMode: boolean
 }
 
 export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
@@ -29,30 +29,30 @@ export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
   }
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
-  setDesktopSession,
+  setRefreshSession,
   children,
-  isLogin,
   location,
-  isDesktopLogin
+  isDesktopMode,
+  hasSession
 }) => {
   const desktopLogin = getTokenFromQueryString(location.search)
 
-  if (!isLogin && !desktopLogin && !isDesktopLogin) {
-    return <Redirect to={Routes.LOGIN} />
+  if (desktopLogin && !isDesktopMode) {
+    setRefreshSession(desktopLogin)
   }
 
-  if (desktopLogin && !isDesktopLogin) {
-    setDesktopSession(desktopLogin)
+  if (!hasSession) {
+    return <Redirect to={Routes.LOGIN} />
   }
 
   const { menuContainer, pageContainer, pageWrapper, isDesktop } = pageContainerStyles
 
   return (
     <div className={pageWrapper}>
-      <div className={`${menuContainer} ${desktopLogin || isDesktopLogin ? isDesktop : ''}`}>
+      <div className={`${menuContainer} ${isDesktopMode ? isDesktop : ''}`}>
         <Menu />
       </div>
-      <main className={`${pageContainer} ${desktopLogin || isDesktopLogin ? isDesktop : ''}`}>
+      <main className={`${pageContainer} ${isDesktopMode ? isDesktop : ''}`}>
         <Suspense
           fallback={
             <div className="pt-5">
@@ -68,12 +68,12 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 }
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
-  isLogin: state.auth.isLogin,
-  isDesktopLogin: !!state.auth.desktopSession
+  hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
+  isDesktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({
-  setDesktopSession: refreshParams => dispatch(authSetDesktopSession(refreshParams))
+  setRefreshSession: refreshParams => dispatch(authSetRefreshSession(refreshParams))
 })
 
 export default withRouter(

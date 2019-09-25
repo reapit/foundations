@@ -3,8 +3,7 @@ import { shallow } from 'enzyme'
 import { Home, HomeProps } from '../home'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
 
-//  @ts-ignore: pick only needed props for the test
-const props: HomeProps = {
+const props = {
   appointmentsState: {
     appointments: appointmentsDataStub,
     loading: false,
@@ -13,8 +12,9 @@ const props: HomeProps = {
   },
   nextAppointmentState: {
     data: null
-  }
-}
+  },
+  desktopMode: false
+} as HomeProps
 
 describe('Home', () => {
   it('should match a snapshot', () => {

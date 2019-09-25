@@ -18,7 +18,7 @@ export interface MapContainerMappedState {
     lat: number | undefined
     lng: number | undefined
   }
-  isDesktopLogin: boolean
+  desktopMode: boolean
 }
 
 export interface Coordinate {
@@ -55,7 +55,7 @@ export const MapContainer = ({
   destinationLatLng,
   travelMode,
   handleOnClick,
-  isDesktopLogin
+  desktopMode
 }: MapContainerProps) => {
   const [distance, setDistance] = React.useState('')
   const [duration, setDuration] = React.useState('')
@@ -107,7 +107,7 @@ export const MapContainer = ({
   return (
     <>
       <div
-        className={`${mapStyles.mapContainer} ${isDesktopLogin ? mapStyles.isDesktop : ''} ${
+        className={`${mapStyles.mapContainer} ${desktopMode ? mapStyles.isDesktop : ''} ${
           hasMapPanel ? mapStyles.mapHasPanel : ''
         }`}
       >
@@ -142,7 +142,7 @@ export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
       lat: destinationLat,
       lng: destinationLng
     },
-    isDesktopLogin: !!state.auth.desktopSession
+    desktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
   }
 }
 
