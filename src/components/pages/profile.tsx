@@ -3,9 +3,8 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import ProfileToggle from '@/components/ui/profile-toggle'
 import { Button } from '@reapit/elements'
 import styles from '@/styles/pages/profile.scss?mod'
-import logo from '@/assets/images/lifetimelegalblue.png'
-import { Link } from 'react-router-dom'
 import PersonalDetails from '../ui/personal-details'
+import ProfileNav from '../ui/profile-nav'
 
 const items = [
   {
@@ -38,13 +37,7 @@ const items = [
 export const Profile = () => {
   return (
     <ErrorBoundary>
-      <div className={styles.nav}>
-        <div className="container">
-          <Link to="/">
-            <img className={styles.logoImage} src={logo} />
-          </Link>
-        </div>
-      </div>
+      <ProfileNav></ProfileNav>
       <div className="container">
         <div className={styles.header}>
           <h2 className={styles.title}>Mr Phillips</h2>
