@@ -12,7 +12,7 @@ $family-primary: $family-sans-serif;
 
 // Colors
 $grey-dark: $grey-dark;
-$grey-light: $grey-lightest;
+$grey-light: $grey;
 $dark: $grey-dark;
 
 $orange: $reapit-orange;
@@ -26,10 +26,10 @@ $red: $reapit-red;
 
 $title-color: $black;
 
-$text: $grey;
+$text: $dark;
 $title-weight: $weight-bold;
 $subtitle-weight: $weight-bold;
-$subtitle-color: $grey;
+$subtitle-color: $dark;
 
 $modal-background-background-color: rgba($black, 0.3);
 
