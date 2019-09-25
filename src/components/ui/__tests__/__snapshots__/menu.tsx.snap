@@ -46,6 +46,6 @@ exports[`Menu should match a snapshot 1`] = `
       },
     ]
   }
-  title="Foundations"
+  title="Marketplace"
 />
 `;

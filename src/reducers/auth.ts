@@ -5,28 +5,26 @@ import {
   authLoginFailure,
   authLoginSuccess,
   authLogoutSuccess,
-  authChangeLoginType,
-  authSetDesktopSession
+  authSetRefreshSession,
+  authChangeLoginType
 } from '../actions/auth'
-import { getLoginSession } from '../utils/session'
-import { RefreshParams, LoginType, LoginSession } from '@reapit/elements'
+import { LoginSession, RefreshParams, getSessionCookie, LoginType } from '@reapit/elements'
 
 export interface AuthState {
-  isLogin: boolean
   error: boolean
   loginType: LoginType
   loginSession: LoginSession | null
-  desktopSession: RefreshParams | null
+  refreshSession: RefreshParams | null
 }
 
 export const defaultState = (): AuthState => {
-  const loginSession = getLoginSession()
+  const refreshSession = getSessionCookie()
+
   return {
-    isLogin: !!loginSession,
     error: false,
-    loginType: loginSession ? loginSession.loginType : 'CLIENT',
-    loginSession,
-    desktopSession: null
+    loginSession: null,
+    loginType: refreshSession ? refreshSession.loginType : 'CLIENT',
+    refreshSession
   }
 }
 
@@ -34,8 +32,7 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
   if (isType(action, authLogin)) {
     return {
       ...state,
-      error: false,
-      isLogin: false
+      error: false
     }
   }
 
@@ -43,7 +40,6 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
     return {
       ...state,
       error: false,
-      isLogin: true,
       loginSession: action.data
     }
   }
@@ -51,16 +47,18 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
   if (isType(action, authLoginFailure)) {
     return {
       ...state,
-      error: true,
-      isLogin: false
+      error: true
     }
   }
 
   if (isType(action, authLogoutSuccess)) {
+    return defaultState()
+  }
+
+  if (isType(action, authSetRefreshSession)) {
     return {
       ...state,
-      error: false,
-      isLogin: false
+      refreshSession: action.data
     }
   }
 
@@ -68,13 +66,6 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
     return {
       ...state,
       loginType: action.data
-    }
-  }
-
-  if (isType(action, authSetDesktopSession)) {
-    return {
-      ...state,
-      desktopSession: action.data
     }
   }
 

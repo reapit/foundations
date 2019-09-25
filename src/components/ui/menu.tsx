@@ -22,7 +22,7 @@ interface MenuItem {
   subMenu?: MenuItem[]
 }
 
-export const generateMenuConfig = logoutCallback => {
+export const generateMenuConfig = (logoutCallback: () => void): { [key: string]: MenuConfig } => {
   return {
     ADMIN: {
       title: 'Foundations',
@@ -95,7 +95,7 @@ export const generateMenuConfig = logoutCallback => {
       ]
     },
     CLIENT: {
-      title: 'Foundations',
+      title: 'Marketplace',
       logo: <Logo width="150px" height="65px" />,
       homeUrl: '/home',
       defaultActiveKey: 'Apps',
@@ -137,13 +137,13 @@ export interface MenuMappedProps {
 }
 
 export interface MenuMappedActions {
-  logout: (loginType: LoginType) => void
+  logout: () => void
 }
 
 export type MenuProps = MenuMappedProps & MenuMappedActions & RouteComponentProps & {}
 
 export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, location }) => {
-  const logoutCallback = () => logout(loginType)
+  const logoutCallback = () => logout()
   const menuConfigs = generateMenuConfig(logoutCallback)
   return <Sidebar {...menuConfigs[loginType]} location={location} />
 }
@@ -153,7 +153,7 @@ export const mapStateToProps = (state: ReduxState): MenuMappedProps => ({
 })
 
 export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({
-  logout: (loginType: LoginType) => dispatch(authLogout(loginType))
+  logout: () => dispatch(authLogout())
 })
 
 export default withRouter(

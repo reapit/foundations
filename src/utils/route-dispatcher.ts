@@ -6,10 +6,10 @@ import { myAppsRequestData } from '../actions/my-apps'
 import { developerRequestData } from '../actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { submitAppRequestData } from '../actions/submit-app'
-import { verifyAccessToken } from './session'
+import { getAccessToken } from './session'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
-  await verifyAccessToken()
+  await getAccessToken()
 
   switch (route) {
     case Routes.CLIENT:

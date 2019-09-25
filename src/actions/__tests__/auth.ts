@@ -5,10 +5,10 @@ import {
   authLogout,
   authLogoutSuccess,
   authChangeLoginType,
-  authSetDesktopSession
+  authSetRefreshSession
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { LoginType, LoginSession } from '@reapit/elements'
+import { LoginType, LoginSession, LoginMode } from '@reapit/elements'
 
 describe('auth actions', () => {
   it('should create a authLogin action', () => {
@@ -44,13 +44,14 @@ describe('auth actions', () => {
     expect(authChangeLoginType('CLIENT').data).toEqual('CLIENT')
   })
 
-  it('should create a authSetDesktopSession action', () => {
+  it('should create a authSetRefreshSession action', () => {
     const refreshParams = {
       loginType: 'CLIENT' as LoginType,
       refreshToken: 'REFRESH_TOKEN',
-      userName: 'bob@acme.com'
+      userName: 'bob@acme.com',
+      mode: 'DESKTOP' as LoginMode
     }
-    expect(authSetDesktopSession.type).toEqual(ActionTypes.AUTH_SET_DESKTOP_SESSION)
-    expect(authSetDesktopSession(refreshParams).data).toEqual(refreshParams)
+    expect(authSetRefreshSession.type).toEqual(ActionTypes.AUTH_SET_REFRESH_SESSION)
+    expect(authSetRefreshSession(refreshParams).data).toEqual(refreshParams)
   })
 })

@@ -35,7 +35,7 @@ describe('Menu', () => {
     it('should return loginType', () => {
       const dispatch = jest.fn()
       const fn = mapDispatchToProps(dispatch)
-      fn.logout('ADMIN')
+      fn.logout()
       expect(dispatch).toBeCalled()
     })
   })

@@ -1,7 +1,7 @@
-import { LOCAL_STORAGE_SESSION_KEY } from '../../../constants/session'
 import DeveloperSubmitAppPage from '../page-objects/developer-submit-app'
 import DeveloperManageAppsPage from '../page-objects/developer-manage-apps'
 import LoginPage from '../page-objects/login'
+import { COOKIE_SESSION_KEY } from '@reapit/elements'
 
 export type WdElement = WebdriverIO.Client<WebdriverIO.RawResult<WebdriverIO.Element>> &
   WebdriverIO.RawResult<WebdriverIO.Element>
@@ -87,8 +87,9 @@ class Common {
   }
 
   logout() {
-    browser.pause(1)
-    browser.localStorage('DELETE', LOCAL_STORAGE_SESSION_KEY)
+    browser.pause(10)
+    browser.cookie('DELETE', COOKIE_SESSION_KEY)
+    browser.pause(10)
   }
 }
 
