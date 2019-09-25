@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileNav should match snapshot 1`] = `
+<div>
+  <div
+    className="container"
+  >
+    <Link
+      to="/"
+    >
+      <img
+        src=""
+      />
+    </Link>
+  </div>
+</div>
+`;
