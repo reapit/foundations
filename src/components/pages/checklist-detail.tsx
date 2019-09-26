@@ -95,6 +95,15 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   if (loading) {
     return <Loader />
   }
+
+  let title = ''
+  let forename = ''
+  let surname = ''
+
+  if (Object.keys(contact).length > 0) {
+    ;({ title = '', forename = '', surname = '' } = contact as ContactModel)
+  }
+
   // TODO: Will replace callback by dispatch to show modald`
   const sections = generateSection(showModal)
   return (
@@ -108,7 +117,7 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
         </div>
       </div>
       <div className="mb-5">
-        <AMLProgressBar title="Giacomo" />
+        <AMLProgressBar title={`${title} ${forename} ${surname}`} />
       </div>
       {renderSections(sections)}
       <Modal
