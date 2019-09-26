@@ -26,7 +26,7 @@ describe('Developer Submit App Page', () => {
     expect(DeveloperSubmitAppPage.description.getAttribute('type')).toEqual('textarea')
     expect(DeveloperSubmitAppPage.summary.getAttribute('type')).toEqual('textarea')
 
-    expect(DeveloperSubmitAppPage.supportEmail.getAttribute('type')).toEqual('text')
+    expect(DeveloperSubmitAppPage.supportEmail.getAttribute('type')).toEqual('email')
     expect(DeveloperSubmitAppPage.telephone.getAttribute('type')).toEqual('tel')
     expect(DeveloperSubmitAppPage.homePage.getAttribute('type')).toEqual('text')
 

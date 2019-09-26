@@ -77,7 +77,7 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
               }
               onSubmit={values => developerCreate(values as CreateDeveloperModel)}
               render={() => (
-                <Form data-test="register-form">
+                <Form noValidate={true} data-test="register-form">
                   <Input
                     dataTest="register-name"
                     type="text"
