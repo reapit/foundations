@@ -5,6 +5,11 @@ import { Button } from '@reapit/elements'
 import styles from '@/styles/pages/profile.scss?mod'
 import PersonalDetails from '../ui/personal-details'
 import ProfileNav from '../ui/profile-nav'
+import { ReduxState, FormState } from '@/types/core'
+import { submitChecks } from '@/actions/submit-checks'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router'
+import Routes from '@/constants/routes'
 
 const items = [
   {
@@ -34,7 +39,23 @@ const items = [
   }
 ]
 
-export const Profile = () => {
+export interface ProfileMappedActions {
+  submitChecks: () => void
+}
+
+export interface ProfileMappedProps {
+  submitChecksFormState: FormState
+}
+
+export type ProfileProps = ProfileMappedActions & ProfileMappedProps
+
+export const Profile = ({ submitChecksFormState, submitChecks }: ProfileProps) => {
+  const isSubmitting = submitChecksFormState === 'SUBMITTING'
+
+  if (submitChecksFormState === 'SUCCESS') {
+    return <Redirect to={Routes.SUCCESS} />
+  }
+
   return (
     <ErrorBoundary>
       <ProfileNav></ProfileNav>
@@ -51,8 +72,14 @@ export const Profile = () => {
           ))}
         </div>
         <div className="flex justify-end mt-10">
-          <Button variant="primary" type="button" disabled>
-            Submit Record for Checks
+          <Button
+            variant="primary"
+            type="button"
+            loading={isSubmitting}
+            disabled={isSubmitting}
+            onClick={() => submitChecks()}
+          >
+            Submit Record for Checkss
           </Button>
         </div>
       </div>
@@ -60,4 +87,15 @@ export const Profile = () => {
   )
 }
 
-export default Profile
+const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
+  submitChecksFormState: state.submitChecks.formState
+})
+
+const mapDispatchToProps = (dispatch: any): ProfileMappedActions => ({
+  submitChecks: () => dispatch(submitChecks())
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Profile)
