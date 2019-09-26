@@ -1,6 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Profile should match a snapshot 1`] = `
+exports[`Profile should match a snapshot when submitCheckFormState is PENDING 1`] = `
+<Connect(ErrorBoundary)>
+  <ProfileNav />
+  <div
+    className="container"
+  >
+    <div>
+      <h2>
+        Mr Phillips
+      </h2>
+      <div>
+        RPS Reference: MX12548
+      </div>
+    </div>
+    <div>
+      <ProfileToggle
+        complete={true}
+        key="Personal Details"
+        title="Personal Details"
+      >
+        <Component
+          contact={Object {}}
+        />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Primary ID"
+        title="Primary ID"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Secondary Id"
+        title="Secondary Id"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Address History"
+        title="Address History"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={false}
+        key="Agent checks"
+        title="Agent checks"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+    </div>
+    <div
+      className="flex justify-end mt-10"
+    >
+      <Button
+        disabled={false}
+        loading={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Submit Record for Checks
+      </Button>
+    </div>
+  </div>
+</Connect(ErrorBoundary)>
+`;
+
+exports[`Profile should match a snapshot when submitCheckFormState is SUBMITTING 1`] = `
 <Connect(ErrorBoundary)>
   <ProfileNav />
   <div
@@ -66,6 +144,8 @@ exports[`Profile should match a snapshot 1`] = `
     >
       <Button
         disabled={true}
+        loading={true}
+        onClick={[Function]}
         type="button"
         variant="primary"
       >
@@ -74,4 +154,172 @@ exports[`Profile should match a snapshot 1`] = `
     </div>
   </div>
 </Connect(ErrorBoundary)>
+`;
+
+exports[`Profile should match a snapshot when submitCheckFormState is SUCCESS 1`] = `
+<Redirect
+  to="/success"
+/>
+`;
+
+exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1`] = `
+<Connect(ErrorBoundary)>
+  <ProfileNav />
+  <div
+    className="container"
+  >
+    <div>
+      <h2>
+        Mr Phillips
+      </h2>
+      <div>
+        RPS Reference: MX12548
+      </div>
+    </div>
+    <div>
+      <ProfileToggle
+        complete={true}
+        key="Personal Details"
+        title="Personal Details"
+      >
+        <Component
+          contact={Object {}}
+        />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Primary ID"
+        title="Primary ID"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Secondary Id"
+        title="Secondary Id"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Address History"
+        title="Address History"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={false}
+        key="Agent checks"
+        title="Agent checks"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+    </div>
+    <div
+      className="flex justify-end mt-10"
+    >
+      <Button
+        disabled={false}
+        loading={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Submit Record for Checkss
+      </Button>
+    </div>
+  </div>
+</Connect(ErrorBoundary)>
+`;
+
+exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTING 1`] = `
+<Connect(ErrorBoundary)>
+  <ProfileNav />
+  <div
+    className="container"
+  >
+    <div>
+      <h2>
+        Mr Phillips
+      </h2>
+      <div>
+        RPS Reference: MX12548
+      </div>
+    </div>
+    <div>
+      <ProfileToggle
+        complete={true}
+        key="Personal Details"
+        title="Personal Details"
+      >
+        <Component
+          contact={Object {}}
+        />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Primary ID"
+        title="Primary ID"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Secondary Id"
+        title="Secondary Id"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        key="Address History"
+        title="Address History"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+      <ProfileToggle
+        complete={false}
+        key="Agent checks"
+        title="Agent checks"
+      >
+        <div>
+          details
+        </div>
+      </ProfileToggle>
+    </div>
+    <div
+      className="flex justify-end mt-10"
+    >
+      <Button
+        disabled={true}
+        loading={true}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Submit Record for Checkss
+      </Button>
+    </div>
+  </div>
+</Connect(ErrorBoundary)>
+`;
+
+exports[`Profile should match a snapshot when submitChecksFormState is SUCCESS 1`] = `
+<Redirect
+  to="/success"
+/>
 `;
