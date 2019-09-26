@@ -79,6 +79,17 @@ exports[` 1`] = `
       title="Experian "
     />
   </div>
+  <div
+    className="mb-5"
+    key="7"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={true}
+      onEdit={[MockFunction]}
+      title="Report "
+    />
+  </div>
 </div>
 `;
 
@@ -173,6 +184,16 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
       buttonText="Edit"
       isCompleted={true}
       title="Experian "
+    />
+  </div>
+  <div
+    className="mb-5"
+    key="7"
+  >
+    <Component
+      buttonText="Edit"
+      isCompleted={true}
+      title="Report "
     />
   </div>
   <Component
