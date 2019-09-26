@@ -68,7 +68,6 @@ export const MapPanel = ({
 
 export const mapStateToProps = (state: ReduxState) => {
   const filterType = oc(state).appointments.time('Today')
-  console.log(filterType)
   return {
     filterType
   }

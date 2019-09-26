@@ -1,24 +1,20 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
-import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authSetDesktopSession } from '@/actions/auth'
-import { getLoginSession } from '@/utils/session'
-import { RefreshParams, LoginSession } from '@reapit/elements'
+import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authSetRefreshSession } from '@/actions/auth'
+import { RefreshParams, LoginSession, getSessionCookie } from '@reapit/elements'
 
 export interface AuthState {
-  isLogin: boolean
   error: boolean
   loginSession: LoginSession | null
-  desktopSession: RefreshParams | null
+  refreshSession: RefreshParams | null
 }
-
 export const defaultState = (): AuthState => {
-  const loginSession = getLoginSession()
+  const refreshSession = getSessionCookie()
 
   return {
-    isLogin: !!loginSession,
     error: false,
-    loginSession,
-    desktopSession: null
+    loginSession: null,
+    refreshSession: refreshSession && refreshSession.loginType === 'CLIENT' ? refreshSession : null
   }
 }
 
@@ -26,8 +22,7 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
   if (isType(action, authLogin)) {
     return {
       ...state,
-      error: false,
-      isLogin: false
+      error: false
     }
   }
 
@@ -35,7 +30,6 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
     return {
       ...state,
       error: false,
-      isLogin: true,
       loginSession: action.data
     }
   }
@@ -43,23 +37,18 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
   if (isType(action, authLoginFailure)) {
     return {
       ...state,
-      error: true,
-      isLogin: false
+      error: true
     }
   }
 
   if (isType(action, authLogoutSuccess)) {
-    return {
-      ...state,
-      error: false,
-      isLogin: false
-    }
+    return defaultState()
   }
 
-  if (isType(action, authSetDesktopSession)) {
+  if (isType(action, authSetRefreshSession)) {
     return {
       ...state,
-      desktopSession: action.data
+      refreshSession: action.data
     }
   }
 
