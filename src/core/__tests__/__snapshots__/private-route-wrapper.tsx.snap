@@ -9,11 +9,7 @@ exports[`PrivateRouter should match a snapshot 1`] = `
 exports[`PrivateRouter should match a snapshot for desktop login 1`] = `
 <main>
   <Suspense
-    fallback={
-      <div>
-        Loading
-      </div>
-    }
+    fallback={<Loader />}
   />
 </main>
 `;
