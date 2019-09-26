@@ -3,10 +3,13 @@ import Routes from '../constants/routes'
 import store from '../core/store'
 import { homeRequestData } from '../actions/home'
 import { checklistDetailRequestData } from '@/actions/checklist-detail'
+import { getAccessToken } from './session'
 
-// @ts-ignore
 const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
+  await getAccessToken()
+
   const id = params ? params.id : ''
+
   switch (route) {
     case Routes.HOME:
       store.dispatch(homeRequestData())
