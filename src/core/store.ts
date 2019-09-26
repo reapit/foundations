@@ -1,9 +1,13 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
-import home from '../reducers/home'
-import error from '../reducers/error'
-import { ReduxState } from '../types/core'
+import home from '@/reducers/home'
+import auth from '@/reducers/auth'
+import error from '@/reducers/error'
+import results from '@/reducers/results'
+import { ReduxState } from '@/types/core'
 import createSagaMiddleware from 'redux-saga'
-import homeSagas from '../sagas/home'
+import homeSagas from '@/sagas/home'
+import authSagas from '@/sagas/auth'
+import resultsSagas from '@/sagas/results'
 import { all, fork } from '@redux-saga/core/effects'
 
 export class Store {
@@ -23,11 +27,13 @@ export class Store {
 
   static reducers = combineReducers({
     error,
-    home
+    home,
+    auth,
+    results
   })
 
   static sagas = function*() {
-    yield all([fork(homeSagas)])
+    yield all([fork(homeSagas), fork(resultsSagas), fork(authSagas)])
   }
 
   static composeEnhancers =
