@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReportContainer Report 1`] = `
+<div>
+  <div>
+    <span>
+      Description
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+  <div>
+    <span>
+      Passport Image Uploaded
+    </span>
+    <span>
+      By Giacomo
+    </span>
+  </div>
+  <div>
+    <span>
+      Document Verified by IDCheck
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+  <div>
+    <span>
+      See Original Ticked
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+  <div>
+    <span>
+      Utility bill uploaded
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+  <div>
+    <span>
+      Address check
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+  <div>
+    <span>
+      Council Tax Bill Scanned
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+  <div>
+    <span>
+      Date Selected
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+  <div>
+    <span>
+      New Address Added
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+  <div>
+    <span>
+      PEP
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+  <div>
+    <span>
+      PEP Search conducted
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+  <div>
+    <span>
+      PEP Search Passed Online Check
+    </span>
+    <span>
+      Detail
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ReportContainer handleTrigger 1`] = `
+<div>
+  <Button
+    className="mr-2"
+    type="button"
+    variant="primary"
+  >
+    Print Report
+  </Button>
+</div>
+`;
+
+exports[`ReportContainer should match snapshot 1`] = `
+<div>
+  <div
+    className="is-flex mb-5"
+  >
+    <span>
+      Report:
+    </span>
+    <span>
+       Tilbrook Farm Station Road Bow Brickhill Milton Keynes Buckinghamshire MK17 9JU
+    </span>
+  </div>
+  <ForwardRef />
+  <div>
+    <e
+      content={[Function]}
+      trigger={[Function]}
+    />
+    <Button
+      type="button"
+      variant="primary"
+    >
+      Email Report
+    </Button>
+  </div>
+</div>
+`;

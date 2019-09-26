@@ -3,7 +3,7 @@ import { Input, Button, SelectBox, SelectBoxOptions, CameraImageInput } from '@r
 import { Formik, Form } from 'formik'
 import { combineAdress } from '@/utils/combineAddress'
 import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
-import { AddressModel, ContactModel } from '@/types/contact-api-schema'
+import { ContactModel } from '@/types/contact-api-schema'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 
 const optionsMonth = [
