@@ -12,6 +12,7 @@ import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { Dispatch } from 'redux'
 import { checkListDetailHideModal, checkListDetailShowModal } from '@/actions/checklist-detail'
 import { ContactModel } from '@/types/contact-api-schema'
+import { STEPS } from '../ui/modal/modal'
 
 export type CheckListDetailProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ id?: any }>
 
@@ -20,25 +21,25 @@ export const generateSection = (onClick: (modalType: string) => () => void) => {
     {
       title: 'Personal Details',
       isCompleted: false,
-      onEdit: onClick('PROFILE'),
+      onEdit: onClick(STEPS.PROFILE),
       buttonText: 'Edit'
     },
     {
       title: 'Primary ID',
       isCompleted: false,
-      onEdit: onClick('PRIMARY_ID'),
+      onEdit: onClick(STEPS.PRIMARY_IDENTIFICATION),
       buttonText: 'Edit'
     },
     {
       title: 'Secondary ID',
       isCompleted: false,
-      onEdit: onClick('SECONDARY_ID'),
+      onEdit: onClick(STEPS.SECONDARY_IDENTIFICATION),
       buttonText: 'Edit'
     },
     {
       title: 'Address History',
       isCompleted: true,
-      onEdit: onClick('ADDRESS_HISTORY'),
+      onEdit: onClick(STEPS.ADDRESS_INFORMATION),
       buttonText: 'Edit'
     },
     {
@@ -62,7 +63,7 @@ export const generateSection = (onClick: (modalType: string) => () => void) => {
     {
       title: 'Report ',
       isCompleted: true,
-      onEdit: onClick('REPORT'),
+      onEdit: onClick(STEPS.REPORT),
       buttonText: 'Edit'
     }
   ]
