@@ -23,7 +23,7 @@ export const mapStateToProps = () => ({
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch) => ({
-  updateIdentification: values => console.log(values),
+  updateIdentification: (values: any) => console.log(values),
   onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.PRIMARY_IDENTIFICATION)),
   onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.ADDRESS_INFORMATION))
 })
