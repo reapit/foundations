@@ -93,7 +93,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
             login({ ...values, loginType, mode })
           }}
           render={() => (
-            <Form data-test="login-form">
+            <Form noValidate={true} data-test="login-form">
               <Input
                 dataTest="login-email"
                 type="email"

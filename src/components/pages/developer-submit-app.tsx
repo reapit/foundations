@@ -89,7 +89,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
             onSubmit={submitApp}
             render={() => {
               return (
-                <Form>
+                <Form noValidate={true}>
                   <div data-test="submit-app-form" className={`${bulma.columns}`}>
                     <div className={`${bulma.column} ${styles.column}`}>
                       <Input dataTest="submit-app-name" type="text" labelText="Name" id="name" name="name" />
@@ -102,7 +102,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                       <TextArea id="summary" dataTest="submit-app-summary" labelText="Summary" name="summary" />
                       <Input
                         dataTest="submit-app-support-email"
-                        type="text"
+                        type="email"
                         labelText="Support email"
                         id="supportEmail"
                         name="supportEmail"
