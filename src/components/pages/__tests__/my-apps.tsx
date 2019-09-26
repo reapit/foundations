@@ -20,7 +20,7 @@ const mockProps = (loading: boolean, appData: MyAppsItem | null): MyAppsProps =>
 
 describe('MyApps', () => {
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<MyApps {...mockProps(true, appsDataStub)} />))).toMatchSnapshot()
+    expect(toJson(shallow(<MyApps {...mockProps(false, appsDataStub)} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING true', () => {

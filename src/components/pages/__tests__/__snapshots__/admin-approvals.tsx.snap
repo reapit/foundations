@@ -6,11 +6,6 @@ exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
     className="container isRelative py-8"
     data-test="revision-list-container"
   >
-    <div
-      className="pin absolute flex items-center justify-center"
-    >
-      <Loader />
-    </div>
     <div>
        
       <Table

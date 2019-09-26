@@ -46,7 +46,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   const { totalCount, pageSize } = oc<DeveloperState>(developerState).developerData.data({})
   const [visible, setVisible] = React.useState(false)
 
-  if (unfetched && loading) {
+  if (unfetched || loading) {
     return <Loader />
   }
 
