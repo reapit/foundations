@@ -6,5 +6,5 @@ export const selectUserCode = (state: ReduxState) => {
 }
 
 export const selectUserLoginStatus = (state: ReduxState) => {
-  return oc(state).auth.isLogin(false)
+  return !!oc(state).auth.refreshSession() || !!oc(state).auth.loginSession()
 }

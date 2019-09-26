@@ -24,7 +24,7 @@ describe('auth reducer', () => {
       sessionExpiry: 1
     }
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_LOGIN_SUCCESS as ActionType, data })
-    const expected = { ...defaultState(), isLogin: true, loginSession: data }
+    const expected = { ...defaultState(), loginSession: data }
     expect(newState).toEqual(expected)
   })
 
@@ -40,13 +40,13 @@ describe('auth reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set the desktopSession state when the AUTH_SET_DESKTOP_SESSION is called', () => {
+  it('should set the refreshSession state when the AUTH_REFRESH_SESSION is called', () => {
     const data = {
       loginType: 'CLIENT' as LoginType,
       refreshToken: 'REFRESH_TOKEN',
       userName: 'bob@acme.com'
     }
-    const newState = authReducer(undefined, { type: ActionTypes.AUTH_SET_DESKTOP_SESSION as ActionType, data })
-    expect(newState.desktopSession).toEqual(data)
+    const newState = authReducer(undefined, { type: ActionTypes.AUTH_SET_REFRESH_SESSION as ActionType, data })
+    expect(newState.refreshSession).toEqual(data)
   })
 })
