@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modal } from '@reapit/elements'
 import Profile, { combineName } from './profile'
+import AddressInformation from './address-information'
 import { ContactModel } from '@/types/contact-api-schema'
 
 export type ProfileModalProps = {
@@ -15,6 +16,8 @@ export const renderContent = ({ modalContentType, contact, isSubmitting }) => {
   switch (modalContentType) {
     case 'PROFILE':
       return <Profile contact={contact} isSubmitting={isSubmitting} />
+    case 'ADDRESS_HISTORY':
+      return <AddressInformation contact={contact} loading={isSubmitting} />
     default:
       return null
   }

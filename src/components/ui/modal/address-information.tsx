@@ -70,9 +70,9 @@ export const renderForm = ({
   address,
   isShowMoreThreeYearInput,
   setShowMoreThreeYearInput,
-  loading,
-  onNextHandler,
-  onPrevHandler
+  loading
+  // onNextHandler,
+  // onPrevHandler
 }) => () => {
   return (
     <div>
@@ -98,10 +98,10 @@ export const renderForm = ({
           <Button className="mr-2" variant="primary" type="submit" loading={loading}>
             Submit
           </Button>
-          <Button className="mr-2" variant="primary" type="button" onClick={onNextHandler} disabled={loading}>
+          <Button className="mr-2" variant="primary" type="button" disabled={loading}>
             Next
           </Button>
-          <Button variant="primary" type="button" onClick={onPrevHandler} disabled={loading}>
+          <Button variant="primary" type="button" disabled={loading}>
             Previous
           </Button>
         </div>
@@ -112,15 +112,15 @@ export const renderForm = ({
 
 export type AddressINformationProps = {
   contact: ContactModel
-  onNextHandler: () => void
-  onPrevHandler: () => void
+  // onNextHandler: () => void
+  // onPrevHandler: () => void
   loading: boolean
 }
 
 export const AddressInformation: React.FC<AddressINformationProps> = ({
   contact,
-  onNextHandler,
-  onPrevHandler,
+  // onNextHandler,
+  // onPrevHandler,
   loading
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
@@ -136,8 +136,8 @@ export const AddressInformation: React.FC<AddressINformationProps> = ({
           address,
           isShowMoreThreeYearInput,
           setShowMoreThreeYearInput,
-          onNextHandler,
-          onPrevHandler,
+          // onNextHandler,
+          // onPrevHandler,
           loading
         })}
       />
