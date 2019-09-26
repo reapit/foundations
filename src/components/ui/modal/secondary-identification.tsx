@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import Identification from '@/components/ui/forms/identification'
 import { CreateIdentityDocumentModel } from '@/types/contact-api-schema'
 
-export const PrimaryIdentification = ({ data, loading, updateIdentification, onNextHandler, onPrevHandler }) => (
+export const SecondaryIdentification = ({ data, loading, updateIdentification, onNextHandler, onPrevHandler }) => (
   <Identification
-    title="Primary ID"
+    title="Secondary ID"
     loading={loading}
     data={data}
     onSaveHandler={updateIdentification}
@@ -15,7 +15,6 @@ export const PrimaryIdentification = ({ data, loading, updateIdentification, onN
 )
 
 export const mapStateToProps = () => ({
-  // TODO: get from redux state after integrating finish
   loading: false,
   data: {} as CreateIdentityDocumentModel
 })
@@ -27,4 +26,4 @@ export const mapDispatchToProps = () => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PrimaryIdentification)
+)(SecondaryIdentification)
