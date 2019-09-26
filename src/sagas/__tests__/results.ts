@@ -5,12 +5,12 @@ import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/a
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, REAPIT_API_BASE_URL, CONTACTS_HEADERS } from '@/constants/api'
+import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { contacts } from '../__stubs__/contacts'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-// import { initAuthorizedRequestHeaders } from '@/utils/api'
+import { initAuthorizedRequestHeaders } from '@/utils/api'
 
 jest.mock('../../core/store')
 
@@ -28,13 +28,13 @@ const params: Action<ContactsParams> = {
 
 describe('result fetch data', () => {
   const gen = cloneableGenerator(resultFetch)(params)
-  // expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
-  expect(gen.next().value).toEqual(
+  expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+  expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
       url: `${URLS.contacts}/?${setQueryParams({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
-      headers: CONTACTS_HEADERS
+      headers: mockHeaders
     })
   )
 
