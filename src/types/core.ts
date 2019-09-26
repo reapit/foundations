@@ -4,6 +4,7 @@ import { ErrorState } from '../reducers/error'
 import { HomeState } from '@/reducers/home'
 import { ResultsState } from '@/reducers/results'
 import { AuthState } from '@/reducers/auth'
+import { SubmitChecksState } from '@/reducers/submit-checks'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -41,4 +42,5 @@ export interface ReduxState {
   home: HomeState
   auth: AuthState
   results: ResultsState
+  submitChecks: SubmitChecksState
 }
