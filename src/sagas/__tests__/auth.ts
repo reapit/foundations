@@ -1,10 +1,12 @@
 import authSagas, { doLogin, doLogout, loginListen, logoutListen } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { put, all, takeLatest } from '@redux-saga/core/effects'
-import { authLogoutSuccess } from '../../actions/auth'
-import { removeLoginSession } from '../../utils/session'
+import { put, all, takeLatest, call } from '@redux-saga/core/effects'
+import { authLogoutSuccess, authLoginSuccess, authLoginFailure } from '../../actions/auth'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
+import { LoginParams, getCognitoSession, removeSessionCookie } from '@reapit/elements'
+import { Action, ActionType } from '@/types/core'
+import { mockLoginSession } from '@/utils/__mocks__/session'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/store', () => ({
@@ -18,16 +20,37 @@ jest.mock('../../core/router', () => ({
   }
 }))
 
-describe('auth thunks', () => {
+describe('auth sagas', () => {
+  describe('login submit', () => {
+    const loginParams: LoginParams = { loginType: 'CLIENT', userName: 'bob@acme.com', password: 'xxxxxx', mode: 'WEB' }
+    const action: Action<LoginParams> = {
+      type: ActionTypes.AUTH_LOGIN as ActionType,
+      data: loginParams
+    }
+
+    test('login success', () => {
+      const gen = doLogin(action)
+      expect(gen.next(mockLoginSession).value).toEqual(call(getCognitoSession, loginParams))
+      expect(gen.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))
+      expect(gen.next().done).toBe(true)
+    })
+
+    test('login fail', () => {
+      const gen = doLogin(action)
+      expect(gen.next(null).value).toEqual(call(getCognitoSession, loginParams))
+      expect(gen.next(null).value).toEqual(put(authLoginFailure()))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-      gen.next()
-      expect(removeLoginSession).toHaveBeenCalledTimes(1)
-      expect(gen.next().value).toEqual(put(authLogoutSuccess()))
+      expect(gen.next().value).toEqual(call(removeSessionCookie))
       gen.next()
       expect(history.push).toHaveBeenCalledTimes(1)
       expect(history.push).toHaveBeenLastCalledWith(Routes.LOGIN)
+      expect(gen.next().value).toEqual(put(authLogoutSuccess()))
       expect(gen.next().done).toBe(true)
     })
   })

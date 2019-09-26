@@ -30,7 +30,7 @@ export interface HomeMappedProps {
   appointmentsState: AppointmentsState
   nextAppointmentState: NextAppointmentState
   currentTab: 'LIST' | 'MAP'
-  isDesktopLogin: boolean
+  desktopMode: boolean
 }
 
 export type HomeProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ page?: any }>
@@ -61,7 +61,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   nextAppointmentState,
   currentTab,
   changeHomeTab,
-  isDesktopLogin,
+  desktopMode,
   setSelectedAppointment
 }) => {
   const unfetched = !appointmentsState.appointments
@@ -88,17 +88,19 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   ) : (
     <ErrorBoundary>
       <div
-        className={`${containerStyle.controlsWrapper} ${isDesktopLogin ? containerStyle.isDesktop : ''} ${
+        className={`${containerStyle.controlsWrapper} ${desktopMode ? containerStyle.isDesktop : ''} ${
           isMobileView ? containerStyle.isMobile : ''
         }`}
       >
-        <div className={containerStyle.tabsSticky}>
-          <Tabs tabConfigs={tabConfigs({ currentTab, changeHomeTab })} />
-        </div>
+        {isMobileView && (
+          <div className={containerStyle.tabsSticky}>
+            <Tabs tabConfigs={tabConfigs({ currentTab, changeHomeTab })} />
+          </div>
+        )}
 
         {(currentTab === 'LIST' || !isMobileView) && (
           <>
-            <div className={`${containerStyle.menuSticky} ${isDesktopLogin ? containerStyle.isDesktop : ''}`}>
+            <div className={`${containerStyle.menuSticky} ${desktopMode ? containerStyle.isDesktop : ''}`}>
               <div className={`${bulma.isCentered} ${bulma.buttons} ${bulma.hasAddons}`}>
                 {filterTimes.map(filter => (
                   <span
@@ -144,7 +146,7 @@ const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   appointmentsState: state.appointments,
   nextAppointmentState: state.nextAppointment,
   currentTab: state.home.homeTab,
-  isDesktopLogin: !!state.auth.desktopSession
+  desktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
 })
 
 export interface HomeMappedActions {
