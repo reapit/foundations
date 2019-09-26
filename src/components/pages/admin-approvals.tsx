@@ -98,7 +98,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
     }
   ]
 
-  if (unfetched && loading) {
+  if (unfetched || loading) {
     return <Loader />
   }
 

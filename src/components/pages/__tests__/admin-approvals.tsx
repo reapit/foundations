@@ -20,7 +20,7 @@ const mockProps = (loading: boolean, approvals: AdminApprovalsList | null): Admi
 
 describe('AdminApproval', () => {
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<AdminApprovals {...mockProps(true, approvalsStub)} />))).toMatchSnapshot()
+    expect(toJson(shallow(<AdminApprovals {...mockProps(false, approvalsStub)} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING true', () => {

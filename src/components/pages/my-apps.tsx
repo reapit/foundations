@@ -58,7 +58,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
     }
   }, [isSuccessed])
 
-  if (unfetched && loading) {
+  if (unfetched || loading) {
     return <Loader />
   }
 

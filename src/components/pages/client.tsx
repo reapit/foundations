@@ -41,7 +41,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   const { totalCount, pageSize } = oc<ClientState>(clientState).clientData.data({})
   const [visible, setVisible] = React.useState(false)
 
-  if (unfetched && loading) {
+  if (unfetched || loading) {
     return <Loader />
   }
   return (
