@@ -17,7 +17,7 @@ const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
-        <Route path={`/|${Routes.LOGIN}`} exact render={() => <Login />} />
+        <Route path={`(/|${Routes.LOGIN})`} exact render={() => <Login />} />
         <PrivateRouteWrapper path="/">
           <Switch>
             <PrivateRoute allow="CLIENT" path={Routes.SUCCESS} component={SuccessPage} />

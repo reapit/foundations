@@ -3,6 +3,9 @@ import { Redirect, RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import Routes from '../constants/routes'
+import { ReduxState } from '@/types/core'
+import { selectUserLoginStatus } from '@/selectors/auth'
+import { Loader } from '@reapit/elements'
 
 const { Suspense } = React
 
@@ -36,13 +39,13 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   return (
     <main>
-      <Suspense fallback={<div>Loading</div>}>{children}</Suspense>
+      <Suspense fallback={<Loader />}>{children}</Suspense>
     </main>
   )
 }
 
-const mapStateToProps = (): PrivateRouteWrapperConnectState => ({
-  isLogin: true,
+const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
+  isLogin: selectUserLoginStatus(state),
   isDesktopLogin: false
 })
 

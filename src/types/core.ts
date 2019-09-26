@@ -3,6 +3,7 @@ import ActionTypes from '../constants/action-types'
 import { ErrorState } from '../reducers/error'
 import { HomeState } from '@/reducers/home'
 import { ResultsState } from '@/reducers/results'
+import { AuthState } from '@/reducers/auth'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -38,5 +39,6 @@ export interface FetcherParams<T> {
 export interface ReduxState {
   error: ErrorState
   home: HomeState
+  auth: AuthState
   results: ResultsState
 }
