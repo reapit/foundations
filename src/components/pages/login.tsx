@@ -20,7 +20,7 @@ export interface LoginMappedActions {
 }
 
 export interface LoginMappedProps {
-  isLogin: boolean
+  hasSession: boolean
   error: boolean
 }
 
@@ -31,7 +31,11 @@ export interface LoginFormValues {
 
 export type LoginProps = LoginMappedActions & LoginMappedProps & RouteComponentProps
 
-export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginFormValues) => {
+export const onSubmitHandler = (
+  setIsSubmitting: (isSubmitting: boolean) => void,
+  login: (params: LoginParams) => void,
+  values: LoginFormValues
+) => {
   const { email, password } = values
 
   setIsSubmitting(true)
@@ -40,7 +44,7 @@ export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginF
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const { isLogin, error, login } = props
+  const { hasSession, error, login } = props
   const { disabled, wrapper, container, imageLogo, wrapperBorder } = loginStyles
   const { level } = bulma
 
@@ -50,7 +54,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
     }
   }, [error])
 
-  if (isLogin) {
+  if (hasSession) {
     return <Redirect to={Routes.SEARCH} />
   }
 
@@ -101,7 +105,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
 }
 
 const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
-  isLogin: state.auth.isLogin,
+  hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
   error: state.auth.error
 })
 
