@@ -113,7 +113,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
     className="mb-5"
   >
     <Component
-      title="Giacomo"
+      title="Ms Saoirse Chadwick"
     />
   </div>
   <div
