@@ -1,15 +1,19 @@
+export type LoginMode = 'DESKTOP' | 'WEB'
+
 export type LoginType = 'DEVELOPER' | 'CLIENT' | 'ADMIN'
 
 export interface LoginParams {
   userName: string
   password: string
   loginType: LoginType
+  mode: LoginMode
 }
 
 export interface RefreshParams {
-  userName: string
   refreshToken: string
+  userName: string
   loginType: LoginType
+  mode: LoginMode
 }
 
 export interface CoginitoIdentity {
@@ -49,4 +53,5 @@ export interface LoginSession {
   refreshToken: string
   loginType: LoginType
   loginIdentity: LoginIdentity
+  mode: LoginMode
 }

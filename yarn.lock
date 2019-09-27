@@ -1972,6 +1972,13 @@
   dependencies:
     "@types/jest-diff" "*"
 
+"@types/jsonwebtoken@^8.3.4":
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.3.4.tgz#93c10c3d0a04bf31a507f89803e7df90a7a90889"
+  integrity sha512-R0eiYPpbo6Jl/XtGwpg7vQlapd7D38gp0g9WMKOSFr/e2NUTN9Udd3ty7n+2yUpmHr2Fti+/BSc+KSQ8zPN+vg==
+  dependencies:
+    "@types/node" "*"
+
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -6179,6 +6186,11 @@ har-validator@~5.1.0:
   dependencies:
     ajv "^6.5.5"
     har-schema "^2.0.0"
+
+hardtack@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/hardtack/-/hardtack-4.1.0.tgz#d7fa12bda373e81d78122a7a2c9db0a11f930d14"
+  integrity sha512-JfmbkZg7UB9hE9Wxx8k0Sf+711oU7SiWziTQXVlqj5pfemoW47DBbKjzEYgMfiey3UrqhekN6c7OWi3mF7g6Tg==
 
 has-ansi@^2.0.0:
   version "2.0.0"
