@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Table } from '../index'
 import toJson from 'enzyme-to-json'
-import { makeData } from '../makeData'
+import { makeData } from '../make-data'
 
 describe('Table', () => {
   it('should match a snapshot', () => {

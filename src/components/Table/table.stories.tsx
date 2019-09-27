@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeData } from './makeData'
+import { makeData } from './make-data'
 import { Table } from '.'
 import { storiesOf } from '@storybook/react'
 

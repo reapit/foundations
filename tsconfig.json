@@ -10,7 +10,7 @@
     "declaration": true,
     "jsx": "react",
     "types": ["jest", "node", "react"],
-    "typeRoots": ["./src/types/index.d.ts", "./node_modules/@types"],
+    "typeRoots": ["src/utils/types/index.d.ts", "./node_modules/@types"],
     "baseUrl": "./",
     "lib": ["es2015", "es2017", "dom", "es5", "es6", "esnext"],
     "outDir": "public",

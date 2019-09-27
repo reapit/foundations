@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.1.44",
+  "version": "0.2.5",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -45,6 +45,7 @@
     "@storybook/storybook-deployer": "^2.8.1",
     "@types/enzyme": "^3.10.3",
     "@types/jest": "^24.0.17",
+    "@types/jsonwebtoken": "^8.3.4",
     "@types/node": "^12.7.1",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
@@ -89,6 +90,7 @@
     "bulma": "^0.7.5",
     "dayjs": "^1.8.16",
     "formik": "^1.5.8",
+    "hardtack": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
     "prop-types": "^15.7.2",
     "react-datepicker": "^2.9.6",
