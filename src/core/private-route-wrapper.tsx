@@ -5,15 +5,19 @@ import { withRouter } from 'react-router'
 import Routes from '../constants/routes'
 import { ReduxState } from '@/types/core'
 import { selectUserLoginStatus } from '@/selectors/auth'
-import { Loader } from '@reapit/elements'
+import { Loader, RefreshParams, getTokenFromQueryString } from '@reapit/elements'
+import { Dispatch } from 'redux'
+import { authSetRefreshSession } from '../actions/auth'
 
 const { Suspense } = React
 
-export interface PrivateRouteWrapperConnectActions {}
+export interface PrivateRouteWrapperConnectActions {
+  setRefreshSession: (refreshParams: RefreshParams) => void
+}
 
 export interface PrivateRouteWrapperConnectState {
-  isLogin: boolean
-  isDesktopLogin: boolean
+  hasSession: boolean
+  isDesktopMode: boolean
 }
 
 export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
@@ -24,17 +28,18 @@ export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
   children,
-  isLogin,
-  isDesktopLogin
+  hasSession,
+  isDesktopMode,
+  setRefreshSession
 }) => {
-  const desktopLogin = false
+  const desktopLogin = getTokenFromQueryString(location.search)
 
-  if (!isLogin && !desktopLogin && !isDesktopLogin) {
-    return <Redirect to={Routes.LOGIN} />
+  if (desktopLogin && !isDesktopMode) {
+    setRefreshSession(desktopLogin)
   }
 
-  if (desktopLogin && !isDesktopLogin) {
-    console.log('Desktop session')
+  if (!hasSession) {
+    return <Redirect to={Routes.LOGIN} />
   }
 
   return (
@@ -45,11 +50,13 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 }
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
-  isLogin: selectUserLoginStatus(state),
-  isDesktopLogin: false
+  hasSession: selectUserLoginStatus(state),
+  isDesktopMode: false
 })
 
-const mapDispatchToProps = (): PrivateRouteWrapperConnectActions => ({})
+const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({
+  setRefreshSession: refreshParams => dispatch(authSetRefreshSession(refreshParams))
+})
 
 export default withRouter(
   connect(
