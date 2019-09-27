@@ -32,10 +32,10 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ histo
         <Formik
           initialValues={{ name: '' }}
           onSubmit={values => searchContacts(values)}
-          render={() => (
+          render={({ values }) => (
             <Form className="mb-8">
               <Input id="name" type="text" placeholder="First or last name" name="name" labelText="Enter name" />
-              <Button type="submit" variant="primary">
+              <Button type="submit" variant="primary" disabled={!values.name}>
                 Search
               </Button>
             </Form>
@@ -44,7 +44,7 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ histo
         <Formik
           initialValues={{ address: '' }}
           onSubmit={values => searchContacts(values)}
-          render={() => (
+          render={({ values }) => (
             <Form className="mb-8">
               <Input
                 id="address"
@@ -53,7 +53,7 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ histo
                 name="address"
                 labelText="Enter address"
               />
-              <Button type="submit" variant="primary">
+              <Button type="submit" variant="primary" disabled={!values.address}>
                 Search
               </Button>
             </Form>
@@ -62,10 +62,10 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ histo
         <Formik
           initialValues={{ identityCheck: '' }}
           onSubmit={values => searchContacts(values)}
-          render={() => (
+          render={({ values }) => (
             <Form>
               <SelectBox id="identityCheck" name="identityCheck" labelText="ID Status" options={identityCheckList} />
-              <Button type="submit" variant="primary">
+              <Button type="submit" variant="primary" disabled={!values.identityCheck}>
                 Search
               </Button>
             </Form>

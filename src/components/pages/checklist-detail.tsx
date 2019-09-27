@@ -45,7 +45,7 @@ export const generateSection = (onClick: (modalType: string) => () => void) => {
     {
       title: 'Declaration and Risk Assessment',
       isCompleted: false,
-      onEdit: onClick('DECLARATION_AND_RISK'),
+      onEdit: onClick(STEPS.DECLARATION_RISK_MANAGEMENT),
       buttonText: 'Edit'
     },
     {

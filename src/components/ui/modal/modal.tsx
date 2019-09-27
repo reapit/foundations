@@ -6,6 +6,7 @@ import AddressInformation from './address-information'
 import PrimaryIdentification from './primary-identification'
 import SecondaryIdentification from './secondary-identification'
 import { ContactModel } from '@/types/contact-api-schema'
+import DeclarationAndRiskAssessment from './declaration-and-risk-assessment'
 
 export const STEPS = {
   PROFILE: 'PROFILE',
@@ -36,6 +37,8 @@ export const renderContent = ({ modalContentType }) => {
       return <AddressInformation />
     case STEPS.REPORT:
       return <Report />
+    case STEPS.DECLARATION_RISK_MANAGEMENT:
+      return <DeclarationAndRiskAssessment />
     default:
       return null
   }
