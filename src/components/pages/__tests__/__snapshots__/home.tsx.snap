@@ -39,7 +39,8 @@ exports[`Home should match a snapshot 1`] = `
       />
     </div>
     <Memo()
-      data={
+      appointmentTypes={Array []}
+      appointments={
         Array [
           Object {
             "attendees": Array [

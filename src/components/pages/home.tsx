@@ -67,13 +67,13 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   const unfetched = !appointmentsState.appointments
   const loading = appointmentsState.loading
   const selectedAppointment = appointmentsState.selectedAppointment
-  const list = oc<AppointmentsState>(appointmentsState).appointments.data.data([])
+  const list = oc<AppointmentsState>(appointmentsState).appointments.data([])
   const time = appointmentsState.time
   const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
   const isMobileView = isMobile()
 
   React.useEffect(() => {
-    const hasAppointments = oc(appointmentsState).appointments.data.data([]).length > 0
+    const hasAppointments = oc(appointmentsState).appointments.data([]).length > 0
     if (appointmentsState.time === 'Today' && hasAppointments && !appointmentsState.loading) {
       requestNextAppointment()
     }
@@ -125,7 +125,8 @@ export const Home: React.FunctionComponent<HomeProps> = ({
               <Loader />
             ) : (
               <AppointmentList
-                data={uncancelledList}
+                appointments={uncancelledList}
+                appointmentTypes={appointmentsState.appointmentTypes || []}
                 nextAppointment={nextAppointmentState.data}
                 selectedAppointment={selectedAppointment}
                 setSelectedAppointment={setSelectedAppointment}
