@@ -7,4 +7,4 @@ export const authLoginSuccess = actionCreator<LoginSession>(ActionTypes.AUTH_LOG
 export const authLoginFailure = actionCreator<void>(ActionTypes.AUTH_LOGIN_FAILURE)
 export const authLogout = actionCreator<void>(ActionTypes.AUTH_LOGOUT)
 export const authLogoutSuccess = actionCreator<void>(ActionTypes.AUTH_LOGOUT_SUCCESS)
-export const authSetDesktopSession = actionCreator<RefreshParams>(ActionTypes.AUTH_SET_DESKTOP_SESSION)
+export const authSetRefreshSession = actionCreator<RefreshParams>(ActionTypes.AUTH_SET_REFRESH_SESSION)

@@ -1,54 +1,48 @@
-import { mockLoginSession } from '../__mocks__/cognito'
-import { setLoginSession, getLoginSession, removeLoginSession, getTokenFromQueryString } from '../session'
-import { LOCAL_STORAGE_SESSION_KEY } from '../../constants/session'
+import { getAccessToken } from '../session'
+import { authLogout } from '@/actions/auth'
 
-jest.mock('../../core/store')
+import store from '@/core/store'
+import { LoginSession, RefreshParams } from '@reapit/elements'
+
+jest.mock('@reapit/elements')
+jest.mock('@/core/store', () => ({
+  dispatch: jest.fn(),
+  state: {
+    online: {},
+    auth: {}
+  }
+}))
 
 describe('session utils', () => {
-  describe('setLoginSession', () => {
-    it('should correctly set localStorage', () => {
-      jest.spyOn(window.localStorage, 'setItem')
-      setLoginSession(mockLoginSession)
-      expect(window.localStorage.setItem).toHaveBeenCalledWith(
-        LOCAL_STORAGE_SESSION_KEY,
-        JSON.stringify(mockLoginSession)
-      )
-    })
-  })
-
-  describe('getLoginSession', () => {
-    it('should correctly set localStorage', () => {
-      window.localStorage[LOCAL_STORAGE_SESSION_KEY] = mockLoginSession
-      jest.spyOn(window.localStorage, 'getItem')
-      const result = getLoginSession()
-      expect(window.localStorage.getItem).toHaveBeenCalledWith(LOCAL_STORAGE_SESSION_KEY)
-      expect(result).toEqual(mockLoginSession)
-    })
-  })
-
-  describe('removeLoginSession', () => {
-    it('should correctly set localStorage', () => {
-      window.localStorage[LOCAL_STORAGE_SESSION_KEY] = mockLoginSession
-      jest.spyOn(window.localStorage, 'removeItem')
-      removeLoginSession()
-      expect(window.localStorage.removeItem).toHaveBeenCalledWith(LOCAL_STORAGE_SESSION_KEY)
-      expect(window.localStorage.getItem(LOCAL_STORAGE_SESSION_KEY)).toBeUndefined()
-    })
-  })
-
-  describe('getTokenFromQueryString', () => {
-    it('should correctly return RefreshParams', () => {
-      const validQuery = '?username=wmcvay@reapit.com&desktopToken=TOKEN'
-      expect(getTokenFromQueryString(validQuery)).toEqual({
-        refreshToken: 'TOKEN',
-        userName: 'wmcvay@reapit.com',
-        loginType: 'CLIENT'
-      })
+  describe('getAccessToken', () => {
+    it('should correctly return null when app is not online', () => {
+      getAccessToken()
+      expect(store.dispatch).toHaveBeenCalledWith(authLogout())
     })
 
-    it('should correctly return null for an invalid string', () => {
-      const invalidQuery = '?somerandomquery=wmcvay@reapit.com&somerandomtoken=TOKEN'
-      expect(getTokenFromQueryString(invalidQuery)).toBe(null)
+    it('should correctly return null when sessions are not available', () => {
+      store.state.auth.loginSession = null
+      store.state.auth.refreshSession = null
+      getAccessToken()
+      expect(store.dispatch).toHaveBeenCalledWith(authLogout())
+    })
+
+    it('should logout user when need to get refreshed session but it is not correct', () => {
+      store.state.auth.loginSession = null
+      store.state.auth.refreshSession = {} as RefreshParams
+      getAccessToken()
+      expect(store.dispatch).toHaveBeenCalledTimes(0)
+    })
+
+    it('should correctly return value', () => {
+      store.state.auth.loginSession = {} as LoginSession
+      store.state.auth.refreshSession = {} as RefreshParams
+      getAccessToken()
+      expect(store.dispatch).toHaveBeenCalledTimes(0)
+    })
+
+    afterEach(() => {
+      jest.resetAllMocks()
     })
   })
 })
