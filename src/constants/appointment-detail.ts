@@ -14,3 +14,9 @@ export const DOCUMENT_TYPE = {
   ACCOUNT_DOCUMENT: 'Account, investment or insurance documents',
   LETTER_FROM_COUNCIL: 'Letter from Council Confirming Electoral Roll Listing'
 }
+
+export const RISK_ASSESSMENT_TYPE = {
+  SIMPLIFIED: 'Simplified',
+  NORMAL: 'Normal',
+  ENHANCED: 'Enhanced'
+}
