@@ -133,7 +133,7 @@ export const MapContainer = ({
 }
 
 export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
-  const appointments = oc(state).appointments.appointments.data.data([])
+  const appointments = oc(state).appointments.appointments.data([])
   const destinationLat = oc(state).direction.destination.property.address.geolocation.latitude(undefined)
   const destinationLng = oc(state).direction.destination.property.address.geolocation.longitude(undefined)
   return {
