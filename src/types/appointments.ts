@@ -72,10 +72,6 @@ export interface AppointmentModel {
    */
   description?: string
   /**
-   * Gets any viewing arrangements associated with the appointment
-   */
-  arrangements?: string
-  /**
    * Gets directions to the appointment location
    */
   directions?: string
@@ -95,6 +91,12 @@ export interface AppointmentModel {
    * Gets a collection of attendees who are requested to attend the appointment
    */
   attendees?: AttendeeModel[]
+  /**
+   * Gets a listing of additional metadata that has been set against this appointment
+   */
+  metadata?: {
+    [name: string]: {}
+  }
   readonly links?: LinkModel[]
 }
 /**
@@ -167,6 +169,12 @@ export interface CreateAppointmentModel {
    * Sets the recurrence pattern for this appointment
    */
   recurrence?: CreateRecurrenceModel
+  /**
+   * Sets a JSON fragment to attach to this appointment as metadata
+   */
+  metadata?: {
+    [name: string]: {}
+  }
 }
 /**
  * Model to associate an attendee to a new appointment
@@ -228,12 +236,11 @@ export interface PagedResultAppointmentModel_ {
   totalCount?: number // int32
 }
 export interface ProblemDetails {
-  [name: string]: {}
-  type: string
-  title: string
-  status: number // int32
-  detail: string
-  instance: string
+  type?: string
+  title?: string
+  status?: number // int32
+  detail?: string
+  instance?: string
 }
 /**
  * Model representing an appointment property
@@ -243,6 +250,10 @@ export interface PropertyModel {
    * Gets the unique property identifier
    */
   id?: string
+  /**
+   * Gets any arrangements in place for viewing this property
+   */
+  arrangements?: string
   /**
    * Gets the address of the property where the appointment is due to take place
    */
@@ -284,6 +295,12 @@ export interface UpdateAppointmentModel {
    * Sets the recurrence pattern for this appointment
    */
   recurrence?: UpdateRecurrenceModel
+  /**
+   * Sets a JSON fragment to attach to this appointment as metadata
+   */
+  metadata?: {
+    [name: string]: {}
+  }
 }
 /**
  * Model to update an attendee on an appointment

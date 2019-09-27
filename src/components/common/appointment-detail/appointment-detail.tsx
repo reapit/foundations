@@ -115,13 +115,13 @@ export const renderNotes = (description: string | undefined) => {
   )
 }
 
-export const renderArrangement = (arrangement: string | undefined) => {
-  if (!arrangement) {
+export const renderDirections = (direction: string | undefined) => {
+  if (!direction) {
     return null
   }
   return (
-    <AppointmentTile hightlight={false} heading="Arrangements">
-      <div className={styles.appointmentDetailSectionContent}>{arrangement}</div>
+    <AppointmentTile hightlight={false} heading="Directions">
+      <div className={styles.appointmentDetailSectionContent}>{direction}</div>
     </AppointmentTile>
   )
 }
@@ -145,7 +145,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment,
           {renderAddress(oc(appointment).property.address(), appointment)}
           {renderAttendees(appointment.attendees)}
           {renderNotes(appointment.description)}
-          {renderArrangement(appointment.arrangements)}
+          {renderDirections(appointment.directions)}
         </div>
       )}
     </Modal>

@@ -7,22 +7,30 @@ import ViewDetailButton from '../container/view-detail-button'
 import ETAButton from './eta-button'
 import { NextAppointment } from '@/reducers/next-appointment'
 import containerStyle from '@/styles/pages/page-container.scss?mod'
+import { ListItemModel } from '../../types/configuration'
 
 export interface AppointmentListProps {
-  data: AppointmentModel[]
+  appointments: AppointmentModel[]
+  appointmentTypes: ListItemModel[]
   nextAppointment?: NextAppointment | null
   selectedAppointment: AppointmentModel | null
   setSelectedAppointment: (appointment: AppointmentModel | null) => void
 }
 
 export const AppointmentList = memo(
-  ({ data, nextAppointment, selectedAppointment, setSelectedAppointment }: AppointmentListProps) => {
+  ({
+    appointments,
+    appointmentTypes,
+    nextAppointment,
+    selectedAppointment,
+    setSelectedAppointment
+  }: AppointmentListProps) => {
     const appointmentNearest = React.useMemo(() => {
       // Get all start date
-      const startDatesArray = data.map(item => oc<AppointmentModel>(item).start(''))
+      const startDatesArray = appointments.map(item => oc<AppointmentModel>(item).start(''))
       // Find appointment nearest current time
-      return data.find(item => item.start === closestTo(new Date(), startDatesArray))
-    }, [data])
+      return appointments.find(item => item.start === closestTo(new Date(), startDatesArray))
+    }, [appointments])
 
     const refAppointment = React.useRef<HTMLDivElement>(null)
 
@@ -45,13 +53,13 @@ export const AppointmentList = memo(
       }
     }, [])
 
-    if (data.length === 0) {
+    if (appointments.length === 0) {
       return <div className="py-8 px-3 text-center">No appointments</div>
     }
 
     return (
       <div className={`px-4 ${containerStyle.appointmentsListWrapper}`}>
-        {data.map(item => {
+        {appointments.map(item => {
           const line1 = oc<AppointmentModel>(item).property.address.line1()
           const line2 = oc<AppointmentModel>(item).property.address.line2()
           const line3 = oc<AppointmentModel>(item).property.address.line3()
@@ -59,17 +67,18 @@ export const AppointmentList = memo(
           const postcode = oc<AppointmentModel>(item).property.address.postcode()
           const buildingName = oc<AppointmentModel>(item).property.address.buildingName()
           const buildingNumber = oc<AppointmentModel>(item).property.address.buildingNumber()
-          const type = oc<AppointmentModel>(item).typeId()
+          const typeId = oc<AppointmentModel>(item).typeId()
           const start = getTime(oc<AppointmentModel>(item).start(''))
           const end = getTime(oc<AppointmentModel>(item).end(''))
           const lat = oc<AppointmentModel>(item).property.address.geolocation.latitude()
           const lng = oc<AppointmentModel>(item).property.address.geolocation.longitude()
+          const type = typeId ? appointmentTypes.find(appointmentType => appointmentType.id === typeId) : null
 
           const hightlight = selectedAppointment
             ? selectedAppointment.id === item.id
             : appointmentNearest && appointmentNearest.id === item.id
           const heading = `${buildingNumber || buildingName || ''} ${line1 || ''}`
-          const address = `${heading} ${line2 || ''} ${line3 || ''} ${line4 || ''} ${postcode || ''}`
+          const address = `${line2 || ''} ${line3 || ''} ${line4 || ''} ${postcode || ''}`
 
           const displayETAButton =
             nextAppointment &&
@@ -103,12 +112,12 @@ export const AppointmentList = memo(
             >
               <AppointmentTile hightlight={hightlight} key={item.id} heading={heading}>
                 <ul>
-                  <li>Address: {address}</li>
-                  <li>
-                    Time: {start} - {end}
-                  </li>
-                  <li>Type: {type}</li>
+                  <li>{address}</li>
+                  <li>{type && type.value}</li>
                 </ul>
+                <strong>
+                  {start} - {end}
+                </strong>
                 <div className="flex">
                   <div className="mt-4 mr-4">
                     <ViewDetailButton id={item.id} />

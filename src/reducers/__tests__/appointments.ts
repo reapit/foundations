@@ -2,6 +2,7 @@ import appointmentsReducer, { defaultState } from '../appointments'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
 import { appointmentsDataStub } from '../../sagas/__stubs__/appointments'
+import { oc } from 'ts-optchain'
 
 describe('appointments reducer', () => {
   it('should return default state if action not matched', () => {
@@ -40,7 +41,8 @@ describe('appointments reducer', () => {
     })
     const expected = {
       ...defaultState,
-      appointments: appointmentsDataStub
+      appointments: appointmentsDataStub.appointments,
+      appointmentTypes: appointmentsDataStub.appointmentTypes
     }
     expect(newState).toEqual(expected)
   })
@@ -60,11 +62,11 @@ describe('appointments reducer', () => {
   it('should set selectedAppointment item data when SET_SELECTED_APPOINTMENT action is called', () => {
     const newState = appointmentsReducer(undefined, {
       type: ActionTypes.SET_SELECTED_APPOINTMENT as ActionType,
-      data: appointmentsDataStub.data.data![0]
+      data: oc(appointmentsDataStub).appointments.data[0]()
     })
     const expected = {
       ...defaultState,
-      selectedAppointment: appointmentsDataStub.data.data![0]
+      selectedAppointment: oc(appointmentsDataStub).appointments.data[0]()
     }
     expect(newState).toEqual(expected)
   })

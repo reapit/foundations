@@ -7,5 +7,6 @@ export const APPOINTMENTS_HEADERS = {
 export const REAPIT_API_BASE_URL = 'https://reapit.cloud.tyk.io'
 
 export const URLS = {
-  appointments: '/appointments'
+  appointments: '/appointments',
+  appointmentTypes: '/configuration/appointmentTypes'
 }
