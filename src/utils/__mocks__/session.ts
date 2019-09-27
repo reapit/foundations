@@ -14,7 +14,4 @@ export const mockLoginSession = {
   }
 } as LoginSession
 
-export const verifyAccessToken = jest.fn()
-export const setLoginSession = jest.fn()
-export const removeLoginSession = jest.fn()
-export const getLoginSession = jest.fn()
+export const getAccessToken = jest.fn()

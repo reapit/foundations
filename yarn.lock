@@ -299,14 +299,15 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@reapit/elements@^0.1.39":
-  version "0.1.39"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.1.39.tgz#477689fe0c881be68e220313311bf6740773bb7d"
-  integrity sha512-CAAYkkmRi+3X183ZaqSvYyi5WvJhVdwe9eB+/6IQeFVuGrDlNSz07yZILz1ScDwQPIOavT7kZXRFSB0fC9HGdA==
+"@reapit/elements@0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.2.5.tgz#6ea2fa165802cc69946b27e9be32009aea82560c"
+  integrity sha512-TUY9kVo/oOurLc0ZFE5ouZGUqoUAwFb/harESFg9jKsv7+brPmWkRVMI/U7ixqTkz6dGVHtsqkWMi9mtD00lVA==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.16"
     formik "^1.5.8"
+    hardtack "^4.1.0"
     jsonwebtoken "^8.5.1"
     prop-types "^15.7.2"
     react-datepicker "^2.9.6"
@@ -3814,6 +3815,11 @@ har-validator@~5.1.0:
   dependencies:
     ajv "^6.5.5"
     har-schema "^2.0.0"
+
+hardtack@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/hardtack/-/hardtack-4.1.0.tgz#d7fa12bda373e81d78122a7a2c9db0a11f930d14"
+  integrity sha512-JfmbkZg7UB9hE9Wxx8k0Sf+711oU7SiWziTQXVlqj5pfemoW47DBbKjzEYgMfiey3UrqhekN6c7OWi3mF7g6Tg==
 
 harmony-reflect@^1.4.2:
   version "1.6.1"
