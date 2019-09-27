@@ -1,7 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ReportContainer, handleContent, handleTrigger, Report } from '../report'
+import { ReportContainer, handleContent, handleTrigger, Report, mapStateToProps } from '../report'
 import { contact } from '@/sagas/__stubs__/contact'
+import { ReduxState } from '@/types/core'
 
 describe('ReportContainer', () => {
   it('should match snapshot', () => {
@@ -27,5 +28,27 @@ describe('ReportContainer', () => {
   it('Report', () => {
     const wrapper = shallow(<Report />)
     expect(wrapper).toMatchSnapshot()
+  })
+  describe('mapStateToProps', () => {
+    it('should run correctly', () => {
+      const mockState = {
+        checklistDetail: {
+          checklistDetailData: {
+            contact
+          }
+        }
+      } as ReduxState
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual({
+        contact
+      })
+    })
+    it('should run correctly', () => {
+      const mockState = {} as ReduxState
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual({
+        contact: {}
+      })
+    })
   })
 })

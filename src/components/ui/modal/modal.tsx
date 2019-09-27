@@ -12,7 +12,8 @@ export const STEPS = {
   PRIMARY_IDENTIFICATION: 'PRIMARY_IDENTIFICATION',
   SECONDARY_IDENTIFICATION: 'SECONDARY_IDENTIFICATION',
   ADDRESS_INFORMATION: 'ADDRESS_INFORMATION',
-  REPORT: 'REPORT'
+  REPORT: 'REPORT',
+  DECLARATION_RISK_MANAGEMENT: 'DECLARATION_RISK_MANAGEMENT'
 }
 
 export type ProfileModalProps = {
@@ -23,23 +24,18 @@ export type ProfileModalProps = {
   afterClose: () => void
 }
 
-export const renderContent = ({ modalContentType, contact, isSubmitting }) => {
+export const renderContent = ({ modalContentType }) => {
   switch (modalContentType) {
     case STEPS.PROFILE:
-      return <Profile contact={contact} isSubmitting={isSubmitting} />
-
-    case STEPS.ADDRESS_INFORMATION:
-      return <AddressInformation contact={contact} loading={isSubmitting} />
-
-    case STEPS.REPORT:
-      return <Report contact={contact} />
-
+      return <Profile />
     case STEPS.PRIMARY_IDENTIFICATION:
       return <PrimaryIdentification />
-
     case STEPS.SECONDARY_IDENTIFICATION:
-      return <PrimaryIdentification />
-
+      return <SecondaryIdentification />
+    case STEPS.ADDRESS_INFORMATION:
+      return <AddressInformation />
+    case STEPS.REPORT:
+      return <Report />
     default:
       return null
   }
@@ -49,12 +45,11 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   contact,
   visible,
   afterClose,
-  isSubmitting,
   modalContentType = 'PROFILE'
 }) => {
   return (
     <Modal title={combineName(contact)} visible={visible} size="medium" afterClose={afterClose}>
-      <div>{renderContent({ modalContentType, isSubmitting, contact })}</div>
+      <div>{renderContent({ modalContentType })}</div>
     </Modal>
   )
 }

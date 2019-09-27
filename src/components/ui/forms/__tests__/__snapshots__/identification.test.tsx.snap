@@ -82,7 +82,7 @@ exports[`identification forms renderFormHandler should render correctly 1`] = `
           type="button"
           variant="primary"
         >
-          Next
+          Previous
         </Button>
         <Button
           disabled={false}
@@ -90,7 +90,7 @@ exports[`identification forms renderFormHandler should render correctly 1`] = `
           type="button"
           variant="primary"
         >
-          Previous
+          Next
         </Button>
       </div>
     </div>

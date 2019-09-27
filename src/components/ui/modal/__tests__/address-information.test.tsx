@@ -1,7 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { AddressInformation, renderForm, handleMoreThreeYear, renderExtraForm } from '../address-information'
+import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
+import {
+  AddressInformation,
+  renderForm,
+  handleMoreThreeYear,
+  renderExtraForm,
+  mapStateToProps,
+  mapDispatchToProps
+} from '../address-information'
 
 describe('AddressInformation', () => {
   it('should match snapshot', () => {
@@ -9,7 +17,7 @@ describe('AddressInformation', () => {
       contact,
       onNextHandler: jest.fn(),
       onPrevHandler: jest.fn(),
-      loading: false
+      onHandleSubmit: jest.fn()
     }
     const wrapper = shallow(<AddressInformation {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -53,6 +61,44 @@ describe('AddressInformation', () => {
       const component = renderExtraForm(false)
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper.find('Input')).toHaveLength(0)
+    })
+  })
+
+  describe('mapStateToProps', () => {
+    it('should run correctly', () => {
+      const mockState = {
+        checklistDetail: {
+          checklistDetailData: {
+            contact
+          }
+        }
+      } as ReduxState
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual({
+        contact
+      })
+    })
+    it('should run correctly', () => {
+      const mockState = {} as ReduxState
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual({
+        contact: {}
+      })
+    })
+  })
+
+  describe('mapDispatchToProps', () => {
+    it('should render correctly', () => {
+      const mockDispatch = jest.fn()
+      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      onNextHandler()
+      expect(mockDispatch).toBeCalled()
+    })
+    it('should render correctly', () => {
+      const mockDispatch = jest.fn()
+      const { onPrevHandler } = mapDispatchToProps(mockDispatch)
+      onPrevHandler()
+      expect(mockDispatch).toBeCalled()
     })
   })
 })

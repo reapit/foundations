@@ -8,123 +8,13 @@ exports[`Modal ProfileModal should match snapshot 1`] = `
   visible={true}
 >
   <div>
-    <Component
-      contact={
-        Object {
-          "active": true,
-          "addresses": Array [
-            Object {
-              "buildingName": "Tilbrook Farm",
-              "buildingNumber": "",
-              "countryId": "",
-              "line1": "Station Road",
-              "line2": "Bow Brickhill",
-              "line3": "Milton Keynes",
-              "line4": "Buckinghamshire",
-              "postcode": "MK17 9JU",
-              "type": "primary",
-            },
-          ],
-          "communications": Array [
-            Object {
-              "detail": "01632 961556",
-              "label": "Home",
-            },
-            Object {
-              "detail": "07700 901556",
-              "label": "Mobile",
-            },
-            Object {
-              "detail": "020 7946 1556",
-              "label": "Work",
-            },
-            Object {
-              "detail": "schadwick512@rpsfiction.net",
-              "label": "E-Mail",
-            },
-          ],
-          "created": "2019-05-12T17:05:19",
-          "forename": "Saoirse",
-          "id": "MKC16000098",
-          "identityCheck": "unchecked",
-          "marketingConsent": "notAsked",
-          "relationships": Array [
-            Object {
-              "id": "RMK",
-              "type": "negotiator",
-            },
-            Object {
-              "id": "MKC",
-              "type": "office",
-            },
-          ],
-          "surname": "Chadwick",
-          "title": "Ms",
-        }
-      }
-      isSubmitting={false}
-    />
+    <ProfileInformationWithRedux />
   </div>
 </Modal>
 `;
 
 exports[`Modal renderContent should return Profile 1`] = `
 <div>
-  <Component
-    contact={
-      Object {
-        "active": true,
-        "addresses": Array [
-          Object {
-            "buildingName": "Tilbrook Farm",
-            "buildingNumber": "",
-            "countryId": "",
-            "line1": "Station Road",
-            "line2": "Bow Brickhill",
-            "line3": "Milton Keynes",
-            "line4": "Buckinghamshire",
-            "postcode": "MK17 9JU",
-            "type": "primary",
-          },
-        ],
-        "communications": Array [
-          Object {
-            "detail": "01632 961556",
-            "label": "Home",
-          },
-          Object {
-            "detail": "07700 901556",
-            "label": "Mobile",
-          },
-          Object {
-            "detail": "020 7946 1556",
-            "label": "Work",
-          },
-          Object {
-            "detail": "schadwick512@rpsfiction.net",
-            "label": "E-Mail",
-          },
-        ],
-        "created": "2019-05-12T17:05:19",
-        "forename": "Saoirse",
-        "id": "MKC16000098",
-        "identityCheck": "unchecked",
-        "marketingConsent": "notAsked",
-        "relationships": Array [
-          Object {
-            "id": "RMK",
-            "type": "negotiator",
-          },
-          Object {
-            "id": "MKC",
-            "type": "office",
-          },
-        ],
-        "surname": "Chadwick",
-        "title": "Ms",
-      }
-    }
-    isSubmitting={false}
-  />
+  <ProfileInformationWithRedux />
 </div>
 `;
