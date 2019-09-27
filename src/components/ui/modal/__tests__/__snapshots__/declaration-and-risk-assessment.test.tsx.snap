@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeclarationAndRiskAssessment should match snapshot 1`] = `
+<div>
+  <Formik
+    enableReinitialize={false}
+    initialValues={Object {}}
+    isInitialValid={false}
+    onSubmit={[MockFunction]}
+    render={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+  />
+</div>
+`;
