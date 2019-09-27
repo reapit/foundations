@@ -1,10 +1,16 @@
 import React from 'react'
 import { Input, Button, SelectBox, SelectBoxOptions, CameraImageInput } from '@reapit/elements'
 import { Formik, Form } from 'formik'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
+import { oc } from 'ts-optchain'
 import { combineAdress } from '@/utils/combineAddress'
 import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
 import { ContactModel } from '@/types/contact-api-schema'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
+import { ReduxState } from '@/types/core'
+import { checkListDetailShowModal } from '@/actions/checklist-detail'
+import { STEPS } from '@/components/ui/modal/modal'
 
 const optionsMonth = [
   { label: '1', value: '1' },
@@ -70,9 +76,8 @@ export const renderForm = ({
   address,
   isShowMoreThreeYearInput,
   setShowMoreThreeYearInput,
-  loading
-  // onNextHandler,
-  // onPrevHandler
+  onNextHandler,
+  onPrevHandler
 }) => () => {
   return (
     <div>
@@ -95,13 +100,13 @@ export const renderForm = ({
         </div>
         {renderExtraForm(isShowMoreThreeYearInput)}
         <div className={styles.footerBtn}>
-          <Button className="mr-2" variant="primary" type="submit" loading={loading}>
+          <Button className="mr-2" variant="primary" type="submit">
             Submit
           </Button>
-          <Button className="mr-2" variant="primary" type="button" disabled={loading}>
+          <Button className="mr-2" variant="primary" type="button" onClick={onNextHandler}>
             Next
           </Button>
-          <Button variant="primary" type="button" disabled={loading}>
+          <Button variant="primary" type="button" onClick={onPrevHandler}>
             Previous
           </Button>
         </div>
@@ -110,18 +115,18 @@ export const renderForm = ({
   )
 }
 
-export type AddressINformationProps = {
+export type AddressInformationProps = {
   contact: ContactModel
-  // onNextHandler: () => void
-  // onPrevHandler: () => void
-  loading: boolean
+  onNextHandler: () => void
+  onPrevHandler: () => void
+  onHandleSubmit: (values: any) => void
 }
 
-export const AddressInformation: React.FC<AddressINformationProps> = ({
+export const AddressInformation: React.FC<AddressInformationProps> = ({
   contact,
-  // onNextHandler,
-  // onPrevHandler,
-  loading
+  onNextHandler,
+  onPrevHandler,
+  onHandleSubmit
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
   const address = combineAdress(contact.addresses)
@@ -129,20 +134,50 @@ export const AddressInformation: React.FC<AddressINformationProps> = ({
     <div>
       <Formik
         initialValues={{}}
-        onSubmit={values => {
-          console.log(values)
-        }}
+        onSubmit={onHandleSubmit}
         render={renderForm({
           address,
           isShowMoreThreeYearInput,
           setShowMoreThreeYearInput,
-          // onNextHandler,
-          // onPrevHandler,
-          loading
+          onNextHandler,
+          onPrevHandler
         })}
       />
     </div>
   )
 }
 
-export default AddressInformation
+export type MappedProps = {
+  contact: ContactModel
+}
+
+export const mapStateToProps = (state: ReduxState): MappedProps => {
+  return {
+    contact: oc(state).checklistDetail.checklistDetailData.contact({})
+  }
+}
+
+export type MappedActions = {
+  onNextHandler: () => void
+  onPrevHandler: () => void
+  onHandleSubmit: (values: any) => void
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch): MappedActions => {
+  return {
+    onHandleSubmit: values => {
+      console.log(values)
+    },
+    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
+    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.ADDRESS_INFORMATION))
+  }
+}
+
+export const AddressInformationWithRedux = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddressInformation)
+
+AddressInformationWithRedux.displayName = 'AddressInformationWithRedux'
+
+export default AddressInformationWithRedux

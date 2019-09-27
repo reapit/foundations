@@ -1,9 +1,12 @@
 import React from 'react'
-import { Button } from '@reapit/elements'
 import ReactToPrint from 'react-to-print'
+import { connect } from 'react-redux'
+import { Button } from '@reapit/elements'
 import { combineAdress } from '@/utils/combineAddress'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ContactModel } from '@/types/contact-api-schema'
+import { ReduxState } from '@/types/core'
+import { oc } from 'ts-optchain'
 
 export const Report = React.forwardRef((_, ref) => {
   return (
@@ -95,4 +98,25 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact }) => 
   )
 }
 
-export default ReportContainer
+export const mapStateToProps = (state: ReduxState) => {
+  return {
+    contact: oc(state).checklistDetail.checklistDetailData.contact({})
+  }
+}
+
+export const mapDispatchToProps = () => {
+  return {
+    onEmailReport: () => {
+      console.log('send Email')
+    }
+  }
+}
+
+export const ReportContainerRedux = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ReportContainer)
+
+ReportContainerRedux.displayName = 'ReportContainerRedux'
+
+export default ReportContainerRedux

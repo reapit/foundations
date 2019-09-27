@@ -25,7 +25,6 @@ exports[` 1`] = `
   >
     <Button
       className="mr-2"
-      disabled={false}
       onClick={[Function]}
       type="submit"
       variant="primary"
@@ -34,8 +33,7 @@ exports[` 1`] = `
     </Button>
     <Button
       dataTest="submit-revision-modal-edit-button"
-      disabled={false}
-      loading={false}
+      onClick={[MockFunction]}
       type="button"
       variant="primary"
     >

@@ -45,11 +45,11 @@ export const renderFormHandler = ({ loading, onNextHandler, onPrevHandler }) => 
         <Button className="mr-2" variant="primary" type="submit" loading={loading}>
           Submit
         </Button>
-        <Button className="mr-2" variant="primary" type="button" onClick={onNextHandler} disabled={loading}>
-          Next
-        </Button>
-        <Button variant="primary" type="button" onClick={onPrevHandler} disabled={loading}>
+        <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler} disabled={loading}>
           Previous
+        </Button>
+        <Button variant="primary" type="button" onClick={onNextHandler} disabled={loading}>
+          Next
         </Button>
       </div>
     </div>

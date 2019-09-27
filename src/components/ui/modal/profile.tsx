@@ -1,7 +1,13 @@
 import React from 'react'
 import { Button, Input, DatePicker } from '@reapit/elements'
 import { Formik, Form } from 'formik'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
+import { oc } from 'ts-optchain'
+import { ReduxState } from '@/types/core'
 import { CommunicationModel, AddressModel, ContactModel } from '@/types/contact-api-schema'
+import { checkListDetailShowModal } from '@/actions/checklist-detail'
+import { STEPS } from '@/components/ui/modal/modal'
 
 export const renderForm = () => {
   return (
@@ -79,7 +85,12 @@ export const combineName = (contact: ContactModel) => {
   return nameCombined
 }
 
-export const Profile = ({ contact, isSubmitting }) => {
+export type Profile = {
+  onNextHandler: () => void
+  contact: ContactModel
+}
+
+export const Profile: React.FC<Profile> = ({ contact, onNextHandler }) => {
   return (
     <div>
       <Formik
@@ -101,20 +112,13 @@ export const Profile = ({ contact, isSubmitting }) => {
           type="submit"
           className="mr-2"
           variant="primary"
-          disabled={isSubmitting}
           onClick={() => {
             return null
           }}
         >
           Submit
         </Button>
-        <Button
-          type="button"
-          variant="primary"
-          loading={isSubmitting}
-          disabled={isSubmitting}
-          dataTest="submit-revision-modal-edit-button"
-        >
+        <Button type="button" variant="primary" dataTest="submit-revision-modal-edit-button" onClick={onNextHandler}>
           Next
         </Button>
       </div>
@@ -122,4 +126,26 @@ export const Profile = ({ contact, isSubmitting }) => {
   )
 }
 
-export default Profile
+export const mapStateToProps = (state: ReduxState) => {
+  return {
+    contact: oc(state).checklistDetail.checklistDetailData.contact({})
+  }
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    onSubmitHandler: values => {
+      console.log(values)
+    },
+    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.PRIMARY_IDENTIFICATION))
+  }
+}
+
+export const ProfileInformationWithRedux = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Profile)
+
+ProfileInformationWithRedux.displayName = 'ProfileInformationWithRedux'
+
+export default ProfileInformationWithRedux

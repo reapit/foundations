@@ -1,7 +1,16 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Profile, { renderForm, filterCommunication, combineAdress, combineName } from '../profile'
+import {
+  Profile,
+  renderForm,
+  filterCommunication,
+  combineAdress,
+  combineName,
+  mapStateToProps,
+  mapDispatchToProps
+} from '../profile'
 import { contact } from '@/sagas/__stubs__/contact'
+import { ReduxState } from '@/types/core'
 
 describe('profile', () => {
   describe('renderForm', () => {
@@ -52,9 +61,46 @@ describe('profile', () => {
   describe('Profile', () => {
     const mockProps = {
       contact: contact,
-      isSubmitting: false
+      onNextHandler: jest.fn()
     }
     const wrapper = shallow(<Profile {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
+  })
+
+  describe('mapStateToProps', () => {
+    it('should run correctly', () => {
+      const mockState = {
+        checklistDetail: {
+          checklistDetailData: {
+            contact
+          }
+        }
+      } as ReduxState
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual({
+        contact
+      })
+    })
+    it('should run correctly', () => {
+      const mockState = {} as ReduxState
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual({
+        contact: {}
+      })
+    })
+  })
+  describe('mapDispatchToProps', () => {
+    it('should render correctly', () => {
+      const mockDispatch = jest.fn()
+      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      onNextHandler()
+      expect(mockDispatch).toBeCalled()
+    })
+    it('should render correctly', () => {
+      const mockDispatch = jest.fn()
+      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      onNextHandler()
+      expect(mockDispatch).toBeCalled()
+    })
   })
 })
