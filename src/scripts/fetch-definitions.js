@@ -12,6 +12,10 @@ const apiSchema = [
   {
     definitionFile: `${__dirname}/../types/appointments.ts`,
     endpoint: `${BASE_URL}/appointments/swagger/v1/swagger.json`
+  },
+  {
+    definitionFile: `${__dirname}/../types/configuration.ts`,
+    endpoint: `${BASE_URL}/configuration/swagger/v1/swagger.json`
   }
 ]
 

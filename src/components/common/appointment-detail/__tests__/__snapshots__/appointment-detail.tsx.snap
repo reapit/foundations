@@ -122,19 +122,6 @@ exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
 </div>
 `;
 
-exports[`AppointmentModal renderArrangement should matchSnapshot 1`] = `
-<div>
-  <AppointmentTile
-    heading="Arrangements"
-    hightlight={false}
-  >
-    <div>
-      123
-    </div>
-  </AppointmentTile>
-</div>
-`;
-
 exports[`AppointmentModal renderAttendees should matchSnapshot 1`] = `
 Array [
   <AppointmentTile
@@ -200,6 +187,19 @@ exports[`AppointmentModal renderCommunicationDetail should match snapshot 1`] = 
 exports[`AppointmentModal renderCommunicationType should match snapshot 1`] = `
 <div>
   <TiMail />
+</div>
+`;
+
+exports[`AppointmentModal renderDirections should matchSnapshot 1`] = `
+<div>
+  <AppointmentTile
+    heading="Directions"
+    hightlight={false}
+  >
+    <div>
+      123
+    </div>
+  </AppointmentTile>
 </div>
 `;
 

@@ -48,7 +48,7 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
   // end = dayjs()
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
-    const response = yield call(fetcher, {
+    const appointments = yield call(fetcher, {
       url: `${
         URLS.appointments
       }?Start=${start.toISOString()}&End=${end.toISOString()}&IncludeCancelled=true&IncludeUnconfirmed=true`,
@@ -56,8 +56,16 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
       method: 'GET',
       headers
     })
-    if (response) {
-      yield put(appointmentsReceiveData({ data: response }))
+
+    const appointmentTypes = yield call(fetcher, {
+      url: URLS.appointmentTypes,
+      api: REAPIT_API_BASE_URL,
+      method: 'GET',
+      headers
+    })
+
+    if (appointments && appointmentTypes) {
+      yield put(appointmentsReceiveData({ appointments, appointmentTypes }))
     } else {
       yield put(appointmentsRequestDataFailure())
     }

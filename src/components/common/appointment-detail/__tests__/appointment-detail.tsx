@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import {
   AppointmentModal,
   renderStartAndEndDate,
-  renderArrangement,
+  renderDirections,
   renderNotes,
   renderAddress,
   renderAttendees,
@@ -65,21 +65,21 @@ describe('AppointmentModal', () => {
     })
   })
 
-  describe('renderArrangement', () => {
+  describe('renderDirections', () => {
     it('should matchSnapshot', () => {
       const input = '123'
-      const data = renderArrangement(input)
+      const data = renderDirections(input)
       const wrapper = shallow(<div>{data}</div>)
       expect(wrapper).toMatchSnapshot()
     })
     it('should run correctly and show not Today', () => {
       const input = '123'
-      const data = renderArrangement(input)
+      const data = renderDirections(input)
       expect(data).not.toBeNull()
     })
     it('should run correctly and show Today', () => {
       const input = undefined
-      const data = renderArrangement(input)
+      const data = renderDirections(input)
       expect(data).toBeNull()
     })
   })

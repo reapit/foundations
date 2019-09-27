@@ -24,20 +24,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          56 High Street The Stables Old Haversham Milton Keynes MK19 7DZ
+          The Stables Old Haversham Milton Keynes MK19 7DZ
         </li>
         <li>
-          Time: 
-          05:30 PM
-           - 
-          06:00 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        05:30 PM
+         - 
+        06:00 PM
+      </strong>
       <div
         className="flex"
       >
@@ -134,20 +131,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          68 The Embankment Bedford Bedfordshire  MK40 3PD
+          Bedford Bedfordshire  MK40 3PD
         </li>
         <li>
-          Time: 
-          01:30 PM
-           - 
-          02:00 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        01:30 PM
+         - 
+        02:00 PM
+      </strong>
       <div
         className="flex"
       >
@@ -227,20 +221,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          34 Sandhill Road East Claydon Buckingham Buckinghamshire MK18 2LZ
+          East Claydon Buckingham Buckinghamshire MK18 2LZ
         </li>
         <li>
-          Time: 
-          02:15 PM
-           - 
-          02:45 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        02:15 PM
+         - 
+        02:45 PM
+      </strong>
       <div
         className="flex"
       >
@@ -337,20 +328,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          Wayside Little Tingewick Buckingham Buckinghamshire  MK18 4AG
+          Buckingham Buckinghamshire  MK18 4AG
         </li>
         <li>
-          Time: 
-          01:30 PM
-           - 
-          02:15 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        01:30 PM
+         - 
+        02:15 PM
+      </strong>
       <div
         className="flex"
       >
@@ -430,20 +418,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-               
+             
         </li>
         <li>
-          Time: 
-          11:15 AM
-           - 
-          11:45 AM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        11:15 AM
+         - 
+        11:45 AM
+      </strong>
       <div
         className="flex"
       >
@@ -469,20 +454,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-               
+             
         </li>
         <li>
-          Time: 
-          03:15 PM
-           - 
-          04:00 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        03:15 PM
+         - 
+        04:00 PM
+      </strong>
       <div
         className="flex"
       >
@@ -508,20 +490,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          56 High Street The Stables Old Haversham Milton Keynes MK19 7DZ
+          The Stables Old Haversham Milton Keynes MK19 7DZ
         </li>
         <li>
-          Time: 
-          04:30 PM
-           - 
-          05:00 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        04:30 PM
+         - 
+        05:00 PM
+      </strong>
       <div
         className="flex"
       >
@@ -601,20 +580,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-               
+             
         </li>
         <li>
-          Time: 
-          06:00 PM
-           - 
-          06:30 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        06:00 PM
+         - 
+        06:30 PM
+      </strong>
       <div
         className="flex"
       >
@@ -640,20 +616,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-               
+             
         </li>
         <li>
-          Time: 
-          05:30 PM
-           - 
-          06:00 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        05:30 PM
+         - 
+        06:00 PM
+      </strong>
       <div
         className="flex"
       >
@@ -679,20 +652,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          The Cottage Shelton Road Yielden Bedfordshire  MK44 1AQ
+          Yielden Bedfordshire  MK44 1AQ
         </li>
         <li>
-          Time: 
-          03:15 PM
-           - 
-          04:15 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        03:15 PM
+         - 
+        04:15 PM
+      </strong>
       <div
         className="flex"
       >
@@ -789,20 +759,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-               
+             
         </li>
         <li>
-          Time: 
-          02:00 PM
-           - 
-          02:30 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        02:00 PM
+         - 
+        02:30 PM
+      </strong>
       <div
         className="flex"
       >
@@ -828,20 +795,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          49 The Causeway Carlton Bedford Bedfordshire MK43 7LU
+          Carlton Bedford Bedfordshire MK43 7LU
         </li>
         <li>
-          Time: 
-          03:30 PM
-           - 
-          04:30 PM
-        </li>
-        <li>
-          Type: 
-          VL
+          Market Appraisal
         </li>
       </ul>
+      <strong>
+        03:30 PM
+         - 
+        04:30 PM
+      </strong>
       <div
         className="flex"
       >
@@ -915,20 +879,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          39 Foxfield Broughton Gate Milton Keynes Buckinghamshire MK10 7BP
+          Broughton Gate Milton Keynes Buckinghamshire MK10 7BP
         </li>
         <li>
-          Time: 
-          04:30 PM
-           - 
-          05:00 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        04:30 PM
+         - 
+        05:00 PM
+      </strong>
       <div
         className="flex"
       >
@@ -1025,20 +986,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          The Firs Bedford Road Northill Bedfordshire  SG18 9AW
+          Northill Bedfordshire  SG18 9AW
         </li>
         <li>
-          Time: 
-          03:00 PM
-           - 
-          05:00 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        03:00 PM
+         - 
+        05:00 PM
+      </strong>
       <div
         className="flex"
       >
@@ -1135,20 +1093,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          Wayside Little Tingewick Buckingham Buckinghamshire  MK18 4AG
+          Buckingham Buckinghamshire  MK18 4AG
         </li>
         <li>
-          Time: 
-          01:00 PM
-           - 
-          01:30 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        01:00 PM
+         - 
+        01:30 PM
+      </strong>
       <div
         className="flex"
       >
@@ -1257,20 +1212,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          57 The Embankment Bedford Bedfordshire  MK40 3PD
+          Bedford Bedfordshire  MK40 3PD
         </li>
         <li>
-          Time: 
-          01:30 PM
-           - 
-          02:00 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        01:30 PM
+         - 
+        02:00 PM
+      </strong>
       <div
         className="flex"
       >
@@ -1350,20 +1302,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          54 Tyne Crescent Bedford Bedfordshire  MK41 7UJ
+          Bedford Bedfordshire  MK41 7UJ
         </li>
         <li>
-          Time: 
-          11:00 AM
-           - 
-          12:00 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        11:00 AM
+         - 
+        12:00 PM
+      </strong>
       <div
         className="flex"
       >
@@ -1460,20 +1409,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-          8 Deacon Place Middleton Milton Keynes  MK10 9FS
+          Middleton Milton Keynes  MK10 9FS
         </li>
         <li>
-          Time: 
-          11:15 AM
-           - 
-          11:30 AM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        11:15 AM
+         - 
+        11:30 AM
+      </strong>
       <div
         className="flex"
       >
@@ -1547,20 +1493,17 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     >
       <ul>
         <li>
-          Address: 
-               
+             
         </li>
         <li>
-          Time: 
-          02:00 PM
-           - 
-          02:30 PM
-        </li>
-        <li>
-          Type: 
-          VW
+          Viewing
         </li>
       </ul>
+      <strong>
+        02:00 PM
+         - 
+        02:30 PM
+      </strong>
       <div
         className="flex"
       >

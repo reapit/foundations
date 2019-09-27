@@ -10,7 +10,7 @@ import {
 import { selectOnlineStatus } from '@/selectors/online'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
-import { REAPIT_API_BASE_URL } from '@/constants/api'
+import { REAPIT_API_BASE_URL, URLS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 
@@ -40,38 +40,69 @@ describe('appointments should not fetch data', () => {
 })
 
 describe('appointments should fetch data', () => {
-  const gen = cloneableGenerator(appointmentsDataFetch)(params)
-
-  expect(gen.next().value).toEqual(select(selectOnlineStatus))
-  // @ts-ignore
-  expect(gen.next(mockOnlineVal).value).toEqual(put(appointmentsLoading(true)))
-  expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
-  expect(gen.next(mockHeaders as any).value).toEqual(
-    call(fetcher, {
-      url:
-        '/appointments?Start=2019-12-18T00:00:00.000Z&End=2019-12-18T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
-      api: REAPIT_API_BASE_URL,
-      method: 'GET',
-      headers: mockHeaders
-    })
-  )
-
   test('api call success', () => {
-    const clone = gen.clone()
-    expect(clone.next(appointmentsDataStub.data as any).value).toEqual(
+    const gen = appointmentsDataFetch(params)
+
+    expect(gen.next().value).toEqual(select(selectOnlineStatus))
+    // @ts-ignore
+    expect(gen.next(mockOnlineVal).value).toEqual(put(appointmentsLoading(true)))
+    expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+    expect(gen.next(mockHeaders).value).toEqual(
+      call(fetcher, {
+        url:
+          '/appointments?Start=2019-12-18T00:00:00.000Z&End=2019-12-18T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
+        api: REAPIT_API_BASE_URL,
+        method: 'GET',
+        headers: mockHeaders
+      })
+    )
+
+    expect(gen.next(appointmentsDataStub.appointments).value).toEqual(
+      call(fetcher, {
+        url: URLS.appointmentTypes,
+        api: REAPIT_API_BASE_URL,
+        method: 'GET',
+        headers: mockHeaders
+      })
+    )
+    expect(gen.next(appointmentsDataStub.appointmentTypes).value).toEqual(
       put(
         appointmentsReceiveData({
-          data: appointmentsDataStub.data
+          appointments: appointmentsDataStub.appointments,
+          appointmentTypes: appointmentsDataStub.appointmentTypes
         })
       )
     )
-    expect(clone.next().done).toBe(true)
+    expect(gen.next().done).toBe(true)
   })
 
   test('api call fail', () => {
-    const clone = gen.clone()
-    expect(clone.next().value).toEqual(put(appointmentsRequestDataFailure()))
-    expect(clone.next().done).toBe(true)
+    const gen = appointmentsDataFetch(params)
+
+    expect(gen.next().value).toEqual(select(selectOnlineStatus))
+    // @ts-ignore
+    expect(gen.next(mockOnlineVal).value).toEqual(put(appointmentsLoading(true)))
+    expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+    expect(gen.next(mockHeaders).value).toEqual(
+      call(fetcher, {
+        url:
+          '/appointments?Start=2019-12-18T00:00:00.000Z&End=2019-12-18T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
+        api: REAPIT_API_BASE_URL,
+        method: 'GET',
+        headers: mockHeaders
+      })
+    )
+
+    expect(gen.next(null).value).toEqual(
+      call(fetcher, {
+        url: URLS.appointmentTypes,
+        api: REAPIT_API_BASE_URL,
+        method: 'GET',
+        headers: mockHeaders
+      })
+    )
+    expect(gen.next().value).toEqual(put(appointmentsRequestDataFailure()))
+    expect(gen.next().done).toBe(true)
   })
 })
 
