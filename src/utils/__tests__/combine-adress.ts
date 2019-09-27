@@ -1,5 +1,5 @@
 import { contact } from '@/sagas/__stubs__/contact'
-import { combineAdress } from '../combineAddress'
+import { combineAdress } from '../combine-address'
 
 describe('combineAddress', () => {
   it('should run correctly', () => {

@@ -1,3 +1,8 @@
+/*
+  TOOD: Think this page is no longer needed - probably should remove but not sure how working
+  Out of scope for auth ticket but Primary and Secon
+*/
+
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
@@ -8,17 +13,15 @@ import styles from '@/styles/pages/home.scss?mod'
 import { Dispatch } from 'redux'
 import { authLogout } from '@/actions/auth'
 
-export interface HomeMappedActions {}
+export interface HomeMappedActions {
+  logout: () => void
+}
 
 export interface HomeMappedProps {
   homeState: HomeState
 }
 
-export type HomeProps = HomeMappedActions &
-  HomeMappedProps &
-  RouteComponentProps<{ page?: any }> & {
-    logout: () => void
-  }
+export type HomeProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ page?: any }>
 
 export const Home: React.FunctionComponent<HomeProps> = ({ logout }) => {
   return (
@@ -48,4 +51,4 @@ export default withRouter(
     mapStateToProps,
     mapDispatchToProps
   )(Home)
-) as any
+)

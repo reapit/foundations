@@ -8,7 +8,7 @@ import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-
 
 const props: PrivateRouteWrapperProps = {
   path: '/',
-  isLogin: false,
+  hasSession: false,
   setDesktopSession: jest.fn(),
   // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
   location: {
@@ -17,7 +17,7 @@ const props: PrivateRouteWrapperProps = {
 }
 
 // @ts-ignore:
-const desktopProps: PrivateRouteWrapperProps = { ...props, isLogin: true, location: { search: '' } }
+const desktopProps: PrivateRouteWrapperProps = { ...props, hasSession: true, location: { search: '' } }
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
@@ -28,7 +28,7 @@ describe('PrivateRouter', () => {
     expect(toJson(shallow(<PrivateRouteWrapper {...desktopProps} />))).toMatchSnapshot()
   })
 
-  it('should redirect to /login page if isLogin is false and not desktop login', () => {
+  it('should redirect to /login page if hasSession is false and not desktop login', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={['/my-path']}>
         <PrivateRouteWrapper {...props} />
