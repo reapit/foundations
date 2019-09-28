@@ -2,8 +2,8 @@
 
 exports[`AdminApproval should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <Component
-    logout={[Function]}
-  />
+  <div>
+    Home Page
+  </div>
 </Connect(ErrorBoundary)>
 `;
