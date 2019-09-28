@@ -4,7 +4,6 @@ import { ReduxState } from '@/types/core'
 import { HomeState } from '@/reducers/home'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
-import Navbar from '../ui/navbar/navbar'
 
 export interface HomeMappedActions {}
 
@@ -17,7 +16,7 @@ export type HomeProps = HomeMappedActions & HomeMappedProps & RouteComponentProp
 export const Home: React.FunctionComponent<HomeProps> = () => {
   return (
     <ErrorBoundary>
-      <Navbar logout={() => 'logoutCallback'} />
+      <div>Home Page</div>
     </ErrorBoundary>
   )
 }
