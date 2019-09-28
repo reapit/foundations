@@ -3,6 +3,7 @@ import { Route, RouteProps } from 'react-router'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import RouteFetcher from '../components/hocs/route-fetcher'
+import Navbar from '@/components/ui/navbar/navbar'
 
 export type LoginType = 'CLIENT' | 'DEVELOPER'
 
@@ -38,7 +39,16 @@ export const PrivateRoute = ({
         }
         const Component = component
 
-        return <Component />
+        return (
+          <div>
+            <Navbar
+              logout={() => {
+                console.log('logout callback')
+              }}
+            />
+            <Component />
+          </div>
+        )
       }}
     />
   )
