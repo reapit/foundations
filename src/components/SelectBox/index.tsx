@@ -12,6 +12,8 @@ export interface SelectBoxProps {
   labelText: string
   name: string
   id: string
+  value?: string | number | null
+  onChange?: () => void
 }
 
 export const SelectBox = ({ options, dataTest, labelText, id, name }: SelectBoxProps) => {

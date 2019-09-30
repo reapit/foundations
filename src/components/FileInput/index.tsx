@@ -17,6 +17,8 @@ export interface FileInputProps {
   // props specialized for unit test
   testProps?: FileInputTestProps
   inputProps?: Record<string, any>
+  value?: string | null
+  onChange?: () => void
 }
 
 export const FileInput = ({
