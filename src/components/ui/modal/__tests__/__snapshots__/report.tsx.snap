@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReportContainer Report 1`] = `ShallowWrapper {}`;
+
+exports[`ReportContainer handleTrigger 1`] = `ShallowWrapper {}`;
+
+exports[`ReportContainer should match snapshot 1`] = `ShallowWrapper {}`;

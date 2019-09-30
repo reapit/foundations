@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `ShallowWrapper {}`;
+
+exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `ShallowWrapper {}`;
+
+exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `ShallowWrapper {}`;

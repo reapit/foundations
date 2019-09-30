@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `ShallowWrapper {}`;
+
+exports[`profile renderForm should match snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`profile renderForm should match snapshot 2`] = `ShallowWrapper {}`;

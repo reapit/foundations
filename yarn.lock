@@ -299,10 +299,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@reapit/elements@0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.2.5.tgz#6ea2fa165802cc69946b27e9be32009aea82560c"
-  integrity sha512-TUY9kVo/oOurLc0ZFE5ouZGUqoUAwFb/harESFg9jKsv7+brPmWkRVMI/U7ixqTkz6dGVHtsqkWMi9mtD00lVA==
+"@reapit/elements@0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.2.6.tgz#b57529a4051c2cd4d821236670f55c786748bf48"
+  integrity sha512-v6bAhKe9B/w3d7CFzpl1hZCiS9FTopYcIUp93rpBovzYQW3fCXGKd82p0Kj+4MLz7JIj/E3+V2mzFAU2ydv60g==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.16"
@@ -7528,6 +7528,13 @@ react-test-renderer@^16.0.0-0:
     prop-types "^15.6.2"
     react-is "^16.9.0"
     scheduler "^0.15.0"
+
+react-to-print@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-to-print/-/react-to-print-2.4.0.tgz#8f33c9627536501035fc7557d3ad0272df1bcb6b"
+  integrity sha512-ER6r7ezKkFzAq6VMes9BVdPbE5xzL8kIJyhS8nQj6y0Z/0qoWsOGZ5Y6b0dq8XUuVTSqbdGu9DswtI76nIkdXQ==
+  dependencies:
+    prop-types "^15.7.2"
 
 react@^16.8.6:
   version "16.9.0"
