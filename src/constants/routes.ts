@@ -4,7 +4,8 @@ const Routes = {
   PROFILE: '/profile',
   SUCCESS: '/success',
   SEARCH: '/search',
-  RESULTS: '/results'
+  RESULTS: '/results',
+  CHECKLIST_DETAIL: '/checklist-detail/:id'
 }
 
 export default Routes

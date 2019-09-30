@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`identification forms Identification should render correctly 1`] = `ShallowWrapper {}`;
+
+exports[`identification forms renderFormHandler should render correctly 1`] = `ShallowWrapper {}`;

@@ -3,10 +3,16 @@ import home from '@/reducers/home'
 import auth from '@/reducers/auth'
 import error from '@/reducers/error'
 import results from '@/reducers/results'
+import checklistDetail from '@/reducers/checklist-detail'
+import identityTypes from '@/reducers/identity-types'
+
 import { ReduxState } from '@/types/core'
 import homeSagas from '@/sagas/home'
 import authSagas from '@/sagas/auth'
+import identityTypesSagas from '@/sagas/identity-types'
 import resultsSagas from '@/sagas/results'
+import checklistDetailSagas from '@/sagas/checklist-detail'
+
 import submitChecks from '../reducers/submit-checks'
 import createSagaMiddleware from 'redux-saga'
 import submitChecksSagas from '../sagas/submit-checks'
@@ -32,11 +38,20 @@ export class Store {
     home,
     auth,
     results,
-    submitChecks
+    submitChecks,
+    checklistDetail,
+    identityTypes
   })
 
   static sagas = function*() {
-    yield all([fork(homeSagas), fork(resultsSagas), fork(authSagas), fork(submitChecksSagas)])
+    yield all([
+      fork(homeSagas),
+      fork(resultsSagas),
+      fork(authSagas),
+      fork(submitChecksSagas),
+      fork(checklistDetailSagas),
+      fork(identityTypesSagas)
+    ])
   }
 
   static composeEnhancers =

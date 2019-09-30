@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section renderCompletedCheckMark should match snapshot when isCompleted false 1`] = `ShallowWrapper {}`;
+
+exports[`Section renderCompletedCheckMark should match snapshot when isCompleted true 1`] = `ShallowWrapper {}`;
+
+exports[`Section should match snapshot 1`] = `ShallowWrapper {}`;
