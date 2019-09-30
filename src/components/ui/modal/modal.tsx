@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modal } from '@reapit/elements'
-import Profile, { combineName } from './profile'
+import Profile from './profile'
 import Report from './report'
 import AddressInformation from './address-information'
 import PrimaryIdentification from './primary-identification'
@@ -19,16 +19,16 @@ export const STEPS = {
 
 export type ProfileModalProps = {
   contact: ContactModel
-  isSubmitting: boolean
   modalContentType: string
   visible: boolean
+  id: string
   afterClose: () => void
 }
 
-export const renderContent = ({ modalContentType }) => {
+export const renderContent = ({ modalContentType, id }) => {
   switch (modalContentType) {
     case STEPS.PROFILE:
-      return <Profile />
+      return <Profile id={id} />
     case STEPS.PRIMARY_IDENTIFICATION:
       return <PrimaryIdentification />
     case STEPS.SECONDARY_IDENTIFICATION:
@@ -44,15 +44,33 @@ export const renderContent = ({ modalContentType }) => {
   }
 }
 
+export const combineName = (contact: ContactModel) => {
+  let nameCombined = ''
+  if (!contact) {
+    return nameCombined
+  }
+  if (contact.title) {
+    nameCombined = nameCombined.concat(`${contact.title}`)
+  }
+  if (contact.forename) {
+    nameCombined = nameCombined.concat(` ${contact.forename}`)
+  }
+  if (contact.surname) {
+    nameCombined = nameCombined.concat(` ${contact.surname}`)
+  }
+  return nameCombined
+}
+
 export const ProfileModal: React.FC<ProfileModalProps> = ({
   contact,
   visible,
   afterClose,
-  modalContentType = 'PROFILE'
+  modalContentType = 'PROFILE',
+  id
 }) => {
   return (
     <Modal title={combineName(contact)} visible={visible} size="medium" afterClose={afterClose}>
-      <div>{renderContent({ modalContentType })}</div>
+      <div>{renderContent({ modalContentType, id })}</div>
     </Modal>
   )
 }

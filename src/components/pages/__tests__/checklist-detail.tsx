@@ -34,7 +34,6 @@ describe('checklist-detail', () => {
         checklistDetail: {
           isModalVisible: true,
           loading: true,
-          isSubmitting: true,
           modalContentType: 'PROFILE',
           checklistDetailData: {
             contact: contact
@@ -44,7 +43,6 @@ describe('checklist-detail', () => {
       const expected = {
         isModalVisible: true,
         loading: true,
-        isSubmitting: true,
         contact: contact,
         modalContentType: 'PROFILE'
       }
@@ -59,7 +57,6 @@ describe('checklist-detail', () => {
       const expected = {
         isModalVisible: false,
         loading: true,
-        isSubmitting: false,
         contact: {},
         modalContentType: 'PROFILE'
       }
@@ -75,7 +72,6 @@ describe('checklist-detail', () => {
         loading: true,
         hideModal: jest.fn(),
         showModal: jest.fn(),
-        isSubmitting: true,
         contact: contact,
         modalContentType: 'PROFILE',
         ...getMockRouterProps({ id: '123' })
@@ -90,7 +86,6 @@ describe('checklist-detail', () => {
         loading: false,
         hideModal: jest.fn(),
         showModal: jest.fn(),
-        isSubmitting: true,
         contact: contact,
         modalContentType: 'PROFILE',
         ...getMockRouterProps({ id: '123' })

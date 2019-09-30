@@ -8,13 +8,17 @@ exports[`Modal ProfileModal should match snapshot 1`] = `
   visible={true}
 >
   <div>
-    <ProfileInformationWithRedux />
+    <ProfileInformationWithRedux
+      id="123"
+    />
   </div>
 </Modal>
 `;
 
 exports[`Modal renderContent should return Profile 1`] = `
 <div>
-  <ProfileInformationWithRedux />
+  <ProfileInformationWithRedux
+    id="123"
+  />
 </div>
 `;

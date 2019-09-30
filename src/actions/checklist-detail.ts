@@ -6,6 +6,9 @@ export type CheckListDetailReceiveDataParams = {
   contact: ContactModel
 }
 export const checklistDetailRequestData = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA)
+export const checkListDetailUpdateData = actionCreator<ContactModel>(ActionTypes.CHECKLIST_DETAIL_UPDATE_DATA)
+export const checkListDetailUpdateDataLoading = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_MODAL_LOADING)
+
 export const checklistDetailLoading = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_LOADING)
 export const checklistDetailReceiveData = actionCreator<CheckListDetailReceiveDataParams>(
   ActionTypes.CHECKLIST_DETAIL_RECEIVE_DATA

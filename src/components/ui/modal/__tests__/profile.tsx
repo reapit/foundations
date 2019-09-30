@@ -1,28 +1,24 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import {
-  Profile,
-  renderForm,
-  filterCommunication,
-  combineAdress,
-  combineName,
-  mapStateToProps,
-  mapDispatchToProps
-} from '../profile'
+import { Profile, renderForm, filterCommunication, mapStateToProps, mapDispatchToProps } from '../profile'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
 
 describe('profile', () => {
   describe('renderForm', () => {
     it('should match snapshot', () => {
-      const component = renderForm()
+      const mockOnNextHandler = jest.fn()
+      const mockIsSubmitting = false
+      const component = renderForm({ onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
   describe('renderForm', () => {
     it('should match snapshot', () => {
-      const component = renderForm()
+      const mockOnNextHandler = jest.fn()
+      const mockIsSubmitting = false
+      const component = renderForm({ onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -44,24 +40,12 @@ describe('profile', () => {
       expect(result).toEqual(expected)
     })
   })
-  describe('combineAddress', () => {
-    it('should run correctly', () => {
-      const result = combineAdress(contact.addresses)
-      const expected = ' Tilbrook Farm Station Road Bow Brickhill Milton Keynes Buckinghamshire MK17 9JU'
-      expect(result).toEqual(expected)
-    })
-  })
-  describe('combineName', () => {
-    it('should run correctly', () => {
-      const result = combineName(contact)
-      const expected = 'Ms Saoirse Chadwick'
-      expect(result).toEqual(expected)
-    })
-  })
   describe('Profile', () => {
     const mockProps = {
       contact: contact,
-      onNextHandler: jest.fn()
+      onNextHandler: jest.fn(),
+      onSubmitHandler: jest.fn(),
+      isSubmitting: false
     }
     const wrapper = shallow(<Profile {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -78,27 +62,35 @@ describe('profile', () => {
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        contact
+        contact,
+        isSubmitting: false
       })
     })
     it('should run correctly', () => {
       const mockState = {} as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        contact: {}
+        contact: {},
+        isSubmitting: false
       })
     })
   })
   describe('mapDispatchToProps', () => {
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
-      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      const mockOwnProps = {
+        id: 1
+      }
+      const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
       onNextHandler()
       expect(mockDispatch).toBeCalled()
     })
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
-      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      const mockOwnProps = {
+        id: 1
+      }
+      const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
       onNextHandler()
       expect(mockDispatch).toBeCalled()
     })
