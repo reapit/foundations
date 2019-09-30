@@ -4,12 +4,11 @@ import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { oc } from 'ts-optchain'
-import { combineAdress } from '@/utils/combine-address'
 import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel, AddressModel } from '@/types/contact-api-schema'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
-import { checkListDetailShowModal } from '@/actions/checklist-detail'
+import { checkListDetailShowModal, checkListDetailAddressUpdateData } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
 
 const optionsMonth = [
@@ -61,57 +60,156 @@ export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThree
   setShowMoreThreeYearInput(!isShowMoreThreeYearInput)
 }
 
-export const renderExtraForm = (isShowMoreThreeYearInput: boolean) =>
-  isShowMoreThreeYearInput ? (
-    <div>
-      <Input type="text" labelText="Address" id="address" name="address" />
-      <SelectBox labelText="Year" id="year" name="year" options={renderYearOptions()} />
-      <SelectBox labelText="Month" id="month" name="month" options={optionsMonth} />
-      <SelectBox labelText="Document Type" id="documentType" name="documentType" options={optionsDocumentType} />
-      <CameraImageInput labelText="Upload file/Take a picture" id="documentImage" name="documentImage" />
+export const AddressInput = ({ index, values, setFieldValue }) => {
+  return (
+    <div key={index}>
+      <Input
+        type="text"
+        labelText="Type"
+        id={`addresses[${index}][type]`}
+        name={`addresses[${index}][type]`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].type : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].type`)}
+      />
+      <Input
+        type="text"
+        labelText="Building Name"
+        id={`addresses[${index}][buildingName]`}
+        name={`addresses[${index}][buildingName]`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].buildingName : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].buildingName`)}
+      />
+      <Input
+        type="text"
+        labelText="Building Number"
+        id={`addresses[${index}][buildingNumber]`}
+        name={`addresses[${index}][buildingNumber]`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].buildingNumber : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].buildingNumber`)}
+      />
+      <Input
+        type="text"
+        labelText="Line 1"
+        id={`addresses[${index}][line1]`}
+        name={`addresses[${index}][line1]`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].line1 : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].line1`)}
+      />
+      <Input
+        type="text"
+        labelText="Line 2"
+        id={`addresses[${index}][line2]`}
+        name={`addresses[${index}][line2]`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].line2 : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].line2`)}
+      />
+      <Input
+        type="text"
+        labelText="Line 3"
+        id={`addresses[${index}][line3]`}
+        name={`addresses[${index}][line3]`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].line3 : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].line3`)}
+      />
+      <Input
+        type="text"
+        labelText="Line 4"
+        id={`addresses[${index}][line4]`}
+        name={`addresses[${index}][line4]`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].line4 : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].line4`)}
+      />
+      <Input
+        type="text"
+        labelText="Post Code"
+        id={`addresses[${index}][postcode]`}
+        name={`addresses[${index}][postcode]`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].postcode : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].postcode`)}
+      />
+      <SelectBox
+        labelText="Year"
+        options={renderYearOptions()}
+        id={`addresses[${index}]year`}
+        name={`addresses[${index}]year`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].year : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].year`)}
+      />
+      <SelectBox
+        labelText="Month"
+        id={`addresses[${index}]month`}
+        name={`addresses[${index}]month`}
+        options={optionsMonth}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].month : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].month`)}
+      />
+      <SelectBox
+        labelText="Document Type"
+        id={`addresses[${index}]documentType`}
+        name={`addresses[${index}]documentType`}
+        options={optionsDocumentType}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].documentType : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].documentType`)}
+      />
+      <Input
+        type="hidden"
+        id={`addresses[${index}][documentImage]`}
+        name={`addresses[${index}][documentImage]`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].documentImage : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].documentImage`)}
+      />
+      <CameraImageInput
+        labelText="Upload file/Take a picture"
+        id={`addresses[${index}]documentFileInput`}
+        name={`addresses[${index}]documentFileInput`}
+        value={values.addresses && values.addresses[index] ? values.addresses[index].documentFileInput : null}
+        onChange={() => setFieldValue(`values.addresses[${index}].documentFileInput`)}
+      />
     </div>
-  ) : null
+  )
+}
+
+export const renderExtraForm = ({ isShowMoreThreeYearInput, values, index, setFieldValue }) => {
+  if (isShowMoreThreeYearInput) {
+    return (
+      <AddressInput data-test="address-input" key={index} index={index} values={values} setFieldValue={setFieldValue} />
+    )
+  }
+}
 
 export const renderForm = ({
-  address,
+  addresses,
   isShowMoreThreeYearInput,
   setShowMoreThreeYearInput,
   onNextHandler,
   onPrevHandler
-}) => () => {
+}) => ({ values, setFieldValue }) => {
   return (
-    <div>
-      <div className={styles.bold}>Address</div>
-      <div>{address}</div>
-      <Form>
-        <div>
-          <SelectBox labelText="Year" id="year" name="year" options={renderYearOptions()} />
-          <SelectBox labelText="Month" id="month" name="month" options={optionsMonth} />
-          <SelectBox labelText="Document Type" id="documentType" name="documentType" options={optionsDocumentType} />
-          <CameraImageInput labelText="Upload file/Take a picture" id="documentImage" name="documentImage" />
-        </div>
-        <div className={styles.moreThreeYearLink}>
-          <a
-            data-test="more-three-year"
-            onClick={handleMoreThreeYear({ setShowMoreThreeYearInput, isShowMoreThreeYearInput })}
-          >
-            More than 3 year?
-          </a>
-        </div>
-        {renderExtraForm(isShowMoreThreeYearInput)}
-        <div className={styles.footerBtn}>
-          <Button className="mr-2" variant="primary" type="submit">
-            Submit
-          </Button>
-          <Button className="mr-2" variant="primary" type="button" onClick={onNextHandler}>
-            Next
-          </Button>
-          <Button variant="primary" type="button" onClick={onPrevHandler}>
-            Previous
-          </Button>
-        </div>
-      </Form>
-    </div>
+    <Form>
+      {addresses.map((_, index) => {
+        return <AddressInput key={index} index={index} values={values} setFieldValue={setFieldValue} />
+      })}
+      <div className={styles.moreThreeYearLink}>
+        <a
+          data-test="more-three-year"
+          onClick={handleMoreThreeYear({ setShowMoreThreeYearInput, isShowMoreThreeYearInput })}
+        >
+          More than 3 year?
+        </a>
+      </div>
+      {renderExtraForm({ isShowMoreThreeYearInput, values, setFieldValue, index: addresses.length })}
+      <div className={styles.footerBtn}>
+        <Button className="mr-2" variant="primary" type="submit">
+          Submit
+        </Button>
+        <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
+          Previous
+        </Button>
+        <Button variant="primary" type="button" onClick={onNextHandler}>
+          Next
+        </Button>
+      </div>
+    </Form>
   )
 }
 
@@ -129,14 +227,15 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
   onHandleSubmit
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
-  const address = combineAdress(contact.addresses)
   return (
     <div>
       <Formik
-        initialValues={{}}
+        initialValues={{
+          addresses: contact.addresses || []
+        }}
         onSubmit={onHandleSubmit}
         render={renderForm({
-          address,
+          addresses: contact.addresses,
           isShowMoreThreeYearInput,
           setShowMoreThreeYearInput,
           onNextHandler,
@@ -160,13 +259,21 @@ export const mapStateToProps = (state: ReduxState): MappedProps => {
 export type MappedActions = {
   onNextHandler: () => void
   onPrevHandler: () => void
-  onHandleSubmit: (values: any) => void
+  onHandleSubmit: (values: AddressModel[]) => void
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch): MappedActions => {
+export type OwnPropsProps = {
+  id: string
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnPropsProps): MappedActions => {
   return {
-    onHandleSubmit: values => {
-      console.log(values)
+    onHandleSubmit: (values: any) => {
+      const newValues = {
+        ...values,
+        id: ownProps.id
+      }
+      dispatch(checkListDetailAddressUpdateData(newValues))
     },
     onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
     onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.ADDRESS_INFORMATION))

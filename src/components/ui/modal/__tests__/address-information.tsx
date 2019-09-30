@@ -8,7 +8,8 @@ import {
   handleMoreThreeYear,
   renderExtraForm,
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  AddressInput
 } from '../address-information'
 
 describe('AddressInformation', () => {
@@ -25,7 +26,7 @@ describe('AddressInformation', () => {
 
   it('renderForm', () => {
     const mockProps = {
-      address: contact.addresses,
+      addresses: contact.addresses,
       isShowMoreThreeYearInput: true,
       setShowMoreThreeYearInput: jest.fn(),
       loading: false,
@@ -33,7 +34,7 @@ describe('AddressInformation', () => {
       onPrevHandler: jest.fn()
     }
     const fn = renderForm(mockProps)
-    const component = fn()
+    const component = fn({ values: contact.addresses, setFieldValue: jest.fn() })
     expect(component).toBeDefined()
   })
 
@@ -48,19 +49,37 @@ describe('AddressInformation', () => {
   })
   describe('renderExtraForm', () => {
     it('should match Snapshot', () => {
-      const component = renderExtraForm(true)
+      const mockProps = {
+        isShowMoreThreeYearInput: true,
+        values: contact.addresses[0],
+        index: 0,
+        setFieldValue: jest.fn()
+      }
+      const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
     it('should return component', () => {
-      const component = renderExtraForm(true)
+      const mockProps = {
+        isShowMoreThreeYearInput: true,
+        values: contact.addresses[0],
+        index: 0,
+        setFieldValue: jest.fn()
+      }
+      const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
-      expect(wrapper.find('Input')).toHaveLength(1)
+      expect(wrapper.find('[data-test="address-input"]')).toHaveLength(1)
     })
-    it('should return component', () => {
-      const component = renderExtraForm(false)
+    it('should not return component', () => {
+      const mockProps = {
+        isShowMoreThreeYearInput: false,
+        values: contact.addresses[0],
+        index: 0,
+        setFieldValue: jest.fn()
+      }
+      const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
-      expect(wrapper.find('Input')).toHaveLength(0)
+      expect(wrapper.find('[data-test="address-input"]')).toHaveLength(0)
     })
   })
 
@@ -90,15 +109,33 @@ describe('AddressInformation', () => {
   describe('mapDispatchToProps', () => {
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
-      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      const mockOwnProps = {
+        id: '1'
+      }
+      const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
       onNextHandler()
       expect(mockDispatch).toBeCalled()
     })
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
-      const { onPrevHandler } = mapDispatchToProps(mockDispatch)
+      const mockOwnProps = {
+        id: '1'
+      }
+      const { onPrevHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
       onPrevHandler()
       expect(mockDispatch).toBeCalled()
+    })
+  })
+
+  describe('AddressInput', () => {
+    it('should render correctly', () => {
+      const mockProps = {
+        index: 0,
+        values: contact.addresses,
+        setFieldValue: jest.fn()
+      }
+      const wrapper = shallow(<AddressInput {...mockProps} />)
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })
