@@ -18,10 +18,11 @@ export const renderForm = ({ onNextHandler, isSubmitting }) => () => {
       <DatePicker labelText="Date Of Birth" id="dateOfBirth" name="dateOfBirth" />
       <Input type="text" labelText="Home" id="home" name="home" />
       <Input type="text" labelText="Mobile" id="mobile" name="mobile" />
+      <Input type="text" labelText="Work" id="work" name="work" />
       <Input type="text" labelText="Email" id="email" name="email" />
       <div className="flex justify-end">
         <Button loading={isSubmitting} type="submit" className="mr-2" variant="primary">
-          Submit
+          Save
         </Button>
         <Button
           disabled={isSubmitting}
@@ -70,6 +71,7 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubm
           surname: contact.surname,
           dateOfBirth: contact.dateOfBirth ? new Date(contact.dateOfBirth) : null,
           home: filterCommunication(contact.communications, 'Home'),
+          work: filterCommunication(contact.communications, 'Work'),
           mobile: filterCommunication(contact.communications, 'Mobile'),
           email: filterCommunication(contact.communications, 'E-Mail')
         }}
@@ -95,6 +97,7 @@ export const mapDispatchToProps = (dispatch: Dispatch, ownProps) => {
         communications: [
           { label: 'Home', detail: values.home },
           { label: 'Mobile', detail: values.mobile },
+          { label: 'Work', detail: values.work },
           { label: 'E-Mail', detail: values.email }
         ],
         id: ownProps.id

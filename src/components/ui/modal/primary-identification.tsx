@@ -8,7 +8,6 @@ import { checkListDetailShowModal } from '@/actions/checklist-detail'
 
 export const PrimaryIdentification = ({ data, loading, updateIdentification, onNextHandler, onPrevHandler }) => (
   <Identification
-    title="Primary ID"
     loading={loading}
     data={data}
     onSaveHandler={updateIdentification}

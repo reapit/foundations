@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Formik, Form } from 'formik'
 import { CreateIdentityDocumentModel } from '@/types/contact-api-schema'
 import { Button, Input, FileInput, DatePicker } from '@reapit/elements'
-import bulma from '@/styles/vendor/bulma'
 import SelectIdentity from '../inputs/select-identity'
 
 export type IdentificationFormValues = {
@@ -13,7 +12,6 @@ export type IdentificationFormValues = {
 }
 
 export type IdentificationProps = {
-  title: string
   data: CreateIdentityDocumentModel
   loading: boolean
   onSaveHandler: () => void
@@ -59,25 +57,19 @@ export const renderFormHandler = ({ loading, onNextHandler, onPrevHandler }) => 
 export const onSubmitHandler = (values, onSaveHandler) => onSaveHandler(values)
 
 export const Identification: React.FC<IdentificationProps> = ({
-  title,
   loading,
   onSaveHandler,
   onNextHandler,
   onPrevHandler
 }) => {
-  const { subtitle } = bulma
   const initialValues = initialFormValues
 
   return (
-    <Fragment>
-      <h3 className={subtitle}>{title}</h3>
-
-      <Formik
-        initialValues={initialValues}
-        onSubmit={(values: IdentificationFormValues) => onSubmitHandler(values, onSaveHandler)}
-        render={() => renderFormHandler({ loading, onNextHandler, onPrevHandler })}
-      />
-    </Fragment>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={(values: IdentificationFormValues) => onSubmitHandler(values, onSaveHandler)}
+      render={() => renderFormHandler({ loading, onNextHandler, onPrevHandler })}
+    />
   )
 }
 
