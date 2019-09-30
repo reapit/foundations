@@ -89,9 +89,11 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   loading,
   hideModal,
   showModal,
-  isSubmitting,
   contact,
-  modalContentType
+  modalContentType,
+  match: {
+    params: { id }
+  }
 }) => {
   if (loading) {
     return <Loader />
@@ -122,10 +124,10 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
       </div>
       {renderSections(sections)}
       <Modal
+        id={id}
         contact={contact}
         visible={isModalVisible}
         afterClose={hideModal}
-        isSubmitting={isSubmitting}
         modalContentType={modalContentType}
       />
     </ErrorBoundary>
@@ -135,7 +137,6 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
 export type HomeMappedProps = {
   isModalVisible: boolean
   loading: boolean
-  isSubmitting: boolean
   contact: ContactModel | {}
   modalContentType: string
 }
@@ -143,7 +144,6 @@ export type HomeMappedProps = {
 export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   isModalVisible: oc(state).checklistDetail.isModalVisible(false),
   loading: oc(state).checklistDetail.loading(true),
-  isSubmitting: oc(state).checklistDetail.isSubmitting(false),
   contact: oc(state).checklistDetail.checklistDetailData.contact({}),
   modalContentType: oc(state).checklistDetail.modalContentType('PROFILE')
 })

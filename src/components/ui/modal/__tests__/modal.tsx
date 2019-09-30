@@ -1,12 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import ProfileModal, { renderContent } from '../modal'
+import ProfileModal, { renderContent, combineName } from '../modal'
 import { contact } from '@/sagas/__stubs__/contact'
 
 describe('Modal', () => {
   describe('renderContent', () => {
     it('should return Profile', () => {
       const mockProps = {
+        id: '123',
         modalContentType: 'PROFILE',
         contact: contact,
         isSubmitting: false
@@ -20,6 +21,7 @@ describe('Modal', () => {
   describe('ProfileModal', () => {
     it('should match snapshot', () => {
       const mockProps = {
+        id: '123',
         contact: contact,
         visible: true,
         afterClose: jest.fn(),
@@ -29,6 +31,14 @@ describe('Modal', () => {
       const wrapper = shallow(<ProfileModal {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
       expect(wrapper.find('Modal')).toHaveLength(1)
+    })
+  })
+
+  describe('combineName', () => {
+    it('should run correctly', () => {
+      const result = combineName(contact)
+      const expected = 'Ms Saoirse Chadwick'
+      expect(result).toEqual(expected)
     })
   })
 })

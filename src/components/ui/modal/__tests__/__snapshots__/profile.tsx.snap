@@ -6,123 +6,32 @@ exports[` 1`] = `
     enableReinitialize={false}
     initialValues={
       Object {
-        "address": " Tilbrook Farm Station Road Bow Brickhill Milton Keynes Buckinghamshire MK17 9JU",
         "dateOfBirth": null,
         "email": "schadwick512@rpsfiction.net",
+        "forename": "Saoirse",
         "home": "01632 961556",
         "mobile": "07700 901556",
-        "name": "Ms Saoirse Chadwick",
+        "surname": "Chadwick",
+        "title": "Ms",
       }
     }
     isInitialValid={false}
-    onSubmit={[Function]}
+    onSubmit={[MockFunction]}
     render={[Function]}
     validateOnBlur={true}
     validateOnChange={true}
   />
-  <div
-    className="flex justify-end"
-  >
-    <Button
-      className="mr-2"
-      onClick={[Function]}
-      type="submit"
-      variant="primary"
-    >
-      Submit
-    </Button>
-    <Button
-      dataTest="submit-revision-modal-edit-button"
-      onClick={[MockFunction]}
-      type="button"
-      variant="primary"
-    >
-      Next
-    </Button>
-  </div>
 </div>
 `;
 
 exports[`profile renderForm should match snapshot 1`] = `
 <div>
-  <Form>
-    <Input
-      id="name"
-      labelText="Name"
-      name="name"
-      type="text"
-    />
-    <DatePicker
-      id="dateOfBirth"
-      labelText="Date Of Birth"
-      name="dateOfBirth"
-    />
-    <Input
-      id="address"
-      labelText="Address"
-      name="address"
-      type="text"
-    />
-    <Input
-      id="home"
-      labelText="Home"
-      name="home"
-      type="text"
-    />
-    <Input
-      id="mobile"
-      labelText="Mobile"
-      name="mobile"
-      type="text"
-    />
-    <Input
-      id="email"
-      labelText="Email"
-      name="email"
-      type="text"
-    />
-  </Form>
+  <Component />
 </div>
 `;
 
 exports[`profile renderForm should match snapshot 2`] = `
 <div>
-  <Form>
-    <Input
-      id="name"
-      labelText="Name"
-      name="name"
-      type="text"
-    />
-    <DatePicker
-      id="dateOfBirth"
-      labelText="Date Of Birth"
-      name="dateOfBirth"
-    />
-    <Input
-      id="address"
-      labelText="Address"
-      name="address"
-      type="text"
-    />
-    <Input
-      id="home"
-      labelText="Home"
-      name="home"
-      type="text"
-    />
-    <Input
-      id="mobile"
-      labelText="Mobile"
-      name="mobile"
-      type="text"
-    />
-    <Input
-      id="email"
-      labelText="Email"
-      name="email"
-      type="text"
-    />
-  </Form>
+  <Component />
 </div>
 `;

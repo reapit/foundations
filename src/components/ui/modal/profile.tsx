@@ -5,19 +5,34 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { oc } from 'ts-optchain'
 import { ReduxState } from '@/types/core'
-import { CommunicationModel, AddressModel, ContactModel } from '@/types/contact-api-schema'
-import { checkListDetailShowModal } from '@/actions/checklist-detail'
+import { CommunicationModel, ContactModel } from '@/types/contact-api-schema'
+import { checkListDetailShowModal, checkListDetailUpdateData } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
 
-export const renderForm = () => {
+export const renderForm = ({ onNextHandler, isSubmitting }) => () => {
   return (
     <Form>
-      <Input type="text" labelText="Name" id="name" name="name" />
+      <Input type="text" labelText="Title" id="title" name="title" />
+      <Input type="text" labelText="Forename" id="forename" name="forename" />
+      <Input type="text" labelText="Surname" id="surname" name="surname" />
       <DatePicker labelText="Date Of Birth" id="dateOfBirth" name="dateOfBirth" />
-      <Input type="text" labelText="Address" id="address" name="address" />
       <Input type="text" labelText="Home" id="home" name="home" />
       <Input type="text" labelText="Mobile" id="mobile" name="mobile" />
       <Input type="text" labelText="Email" id="email" name="email" />
+      <div className="flex justify-end">
+        <Button loading={isSubmitting} type="submit" className="mr-2" variant="primary">
+          Submit
+        </Button>
+        <Button
+          disabled={isSubmitting}
+          type="button"
+          variant="primary"
+          dataTest="submit-revision-modal-edit-button"
+          onClick={onNextHandler}
+        >
+          Next
+        </Button>
+      </div>
     </Form>
   )
 }
@@ -38,104 +53,53 @@ export const filterCommunication = (
   return null
 }
 
-export const combineAdress = (addresses: AddressModel[] | undefined): string => {
-  let addressCombined = ''
-  if (!addresses || (addresses && addresses.length === 0)) {
-    return addressCombined
-  }
-  const address = addresses[0]
-  if (address.buildingNumber) {
-    addressCombined = addressCombined.concat(`${address.buildingNumber}`)
-  }
-  if (address.buildingName) {
-    addressCombined = addressCombined.concat(` ${address.buildingName}`)
-  }
-  if (address.line1) {
-    addressCombined = addressCombined.concat(` ${address.line1}`)
-  }
-  if (address.line2) {
-    addressCombined = addressCombined.concat(` ${address.line2}`)
-  }
-  if (address.line3) {
-    addressCombined = addressCombined.concat(` ${address.line3}`)
-  }
-  if (address.line4) {
-    addressCombined = addressCombined.concat(` ${address.line4}`)
-  }
-  if (address.postcode) {
-    addressCombined = addressCombined.concat(` ${address.postcode}`)
-  }
-  return addressCombined
-}
-
-export const combineName = (contact: ContactModel) => {
-  let nameCombined = ''
-  if (!contact) {
-    return nameCombined
-  }
-  if (contact.title) {
-    nameCombined = nameCombined.concat(`${contact.title}`)
-  }
-  if (contact.forename) {
-    nameCombined = nameCombined.concat(` ${contact.forename}`)
-  }
-  if (contact.surname) {
-    nameCombined = nameCombined.concat(` ${contact.surname}`)
-  }
-  return nameCombined
-}
-
-export type Profile = {
+export type ProfileProps = {
   onNextHandler: () => void
   contact: ContactModel
+  onSubmitHandler: (values) => void
+  isSubmitting: boolean
 }
 
-export const Profile: React.FC<Profile> = ({ contact, onNextHandler }) => {
+export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubmitHandler, isSubmitting }) => {
   return (
     <div>
       <Formik
         initialValues={{
-          name: `${contact.title} ${contact.forename} ${contact.surname}`,
+          title: contact.title,
+          forename: contact.forename,
+          surname: contact.surname,
           dateOfBirth: contact.dateOfBirth ? new Date(contact.dateOfBirth) : null,
-          address: combineAdress(contact.addresses),
           home: filterCommunication(contact.communications, 'Home'),
           mobile: filterCommunication(contact.communications, 'Mobile'),
           email: filterCommunication(contact.communications, 'E-Mail')
         }}
-        onSubmit={values => {
-          console.log(values)
-        }}
-        render={renderForm}
+        onSubmit={onSubmitHandler}
+        render={renderForm({ onNextHandler, isSubmitting })}
       />
-      <div className="flex justify-end">
-        <Button
-          type="submit"
-          className="mr-2"
-          variant="primary"
-          onClick={() => {
-            return null
-          }}
-        >
-          Submit
-        </Button>
-        <Button type="button" variant="primary" dataTest="submit-revision-modal-edit-button" onClick={onNextHandler}>
-          Next
-        </Button>
-      </div>
     </div>
   )
 }
 
 export const mapStateToProps = (state: ReduxState) => {
   return {
+    isSubmitting: oc(state).checklistDetail.isSubmitting(false),
     contact: oc(state).checklistDetail.checklistDetailData.contact({})
   }
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch) => {
+export const mapDispatchToProps = (dispatch: Dispatch, ownProps) => {
   return {
     onSubmitHandler: values => {
-      console.log(values)
+      const newValues: ContactModel = {
+        ...values,
+        communications: [
+          { label: 'Home', detail: values.home },
+          { label: 'Mobile', detail: values.mobile },
+          { label: 'E-Mail', detail: values.email }
+        ],
+        id: ownProps.id
+      }
+      dispatch(checkListDetailUpdateData(newValues))
     },
     onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.PRIMARY_IDENTIFICATION))
   }

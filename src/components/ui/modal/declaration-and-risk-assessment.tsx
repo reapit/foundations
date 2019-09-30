@@ -57,7 +57,7 @@ export type DeclarationAndRiskAssessmentProps = {
 }
 
 export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessmentProps> = ({
-  contact,
+  // contact,
   onNextHandler,
   onPrevHandler,
   onHandleSubmit
