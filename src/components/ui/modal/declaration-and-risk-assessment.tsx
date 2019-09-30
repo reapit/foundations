@@ -37,11 +37,11 @@ export const renderForm = ({ onNextHandler, onPrevHandler }) => () => {
           <Button className="mr-2" variant="primary" type="submit">
             Save
           </Button>
-          <Button className="mr-2" variant="primary" type="button" onClick={onNextHandler}>
-            Next
-          </Button>
-          <Button variant="primary" type="button" onClick={onPrevHandler}>
+          <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
             Previous
+          </Button>
+          <Button variant="primary" type="button" onClick={onNextHandler}>
+            Next
           </Button>
         </div>
       </Form>

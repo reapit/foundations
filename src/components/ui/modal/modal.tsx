@@ -32,7 +32,7 @@ export const renderContent = ({ modalContentType, id }) => {
     case STEPS.SECONDARY_IDENTIFICATION:
       return <SecondaryIdentification />
     case STEPS.ADDRESS_INFORMATION:
-      return <AddressInformation />
+      return <AddressInformation id={id} />
     case STEPS.REPORT:
       return <Report />
     case STEPS.DECLARATION_RISK_MANAGEMENT:

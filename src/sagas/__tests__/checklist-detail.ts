@@ -15,12 +15,15 @@ import {
   updateChecklistDetail,
   checklistDetailDataListen,
   checklistDetailSagas,
-  checkListDetailUpdateListen
+  checkListDetailUpdateListen,
+  checkListDetailAddressUpdateListen,
+  updateAddressHistory
 } from '../checklist-detail'
 import { contact } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+import { ContactModel } from '@/types/contact-api-schema'
 
 jest.mock('../../core/store')
 
@@ -29,7 +32,7 @@ const mockHeaders = {
 }
 
 describe('checklist-detail fetch data', () => {
-  const id = '123'
+  const id = 'MKC16000098"'
   const gen = cloneableGenerator(checklistDetailDataFetch)({ data: id })
   expect(gen.next().value).toEqual(put(checklistDetailLoading(true)))
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -65,8 +68,60 @@ describe('checklist-detail fetch data', () => {
 })
 
 describe('checklist-detail updateChecklistDetail', () => {
-  const id = '123'
-  const gen = cloneableGenerator(updateChecklistDetail)({ data: { id, name: '123' } })
+  const id = 'MKC16000098'
+  const gen = cloneableGenerator(updateChecklistDetail)({ data: contact })
+  expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
+  expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+  const mockBody = {
+    ...contact
+  }
+  delete mockBody.id
+  expect(gen.next(mockHeaders as any).value).toEqual(
+    call(fetcher, {
+      url: `${URLS.contacts}/${id}`,
+      api: REAPIT_API_BASE_URL,
+      method: 'PATCH',
+      headers: mockHeaders,
+      body: mockBody
+    })
+  )
+
+  test('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next(true as any).value).toEqual(
+      call(fetcher, {
+        url: `${URLS.contacts}/${id}`,
+        api: REAPIT_API_BASE_URL,
+        method: 'GET',
+        headers: mockHeaders
+      })
+    )
+    expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveData({ contact })))
+    expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
+    expect(clone.next().done).toBe(true)
+  })
+
+  test('api call fail', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
+      put(checkListDetailSubmitForm(false))
+    )
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
+    )
+    expect(clone.next().done).toBe(true)
+  })
+})
+
+describe('checklist-detail updateAddressHistory', () => {
+  const id = 'MKC16000098'
+  const gen = cloneableGenerator(updateAddressHistory)({ data: { id, addresses: contact.addresses } })
   expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
   expect(gen.next(mockHeaders as any).value).toEqual(
@@ -75,7 +130,7 @@ describe('checklist-detail updateChecklistDetail', () => {
       api: REAPIT_API_BASE_URL,
       method: 'PATCH',
       headers: mockHeaders,
-      body: { name: '123' }
+      body: { addresses: contact.addresses }
     })
   )
 
@@ -125,11 +180,39 @@ describe('check-list sagas', () => {
     })
   })
 
+  describe('checklist detail update listen', () => {
+    it('should request data when called', () => {
+      const gen = checkListDetailUpdateListen()
+
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_UPDATE_DATA, updateChecklistDetail)
+      )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('checklist detail update listen', () => {
+    it('should request data when called', () => {
+      const gen = checkListDetailAddressUpdateListen()
+
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_ADDRESS_UPDATE_DATA, updateAddressHistory)
+      )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
   describe('checklistDetailSagas', () => {
     it('should listen data request', () => {
       const gen = checklistDetailSagas()
 
-      expect(gen.next().value).toEqual(all([fork(checklistDetailDataListen), fork(checkListDetailUpdateListen)]))
+      expect(gen.next().value).toEqual(
+        all([
+          fork(checklistDetailDataListen),
+          fork(checkListDetailUpdateListen),
+          fork(checkListDetailAddressUpdateListen)
+        ])
+      )
       expect(gen.next().done).toBe(true)
     })
   })
