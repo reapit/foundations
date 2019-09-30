@@ -5,9 +5,11 @@ export interface InputProps {
   type: 'text' | 'password' | 'email' | 'tel' | 'hidden'
   placeholder?: string
   id: string
-  labelText: string
+  labelText?: string
   name: string
   dataTest?: string
+  value?: string | number | null
+  onChange?: () => void
 }
 
 export const Input = ({ type, name, labelText, id, dataTest, placeholder = '' }: InputProps) => (

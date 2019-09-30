@@ -3,7 +3,7 @@ export interface StringMap {
 }
 
 export interface FetcherParams<T> {
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE'
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
   api: string
   url: string
   headers: StringMap
