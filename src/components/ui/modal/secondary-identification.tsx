@@ -8,7 +8,6 @@ import { STEPS } from '@/components/ui/modal/modal'
 
 export const SecondaryIdentification = ({ data, loading, updateIdentification, onNextHandler, onPrevHandler }) => (
   <Identification
-    title="Secondary ID"
     loading={loading}
     data={data}
     onSaveHandler={updateIdentification}

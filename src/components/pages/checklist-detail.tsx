@@ -123,13 +123,7 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
         <AMLProgressBar title={`${title} ${forename} ${surname}`} />
       </div>
       {renderSections(sections)}
-      <Modal
-        id={id}
-        contact={contact}
-        visible={isModalVisible}
-        afterClose={hideModal}
-        modalContentType={modalContentType}
-      />
+      <Modal id={id} visible={isModalVisible} afterClose={hideModal} modalContentType={modalContentType} />
     </ErrorBoundary>
   )
 }

@@ -8,7 +8,8 @@ import { errorThrownServer } from '../actions/error'
 import {
   checklistDetailLoading,
   checklistDetailReceiveData,
-  checkListDetailSubmitForm
+  checkListDetailSubmitForm,
+  checkListDetailHideModal
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
 
@@ -55,6 +56,7 @@ export const updateChecklistDetail = function*({ data: { id, ...rest } }) {
       yield put(checklistDetailReceiveData({ contact: response }))
     }
     yield put(checkListDetailSubmitForm(false))
+    yield put(checkListDetailHideModal())
   } catch (err) {
     console.error(err.message)
     yield put(checkListDetailSubmitForm(false))

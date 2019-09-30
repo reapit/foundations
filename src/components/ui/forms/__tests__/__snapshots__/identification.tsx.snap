@@ -1,29 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`identification forms Identification should render correctly 1`] = `
-<Fragment>
-  <h3
-    className="subtitle"
-  >
-    title
-  </h3>
-  <Formik
-    enableReinitialize={false}
-    initialValues={
-      Object {
-        "expiredDate": undefined,
-        "filePaths": undefined,
-        "idRef": "",
-        "idType": "",
-      }
+<Formik
+  enableReinitialize={false}
+  initialValues={
+    Object {
+      "expiredDate": undefined,
+      "filePaths": undefined,
+      "idRef": "",
+      "idType": "",
     }
-    isInitialValid={false}
-    onSubmit={[Function]}
-    render={[Function]}
-    validateOnBlur={true}
-    validateOnChange={true}
-  />
-</Fragment>
+  }
+  isInitialValid={false}
+  onSubmit={[Function]}
+  render={[Function]}
+  validateOnBlur={true}
+  validateOnChange={true}
+/>
 `;
 
 exports[`identification forms renderFormHandler should render correctly 1`] = `

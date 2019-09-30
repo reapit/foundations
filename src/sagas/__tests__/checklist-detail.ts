@@ -4,7 +4,8 @@ import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import {
   checklistDetailLoading,
   checklistDetailReceiveData,
-  checkListDetailSubmitForm
+  checkListDetailSubmitForm,
+  checkListDetailHideModal
 } from '@/actions/checklist-detail'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
@@ -90,6 +91,7 @@ describe('checklist-detail updateChecklistDetail', () => {
     )
     expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveData({ contact })))
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
+    expect(clone.next().value).toEqual(put(checkListDetailHideModal()))
     expect(clone.next().done).toBe(true)
   })
 

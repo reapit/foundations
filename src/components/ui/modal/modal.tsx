@@ -5,20 +5,18 @@ import Report from './report'
 import AddressInformation from './address-information'
 import PrimaryIdentification from './primary-identification'
 import SecondaryIdentification from './secondary-identification'
-import { ContactModel } from '@/types/contact-api-schema'
 import DeclarationAndRiskAssessment from './declaration-and-risk-assessment'
 
 export const STEPS = {
-  PROFILE: 'PROFILE',
-  PRIMARY_IDENTIFICATION: 'PRIMARY_IDENTIFICATION',
-  SECONDARY_IDENTIFICATION: 'SECONDARY_IDENTIFICATION',
-  ADDRESS_INFORMATION: 'ADDRESS_INFORMATION',
-  REPORT: 'REPORT',
-  DECLARATION_RISK_MANAGEMENT: 'DECLARATION_RISK_MANAGEMENT'
+  PROFILE: '‘Personal Details',
+  PRIMARY_IDENTIFICATION: 'Primary Identification',
+  SECONDARY_IDENTIFICATION: 'Secondary Identification',
+  ADDRESS_INFORMATION: 'Address Information',
+  REPORT: 'Report',
+  DECLARATION_RISK_MANAGEMENT: 'Declaration Risk Management'
 }
 
 export type ProfileModalProps = {
-  contact: ContactModel
   modalContentType: string
   visible: boolean
   id: string
@@ -44,32 +42,14 @@ export const renderContent = ({ modalContentType, id }) => {
   }
 }
 
-export const combineName = (contact: ContactModel) => {
-  let nameCombined = ''
-  if (!contact) {
-    return nameCombined
-  }
-  if (contact.title) {
-    nameCombined = nameCombined.concat(`${contact.title}`)
-  }
-  if (contact.forename) {
-    nameCombined = nameCombined.concat(` ${contact.forename}`)
-  }
-  if (contact.surname) {
-    nameCombined = nameCombined.concat(` ${contact.surname}`)
-  }
-  return nameCombined
-}
-
 export const ProfileModal: React.FC<ProfileModalProps> = ({
-  contact,
   visible,
   afterClose,
-  modalContentType = 'PROFILE',
+  modalContentType = STEPS.PROFILE,
   id
 }) => {
   return (
-    <Modal title={combineName(contact)} visible={visible} size="medium" afterClose={afterClose}>
+    <Modal title={modalContentType} visible={visible} size="medium" afterClose={afterClose}>
       <div>{renderContent({ modalContentType, id })}</div>
     </Modal>
   )

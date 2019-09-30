@@ -4,21 +4,11 @@ exports[`Modal ProfileModal should match snapshot 1`] = `
 <Modal
   afterClose={[MockFunction]}
   size="medium"
-  title="Ms Saoirse Chadwick"
+  title="PROFILE"
   visible={true}
 >
-  <div>
-    <ProfileInformationWithRedux
-      id="123"
-    />
-  </div>
+  <div />
 </Modal>
 `;
 
-exports[`Modal renderContent should return Profile 1`] = `
-<div>
-  <ProfileInformationWithRedux
-    id="123"
-  />
-</div>
-`;
+exports[`Modal renderContent should return Profile 1`] = `<div />`;
