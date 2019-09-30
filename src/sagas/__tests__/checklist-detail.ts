@@ -98,6 +98,7 @@ describe('checklist-detail updateChecklistDetail', () => {
     )
     expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveData({ contact })))
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
+    expect(clone.next().value).toEqual(put(checkListDetailHideModal()))
     expect(clone.next().done).toBe(true)
   })
 
@@ -146,7 +147,6 @@ describe('checklist-detail updateAddressHistory', () => {
     )
     expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveData({ contact })))
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
-    expect(clone.next().value).toEqual(put(checkListDetailHideModal()))
     expect(clone.next().done).toBe(true)
   })
 

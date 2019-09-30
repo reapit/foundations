@@ -62,9 +62,9 @@ export const generateSection = (onClick: (modalType: string) => () => void) => {
     },
     {
       title: 'Report ',
-      isCompleted: true,
+      isCompleted: false,
       onEdit: onClick(STEPS.REPORT),
-      buttonText: 'Edit'
+      buttonText: 'View'
     }
   ]
 }
