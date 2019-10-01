@@ -26,7 +26,7 @@
     "test-e2e:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e\" -k"
   },
   "dependencies": {
-    "@reapit/elements": "0.2.6",
+    "@reapit/elements": "0.2.8",
     "bulma": "^0.7.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

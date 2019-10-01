@@ -6,6 +6,7 @@ import AddressInformation from './address-information'
 import PrimaryIdentification from './primary-identification'
 import SecondaryIdentification from './secondary-identification'
 import DeclarationAndRiskAssessment from './declaration-and-risk-assessment'
+import AgentCheck from './agent-check'
 
 export const STEPS = {
   PROFILE: '‘Personal Details',
@@ -13,7 +14,10 @@ export const STEPS = {
   SECONDARY_IDENTIFICATION: 'Secondary Identification',
   ADDRESS_INFORMATION: 'Address Information',
   REPORT: 'Report',
-  DECLARATION_RISK_MANAGEMENT: 'Declaration Risk Management'
+  DECLARATION_RISK_MANAGEMENT: 'Declaration Risk Management',
+  AGENT_CHECK: 'Agent Check',
+  EXPERIAN: 'Experian',
+  PEP_SEARCH: 'PEP Search'
 }
 
 export type ProfileModalProps = {
@@ -37,6 +41,8 @@ export const renderContent = ({ modalContentType, id }) => {
       return <Report />
     case STEPS.DECLARATION_RISK_MANAGEMENT:
       return <DeclarationAndRiskAssessment />
+    case STEPS.AGENT_CHECK:
+      return <AgentCheck id={id} />
     default:
       return null
   }

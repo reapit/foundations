@@ -2,7 +2,7 @@ import { fetcher } from '@reapit/elements'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
+import { URLS, REAPIT_API_BASE_URL, UPLOAD_FILE_BASE_URL } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '../actions/error'
 import {
