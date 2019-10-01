@@ -69,38 +69,45 @@ export const renderCheckMark = (isConfirmed: boolean | undefined) => {
   return <TiTick className={styles.appointmentDetailIsConfirmed} />
 }
 
-export const renderAttendees = (attendees: AttendeeModel[] | undefined) => {
+export const renderAttendees = (appointment: AppointmentModel) => {
+  const attendees = appointment.attendees
+  const address = oc(appointment).property.address()
+
   if (!attendees) {
     return null
   }
-  return attendees.map((attendee: AttendeeModel, index: number) => {
+  return attendees.map((attendee: AttendeeModel) => {
     return (
-      <AppointmentTile key={index} hightlight={false} heading={`${oc(attendee).name('No Attendee Name')}`}>
-        <div>{renderCommunicationDetail(attendee.communicationDetails)}</div>
-      </AppointmentTile>
+      <div key={appointment.id}>
+        <h3 className={styles.title}>{oc(attendee).name('No Attendee Name')}</h3>
+        {renderAddress(address)}
+        <div className="my-5">{renderCommunicationDetail(attendee.communicationDetails)}</div>
+      </div>
     )
   })
 }
 
-export const renderAddress = (address: AddressModel | undefined, appointment: AppointmentModel) => {
+export const renderAddress = (address: AddressModel | undefined) => {
   if (!address) {
     return null
   }
-  const heading = `
-      ${renderStartAndEndDate(appointment.start || '', appointment.end || '')},
-      ${address.buildingName}
-      ${address.buildingNumber}
-      ${address.line1}, Ref: ${appointment.id}
-  `
   return (
-    <AppointmentTile hightlight={false} heading={heading}>
-      <ul>
-        <li>
-          Address: {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3}{' '}
-          {address.line4} {address.postcode} {address.country}
-        </li>
-      </ul>
-    </AppointmentTile>
+    <div>
+      {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3} {address.line4}{' '}
+      {address.postcode} {address.country}
+    </div>
+  )
+}
+
+export const renderDateTime = (address: AddressModel | undefined, appointment: AppointmentModel) => {
+  if (!address) {
+    return null
+  }
+  return (
+    <div className={styles.dateTime}>
+      {renderStartAndEndDate(appointment.start || '', appointment.end || '')}, {address.buildingName}
+      {address.buildingNumber} {address.line1}
+    </div>
   )
 }
 
@@ -109,9 +116,10 @@ export const renderNotes = (description: string | undefined) => {
     return null
   }
   return (
-    <AppointmentTile hightlight={false} heading="Notes">
-      <div className={styles.appointmentDetailSectionContent}>{description}</div>
-    </AppointmentTile>
+    <div className={styles.notes}>
+      <h5 className={styles.subTitle}>Notes:</h5>
+      <p>{description}</p>
+    </div>
   )
 }
 
@@ -142,9 +150,10 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment,
         <Loader />
       ) : (
         <div className={styles.root}>
-          {renderAddress(oc(appointment).property.address(), appointment)}
-          {renderAttendees(appointment.attendees)}
+          <div className={styles.ref}>Ref:{appointment.id}</div>
+          {renderAttendees(appointment)}
           {renderNotes(appointment.description)}
+          {renderDateTime(oc(appointment).property.address(), appointment)}
           {renderDirections(appointment.directions)}
         </div>
       )}

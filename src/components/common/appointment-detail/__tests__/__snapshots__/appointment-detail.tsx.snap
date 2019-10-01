@@ -7,74 +7,93 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
   visible={true}
 >
   <div>
-    <AppointmentTile
-      heading="
-      18 Dec 2016 04:30 PM - 05:30 PM,
-      
+    <div>
+      Ref:
+      BED1600597
+    </div>
+    <div
+      key="BED1600597"
+    >
+      <h3>
+        Chase MacLean
+      </h3>
+      <div>
+         
+        65
+         
+        Lindsey Close
+         
+        Great Denham
+         
+        Bedford
+         
+        Bedfordshire
+         
+        MK40 4GT
+         
+      </div>
+      <div
+        className="my-5"
+      >
+        <div
+          key="0"
+        >
+          <div>
+            <TiMail />
+            <a
+              href="mailto:chase.maclean@reapitestates.net"
+            >
+              chase.maclean@reapitestates.net
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      key="BED1600597"
+    >
+      <h3>
+        Chase MacLean
+      </h3>
+      <div>
+         
+        65
+         
+        Lindsey Close
+         
+        Great Denham
+         
+        Bedford
+         
+        Bedfordshire
+         
+        MK40 4GT
+         
+      </div>
+      <div
+        className="my-5"
+      >
+        <div
+          key="0"
+        >
+          <div>
+            <TiMail />
+            <a
+              href="mailto:chase.maclean@reapitestates.net"
+            >
+              chase.maclean@reapitestates.net
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      18 Dec 2016 04:30 PM - 05:30 PM
+      , 
       65
-      Lindsey Close, Ref: BED1600597
-  "
-      hightlight={false}
-    >
-      <ul>
-        <li>
-          Address: 
-           
-          65
-           
-          Lindsey Close
-           
-          Great Denham
-           
-          Bedford
-           
-          Bedfordshire
-           
-          MK40 4GT
-           
-        </li>
-      </ul>
-    </AppointmentTile>
-    <AppointmentTile
-      heading="Chase MacLean"
-      hightlight={false}
-      key="0"
-    >
-      <div>
-        <div
-          key="0"
-        >
-          <div>
-            <TiMail />
-            <a
-              href="mailto:chase.maclean@reapitestates.net"
-            >
-              chase.maclean@reapitestates.net
-            </a>
-          </div>
-        </div>
-      </div>
-    </AppointmentTile>
-    <AppointmentTile
-      heading="Chase MacLean"
-      hightlight={false}
-      key="1"
-    >
-      <div>
-        <div
-          key="0"
-        >
-          <div>
-            <TiMail />
-            <a
-              href="mailto:chase.maclean@reapitestates.net"
-            >
-              chase.maclean@reapitestates.net
-            </a>
-          </div>
-        </div>
-      </div>
-    </AppointmentTile>
+       
+      Lindsey Close
+    </div>
   </div>
 </Modal>
 `;
@@ -91,44 +110,33 @@ exports[`AppointmentModal AppointmentModal should render correctly when loading 
 
 exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
 <div>
-  <AppointmentTile
-    heading="
-      18 Dec 2016 04:30 PM - 05:30 PM,
-      
-      65
-      Lindsey Close, Ref: BED1600597
-  "
-    hightlight={false}
-  >
-    <ul>
-      <li>
-        Address: 
-         
-        65
-         
-        Lindsey Close
-         
-        Great Denham
-         
-        Bedford
-         
-        Bedfordshire
-         
-        MK40 4GT
-         
-      </li>
-    </ul>
-  </AppointmentTile>
+  <div>
+     
+    65
+     
+    Lindsey Close
+     
+    Great Denham
+     
+    Bedford
+     
+    Bedfordshire
+     
+    MK40 4GT
+     
+  </div>
 </div>
 `;
 
 exports[`AppointmentModal renderAttendees should matchSnapshot 1`] = `
 Array [
-  <AppointmentTile
-    heading="Chase MacLean"
-    hightlight={false}
-  >
-    <div>
+  <div>
+    <h3>
+      Chase MacLean
+    </h3>
+    <div
+      className="my-5"
+    >
       <div>
         <div>
           <TiMail />
@@ -140,12 +148,14 @@ Array [
         </div>
       </div>
     </div>
-  </AppointmentTile>,
-  <AppointmentTile
-    heading="Chase MacLean"
-    hightlight={false}
-  >
-    <div>
+  </div>,
+  <div>
+    <h3>
+      Chase MacLean
+    </h3>
+    <div
+      className="my-5"
+    >
       <div>
         <div>
           <TiMail />
@@ -157,7 +167,7 @@ Array [
         </div>
       </div>
     </div>
-  </AppointmentTile>,
+  </div>,
 ]
 `;
 
@@ -205,13 +215,13 @@ exports[`AppointmentModal renderDirections should matchSnapshot 1`] = `
 
 exports[`AppointmentModal renderNotes should matchSnapshot 1`] = `
 <div>
-  <AppointmentTile
-    heading="Notes"
-    hightlight={false}
-  >
-    <div>
+  <div>
+    <h5>
+      Notes:
+    </h5>
+    <p>
       123
-    </div>
-  </AppointmentTile>
+    </p>
+  </div>
 </div>
 `;

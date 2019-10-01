@@ -131,7 +131,7 @@ describe('AppointmentModal', () => {
         },
         attendees: []
       }
-      const data = renderAddress(input.property.address, input)
+      const data = renderAddress(input.property.address)
       const wrapper = shallow(<div>{data}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -163,78 +163,84 @@ describe('AppointmentModal', () => {
         },
         attendees: []
       }
-      const data = renderAddress(input.property.address, input)
+      const data = renderAddress(input.property.address)
       expect(data).not.toBeNull()
     })
     it('should run correctly and show Today', () => {
-      const data = renderAddress(undefined as any, undefined as any)
+      const data = renderAddress(undefined)
       expect(data).toBeNull()
     })
   })
 
   describe('renderAttendees', () => {
     it('should matchSnapshot', () => {
-      const input = [
-        {
-          id: 'JJS',
-          type: 'negotiator',
-          name: 'Chase MacLean',
-          confirmed: true,
-          communicationDetails: [
-            {
-              label: 'E-Mail',
-              detail: 'chase.maclean@reapitestates.net'
-            }
-          ]
-        },
-        {
-          id: 'JJS',
-          type: 'seller',
-          name: 'Chase MacLean',
-          confirmed: true,
-          communicationDetails: [
-            {
-              label: 'E-Mail',
-              detail: 'chase.maclean@reapitestates.net'
-            }
-          ]
-        }
-      ]
+      const input = {
+        attendees: [
+          {
+            id: 'JJS',
+            type: 'negotiator',
+            name: 'Chase MacLean',
+            confirmed: true,
+            communicationDetails: [
+              {
+                label: 'E-Mail',
+                detail: 'chase.maclean@reapitestates.net'
+              }
+            ]
+          },
+          {
+            id: 'JJS',
+            type: 'seller',
+            name: 'Chase MacLean',
+            confirmed: true,
+            communicationDetails: [
+              {
+                label: 'E-Mail',
+                detail: 'chase.maclean@reapitestates.net'
+              }
+            ]
+          }
+        ]
+      }
       const data = renderAttendees(input)
       expect(data).toMatchSnapshot()
     })
     it('should run correctly and show not Today', () => {
-      const input = [
-        {
-          id: 'JJS',
-          type: 'negotiator',
-          name: 'Chase MacLean',
-          confirmed: true,
-          communicationDetails: [
-            {
-              label: 'E-Mail',
-              detail: 'chase.maclean@reapitestates.net'
-            }
-          ]
-        },
-        {
-          id: 'JJS',
-          type: 'seller',
-          name: 'Chase MacLean',
-          confirmed: true,
-          communicationDetails: [
-            {
-              label: 'E-Mail',
-              detail: 'chase.maclean@reapitestates.net'
-            }
-          ]
-        }
-      ]
+      const input = {
+        attendees: [
+          {
+            id: 'JJS',
+            type: 'negotiator',
+            name: 'Chase MacLean',
+            confirmed: true,
+            communicationDetails: [
+              {
+                label: 'E-Mail',
+                detail: 'chase.maclean@reapitestates.net'
+              }
+            ]
+          },
+          {
+            id: 'JJS',
+            type: 'seller',
+            name: 'Chase MacLean',
+            confirmed: true,
+            communicationDetails: [
+              {
+                label: 'E-Mail',
+                detail: 'chase.maclean@reapitestates.net'
+              }
+            ]
+          }
+        ]
+      }
       const data = renderAttendees(input)
       expect(data).not.toBeNull()
     })
     it('should run correctly and show Today', () => {
-      const input = undefined
+      const input = {
+        attendees: undefined
+      }
       const data = renderAttendees(input)
       expect(data).toBeNull()
     })
