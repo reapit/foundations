@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json'
 import { makeData } from '../make-data'
 
 describe('Table', () => {
-  it('should match a snapshot', () => {
+  it('should match a snapshot when LOADING false', () => {
     const data = [{ firstName: 'a', middleName: 'b', lastName: 'c' }]
     const columns = [
       {
@@ -21,6 +21,24 @@ describe('Table', () => {
         accessor: 'lastName'
       }
     ]
-    expect(toJson(shallow(<Table data={data} columns={columns} />))).toMatchSnapshot()
+    expect(toJson(shallow(<Table data={data} columns={columns} loading={false} />))).toMatchSnapshot()
+  })
+  it('should match a snapshot when LOADING true', () => {
+    const data = [{ firstName: 'a', middleName: 'b', lastName: 'c' }]
+    const columns = [
+      {
+        Header: 'First Name',
+        accessor: 'firstName'
+      },
+      {
+        Header: 'Middle Name',
+        accessor: 'middleName'
+      },
+      {
+        Header: 'Last Name',
+        accessor: 'lastName'
+      }
+    ]
+    expect(toJson(shallow(<Table data={data} columns={columns} loading />))).toMatchSnapshot()
   })
 })

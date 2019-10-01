@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table should match a snapshot 1`] = `
+exports[`Table should match a snapshot when LOADING false 1`] = `
 <table
   className="table is-striped is-fullwidth"
   style={Object {}}
@@ -1868,6 +1868,53 @@ exports[`Table should match a snapshot 1`] = `
         />
       </td>
     </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Table should match a snapshot when LOADING true 1`] = `
+<table
+  className="table is-striped is-fullwidth"
+  style={Object {}}
+>
+  <thead>
+    <tr
+      className=""
+      key="header0"
+      style={Object {}}
+    >
+      <th
+        className=""
+        colSpan={1}
+        key="header_firstName"
+        style={Object {}}
+      >
+        First Name
+      </th>
+      <th
+        className=""
+        colSpan={1}
+        key="header_middleName"
+        style={Object {}}
+      >
+        Middle Name
+      </th>
+      <th
+        className=""
+        colSpan={1}
+        key="header_lastName"
+        style={Object {}}
+      >
+        Last Name
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <div
+      className="table-loading"
+    >
+      <Component />
+    </div>
   </tbody>
 </table>
 `;
