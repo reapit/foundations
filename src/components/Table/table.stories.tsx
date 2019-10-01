@@ -20,5 +20,25 @@ storiesOf('Table', module).add('Normal Table', () => {
     }
   ]
 
-  return <Table columns={columns} data={data} />
+  return <Table columns={columns} data={data} loading={false} />
+})
+
+storiesOf('Table', module).add('Table Loading', () => {
+  const data = makeData(10)
+  const columns = [
+    {
+      Header: 'First Name',
+      accessor: 'firstName'
+    },
+    {
+      Header: 'Middle Name',
+      accessor: 'middleName'
+    },
+    {
+      Header: 'Last Name',
+      accessor: 'lastName'
+    }
+  ]
+
+  return <Table columns={columns} data={data} loading />
 })
