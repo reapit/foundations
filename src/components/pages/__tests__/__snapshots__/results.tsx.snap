@@ -2624,6 +2624,7 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
           },
         ]
       }
+      loading={false}
     />
     <Pagination
       onChange={[Function]}
@@ -2678,6 +2679,7 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
         ]
       }
       data={Array []}
+      loading={false}
     />
     <Pagination
       onChange={[Function]}

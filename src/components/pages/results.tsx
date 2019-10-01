@@ -94,7 +94,8 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
     <ErrorBoundary>
       <div className="my-5">
         <h3 className={`${bulma.title} ${bulma.is3}`}>Search Results</h3>
-        <Table data={data} columns={columns} />
+        {/* TODO: Will fix this by @Dan Nguyen */}
+        <Table loading={false} data={data} columns={columns} />
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
       </div>
     </ErrorBoundary>
