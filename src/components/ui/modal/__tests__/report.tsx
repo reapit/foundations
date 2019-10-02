@@ -31,6 +31,7 @@ describe('ReportContainer', () => {
   })
   describe('mapStateToProps', () => {
     it('should run correctly', () => {
+      // @ts-ignore: only pick necessary props
       const mockState = {
         checklistDetail: {
           checklistDetailData: {

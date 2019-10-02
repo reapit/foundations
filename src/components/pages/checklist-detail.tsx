@@ -51,17 +51,17 @@ export const generateSection = (onClick: (modalType: string) => () => void) => {
     {
       title: 'PEP Search',
       isCompleted: true,
-      onEdit: onClick('PEP_SEARCH'),
+      onEdit: onClick(STEPS.PEP_SEARCH),
       buttonText: 'Edit'
     },
     {
       title: 'Experian ',
       isCompleted: true,
-      onEdit: onClick('EXPERIAN'),
+      onEdit: onClick(STEPS.EXPERIAN),
       buttonText: 'Edit'
     },
     {
-      title: 'Report ',
+      title: 'Report',
       isCompleted: false,
       onEdit: onClick(STEPS.REPORT),
       buttonText: 'View'

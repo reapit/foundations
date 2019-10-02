@@ -16,6 +16,7 @@ describe('AddressInformation', () => {
   it('should match snapshot', () => {
     const mockProps = {
       contact,
+      isSubmitting: false,
       onNextHandler: jest.fn(),
       onPrevHandler: jest.fn(),
       onHandleSubmit: jest.fn()
@@ -29,7 +30,7 @@ describe('AddressInformation', () => {
       addresses: contact.addresses,
       isShowMoreThreeYearInput: true,
       setShowMoreThreeYearInput: jest.fn(),
-      loading: false,
+      isSubmitting: false,
       onNextHandler: jest.fn(),
       onPrevHandler: jest.fn()
     }
@@ -85,8 +86,10 @@ describe('AddressInformation', () => {
 
   describe('mapStateToProps', () => {
     it('should run correctly', () => {
+      // @ts-ignore: only pick necessary props
       const mockState = {
         checklistDetail: {
+          isSubmitting: false,
           checklistDetailData: {
             contact
           }
@@ -94,14 +97,16 @@ describe('AddressInformation', () => {
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        contact
+        contact,
+        isSubmitting: false
       })
     })
     it('should run correctly', () => {
       const mockState = {} as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        contact: {}
+        contact: {},
+        isSubmitting: false
       })
     })
   })

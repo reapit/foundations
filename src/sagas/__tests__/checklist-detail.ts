@@ -5,7 +5,9 @@ import {
   checklistDetailLoading,
   checklistDetailReceiveData,
   checkListDetailSubmitForm,
-  checkListDetailHideModal
+  checkListDetailHideModal,
+  checklistDetailRequestData,
+  checkListDetailUpdateData
 } from '@/actions/checklist-detail'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
@@ -17,7 +19,9 @@ import {
   checklistDetailSagas,
   checkListDetailUpdateListen,
   checkListDetailAddressUpdateListen,
-  updateAddressHistory
+  updateAddressHistory,
+  mapAddressToMetaData,
+  mapArrAddressToUploadImageFunc
 } from '../checklist-detail'
 import { contact } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -48,6 +52,7 @@ describe('checklist-detail fetch data', () => {
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveData({ contact })))
+    expect(clone.next().value).toEqual(put(checklistDetailLoading(false)))
     expect(clone.next().done).toBe(true)
   })
 
@@ -88,15 +93,7 @@ describe('checklist-detail updateChecklistDetail', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(true as any).value).toEqual(
-      call(fetcher, {
-        url: `${URLS.contacts}/${id}`,
-        api: REAPIT_API_BASE_URL,
-        method: 'GET',
-        headers: mockHeaders
-      })
-    )
-    expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveData({ contact })))
+    expect(clone.next(true as any).value).toEqual(put(checklistDetailRequestData(id as string)))
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
     expect(clone.next().value).toEqual(put(checkListDetailHideModal()))
     expect(clone.next().done).toBe(true)
@@ -120,33 +117,82 @@ describe('checklist-detail updateChecklistDetail', () => {
   })
 })
 
+describe('mapAddressToMetaData', () => {
+  it('should run correctly', () => {
+    const mockParams = {
+      addressesMeta: contact.metadata.addresses,
+      responseUploadImages: [
+        { Url: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg' }
+      ]
+    }
+    const result = mapAddressToMetaData(mockParams)
+    expect(result).toEqual(contact.metadata.addresses)
+  })
+
+  it('should return []', () => {
+    const mockParams = {
+      addressesMeta: undefined,
+      responseUploadImages: [
+        { Url: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg' }
+      ]
+    }
+    const result = mapAddressToMetaData(mockParams)
+    expect(result).toEqual([])
+  })
+})
+
+describe('mapAddressToMetaData', () => {
+  it('should run correctly', () => {
+    const mockParams = {
+      addresses: contact.addresses,
+      headers: mockHeaders,
+      addressesMeta: contact.metadata.addresses
+    }
+    const result = mapArrAddressToUploadImageFunc(mockParams)
+    expect(result).toEqual([null])
+  })
+
+  it('should run correctly', () => {
+    const mockParams = {
+      addresses: contact.addresses,
+      headers: mockHeaders,
+      addressesMeta: [
+        {
+          ...contact.metadata.addresses[0],
+          documentFileInput: '123'
+        },
+        {
+          ...contact.metadata.addresses[0]
+        }
+      ]
+    }
+    const result = mapArrAddressToUploadImageFunc(mockParams)
+    expect(result).toHaveLength(1)
+  })
+
+  it('should return []', () => {
+    const mockParams = {
+      addresses: undefined,
+      headers: mockHeaders,
+      addressesMeta: undefined
+    }
+    const result = mapArrAddressToUploadImageFunc(mockParams)
+    expect(result).toEqual([])
+  })
+})
+
 describe('checklist-detail updateAddressHistory', () => {
   const id = 'MKC16000098'
   const gen = cloneableGenerator(updateAddressHistory)({ data: { id, addresses: contact.addresses } })
   expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
-  expect(gen.next(mockHeaders as any).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.contacts}/${id}`,
-      api: REAPIT_API_BASE_URL,
-      method: 'PATCH',
-      headers: mockHeaders,
-      body: { addresses: contact.addresses }
-    })
-  )
+  expect(gen.next(mockHeaders as any).value).toEqual(all([]))
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(true as any).value).toEqual(
-      call(fetcher, {
-        url: `${URLS.contacts}/${id}`,
-        api: REAPIT_API_BASE_URL,
-        method: 'GET',
-        headers: mockHeaders
-      })
+    expect(clone.next([{ Url: 'test' }] as any).value).toEqual(
+      put(checkListDetailUpdateData({ id, addresses: contact.addresses, metadata: { addresses: [] } }))
     )
-    expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveData({ contact })))
-    expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
     expect(clone.next().done).toBe(true)
   })
 
