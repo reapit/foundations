@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox should match a snapshot 1`] = `
+exports[`Date-time picker should match a snapshot 1`] = `
 <FormikConnect(FieldInner)
   name="abc"
   render={[Function]}
