@@ -130,40 +130,60 @@ export const AddressInput = ({ index, values, setFieldValue }) => {
       <SelectBox
         labelText="Year"
         options={renderYearOptions()}
-        id={`addresses[${index}]year`}
-        name={`addresses[${index}]year`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].year : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].year`)}
+        id={`metadata.addresses[${index}][year]`}
+        name={`metadata.addresses[${index}][year]`}
+        value={
+          values.metadata && values.metadata.addresses && values.metadata.addresses[index]
+            ? values.metadata.addresses[index].year
+            : null
+        }
+        onChange={() => setFieldValue(`values.metadata.addresses[${index}].year`)}
       />
       <SelectBox
         labelText="Month"
-        id={`addresses[${index}]month`}
-        name={`addresses[${index}]month`}
+        id={`metadata.addresses[${index}][month]`}
+        name={`metadata.addresses[${index}][month]`}
         options={optionsMonth}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].month : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].month`)}
+        value={
+          values.metadata && values.metadata.addresses && values.metadata.addresses[index]
+            ? values.metadata.addresses[index].month
+            : null
+        }
+        onChange={() => setFieldValue(`values.metadata.addresses[${index}].month`)}
       />
       <SelectBox
         labelText="Document Type"
-        id={`addresses[${index}]documentType`}
-        name={`addresses[${index}]documentType`}
+        id={`metadata.addresses[${index}][documentType]`}
+        name={`metadata.addresses[${index}][documentType]`}
         options={optionsDocumentType}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].documentType : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].documentType`)}
+        value={
+          values.metadata && values.metadata.addresses && values.metadata.addresses[index]
+            ? values.metadata.addresses[index].documentType
+            : null
+        }
+        onChange={() => setFieldValue(`values.metadata.addresses[${index}].documentType`)}
       />
       <Input
         type="hidden"
-        id={`addresses[${index}][documentImage]`}
-        name={`addresses[${index}][documentImage]`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].documentImage : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].documentImage`)}
+        id={`metadata.addresses[${index}][documentImage]`}
+        name={`metadata.addresses[${index}][documentImage]`}
+        value={
+          values.metadata && values.metadata.addresses && values.metadata.addresses[index]
+            ? values.metadata.addresses[index].documentImage
+            : null
+        }
+        onChange={() => setFieldValue(`values.metadata.addresses[${index}].documentImage`)}
       />
       <CameraImageInput
         labelText="Upload file/Take a picture"
-        id={`addresses[${index}]documentFileInput`}
-        name={`addresses[${index}]documentFileInput`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].documentFileInput : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].documentFileInput`)}
+        id={`metadata.addresses.[${index}][documentFileInput]`}
+        name={`metadata.addresses.[${index}][documentFileInput]`}
+        value={
+          values.metadata && values.metadata.addresses && values.metadata.addresses[index]
+            ? values.metadata.addresses[index].documentFileInput
+            : null
+        }
+        onChange={() => setFieldValue(`values.metadata.addresses[${index}].documentFileInput`)}
       />
     </div>
   )
@@ -179,6 +199,7 @@ export const renderExtraForm = ({ isShowMoreThreeYearInput, values, index, setFi
 
 export const renderForm = ({
   addresses,
+  isSubmitting,
   isShowMoreThreeYearInput,
   setShowMoreThreeYearInput,
   onNextHandler,
@@ -199,13 +220,13 @@ export const renderForm = ({
       </div>
       {renderExtraForm({ isShowMoreThreeYearInput, values, setFieldValue, index: addresses.length })}
       <div className={styles.footerBtn}>
-        <Button className="mr-2" variant="primary" type="submit">
+        <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
           Submit
         </Button>
-        <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
+        <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
           Previous
         </Button>
-        <Button variant="primary" type="button" onClick={onNextHandler}>
+        <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler}>
           Next
         </Button>
       </div>
@@ -214,6 +235,7 @@ export const renderForm = ({
 }
 
 export type AddressInformationProps = {
+  isSubmitting: boolean
   contact: ContactModel
   onNextHandler: () => void
   onPrevHandler: () => void
@@ -224,14 +246,16 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
   contact,
   onNextHandler,
   onPrevHandler,
-  onHandleSubmit
+  onHandleSubmit,
+  isSubmitting
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
   return (
     <div>
       <Formik
         initialValues={{
-          addresses: contact.addresses || []
+          addresses: contact.addresses || [],
+          metadata: contact.metadata || {}
         }}
         onSubmit={onHandleSubmit}
         render={renderForm({
@@ -239,7 +263,8 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
           isShowMoreThreeYearInput,
           setShowMoreThreeYearInput,
           onNextHandler,
-          onPrevHandler
+          onPrevHandler,
+          isSubmitting
         })}
       />
     </div>
@@ -247,11 +272,13 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
 }
 
 export type MappedProps = {
+  isSubmitting: boolean
   contact: ContactModel
 }
 
 export const mapStateToProps = (state: ReduxState): MappedProps => {
   return {
+    isSubmitting: oc(state).checklistDetail.isSubmitting(false),
     contact: oc(state).checklistDetail.checklistDetailData.contact({})
   }
 }

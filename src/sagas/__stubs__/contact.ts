@@ -47,5 +47,15 @@ export const contact = {
       id: 'MKC',
       type: 'office'
     }
-  ]
+  ],
+  metadata: {
+    addresses: [
+      {
+        documentImage: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg',
+        year: '1911',
+        month: '6',
+        documentType: 'Current Benefits Agency letter'
+      }
+    ]
+  }
 }

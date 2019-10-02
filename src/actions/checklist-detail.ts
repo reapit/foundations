@@ -1,4 +1,4 @@
-import { ContactModel, AddressModel } from '@/types/contact-api-schema'
+import { ContactModel } from '@/types/contact-api-schema'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 
@@ -6,14 +6,9 @@ export type CheckListDetailReceiveDataParams = {
   contact: ContactModel
 }
 
-export type ChecklistAddressUpdate = {
-  addresses: AddressModel[]
-  id: string
-}
-
 export const checklistDetailRequestData = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA)
 export const checkListDetailUpdateData = actionCreator<ContactModel>(ActionTypes.CHECKLIST_DETAIL_UPDATE_DATA)
-export const checkListDetailAddressUpdateData = actionCreator<ChecklistAddressUpdate>(
+export const checkListDetailAddressUpdateData = actionCreator<ContactModel>(
   ActionTypes.CHECKLIST_DETAIL_ADDRESS_UPDATE_DATA
 )
 export const checkListDetailUpdateDataLoading = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_MODAL_LOADING)
