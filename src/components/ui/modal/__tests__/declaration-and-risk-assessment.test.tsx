@@ -62,13 +62,19 @@ describe('DeclarationAndRiskAssessment', () => {
   describe('mapDispatchToProps', () => {
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
-      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      const mockOwnProps = {
+        id: '1'
+      }
+      const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
       onNextHandler()
       expect(mockDispatch).toBeCalled()
     })
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
-      const { onPrevHandler } = mapDispatchToProps(mockDispatch)
+      const mockOwnProps = {
+        id: '1'
+      }
+      const { onPrevHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
       onPrevHandler()
       expect(mockDispatch).toBeCalled()
     })

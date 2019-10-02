@@ -7,9 +7,10 @@ import { ContactModel } from '@/types/contact-api-schema'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
 import { oc } from 'ts-optchain'
-import { checkListDetailShowModal } from '@/actions/checklist-detail'
+import { checkListDetailShowModal, checkListDetailDeclarationAndRiskUpdateData } from '@/actions/checklist-detail'
 import { STEPS } from './modal'
 import { Dispatch } from 'redux'
+import bulma from '@/styles/vendor/bulma'
 
 const optionsRiskAssessmentType = [
   { label: RISK_ASSESSMENT_TYPE.SIMPLIFIED, value: RISK_ASSESSMENT_TYPE.SIMPLIFIED },
@@ -19,33 +20,49 @@ const optionsRiskAssessmentType = [
 
 export const renderForm = ({ onNextHandler, onPrevHandler }) => () => {
   return (
-    <div>
-      <div className={styles.bold}>Declaration and Risk Assessment</div>
-      <Form>
+    <Form>
+      <div>
         <div>
-          <CameraImageInput labelText="Upload file/Take a picture" id="declaration" name="declaration" />
-          <SelectBox
-            labelText="Risk Assessment Type"
-            id="riskAssessmentType"
-            name="riskAssessmentType"
-            options={optionsRiskAssessmentType}
+          <label className={bulma.label}>Declaration Form</label>
+          <CameraImageInput
+            labelText="Upload file/Take a picture"
+            id="metadata.declarationAndRisk.declarationForm"
+            name="metadata.declarationAndRisk.declarationForm"
           />
-          <Input type="text" labelText="Reason for Type" id="type" name="type" />
-          <FileInput labelText="Upload file" id="riskAssessment" name="riskAssessment" />
         </div>
-        <div className={styles.footerBtn}>
-          <Button className="mr-2" variant="primary" type="submit">
-            Save
-          </Button>
-          <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
-            Previous
-          </Button>
-          <Button variant="primary" type="button" onClick={onNextHandler}>
-            Next
-          </Button>
+        <SelectBox
+          labelText="Risk Assessment Type"
+          id="metadata.declarationAndRisk.type"
+          name="metadata.declarationAndRisk.type"
+          options={optionsRiskAssessmentType}
+        />
+        <Input
+          type="text"
+          labelText="Reason for Type"
+          id="metadata.declarationAndRisk.reason"
+          name="metadata.declarationAndRisk.reason"
+        />
+        <div>
+          <label className={bulma.label}>Risk Assessment Form</label>
+          <FileInput
+            labelText="Upload file"
+            id="metadata.declarationAndRisk.riskAssessmentForm"
+            name="metadata.declarationAndRisk.riskAssessmentForm"
+          />
         </div>
-      </Form>
-    </div>
+      </div>
+      <div className={styles.footerBtn}>
+        <Button className="mr-2" variant="primary" type="submit">
+          Save
+        </Button>
+        <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
+          Previous
+        </Button>
+        <Button variant="primary" type="button" onClick={onNextHandler}>
+          Next
+        </Button>
+      </div>
+    </Form>
   )
 }
 
@@ -56,16 +73,36 @@ export type DeclarationAndRiskAssessmentProps = {
   onHandleSubmit: (values: any) => void
 }
 
+export interface DeclarationAndRiskModel {
+  declarationForm: string
+  riskAssessmentForm: string
+  type: string
+  reason: string
+}
+
 export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessmentProps> = ({
-  // contact,
+  contact,
   onNextHandler,
   onPrevHandler,
   onHandleSubmit
 }) => {
+  const data = oc(contact).metadata.declarationAndRisk({}) as DeclarationAndRiskModel
+  const initialValues = React.useMemo(
+    () => ({
+      metadata: {
+        declarationAndRisk: {
+          reason: data.reason,
+          type: data.type
+        }
+      }
+    }),
+    [contact]
+  )
+  console.log(contact)
   return (
     <div>
       <Formik
-        initialValues={{}}
+        initialValues={initialValues}
         onSubmit={onHandleSubmit}
         render={renderForm({
           onNextHandler,
@@ -92,10 +129,18 @@ export type MappedActions = {
   onHandleSubmit: (values: any) => void
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch): MappedActions => {
+export type OwnPropsProps = {
+  id: string
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnPropsProps): MappedActions => {
   return {
     onHandleSubmit: values => {
-      console.log(values)
+      const newValues = {
+        ...values,
+        id: ownProps.id
+      }
+      dispatch(checkListDetailDeclarationAndRiskUpdateData(newValues))
     },
     onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
     onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.ADDRESS_INFORMATION))

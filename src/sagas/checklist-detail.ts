@@ -15,6 +15,7 @@ import {
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
 import { ContactModel, AddressModel } from '@/types/contact-api-schema'
+import { DeclarationAndRiskModel } from '@/components/ui/modal/declaration-and-risk-assessment'
 
 export const checklistDetailDataFetch = function*({ data: id }) {
   yield put(checklistDetailLoading(true))
@@ -59,7 +60,7 @@ export const updateChecklistDetail = function*({ data: { id, ...rest } }: Update
       yield put(checklistDetailRequestData(id as string))
     }
     yield put(checkListDetailSubmitForm(false))
-    yield put(checkListDetailHideModal())
+    // yield put(checkListDetailHideModal())
   } catch (err) {
     console.error(err.message)
     yield put(checkListDetailSubmitForm(false))
@@ -158,6 +159,70 @@ export const updateAddressHistory = function*({ data: { id, addresses, metadata 
   }
 }
 
+interface UploadFileUrl {
+  Url: string
+}
+
+export const updateDeclarationAndRisk = function*({ data: { id, metadata } }: Action<ContactModel>) {
+  yield put(checkListDetailSubmitForm(true))
+  const headers = yield call(initAuthorizedRequestHeaders)
+  try {
+    const data = metadata && (metadata.declarationAndRisk as DeclarationAndRiskModel)
+    let declarationForm: UploadFileUrl = { Url: '' }
+    let riskAssessmentForm: UploadFileUrl = { Url: '' }
+
+    if (data && data.declarationForm) {
+      declarationForm = yield call(fetcher, {
+        url: '/',
+        api: UPLOAD_FILE_BASE_URL,
+        method: 'POST',
+        headers: headers,
+        body: {
+          name: 'declaration',
+          imageData: data.declarationForm
+        }
+      })
+    }
+
+    if (data && data.riskAssessmentForm) {
+      riskAssessmentForm = yield call(fetcher, {
+        url: '/',
+        api: UPLOAD_FILE_BASE_URL,
+        method: 'POST',
+        headers: headers,
+        body: {
+          name: 'riskAssessment',
+          imageData: data.riskAssessmentForm
+        }
+      })
+    }
+
+    yield put(
+      checkListDetailUpdateData({
+        id,
+        metadata: {
+          declarationAndRisk: {
+            ...data,
+            declarationForm: declarationForm.Url,
+            riskAssessmentForm: riskAssessmentForm.Url
+          }
+        }
+      })
+    )
+
+    yield put(checkListDetailSubmitForm(false))
+  } catch (err) {
+    console.error(err.message)
+    yield put(checkListDetailSubmitForm(false))
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR
+      })
+    )
+  }
+}
+
 export const checklistDetailDataListen = function*() {
   yield takeLatest<Action<number>>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA, checklistDetailDataFetch)
 }
@@ -170,11 +235,19 @@ export const checkListDetailAddressUpdateListen = function*() {
   yield takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_ADDRESS_UPDATE_DATA, updateAddressHistory)
 }
 
+export const checkListDetailDeclarationAndRiskUpdateListen = function*() {
+  yield takeLatest<Action<ContactModel>>(
+    ActionTypes.CHECKLIST_DETAIL_DECLARATION_AND_RISK_UPDATE_DATA,
+    updateDeclarationAndRisk
+  )
+}
+
 export const checklistDetailSagas = function*() {
   yield all([
     fork(checklistDetailDataListen),
     fork(checkListDetailUpdateListen),
-    fork(checkListDetailAddressUpdateListen)
+    fork(checkListDetailAddressUpdateListen),
+    fork(checkListDetailDeclarationAndRiskUpdateListen)
   ])
 }
 

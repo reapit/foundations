@@ -81,7 +81,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     ],
     []
   )
-  const { search } = resultState
+  const { search, loading } = resultState
   const { totalCount, pageSize, data = [] } = oc<ResultState>(resultState).contacts({})
 
   const [pageNumber, setPageNumber] = React.useState<number>(1)
@@ -107,7 +107,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({
     <ErrorBoundary>
       <div className="my-5">
         <h3 className={`${bulma.title} ${bulma.is3}`}>Search Results</h3>
-        <Table data={data} columns={columns} />
+        <Table data={data} columns={columns} loading={loading} />
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
       </div>
     </ErrorBoundary>
