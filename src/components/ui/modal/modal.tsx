@@ -13,7 +13,9 @@ export const STEPS = {
   SECONDARY_IDENTIFICATION: 'Secondary Identification',
   ADDRESS_INFORMATION: 'Address Information',
   REPORT: 'Report',
-  DECLARATION_RISK_MANAGEMENT: 'Declaration Risk Management'
+  DECLARATION_RISK_MANAGEMENT: 'Declaration Risk Management',
+  EXPERIAN: 'Experian',
+  PEP_SEARCH: 'PEP Search'
 }
 
 export type ProfileModalProps = {

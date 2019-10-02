@@ -87,7 +87,7 @@ exports[` 1`] = `
       buttonText="View"
       isCompleted={false}
       onEdit={[MockFunction]}
-      title="Report "
+      title="Report"
     />
   </div>
 </div>
@@ -193,7 +193,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
     <Component
       buttonText="View"
       isCompleted={false}
-      title="Report "
+      title="Report"
     />
   </div>
   <Component
