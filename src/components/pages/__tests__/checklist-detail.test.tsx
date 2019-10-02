@@ -35,17 +35,22 @@ describe('checklist-detail', () => {
         checklistDetail: {
           isModalVisible: true,
           loading: true,
+          isSubmitting: true,
           modalContentType: 'PROFILE',
           checklistDetailData: {
             contact: contact
           }
+        },
+        submitChecks: {
+          formState: 'PENDING'
         }
       } as ReduxState
       const expected = {
         isModalVisible: true,
         loading: true,
         contact: contact,
-        modalContentType: 'PROFILE'
+        modalContentType: 'PROFILE',
+        submitChecksFormState: 'PENDING'
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -53,13 +58,17 @@ describe('checklist-detail', () => {
 
     it('should run when undefined', () => {
       const input = {
-        checklistDetail: {}
+        checklistDetail: {},
+        submitChecks: {
+          formState: 'PENDING'
+        }
       } as ReduxState
       const expected = {
         isModalVisible: false,
         loading: true,
         contact: {},
-        modalContentType: 'PROFILE'
+        modalContentType: 'PROFILE',
+        submitChecksFormState: 'PENDING'
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -75,7 +84,9 @@ describe('checklist-detail', () => {
         showModal: jest.fn(),
         contact: contact,
         modalContentType: 'PROFILE',
-        ...getMockRouterProps({ id: '123' })
+        ...getMockRouterProps({ id: '123' }),
+        submitChecksFormState: 'PENDING',
+        submitChecks: jest.fn()
       } as CheckListDetailProps
       const wrapper = shallow(<ChecklistDetail {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -87,8 +98,10 @@ describe('checklist-detail', () => {
         loading: false,
         hideModal: jest.fn(),
         showModal: jest.fn(),
+        submitChecks: jest.fn(),
         contact: contact,
         modalContentType: 'PROFILE',
+        submitChecksFormState: 'PENDING',
         ...getMockRouterProps({ id: '123' })
       } as CheckListDetailProps
       const wrapper = shallow(<ChecklistDetail {...mockProps} />)

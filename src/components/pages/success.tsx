@@ -3,19 +3,63 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { Button } from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'
 import styles from '@/styles/pages/success.scss?mod'
-import ProfileNav from '../ui/profile-nav'
+import { ReduxState, FormState } from '@/types/core'
+import { connect } from 'react-redux'
+import { submitComplete, submitCompleteSetFormState } from '@/actions/success'
+import { Redirect, RouteComponentProps, withRouter } from 'react-router'
+import Routes from '@/constants/routes'
+import { ContactModel } from '@/types/contact-api-schema'
+import { oc } from 'ts-optchain'
 
-export const SuccessPage = () => {
+export interface SuccessMappedActions {
+  submitComplete: () => void
+  resetSubmitCompleteFormState: () => void
+}
+
+export interface SuccessMappedProps {
+  submitCompleteFormState: FormState
+  contact: ContactModel
+}
+
+export type SuccessProps = SuccessMappedActions & SuccessMappedProps & RouteComponentProps<{ id?: any }>
+
+export const SuccessPage = ({
+  submitComplete,
+  submitCompleteFormState,
+  resetSubmitCompleteFormState,
+  contact,
+  match: {
+    params: { id }
+  }
+}: SuccessProps) => {
+  const isRPS = true
+
+  React.useEffect(() => {
+    resetSubmitCompleteFormState()
+  }, [])
+
+  if ((submitCompleteFormState === 'SUCCESS' && isRPS) || id === undefined || id !== contact.id) {
+    return <Redirect to={Routes.RESULTS} />
+  }
+
+  if (submitCompleteFormState === 'SUCCESS' && !isRPS) {
+    // code to redirect to "Contact Record" in RPS
+  }
+
+  const { title = '', forename = '', surname = '' } = contact
+  const { buildingNumber, buildingName, line1, line2, line3 } = oc(contact).addresses[0]({})
+
   return (
     <ErrorBoundary>
-      <ProfileNav></ProfileNav>
       <div className="container">
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <h2 className={styles.name}>Mr Phillips</h2>
+            <h2 className={styles.name}>
+              {title} {forename} {surname}
+            </h2>
           </div>
           <div className={styles.headerRight}>
-            <h4 className={styles.refCode}>RPS Reference: MX12548</h4>
+            <h4 className={styles.refCode}>RPS Reference: {contact.id}</h4>
           </div>
         </div>
 
@@ -30,17 +74,26 @@ export const SuccessPage = () => {
                 back to you shortly. Please click on the following button to complete this submission.
               </p>
             </div>
-            <Button variant="primary" type="button">
+            <Button
+              variant="primary"
+              type="button"
+              loading={submitCompleteFormState === 'SUBMITTING'}
+              onClick={() => submitComplete()}
+            >
               Complete Submission
             </Button>
           </div>
           <div className={styles.rightBlock}>
             <ul>
-              <li>Name: Mr Phillips</li>
-              <li>Address: 1 Address Street, Hatfield, AL89 9IU</li>
+              <li>
+                Name: {title} {forename}
+              </li>
+              <li>
+                Address: {buildingNumber} {buildingName}, {line1}, {line2}, {line3}
+              </li>
               <li>ID: Passport & Driving Licence</li>
               <li>Address Information: 3 years 4 months</li>
-              <li>Agent Checks: completed</li>
+              <li>Agent Complete: completed</li>
             </ul>
           </div>
         </div>
@@ -49,4 +102,19 @@ export const SuccessPage = () => {
   )
 }
 
-export default SuccessPage
+const mapStateToProps = (state: ReduxState): SuccessMappedProps => ({
+  submitCompleteFormState: state.success.submitCompleteFormState,
+  contact: oc(state).checklistDetail.checklistDetailData.contact({})
+})
+
+const mapDispatchToProps = (dispatch: any): SuccessMappedActions => ({
+  submitComplete: () => dispatch(submitComplete()),
+  resetSubmitCompleteFormState: () => dispatch(submitCompleteSetFormState('PENDING'))
+})
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SuccessPage)
+)

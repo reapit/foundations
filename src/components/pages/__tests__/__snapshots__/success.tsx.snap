@@ -1,20 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SuccessPage should match a snapshot 1`] = `
+exports[`SuccessPage should match a snapshot when submitCompleteFormState is PENDING 1`] = `
 <Connect(ErrorBoundary)>
-  <ProfileNav />
   <div
     className="container"
   >
     <div>
       <div>
         <h2>
-          Mr Phillips
+          Ms
+           
+          Saoirse
+           
+          Chadwick
         </h2>
       </div>
       <div>
         <h4>
-          RPS Reference: MX12548
+          RPS Reference: 
+          MKC16000098
         </h4>
       </div>
     </div>
@@ -31,6 +35,8 @@ exports[`SuccessPage should match a snapshot 1`] = `
           </p>
         </div>
         <Button
+          loading={false}
+          onClick={[Function]}
           type="button"
           variant="primary"
         >
@@ -40,10 +46,21 @@ exports[`SuccessPage should match a snapshot 1`] = `
       <div>
         <ul>
           <li>
-            Name: Mr Phillips
+            Name: 
+            Ms
+             
+            Saoirse
           </li>
           <li>
-            Address: 1 Address Street, Hatfield, AL89 9IU
+            Address: 
+             
+            Tilbrook Farm
+            , 
+            Station Road
+            , 
+            Bow Brickhill
+            , 
+            Milton Keynes
           </li>
           <li>
             ID: Passport & Driving Licence
@@ -52,11 +69,95 @@ exports[`SuccessPage should match a snapshot 1`] = `
             Address Information: 3 years 4 months
           </li>
           <li>
-            Agent Checks: completed
+            Agent Complete: completed
           </li>
         </ul>
       </div>
     </div>
   </div>
 </Connect(ErrorBoundary)>
+`;
+
+exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUBMITTING 1`] = `
+<Connect(ErrorBoundary)>
+  <div
+    className="container"
+  >
+    <div>
+      <div>
+        <h2>
+          Ms
+           
+          Saoirse
+           
+          Chadwick
+        </h2>
+      </div>
+      <div>
+        <h4>
+          RPS Reference: 
+          MKC16000098
+        </h4>
+      </div>
+    </div>
+    <div
+      className="flex"
+    >
+      <div>
+        <div>
+          <span>
+            <FaCheck />
+          </span>
+          <p>
+            Thank you for submitting this information, we are in the process of checking the details and will come back to you shortly. Please click on the following button to complete this submission.
+          </p>
+        </div>
+        <Button
+          loading={true}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Complete Submission
+        </Button>
+      </div>
+      <div>
+        <ul>
+          <li>
+            Name: 
+            Ms
+             
+            Saoirse
+          </li>
+          <li>
+            Address: 
+             
+            Tilbrook Farm
+            , 
+            Station Road
+            , 
+            Bow Brickhill
+            , 
+            Milton Keynes
+          </li>
+          <li>
+            ID: Passport & Driving Licence
+          </li>
+          <li>
+            Address Information: 3 years 4 months
+          </li>
+          <li>
+            Agent Complete: completed
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Connect(ErrorBoundary)>
+`;
+
+exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUCCESS 1`] = `
+<Redirect
+  to="/results"
+/>
 `;

@@ -2,7 +2,6 @@
 
 exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1`] = `
 <Connect(ErrorBoundary)>
-  <ProfileNav />
   <div
     className="container"
   >
@@ -71,7 +70,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
         type="button"
         variant="primary"
       >
-        Submit Record for Checkss
+        Submit Record for Checks
       </Button>
     </div>
   </div>
@@ -80,7 +79,6 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
 
 exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTING 1`] = `
 <Connect(ErrorBoundary)>
-  <ProfileNav />
   <div
     className="container"
   >
@@ -149,7 +147,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
         type="button"
         variant="primary"
       >
-        Submit Record for Checkss
+        Submit Record for Checks
       </Button>
     </div>
   </div>
@@ -158,6 +156,6 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
 
 exports[`Profile should match a snapshot when submitChecksFormState is SUCCESS 1`] = `
 <Redirect
-  to="/success"
+  to="/checklist-detail/:id/success"
 />
 `;

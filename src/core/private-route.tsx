@@ -34,20 +34,18 @@ export const PrivateRoute = ({
         if (!allowTypes.includes(loginType)) {
           return <Redirect to="/404" />
         }
-        if (fetcher) {
-          return <RouteFetcher routerProps={props} Component={component} />
-        }
+
         const Component = component
 
         return (
-          <div>
+          <>
             <Navbar
               logout={() => {
                 console.log('logout callback')
               }}
             />
-            <Component />
-          </div>
+            {fetcher ? <RouteFetcher routerProps={props} Component={component} /> : <Component />}
+          </>
         )
       }}
     />

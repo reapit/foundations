@@ -4,7 +4,6 @@ import ProfileToggle from '@/components/ui/profile-toggle'
 import { Button } from '@reapit/elements'
 import styles from '@/styles/pages/profile.scss?mod'
 import PersonalDetails from '../ui/personal-details'
-import ProfileNav from '../ui/profile-nav'
 import { ReduxState, FormState } from '@/types/core'
 import { submitChecks } from '@/actions/submit-checks'
 import { connect } from 'react-redux'
@@ -53,12 +52,11 @@ export const Profile = ({ submitChecksFormState, submitChecks }: ProfileProps) =
   const isSubmitting = submitChecksFormState === 'SUBMITTING'
 
   if (submitChecksFormState === 'SUCCESS') {
-    return <Redirect to={Routes.SUCCESS} />
+    return <Redirect to={Routes.CHECKLIST_DETAIL_ID_SUCCESS} />
   }
 
   return (
     <ErrorBoundary>
-      <ProfileNav></ProfileNav>
       <div className="container">
         <div className={styles.header}>
           <h2 className={styles.title}>Mr Phillips</h2>
@@ -79,7 +77,7 @@ export const Profile = ({ submitChecksFormState, submitChecks }: ProfileProps) =
             disabled={isSubmitting}
             onClick={() => submitChecks()}
           >
-            Submit Record for Checkss
+            Submit Record for Checks
           </Button>
         </div>
       </div>

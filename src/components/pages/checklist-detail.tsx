@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Loader } from '@reapit/elements'
+import { Loader, Button } from '@reapit/elements'
 import { oc } from 'ts-optchain'
-import { ReduxState } from '@/types/core'
+import { ReduxState, FormState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { withRouter, RouteComponentProps, Redirect } from 'react-router'
 import Section, { SectionProps } from '@/components/ui/section'
 import AMLProgressBar from '@/components/ui/aml-progressbar'
 import Modal from '@/components/ui/modal'
@@ -13,6 +13,8 @@ import { Dispatch } from 'redux'
 import { checkListDetailHideModal, checkListDetailShowModal } from '@/actions/checklist-detail'
 import { ContactModel } from '@/types/contact-api-schema'
 import { STEPS } from '../ui/modal/modal'
+import { submitChecks } from '@/actions/submit-checks'
+import Routes from '@/constants/routes'
 
 export type CheckListDetailProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ id?: any }>
 
@@ -97,12 +99,20 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   showModal,
   contact,
   modalContentType,
+  submitChecksFormState,
+  submitChecks,
   match: {
     params: { id }
   }
 }) => {
   if (loading) {
     return <Loader />
+  }
+
+  const isSubmitting = submitChecksFormState === 'SUBMITTING'
+
+  if (submitChecksFormState === 'SUCCESS') {
+    return <Redirect to={`${Routes.CHECKLIST_DETAIL}/${id}/success`} />
   }
 
   let title = ''
@@ -130,6 +140,18 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
       </div>
       {renderSections(sections)}
       <Modal id={id} visible={isModalVisible} afterClose={hideModal} modalContentType={modalContentType} />
+
+      <div className="flex justify-end mt-10">
+        <Button
+          variant="primary"
+          type="button"
+          loading={isSubmitting}
+          disabled={isSubmitting}
+          onClick={() => submitChecks()}
+        >
+          Submit Record for Checks
+        </Button>
+      </div>
     </ErrorBoundary>
   )
 }
@@ -139,23 +161,27 @@ export type HomeMappedProps = {
   loading: boolean
   contact: ContactModel | {}
   modalContentType: string
+  submitChecksFormState: FormState
 }
 
 export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   isModalVisible: oc(state).checklistDetail.isModalVisible(false),
   loading: oc(state).checklistDetail.loading(true),
   contact: oc(state).checklistDetail.checklistDetailData.contact({}),
-  modalContentType: oc(state).checklistDetail.modalContentType('PROFILE')
+  modalContentType: oc(state).checklistDetail.modalContentType('PROFILE'),
+  submitChecksFormState: state.submitChecks.formState
 })
 
 export type HomeMappedActions = {
   hideModal: () => void
+  submitChecks: () => void
   showModal: (modalType: string) => () => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): HomeMappedActions => ({
   hideModal: () => dispatch(checkListDetailHideModal()),
-  showModal: (modalType: string) => () => dispatch(checkListDetailShowModal(modalType))
+  showModal: (modalType: string) => () => dispatch(checkListDetailShowModal(modalType)),
+  submitChecks: () => dispatch(submitChecks())
 })
 
 export default withRouter(
