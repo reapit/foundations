@@ -21,9 +21,9 @@ const Router = () => (
         <Route path={`(/|${Routes.LOGIN})`} exact render={() => <Login />} />
         <PrivateRouteWrapper path="/">
           <Switch>
-            <PrivateRoute allow="CLIENT" path={Routes.CHECKLIST_DETAIL} component={ChecklistDetail} fetcher />
-            <PrivateRoute allow="CLIENT" path={Routes.SUCCESS} component={SuccessPage} />
-            <PrivateRoute allow="CLIENT" path={Routes.PROFILE} component={ProfilePage} fetcher />
+            <PrivateRoute allow="CLIENT" path={Routes.CHECKLIST_DETAIL_ID_SUCCESS} component={SuccessPage} />
+            <PrivateRoute allow="CLIENT" path={Routes.CHECKLIST_DETAIL_ID} component={ChecklistDetail} fetcher />
+            <PrivateRoute allow="CLIENT" path={Routes.PROFILE} component={ProfilePage} />
             <PrivateRoute allow="CLIENT" path={Routes.SEARCH} component={searchPage} />
             <PrivateRoute allow="CLIENT" path={Routes.RESULTS} component={resultsPage} />
           </Switch>

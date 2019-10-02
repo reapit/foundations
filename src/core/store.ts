@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
 import home from '@/reducers/home'
+import success from '@/reducers/success'
 import auth from '@/reducers/auth'
 import error from '@/reducers/error'
 import results from '@/reducers/results'
@@ -9,6 +10,7 @@ import identityTypes from '@/reducers/identity-types'
 import { ReduxState } from '@/types/core'
 import homeSagas from '@/sagas/home'
 import authSagas from '@/sagas/auth'
+import successSagas from '@/sagas/success'
 import identityTypesSagas from '@/sagas/identity-types'
 import resultsSagas from '@/sagas/results'
 import checklistDetailSagas from '@/sagas/checklist-detail'
@@ -36,6 +38,7 @@ export class Store {
   static reducers = combineReducers({
     error,
     home,
+    success,
     auth,
     results,
     submitChecks,
@@ -48,6 +51,7 @@ export class Store {
       fork(homeSagas),
       fork(resultsSagas),
       fork(authSagas),
+      fork(successSagas),
       fork(submitChecksSagas),
       fork(checklistDetailSagas),
       fork(identityTypesSagas)

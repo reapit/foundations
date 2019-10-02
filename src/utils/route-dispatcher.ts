@@ -14,7 +14,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
     case Routes.HOME:
       store.dispatch(homeRequestData())
       break
-    case Routes.CHECKLIST_DETAIL:
+    case Routes.CHECKLIST_DETAIL_ID:
       store.dispatch(checklistDetailRequestData(id))
       break
     default:

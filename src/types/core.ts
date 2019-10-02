@@ -7,6 +7,7 @@ import { AuthState } from '@/reducers/auth'
 import { SubmitChecksState } from '@/reducers/submit-checks'
 import { ChecklistDetailState } from '@/reducers/checklist-detail'
 import { IdentityTypesState } from '@/reducers/identity-types'
+import { SuccessState } from '@/reducers/success'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -42,6 +43,7 @@ export interface FetcherParams<T> {
 export interface ReduxState {
   error: ErrorState
   home: HomeState
+  success: SuccessState
   auth: AuthState
   results: ResultsState
   submitChecks: SubmitChecksState
