@@ -1,9 +1,10 @@
+// @ts-ignore
 /**
  * Model representing the physical address of a building or premise
  */
 export interface AddressModel {
   /**
-   * Gets the type of address
+   * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
    */
   type?: string
   /**
@@ -111,13 +112,20 @@ export interface ContactModel {
    * This is usually the managing negotiators and offices
    */
   relationships?: RelationshipModel[]
+  /**
+   * Gets a listing of additional metadata that has been set against this contact
+   */
+  metadata?: {
+    [name: string]: {}
+  }
+  readonly links?: LinkModel[]
 }
 /**
  * Model to create a contact address
  */
 export interface CreateAddressModel {
   /**
-   * Sets the type of address
+   * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
    */
   type?: string
   /**
@@ -151,7 +159,7 @@ export interface CreateAddressModel {
   /**
    * Sets the ISO-3166 country code associated with the address
    */
-  country?: string
+  countryId?: string
 }
 /**
  * Model to create a communication detail for a contact (eg. an email address)
@@ -209,6 +217,12 @@ export interface CreateContactModel {
    * A maximum of three addresses can be associated to a contact
    */
   addresses?: CreateAddressModel[]
+  /**
+   * Sets a JSON fragment to attach to this contact as metadata
+   */
+  metadata?: {
+    [name: string]: {}
+  }
 }
 /**
  * Model to create an identity check
@@ -232,6 +246,12 @@ export interface CreateIdentityCheckModel {
    * Sets the details of the documents that have been provided for this identity check
    */
   documents?: CreateIdentityDocumentModel[]
+  /**
+   * Sets a JSON fragment to attach to this identity check as metadata
+   */
+  metadata?: {
+    [name: string]: {}
+  }
 }
 /**
  * Model to create an identity check document
@@ -276,6 +296,10 @@ export interface IdentityCheckModel {
    */
   id?: string
   /**
+   * Gets the unique identifier of the contact associated to the id check
+   */
+  contactId?: string
+  /**
    * Gets the date and time that the identity check was created
    */
   created?: string // date-time
@@ -301,6 +325,13 @@ export interface IdentityCheckModel {
    * Gets the details of the documents that have been provided for this identity check
    */
   documents?: IdentityDocumentModel[]
+  /**
+   * Gets a listing of additional metadata that has been set against this identity check
+   */
+  metadata?: {
+    [name: string]: {}
+  }
+  readonly links?: LinkModel[]
 }
 /**
  * Represents the details of a document added to an identity check
@@ -322,6 +353,12 @@ export interface IdentityDocumentModel {
    * Gets the location of the physical file that relates to this document (eg. scan of driving license)
    */
   fileUrl?: string
+  readonly links?: LinkModel[]
+}
+export interface LinkModel {
+  rel?: string
+  href?: string
+  action?: string
 }
 export interface PagedResultContactModel_ {
   data?: ContactModel[]
@@ -363,7 +400,7 @@ export interface RelationshipModel {
  */
 export interface UpdateAddressModel {
   /**
-   * Sets the type of address
+   * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
    */
   type?: string
   /**
@@ -397,7 +434,7 @@ export interface UpdateAddressModel {
   /**
    * Sets the ISO-3166 country code associated with the address
    */
-  country?: string
+  countryId?: string
 }
 /**
  * Model to update a communication detail for a contact (eg. an email address)
@@ -455,6 +492,12 @@ export interface UpdateContactModel {
    * A maximum of three addresses can be associated to a contact
    */
   addresses?: UpdateAddressModel[]
+  /**
+   * Sets a JSON fragment to attach to this contact as metadata
+   */
+  metadata?: {
+    [name: string]: {}
+  }
 }
 /**
  * Model to update an existing identity check
@@ -478,6 +521,12 @@ export interface UpdateIdentityCheckModel {
    * Sets the details of the documents that have been provided for this identity check
    */
   documents?: UpdateIdentityDocumentModel[]
+  /**
+   * Sets a JSON fragment to attach to this identity check as metadata
+   */
+  metadata?: {
+    [name: string]: {}
+  }
 }
 /**
  * Model to update an identity document

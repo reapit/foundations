@@ -40,6 +40,7 @@ describe('agent-check', () => {
   })
   describe('mapStateToProps', () => {
     it('should match snapshot', () => {
+      // @ts-ignore: only pick necessary props
       const mockState = {
         checklistDetail: {
           isSubmitting: true,
@@ -66,7 +67,7 @@ describe('agent-check', () => {
             contact: contact
           }
         }
-      } as ReduxState
+      } as any
       const expected = {
         isSubmitting: true,
         contact: contact

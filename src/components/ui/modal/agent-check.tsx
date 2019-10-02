@@ -16,10 +16,74 @@ export type AgentCheckProps = {
   onNextHandler: () => void
 }
 
+export const referralOptionsValues = {
+  APPLICANT: 'Applicant',
+  ESTATE_PLANNING: 'Estate Planning',
+  MEMBER_SHIP: 'Membership',
+  PURCHASER_COMPLIANCE: 'Purchaser Compliance',
+  PURCHASER_OFFER_ACCEPTED: 'Purchaser: Offer accepted',
+  PURCHASER_OFFER_ACCEPTED_Q_OUT: 'Purchaser: Offer accepted Q Out',
+  PURCHASER_OFFER_MADE: 'Purchaser: Offer made',
+  PURCHASER_OFFER_MADE_Q_OUT: 'Purchaser: Offer made Q Out',
+  VENDOR_COMPLIANCE: 'Vendor Compliance',
+  VENDOR_NEW_ON_MARKET: 'Vendor: New on market',
+  VENDOR_PROPERTY_SOLD: 'Vendor: Property sold',
+  DATE_TO_CALL_CLIENT: 'Date to call client (calendar for date)',
+  TIME_SELECTION: 'Time selection – Hours and Minutes'
+}
+
 const referralOptions = [
   {
-    label: 'Applicant',
-    value: 'Applicant'
+    label: referralOptionsValues.APPLICANT,
+    value: referralOptionsValues.APPLICANT
+  },
+  {
+    label: referralOptionsValues.ESTATE_PLANNING,
+    value: referralOptionsValues.ESTATE_PLANNING
+  },
+  {
+    label: referralOptionsValues.MEMBER_SHIP,
+    value: referralOptionsValues.MEMBER_SHIP
+  },
+  {
+    label: referralOptionsValues.PURCHASER_COMPLIANCE,
+    value: referralOptionsValues.PURCHASER_COMPLIANCE
+  },
+  {
+    label: referralOptionsValues.PURCHASER_OFFER_ACCEPTED,
+    value: referralOptionsValues.PURCHASER_OFFER_ACCEPTED
+  },
+  {
+    label: referralOptionsValues.PURCHASER_OFFER_ACCEPTED_Q_OUT,
+    value: referralOptionsValues.PURCHASER_OFFER_ACCEPTED_Q_OUT
+  },
+  {
+    label: referralOptionsValues.PURCHASER_OFFER_MADE,
+    value: referralOptionsValues.PURCHASER_OFFER_MADE
+  },
+  {
+    label: referralOptionsValues.PURCHASER_OFFER_MADE_Q_OUT,
+    value: referralOptionsValues.PURCHASER_OFFER_MADE_Q_OUT
+  },
+  {
+    label: referralOptionsValues.VENDOR_COMPLIANCE,
+    value: referralOptionsValues.VENDOR_COMPLIANCE
+  },
+  {
+    label: referralOptionsValues.VENDOR_NEW_ON_MARKET,
+    value: referralOptionsValues.VENDOR_NEW_ON_MARKET
+  },
+  {
+    label: referralOptionsValues.VENDOR_PROPERTY_SOLD,
+    value: referralOptionsValues.VENDOR_PROPERTY_SOLD
+  },
+  {
+    label: referralOptionsValues.DATE_TO_CALL_CLIENT,
+    value: referralOptionsValues.DATE_TO_CALL_CLIENT
+  },
+  {
+    label: referralOptionsValues.TIME_SELECTION,
+    value: referralOptionsValues.TIME_SELECTION
   }
 ] as SelectBoxOptions[]
 
