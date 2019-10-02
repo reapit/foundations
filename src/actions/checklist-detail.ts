@@ -11,6 +11,9 @@ export const checkListDetailUpdateData = actionCreator<ContactModel>(ActionTypes
 export const checkListDetailAddressUpdateData = actionCreator<ContactModel>(
   ActionTypes.CHECKLIST_DETAIL_ADDRESS_UPDATE_DATA
 )
+export const checkListDetailDeclarationAndRiskUpdateData = actionCreator<ContactModel>(
+  ActionTypes.CHECKLIST_DETAIL_DECLARATION_AND_RISK_UPDATE_DATA
+)
 export const checkListDetailUpdateDataLoading = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_MODAL_LOADING)
 
 export const checklistDetailLoading = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_LOADING)

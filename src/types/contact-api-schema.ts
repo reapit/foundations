@@ -375,7 +375,7 @@ export interface PagedResultIdentityCheckModel_ {
   totalCount?: number // int32
 }
 export interface ProblemDetails {
-  [key: string]: any
+  [name: string]: {}
   type?: string
   title?: string
   status?: number // int32

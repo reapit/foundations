@@ -38,7 +38,7 @@ export const renderContent = ({ modalContentType, id }) => {
     case STEPS.REPORT:
       return <Report />
     case STEPS.DECLARATION_RISK_MANAGEMENT:
-      return <DeclarationAndRiskAssessment />
+      return <DeclarationAndRiskAssessment id={id} />
     default:
       return null
   }
