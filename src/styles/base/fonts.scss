@@ -1,2 +1,5 @@
 // Update Bulma's global variables
-$family-sans-serif: 'Museo Sans W03_300', Helvetica, sans-serif;
+// $family-sans-serif: 'Museo Sans W03_300', Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+$family-sans-serif: 'Roboto', Helvetica, sans-serif;
