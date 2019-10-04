@@ -4,7 +4,16 @@ exports[`DeclarationAndRiskAssessment should match snapshot 1`] = `
 <div>
   <Formik
     enableReinitialize={false}
-    initialValues={Object {}}
+    initialValues={
+      Object {
+        "metadata": Object {
+          "declarationAndRisk": Object {
+            "reason": undefined,
+            "type": "Normal",
+          },
+        },
+      }
+    }
     isInitialValid={false}
     onSubmit={[MockFunction]}
     render={[Function]}
