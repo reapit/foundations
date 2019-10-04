@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match snapshot 1`] = `
-<Menu
-  defaultActiveKey="/"
-  homeUrl="/"
+<Memo()
+  defaultActiveKey="CLIENT_SEARCH"
   location={
     Object {
       "hash": "mockHash",
@@ -13,42 +12,53 @@ exports[`Menu should match snapshot 1`] = `
       "state": Object {},
     }
   }
-  logo={
-    <Logo
-      height="65px"
-      width="150px"
-    />
-  }
   menu={
     Array [
       Object {
-        "key": "Background Checklist",
-        "subMenu": Array [
-          Object {
-            "key": "/",
-            "title": "Home",
-            "toUrl": "/",
-          },
-          Object {
-            "key": "/search",
-            "title": "Client Search",
-            "toUrl": "/search",
-          },
-          Object {
-            "key": "/results",
-            "title": "Search Results",
-            "toUrl": "/results",
-          },
-          Object {
-            "callback": [MockFunction],
-            "key": "/logout",
-            "title": "Logout",
-          },
-        ],
-        "title": "Background Checklist",
+        "icon": <ReapitLogo
+          className="nav-item-icon"
+        />,
+        "key": "LOGO",
+        "type": "LOGO",
+      },
+      Object {
+        "icon": <FaSearch
+          className="nav-item-icon"
+        />,
+        "key": "CLIENT_SEARCH",
+        "title": "Search",
+        "type": "PRIMARY",
+        "url": "/",
+      },
+      Object {
+        "icon": <FaList
+          className="nav-item-icon"
+        />,
+        "key": "SEARCH_RESULTS",
+        "title": "Results",
+        "type": "PRIMARY",
+        "url": "/results",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaCloud
+          className="nav-item-icon"
+        />,
+        "key": "APPS",
+        "title": "Apps",
+        "type": "PRIMARY",
+      },
+      Object {
+        "callback": [MockFunction],
+        "icon": <FaSignOutAlt
+          className="nav-item-icon"
+        />,
+        "key": "LOGOUT",
+        "title": "Logout",
+        "type": "SECONDARY",
       },
     ]
   }
-  title="Foundations"
+  mode="WEB"
 />
 `;

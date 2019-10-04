@@ -5,7 +5,6 @@ import {
   checklistDetailLoading,
   checklistDetailReceiveData,
   checkListDetailSubmitForm,
-  checkListDetailHideModal,
   checklistDetailRequestData,
   checkListDetailUpdateData
 } from '@/actions/checklist-detail'
@@ -97,7 +96,6 @@ describe('checklist-detail updateChecklistDetail', () => {
     const clone = gen.clone()
     expect(clone.next(true as any).value).toEqual(put(checklistDetailRequestData(id as string)))
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
-    // expect(clone.next().value).toEqual(put(checkListDetailHideModal()))
     expect(clone.next().done).toBe(true)
   })
 

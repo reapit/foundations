@@ -1,59 +1,60 @@
 import * as React from 'react'
-import { withRouter, RouteComponentProps, RouteProps } from 'react-router'
+import { withRouter, RouteComponentProps } from 'react-router'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import { Menu as Sidebar } from '@reapit/elements'
+import { Menu as Sidebar, LoginMode, MenuConfig, ReapitLogo } from '@reapit/elements'
 import Routes from '@/constants/routes'
-import Logo from '@/components/svg/logo'
 import { authLogout } from '@/actions/auth'
+import { Location } from 'history'
+import { oc } from 'ts-optchain'
+import { ReduxState } from '@/types/core'
+import { FaCloud, FaSignOutAlt, FaSearch, FaList } from 'react-icons/fa'
 
-interface MenuConfig extends RouteProps {
-  title: string
-  logo: React.ReactNode
-  homeUrl: string
-  defaultActiveKey?: string
-  menu: MenuItem[]
-}
-interface MenuItem {
-  title: string
-  key: string
-  callback?: () => void
-  toUrl?: string
-  subMenu?: MenuItem[]
-}
-
-export const generateMenuConfig = ({ logout }: { logout: () => void }): MenuConfig => {
+export const generateMenuConfig = (
+  logoutCallback: () => void,
+  location: Location<any>,
+  mode: LoginMode
+): MenuConfig => {
   return {
-    title: 'Foundations',
-    logo: <Logo width="150px" height="65px" />,
-    homeUrl: '/',
-    defaultActiveKey: Routes.HOME,
+    defaultActiveKey: 'CLIENT_SEARCH',
+    mode,
+    location,
     menu: [
       {
-        title: 'Background Checklist',
-        key: 'Background Checklist',
-        subMenu: [
-          {
-            title: 'Home',
-            key: Routes.HOME,
-            toUrl: Routes.HOME
-          },
-          {
-            title: 'Client Search',
-            key: Routes.SEARCH,
-            toUrl: Routes.SEARCH
-          },
-          {
-            title: 'Search Results',
-            key: Routes.RESULTS,
-            toUrl: Routes.RESULTS
-          },
-          {
-            title: 'Logout',
-            key: '/logout',
-            callback: logout
-          }
-        ]
+        key: 'LOGO',
+        icon: <ReapitLogo className="nav-item-icon" />,
+        type: 'LOGO'
+      },
+      {
+        title: 'Search',
+        key: 'CLIENT_SEARCH',
+        icon: <FaSearch className="nav-item-icon" />,
+        url: Routes.HOME,
+        type: 'PRIMARY'
+      },
+      {
+        title: 'Results',
+        key: 'SEARCH_RESULTS',
+        icon: <FaList className="nav-item-icon" />,
+        url: Routes.RESULTS,
+        type: 'PRIMARY'
+      },
+      {
+        title: 'Apps',
+        key: 'APPS',
+        icon: <FaCloud className="nav-item-icon" />,
+        callback: () =>
+          (window.location.href = !window.location.href.includes('dev')
+            ? `https://marketplace.reapit.com/client/installed`
+            : `https://dev.marketplace.reapit.com/client/installed`),
+        type: 'PRIMARY'
+      },
+      {
+        title: 'Logout',
+        key: 'LOGOUT',
+        callback: logoutCallback,
+        icon: <FaSignOutAlt className="nav-item-icon" />,
+        type: 'SECONDARY'
       }
     ]
   }
@@ -61,10 +62,11 @@ export const generateMenuConfig = ({ logout }: { logout: () => void }): MenuConf
 
 export type MenuProps = RouteComponentProps & {
   logout: () => void
+  mode: LoginMode
 }
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ location, logout }) => {
-  const menuConfigs = generateMenuConfig({ logout })
+export const Menu: React.FunctionComponent<MenuProps> = ({ location, logout, mode }) => {
+  const menuConfigs = generateMenuConfig(logout, location, mode)
   return <Sidebar {...menuConfigs} location={location} />
 }
 
@@ -74,8 +76,12 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
   }
 }
 
+export const mapStateToProps = (state: ReduxState) => ({
+  mode: oc(state).auth.refreshSession.mode('WEB')
+})
+
 export const MenuWithRedux = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Menu)
 MenuWithRedux.displayName = 'MenuWithRedux'
