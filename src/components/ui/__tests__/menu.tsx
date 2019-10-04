@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import { Menu, MenuProps, mapStateToProps, mapDispatchToProps, generateMenuConfig } from '../menu'
 import toJson from 'enzyme-to-json'
 import { ReduxState } from '@/types/core'
+import { Location } from 'history'
 
 const props: MenuProps = {
   loginType: 'CLIENT',
@@ -22,10 +23,13 @@ describe('Menu', () => {
     it('should return loginType', () => {
       const input = {
         auth: {
-          loginType: 'ADMIN'
+          loginType: 'ADMIN',
+          refreshSession: {
+            mode: 'WEB'
+          }
         }
       } as ReduxState
-      const output = { loginType: 'ADMIN' }
+      const output = { loginType: 'ADMIN', mode: 'WEB' }
       const result = mapStateToProps(input)
       expect(output).toEqual(result)
     })
@@ -43,7 +47,7 @@ describe('Menu', () => {
   describe('generateMenuConfig', () => {
     it('should return config', () => {
       const logoutCallback = jest.fn()
-      const result = generateMenuConfig(logoutCallback)
+      const result = generateMenuConfig(logoutCallback, props.location, 'WEB')
       expect(result).toBeDefined()
     })
   })

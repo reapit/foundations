@@ -1,51 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match a snapshot 1`] = `
-<Menu
-  defaultActiveKey="Apps"
-  homeUrl="/home"
+<Memo()
+  defaultActiveKey="BROWSE_APPS"
   location={
     Object {
       "pathname": "/client",
     }
   }
-  logo={
-    <Logo
-      height="65px"
-      width="150px"
-    />
-  }
   menu={
     Array [
       Object {
-        "key": "Apps",
-        "subMenu": Array [
-          Object {
-            "key": "/client/apps",
-            "title": "Browse Apps",
-            "toUrl": "/client/apps",
-          },
-          Object {
-            "key": "/client/installed",
-            "title": "Installed Apps",
-            "toUrl": "/client/installed",
-          },
-        ],
-        "title": "Apps",
+        "icon": <ReapitLogo
+          className="nav-item-icon"
+        />,
+        "key": "LOGO",
+        "type": "LOGO",
       },
       Object {
-        "key": "Account",
-        "subMenu": Array [
-          Object {
-            "callback": [Function],
-            "key": "/logout",
-            "title": "Logout",
-          },
-        ],
-        "title": "Account",
+        "icon": <FaCloud
+          className="nav-item-icon"
+        />,
+        "key": "BROWSE_APPS",
+        "title": "Browse",
+        "type": "PRIMARY",
+        "url": "/client/apps",
+      },
+      Object {
+        "icon": <FaCloudDownloadAlt
+          className="nav-item-icon"
+        />,
+        "key": "MY_APPS",
+        "title": "Installed",
+        "type": "PRIMARY",
+        "url": "/client/installed",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaSignOutAlt
+          className="nav-item-icon"
+        />,
+        "key": "LOGOUT",
+        "title": "Logout",
+        "type": "SECONDARY",
       },
     ]
   }
-  title="Marketplace"
 />
 `;
