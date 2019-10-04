@@ -56,6 +56,12 @@ export const contact = {
         month: '6',
         documentType: 'Current Benefits Agency letter'
       }
-    ]
+    ],
+    declarationAndRisk: {
+      type: 'Normal',
+      reson: 'reason',
+      declarationForm: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png',
+      riskAssessmentForm: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png'
+    }
   }
 }

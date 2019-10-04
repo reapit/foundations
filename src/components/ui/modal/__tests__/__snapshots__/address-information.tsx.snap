@@ -1078,6 +1078,12 @@ exports[`AddressInformation should match snapshot 1`] = `
               "year": "1911",
             },
           ],
+          "declarationAndRisk": Object {
+            "declarationForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
+            "reson": "reason",
+            "riskAssessmentForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
+            "type": "Normal",
+          },
         },
       }
     }

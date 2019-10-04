@@ -11,7 +11,7 @@ import {
 } from '@/actions/checklist-detail'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
-import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
+import { URLS, REAPIT_API_BASE_URL, UPLOAD_FILE_BASE_URL } from '@/constants/api'
 import {
   checklistDetailDataFetch,
   updateChecklistDetail,
@@ -21,7 +21,9 @@ import {
   checkListDetailAddressUpdateListen,
   updateAddressHistory,
   mapAddressToMetaData,
-  mapArrAddressToUploadImageFunc
+  mapArrAddressToUploadImageFunc,
+  updateDeclarationAndRisk,
+  checkListDetailDeclarationAndRiskUpdateListen
 } from '../checklist-detail'
 import { contact } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -95,7 +97,7 @@ describe('checklist-detail updateChecklistDetail', () => {
     const clone = gen.clone()
     expect(clone.next(true as any).value).toEqual(put(checklistDetailRequestData(id as string)))
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
-    expect(clone.next().value).toEqual(put(checkListDetailHideModal()))
+    // expect(clone.next().value).toEqual(put(checkListDetailHideModal()))
     expect(clone.next().done).toBe(true)
   })
 
@@ -214,6 +216,77 @@ describe('checklist-detail updateAddressHistory', () => {
   })
 })
 
+describe('checklist-detail updateDeclarationAndRisk', () => {
+  const id = 'MKC16000098'
+  const gen = cloneableGenerator(updateDeclarationAndRisk as any)({ data: { id, metadata: contact.metadata } })
+  expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
+  expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+
+  expect(gen.next(mockHeaders as any).value).toEqual(
+    call(fetcher, {
+      url: '/',
+      api: UPLOAD_FILE_BASE_URL,
+      method: 'POST',
+      headers: mockHeaders,
+      body: {
+        name: 'declaration',
+        imageData: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png'
+      }
+    })
+  )
+
+  expect(gen.next(mockHeaders as any).value).toEqual(
+    call(fetcher, {
+      url: '/',
+      api: UPLOAD_FILE_BASE_URL,
+      method: 'POST',
+      headers: mockHeaders,
+      body: {
+        name: 'riskAssessment',
+        imageData: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png'
+      }
+    })
+  )
+
+  test('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next(mockHeaders as any).value).toEqual(
+      put(
+        checkListDetailUpdateData({
+          id,
+          metadata: {
+            declarationAndRisk: {
+              declarationForm: undefined,
+              reson: 'reason',
+              riskAssessmentForm: undefined,
+              type: 'Normal'
+            }
+          }
+        })
+      )
+    )
+    expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
+    expect(clone.next().done).toBe(true)
+  })
+
+  test('api call fail', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
+      put(checkListDetailSubmitForm(false))
+    )
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
+    )
+    expect(clone.next().done).toBe(true)
+  })
+})
+
 describe('check-list sagas', () => {
   describe('checklist detail listen', () => {
     it('should request data when called', () => {
@@ -248,6 +321,20 @@ describe('check-list sagas', () => {
     })
   })
 
+  describe('checklist detail declarationAndRisk update listen', () => {
+    it('should request data when called', () => {
+      const gen = checkListDetailDeclarationAndRiskUpdateListen()
+
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<ContactModel>>(
+          ActionTypes.CHECKLIST_DETAIL_DECLARATION_AND_RISK_UPDATE_DATA,
+          updateDeclarationAndRisk
+        )
+      )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
   describe('checklistDetailSagas', () => {
     it('should listen data request', () => {
       const gen = checklistDetailSagas()
@@ -256,7 +343,8 @@ describe('check-list sagas', () => {
         all([
           fork(checklistDetailDataListen),
           fork(checkListDetailUpdateListen),
-          fork(checkListDetailAddressUpdateListen)
+          fork(checkListDetailAddressUpdateListen),
+          fork(checkListDetailDeclarationAndRiskUpdateListen)
         ])
       )
       expect(gen.next().done).toBe(true)
