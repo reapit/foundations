@@ -1,62 +1,267 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu should render correctly 1`] = `
-<aside
-  className="menu is-responsive"
+exports[`Menu should render link item logo correctly 1`] = `
+<span
+  className="nav-item-link"
 >
-  <Link
-    className="logo is-responsive"
-    to="/mockHomeUrl"
-  >
-    <div />
-    <h5
-      className="title is-5"
-    >
-      mockTitle
-    </h5>
-  </Link>
   <div
-    className="toggle-container"
+    className="nav-item-icon"
   >
     <Component
-      data-test="toogle-btn"
-      isChecked={false}
-      isResponsive={true}
-      onChange={[Function]}
+      className="nav-item-icon"
+    />
+  </div>
+</span>
+`;
+
+exports[`Menu should render link item primary correctly 1`] = `
+<Link
+  className="nav-item-link"
+  to="/apps"
+>
+  <div
+    className="nav-item-icon"
+  >
+    <FaCloud
+      className="nav-item-icon"
     />
   </div>
   <div
-    className="menu-bar  is-responsive"
-    data-test="menu-bar"
+    className="nav-item-title"
   >
-    <p
-      className="menu-label sub-menu-label"
-      data-test="menu-label"
+    Apps
+  </div>
+</Link>
+`;
+
+exports[`Menu should render link item secondary correctly 1`] = `
+<a
+  className="nav-item-link"
+  onClick={[Function]}
+>
+  <div
+    className="nav-item-icon"
+  >
+    <FaSignOutAlt
+      className="nav-item-icon"
+    />
+  </div>
+  <div
+    className="nav-item-title"
+  >
+    Logout
+  </div>
+</a>
+`;
+
+exports[`Menu should render menu correctly 1`] = `
+<nav
+  className="nav-bar "
+>
+  <ul>
+    <li
+      className="nav-item  is-logo"
+      key="LOGO"
       onClick={[Function]}
     >
       <Component
-        data-test="menu-caret"
-        isActive={false}
-      />
-      mockMenu
-    </p>
-    <ul
-      className="menu-list sub-menu "
-      data-test="menu-item"
-    >
-      <li
-        className=""
-        data-test="sub-menu-label"
-        key="/mockSubmenu"
+        item={
+          Object {
+            "icon": <Unknown
+              className="nav-item-icon"
+            />,
+            "key": "LOGO",
+            "type": "LOGO",
+          }
+        }
       >
-        <a
-          data-test="logout-cta"
-          onClick={[Function]}
+        <div>
+          <Component
+            className="nav-item-icon"
+          />
+        </div>
+      </Component>
+    </li>
+    <li
+      className="nav-item is-active is-primary"
+      key="APPS"
+      onClick={[Function]}
+    >
+      <Component
+        item={
+          Object {
+            "icon": <FaCloud
+              className="nav-item-icon"
+            />,
+            "key": "APPS",
+            "title": "Apps",
+            "type": "PRIMARY",
+            "url": "/apps",
+          }
+        }
+      >
+        <div>
+          <FaCloud
+            className="nav-item-icon"
+          />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Apps
+        </div>
+      </Component>
+    </li>
+    <li
+      className="nav-item  is-primary"
+      key="INSTALLED"
+      onClick={[Function]}
+    >
+      <Component
+        item={
+          Object {
+            "icon": <FaCloudDownloadAlt
+              className="nav-item-icon"
+            />,
+            "key": "INSTALLED",
+            "title": "Installed",
+            "type": "PRIMARY",
+            "url": "/installed",
+          }
+        }
+      >
+        <div>
+          <FaCloudDownloadAlt
+            className="nav-item-icon"
+          />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Installed
+        </div>
+      </Component>
+    </li>
+    <li
+      className="nav-item  is-primary"
+      key="SUBMIT"
+      onClick={[Function]}
+    >
+      <Component
+        item={
+          Object {
+            "icon": <FaCloudUploadAlt
+              className="nav-item-icon"
+            />,
+            "key": "SUBMIT",
+            "title": "Submit",
+            "type": "PRIMARY",
+            "url": "/submit",
+          }
+        }
+      >
+        <div>
+          <FaCloudUploadAlt
+            className="nav-item-icon"
+          />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Submit
+        </div>
+      </Component>
+    </li>
+    <li
+      className="nav-item  is-primary"
+      key="DOCS"
+      onClick={[Function]}
+    >
+      <Component
+        item={
+          Object {
+            "icon": <FaReadme
+              className="nav-item-icon"
+            />,
+            "key": "DOCS",
+            "title": "Docs",
+            "type": "PRIMARY",
+            "url": "/docs",
+          }
+        }
+      >
+        <div>
+          <FaReadme
+            className="nav-item-icon"
+          />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Docs
+        </div>
+      </Component>
+    </li>
+    <li
+      className="nav-item  is-primary"
+      key="SETTINGS"
+      onClick={[Function]}
+    >
+      <Component
+        item={
+          Object {
+            "icon": <FaCog
+              className="nav-item-icon"
+            />,
+            "key": "SETTINGS",
+            "title": "Settings",
+            "type": "PRIMARY",
+            "url": "/settings",
+          }
+        }
+      >
+        <div>
+          <FaCog
+            className="nav-item-icon"
+          />
+        </div>
+        <div
+          className="nav-item-title"
+        >
+          Settings
+        </div>
+      </Component>
+    </li>
+    <li
+      className="nav-item  is-secondary"
+      key="LOGOUT"
+      onClick={[Function]}
+    >
+      <Component
+        item={
+          Object {
+            "callback": [Function],
+            "icon": <FaSignOutAlt
+              className="nav-item-icon"
+            />,
+            "key": "LOGOUT",
+            "title": "Logout",
+            "type": "SECONDARY",
+          }
+        }
+      >
+        <div>
+          <FaSignOutAlt
+            className="nav-item-icon"
+          />
+        </div>
+        <div
+          className="nav-item-title"
         >
           Logout
-        </a>
-      </li>
-    </ul>
-  </div>
-</aside>
+        </div>
+      </Component>
+    </li>
+  </ul>
+</nav>
 `;
