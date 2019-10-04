@@ -45,24 +45,20 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return <Redirect to={Routes.LOGIN} />
   }
 
-  const { menuContainer, pageContainer, pageWrapper, isDesktop } = pageContainerStyles
+  const { pageWrapper, isDesktop } = pageContainerStyles
 
   return (
-    <div className={pageWrapper}>
-      <div className={`${menuContainer} ${isDesktopMode ? isDesktop : ''}`}>
-        <Menu />
-      </div>
-      <main className={`${pageContainer} ${isDesktopMode ? isDesktop : ''}`}>
-        <Suspense
-          fallback={
-            <div className="pt-5">
-              <Loader />
-            </div>
-          }
-        >
-          {children}
-        </Suspense>
-      </main>
+    <div className={`${pageWrapper} ${isDesktopMode ? isDesktop : ''}`}>
+      <Menu />
+      <Suspense
+        fallback={
+          <div className="pt-5">
+            <Loader />
+          </div>
+        }
+      >
+        {children}
+      </Suspense>
     </div>
   )
 }

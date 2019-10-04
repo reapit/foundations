@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { setDestination } from '@/actions/direction'
 
-const { mapPanel } = mapStyles
+const { mapPanel, isDesktop } = mapStyles
 
 export interface MapPanelProps {
   duration: string
@@ -18,6 +18,7 @@ export interface MapPanelProps {
   destination: { lat?: number; lng?: number }
   filterType: string
   showAllAppointment: () => void
+  isDesktopMode: boolean
 }
 
 export const MapPanel = ({
@@ -26,7 +27,8 @@ export const MapPanel = ({
   currentLocation,
   destination,
   filterType,
-  showAllAppointment
+  showAllAppointment,
+  isDesktopMode
 }: MapPanelProps) => {
   const openDefaultMap = () => {
     if (isIOS()) {
@@ -45,7 +47,7 @@ export const MapPanel = ({
   }
 
   return (
-    <div className={mapPanel}>
+    <div className={`${mapPanel} ${isDesktopMode ? isDesktop : ''}`}>
       <div>
         <p className="is-size-4">{duration}</p>
         <p>{distance}</p>
@@ -58,7 +60,7 @@ export const MapPanel = ({
       {!isMobile() ? (
         <div>
           <Button className="is-medium" type="button" variant="primary" onClick={showAllAppointment}>
-            Show all appointments for {filterType}
+            {filterType}
           </Button>
         </div>
       ) : null}
@@ -67,9 +69,9 @@ export const MapPanel = ({
 }
 
 export const mapStateToProps = (state: ReduxState) => {
-  const filterType = oc(state).appointments.time('Today')
   return {
-    filterType
+    isDesktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP',
+    filterType: oc(state).appointments.time('Today')
   }
 }
 
