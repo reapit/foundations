@@ -3,15 +3,15 @@
 .mapContainer {
   overflow: hidden;
   position: absolute;
-  left: 300px;
-  width: calc(100vw - 300px);
-  top: 73px;
-  height: calc(100vh - 73px);
+  left: 360px;
+  width: calc(100vw - 360px);
+  top: 0;
+  height: 100%;
 
   @media screen and (max-width: 768px) {
     left: 0;
-    top: 108px;
-    height: calc(100vh - 108px);
+    top: 98px;
+    height: calc(100vh - 98px);
     width: 100%;
   }
 }
@@ -19,15 +19,19 @@
 .mapContainer.isDesktop {
   top: 0;
   height: 100vh;
+  left: 300px;
+  width: calc(100vw - 300px);
 
   @media screen and (max-width: 768px) {
     top: 35px;
     height: calc(100vh - 35px);
+    width: 100vw;
+    left: 0;
   }
 }
 
 .mapContainer.mapHasPanel {
-  height: calc(100vh - 165px);
+  height: calc(100vh - 94px);
 
   @media screen and (max-width: 768px) {
     height: calc(100vh - 200px);
@@ -45,8 +49,8 @@
 .mapPanel {
   position: absolute;
   bottom: 0;
-  width: calc(100vw - 300px);
-  left: 300px;
+  width: calc(100vw - 360px);
+  left: 360px;
   display: flex;
   background-color: #fff;
   padding: 1.5rem;
@@ -60,5 +64,12 @@
     }
     left: 0;
     width: 100%;
+  }
+}
+
+.mapPanel.isDesktop {
+  left: 300px;
+  @media screen and (max-width: 768px) {
+    left: 0;
   }
 }

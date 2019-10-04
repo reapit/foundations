@@ -12,7 +12,8 @@ describe('MapPanel', () => {
       currentLocation: { lat: 52.522905940278065, lng: -1.241455078125 },
       destination: { lat: 52.158215, lng: -0.433459 },
       filterType: 'Today',
-      showAllAppointment: jest.fn()
+      showAllAppointment: jest.fn(),
+      isDesktopMode: false
     }
     expect(toJson(shallow(<MapPanel {...props} />))).toMatchSnapshot()
   })
@@ -24,7 +25,8 @@ describe('MapPanel', () => {
       currentLocation: { lat: 52.522905940278065, lng: -1.241455078125 },
       destination: { lat: undefined, lng: undefined },
       filterType: 'Today',
-      showAllAppointment: jest.fn()
+      showAllAppointment: jest.fn(),
+      isDesktopMode: false
     }
     expect(toJson(shallow(<MapPanel {...props} />))).toMatchSnapshot()
   })
@@ -34,10 +36,16 @@ describe('MapPanel', () => {
       const state = {
         appointments: {
           time: 'Today'
+        },
+        auth: {
+          refreshSession: {
+            mode: 'DESKTOP'
+          }
         }
       } as ReduxState
       const expected = {
-        filterType: 'Today'
+        filterType: 'Today',
+        isDesktopMode: true
       }
       const result = mapStateToProps(state)
       expect(result).toEqual(expected)
@@ -46,7 +54,8 @@ describe('MapPanel', () => {
     it('should return when undefined', () => {
       const state = {} as ReduxState
       const expected = {
-        filterType: 'Today'
+        filterType: 'Today',
+        isDesktopMode: false
       }
       const result = mapStateToProps(state)
       expect(result).toEqual(expected)
