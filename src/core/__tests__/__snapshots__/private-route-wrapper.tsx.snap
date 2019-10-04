@@ -8,13 +8,9 @@ exports[`PrivateRouter should match a snapshot 1`] = `
 
 exports[`PrivateRouter should match a snapshot for desktop login 1`] = `
 <div>
-  <div
-    className="undefined "
-  >
-    <MenuWithRouter />
-  </div>
+  <MenuWithRouter />
   <main
-    className="undefined "
+    className="undefined"
   >
     <Suspense
       fallback={
