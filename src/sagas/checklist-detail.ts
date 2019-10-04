@@ -9,7 +9,6 @@ import {
   checklistDetailLoading,
   checklistDetailReceiveData,
   checkListDetailSubmitForm,
-  checkListDetailHideModal,
   checklistDetailRequestData,
   checkListDetailUpdateData
 } from '../actions/checklist-detail'
