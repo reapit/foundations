@@ -3,7 +3,9 @@
 exports[`MapPanel should match a snapshot when invalid LAT, LONG 1`] = `""`;
 
 exports[`MapPanel should match a snapshot when valid LAT, LONG 1`] = `
-<div>
+<div
+  className="undefined "
+>
   <div>
     <p
       className="is-size-4"
@@ -31,7 +33,6 @@ exports[`MapPanel should match a snapshot when valid LAT, LONG 1`] = `
       type="button"
       variant="primary"
     >
-      Show all appointments for 
       Today
     </Button>
   </div>
