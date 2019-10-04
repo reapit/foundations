@@ -1,131 +1,116 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { withRouter, RouteComponentProps, RouteProps } from 'react-router'
-import { Menu as Sidebar, LoginType } from '@reapit/elements'
+import { withRouter, RouteComponentProps } from 'react-router'
+import { Menu as Sidebar, LoginType, MenuConfig, LoginMode, ReapitLogo } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { authLogout } from '@/actions/auth'
-import Logo from '@/components/svg/logo'
 import Routes from '../../constants/routes'
+import { Location } from 'history'
+import { FaCheck, FaSignOutAlt, FaCloud, FaReadme, FaCloudUploadAlt, FaCloudDownloadAlt } from 'react-icons/fa'
+import { oc } from 'ts-optchain'
 
-interface MenuConfig extends RouteProps {
-  title: string
-  logo: React.ReactNode
-  homeUrl: string
-  defaultActiveKey?: string
-  menu: MenuItem[]
-}
-interface MenuItem {
-  title: string
-  key: string
-  callback?: () => void
-  toUrl?: string
-  subMenu?: MenuItem[]
-}
-
-export const generateMenuConfig = (logoutCallback: () => void): { [key: string]: MenuConfig } => {
+export const generateMenuConfig = (
+  logoutCallback: () => void,
+  location: Location<any>,
+  mode: LoginMode
+): { [key: string]: MenuConfig } => {
   return {
     ADMIN: {
-      title: 'Foundations',
-      logo: <Logo width="150px" height="65px" />,
-      homeUrl: '/home',
-      defaultActiveKey: 'Apps',
+      defaultActiveKey: 'APPROVALS',
+      mode,
+      location,
       menu: [
         {
-          title: 'Apps',
-          key: 'Apps',
-          subMenu: [
-            {
-              title: 'Approvals',
-              key: Routes.ADMIN_APPROVALS,
-              toUrl: Routes.ADMIN_APPROVALS
-            }
-          ]
+          key: 'LOGO',
+          icon: <ReapitLogo className="nav-item-icon" />,
+          type: 'LOGO'
         },
         {
-          title: 'Account',
-          key: 'Account',
-          subMenu: [
-            {
-              title: 'Logout',
-              key: '/logout',
-              callback: logoutCallback
-            }
-          ]
+          title: 'Approvals',
+          key: 'APPROVALS',
+          url: Routes.ADMIN_APPROVALS,
+          icon: <FaCheck className="nav-item-icon" />,
+          type: 'PRIMARY'
+        },
+        {
+          title: 'Logout',
+          key: 'LOGOUT',
+          callback: logoutCallback,
+          icon: <FaSignOutAlt className="nav-item-icon" />,
+          type: 'SECONDARY'
         }
       ]
     },
     DEVELOPER: {
-      title: 'Foundations',
-      logo: <Logo width="150px" height="65px" />,
-      homeUrl: '/home',
-      defaultActiveKey: 'Apps',
+      defaultActiveKey: 'MANAGE_APPS',
+      mode,
+      location,
       menu: [
         {
-          title: 'Apps',
-          key: 'Apps',
-          subMenu: [
-            {
-              title: 'Manage Apps',
-              key: Routes.DEVELOPER_MY_APPS,
-              toUrl: Routes.DEVELOPER_MY_APPS
-            },
-            {
-              title: 'API Documentation',
-              key: Routes.DEVELOPER_API_DOCS,
-              toUrl: Routes.DEVELOPER_API_DOCS
-            },
-            {
-              title: 'Submit Apps',
-              key: Routes.SUBMIT_APP,
-              toUrl: Routes.SUBMIT_APP
-            }
-          ]
+          key: 'LOGO',
+          icon: <ReapitLogo className="nav-item-icon" />,
+          type: 'LOGO'
         },
         {
-          title: 'Account',
-          key: 'Account',
-          subMenu: [
-            {
-              title: 'Logout',
-              key: '/logout',
-              callback: logoutCallback
-            }
-          ]
+          title: 'Manage Apps',
+          key: 'MANAGE_APPS',
+          url: Routes.DEVELOPER_MY_APPS,
+          type: 'PRIMARY',
+          icon: <FaCloud className="nav-item-icon" />
+        },
+        {
+          title: 'API Documentation',
+          key: 'API_DOCS',
+          url: Routes.DEVELOPER_API_DOCS,
+          type: 'PRIMARY',
+          icon: <FaReadme className="nav-item-icon" />
+        },
+        {
+          title: 'Submit Apps',
+          key: 'SUBMIT_APP',
+          url: Routes.SUBMIT_APP,
+          type: 'PRIMARY',
+          icon: <FaCloudUploadAlt className="nav-item-icon" />
+        },
+        {
+          title: 'Logout',
+          key: 'LOGOUT',
+          callback: logoutCallback,
+          icon: <FaSignOutAlt className="nav-item-icon" />,
+          type: 'SECONDARY'
         }
       ]
     },
     CLIENT: {
-      title: 'Marketplace',
-      logo: <Logo width="150px" height="65px" />,
-      homeUrl: '/home',
-      defaultActiveKey: 'Apps',
+      defaultActiveKey: 'BROWSE_APPS',
+      mode,
+      location,
       menu: [
         {
-          title: 'Apps',
-          key: 'Apps',
-          subMenu: [
-            {
-              title: 'Browse Apps',
-              key: Routes.CLIENT,
-              toUrl: Routes.CLIENT
-            },
-            {
-              title: 'Installed Apps',
-              key: Routes.MY_APPS,
-              toUrl: Routes.MY_APPS
-            }
-          ]
+          key: 'LOGO',
+          icon: <ReapitLogo className="nav-item-icon" />,
+          type: 'LOGO'
         },
         {
-          title: 'Account',
-          key: 'Account',
-          subMenu: [
-            {
-              title: 'Logout',
-              key: '/logout',
-              callback: logoutCallback
-            }
-          ]
+          title: 'Browse',
+          key: 'BROWSE_APPS',
+          url: Routes.CLIENT,
+          type: 'PRIMARY',
+          icon: <FaCloud className="nav-item-icon" />
+        },
+        {
+          title: 'Installed',
+          key: 'MY_APPS',
+          url: Routes.MY_APPS,
+          type: 'PRIMARY',
+          icon: <FaCloudDownloadAlt className="nav-item-icon" />
+        },
+        {
+          title: 'Logout',
+          key: 'LOGOUT',
+          callback: logoutCallback,
+          icon: <FaSignOutAlt className="nav-item-icon" />,
+          type: 'SECONDARY'
         }
       ]
     }
@@ -134,6 +119,7 @@ export const generateMenuConfig = (logoutCallback: () => void): { [key: string]:
 
 export interface MenuMappedProps {
   loginType: LoginType
+  mode: LoginMode
 }
 
 export interface MenuMappedActions {
@@ -142,14 +128,15 @@ export interface MenuMappedActions {
 
 export type MenuProps = MenuMappedProps & MenuMappedActions & RouteComponentProps & {}
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, location }) => {
+export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, location, mode }) => {
   const logoutCallback = () => logout()
-  const menuConfigs = generateMenuConfig(logoutCallback)
+  const menuConfigs = generateMenuConfig(logoutCallback, location, mode)
   return <Sidebar {...menuConfigs[loginType]} location={location} />
 }
 
 export const mapStateToProps = (state: ReduxState): MenuMappedProps => ({
-  loginType: state.auth.loginType
+  loginType: state.auth.loginType,
+  mode: oc(state).auth.refreshSession.mode('WEB')
 })
 
 export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({

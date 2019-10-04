@@ -115,7 +115,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
         ) : (
           <div>
             {' '}
-            <Table data={list} columns={tableColumns} />
+            <Table loading={false} data={list} columns={tableColumns} />
           </div>
         )}
         <Pagination
