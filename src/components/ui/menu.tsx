@@ -1,66 +1,83 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { withRouter, RouteComponentProps, RouteProps } from 'react-router'
-import { Menu as Sidebar } from '@reapit/elements'
+import { withRouter, RouteComponentProps } from 'react-router'
+import { Menu as Sidebar, MenuConfig, LoginMode, ReapitLogo } from '@reapit/elements'
 import { authLogout } from '@/actions/auth'
-import Logo from '@/components/svg/logo'
+import { Location } from 'history'
+import { FaSignOutAlt, FaCloud, FaMapMarkerAlt } from 'react-icons/fa'
+import { ReduxState } from '../../types/core'
+import { oc } from 'ts-optchain'
 
-interface MenuConfig extends RouteProps {
-  title: string
-  logo: React.ReactNode
-  homeUrl: string
-  defaultActiveKey?: string
-  menu: MenuItem[]
-}
-
-interface MenuItem {
-  title: string
-  key: string
-  callback?: () => void
-  toUrl?: string
-  subMenu?: MenuItem[]
-}
-
-export const generateMenuConfig = logoutCallback => {
+export const generateMenuConfig = (
+  logoutCallback: () => void,
+  location: Location<any>,
+  mode: LoginMode
+): MenuConfig => {
   return {
-    title: 'Geo-diary',
-    logo: <Logo width="150px" height="65px" />,
-    homeUrl: '/',
+    defaultActiveKey: 'GEO_DIARY',
+    mode,
+    location,
     menu: [
       {
-        title: 'Account',
-        key: 'Account',
-        subMenu: [
-          {
-            title: 'Logout',
-            key: '/logout',
-            callback: logoutCallback
-          }
-        ]
+        key: 'LOGO',
+        icon: <ReapitLogo className="nav-item-icon" />,
+        type: 'LOGO'
+      },
+      {
+        title: 'Geo Diary',
+        key: 'GEO_DIARY',
+        icon: <FaMapMarkerAlt className="nav-item-icon" />,
+        url: '/',
+        type: 'PRIMARY'
+      },
+      {
+        title: 'Apps',
+        key: 'APPS',
+        icon: <FaCloud className="nav-item-icon" />,
+        callback: () =>
+          (window.location.href = !window.location.href.includes('dev')
+            ? `https://marketplace.reapit.com/client/installed`
+            : `https://dev.marketplace.reapit.com/client/installed`),
+        type: 'PRIMARY'
+      },
+      {
+        title: 'Logout',
+        key: 'LOGOUT',
+        callback: logoutCallback,
+        icon: <FaSignOutAlt className="nav-item-icon" />,
+        type: 'SECONDARY'
       }
     ]
-  } as MenuConfig
+  }
 }
 
 export interface MenuMappedActions {
   logout: () => void
 }
 
-export type MenuProps = MenuMappedActions & RouteComponentProps & {}
+export interface MenuMappedState {
+  mode: LoginMode
+}
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ logout, location }) => {
+export type MenuProps = MenuMappedActions & MenuMappedState & RouteComponentProps & {}
+
+export const Menu: React.FunctionComponent<MenuProps> = ({ logout, location, mode }) => {
   const logoutCallback = () => logout()
-  const menuConfigs = generateMenuConfig(logoutCallback)
-  return <Sidebar {...menuConfigs} location={location} isResponsive={false} />
+  const menuConfigs = generateMenuConfig(logoutCallback, location, mode)
+  return <Sidebar {...menuConfigs} location={location} />
 }
 
 export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({
   logout: () => dispatch(authLogout())
 })
 
+export const mapStateToProps = (state: ReduxState): MenuMappedState => ({
+  mode: oc(state).auth.refreshSession.mode('WEB')
+})
+
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(Menu)
 )
