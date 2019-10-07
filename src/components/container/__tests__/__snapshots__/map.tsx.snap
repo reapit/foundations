@@ -128,6 +128,7 @@ exports[`Map Should match snapshot 1`] = `
           },
         ]
       }
+      destinationAddress="mockAddress"
       destinationPoint={
         Object {
           "lat": 0,
@@ -171,6 +172,7 @@ exports[`Map Should match snapshot 2`] = `
     <Map
       autoFitBounds={true}
       coordinates={Array []}
+      destinationAddress="mockAddress"
       destinationPoint={
         Object {
           "lat": 0,

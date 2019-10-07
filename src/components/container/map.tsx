@@ -9,6 +9,7 @@ import mapStyles from '@/styles/pages/map.scss?mod'
 import MapPanel from '../ui/map-panel'
 import { appointmentDetailRequestData } from '@/actions/appointment-detail'
 import { Dispatch } from 'redux'
+import { combineAdress } from '@/utils/combine-address'
 
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
 
@@ -18,6 +19,7 @@ export interface MapContainerMappedState {
     lat: number | undefined
     lng: number | undefined
   }
+  destinationAddress?: string
   desktopMode: boolean
 }
 
@@ -53,6 +55,7 @@ export const filterInvalidMarker = (markers: Coordinate[]) => {
 export const MapContainer = ({
   appointments = [],
   destinationLatLng,
+  destinationAddress,
   travelMode,
   handleOnClick,
   desktopMode
@@ -117,6 +120,7 @@ export const MapContainer = ({
           coordinates={coordinates}
           markerCallBack={handleOnClick}
           destinationPoint={destinationLatLng}
+          destinationAddress={destinationAddress}
           travelMode={travelMode}
           onLoadedDirection={onLoadedDirection}
           mapContainerStyles={{ height: '100%' }}
@@ -136,12 +140,14 @@ export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
   const appointments = oc(state).appointments.appointments.data([])
   const destinationLat = oc(state).direction.destination.property.address.geolocation.latitude(undefined)
   const destinationLng = oc(state).direction.destination.property.address.geolocation.longitude(undefined)
+  const destinationAddress = combineAdress(oc(state).direction.destination.property.address({}))
   return {
     appointments,
     destinationLatLng: {
       lat: destinationLat,
       lng: destinationLng
     },
+    destinationAddress,
     desktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
   }
 }
