@@ -5,10 +5,10 @@ exports[`identification forms Identification should render correctly 1`] = `
   enableReinitialize={false}
   initialValues={
     Object {
-      "expiredDate": undefined,
-      "filePaths": undefined,
-      "idRef": "",
-      "idType": "",
+      "details": "",
+      "expiry": undefined,
+      "fileUrl": undefined,
+      "typeId": "",
     }
   }
   isInitialValid={false}
@@ -23,26 +23,26 @@ exports[`identification forms renderFormHandler should render correctly 1`] = `
 <div>
   <Form>
     <Connect(Component)
-      id="idType"
+      id="typeId"
       labelText="ID Type"
-      name="idType"
+      name="typeId"
     />
     <Input
-      id="idRef"
+      id="details"
       labelText="ID Reference"
-      name="idRef"
+      name="details"
       placeholder="ID Reference"
       type="text"
     />
     <DatePicker
-      id="expiredDate"
+      id="expiry"
       labelText="Expired Date"
-      name="expiredDate"
+      name="expiry"
     />
     <FileInput
-      id="filePaths"
+      id="fileUrl"
       labelText="Upload File/Take a Pic"
-      name="filePaths"
+      name="fileUrl"
     />
     <div
       className="flex justify-between mt-4"
@@ -56,7 +56,7 @@ exports[`identification forms renderFormHandler should render correctly 1`] = `
         <span
           className="ml-1"
         >
-          MS1039475
+          1
         </span>
       </div>
       <div>
@@ -66,7 +66,7 @@ exports[`identification forms renderFormHandler should render correctly 1`] = `
           type="submit"
           variant="primary"
         >
-          Submit
+          Save
         </Button>
         <Button
           className="mr-2"
