@@ -1,18 +1,18 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-import { CreateIdentityDocumentModel } from '@/types/contact-api-schema'
+import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
 import { Button, Input, FileInput, DatePicker } from '@reapit/elements'
-import SelectIdentity from '../inputs/select-identity'
+import SelectIdentity from '@/components/ui/inputs/select-identity'
 
 export type IdentificationFormValues = {
-  idType: string
-  idRef: string
-  expiredDate?: Date
-  filePaths?: Array<string>
+  typeId: string
+  details: string
+  expiry?: Date
+  fileUrl?: string
 }
 
 export type IdentificationProps = {
-  data: CreateIdentityDocumentModel
+  data: ContactModel
   loading: boolean
   onSaveHandler: () => void
   onNextHandler: () => void
@@ -20,55 +20,77 @@ export type IdentificationProps = {
 }
 
 export const initialFormValues = {
-  idType: '',
-  idRef: '',
-  expiredDate: undefined,
-  filePaths: undefined
+  typeId: '',
+  details: '',
+  expiry: undefined,
+  fileUrl: undefined
 }
 
-export const renderFormHandler = ({ loading, onNextHandler, onPrevHandler }) => (
-  <Form>
-    <SelectIdentity id="idType" name="idType" labelText="ID Type" />
-    <Input id="idRef" name="idRef" type="text" placeholder="ID Reference" labelText="ID Reference" />
-    <DatePicker id="expiredDate" name="expiredDate" labelText="Expired Date" />
-    <FileInput id="filePaths" name="filePaths" labelText="Upload File/Take a Pic" />
+export const renderFormHandler = ({ data, loading, onNextHandler, onPrevHandler }) => {
+  const { id } = data
 
-    <div className="flex justify-between mt-4">
-      <div className="flex items-center">
-        <span>RPS Ref:</span>
-        <span className="ml-1">MS1039475</span>
+  return (
+    <Form>
+      <SelectIdentity id="typeId" name="typeId" labelText="ID Type" />
+      <Input id="details" name="details" type="text" placeholder="ID Reference" labelText="ID Reference" />
+      <DatePicker id="expiry" name="expiry" labelText="Expired Date" />
+      <FileInput id="fileUrl" name="fileUrl" labelText="Upload File/Take a Pic" />
+
+      <div className="flex justify-between mt-4">
+        <div className="flex items-center">
+          <span>RPS Ref:</span>
+          <span className="ml-1">{id}</span>
+        </div>
+
+        <div>
+          <Button className="mr-2" variant="primary" type="submit" loading={loading}>
+            Save
+          </Button>
+          <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler} disabled={loading}>
+            Previous
+          </Button>
+          <Button variant="primary" type="button" onClick={onNextHandler} disabled={loading}>
+            Next
+          </Button>
+        </div>
       </div>
+    </Form>
+  )
+}
 
-      <div>
-        <Button className="mr-2" variant="primary" type="submit" loading={loading}>
-          Submit
-        </Button>
-        <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler} disabled={loading}>
-          Previous
-        </Button>
-        <Button variant="primary" type="button" onClick={onNextHandler} disabled={loading}>
-          Next
-        </Button>
-      </div>
-    </div>
-  </Form>
-)
+export const onSubmitHandler = (data: ContactModel, values: IdentificationFormValues, onSaveHandler) => {
+  const { id } = data
+  const { typeId, expiry, details, fileUrl } = values
 
-export const onSubmitHandler = (values, onSaveHandler) => onSaveHandler(values)
+  const formatedValues = {
+    contactId: id,
+    documents: [
+      {
+        typeId,
+        expiry: expiry,
+        details,
+        fileUrl
+      }
+    ]
+  } as IdentityCheckModel
+
+  onSaveHandler(formatedValues)
+}
 
 export const Identification: React.FC<IdentificationProps> = ({
   loading,
+  data,
   onSaveHandler,
   onNextHandler,
   onPrevHandler
 }) => {
-  const initialValues = initialFormValues
+  const initialValues = data ? initialFormValues : initialFormValues
 
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values: IdentificationFormValues) => onSubmitHandler(values, onSaveHandler)}
-      render={() => renderFormHandler({ loading, onNextHandler, onPrevHandler })}
+      onSubmit={(values: IdentificationFormValues) => onSubmitHandler(data, values, onSaveHandler)}
+      render={() => renderFormHandler({ data, loading, onNextHandler, onPrevHandler })}
     />
   )
 }
