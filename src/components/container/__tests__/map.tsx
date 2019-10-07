@@ -14,7 +14,8 @@ describe('Map', () => {
       destinationLatLng: { lat: 0, lng: 0 },
       travelMode: 'WALKING' as TravelMode,
       handleOnClick: jest.fn(),
-      desktopMode: false
+      desktopMode: false,
+      destinationAddress: 'mockAddress'
     }
     const wrapper = shallow(<MapContainer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -26,7 +27,8 @@ describe('Map', () => {
       destinationLatLng: { lat: 0, lng: 0 },
       travelMode: 'WALKING' as TravelMode,
       handleOnClick: jest.fn(),
-      desktopMode: false
+      desktopMode: false,
+      destinationAddress: 'mockAddress'
     }
     const wrapper = shallow(<MapContainer {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -55,6 +57,7 @@ describe('Map', () => {
           lat: 52.1284,
           lng: -0.507145
         },
+        destinationAddress: '65 Lindsey Close Great Denham Bedford Bedfordshire MK40 4GT',
         desktopMode: true
       }
       expect(result).toEqual(expected)
@@ -74,6 +77,7 @@ describe('Map', () => {
           lat: undefined,
           lng: undefined
         },
+        destinationAddress: '',
         desktopMode: false
       }
       expect(result).toEqual(expected)
