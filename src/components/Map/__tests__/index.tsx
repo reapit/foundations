@@ -92,7 +92,8 @@ describe('Map', () => {
       const fn = handleRequestDirectionServiceResponse({
         currentLocation: mockCurrentLocation,
         onLoadedDirection: mockOnLoadedDirection,
-        directionsRenderer: mockDirectionsRenderer
+        directionsRenderer: mockDirectionsRenderer,
+        destinationAddress: ''
       })
       const mockResponse = {}
       const mockStatus = 'OK'
@@ -106,7 +107,8 @@ describe('Map', () => {
       const fn = handleRequestDirectionServiceResponse({
         currentLocation: mockCurrentLocation,
         onLoadedDirection: mockOnLoadedDirection,
-        directionsRenderer: mockDirectionsRenderer
+        directionsRenderer: mockDirectionsRenderer,
+        destinationAddress: ''
       })
       const mockResponse = {}
       const mockStatus = 'ERROR'
@@ -126,7 +128,8 @@ describe('Map', () => {
         directionsRenderer: mockDirectionsRenderer,
         travelMode,
         onLoadedDirection: mockOnLoadedDirection,
-        currentLocation: mockCurrentLocation
+        currentLocation: mockCurrentLocation,
+        destinationAddress: ''
       })
       expect(mockDirectionsRenderer.setMap).toBeCalled()
       expect(mockDirectionsService.route).toBeCalled()
@@ -140,7 +143,8 @@ describe('Map', () => {
         center: undefined,
         zoom: undefined,
         map: mockMap,
-        markers: mockMarkers
+        markers: mockMarkers,
+        googleMaps: mockGoogleMaps
       })
       expect(mockMap.fitBounds).toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).toBeCalledWith(mockBounds.getCenter())
@@ -152,7 +156,8 @@ describe('Map', () => {
         center: {},
         zoom: 10,
         map: mockMap,
-        markers: mockMarkers
+        markers: mockMarkers,
+        googleMaps: mockGoogleMaps
       })
       expect(mockMap.fitBounds).not.toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
@@ -164,7 +169,8 @@ describe('Map', () => {
         center: undefined,
         zoom: 10,
         map: mockMap,
-        markers: mockMarkers
+        markers: mockMarkers,
+        googleMaps: mockGoogleMaps
       })
       expect(mockMap.fitBounds).not.toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).toBeCalledWith(mockBounds.getCenter())
@@ -176,7 +182,8 @@ describe('Map', () => {
         center: {},
         zoom: undefined,
         map: mockMap,
-        markers: mockMarkers
+        markers: mockMarkers,
+        googleMaps: mockGoogleMaps
       })
       expect(mockMap.fitBounds).toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
@@ -208,7 +215,8 @@ describe('Map', () => {
           current: mockDirectionsService
         },
         boundsRef: mockBounds,
-        markerCallBack
+        markerCallBack,
+        destinationAddress: ''
       })
       expect(mockMap.fitBounds).not.toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
@@ -351,7 +359,8 @@ describe('Map', () => {
         markersRef: {
           current: mockMarkers
         },
-        markerCallBack
+        markerCallBack,
+        destinationAddress: ''
       })
       expect(result).toBeDefined()
     })
@@ -378,7 +387,8 @@ describe('Map', () => {
         coordinates: mockCoordinates,
         travelMode,
         markersRef: null,
-        markerCallBack
+        markerCallBack,
+        destinationAddress: ''
       })
       expect(result).toBeDefined()
     })
