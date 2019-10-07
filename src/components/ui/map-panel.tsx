@@ -8,6 +8,14 @@ import { ReduxState } from '@/types/core'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { setDestination } from '@/actions/direction'
+import invalidValues from '@/constants/invalid-values'
+
+const { UNDEFINED_LATLNG_NUMBER } = invalidValues
+
+export type Latlng = {
+  lat?: number | undefined
+  lng?: number | undefined
+}
 
 const { mapPanel, isDesktop } = mapStyles
 
@@ -21,6 +29,38 @@ export interface MapPanelProps {
   isDesktopMode: boolean
 }
 
+/**
+ * Use Dependency Injection approch.
+ * instead of mocking.
+ */
+
+export const getMapUrl = ({ currentLocation, destination, isIOS = true }: { currentLocation: Latlng; destination: Latlng, isIOS?: boolean }) => {
+  let mapUrl = ''
+  if (isIOS) {
+    mapUrl += 'maps'
+  } else {
+    mapUrl += 'https'
+  }
+
+  mapUrl += '://maps.google.com/maps?'
+
+  if (
+    oc(currentLocation.lat)(UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER &&
+    oc(currentLocation.lng)(UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER
+  ) {
+    mapUrl += `saddr=${currentLocation.lat},${currentLocation.lng}&`
+  }
+
+  if (
+    oc(destination.lat)(UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER &&
+    oc(destination.lng)(UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER
+  ) {
+    mapUrl += `daddr=${destination.lat},${destination.lng}`
+  }
+
+  return mapUrl
+}
+
 export const MapPanel = ({
   duration,
   distance,
@@ -31,15 +71,7 @@ export const MapPanel = ({
   isDesktopMode
 }: MapPanelProps) => {
   const openDefaultMap = () => {
-    if (isIOS()) {
-      window.open(
-        `maps://maps.google.com/maps?saddr=${currentLocation.lat},${currentLocation.lng}&daddr=${destination.lat},${destination.lng}`
-      )
-    } else {
-      window.open(
-        `https://maps.google.com/maps?saddr=${currentLocation.lat},${currentLocation.lng}&daddr=${destination.lat},${destination.lng}`
-      )
-    }
+    window.open(getMapUrl({ currentLocation, destination, isIOS: isIOS() }))
   }
 
   if (!destination.lat || !destination.lng) {
