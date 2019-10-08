@@ -1,0 +1,80 @@
+/* Base */
+body {
+  margin: 0;
+  font-size: 16px
+}
+
+/* Font */
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Navbar */
+#path-bar {
+  fill: #8A8A8A;
+}
+
+#navbar {
+  padding: 0rem 1.75rem;
+  color: #8A8A8A;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#navbar h1 {
+  margin: 1.75rem 0rem;
+  font-size: 1.5em;
+}
+
+#navbar > svg {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Widget */
+#widget > img {
+  width: 100vw;
+}
+
+/* Place holder */
+#place-holder {
+  padding: 1.75rem 0rem;
+}
+
+/* Our approach */
+#approach {
+  display: flex;
+  color: white;
+}
+
+#approach > #our-approach {
+  background: #8A8A8A;
+  padding: 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#approach button {
+  margin-top: 1rem;
+  background: white;
+  color: #8A8A8A;
+  padding: 0.75rem 1.75rem;
+  border: 0rem;
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#approach img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Our approuch - handle responsive */
+@media (max-width: 768px) {
+  #approach {
+    display: block;
+  }
+}
