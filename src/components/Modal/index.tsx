@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { usePortal } from '../../hooks/UsePortal'
-import { H4 } from '../Typography/index'
 
 const { useMemo, useEffect } = React
 

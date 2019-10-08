@@ -23,4 +23,3 @@ export const SubTitleH4: React.SFC = ({ children }) => <h4 className="subtitle i
 export const SubTitleH5: React.SFC = ({ children }) => <h5 className="subtitle is-5">{children}</h5>
 
 export const SubTitleH6: React.SFC = ({ children }) => <h6 className="subtitle is-6">{children}</h6>
-
