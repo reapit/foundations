@@ -12,33 +12,9 @@ exports[`ClientSearch should match a snapshot 1`] = `
       enableReinitialize={false}
       initialValues={
         Object {
-          "name": "",
-        }
-      }
-      isInitialValid={false}
-      onSubmit={[Function]}
-      render={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
-    <Formik
-      enableReinitialize={false}
-      initialValues={
-        Object {
           "address": "",
-        }
-      }
-      isInitialValid={false}
-      onSubmit={[Function]}
-      render={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
-    <Formik
-      enableReinitialize={false}
-      initialValues={
-        Object {
           "identityCheck": "",
+          "name": "",
         }
       }
       isInitialValid={false}
