@@ -35,4 +35,4 @@ const BasicUsage = () => {
   )
 }
 
-storiesOf('hooks/usePortal', module).add('Usage', () => <BasicUsage />)
+storiesOf('UsePortal', module).add('Usage', () => <BasicUsage />)

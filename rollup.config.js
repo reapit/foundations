@@ -17,7 +17,10 @@ export default [
             output: 'dist/index.css',
             minify: true,
             whitelist: [
-              '*react-datepicker*'
+              '*react-datepicker*',
+              '*utilities*',
+              '*global*',
+              '*normalize*'
             ]
             // Uncomment this line if you want to see the CSS purified from the package
             // rejected: true

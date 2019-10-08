@@ -26,6 +26,8 @@ export * from './components/Tabs'
 export * from './components/Toast'
 export * from './components/Modal'
 export * from './components/Typography'
+export * from './components/Info'
+export * from './components/Layout'
 
 // Utils
 export * from './utils/validators'

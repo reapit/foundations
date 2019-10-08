@@ -8,7 +8,7 @@
   display: inline-block;
   width: 100%;
   background-color: $reapit-dark-blue-darkened;
-  min-height: 60px;
+  height: 66px;
   overflow: scroll;
   position: sticky;
   top: 0;
@@ -16,8 +16,7 @@
   
   @media screen and (min-width: 768px) {
     height: 100vh;
-    width: auto;
-    width: 70px;
+    width: 66px;
     overflow: hidden; 
     position: static;
   }
@@ -37,7 +36,11 @@
     padding: 0.5rem 0.5rem;
     border: $reapit-dark-blue-darkened 3px solid;
     text-align: center;
-    width: 70px;
+    min-width: 66px;
+
+    @media screen and (min-width: 768px) {
+      width: 66px;  
+    }
   }
 
   li a {
@@ -68,9 +71,8 @@
   }
 
   .nav-item-icon  {
-    width: 50%;
+    width: 45%;
     height: 100%;
-    
   }
 
   .is-logo .nav-item-icon {
