@@ -93,7 +93,6 @@ module.exports = {
       filename: 'css/[name].[hash].css'
     }),
     new GenerateSW({
-      exclude: [/\.jpe?g$/, /\.png$/],
       clientsClaim: true,
       skipWaiting: true,
       navigateFallback: '/index.html',
