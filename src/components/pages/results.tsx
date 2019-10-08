@@ -5,13 +5,12 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { ReduxState } from '@/types/core'
 import { ResultState } from '@/reducers/result'
 import { Pagination, Table, Button } from '@reapit/elements'
-import { resultRequestData, SearchParams, ContactsParams, resultSetSearchParams } from '@/actions/result'
+import { resultRequestData, ContactsParams } from '@/actions/result'
 import { oc } from 'ts-optchain'
 import bulma from '@/styles/vendor/bulma'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
-  setSearchParams: (params: SearchParams) => void
 }
 
 export interface ResultMappedProps {
@@ -20,13 +19,7 @@ export interface ResultMappedProps {
 
 export type ResultProps = ResultMappedActions & ResultMappedProps & RouteComponentProps<{ page?: any }>
 
-export const Result: React.FunctionComponent<ResultProps> = ({
-  resultState,
-  setSearchParams,
-  fetchContacts,
-  location,
-  history
-}) => {
+export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetchContacts, history }) => {
   const columns = React.useMemo(
     () => [
       {
@@ -94,12 +87,6 @@ export const Result: React.FunctionComponent<ResultProps> = ({
   )
 
   React.useEffect(() => {
-    if (location.state) {
-      setSearchParams(location.state)
-    }
-  }, [location])
-
-  React.useEffect(() => {
     fetchContacts({ ...search, pageNumber })
   }, [search, pageNumber])
 
@@ -119,8 +106,7 @@ const mapStateToProps = (state: ReduxState): ResultMappedProps => ({
 })
 
 const mapDispatchToProps = (dispatch: any): ResultMappedActions => ({
-  fetchContacts: (params: ContactsParams) => dispatch(resultRequestData(params)),
-  setSearchParams: (params: SearchParams) => dispatch(resultSetSearchParams(params))
+  fetchContacts: (params: ContactsParams) => dispatch(resultRequestData(params))
 })
 
 export default withRouter(

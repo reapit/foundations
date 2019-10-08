@@ -12,13 +12,8 @@ const props = (loading: boolean, contacts: PagedResultContactModel_ | null): Res
     contacts: contacts
   },
   fetchContacts: jest.fn(),
-  setSearchParams: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
-  location: {
-    state: {
-      name: '1'
-    }
-  }
+  history: {}
 })
 
 describe('Result', () => {
