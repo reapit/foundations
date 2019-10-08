@@ -10,7 +10,8 @@ import {
   checklistDetailReceiveData,
   checkListDetailSubmitForm,
   checklistDetailRequestData,
-  checkListDetailUpdateData
+  checkListDetailUpdateData,
+  pepSearchResult
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
 import { ContactModel, AddressModel } from '@/types/contact-api-schema'
@@ -221,6 +222,41 @@ export const updateDeclarationAndRisk = function*({ data: { id, metadata } }: Ac
     )
   }
 }
+// TODO: should write test for api call func
+export const fetchDataPepSearch = async ({ name, headers }) => {
+  try {
+    console.log(name, headers)
+    // TODO: Duong Pham will replace by fetch API when API ready
+    const result = await new Promise(resolve => {
+      setTimeout(() => {
+        resolve([])
+      }, 1000)
+    })
+    return result
+  } catch (err) {
+    console.error(err.message)
+    return err
+  }
+}
+
+export const pepSearch = function*({ data }) {
+  yield put(checkListDetailSubmitForm(true))
+  const headers = yield call(initAuthorizedRequestHeaders)
+  try {
+    const searchResults = yield fetchDataPepSearch({ name: data, headers })
+    yield put(pepSearchResult(searchResults))
+    yield put(checkListDetailSubmitForm(false))
+  } catch (err) {
+    console.error(err.message)
+    yield put(checkListDetailSubmitForm(false))
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR
+      })
+    )
+  }
+}
 
 export const checklistDetailDataListen = function*() {
   yield takeLatest<Action<number>>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA, checklistDetailDataFetch)
@@ -241,12 +277,17 @@ export const checkListDetailDeclarationAndRiskUpdateListen = function*() {
   )
 }
 
+export const checkListDetailPepSearchListen = function*() {
+  yield takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP, pepSearch)
+}
+
 export const checklistDetailSagas = function*() {
   yield all([
     fork(checklistDetailDataListen),
     fork(checkListDetailUpdateListen),
     fork(checkListDetailAddressUpdateListen),
-    fork(checkListDetailDeclarationAndRiskUpdateListen)
+    fork(checkListDetailDeclarationAndRiskUpdateListen),
+    fork(checkListDetailPepSearchListen)
   ])
 }
 

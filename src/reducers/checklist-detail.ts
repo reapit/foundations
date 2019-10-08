@@ -6,7 +6,8 @@ import {
   checklistDetailReceiveData,
   checkListDetailShowModal,
   checkListDetailHideModal,
-  checkListDetailSubmitForm
+  checkListDetailSubmitForm,
+  pepSearchResult
 } from '../actions/checklist-detail'
 import { ContactModel } from '@/types/contact-api-schema'
 
@@ -17,6 +18,8 @@ export interface ChecklistDetailState {
   checklistDetailData: {
     contact: ContactModel
   } | null
+  // TODO will replace any when integrate API with pepSearchData
+  pepSearchResultData: any[] | null
   isSubmitting: boolean
   status: {
     profile: boolean
@@ -34,6 +37,7 @@ export const defaultState: ChecklistDetailState = {
   checklistDetailData: null,
   modalContentType: STEPS.PROFILE,
   isSubmitting: false,
+  pepSearchResultData: null,
   status: {
     profile: false,
     primary_identification: false,
@@ -80,6 +84,13 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
     return {
       ...state,
       isSubmitting: action.data
+    }
+  }
+
+  if (isType(action, pepSearchResult)) {
+    return {
+      ...state,
+      pepSearchResultData: action.data
     }
   }
 

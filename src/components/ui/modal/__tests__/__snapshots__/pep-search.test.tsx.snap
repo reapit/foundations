@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pep-search PepSearch should match snapshot 1`] = `
+<div>
+  <Formik
+    enableReinitialize={false}
+    initialValues={Object {}}
+    isInitialValid={false}
+    onSubmit={[MockFunction]}
+    render={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+  />
+</div>
+`;
+
+exports[`pep-search renderForm should match snapshot 1`] = `
+<div>
+  <Component />
+</div>
+`;
+
+exports[`pep-search renderLoading should match snapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <FaSpinner />
+    </div>
+    <div>
+      Please wait ...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`pep-search renderNoResult should match snapshot 1`] = `
+<div>
+  <div
+    className="ml-8"
+  >
+    <div>
+      Results
+    </div>
+    <div>
+      <div
+        className="mr-8"
+      >
+        <FaRegTimesCircle />
+      </div>
+      <div>
+        No Result Found for '
+        <Component />
+        '. Search conducted for '
+        <Component />
+        ' on 
+        18 Dec 19 16:30PM
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -6,6 +6,7 @@ import AddressInformation from './address-information'
 import PrimaryIdentification from './primary-identification'
 import SecondaryIdentification from './secondary-identification'
 import DeclarationAndRiskAssessment from './declaration-and-risk-assessment'
+import PepSearch from './pep-search'
 
 export const STEPS = {
   PROFILE: 'Personal Details',
@@ -41,6 +42,9 @@ export const renderContent = ({ modalContentType, id }) => {
 
     case STEPS.REPORT:
       return <Report />
+
+    case STEPS.PEP_SEARCH:
+      return <PepSearch id={id} />
 
     case STEPS.DECLARATION_RISK_MANAGEMENT:
       return <DeclarationAndRiskAssessment id={id} />
