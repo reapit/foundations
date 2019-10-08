@@ -1,0 +1,96 @@
+/* Base */
+body {
+  margin: 0;
+}
+
+/* Font */
+@font-face {
+  font-family: 'Museo Sans W03_300';
+  src: url('../../assets/fonts/1427936/f2cf6cf9-9ec6-4945-a525-f5873d143c2a.eot?#iefix');
+  src: url('../../assets/fonts/1427936/f2cf6cf9-9ec6-4945-a525-f5873d143c2a.eot?#iefix') format('eot'),
+    url('../../assets/fonts/1427936/9803fddf-c005-431a-92d5-0f18688f945d.woff2') format('woff2'),
+    url('../../assets/fonts/1427936/ea9b8ac3-ff16-4387-a473-32a6a617329f.woff') format('woff'),
+    url('../../assets/fonts/1427936/353acc2c-88f2-4de3-83eb-6cc2c9b05af1.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Museo Sans W03_700';
+  src: url('../../assets/fonts/1427944/1c070cdb-18d8-440e-be9d-2448fa3930c4.eot?#iefix');
+  src: url('../../assets/fonts/1427944/1c070cdb-18d8-440e-be9d-2448fa3930c4.eot?#iefix') format('eot'),
+    url('../../assets/fonts/1427944/66c06801-da3e-4587-a89c-674cfbe39c21.woff2') format('woff2'),
+    url('../../assets/fonts/1427944/f3c7f613-9728-4ed6-a383-1c8519b215d2.woff') format('woff'),
+    url('../../assets/fonts/1427944/c21bf502-6b58-4bf0-9ddd-169929c263e7.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Museo Sans W03_300', sans-serif
+}
+
+/* Navbar */
+#path-bar {
+  fill: #8A8A8A;
+}
+
+#navbar {
+  padding: 0px 25px;
+  color: #8A8A8A;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#navbar h1 {
+  margin: 25px 0px;
+  font-size: 1.5em;
+}
+
+#navbar > svg {
+  font-family: 'Museo Sans W03_700', sans-serif
+}
+
+/* Widget */
+#widget > img {
+  width: 100vw;
+}
+
+/* Place holder */
+#place-holder {
+  padding: 25px 0px;
+}
+
+/* Our approach */
+#approach {
+  display: flex;
+  color: white;
+}
+
+#approach > #our-approach {
+  background: #8A8A8A;
+  padding: 25px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+#approach button {
+  margin-top: 15px;
+  background: white;
+  color: #8A8A8A;
+  padding: 10px 25px;
+  border: 0px;
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#approach img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Our approuch - handle responsive */
+@media (max-width: 678px) {
+  #approach {
+    display: block;
+  }
+}
