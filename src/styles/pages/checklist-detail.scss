@@ -38,6 +38,34 @@
   text-align: right;
 }
 
+.pepSearchInputContainer {
+  display: flex;
+  align-items: center;
+  &>div{
+    width: 80%;
+  }
+}
+
+.pepSearchLoading {
+  text-align: center;
+  svg{
+    font-size: 2rem;
+    animation: spinner 1s linear infinite;
+  }
+}
+
+.noResultContainer  {
+  display: flex;
+  margin: 2rem 0;
+  svg {
+    font-size: 2rem;
+  }
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
 @media print {
   .reportContainer {
       background-color: white;

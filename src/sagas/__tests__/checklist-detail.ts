@@ -6,7 +6,8 @@ import {
   checklistDetailReceiveData,
   checkListDetailSubmitForm,
   checklistDetailRequestData,
-  checkListDetailUpdateData
+  checkListDetailUpdateData,
+  pepSearchResult
 } from '@/actions/checklist-detail'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
@@ -22,7 +23,10 @@ import {
   mapAddressToMetaData,
   mapArrAddressToUploadImageFunc,
   updateDeclarationAndRisk,
-  checkListDetailDeclarationAndRiskUpdateListen
+  checkListDetailDeclarationAndRiskUpdateListen,
+  checkListDetailPepSearchListen,
+  pepSearch,
+  fetchDataPepSearch
 } from '../checklist-detail'
 import { contact } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -285,6 +289,37 @@ describe('checklist-detail updateDeclarationAndRisk', () => {
   })
 })
 
+describe('checklist-detail pepSearch', () => {
+  const gen = cloneableGenerator(pepSearch as any)({ data: 'mockName' })
+  expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
+  expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+  expect(gen.next(mockHeaders as any).value).toEqual(fetchDataPepSearch({ name: 'mockName', headers: mockHeaders }))
+
+  test('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next([] as any).value).toEqual(put(pepSearchResult([])))
+    expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
+    expect(clone.next().done).toBe(true)
+  })
+
+  test('api call fail', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
+      put(checkListDetailSubmitForm(false))
+    )
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
+    )
+    expect(clone.next().done).toBe(true)
+  })
+})
+
 describe('check-list sagas', () => {
   describe('checklist detail listen', () => {
     it('should request data when called', () => {
@@ -333,6 +368,17 @@ describe('check-list sagas', () => {
     })
   })
 
+  describe('checklist detail checkListDetailPepSearchListen update listen', () => {
+    it('should request data when called', () => {
+      const gen = checkListDetailPepSearchListen()
+
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP, pepSearch)
+      )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
   describe('checklistDetailSagas', () => {
     it('should listen data request', () => {
       const gen = checklistDetailSagas()
@@ -342,7 +388,8 @@ describe('check-list sagas', () => {
           fork(checklistDetailDataListen),
           fork(checkListDetailUpdateListen),
           fork(checkListDetailAddressUpdateListen),
-          fork(checkListDetailDeclarationAndRiskUpdateListen)
+          fork(checkListDetailDeclarationAndRiskUpdateListen),
+          fork(checkListDetailPepSearchListen)
         ])
       )
       expect(gen.next().done).toBe(true)

@@ -28,6 +28,7 @@
   "dependencies": {
     "@reapit/elements": "^0.3.3",
     "bulma": "^0.7.5",
+    "dayjs": "^1.8.16",
     "react": "^16.8.6",
     "react-datepicker": "^2.9.6",
     "react-dom": "^16.8.6",

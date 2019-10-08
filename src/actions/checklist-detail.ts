@@ -23,3 +23,6 @@ export const checklistDetailReceiveData = actionCreator<CheckListDetailReceiveDa
 export const checkListDetailShowModal = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_SHOW_MODAL)
 export const checkListDetailHideModal = actionCreator<void>(ActionTypes.CHECKLIST_DETAIL_HIDE_MODAL)
 export const checkListDetailSubmitForm = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM)
+export const checkListDetailSearchPep = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP)
+// TODO: will replace any
+export const pepSearchResult = actionCreator<any>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP_RESULT)

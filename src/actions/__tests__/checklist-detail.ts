@@ -5,7 +5,8 @@ import {
   checklistDetailReceiveData,
   checkListDetailShowModal,
   checkListDetailHideModal,
-  checkListDetailSubmitForm
+  checkListDetailSubmitForm,
+  pepSearchResult
 } from '../checklist-detail'
 
 describe('checklist-detail actions', () => {
@@ -32,5 +33,10 @@ describe('checklist-detail actions', () => {
   it('should create a checkListDetailSubmitForm action', () => {
     expect(checkListDetailSubmitForm.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM)
     expect(checkListDetailSubmitForm(true).data).toEqual(true)
+  })
+
+  it('should create a pepSearchResult action', () => {
+    expect(pepSearchResult.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP_RESULT)
+    expect(pepSearchResult(true).data).toEqual(true)
   })
 })

@@ -37,3 +37,7 @@ window.matchMedia =
       removeListener: function() {}
     }
   }
+
+jest.mock('dayjs', () =>
+  jest.fn((...args) => jest.requireActual('dayjs')(args.filter(arg => arg).length > 0 ? args : '2019-12-18T16:30:00'))
+)
