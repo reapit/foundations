@@ -134,7 +134,7 @@ const Input = ({
     <input
       type="input"
       className={className}
-      placeholder="__/__/____"
+      placeholder="DD/MM/YYYY"
       value={inputValue}
       id={id}
       onChange={_onChange}

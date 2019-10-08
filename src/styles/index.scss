@@ -1,22 +1,22 @@
-@charset "utf-8";
-
-* {
-  box-sizing: border-box !important;
-}
-
-html {
-  font-size: 14px !important;
-}
-
+// Global Styles - normalize then apply a base
 @import './vendor/normalize.scss';
+@import './base/global.scss';
+
+// Utility Classes
 @import './base/utilities.scss';
+
+// Vendor and Bulma styles
 @import './vendor/bulma.scss';
+@import './vendor/bulma-overrides.scss';
+
+// Components
 @import './components/loader.scss';
 @import './components/modal.scss';
 @import './components/toast.scss';
 @import './components/menu.scss';
 @import './components/wizard.scss';
-@import './components/appointment-tile.scss';
 @import './components/react-datepicker.scss';
 @import './components/progressbar.scss';
 @import './components/table.scss';
+@import './components/icon-list.scss';
+@import './components/checkbox.scss';

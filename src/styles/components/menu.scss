@@ -17,7 +17,7 @@
   @media screen and (min-width: 768px) {
     height: 100vh;
     width: auto;
-    min-width: 50px;
+    width: 70px;
     overflow: hidden; 
     position: static;
   }
@@ -37,11 +37,7 @@
     padding: 0.5rem 0.5rem;
     border: $reapit-dark-blue-darkened 3px solid;
     text-align: center;
-    min-width: 60px;
-
-    @media screen and (min-width: 768px) {
-      min-width: 50px;
-    }
+    width: 70px;
   }
 
   li a {
@@ -72,7 +68,7 @@
   }
 
   .nav-item-icon  {
-    width: 60%;
+    width: 50%;
     height: 100%;
     
   }

@@ -10,9 +10,10 @@ export const renderRadio = ({ labelText, id, options, dataTest }) => ({ field, f
         <label className="label" htmlFor={id}>
           {labelText}
         </label>
-        {options.map(({ label, value }) => (
-          <div data-test={dataTest} className={className}>
-            <input type="radio" key={value} name={name} value={value} {...field} /> <span>{label}</span>
+        {options.map(({ label, value }, index: number) => (
+          <div key={index} data-test={dataTest} className={className}>
+            <input id={value} className="checkbox" type="radio" key={value} name={name} value={value} {...field} />{' '}
+            <label htmlFor={value}>{label}</label>
           </div>
         ))}
       </div>

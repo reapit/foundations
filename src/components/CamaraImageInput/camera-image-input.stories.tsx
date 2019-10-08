@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import { CameraImageInput } from '.'
 import { Form, Formik } from 'formik'
 
-storiesOf('form/CameraImageInput', module).add('Camera Image Input', () => (
+storiesOf('CameraImageInput', module).add('Primary', () => (
   <section className="section">
     <Formik
       initialValues={{ imageInput: '' }}

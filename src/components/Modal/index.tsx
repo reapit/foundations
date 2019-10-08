@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { usePortal } from '../../hooks/UsePortal'
+import { H4 } from '../Typography/index'
 
 const { useMemo, useEffect } = React
 
@@ -10,6 +11,7 @@ export interface ModalProps {
   size?: 'medium' | 'small'
   afterClose?: () => void
   deps?: any[]
+  footerItems?: React.ReactNode
 }
 
 export const Modal: React.FunctionComponent<ModalProps> = ({
@@ -18,7 +20,8 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   afterClose,
   visible,
   size = 'medium',
-  deps
+  deps,
+  footerItems
 }) => {
   // CLD-250: https://reapit.atlassian.net/secure/RapidBoard.jspa?rapidView=200&view=planning&selectedIssue=CLD-250
   // we can't access the showPortal in the component passed to usePortal
@@ -38,20 +41,23 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
           className={'modal-content ' + (size === 'medium' ? 'modal-medium' : 'modal-small')}
           data-test="modal-content"
         >
-          <div className="box">
-            {title && <h4 className="title is-4">{title}</h4>}
-            {children}
+          <div className="modal-card">
+            <header className="modal-card-head">
+              <h4 className="modal-card-title is-4">{title}</h4>
+              <button
+                className="delete"
+                aria-label="close"
+                data-test="modal-close-button"
+                onClick={event => {
+                  event.preventDefault()
+                  afterClose && afterClose()
+                }}
+              />
+            </header>
+            <section className="modal-card-body">{children}</section>
+            {footerItems && <footer className="modal-card-foot">{footerItems}</footer>}
           </div>
         </div>
-        <button
-          className="modal-close is-large"
-          data-test="modal-close-button"
-          aria-label="close"
-          onClick={event => {
-            event.preventDefault()
-            afterClose && afterClose()
-          }}
-        />
       </div>
     ),
     deps || [children]

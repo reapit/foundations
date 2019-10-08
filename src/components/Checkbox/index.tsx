@@ -13,9 +13,17 @@ export const Checkbox = ({ name, labelText, id, dataTest }: CheckboxProps) => (
     name={name}
     render={({ field }) => (
       <div className="field">
-        <label className="checkbox">
-          <input type="checkbox" id={id} data-test={dataTest || ''} {...field} checked={field.value} />
-          <span className="ml-2">{labelText}</span>
+        <input
+          className="checkbox"
+          type="checkbox"
+          id={id}
+          name={id}
+          data-test={dataTest || ''}
+          {...field}
+          checked={field.value}
+        />
+        <label className="label ml-2" htmlFor={id}>
+          {labelText}
         </label>
       </div>
     )}

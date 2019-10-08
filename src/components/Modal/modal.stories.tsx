@@ -27,6 +27,35 @@ const BasicUsage = () => {
   )
 }
 
+const HasFooter = () => {
+  const [visible, setVisible] = useState(false)
+
+  return (
+    <PortalProvider>
+      <section className="section">
+        <Button variant="primary" type="button" onClick={() => setVisible(true)}>
+          Open Modal
+        </Button>
+        <Modal
+          visible={visible}
+          afterClose={() => setVisible(false)}
+          title="Modal Title"
+          footerItems={
+            <Button variant="primary" type="button" onClick={() => setVisible(false)}>
+              Close
+            </Button>
+          }
+        >
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas purus nec risus ornare convallis.
+            Vivamus risus orci, efficitur quis nisl nec, porta sollicitudin ante. Nulla facilisi.
+          </p>
+        </Modal>
+      </section>
+    </PortalProvider>
+  )
+}
+
 const NestedModals = () => {
   const [modalOneVisible, setModalOneVisible] = useState(false)
   const [modalTwoVisible, setModalTwoVisible] = useState(false)
@@ -66,5 +95,6 @@ const NestedModals = () => {
   )
 }
 
-stories.add('Basic Usage', () => <BasicUsage />)
-stories.add('Nested Modals', () => <NestedModals />)
+stories.add('Basic', () => <BasicUsage />)
+stories.add('HasFooter', () => <HasFooter />)
+stories.add('Nested', () => <NestedModals />)

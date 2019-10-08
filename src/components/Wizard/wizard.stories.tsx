@@ -48,7 +48,7 @@ const BasicUsage = () => {
     </div>
   )
 }
-storiesOf('Wizard', module).add('Basic usage', () => <BasicUsage />)
+storiesOf('Wizard', module).add('Basic', () => <BasicUsage />)
 
 ///////////////////////////////////////////////////////////
 // WORK WITH FORM ELEMENTS
@@ -90,7 +90,7 @@ const WorkWithFormElements = () => {
     </Wizard>
   )
 }
-storiesOf('Wizard', module).add('Work with Form elements', () => <WorkWithFormElements />)
+storiesOf('Wizard', module).add('HasForm', () => <WorkWithFormElements />)
 
 ///////////////////////////////////////////////////////////
 // CUSTOM FOOTER NAVIGATION
@@ -155,7 +155,7 @@ const CustomFooterNavigation = () => {
     </Wizard>
   )
 }
-storiesOf('Wizard', module).add('Custom Navigation', () => <CustomFooterNavigation />)
+storiesOf('Wizard', module).add('CustomNav', () => <CustomFooterNavigation />)
 
 ///////////////////////////////////////////////////////////
 // ACCESS STATE USING HOOK
@@ -163,19 +163,35 @@ storiesOf('Wizard', module).add('Custom Navigation', () => <CustomFooterNavigati
 
 const ComponentOne = () => {
   const { goTo, steps } = useWizardContext()
-  return <button onClick={() => goTo(steps[2].id)}>go to 3</button>
+  return (
+    <Button variant="primary" type="button" onClick={() => goTo(steps[2].id)}>
+      go to 3
+    </Button>
+  )
 }
 const ComponentTwo = () => {
   const { goTo, steps } = useWizardContext()
-  return <button onClick={() => goTo(steps[3].id)}>go to 4</button>
+  return (
+    <Button variant="primary" type="button" onClick={() => goTo(steps[3].id)}>
+      go to 4
+    </Button>
+  )
 }
 const ComponentThree = () => {
   const { goTo, steps } = useWizardContext()
-  return <button onClick={() => goTo(steps[1].id)}>go to 2</button>
+  return (
+    <Button variant="primary" type="button" onClick={() => goTo(steps[1].id)}>
+      go to 2
+    </Button>
+  )
 }
 const ComponentFour = () => {
   const { goTo, steps } = useWizardContext()
-  return <button onClick={() => goTo(steps[0].id)}>go to 1</button>
+  return (
+    <Button variant="primary" type="button" onClick={() => goTo(steps[0].id)}>
+      go to 1
+    </Button>
+  )
 }
 
 const AccessStateUsingHook = () => {
@@ -188,4 +204,4 @@ const AccessStateUsingHook = () => {
     </Wizard>
   )
 }
-storiesOf('Wizard', module).add('Access State Using Hook', () => <AccessStateUsingHook />)
+storiesOf('Wizard', module).add('HasHook', () => <AccessStateUsingHook />)

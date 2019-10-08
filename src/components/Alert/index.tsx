@@ -28,7 +28,7 @@ export const Alert = ({
       ? 'is-info'
       : 'is-primary'
   return (
-    <div className={`notification ${alertType}` + (className ? ` ${className}` : '')} role="alert" data-test={dataTest}>
+    <div className={`notification ${alertType} ${className ? className : ''}`} role="alert" data-test={dataTest}>
       {message}
       {closable && (
         <button

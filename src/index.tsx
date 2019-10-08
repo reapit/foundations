@@ -4,7 +4,7 @@ export * from './hooks/UsePortal'
 // Components
 export * from './components/Pagination'
 export * from './components/Menu'
-export * from './components/AppointmentTile'
+export * from './components/Tile'
 export * from './components/Map'
 export * from './components/DatePicker'
 export * from './components/Table'
@@ -25,6 +25,7 @@ export * from './components/Loader'
 export * from './components/Tabs'
 export * from './components/Toast'
 export * from './components/Modal'
+export * from './components/Typography'
 
 // Utils
 export * from './utils/validators'

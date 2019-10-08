@@ -47,4 +47,4 @@ const Usage = () => {
   )
 }
 
-stories.add('Usage', () => <Usage />)
+stories.add('Error', () => <Usage />)

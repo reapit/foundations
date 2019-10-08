@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppointmentTile should match snapshot when HIGHTLIGHT false 1`] = `
+<div
+  className="card "
+>
+  <div
+    className="card-content"
+  >
+    <div
+      className="media"
+    >
+      <div
+        className="media-content"
+      >
+        <Component>
+          mockHeading
+        </Component>
+        <Component />
+        <div>
+          City
+        </div>
+        <div>
+          Country
+        </div>
+        <div>
+          PostalCode
+        </div>
+        <div>
+          "contactPerson"
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AppointmentTile should match snapshot when HIGHTLIGHT true 1`] = `
+<div
+  className="card hightlight"
+>
+  <div
+    className="card-content"
+  >
+    <div
+      className="media"
+    >
+      <div
+        className="media-content"
+      >
+        <Component>
+          mockHeading
+        </Component>
+        <Component />
+        <div>
+          City
+        </div>
+        <div>
+          Country
+        </div>
+        <div>
+          PostalCode
+        </div>
+        <div>
+          "contactPerson"
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

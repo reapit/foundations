@@ -1,0 +1,74 @@
+@import "../base/colors.scss";
+
+.notification {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+
+  &.is-success {
+    color: $white;
+  }
+}
+
+.card {
+  border: 1px solid $white;
+
+  &.hightlight {
+    border: 1px solid $reapit-light-blue;
+  }
+
+  .media-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .media-icon-large {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+}
+
+.button, .file-cta {
+  display: inline-block;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.7rem 1rem;
+  height: auto;
+  margin: 0 auto;
+}
+
+.subtitle, .subtitle:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.label {
+  text-transform: uppercase;
+}
+
+.input, .pagination-previous, .pagination-next, .pagination-link, .pagination-ellipsis {
+  padding: 1.5rem 1rem;
+  border-radius: 0;
+  text-transform: uppercase;
+}
+
+.tabs {
+  a {
+
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  li {
+    &.is-active a {
+      border-bottom: 1px solid $reapit-light-blue;
+    }
+  }
+}
+
+.textarea {
+  border-radius: 0;
+  height: 180px;
+}
+
