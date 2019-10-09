@@ -10,6 +10,7 @@ export const appointmentDataStub: AppointmentModel = {
   recurring: false,
   cancelled: false,
   property: {
+    arrangements: 'Switch lights on in living room',
     address: {
       buildingName: '',
       buildingNumber: '65',
