@@ -31,8 +31,9 @@
     width: 1.5rem;
 
     .image {
-      height: auto;
+      height: 100%;
       width: 100%;
+      object-fit: contain;
     }
   }
 
@@ -41,8 +42,9 @@
     width: 3.5rem;
 
     .image {
-      height: auto;
+      height: 100%;
       width: 100%;
+      object-fit: contain;
     }
   }
 }
