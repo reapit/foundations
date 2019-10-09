@@ -2,7 +2,8 @@
 
 exports[`Tile should match snapshot when HIGHTLIGHT false 1`] = `
 <div
-  className="card "
+  className="card  "
+  data-test=""
 >
   <div
     className="card-content"
@@ -37,7 +38,8 @@ exports[`Tile should match snapshot when HIGHTLIGHT false 1`] = `
 
 exports[`Tile should match snapshot when HIGHTLIGHT true 1`] = `
 <div
-  className="card hightlight"
+  className="card hightlight "
+  data-test=""
 >
   <div
     className="card-content"

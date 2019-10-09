@@ -12,7 +12,8 @@ import {
   LevelLeft,
   LevelRight,
   LevelItem,
-  Section
+  Section,
+  Content
 } from './index'
 import { Menu } from '../Menu/Menu'
 import { mockMenuProps } from '../Menu/__mocks__/menu-props'
@@ -193,9 +194,13 @@ storiesOf('Layout', module)
       </Level>
     </>
   ))
-
   .add('Section', () => (
     <Section>
       <Placeholder text="Section" />
     </Section>
+  ))
+  .add('Content', () => (
+    <Content>
+      <Placeholder text="Content - you can put anything in here and it'll look nice" />
+    </Content>
   ))

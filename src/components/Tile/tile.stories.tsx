@@ -19,15 +19,15 @@ const footerItems = [
 
 const iconItems = [
   {
-    icon: <FaClock className="icon-list-icon" />,
+    icon: <FaClock />,
     text: '11:00 AM - 12:00 PM'
   },
   {
-    icon: <FaStreetView className="icon-list-icon" />,
+    icon: <FaStreetView />,
     text: 'Viewing'
   },
   {
-    icon: <FaStickyNote className="icon-list-icon" />,
+    icon: <FaStickyNote />,
     text: 'Info about the viewing'
   }
 ]
@@ -59,7 +59,8 @@ storiesOf('Tile', module)
   .add('AppTile', () => (
     <Tile
       heading="Geo Diary"
-      icon={<ReapitLogo className="media-icon-large" />}
+      subHeading="Reapit Ltd"
+      image={<ReapitLogo />}
       menu={<FaEllipsisH className="media-icon" />}
     >
       <p>

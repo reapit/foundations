@@ -3,7 +3,7 @@ import { FaClock, FaStreetView, FaStickyNote } from 'react-icons/fa'
 import { storiesOf } from '@storybook/react'
 import { IconList } from './index'
 
-storiesOf('Typography', module).add('Primary', () => {
+storiesOf('IconList', module).add('Primary', () => {
   const items = [
     {
       icon: <FaClock className="icon-list-icon" />,

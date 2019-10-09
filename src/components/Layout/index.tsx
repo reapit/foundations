@@ -8,6 +8,7 @@ export interface FlexContainerProps extends LayoutProps {
   flexColumn?: boolean
   centerContent?: boolean
   hasPadding?: boolean
+  isScrollable?: boolean
 }
 
 export interface GridProps extends LayoutProps {
@@ -19,12 +20,13 @@ export const FlexContainerResponsive: React.SFC<FlexContainerProps> = ({
   flexColumn = false,
   centerContent = false,
   hasPadding = false,
+  isScrollable = false,
   className = ''
 }) => (
   <div
     className={`container ${flexColumn ? 'is-column' : ''} ${centerContent ? 'is-centered' : ''} ${
       hasPadding ? 'has-padding' : ''
-    } ${className}`}
+    } ${isScrollable ? 'is-scrollable' : ''} ${className}`}
   >
     {children}
   </div>
@@ -35,12 +37,13 @@ export const FlexContainerBasic: React.SFC<FlexContainerProps> = ({
   flexColumn = false,
   centerContent = false,
   hasPadding = false,
+  isScrollable = false,
   className = ''
 }) => (
   <div
     className={`container-flex ${flexColumn ? 'is-column' : ''} ${centerContent ? 'is-centered' : ''} ${
       hasPadding ? 'has-padding' : ''
-    } ${className}`}
+    } ${isScrollable ? 'is-scrollable' : ''} ${className}`}
   >
     {children}
   </div>
@@ -88,4 +91,8 @@ export const LevelItem: React.SFC<LayoutProps> = ({ children, className = '' }) 
 
 export const Section: React.SFC<LayoutProps> = ({ children, className = '' }) => (
   <div className={`section ${className}`}>{children}</div>
+)
+
+export const Content: React.SFC<LayoutProps> = ({ children, className = '' }) => (
+  <div className={`content ${className}`}>{children}</div>
 )

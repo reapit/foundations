@@ -6,16 +6,42 @@ export interface TileProps {
   subHeading?: string
   hightlight?: boolean
   icon?: React.ReactNode
+  image?: React.ReactNode
   menu?: React.ReactNode
   footerItems?: React.ReactNode[]
+  onClick?: () => void
+  dataTest?: string
 }
 
-export const Tile: React.FC<TileProps> = ({ heading, icon, menu, children, hightlight, subHeading, footerItems }) => {
+export const Tile: React.FC<TileProps> = ({
+  heading,
+  icon,
+  image,
+  menu,
+  children,
+  hightlight,
+  subHeading,
+  footerItems,
+  onClick,
+  dataTest
+}) => {
   return (
-    <div className={`card ${hightlight ? 'hightlight' : ''}`}>
+    <div
+      className={`card ${hightlight ? 'hightlight' : ''} ${onClick ? 'is-clickable' : ''}`}
+      onClick={onClick}
+      data-test={dataTest || ''}
+    >
       <div className="card-content">
         <div className="media">
-          {icon && <div className="media-left">{icon}</div>}
+          {icon ? (
+            <div className="media-left">
+              <div className="media-icon">{icon}</div>
+            </div>
+          ) : image ? (
+            <div className="media-left">
+              <div className="media-image">{image}</div>
+            </div>
+          ) : null}
           <div className="media-content">
             <H4>{heading}</H4>
             <SubTitleH6>{subHeading}</SubTitleH6>

@@ -14,6 +14,10 @@
 .card {
   border: 1px solid $white;
 
+  &.is-clickable {
+    cursor: pointer;
+  }
+
   &.hightlight {
     border: 1px solid $reapit-light-blue;
   }
@@ -21,11 +25,21 @@
   .media-icon {
     height: 1.5rem;
     width: 1.5rem;
+
+    image, svg {
+      height: auto;
+      width: auto;
+    }
   }
 
-  .media-icon-large {
+  .media-image {
     height: 3.5rem;
     width: 3.5rem;
+
+    image, svg {
+      height: auto;
+      width: auto;
+    }
   }
 }
 

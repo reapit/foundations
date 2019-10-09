@@ -20,7 +20,8 @@ export default [
               '*react-datepicker*',
               '*utilities*',
               '*global*',
-              '*normalize*'
+              '*normalize*',
+              '*bulma-overrides*'
             ]
             // Uncomment this line if you want to see the CSS purified from the package
             // rejected: true
