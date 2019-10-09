@@ -29,4 +29,9 @@
   &.has-padding {
     padding: 1rem;
   }
+
+  &.is-scrollable{
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 }
