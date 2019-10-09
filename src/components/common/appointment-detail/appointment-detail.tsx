@@ -123,6 +123,18 @@ export const renderNotes = (description: string | undefined) => {
   )
 }
 
+export const renderArrangements = (description: string | undefined) => {
+  if (!description) {
+    return null
+  }
+  return (
+    <div className={styles.notes}>
+      <h5 className={styles.subTitle}>Arrangements:</h5>
+      <p>{description}</p>
+    </div>
+  )
+}
+
 export const renderDirections = (direction: string | undefined) => {
   if (!direction) {
     return null
@@ -153,6 +165,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment,
           <div className={styles.ref}>Ref:{appointment.id}</div>
           {renderAttendees(appointment)}
           {renderNotes(appointment.description)}
+          {renderArrangements(oc(appointment).property.arrangements())}
           {renderDateTime(oc(appointment).property.address(), appointment)}
           {renderDirections(appointment.directions)}
         </div>

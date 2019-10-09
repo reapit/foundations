@@ -88,6 +88,14 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
       </div>
     </div>
     <div>
+      <h5>
+        Arrangements:
+      </h5>
+      <p>
+        Switch lights on in living room
+      </p>
+    </div>
+    <div>
       18 Dec 2016 04:30 PM - 05:30 PM
       , 
       65
