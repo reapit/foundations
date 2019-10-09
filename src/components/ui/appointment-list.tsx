@@ -73,6 +73,7 @@ export const AppointmentList = memo(
           const lat = oc<AppointmentModel>(item).property.address.geolocation.latitude()
           const lng = oc<AppointmentModel>(item).property.address.geolocation.longitude()
           const type = typeId ? appointmentTypes.find(appointmentType => appointmentType.id === typeId) : null
+          const cancelled = oc<AppointmentModel>(item).cancelled()
 
           const hightlight = selectedAppointment
             ? selectedAppointment.id === item.id
@@ -118,17 +119,21 @@ export const AppointmentList = memo(
                 <strong>
                   {start} - {end}
                 </strong>
-                <div className="flex">
-                  <div className="mt-4 mr-4">
-                    <ViewDetailButton id={item.id} />
-                  </div>
-                  {lat && lng ? (
-                    <div className="mt-4">
-                      <ViewDirectionButton appointment={item} />
+                {cancelled ? (
+                  <p className={`${containerStyle.cancelledAppointment} title is-5`}>Appointment cancelled</p>
+                ) : (
+                  <div className="flex">
+                    <div className="mt-4 mr-4">
+                      <ViewDetailButton id={item.id} />
                     </div>
-                  ) : null}
-                  {renderETAButton}
-                </div>
+                    {lat && lng ? (
+                      <div className="mt-4">
+                        <ViewDirectionButton appointment={item} />
+                      </div>
+                    ) : null}
+                    {renderETAButton}
+                  </div>
+                )}
               </AppointmentTile>
             </div>
           )
