@@ -1,6 +1,22 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { FlexContainer, Grid, GridColumn, Level, LevelLeft, LevelRight, LevelItem, Section } from './index'
+import {
+  AppNavContainer,
+  FlexContainerBasic,
+  FlexContainerResponsive,
+  Grid,
+  GridItem,
+  GridFiveCol,
+  GridFiveColItem,
+  Level,
+  LevelLeft,
+  LevelRight,
+  LevelItem,
+  Section
+} from './index'
+import { Menu } from '../Menu/Menu'
+import { mockMenuProps } from '../Menu/__mocks__/menu-props'
+import { MemoryRouter } from 'react-router'
 
 const Placeholder = ({ text }) => (
   <div style={{ width: '100%', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -9,56 +25,151 @@ const Placeholder = ({ text }) => (
 )
 
 storiesOf('Layout', module)
-  .add('FlexContainerRowCenteredPadding', () => (
-    <FlexContainer flexColumn={false} centerContent={true} hasPadding={true}>
-      <Placeholder text="FlexContainerRow Centered Padding" />
-      <Placeholder text="FlexContainerRow Centered Padding" />
-    </FlexContainer>
+  .addDecorator(story => <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>)
+  .add('AppNavContainer', () => (
+    <AppNavContainer>
+      <Menu {...mockMenuProps} />
+      <FlexContainerBasic>
+        <Placeholder text="AppBody FlexContainerBasic NoCenter Padding" />
+      </FlexContainerBasic>
+    </AppNavContainer>
   ))
-  .add('FlexContainerColumnCenteredPadding', () => (
-    <FlexContainer flexColumn={true} centerContent={true} hasPadding={true}>
-      <Placeholder text="FlexContainerColumn Centered Padding" />
-      <Placeholder text="FlexContainerColumn Centered Padding" />
-    </FlexContainer>
+  .add('FlexContainerBasicRowCenteredPadding', () => (
+    <FlexContainerBasic centerContent hasPadding>
+      <Placeholder text="FlexContainerBasicRow Centered Padding" />
+      <Placeholder text="FlexContainerBasicRow Centered Padding" />
+    </FlexContainerBasic>
   ))
-  .add('FlexContainerRowNoCenterNoPadding', () => (
-    <FlexContainer flexColumn={false} centerContent={false} hasPadding={false}>
-      <Placeholder text="FlexContainerRow NoCenter NoPadding" />
-      <Placeholder text="FlexContainerRow NoCenter NoPadding" />
-    </FlexContainer>
+  .add('FlexContainerBasicColumnCenteredPadding', () => (
+    <FlexContainerBasic flexColumn centerContent hasPadding>
+      <Placeholder text="FlexContainerBasicColumn Centered Padding" />
+      <Placeholder text="FlexContainerBasicColumn Centered Padding" />
+    </FlexContainerBasic>
   ))
-  .add('GridTenItems', () => (
+  .add('FlexContainerBasicRowNoCenterNoPadding', () => (
+    <FlexContainerBasic>
+      <Placeholder text="FlexContainerBasicRow NoCenter NoPadding" />
+      <Placeholder text="FlexContainerBasicRow NoCenter NoPadding" />
+    </FlexContainerBasic>
+  ))
+  .add('FlexContainerResponsiveRowCenteredPadding', () => (
+    <FlexContainerResponsive centerContent hasPadding>
+      <Placeholder text="FlexContainerResponsiveRow Centered Padding" />
+      <Placeholder text="FlexContainerResponsiveRow Centered Padding" />
+    </FlexContainerResponsive>
+  ))
+  .add('FlexContainerResponsiveColumnCenteredPadding', () => (
+    <FlexContainerResponsive flexColumn centerContent hasPadding>
+      <Placeholder text="FlexContainerResponsiveColumn Centered Padding" />
+      <Placeholder text="FlexContainerResponsiveColumn Centered Padding" />
+    </FlexContainerResponsive>
+  ))
+  .add('FlexContainerResponsiveRowNoCenterNoPadding', () => (
+    <FlexContainerResponsive>
+      <Placeholder text="FlexContainerResponsiveRow NoCenter NoPadding" />
+      <Placeholder text="FlexContainerResponsiveRow NoCenter NoPadding" />
+    </FlexContainerResponsive>
+  ))
+  .add('GridFiveColTenItems', () => (
+    <GridFiveCol>
+      <GridFiveColItem>
+        <Placeholder text="GridFiveColItem1" />
+      </GridFiveColItem>
+      <GridFiveColItem>
+        <Placeholder text="GridFiveColItem2" />
+      </GridFiveColItem>
+      <GridFiveColItem>
+        <Placeholder text="GridFiveColItem3" />
+      </GridFiveColItem>
+      <GridFiveColItem>
+        <Placeholder text="GridFiveColItem4" />
+      </GridFiveColItem>
+      <GridFiveColItem>
+        <Placeholder text="GridFiveColItem5" />
+      </GridFiveColItem>
+      <GridFiveColItem>
+        <Placeholder text="GridFiveColItem6" />
+      </GridFiveColItem>
+      <GridFiveColItem>
+        <Placeholder text="GridFiveColItem7" />
+      </GridFiveColItem>
+      <GridFiveColItem>
+        <Placeholder text="GridFiveColItem8" />
+      </GridFiveColItem>
+      <GridFiveColItem>
+        <Placeholder text="GridFiveColItem9" />
+      </GridFiveColItem>
+      <GridFiveColItem>
+        <Placeholder text="GridFiveColItem10" />
+      </GridFiveColItem>
+    </GridFiveCol>
+  ))
+  .add('Grid', () => (
     <Grid>
-      <GridColumn>
-        <Placeholder text="GridColumn1" />
-      </GridColumn>
-      <GridColumn>
-        <Placeholder text="GridColumn2" />
-      </GridColumn>
-      <GridColumn>
-        <Placeholder text="GridColumn3" />
-      </GridColumn>
-      <GridColumn>
-        <Placeholder text="GridColumn4" />
-      </GridColumn>
-      <GridColumn>
-        <Placeholder text="GridColumn5" />
-      </GridColumn>
-      <GridColumn>
-        <Placeholder text="GridColumn6" />
-      </GridColumn>
-      <GridColumn>
-        <Placeholder text="GridColumn7" />
-      </GridColumn>
-      <GridColumn>
-        <Placeholder text="GridColumn8" />
-      </GridColumn>
-      <GridColumn>
-        <Placeholder text="GridColumn9" />
-      </GridColumn>
-      <GridColumn>
-        <Placeholder text="GridColumn10" />
-      </GridColumn>
+      <GridItem>
+        <Placeholder text="GridItem1" />
+      </GridItem>
+      <GridItem>
+        <Placeholder text="GridItem2" />
+      </GridItem>
+      <GridItem>
+        <Placeholder text="GridItem3" />
+      </GridItem>
+      <GridItem>
+        <Placeholder text="GridItem4" />
+      </GridItem>
+      <GridItem>
+        <Placeholder text="GridItem5" />
+      </GridItem>
+      <GridItem>
+        <Placeholder text="GridItem6" />
+      </GridItem>
+      <GridItem>
+        <Placeholder text="GridItem7" />
+      </GridItem>
+      <GridItem>
+        <Placeholder text="GridItem8" />
+      </GridItem>
+      <GridItem>
+        <Placeholder text="GridItem9" />
+      </GridItem>
+      <GridItem>
+        <Placeholder text="GridItem10" />
+      </GridItem>
+    </Grid>
+  ))
+  .add('GridMultiline', () => (
+    <Grid isMultiLine>
+      <GridItem isMultiLine>
+        <Placeholder text="GridMultiLineItem1" />
+      </GridItem>
+      <GridItem isMultiLine>
+        <Placeholder text="GridMultiLineItem2" />
+      </GridItem>
+      <GridItem isMultiLine>
+        <Placeholder text="GridMultiLineItem3" />
+      </GridItem>
+      <GridItem isMultiLine>
+        <Placeholder text="GridMultiLineItem4" />
+      </GridItem>
+      <GridItem isMultiLine>
+        <Placeholder text="GridMultiLineItem5" />
+      </GridItem>
+      <GridItem isMultiLine>
+        <Placeholder text="GridMultiLineItem6" />
+      </GridItem>
+      <GridItem isMultiLine>
+        <Placeholder text="GridMultiLineItem7" />
+      </GridItem>
+      <GridItem isMultiLine>
+        <Placeholder text="GridMultiLineItem8" />
+      </GridItem>
+      <GridItem isMultiLine>
+        <Placeholder text="GridMultiLineItem9" />
+      </GridItem>
+      <GridItem isMultiLine>
+        <Placeholder text="GridMultiLineItem10" />
+      </GridItem>
     </Grid>
   ))
   .add('Levels', () => (

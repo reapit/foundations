@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { Tile } from '../Tile'
-import { FaExclamation } from 'react-icons/fa'
+import Alert from '../Alert'
 
 export type InfoType =
   | '404'
@@ -32,5 +31,5 @@ const infoText = (infoType: InfoType) => {
 }
 
 export const Info: React.SFC<InfoProps> = ({ infoType }) => (
-  <Tile icon={<FaExclamation className="media-icon" />} heading={infoText(infoType)} />
-)
+  <Alert type={infoType === '404' ? 'danger' : 'info'} message={infoText(infoType)} />)
+

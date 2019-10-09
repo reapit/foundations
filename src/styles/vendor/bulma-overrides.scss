@@ -1,4 +1,5 @@
 @import "../base/colors.scss";
+@import "../base/fonts.scss";
 
 .notification {
   font-weight: bold;
@@ -89,3 +90,6 @@
   }
 }
 
+.modal-card-title {
+  font-family: $title-family;
+}

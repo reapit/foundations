@@ -2,66 +2,42 @@
 
 exports[`Info should match a snapshot for variant  1`] = `
 <Component
-  heading=""
-  icon={
-    <FaExclamation
-      className="media-icon"
-    />
-  }
+  message=""
+  type="info"
 />
 `;
 
 exports[`Info should match a snapshot for variant 404 1`] = `
 <Component
-  heading="Page not found"
-  icon={
-    <FaExclamation
-      className="media-icon"
-    />
-  }
+  message="Page not found"
+  type="danger"
 />
 `;
 
 exports[`Info should match a snapshot for variant ADMIN_APPROVALS_EMPTY 1`] = `
 <Component
-  heading="There are no updates that require approval"
-  icon={
-    <FaExclamation
-      className="media-icon"
-    />
-  }
+  message="There are no updates that require approval"
+  type="info"
 />
 `;
 
 exports[`Info should match a snapshot for variant CLIENT_APPS_EMPTY 1`] = `
 <Component
-  heading="We are sorry, there are no apps listed compatible with your account"
-  icon={
-    <FaExclamation
-      className="media-icon"
-    />
-  }
+  message="We are sorry, there are no apps listed compatible with your account"
+  type="info"
 />
 `;
 
 exports[`Info should match a snapshot for variant DEVELOPER_APPS_EMPTY 1`] = `
 <Component
-  heading="You currently have no apps listed. Go to the submit app page to submit an app. After submission, you will need to edit the app and set status to isListed to appear in the marketplace"
-  icon={
-    <FaExclamation
-      className="media-icon"
-    />
-  }
+  message="You currently have no apps listed. Go to the submit app page to submit an app. After submission, you will need to edit the app and set status to isListed to appear in the marketplace"
+  type="info"
 />
 `;
 
 exports[`Info should match a snapshot for variant INSTALLED_APPS_EMPTY 1`] = `
 <Component
-  heading="You have no apps installed - try browsing the apps list for apps you might find useful"
-  icon={
-    <FaExclamation
-      className="media-icon"
-    />
-  }
+  message="You have no apps installed - try browsing the apps list for apps you might find useful"
+  type="info"
 />
 `;
