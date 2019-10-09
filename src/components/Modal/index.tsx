@@ -68,7 +68,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
         >
           <div className="modal-card">
             {renderChildren ? (
-              { children }
+              children
             ) : (
               <>
                 {afterClose && title && <ModalHeader title={title} afterClose={afterClose} />}
