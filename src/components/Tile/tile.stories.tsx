@@ -60,7 +60,7 @@ storiesOf('Tile', module)
     <Tile
       heading="Geo Diary"
       subHeading="Reapit Ltd"
-      image={<ReapitLogo />}
+      image={<ReapitLogo className="image" />}
       menu={<FaEllipsisH className="media-icon" />}
     >
       <p>
