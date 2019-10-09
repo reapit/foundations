@@ -71,6 +71,9 @@
 .input, .pagination-previous, .pagination-next, .pagination-link, .pagination-ellipsis {
   padding: 1.5rem 1rem;
   border-radius: 0;
+}
+
+.pagination-previous, .pagination-next, .pagination-link, .pagination-ellipsis {
   text-transform: uppercase;
 }
 
@@ -112,4 +115,8 @@
 
 .modal-card-title {
   font-family: $title-family;
+}
+
+.modal-card, .modal-content {
+  margin: 0 auto;
 }

@@ -10,8 +10,33 @@ export interface ModalProps {
   size?: 'medium' | 'small'
   afterClose?: () => void
   deps?: any[]
+  header?: React.ReactNode
+  renderChildren?: boolean
   footerItems?: React.ReactNode
 }
+
+export const ModalFooter: React.SFC<{ footerItems: React.ReactNode }> = ({ footerItems }) => (
+  <footer className="modal-card-foot">{footerItems}</footer>
+)
+
+export const ModalBody: React.SFC<{ body: React.ReactNode }> = ({ body }) => (
+  <section className="modal-card-body">{body}</section>
+)
+
+export const ModalHeader: React.SFC<{ title: string; afterClose: () => void }> = ({ title, afterClose }) => (
+  <header className="modal-card-head">
+    <h4 className="modal-card-title is-4">{title}</h4>
+    <button
+      className="delete"
+      aria-label="close"
+      data-test="modal-close-button"
+      onClick={event => {
+        event.preventDefault()
+        afterClose && afterClose()
+      }}
+    />
+  </header>
+)
 
 export const Modal: React.FunctionComponent<ModalProps> = ({
   title,
@@ -20,7 +45,8 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   visible,
   size = 'medium',
   deps,
-  footerItems
+  footerItems,
+  renderChildren
 }) => {
   // CLD-250: https://reapit.atlassian.net/secure/RapidBoard.jspa?rapidView=200&view=planning&selectedIssue=CLD-250
   // we can't access the showPortal in the component passed to usePortal
@@ -41,20 +67,15 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
           data-test="modal-content"
         >
           <div className="modal-card">
-            <header className="modal-card-head">
-              <h4 className="modal-card-title is-4">{title}</h4>
-              <button
-                className="delete"
-                aria-label="close"
-                data-test="modal-close-button"
-                onClick={event => {
-                  event.preventDefault()
-                  afterClose && afterClose()
-                }}
-              />
-            </header>
-            <section className="modal-card-body">{children}</section>
-            {footerItems && <footer className="modal-card-foot">{footerItems}</footer>}
+            {renderChildren ? (
+              { children }
+            ) : (
+              <>
+                {afterClose && title && <ModalHeader title={title} afterClose={afterClose} />}
+                {children && <ModalBody body={children} />}
+                {footerItems && <ModalFooter footerItems={footerItems} />}
+              </>
+            )}
           </div>
         </div>
       </div>
