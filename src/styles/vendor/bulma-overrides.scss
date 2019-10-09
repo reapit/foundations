@@ -22,13 +22,17 @@
     border: 1px solid $reapit-light-blue;
   }
 
+  .subtitle {
+    margin-top: -1rem;
+  }
+
   .media-icon {
     height: 1.5rem;
     width: 1.5rem;
 
-    image, svg {
-      height: auto;
-      width: auto;
+    .image {
+      height: 100%;
+      width: 100%;
     }
   }
 
@@ -36,9 +40,9 @@
     height: 3.5rem;
     width: 3.5rem;
 
-    image, svg {
-      height: auto;
-      width: auto;
+    .image {
+      height: 100%;
+      width: 100%;
     }
   }
 }
