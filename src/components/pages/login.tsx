@@ -9,9 +9,8 @@ import { authLogin } from '@/actions/auth'
 import { validate } from '@/utils/form/login'
 import Routes from '@/constants/routes'
 import { LOGIN_TYPE } from '@/constants/auth'
-import { Input, Button, LoginParams } from '@reapit/elements'
+import { Input, Button, LoginParams, H1, Level } from '@reapit/elements'
 import loginStyles from '@/styles/pages/login.scss?mod'
-import bulma from '@/styles/vendor/bulma'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 
 export interface LoginMappedActions {
@@ -41,7 +40,6 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { hasSession, error, login } = props
   const { disabled, wrapper, container, image } = loginStyles
-  const { level, title, isH1, isCentered } = bulma
 
   React.useEffect(() => {
     if (error) {
@@ -56,7 +54,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   return (
     <div className={container}>
       <div className={`${wrapper} ${isSubmitting && disabled}`}>
-        <h1 className={`${title} ${isH1} ${isCentered}`}>Sign in</h1>
+        <H1 isCentered>Sign in</H1>
         <p className="pb-8">Welcome to GEO Diary</p>
 
         <Formik
@@ -82,11 +80,11 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                 placeholder="Enter your password"
               />
 
-              <div className={level}>
+              <Level>
                 <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
                   Login
                 </Button>
-              </div>
+              </Level>
 
               {error && '<Alert component here />'}
             </Form>

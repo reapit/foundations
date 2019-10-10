@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { AppointmentTile, getTime, closestTo } from '@reapit/elements'
+import { Tile, getTime, closestTo, IconList } from '@reapit/elements'
 import { AppointmentModel } from '@/types/appointments'
 import ViewDirectionButton from '@/components/container/view-direction-button'
 import { oc } from 'ts-optchain'
@@ -8,13 +8,14 @@ import ETAButton from './eta-button'
 import { NextAppointment } from '@/reducers/next-appointment'
 import containerStyle from '@/styles/pages/page-container.scss?mod'
 import { ListItemModel } from '../../types/configuration'
+import { FaClock, FaStreetView, FaAddressCard } from 'react-icons/fa'
 
 export interface AppointmentListProps {
   appointments: AppointmentModel[]
   appointmentTypes: ListItemModel[]
   nextAppointment?: NextAppointment | null
   selectedAppointment: AppointmentModel | null
-  setSelectedAppointment: (appointment: AppointmentModel | null) => void
+  setSelectedAppointment: (appointment: AppointmentModel | null, type?: string) => void
 }
 
 export const AppointmentList = memo(
@@ -34,12 +35,12 @@ export const AppointmentList = memo(
 
     const refAppointment = React.useRef<HTMLDivElement>(null)
 
-    const onSelectAppointment = (e, item) => {
+    const onSelectAppointment = (e, item, type: string) => {
       if (e.target.type !== 'button') {
         if (selectedAppointment && selectedAppointment.id === item.id) {
           setSelectedAppointment(null)
         } else {
-          setSelectedAppointment(item)
+          setSelectedAppointment(item, type)
         }
       }
     }
@@ -107,34 +108,40 @@ export const AppointmentList = memo(
           return (
             <div
               className="mb-4"
-              onClick={e => onSelectAppointment(e, item)}
+              onClick={e => onSelectAppointment(e, item, type && type.value ? type.value : '')}
               key={item.id}
               ref={hightlight ? refAppointment : null}
             >
-              <AppointmentTile hightlight={hightlight} key={item.id} heading={heading}>
-                <ul>
-                  <li>{address}</li>
-                  <li>{type && type.value}</li>
-                </ul>
-                <strong>
-                  {start} - {end}
-                </strong>
-                {cancelled ? (
-                  <p className={`${containerStyle.cancelledAppointment} title is-5`}>Appointment cancelled</p>
-                ) : (
-                  <div className="flex">
-                    <div className="mt-4 mr-4">
-                      <ViewDetailButton id={item.id} />
-                    </div>
-                    {lat && lng ? (
-                      <div className="mt-4">
-                        <ViewDirectionButton appointment={item} />
-                      </div>
-                    ) : null}
+              <Tile
+                hightlight={hightlight}
+                key={item.id}
+                heading={heading}
+                footerItems={[
+                  <>
+                    <ViewDetailButton id={item.id} />
+
+                    {lat && lng ? <ViewDirectionButton appointment={item} /> : null}
                     {renderETAButton}
-                  </div>
-                )}
-              </AppointmentTile>
+                  </>
+                ]}
+              >
+                <IconList
+                  items={[
+                    {
+                      icon: <FaAddressCard className="icon-list-icon" />,
+                      text: address
+                    },
+                    {
+                      icon: <FaStreetView className="icon-list-icon" />,
+                      text: type && type.value ? type.value : ''
+                    },
+                    {
+                      icon: <FaClock className="icon-list-icon" />,
+                      text: cancelled ? 'Appointment cancelled' : `${start} - ${end}`
+                    }
+                  ]}
+                />
+              </Tile>
             </div>
           )
         })}

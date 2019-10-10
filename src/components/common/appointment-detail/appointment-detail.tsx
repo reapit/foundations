@@ -4,11 +4,12 @@ import { connect } from 'react-redux'
 import { oc } from 'ts-optchain'
 import { TiTimes, TiTick, TiMail, TiHome, TiPhoneOutline, TiDevicePhone } from 'react-icons/ti'
 import { Dispatch } from 'redux'
-import { Modal, Loader, getTime, getDate, isSameDay, AppointmentTile } from '@reapit/elements'
+import { Modal, Loader, getTime, getDate, isSameDay, Tile, IconList } from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { ReduxState } from '@/types/core'
-import styles from '@/styles/pages/appointment-detail.scss?mod'
 import { appointmentDetailHideModal } from '@/actions/appointment-detail'
+import { FaStreetView, FaStickyNote, FaMale, FaClock, FaDirections, FaHandshake } from 'react-icons/fa'
+import { ListItemModel } from '../../../types/configuration'
 
 export type AppointmentModalProps = {
   appointment: AppointmentModel
@@ -20,13 +21,13 @@ export type AppointmentModalProps = {
 export const renderCommunicationType = (communicationLabel: string | undefined) => {
   switch (communicationLabel) {
     case 'E-Mail':
-      return <TiMail />
+      return <TiMail className="icon-list-icon" />
     case 'Home':
-      return <TiHome />
+      return <TiHome className="icon-list-icon" />
     case 'Mobile':
-      return <TiDevicePhone />
+      return <TiDevicePhone className="icon-list-icon" />
     case 'Work':
-      return <TiPhoneOutline />
+      return <TiPhoneOutline className="icon-list-icon" />
     default:
       return null
   }
@@ -45,28 +46,27 @@ export const renderCommunicationDetail = (communicationDetails: CommunicationMod
   if (!communicationDetails) {
     return null
   }
-  return communicationDetails.map((communicationDetail: CommunicationModel, index: number) => {
-    return (
-      <div className={styles.appointmentDetailSection} key={index}>
-        <div>
-          {renderCommunicationType(communicationDetail.label)}
-          <a
-            href={`${renderHrefLink(communicationDetail.label)}${communicationDetail.detail}`}
-            className={styles.appointmentDetailCommunicationDetail}
-          >
-            {communicationDetail.detail}
-          </a>
-        </div>
-      </div>
-    )
-  })
+  return (
+    <IconList
+      items={communicationDetails.map((communicationDetail: CommunicationModel) => {
+        return {
+          icon: renderCommunicationType(communicationDetail.label),
+          text: (
+            <a href={`${renderHrefLink(communicationDetail.label)}${communicationDetail.detail}`}>
+              {communicationDetail.detail}
+            </a>
+          )
+        }
+      })}
+    />
+  )
 }
 
 export const renderCheckMark = (isConfirmed: boolean | undefined) => {
   if (!isConfirmed) {
-    return <TiTimes className={styles.appointmentDetailIsNotConfirmed} />
+    return <TiTimes />
   }
-  return <TiTick className={styles.appointmentDetailIsConfirmed} />
+  return <TiTick />
 }
 
 export const renderAttendees = (appointment: AppointmentModel) => {
@@ -78,11 +78,15 @@ export const renderAttendees = (appointment: AppointmentModel) => {
   }
   return attendees.map((attendee: AttendeeModel) => {
     return (
-      <div key={appointment.id}>
-        <h3 className={styles.title}>{oc(attendee).name('No Attendee Name')}</h3>
+      <Tile
+        hightlight={false}
+        heading={oc(attendee).name('No Attendee Name')}
+        key={appointment.id}
+        icon={<FaMale className="media-icon" />}
+      >
         {renderAddress(address)}
         <div className="my-5">{renderCommunicationDetail(attendee.communicationDetails)}</div>
-      </div>
+      </Tile>
     )
   })
 }
@@ -104,10 +108,10 @@ export const renderDateTime = (address: AddressModel | undefined, appointment: A
     return null
   }
   return (
-    <div className={styles.dateTime}>
+    <Tile hightlight={false} heading="Time" icon={<FaClock className="icon-list-icon" />}>
       {renderStartAndEndDate(appointment.start || '', appointment.end || '')}, {address.buildingName}
       {address.buildingNumber} {address.line1}
-    </div>
+    </Tile>
   )
 }
 
@@ -116,10 +120,9 @@ export const renderNotes = (description: string | undefined) => {
     return null
   }
   return (
-    <div className={styles.notes}>
-      <h5 className={styles.subTitle}>Notes:</h5>
-      <p>{description}</p>
-    </div>
+    <Tile hightlight={false} heading="Notes" icon={<FaStickyNote className="media-icon" />}>
+      {description}
+    </Tile>
   )
 }
 
@@ -128,10 +131,9 @@ export const renderArrangements = (description: string | undefined) => {
     return null
   }
   return (
-    <div className={styles.notes}>
-      <h5 className={styles.subTitle}>Arrangements:</h5>
-      <p>{description}</p>
-    </div>
+    <Tile hightlight={false} heading="Arrangements" icon={<FaHandshake className="media-icon" />}>
+      {description}
+    </Tile>
   )
 }
 
@@ -140,9 +142,20 @@ export const renderDirections = (direction: string | undefined) => {
     return null
   }
   return (
-    <AppointmentTile hightlight={false} heading="Directions">
-      <div className={styles.appointmentDetailSectionContent}>{direction}</div>
-    </AppointmentTile>
+    <Tile hightlight={false} heading="Directions" icon={<FaDirections className="media-icon" />}>
+      {direction}
+    </Tile>
+  )
+}
+
+export const renderViewingType = (type: string | undefined) => {
+  if (!type) {
+    return null
+  }
+  return (
+    <Tile hightlight={false} heading="Appointment Type" icon={<FaStreetView className="media-icon" />}>
+      {type}
+    </Tile>
   )
 }
 
@@ -155,20 +168,31 @@ export const renderStartAndEndDate = (startTime: string, endTime: string) => {
   return `${displayDate} ${displayStart} - ${displayEnd}`
 }
 
-export const AppointmentModal: React.FC<AppointmentModalProps> = ({ appointment, visible, afterClose, isLoading }) => {
+export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetailMappedProps> = ({
+  appointment,
+  visible,
+  afterClose,
+  isLoading,
+  appointmentTypes
+}) => {
+  const address = oc(appointment).property.address()
+  const typeId = oc(appointment).typeId()
+  const basicAddress = address ? `${address.buildingName} ${address.buildingNumber} ${address.line1}` : ''
+  const type =
+    typeId && appointmentTypes ? appointmentTypes.find(appointmentType => appointmentType.id === typeId) : null
   return (
-    <Modal visible={visible} size="medium" afterClose={afterClose}>
+    <Modal visible={visible} title={`${basicAddress}, Ref: ${appointment.id}`} afterClose={afterClose}>
       {isLoading ? (
         <Loader />
       ) : (
-        <div className={styles.root}>
-          <div className={styles.ref}>Ref:{appointment.id}</div>
+        <>
+          {renderDateTime(oc(appointment).property.address(), appointment)}
+          {renderViewingType(oc(type).value())}
           {renderAttendees(appointment)}
           {renderNotes(appointment.description)}
           {renderArrangements(oc(appointment).property.arrangements())}
-          {renderDateTime(oc(appointment).property.address(), appointment)}
           {renderDirections(appointment.directions)}
-        </div>
+        </>
       )}
     </Modal>
   )
@@ -178,6 +202,7 @@ export type AppointmentDetailMappedProps = {
   appointment: AppointmentModel
   visible: boolean
   isLoading: boolean
+  appointmentTypes: ListItemModel[] | null
 }
 
 export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userCode: string): AttendeeModel[] => {
@@ -202,7 +227,8 @@ export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps
   return {
     appointment: newAppointment,
     visible: state.appointmentDetail.isModalVisible,
-    isLoading: state.appointmentDetail.loading
+    isLoading: state.appointmentDetail.loading,
+    appointmentTypes: state.appointments.appointmentTypes
   }
 }
 

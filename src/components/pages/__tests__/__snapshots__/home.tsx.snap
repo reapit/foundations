@@ -8,31 +8,35 @@ exports[`Home should match a snapshot 1`] = `
     <div
       className="undefined "
     >
-      <div
-        className="isCentered buttons hasAddons"
-      >
-        <span
-          className="button isSelected isActive isPrimary"
+      <ButtonGroup>
+        <Button
+          className="is-selected is-primary is-active"
           key="Today"
           onClick={[Function]}
+          type="button"
+          variant="secondary"
         >
           Today
-        </span>
-        <span
-          className="button"
+        </Button>
+        <Button
+          className=""
           key="Tomorrow"
           onClick={[Function]}
+          type="button"
+          variant="secondary"
         >
           Tomorrow
-        </span>
-        <span
-          className="button"
+        </Button>
+        <Button
+          className=""
           key="Next week"
           onClick={[Function]}
+          type="button"
+          variant="secondary"
         >
           Next week
-        </span>
-      </div>
+        </Button>
+      </ButtonGroup>
       <Memo()
         onChangeTravelMode={[Function]}
         travelMode="DRIVING"
