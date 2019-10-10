@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export interface IconListItem {
   icon: React.ReactNode
-  text: string
+  text: React.ReactNode | string
 }
 
 export const IconList: React.SFC<{ items: IconListItem[] }> = ({ items }) => (
