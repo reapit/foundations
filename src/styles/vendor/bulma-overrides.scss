@@ -73,6 +73,23 @@
   }
 }
 
+.buttons.has-addons {
+  .button {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .button:last-child {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .button:first-child {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
 .subtitle, .subtitle:not(:last-child) {
   margin-bottom: 1rem;
 }
