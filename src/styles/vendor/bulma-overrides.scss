@@ -5,6 +5,7 @@
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
+  height: fit-content;
 
   &.is-success {
     color: $white;
@@ -57,7 +58,14 @@
   font-weight: bold;
   padding: 0.7rem 1rem;
   height: auto;
-  margin: 0 auto;
+
+  &:first-child {
+    margin-left: auto;
+  }
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
 }
 
 .subtitle, .subtitle:not(:last-child) {
@@ -119,4 +127,5 @@
 
 .modal-card, .modal-content {
   margin: 0 auto;
+  overflow: scroll;
 }

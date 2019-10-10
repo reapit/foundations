@@ -22,7 +22,7 @@ export const Checkbox = ({ name, labelText, id, dataTest }: CheckboxProps) => (
           {...field}
           checked={field.value}
         />
-        <label className="label ml-2" htmlFor={id}>
+        <label className="label" htmlFor={id}>
           {labelText}
         </label>
       </div>
