@@ -12,7 +12,8 @@ describe('pep-search', () => {
         onPrevHandler: jest.fn(),
         onNextHandler: jest.fn(),
         isSubmitting: false,
-        pepSearchResultData: []
+        pepSearchResultData: [],
+        pepSearchParam: ''
       }
       const wrapper = shallow(<PepSearch {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -25,12 +26,14 @@ describe('pep-search', () => {
       const input = {
         checklistDetail: {
           isSubmitting: true,
+          pepSearchParam: '',
           pepSearchResultData: []
         }
       } as ReduxState
       const expected = {
         isSubmitting: true,
-        pepSearchResultData: []
+        pepSearchResultData: [],
+        pepSearchParam: ''
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -39,7 +42,8 @@ describe('pep-search', () => {
       const input = {} as ReduxState
       const expected = {
         isSubmitting: false,
-        pepSearchResultData: null
+        pepSearchResultData: null,
+        pepSearchParam: ''
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)

@@ -244,7 +244,7 @@ export const pepSearch = function*({ data }) {
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const searchResults = yield fetchDataPepSearch({ name: data, headers })
-    yield put(pepSearchResult(searchResults))
+    yield put(pepSearchResult({ searchParam: data, searchResults }))
     yield put(checkListDetailSubmitForm(false))
   } catch (err) {
     console.error(err.message)

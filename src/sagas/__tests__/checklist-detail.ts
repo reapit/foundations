@@ -297,7 +297,7 @@ describe('checklist-detail pepSearch', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next([] as any).value).toEqual(put(pepSearchResult([])))
+    expect(clone.next([] as any).value).toEqual(put(pepSearchResult({ searchParam: 'mockName', searchResults: [] })))
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
     expect(clone.next().done).toBe(true)
   })

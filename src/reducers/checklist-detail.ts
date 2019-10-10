@@ -18,6 +18,7 @@ export interface ChecklistDetailState {
   checklistDetailData: {
     contact: ContactModel
   } | null
+  pepSearchParam: ''
   // TODO will replace any when integrate API with pepSearchData
   pepSearchResultData: any[] | null
   isSubmitting: boolean
@@ -37,6 +38,7 @@ export const defaultState: ChecklistDetailState = {
   checklistDetailData: null,
   modalContentType: STEPS.PROFILE,
   isSubmitting: false,
+  pepSearchParam: '',
   pepSearchResultData: null,
   status: {
     profile: false,
@@ -90,7 +92,8 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
   if (isType(action, pepSearchResult)) {
     return {
       ...state,
-      pepSearchResultData: action.data
+      pepSearchParam: action.data.searchParam,
+      pepSearchResultData: action.data.searchResults
     }
   }
 

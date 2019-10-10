@@ -4,7 +4,11 @@ exports[`pep-search PepSearch should match snapshot 1`] = `
 <div>
   <Formik
     enableReinitialize={false}
-    initialValues={Object {}}
+    initialValues={
+      Object {
+        "name": "",
+      }
+    }
     isInitialValid={false}
     onSubmit={[MockFunction]}
     render={[Function]}
@@ -53,7 +57,7 @@ exports[`pep-search renderNoResult should match snapshot 1`] = `
         '. Search conducted for '
         <Component />
         ' on 
-        18 Dec 19 16:30PM
+        18 December 19 16:30PM
       </div>
     </div>
   </div>
