@@ -18,7 +18,7 @@ const optionsRiskAssessmentType = [
   { label: RISK_ASSESSMENT_TYPE.ENHANCED, value: RISK_ASSESSMENT_TYPE.ENHANCED }
 ]
 
-export const renderForm = ({ onNextHandler, onPrevHandler }) => () => {
+export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => () => {
   return (
     <Form>
       <div>
@@ -52,13 +52,13 @@ export const renderForm = ({ onNextHandler, onPrevHandler }) => () => {
         </div>
       </div>
       <div className={styles.footerBtn}>
-        <Button className="mr-2" variant="primary" type="submit">
+        <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
           Save
         </Button>
-        <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
+        <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
           Previous
         </Button>
-        <Button variant="primary" type="button" onClick={onNextHandler}>
+        <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler}>
           Next
         </Button>
       </div>
@@ -68,6 +68,7 @@ export const renderForm = ({ onNextHandler, onPrevHandler }) => () => {
 
 export type DeclarationAndRiskAssessmentProps = {
   contact: ContactModel
+  isSubmitting: boolean
   onNextHandler: () => void
   onPrevHandler: () => void
   onHandleSubmit: (values: any) => void
@@ -84,7 +85,8 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   contact,
   onNextHandler,
   onPrevHandler,
-  onHandleSubmit
+  onHandleSubmit,
+  isSubmitting
 }) => {
   const data = oc(contact).metadata.declarationAndRisk({}) as DeclarationAndRiskModel
   const initialValues = React.useMemo(
@@ -92,13 +94,12 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
       metadata: {
         declarationAndRisk: {
           reason: data.reason,
-          type: data.type
+          type: data.type || 'Simplified'
         }
       }
     }),
     [contact]
   )
-  console.log(contact)
   return (
     <div>
       <Formik
@@ -106,7 +107,8 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
         onSubmit={onHandleSubmit}
         render={renderForm({
           onNextHandler,
-          onPrevHandler
+          onPrevHandler,
+          isSubmitting
         })}
       />
     </div>
@@ -115,11 +117,13 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
 
 export const mapStateToProps = (state: ReduxState): MappedProps => {
   return {
+    isSubmitting: oc(state).checklistDetail.isSubmitting(false),
     contact: oc(state).checklistDetail.checklistDetailData.contact({})
   }
 }
 
 export type MappedProps = {
+  isSubmitting: boolean
   contact: ContactModel
 }
 
@@ -142,7 +146,7 @@ export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnPropsProps):
       }
       dispatch(checkListDetailDeclarationAndRiskUpdateData(newValues))
     },
-    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
+    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.PEP_SEARCH)),
     onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.ADDRESS_INFORMATION))
   }
 }

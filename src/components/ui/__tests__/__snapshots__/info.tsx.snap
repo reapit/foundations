@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info should match a snapshot 1`] = `
+<div>
+  <h3>
+    Hello world
+  </h3>
+  <a
+    href="/"
+  >
+    Go Back
+  </a>
+</div>
+`;

@@ -99,7 +99,9 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
 <Connect(ErrorBoundary)>
   <div>
     <div>
-      <a>
+      <a
+        onClick={[Function]}
+      >
         Back to Client/Logout
       </a>
     </div>
