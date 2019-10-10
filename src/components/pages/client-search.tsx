@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { Button, Input, SelectBox } from '@reapit/elements'
+import { Button, Input, SelectBox, FlexContainerResponsive, H3 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import searchStyle from '@/styles/pages/client-search.scss?mod'
 import { Formik, Form } from 'formik'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/result'
@@ -13,8 +12,6 @@ export interface ClientSearchMappedActions {
 }
 
 export type ClientSearchProps = ClientSearchMappedActions & RouteComponentProps
-
-const { searchContainer } = searchStyle
 
 const identityCheckList = [
   { label: 'Please select…', value: '' },
@@ -34,8 +31,8 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
 
   return (
     <ErrorBoundary>
-      <div className={searchContainer}>
-        <h2 className="title is-2">Client Search</h2>
+      <FlexContainerResponsive hasPadding flexColumn>
+        <H3>Client Search</H3>
         <Formik
           initialValues={{ name: '', address: '', identityCheck: '' }}
           onSubmit={values => searchContacts(values)}
@@ -70,7 +67,7 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
             )
           }}
         />
-      </div>
+      </FlexContainerResponsive>
     </ErrorBoundary>
   )
 }
