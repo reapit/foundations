@@ -34,7 +34,15 @@ export interface MapPanelProps {
  * instead of mocking.
  */
 
-export const getMapUrl = ({ currentLocation, destination, isIOS = true }: { currentLocation: Latlng; destination: Latlng, isIOS?: boolean }) => {
+export const getMapUrl = ({
+  currentLocation,
+  destination,
+  isIOS = true
+}: {
+  currentLocation: Latlng
+  destination: Latlng
+  isIOS?: boolean
+}) => {
   let mapUrl = ''
   if (isIOS) {
     mapUrl += 'maps'

@@ -1,13 +1,11 @@
 import store from '@/core/store'
 import { RefreshParams, tokenExpired, refreshCognitoSession } from '@reapit/elements'
 import { authLoginSuccess, authLogout } from '@/actions/auth'
-import { selectOnlineStatus } from '@/selectors/online'
 
 export const getAccessToken = async (): Promise<string | null> => {
   const { loginSession, refreshSession } = store.state.auth
-  const online = selectOnlineStatus(store.state)
 
-  if (!online || (!loginSession && !refreshSession)) {
+  if (!loginSession && !refreshSession) {
     store.dispatch(authLogout())
     return null
   }
@@ -32,7 +30,6 @@ export const getAccessToken = async (): Promise<string | null> => {
   } catch (err) {
     console.error(err)
   }
-
   store.dispatch(authLogout())
   return null
 }
