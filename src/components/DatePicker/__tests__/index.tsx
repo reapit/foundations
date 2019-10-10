@@ -13,10 +13,43 @@ const props: DatePickerProps = {
 }
 
 describe('Date-time picker', () => {
-  it('should map value correctly to text box', done => {
+  it('should map value correctly from textbox to formik', (done) => {
+    const submitCallback = jest.fn()
     const wrapper = mount(
       <Formik
-        initialValues={{ test: '11/20/1997' }}
+        initialValues={{ test: '1997-11-20T17:00:00' }}
+        onSubmit={submitCallback}
+        render={() => {
+          return (
+            <Form>
+              <DatePicker name="test" id="test" labelText="test" />
+            </Form>
+          )
+        }}
+      />
+    )
+
+    const input = wrapper.find('input')
+    input.simulate('change', {
+      target: {
+        value: '22/11/1997'
+      }
+    })
+
+    // onChange
+    const form = wrapper.find('form') 
+    form.simulate('submit')
+
+    setTimeout(() => {
+      expect(submitCallback.mock.calls[0][0]).toMatchObject({test: '1997-11-22T00:00:00'})
+      done()
+    }, 1);
+  })
+
+  it('should map value correctly from formik to text box', done => {
+    const wrapper = mount(
+      <Formik
+        initialValues={{ test: '1997-11-20T17:00:00' }}
         onSubmit={jest.fn()}
         render={() => {
           return (
@@ -29,7 +62,7 @@ describe('Date-time picker', () => {
     )
 
     const input = wrapper.find('input')
-    expect(input.props().value).toBe('11/20/1997')
+    expect(input.props().value).toBe('20/11/1997')
     input.simulate('change', {
       target: {
         value: '1'
