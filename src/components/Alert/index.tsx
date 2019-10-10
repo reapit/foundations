@@ -9,15 +9,17 @@ export interface AlertProps {
   className?: string
   dataTest?: string
   afterClose?: (event: React.MouseEvent<HTMLButtonElement>) => void
+  children: React.ReactNode
 }
 
-export const Alert = ({
+export const Alert: React.SFC<AlertProps> = ({
   message,
   afterClose,
   className,
   closable = false,
   type = 'primary',
-  dataTest = ''
+  dataTest = '',
+  children
 }: AlertProps) => {
   const alertType =
     type === 'warning' || type === 'danger'
@@ -30,6 +32,7 @@ export const Alert = ({
   return (
     <div className={`notification ${alertType} ${className ? className : ''}`} role="alert" data-test={dataTest}>
       {message}
+      {children}
       {closable && (
         <button
           type="button"
