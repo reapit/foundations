@@ -9,7 +9,7 @@ export interface AlertProps {
   className?: string
   dataTest?: string
   afterClose?: (event: React.MouseEvent<HTMLButtonElement>) => void
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 export const Alert: React.SFC<AlertProps> = ({
