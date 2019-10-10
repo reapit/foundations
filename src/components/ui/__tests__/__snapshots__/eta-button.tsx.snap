@@ -2,7 +2,7 @@
 
 exports[`ETAButton Should match snapshot 1`] = `
 <a
-  className="button isPrimary"
+  className="button is-primary"
   data-test="eta-button"
   href="sms:99999999"
 >

@@ -5,11 +5,10 @@ import { ReduxState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AppointmentsState, AppointmentsTime } from '@/reducers/appointments'
 import { oc } from 'ts-optchain'
-import { Loader, Tabs, TabConfig } from '@reapit/elements'
+import { Loader, Tabs, TabConfig, ButtonGroup, Button } from '@reapit/elements'
 import { AppointmentList } from '../ui/appointment-list'
 import { appointmentsRequestData, setSelectedAppointment } from '@/actions/appointments'
 import AppointmentDetailModal from '@/components/common/appointment-detail'
-import bulma from '@/styles/vendor/bulma'
 import MapContainer from '@/components/container/map'
 import containerStyle from '@/styles/pages/page-container.scss?mod'
 import { NextAppointmentState } from '@/reducers/next-appointment'
@@ -99,13 +98,12 @@ export const Home: React.FunctionComponent<HomeProps> = ({
         {(currentTab === 'LIST' || !isMobileView) && (
           <>
             <div className={`${containerStyle.menuSticky} ${desktopMode ? containerStyle.isDesktop : ''}`}>
-              <div className={`${bulma.isCentered} ${bulma.buttons} ${bulma.hasAddons}`}>
+              <ButtonGroup>
                 {filterTimes.map(filter => (
-                  <span
-                    className={
-                      bulma.button +
-                      (filter === time ? ` ${bulma.isSelected} ${bulma.isActive} ${bulma.isPrimary}` : '')
-                    }
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    className={filter === time ? `is-selected is-primary is-active` : ''}
                     key={filter}
                     onClick={() => {
                       filter !== time && requestAppointments(filter)
@@ -113,9 +111,9 @@ export const Home: React.FunctionComponent<HomeProps> = ({
                     }}
                   >
                     {filter}
-                  </span>
+                  </Button>
                 ))}
-              </div>
+              </ButtonGroup>
               <TravelMode travelMode={travelMode} onChangeTravelMode={handleTravelMode} />
             </div>
 
