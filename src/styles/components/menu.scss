@@ -24,11 +24,12 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    overflow: scroll;
+    overflow-x: scroll;
     
     @media screen and (min-width: 768px) {
       height: 100%;
-      flex-direction: column;      
+      flex-direction: column;    
+      overflow-x: hidden;  
     }
   }
 

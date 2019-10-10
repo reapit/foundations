@@ -28,6 +28,7 @@ export * from './components/Modal'
 export * from './components/Typography'
 export * from './components/Info'
 export * from './components/Layout'
+export * from './components/IconList'
 
 // Utils
 export * from './utils/validators'

@@ -3,6 +3,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Button } from '.'
 import { action } from '@storybook/addon-actions'
+import { ButtonGroup } from './index'
 
 storiesOf('Button', module).add('Primary', () => (
   <section className="section">
@@ -88,3 +89,37 @@ storiesOf('Button', module).add('Loading', () => (
     </div>
   </section>
 ))
+
+storiesOf('Button', module).add('ButtonGroup', () => {
+  const [isActive, setIsActive] = React.useState(0)
+  return (
+    <section className="section">
+      <div className="column is-half-desktop">
+        <ButtonGroup>
+          <Button
+            type="button"
+            className={`${isActive === 0 ? 'is-active' : ''}`}
+            variant="primary"
+            onClick={() => setIsActive(0)}
+            disabled={false}
+            loading={false}
+            fullWidth={false}
+          >
+            Left
+          </Button>
+          <Button
+            type="button"
+            className={`${isActive === 1 ? 'is-active' : ''}`}
+            variant="primary"
+            onClick={() => setIsActive(1)}
+            disabled={false}
+            loading={false}
+            fullWidth={false}
+          >
+            Right
+          </Button>
+        </ButtonGroup>
+      </div>
+    </section>
+  )
+})
