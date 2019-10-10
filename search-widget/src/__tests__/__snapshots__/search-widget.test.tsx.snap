@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match snapshot 1`] = `
+<ThemeProvider
+  theme={
+    Object {
+      "colors": Object {
+        "jade": "#00a569",
+        "jumbo": "#828085",
+        "white": "#fff",
+      },
+    }
+  }
+>
+  <styled.div>
+    <styled.div>
+      Find your perfect home
+    </styled.div>
+    <styled.input
+      name="search"
+      placeholder="enter your town or postcode"
+    />
+    <styled.div>
+      <styled.button
+        disabled={false}
+        onClick={[Function]}
+      >
+        FOR SALE
+      </styled.button>
+      <styled.button
+        disabled={false}
+        onClick={[Function]}
+      >
+        TO RENT
+      </styled.button>
+    </styled.div>
+  </styled.div>
+</ThemeProvider>
+`;
