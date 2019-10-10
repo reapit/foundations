@@ -1,4 +1,6 @@
 import appointmentsSagas, { appointmentsDataFetch, appointmentsDataListen } from '@/sagas/appointments'
+import { PagedResultAppointmentModel_, AppointmentModel } from '@/types/appointments'
+import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import {
@@ -55,6 +57,11 @@ describe('appointments should fetch data', () => {
         method: 'GET',
         headers: mockHeaders
       })
+    )
+
+    expect(gen.next(appointmentsDataStub.appointments).value).toEqual(
+      call(sortAppoinmentsByStartTime, (appointmentsDataStub.appointments as PagedResultAppointmentModel_)
+        .data as AppointmentModel[])
     )
 
     expect(gen.next(appointmentsDataStub.appointments).value).toEqual(

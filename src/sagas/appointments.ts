@@ -11,6 +11,7 @@ import { selectOnlineStatus } from '@/selectors/online'
 import { REAPIT_API_BASE_URL } from '../constants/api'
 import { AppointmentRequestParams } from '@/actions/appointments'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
+import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
 
 export const appointmentsDataFetch = function*({ data: { time } }: Action<AppointmentRequestParams>) {
   const online = yield select(selectOnlineStatus)
@@ -56,6 +57,12 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
       method: 'GET',
       headers
     })
+
+    // Sort appoinments by start time
+    if (appointments && appointments.data) {
+      const sortedAppoinments = yield call(sortAppoinmentsByStartTime, appointments.data)
+      appointments.data = sortedAppoinments
+    }
 
     const appointmentTypes = yield call(fetcher, {
       url: URLS.appointmentTypes,
