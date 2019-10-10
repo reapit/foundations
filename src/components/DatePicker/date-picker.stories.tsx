@@ -9,7 +9,7 @@ storiesOf('form/DatePicker', module)
   .add('Date Picker', () => (
     <section className="section">
       <Formik
-        initialValues={{ demo: null }}
+        initialValues={{ demo: '1997-11-20T17:00:00' }}
         onSubmit={values => {
           action('Form Values' + values)
         }}

@@ -2,6 +2,9 @@ import * as React from 'react'
 import { Field } from 'formik'
 import ReactDatePicker from 'react-datepicker'
 import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+
+dayjs.extend(customParseFormat)
 
 const { useState, useEffect } = React
 
@@ -68,11 +71,12 @@ const Input = ({
 
     setInputValue(transformedTextFieldValue)
 
-    const parsedTransformedTextFieldValue = dayjs(transformedTextFieldValue)
+    const parsedTransformedTextFieldValue = dayjs(transformedTextFieldValue, 'DD/MM/YYYY')
+
     if (parsedTransformedTextFieldValue.isValid()) {
       onChange({
         target: {
-          value: transformedTextFieldValue
+          value: parsedTransformedTextFieldValue
         }
       })
     }
@@ -146,9 +150,13 @@ export const DatePicker = ({ name, id, labelText }: DatePickerProps) => {
     <Field
       name={name}
       render={({ field, form: { touched, errors, setFieldValue } }) => {
-        const hasError = touched[field.name] && errors[field.name]
+        const fieldValue = field.value
+        const parsedDayJsValue = dayjs(fieldValue)
+        const parsedValue = parsedDayJsValue.format('DD/MM/YYYY')
 
+        const hasError = touched[field.name] && errors[field.name]
         const className = hasError ? 'input is-danger' : 'input is-primary'
+
         return (
           <div className="field pb-2">
             <div className="control">
@@ -161,9 +169,10 @@ export const DatePicker = ({ name, id, labelText }: DatePickerProps) => {
                 id={id}
                 labelText={labelText}
                 {...field}
-                selected={field.value}
+                value={parsedValue}
+                selected={parsedDayJsValue.toDate()}
                 onChange={value => {
-                  setFieldValue(name, value)
+                  setFieldValue(name, dayjs(value).format('YYYY-MM-DDTHH:mm:ss'))
                 }}
                 customInput={<Input className={className} />}
               />
