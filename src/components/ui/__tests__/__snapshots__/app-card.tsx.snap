@@ -1,40 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppCard should match a snapshot 1`] = `
-<div
-  className="card undefined undefined"
-  data-test="app-card_09043eb8-9e5e-4650-b7f1-f0cb62699027_isNoPending_test"
+<Tile
+  dataTest="app-card_09043eb8-9e5e-4650-b7f1-f0cb62699027_isNoPending_test"
+  heading="test"
+  image={
+    <img
+      alt="test"
+      className="image"
+      src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
+    />
+  }
+  subHeading="Pete's Proptech World Ltd"
 >
-  <div
-    className="cardContent"
-  >
-    <figure
-      className="image is48x48 undefined"
-    >
-      <img
-        alt="test"
-        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
-      />
-    </figure>
-    <h5
-      className="title is5"
-    >
-      test
-    </h5>
-    <p
-      className="subtitle is6 undefined"
-    >
-      nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
-    </p>
-  </div>
-  <div
-    className="cardFooter"
-  >
-    <p
-      className="cardFooterItem undefined"
-    >
-      Pete's Proptech World Ltd
-    </p>
-  </div>
-</div>
+  <p>
+    nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+  </p>
+</Tile>
 `;

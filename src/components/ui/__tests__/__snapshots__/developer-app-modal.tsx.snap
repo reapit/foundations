@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperAppModalInner should match a snapshot when ERROR true 1`] = `
-<Alert
-  message="Failed to fetch. Please try later."
-  type="danger"
+<ModalBody
+  body={
+    <Alert
+      message="Failed to fetch. Please try later."
+      type="danger"
+    />
+  }
 />
 `;
 
@@ -11,32 +15,6 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
 <div
   data-test="app-detail-modal"
 >
-  <div
-    className="mb-2 flex justify-end"
-  >
-    <Connect(DeleteAppModal)
-      afterClose={[Function]}
-      onDeleteSuccess={[Function]}
-      visible={false}
-    />
-    <Button
-      className="mr-2"
-      dataTest="detail-modal-delete-button"
-      onClick={[Function]}
-      type="button"
-      variant="secondary"
-    >
-      Delete App
-    </Button>
-    <Button
-      dataTest="detail-modal-edit-button"
-      onClick={[Function]}
-      type="button"
-      variant="primary"
-    >
-      Edit Detail
-    </Button>
-  </div>
   <AppDetailWithConnect
     data={
       Object {
@@ -77,8 +55,37 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
         "telephone": "0113 288 2900",
       }
     }
+    footerItems={
+      <React.Fragment>
+        <Button
+          dataTest="detail-modal-delete-button"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Delete App
+        </Button>
+        <Button
+          dataTest="detail-modal-edit-button"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Edit Detail
+        </Button>
+      </React.Fragment>
+    }
+  />
+  <Connect(DeleteAppModal)
+    afterClose={[Function]}
+    onDeleteSuccess={[Function]}
+    visible={false}
   />
 </div>
 `;
 
-exports[`DeveloperAppModalInner should match a snapshot when LOADING true 1`] = `<Loader />`;
+exports[`DeveloperAppModalInner should match a snapshot when LOADING true 1`] = `
+<ModalBody
+  body={<Loader />}
+/>
+`;

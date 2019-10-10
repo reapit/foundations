@@ -16,11 +16,12 @@ exports[`CallToAction should match a snapshot 1`] = `
     </span>
   </h3>
   <p />
-  <button
-    className="button isPrimary"
-    data-test=""
+  <Button
+    dataTest=""
+    type="button"
+    variant="primary"
   >
     My button
-  </button>
+  </Button>
 </div>
 `;

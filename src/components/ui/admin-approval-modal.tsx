@@ -1,10 +1,8 @@
 import * as React from 'react'
-import bulma from '@/styles/vendor/bulma'
-import { Modal, ModalProps, Loader } from '@reapit/elements'
+import { Modal, ModalProps, Loader, Button, ModalHeader, ModalFooter, ModalBody, Alert } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppDetailState } from '@/reducers/app-detail'
-import Alert from '@/components/ui/alert'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import DiffViewer from './diff-viewer'
 import { AppRevisionModel, MediaModel, ScopeModel } from '@/types/marketplace-api-schema'
@@ -80,11 +78,11 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
   const [isApproveModalOpen, setIsApproveModalOpen] = React.useState(false)
   const [isDeclineModalOpen, setIsDeclineModalOpen] = React.useState(false)
   if (revisionDetailState.loading || appDetailState.loading) {
-    return <Loader />
+    return <ModalBody body={<Loader />} />
   }
 
   if (revisionDetailState.error || appDetailState.error) {
-    return <Alert type="danger" message="Failed to fetch. Please try later." />
+    return <ModalBody body={<Alert type="danger" message="Failed to fetch. Please try later." />} />
   }
 
   if (!revisionDetailState.revisionDetailData || !appDetailState.appDetailData) {
@@ -126,24 +124,8 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
 
   return (
     <>
-      <div data-test="revision-detail-modal" className="flex justify-between">
-        <h3 className={`${bulma.title} ${bulma.is3}`}>Detailed changes</h3>
-        <div>
-          <button
-            className={`${bulma.button} ${bulma.isPrimary} mr-2`}
-            onClick={() => setIsApproveModalOpen(true)}
-            data-test="revision-approve-button"
-          >
-            Approve
-          </button>
-          <button
-            className={`${bulma.button} ${bulma.isDanger}`}
-            onClick={() => setIsDeclineModalOpen(true)}
-            data-test="revision-decline-button"
-          >
-            Decline
-          </button>
-        </div>
+      <div data-test="revision-detail-modal">
+        <ModalHeader title={`Confirm ${app.name} revision`} afterClose={closeParentModal as () => void} />
         <ApproveRevisionModal
           visible={isApproveModalOpen}
           afterClose={() => setIsApproveModalOpen(false)}
@@ -161,25 +143,31 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
           }}
         />
       </div>
-      {Object.keys(diffStringList).map(key => {
-        return (
-          <div className="mb-3" key={key}>
-            <h4 className="mb-2">{diffStringList[key]}</h4>
-            <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
-          </div>
-        )
-      })}
-      {renderCheckboxesDiff({ scopes, appScopes: app.scopes, revisionScopes: revision.scopes })}
-      <div className="mb-3">
-        <h4 data-test="chkIsListed" className="mb-2">
-          Is listed
-        </h4>
-        <DiffCheckbox
-          currentChecked={Boolean(app.isListed)}
-          changedChecked={Boolean(revision.isListed)}
-          dataTest="revision-diff-isListed"
-        />
-      </div>
+      <ModalBody
+        body={
+          <>
+            {Object.keys(diffStringList).map(key => {
+              return (
+                <div className="mb-3" key={key}>
+                  <h4 className="mb-2">{diffStringList[key]}</h4>
+                  <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
+                </div>
+              )
+            })}
+            {renderCheckboxesDiff({ scopes, appScopes: app.scopes, revisionScopes: revision.scopes })}
+            <div className="mb-3">
+              <h4 data-test="chkIsListed" className="mb-2">
+                Is listed
+              </h4>
+              <DiffCheckbox
+                currentChecked={Boolean(app.isListed)}
+                changedChecked={Boolean(revision.isListed)}
+                dataTest="revision-diff-isListed"
+              />
+            </div>
+          </>
+        }
+      />
 
       {changedMediaList.map(media => (
         <div className="mb-3" key={media.order}>
@@ -189,6 +177,30 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
           <DiffMedia changedMedia={media.changedMedia} currentMedia={media.currentMedia} type={media.type} />
         </div>
       ))}
+
+      <ModalFooter
+        footerItems={
+          <>
+            <Button
+              className="mr-2"
+              variant="primary"
+              type="button"
+              onClick={() => setIsApproveModalOpen(true)}
+              dataTest="revision-approve-button"
+            >
+              Approve
+            </Button>
+            <Button
+              variant="danger"
+              type="button"
+              onClick={() => setIsDeclineModalOpen(true)}
+              data-test="revision-decline-button"
+            >
+              Decline
+            </Button>
+          </>
+        }
+      />
     </>
   )
 }

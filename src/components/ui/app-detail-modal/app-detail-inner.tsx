@@ -9,6 +9,7 @@ import AppUninstallConfirm from '@/components/ui/app-confirm-uninstall'
 import CallToAction from '../call-to-action'
 import { handleCloseModal, mapDispatchToProps } from '../app-confirm-install'
 import { oc } from 'ts-optchain'
+import { ModalBody } from '@reapit/elements'
 
 export interface AppDetailInnerMappedProps {
   appDetailModalState: AppDetailModalState
@@ -39,7 +40,7 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
     if (!appDetailState.appDetailData || !appDetailState.appDetailData.data) {
       return null
     }
-    return <AppDetail data={appDetailState.appDetailData.data} />
+    return <AppDetail data={appDetailState.appDetailData.data} afterClose={afterClose as () => void} />
   }
 
   if (appDetailModalState === 'VIEW_CONFIRM_INSTALL') {
@@ -54,15 +55,19 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
     const appName = oc(appDetailState).appDetailData.data.name('App')
     const isInstalled = !!oc(appDetailState).appDetailData.data.installationId()
     return (
-      <CallToAction
-        title="Success!"
-        buttonText="Back to List"
-        dataTest="alertInstalledSuccess"
-        onButtonClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
-        isCenter
-      >
-        {appName} has been successfully {isInstalled ? 'installed' : 'uninstalled'}
-      </CallToAction>
+      <ModalBody
+        body={
+          <CallToAction
+            title="Success!"
+            buttonText="Back to List"
+            dataTest="alertInstalledSuccess"
+            onButtonClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
+            isCenter
+          >
+            {appName} has been successfully {isInstalled ? 'installed' : 'uninstalled'}
+          </CallToAction>
+        }
+      />
     )
   }
 

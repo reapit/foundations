@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { FormState, ReduxState } from '@/types/core'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import { Button } from '@reapit/elements'
+import { Button, SubTitleH6, ModalFooter, ModalBody, ModalHeader } from '@reapit/elements'
 import { appUninstallRequestData, appUninstallDone } from '@/actions/app-uninstall'
 import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
 import { oc } from 'ts-optchain'
@@ -47,33 +47,42 @@ export const AppConfirmUninstall = ({
 
   return (
     <div data-test="confirm-content">
-      <h6 className="mb-5">
-        Are you sure you wish to uninstall {appName}? This action will uninstall the app for ALL platform users.
-      </h6>
-      <div className="flex">
-        <Button
-          dataTest="agree-btn"
-          loading={Boolean(isLoading)}
-          className="mx-4"
-          fullWidth
-          type="button"
-          variant="primary"
-          onClick={requestUninstall}
-        >
-          Agree
-        </Button>
-        <Button
-          dataTest="disagree-btn"
-          disabled={Boolean(isLoading)}
-          className="mx-4"
-          fullWidth
-          type="button"
-          variant="danger"
-          onClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
-        >
-          Disagree
-        </Button>
-      </div>
+      <ModalHeader title={`Confirm ${appName} uninstall`} afterClose={afterClose as () => void} />
+      <ModalBody
+        body={
+          <SubTitleH6 isCentered>
+            Are you sure you wish to uninstall {appName}? This action will uninstall the app for ALL platform users.
+          </SubTitleH6>
+        }
+      />
+      <ModalFooter
+        footerItems={
+          <>
+            <Button
+              dataTest="agree-btn"
+              loading={Boolean(isLoading)}
+              className="mx-4"
+              fullWidth
+              type="button"
+              variant="primary"
+              onClick={requestUninstall}
+            >
+              Agree
+            </Button>
+            <Button
+              dataTest="disagree-btn"
+              disabled={Boolean(isLoading)}
+              className="mx-4"
+              fullWidth
+              type="button"
+              variant="danger"
+              onClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
+            >
+              Disagree
+            </Button>
+          </>
+        }
+      />
     </div>
   )
 }

@@ -4,7 +4,7 @@ import Routes from '../constants/routes'
 import PrivateRoute from './private-route'
 import PrivateRouteWrapper from './private-route-wrapper'
 import { createBrowserHistory } from 'history'
-import Info from '../components/pages/info'
+import { Info } from '@reapit/elements'
 
 export const history = createBrowserHistory()
 

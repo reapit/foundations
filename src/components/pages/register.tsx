@@ -1,22 +1,18 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import Alert from '@/components/ui/alert'
 import { Formik, Form } from 'formik'
-import { Input, Button } from '@reapit/elements'
+import { Input, Button, Alert, H1, Level } from '@reapit/elements'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import { registerValidate } from '@/utils/form/register'
 import { Link } from 'react-router-dom'
 import Routes from '../../constants/routes'
-import bulma from '@/styles/vendor/bulma'
 import { CreateDeveloperModel } from '../../types/marketplace-api-schema'
 import { Dispatch } from 'redux'
 import { developerCreate } from '../../actions/developer'
 import { FormState } from '../../types/core'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import CallToAction from '../ui/call-to-action'
-
-// const { history } = React.lazy(() => )
 
 export interface RegisterMappedActions {
   developerCreate: (developer: CreateDeveloperModel) => void
@@ -37,7 +33,6 @@ export interface RegisterFormValues {
 
 export type RegisterProps = RegisterMappedActions & RegisterMappedProps
 
-const { level, title, isH1, isCentered } = bulma
 const { container, wrapper, disabled, image } = loginStyles
 
 export const Register: React.FunctionComponent<RegisterProps> = ({ developerCreate, formState }) => {
@@ -45,7 +40,7 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
   return (
     <div className={container}>
       <div className={`${wrapper} ${isDisabled ? disabled : ''}`}>
-        <h1 className={`${title} ${isH1} ${isCentered}`}>Register</h1>
+        <H1 isCentered>Register</H1>
         <p className="pb-8">Reapit Foundations developers</p>
         {formState === 'SUCCESS' ? (
           <CallToAction
@@ -124,14 +119,14 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
                     id="confirmPassword"
                     name="confirmPassword"
                   />
-                  <div className={level}>
+                  <Level>
                     <Button type="submit" loading={isDisabled} variant="primary" disabled={isDisabled} fullWidth>
                       Register
                     </Button>
-                  </div>
-                  <div className={level}>
+                  </Level>
+                  <Level>
                     Already have an account?<Link to={Routes.LOGIN}>Login</Link>
-                  </div>
+                  </Level>
                   {formState === 'ERROR' && (
                     <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
                   )}

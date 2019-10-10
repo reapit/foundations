@@ -37,7 +37,7 @@ export const AppDetailModal: React.FunctionComponent<AppDetailModalProps> = ({
   setAppDetailModalStateView
 }) => {
   return (
-    <Modal visible={visible} afterClose={handleAfterClose(setAppDetailModalStateView, afterClose)}>
+    <Modal visible={visible} afterClose={handleAfterClose(setAppDetailModalStateView, afterClose)} renderChildren>
       <AppDetailAsyncContainer>
         <AppDetailInner afterClose={afterClose} />
       </AppDetailAsyncContainer>

@@ -11,7 +11,6 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import { AppDetailState } from '@/reducers/app-detail'
 import { appDetailRequestData } from '@/actions/app-detail'
 import DeveloperAppModal from '../ui/developer-app-modal'
-import bulma from '../../styles/vendor/bulma'
 import { setDeveloperAppModalStateViewDetail } from '@/actions/developer-app-modal'
 import { appDeleteSetInitFormState } from '@/actions/app-delete'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
@@ -39,7 +38,6 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   history
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
-  const { title, is3 } = bulma
   const unfetched = !developerState.developerData
   const loading = developerState.loading
   const list = oc<DeveloperState>(developerState).developerData.data.data([])

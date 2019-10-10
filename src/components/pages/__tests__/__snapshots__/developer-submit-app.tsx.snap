@@ -1,16 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperSubmitApp should match a snapshot 1`] = `
-<div>
-  <div
-    className="undefined container "
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <FlexContainerBasic
+    className=""
     data-test="app-input-form"
+    flexColumn={true}
   >
-    <h3
-      className="title is3"
-    >
+    <H3>
       Submit App
-    </h3>
+    </H3>
     <Formik
       enableReinitialize={false}
       initialValues={
@@ -37,6 +39,6 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
       validateOnBlur={true}
       validateOnChange={true}
     />
-  </div>
-</div>
+  </FlexContainerBasic>
+</FlexContainerBasic>
 `;

@@ -3,6 +3,7 @@
 exports[`AppDetailModel should match a snapshot 1`] = `
 <Modal
   afterClose={[Function]}
+  renderChildren={true}
   visible={true}
 >
   <Connect(AsyncContainer)>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { FormState, ReduxState } from '@/types/core'
 import { AppConfirmUninstall, handleCloseModal, mapDispatchToProps, mapStateToProps } from '../app-confirm-uninstall'
@@ -61,7 +61,7 @@ describe('AppConfirmUninstall', () => {
       setAppDetailModalStateView: jest.fn(),
       appUninstallFormState: 'SUBMITTING' as FormState
     }
-    const wrapper = shallow(<AppConfirmUninstall {...mockProps} />)
+    const wrapper = mount(<AppConfirmUninstall {...mockProps} />)
     expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
   })
 
@@ -74,7 +74,7 @@ describe('AppConfirmUninstall', () => {
       setAppDetailModalStateView: jest.fn(),
       appUninstallFormState: 'SUBMITTING' as FormState
     }
-    const wrapper = shallow(<AppConfirmUninstall {...mockProps} />)
+    const wrapper = mount(<AppConfirmUninstall {...mockProps} />)
     expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
   })
   it('handleCloseModal', () => {

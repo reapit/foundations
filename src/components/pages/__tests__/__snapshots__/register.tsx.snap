@@ -5,11 +5,11 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
   <div
     className="undefined "
   >
-    <h1
-      className="title is1 isCentered"
+    <H1
+      isCentered={true}
     >
       Register
-    </h1>
+    </H1>
     <p
       className="pb-8"
     >
@@ -49,11 +49,11 @@ exports[`Register should match a snapshot for SUCCESS state 1`] = `
   <div
     className="undefined "
   >
-    <h1
-      className="title is1 isCentered"
+    <H1
+      isCentered={true}
     >
       Register
-    </h1>
+    </H1>
     <p
       className="pb-8"
     >

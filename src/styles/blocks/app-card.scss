@@ -1,38 +1,11 @@
-.appCard {
-  border-radius: 5px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
-  figure {
-    
-    margin-bottom: 1rem;
-  }
-
-  p, h5 {
-    text-align: center;
-  }
-
-  h5 {
-    padding-bottom: 0.5rem;
-  }
-}
-
-.appCardContent {
-  height: 85px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.isCentered {
-  margin: 0 auto;
-}
-
-.isLeft {
-  justify-content: left;
+// This solution is a bit shit and will only add an elipsis in webkit browsers
+// Sorry but other browsers no-supporty...
+.content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 700px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 60px;
 }
