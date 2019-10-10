@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json'
 import { ReduxState } from '@/types/core'
 import invalidValues from '@/constants/invalid-values'
 
-const {UNDEFINED_LATLNG_NUMBER} = invalidValues
+const { UNDEFINED_LATLNG_NUMBER } = invalidValues
 
 describe('MapPanel', () => {
   describe('getMapUrl', () => {
@@ -21,12 +21,14 @@ describe('MapPanel', () => {
         const output = `https://maps.google.com/maps?saddr=${input.currentLocation.lat},${input.currentLocation.lng}&daddr=${input.destination.lat},${input.destination.lng}`
         expect(getMapUrl(input)).toBe(output)
       })
-
     })
 
     describe('invalid current location', () => {
       it('handles invalid current location', () => {
-        const input = { currentLocation: { lng: UNDEFINED_LATLNG_NUMBER, lat: UNDEFINED_LATLNG_NUMBER }, destination: { lng: 1, lat: 1 } }
+        const input = {
+          currentLocation: { lng: UNDEFINED_LATLNG_NUMBER, lat: UNDEFINED_LATLNG_NUMBER },
+          destination: { lng: 1, lat: 1 }
+        }
         const output = `maps://maps.google.com/maps?daddr=${input.destination.lat},${input.destination.lng}`
         expect(getMapUrl(input)).toBe(output)
       })
