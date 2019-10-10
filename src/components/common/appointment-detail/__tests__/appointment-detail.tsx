@@ -25,7 +25,8 @@ describe('AppointmentModal', () => {
         visible: true,
         afterClose: jest.fn(),
         isLoading: false,
-        userCode: 'mockUserCode'
+        userCode: 'mockUserCode',
+        appointmentTypes: []
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
@@ -38,7 +39,8 @@ describe('AppointmentModal', () => {
         visible: true,
         afterClose: jest.fn(),
         isLoading: true,
-        userCode: 'mockUserCode'
+        userCode: 'mockUserCode',
+        appointmentTypes: []
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Loader')).toHaveLength(1)
@@ -344,12 +346,16 @@ describe('AppointmentModal', () => {
           loginSession: {
             loginIdentity: { userCode: 'cbryan@reapit.com' }
           }
+        },
+        appointments: {
+          appointmentTypes: []
         }
       } as any
       const expected = {
         appointment: appointmentDataStub,
         visible: true,
-        isLoading: true
+        isLoading: true,
+        appointmentTypes: []
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -365,6 +371,9 @@ describe('AppointmentModal', () => {
           loginSession: {
             loginIdentity: { userCode: 'cbryan@reapit.com' }
           }
+        },
+        appointments: {
+          appointmentTypes: []
         }
       } as any
       const expected = {
@@ -372,7 +381,8 @@ describe('AppointmentModal', () => {
         isLoading: true,
         appointment: {
           attendees: []
-        }
+        },
+        appointmentTypes: []
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)

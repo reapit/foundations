@@ -2,6 +2,7 @@
 
 exports[`ViewDetailButton ViewDetailButton should match snapshot 1`] = `
 <Button
+  className="is-centered"
   onClick={[MockFunction]}
   type="button"
   variant="primary"
