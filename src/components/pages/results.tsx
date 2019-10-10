@@ -5,12 +5,10 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { ReduxState } from '@/types/core'
 import { ResultState } from '@/reducers/result'
-import { Pagination, Table, Button } from '@reapit/elements'
+import { Pagination, Table, Button, H3, FlexContainerResponsive, Info, H6 } from '@reapit/elements'
 import { resultRequestData, ContactsParams } from '@/actions/result'
-import Info from '@/components/ui/info'
 import Routes from '@/constants/routes'
 import { oc } from 'ts-optchain'
-import bulma from '@/styles/vendor/bulma'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
@@ -96,23 +94,24 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
   }, [search, pageNumber])
 
   const renderEmptyResult = () => (
-    <Info>
-      <h3 className="mb-2">No Results found</h3>
-      <Link to={Routes.HOME}>« Back to search page</Link>
+    <Info infoType="">
+      <H6>
+        No Results found <Link to={Routes.HOME}>Back to search page</Link>
+      </H6>
     </Info>
   )
 
   return (
     <ErrorBoundary>
-      <div className="my-5">
-        <h3 className={`${bulma.title} ${bulma.is3}`}>Search Results</h3>
+      <FlexContainerResponsive hasPadding flexColumn>
+        <H3>Search Results</H3>
         {!search || Number(totalCount) === 0 ? (
           renderEmptyResult()
         ) : (
           <Table data={data} columns={columns} loading={loading} />
         )}
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
-      </div>
+      </FlexContainerResponsive>
     </ErrorBoundary>
   )
 }
