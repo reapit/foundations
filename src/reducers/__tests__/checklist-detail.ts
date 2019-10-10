@@ -77,10 +77,11 @@ describe('home reducer', () => {
   it('should clear approvals list data when CHECKLIST_DETAIL_SUBMIT_FORM action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP_RESULT as ActionType,
-      data: []
+      data: { searchParam: '', searchResults: [] }
     })
     const expected = {
       ...defaultState,
+      pepSearchParam: '',
       pepSearchResultData: []
     }
     expect(newState).toEqual(expected)

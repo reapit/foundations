@@ -8,7 +8,11 @@ import { Input, Button } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import dayjs from 'dayjs'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
-import { checkListDetailShowModal, checkListDetailSearchPep } from '@/actions/checklist-detail'
+import {
+  checkListDetailShowModal,
+  checkListDetailSearchPep,
+  checkListDetailHideModal
+} from '@/actions/checklist-detail'
 import { STEPS } from './modal'
 
 export const renderLoading = () => {
@@ -23,7 +27,7 @@ export const renderLoading = () => {
 }
 
 export const renderNoResult = name => {
-  const currentDateTime = dayjs().format('DD MMM YY HH:mmA')
+  const currentDateTime = dayjs().format('DD MMMM YY HH:mmA')
   return (
     <div className="ml-8">
       <div>Results</div>
@@ -39,7 +43,13 @@ export const renderNoResult = name => {
   )
 }
 
-export const renderForm = ({ onPrevHandler, onNextHandler, isSubmitting, pepSearchResultData }) => ({ values }) => {
+export const renderForm = ({
+  onPrevHandler,
+  onNextHandler,
+  isSubmitting,
+  pepSearchResultData,
+  pepSearchParam
+}) => () => {
   return (
     <Form>
       <div className={styles.pepSearchInputContainer}>
@@ -49,30 +59,20 @@ export const renderForm = ({ onPrevHandler, onNextHandler, isSubmitting, pepSear
         </Button>
       </div>
       {isSubmitting ? renderLoading() : null}
-      {pepSearchResultData && pepSearchResultData.length === 0 ? renderNoResult(values.name) : null}
+      {pepSearchResultData && pepSearchResultData.length === 0 ? renderNoResult(pepSearchParam) : null}
       <div className="flex justify-end">
-        <Button
-          disabled={isSubmitting}
-          type="button"
-          variant="primary"
-          dataTest="save-pep-search-btn"
-          className="mr-2"
-          onClick={onPrevHandler}
-        >
-          Save
-        </Button>
         <Button
           disabled={isSubmitting}
           type="button"
           variant="primary"
           className="mr-2"
           dataTest="prev-btn"
-          onClick={onNextHandler}
+          onClick={onPrevHandler}
         >
           Prev
         </Button>
         <Button disabled={isSubmitting} type="button" variant="primary" dataTest="next-btn" onClick={onNextHandler}>
-          Next
+          Finish
         </Button>
       </div>
     </Form>
@@ -86,14 +86,17 @@ export const PepSearch: React.FC<PepSearchProps> = ({
   onPrevHandler,
   onNextHandler,
   isSubmitting,
-  pepSearchResultData
+  pepSearchResultData,
+  pepSearchParam
 }) => {
   return (
     <div>
       <Formik
-        initialValues={{}}
+        initialValues={{
+          name: pepSearchParam
+        }}
         onSubmit={handleSubmit}
-        render={renderForm({ onPrevHandler, onNextHandler, isSubmitting, pepSearchResultData })}
+        render={renderForm({ onPrevHandler, onNextHandler, isSubmitting, pepSearchResultData, pepSearchParam })}
       />
     </div>
   )
@@ -102,6 +105,7 @@ export const PepSearch: React.FC<PepSearchProps> = ({
 export type StateProps = {
   isSubmitting: boolean
   pepSearchResultData: any
+  pepSearchParam: string
 }
 
 export type OwnProps = {
@@ -111,7 +115,8 @@ export type OwnProps = {
 export const mapStateToProps = (state: ReduxState) => {
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
-    pepSearchResultData: oc(state).checklistDetail.pepSearchResultData(null)
+    pepSearchResultData: oc(state).checklistDetail.pepSearchResultData(null),
+    pepSearchParam: oc(state).checklistDetail.pepSearchParam('')
   }
 }
 
@@ -126,8 +131,8 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
     handleSubmit: values => {
       dispatch(checkListDetailSearchPep(values.name))
     },
-    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
-    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.EXPERIAN))
+    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
+    onNextHandler: () => dispatch(checkListDetailHideModal())
   }
 }
 
