@@ -26,13 +26,13 @@ const optionsMonth = [
   { label: '12', value: '12' }
 ] as SelectBoxOptions[]
 
-const MIN_YEAR = 1900
-const MAX_YEAR = 2100
+const MIN_NUMBER_OF_YEARS = 1
+const MAX_NUMBER_OF_YEARS = 100
 
 const renderYearOptions = () => {
   let i
   const yearArray: SelectBoxOptions[] = []
-  for (i = MIN_YEAR; i <= MAX_YEAR; i++) {
+  for (i = MIN_NUMBER_OF_YEARS; i <= MAX_NUMBER_OF_YEARS; i++) {
     const year = { label: `${i}`, value: `${i}` } as SelectBoxOptions
     yearArray.push(year)
   }
@@ -64,7 +64,7 @@ export const AddressInput = ({ index, values, setFieldValue }) => {
   return (
     <div key={index}>
       <Input
-        type="text"
+        type="hidden"
         labelText="Type"
         id={`addresses[${index}][type]`}
         name={`addresses[${index}][type]`}
@@ -128,7 +128,7 @@ export const AddressInput = ({ index, values, setFieldValue }) => {
         onChange={() => setFieldValue(`values.addresses[${index}].postcode`)}
       />
       <SelectBox
-        labelText="Year"
+        labelText="Number of Years at Address"
         options={renderYearOptions()}
         id={`metadata.addresses[${index}][year]`}
         name={`metadata.addresses[${index}][year]`}
@@ -140,7 +140,7 @@ export const AddressInput = ({ index, values, setFieldValue }) => {
         onChange={() => setFieldValue(`values.metadata.addresses[${index}].year`)}
       />
       <SelectBox
-        labelText="Month"
+        labelText="Number of Months at Address"
         id={`metadata.addresses[${index}][month]`}
         name={`metadata.addresses[${index}][month]`}
         options={optionsMonth}
@@ -221,7 +221,7 @@ export const renderForm = ({
       {renderExtraForm({ isShowMoreThreeYearInput, values, setFieldValue, index: addresses.length })}
       <div className={styles.footerBtn}>
         <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
-          Submit
+          Save
         </Button>
         <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
           Previous
@@ -303,7 +303,7 @@ export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnPropsProps):
       dispatch(checkListDetailAddressUpdateData(newValues))
     },
     onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
-    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.ADDRESS_INFORMATION))
+    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.SECONDARY_IDENTIFICATION))
   }
 }
 

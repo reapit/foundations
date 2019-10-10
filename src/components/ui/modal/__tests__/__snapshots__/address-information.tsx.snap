@@ -9,7 +9,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     labelText="Type"
     name="addresses[0][type]"
     onChange={[Function]}
-    type="text"
+    type="hidden"
     value={null}
   />
   <Input
@@ -70,814 +70,410 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
   />
   <SelectBox
     id="metadata.addresses[0][year]"
-    labelText="Year"
+    labelText="Number of Years at Address"
     name="metadata.addresses[0][year]"
     onChange={[Function]}
     options={
       Array [
         Object {
-          "label": "1900",
-          "value": "1900",
+          "label": "1",
+          "value": "1",
         },
         Object {
-          "label": "1901",
-          "value": "1901",
+          "label": "2",
+          "value": "2",
         },
         Object {
-          "label": "1902",
-          "value": "1902",
+          "label": "3",
+          "value": "3",
         },
         Object {
-          "label": "1903",
-          "value": "1903",
+          "label": "4",
+          "value": "4",
         },
         Object {
-          "label": "1904",
-          "value": "1904",
+          "label": "5",
+          "value": "5",
         },
         Object {
-          "label": "1905",
-          "value": "1905",
+          "label": "6",
+          "value": "6",
         },
         Object {
-          "label": "1906",
-          "value": "1906",
+          "label": "7",
+          "value": "7",
         },
         Object {
-          "label": "1907",
-          "value": "1907",
+          "label": "8",
+          "value": "8",
         },
         Object {
-          "label": "1908",
-          "value": "1908",
+          "label": "9",
+          "value": "9",
         },
         Object {
-          "label": "1909",
-          "value": "1909",
+          "label": "10",
+          "value": "10",
         },
         Object {
-          "label": "1910",
-          "value": "1910",
+          "label": "11",
+          "value": "11",
         },
         Object {
-          "label": "1911",
-          "value": "1911",
+          "label": "12",
+          "value": "12",
         },
         Object {
-          "label": "1912",
-          "value": "1912",
+          "label": "13",
+          "value": "13",
         },
         Object {
-          "label": "1913",
-          "value": "1913",
+          "label": "14",
+          "value": "14",
         },
         Object {
-          "label": "1914",
-          "value": "1914",
+          "label": "15",
+          "value": "15",
         },
         Object {
-          "label": "1915",
-          "value": "1915",
+          "label": "16",
+          "value": "16",
         },
         Object {
-          "label": "1916",
-          "value": "1916",
+          "label": "17",
+          "value": "17",
         },
         Object {
-          "label": "1917",
-          "value": "1917",
+          "label": "18",
+          "value": "18",
         },
         Object {
-          "label": "1918",
-          "value": "1918",
+          "label": "19",
+          "value": "19",
         },
         Object {
-          "label": "1919",
-          "value": "1919",
+          "label": "20",
+          "value": "20",
         },
         Object {
-          "label": "1920",
-          "value": "1920",
+          "label": "21",
+          "value": "21",
         },
         Object {
-          "label": "1921",
-          "value": "1921",
+          "label": "22",
+          "value": "22",
         },
         Object {
-          "label": "1922",
-          "value": "1922",
+          "label": "23",
+          "value": "23",
         },
         Object {
-          "label": "1923",
-          "value": "1923",
+          "label": "24",
+          "value": "24",
         },
         Object {
-          "label": "1924",
-          "value": "1924",
+          "label": "25",
+          "value": "25",
         },
         Object {
-          "label": "1925",
-          "value": "1925",
+          "label": "26",
+          "value": "26",
         },
         Object {
-          "label": "1926",
-          "value": "1926",
+          "label": "27",
+          "value": "27",
         },
         Object {
-          "label": "1927",
-          "value": "1927",
+          "label": "28",
+          "value": "28",
         },
         Object {
-          "label": "1928",
-          "value": "1928",
+          "label": "29",
+          "value": "29",
         },
         Object {
-          "label": "1929",
-          "value": "1929",
+          "label": "30",
+          "value": "30",
         },
         Object {
-          "label": "1930",
-          "value": "1930",
+          "label": "31",
+          "value": "31",
         },
         Object {
-          "label": "1931",
-          "value": "1931",
+          "label": "32",
+          "value": "32",
         },
         Object {
-          "label": "1932",
-          "value": "1932",
+          "label": "33",
+          "value": "33",
         },
         Object {
-          "label": "1933",
-          "value": "1933",
+          "label": "34",
+          "value": "34",
         },
         Object {
-          "label": "1934",
-          "value": "1934",
+          "label": "35",
+          "value": "35",
         },
         Object {
-          "label": "1935",
-          "value": "1935",
+          "label": "36",
+          "value": "36",
         },
         Object {
-          "label": "1936",
-          "value": "1936",
+          "label": "37",
+          "value": "37",
         },
         Object {
-          "label": "1937",
-          "value": "1937",
+          "label": "38",
+          "value": "38",
         },
         Object {
-          "label": "1938",
-          "value": "1938",
+          "label": "39",
+          "value": "39",
         },
         Object {
-          "label": "1939",
-          "value": "1939",
+          "label": "40",
+          "value": "40",
         },
         Object {
-          "label": "1940",
-          "value": "1940",
+          "label": "41",
+          "value": "41",
         },
         Object {
-          "label": "1941",
-          "value": "1941",
+          "label": "42",
+          "value": "42",
         },
         Object {
-          "label": "1942",
-          "value": "1942",
+          "label": "43",
+          "value": "43",
         },
         Object {
-          "label": "1943",
-          "value": "1943",
+          "label": "44",
+          "value": "44",
         },
         Object {
-          "label": "1944",
-          "value": "1944",
+          "label": "45",
+          "value": "45",
         },
         Object {
-          "label": "1945",
-          "value": "1945",
+          "label": "46",
+          "value": "46",
         },
         Object {
-          "label": "1946",
-          "value": "1946",
+          "label": "47",
+          "value": "47",
         },
         Object {
-          "label": "1947",
-          "value": "1947",
+          "label": "48",
+          "value": "48",
         },
         Object {
-          "label": "1948",
-          "value": "1948",
+          "label": "49",
+          "value": "49",
         },
         Object {
-          "label": "1949",
-          "value": "1949",
+          "label": "50",
+          "value": "50",
         },
         Object {
-          "label": "1950",
-          "value": "1950",
+          "label": "51",
+          "value": "51",
         },
         Object {
-          "label": "1951",
-          "value": "1951",
+          "label": "52",
+          "value": "52",
         },
         Object {
-          "label": "1952",
-          "value": "1952",
+          "label": "53",
+          "value": "53",
         },
         Object {
-          "label": "1953",
-          "value": "1953",
+          "label": "54",
+          "value": "54",
         },
         Object {
-          "label": "1954",
-          "value": "1954",
+          "label": "55",
+          "value": "55",
         },
         Object {
-          "label": "1955",
-          "value": "1955",
+          "label": "56",
+          "value": "56",
         },
         Object {
-          "label": "1956",
-          "value": "1956",
+          "label": "57",
+          "value": "57",
         },
         Object {
-          "label": "1957",
-          "value": "1957",
+          "label": "58",
+          "value": "58",
         },
         Object {
-          "label": "1958",
-          "value": "1958",
+          "label": "59",
+          "value": "59",
         },
         Object {
-          "label": "1959",
-          "value": "1959",
+          "label": "60",
+          "value": "60",
         },
         Object {
-          "label": "1960",
-          "value": "1960",
+          "label": "61",
+          "value": "61",
         },
         Object {
-          "label": "1961",
-          "value": "1961",
+          "label": "62",
+          "value": "62",
         },
         Object {
-          "label": "1962",
-          "value": "1962",
+          "label": "63",
+          "value": "63",
         },
         Object {
-          "label": "1963",
-          "value": "1963",
+          "label": "64",
+          "value": "64",
         },
         Object {
-          "label": "1964",
-          "value": "1964",
+          "label": "65",
+          "value": "65",
         },
         Object {
-          "label": "1965",
-          "value": "1965",
+          "label": "66",
+          "value": "66",
         },
         Object {
-          "label": "1966",
-          "value": "1966",
+          "label": "67",
+          "value": "67",
         },
         Object {
-          "label": "1967",
-          "value": "1967",
+          "label": "68",
+          "value": "68",
         },
         Object {
-          "label": "1968",
-          "value": "1968",
+          "label": "69",
+          "value": "69",
         },
         Object {
-          "label": "1969",
-          "value": "1969",
+          "label": "70",
+          "value": "70",
         },
         Object {
-          "label": "1970",
-          "value": "1970",
+          "label": "71",
+          "value": "71",
         },
         Object {
-          "label": "1971",
-          "value": "1971",
+          "label": "72",
+          "value": "72",
         },
         Object {
-          "label": "1972",
-          "value": "1972",
+          "label": "73",
+          "value": "73",
         },
         Object {
-          "label": "1973",
-          "value": "1973",
+          "label": "74",
+          "value": "74",
         },
         Object {
-          "label": "1974",
-          "value": "1974",
+          "label": "75",
+          "value": "75",
         },
         Object {
-          "label": "1975",
-          "value": "1975",
+          "label": "76",
+          "value": "76",
         },
         Object {
-          "label": "1976",
-          "value": "1976",
+          "label": "77",
+          "value": "77",
         },
         Object {
-          "label": "1977",
-          "value": "1977",
+          "label": "78",
+          "value": "78",
         },
         Object {
-          "label": "1978",
-          "value": "1978",
+          "label": "79",
+          "value": "79",
         },
         Object {
-          "label": "1979",
-          "value": "1979",
+          "label": "80",
+          "value": "80",
         },
         Object {
-          "label": "1980",
-          "value": "1980",
+          "label": "81",
+          "value": "81",
         },
         Object {
-          "label": "1981",
-          "value": "1981",
+          "label": "82",
+          "value": "82",
         },
         Object {
-          "label": "1982",
-          "value": "1982",
+          "label": "83",
+          "value": "83",
         },
         Object {
-          "label": "1983",
-          "value": "1983",
+          "label": "84",
+          "value": "84",
         },
         Object {
-          "label": "1984",
-          "value": "1984",
+          "label": "85",
+          "value": "85",
         },
         Object {
-          "label": "1985",
-          "value": "1985",
+          "label": "86",
+          "value": "86",
         },
         Object {
-          "label": "1986",
-          "value": "1986",
+          "label": "87",
+          "value": "87",
         },
         Object {
-          "label": "1987",
-          "value": "1987",
+          "label": "88",
+          "value": "88",
         },
         Object {
-          "label": "1988",
-          "value": "1988",
+          "label": "89",
+          "value": "89",
         },
         Object {
-          "label": "1989",
-          "value": "1989",
+          "label": "90",
+          "value": "90",
         },
         Object {
-          "label": "1990",
-          "value": "1990",
+          "label": "91",
+          "value": "91",
         },
         Object {
-          "label": "1991",
-          "value": "1991",
+          "label": "92",
+          "value": "92",
         },
         Object {
-          "label": "1992",
-          "value": "1992",
+          "label": "93",
+          "value": "93",
         },
         Object {
-          "label": "1993",
-          "value": "1993",
+          "label": "94",
+          "value": "94",
         },
         Object {
-          "label": "1994",
-          "value": "1994",
+          "label": "95",
+          "value": "95",
         },
         Object {
-          "label": "1995",
-          "value": "1995",
+          "label": "96",
+          "value": "96",
         },
         Object {
-          "label": "1996",
-          "value": "1996",
+          "label": "97",
+          "value": "97",
         },
         Object {
-          "label": "1997",
-          "value": "1997",
+          "label": "98",
+          "value": "98",
         },
         Object {
-          "label": "1998",
-          "value": "1998",
+          "label": "99",
+          "value": "99",
         },
         Object {
-          "label": "1999",
-          "value": "1999",
-        },
-        Object {
-          "label": "2000",
-          "value": "2000",
-        },
-        Object {
-          "label": "2001",
-          "value": "2001",
-        },
-        Object {
-          "label": "2002",
-          "value": "2002",
-        },
-        Object {
-          "label": "2003",
-          "value": "2003",
-        },
-        Object {
-          "label": "2004",
-          "value": "2004",
-        },
-        Object {
-          "label": "2005",
-          "value": "2005",
-        },
-        Object {
-          "label": "2006",
-          "value": "2006",
-        },
-        Object {
-          "label": "2007",
-          "value": "2007",
-        },
-        Object {
-          "label": "2008",
-          "value": "2008",
-        },
-        Object {
-          "label": "2009",
-          "value": "2009",
-        },
-        Object {
-          "label": "2010",
-          "value": "2010",
-        },
-        Object {
-          "label": "2011",
-          "value": "2011",
-        },
-        Object {
-          "label": "2012",
-          "value": "2012",
-        },
-        Object {
-          "label": "2013",
-          "value": "2013",
-        },
-        Object {
-          "label": "2014",
-          "value": "2014",
-        },
-        Object {
-          "label": "2015",
-          "value": "2015",
-        },
-        Object {
-          "label": "2016",
-          "value": "2016",
-        },
-        Object {
-          "label": "2017",
-          "value": "2017",
-        },
-        Object {
-          "label": "2018",
-          "value": "2018",
-        },
-        Object {
-          "label": "2019",
-          "value": "2019",
-        },
-        Object {
-          "label": "2020",
-          "value": "2020",
-        },
-        Object {
-          "label": "2021",
-          "value": "2021",
-        },
-        Object {
-          "label": "2022",
-          "value": "2022",
-        },
-        Object {
-          "label": "2023",
-          "value": "2023",
-        },
-        Object {
-          "label": "2024",
-          "value": "2024",
-        },
-        Object {
-          "label": "2025",
-          "value": "2025",
-        },
-        Object {
-          "label": "2026",
-          "value": "2026",
-        },
-        Object {
-          "label": "2027",
-          "value": "2027",
-        },
-        Object {
-          "label": "2028",
-          "value": "2028",
-        },
-        Object {
-          "label": "2029",
-          "value": "2029",
-        },
-        Object {
-          "label": "2030",
-          "value": "2030",
-        },
-        Object {
-          "label": "2031",
-          "value": "2031",
-        },
-        Object {
-          "label": "2032",
-          "value": "2032",
-        },
-        Object {
-          "label": "2033",
-          "value": "2033",
-        },
-        Object {
-          "label": "2034",
-          "value": "2034",
-        },
-        Object {
-          "label": "2035",
-          "value": "2035",
-        },
-        Object {
-          "label": "2036",
-          "value": "2036",
-        },
-        Object {
-          "label": "2037",
-          "value": "2037",
-        },
-        Object {
-          "label": "2038",
-          "value": "2038",
-        },
-        Object {
-          "label": "2039",
-          "value": "2039",
-        },
-        Object {
-          "label": "2040",
-          "value": "2040",
-        },
-        Object {
-          "label": "2041",
-          "value": "2041",
-        },
-        Object {
-          "label": "2042",
-          "value": "2042",
-        },
-        Object {
-          "label": "2043",
-          "value": "2043",
-        },
-        Object {
-          "label": "2044",
-          "value": "2044",
-        },
-        Object {
-          "label": "2045",
-          "value": "2045",
-        },
-        Object {
-          "label": "2046",
-          "value": "2046",
-        },
-        Object {
-          "label": "2047",
-          "value": "2047",
-        },
-        Object {
-          "label": "2048",
-          "value": "2048",
-        },
-        Object {
-          "label": "2049",
-          "value": "2049",
-        },
-        Object {
-          "label": "2050",
-          "value": "2050",
-        },
-        Object {
-          "label": "2051",
-          "value": "2051",
-        },
-        Object {
-          "label": "2052",
-          "value": "2052",
-        },
-        Object {
-          "label": "2053",
-          "value": "2053",
-        },
-        Object {
-          "label": "2054",
-          "value": "2054",
-        },
-        Object {
-          "label": "2055",
-          "value": "2055",
-        },
-        Object {
-          "label": "2056",
-          "value": "2056",
-        },
-        Object {
-          "label": "2057",
-          "value": "2057",
-        },
-        Object {
-          "label": "2058",
-          "value": "2058",
-        },
-        Object {
-          "label": "2059",
-          "value": "2059",
-        },
-        Object {
-          "label": "2060",
-          "value": "2060",
-        },
-        Object {
-          "label": "2061",
-          "value": "2061",
-        },
-        Object {
-          "label": "2062",
-          "value": "2062",
-        },
-        Object {
-          "label": "2063",
-          "value": "2063",
-        },
-        Object {
-          "label": "2064",
-          "value": "2064",
-        },
-        Object {
-          "label": "2065",
-          "value": "2065",
-        },
-        Object {
-          "label": "2066",
-          "value": "2066",
-        },
-        Object {
-          "label": "2067",
-          "value": "2067",
-        },
-        Object {
-          "label": "2068",
-          "value": "2068",
-        },
-        Object {
-          "label": "2069",
-          "value": "2069",
-        },
-        Object {
-          "label": "2070",
-          "value": "2070",
-        },
-        Object {
-          "label": "2071",
-          "value": "2071",
-        },
-        Object {
-          "label": "2072",
-          "value": "2072",
-        },
-        Object {
-          "label": "2073",
-          "value": "2073",
-        },
-        Object {
-          "label": "2074",
-          "value": "2074",
-        },
-        Object {
-          "label": "2075",
-          "value": "2075",
-        },
-        Object {
-          "label": "2076",
-          "value": "2076",
-        },
-        Object {
-          "label": "2077",
-          "value": "2077",
-        },
-        Object {
-          "label": "2078",
-          "value": "2078",
-        },
-        Object {
-          "label": "2079",
-          "value": "2079",
-        },
-        Object {
-          "label": "2080",
-          "value": "2080",
-        },
-        Object {
-          "label": "2081",
-          "value": "2081",
-        },
-        Object {
-          "label": "2082",
-          "value": "2082",
-        },
-        Object {
-          "label": "2083",
-          "value": "2083",
-        },
-        Object {
-          "label": "2084",
-          "value": "2084",
-        },
-        Object {
-          "label": "2085",
-          "value": "2085",
-        },
-        Object {
-          "label": "2086",
-          "value": "2086",
-        },
-        Object {
-          "label": "2087",
-          "value": "2087",
-        },
-        Object {
-          "label": "2088",
-          "value": "2088",
-        },
-        Object {
-          "label": "2089",
-          "value": "2089",
-        },
-        Object {
-          "label": "2090",
-          "value": "2090",
-        },
-        Object {
-          "label": "2091",
-          "value": "2091",
-        },
-        Object {
-          "label": "2092",
-          "value": "2092",
-        },
-        Object {
-          "label": "2093",
-          "value": "2093",
-        },
-        Object {
-          "label": "2094",
-          "value": "2094",
-        },
-        Object {
-          "label": "2095",
-          "value": "2095",
-        },
-        Object {
-          "label": "2096",
-          "value": "2096",
-        },
-        Object {
-          "label": "2097",
-          "value": "2097",
-        },
-        Object {
-          "label": "2098",
-          "value": "2098",
-        },
-        Object {
-          "label": "2099",
-          "value": "2099",
-        },
-        Object {
-          "label": "2100",
-          "value": "2100",
+          "label": "100",
+          "value": "100",
         },
       ]
     }
@@ -885,7 +481,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
   />
   <SelectBox
     id="metadata.addresses[0][month]"
-    labelText="Month"
+    labelText="Number of Months at Address"
     name="metadata.addresses[0][month]"
     onChange={[Function]}
     options={

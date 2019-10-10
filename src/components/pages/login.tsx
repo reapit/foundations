@@ -9,7 +9,7 @@ import { authLogin } from '@/actions/auth'
 import { validate } from '@/utils/form/login'
 import Routes from '@/constants/routes'
 import { LOGIN_TYPE } from '@/constants/auth'
-import { Input, Button, LoginParams } from '@reapit/elements'
+import { Input, Button, LoginParams, Alert } from '@reapit/elements'
 
 import loginStyles from '@/styles/pages/login.scss?mod'
 import bulma from '@/styles/vendor/bulma'
@@ -88,8 +88,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                   Login
                 </Button>
               </div>
-
-              {error && '<Alert component here />'}
+              {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
             </Form>
           )}
         />

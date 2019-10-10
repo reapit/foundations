@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Loader } from '@reapit/elements'
+import { Loader, LoginMode } from '@reapit/elements'
 import { oc } from 'ts-optchain'
 import { ReduxState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -11,6 +11,7 @@ import Modal from '@/components/ui/modal'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { Dispatch } from 'redux'
 import { checkListDetailHideModal, checkListDetailShowModal } from '@/actions/checklist-detail'
+import { authLogout } from '@/actions/auth'
 import { ContactModel } from '@/types/contact-api-schema'
 import { STEPS } from '../ui/modal/modal'
 
@@ -89,11 +90,13 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   loading,
   hideModal,
   showModal,
+  logout,
   contact,
   modalContentType,
   match: {
     params: { id }
-  }
+  },
+  mode
 }) => {
   if (loading) {
     return <Loader />
@@ -107,13 +110,22 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
     ;({ title = '', forename = '', surname = '' } = contact as ContactModel)
   }
 
+  const handleLogout = () => {
+    if (mode === 'DESKTOP') {
+      // TODO implement later
+      window.location.href = `desktop://contact/SOME_CONTACT_ID`
+    } else {
+      logout()
+    }
+  }
+
   // TODO: Will replace callback by dispatch to show modald`
   const sections = generateSection(showModal)
   return (
     <ErrorBoundary>
       <div className={styles.topNavbar}>
         <div>
-          <a>Back to Client/Logout</a>
+          <a onClick={handleLogout}>Back to Client/Logout</a>
         </div>
         <div>
           <a>Customise Form</a>
@@ -133,23 +145,27 @@ export type HomeMappedProps = {
   loading: boolean
   contact: ContactModel | {}
   modalContentType: string
+  mode: LoginMode | undefined
 }
 
 export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   isModalVisible: oc(state).checklistDetail.isModalVisible(false),
   loading: oc(state).checklistDetail.loading(true),
   contact: oc(state).checklistDetail.checklistDetailData.contact({}),
-  modalContentType: oc(state).checklistDetail.modalContentType('PROFILE')
+  modalContentType: oc(state).checklistDetail.modalContentType('PROFILE'),
+  mode: oc(state).auth.refreshSession.mode()
 })
 
 export type HomeMappedActions = {
   hideModal: () => void
   showModal: (modalType: string) => () => void
+  logout: () => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): HomeMappedActions => ({
   hideModal: () => dispatch(checkListDetailHideModal()),
-  showModal: (modalType: string) => () => dispatch(checkListDetailShowModal(modalType))
+  showModal: (modalType: string) => () => dispatch(checkListDetailShowModal(modalType)),
+  logout: () => dispatch(authLogout())
 })
 
 export default withRouter(
