@@ -9,10 +9,9 @@ import { authLogin } from '@/actions/auth'
 import { validate } from '@/utils/form/login'
 import Routes from '@/constants/routes'
 import { LOGIN_TYPE } from '@/constants/auth'
-import { Input, Button, LoginParams, Alert } from '@reapit/elements'
+import { Input, Button, LoginParams, Alert, Level } from '@reapit/elements'
 
 import loginStyles from '@/styles/pages/login.scss?mod'
-import bulma from '@/styles/vendor/bulma'
 import logoImage from '@/assets/images/lifetimelegalwhite.png'
 
 export interface LoginMappedActions {
@@ -46,7 +45,6 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { hasSession, error, login } = props
   const { disabled, wrapper, container, imageLogo, wrapperBorder } = loginStyles
-  const { level } = bulma
 
   React.useEffect(() => {
     if (error) {
@@ -86,11 +84,11 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                   placeholder="Enter your password"
                 />
 
-                <div className={level}>
+                <Level>
                   <Button type="submit" loading={isSubmitting} variant="primary" fullWidth disabled={isSubmitting}>
                     Login
                   </Button>
-                </div>
+                </Level>
 
                 {error && <Alert type="danger" message="Login failed, user credentials not recognised" />}
               </Form>

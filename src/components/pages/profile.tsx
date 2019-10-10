@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import ProfileToggle from '@/components/ui/profile-toggle'
-import { Button } from '@reapit/elements'
+import { Button, H3 } from '@reapit/elements'
 import styles from '@/styles/pages/profile.scss?mod'
 import PersonalDetails from '../ui/personal-details'
 import { ReduxState, FormState } from '@/types/core'
@@ -59,7 +59,7 @@ export const Profile = ({ submitChecksFormState, submitChecks }: ProfileProps) =
     <ErrorBoundary>
       <div className="container">
         <div className={styles.header}>
-          <h2 className={styles.title}>Mr Phillips</h2>
+          <H3>Mr Phillips</H3>
           <div>RPS Reference: MX12548</div>
         </div>
         <div>

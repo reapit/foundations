@@ -4,10 +4,9 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { ReduxState } from '@/types/core'
 import { ResultsState } from '@/reducers/results'
-import { Pagination, Table, Button } from '@reapit/elements'
+import { Pagination, Table, Button, H3, FlexContainerResponsive } from '@reapit/elements'
 import { resultRequestData, ContactsParams } from '@/actions/results'
 import { oc } from 'ts-optchain'
-import bulma from '@/styles/vendor/bulma'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
@@ -92,12 +91,12 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
 
   return (
     <ErrorBoundary>
-      <div className="my-5">
-        <h3 className={`${bulma.title} ${bulma.is3}`}>Search Results</h3>
+      <FlexContainerResponsive hasPadding flexColumn>
+        <H3>Search Results</H3>
         {/* TODO: Will fix this by @Dan Nguyen */}
         <Table loading={false} data={data} columns={columns} />
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
-      </div>
+      </FlexContainerResponsive>
     </ErrorBoundary>
   )
 }

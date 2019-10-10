@@ -26,8 +26,7 @@
     "test-e2e:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e\" -k"
   },
   "dependencies": {
-    "@reapit/elements": "0.2.8",
-    "bulma": "^0.7.5",
+    "@reapit/elements": "^0.4.17",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-icons": "^3.7.0",
@@ -72,6 +71,7 @@
     "lint-staged": "^8.1.7",
     "loader-utils": "^1.2.3",
     "mini-css-extract-plugin": "^0.7.0",
+    "mockdate": "^2.0.5",
     "node-sass": "^4.12.0",
     "prettier": "^1.17.1",
     "prettier-plugin-packagejson": "^2.0.1",
