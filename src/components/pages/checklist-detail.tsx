@@ -1,11 +1,18 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Loader, Button } from '@reapit/elements'
+import {
+  Loader,
+  Button,
+  Tile,
+  FlexContainerBasic,
+  FlexContainerResponsive,
+  LevelRight,
+  LevelItem
+} from '@reapit/elements'
 import { oc } from 'ts-optchain'
 import { ReduxState, FormState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps, Redirect } from 'react-router'
-import Section, { SectionProps } from '@/components/ui/section'
 import AMLProgressBar from '@/components/ui/aml-progressbar'
 import Modal from '@/components/ui/modal'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
@@ -15,8 +22,16 @@ import { ContactModel } from '@/types/contact-api-schema'
 import { STEPS } from '../ui/modal/modal'
 import { submitChecks } from '@/actions/submit-checks'
 import Routes from '@/constants/routes'
+import { TiTick } from 'react-icons/ti'
 
 export type CheckListDetailProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ id?: any }>
+
+export type SectionProps = {
+  title: string
+  isCompleted: boolean
+  onEdit: () => void
+  buttonText: string
+}
 
 export const generateSection = (onClick: (modalType: string) => () => void) => {
   return [
@@ -77,16 +92,35 @@ export const generateSection = (onClick: (modalType: string) => () => void) => {
   ]
 }
 
+export const renderCompletedCheckMark = (isCompleted: boolean) => {
+  if (!isCompleted) {
+    return null
+  }
+  return (
+    <div className={styles.statusSection}>
+      <span>
+        <TiTick className={styles.checkMark} />
+      </span>
+      <span>Completed</span>
+    </div>
+  )
+}
+
 export const renderSections = (sections: SectionProps[]) => {
   return sections.map((section, index) => {
     return (
-      <div key={index} className="mb-5">
-        <Section
-          title={section.title}
-          isCompleted={section.isCompleted}
-          onEdit={section.onEdit}
-          buttonText={section.buttonText}
-        />
+      <div className="pb-4">
+        <Tile
+          key={index}
+          heading={section.title}
+          menu={
+            <Button type="button" variant="primary" onClick={section.onEdit}>
+              {section.buttonText}
+            </Button>
+          }
+        >
+          {renderCompletedCheckMark(section.isCompleted)}
+        </Tile>
       </div>
     )
   })
@@ -127,18 +161,20 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   const sections = generateSection(showModal)
   return (
     <ErrorBoundary>
-      <div className={styles.topNavbar}>
-        <div>
-          <a>Back to Client/Logout</a>
-        </div>
-        <div>
-          <a>Customise Form</a>
-        </div>
-      </div>
-      <div className="mb-5">
-        <AMLProgressBar title={`${title} ${forename} ${surname}`} />
-      </div>
-      {renderSections(sections)}
+      <FlexContainerBasic isScrollable>
+        <FlexContainerResponsive hasPadding flexColumn>
+          <LevelRight>
+            <LevelItem>
+              <a onClick={() => null}>Back to Client/Logout</a>
+            </LevelItem>
+            <LevelItem>
+              <a>Customise Form</a>
+            </LevelItem>
+          </LevelRight>
+          <AMLProgressBar title={`${title} ${forename} ${surname}`} />
+          {renderSections(sections)}
+        </FlexContainerResponsive>
+      </FlexContainerBasic>
       <Modal id={id} visible={isModalVisible} afterClose={hideModal} modalContentType={modalContentType} />
 
       <div className="flex justify-end mt-10">
