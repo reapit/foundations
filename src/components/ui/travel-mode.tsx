@@ -1,5 +1,5 @@
 import * as React from 'react'
-import bulma from '@/styles/vendor/bulma'
+import { ButtonGroup, Button } from '@reapit/elements'
 
 export type TravelMode = 'DRIVING' | 'WALKING'
 
@@ -9,24 +9,24 @@ export interface TravelModeProps {
 }
 
 export const TravelMode = ({ travelMode, onChangeTravelMode }: TravelModeProps) => (
-  <div className={`${bulma.isCentered} ${bulma.buttons} ${bulma.hasAddons}`}>
-    <span
-      className={
-        bulma.button + (travelMode === 'DRIVING' ? ` ${bulma.isSelected} ${bulma.isActive} ${bulma.isPrimary}` : '')
-      }
+  <ButtonGroup>
+    <Button
+      type="button"
+      variant="secondary"
+      className={travelMode === 'DRIVING' ? 'is-selected is-primary is-active' : ''}
       onClick={() => onChangeTravelMode('DRIVING')}
     >
       Car
-    </span>
-    <span
-      className={
-        bulma.button + (travelMode === 'WALKING' ? ` ${bulma.isSelected} ${bulma.isActive} ${bulma.isPrimary}` : '')
-      }
+    </Button>
+    <Button
+      type="button"
+      variant="secondary"
+      className={travelMode === 'WALKING' ? 'is-selected is-primary is-active' : ''}
       onClick={() => onChangeTravelMode('WALKING')}
     >
       Walk
-    </span>
-  </div>
+    </Button>
+  </ButtonGroup>
 )
 
 export default React.memo(TravelMode)

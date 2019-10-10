@@ -5,7 +5,7 @@ import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
 import pageContainerStyles from '../styles/pages/page-container.scss?mod'
 import Routes from '../constants/routes'
-import { RefreshParams, Loader, getTokenFromQueryString } from '@reapit/elements'
+import { RefreshParams, Loader, getTokenFromQueryString, AppNavContainer, Section } from '@reapit/elements'
 import { authSetRefreshSession } from '../actions/auth'
 import { Dispatch } from 'redux'
 import { withRouter } from 'react-router'
@@ -45,21 +45,21 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return <Redirect to={Routes.LOGIN} />
   }
 
-  const { pageWrapper, isDesktop } = pageContainerStyles
+  const { isDesktop } = pageContainerStyles
 
   return (
-    <div className={`${pageWrapper} ${isDesktopMode ? isDesktop : ''}`}>
+    <AppNavContainer className={`${isDesktopMode ? isDesktop : ''}`}>
       <Menu />
       <Suspense
         fallback={
-          <div className="pt-5">
+          <Section>
             <Loader />
-          </div>
+          </Section>
         }
       >
         {children}
       </Suspense>
-    </div>
+    </AppNavContainer>
   )
 }
 

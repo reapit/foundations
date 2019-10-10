@@ -1,5 +1,4 @@
 import React from 'react'
-import bulma from '@/styles/vendor/bulma'
 import { isMacLike } from '@/utils/device-detection'
 
 interface ETAButtonProps {
@@ -15,7 +14,7 @@ export const ETAButton: React.FC<ETAButtonProps> = ({ body, children, tel }) => 
   }
 
   return (
-    <a href={href} className={`${bulma.button} ${bulma.isPrimary}`} data-test="eta-button">
+    <a href={href} className="button is-primary" data-test="eta-button">
       {children}
     </a>
   )

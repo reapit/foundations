@@ -1,11 +1,5 @@
 @import '../base/colors.scss';
 
-.pageWrapper {
-  height: 100vh;
-  background: $grey-lightest;
-  overflow: hidden;
-}
-
 .tabsSticky {
   position: sticky;
   z-index: 9;
@@ -20,6 +14,7 @@
   background-color: #fff;
   padding: 1rem 0;
   border-bottom: 1px solid $grey-lighter;
+
   @media screen and (max-width: 768px) {
     top: 36px;
   }
@@ -34,7 +29,7 @@
   background:rgb(249, 251, 253);
   height: 100%;
   width: 300px;
-  left: 60px;
+  left: 66px;
   top: 0;
   overflow: scroll;
 }
