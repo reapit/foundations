@@ -1,6 +1,5 @@
 /* purgecss start ignore */
 @import '../base/fonts.scss';
-@import '../base/monospace-fonts.scss';
 @import '../base/colors.scss';
 
 /*
@@ -15,18 +14,20 @@
   .swagger-ui {
     p,
     a,
+    .info,
+    .markdown {
+      font-family: $font-family-museo-bold;
+    }
+
     h1,
     h2,
     h3,
     h4,
     h5,
     h6,
-    .info,
     .title,
-    .info,
-    .model-title,
-    .markdown {
-      font-family: $family-sans-serif;
+    .model-title {
+      font-family: $font-family-roboto;
     }
 
     .loading, .scheme-container {
@@ -117,7 +118,7 @@
     p,
     .markdown,
     .opblock-summary-description {
-      font-family: $family-sans-serif;
+      font-family: $font-family-roboto;
       color: $grey;
     }
   }

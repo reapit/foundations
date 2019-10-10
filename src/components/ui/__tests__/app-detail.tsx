@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import { AppDetail, AppDetailProps, mapDispatchToProps } from '../app-detail'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import { setAppDetailModalStateViewConfirm, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
@@ -11,19 +11,20 @@ const props: AppDetailProps = {
   appUninstallFormState: 'PENDING',
   isCurrentLoggedUserDeveloper: true,
   isCurrentLoggedUserClient: false,
-  data: {}
+  data: {},
+  afterClose: jest.fn()
 }
 
 describe('AppDetailModalInner', () => {
   it('Should show uninstall app button if isCurrentLoggedUserClient = true and installedOn exist', () => {
     const modifiedProps: AppDetailProps = { ...props, isCurrentLoggedUserClient: true, data: { installedOn: 'yep' } }
-    const shallowAppDetailModalInner = shallow(<AppDetail {...modifiedProps} />)
+    const shallowAppDetailModalInner = mount(<AppDetail {...modifiedProps} />)
     expect(shallowAppDetailModalInner.find('[dataTest="btnAppDetailUninstallApp"]')).toHaveLength(1)
   })
 
   it('Should show install app button if isCurrentLoggedUserClient = true and installedOn not exist', () => {
     const modifiedProps: AppDetailProps = { ...props, isCurrentLoggedUserClient: true }
-    const shallowAppDetailModalInner = shallow(<AppDetail {...modifiedProps} />)
+    const shallowAppDetailModalInner = mount(<AppDetail {...modifiedProps} />)
     expect(shallowAppDetailModalInner.find('[dataTest="btnAppDetailInstallApp"]')).toHaveLength(1)
   })
 

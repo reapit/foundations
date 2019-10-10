@@ -1,5 +1,4 @@
 import * as React from 'react'
-import bulma from '@/styles/vendor/bulma'
 import { ReduxState, FormState } from '@/types/core'
 import Slider, { Settings } from 'react-slick'
 import carouselStyles from '../../styles/elements/carousel.scss?mod'
@@ -8,11 +7,13 @@ import '@/styles/vendor/slick.scss'
 import { connect } from 'react-redux'
 import { setAppDetailModalStateViewConfirm, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
-import { Button } from '@reapit/elements'
+import { Button, Tile, ModalHeader, ModalBody, ModalFooter, H6 } from '@reapit/elements'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 
 export interface AppDetailModalInnerProps {
   data: AppDetailModel
+  afterClose: () => void
+  footerItems?: React.ReactNode
 }
 
 export interface AppDetailModalMappedProps {
@@ -38,7 +39,9 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   setAppDetailModalStateViewConfirm,
   setAppDetailModalStateUninstall,
   appUninstallFormState,
-  isCurrentLoggedUserClient
+  isCurrentLoggedUserClient,
+  afterClose,
+  footerItems
 }) => {
   if (!data) {
     return null
@@ -69,23 +72,45 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   }
 
   return (
-    <>
-      <div className={bulma.media}>
-        <div className={bulma.mediaLeft}>
-          <figure className={bulma.image + ' ' + bulma.is128x128}>{icon && <img src={icon.uri} />}</figure>
-        </div>
-        <div className={bulma.mediaContent}>
-          <div className={bulma.content}>
-            <div>
-              <h3 className={bulma.is3} style={{ marginBottom: 0 }}>
-                {name}
-              </h3>
-              <p>
-                <small className={bulma.hasTextLink}>{developer}</small>
-              </p>
-            </div>
-            <p>{summary}</p>
-            {isCurrentLoggedUserClient &&
+    <div>
+      <ModalHeader title={name || ''} afterClose={afterClose} />
+      <ModalBody
+        body={
+          <>
+            <Tile
+              heading={name || ''}
+              subHeading={summary || ''}
+              image={
+                <img
+                  className="image"
+                  src={(icon && icon.uri) || 'https://bulma.io/images/placeholders/48x48.png'}
+                  alt={name}
+                />
+              }
+            />
+            <H6>{developer}</H6>
+            {carouselImages.length > 0 && (
+              <div className={carouselStyles.container}>
+                <Slider {...settings}>
+                  {carouselImages.map(({ uri }, index) => (
+                    <div key={index} className={carouselStyles.slide}>
+                      <img src={uri} />
+                    </div>
+                  ))}
+                </Slider>
+              </div>
+            )}
+            <br />
+            <p>{description}</p>
+            <br />
+          </>
+        }
+      />
+      <ModalFooter
+        footerItems={
+          footerItems
+            ? footerItems
+            : isCurrentLoggedUserClient &&
               (installedOn ? (
                 <Button
                   type="button"
@@ -113,24 +138,11 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                 >
                   Install App
                 </Button>
-              ))}
-          </div>
-        </div>
-      </div>
-      {carouselImages.length > 0 && (
-        <div className={carouselStyles.container}>
-          <Slider {...settings}>
-            {carouselImages.map(({ uri }, index) => (
-              <div key={index} className={carouselStyles.slide}>
-                <img src={uri} />
-              </div>
-            ))}
-          </Slider>
-        </div>
+              ))
+        }
+      />
       )}
-      <br />
-      <p>{description}</p>
-    </>
+    </div>
   )
 }
 

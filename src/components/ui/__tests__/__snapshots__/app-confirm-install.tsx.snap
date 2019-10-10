@@ -4,46 +4,53 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
 <div
   data-test="confirm-content"
 >
-  <h3
-    className="title is3 undefined"
-  >
-    Confirm 
-    mockAppName
-     installation
-  </h3>
-  <h6>
-    This action will install the app for ALL platform users.
-    <br />
-    mockAppName
-     requires the permissions below. By installing you are granting permission to your data.
-  </h6>
-  <ul>
-    <li
-      key="Marketplace/developers.read"
-    >
-      Read data about developers
-    </li>
-  </ul>
-  <div>
-    <Button
-      dataTest="agree-btn"
-      loading={false}
-      onClick={[MockFunction]}
-      type="button"
-      variant="primary"
-    >
-      Confirm
-    </Button>
-    <Button
-      dataTest="disagree-btn"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-      variant="danger"
-    >
-      Cancel
-    </Button>
-  </div>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    title="Confirm mockAppName installation"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <SubTitleH6
+          isCentered={true}
+        >
+          This action will install the app for ALL platform users.
+          <br />
+          mockAppName
+           requires the permissions below. By installing you are granting permission to your data.
+        </SubTitleH6>
+        <ul>
+          <li>
+            Read data about developers
+          </li>
+        </ul>
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          dataTest="agree-btn"
+          loading={false}
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Confirm
+        </Button>
+        <Button
+          dataTest="disagree-btn"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
 </div>
 `;
 
@@ -51,46 +58,53 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
 <div
   data-test="confirm-content"
 >
-  <h3
-    className="title is3 undefined"
-  >
-    Confirm 
-    mockAppName
-     installation
-  </h3>
-  <h6>
-    This action will install the app for ALL platform users.
-    <br />
-    mockAppName
-     requires the permissions below. By installing you are granting permission to your data.
-  </h6>
-  <ul>
-    <li
-      key="Marketplace/developers.read"
-    >
-      Read data about developers
-    </li>
-  </ul>
-  <div>
-    <Button
-      dataTest="agree-btn"
-      loading={false}
-      onClick={[MockFunction]}
-      type="button"
-      variant="primary"
-    >
-      Confirm
-    </Button>
-    <Button
-      dataTest="disagree-btn"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-      variant="danger"
-    >
-      Cancel
-    </Button>
-  </div>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    title="Confirm mockAppName installation"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <SubTitleH6
+          isCentered={true}
+        >
+          This action will install the app for ALL platform users.
+          <br />
+          mockAppName
+           requires the permissions below. By installing you are granting permission to your data.
+        </SubTitleH6>
+        <ul>
+          <li>
+            Read data about developers
+          </li>
+        </ul>
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          dataTest="agree-btn"
+          loading={false}
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Confirm
+        </Button>
+        <Button
+          dataTest="disagree-btn"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
 </div>
 `;
 
@@ -98,46 +112,53 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
 <div
   data-test="confirm-content"
 >
-  <h3
-    className="title is3 undefined"
-  >
-    Confirm 
-    mockAppName
-     installation
-  </h3>
-  <h6>
-    This action will install the app for ALL platform users.
-    <br />
-    mockAppName
-     requires the permissions below. By installing you are granting permission to your data.
-  </h6>
-  <ul>
-    <li
-      key="Marketplace/developers.read"
-    >
-      Read data about developers
-    </li>
-  </ul>
-  <div>
-    <Button
-      dataTest="agree-btn"
-      loading={true}
-      onClick={[MockFunction]}
-      type="button"
-      variant="primary"
-    >
-      Confirm
-    </Button>
-    <Button
-      dataTest="disagree-btn"
-      disabled={true}
-      onClick={[Function]}
-      type="button"
-      variant="danger"
-    >
-      Cancel
-    </Button>
-  </div>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    title="Confirm mockAppName installation"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <SubTitleH6
+          isCentered={true}
+        >
+          This action will install the app for ALL platform users.
+          <br />
+          mockAppName
+           requires the permissions below. By installing you are granting permission to your data.
+        </SubTitleH6>
+        <ul>
+          <li>
+            Read data about developers
+          </li>
+        </ul>
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          dataTest="agree-btn"
+          loading={true}
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Confirm
+        </Button>
+        <Button
+          dataTest="disagree-btn"
+          disabled={true}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
 </div>
 `;
 
@@ -145,46 +166,53 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
 <div
   data-test="confirm-content"
 >
-  <h3
-    className="title is3 undefined"
-  >
-    Confirm 
-    mockAppName
-     installation
-  </h3>
-  <h6>
-    This action will install the app for ALL platform users.
-    <br />
-    mockAppName
-     requires the permissions below. By installing you are granting permission to your data.
-  </h6>
-  <ul>
-    <li
-      key="Marketplace/developers.read"
-    >
-      Read data about developers
-    </li>
-  </ul>
-  <div>
-    <Button
-      dataTest="agree-btn"
-      loading={false}
-      onClick={[MockFunction]}
-      type="button"
-      variant="primary"
-    >
-      Confirm
-    </Button>
-    <Button
-      dataTest="disagree-btn"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-      variant="danger"
-    >
-      Cancel
-    </Button>
-  </div>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    title="Confirm mockAppName installation"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <SubTitleH6
+          isCentered={true}
+        >
+          This action will install the app for ALL platform users.
+          <br />
+          mockAppName
+           requires the permissions below. By installing you are granting permission to your data.
+        </SubTitleH6>
+        <ul>
+          <li>
+            Read data about developers
+          </li>
+        </ul>
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          dataTest="agree-btn"
+          loading={false}
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Confirm
+        </Button>
+        <Button
+          dataTest="disagree-btn"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
 </div>
 `;
 

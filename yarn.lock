@@ -326,10 +326,10 @@
   dependencies:
     stream "^0.0.2"
 
-"@reapit/elements@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.3.3.tgz#6432ff8b9a1db8a25ba1c21e82c31ebde1dbc83b"
-  integrity sha512-vjnRZgepnMzMyv7TN1IBb0n4sL661x23+QnjgGjMjOId3ZOLoWEr0BJ8xSXEnv4NrQyKNd5mpEN+xGdqQ6qLtQ==
+"@reapit/elements@^0.4.10":
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.10.tgz#d95e9d7b7221d4197d7945203cb8711309c22789"
+  integrity sha512-maG6DVibTLCnX26PKyAGpXwuD/l87n4QTNjrC41mrhL2E9TCJiPPl6LTk8B6GRsbcuJTG7Aia+gO/u4HoUeAWg==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.16"
@@ -1594,7 +1594,7 @@ builtins@^1.0.3:
   resolved "https://registry.yarnpkg.com/builtins/-/builtins-1.0.3.tgz#cb94faeb61c8696451db36534e1422f94f0aee88"
   integrity sha1-y5T662HIaWRR2zZTThQi+U8K7og=
 
-bulma@^0.7.5, bulma@~0.7.5:
+bulma@^0.7.5:
   version "0.7.5"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.5.tgz#35066c37f82c088b68f94450be758fc00a967208"
   integrity sha512-cX98TIn0I6sKba/DhW0FBjtaDpxTelU166pf7ICXpCCuplHWyu6C9LYZmL5PEsnePIeJaiorsTEzzNk3Tsm1hw==

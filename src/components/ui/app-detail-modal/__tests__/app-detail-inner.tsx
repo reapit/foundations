@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { AppDetailInner, AppDetailInnerProps } from '../app-detail-inner'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
@@ -49,7 +49,7 @@ describe('AppDetailInner', () => {
       appDetailState: { loading: false, error: false, appDetailData: appDetailDataStub },
       setAppDetailModalStateView: jest.fn()
     }
-    const wrapper = shallow(<AppDetailInner {...props} />)
+    const wrapper = mount(<AppDetailInner {...props} />)
     expect(wrapper.find('CallToAction')).toHaveLength(1)
   })
 

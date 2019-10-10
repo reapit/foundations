@@ -3,7 +3,7 @@
 exports[`DeclineRevisionModal should match a snapshot 1`] = `
 <Modal
   afterClose={[Function]}
-  size="small"
+  renderChildren={true}
   visible={true}
 >
   <Formik

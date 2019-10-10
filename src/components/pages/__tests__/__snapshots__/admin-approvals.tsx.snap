@@ -2,8 +2,7 @@
 
 exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
-  <div
-    className="container isRelative py-8"
+  <FlexContainerResponsive
     data-test="revision-list-container"
   >
     <div>
@@ -278,7 +277,7 @@ exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
       pageSize={10}
       totalCount={69}
     />
-  </div>
+  </FlexContainerResponsive>
   <Component
     afterClose={[Function]}
     visible={false}

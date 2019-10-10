@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { Loader } from '@reapit/elements'
-import Alert from '@/components/ui/alert'
+import { Loader, Alert, ModalBody } from '@reapit/elements'
 
 export interface AsyncContainerProps {
   loading: boolean
@@ -10,15 +9,15 @@ export interface AsyncContainerProps {
 
 const AsyncContainer: React.FunctionComponent<AsyncContainerProps> = ({ loading, error, data, children }) => {
   if (loading) {
-    return <Loader />
+    return <ModalBody body={<Loader />} />
   }
 
   if (error) {
-    return <Alert type="danger" message="Failed to fetch. Please try later." />
+    return <ModalBody body={<Alert type="danger" message="Failed to fetch. Please try later." />} />
   }
 
   if (!data) {
-    return <Alert type="danger" message="No data" />
+    return <ModalBody body={<Alert type="danger" message="No data" />} />
   }
 
   return <>{children}</>

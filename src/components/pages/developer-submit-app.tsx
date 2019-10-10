@@ -1,11 +1,20 @@
 import * as React from 'react'
 import { Formik, Form } from 'formik'
 import { ReduxState, FormState } from '@/types/core'
-import { Input, ImageInput, TextArea, Button, Checkbox, Loader } from '@reapit/elements'
-import styles from '@/styles/pages/submit-app-form.scss?mod'
+import {
+  Input,
+  ImageInput,
+  TextArea,
+  Button,
+  Checkbox,
+  Loader,
+  H3,
+  Grid,
+  GridItem,
+  FlexContainerBasic
+} from '@reapit/elements'
 import { validate } from '@/utils/form/submit-app'
 import { transformObjectToDotNotation, ScopeObject } from '@/utils/common'
-import bulma from '@/styles/vendor/bulma'
 import { connect } from 'react-redux'
 import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/actions/submit-app'
 import { SubmitAppState } from '@/reducers/submit-app'
@@ -47,7 +56,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
   }
 
   return (
-    <div className={styles.container}>
+    <FlexContainerBasic hasPadding flexColumn>
       {isSuccessed ? (
         <CallToAction
           dataTest="submit-success-section"
@@ -62,11 +71,8 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
           marketplace.
         </CallToAction>
       ) : (
-        <div
-          data-test="app-input-form"
-          className={`${styles.wrapper} ${bulma.container} ${isSubmitting ? 'disabled' : ''}`}
-        >
-          <h3 className={`${bulma.title} ${bulma.is3}`}>Submit App</h3>
+        <FlexContainerBasic flexColumn className={`${isSubmitting ? 'disabled' : ''}`} data-test="app-input-form">
+          <H3>Submit App</H3>
           <Formik
             validate={validate}
             initialValues={
@@ -90,8 +96,8 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
             render={() => {
               return (
                 <Form noValidate={true}>
-                  <div data-test="submit-app-form" className={`${bulma.columns}`}>
-                    <div className={`${bulma.column} ${styles.column}`}>
+                  <Grid data-test="submit-app-form">
+                    <GridItem>
                       <Input dataTest="submit-app-name" type="text" labelText="Name" id="name" name="name" />
                       <TextArea
                         id="description"
@@ -145,8 +151,8 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                         id="postcode"
                         name="postcode"
                       /> */}
-                    </div>
-                    <div className={`${bulma.column} ${styles.column}`}>
+                    </GridItem>
+                    <GridItem>
                       <Input
                         dataTest="submit-app-home-page"
                         type="text"
@@ -240,8 +246,8 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                         name="screen4ImageData"
                         allowClear
                       />
-                    </div>
-                  </div>
+                    </GridItem>
+                  </Grid>
 
                   <Button
                     type="submit"
@@ -256,9 +262,9 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
               )
             }}
           />
-        </div>
+        </FlexContainerBasic>
       )}
-    </div>
+    </FlexContainerBasic>
   )
 }
 

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { ApproveModel } from '@/types/marketplace-api-schema'
-import { Button, Modal, ModalProps } from '@reapit/elements'
+import { Button, Modal, ModalProps, ModalBody, SubTitleH6, ModalFooter } from '@reapit/elements'
 import { Form, Formik } from 'formik'
 import { approveRevision, RevisionApproveRequestParams } from '@/actions/revision-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
@@ -62,6 +62,7 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
   return (
     <Modal
       visible={visible}
+      renderChildren
       afterClose={() => {
         if (isSuccessed) {
           onApproveSuccess()
@@ -69,7 +70,6 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
           afterClose()
         }
       }}
-      size="small"
     >
       <Formik
         initialValues={{ email, name } as ApproveModel}
@@ -81,42 +81,50 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
         data-test="revision-approve-form"
         render={() => {
           return isSuccessed ? (
-            <CallToAction
-              title="Approved!"
-              buttonText="Back to List"
-              dataTest="approve-revision-success-message"
-              buttonDataTest="approve-revision-success-button"
-              onButtonClick={() => {
-                onApproveSuccess()
-              }}
-              isCenter
-            >
-              Revision has been approved successfully.
-            </CallToAction>
+            <ModalBody
+              body={
+                <CallToAction
+                  title="Approved!"
+                  buttonText="Back to List"
+                  dataTest="approve-revision-success-message"
+                  buttonDataTest="approve-revision-success-button"
+                  onButtonClick={() => {
+                    onApproveSuccess()
+                  }}
+                  isCenter
+                >
+                  Revision has been approved successfully.
+                </CallToAction>
+              }
+            />
           ) : (
             <Form>
-              <p className="mb-4">Do you want to approve this revision?</p>
-              <div className="flex justify-end">
-                <Button
-                  type="button"
-                  variant="secondary"
-                  className="mr-2"
-                  disabled={Boolean(isLoading)}
-                  onClick={() => afterClose && afterClose()}
-                  dataTest="revision-approve-cancel"
-                >
-                  Cancel
-                </Button>
-                <Button
-                  type="submit"
-                  variant="primary"
-                  loading={Boolean(isLoading)}
-                  disabled={Boolean(isLoading)}
-                  dataTest="revision-approve-submit"
-                >
-                  Approve
-                </Button>
-              </div>
+              <ModalBody body={<SubTitleH6 isCentered>Do you want to approve this revision?</SubTitleH6>} />
+              <ModalFooter
+                footerItems={
+                  <>
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      className="mr-2"
+                      disabled={Boolean(isLoading)}
+                      onClick={() => afterClose && afterClose()}
+                      dataTest="revision-approve-cancel"
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      loading={Boolean(isLoading)}
+                      disabled={Boolean(isLoading)}
+                      dataTest="revision-approve-submit"
+                    >
+                      Approve
+                    </Button>
+                  </>
+                }
+              />
             </Form>
           )
         }}

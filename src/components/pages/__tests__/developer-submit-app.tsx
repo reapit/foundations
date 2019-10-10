@@ -52,23 +52,6 @@ describe('DeveloperSubmitApp', () => {
     expect(wrapper.find('[dataTest="submit-success-section"]')).toHaveLength(1)
   })
 
-  it('should disabled form when submit form', () => {
-    const props: SubmitAppProps = {
-      submitApp: jest.fn(),
-      submitAppSetFormState: jest.fn(),
-      submitAppState: {
-        loading: false,
-        submitAppData: {
-          scopes: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }]
-        },
-        formState: 'SUBMITTING'
-      },
-      developerId: null
-    }
-    const wrapper = shallow(<SubmitApp {...props} />)
-    expect(wrapper.find('[data-test="app-input-form"]').prop('className')).toEqual('undefined container disabled')
-  })
-
   it('should disabled submit button when submit form', () => {
     const props: SubmitAppProps = {
       submitApp: jest.fn(),

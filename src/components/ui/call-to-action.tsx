@@ -1,8 +1,8 @@
 import * as React from 'react'
-import bulma from '../../styles/vendor/bulma'
 import CheckIcon from '@/components/svg/check'
 import TimesIcon from '@/components/svg/times'
 import styles from '@/styles/elements/call-to-action.scss?mod'
+import { Button } from '@reapit/elements'
 
 type CTAType = 'success' | 'danger'
 
@@ -43,9 +43,9 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
         <span>{title}</span>
       </h3>
       <p className={styles.message}>{children}</p>
-      <button data-test={buttonDataTest} className={`${bulma.button} ${bulma.isPrimary}`} onClick={onButtonClick}>
+      <Button dataTest={buttonDataTest} variant="primary" type="button" onClick={onButtonClick as () => void}>
         {buttonText}
-      </button>
+      </Button>
     </div>
   )
 }

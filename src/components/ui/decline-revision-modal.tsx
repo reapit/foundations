@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { RejectRevisionModel } from '@/types/marketplace-api-schema'
-import { Button, TextArea, Modal, ModalProps } from '@reapit/elements'
+import { Button, TextArea, Modal, ModalProps, ModalFooter, ModalBody } from '@reapit/elements'
 import { Form, Formik } from 'formik'
 import { validate } from '@/utils/form/reject-revision'
 import { declineRevision, RevisionDeclineRequestParams } from '@/actions/revision-detail'
@@ -65,7 +65,7 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
   return (
     <Modal
       visible={visible}
-      size="small"
+      renderChildren
       afterClose={() => {
         if (isSuccessed) {
           onDeclineSuccess()
@@ -86,46 +86,58 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
         }}
         render={() => {
           return isSuccessed ? (
-            <CallToAction
-              title="Rejected!"
-              buttonText="Back to List"
-              dataTest="decline-revision-success-message"
-              onButtonClick={() => {
-                onDeclineSuccess()
-              }}
-              isCenter
-            >
-              Revision has been declined successfully.
-            </CallToAction>
+            <ModalBody
+              body={
+                <CallToAction
+                  title="Rejected!"
+                  buttonText="Back to List"
+                  dataTest="decline-revision-success-message"
+                  onButtonClick={() => {
+                    onDeclineSuccess()
+                  }}
+                  isCenter
+                >
+                  Revision has been declined successfully.
+                </CallToAction>
+              }
+            />
           ) : (
             <Form>
-              <TextArea
-                name="rejectionReason"
-                id="rejectionReason"
-                labelText="Rejection reason"
-                dataTest="revision-rejection-reason"
+              <ModalBody
+                body={
+                  <TextArea
+                    name="rejectionReason"
+                    id="rejectionReason"
+                    labelText="Rejection reason"
+                    dataTest="revision-rejection-reason"
+                  />
+                }
               />
-              <div className="flex justify-end">
-                <Button
-                  type="button"
-                  variant="secondary"
-                  className="mr-2"
-                  disabled={Boolean(isLoading)}
-                  onClick={() => afterClose && afterClose()}
-                  dataTest="revision-decline-cancel"
-                >
-                  Cancel
-                </Button>
-                <Button
-                  type="submit"
-                  variant="danger"
-                  loading={Boolean(isLoading)}
-                  disabled={Boolean(isLoading)}
-                  dataTest="revision-decline-submit"
-                >
-                  Decline
-                </Button>
-              </div>
+              <ModalFooter
+                footerItems={
+                  <>
+                    <Button
+                      type="button"
+                      variant="secondary"
+                      className="mr-2"
+                      disabled={Boolean(isLoading)}
+                      onClick={() => afterClose && afterClose()}
+                      dataTest="revision-decline-cancel"
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      type="submit"
+                      variant="danger"
+                      loading={Boolean(isLoading)}
+                      disabled={Boolean(isLoading)}
+                      dataTest="revision-decline-submit"
+                    >
+                      Decline
+                    </Button>
+                  </>
+                }
+              />
             </Form>
           )
         }}

@@ -2,19 +2,17 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AdminApprovalsState } from '@/reducers/admin-approvals'
-import { Loader, Pagination, Table } from '@reapit/elements'
+import { Loader, Pagination, Table, Button, Info, FlexContainerResponsive } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { oc } from 'ts-optchain'
 import routes from '@/constants/routes'
 import { AppDetailState } from '@/reducers/app-detail'
-import bulma from '@/styles/vendor/bulma'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { revisionDetailRequestData, RevisionDetailRequestParams } from '@/actions/revision-detail'
 import AdminApprovalModal from '../ui/admin-approval-modal'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
-import Info from '../pages/info'
 
 export interface AdminApprovalsMappedActions {
   fetchRevisionDetail: (params: RevisionDetailRequestParams) => void
@@ -73,9 +71,10 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
       Cell: ({ row: { original } }) => {
         const { appId } = original
         return (
-          <button
-            data-test={`view-details-button_${appId}`}
-            className={`${bulma.button} ${bulma.isPrimary}`}
+          <Button
+            dataTest={`view-details-button_${appId}`}
+            type="button"
+            variant="primary"
             onClick={() => {
               const { appId, appRevisionId } = original
               if (appRevisionId && appId) {
@@ -92,7 +91,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
             }}
           >
             View details
-          </button>
+          </Button>
         )
       }
     }
@@ -104,7 +103,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
 
   return (
     <ErrorBoundary>
-      <div className={`${bulma.container} ${bulma.isRelative} py-8`} data-test="revision-list-container">
+      <FlexContainerResponsive data-test="revision-list-container">
         {loading && (
           <div className="pin absolute flex items-center justify-center">
             <Loader />
@@ -124,7 +123,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
           pageSize={pageSize}
           pageNumber={pageNumber}
         />
-      </div>
+      </FlexContainerResponsive>
       <AdminApprovalModal visible={isModalOpen} afterClose={() => setIsModalOpen(false)} />
     </ErrorBoundary>
   )

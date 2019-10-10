@@ -33,10 +33,3 @@ describe('AppCard', () => {
     expect(toJson(shallow(<AppCard {...props} />))).toMatchSnapshot()
   })
 })
-
-describe('Should allow pass custom CSS classes', () => {
-  it('should match a snapshot', () => {
-    const wrapper = shallow(<AppCard {...props} className="addition css className" />)
-    expect(wrapper.find('.addition.css.className')).toHaveLength(1)
-  })
-})

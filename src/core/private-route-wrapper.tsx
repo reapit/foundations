@@ -3,9 +3,15 @@ import { Redirect, RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
-import pageContainerStyles from '../styles/pages/page-container.scss?mod'
 import Routes from '../constants/routes'
-import { RefreshParams, Loader, getTokenFromQueryString } from '@reapit/elements'
+import {
+  RefreshParams,
+  Loader,
+  getTokenFromQueryString,
+  Section,
+  FlexContainerBasic,
+  AppNavContainer
+} from '@reapit/elements'
 import { Dispatch } from 'redux'
 import { withRouter } from 'react-router'
 import { oc } from 'ts-optchain'
@@ -46,23 +52,21 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return <Redirect to={Routes.LOGIN} />
   }
 
-  const { menuContainer, pageContainer, pageWrapper, isDesktop } = pageContainerStyles
-
   return (
-    <div className={pageWrapper}>
+    <AppNavContainer>
       <Menu />
-      <main className={`${pageContainer} `}>
+      <FlexContainerBasic hasPadding isScrollable flexColumn>
         <Suspense
           fallback={
-            <div className="pt-5">
+            <Section>
               <Loader />
-            </div>
+            </Section>
           }
         >
           {children}
         </Suspense>
-      </main>
-    </div>
+      </FlexContainerBasic>
+    </AppNavContainer>
   )
 }
 

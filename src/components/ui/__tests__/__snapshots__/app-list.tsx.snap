@@ -1,18 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppList should match a snapshot 1`] = `
-<div
-  className="container isRelative undefined"
+<FlexContainerBasic
   data-test="app-list-container"
+  flexColumn={true}
 >
-  <h3
-    className="title is3"
-  />
-  <div
-    className="columns isMultiLine "
+  <H3 />
+  <GridFiveCol
+    className=" "
   >
-    <div
-      className="column isMultiLine isFullTablet isHalfDesktop isThirdWidescreen isQuarterFullhd"
+    <GridFiveColItem
       key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
     >
       <AppCard
@@ -40,9 +37,8 @@ exports[`AppList should match a snapshot 1`] = `
           }
         }
       />
-    </div>
-    <div
-      className="column isMultiLine isFullTablet isHalfDesktop isThirdWidescreen isQuarterFullhd"
+    </GridFiveColItem>
+    <GridFiveColItem
       key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
     >
       <AppCard
@@ -70,7 +66,7 @@ exports[`AppList should match a snapshot 1`] = `
           }
         }
       />
-    </div>
-  </div>
-</div>
+    </GridFiveColItem>
+  </GridFiveCol>
+</FlexContainerBasic>
 `;

@@ -2,9 +2,8 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { FormState, ReduxState } from '@/types/core'
 import { ScopeModel } from '@/types/marketplace-api-schema'
-import bulma from '@/styles/vendor/bulma'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import { Button } from '@reapit/elements'
+import { Button, H3, SubTitleH6, ModalHeader, ModalBody, ModalFooter } from '@reapit/elements'
 import { appInstallRequestData, appInstallDone } from '@/actions/app-install'
 import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
 import { oc } from 'ts-optchain'
@@ -51,51 +50,55 @@ export const AppConfirmInstallContent = ({
 
   return (
     <div data-test="confirm-content">
-      <h3 className={`${bulma.title} ${bulma.is3} ${appPermissionContentStyles.heading}`}>
-        Confirm {appName} installation
-      </h3>
-      {permissions.length ? (
-        <>
-          <h6 className={appPermissionContentStyles.subtitle}>
-            This action will install the app for ALL platform users.
-            <br />
-            {appName} requires the permissions below. By installing you are granting permission to your data.
-          </h6>
-          <ul className={appPermissionContentStyles.permissionList}>
-            {permissions.map(({ description, name }) => (
-              <li key={name} className={appPermissionContentStyles.permissionListItem}>
-                {description}
-              </li>
-            ))}
-          </ul>
-        </>
-      ) : (
-        <h6 className={appPermissionContentStyles.subtitle}>
-          This action will install the app for ALL platform users.
-        </h6>
-      )}
-      <div className={appPermissionContentStyles.installButtonContainer}>
-        <Button
-          dataTest="agree-btn"
-          loading={Boolean(isLoading)}
-          className={appPermissionContentStyles.installButton}
-          type="button"
-          variant="primary"
-          onClick={requestInstall}
-        >
-          Confirm
-        </Button>
-        <Button
-          dataTest="disagree-btn"
-          disabled={Boolean(isLoading)}
-          className={appPermissionContentStyles.installButton}
-          type="button"
-          variant="danger"
-          onClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
-        >
-          Cancel
-        </Button>
-      </div>
+      <ModalHeader title={`Confirm ${appName} installation`} afterClose={afterClose as () => void} />
+      <ModalBody
+        body={
+          permissions.length ? (
+            <>
+              <SubTitleH6 isCentered>
+                This action will install the app for ALL platform users.
+                <br />
+                {appName} requires the permissions below. By installing you are granting permission to your data.
+              </SubTitleH6>
+              <ul className={appPermissionContentStyles.permissionList}>
+                {permissions.map(({ description, name }) => (
+                  <li key={name} className={appPermissionContentStyles.permissionListItem}>
+                    {description}
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <SubTitleH6 isCentered>This action will install the app for ALL platform users.</SubTitleH6>
+          )
+        }
+      />
+      <ModalFooter
+        footerItems={
+          <>
+            <Button
+              dataTest="agree-btn"
+              loading={Boolean(isLoading)}
+              className={appPermissionContentStyles.installButton}
+              type="button"
+              variant="primary"
+              onClick={requestInstall}
+            >
+              Confirm
+            </Button>
+            <Button
+              dataTest="disagree-btn"
+              disabled={Boolean(isLoading)}
+              className={appPermissionContentStyles.installButton}
+              type="button"
+              variant="danger"
+              onClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
+            >
+              Cancel
+            </Button>
+          </>
+        }
+      />
     </div>
   )
 }

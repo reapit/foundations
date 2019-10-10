@@ -52,21 +52,21 @@ export const generateMenuConfig = (
           type: 'LOGO'
         },
         {
-          title: 'Manage Apps',
+          title: 'Apps',
           key: 'MANAGE_APPS',
           url: Routes.DEVELOPER_MY_APPS,
           type: 'PRIMARY',
           icon: <FaCloud className="nav-item-icon" />
         },
         {
-          title: 'API Documentation',
+          title: 'Docs',
           key: 'API_DOCS',
           url: Routes.DEVELOPER_API_DOCS,
           type: 'PRIMARY',
           icon: <FaReadme className="nav-item-icon" />
         },
         {
-          title: 'Submit Apps',
+          title: 'Submit',
           key: 'SUBMIT_APP',
           url: Routes.SUBMIT_APP,
           type: 'PRIMARY',

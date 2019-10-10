@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { FormState, ReduxState } from '@/types/core'
 import { AppConfirmInstallContent, handleCloseModal, mapDispatchToProps, mapStateToProps } from '../app-confirm-install'
@@ -66,7 +66,7 @@ describe('AppConfirmInstallContent', () => {
       setAppDetailModalStateView: jest.fn(),
       appInstallFormState: 'SUBMITTING' as FormState
     }
-    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
+    const wrapper = mount(<AppConfirmInstallContent {...mockProps} />)
     expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
   })
 
@@ -80,7 +80,7 @@ describe('AppConfirmInstallContent', () => {
       setAppDetailModalStateView: jest.fn(),
       appInstallFormState: 'SUBMITTING' as FormState
     }
-    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
+    const wrapper = mount(<AppConfirmInstallContent {...mockProps} />)
     expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
   })
   it('handleCloseModal', () => {
