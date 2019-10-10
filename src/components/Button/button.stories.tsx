@@ -90,6 +90,24 @@ storiesOf('Button', module).add('Loading', () => (
   </section>
 ))
 
+storiesOf('Button', module).add('IsCentered', () => (
+  <section className="section">
+    <div className="column is-half-desktop">
+      <Button
+        className="is-centered"
+        type="submit"
+        variant="primary"
+        onClick={action('Clicking Loading')}
+        disabled={false}
+        loading={false}
+        fullWidth={false}
+      >
+        Centered
+      </Button>
+    </div>
+  </section>
+))
+
 storiesOf('Button', module).add('ButtonGroup', () => {
   const [isActive, setIsActive] = React.useState(0)
   return (
