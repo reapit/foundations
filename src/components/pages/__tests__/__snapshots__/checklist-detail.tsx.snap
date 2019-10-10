@@ -3,91 +3,166 @@
 exports[` 1`] = `
 <div>
   <div
-    className="mb-5"
-    key="0"
+    className="pb-4"
   >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      onEdit={[MockFunction]}
-      title="Personal Details"
+    <Tile
+      heading="Personal Details"
+      key="0"
+      menu={
+        <Button
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Edit
+        </Button>
+      }
     />
   </div>
   <div
-    className="mb-5"
-    key="1"
+    className="pb-4"
   >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      onEdit={[MockFunction]}
-      title="Primary ID"
+    <Tile
+      heading="Primary ID"
+      key="1"
+      menu={
+        <Button
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Edit
+        </Button>
+      }
     />
   </div>
   <div
-    className="mb-5"
-    key="2"
+    className="pb-4"
   >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      onEdit={[MockFunction]}
-      title="Secondary ID"
+    <Tile
+      heading="Secondary ID"
+      key="2"
+      menu={
+        <Button
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Edit
+        </Button>
+      }
     />
   </div>
   <div
-    className="mb-5"
-    key="3"
+    className="pb-4"
   >
-    <Component
-      buttonText="Edit"
-      isCompleted={true}
-      onEdit={[MockFunction]}
-      title="Address History"
+    <Tile
+      heading="Address History"
+      key="3"
+      menu={
+        <Button
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Edit
+        </Button>
+      }
+    >
+      <div>
+        <span>
+          <TiTick />
+        </span>
+        <span>
+          Completed
+        </span>
+      </div>
+    </Tile>
+  </div>
+  <div
+    className="pb-4"
+  >
+    <Tile
+      heading="Declaration and Risk Assessment"
+      key="4"
+      menu={
+        <Button
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Edit
+        </Button>
+      }
     />
   </div>
   <div
-    className="mb-5"
-    key="4"
+    className="pb-4"
   >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      onEdit={[MockFunction]}
-      title="Declaration and Risk Assessment"
-    />
+    <Tile
+      heading="PEP Search"
+      key="5"
+      menu={
+        <Button
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Edit
+        </Button>
+      }
+    >
+      <div>
+        <span>
+          <TiTick />
+        </span>
+        <span>
+          Completed
+        </span>
+      </div>
+    </Tile>
   </div>
   <div
-    className="mb-5"
-    key="5"
+    className="pb-4"
   >
-    <Component
-      buttonText="Edit"
-      isCompleted={true}
-      onEdit={[MockFunction]}
-      title="PEP Search"
-    />
+    <Tile
+      heading="Experian "
+      key="6"
+      menu={
+        <Button
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Edit
+        </Button>
+      }
+    >
+      <div>
+        <span>
+          <TiTick />
+        </span>
+        <span>
+          Completed
+        </span>
+      </div>
+    </Tile>
   </div>
   <div
-    className="mb-5"
-    key="6"
+    className="pb-4"
   >
-    <Component
-      buttonText="Edit"
-      isCompleted={true}
-      onEdit={[MockFunction]}
-      title="Experian "
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="7"
-  >
-    <Component
-      buttonText="View"
-      isCompleted={false}
-      onEdit={[MockFunction]}
-      title="Report"
+    <Tile
+      heading="Report"
+      key="7"
+      menu={
+        <Button
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          View
+        </Button>
+      }
     />
   </div>
 </div>
@@ -97,107 +172,187 @@ exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`]
 
 exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
 <Connect(ErrorBoundary)>
-  <div>
-    <div>
-      <a
-        onClick={[Function]}
+  <FlexContainerBasic
+    isScrollable={true}
+  >
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <LevelRight>
+        <LevelItem>
+          <a
+            onClick={[Function]}
+          >
+            Back to Client/Logout
+          </a>
+        </LevelItem>
+        <LevelItem>
+          <a>
+            Customise Form
+          </a>
+        </LevelItem>
+      </LevelRight>
+      <Component
+        title="Ms Saoirse Chadwick"
+      />
+      <div
+        className="pb-4"
       >
-        Back to Client/Logout
-      </a>
-    </div>
-    <div>
-      <a>
-        Customise Form
-      </a>
-    </div>
-  </div>
-  <div
-    className="mb-5"
-  >
-    <Component
-      title="Ms Saoirse Chadwick"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="0"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      title="Personal Details"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="1"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      title="Primary ID"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="2"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      title="Secondary ID"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="3"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={true}
-      title="Address History"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="4"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={false}
-      title="Declaration and Risk Assessment"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="5"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={true}
-      title="PEP Search"
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="6"
-  >
-    <Component
-      buttonText="Edit"
-      isCompleted={true}
-      title="Experian "
-    />
-  </div>
-  <div
-    className="mb-5"
-    key="7"
-  >
-    <Component
-      buttonText="View"
-      isCompleted={false}
-      title="Report"
-    />
-  </div>
+        <Tile
+          heading="Personal Details"
+          key="0"
+          menu={
+            <Button
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Button>
+          }
+        />
+      </div>
+      <div
+        className="pb-4"
+      >
+        <Tile
+          heading="Primary ID"
+          key="1"
+          menu={
+            <Button
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Button>
+          }
+        />
+      </div>
+      <div
+        className="pb-4"
+      >
+        <Tile
+          heading="Secondary ID"
+          key="2"
+          menu={
+            <Button
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Button>
+          }
+        />
+      </div>
+      <div
+        className="pb-4"
+      >
+        <Tile
+          heading="Address History"
+          key="3"
+          menu={
+            <Button
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Button>
+          }
+        >
+          <div>
+            <span>
+              <TiTick />
+            </span>
+            <span>
+              Completed
+            </span>
+          </div>
+        </Tile>
+      </div>
+      <div
+        className="pb-4"
+      >
+        <Tile
+          heading="Declaration and Risk Assessment"
+          key="4"
+          menu={
+            <Button
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Button>
+          }
+        />
+      </div>
+      <div
+        className="pb-4"
+      >
+        <Tile
+          heading="PEP Search"
+          key="5"
+          menu={
+            <Button
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Button>
+          }
+        >
+          <div>
+            <span>
+              <TiTick />
+            </span>
+            <span>
+              Completed
+            </span>
+          </div>
+        </Tile>
+      </div>
+      <div
+        className="pb-4"
+      >
+        <Tile
+          heading="Experian "
+          key="6"
+          menu={
+            <Button
+              type="button"
+              variant="primary"
+            >
+              Edit
+            </Button>
+          }
+        >
+          <div>
+            <span>
+              <TiTick />
+            </span>
+            <span>
+              Completed
+            </span>
+          </div>
+        </Tile>
+      </div>
+      <div
+        className="pb-4"
+      >
+        <Tile
+          heading="Report"
+          key="7"
+          menu={
+            <Button
+              type="button"
+              variant="primary"
+            >
+              View
+            </Button>
+          }
+        />
+      </div>
+    </FlexContainerResponsive>
+  </FlexContainerBasic>
   <Component
     afterClose={[MockFunction]}
     id="123"

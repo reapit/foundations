@@ -2,12 +2,13 @@
 
 exports[`ClientSearch should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <div>
-    <h2
-      className="title is-2"
-    >
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <H3>
       Client Search
-    </h2>
+    </H3>
     <Formik
       enableReinitialize={false}
       initialValues={
@@ -23,6 +24,6 @@ exports[`ClientSearch should match a snapshot 1`] = `
       validateOnBlur={true}
       validateOnChange={true}
     />
-  </div>
+  </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
 `;

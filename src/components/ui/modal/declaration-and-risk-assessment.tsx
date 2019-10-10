@@ -10,7 +10,6 @@ import { oc } from 'ts-optchain'
 import { checkListDetailShowModal, checkListDetailDeclarationAndRiskUpdateData } from '@/actions/checklist-detail'
 import { STEPS } from './modal'
 import { Dispatch } from 'redux'
-import bulma from '@/styles/vendor/bulma'
 
 const optionsRiskAssessmentType = [
   { label: RISK_ASSESSMENT_TYPE.SIMPLIFIED, value: RISK_ASSESSMENT_TYPE.SIMPLIFIED },
@@ -23,7 +22,7 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ()
     <Form>
       <div>
         <div>
-          <label className={bulma.label}>Declaration Form</label>
+          <label className="label">Declaration Form</label>
           <CameraImageInput
             labelText="Upload file/Take a picture"
             id="metadata.declarationAndRisk.declarationForm"
@@ -43,7 +42,7 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ()
           name="metadata.declarationAndRisk.reason"
         />
         <div>
-          <label className={bulma.label}>Risk Assessment Form</label>
+          <label className="label">Risk Assessment Form</label>
           <FileInput
             labelText="Upload file"
             id="metadata.declarationAndRisk.riskAssessmentForm"
