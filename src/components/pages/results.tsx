@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -6,6 +7,8 @@ import { ReduxState } from '@/types/core'
 import { ResultState } from '@/reducers/result'
 import { Pagination, Table, Button } from '@reapit/elements'
 import { resultRequestData, ContactsParams } from '@/actions/result'
+import Info from '@/components/ui/info'
+import Routes from '@/constants/routes'
 import { oc } from 'ts-optchain'
 import bulma from '@/styles/vendor/bulma'
 
@@ -87,14 +90,27 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
   )
 
   React.useEffect(() => {
-    fetchContacts({ ...search, pageNumber })
+    if (search) {
+      fetchContacts({ ...search, pageNumber })
+    }
   }, [search, pageNumber])
+
+  const renderEmptyResult = () => (
+    <Info>
+      <h3 className="mb-2">No Results found</h3>
+      <Link to={Routes.HOME}>« Back to search page</Link>
+    </Info>
+  )
 
   return (
     <ErrorBoundary>
       <div className="my-5">
         <h3 className={`${bulma.title} ${bulma.is3}`}>Search Results</h3>
-        <Table data={data} columns={columns} loading={loading} />
+        {!search || Number(totalCount) === 0 ? (
+          renderEmptyResult()
+        ) : (
+          <Table data={data} columns={columns} loading={loading} />
+        )}
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
       </div>
     </ErrorBoundary>
