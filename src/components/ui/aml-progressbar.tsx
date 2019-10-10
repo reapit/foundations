@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProgressBar } from '@reapit/elements'
+import { ProgressBar, H3 } from '@reapit/elements'
 import styles from '@/styles/ui/aml-progressbar.scss?mod'
 
 export type AMLProgressBarProps = {
@@ -15,7 +15,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ title }) => {
   const progress = calculateProgress()
   return (
     <div>
-      <h1 className={styles.heading}>{title}</h1>
+      <H3>{title}</H3>
       <div className="mb-1">
         <ProgressBar percentage={progress.percentage} />
       </div>

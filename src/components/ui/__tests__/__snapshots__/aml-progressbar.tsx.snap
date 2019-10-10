@@ -2,9 +2,9 @@
 
 exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
 <div>
-  <h1>
+  <H3>
     Mock title
-  </h1>
+  </H3>
   <div
     className="mb-1"
   >

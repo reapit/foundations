@@ -5,11 +5,11 @@ exports[`Login should match a snapshot 1`] = `
   <div
     className="undefined false"
   >
-    <h1
-      className="title is1 isCentered"
+    <H1
+      isCentered={true}
     >
       Sign in
-    </h1>
+    </H1>
     <p
       className="pb-8"
     >

@@ -2,14 +2,13 @@
 
 exports[`Result should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
-  <div
-    className="my-5"
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasPadding={true}
   >
-    <h3
-      className="title is3"
-    >
+    <H3>
       Search Results
-    </h3>
+    </H3>
     <Table
       columns={
         Array [
@@ -2632,20 +2631,19 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
       pageSize={50}
       totalCount={3609}
     />
-  </div>
+  </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Result should match a snapshot when LOADING true 1`] = `
 <Connect(ErrorBoundary)>
-  <div
-    className="my-5"
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasPadding={true}
   >
-    <h3
-      className="title is3"
-    >
+    <H3>
       Search Results
-    </h3>
+    </H3>
     <Table
       columns={
         Array [
@@ -2685,6 +2683,6 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
       onChange={[Function]}
       pageNumber={1}
     />
-  </div>
+  </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
 `;
