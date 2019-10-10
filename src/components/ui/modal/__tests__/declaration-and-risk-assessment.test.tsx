@@ -12,6 +12,7 @@ import {
 describe('DeclarationAndRiskAssessment', () => {
   it('should match snapshot', () => {
     const mockProps = {
+      isSubmitting: false,
       contact,
       onNextHandler: jest.fn(),
       onPrevHandler: jest.fn(),
@@ -28,7 +29,8 @@ describe('DeclarationAndRiskAssessment', () => {
       setShowMoreThreeYearInput: jest.fn(),
       loading: false,
       onNextHandler: jest.fn(),
-      onPrevHandler: jest.fn()
+      onPrevHandler: jest.fn(),
+      isSubmitting: false
     }
     const fn = renderForm(mockProps)
     const component = fn()
@@ -47,6 +49,7 @@ describe('DeclarationAndRiskAssessment', () => {
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
+        isSubmitting: false,
         contact
       })
     })
@@ -54,6 +57,7 @@ describe('DeclarationAndRiskAssessment', () => {
       const mockState = {} as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
+        isSubmitting: false,
         contact: {}
       })
     })

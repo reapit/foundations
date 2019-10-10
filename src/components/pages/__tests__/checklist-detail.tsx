@@ -73,8 +73,10 @@ describe('checklist-detail', () => {
         loading: true,
         hideModal: jest.fn(),
         showModal: jest.fn(),
+        logout: jest.fn(),
         contact: contact,
         modalContentType: 'PROFILE',
+        mode: 'WEB',
         ...getMockRouterProps({ id: '123' })
       } as CheckListDetailProps
       const wrapper = shallow(<ChecklistDetail {...mockProps} />)
@@ -87,7 +89,9 @@ describe('checklist-detail', () => {
         loading: false,
         hideModal: jest.fn(),
         showModal: jest.fn(),
+        logout: jest.fn(),
         contact: contact,
+        mode: 'WEB',
         modalContentType: 'PROFILE',
         ...getMockRouterProps({ id: '123' })
       } as CheckListDetailProps
