@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from '@/styles/ui/navbar/navbar.scss?mod'
 import Routes from '@/constants/routes'
+import { Button } from '@reapit/elements'
 
 export type NavbarProps = {
   logout: () => void
@@ -18,17 +19,21 @@ export const Navbar: React.FC<NavbarProps> = ({ logout }) => {
         </Link>
       </div>
       <div className={styles.menuContainer}>
-        <Link className={styles.menuLink} to={Routes.SEARCH}>
-          <div className={styles.menuItem}>Client Search</div>
+        <Link to={Routes.SEARCH}>
+          <Button type="button" variant="primary" className={styles.menuItem}>
+            Client Search
+          </Button>
         </Link>
-        <span> | </span>
+
         <Link className={styles.menuLink} to={Routes.RESULTS}>
-          <div className={styles.menuItem}>Search Result</div>
+          <Button type="button" variant="primary" className={styles.menuItem}>
+            Search Result
+          </Button>
         </Link>
-        <span> | </span>
-        <div onClick={logout} className={styles.menuItem}>
+
+        <Button type="button" variant="primary" onClick={logout} className={styles.menuItem}>
           Logout
-        </div>
+        </Button>
       </div>
     </div>
   )

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { StaticContext } from 'react-router'
-import Navbar from '@/components/ui/navbar/navbar'
 import routeDispatcher from '../../utils/route-dispatcher'
 import { RouteValue } from '../../types/core'
 
@@ -14,11 +13,6 @@ const RouteFetcher: React.FunctionComponent<RouteFetcherProps> = ({ routerProps,
   routeDispatcher(routerProps.match.path as RouteValue, routerProps.match.params)
   return (
     <div>
-      <Navbar
-        logout={() => {
-          console.log('logout callback')
-        }}
-      />
       <Component />
     </div>
   )

@@ -2,9 +2,6 @@
 
 exports[`RouteFetcher should match a snapshot 1`] = `
 <div>
-  <Component
-    logout={[Function]}
-  />
   <Component />
 </div>
 `;
