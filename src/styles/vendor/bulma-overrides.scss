@@ -66,6 +66,11 @@
   &:not(:last-child) {
     margin-right: 1rem;
   }
+
+  &.is-centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .subtitle, .subtitle:not(:last-child) {
