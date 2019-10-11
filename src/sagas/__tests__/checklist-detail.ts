@@ -25,6 +25,8 @@ import {
   updateDeclarationAndRisk,
   checkListDetailDeclarationAndRiskUpdateListen,
   checkListDetailPepSearchListen,
+  updatePrimaryIdListen,
+  updateSecondaryIdListen,
   pepSearch,
   fetchDataPepSearch
 } from '../checklist-detail'
@@ -389,7 +391,9 @@ describe('check-list sagas', () => {
           fork(checkListDetailUpdateListen),
           fork(checkListDetailAddressUpdateListen),
           fork(checkListDetailDeclarationAndRiskUpdateListen),
-          fork(checkListDetailPepSearchListen)
+          fork(checkListDetailPepSearchListen),
+          fork(updatePrimaryIdListen),
+          fork(updateSecondaryIdListen)
         ])
       )
       expect(gen.next().done).toBe(true)

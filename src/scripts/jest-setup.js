@@ -1,7 +1,7 @@
 const Adapter = require('enzyme-adapter-react-16')
 const Enzyme = require('enzyme')
 const fetchMock = require('jest-fetch-mock')
-const MockDate = require('mockdate');
+const MockDate = require('mockdate')
 
 Enzyme.configure({ adapter: new Adapter() })
 global.fetch = fetchMock
@@ -44,4 +44,4 @@ window.matchMedia =
 //   jest.fn((...args) => jest.requireActual('dayjs')(args.filter(arg => arg).length > 0 ? args : '2019-12-18T16:30:00'))
 // )
 // Replaced with this for now:
-MockDate.set(1570747191389);
+MockDate.set(1570747191389)

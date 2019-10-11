@@ -18,7 +18,7 @@ export interface ChecklistDetailState {
   checklistDetailData: {
     contact: ContactModel
   } | null
-  pepSearchParam: ''
+  pepSearchParam: string
   // TODO will replace any when integrate API with pepSearchData
   pepSearchResultData: any[] | null
   isSubmitting: boolean

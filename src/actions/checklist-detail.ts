@@ -1,6 +1,7 @@
 import { ContactModel } from '@/types/contact-api-schema'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
+import { IdentificationFormValues } from '@/components/ui/forms/identification'
 
 export type CheckListDetailReceiveDataParams = {
   contact: ContactModel
@@ -26,3 +27,10 @@ export const checkListDetailSubmitForm = actionCreator<boolean>(ActionTypes.CHEC
 export const checkListDetailSearchPep = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP)
 // TODO: will replace any
 export const pepSearchResult = actionCreator<any>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP_RESULT)
+
+export const checkListDetailPrimaryIdUpdateData = actionCreator<IdentificationFormValues>(
+  ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA
+)
+export const checkListDetailSecondaryIdUpdateData = actionCreator<IdentificationFormValues>(
+  ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA
+)
