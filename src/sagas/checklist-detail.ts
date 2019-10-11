@@ -11,7 +11,6 @@ import {
   checklistDetailLoading,
   checklistDetailReceiveData,
   checkListDetailSubmitForm,
-  checkListDetailHideModal,
   checklistDetailRequestData,
   checkListDetailUpdateData
 } from '../actions/checklist-detail'
@@ -48,22 +47,22 @@ export type UpdateCheckListDetailParams = {
   data: ContactModel
 }
 
-export const updateChecklistDetail = function*({ data: { id, ...rest } }: UpdateCheckListDetailParams) {
+export const updateChecklistDetail = function*({ data }: UpdateCheckListDetailParams) {
+  const contact: ContactModel = yield select(selectCheckListDetailContact)
   yield put(checkListDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const responseUpdate = yield call(fetcher, {
-      url: `${URLS.contacts}/${id}`,
+      url: `${URLS.contacts}/${contact.id}`,
       api: REAPIT_API_BASE_URL,
       method: 'PATCH',
       headers: headers,
-      body: { ...rest }
+      body: data
     })
     if (responseUpdate) {
-      yield put(checklistDetailRequestData(id as string))
+      yield put(checklistDetailRequestData(contact.id as string))
     }
     yield put(checkListDetailSubmitForm(false))
-    yield put(checkListDetailHideModal())
   } catch (err) {
     console.error(err.message)
     yield put(checkListDetailSubmitForm(false))
@@ -139,7 +138,8 @@ export const mapAddressToMetaData = ({ addressesMeta, responseUploadImages }) =>
   })
 }
 
-export const updateAddressHistory = function*({ data: { id, addresses, metadata } }: UpdateAddressHistoryParams) {
+export const updateAddressHistory = function*({ data: { addresses, metadata } }: UpdateAddressHistoryParams) {
+  const contact: ContactModel = yield select(selectCheckListDetailContact)
   yield put(checkListDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
@@ -148,7 +148,7 @@ export const updateAddressHistory = function*({ data: { id, addresses, metadata 
     const responseUploadImages = yield all(uploadImageFunc)
     const addressMeta = mapAddressToMetaData({ addressesMeta, responseUploadImages })
     if (responseUploadImages) {
-      yield put(checkListDetailUpdateData({ id, addresses, metadata: { addresses: addressMeta } }))
+      yield put(checkListDetailUpdateData({ id: contact.id, addresses, metadata: { addresses: addressMeta } }))
     }
   } catch (err) {
     console.error(err.message)
@@ -172,7 +172,7 @@ export const updatePrimaryId = function*({ data }: Action<IdentificationFormValu
   // TODO: we just allow 1 document right now - will be replaced when updating
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
-    const contactModel: ContactModel = yield select(selectCheckListDetailContact)
+    const contact: ContactModel = yield select(selectCheckListDetailContact)
 
     let uploaderDocument: FileUploaderResponse = { Url: data.fileUrl || '' }
     if (isBase64(data.fileUrl)) {
@@ -182,7 +182,7 @@ export const updatePrimaryId = function*({ data }: Action<IdentificationFormValu
         method: 'POST',
         headers: headers,
         body: {
-          name: `${contactModel.id}-${data.details}`,
+          name: `${contact.id}-${data.details}`,
           imageData: data.fileUrl
         }
       })
@@ -198,10 +198,10 @@ export const updatePrimaryId = function*({ data }: Action<IdentificationFormValu
     const updatedDocuments: CreateIdentityDocumentModel[] = []
     updatedDocuments.push(updatedDocument)
 
-    const currentMetadata = contactModel.metadata ? contactModel.metadata : undefined
+    const currentMetadata = contact.metadata ? contact.metadata : undefined
 
     const updatedValues = {
-      id: contactModel.id,
+      id: contact.id,
       metadata: {
         ...currentMetadata,
         primaryId: [

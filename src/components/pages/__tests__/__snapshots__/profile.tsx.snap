@@ -21,9 +21,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
         key="Personal Details"
         title="Personal Details"
       >
-        <ProfileInformationWithRedux
-          id="MKC16000098"
-        />
+        <ProfileInformationWithRedux />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
@@ -44,18 +42,14 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
         key="Address History"
         title="Address History"
       >
-        <AddressInformationWithRedux
-          id="MKC16000098"
-        />
+        <AddressInformationWithRedux />
       </ProfileToggle>
       <ProfileToggle
         complete={false}
         key="Agent checks"
         title="Agent checks"
       >
-        <AgentCheckWithRedux
-          id="MKC16000098"
-        />
+        <AgentCheckWithRedux />
       </ProfileToggle>
     </div>
     <div
@@ -96,9 +90,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
         key="Personal Details"
         title="Personal Details"
       >
-        <ProfileInformationWithRedux
-          id="MKC16000098"
-        />
+        <ProfileInformationWithRedux />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
@@ -119,18 +111,14 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
         key="Address History"
         title="Address History"
       >
-        <AddressInformationWithRedux
-          id="MKC16000098"
-        />
+        <AddressInformationWithRedux />
       </ProfileToggle>
       <ProfileToggle
         complete={false}
         key="Agent checks"
         title="Agent checks"
       >
-        <AgentCheckWithRedux
-          id="MKC16000098"
-        />
+        <AgentCheckWithRedux />
       </ProfileToggle>
     </div>
     <div

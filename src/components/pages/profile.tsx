@@ -15,32 +15,33 @@ import AddressInformation from '@/components/ui/modal/address-information'
 import AgentCheck from '@/components/ui/modal/agent-check'
 import PrimaryIdentification from '@/components/ui/modal/primary-identification'
 import SecondaryIdentification from '@/components/ui/modal/secondary-identification'
+import { selectCheckListDetailContact } from '@/selectors/checklist-detail'
 
 const items = [
   {
     title: 'Personal Details',
     complete: true,
-    children: contact => <ProfileDetail id={contact.id} />
+    children: <ProfileDetail />
   },
   {
     title: 'Primary ID',
     complete: true,
-    children: () => <PrimaryIdentification />
+    children: <PrimaryIdentification />
   },
   {
     title: 'Secondary ID',
     complete: true,
-    children: () => <SecondaryIdentification />
+    children: <SecondaryIdentification />
   },
   {
     title: 'Address History',
     complete: true,
-    children: contact => <AddressInformation id={contact.id} />
+    children: <AddressInformation />
   },
   {
     title: 'Agent checks',
     complete: false,
-    children: contact => <AgentCheck id={contact.id} />
+    children: <AgentCheck />
   }
 ]
 
@@ -83,7 +84,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact 
         <div>
           {items.map(({ title, complete, children }) => (
             <ProfileToggle key={title} title={title} complete={Boolean(complete)}>
-              {children(contact)}
+              {children}
             </ProfileToggle>
           ))}
         </div>
@@ -106,7 +107,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact 
 const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
   submitChecksFormState: state.submitChecks.formState,
   loading: oc(state).checklistDetail.loading(true),
-  contact: oc(state).checklistDetail.checklistDetailData.contact({})
+  contact: selectCheckListDetailContact(state)
 })
 
 const mapDispatchToProps = (dispatch: any): ProfileMappedActions => ({

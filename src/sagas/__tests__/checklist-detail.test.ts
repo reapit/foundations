@@ -1,11 +1,10 @@
 import { fetcher } from '@reapit/elements'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
+import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import {
   checklistDetailLoading,
   checklistDetailReceiveData,
   checkListDetailSubmitForm,
-  checkListDetailHideModal,
   checklistDetailRequestData,
   checkListDetailUpdateData
 } from '@/actions/checklist-detail'
@@ -30,6 +29,7 @@ import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { ContactModel } from '@/types/contact-api-schema'
+import { selectCheckListDetailContact } from '@/selectors/checklist-detail'
 
 jest.mock('../../core/store')
 
@@ -75,29 +75,24 @@ describe('checklist-detail fetch data', () => {
 })
 
 describe('checklist-detail updateChecklistDetail', () => {
-  const id = 'MKC16000098'
-  const gen = cloneableGenerator(updateChecklistDetail)({ data: contact })
-  expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
+  const gen = cloneableGenerator(updateChecklistDetail as any)({ data: contact })
+  expect(gen.next().value).toEqual(select(selectCheckListDetailContact))
+  expect(gen.next(contact as any).value).toEqual(put(checkListDetailSubmitForm(true)))
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
-  const mockBody = {
-    ...contact
-  }
-  delete mockBody.id
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
-      url: `${URLS.contacts}/${id}`,
+      url: `${URLS.contacts}/${contact.id}`,
       api: REAPIT_API_BASE_URL,
       method: 'PATCH',
       headers: mockHeaders,
-      body: mockBody
+      body: contact
     })
   )
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(true as any).value).toEqual(put(checklistDetailRequestData(id as string)))
+    expect(clone.next(true as any).value).toEqual(put(checklistDetailRequestData(contact.id)))
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
-    expect(clone.next().value).toEqual(put(checkListDetailHideModal()))
     expect(clone.next().done).toBe(true)
   })
 
@@ -184,16 +179,18 @@ describe('mapAddressToMetaData', () => {
 })
 
 describe('checklist-detail updateAddressHistory', () => {
-  const id = 'MKC16000098'
-  const gen = cloneableGenerator(updateAddressHistory)({ data: { id, addresses: contact.addresses } })
-  expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
+  const gen = cloneableGenerator(updateAddressHistory as any)({
+    data: { addresses: contact.addresses } as ContactModel
+  })
+  expect(gen.next().value).toEqual(select(selectCheckListDetailContact))
+  expect(gen.next(contact as any).value).toEqual(put(checkListDetailSubmitForm(true)))
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
   expect(gen.next(mockHeaders as any).value).toEqual(all([]))
 
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next([{ Url: 'test' }] as any).value).toEqual(
-      put(checkListDetailUpdateData({ id, addresses: contact.addresses, metadata: { addresses: [] } }))
+      put(checkListDetailUpdateData({ id: contact.id, addresses: contact.addresses, metadata: { addresses: [] } }))
     )
     expect(clone.next().done).toBe(true)
   })

@@ -18,8 +18,6 @@ export const checklistDetailLoading = actionCreator<boolean>(ActionTypes.CHECKLI
 export const checklistDetailReceiveData = actionCreator<CheckListDetailReceiveDataParams>(
   ActionTypes.CHECKLIST_DETAIL_RECEIVE_DATA
 )
-export const checkListDetailShowModal = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_SHOW_MODAL)
-export const checkListDetailHideModal = actionCreator<void>(ActionTypes.CHECKLIST_DETAIL_HIDE_MODAL)
 export const checkListDetailSubmitForm = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM)
 
 export const checkListDetailPrimaryIdUpdateData = actionCreator<IdentificationFormValues>(

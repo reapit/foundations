@@ -3,16 +3,12 @@ import { isType } from '../utils/actions'
 import {
   checklistDetailLoading,
   checklistDetailReceiveData,
-  checkListDetailShowModal,
-  checkListDetailHideModal,
   checkListDetailSubmitForm
 } from '../actions/checklist-detail'
 import { ContactModel } from '@/types/contact-api-schema'
 
 export interface ChecklistDetailState {
   loading: boolean
-  isModalVisible: boolean
-  modalContentType: string
   checklistDetailData: {
     contact: ContactModel
   } | null
@@ -29,9 +25,7 @@ export interface ChecklistDetailState {
 
 export const defaultState: ChecklistDetailState = {
   loading: true,
-  isModalVisible: false,
   checklistDetailData: null,
-  modalContentType: 'PROFILE',
   isSubmitting: false,
   status: {
     profile: false,
@@ -57,21 +51,6 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
       loading: false,
       checklistDetailData: action.data || null,
       status: updateCheckListDetailFormStatus()
-    }
-  }
-
-  if (isType(action, checkListDetailShowModal)) {
-    return {
-      ...state,
-      modalContentType: action.data,
-      isModalVisible: true
-    }
-  }
-
-  if (isType(action, checkListDetailHideModal)) {
-    return {
-      ...state,
-      isModalVisible: false
     }
   }
 
