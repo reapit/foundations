@@ -56,20 +56,22 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
   }
 
   return (
-    <FlexContainerBasic hasPadding flexColumn>
+    <>
       {isSuccessed ? (
-        <CallToAction
-          dataTest="submit-success-section"
-          onButtonClick={() => submitAppSetFormState('PENDING')}
-          title="Submit Success"
-          buttonText="Submit Another App"
-          buttonDataTest="submit-another-button"
-          isCard
-        >
-          You have successfully submitted your App. You will be notified via email once your app has been approved.
-          Please see <Link to={Routes.DEVELOPER_MY_APPS}>Manage Apps</Link> to edit and set status to be "listed" on the
-          marketplace.
-        </CallToAction>
+        <FlexContainerBasic hasPadding flexColumn>
+          <CallToAction
+            dataTest="submit-success-section"
+            onButtonClick={() => submitAppSetFormState('PENDING')}
+            title="Submit Success"
+            buttonText="Submit Another App"
+            buttonDataTest="submit-another-button"
+            isCard
+          >
+            You have successfully submitted your App. You will be notified via email once your app has been approved.
+            Please see <Link to={Routes.DEVELOPER_MY_APPS}>Manage Apps</Link> to edit and set status to be "listed" on
+            the marketplace.
+          </CallToAction>
+        </FlexContainerBasic>
       ) : (
         <FlexContainerBasic flexColumn className={`${isSubmitting ? 'disabled' : ''}`} data-test="app-input-form">
           <H3>Submit App</H3>
@@ -264,7 +266,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
           />
         </FlexContainerBasic>
       )}
-    </FlexContainerBasic>
+    </>
   )
 }
 

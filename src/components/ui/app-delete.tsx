@@ -6,7 +6,6 @@ import { appDeleteRequest } from '@/actions/app-delete'
 import { ReduxState } from '@/types/core'
 import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6 } from '@reapit/elements'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import appDeleteStyles from '@/styles/pages/app-delete.scss?mod'
 import CallToAction from './call-to-action'
 
 interface AppDeleteModalWithConnectOwnProps {
@@ -57,7 +56,7 @@ const DeleteAppModal = ({
       }}
       renderChildren
     >
-      <div>
+      <>
         {isSuccedded ? (
           <ModalBody
             body={
@@ -74,8 +73,12 @@ const DeleteAppModal = ({
             }
           />
         ) : (
-          <div data-test="confirm-content">
-            <ModalHeader title={`Confirm ${appName} deletion`} afterClose={afterClose as () => void} />
+          <>
+            <ModalHeader
+              title={`Confirm ${appName} deletion`}
+              afterClose={afterClose as () => void}
+              data-test="confirm-content"
+            />
             <ModalBody
               body={
                 <SubTitleH6 isCentered>
@@ -110,9 +113,9 @@ const DeleteAppModal = ({
                 </>
               }
             />
-          </div>
+          </>
         )}
-      </div>
+      </>
     </Modal>
   )
 }

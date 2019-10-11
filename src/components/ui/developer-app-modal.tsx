@@ -16,7 +16,6 @@ import {
   Loader,
   Alert,
   ModalBody,
-  ModalFooter,
   ModalHeader
 } from '@reapit/elements'
 import { Form, Formik } from 'formik'
@@ -115,10 +114,11 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
 
   if (!isEditDetail) {
     return (
-      <div data-test="app-detail-modal">
+      <>
         <AppDetail
           data={appDetailState.appDetailData.data}
           afterClose={closeParentModal as () => void}
+          data-test="app-detail-modal"
           footerItems={
             <>
               <Button
@@ -152,14 +152,18 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
             setIsDeleteModalOpen(false)
           }}
         />
-      </div>
+      </>
     )
   }
 
   if (isEditDetail) {
     return (
-      <div data-test="app-detail-modal">
-        <ModalHeader title={`Edit ${name} detail`} afterClose={closeParentModal as () => void} />
+      <>
+        <ModalHeader
+          title={`Edit ${name} detail`}
+          afterClose={closeParentModal as () => void}
+          data-test="app-detail-modal"
+        />
         <Formik
           initialValues={{
             name,
@@ -184,135 +188,123 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
           }}
           render={() => {
             return (
-              <Form>
-                <ModalBody
-                  body={
-                    <>
-                      <Input dataTest="submit-revision-name" type="text" labelText="Name" id="name" name="name" />
-                      <Input
-                        dataTest="submit-revision-support-email"
-                        type="text"
-                        labelText="Support Email"
-                        id="supportEmail"
-                        name="supportEmail"
-                      />
-                      <Input
-                        dataTest="submit-revision-telephone"
-                        type="text"
-                        labelText="Telephone"
-                        id="telephone"
-                        name="telephone"
-                      />
-                      <Input
-                        dataTest="submit-revision-launchUri"
-                        type="text"
-                        labelText="Launch URI"
-                        id="launchUri"
-                        name="launchUri"
-                      />
-                      <Input
-                        dataTest="submit-revision-homepage"
-                        type="text"
-                        labelText="Homepage"
-                        id="homePage"
-                        name="homePage"
-                      />
-                      <TextArea
-                        id="description"
-                        dataTest="submit-revision-description"
-                        labelText="Description"
-                        name="description"
-                      />
-                      <TextArea id="summary" dataTest="submit-revision-summary" labelText="Sumary" name="summary" />
-                      {renderScopesCheckbox(allScopes)}
-                      <ImageInput
-                        id="iconImageData"
-                        dataTest="submit-app-iconImageData"
-                        labelText="Icon"
-                        name="iconImageData"
-                        allowClear
-                      />
+              <ModalBody
+                body={
+                  <Form>
+                    <Input dataTest="submit-revision-name" type="text" labelText="Name" id="name" name="name" />
+                    <Input
+                      dataTest="submit-revision-support-email"
+                      type="text"
+                      labelText="Support Email"
+                      id="supportEmail"
+                      name="supportEmail"
+                    />
+                    <Input
+                      dataTest="submit-revision-telephone"
+                      type="text"
+                      labelText="Telephone"
+                      id="telephone"
+                      name="telephone"
+                    />
+                    <Input
+                      dataTest="submit-revision-launchUri"
+                      type="text"
+                      labelText="Launch URI"
+                      id="launchUri"
+                      name="launchUri"
+                    />
+                    <Input
+                      dataTest="submit-revision-homepage"
+                      type="text"
+                      labelText="Homepage"
+                      id="homePage"
+                      name="homePage"
+                    />
+                    <TextArea
+                      id="description"
+                      dataTest="submit-revision-description"
+                      labelText="Description"
+                      name="description"
+                    />
+                    <TextArea id="summary" dataTest="submit-revision-summary" labelText="Sumary" name="summary" />
+                    {renderScopesCheckbox(allScopes)}
+                    <ImageInput
+                      id="iconImageData"
+                      dataTest="submit-app-iconImageData"
+                      labelText="Icon"
+                      name="iconImageData"
+                      allowClear
+                    />
 
-                      <ImageInput
-                        id="screenshot1"
-                        dataTest="submit-app-screenshoot1"
-                        labelText="Screenshot 1"
-                        name="screen1ImageData"
-                        allowClear
-                      />
+                    <ImageInput
+                      id="screenshot1"
+                      dataTest="submit-app-screenshoot1"
+                      labelText="Screenshot 1"
+                      name="screen1ImageData"
+                      allowClear
+                    />
 
-                      <ImageInput
-                        id="screenshot2"
-                        dataTest="submit-app-screenshoot2"
-                        labelText="Screenshot 2"
-                        name="screen2ImageData"
-                        allowClear
-                      />
+                    <ImageInput
+                      id="screenshot2"
+                      dataTest="submit-app-screenshoot2"
+                      labelText="Screenshot 2"
+                      name="screen2ImageData"
+                      allowClear
+                    />
 
-                      <ImageInput
-                        id="screenshot3"
-                        dataTest="submit-app-screenshoot3"
-                        labelText="Screenshot 3"
-                        name="screen3ImageData"
-                        allowClear
-                      />
+                    <ImageInput
+                      id="screenshot3"
+                      dataTest="submit-app-screenshoot3"
+                      labelText="Screenshot 3"
+                      name="screen3ImageData"
+                      allowClear
+                    />
 
-                      <ImageInput
-                        id="screenshot4"
-                        dataTest="submit-app-screenshoot4"
-                        labelText="Screenshot 4"
-                        name="screen4ImageData"
-                        allowClear
-                      />
+                    <ImageInput
+                      id="screenshot4"
+                      dataTest="submit-app-screenshoot4"
+                      labelText="Screenshot 4"
+                      name="screen4ImageData"
+                      allowClear
+                    />
 
-                      <ImageInput
-                        id="screenshot5"
-                        dataTest="submit-app-screenshoot5"
-                        labelText="Screenshot 5"
-                        name="screen5ImageData"
-                        allowClear
-                      />
+                    <ImageInput
+                      id="screenshot5"
+                      dataTest="submit-app-screenshoot5"
+                      labelText="Screenshot 5"
+                      name="screen5ImageData"
+                      allowClear
+                    />
 
-                      <Checkbox
-                        id="isListed"
-                        dataTest="submit-revision-isListed"
-                        labelText="Is listed"
-                        name="isListed"
-                      />
-                    </>
-                  }
-                />
-                <ModalFooter
-                  footerItems={
-                    <>
-                      <Button
-                        type="button"
-                        className="mr-2"
-                        variant="secondary"
-                        disabled={Boolean(isLoading)}
-                        onClick={() => {
-                          setIsEditDetail(false)
-                        }}
-                      >
-                        Cancel
-                      </Button>
-                      <Button
-                        type="submit"
-                        variant="primary"
-                        loading={Boolean(isLoading)}
-                        disabled={Boolean(isLoading)}
-                        dataTest="submit-revision-modal-edit-button"
-                      >
-                        Submit revision
-                      </Button>
-                    </>
-                  }
-                />
-              </Form>
+                    <Checkbox id="isListed" dataTest="submit-revision-isListed" labelText="Is listed" name="isListed" />
+
+                    <Button
+                      type="button"
+                      className="mr-2"
+                      variant="secondary"
+                      disabled={Boolean(isLoading)}
+                      onClick={() => {
+                        setIsEditDetail(false)
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      loading={Boolean(isLoading)}
+                      disabled={Boolean(isLoading)}
+                      dataTest="submit-revision-modal-edit-button"
+                    >
+                      Submit revision
+                    </Button>
+                  </Form>
+                }
+              />
             )
           }}
         />
-      </div>
+      </>
     )
   }
 

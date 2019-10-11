@@ -46,8 +46,12 @@ export const AppConfirmUninstall = ({
   }
 
   return (
-    <div data-test="confirm-content">
-      <ModalHeader title={`Confirm ${appName} uninstall`} afterClose={afterClose as () => void} />
+    <>
+      <ModalHeader
+        title={`Confirm ${appName} uninstall`}
+        afterClose={afterClose as () => void}
+        data-test="confirm-content"
+      />
       <ModalBody
         body={
           <SubTitleH6 isCentered>
@@ -83,7 +87,7 @@ export const AppConfirmUninstall = ({
           </>
         }
       />
-    </div>
+    </>
   )
 }
 

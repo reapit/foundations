@@ -12,9 +12,7 @@ exports[`DeveloperAppModalInner should match a snapshot when ERROR true 1`] = `
 `;
 
 exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] = `
-<div
-  data-test="app-detail-modal"
->
+<Fragment>
   <AppDetailWithConnect
     data={
       Object {
@@ -55,6 +53,7 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
         "telephone": "0113 288 2900",
       }
     }
+    data-test="app-detail-modal"
     footerItems={
       <React.Fragment>
         <Button
@@ -81,7 +80,7 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
     onDeleteSuccess={[Function]}
     visible={false}
   />
-</div>
+</Fragment>
 `;
 
 exports[`DeveloperAppModalInner should match a snapshot when LOADING true 1`] = `

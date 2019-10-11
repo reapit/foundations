@@ -72,7 +72,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   }
 
   return (
-    <div>
+    <>
       <ModalHeader title={name || ''} afterClose={afterClose} />
       <ModalBody
         body={
@@ -142,7 +142,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
         }
       />
       )}
-    </div>
+    </>
   )
 }
 
