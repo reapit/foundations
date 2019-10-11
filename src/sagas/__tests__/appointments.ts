@@ -52,7 +52,7 @@ describe('appointments should fetch data', () => {
     expect(gen.next(mockHeaders).value).toEqual(
       call(fetcher, {
         url:
-          '/appointments?Start=2019-12-18T00:00:00.000Z&End=2019-12-18T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
+          '/appointments?Start=2019-10-10T00:00:00.000Z&End=2019-10-10T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
         api: REAPIT_API_BASE_URL,
         method: 'GET',
         headers: mockHeaders
@@ -93,7 +93,7 @@ describe('appointments should fetch data', () => {
     expect(gen.next(mockHeaders).value).toEqual(
       call(fetcher, {
         url:
-          '/appointments?Start=2019-12-18T00:00:00.000Z&End=2019-12-18T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
+          '/appointments?Start=2019-10-10T00:00:00.000Z&End=2019-10-10T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
         api: REAPIT_API_BASE_URL,
         method: 'GET',
         headers: mockHeaders
