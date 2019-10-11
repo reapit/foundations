@@ -302,7 +302,7 @@ export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnPropsProps):
       }
       dispatch(checkListDetailAddressUpdateData(newValues))
     },
-    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
+    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.AGENT_CHECK)),
     onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.ADDRESS_INFORMATION))
   }
 }

@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import { renderOptions, AgentCheck, renderForm, mapStateToProps, mapDispatchToProps } from '../agent-check'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
+import { contacts } from '@/sagas/__stubs__/contacts'
 
 describe('agent-check', () => {
   describe('renderOptions', () => {
@@ -19,7 +20,7 @@ describe('agent-check', () => {
         id: '1',
         isSubmitting: true,
         onPrevHandler: jest.fn(),
-        onNextHandler: jest.fn()
+        contact: contacts
       }
       const wrapper = shallow(<AgentCheck {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -85,16 +86,6 @@ describe('agent-check', () => {
       }
       const { onPrevHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
       onPrevHandler()
-      expect(mockDispatch).toBeCalled()
-    })
-
-    it('should call dispatch when involked onNextHandler', () => {
-      const mockDispatch = jest.fn()
-      const mockOwnProps = {
-        id: '1'
-      }
-      const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-      onNextHandler()
       expect(mockDispatch).toBeCalled()
     })
   })

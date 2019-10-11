@@ -2,6 +2,7 @@ const Routes = {
   HOME: '/',
   LOGIN: '/login',
   PROFILE: '/profile',
+  PROFILE_ID: '/profile/:id',
   SEARCH: '/search',
   RESULTS: '/results',
   CHECKLIST_DETAIL: '/checklist-detail',

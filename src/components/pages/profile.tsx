@@ -1,40 +1,46 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import ProfileToggle from '@/components/ui/profile-toggle'
-import { Button, H3 } from '@reapit/elements'
+import { Button, H3, Loader } from '@reapit/elements'
 import styles from '@/styles/pages/profile.scss?mod'
-import PersonalDetails from '../ui/personal-details'
 import { ReduxState, FormState } from '@/types/core'
 import { submitChecks } from '@/actions/submit-checks'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import Routes from '@/constants/routes'
+import { oc } from 'ts-optchain'
+import { ContactModel } from '@/types/contact-api-schema'
+import ProfileDetail from '@/components/ui/modal/profile'
+import AddressInformation from '@/components/ui/modal/address-information'
+import AgentCheck from '@/components/ui/modal/agent-check'
+import PrimaryIdentification from '@/components/ui/modal/primary-identification'
+import SecondaryIdentification from '@/components/ui/modal/secondary-identification'
 
 const items = [
   {
     title: 'Personal Details',
     complete: true,
-    children: <PersonalDetails contact={{}} />
+    children: contact => <ProfileDetail id={contact.id} />
   },
   {
     title: 'Primary ID',
     complete: true,
-    children: <div>details</div>
+    children: () => <PrimaryIdentification />
   },
   {
-    title: 'Secondary Id',
+    title: 'Secondary ID',
     complete: true,
-    children: <div>details</div>
+    children: () => <SecondaryIdentification />
   },
   {
     title: 'Address History',
     complete: true,
-    children: <div>details</div>
+    children: contact => <AddressInformation id={contact.id} />
   },
   {
     title: 'Agent checks',
     complete: false,
-    children: <div>details</div>
+    children: contact => <AgentCheck id={contact.id} />
   }
 ]
 
@@ -44,28 +50,40 @@ export interface ProfileMappedActions {
 
 export interface ProfileMappedProps {
   submitChecksFormState: FormState
+  loading: boolean
+  contact: ContactModel | { id: string }
 }
 
 export type ProfileProps = ProfileMappedActions & ProfileMappedProps
 
-export const Profile = ({ submitChecksFormState, submitChecks }: ProfileProps) => {
+export const Profile = ({ submitChecksFormState, submitChecks, loading, contact }: ProfileProps) => {
   const isSubmitting = submitChecksFormState === 'SUBMITTING'
 
   if (submitChecksFormState === 'SUCCESS') {
     return <Redirect to={Routes.CHECKLIST_DETAIL_ID_SUCCESS} />
   }
+  if (loading) {
+    return <Loader />
+  }
+  let title = ''
+  let forename = ''
+  let surname = ''
+
+  if (Object.keys(contact).length > 0) {
+    ;({ title = '', forename = '', surname = '' } = contact as ContactModel)
+  }
 
   return (
     <ErrorBoundary>
-      <div className="container">
+      <div>
         <div className={styles.header}>
-          <H3>Mr Phillips</H3>
-          <div>RPS Reference: MX12548</div>
+          <H3>{`${title} ${forename} ${surname}`}</H3>
+          <div>RPS Reference: {contact.id ? contact.id : ''}</div>
         </div>
         <div>
           {items.map(({ title, complete, children }) => (
-            <ProfileToggle key={title} title={title} complete={complete}>
-              {children}
+            <ProfileToggle key={title} title={title} complete={Boolean(complete)}>
+              {children(contact)}
             </ProfileToggle>
           ))}
         </div>
@@ -86,7 +104,9 @@ export const Profile = ({ submitChecksFormState, submitChecks }: ProfileProps) =
 }
 
 const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
-  submitChecksFormState: state.submitChecks.formState
+  submitChecksFormState: state.submitChecks.formState,
+  loading: oc(state).checklistDetail.loading(true),
+  contact: oc(state).checklistDetail.checklistDetailData.contact({})
 })
 
 const mapDispatchToProps = (dispatch: any): ProfileMappedActions => ({

@@ -9,13 +9,6 @@ import { ReduxState } from '@/types/core'
 import { ContactModel } from '@/types/contact-api-schema'
 import { STEPS } from './modal'
 
-export type AgentCheckProps = {
-  id: string
-  isSubmitting: boolean
-  onPrevHandler: () => void
-  onNextHandler: () => void
-}
-
 export const referralOptionsValues = {
   APPLICANT: 'Applicant',
   ESTATE_PLANNING: 'Estate Planning',
@@ -98,7 +91,7 @@ export const renderOptions = (minNumber, maxNumber, step): SelectBoxOptions[] =>
   return options
 }
 
-export const renderForm = ({ isSubmitting, onPrevHandler, onNextHandler }) => () => {
+export const renderForm = ({ isSubmitting, onPrevHandler }) => () => {
   return (
     <div>
       <SelectBox name="referralType" id="referralType" labelText="Referral Type" options={referralOptions} />
@@ -137,49 +130,47 @@ export const renderForm = ({ isSubmitting, onPrevHandler, onNextHandler }) => ()
         <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
           Previous
         </Button>
-        <Button variant="primary" type="button" onClick={onNextHandler}>
-          Next
-        </Button>
       </div>
     </div>
   )
 }
 
-export const AgentCheck: React.FC<AgentCheckProps> = ({ isSubmitting, onPrevHandler, onNextHandler }) => {
+export type AgentCheckProps = DispatchProps & StateProps
+
+export const AgentCheck: React.FC<AgentCheckProps> = ({ isSubmitting, onPrevHandler }) => {
   return (
     <Formik
       initialValues={{}}
       onSubmit={() => {
         console.log('abc')
       }}
-      render={renderForm({ isSubmitting, onPrevHandler, onNextHandler })}
+      render={renderForm({ isSubmitting, onPrevHandler })}
     />
   )
 }
 
-export type MappedProps = {
+export type StateProps = {
   isSubmitting: boolean
   contact: ContactModel
 }
 
-export const mapStateToProps = (state: ReduxState): MappedProps => {
+export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
     contact: oc(state).checklistDetail.checklistDetailData.contact({})
   }
 }
 
-export type MappedActions = {
+export type DispatchProps = {
   onPrevHandler: () => void
-  onNextHandler: () => void
-  onHandleSubmit: (values: any) => void
+  onHandleSubmit?: (values: any) => void
 }
 
-export type OwnPropsProps = {
+export type OwnProps = {
   id: string
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnPropsProps): MappedActions => {
+export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnProps): DispatchProps => {
   return {
     onHandleSubmit: (values: any) => {
       const newValues = {
@@ -188,12 +179,11 @@ export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnPropsProps):
       }
       console.log(newValues)
     },
-    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.EXPERIAN)),
-    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.REPORT))
+    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.ADDRESS_INFORMATION))
   }
 }
 
-export const AgentCheckWithRedux = connect<MappedProps, MappedActions, OwnPropsProps, ReduxState>(
+export const AgentCheckWithRedux = connect<StateProps, DispatchProps, OwnProps, ReduxState>(
   mapStateToProps,
   mapDispatchToProps
 )(AgentCheck)
