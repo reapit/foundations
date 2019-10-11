@@ -1,6 +1,7 @@
 const Adapter = require('enzyme-adapter-react-16')
 const Enzyme = require('enzyme')
 const fetchMock = require('jest-fetch-mock')
+const MockDate = require('mockdate')
 
 Enzyme.configure({ adapter: new Adapter() })
 global.fetch = fetchMock
@@ -38,6 +39,9 @@ window.matchMedia =
     }
   }
 
-jest.mock('dayjs', () =>
-  jest.fn((...args) => jest.requireActual('dayjs')(args.filter(arg => arg).length > 0 ? args : '2019-12-18T16:30:00'))
-)
+// Had to remove this mock because dayjs.extend throws an error as not being mocked - see this PR: https://github.com/reapit/elements/pull/82
+// jest.mock('dayjs', () =>
+//   jest.fn((...args) => jest.requireActual('dayjs')(args.filter(arg => arg).length > 0 ? args : '2019-12-18T16:30:00'))
+// )
+// Replaced with this for now:
+MockDate.set(1570747191389)
