@@ -116,7 +116,7 @@ export interface ContactModel {
    * Gets a listing of additional metadata that has been set against this contact
    */
   metadata?: {
-    [name: string]: {}
+    [name: string]: any
   }
   readonly links?: LinkModel[]
 }

@@ -56,10 +56,6 @@ exports[`Select identity should match a snapshot when LOADING false 1`] = `
         "value": "RF",
       },
       Object {
-        "label": "Unmapped",
-        "value": "",
-      },
-      Object {
         "label": "Utility Bill",
         "value": "UT",
       },
@@ -122,10 +118,6 @@ exports[`Select identity should match a snapshot when LOADING true 1`] = `
       Object {
         "label": "Reference",
         "value": "RF",
-      },
-      Object {
-        "label": "Unmapped",
-        "value": "",
       },
       Object {
         "label": "Utility Bill",

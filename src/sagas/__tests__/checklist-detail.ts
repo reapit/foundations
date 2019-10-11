@@ -1,6 +1,6 @@
 import { fetcher } from '@reapit/elements'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
+import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import {
   checklistDetailLoading,
   checklistDetailReceiveData,
@@ -28,13 +28,15 @@ import {
   updatePrimaryIdListen,
   updateSecondaryIdListen,
   pepSearch,
-  fetchDataPepSearch
+  fetchDataPepSearch,
+  uploadImage
 } from '../checklist-detail'
 import { contact } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { ContactModel } from '@/types/contact-api-schema'
+import { selectDeclarationRisk, selectCheckListDetailContact } from '@/selectors/checklist-detail'
 
 jest.mock('../../core/store')
 
@@ -88,6 +90,7 @@ describe('checklist-detail updateChecklistDetail', () => {
     ...contact
   }
   delete mockBody.id
+  expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
       url: `${URLS.contacts}/${id}`,
@@ -225,50 +228,28 @@ describe('checklist-detail updateDeclarationAndRisk', () => {
   const gen = cloneableGenerator(updateDeclarationAndRisk as any)({ data: { id, metadata: contact.metadata } })
   expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+  gen.next()
+  gen.next()
+  expect(gen.next().value).toEqual(select(selectDeclarationRisk))
 
   expect(gen.next(mockHeaders as any).value).toEqual(
-    call(fetcher, {
-      url: '/',
-      api: UPLOAD_FILE_BASE_URL,
-      method: 'POST',
-      headers: mockHeaders,
-      body: {
-        name: 'declaration',
-        imageData: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png'
-      }
-    })
-  )
-
-  expect(gen.next(mockHeaders as any).value).toEqual(
-    call(fetcher, {
-      url: '/',
-      api: UPLOAD_FILE_BASE_URL,
-      method: 'POST',
-      headers: mockHeaders,
-      body: {
-        name: 'riskAssessment',
-        imageData: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png'
-      }
-    })
+    put(
+      checkListDetailUpdateData({
+        id,
+        metadata: {
+          declarationRisk: {
+            declarationForm: undefined,
+            reason: 'reason',
+            riskAssessmentForm: undefined,
+            type: 'Normal'
+          }
+        }
+      })
+    )
   )
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(mockHeaders as any).value).toEqual(
-      put(
-        checkListDetailUpdateData({
-          id,
-          metadata: {
-            declarationAndRisk: {
-              declarationForm: undefined,
-              reson: 'reason',
-              riskAssessmentForm: undefined,
-              type: 'Normal'
-            }
-          }
-        })
-      )
-    )
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
     expect(clone.next().done).toBe(true)
   })
@@ -356,7 +337,7 @@ describe('check-list sagas', () => {
     })
   })
 
-  describe('checklist detail declarationAndRisk update listen', () => {
+  describe('checklist detail declarationRisk update listen', () => {
     it('should request data when called', () => {
       const gen = checkListDetailDeclarationAndRiskUpdateListen()
 
