@@ -11,7 +11,7 @@ import {
 } from '@/actions/checklist-detail'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
-import { URLS, REAPIT_API_BASE_URL, UPLOAD_FILE_BASE_URL } from '@/constants/api'
+import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
 import {
   checklistDetailDataFetch,
   updateChecklistDetail,
@@ -28,8 +28,7 @@ import {
   updatePrimaryIdListen,
   updateSecondaryIdListen,
   pepSearch,
-  fetchDataPepSearch,
-  uploadImage
+  fetchDataPepSearch
 } from '../checklist-detail'
 import { contact } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -250,7 +249,6 @@ describe('checklist-detail updateDeclarationAndRisk', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
     expect(clone.next().done).toBe(true)
   })
 

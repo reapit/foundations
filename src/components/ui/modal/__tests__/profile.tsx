@@ -9,7 +9,7 @@ describe('profile', () => {
     it('should match snapshot', () => {
       const mockOnNextHandler = jest.fn()
       const mockIsSubmitting = false
-      const component = renderForm({ onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })
+      const component = renderForm({ contact, onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -18,7 +18,7 @@ describe('profile', () => {
     it('should match snapshot', () => {
       const mockOnNextHandler = jest.fn()
       const mockIsSubmitting = false
-      const component = renderForm({ onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })
+      const component = renderForm({ contact, onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
