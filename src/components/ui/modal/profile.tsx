@@ -9,7 +9,8 @@ import { CommunicationModel, ContactModel } from '@/types/contact-api-schema'
 import { checkListDetailShowModal, checkListDetailUpdateData } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
 
-export const renderForm = ({ onNextHandler, isSubmitting }) => () => {
+export const renderForm = ({ contact, onNextHandler, isSubmitting }) => () => {
+  const { id } = contact
   return (
     <Form>
       <Input type="text" labelText="Title" id="title" name="title" />
@@ -20,19 +21,25 @@ export const renderForm = ({ onNextHandler, isSubmitting }) => () => {
       <Input type="text" labelText="Mobile" id="mobile" name="mobile" />
       <Input type="text" labelText="Work" id="work" name="work" />
       <Input type="text" labelText="Email" id="email" name="email" />
-      <div className="flex justify-end">
-        <Button loading={isSubmitting} type="submit" className="mr-2" variant="primary">
-          Save
-        </Button>
-        <Button
-          disabled={isSubmitting}
-          type="button"
-          variant="primary"
-          dataTest="submit-revision-modal-edit-button"
-          onClick={onNextHandler}
-        >
-          Next
-        </Button>
+      <div className="flex justify-between">
+        <div className="flex items-center">
+          <span>RPS Ref:</span>
+          <span className="ml-1">{id}</span>
+        </div>
+        <div>
+          <Button loading={isSubmitting} type="submit" className="mr-2" variant="primary">
+            Save
+          </Button>
+          <Button
+            disabled={isSubmitting}
+            type="button"
+            variant="primary"
+            dataTest="submit-revision-modal-edit-button"
+            onClick={onNextHandler}
+          >
+            Next
+          </Button>
+        </div>
       </div>
     </Form>
   )
@@ -76,7 +83,7 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubm
           email: filterCommunication(contact.communications, 'E-Mail')
         }}
         onSubmit={onSubmitHandler}
-        render={renderForm({ onNextHandler, isSubmitting })}
+        render={renderForm({ contact, onNextHandler, isSubmitting })}
       />
     </div>
   )
