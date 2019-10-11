@@ -28,7 +28,7 @@ export interface ChecklistDetailState {
 }
 
 export const defaultState: ChecklistDetailState = {
-  loading: false,
+  loading: true,
   isModalVisible: false,
   checklistDetailData: null,
   modalContentType: 'PROFILE',

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import ProfileToggle from '@/components/ui/profile-toggle'
-import { Button, H3, Loader } from '@reapit/elements'
+import { Button, H3, Loader, FlexContainerResponsive } from '@reapit/elements'
 import styles from '@/styles/pages/profile.scss?mod'
 import { ReduxState, FormState } from '@/types/core'
 import { submitChecks } from '@/actions/submit-checks'
@@ -75,7 +75,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact 
 
   return (
     <ErrorBoundary>
-      <div>
+      <FlexContainerResponsive hasPadding flexColumn>
         <div className={styles.header}>
           <H3>{`${title} ${forename} ${surname}`}</H3>
           <div>RPS Reference: {contact.id ? contact.id : ''}</div>
@@ -98,7 +98,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact 
             Submit Record for Checks
           </Button>
         </div>
-      </div>
+      </FlexContainerResponsive>
     </ErrorBoundary>
   )
 }
