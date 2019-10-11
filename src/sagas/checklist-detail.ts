@@ -273,7 +273,7 @@ export const updatePrimaryId = function*({ data }: Action<IdentificationFormValu
     const headers = yield call(initAuthorizedRequestHeaders)
     const contactModel: ContactModel = yield select(selectCheckListDetailContact)
 
-    let uploaderDocument: FileUploaderResponse = { Url: '' }
+    let uploaderDocument: FileUploaderResponse = { Url: data.fileUrl || '' }
     if (isBase64(data.fileUrl)) {
       uploaderDocument = yield call(fetcher, {
         url: '/',
@@ -332,7 +332,7 @@ export const updateSecondaryId = function*({ data }: Action<IdentificationFormVa
     const headers = yield call(initAuthorizedRequestHeaders)
     const contactModel: ContactModel = yield select(selectCheckListDetailContact)
 
-    let uploaderDocument: FileUploaderResponse = { Url: '' }
+    let uploaderDocument: FileUploaderResponse = { Url: data.fileUrl || '' }
     if (isBase64(data.fileUrl)) {
       uploaderDocument = yield call(fetcher, {
         url: '/',
