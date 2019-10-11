@@ -3,8 +3,8 @@
 .mapContainer {
   overflow: hidden;
   position: absolute;
-  left: 366px;
-  width: calc(100vw - 366px);
+  left: 382px;
+  width: calc(100vw - 376px);
   top: 0;
   height: 100%;
 
@@ -49,8 +49,8 @@
 .mapPanel {
   position: absolute;
   bottom: 0;
-  width: calc(100vw - 366px);
-  left: 366px;
+  width: calc(100vw - 382px);
+  left: 382px;
   display: flex;
   background-color: #fff;
   padding: 1.5rem;
