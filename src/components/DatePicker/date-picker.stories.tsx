@@ -23,7 +23,24 @@ storiesOf('form/DatePicker', module)
       />
     </section>
   ))
-  .add('Date picker error', () => {
+  .add('Date Picker - Empty', () => (
+    <section className="section">
+      <Formik
+        initialValues={{ demo: '' }}
+        onSubmit={values => {
+          action('Form Values' + values)
+        }}
+        render={() => (
+          <Form>
+            <div className="column is-half-desktop">
+              <DatePicker name="demo" labelText="demo" id="demo" />
+            </div>
+          </Form>
+        )}
+      />
+    </section>
+  ))
+  .add('Date Picker - Error', () => {
     const Parent = () => {
       const ref = useRef(null)
       useEffect(() => {
