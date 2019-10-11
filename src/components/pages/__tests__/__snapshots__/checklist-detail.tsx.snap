@@ -111,16 +111,7 @@ exports[` 1`] = `
           Edit
         </Button>
       }
-    >
-      <div>
-        <span>
-          <TiTick />
-        </span>
-        <span>
-          Completed
-        </span>
-      </div>
-    </Tile>
+    />
   </div>
   <div
     className="pb-4"
@@ -299,16 +290,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               Edit
             </Button>
           }
-        >
-          <div>
-            <span>
-              <TiTick />
-            </span>
-            <span>
-              Completed
-            </span>
-          </div>
-        </Tile>
+        />
       </div>
       <div
         className="pb-4"

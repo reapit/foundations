@@ -7,8 +7,8 @@ exports[`DeclarationAndRiskAssessment should match snapshot 1`] = `
     initialValues={
       Object {
         "metadata": Object {
-          "declarationAndRisk": Object {
-            "reason": undefined,
+          "declarationRisk": Object {
+            "reason": "reason",
             "type": "Normal",
           },
         },

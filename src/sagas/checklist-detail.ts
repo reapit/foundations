@@ -1,4 +1,4 @@
-import { selectCheckListDetailContact } from '@/selectors/checklist-detail'
+import { selectCheckListDetailContact, selectDeclarationRisk } from '@/selectors/checklist-detail'
 import { fetcher, ErrorData } from '@reapit/elements'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
@@ -16,7 +16,6 @@ import {
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
 import { ContactModel, AddressModel, CreateIdentityDocumentModel } from '@/types/contact-api-schema'
-import { DeclarationAndRiskModel } from '@/components/ui/modal/declaration-and-risk-assessment'
 import { IdentificationFormValues } from '@/components/ui/forms/identification'
 
 export const checklistDetailDataFetch = function*({ data: id }) {
@@ -47,16 +46,19 @@ export type UpdateCheckListDetailParams = {
   data: ContactModel
 }
 
-export const updateChecklistDetail = function*({ data: { id, ...rest } }: UpdateCheckListDetailParams) {
+export const updateChecklistDetail = function*({ data: { id, metadata, ...rest } }: UpdateCheckListDetailParams) {
   yield put(checkListDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
+    const contact = yield select(selectCheckListDetailContact)
+    console.log({ ...contact, ...rest })
+
     const responseUpdate = yield call(fetcher, {
       url: `${URLS.contacts}/${id}`,
       api: REAPIT_API_BASE_URL,
       method: 'PATCH',
       headers: headers,
-      body: { ...rest }
+      body: { ...rest, metadata: { ...contact.metadata, ...metadata } }
     })
     if (responseUpdate) {
       yield put(checklistDetailRequestData(id as string))
@@ -161,52 +163,28 @@ export const updateAddressHistory = function*({ data: { id, addresses, metadata 
   }
 }
 
-interface UploadFileUrl {
-  Url: string
-}
-
 export const updateDeclarationAndRisk = function*({ data: { id, metadata } }: Action<ContactModel>) {
   yield put(checkListDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
-    const data = metadata && (metadata.declarationAndRisk as DeclarationAndRiskModel)
-    let declarationForm: UploadFileUrl = { Url: '' }
-    let riskAssessmentForm: UploadFileUrl = { Url: '' }
+    let { type, reason, declarationInput, riskAssessmentInput } = metadata && metadata.declarationRisk
+    const urlDeclaration = yield declarationInput &&
+      uploadImage({ headers, name: `declaration-${type}-${reason}`, imageData: declarationInput })
 
-    if (data && data.declarationForm) {
-      declarationForm = yield call(fetcher, {
-        url: '/',
-        api: UPLOAD_FILE_BASE_URL,
-        method: 'POST',
-        headers: headers,
-        body: {
-          name: 'declaration',
-          imageData: data.declarationForm
-        }
-      })
-    }
+    const urlRiskAssessment = yield riskAssessmentInput &&
+      uploadImage({ headers, name: `riskAssessment-${type}-${reason}`, imageData: riskAssessmentInput })
 
-    if (data && data.riskAssessmentForm) {
-      riskAssessmentForm = yield call(fetcher, {
-        url: '/',
-        api: UPLOAD_FILE_BASE_URL,
-        method: 'POST',
-        headers: headers,
-        body: {
-          name: 'riskAssessment',
-          imageData: data.riskAssessmentForm
-        }
-      })
-    }
+    const { declarationForm, riskAssessmentForm } = yield select(selectDeclarationRisk)
 
     yield put(
       checkListDetailUpdateData({
         id,
         metadata: {
-          declarationAndRisk: {
-            ...data,
-            declarationForm: declarationForm.Url,
-            riskAssessmentForm: riskAssessmentForm.Url
+          declarationRisk: {
+            reason,
+            type,
+            declarationForm: (urlDeclaration && urlDeclaration.Url) || declarationForm,
+            riskAssessmentForm: (urlRiskAssessment && urlRiskAssessment.Url) || riskAssessmentForm
           }
         }
       })
