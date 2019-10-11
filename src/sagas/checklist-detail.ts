@@ -189,8 +189,6 @@ export const updateDeclarationAndRisk = function*({ data: { id, metadata } }: Ac
         }
       })
     )
-
-    yield put(checkListDetailSubmitForm(false))
   } catch (err) {
     console.error(err.message)
     yield put(checkListDetailSubmitForm(false))
