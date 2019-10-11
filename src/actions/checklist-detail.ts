@@ -1,3 +1,4 @@
+import { IdentificationFormValues } from '@/components/ui/forms/identification'
 import { ContactModel } from '@/types/contact-api-schema'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
@@ -20,3 +21,10 @@ export const checklistDetailReceiveData = actionCreator<CheckListDetailReceiveDa
 export const checkListDetailShowModal = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_SHOW_MODAL)
 export const checkListDetailHideModal = actionCreator<void>(ActionTypes.CHECKLIST_DETAIL_HIDE_MODAL)
 export const checkListDetailSubmitForm = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM)
+
+export const checkListDetailPrimaryIdUpdateData = actionCreator<IdentificationFormValues>(
+  ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA
+)
+export const checkListDetailSecondaryIdUpdateData = actionCreator<IdentificationFormValues>(
+  ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA
+)

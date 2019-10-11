@@ -1,3 +1,4 @@
+import { updateCheckListDetailFormStatus } from './../checklist-detail';
 import checklistReducer, { defaultState } from '../checklist-detail'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
@@ -31,7 +32,8 @@ describe('home reducer', () => {
       loading: false,
       checklistDetailData: {
         contact: contact
-      }
+      },
+      status: updateCheckListDetailFormStatus()
     }
     expect(newState).toEqual(expected)
   })

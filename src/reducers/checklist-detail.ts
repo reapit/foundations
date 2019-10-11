@@ -17,6 +17,14 @@ export interface ChecklistDetailState {
     contact: ContactModel
   } | null
   isSubmitting: boolean
+  status: {
+    profile: boolean
+    primary_identification: boolean
+    secondary_identification: boolean
+    declaration_risk_management: boolean
+    report: boolean
+    address_information: boolean
+  }
 }
 
 export const defaultState: ChecklistDetailState = {
@@ -24,7 +32,15 @@ export const defaultState: ChecklistDetailState = {
   isModalVisible: false,
   checklistDetailData: null,
   modalContentType: 'PROFILE',
-  isSubmitting: false
+  isSubmitting: false,
+  status: {
+    profile: false,
+    primary_identification: false,
+    secondary_identification: false,
+    declaration_risk_management: false,
+    report: false,
+    address_information: false
+  }
 }
 
 const checklistReducer = (state: ChecklistDetailState = defaultState, action: Action<any>): ChecklistDetailState => {
@@ -39,7 +55,8 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
     return {
       ...state,
       loading: false,
-      checklistDetailData: action.data || null
+      checklistDetailData: action.data || null,
+      status: updateCheckListDetailFormStatus()
     }
   }
 
@@ -67,5 +84,19 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
 
   return state
 }
+
+/**
+ * help to calculate the isComplete status of the forms following the rule
+ * TODO: will be implemented when have enough information
+ * @param contactModel
+ */
+export const updateCheckListDetailFormStatus = () => ({
+  profile: true,
+  primary_identification: true,
+  secondary_identification: true,
+  declaration_risk_management: false,
+  report: false,
+  address_information: false
+})
 
 export default checklistReducer
