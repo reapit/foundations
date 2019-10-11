@@ -21,7 +21,9 @@ import {
   checkListDetailAddressUpdateListen,
   updateAddressHistory,
   mapAddressToMetaData,
-  mapArrAddressToUploadImageFunc
+  mapArrAddressToUploadImageFunc,
+  updatePrimaryIdListen,
+  updateSecondaryIdListen
 } from '../checklist-detail'
 import { contact } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -256,7 +258,9 @@ describe('check-list sagas', () => {
         all([
           fork(checklistDetailDataListen),
           fork(checkListDetailUpdateListen),
-          fork(checkListDetailAddressUpdateListen)
+          fork(checkListDetailAddressUpdateListen),
+          fork(updatePrimaryIdListen),
+          fork(updateSecondaryIdListen)
         ])
       )
       expect(gen.next().done).toBe(true)
