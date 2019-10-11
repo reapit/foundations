@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AppConfirmInstallContent render correctly 1`] = `
-<div
-  data-test="confirm-content"
->
+<Fragment>
   <ModalHeader
     afterClose={[MockFunction]}
+    data-test="confirm-content"
     title="Confirm mockAppName installation"
   />
   <ModalBody
@@ -51,15 +50,14 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
       </React.Fragment>
     }
   />
-</div>
+</Fragment>
 `;
 
 exports[`AppConfirmInstallContent render correctly 2`] = `
-<div
-  data-test="confirm-content"
->
+<Fragment>
   <ModalHeader
     afterClose={[MockFunction]}
+    data-test="confirm-content"
     title="Confirm mockAppName installation"
   />
   <ModalBody
@@ -105,15 +103,14 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
       </React.Fragment>
     }
   />
-</div>
+</Fragment>
 `;
 
 exports[`AppConfirmInstallContent render correctly 3`] = `
-<div
-  data-test="confirm-content"
->
+<Fragment>
   <ModalHeader
     afterClose={[MockFunction]}
+    data-test="confirm-content"
     title="Confirm mockAppName installation"
   />
   <ModalBody
@@ -159,15 +156,14 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
       </React.Fragment>
     }
   />
-</div>
+</Fragment>
 `;
 
 exports[`AppConfirmInstallContent render correctly 4`] = `
-<div
-  data-test="confirm-content"
->
+<Fragment>
   <ModalHeader
     afterClose={[MockFunction]}
+    data-test="confirm-content"
     title="Confirm mockAppName installation"
   />
   <ModalBody
@@ -213,7 +209,7 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
       </React.Fragment>
     }
   />
-</div>
+</Fragment>
 `;
 
 exports[`AppConfirmInstallContent render correctly 5`] = `""`;

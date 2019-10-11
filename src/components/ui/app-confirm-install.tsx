@@ -49,8 +49,12 @@ export const AppConfirmInstallContent = ({
   }
 
   return (
-    <div data-test="confirm-content">
-      <ModalHeader title={`Confirm ${appName} installation`} afterClose={afterClose as () => void} />
+    <>
+      <ModalHeader
+        title={`Confirm ${appName} installation`}
+        afterClose={afterClose as () => void}
+        data-test="confirm-content"
+      />
       <ModalBody
         body={
           permissions.length ? (
@@ -99,7 +103,7 @@ export const AppConfirmInstallContent = ({
           </>
         }
       />
-    </div>
+    </>
   )
 }
 

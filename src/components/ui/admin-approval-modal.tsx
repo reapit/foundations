@@ -124,25 +124,28 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
 
   return (
     <>
-      <div data-test="revision-detail-modal">
-        <ModalHeader title={`Confirm ${app.name} revision`} afterClose={closeParentModal as () => void} />
-        <ApproveRevisionModal
-          visible={isApproveModalOpen}
-          afterClose={() => setIsApproveModalOpen(false)}
-          onApproveSuccess={() => {
-            closeParentModal && closeParentModal()
-            setIsApproveModalOpen(false)
-          }}
-        />
-        <DeclineRevisionModal
-          visible={isDeclineModalOpen}
-          afterClose={() => setIsDeclineModalOpen(false)}
-          onDeclineSuccess={() => {
-            closeParentModal && closeParentModal()
-            setIsDeclineModalOpen(false)
-          }}
-        />
-      </div>
+      <ModalHeader
+        title={`Confirm ${app.name} revision`}
+        afterClose={closeParentModal as () => void}
+        data-test="revision-detail-modal"
+      />
+      <ApproveRevisionModal
+        visible={isApproveModalOpen}
+        afterClose={() => setIsApproveModalOpen(false)}
+        onApproveSuccess={() => {
+          closeParentModal && closeParentModal()
+          setIsApproveModalOpen(false)
+        }}
+      />
+      <DeclineRevisionModal
+        visible={isDeclineModalOpen}
+        afterClose={() => setIsDeclineModalOpen(false)}
+        onDeclineSuccess={() => {
+          closeParentModal && closeParentModal()
+          setIsDeclineModalOpen(false)
+        }}
+      />
+
       <ModalBody
         body={
           <>
@@ -165,18 +168,17 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
                 dataTest="revision-diff-isListed"
               />
             </div>
+            {changedMediaList.map(media => (
+              <div className="mb-3" key={media.order}>
+                <h4 className="mb-2 capitalize">
+                  {media.type} {media.order > 0 && <span>{media.order}</span>}
+                </h4>
+                <DiffMedia changedMedia={media.changedMedia} currentMedia={media.currentMedia} type={media.type} />
+              </div>
+            ))}
           </>
         }
       />
-
-      {changedMediaList.map(media => (
-        <div className="mb-3" key={media.order}>
-          <h4 className="mb-2 capitalize">
-            {media.type} {media.order > 0 && <span>{media.order}</span>}
-          </h4>
-          <DiffMedia changedMedia={media.changedMedia} currentMedia={media.currentMedia} type={media.type} />
-        </div>
-      ))}
 
       <ModalFooter
         footerItems={
