@@ -57,9 +57,9 @@ export const contact = {
         documentType: 'Current Benefits Agency letter'
       }
     ],
-    declarationAndRisk: {
+    declarationRisk: {
       type: 'Normal',
-      reson: 'reason',
+      reason: 'reason',
       declarationForm: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png',
       riskAssessmentForm: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png'
     }
