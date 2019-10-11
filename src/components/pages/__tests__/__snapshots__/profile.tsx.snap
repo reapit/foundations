@@ -2,7 +2,10 @@
 
 exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1`] = `
 <Connect(ErrorBoundary)>
-  <div>
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasPadding={true}
+  >
     <div>
       <H3>
         Ms Saoirse Chadwick
@@ -68,13 +71,16 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
         Submit Record for Checks
       </Button>
     </div>
-  </div>
+  </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTING 1`] = `
 <Connect(ErrorBoundary)>
-  <div>
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasPadding={true}
+  >
     <div>
       <H3>
         Ms Saoirse Chadwick
@@ -140,7 +146,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
         Submit Record for Checks
       </Button>
     </div>
-  </div>
+  </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
 `;
 
