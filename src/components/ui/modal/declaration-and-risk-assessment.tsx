@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Button, SelectBox, CameraImageInput, FileInput } from '@reapit/elements'
+import { Input, Button, CameraImageInput, FileInput, SelectBox } from '@reapit/elements'
 import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { RISK_ASSESSMENT_TYPE } from '@/constants/appointment-detail'
@@ -12,6 +12,7 @@ import { STEPS } from './modal'
 import { Dispatch } from 'redux'
 
 const optionsRiskAssessmentType = [
+  { label: 'Please select...', value: '' },
   { label: RISK_ASSESSMENT_TYPE.SIMPLIFIED, value: RISK_ASSESSMENT_TYPE.SIMPLIFIED },
   { label: RISK_ASSESSMENT_TYPE.NORMAL, value: RISK_ASSESSMENT_TYPE.NORMAL },
   { label: RISK_ASSESSMENT_TYPE.ENHANCED, value: RISK_ASSESSMENT_TYPE.ENHANCED }
@@ -25,28 +26,28 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ()
           <label className="label">Declaration Form</label>
           <CameraImageInput
             labelText="Upload file/Take a picture"
-            id="metadata.declarationAndRisk.declarationForm"
-            name="metadata.declarationAndRisk.declarationForm"
+            id="metadata.declarationRisk.declarationInput"
+            name="metadata.declarationRisk.declarationInput"
           />
         </div>
         <SelectBox
           labelText="Risk Assessment Type"
-          id="metadata.declarationAndRisk.type"
-          name="metadata.declarationAndRisk.type"
+          id="metadata.declarationRisk.type"
+          name="metadata.declarationRisk.type"
           options={optionsRiskAssessmentType}
         />
         <Input
           type="text"
           labelText="Reason for Type"
-          id="metadata.declarationAndRisk.reason"
-          name="metadata.declarationAndRisk.reason"
+          id="metadata.declarationRisk.reason"
+          name="metadata.declarationRisk.reason"
         />
         <div>
           <label className="label">Risk Assessment Form</label>
           <FileInput
             labelText="Upload file"
-            id="metadata.declarationAndRisk.riskAssessmentForm"
-            name="metadata.declarationAndRisk.riskAssessmentForm"
+            id="metadata.declarationRisk.riskAssessmentInput"
+            name="metadata.declarationRisk.riskAssessmentInput"
           />
         </div>
       </div>
@@ -73,13 +74,6 @@ export type DeclarationAndRiskAssessmentProps = {
   onHandleSubmit: (values: any) => void
 }
 
-export interface DeclarationAndRiskModel {
-  declarationForm: string
-  riskAssessmentForm: string
-  type: string
-  reason: string
-}
-
 export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessmentProps> = ({
   contact,
   onNextHandler,
@@ -87,15 +81,10 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   onHandleSubmit,
   isSubmitting
 }) => {
-  const data = oc(contact).metadata.declarationAndRisk({}) as DeclarationAndRiskModel
+  const { type, reason } = oc(contact).metadata.declarationRisk({})
   const initialValues = React.useMemo(
     () => ({
-      metadata: {
-        declarationAndRisk: {
-          reason: data.reason,
-          type: data.type || 'Simplified'
-        }
-      }
+      metadata: { declarationRisk: { reason: reason || '', type: type || '' } }
     }),
     [contact]
   )

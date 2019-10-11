@@ -103,13 +103,13 @@ describe('checklist-detail', () => {
   describe('generateSection', () => {
     it('should run correctly', () => {
       const onClick = jest.fn(() => jest.fn())
-      const result = generateSection(onClick)
+      const result = generateSection(contact, onClick)
       expect(result).toHaveLength(8)
     })
   })
   describe('renderSection', () => {
     const mockOnClick = jest.fn(() => jest.fn())
-    const sections = generateSection(mockOnClick)
+    const sections = generateSection(contact, mockOnClick)
     const result = renderSections(sections)
     expect(result).toHaveLength(8)
     const wrapper = shallow(<div>{result}</div>)
