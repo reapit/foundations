@@ -1,4 +1,4 @@
-import { updateCheckListDetailFormStatus } from './../checklist-detail';
+import { updateCheckListDetailFormStatus } from './../checklist-detail'
 import checklistReducer, { defaultState } from '../checklist-detail'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'

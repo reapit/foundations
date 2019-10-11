@@ -2677,7 +2677,7 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
         ]
       }
       data={Array []}
-      loading={false}
+      loading={true}
     />
     <Pagination
       onChange={[Function]}

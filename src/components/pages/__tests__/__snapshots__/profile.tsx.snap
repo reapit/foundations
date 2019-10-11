@@ -2,15 +2,14 @@
 
 exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1`] = `
 <Connect(ErrorBoundary)>
-  <div
-    className="container"
-  >
+  <div>
     <div>
       <H3>
-        Mr Phillips
+        Ms Saoirse Chadwick
       </H3>
       <div>
-        RPS Reference: MX12548
+        RPS Reference: 
+        MKC16000098
       </div>
     </div>
     <div>
@@ -19,8 +18,8 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
         key="Personal Details"
         title="Personal Details"
       >
-        <Component
-          contact={Object {}}
+        <ProfileInformationWithRedux
+          id="MKC16000098"
         />
       </ProfileToggle>
       <ProfileToggle
@@ -28,36 +27,32 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
         key="Primary ID"
         title="Primary ID"
       >
-        <div>
-          details
-        </div>
+        <Connect(Component) />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
-        key="Secondary Id"
-        title="Secondary Id"
+        key="Secondary ID"
+        title="Secondary ID"
       >
-        <div>
-          details
-        </div>
+        <Connect(Component) />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
         key="Address History"
         title="Address History"
       >
-        <div>
-          details
-        </div>
+        <AddressInformationWithRedux
+          id="MKC16000098"
+        />
       </ProfileToggle>
       <ProfileToggle
         complete={false}
         key="Agent checks"
         title="Agent checks"
       >
-        <div>
-          details
-        </div>
+        <AgentCheckWithRedux
+          id="MKC16000098"
+        />
       </ProfileToggle>
     </div>
     <div
@@ -79,15 +74,14 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
 
 exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTING 1`] = `
 <Connect(ErrorBoundary)>
-  <div
-    className="container"
-  >
+  <div>
     <div>
       <H3>
-        Mr Phillips
+        Ms Saoirse Chadwick
       </H3>
       <div>
-        RPS Reference: MX12548
+        RPS Reference: 
+        MKC16000098
       </div>
     </div>
     <div>
@@ -96,8 +90,8 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
         key="Personal Details"
         title="Personal Details"
       >
-        <Component
-          contact={Object {}}
+        <ProfileInformationWithRedux
+          id="MKC16000098"
         />
       </ProfileToggle>
       <ProfileToggle
@@ -105,36 +99,32 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
         key="Primary ID"
         title="Primary ID"
       >
-        <div>
-          details
-        </div>
+        <Connect(Component) />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
-        key="Secondary Id"
-        title="Secondary Id"
+        key="Secondary ID"
+        title="Secondary ID"
       >
-        <div>
-          details
-        </div>
+        <Connect(Component) />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
         key="Address History"
         title="Address History"
       >
-        <div>
-          details
-        </div>
+        <AddressInformationWithRedux
+          id="MKC16000098"
+        />
       </ProfileToggle>
       <ProfileToggle
         complete={false}
         key="Agent checks"
         title="Agent checks"
       >
-        <div>
-          details
-        </div>
+        <AgentCheckWithRedux
+          id="MKC16000098"
+        />
       </ProfileToggle>
     </div>
     <div

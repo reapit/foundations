@@ -2,8 +2,11 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { Profile, ProfileProps } from '../profile'
+import { contact } from '@/sagas/__stubs__/contact'
 
 const props: ProfileProps = {
+  contact: contact,
+  loading: false,
   submitChecks: jest.fn(),
   submitChecksFormState: 'PENDING'
 }

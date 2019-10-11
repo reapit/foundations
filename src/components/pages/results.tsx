@@ -7,6 +7,7 @@ import { ResultsState } from '@/reducers/results'
 import { Pagination, Table, Button, H3, FlexContainerResponsive } from '@reapit/elements'
 import { resultRequestData, ContactsParams } from '@/actions/results'
 import { oc } from 'ts-optchain'
+import Routes from '@/constants/routes'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
@@ -63,7 +64,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
             <Button
               type="button"
               variant="primary"
-              onClick={() => history.push(`/checklist-detail/${row.original.id}`)}
+              onClick={() => history.push(`${Routes.PROFILE}/${row.original.id}`)}
             >
               Edit
             </Button>
@@ -73,7 +74,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
     ],
     []
   )
-  const { search } = resultsState
+  const { search, loading } = resultsState
   const { totalCount, pageSize, data = [] } = oc<ResultsState>(resultsState).contacts({})
 
   const [pageNumber, setPageNumber] = React.useState<number>(1)
@@ -94,7 +95,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
       <FlexContainerResponsive hasPadding flexColumn>
         <H3>Search Results</H3>
         {/* TODO: Will fix this by @Dan Nguyen */}
-        <Table loading={false} data={data} columns={columns} />
+        <Table loading={loading} data={data} columns={columns} />
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
       </FlexContainerResponsive>
     </ErrorBoundary>

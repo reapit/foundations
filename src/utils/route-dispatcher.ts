@@ -17,6 +17,9 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
     case Routes.CHECKLIST_DETAIL_ID:
       store.dispatch(checklistDetailRequestData(id))
       break
+    case Routes.PROFILE_ID:
+      store.dispatch(checklistDetailRequestData(id))
+      break
     default:
       console.error('Route not found, nothing to fetch')
   }

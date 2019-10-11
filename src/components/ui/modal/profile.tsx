@@ -54,12 +54,7 @@ export const filterCommunication = (
   return null
 }
 
-export type ProfileProps = {
-  onNextHandler: () => void
-  contact: ContactModel
-  onSubmitHandler: (values) => void
-  isSubmitting: boolean
-}
+export type ProfileProps = StateProps & DispatchProps
 
 export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubmitHandler, isSubmitting }) => {
   return (
@@ -82,14 +77,28 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubm
   )
 }
 
-export const mapStateToProps = (state: ReduxState) => {
+export type StateProps = {
+  contact: ContactModel
+  isSubmitting: boolean
+}
+
+export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
     contact: oc(state).checklistDetail.checklistDetailData.contact({})
   }
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch, ownProps) => {
+export type DispatchProps = {
+  onNextHandler: () => void
+  onSubmitHandler: (values) => void
+}
+
+export type OwnProps = {
+  id: string
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnProps): DispatchProps => {
   return {
     onSubmitHandler: values => {
       const newValues: ContactModel = {

@@ -71,7 +71,8 @@ exports[`Router should match a snapshot 1`] = `
                 "_status": -1,
               }
             }
-            path="/profile"
+            fetcher={true}
+            path="/profile/:id"
           />
           <Connect(Component)
             allow="CLIENT"

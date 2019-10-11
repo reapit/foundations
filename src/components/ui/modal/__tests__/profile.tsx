@@ -80,7 +80,7 @@ describe('profile', () => {
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
       const mockOwnProps = {
-        id: 1
+        id: '1'
       }
       const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
       onNextHandler()
@@ -89,7 +89,7 @@ describe('profile', () => {
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
       const mockOwnProps = {
-        id: 1
+        id: '1'
       }
       const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
       onNextHandler()

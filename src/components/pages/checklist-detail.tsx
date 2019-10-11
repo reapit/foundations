@@ -60,33 +60,9 @@ export const generateSection = (onClick: (modalType: string) => () => void) => {
       buttonText: 'Edit'
     },
     {
-      title: 'Declaration and Risk Assessment',
-      isCompleted: false,
-      onEdit: onClick(STEPS.DECLARATION_RISK_MANAGEMENT),
-      buttonText: 'Edit'
-    },
-    {
-      title: 'PEP Search',
-      isCompleted: true,
-      onEdit: onClick(STEPS.PEP_SEARCH),
-      buttonText: 'Edit'
-    },
-    {
-      title: 'Experian ',
-      isCompleted: true,
-      onEdit: onClick(STEPS.EXPERIAN),
-      buttonText: 'Edit'
-    },
-    {
       title: 'Agent Check',
       isCompleted: false,
       onEdit: onClick(STEPS.AGENT_CHECK),
-      buttonText: 'View'
-    },
-    {
-      title: 'Report',
-      isCompleted: false,
-      onEdit: onClick(STEPS.REPORT),
       buttonText: 'View'
     }
   ]
@@ -157,7 +133,6 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
     ;({ title = '', forename = '', surname = '' } = contact as ContactModel)
   }
 
-  // TODO: Will replace callback by dispatch to show modald`
   const sections = generateSection(showModal)
   return (
     <ErrorBoundary>

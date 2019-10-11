@@ -9,7 +9,7 @@ import DeclarationAndRiskAssessment from './declaration-and-risk-assessment'
 import AgentCheck from './agent-check'
 
 export const STEPS = {
-  PROFILE: '‘Personal Details',
+  PROFILE: 'Personal Details',
   PRIMARY_IDENTIFICATION: 'Primary Identification',
   SECONDARY_IDENTIFICATION: 'Secondary Identification',
   ADDRESS_INFORMATION: 'Address Information',
