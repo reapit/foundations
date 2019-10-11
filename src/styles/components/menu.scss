@@ -8,7 +8,7 @@
   display: inline-block;
   width: 100%;
   background-color: $reapit-dark-blue-darkened;
-  height: 66px;
+  height: 60px;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -25,11 +25,13 @@
     justify-content: flex-start;
     flex-direction: row;
     overflow-x: scroll;
+    height: 76x;
     
     @media screen and (min-width: 768px) {
       height: 100%;
       flex-direction: column;    
       overflow-x: hidden;  
+      height: 100vh;
     }
   }
 
