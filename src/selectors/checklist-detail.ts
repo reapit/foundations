@@ -1,4 +1,4 @@
-import { STEPS } from './../components/ui/modal/modal'
+import { STEPS } from '@/constants/section'
 import { ReduxState } from '@/types/core'
 import { oc } from 'ts-optchain'
 
@@ -21,15 +21,6 @@ export const selectCheckListDetailFormStatus = (state: ReduxState, formName: str
     case STEPS.ADDRESS_INFORMATION:
       result = oc(state).checklistDetail.status.address_information(false)
       break
-
-    case STEPS.DECLARATION_RISK_MANAGEMENT:
-      result = oc(state).checklistDetail.status.declaration_risk_management(false)
-      break
-
-    case STEPS.REPORT:
-      result = oc(state).checklistDetail.status.report(false)
-      break
-
     default:
   }
 

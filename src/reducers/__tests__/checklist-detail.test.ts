@@ -38,31 +38,6 @@ describe('home reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should clear approvals list data when CHECKLIST_DETAIL_SHOW_MODAL action is called', () => {
-    const newState = checklistReducer(undefined, {
-      type: ActionTypes.CHECKLIST_DETAIL_SHOW_MODAL as ActionType,
-      data: 'PROFILE'
-    })
-    const expected = {
-      ...defaultState,
-      modalContentType: 'PROFILE',
-      isModalVisible: true
-    }
-    expect(newState).toEqual(expected)
-  })
-
-  it('should clear approvals list data when CHECKLIST_DETAIL_HIDE_MODAL action is called', () => {
-    const newState = checklistReducer(undefined, {
-      type: ActionTypes.CHECKLIST_DETAIL_HIDE_MODAL as ActionType,
-      data: undefined
-    })
-    const expected = {
-      ...defaultState,
-      isModalVisible: false
-    }
-    expect(newState).toEqual(expected)
-  })
-
   it('should clear approvals list data when CHECKLIST_DETAIL_SUBMIT_FORM action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM as ActionType,

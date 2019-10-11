@@ -7,18 +7,16 @@ import { ReduxState } from '@/types/core'
 describe('profile', () => {
   describe('renderForm', () => {
     it('should match snapshot', () => {
-      const mockOnNextHandler = jest.fn()
       const mockIsSubmitting = false
-      const component = renderForm({ onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })
+      const component = renderForm({ isSubmitting: mockIsSubmitting })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
   describe('renderForm', () => {
     it('should match snapshot', () => {
-      const mockOnNextHandler = jest.fn()
       const mockIsSubmitting = false
-      const component = renderForm({ onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })
+      const component = renderForm({ isSubmitting: mockIsSubmitting })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -43,7 +41,6 @@ describe('profile', () => {
   describe('Profile', () => {
     const mockProps = {
       contact: contact,
-      onNextHandler: jest.fn(),
       onSubmitHandler: jest.fn(),
       isSubmitting: false
     }
@@ -79,20 +76,14 @@ describe('profile', () => {
   describe('mapDispatchToProps', () => {
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
-      const mockOwnProps = {
-        id: '1'
-      }
-      const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-      onNextHandler()
+      const { onSubmitHandler } = mapDispatchToProps(mockDispatch)
+      onSubmitHandler && onSubmitHandler({})
       expect(mockDispatch).toBeCalled()
     })
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
-      const mockOwnProps = {
-        id: '1'
-      }
-      const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-      onNextHandler()
+      const { onSubmitHandler } = mapDispatchToProps(mockDispatch)
+      onSubmitHandler && onSubmitHandler({})
       expect(mockDispatch).toBeCalled()
     })
   })

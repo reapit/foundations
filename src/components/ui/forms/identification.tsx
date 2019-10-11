@@ -16,11 +16,9 @@ export type IdentificationProps = {
   initFormValues: IdentificationFormValues
   loading: boolean
   onSaveHandler: () => void
-  onNextHandler: () => void
-  onPrevHandler: () => void
 }
 
-export const renderFormHandler = ({ contactModel, loading, onNextHandler, onPrevHandler }) => {
+export const renderFormHandler = ({ contactModel, loading }) => {
   const { id } = contactModel
 
   return (
@@ -40,12 +38,6 @@ export const renderFormHandler = ({ contactModel, loading, onNextHandler, onPrev
           <Button className="mr-2" variant="primary" type="submit" loading={loading}>
             Save
           </Button>
-          <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler} disabled={loading}>
-            Previous
-          </Button>
-          <Button variant="primary" type="button" onClick={onNextHandler} disabled={loading}>
-            Next
-          </Button>
         </div>
       </div>
     </Form>
@@ -58,14 +50,12 @@ export const Identification: React.FC<IdentificationProps> = ({
   loading,
   contactModel,
   initFormValues,
-  onSaveHandler,
-  onNextHandler,
-  onPrevHandler
+  onSaveHandler
 }) => (
   <Formik
     initialValues={initFormValues}
     onSubmit={(formValues: IdentificationFormValues) => onSubmitHandler(formValues, onSaveHandler)}
-    render={() => renderFormHandler({ contactModel, loading, onNextHandler, onPrevHandler })}
+    render={() => renderFormHandler({ contactModel, loading })}
   />
 )
 

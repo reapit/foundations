@@ -8,8 +8,7 @@ import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
 import { ContactModel, AddressModel } from '@/types/contact-api-schema'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
-import { checkListDetailShowModal, checkListDetailAddressUpdateData } from '@/actions/checklist-detail'
-import { STEPS } from '@/components/ui/modal/modal'
+import { checkListDetailAddressUpdateData } from '@/actions/checklist-detail'
 
 const optionsMonth = [
   { label: '1', value: '1' },
@@ -197,14 +196,10 @@ export const renderExtraForm = ({ isShowMoreThreeYearInput, values, index, setFi
   }
 }
 
-export const renderForm = ({
-  addresses,
-  isSubmitting,
-  isShowMoreThreeYearInput,
-  setShowMoreThreeYearInput,
-  onNextHandler,
-  onPrevHandler
-}) => ({ values, setFieldValue }) => {
+export const renderForm = ({ addresses, isSubmitting, isShowMoreThreeYearInput, setShowMoreThreeYearInput }) => ({
+  values,
+  setFieldValue
+}) => {
   return (
     <Form>
       {addresses.map((_, index) => {
@@ -221,13 +216,7 @@ export const renderForm = ({
       {renderExtraForm({ isShowMoreThreeYearInput, values, setFieldValue, index: addresses.length })}
       <div className={styles.footerBtn}>
         <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
-          Submit
-        </Button>
-        <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
-          Previous
-        </Button>
-        <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler}>
-          Next
+          Save
         </Button>
       </div>
     </Form>
@@ -237,18 +226,10 @@ export const renderForm = ({
 export type AddressInformationProps = {
   isSubmitting: boolean
   contact: ContactModel
-  onNextHandler: () => void
-  onPrevHandler: () => void
   onHandleSubmit: (values: any) => void
 }
 
-export const AddressInformation: React.FC<AddressInformationProps> = ({
-  contact,
-  onNextHandler,
-  onPrevHandler,
-  onHandleSubmit,
-  isSubmitting
-}) => {
+export const AddressInformation: React.FC<AddressInformationProps> = ({ contact, onHandleSubmit, isSubmitting }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
   return (
     <div>
@@ -262,8 +243,6 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
           addresses: contact.addresses,
           isShowMoreThreeYearInput,
           setShowMoreThreeYearInput,
-          onNextHandler,
-          onPrevHandler,
           isSubmitting
         })}
       />
@@ -284,26 +263,14 @@ export const mapStateToProps = (state: ReduxState): MappedProps => {
 }
 
 export type MappedActions = {
-  onNextHandler: () => void
-  onPrevHandler: () => void
   onHandleSubmit: (values: AddressModel[]) => void
 }
 
-export type OwnPropsProps = {
-  id: string
-}
-
-export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnPropsProps): MappedActions => {
+export const mapDispatchToProps = (dispatch: Dispatch): MappedActions => {
   return {
     onHandleSubmit: (values: any) => {
-      const newValues = {
-        ...values,
-        id: ownProps.id
-      }
-      dispatch(checkListDetailAddressUpdateData(newValues))
-    },
-    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.AGENT_CHECK)),
-    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.ADDRESS_INFORMATION))
+      dispatch(checkListDetailAddressUpdateData(values))
+    }
   }
 }
 

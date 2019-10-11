@@ -17,8 +17,6 @@ describe('AddressInformation', () => {
     const mockProps = {
       contact,
       isSubmitting: false,
-      onNextHandler: jest.fn(),
-      onPrevHandler: jest.fn(),
       onHandleSubmit: jest.fn()
     }
     const wrapper = shallow(<AddressInformation {...mockProps} />)
@@ -30,9 +28,7 @@ describe('AddressInformation', () => {
       addresses: contact.addresses,
       isShowMoreThreeYearInput: true,
       setShowMoreThreeYearInput: jest.fn(),
-      isSubmitting: false,
-      onNextHandler: jest.fn(),
-      onPrevHandler: jest.fn()
+      isSubmitting: false
     }
     const fn = renderForm(mockProps)
     const component = fn({ values: contact.addresses, setFieldValue: jest.fn() })
@@ -114,20 +110,8 @@ describe('AddressInformation', () => {
   describe('mapDispatchToProps', () => {
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
-      const mockOwnProps = {
-        id: '1'
-      }
-      const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-      onNextHandler()
-      expect(mockDispatch).toBeCalled()
-    })
-    it('should render correctly', () => {
-      const mockDispatch = jest.fn()
-      const mockOwnProps = {
-        id: '1'
-      }
-      const { onPrevHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-      onPrevHandler()
+      const { onHandleSubmit } = mapDispatchToProps(mockDispatch)
+      onHandleSubmit(contact.addresses)
       expect(mockDispatch).toBeCalled()
     })
   })
