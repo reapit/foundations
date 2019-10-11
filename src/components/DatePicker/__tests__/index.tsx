@@ -37,45 +37,83 @@ describe('Date-time picker', () => {
     })
 
     // onChange
-    const form = wrapper.find('form') 
+    const form = wrapper.find('form')
     form.simulate('submit')
 
     setTimeout(() => {
-      expect(submitCallback.mock.calls[0][0]).toMatchObject({test: '1997-11-22T00:00:00'})
+      expect(submitCallback.mock.calls[0][0]).toMatchObject({ test: '1997-11-22T00:00:00' })
       done()
     }, 1);
   })
 
-  it('should map value correctly from formik to text box', done => {
-    const wrapper = mount(
-      <Formik
-        initialValues={{ test: '1997-11-20T17:00:00' }}
-        onSubmit={jest.fn()}
-        render={() => {
-          return (
-            <Form>
-              <DatePicker name="test" id="test" labelText="test" />
-            </Form>
-          )
-        }}
-      />
-    )
+  describe('should map value correctly from formik to text box', () => {
+    it('handles error case', () => {
+      const wrapper = mount(
+        <Formik
+          initialValues={{ test: 'asdfasd' }}
+          onSubmit={jest.fn()}
+          render={() => {
+            return (
+              <Form>
+                <DatePicker name="test" id="test" labelText="test" />
+              </Form>
+            )
+          }}
+        />
+      )
 
-    const input = wrapper.find('input')
-    expect(input.props().value).toBe('20/11/1997')
-    input.simulate('change', {
-      target: {
-        value: '1'
-      }
-    })
-
-    // onChange
-    setTimeout(() => {
-      // Element found is just a snapshoot. Have to get a new snapshoot again.
       const input = wrapper.find('input')
-      expect(input.props().value).toBe('1_/__/____')
-      done()
-    }, 1)
+      expect(input.props().value).toBe('')
+    })
+    it('handles empty case', () => {
+      const wrapper = mount(
+        <Formik
+          initialValues={{ test: '' }}
+          onSubmit={jest.fn()}
+          render={() => {
+            return (
+              <Form>
+                <DatePicker name="test" id="test" labelText="test" />
+              </Form>
+            )
+          }}
+        />
+      )
+
+      const input = wrapper.find('input')
+      expect(input.props().value).toBe('')
+    })
+    it('handles normal case', (done) => {
+      const wrapper = mount(
+        <Formik
+          initialValues={{ test: '1997-11-20T17:00:00' }}
+          onSubmit={jest.fn()}
+          render={() => {
+            return (
+              <Form>
+                <DatePicker name="test" id="test" labelText="test" />
+              </Form>
+            )
+          }}
+        />
+      )
+
+      const input = wrapper.find('input')
+      expect(input.props().value).toBe('20/11/1997')
+      input.simulate('change', {
+        target: {
+          value: '1'
+        }
+      })
+
+      // onChange
+      setTimeout(() => {
+        // Element found is just a snapshoot. Have to get a new snapshoot again.
+        const input = wrapper.find('input')
+        expect(input.props().value).toBe('1_/__/____')
+        done()
+      }, 1)
+    })
   })
 
   it('should match a snapshot', () => {

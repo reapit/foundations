@@ -152,7 +152,15 @@ export const DatePicker = ({ name, id, labelText }: DatePickerProps) => {
       render={({ field, form: { touched, errors, setFieldValue } }) => {
         const fieldValue = field.value
         const parsedDayJsValue = dayjs(fieldValue)
-        const parsedValue = parsedDayJsValue.format('DD/MM/YYYY')
+        let parsedValue = ''
+        let parseDate: Date | undefined = undefined
+
+        if (!parsedDayJsValue.isValid()) {
+          parsedValue = ''
+        } else {
+          parsedValue = parsedDayJsValue.format('DD/MM/YYYY')
+          parseDate = parsedDayJsValue.toDate()
+        }
 
         const hasError = touched[field.name] && errors[field.name]
         const className = hasError ? 'input is-danger' : 'input is-primary'
@@ -170,7 +178,7 @@ export const DatePicker = ({ name, id, labelText }: DatePickerProps) => {
                 labelText={labelText}
                 {...field}
                 value={parsedValue}
-                selected={parsedDayJsValue.toDate()}
+                selected={parseDate}
                 onChange={value => {
                   setFieldValue(name, dayjs(value).format('YYYY-MM-DDTHH:mm:ss'))
                 }}
