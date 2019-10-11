@@ -4,11 +4,11 @@ import { AppointmentModel } from '@/types/appointments'
 describe('getTodayNextAppointment', () => {
   test('Should return the next appointment in today', () => {
     const appointments: AppointmentModel[] = [
-      { start: '2019-12-18T16:30:00' },
-      { start: '2019-14-18T16:30:00' },
-      { start: '2019-12-18T17:10:00' }
+      { start: '2019-10-10T22:00:00' },
+      { start: '2019-10-10T22:45:00' },
+      { start: '2019-10-10T23:00:00' }
     ]
-    expect(getTodayNextAppointment(appointments)).toBe(appointments[2])
+    expect(getTodayNextAppointment(appointments)).toBe(appointments[1])
   })
 
   test('Should return undefined if appointments are from another day(s)', () => {
