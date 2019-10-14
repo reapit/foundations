@@ -51,14 +51,13 @@ export const updateChecklistDetail = function*({ data: { id, metadata, ...rest }
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const contact = yield select(selectCheckListDetailContact)
-    console.log({ ...contact, ...rest })
 
     const responseUpdate = yield call(fetcher, {
       url: `${URLS.contacts}/${id}`,
       api: REAPIT_API_BASE_URL,
       method: 'PATCH',
       headers: headers,
-      body: { ...rest, metadata: { ...contact.metadata, ...metadata } }
+      body: { ...contact, ...rest, metadata: { ...contact.metadata, ...metadata } }
     })
     if (responseUpdate) {
       yield put(checklistDetailRequestData(id as string))
