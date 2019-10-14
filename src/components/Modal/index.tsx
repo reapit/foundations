@@ -61,7 +61,12 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   const [showPortal, hidePortal] = usePortal(
     () => (
       <div className="modal is-active" data-test="modal">
-        <div className="modal-background" data-test="modal-background" id={generatedModalBackgroundId} />
+        <div
+          className="modal-background"
+          data-test="modal-background"
+          id={generatedModalBackgroundId}
+          onClick={afterClose}
+        />
         <div
           className={'modal-content ' + (size === 'medium' ? 'modal-medium' : 'modal-small')}
           data-test="modal-content"

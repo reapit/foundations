@@ -19,7 +19,7 @@ import { Menu } from '../Menu/Menu'
 import { mockMenuProps } from '../Menu/__mocks__/menu-props'
 import { MemoryRouter } from 'react-router'
 
-const Placeholder = ({ text }) => (
+export const Placeholder = ({ text }) => (
   <div style={{ width: '100%', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     {text}
   </div>
