@@ -3,10 +3,12 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { Profile, ProfileProps } from '../profile'
 import { contact } from '@/sagas/__stubs__/contact'
+import { checklistStatus } from '@/sagas/__stubs__/status'
 
 const props: ProfileProps = {
   contact: contact,
   loading: false,
+  status: checklistStatus,
   submitChecks: jest.fn(),
   submitChecksFormState: 'PENDING'
 }

@@ -6,6 +6,23 @@ import {
   checkListDetailSubmitForm
 } from '../actions/checklist-detail'
 import { ContactModel } from '@/types/contact-api-schema'
+import { isCompletedProfile, isCompletedPrimaryID, isCompletedSecondaryID, isCompletedAddress } from '@reapit/elements'
+
+export interface ChecklistStatus {
+  profile: boolean
+  primaryId: boolean
+  secondaryId: boolean
+  addresses: boolean
+  agentChecks: boolean
+}
+
+export const defaultStatus = {
+  profile: false,
+  primaryId: false,
+  secondaryId: false,
+  addresses: false,
+  agentChecks: false
+}
 
 export interface ChecklistDetailState {
   loading: boolean
@@ -13,28 +30,14 @@ export interface ChecklistDetailState {
     contact: ContactModel
   } | null
   isSubmitting: boolean
-  status: {
-    profile: boolean
-    primary_identification: boolean
-    secondary_identification: boolean
-    declaration_risk_management: boolean
-    report: boolean
-    address_information: boolean
-  }
+  status: ChecklistStatus
 }
 
 export const defaultState: ChecklistDetailState = {
   loading: true,
   checklistDetailData: null,
   isSubmitting: false,
-  status: {
-    profile: false,
-    primary_identification: false,
-    secondary_identification: false,
-    declaration_risk_management: false,
-    report: false,
-    address_information: false
-  }
+  status: defaultStatus
 }
 
 const checklistReducer = (state: ChecklistDetailState = defaultState, action: Action<any>): ChecklistDetailState => {
@@ -50,7 +53,7 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
       ...state,
       loading: false,
       checklistDetailData: action.data || null,
-      status: updateCheckListDetailFormStatus()
+      status: updateCheckListDetailFormStatus(action.data.contact)
     }
   }
 
@@ -69,13 +72,12 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
  * TODO: will be implemented when have enough information
  * @param contactModel
  */
-export const updateCheckListDetailFormStatus = () => ({
-  profile: true,
-  primary_identification: true,
-  secondary_identification: true,
-  declaration_risk_management: false,
-  report: false,
-  address_information: false
+export const updateCheckListDetailFormStatus = (contact: ContactModel) => ({
+  profile: isCompletedProfile(contact),
+  primaryId: isCompletedPrimaryID(contact),
+  secondaryId: isCompletedSecondaryID(contact),
+  addresses: isCompletedAddress(contact),
+  agentChecks: false
 })
 
 export default checklistReducer
