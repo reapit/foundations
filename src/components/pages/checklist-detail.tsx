@@ -23,6 +23,7 @@ import { ContactModel, CreateIdentityDocumentModel, CommunicationModel } from '@
 import { STEPS } from '../ui/modal/modal'
 import styles from '@/styles/ui/section.scss?mod'
 import { TiTick } from 'react-icons/ti'
+import { SectionsStatus, defaultStatus } from '@/reducers/checklist-detail'
 
 export type CheckListDetailProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ id?: any }>
 
@@ -94,35 +95,35 @@ export const checkCompleteDeclarationAndRisk = (contact: ContactModel) => {
   return false
 }
 
-export const generateSection = (contact: ContactModel, onClick: (modalType: string) => () => void) => {
+export const generateSection = (status: SectionsStatus, onClick: (modalType: string) => () => void) => {
   return [
     {
       title: 'Personal Details',
-      isCompleted: checkCompletePersonalDetail(contact),
+      isCompleted: status.profile,
       onEdit: onClick(STEPS.PROFILE),
       buttonText: 'Edit'
     },
     {
       title: 'Primary ID',
-      isCompleted: checkCompletePrimaryID(contact),
+      isCompleted: status.primaryId,
       onEdit: onClick(STEPS.PRIMARY_IDENTIFICATION),
       buttonText: 'Edit'
     },
     {
       title: 'Secondary ID',
-      isCompleted: checkCompleteSecondaryID(contact),
+      isCompleted: status.secondaryId,
       onEdit: onClick(STEPS.SECONDARY_IDENTIFICATION),
       buttonText: 'Edit'
     },
     {
       title: 'Address History',
-      isCompleted: checkCompleteAddress(contact),
+      isCompleted: status.addresses,
       onEdit: onClick(STEPS.ADDRESS_INFORMATION),
       buttonText: 'Edit'
     },
     {
       title: 'Declaration and Risk Assessment',
-      isCompleted: checkCompleteDeclarationAndRisk(contact),
+      isCompleted: status.declarationRisk,
       onEdit: onClick(STEPS.DECLARATION_RISK_MANAGEMENT),
       buttonText: 'Edit'
     },
@@ -134,13 +135,13 @@ export const generateSection = (contact: ContactModel, onClick: (modalType: stri
     },
     {
       title: 'Experian ',
-      isCompleted: true,
+      isCompleted: status.experian,
       onEdit: onClick(STEPS.EXPERIAN),
       buttonText: 'Edit'
     },
     {
       title: 'Report',
-      isCompleted: false,
+      isCompleted: status.report,
       onEdit: onClick(STEPS.REPORT),
       buttonText: 'View'
     }
@@ -188,6 +189,7 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   showModal,
   logout,
   contact,
+  status,
   modalContentType,
   match: {
     params: { id }
@@ -216,7 +218,7 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   }
 
   // TODO: Will replace callback by dispatch to show modald`
-  const sections = React.useMemo(() => generateSection(contact, showModal), [contact])
+  const sections = React.useMemo(() => generateSection(status, showModal), [status])
   return (
     <ErrorBoundary>
       <FlexContainerBasic isScrollable>
@@ -229,7 +231,7 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
               <a>Customise Form</a>
             </LevelItem>
           </LevelRight>
-          <AMLProgressBar title={`${title} ${forename} ${surname}`} />
+          <AMLProgressBar title={`${title} ${forename} ${surname}`} status={status} />
           {renderSections(sections)}
         </FlexContainerResponsive>
       </FlexContainerBasic>
@@ -242,6 +244,7 @@ export type HomeMappedProps = {
   isModalVisible: boolean
   loading: boolean
   contact: ContactModel | {}
+  status: SectionsStatus
   modalContentType: string
   mode: LoginMode | undefined
 }
@@ -250,6 +253,7 @@ export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   isModalVisible: oc(state).checklistDetail.isModalVisible(false),
   loading: oc(state).checklistDetail.loading(true),
   contact: oc(state).checklistDetail.checklistDetailData.contact({}),
+  status: oc(state).checklistDetail.status(defaultStatus),
   modalContentType: oc(state).checklistDetail.modalContentType('PROFILE'),
   mode: oc(state).auth.refreshSession.mode()
 })
