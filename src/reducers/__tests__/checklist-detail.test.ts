@@ -33,7 +33,7 @@ describe('home reducer', () => {
       checklistDetailData: {
         contact: contact
       },
-      status: updateCheckListDetailFormStatus()
+      status: updateCheckListDetailFormStatus(contact)
     }
     expect(newState).toEqual(expected)
   })
