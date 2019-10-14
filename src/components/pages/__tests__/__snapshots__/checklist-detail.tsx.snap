@@ -17,7 +17,16 @@ exports[` 1`] = `
           Edit
         </Button>
       }
-    />
+    >
+      <div>
+        <span>
+          <TiTick />
+        </span>
+        <span>
+          Completed
+        </span>
+      </div>
+    </Tile>
   </div>
   <div
     className="pb-4"
@@ -51,7 +60,16 @@ exports[` 1`] = `
           Edit
         </Button>
       }
-    />
+    >
+      <div>
+        <span>
+          <TiTick />
+        </span>
+        <span>
+          Completed
+        </span>
+      </div>
+    </Tile>
   </div>
   <div
     className="pb-4"
@@ -68,16 +86,7 @@ exports[` 1`] = `
           Edit
         </Button>
       }
-    >
-      <div>
-        <span>
-          <TiTick />
-        </span>
-        <span>
-          Completed
-        </span>
-      </div>
-    </Tile>
+    />
   </div>
   <div
     className="pb-4"
@@ -185,6 +194,18 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
         </LevelItem>
       </LevelRight>
       <Component
+        status={
+          Object {
+            "addresses": false,
+            "declarationRisk": false,
+            "experian": true,
+            "pepSearch": false,
+            "primaryId": false,
+            "profile": true,
+            "report": false,
+            "secondaryId": true,
+          }
+        }
         title="Ms Saoirse Chadwick"
       />
       <div
@@ -201,7 +222,16 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               Edit
             </Button>
           }
-        />
+        >
+          <div>
+            <span>
+              <TiTick />
+            </span>
+            <span>
+              Completed
+            </span>
+          </div>
+        </Tile>
       </div>
       <div
         className="pb-4"
@@ -233,7 +263,16 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               Edit
             </Button>
           }
-        />
+        >
+          <div>
+            <span>
+              <TiTick />
+            </span>
+            <span>
+              Completed
+            </span>
+          </div>
+        </Tile>
       </div>
       <div
         className="pb-4"
@@ -249,16 +288,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
               Edit
             </Button>
           }
-        >
-          <div>
-            <span>
-              <TiTick />
-            </span>
-            <span>
-              Completed
-            </span>
-          </div>
-        </Tile>
+        />
       </div>
       <div
         className="pb-4"

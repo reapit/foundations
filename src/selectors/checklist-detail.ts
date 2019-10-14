@@ -11,19 +11,19 @@ export const selectCheckListDetailFormStatus = (state: ReduxState, formName: str
       break
 
     case STEPS.PRIMARY_IDENTIFICATION:
-      result = oc(state).checklistDetail.status.primary_identification(false)
+      result = oc(state).checklistDetail.status.primaryId(false)
       break
 
     case STEPS.SECONDARY_IDENTIFICATION:
-      result = oc(state).checklistDetail.status.secondary_identification(false)
+      result = oc(state).checklistDetail.status.secondaryId(false)
       break
 
     case STEPS.ADDRESS_INFORMATION:
-      result = oc(state).checklistDetail.status.address_information(false)
+      result = oc(state).checklistDetail.status.addresses(false)
       break
 
     case STEPS.DECLARATION_RISK_MANAGEMENT:
-      result = oc(state).checklistDetail.status.declaration_risk_management(false)
+      result = oc(state).checklistDetail.status.declarationRisk(false)
       break
 
     case STEPS.REPORT:
