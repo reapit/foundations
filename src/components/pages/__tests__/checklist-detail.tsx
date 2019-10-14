@@ -11,6 +11,8 @@ import {
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import { getMockRouterProps } from '@/helper/mock-router'
+import { SectionsStatus, defaultStatus } from '@/reducers/checklist-detail'
+import { sectionsStatus } from '@/sagas/__stubs__/status'
 
 describe('checklist-detail', () => {
   describe('mapDispatchToProps', () => {
@@ -38,14 +40,16 @@ describe('checklist-detail', () => {
           modalContentType: 'PROFILE',
           checklistDetailData: {
             contact: contact
-          }
+          },
+          status: sectionsStatus
         }
       } as ReduxState
       const expected = {
         isModalVisible: true,
         loading: true,
         contact: contact,
-        modalContentType: 'PROFILE'
+        modalContentType: 'PROFILE',
+        status: sectionsStatus
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -59,7 +63,8 @@ describe('checklist-detail', () => {
         isModalVisible: false,
         loading: true,
         contact: {},
-        modalContentType: 'PROFILE'
+        modalContentType: 'PROFILE',
+        status: defaultStatus
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -75,6 +80,7 @@ describe('checklist-detail', () => {
         showModal: jest.fn(),
         logout: jest.fn(),
         contact: contact,
+        status: sectionsStatus,
         modalContentType: 'PROFILE',
         mode: 'WEB',
         ...getMockRouterProps({ id: '123' })
@@ -91,6 +97,7 @@ describe('checklist-detail', () => {
         showModal: jest.fn(),
         logout: jest.fn(),
         contact: contact,
+        status: sectionsStatus,
         mode: 'WEB',
         modalContentType: 'PROFILE',
         ...getMockRouterProps({ id: '123' })
@@ -103,13 +110,13 @@ describe('checklist-detail', () => {
   describe('generateSection', () => {
     it('should run correctly', () => {
       const onClick = jest.fn(() => jest.fn())
-      const result = generateSection(contact, onClick)
+      const result = generateSection(sectionsStatus, onClick)
       expect(result).toHaveLength(8)
     })
   })
   describe('renderSection', () => {
     const mockOnClick = jest.fn(() => jest.fn())
-    const sections = generateSection(contact, mockOnClick)
+    const sections = generateSection(sectionsStatus, mockOnClick)
     const result = renderSections(sections)
     expect(result).toHaveLength(8)
     const wrapper = shallow(<div>{result}</div>)

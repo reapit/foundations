@@ -90,7 +90,7 @@ describe('checklist-detail updateChecklistDetail', () => {
   }
   delete mockBody.id
   expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
-  expect(gen.next(mockHeaders as any).value).toEqual(
+  expect(gen.next(true as any).value).toEqual(
     call(fetcher, {
       url: `${URLS.contacts}/${id}`,
       api: REAPIT_API_BASE_URL,

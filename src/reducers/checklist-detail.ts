@@ -10,6 +10,24 @@ import {
   pepSearchResult
 } from '../actions/checklist-detail'
 import { ContactModel } from '@/types/contact-api-schema'
+import {
+  isCompletedProfile,
+  isCompletedPrimaryID,
+  isCompletedSecondaryID,
+  isCompletedDeclarationRisk,
+  isCompletedAddress
+} from '@reapit/elements'
+
+export interface SectionsStatus {
+  profile: boolean
+  primaryId: boolean
+  secondaryId: boolean
+  declarationRisk: boolean
+  addresses: boolean
+  pepSearch: boolean
+  experian: boolean
+  report: boolean
+}
 
 export interface ChecklistDetailState {
   loading: boolean
@@ -22,14 +40,18 @@ export interface ChecklistDetailState {
   // TODO will replace any when integrate API with pepSearchData
   pepSearchResultData: any[] | null
   isSubmitting: boolean
-  status: {
-    profile: boolean
-    primary_identification: boolean
-    secondary_identification: boolean
-    declaration_risk_management: boolean
-    report: boolean
-    address_information: boolean
-  }
+  status: SectionsStatus
+}
+
+export const defaultStatus = {
+  profile: false,
+  primaryId: false,
+  secondaryId: false,
+  declarationRisk: false,
+  addresses: false,
+  pepSearch: false,
+  experian: true,
+  report: false
 }
 
 export const defaultState: ChecklistDetailState = {
@@ -40,14 +62,7 @@ export const defaultState: ChecklistDetailState = {
   isSubmitting: false,
   pepSearchParam: '',
   pepSearchResultData: null,
-  status: {
-    profile: false,
-    primary_identification: false,
-    secondary_identification: false,
-    declaration_risk_management: false,
-    report: false,
-    address_information: false
-  }
+  status: defaultStatus
 }
 
 const checklistReducer = (state: ChecklistDetailState = defaultState, action: Action<any>): ChecklistDetailState => {
@@ -63,7 +78,7 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
       ...state,
       loading: false,
       checklistDetailData: action.data,
-      status: updateCheckListDetailFormStatus()
+      status: updateCheckListDetailFormStatus(action.data.contact)
     }
   }
 
@@ -105,13 +120,15 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
  * TODO: will be implemented when have enough information
  * @param contactModel
  */
-export const updateCheckListDetailFormStatus = () => ({
-  profile: true,
-  primary_identification: true,
-  secondary_identification: true,
-  declaration_risk_management: false,
-  report: false,
-  address_information: false
+export const updateCheckListDetailFormStatus = (contact: ContactModel) => ({
+  profile: isCompletedProfile(contact),
+  primaryId: isCompletedPrimaryID(contact),
+  secondaryId: isCompletedSecondaryID(contact),
+  declarationRisk: isCompletedDeclarationRisk(contact),
+  addresses: isCompletedAddress(contact),
+  pepSearch: false,
+  experian: true,
+  report: false
 })
 
 export default checklistReducer
