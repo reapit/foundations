@@ -5,9 +5,17 @@ exports[`App should match snapshot 1`] = `
   theme={
     Object {
       "colors": Object {
-        "jade": "#00a569",
-        "jumbo": "#828085",
-        "white": "#fff",
+        "backgroundColor": "#00a569",
+        "buttonBackgroundColor": "white",
+        "buttonTextColor": "gray",
+        "inputBackgroundColor": "white",
+        "inputTextColor": "gray",
+        "titleColor": "white",
+      },
+      "font": Object {
+        "baseFontSize": "1rem",
+        "fontFamily": "inherit",
+        "headingFontSize": "",
       },
     }
   }
