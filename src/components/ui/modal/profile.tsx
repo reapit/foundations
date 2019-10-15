@@ -18,7 +18,7 @@ export const renderForm = ({ isSubmitting }) => () => {
       <Input type="text" labelText="Home" id="home" name="home" />
       <Input type="text" labelText="Mobile" id="mobile" name="mobile" />
       <Input type="text" labelText="Work" id="work" name="work" />
-      <Input type="text" labelText="Email" id="email" name="email" />
+      <Input type="email" labelText="Email" id="email" name="email" />
       <div className="flex justify-end">
         <Button loading={isSubmitting} type="submit" className="mr-2" variant="primary">
           Save
