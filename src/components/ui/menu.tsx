@@ -7,6 +7,7 @@ import { authLogout } from '@/actions/auth'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
 import { FaCheck, FaSignOutAlt, FaCloud, FaReadme, FaCloudUploadAlt, FaCloudDownloadAlt } from 'react-icons/fa'
+import { GoDatabase, GoCode } from 'react-icons/go'
 import { oc } from 'ts-optchain'
 
 export const generateMenuConfig = (
@@ -59,6 +60,20 @@ export const generateMenuConfig = (
           icon: <FaCloud className="nav-item-icon" />
         },
         {
+          title: 'Submit',
+          key: 'SUBMIT_APP',
+          url: Routes.SUBMIT_APP,
+          type: 'PRIMARY',
+          icon: <FaCloudUploadAlt className="nav-item-icon" />
+        },
+        {
+          title: 'Swagger',
+          key: 'SWAGGER',
+          url: Routes.DEVELOPER_SWAGGER,
+          type: 'PRIMARY',
+          icon: <GoDatabase className="nav-item-icon" />
+        },
+        {
           title: 'Docs',
           key: 'API_DOCS',
           url: Routes.DEVELOPER_API_DOCS,
@@ -66,11 +81,11 @@ export const generateMenuConfig = (
           icon: <FaReadme className="nav-item-icon" />
         },
         {
-          title: 'Submit',
-          key: 'SUBMIT_APP',
-          url: Routes.SUBMIT_APP,
+          title: 'Elements',
+          key: 'ELEMENTS',
+          url: Routes.DEVELOPER_ELEMENTS,
           type: 'PRIMARY',
-          icon: <FaCloudUploadAlt className="nav-item-icon" />
+          icon: <GoCode className="nav-item-icon" />
         },
         {
           title: 'Logout',
