@@ -9,7 +9,7 @@ import { authLogin } from '@/actions/auth'
 import { validate } from '@/utils/form/login'
 import Routes from '@/constants/routes'
 import { LOGIN_TYPE } from '@/constants/auth'
-import { Input, Button, LoginParams, H1, Level } from '@reapit/elements'
+import { Input, Button, LoginParams, H1, Level, Alert } from '@reapit/elements'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 
@@ -86,7 +86,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                 </Button>
               </Level>
 
-              {error && '<Alert component here />'}
+              {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
             </Form>
           )}
         />
