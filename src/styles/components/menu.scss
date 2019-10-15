@@ -41,6 +41,7 @@
     border: $reapit-dark-blue-darkened 3px solid;
     text-align: center;
     min-width: 66px;
+    object-fit: contain;
 
     @media screen and (min-width: 768px) {
       width: 66px;
