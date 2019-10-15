@@ -1,6 +1,7 @@
 @import '../base/colors.scss';
 @import '../base/fonts.scss';
 
+$nav-dimensions: 66px;
 
 .nav-bar {
   font-family: $family-sans-serif;
@@ -8,14 +9,14 @@
   display: inline-block;
   width: 100%;
   background-color: $reapit-dark-blue-darkened;
-  height: 66px;
+  height: $nav-dimensions;
   position: sticky;
   top: 0;
   z-index: 1;
   
   @media screen and (min-width: 768px) {
     height: 100vh;
-    width: 66px;
+    width: $nav-dimensions;
     overflow: hidden; 
     position: static;
   }
@@ -25,12 +26,13 @@
     justify-content: flex-start;
     flex-direction: row;
     overflow-x: scroll;
-    height: 66px;
+    overflow-y: hidden;
+    height: $nav-dimensions;
     
     @media screen and (min-width: 768px) {
       height: 100%;
       flex-direction: column;    
-      overflow-x: hidden;  
+      overflow-x: hidden;
       height: 100vh;
     }
   }
@@ -39,42 +41,45 @@
     padding: 0.5rem 0.5rem;
     border: $reapit-dark-blue-darkened 3px solid;
     text-align: center;
-    min-width: 66px;
+    width: $nav-dimensions;
+    height: $nav-dimensions;
+    object-fit: contain;
+    color: $reapit-lightest-blue-lightened;
 
     @media screen and (min-width: 768px) {
-      width: 66px;
+      width: $nav-dimensions;
     }
   }
 
-  li a {
-    color: $reapit-lightest-blue-lightened;
-  }
-
-  li.is-active a, :hover {
+  li.is-active, :hover {
     color: $white;
     transition: color 0.1s ease-in-out;
   }
 
   li.is-active {
     border-bottom: $white 3px solid;
-   
+
     @media screen and (min-width: 768px) {
       border-bottom: $reapit-dark-blue-darkened 3px solid;
       border-left: $white 3px solid;
     }
   }
 
-  li.is-secondary {
-    margin-left: auto;
-
-    @media screen and (min-width: 768px) {
-      margin-top: auto;  
-      margin-left: 0; 
+  .nav-item-link {
+    cursor: pointer;
+  
+    &.is-secondary {
+      margin-left: auto;
+      
+      @media screen and (min-width: 768px) {
+        margin-top: auto;  
+        margin-left: 0; 
+      }
     }
   }
 
   .nav-item-icon  {
-    width: 45%;
+    width: 50%;
     height: 100%;
   }
 
