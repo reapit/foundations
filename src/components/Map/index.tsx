@@ -1,6 +1,7 @@
 import React from 'react'
 import GoogleMap from 'react-google-map'
 import ReactGoogleMapLoader from 'react-google-maps-loader'
+import { combineAddress } from '../../utils/combine-address/combine-address'
 
 export type Coords = {
   lat: number
@@ -48,8 +49,7 @@ export const renderMarkers = ({ coordinates, googleMaps, map, markerCallBack }) 
     })
     const infoWindow = new googleMaps.InfoWindow({
       content: `<div id="coordinate-${coordinate.position.lat}-${coordinate.position.lng}">
-                  <div>${coordinate.address1 || ''}</div>
-                  <div>${coordinate.address2 || ''}</div>
+                  <div>${combineAddress(coordinate.address)}</div>
                 </div>`
     })
     googleMaps.event.addListener(marker, 'click', () => {
