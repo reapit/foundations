@@ -24,7 +24,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
         <ProfileInformationWithRedux />
       </ProfileToggle>
       <ProfileToggle
-        complete={true}
+        complete={false}
         key="Primary ID"
         title="Primary ID"
       >
@@ -93,7 +93,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
         <ProfileInformationWithRedux />
       </ProfileToggle>
       <ProfileToggle
-        complete={true}
+        complete={false}
         key="Primary ID"
         title="Primary ID"
       >

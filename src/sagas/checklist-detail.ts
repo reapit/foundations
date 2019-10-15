@@ -47,7 +47,7 @@ export type UpdateCheckListDetailParams = {
   data: ContactModel
 }
 
-export const updateChecklistDetail = function*({ data }: UpdateCheckListDetailParams) {
+export const updateChecklistDetail = function*({ data: { id, metadata, ...rest } }: UpdateCheckListDetailParams) {
   const contact: ContactModel = yield select(selectCheckListDetailContact)
   yield put(checkListDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
@@ -57,7 +57,7 @@ export const updateChecklistDetail = function*({ data }: UpdateCheckListDetailPa
       api: REAPIT_API_BASE_URL,
       method: 'PATCH',
       headers: headers,
-      body: data
+      body: { ...contact, ...rest, metadata: { ...contact.metadata, ...metadata } }
     })
     if (responseUpdate) {
       yield put(checklistDetailRequestData(contact.id as string))
