@@ -2,7 +2,7 @@
 
 exports[`Menu should render link item logo correctly 1`] = `
 <span
-  className="nav-item-link"
+  className="nav-item-link is-logo"
 >
   <div
     className="nav-item-icon"
@@ -16,7 +16,7 @@ exports[`Menu should render link item logo correctly 1`] = `
 
 exports[`Menu should render link item primary correctly 1`] = `
 <Link
-  className="nav-item-link"
+  className="nav-item-link is-primary"
   to="/apps"
 >
   <div
@@ -36,7 +36,7 @@ exports[`Menu should render link item primary correctly 1`] = `
 
 exports[`Menu should render link item secondary correctly 1`] = `
 <a
-  className="nav-item-link"
+  className="nav-item-link is-secondary"
   onClick={[Function]}
 >
   <div
@@ -59,46 +59,46 @@ exports[`Menu should render menu correctly 1`] = `
   className="nav-bar "
 >
   <ul>
-    <li
-      className="nav-item  is-logo"
-      key="LOGO"
-      onClick={[Function]}
-    >
-      <Component
-        item={
-          Object {
-            "icon": <Unknown
-              className="nav-item-icon"
-            />,
-            "key": "LOGO",
-            "type": "LOGO",
-          }
+    <Component
+      item={
+        Object {
+          "icon": <Unknown
+            className="nav-item-icon"
+          />,
+          "key": "LOGO",
+          "type": "LOGO",
         }
+      }
+      key="LOGO"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
       >
         <div>
           <Component
             className="nav-item-icon"
           />
         </div>
-      </Component>
-    </li>
-    <li
-      className="nav-item is-active is-primary"
-      key="APPS"
-      onClick={[Function]}
-    >
-      <Component
-        item={
-          Object {
-            "icon": <FaCloud
-              className="nav-item-icon"
-            />,
-            "key": "APPS",
-            "title": "Apps",
-            "type": "PRIMARY",
-            "url": "/apps",
-          }
+      </li>
+    </Component>
+    <Component
+      item={
+        Object {
+          "icon": <FaCloud
+            className="nav-item-icon"
+          />,
+          "key": "APPS",
+          "title": "Apps",
+          "type": "PRIMARY",
+          "url": "/apps",
         }
+      }
+      key="APPS"
+    >
+      <li
+        className="nav-item is-active"
+        onClick={[Function]}
       >
         <div>
           <FaCloud
@@ -110,25 +110,25 @@ exports[`Menu should render menu correctly 1`] = `
         >
           Apps
         </div>
-      </Component>
-    </li>
-    <li
-      className="nav-item  is-primary"
-      key="INSTALLED"
-      onClick={[Function]}
-    >
-      <Component
-        item={
-          Object {
-            "icon": <FaCloudDownloadAlt
-              className="nav-item-icon"
-            />,
-            "key": "INSTALLED",
-            "title": "Installed",
-            "type": "PRIMARY",
-            "url": "/installed",
-          }
+      </li>
+    </Component>
+    <Component
+      item={
+        Object {
+          "icon": <FaCloudDownloadAlt
+            className="nav-item-icon"
+          />,
+          "key": "INSTALLED",
+          "title": "Installed",
+          "type": "PRIMARY",
+          "url": "/installed",
         }
+      }
+      key="INSTALLED"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
       >
         <div>
           <FaCloudDownloadAlt
@@ -140,25 +140,25 @@ exports[`Menu should render menu correctly 1`] = `
         >
           Installed
         </div>
-      </Component>
-    </li>
-    <li
-      className="nav-item  is-primary"
-      key="SUBMIT"
-      onClick={[Function]}
-    >
-      <Component
-        item={
-          Object {
-            "icon": <FaCloudUploadAlt
-              className="nav-item-icon"
-            />,
-            "key": "SUBMIT",
-            "title": "Submit",
-            "type": "PRIMARY",
-            "url": "/submit",
-          }
+      </li>
+    </Component>
+    <Component
+      item={
+        Object {
+          "icon": <FaCloudUploadAlt
+            className="nav-item-icon"
+          />,
+          "key": "SUBMIT",
+          "title": "Submit",
+          "type": "PRIMARY",
+          "url": "/submit",
         }
+      }
+      key="SUBMIT"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
       >
         <div>
           <FaCloudUploadAlt
@@ -170,25 +170,25 @@ exports[`Menu should render menu correctly 1`] = `
         >
           Submit
         </div>
-      </Component>
-    </li>
-    <li
-      className="nav-item  is-primary"
-      key="DOCS"
-      onClick={[Function]}
-    >
-      <Component
-        item={
-          Object {
-            "icon": <FaReadme
-              className="nav-item-icon"
-            />,
-            "key": "DOCS",
-            "title": "Docs",
-            "type": "PRIMARY",
-            "url": "/docs",
-          }
+      </li>
+    </Component>
+    <Component
+      item={
+        Object {
+          "icon": <FaReadme
+            className="nav-item-icon"
+          />,
+          "key": "DOCS",
+          "title": "Docs",
+          "type": "PRIMARY",
+          "url": "/docs",
         }
+      }
+      key="DOCS"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
       >
         <div>
           <FaReadme
@@ -200,25 +200,25 @@ exports[`Menu should render menu correctly 1`] = `
         >
           Docs
         </div>
-      </Component>
-    </li>
-    <li
-      className="nav-item  is-primary"
-      key="SETTINGS"
-      onClick={[Function]}
-    >
-      <Component
-        item={
-          Object {
-            "icon": <FaCog
-              className="nav-item-icon"
-            />,
-            "key": "SETTINGS",
-            "title": "Settings",
-            "type": "PRIMARY",
-            "url": "/settings",
-          }
+      </li>
+    </Component>
+    <Component
+      item={
+        Object {
+          "icon": <FaCog
+            className="nav-item-icon"
+          />,
+          "key": "SETTINGS",
+          "title": "Settings",
+          "type": "PRIMARY",
+          "url": "/settings",
         }
+      }
+      key="SETTINGS"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
       >
         <div>
           <FaCog
@@ -230,25 +230,25 @@ exports[`Menu should render menu correctly 1`] = `
         >
           Settings
         </div>
-      </Component>
-    </li>
-    <li
-      className="nav-item  is-secondary"
-      key="LOGOUT"
-      onClick={[Function]}
-    >
-      <Component
-        item={
-          Object {
-            "callback": [Function],
-            "icon": <FaSignOutAlt
-              className="nav-item-icon"
-            />,
-            "key": "LOGOUT",
-            "title": "Logout",
-            "type": "SECONDARY",
-          }
+      </li>
+    </Component>
+    <Component
+      item={
+        Object {
+          "callback": [Function],
+          "icon": <FaSignOutAlt
+            className="nav-item-icon"
+          />,
+          "key": "LOGOUT",
+          "title": "Logout",
+          "type": "SECONDARY",
         }
+      }
+      key="LOGOUT"
+    >
+      <li
+        className="nav-item "
+        onClick={[Function]}
       >
         <div>
           <FaSignOutAlt
@@ -260,8 +260,8 @@ exports[`Menu should render menu correctly 1`] = `
         >
           Logout
         </div>
-      </Component>
-    </li>
+      </li>
+    </Component>
   </ul>
 </nav>
 `;
