@@ -325,16 +325,17 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@reapit/elements@^0.4.21":
-  version "0.4.21"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.21.tgz#5373a5aa9bdfa583390415b5538d6ba6886abda5"
-  integrity sha512-PCaqMJ1it7RUpD63cEmluLVvQpJVjXMA2RUr7n2TsGR64zi/AIxeDXiT7qZR7JOOCE3TePwsDiGTiidSYUKhYw==
+"@reapit/elements@^0.4.25":
+  version "0.4.25"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.25.tgz#68595e4285894f84f6a82b9477eea93421b43b58"
+  integrity sha512-Tj0MwlS8dYNkKUATEOqNZv1uKbEjAF9Vw6X6O1tyTcz1acSupwZpbmmt9WmJsbgTDIl3QV+e3RxGZJiIYGPjpg==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.16"
     formik "^1.5.8"
     hardtack "^4.1.0"
     jsonwebtoken "^8.5.1"
+    pell "^1.0.6"
     prop-types "^15.7.2"
     react-datepicker "^2.9.6"
     react-google-map "^3.1.1"
@@ -7210,6 +7211,11 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+pell@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/pell/-/pell-1.0.6.tgz#9edb026f1edec2b4964251cdb2cd6fcadff08a76"
+  integrity sha512-wuackvgjFCHmVABy7ACSmY2u53w+TlYFrVL2hN6V3rGL/iWWwVXMw2uphpZSXNnqFQTI8nMpD3UNNX8+R4BAYw==
 
 pend@~1.2.0:
   version "1.2.0"

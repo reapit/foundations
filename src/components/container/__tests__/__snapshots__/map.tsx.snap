@@ -10,8 +10,20 @@ exports[`Map Should match snapshot 1`] = `
       coordinates={
         Array [
           Object {
-            "address1": "High Street",
-            "address2": "The Stables",
+            "address": Object {
+              "buildingName": "",
+              "buildingNumber": "56",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.079532,
+                "longitude": -0.790871,
+              },
+              "line1": "High Street",
+              "line2": "The Stables",
+              "line3": "Old Haversham",
+              "line4": "Milton Keynes",
+              "postcode": "MK19 7DZ",
+            },
             "id": "NEP1600290",
             "position": Object {
               "lat": 52.079532,
@@ -19,8 +31,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "The Embankment",
-            "address2": "Bedford",
+            "address": Object {
+              "buildingName": "Cornerways",
+              "buildingNumber": "68",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.135071,
+                "longitude": -0.45936,
+              },
+              "line1": "The Embankment",
+              "line2": "Bedford",
+              "line3": "Bedfordshire",
+              "line4": "",
+              "postcode": "MK40 3PD",
+            },
             "id": "BED1600537",
             "position": Object {
               "lat": 52.135071,
@@ -28,8 +52,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "Sandhill Road",
-            "address2": "East Claydon",
+            "address": Object {
+              "buildingName": "The Pines",
+              "buildingNumber": "34",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 51.924759,
+                "longitude": -0.929362,
+              },
+              "line1": "Sandhill Road",
+              "line2": "East Claydon",
+              "line3": "Buckingham",
+              "line4": "Buckinghamshire",
+              "postcode": "MK18 2LZ",
+            },
             "id": "BUC1600211",
             "position": Object {
               "lat": 51.924759,
@@ -37,8 +73,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "Little Tingewick",
-            "address2": "Buckingham",
+            "address": Object {
+              "buildingName": "Wayside",
+              "buildingNumber": "",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 51.989592,
+                "longitude": -1.06774,
+              },
+              "line1": "Little Tingewick",
+              "line2": "Buckingham",
+              "line3": "Buckinghamshire",
+              "line4": "",
+              "postcode": "MK18 4AG",
+            },
             "id": "BUC1600210",
             "position": Object {
               "lat": 51.989592,
@@ -46,8 +94,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "High Street",
-            "address2": "The Stables",
+            "address": Object {
+              "buildingName": "",
+              "buildingNumber": "56",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.079532,
+                "longitude": -0.790871,
+              },
+              "line1": "High Street",
+              "line2": "The Stables",
+              "line3": "Old Haversham",
+              "line4": "Milton Keynes",
+              "postcode": "MK19 7DZ",
+            },
             "id": "NEP1600288",
             "position": Object {
               "lat": 52.079532,
@@ -55,8 +115,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "Shelton Road",
-            "address2": "Yielden",
+            "address": Object {
+              "buildingName": "The Cottage",
+              "buildingNumber": "",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.29491,
+                "longitude": -0.512901,
+              },
+              "line1": "Shelton Road",
+              "line2": "Yielden",
+              "line3": "Bedfordshire",
+              "line4": "",
+              "postcode": "MK44 1AQ",
+            },
             "id": "BED1600534",
             "position": Object {
               "lat": 52.29491,
@@ -64,8 +136,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "The Causeway",
-            "address2": "Carlton",
+            "address": Object {
+              "buildingName": "",
+              "buildingNumber": "49",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.188155,
+                "longitude": -0.604618,
+              },
+              "line1": "The Causeway",
+              "line2": "Carlton",
+              "line3": "Bedford",
+              "line4": "Bedfordshire",
+              "postcode": "MK43 7LU",
+            },
             "id": "BED1600532",
             "position": Object {
               "lat": 52.188155,
@@ -73,8 +157,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "Foxfield",
-            "address2": "Broughton Gate",
+            "address": Object {
+              "buildingName": "",
+              "buildingNumber": "39",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.044516,
+                "longitude": -0.689953,
+              },
+              "line1": "Foxfield",
+              "line2": "Broughton Gate",
+              "line3": "Milton Keynes",
+              "line4": "Buckinghamshire",
+              "postcode": "MK10 7BP",
+            },
             "id": "MKC1600312",
             "position": Object {
               "lat": 52.044516,
@@ -82,8 +178,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "Bedford Road",
-            "address2": "Northill",
+            "address": Object {
+              "buildingName": "The Firs",
+              "buildingNumber": "",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.105969,
+                "longitude": -0.353784,
+              },
+              "line1": "Bedford Road",
+              "line2": "Northill",
+              "line3": "Bedfordshire",
+              "line4": "",
+              "postcode": "SG18 9AW",
+            },
             "id": "BED1600530",
             "position": Object {
               "lat": 52.105969,
@@ -91,8 +199,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "Little Tingewick",
-            "address2": "Buckingham",
+            "address": Object {
+              "buildingName": "Wayside",
+              "buildingNumber": "",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 51.989592,
+                "longitude": -1.06774,
+              },
+              "line1": "Little Tingewick",
+              "line2": "Buckingham",
+              "line3": "Buckinghamshire",
+              "line4": "",
+              "postcode": "MK18 4AG",
+            },
             "id": "BUC1600209",
             "position": Object {
               "lat": 51.989592,
@@ -100,8 +220,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "The Embankment",
-            "address2": "Bedford",
+            "address": Object {
+              "buildingName": "The Homestead",
+              "buildingNumber": "57",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.135071,
+                "longitude": -0.45936,
+              },
+              "line1": "The Embankment",
+              "line2": "Bedford",
+              "line3": "Bedfordshire",
+              "line4": "",
+              "postcode": "MK40 3PD",
+            },
             "id": "BED1600525",
             "position": Object {
               "lat": 52.135071,
@@ -109,8 +241,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "Tyne Crescent",
-            "address2": "Bedford",
+            "address": Object {
+              "buildingName": "",
+              "buildingNumber": "54",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.161384,
+                "longitude": -0.461113,
+              },
+              "line1": "Tyne Crescent",
+              "line2": "Bedford",
+              "line3": "Bedfordshire",
+              "line4": "",
+              "postcode": "MK41 7UJ",
+            },
             "id": "BED1600523",
             "position": Object {
               "lat": 52.161384,
@@ -118,8 +262,20 @@ exports[`Map Should match snapshot 1`] = `
             },
           },
           Object {
-            "address1": "Deacon Place",
-            "address2": "Middleton",
+            "address": Object {
+              "buildingName": "",
+              "buildingNumber": "8",
+              "country": "",
+              "geolocation": Object {
+                "latitude": 52.04681,
+                "longitude": -0.710721,
+              },
+              "line1": "Deacon Place",
+              "line2": "Middleton",
+              "line3": "Milton Keynes",
+              "line4": "",
+              "postcode": "MK10 9FS",
+            },
             "id": "MKC1600311",
             "position": Object {
               "lat": 52.04681,

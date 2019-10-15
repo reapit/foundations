@@ -1,15 +1,14 @@
 import * as React from 'react'
-import { CoordinateProps, Coords, Map } from '@reapit/elements'
+import { CoordinateProps, Coords, Map, combineAddress } from '@reapit/elements'
 import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel, AddressModel } from '@/types/appointments'
 import invalidValues from '@/constants/invalid-values'
 import mapStyles from '@/styles/pages/map.scss?mod'
 import MapPanel from '../ui/map-panel'
 import { appointmentDetailRequestData } from '@/actions/appointment-detail'
 import { Dispatch } from 'redux'
-import { combineAdress } from '@/utils/combine-address'
 
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
 
@@ -28,8 +27,7 @@ export interface Coordinate {
     lat: number
     lng: number
   }
-  address1: string
-  address2: string
+  address: AddressModel
   id: string
 }
 
@@ -73,16 +71,14 @@ export const MapContainer = ({
         const lat = oc(appointment).property.address.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
         const lng = oc(appointment).property.address.geolocation.longitude(UNDEFINED_LATLNG_NUMBER)
         const id = oc(appointment).id(UNDEFINED_NULL_STRING)
-        const address1 = oc(appointment).property.address.line1('')
-        const address2 = oc(appointment).property.address.line2('')
+        const address = oc(appointment).property.address({})
         return {
+          id,
+          address,
           position: {
             lat,
             lng
-          },
-          address1,
-          address2,
-          id
+          }
         }
       }
     )
@@ -140,7 +136,7 @@ export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
   const appointments = oc(state).appointments.appointments.data([])
   const destinationLat = oc(state).direction.destination.property.address.geolocation.latitude(undefined)
   const destinationLng = oc(state).direction.destination.property.address.geolocation.longitude(undefined)
-  const destinationAddress = combineAdress(oc(state).direction.destination.property.address({}))
+  const destinationAddress = combineAddress(oc(state).direction.destination.property.address({}))
   return {
     appointments,
     destinationLatLng: {
