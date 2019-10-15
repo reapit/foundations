@@ -11,7 +11,7 @@ export const renderForm = () => {
       <Input type="text" labelText="Address" id="address" name="address" />
       <Input type="text" labelText="Home" id="home" name="home" />
       <Input type="text" labelText="Mobile" id="mobile" name="mobile" />
-      <Input type="text" labelText="Email" id="email" name="email" />
+      <Input type="email" labelText="Email" id="email" name="email" />
     </Form>
   )
 }
