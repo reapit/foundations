@@ -11,6 +11,7 @@
     display: none;
   }
 
+
   .swagger-ui {
     p,
     a,
@@ -30,12 +31,17 @@
       font-family: $font-family-roboto;
     }
 
+    .info a {
+      color: $reapit-mid-blue;
+    }
+
     .loading, .scheme-container {
       display: none;
     }
 
-    h2 {
-      font-size: 28px;
+    h2, .info h2 {
+      font-family: $font-family-museo-bold;
+      font-size: 2rem;
       font-weight: bold;
     }
 
@@ -45,7 +51,7 @@
 
     .info .base-url, code, .prop-format {
       font-family: $font-family-monospace;
-      color: $grey;
+      color: $grey-dark;
     }
 
     .auth-wrapper {
@@ -58,7 +64,6 @@
 
     .wrapper .block {
       background: #fff;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
       padding: 2rem;
     }
 
@@ -119,7 +124,7 @@
     .markdown,
     .opblock-summary-description {
       font-family: $font-family-roboto;
-      color: $grey;
+      color: $grey-dark;
     }
   }
 }

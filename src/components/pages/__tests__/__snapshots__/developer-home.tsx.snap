@@ -52,13 +52,15 @@ exports[`DeveloperHome should match a snapshot 1`] = `
     }
     loading={false}
     onCardClick={[Function]}
+    pagination={
+      Object {
+        "onChange": [Function],
+        "pageNumber": 2,
+        "pageSize": 2,
+        "totalCount": 6,
+      }
+    }
     title="My Apps"
-  />
-  <Pagination
-    onChange={[Function]}
-    pageNumber={2}
-    pageSize={2}
-    totalCount={6}
   />
   <Component
     afterClose={[Function]}

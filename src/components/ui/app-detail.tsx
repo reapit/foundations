@@ -141,7 +141,6 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
               ))
         }
       />
-      )}
     </>
   )
 }

@@ -58,7 +58,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
   return (
     <>
       {isSuccessed ? (
-        <FlexContainerBasic hasPadding flexColumn>
+        <FlexContainerBasic hasPadding hasBackground flexColumn>
           <CallToAction
             dataTest="submit-success-section"
             onButtonClick={() => submitAppSetFormState('PENDING')}
@@ -73,7 +73,13 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
           </CallToAction>
         </FlexContainerBasic>
       ) : (
-        <FlexContainerBasic flexColumn className={`${isSubmitting ? 'disabled' : ''}`} data-test="app-input-form">
+        <FlexContainerBasic
+          hasPadding
+          hasBackground
+          flexColumn
+          className={`${isSubmitting ? 'disabled' : ''}`}
+          data-test="app-input-form"
+        >
           <H3>Submit App</H3>
           <Formik
             validate={validate}

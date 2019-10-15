@@ -326,16 +326,17 @@
   dependencies:
     stream "^0.0.2"
 
-"@reapit/elements@^0.4.24":
-  version "0.4.24"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.24.tgz#bd46536f5a8b208cbcfbab9ce41f825405eb5a19"
-  integrity sha512-UpjKm9jPysbDiqkPVJlcGINJmXqx6IficCQH4m9EwiQwY9nX4IoLOK7u2Eh+qQU0h5sv1sFd3IKp2+UrCtOdYQ==
+"@reapit/elements@^0.4.28":
+  version "0.4.28"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.28.tgz#d7a8c07393ff3bfa505b733a78cad791f5e8ac23"
+  integrity sha512-yOGaq3RhHjICcs7ZlAEtTRvj8vd8CcSty29YuGMpFUTqwy5SyOvieF8QEPZ/4RH8QoZeevkNvh8qVDFh1sQ11w==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.16"
     formik "^1.5.8"
     hardtack "^4.1.0"
     jsonwebtoken "^8.5.1"
+    pell "^1.0.6"
     prop-types "^15.7.2"
     react-datepicker "^2.9.6"
     react-google-map "^3.1.1"
@@ -7686,6 +7687,11 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+pell@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/pell/-/pell-1.0.6.tgz#9edb026f1edec2b4964251cdb2cd6fcadff08a76"
+  integrity sha512-wuackvgjFCHmVABy7ACSmY2u53w+TlYFrVL2hN6V3rGL/iWWwVXMw2uphpZSXNnqFQTI8nMpD3UNNX8+R4BAYw==
 
 pend@~1.2.0:
   version "1.2.0"
