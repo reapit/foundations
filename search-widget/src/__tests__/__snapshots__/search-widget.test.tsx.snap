@@ -26,6 +26,7 @@ exports[`App should match snapshot 1`] = `
     </styled.div>
     <styled.input
       name="search"
+      onChange={[Function]}
       placeholder="enter your town or postcode"
     />
     <styled.div>
