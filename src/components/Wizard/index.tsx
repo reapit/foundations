@@ -87,14 +87,12 @@ export const Wizard = ({
         <div className={`modal ${visible ? 'is-active' : ''}`}>
           <div className="modal-background"></div>
           <div className="modal-card">
-            <div className={`wizard modal-card-body`}>
-              <div className="wizard-head flex justify-end">
-                <button className="wizard-close" onClick={close}>
-                  <MdClose />
-                </button>
-              </div>
-              {React.Children.toArray(children).filter(({ props }) => props.id === internalCurrent)}
-            </div>
+            <header className="modal-card-head">
+              <button className="wizard-close" onClick={close}>
+                <MdClose />
+              </button>
+            </header>
+            {React.Children.toArray(children).filter(({ props }) => props.id === internalCurrent)}
           </div>
         </div>
       </WizardRenderContextProvider>
@@ -197,17 +195,19 @@ Wizard.Step = function<T>({ Component, initialValue, onNavigate, validate, onSub
         }
 
         return (
-          <Form>
-            <div className="wizard-body">
-              <Component />
+          <>
+            <div className="modal-card-body">
+              <Form>
+                <Component />
+              </Form>
             </div>
-            <div className="wizard-footer">
-              <div className="wizard-footer__left">
+            <footer className="modal-card-foot">
+              <div>
                 {typeof leftFooterRender === 'function' ? leftFooterRender({ context, form }) : leftFooterRender}
               </div>
-              <div className="wizrad-footer__right">{rightRender}</div>
-            </div>
-          </Form>
+              <div>{rightRender}</div>
+            </footer>
+          </>
         )
       }}
     </Formik>

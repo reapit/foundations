@@ -3,8 +3,7 @@ import { Field } from 'formik'
 import ReactDatePicker from 'react-datepicker'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
-
-dayjs.extend(customParseFormat)
+;(dayjs as any).extend(customParseFormat)
 
 const { useState, useEffect } = React
 
@@ -134,7 +133,7 @@ const Input = ({
     <input
       type="input"
       className={className}
-      placeholder="__/__/____"
+      placeholder="DD/MM/YYYY"
       value={inputValue}
       id={id}
       onChange={_onChange}

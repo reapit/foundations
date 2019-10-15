@@ -36,3 +36,7 @@ export const Button: React.SFC<ButtonProps> = ({
     </button>
   )
 }
+
+export const ButtonGroup: React.SFC<{ className?: string }> = ({ className = '', children }) => {
+  return <div className={`is-centered buttons has-addons ${className}`}>{children}</div>
+}

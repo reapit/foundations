@@ -3,7 +3,7 @@ import { makeData } from './make-data'
 import { Table } from '.'
 import { storiesOf } from '@storybook/react'
 
-storiesOf('Table', module).add('Normal Table', () => {
+storiesOf('Table', module).add('Primary', () => {
   const data = makeData(10)
   const columns = [
     {
@@ -23,7 +23,7 @@ storiesOf('Table', module).add('Normal Table', () => {
   return <Table columns={columns} data={data} loading={false} />
 })
 
-storiesOf('Table', module).add('Table Loading', () => {
+storiesOf('Table', module).add('IsLoading', () => {
   const data = makeData(10)
   const columns = [
     {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Button, ButtonProps } from '../index'
+import { Button, ButtonGroup, ButtonProps } from '../index'
 import toJson from 'enzyme-to-json'
 
 const props: ButtonProps = {
@@ -30,5 +30,20 @@ describe('Button', () => {
 
   afterEach(() => {
     jest.resetAllMocks()
+  })
+})
+
+describe('ButtonGroup', () => {
+  it('should match a snapshot', () => {
+    expect(
+      toJson(
+        shallow(
+          <ButtonGroup>
+            <Button {...props}>button text</Button>
+            <Button {...props}>button text</Button>
+          </ButtonGroup>
+        )
+      )
+    ).toMatchSnapshot()
   })
 })

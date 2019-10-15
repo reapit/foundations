@@ -18,7 +18,7 @@ const tabConfigs = ({ tab, handleChangeTab }: any): TabConfig[] => [
   }
 ]
 
-storiesOf('Tabs', module).add('Tabs', () => {
+storiesOf('Tabs', module).add('Primary', () => {
   function Parent({ children }) {
     const [tab, handleChangeTab] = useState('ITEMONE')
     return <div>{children(tab, handleChangeTab)}</div>

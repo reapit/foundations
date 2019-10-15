@@ -35,7 +35,7 @@ describe('RadioSelect', () => {
         )}
       />
     )
-    expect(wrapper.find('label')).toHaveLength(1)
+    expect(wrapper.find('label')).toHaveLength(3)
     expect(wrapper.find('input')).toHaveLength(2)
   })
 })

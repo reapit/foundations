@@ -11,7 +11,7 @@ storiesOf('Loader', module).add('Loader', () => (
   </section>
 ))
 
-storiesOf('Loader', module).add('Loader-body', () => (
+storiesOf('Loader', module).add('LoaderBody', () => (
   <section className="section">
     <div className="column is-half-desktop">
       <Loader />

@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import { Input } from '.'
 import { Form, Formik } from 'formik'
 
-storiesOf('form/Input', module).add('Sample Form', () => (
+storiesOf('Input', module).add('InputVariants', () => (
   <section className="section">
     <Formik
       initialValues={{ text: '', email: '', password: '', tel: '' }}
