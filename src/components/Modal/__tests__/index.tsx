@@ -1,15 +1,17 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import { act } from 'react-dom/test-utils'
 import { Modal } from '../'
 import { renderWithPortalProvider } from '../../../hooks/UsePortal/__tests__/portal-provider'
+import toJson from 'enzyme-to-json'
+import { ModalFooter, ModalBody, ModalHeader } from '../index'
 
 const App: React.FunctionComponent<any> = ({ defaultVisible = false }: { defaultVisible: boolean }) => {
   const [visible, setVisible] = React.useState<boolean>(defaultVisible)
 
   return (
     <div>
-      <Modal visible={visible} afterClose={() => setVisible(false)}>
+      <Modal visible={visible} afterClose={() => setVisible(false)} title="Some Modal Title">
         <div>
           <button data-test="custom-hide-modal-button" onClick={() => setVisible(false)}>
             Hide modal
@@ -65,6 +67,25 @@ const AppCloseModalFromChildModal: React.FunctionComponent<any> = () => {
 }
 
 describe('Modal', () => {
+  it('should match a snapshot for ModalFooter', () => {
+    expect(toJson(shallow(<ModalFooter footerItems={<div>Some footer content</div>} />))).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for ModalBody', () => {
+    expect(toJson(shallow(<ModalBody body={<div>Some body content</div>} />))).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for ModalHeader', () => {
+    expect(toJson(shallow(<ModalHeader title="Some body content" afterClose={jest.fn()} />))).toMatchSnapshot()
+  })
+
+  it('should match a snapshot for ModalHeader', () => {
+    const afterClose = jest.fn()
+    const component = shallow(<ModalHeader title="Some body content" afterClose={afterClose} />)
+    component.find('button').simulate('click', { preventDefault: jest.fn() })
+    expect(afterClose).toHaveBeenCalledTimes(1)
+  })
+
   it('should show Modal when visible prop is true', () => {
     const wrapper = mount(renderWithPortalProvider(<App />))
     const showModalButton = wrapper.find('[data-test="show-modal-button"]')

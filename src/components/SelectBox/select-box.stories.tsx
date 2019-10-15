@@ -5,8 +5,8 @@ import { storiesOf } from '@storybook/react'
 import { SelectBox, SelectBoxOptions } from '.'
 import { action } from '@storybook/addon-actions'
 
-storiesOf('form/SelectBox', module)
-  .add('SelectBox', () => {
+storiesOf('SelectBox', module)
+  .add('Primary', () => {
     const mockedOptions: SelectBoxOptions[] = [{ label: 'option1', value: 'a' }, { label: 'option2', value: 'b' }]
 
     return (
@@ -27,7 +27,7 @@ storiesOf('form/SelectBox', module)
       </section>
     )
   })
-  .add('SelectBox Error', () => {
+  .add('HasError', () => {
     const Parent = () => {
       const ref = useRef(null)
       const mockedOptions: SelectBoxOptions[] = [{ label: 'option1', value: 'a' }, { label: 'option2', value: 'b' }]

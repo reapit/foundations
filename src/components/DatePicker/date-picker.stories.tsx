@@ -5,11 +5,11 @@ import { action } from '@storybook/addon-actions'
 import { DatePicker } from '.'
 import { Form, Formik } from 'formik'
 
-storiesOf('form/DatePicker', module)
-  .add('Date Picker', () => (
+storiesOf('DatePicker', module)
+  .add('Primary', () => (
     <section className="section">
       <Formik
-        initialValues={{ demo: '1997-11-20T17:00:00' }}
+        initialValues={{ demo: '' }}
         onSubmit={values => {
           action('Form Values' + values)
         }}

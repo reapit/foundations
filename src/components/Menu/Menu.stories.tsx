@@ -6,6 +6,6 @@ import { mockMenuProps } from './__mocks__/menu-props'
 
 storiesOf('Menu', module)
   .addDecorator(story => <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>)
-  .add('has defaultActiveKey', () => {
+  .add('Primary', () => {
     return <Menu {...mockMenuProps} />
   })

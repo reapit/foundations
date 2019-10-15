@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import { Checkbox } from '.'
 import { Form, Formik } from 'formik'
 
-storiesOf('form/Checkbox', module).add('Checkbox', () => (
+storiesOf('Checkbox', module).add('Primary', () => (
   <section className="section">
     <Formik
       initialValues={{ checked: 0 }}

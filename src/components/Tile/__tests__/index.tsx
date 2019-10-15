@@ -1,21 +1,21 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import AppointmentTile from '../index'
+import { Tile } from '../index'
 
-describe('AppointmentTile', () => {
+describe('Tile', () => {
   it('should match snapshot when HIGHTLIGHT false', () => {
     const mockProps = {
       heading: 'mockHeading',
       hightlight: false
     }
     const wrapper = shallow(
-      <AppointmentTile {...mockProps}>
+      <Tile {...mockProps}>
         <div>City</div>
         <div>Country</div>
         <div>PostalCode</div>
         <div>"contactPerson"</div>
-      </AppointmentTile>
+      </Tile>
     )
     expect(toJson(wrapper)).toMatchSnapshot()
   })
@@ -26,12 +26,12 @@ describe('AppointmentTile', () => {
       hightlight: true
     }
     const wrapper = shallow(
-      <AppointmentTile {...mockProps}>
+      <Tile {...mockProps}>
         <div>City</div>
         <div>Country</div>
         <div>PostalCode</div>
         <div>"contactPerson"</div>
-      </AppointmentTile>
+      </Tile>
     )
     expect(toJson(wrapper)).toMatchSnapshot()
   })

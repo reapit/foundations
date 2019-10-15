@@ -8,16 +8,14 @@
   display: inline-block;
   width: 100%;
   background-color: $reapit-dark-blue-darkened;
-  min-height: 60px;
-  overflow: scroll;
+  height: 66px;
   position: sticky;
   top: 0;
   z-index: 1;
   
   @media screen and (min-width: 768px) {
     height: 100vh;
-    width: auto;
-    min-width: 50px;
+    width: 66px;
     overflow: hidden; 
     position: static;
   }
@@ -26,10 +24,14 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
+    overflow-x: scroll;
+    height: 66px;
     
     @media screen and (min-width: 768px) {
       height: 100%;
-      flex-direction: column;      
+      flex-direction: column;    
+      overflow-x: hidden;  
+      height: 100vh;
     }
   }
 
@@ -37,10 +39,10 @@
     padding: 0.5rem 0.5rem;
     border: $reapit-dark-blue-darkened 3px solid;
     text-align: center;
-    min-width: 60px;
+    min-width: 66px;
 
     @media screen and (min-width: 768px) {
-      min-width: 50px;
+      width: 66px;
     }
   }
 
@@ -72,9 +74,8 @@
   }
 
   .nav-item-icon  {
-    width: 60%;
+    width: 45%;
     height: 100%;
-    
   }
 
   .is-logo .nav-item-icon {

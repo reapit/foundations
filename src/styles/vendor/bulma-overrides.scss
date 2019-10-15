@@ -1,0 +1,157 @@
+@import "../base/colors.scss";
+@import "../base/fonts.scss";
+
+.notification {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  height: fit-content;
+
+  &.is-success {
+    color: $white;
+  }
+}
+
+.card {
+  border: 1px solid $white;
+
+  &.is-clickable {
+    cursor: pointer;
+  }
+
+  &.hightlight {
+    border: 1px solid $reapit-light-blue;
+  }
+
+  .subtitle {
+    margin-top: -1rem;
+  }
+
+  .media-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+
+    .image {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .media-image {
+    height: 3.5rem;
+    width: 3.5rem;
+
+    .image {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.button, .file-cta {
+  display: inline-block;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.7rem 1rem;
+  height: auto;
+
+  &:first-child {
+    margin-left: auto;
+  }
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  &.is-centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.buttons.has-addons {
+  .button {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .button:last-child {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  .button:first-child {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+.subtitle, .subtitle:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.label {
+  text-transform: uppercase;
+}
+
+.input, .pagination-previous, .pagination-next, .pagination-link, .pagination-ellipsis {
+  height: auto;
+  padding: 0.8rem 1rem;
+  border-radius: 0;
+}
+
+.pagination-previous, .pagination-next, .pagination-link, .pagination-ellipsis {
+  text-transform: uppercase;
+}
+
+.tabs {
+  a {
+
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  li {
+    &.is-active a {
+      border-bottom: 1px solid $reapit-light-blue;
+    }
+  }
+}
+
+.textarea {
+  border-radius: 0;
+  height: 180px;
+}
+
+.container {
+  display: flex;
+
+  &.is-column {
+    flex-direction: column;
+  }
+
+  &.is-centered {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.has-padding {
+    padding: 1rem;
+  }
+
+  &.has-background {
+    background-color: $white;
+  }
+}
+
+.modal-card-title {
+  font-family: $title-family;
+}
+
+.modal-card, .modal-content {
+  margin: 0 auto;
+}

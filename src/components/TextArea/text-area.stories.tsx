@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 import { TextArea } from '.'
 import { Form, Formik } from 'formik'
 
-storiesOf('form/TextArea', module).add('Sample Form', () => (
+storiesOf('TextArea', module).add('Primary', () => (
   <section className="section">
     <Formik
       initialValues={{ primary: '', isDanger: '' }}
