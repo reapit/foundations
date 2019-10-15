@@ -15,35 +15,38 @@ import AddressInformation from '@/components/ui/modal/address-information'
 import AgentCheck from '@/components/ui/modal/agent-check'
 import PrimaryIdentification from '@/components/ui/modal/primary-identification'
 import SecondaryIdentification from '@/components/ui/modal/secondary-identification'
-import { selectCheckListDetailContact } from '@/selectors/checklist-detail'
+import { selectCheckListDetailContact, selectCheckListDetailStatus } from '@/selectors/checklist-detail'
+import { ChecklistStatus } from '@/reducers/checklist-detail'
 
-const items = [
-  {
-    title: 'Personal Details',
-    complete: true,
-    children: <ProfileDetail />
-  },
-  {
-    title: 'Primary ID',
-    complete: true,
-    children: <PrimaryIdentification />
-  },
-  {
-    title: 'Secondary ID',
-    complete: true,
-    children: <SecondaryIdentification />
-  },
-  {
-    title: 'Address History',
-    complete: true,
-    children: <AddressInformation />
-  },
-  {
-    title: 'Agent checks',
-    complete: false,
-    children: <AgentCheck />
-  }
-]
+const generateSection = (status: ChecklistStatus) => {
+  return [
+    {
+      title: 'Personal Details',
+      complete: status.profile,
+      children: <ProfileDetail />
+    },
+    {
+      title: 'Primary ID',
+      complete: status.primaryId,
+      children: <PrimaryIdentification />
+    },
+    {
+      title: 'Secondary ID',
+      complete: status.secondaryId,
+      children: <SecondaryIdentification />
+    },
+    {
+      title: 'Address History',
+      complete: status.addresses,
+      children: <AddressInformation />
+    },
+    {
+      title: 'Agent checks',
+      complete: false,
+      children: <AgentCheck />
+    }
+  ]
+}
 
 export interface ProfileMappedActions {
   submitChecks: () => void
@@ -53,11 +56,12 @@ export interface ProfileMappedProps {
   submitChecksFormState: FormState
   loading: boolean
   contact: ContactModel | { id: string }
+  status: ChecklistStatus
 }
 
 export type ProfileProps = ProfileMappedActions & ProfileMappedProps
 
-export const Profile = ({ submitChecksFormState, submitChecks, loading, contact }: ProfileProps) => {
+export const Profile = ({ submitChecksFormState, submitChecks, loading, contact, status }: ProfileProps) => {
   const isSubmitting = submitChecksFormState === 'SUBMITTING'
 
   if (submitChecksFormState === 'SUCCESS') {
@@ -74,6 +78,8 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact 
     ;({ title = '', forename = '', surname = '' } = contact as ContactModel)
   }
 
+  const section = generateSection(status)
+
   return (
     <ErrorBoundary>
       <FlexContainerResponsive hasPadding flexColumn>
@@ -82,7 +88,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact 
           <div>RPS Reference: {contact.id ? contact.id : ''}</div>
         </div>
         <div>
-          {items.map(({ title, complete, children }) => (
+          {section.map(({ title, complete, children }) => (
             <ProfileToggle key={title} title={title} complete={Boolean(complete)}>
               {children}
             </ProfileToggle>
@@ -107,7 +113,8 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact 
 const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
   submitChecksFormState: state.submitChecks.formState,
   loading: oc(state).checklistDetail.loading(true),
-  contact: selectCheckListDetailContact(state)
+  contact: selectCheckListDetailContact(state),
+  status: selectCheckListDetailStatus(state)
 })
 
 const mapDispatchToProps = (dispatch: any): ProfileMappedActions => ({

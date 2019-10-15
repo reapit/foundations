@@ -1,30 +1,10 @@
 import { STEPS } from '@/constants/section'
 import { ReduxState } from '@/types/core'
 import { oc } from 'ts-optchain'
+import { defaultStatus } from '@/reducers/checklist-detail'
 
-export const selectCheckListDetailFormStatus = (state: ReduxState, formName: string) => {
-  let result: boolean = false
-
-  switch (formName) {
-    case STEPS.PROFILE:
-      result = oc(state).checklistDetail.status.profile(false)
-      break
-
-    case STEPS.PRIMARY_IDENTIFICATION:
-      result = oc(state).checklistDetail.status.primary_identification(false)
-      break
-
-    case STEPS.SECONDARY_IDENTIFICATION:
-      result = oc(state).checklistDetail.status.secondary_identification(false)
-      break
-
-    case STEPS.ADDRESS_INFORMATION:
-      result = oc(state).checklistDetail.status.address_information(false)
-      break
-    default:
-  }
-
-  return result
+export const selectCheckListDetailStatus = (state: ReduxState) => {
+  return oc(state).checklistDetail.status(defaultStatus)
 }
 
 export const selectCheckListDetailContact = (state: ReduxState) => {
