@@ -6,6 +6,8 @@ const Routes = {
   MY_APPS_PAGINATE: '/client/installed/:page',
   DEVELOPER: '/developer',
   DEVELOPER_MY_APPS: '/developer/apps',
+  DEVELOPER_SWAGGER: '/developer/swagger',
+  DEVELOPER_ELEMENTS: '/developer/elements',
   DEVELOPER_MY_APPS_PAGINATE: '/developer/apps/:page',
   DEVELOPER_API_DOCS: '/developer/api-docs',
   SUBMIT_APP: '/developer/submit-app',

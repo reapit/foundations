@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <iframe
+    height="100%"
+    src="https://reapit.github.io/elements/"
+    style={
+      Object {
+        "border": "none",
+      }
+    }
+    width="100%"
+  />
+</Connect(ErrorBoundary)>
+`;

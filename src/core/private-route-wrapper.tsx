@@ -55,7 +55,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       <Menu />
-      <FlexContainerBasic hasPadding isScrollable flexColumn>
+      <FlexContainerBasic hasPadding={location.pathname !== Routes.DEVELOPER_ELEMENTS} isScrollable flexColumn>
         <Suspense
           fallback={
             <Section>
