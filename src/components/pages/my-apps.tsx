@@ -50,6 +50,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   const { totalCount, pageSize } = oc<MyAppsState>(myAppsState).myAppsData.data({})
   const [visible, setVisible] = React.useState(false)
   const isSuccessed = appUninstallFormState === 'SUCCESS'
+  const onChange = (page: number) => history.push(`${routes.MY_APPS}/${page}`)
 
   React.useEffect(() => {
     if (isSuccessed) {
@@ -76,12 +77,12 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
           }
         }}
         infoType="INSTALLED_APPS_EMPTY"
-      />
-      <Pagination
-        onChange={page => history.push(`${routes.MY_APPS}/${page}`)}
-        totalCount={totalCount}
-        pageSize={pageSize}
-        pageNumber={pageNumber}
+        pagination={{
+          totalCount,
+          pageSize,
+          pageNumber,
+          onChange
+        }}
       />
       <AppDetailModal visible={visible} afterClose={() => setVisible(false)} />
     </ErrorBoundary>

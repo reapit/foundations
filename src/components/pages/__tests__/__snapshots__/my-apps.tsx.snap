@@ -53,13 +53,15 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
     loading={false}
     onCardClick={[Function]}
     onSettingsClick={[Function]}
+    pagination={
+      Object {
+        "onChange": [Function],
+        "pageNumber": 2,
+        "pageSize": 2,
+        "totalCount": 6,
+      }
+    }
     title="Installed Apps"
-  />
-  <Pagination
-    onChange={[Function]}
-    pageNumber={2}
-    pageSize={2}
-    totalCount={6}
   />
   <Connect(Component)
     afterClose={[Function]}

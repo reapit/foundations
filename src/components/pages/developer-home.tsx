@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { Loader, Pagination } from '@reapit/elements'
+import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { DeveloperState } from '@/reducers/developer'
 import routes from '@/constants/routes'
@@ -43,6 +43,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   const list = oc<DeveloperState>(developerState).developerData.data.data([])
   const { totalCount, pageSize } = oc<DeveloperState>(developerState).developerData.data({})
   const [visible, setVisible] = React.useState(false)
+  const onChange = (page: number) => history.push(`${routes.DEVELOPER_MY_APPS}/${page}`)
 
   if (unfetched || loading) {
     return <Loader />
@@ -63,12 +64,12 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
           }
         }}
         infoType="DEVELOPER_APPS_EMPTY"
-      />
-      <Pagination
-        onChange={page => history.push(`${routes.DEVELOPER_MY_APPS}/${page}`)}
-        totalCount={totalCount}
-        pageSize={pageSize}
-        pageNumber={pageNumber}
+        pagination={{
+          totalCount,
+          pageSize,
+          pageNumber,
+          onChange
+        }}
       />
       <DeveloperAppModal visible={visible} afterClose={() => setVisible(false)} />
     </ErrorBoundary>

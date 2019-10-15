@@ -6,6 +6,8 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
     className=""
     data-test="app-input-form"
     flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
   >
     <H3>
       Submit App

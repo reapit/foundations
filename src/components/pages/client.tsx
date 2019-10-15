@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { ClientState } from '@/reducers/client'
-import { Loader, Pagination } from '@reapit/elements'
+import { Loader, Pagination, Section } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { oc } from 'ts-optchain'
@@ -40,6 +40,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   const list = oc<ClientState>(clientState).clientData.data.data([])
   const { totalCount, pageSize } = oc<ClientState>(clientState).clientData.data({})
   const [visible, setVisible] = React.useState(false)
+  const onChange = (page: number) => history.push(`${routes.CLIENT}/${page}`)
 
   if (unfetched || loading) {
     return <Loader />
@@ -57,12 +58,12 @@ export const Client: React.FunctionComponent<ClientProps> = ({
           }
         }}
         infoType="CLIENT_APPS_EMPTY"
-      />
-      <Pagination
-        onChange={page => history.push(`${routes.CLIENT}/${page}`)}
-        totalCount={totalCount}
-        pageSize={pageSize}
-        pageNumber={pageNumber}
+        pagination={{
+          totalCount,
+          pageSize,
+          pageNumber,
+          onChange
+        }}
       />
       <AppDetailModal visible={visible} afterClose={() => setVisible(false)} />
     </ErrorBoundary>

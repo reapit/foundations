@@ -1,10 +1,10 @@
 import * as React from 'react'
 
-import { FlexContainerResponsive, Content, H3, H4, H5, Table } from '@reapit/elements'
+import { FlexContainerResponsive, Content, H3, H4, H5, Table, FlexContainerBasic } from '@reapit/elements'
 
 const ApiDocsPage: React.SFC = () => {
   return (
-    <FlexContainerResponsive flexColumn hasBackground hasPadding>
+    <FlexContainerBasic flexColumn hasPadding>
       <Content>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H3>Foundations API </H3>
@@ -219,10 +219,10 @@ const ApiDocsPage: React.SFC = () => {
             <code>
               POST https://foundations.reapit.com/oauth/access_token
               {`
-                {
-                  "clientId" : "xxxxxxxxxxxxxxxx",
-                  "code" : "xxxxxxxxxxxxxxx"
-                }
+  {
+    "clientId" : "xxxxxxxxxxxxxxxx",
+    "code" : "xxxxxxxxxxxxxxx"
+  }
               `}
             </code>
           </pre>
@@ -234,12 +234,12 @@ const ApiDocsPage: React.SFC = () => {
             <code>
               Content-Type: application/json
               {`
-                {
-                  "id_token" : "xxxxxxxxxxxxxx"
-                  "refresh_token" : "xxxxxxxxxxxxxx",
-                  "access_token" : "xxxxxxxxxxxxxx",
-                  "expires_in" : 3600,
-                }
+{
+  "id_token" : "xxxxxxxxxxxxxx"
+  "refresh_token" : "xxxxxxxxxxxxxx",
+  "access_token" : "xxxxxxxxxxxxxx",
+  "expires_in" : 3600,
+}
               `}
             </code>
           </pre>
@@ -324,11 +324,11 @@ const ApiDocsPage: React.SFC = () => {
             <code>
               Content-Type: application/json
               {`
-                {
-                  "statusCode": 404,
-                  "dateTime": "2019-04-23T18:25:43.511Z",
-                  "description": "Contact RPT19000001 was not found."
-                }
+{
+  "statusCode": 404,
+  "dateTime": "2019-04-23T18:25:43.511Z",
+  "description": "Contact RPT19000001 was not found."
+}
               `}
             </code>
           </pre>
@@ -337,17 +337,18 @@ const ApiDocsPage: React.SFC = () => {
             <code>
               Content-Type: application/json
               {`
-                {
-                  "statusCode": 422,
-                  "dateTime": "2019-04-23T18:25:43.511Z",
-                  "description": "The submitted payload has failed validation. See the errors list for more information.",
-                  "errors": [
-                    {
-                      "field" : "caption",
-                      "message" : "Must be less than 50 characters in length."
-                    }
-                  ]
-                }
+{
+  "statusCode": 422,
+  "dateTime": "2019-04-23T18:25:43.511Z",
+  "description": "The submitted payload has failed validation.
+                  See the errors list for more information.",
+  "errors": [
+    {
+      "field" : "caption",
+      "message" : "Must be less than 50 characters in length."
+    }
+  ]
+}
               `}
             </code>
           </pre>
@@ -403,11 +404,13 @@ const ApiDocsPage: React.SFC = () => {
               <br />
               Content-Type: application/json
               {`
-                {
-                  "statusCode": 429,
-                  "dateTime": "2019-04-23T18:25:43.511Z",
-                  "description": "Rate limit for API requests has been hit. Your limit is 1000 requests per minute. This limit will be reset in 30 seconds."
-                }
+{
+  "statusCode": 429,
+  "dateTime": "2019-04-23T18:25:43.511Z",
+  "description": "Rate limit for API requests has been hit.
+                  Your limit is 1000 requests per minute.
+                  This limit will be reset in 30 seconds."
+}
               `}
             </code>
           </pre>
@@ -428,17 +431,17 @@ const ApiDocsPage: React.SFC = () => {
           <H5>Response</H5>
           <pre>
             <code>
-              {`Content-Type: application/json
-                {
-                  "pageNumber": 2,
-                  "pageSize": 10,
-                  "pageCount": 10,
-                  "totalCount" : 142,
-                  "data" : [
-                    ...
-                    ]
-                  }
-                }
+              Content-Type: application/json
+              {`
+{
+  "pageNumber": 2,
+  "pageSize": 10,
+  "pageCount": 10,
+  "totalCount" : 142,
+  "data" : [
+    ...
+  ]
+}               
               `}
             </code>
           </pre>
@@ -473,32 +476,34 @@ const ApiDocsPage: React.SFC = () => {
           <pre>
             <code>
               Content-Type: application/json
-              {`{
-                  "data" :
-                  [
-                    {
-                      "id" : "RPT1900001",
-                      "title" : "Mr",
-                      "forename" : "David",
-                      "surname" : "Smith",
-                      ...
-                      "embedded": {
-                          "identityChecks" : 
-                          [
-                            {
-                              "id" : "RPT1900050",<br />             "contactId" : "RPT1900001",
-                              "status" : "pending",
-                              ...
-                              }
-                            ]
-                        }
-                      }
-                  ],
-                  "pageNumber": 1,
-                  "pageSize": 25,
-                  "pageCount": 25,
-                  "totalCount" : 142,
-                }
+              {`
+{
+  "data" :
+  [
+    {
+      "id" : "RPT1900001",
+      "title" : "Mr",
+      "forename" : "David",
+      "surname" : "Smith",
+      ...
+      "embedded": {
+          "identityChecks" : 
+          [
+            {
+              "id" : "RPT1900050",
+              "contactId" : "RPT1900001",
+              "status" : "pending",
+              ...
+              }
+            ]
+        }
+      }
+  ],
+  "pageNumber": 1,
+  "pageSize": 25,
+  "pageCount": 25,
+  "totalCount" : 142,
+}
               `}
             </code>
           </pre>
@@ -530,7 +535,7 @@ const ApiDocsPage: React.SFC = () => {
           <H4>Versioning</H4>
         </FlexContainerResponsive>
       </Content>
-    </FlexContainerResponsive>
+    </FlexContainerBasic>
   )
 }
 

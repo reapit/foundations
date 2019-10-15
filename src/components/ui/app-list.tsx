@@ -2,7 +2,18 @@ import * as React from 'react'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import AppCard from './app-card'
 import styles from '@/styles/blocks/app-list.scss?mod'
-import { Loader, H3, InfoType, Info, FlexContainerBasic, GridFiveCol, GridFiveColItem } from '@reapit/elements'
+import {
+  Loader,
+  H3,
+  InfoType,
+  Info,
+  GridFiveCol,
+  GridFiveColItem,
+  PaginationProps,
+  Section,
+  Pagination,
+  FlexContainerBasic
+} from '@reapit/elements'
 
 export type AppListProps = {
   list: AppSummaryModel[]
@@ -11,6 +22,7 @@ export type AppListProps = {
   onSettingsClick?: (app: AppSummaryModel) => void
   title: string
   infoType: InfoType
+  pagination: PaginationProps
 }
 
 export const AppList: React.FunctionComponent<AppListProps> = ({
@@ -19,45 +31,47 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   onCardClick,
   onSettingsClick,
   title,
-  infoType
+  infoType,
+  pagination
 }) => {
   return (
-    <FlexContainerBasic flexColumn data-test="app-list-container">
+    <FlexContainerBasic hasPadding flexColumn>
       <H3>{title}</H3>
-      <GridFiveCol className={` ${loading ? styles.contentIsLoading : ''}`}>
-        {!list.length && !loading ? (
-          <Info infoType={infoType} />
-        ) : (
-          list.map(app => (
-            <GridFiveColItem key={app.id}>
-              <AppCard
-                app={app}
-                onClick={
-                  onCardClick
-                    ? (event: React.MouseEvent) => {
-                        event.stopPropagation()
-                        onCardClick(app)
-                      }
-                    : undefined
-                }
-                onSettingsClick={
-                  onSettingsClick
-                    ? (event: React.MouseEvent) => {
-                        event.stopPropagation()
-                        onSettingsClick(app)
-                      }
-                    : undefined
-                }
-              />
-            </GridFiveColItem>
-          ))
-        )}
-      </GridFiveCol>
-      {loading && (
-        <div className={styles.loaderContainer}>
-          <Loader />
-        </div>
-      )}
+      <div>
+        <GridFiveCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
+          {!list.length && !loading ? (
+            <Info infoType={infoType} />
+          ) : (
+            list.map(app => (
+              <GridFiveColItem key={app.id}>
+                <AppCard
+                  app={app}
+                  onClick={
+                    onCardClick
+                      ? (event: React.MouseEvent) => {
+                          event.stopPropagation()
+                          onCardClick(app)
+                        }
+                      : undefined
+                  }
+                  onSettingsClick={
+                    onSettingsClick
+                      ? (event: React.MouseEvent) => {
+                          event.stopPropagation()
+                          onSettingsClick(app)
+                        }
+                      : undefined
+                  }
+                />
+              </GridFiveColItem>
+            ))
+          )}
+        </GridFiveCol>
+      </div>
+      <Section>
+        <Pagination {...pagination} />
+      </Section>
+      {loading && <Loader body />}
     </FlexContainerBasic>
   )
 }
