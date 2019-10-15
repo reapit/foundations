@@ -31,15 +31,31 @@ export const getActiveItemKey = (menu: MenuItem[], location?: Location<any>): st
 
 export const LinkItem: React.SFC<{ item: MenuItem; children: React.ReactNode }> = ({ item, children }) =>
   item.url ? (
-    <Link className="nav-item-link" to={item.url}>
+    <Link
+      className={`nav-item-link ${
+        item.type === 'LOGO' ? 'is-logo' : item.type === 'SECONDARY' ? 'is-secondary' : 'is-primary'
+      }`}
+      to={item.url}
+    >
       {children}
     </Link>
   ) : item.callback ? (
-    <a className="nav-item-link" onClick={item.callback}>
+    <a
+      className={`nav-item-link ${
+        item.type === 'LOGO' ? 'is-logo' : item.type === 'SECONDARY' ? 'is-secondary' : 'is-primary'
+      }`}
+      onClick={item.callback}
+    >
       {children}
     </a>
   ) : (
-    <span className="nav-item-link">{children}</span>
+    <span
+      className={`nav-item-link ${
+        item.type === 'LOGO' ? 'is-logo' : item.type === 'SECONDARY' ? 'is-secondary' : 'is-primary'
+      }`}
+    >
+      {children}
+    </span>
   )
 
 export const Menu: React.FC<MenuConfig> = React.memo(({ menu, location, mode, defaultActiveKey }) => {
@@ -49,18 +65,15 @@ export const Menu: React.FC<MenuConfig> = React.memo(({ menu, location, mode, de
     <nav className={`nav-bar ${mode === 'DESKTOP' ? 'is-desktop' : ''}`}>
       <ul>
         {menu.map((item: MenuItem) => (
-          <li
-            className={`nav-item ${activeKey === item.key ? 'is-active' : ''} ${
-              item.type === 'LOGO' ? 'is-logo' : item.type === 'SECONDARY' ? 'is-secondary' : 'is-primary'
-            }`}
-            key={item.key}
-            onClick={() => item.type !== 'LOGO' && setIsActive(item.key)}
-          >
-            <LinkItem item={item}>
+          <LinkItem key={item.key} item={item}>
+            <li
+              className={`nav-item ${activeKey === item.key ? 'is-active' : ''}`}
+              onClick={() => item.type !== 'LOGO' && setIsActive(item.key)}
+            >
               <div>{item.icon}</div>
               {item.title && <div className="nav-item-title">{item.title}</div>}
-            </LinkItem>
-          </li>
+            </li>
+          </LinkItem>
         ))}
       </ul>
     </nav>
