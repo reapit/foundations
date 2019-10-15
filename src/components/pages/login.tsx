@@ -65,7 +65,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
             <Form data-test="login-form">
               <Input
                 dataTest="login-email"
-                type="text"
+                type="email"
                 labelText="Email"
                 id="email"
                 name="email"
