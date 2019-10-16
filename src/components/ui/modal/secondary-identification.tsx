@@ -5,9 +5,17 @@ import Identification, { IdentificationFormValues } from '@/components/ui/forms/
 import { checkListDetailSecondaryIdUpdateData } from '@/actions/checklist-detail'
 import { ReduxState } from '@/types/core'
 import { selectCheckListDetailContact, selectCheckListDetailSecondaryId } from '@/selectors/checklist-detail'
+import { oc } from 'ts-optchain'
 
-export const SecondaryIdentification = ({ contactModel, initFormValues, loading, updateIdentification }) => (
+export const SecondaryIdentification = ({
+  contactModel,
+  initFormValues,
+  loading,
+  updateIdentification,
+  isDesktopMode
+}) => (
   <Identification
+    isDesktopMode={isDesktopMode}
     loading={loading}
     initFormValues={initFormValues}
     contactModel={contactModel}
@@ -19,6 +27,7 @@ export const mapStateToProps = (state: ReduxState) => {
   const { isSubmitting } = state.checklistDetail
   const contactModel = selectCheckListDetailContact(state)
   const secondaryId = selectCheckListDetailSecondaryId(state)
+  const isDesktopMode = oc(state).auth.refreshSession.mode() === 'DESKTOP'
 
   const initFormValues = {
     typeId: secondaryId.typeId,
@@ -30,7 +39,8 @@ export const mapStateToProps = (state: ReduxState) => {
   return {
     loading: isSubmitting,
     contactModel,
-    initFormValues
+    initFormValues,
+    isDesktopMode
   }
 }
 
