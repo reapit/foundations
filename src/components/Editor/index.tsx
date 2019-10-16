@@ -1,4 +1,5 @@
 import * as React from 'react'
+// @ts-ignore: no available type definition
 import pell from 'pell'
 
 export interface EditorProps {
