@@ -55,7 +55,7 @@ export const defaultStatus = {
 }
 
 export const defaultState: ChecklistDetailState = {
-  loading: false,
+  loading: true,
   isModalVisible: false,
   checklistDetailData: null,
   modalContentType: STEPS.PROFILE,

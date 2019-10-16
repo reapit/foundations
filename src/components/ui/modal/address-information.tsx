@@ -60,147 +60,63 @@ export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThree
   setShowMoreThreeYearInput(!isShowMoreThreeYearInput)
 }
 
-export const AddressInput = ({ index, values, setFieldValue, isDesktopMode }) => {
+export const AddressInput = ({ index, isDesktopMode }) => {
   return (
     <div key={index}>
-      <Input
-        type="hidden"
-        labelText="Type"
-        id={`addresses[${index}][type]`}
-        name={`addresses[${index}][type]`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].type : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].type`)}
-      />
+      <Input type="hidden" labelText="Type" id={`addresses[${index}][type]`} name={`addresses[${index}][type]`} />
       <Input
         type="text"
         labelText="Building Name"
         id={`addresses[${index}][buildingName]`}
         name={`addresses[${index}][buildingName]`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].buildingName : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].buildingName`)}
       />
       <Input
         type="text"
         labelText="Building Number"
         id={`addresses[${index}][buildingNumber]`}
         name={`addresses[${index}][buildingNumber]`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].buildingNumber : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].buildingNumber`)}
       />
-      <Input
-        type="text"
-        labelText="Line 1"
-        id={`addresses[${index}][line1]`}
-        name={`addresses[${index}][line1]`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].line1 : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].line1`)}
-      />
-      <Input
-        type="text"
-        labelText="Line 2"
-        id={`addresses[${index}][line2]`}
-        name={`addresses[${index}][line2]`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].line2 : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].line2`)}
-      />
-      <Input
-        type="text"
-        labelText="Line 3"
-        id={`addresses[${index}][line3]`}
-        name={`addresses[${index}][line3]`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].line3 : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].line3`)}
-      />
-      <Input
-        type="text"
-        labelText="Line 4"
-        id={`addresses[${index}][line4]`}
-        name={`addresses[${index}][line4]`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].line4 : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].line4`)}
-      />
+      <Input type="text" labelText="Line 1" id={`addresses[${index}][line1]`} name={`addresses[${index}][line1]`} />
+      <Input type="text" labelText="Line 2" id={`addresses[${index}][line2]`} name={`addresses[${index}][line2]`} />
+      <Input type="text" labelText="Line 3" id={`addresses[${index}][line3]`} name={`addresses[${index}][line3]`} />
+      <Input type="text" labelText="Line 4" id={`addresses[${index}][line4]`} name={`addresses[${index}][line4]`} />
       <Input
         type="text"
         labelText="Post Code"
         id={`addresses[${index}][postcode]`}
         name={`addresses[${index}][postcode]`}
-        value={values.addresses && values.addresses[index] ? values.addresses[index].postcode : null}
-        onChange={() => setFieldValue(`values.addresses[${index}].postcode`)}
       />
       <SelectBox
         labelText="Number of Years at Address"
         options={renderYearOptions()}
         id={`metadata.addresses[${index}][year]`}
         name={`metadata.addresses[${index}][year]`}
-        value={
-          values.metadata && values.metadata.addresses && values.metadata.addresses[index]
-            ? values.metadata.addresses[index].year
-            : null
-        }
-        onChange={() => setFieldValue(`values.metadata.addresses[${index}].year`)}
       />
       <SelectBox
         labelText="Number of Months at Address"
         id={`metadata.addresses[${index}][month]`}
         name={`metadata.addresses[${index}][month]`}
         options={optionsMonth}
-        value={
-          values.metadata && values.metadata.addresses && values.metadata.addresses[index]
-            ? values.metadata.addresses[index].month
-            : null
-        }
-        onChange={() => setFieldValue(`values.metadata.addresses[${index}].month`)}
       />
       <SelectBox
         labelText="Document Type"
         id={`metadata.addresses[${index}][documentType]`}
         name={`metadata.addresses[${index}][documentType]`}
         options={optionsDocumentType}
-        value={
-          values.metadata && values.metadata.addresses && values.metadata.addresses[index]
-            ? values.metadata.addresses[index].documentType
-            : null
-        }
-        onChange={() => setFieldValue(`values.metadata.addresses[${index}].documentType`)}
-      />
-      <Input
-        type="hidden"
-        id={`metadata.addresses[${index}][documentImage]`}
-        name={`metadata.addresses[${index}][documentImage]`}
-        value={
-          values.metadata && values.metadata.addresses && values.metadata.addresses[index]
-            ? values.metadata.addresses[index].documentImage
-            : null
-        }
-        onChange={() => setFieldValue(`values.metadata.addresses[${index}].documentImage`)}
       />
       <CameraImageInput
         labelText={isDesktopMode ? 'Upload file' : 'Upload file/Take a picture'}
-        id={`metadata.addresses.[${index}][documentFileInput]`}
-        name={`metadata.addresses.[${index}][documentFileInput]`}
-        value={
-          values.metadata && values.metadata.addresses && values.metadata.addresses[index]
-            ? values.metadata.addresses[index].documentFileInput
-            : null
-        }
-        onChange={() => setFieldValue(`values.metadata.addresses[${index}].documentFileInput`)}
+        id={`metadata.addresses.[${index}][documentImage]`}
+        name={`metadata.addresses.[${index}][documentImage]`}
+        allowClear={true}
       />
     </div>
   )
 }
 
-export const renderExtraForm = ({ isShowMoreThreeYearInput, values, index, setFieldValue, isDesktopMode }) => {
+export const renderExtraForm = ({ isShowMoreThreeYearInput, index, isDesktopMode }) => {
   if (isShowMoreThreeYearInput) {
-    return (
-      <AddressInput
-        data-test="address-input"
-        key={index}
-        index={index}
-        values={values}
-        setFieldValue={setFieldValue}
-        isDesktopMode={isDesktopMode}
-      />
-    )
+    return <AddressInput data-test="address-input" key={index} index={index} isDesktopMode={isDesktopMode} />
   }
 }
 
@@ -212,19 +128,11 @@ export const renderForm = ({
   onNextHandler,
   onPrevHandler,
   isDesktopMode
-}) => ({ values, setFieldValue }) => {
+}) => () => {
   return (
     <Form>
       {addresses.map((_, index) => {
-        return (
-          <AddressInput
-            key={index}
-            index={index}
-            values={values}
-            setFieldValue={setFieldValue}
-            isDesktopMode={isDesktopMode}
-          />
-        )
+        return <AddressInput key={index} index={index} isDesktopMode={isDesktopMode} />
       })}
       <div className={styles.moreThreeYearLink}>
         <a
@@ -234,7 +142,7 @@ export const renderForm = ({
           More than 3 year?
         </a>
       </div>
-      {renderExtraForm({ isShowMoreThreeYearInput, values, setFieldValue, index: addresses.length, isDesktopMode })}
+      {renderExtraForm({ isShowMoreThreeYearInput, index: addresses.length, isDesktopMode })}
       <div className={styles.footerBtn}>
         <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
           Save

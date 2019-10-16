@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
 import { ContactModel } from '@/types/contact-api-schema'
-import { Button, Input, FileInput, DatePicker } from '@reapit/elements'
+import { Button, Input, DatePicker, CameraImageInput } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/identification.scss?mod'
 
@@ -37,7 +37,12 @@ export const renderFormHandler = ({ contactModel, loading, onNextHandler, onPrev
       <SelectIdentity id="typeId" name="typeId" labelText="ID Type" />
       <Input id="details" name="details" type="text" placeholder="ID Reference" labelText="ID Reference" />
       <DatePicker id="expiry" name="expiry" labelText="Expiry Date" />
-      <FileInput id="fileUrl" name="fileUrl" labelText={isDesktopMode ? 'Upload File' : 'Upload File/Take a Pic'} />
+      <CameraImageInput
+        id="fileUrl"
+        name="fileUrl"
+        labelText={isDesktopMode ? 'Upload File' : 'Upload File/Take a Pic'}
+        allowClear={true}
+      />
 
       <div className={`flex mt-4 ${styles.justifyBetween}`}>
         <div className="flex items-center">

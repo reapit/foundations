@@ -37,7 +37,7 @@ describe('AddressInformation', () => {
       isDesktopMode: true
     }
     const fn = renderForm(mockProps)
-    const component = fn({ values: contact.addresses, setFieldValue: jest.fn() })
+    const component = fn()
     expect(component).toBeDefined()
   })
 
@@ -148,8 +148,6 @@ describe('AddressInformation', () => {
     it('should render correctly', () => {
       const mockProps = {
         index: 0,
-        values: contact.addresses,
-        setFieldValue: jest.fn(),
         isDesktopMode: true
       }
       const wrapper = shallow(<AddressInput {...mockProps} />)

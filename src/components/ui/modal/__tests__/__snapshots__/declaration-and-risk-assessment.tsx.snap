@@ -7,10 +7,44 @@ exports[`DeclarationAndRiskAssessment should match snapshot 1`] = `
     initialValues={
       Object {
         "metadata": Object {
+          "addresses": Array [
+            Object {
+              "documentImage": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg",
+              "documentType": "Current Benefits Agency letter",
+              "month": "6",
+              "year": "1911",
+            },
+          ],
           "declarationRisk": Object {
+            "declarationForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
             "reason": "reason",
+            "riskAssessmentForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
             "type": "Normal",
           },
+          "primaryId": Array [
+            Object {
+              "documents": Array [
+                Object {
+                  "details": "1123",
+                  "expiry": "2019-10-15T10:00:00Z",
+                  "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg",
+                  "typeId": "CR",
+                },
+              ],
+            },
+          ],
+          "secondaryId": Array [
+            Object {
+              "documents": Array [
+                Object {
+                  "details": "123",
+                  "expiry": "2019-10-10T00:00:00Z",
+                  "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg",
+                  "typeId": "PP",
+                },
+              ],
+            },
+          ],
         },
       }
     }
