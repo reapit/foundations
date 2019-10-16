@@ -82,7 +82,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
 
   return (
     <ErrorBoundary>
-      <FlexContainerResponsive hasPadding flexColumn>
+      <FlexContainerResponsive hasPadding flexColumn hasBackground>
         <div className={styles.header}>
           <H3>{`${title} ${forename} ${surname}`}</H3>
           <div>RPS Reference: {contact.id ? contact.id : ''}</div>

@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navbar should run correctly 1`] = `ShallowWrapper {}`;
+exports[`Navbar should match as snapshot 1`] = `ShallowWrapper {}`;

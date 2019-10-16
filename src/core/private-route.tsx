@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import Navbar from '@/components/ui/navbar/navbar'
+import { FlexContainerBasic } from '@reapit/elements'
 
 export type LoginType = 'CLIENT' | 'DEVELOPER'
 
@@ -38,14 +39,10 @@ export const PrivateRoute = ({
         const Component = component
 
         return (
-          <>
-            <Navbar
-              logout={() => {
-                console.log('logout callback')
-              }}
-            />
+          <FlexContainerBasic flexColumn>
+            <Navbar />
             {fetcher ? <RouteFetcher routerProps={props} Component={component} /> : <Component />}
-          </>
+          </FlexContainerBasic>
         )
       }}
     />

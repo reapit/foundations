@@ -4,6 +4,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
 <Connect(ErrorBoundary)>
   <FlexContainerResponsive
     flexColumn={true}
+    hasBackground={true}
     hasPadding={true}
   >
     <div>
@@ -73,6 +74,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
 <Connect(ErrorBoundary)>
   <FlexContainerResponsive
     flexColumn={true}
+    hasBackground={true}
     hasPadding={true}
   >
     <div>

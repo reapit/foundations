@@ -5,9 +5,11 @@ import { withRouter } from 'react-router'
 import Routes from '../constants/routes'
 import { ReduxState } from '@/types/core'
 import { selectUserLoginStatus } from '@/selectors/auth'
-import { Loader, RefreshParams, getTokenFromQueryString } from '@reapit/elements'
+import { Loader, RefreshParams, getTokenFromQueryString, AppNavContainer } from '@reapit/elements'
 import { Dispatch } from 'redux'
 import { authSetRefreshSession } from '../actions/auth'
+import Menu from '@/components/ui/menu'
+import { oc } from 'ts-optchain'
 
 const { Suspense } = React
 
@@ -43,15 +45,16 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   return (
-    <main>
-      <Suspense fallback={<Loader />}>{children}</Suspense>
-    </main>
+    <AppNavContainer>
+      <Menu />
+      <Suspense fallback={<Loader body />}>{children}</Suspense>
+    </AppNavContainer>
   )
 }
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
   hasSession: selectUserLoginStatus(state),
-  isDesktopMode: false
+  isDesktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({

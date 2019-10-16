@@ -3,11 +3,8 @@ import { shallow } from 'enzyme'
 import Navbar from '../navbar'
 
 describe('Navbar', () => {
-  it('should run correctly', () => {
-    const mockProps = {
-      logout: jest.fn()
-    }
-    const wrapper = shallow(<Navbar {...mockProps} />)
+  it('should match as snapshot', () => {
+    const wrapper = shallow(<Navbar />)
     expect(wrapper).toMatchSnapshot()
   })
 })
