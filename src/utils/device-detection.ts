@@ -20,5 +20,5 @@ export function isMobile() {
     return () => window.removeEventListener('resize', onResize)
   })
 
-  return isAndroid() || isIOS() || windowWidth <= 768
+  return windowWidth <= 768
 }
