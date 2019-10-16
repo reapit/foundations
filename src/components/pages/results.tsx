@@ -4,7 +4,7 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { ReduxState } from '@/types/core'
 import { ResultsState } from '@/reducers/results'
-import { Pagination, Table, Button, H3, FlexContainerResponsive } from '@reapit/elements'
+import { Pagination, Table, Button, H3, FlexContainerResponsive, FlexContainerBasic } from '@reapit/elements'
 import { resultRequestData, ContactsParams } from '@/actions/results'
 import { oc } from 'ts-optchain'
 import Routes from '@/constants/routes'
@@ -92,12 +92,21 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
 
   return (
     <ErrorBoundary>
-      <FlexContainerResponsive hasPadding flexColumn>
-        <H3>Search Results</H3>
-        {/* TODO: Will fix this by @Dan Nguyen */}
-        <Table loading={loading} data={data} columns={columns} />
-        <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
-      </FlexContainerResponsive>
+      <FlexContainerBasic hasPadding flexColumn>
+        <div>
+          <FlexContainerResponsive hasBackground flexColumn hasPadding>
+            <H3>Search Results</H3>
+            {/* TODO: Will fix this by @Dan Nguyen */}
+            <Table loading={loading} data={data} columns={columns} />
+            <Pagination
+              pageNumber={pageNumber}
+              pageSize={pageSize}
+              totalCount={totalCount}
+              onChange={handleChangePage}
+            />
+          </FlexContainerResponsive>
+        </div>
+      </FlexContainerBasic>
     </ErrorBoundary>
   )
 }

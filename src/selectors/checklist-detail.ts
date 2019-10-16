@@ -1,4 +1,3 @@
-import { STEPS } from '@/constants/section'
 import { ReduxState } from '@/types/core'
 import { oc } from 'ts-optchain'
 import { defaultStatus } from '@/reducers/checklist-detail'
