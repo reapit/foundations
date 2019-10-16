@@ -10,9 +10,10 @@ export interface TableProps {
   columns: any[]
   data: any[]
   loading: boolean
+  scrollable: boolean
 }
 
-export const Table = ({ columns, data, loading }) => {
+export const Table = ({ columns, data, loading, scrollable = false }) => {
   // Use the state and functions returned from useTable to build your UI
   const { getTableProps, headerGroups, rows, prepareRow } = useTable({
     columns,
@@ -20,7 +21,7 @@ export const Table = ({ columns, data, loading }) => {
   })
 
   // Render the UI for your table
-  return (
+  const renderTable = () => (
     <table {...getTableProps()} className="table is-striped is-fullwidth">
       <thead>
         {headerGroups.map(headerGroup => (
@@ -51,4 +52,10 @@ export const Table = ({ columns, data, loading }) => {
       </tbody>
     </table>
   )
+
+  if (scrollable) {
+    return <div className="table-responsive">{renderTable()}</div>
+  }
+
+  return renderTable()
 }

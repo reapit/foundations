@@ -41,4 +41,22 @@ describe('Table', () => {
     ]
     expect(toJson(shallow(<Table data={data} columns={columns} loading />))).toMatchSnapshot()
   })
+  it('should match a snapshot when table is scrollable', () => {
+    const data = [{ firstName: 'a', middleName: 'b', lastName: 'c' }]
+    const columns = [
+      {
+        Header: 'First Name',
+        accessor: 'firstName'
+      },
+      {
+        Header: 'Middle Name',
+        accessor: 'middleName'
+      },
+      {
+        Header: 'Last Name',
+        accessor: 'lastName'
+      }
+    ]
+    expect(toJson(shallow(<Table scrollable data={data} columns={columns} loading={false} />))).toMatchSnapshot()
+  })
 })
