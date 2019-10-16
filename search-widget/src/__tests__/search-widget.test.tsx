@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import SearchWidget, { searchForSale, searchToRent } from '../search-widget';
+import SearchWidget, { searchForSale, searchToRent, handleInputChange } from '../search-widget';
 
 describe('App', () => {
   it('renders without crashing', () => {
@@ -18,7 +18,7 @@ describe('App', () => {
     const mockEvent = {
       preventDefault: jest.fn()
     } as any
-    const fn = searchToRent(mockSetSearching)
+    const fn = searchToRent({setSearching: mockSetSearching, inputValue: ''})
     fn(mockEvent)
     expect(mockSetSearching).toBeCalledWith(true)
   })
@@ -27,8 +27,20 @@ describe('App', () => {
     const mockEvent = {
       preventDefault: jest.fn()
     } as any
-    const fn = searchForSale(mockSetSearching)
+    const fn = searchForSale({setSearching: mockSetSearching, inputValue: ''})
     fn(mockEvent)
     expect(mockSetSearching).toBeCalledWith(true)
+  })
+  it('handleInputChange', () => {
+    const mockSetInputValue = jest.fn()
+    const mockEvent = {
+      target: {
+        value: ''
+      }
+    }
+    const fn = handleInputChange(mockSetInputValue)
+    fn(mockEvent)
+    expect(mockSetInputValue).toBeCalled()
+
   })
 })
