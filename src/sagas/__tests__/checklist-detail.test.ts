@@ -22,7 +22,9 @@ import {
   mapAddressToMetaData,
   mapArrAddressToUploadImageFunc,
   updatePrimaryIdListen,
-  updateSecondaryIdListen
+  updateSecondaryIdListen,
+  updateSecondaryId,
+  updatePrimaryId
 } from '../checklist-detail'
 import { contact } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -261,6 +263,122 @@ describe('check-list sagas', () => {
         ])
       )
       expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('checklist-detail updatePrimaryId', () => {
+    const gen = cloneableGenerator(updatePrimaryId as any)({
+      data: {
+        typeId: '123',
+        details: '123',
+        expiry: new Date('2019-10-15T10:00:00Z'),
+        fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA'
+      }
+    })
+    expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
+    expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+    expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
+
+    test('api call success', () => {
+      const clone = gen.clone()
+      expect(clone.next({ Url: 'test' } as any).value).toEqual(
+        put(
+          checkListDetailUpdateData({
+            id: undefined,
+            metadata: {
+              primaryId: [
+                {
+                  documents: [
+                    {
+                      typeId: '123',
+                      details: '123',
+                      expiry: new Date('2019-10-15T10:00:00Z'),
+                      fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA'
+                    }
+                  ]
+                }
+              ]
+            }
+          })
+        )
+      )
+      clone.next()
+      expect(clone.next().done).toBe(true)
+    })
+
+    test('api call fail', () => {
+      const clone = gen.clone()
+      // @ts-ignore
+      expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
+        put(checkListDetailSubmitForm(false))
+      )
+      expect(clone.next().value).toEqual(
+        put(
+          errorThrownServer({
+            type: 'SERVER',
+            message: errorMessages.DEFAULT_SERVER_ERROR
+          })
+        )
+      )
+      expect(clone.next().done).toBe(true)
+    })
+  })
+
+  describe('checklist-detail updateSecondaryId', () => {
+    const gen = cloneableGenerator(updateSecondaryId as any)({
+      data: {
+        typeId: '123',
+        details: '123',
+        expiry: new Date('2019-10-15T10:00:00Z'),
+        fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA'
+      }
+    })
+    expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
+    expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+    expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
+
+    test('api call success', () => {
+      const clone = gen.clone()
+      expect(clone.next({ Url: 'test' } as any).value).toEqual(
+        put(
+          checkListDetailUpdateData({
+            id: undefined,
+            metadata: {
+              secondaryId: [
+                {
+                  documents: [
+                    {
+                      typeId: '123',
+                      details: '123',
+                      expiry: new Date('2019-10-15T10:00:00Z'),
+                      fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA'
+                    }
+                  ]
+                }
+              ]
+            }
+          })
+        )
+      )
+      clone.next()
+      expect(clone.next().done).toBe(true)
+    })
+
+    test('api call fail', () => {
+      const clone = gen.clone()
+      // @ts-ignore
+      expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
+        put(checkListDetailSubmitForm(false))
+      )
+      expect(clone.next().value).toEqual(
+        put(
+          errorThrownServer({
+            type: 'SERVER',
+            message: errorMessages.DEFAULT_SERVER_ERROR
+          })
+        )
+      )
+      expect(clone.next().done).toBe(true)
     })
   })
 })
