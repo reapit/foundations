@@ -8,6 +8,7 @@ import { ResultState } from '@/reducers/result'
 import { Pagination, Table, Button, H3, FlexContainerResponsive, Info, H6 } from '@reapit/elements'
 import { resultRequestData, ContactsParams } from '@/actions/result'
 import Routes from '@/constants/routes'
+import styles from '@/styles/pages/results.scss?mod'
 import { oc } from 'ts-optchain'
 
 export interface ResultMappedActions {
@@ -108,7 +109,9 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
         {!search || Number(totalCount) === 0 ? (
           renderEmptyResult()
         ) : (
-          <Table data={data} columns={columns} loading={loading} />
+          <div className={styles.tableWrap}>
+            <Table scrollable data={data} columns={columns} loading={loading} />
+          </div>
         )}
         <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
       </FlexContainerResponsive>
