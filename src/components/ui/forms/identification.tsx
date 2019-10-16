@@ -3,12 +3,20 @@ import { Formik, Form } from 'formik'
 import { ContactModel } from '@/types/contact-api-schema'
 import { Button, Input, FileInput, DatePicker } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
+import styles from '@/styles/pages/identification.scss?mod'
 
 export type IdentificationFormValues = {
   typeId: string
   details: string
   expiry?: Date
   fileUrl?: string
+}
+
+export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentificationFormValues = {
+  typeId: '',
+  details: '',
+  expiry: undefined,
+  fileUrl: undefined
 }
 
 export type IdentificationProps = {
@@ -29,7 +37,7 @@ export const renderFormHandler = ({ contactModel, loading, isDesktopMode }) => (
       <DatePicker id="expiry" name="expiry" labelText="Expiry Date" />
       <FileInput id="fileUrl" name="fileUrl" labelText={isDesktopMode ? 'Upload file' : 'Upload File/Take a Pic'} />
 
-      <div className="flex justify-between mt-4">
+      <div className={`flex mt-4 ${styles.justifyBetween}`}>
         <div className="flex items-center">
           <span>RPS Ref:</span>
           <span className="ml-1">{id}</span>

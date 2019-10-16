@@ -1,10 +1,18 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import Identification, { IdentificationFormValues } from '@/components/ui/forms/identification'
+import Identification, {
+  IdentificationFormValues,
+  IDENTIFICATION_FORM_DEFAULT_VALUES
+} from '@/components/ui/forms/identification'
 import { checkListDetailSecondaryIdUpdateData } from '@/actions/checklist-detail'
 import { ReduxState } from '@/types/core'
-import { selectCheckListDetailContact, selectCheckListDetailSecondaryId } from '@/selectors/checklist-detail'
+import {
+  selectCheckListDetailContact,
+  selectCheckListDetailSecondaryId,
+  selectCheckListDetailIsSubmitting
+} from '@/selectors/checklist-detail'
+import { IdentityDocumentModel } from '@/types/contact-api-schema'
 import { oc } from 'ts-optchain'
 
 export const SecondaryIdentification = ({
@@ -24,17 +32,23 @@ export const SecondaryIdentification = ({
 )
 
 export const mapStateToProps = (state: ReduxState) => {
-  const { isSubmitting } = state.checklistDetail
+  const isSubmitting = selectCheckListDetailIsSubmitting(state)
   const contactModel = selectCheckListDetailContact(state)
-  const secondaryId = selectCheckListDetailSecondaryId(state)
+  const secondaryId = selectCheckListDetailSecondaryId(state) as IdentityDocumentModel
   const isDesktopMode = oc(state).auth.refreshSession.mode() === 'DESKTOP'
 
-  const initFormValues = {
-    typeId: secondaryId.typeId,
-    expiry: secondaryId.expiry ? new Date(secondaryId.expiry) : null,
-    details: secondaryId.details,
-    fileUrl: secondaryId.fileUrl
-  } as IdentificationFormValues
+  let initFormValues = IDENTIFICATION_FORM_DEFAULT_VALUES
+
+  if (secondaryId) {
+    const { typeId, expiry, details, fileUrl } = secondaryId
+
+    initFormValues = {
+      typeId: typeId,
+      expiry: expiry ? new Date(expiry) : null,
+      details: details,
+      fileUrl: fileUrl
+    } as IdentificationFormValues
+  }
 
   return {
     loading: isSubmitting,
