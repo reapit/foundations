@@ -51,7 +51,7 @@ export const tabConfigs = ({ currentTab, changeHomeTab }): TabConfig[] => [
   }
 ]
 
-const filterTimes: AppointmentsTime[] = ['Today', 'Tomorrow', 'Next week']
+const filterTimes: AppointmentsTime[] = ['Today', 'Tomorrow', 'Week View']
 
 export const Home: React.FunctionComponent<HomeProps> = ({
   appointmentsState,

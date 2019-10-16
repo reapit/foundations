@@ -11,7 +11,7 @@ import {
 import { PagedResultAppointmentModel_, AppointmentModel } from '@/types/appointments'
 import { ListItemModel } from '../types/configuration'
 
-export type AppointmentsTime = 'Today' | 'Tomorrow' | 'Next week'
+export type AppointmentsTime = 'Today' | 'Tomorrow' | 'Week View'
 
 export interface AppointmentsData {
   appointments: PagedResultAppointmentModel_ | null
