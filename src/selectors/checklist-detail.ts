@@ -19,5 +19,5 @@ export const selectCheckListDetailSecondaryId = (state: ReduxState) => {
 }
 
 export const selectCheckListDetailIsSubmitting = (state: ReduxState) => {
-  return state.checklistDetail.loading
+  return oc(state).checklistDetail.isSubmitting(false)
 }
