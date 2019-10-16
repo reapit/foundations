@@ -5,6 +5,7 @@ import { Button, H3, Loader, FlexContainerResponsive } from '@reapit/elements'
 import styles from '@/styles/pages/profile.scss?mod'
 import { ReduxState, FormState } from '@/types/core'
 import { submitChecks } from '@/actions/submit-checks'
+import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import Routes from '@/constants/routes'
@@ -49,7 +50,7 @@ const generateSection = (status: ChecklistStatus) => {
 }
 
 export interface ProfileMappedActions {
-  submitChecks: () => void
+  submitChecks: (id: string) => void
 }
 
 export interface ProfileMappedProps {
@@ -100,7 +101,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
             type="button"
             loading={isSubmitting}
             disabled={isSubmitting}
-            onClick={() => submitChecks()}
+            onClick={() => submitChecks(contact.id || '')}
           >
             Submit Record for Checks
           </Button>
@@ -117,8 +118,8 @@ const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
   status: selectCheckListDetailStatus(state)
 })
 
-const mapDispatchToProps = (dispatch: any): ProfileMappedActions => ({
-  submitChecks: () => dispatch(submitChecks())
+const mapDispatchToProps = (dispatch: Dispatch): ProfileMappedActions => ({
+  submitChecks: (id: string) => dispatch(submitChecks(id))
 })
 
 export default connect(

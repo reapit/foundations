@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Button } from '@reapit/elements'
+import { Button, FlexContainerResponsive, H3 } from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'
 import styles from '@/styles/pages/success.scss?mod'
 import { ReduxState, FormState } from '@/types/core'
@@ -51,12 +51,12 @@ export const SuccessPage = ({
 
   return (
     <ErrorBoundary>
-      <div className="container">
+      <FlexContainerResponsive hasPadding flexColumn>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <h2 className={styles.name}>
+            <H3>
               {title} {forename} {surname}
-            </h2>
+            </H3>
           </div>
           <div className={styles.headerRight}>
             <h4 className={styles.refCode}>RPS Reference: {contact.id}</h4>
@@ -97,7 +97,7 @@ export const SuccessPage = ({
             </ul>
           </div>
         </div>
-      </div>
+      </FlexContainerResponsive>
     </ErrorBoundary>
   )
 }
