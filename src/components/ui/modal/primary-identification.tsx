@@ -7,6 +7,7 @@ import { STEPS } from '@/components/ui/modal/modal'
 import { checkListDetailShowModal, checkListDetailPrimaryIdUpdateData } from '@/actions/checklist-detail'
 import { selectCheckListDetailContact, selectCheckListDetailPrimaryId } from '@/selectors/checklist-detail'
 import { IdentityDocumentModel } from '@/types/contact-api-schema'
+import { oc } from 'ts-optchain'
 
 export const PrimaryIdentification = ({
   contactModel,
@@ -14,9 +15,11 @@ export const PrimaryIdentification = ({
   loading,
   updateIdentification,
   onNextHandler,
-  onPrevHandler
+  onPrevHandler,
+  isDesktopMode
 }) => (
   <Identification
+    isDesktopMode={isDesktopMode}
     loading={loading}
     initFormValues={initFormValues}
     contactModel={contactModel}
@@ -30,6 +33,7 @@ export const mapStateToProps = (state: ReduxState) => {
   const { isSubmitting } = state.checklistDetail
   const contactModel = selectCheckListDetailContact(state)
   const primaryId = selectCheckListDetailPrimaryId(state) as IdentityDocumentModel
+  const isDesktopMode = oc(state).auth.refreshSession.mode() === 'DESKTOP'
 
   const initFormValues = {
     typeId: primaryId.typeId,
@@ -41,7 +45,8 @@ export const mapStateToProps = (state: ReduxState) => {
   return {
     loading: isSubmitting,
     contactModel,
-    initFormValues
+    initFormValues,
+    isDesktopMode
   }
 }
 

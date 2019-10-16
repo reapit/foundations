@@ -614,7 +614,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
   />
   <CameraImageInput
     id="metadata.addresses.[0][documentFileInput]"
-    labelText="Upload file/Take a picture"
+    labelText="Upload file"
     name="metadata.addresses.[0][documentFileInput]"
     onChange={[Function]}
     value={null}
@@ -627,6 +627,7 @@ exports[`AddressInformation renderExtraForm should match Snapshot 1`] = `
   <Component
     data-test="address-input"
     index={0}
+    isDesktopMode={true}
     key="0"
     setFieldValue={[MockFunction]}
     values={
