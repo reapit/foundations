@@ -48,7 +48,7 @@ export const renderMarkers = ({ coordinates, googleMaps, map, markerCallBack }) 
       map
     })
     const infoWindow = new googleMaps.InfoWindow({
-      content: `<div id="coordinate-${coordinate.position.lat}-${coordinate.position.lng}">
+      content: `<div style="max-width: 200px;" id="coordinate-${coordinate.position.lat}-${coordinate.position.lng}">
                   <div>${combineAddress(coordinate.address)}</div>
                 </div>`
     })

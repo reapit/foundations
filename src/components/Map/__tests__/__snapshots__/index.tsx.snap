@@ -1195,7 +1195,7 @@ exports[`Map renderMap should run correctly 1`] = `
                     "listeners": Object {},
                     "notify": [MockFunction notify],
                     "opts": Object {
-                      "content": "<div id=\\"coordinate-0-0\\">
+                      "content": "<div style=\\"max-width: 200px;\\" id=\\"coordinate-0-0\\">
                   <div></div>
                 </div>",
                     },
@@ -1275,7 +1275,7 @@ exports[`Map renderMap should run correctly 1`] = `
                     "listeners": Object {},
                     "notify": [MockFunction notify],
                     "opts": Object {
-                      "content": "<div id=\\"coordinate-1-1\\">
+                      "content": "<div style=\\"max-width: 200px;\\" id=\\"coordinate-1-1\\">
                   <div></div>
                 </div>",
                     },
