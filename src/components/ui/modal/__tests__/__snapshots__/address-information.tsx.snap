@@ -5,3 +5,5 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `ShallowW
 exports[`AddressInformation renderExtraForm should match Snapshot 1`] = `ShallowWrapper {}`;
 
 exports[`AddressInformation should match snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`AddressInformation should match snapshot when desktop mode 1`] = `ShallowWrapper {}`;

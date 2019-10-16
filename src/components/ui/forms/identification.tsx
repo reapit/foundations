@@ -15,10 +15,11 @@ export type IdentificationProps = {
   contactModel: ContactModel
   initFormValues: IdentificationFormValues
   loading: boolean
+  isDesktopMode: boolean
   onSaveHandler: () => void
 }
 
-export const renderFormHandler = ({ contactModel, loading }) => {
+export const renderFormHandler = ({ contactModel, loading, isDesktopMode }) => () => {
   const { id } = contactModel
 
   return (
@@ -26,7 +27,7 @@ export const renderFormHandler = ({ contactModel, loading }) => {
       <SelectIdentity id="typeId" name="typeId" labelText="ID Type" />
       <Input id="details" name="details" type="text" placeholder="ID Reference" labelText="ID Reference" />
       <DatePicker id="expiry" name="expiry" labelText="Expiry Date" />
-      <FileInput id="fileUrl" name="fileUrl" labelText="Upload File/Take a Pic" />
+      <FileInput id="fileUrl" name="fileUrl" labelText={isDesktopMode ? 'Upload file' : 'Upload File/Take a Pic'} />
 
       <div className="flex justify-between mt-4">
         <div className="flex items-center">
@@ -50,12 +51,13 @@ export const Identification: React.FC<IdentificationProps> = ({
   loading,
   contactModel,
   initFormValues,
-  onSaveHandler
+  onSaveHandler,
+  isDesktopMode
 }) => (
   <Formik
     initialValues={initFormValues}
     onSubmit={(formValues: IdentificationFormValues) => onSubmitHandler(formValues, onSaveHandler)}
-    render={() => renderFormHandler({ contactModel, loading })}
+    render={renderFormHandler({ contactModel, loading, isDesktopMode })}
   />
 )
 

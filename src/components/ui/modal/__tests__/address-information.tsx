@@ -17,7 +17,19 @@ describe('AddressInformation', () => {
     const mockProps = {
       contact,
       isSubmitting: false,
-      onHandleSubmit: jest.fn()
+      onHandleSubmit: jest.fn(),
+      isDesktopMode: false
+    }
+    const wrapper = shallow(<AddressInformation {...mockProps} />)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should match snapshot when desktop mode', () => {
+    const mockProps = {
+      contact,
+      isSubmitting: false,
+      onHandleSubmit: jest.fn(),
+      isDesktopMode: true
     }
     const wrapper = shallow(<AddressInformation {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -28,7 +40,8 @@ describe('AddressInformation', () => {
       addresses: contact.addresses,
       isShowMoreThreeYearInput: true,
       setShowMoreThreeYearInput: jest.fn(),
-      isSubmitting: false
+      isSubmitting: false,
+      isDesktopMode: false
     }
     const fn = renderForm(mockProps)
     const component = fn({ values: contact.addresses, setFieldValue: jest.fn() })
@@ -50,7 +63,8 @@ describe('AddressInformation', () => {
         isShowMoreThreeYearInput: true,
         values: contact.addresses[0],
         index: 0,
-        setFieldValue: jest.fn()
+        setFieldValue: jest.fn(),
+        isDesktopMode: false
       }
       const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -61,7 +75,8 @@ describe('AddressInformation', () => {
         isShowMoreThreeYearInput: true,
         values: contact.addresses[0],
         index: 0,
-        setFieldValue: jest.fn()
+        setFieldValue: jest.fn(),
+        isDesktopMode: false
       }
       const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -72,7 +87,8 @@ describe('AddressInformation', () => {
         isShowMoreThreeYearInput: false,
         values: contact.addresses[0],
         index: 0,
-        setFieldValue: jest.fn()
+        setFieldValue: jest.fn(),
+        isDesktopMode: false
       }
       const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -89,12 +105,18 @@ describe('AddressInformation', () => {
           checklistDetailData: {
             contact
           }
+        },
+        auth: {
+          refreshSession: {
+            mode: 'DESKTOP'
+          }
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact,
-        isSubmitting: false
+        isSubmitting: false,
+        isDesktopMode: true
       })
     })
     it('should run correctly', () => {
@@ -102,7 +124,8 @@ describe('AddressInformation', () => {
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact: {},
-        isSubmitting: false
+        isSubmitting: false,
+        isDesktopMode: false
       })
     })
   })
@@ -121,7 +144,8 @@ describe('AddressInformation', () => {
       const mockProps = {
         index: 0,
         values: contact.addresses,
-        setFieldValue: jest.fn()
+        setFieldValue: jest.fn(),
+        isDesktopMode: false
       }
       const wrapper = shallow(<AddressInput {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
