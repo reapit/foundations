@@ -20,7 +20,9 @@ import { IdentificationFormValues } from '@/components/ui/forms/identification'
 
 export const checklistDetailDataFetch = function*({ data: id }) {
   yield put(checklistDetailLoading(true))
+
   const headers = yield call(initAuthorizedRequestHeaders)
+
   try {
     const response = yield call(fetcher, {
       url: `${URLS.contacts}/${id}`,
@@ -28,17 +30,17 @@ export const checklistDetailDataFetch = function*({ data: id }) {
       method: 'GET',
       headers: headers
     })
+
     yield put(checklistDetailReceiveData({ contact: response }))
-    yield put(checklistDetailLoading(false))
   } catch (err) {
-    console.error(err.message)
-    yield put(checklistDetailLoading(false))
     yield put(
       errorThrownServer({
         type: 'SERVER',
         message: errorMessages.DEFAULT_SERVER_ERROR
       })
     )
+  } finally {
+    yield put(checklistDetailLoading(false))
   }
 }
 

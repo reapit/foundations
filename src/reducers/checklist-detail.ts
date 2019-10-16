@@ -120,15 +120,19 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
  * TODO: will be implemented when have enough information
  * @param contactModel
  */
-export const updateCheckListDetailFormStatus = (contact: ContactModel) => ({
-  profile: isCompletedProfile(contact),
-  primaryId: isCompletedPrimaryID(contact),
-  secondaryId: isCompletedSecondaryID(contact),
-  declarationRisk: isCompletedDeclarationRisk(contact),
-  addresses: isCompletedAddress(contact),
-  pepSearch: false,
-  experian: true,
-  report: false
-})
+export const updateCheckListDetailFormStatus = (contact: ContactModel) => {
+  const metadata = contact.metadata
+
+  return {
+    profile: metadata ? isCompletedProfile(contact) : false,
+    primaryId: metadata ? isCompletedPrimaryID(contact) : false,
+    secondaryId: metadata ? isCompletedSecondaryID(contact) : false,
+    declarationRisk: metadata ? isCompletedDeclarationRisk(contact) : false,
+    addresses: metadata ? isCompletedAddress(contact) : false,
+    pepSearch: false,
+    experian: true,
+    report: false
+  }
+}
 
 export default checklistReducer

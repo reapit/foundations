@@ -65,7 +65,6 @@ export const checkCompleteSecondaryID = (contact: ContactModel) => {
     flag = true
     secondaryId.forEach(idList => {
       idList.documents.forEach((item: CreateIdentityDocumentModel) => {
-        console.log(item)
         if (!item.typeId || !item.details || !item.expiry || !item.fileUrl) {
           flag = false
         }
@@ -165,9 +164,8 @@ export const renderCompletedCheckMark = (isCompleted: boolean) => {
 export const renderSections = (sections: SectionProps[]) => {
   return sections.map((section, index) => {
     return (
-      <div className="pb-4">
+      <div className="pb-4" key={index}>
         <Tile
-          key={index}
           heading={section.title}
           menu={
             <Button type="button" variant="primary" onClick={section.onEdit}>

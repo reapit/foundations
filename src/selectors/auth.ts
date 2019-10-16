@@ -8,3 +8,11 @@ export const selectUserCode = (state: ReduxState) => {
 export const selectUserLoginStatus = (state: ReduxState) => {
   return !!oc(state).auth.refreshSession() || !!oc(state).auth.loginSession()
 }
+
+export const checkIsDesktopMode = (state: ReduxState) => {
+  return oc(state).auth.refreshSession.mode() === 'DESKTOP'
+}
+
+export const checkIsWebMode = (state: ReduxState) => {
+  return oc(state).auth.refreshSession.mode() === 'WEB'
+}

@@ -67,16 +67,11 @@ describe('checklist-detail fetch data', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     // @ts-ignore
-    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(put(checklistDetailLoading(false)))
-    expect(clone.next().value).toEqual(
-      put(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
+      put(errorThrownServer({ type: 'SERVER', message: errorMessages.DEFAULT_SERVER_ERROR }))
     )
-    expect(clone.next().done).toBe(true)
+
+    expect(clone.next().done).toBe(false)
   })
 })
 
