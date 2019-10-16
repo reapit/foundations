@@ -101,25 +101,18 @@ export const uploadImage = async ({ name, imageData, headers }) => {
   }
 }
 
-export type AddressMetaModel = {
-  year?: string
-  month?: string
-  documentType?: string
-  documentFileInput?: string
-}
-
 export const mapArrAddressToUploadImageFunc = ({ addresses, headers, addressesMeta }): Promise<any>[] => {
   if (!addresses || !addressesMeta) {
     return []
   }
   return addresses.map((address: AddressModel, index) => {
-    if (!addressesMeta[index].documentFileInput) {
+    if (!isBase64(addressesMeta[index].documentImage)) {
       return null
     }
     return uploadImage({
       headers,
       name: `${address.type}-${address.buildingNumber}-${address.buildingName}-${address.postcode}`,
-      imageData: addressesMeta[index].documentFileInput
+      imageData: addressesMeta[index].documentImage
     })
   })
 }
@@ -168,14 +161,16 @@ export const updateDeclarationAndRisk = function*({ data: { id, metadata } }: Ac
   yield put(checkListDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
-    let { type, reason, declarationInput, riskAssessmentInput } = metadata && metadata.declarationRisk
-    const urlDeclaration = yield declarationInput &&
-      uploadImage({ headers, name: `declaration-${type}-${reason}`, imageData: declarationInput })
-
-    const urlRiskAssessment = yield riskAssessmentInput &&
-      uploadImage({ headers, name: `riskAssessment-${type}-${reason}`, imageData: riskAssessmentInput })
-
-    const { declarationForm, riskAssessmentForm } = yield select(selectDeclarationRisk)
+    let { type, reason, declarationForm, riskAssessmentForm } = metadata && metadata.declarationRisk
+    const declarationRisk = yield select(selectDeclarationRisk)
+    const [declarationResponse, riskAssessmentResponse] = yield all([
+      isBase64(declarationForm)
+        ? uploadImage({ headers, name: `declaration-${type}-${reason}`, imageData: declarationForm })
+        : null,
+      isBase64(riskAssessmentForm)
+        ? uploadImage({ headers, name: `riskAssessment-${type}-${reason}`, imageData: riskAssessmentForm })
+        : null
+    ])
 
     yield put(
       checkListDetailUpdateData({
@@ -184,8 +179,9 @@ export const updateDeclarationAndRisk = function*({ data: { id, metadata } }: Ac
           declarationRisk: {
             reason,
             type,
-            declarationForm: (urlDeclaration && urlDeclaration.Url) || declarationForm,
-            riskAssessmentForm: (urlRiskAssessment && urlRiskAssessment.Url) || riskAssessmentForm
+            declarationForm: (declarationResponse && declarationResponse.Url) || declarationRisk.declarationForm,
+            riskAssessmentForm:
+              (riskAssessmentResponse && riskAssessmentResponse.Url) || declarationRisk.riskAssessmentForm
           }
         }
       })
@@ -252,15 +248,10 @@ export const updatePrimaryId = function*({ data }: Action<IdentificationFormValu
 
     let uploaderDocument: FileUploaderResponse = { Url: data.fileUrl || '' }
     if (isBase64(data.fileUrl)) {
-      uploaderDocument = yield call(fetcher, {
-        url: '/',
-        api: UPLOAD_FILE_BASE_URL,
-        method: 'POST',
-        headers: headers,
-        body: {
-          name: `${contactModel.id}-${data.details}`,
-          imageData: data.fileUrl
-        }
+      uploaderDocument = yield uploadImage({
+        headers,
+        name: `${contactModel.id}-${data.details}`,
+        imageData: data.fileUrl
       })
     }
 
@@ -287,17 +278,16 @@ export const updatePrimaryId = function*({ data }: Action<IdentificationFormValu
         ]
       }
     }
-
     yield put(checkListDetailUpdateData(updatedValues))
+    yield put(checkListDetailSubmitForm(false))
   } catch (err) {
     const result: ErrorData = {
       type: 'SERVER',
       message: errorMessages.DEFAULT_SERVER_ERROR
     }
 
-    yield put(errorThrownServer(result))
-  } finally {
     yield put(checkListDetailSubmitForm(false))
+    yield put(errorThrownServer(result))
   }
 }
 
@@ -311,15 +301,10 @@ export const updateSecondaryId = function*({ data }: Action<IdentificationFormVa
 
     let uploaderDocument: FileUploaderResponse = { Url: data.fileUrl || '' }
     if (isBase64(data.fileUrl)) {
-      uploaderDocument = yield call(fetcher, {
-        url: '/',
-        api: UPLOAD_FILE_BASE_URL,
-        method: 'POST',
-        headers: headers,
-        body: {
-          name: `${contactModel.id}-${data.details}`,
-          imageData: data.fileUrl
-        }
+      uploaderDocument = yield uploadImage({
+        headers,
+        name: `${contactModel.id}-${data.details}`,
+        imageData: data.fileUrl
       })
     }
 
@@ -348,15 +333,15 @@ export const updateSecondaryId = function*({ data }: Action<IdentificationFormVa
     }
 
     yield put(checkListDetailUpdateData(updatedValues))
+    yield put(checkListDetailSubmitForm(false))
   } catch (err) {
     const result: ErrorData = {
       type: 'SERVER',
       message: errorMessages.DEFAULT_SERVER_ERROR
     }
 
-    yield put(errorThrownServer(result))
-  } finally {
     yield put(checkListDetailSubmitForm(false))
+    yield put(errorThrownServer(result))
   }
 }
 

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Identification Identification should match snapshot 1`] = `
+<Formik
+  enableReinitialize={false}
+  initialValues={Object {}}
+  isInitialValid={false}
+  onSubmit={[Function]}
+  render={[Function]}
+  validateOnBlur={true}
+  validateOnChange={true}
+/>
+`;
+
+exports[`Identification renderFormHandler should match snapshot 1`] = `
+<div>
+  <Component />
+</div>
+`;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Button, CameraImageInput, FileInput, SelectBox } from '@reapit/elements'
+import { Input, Button, CameraImageInput, SelectBox } from '@reapit/elements'
 import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { RISK_ASSESSMENT_TYPE } from '@/constants/appointment-detail'
@@ -26,8 +26,9 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ()
           <label className="label">Declaration Form</label>
           <CameraImageInput
             labelText="Upload file/Take a picture"
-            id="metadata.declarationRisk.declarationInput"
-            name="metadata.declarationRisk.declarationInput"
+            id="metadata.declarationRisk.declarationForm"
+            name="metadata.declarationRisk.declarationForm"
+            allowClear={true}
           />
         </div>
         <SelectBox
@@ -44,10 +45,11 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ()
         />
         <div>
           <label className="label">Risk Assessment Form</label>
-          <FileInput
+          <CameraImageInput
             labelText="Upload file"
-            id="metadata.declarationRisk.riskAssessmentInput"
-            name="metadata.declarationRisk.riskAssessmentInput"
+            id="metadata.declarationRisk.riskAssessmentForm"
+            name="metadata.declarationRisk.riskAssessmentForm"
+            allowClear={true}
           />
         </div>
       </div>
@@ -81,10 +83,10 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   onHandleSubmit,
   isSubmitting
 }) => {
-  const { type, reason } = oc(contact).metadata.declarationRisk({})
+  const metadata = oc(contact).metadata({})
   const initialValues = React.useMemo(
     () => ({
-      metadata: { declarationRisk: { reason: reason || '', type: type || '' } }
+      metadata
     }),
     [contact]
   )

@@ -6,7 +6,9 @@ import {
   checkListDetailShowModal,
   checkListDetailHideModal,
   checkListDetailSubmitForm,
-  pepSearchResult
+  pepSearchResult,
+  checkListDetailPrimaryIdUpdateData,
+  checkListDetailSecondaryIdUpdateData
 } from '../checklist-detail'
 
 describe('checklist-detail actions', () => {
@@ -38,5 +40,15 @@ describe('checklist-detail actions', () => {
   it('should create a pepSearchResult action', () => {
     expect(pepSearchResult.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP_RESULT)
     expect(pepSearchResult(true).data).toEqual(true)
+  })
+
+  it('should create a checkListDetailPrimaryIdUpdateData action', () => {
+    expect(checkListDetailPrimaryIdUpdateData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA)
+    expect(checkListDetailPrimaryIdUpdateData({} as any).data).toEqual({})
+  })
+
+  it('should create a checkListDetailSecondaryIdUpdateData action', () => {
+    expect(checkListDetailSecondaryIdUpdateData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA)
+    expect(checkListDetailSecondaryIdUpdateData({} as any).data).toEqual({})
   })
 })

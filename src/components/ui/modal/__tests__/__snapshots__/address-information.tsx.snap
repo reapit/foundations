@@ -8,71 +8,54 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     id="addresses[0][type]"
     labelText="Type"
     name="addresses[0][type]"
-    onChange={[Function]}
     type="hidden"
-    value={null}
   />
   <Input
     id="addresses[0][buildingName]"
     labelText="Building Name"
     name="addresses[0][buildingName]"
-    onChange={[Function]}
     type="text"
-    value={null}
   />
   <Input
     id="addresses[0][buildingNumber]"
     labelText="Building Number"
     name="addresses[0][buildingNumber]"
-    onChange={[Function]}
     type="text"
-    value={null}
   />
   <Input
     id="addresses[0][line1]"
     labelText="Line 1"
     name="addresses[0][line1]"
-    onChange={[Function]}
     type="text"
-    value={null}
   />
   <Input
     id="addresses[0][line2]"
     labelText="Line 2"
     name="addresses[0][line2]"
-    onChange={[Function]}
     type="text"
-    value={null}
   />
   <Input
     id="addresses[0][line3]"
     labelText="Line 3"
     name="addresses[0][line3]"
-    onChange={[Function]}
     type="text"
-    value={null}
   />
   <Input
     id="addresses[0][line4]"
     labelText="Line 4"
     name="addresses[0][line4]"
-    onChange={[Function]}
     type="text"
-    value={null}
   />
   <Input
     id="addresses[0][postcode]"
     labelText="Post Code"
     name="addresses[0][postcode]"
-    onChange={[Function]}
     type="text"
-    value={null}
   />
   <SelectBox
     id="metadata.addresses[0][year]"
     labelText="Number of Years at Address"
     name="metadata.addresses[0][year]"
-    onChange={[Function]}
     options={
       Array [
         Object {
@@ -477,13 +460,11 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
         },
       ]
     }
-    value={null}
   />
   <SelectBox
     id="metadata.addresses[0][month]"
     labelText="Number of Months at Address"
     name="metadata.addresses[0][month]"
-    onChange={[Function]}
     options={
       Array [
         Object {
@@ -536,13 +517,11 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
         },
       ]
     }
-    value={null}
   />
   <SelectBox
     id="metadata.addresses[0][documentType]"
     labelText="Document Type"
     name="metadata.addresses[0][documentType]"
-    onChange={[Function]}
     options={
       Array [
         Object {
@@ -603,21 +582,12 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
         },
       ]
     }
-    value={null}
-  />
-  <Input
-    id="metadata.addresses[0][documentImage]"
-    name="metadata.addresses[0][documentImage]"
-    onChange={[Function]}
-    type="hidden"
-    value={null}
   />
   <CameraImageInput
-    id="metadata.addresses.[0][documentFileInput]"
+    allowClear={true}
+    id="metadata.addresses.[0][documentImage]"
     labelText="Upload file"
-    name="metadata.addresses.[0][documentFileInput]"
-    onChange={[Function]}
-    value={null}
+    name="metadata.addresses.[0][documentImage]"
   />
 </div>
 `;
@@ -629,20 +599,6 @@ exports[`AddressInformation renderExtraForm should match Snapshot 1`] = `
     index={0}
     isDesktopMode={true}
     key="0"
-    setFieldValue={[MockFunction]}
-    values={
-      Object {
-        "buildingName": "Tilbrook Farm",
-        "buildingNumber": "",
-        "countryId": "",
-        "line1": "Station Road",
-        "line2": "Bow Brickhill",
-        "line3": "Milton Keynes",
-        "line4": "Buckinghamshire",
-        "postcode": "MK17 9JU",
-        "type": "primary",
-      }
-    }
   />
 </div>
 `;
@@ -681,6 +637,30 @@ exports[`AddressInformation should match snapshot 1`] = `
             "riskAssessmentForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
             "type": "Normal",
           },
+          "primaryId": Array [
+            Object {
+              "documents": Array [
+                Object {
+                  "details": "1123",
+                  "expiry": "2019-10-15T10:00:00Z",
+                  "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg",
+                  "typeId": "CR",
+                },
+              ],
+            },
+          ],
+          "secondaryId": Array [
+            Object {
+              "documents": Array [
+                Object {
+                  "details": "123",
+                  "expiry": "2019-10-10T00:00:00Z",
+                  "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg",
+                  "typeId": "PP",
+                },
+              ],
+            },
+          ],
         },
       }
     }

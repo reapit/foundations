@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrimaryIdentification PrimaryIdentification should match snapshot 1`] = `
+<Component
+  contactModel={
+    Object {
+      "active": true,
+      "addresses": Array [
+        Object {
+          "buildingName": "Tilbrook Farm",
+          "buildingNumber": "",
+          "countryId": "",
+          "line1": "Station Road",
+          "line2": "Bow Brickhill",
+          "line3": "Milton Keynes",
+          "line4": "Buckinghamshire",
+          "postcode": "MK17 9JU",
+          "type": "primary",
+        },
+      ],
+      "communications": Array [
+        Object {
+          "detail": "01632 961556",
+          "label": "Home",
+        },
+        Object {
+          "detail": "07700 901556",
+          "label": "Mobile",
+        },
+        Object {
+          "detail": "020 7946 1556",
+          "label": "Work",
+        },
+        Object {
+          "detail": "schadwick512@rpsfiction.net",
+          "label": "E-Mail",
+        },
+      ],
+      "created": "2019-05-12T17:05:19",
+      "forename": "Saoirse",
+      "id": "MKC16000098",
+      "identityCheck": "unchecked",
+      "marketingConsent": "notAsked",
+      "metadata": Object {
+        "addresses": Array [
+          Object {
+            "documentImage": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg",
+            "documentType": "Current Benefits Agency letter",
+            "month": "6",
+            "year": "1911",
+          },
+        ],
+        "declarationRisk": Object {
+          "declarationForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
+          "reason": "reason",
+          "riskAssessmentForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
+          "type": "Normal",
+        },
+        "primaryId": Array [
+          Object {
+            "documents": Array [
+              Object {
+                "details": "1123",
+                "expiry": "2019-10-15T10:00:00Z",
+                "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg",
+                "typeId": "CR",
+              },
+            ],
+          },
+        ],
+        "secondaryId": Array [
+          Object {
+            "documents": Array [
+              Object {
+                "details": "123",
+                "expiry": "2019-10-10T00:00:00Z",
+                "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg",
+                "typeId": "PP",
+              },
+            ],
+          },
+        ],
+      },
+      "relationships": Array [
+        Object {
+          "id": "RMK",
+          "type": "negotiator",
+        },
+        Object {
+          "id": "MKC",
+          "type": "office",
+        },
+      ],
+      "surname": "Chadwick",
+      "title": "Ms",
+    }
+  }
+  initFormValues={Object {}}
+  isDesktopMode={false}
+  loading={false}
+  onNextHandler={[MockFunction]}
+  onPrevHandler={[MockFunction]}
+  onSaveHandler={[MockFunction]}
+/>
+`;
