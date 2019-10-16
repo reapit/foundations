@@ -17,3 +17,7 @@ export const selectCheckListDetailPrimaryId = (state: ReduxState) => {
 export const selectCheckListDetailSecondaryId = (state: ReduxState) => {
   return oc(state).checklistDetail.checklistDetailData.contact.metadata['secondaryId'][0]['documents'][0]({})
 }
+
+export const selectCheckListDetailIsSubmitting = (state: ReduxState) => {
+  return state.checklistDetail.loading
+}
