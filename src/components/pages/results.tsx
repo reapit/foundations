@@ -97,7 +97,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
           <FlexContainerResponsive hasBackground flexColumn hasPadding>
             <H3>Search Results</H3>
             {/* TODO: Will fix this by @Dan Nguyen */}
-            <Table loading={loading} data={data} columns={columns} />
+            <Table scrollable loading={loading} data={data} columns={columns} />
             <Pagination
               pageNumber={pageNumber}
               pageSize={pageSize}
