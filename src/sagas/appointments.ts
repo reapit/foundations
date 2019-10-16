@@ -34,15 +34,13 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
       .add(1, 'day')
       .endOf('day')
   } else {
-    start = dayjs()
-      .add(1, 'week')
-      .startOf('week')
-      .startOf('day')
+    start = dayjs().startOf('day')
     end = dayjs()
       .add(1, 'week')
-      .endOf('week')
+      .subtract(1, 'day')
       .endOf('day')
   }
+
 
   // Enable this to fetch past data if there is no data for current period
   // start = dayjs().subtract(150, 'day')
