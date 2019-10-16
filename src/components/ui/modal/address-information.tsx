@@ -60,7 +60,7 @@ export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThree
   setShowMoreThreeYearInput(!isShowMoreThreeYearInput)
 }
 
-export const AddressInput = ({ index, values, setFieldValue }) => {
+export const AddressInput = ({ index, values, setFieldValue, isDesktopMode }) => {
   return (
     <div key={index}>
       <Input
@@ -175,7 +175,7 @@ export const AddressInput = ({ index, values, setFieldValue }) => {
         onChange={() => setFieldValue(`values.metadata.addresses[${index}].documentImage`)}
       />
       <CameraImageInput
-        labelText="Upload file/Take a picture"
+        labelText={isDesktopMode ? 'Upload file' : 'Upload file/Take a picture'}
         id={`metadata.addresses.[${index}][documentFileInput]`}
         name={`metadata.addresses.[${index}][documentFileInput]`}
         value={
@@ -189,10 +189,17 @@ export const AddressInput = ({ index, values, setFieldValue }) => {
   )
 }
 
-export const renderExtraForm = ({ isShowMoreThreeYearInput, values, index, setFieldValue }) => {
+export const renderExtraForm = ({ isShowMoreThreeYearInput, values, index, setFieldValue, isDesktopMode }) => {
   if (isShowMoreThreeYearInput) {
     return (
-      <AddressInput data-test="address-input" key={index} index={index} values={values} setFieldValue={setFieldValue} />
+      <AddressInput
+        data-test="address-input"
+        key={index}
+        index={index}
+        values={values}
+        setFieldValue={setFieldValue}
+        isDesktopMode={isDesktopMode}
+      />
     )
   }
 }
@@ -203,12 +210,21 @@ export const renderForm = ({
   isShowMoreThreeYearInput,
   setShowMoreThreeYearInput,
   onNextHandler,
-  onPrevHandler
+  onPrevHandler,
+  isDesktopMode
 }) => ({ values, setFieldValue }) => {
   return (
     <Form>
       {addresses.map((_, index) => {
-        return <AddressInput key={index} index={index} values={values} setFieldValue={setFieldValue} />
+        return (
+          <AddressInput
+            key={index}
+            index={index}
+            values={values}
+            setFieldValue={setFieldValue}
+            isDesktopMode={isDesktopMode}
+          />
+        )
       })}
       <div className={styles.moreThreeYearLink}>
         <a
@@ -218,7 +234,7 @@ export const renderForm = ({
           More than 3 year?
         </a>
       </div>
-      {renderExtraForm({ isShowMoreThreeYearInput, values, setFieldValue, index: addresses.length })}
+      {renderExtraForm({ isShowMoreThreeYearInput, values, setFieldValue, index: addresses.length, isDesktopMode })}
       <div className={styles.footerBtn}>
         <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
           Save
@@ -237,6 +253,7 @@ export const renderForm = ({
 export type AddressInformationProps = {
   isSubmitting: boolean
   contact: ContactModel
+  isDesktopMode: boolean
   onNextHandler: () => void
   onPrevHandler: () => void
   onHandleSubmit: (values: any) => void
@@ -247,7 +264,8 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
   onNextHandler,
   onPrevHandler,
   onHandleSubmit,
-  isSubmitting
+  isSubmitting,
+  isDesktopMode
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
   return (
@@ -264,7 +282,8 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
           setShowMoreThreeYearInput,
           onNextHandler,
           onPrevHandler,
-          isSubmitting
+          isSubmitting,
+          isDesktopMode
         })}
       />
     </div>
@@ -274,12 +293,14 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
 export type MappedProps = {
   isSubmitting: boolean
   contact: ContactModel
+  isDesktopMode: boolean
 }
 
 export const mapStateToProps = (state: ReduxState): MappedProps => {
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
-    contact: oc(state).checklistDetail.checklistDetailData.contact({})
+    contact: oc(state).checklistDetail.checklistDetailData.contact({}),
+    isDesktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
   }
 }
 
