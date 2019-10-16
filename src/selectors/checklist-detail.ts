@@ -41,7 +41,7 @@ export const selectCheckListDetailContact = (state: ReduxState) => {
 }
 
 export const selectCheckListDetailIsSubmitting = (state: ReduxState) => {
-  return state.checklistDetail.loading
+  return state.checklistDetail.isSubmitting
 }
 
 export const selectCheckListDetailPrimaryId = (state: ReduxState) => {
