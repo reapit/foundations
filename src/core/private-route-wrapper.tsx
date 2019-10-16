@@ -7,9 +7,9 @@ import { Loader, RefreshParams, getTokenFromQueryString, AppNavContainer } from 
 import Menu from '@/components/ui/menu'
 import Routes from '@/constants/routes'
 import { selectUserLoginStatus } from '@/selectors/auth'
-import pageContainerStyles from '../styles/pages/page-container.scss?mod'
 import { Dispatch } from 'redux'
 import { authSetRefreshSession } from '../actions/auth'
+import { oc } from 'ts-optchain'
 
 const { Suspense } = React
 
@@ -44,27 +44,17 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return <Redirect to={Routes.LOGIN} />
   }
 
-  const { isDesktop } = pageContainerStyles
-
   return (
-    <AppNavContainer className={`${isDesktopMode ? isDesktop : ''}`}>
+    <AppNavContainer>
       <Menu />
-      <Suspense
-        fallback={
-          <div className="pt-5">
-            <Loader />
-          </div>
-        }
-      >
-        {children}
-      </Suspense>
+      <Suspense fallback={<Loader body />}>{children}</Suspense>
     </AppNavContainer>
   )
 }
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
   hasSession: selectUserLoginStatus(state),
-  isDesktopMode: false
+  isDesktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({
