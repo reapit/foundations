@@ -2,18 +2,19 @@
 
 exports[`SuccessPage should match a snapshot when submitCompleteFormState is PENDING 1`] = `
 <Connect(ErrorBoundary)>
-  <div
-    className="container"
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasPadding={true}
   >
     <div>
       <div>
-        <h2>
+        <H3>
           Ms
            
           Saoirse
            
           Chadwick
-        </h2>
+        </H3>
       </div>
       <div>
         <h4>
@@ -74,24 +75,25 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is PEN
         </ul>
       </div>
     </div>
-  </div>
+  </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUBMITTING 1`] = `
 <Connect(ErrorBoundary)>
-  <div
-    className="container"
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasPadding={true}
   >
     <div>
       <div>
-        <h2>
+        <H3>
           Ms
            
           Saoirse
            
           Chadwick
-        </h2>
+        </H3>
       </div>
       <div>
         <h4>
@@ -152,7 +154,7 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUB
         </ul>
       </div>
     </div>
-  </div>
+  </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
 `;
 

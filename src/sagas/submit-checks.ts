@@ -4,12 +4,15 @@ import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
+import routes from '@/constants/routes'
+import { history } from '@/core/router'
 
-export const submitCheck = function*() {
+export const submitCheck = function*({ data: id }: Action<string>) {
   yield put(submitChecksSetFormState('SUBMITTING'))
   try {
     yield delay(2000)
     yield put(submitChecksSetFormState('SUCCESS'))
+    yield history.push(routes.CHECKLIST_DETAIL_ID_SUCCESS.replace(':id', id))
   } catch (err) {
     console.error(err)
     yield put(submitChecksSetFormState('ERROR'))
@@ -23,7 +26,7 @@ export const submitCheck = function*() {
 }
 
 export const submitCheckListen = function*() {
-  yield takeLatest<Action<void>>(ActionTypes.SUBMIT_CHECKS, submitCheck)
+  yield takeLatest<Action<string>>(ActionTypes.SUBMIT_CHECKS, submitCheck)
 }
 
 export const submitCheckSagas = function*() {
