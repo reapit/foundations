@@ -10,6 +10,7 @@ import { Dispatch } from 'redux'
 import { authSetRefreshSession } from '../actions/auth'
 import Menu from '@/components/ui/menu'
 import { oc } from 'ts-optchain'
+import styles from '@/styles/index.scss?mod'
 
 const { Suspense } = React
 
@@ -46,7 +47,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   return (
     <AppNavContainer>
-      <Menu />
+      <div className={styles.navbar}>
+        <Menu />
+      </div>
       <Suspense fallback={<Loader body />}>{children}</Suspense>
     </AppNavContainer>
   )

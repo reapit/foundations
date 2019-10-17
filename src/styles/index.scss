@@ -24,3 +24,18 @@ body {
 .button.is-primary[disabled] {
   background-color: $blue;
 }
+
+.navbar {
+  @media screen and (min-width: 768px) {
+    position: fixed;
+  }
+}
+
+$nav-dimensions: 66px;
+
+.contentContainer {
+  @media screen and (min-width: 768px) {
+    margin-left: $nav-dimensions;
+    width: 100%;
+  }
+}

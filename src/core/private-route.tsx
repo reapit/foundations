@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import RouteFetcher from '../components/hocs/route-fetcher'
 import Navbar from '@/components/ui/navbar/navbar'
 import { FlexContainerBasic } from '@reapit/elements'
+import styles from '@/styles/index.scss?mod'
 
 export type LoginType = 'CLIENT' | 'DEVELOPER'
 
@@ -39,10 +40,12 @@ export const PrivateRoute = ({
         const Component = component
 
         return (
-          <FlexContainerBasic flexColumn>
-            <Navbar />
-            {fetcher ? <RouteFetcher routerProps={props} Component={component} /> : <Component />}
-          </FlexContainerBasic>
+          <div className={styles.contentContainer}>
+            <FlexContainerBasic flexColumn>
+              <Navbar />
+              {fetcher ? <RouteFetcher routerProps={props} Component={component} /> : <Component />}
+            </FlexContainerBasic>
+          </div>
         )
       }}
     />
