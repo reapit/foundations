@@ -38,10 +38,10 @@ export const mapStateToProps = (state: ReduxState) => {
   const isDesktopMode = oc(state).auth.refreshSession.mode() === 'DESKTOP'
 
   let initFormValues = IDENTIFICATION_FORM_DEFAULT_VALUES
-
+  const DEFAULT_TYPE = ''
   if (primaryId) {
     initFormValues = {
-      typeId: primaryId.typeId,
+      typeId: primaryId.typeId || DEFAULT_TYPE,
       expiry: primaryId.expiry ? new Date(primaryId.expiry) : null,
       details: primaryId.details,
       fileUrl: primaryId.fileUrl
