@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Field } from 'formik'
 
 export interface InputProps {
-  type: 'text' | 'password' | 'email' | 'tel' | 'hidden'
+  type: 'text' | 'password' | 'email' | 'tel' | 'hidden' | 'time'
   placeholder?: string
   id: string
   labelText?: string

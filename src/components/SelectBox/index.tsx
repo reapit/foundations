@@ -35,6 +35,9 @@ export const SelectBox = ({ options, dataTest, labelText, id, name }: SelectBoxP
                     {label}
                   </option>
                 ))}
+                <option value="" selected disabled hidden>
+                  Please choose
+                </option>
               </select>
             </div>
             {hasError && (
