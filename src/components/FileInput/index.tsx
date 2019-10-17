@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Field } from 'formik'
+import { isBase64 } from '../../utils/is-base64'
 
 const { useState } = React
 
@@ -62,7 +63,6 @@ export const FileInput = ({
             }
           }
         }
-
         return (
           <div className={field}>
             <div className={containerClassName}>
@@ -83,7 +83,13 @@ export const FileInput = ({
                   </span>
                   {hasFile && (
                     <span data-test="fileUploadFileName" className="file-name">
-                      {fileUrl || field.value}
+                      {!isBase64(field.value) ? (
+                        <a href={field.value} target="_blank">
+                          {fileUrl || field.value}
+                        </a>
+                      ) : (
+                        fileUrl || field.value
+                      )}
                     </span>
                   )}
                   {hasFile && allowClear && (
