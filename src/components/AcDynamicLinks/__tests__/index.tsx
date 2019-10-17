@@ -6,12 +6,14 @@ import { dynamicLinkScenarios } from '../ac-dynamic-links.stories'
 import { getDynamicLink, navigateDynamicApp } from '../dynamic-link-gen'
 
 describe('AcButton AcLink', () => {
-  let mockWindow = {
+  const mockWindow = ({
+    postMessage: jest.fn(),
     location: {
-      href: ''
+      origin: 'http://localhost'
     }
-  }
-  dynamicLinkScenarios(mockWindow as Window).forEach(scenario => {
+  } as unknown) as Window
+
+  dynamicLinkScenarios.forEach(scenario => {
     it('should match a snapshot for scenario ' + scenario.description, () => {
       expect(
         toJson(
@@ -26,10 +28,13 @@ describe('AcButton AcLink', () => {
                   type: 'button'
                 }}
                 dynamicLinkParams={scenario.dynamicLinkParams}
+                navigateParentWindow={mockWindow}
               >
                 Navigate
               </AcButton>
-              <AcLink dynamicLinkParams={scenario.dynamicLinkParams}>Navigate</AcLink>
+              <AcLink dynamicLinkParams={scenario.dynamicLinkParams} navigateParentWindow={mockWindow}>
+                Navigate
+              </AcLink>
             </div>
           )
         )
@@ -51,18 +56,29 @@ describe('AcButton AcLink', () => {
             type: 'button'
           }}
           dynamicLinkParams={scenario.dynamicLinkParams}
+          navigateParentWindow={mockWindow}
         >
           Navigate
         </AcButton>
       )
       component.simulate('click', { preventDefault: jest.fn() })
-      expect(mockWindow.location.href).toEqual(scenario.expectedLink)
+      expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
+        { dynamicLink: scenario.expectedLink },
+        'http://localhost'
+      )
     })
 
     it('should respond to a link click event by navigating to expected url for ' + scenario.description, () => {
-      const component = shallow(<AcLink dynamicLinkParams={scenario.dynamicLinkParams}>Navigate</AcLink>)
+      const component = shallow(
+        <AcLink dynamicLinkParams={scenario.dynamicLinkParams} navigateParentWindow={mockWindow}>
+          Navigate
+        </AcLink>
+      )
       component.simulate('click', { preventDefault: jest.fn() })
-      expect(mockWindow.location.href).toEqual(scenario.expectedLink)
+      expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
+        { dynamicLink: scenario.expectedLink },
+        'http://localhost'
+      )
     })
   })
 })

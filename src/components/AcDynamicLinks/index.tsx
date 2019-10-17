@@ -4,17 +4,19 @@ import { DynamicLinkParams, navigateDynamicApp } from './dynamic-link-gen'
 
 export interface AcLinkParams {
   dynamicLinkParams: DynamicLinkParams
+  navigateParentWindow?: Window
 }
 
 export interface AcButtonParams {
   dynamicLinkParams: DynamicLinkParams
   buttonProps: ButtonProps
+  navigateParentWindow?: Window
 }
 
-export const AcLink: React.SFC<AcLinkParams> = ({ dynamicLinkParams, children }) => {
+export const AcLink: React.SFC<AcLinkParams> = ({ dynamicLinkParams, navigateParentWindow, children }) => {
   const onClick = (event: React.MouseEvent) => {
     event.preventDefault()
-    navigateDynamicApp(dynamicLinkParams)
+    navigateDynamicApp(dynamicLinkParams, navigateParentWindow)
   }
 
   return (
@@ -24,9 +26,14 @@ export const AcLink: React.SFC<AcLinkParams> = ({ dynamicLinkParams, children })
   )
 }
 
-export const AcButton: React.SFC<AcButtonParams> = ({ buttonProps, dynamicLinkParams, children }) => {
+export const AcButton: React.SFC<AcButtonParams> = ({
+  buttonProps,
+  dynamicLinkParams,
+  navigateParentWindow,
+  children
+}) => {
   return (
-    <Button onClick={() => navigateDynamicApp(dynamicLinkParams)} {...buttonProps}>
+    <Button onClick={() => navigateDynamicApp(dynamicLinkParams, navigateParentWindow)} {...buttonProps}>
       {children}
     </Button>
   )

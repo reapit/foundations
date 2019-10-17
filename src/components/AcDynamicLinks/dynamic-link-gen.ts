@@ -51,7 +51,6 @@ export interface DynamicLinkParams {
   webRoute?: string // Where to route to in web mode if needed
   entityCode?: string // The id of the relevant entity I which to trigger eg contact or property
   entityParams?: EntityParams // Addtional url params specific to the entity
-  window?: Window // Allows me to inject a stubbed or parent window when testing or working with iframes
 }
 
 // Launches contact and wit parameter, it will close down the marketplace at the same time
@@ -88,11 +87,23 @@ export const getDynamicLink = (dynamicLinkParams: DynamicLinkParams): string | n
   return webRoute || null
 }
 
-export const navigateDynamicApp = (dynamicLinkParams: DynamicLinkParams): void => {
+export const navigateDynamicApp = (dynamicLinkParams: DynamicLinkParams, navigateParentWindow?: Window): void => {
   const dynamicLink = getDynamicLink(dynamicLinkParams)
-  const windowToChange = dynamicLinkParams.window ? dynamicLinkParams.window : window
 
-  if (dynamicLink) {
-    windowToChange.location.href = dynamicLink
+  if (navigateParentWindow && dynamicLink) {
+    navigateParentWindow.postMessage({ dynamicLink }, navigateParentWindow.location.origin)
+  } else if (dynamicLink) {
+    window.location.href = dynamicLink
   }
+}
+
+export const setMessageEventListener = () => {
+  window.addEventListener('message', (event: MessageEvent) => {
+    if (event.origin.startsWith('https://reapit.github.io')) {
+      console.log('Reapit Dynamic Link Is', event.data)
+      if (event.data.dynamicLink) {
+        window.location.href = event.data.dynamicLink
+      }
+    }
+  })
 }

@@ -12,7 +12,7 @@ export interface DynamicLinkScenario {
   expectedLink: string // Hardcoded, for unit test assertions
 }
 
-export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenario[] => [
+export const dynamicLinkScenarios: DynamicLinkScenario[] = [
   {
     dynamicLinkParams: {
       appMode: 'DESKTOP',
@@ -20,8 +20,7 @@ export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenari
       queryParams: {
         id: '516060af-ea0a-4384-8465-28befc6f34b3'
       },
-      webRoute: 'https://dev.geo-diary-app.reapit.com',
-      window: windowToChange
+      webRoute: 'https://dev.geo-diary-app.reapit.com'
     },
     description: 'Launch (eg Geo Diary) in desktop from existing app',
     expectedLink: 'agencycloud://apps?id=516060af-ea0a-4384-8465-28befc6f34b3'
@@ -33,8 +32,7 @@ export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenari
       queryParams: {
         id: '516060af-ea0a-4384-8465-28befc6f34b3'
       },
-      webRoute: 'https://dev.geo-diary-app.reapit.com',
-      window: windowToChange
+      webRoute: 'https://dev.geo-diary-app.reapit.com'
     },
     description: 'Launch app (eg Geo Diary) in web mode from existing app',
     expectedLink: 'https://dev.geo-diary-app.reapit.com'
@@ -44,8 +42,7 @@ export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenari
       appMode: 'DESKTOP',
       entityType: EntityType.PROPERTY,
       entityCode: 'BED140946',
-      entityParams: EntityParams.JOURNAL,
-      window: windowToChange
+      entityParams: EntityParams.JOURNAL
     },
     description: 'Launch the journal for a property',
     expectedLink: 'agencycloud://properties/BED140946/Journal'
@@ -55,8 +52,7 @@ export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenari
       appMode: 'DESKTOP',
       entityType: EntityType.PROPERTY,
       entityCode: 'BED140946',
-      entityParams: EntityParams.LANDLORD,
-      window: windowToChange
+      entityParams: EntityParams.LANDLORD
     },
     description: 'Launch the landlord for a property',
     expectedLink: 'agencycloud://properties/BED140946/Landlord'
@@ -68,8 +64,7 @@ export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenari
       entityCode: 'AYL19000002',
       queryParams: {
         closeApp: true
-      },
-      window: windowToChange
+      }
     },
     description: 'Launch a contact and close app',
     expectedLink: 'agencycloud://contacts/AYL19000002?closeApp=true'
@@ -83,8 +78,7 @@ export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenari
         name: 'Bob',
         appPram: AppParams.CONTACT_CODE,
         appId: '516060af-ea0a-4384-8465-28befc6f34b3'
-      },
-      window: windowToChange
+      }
     },
     description: 'Launch a contact search for name "Bob" and return to marketplace',
     expectedLink: 'agencycloud://contacts?name=Bob&appPram=cntCode&appId=516060af-ea0a-4384-8465-28befc6f34b3'
@@ -96,8 +90,7 @@ export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenari
       entityCode: 'BED140946',
       queryParams: {
         closeApp: true
-      },
-      window: windowToChange
+      }
     },
     description: 'Launch a property and close app',
     expectedLink: 'agencycloud://properties/BED140946?closeApp=true'
@@ -108,8 +101,7 @@ export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenari
       entityType: EntityType.PROPERTY,
       queryParams: {
         address: 'E2'
-      },
-      window: windowToChange
+      }
     },
     description: 'Launch a property search for address "E2"',
     expectedLink: 'agencycloud://properties?address=E2'
@@ -121,8 +113,7 @@ export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenari
       queryParams: {
         address: 'E2',
         mode: 'Sales'
-      },
-      window: windowToChange
+      }
     },
     description: 'Launch a property search for address "E2" where mode is "Sales"',
     expectedLink: 'agencycloud://properties?address=E2&mode=Sales'
@@ -134,8 +125,7 @@ export const dynamicLinkScenarios = (windowToChange: Window): DynamicLinkScenari
       queryParams: {
         address: 'E2',
         closeApp: true
-      },
-      window: windowToChange
+      }
     },
     description: 'Launch a property search for address "E2" and close app',
     expectedLink: 'agencycloud://properties?address=E2&closeApp=true'
@@ -156,7 +146,7 @@ const getWindow = (windowToChange: Window = window): Window => {
 
 storiesOf('AcDynamicLinks', module).add('AcButtonsAndLinks', () => (
   <Content>
-    {dynamicLinkScenarios(getWindow()).map((scenario: DynamicLinkScenario, index: number) => (
+    {dynamicLinkScenarios.map((scenario: DynamicLinkScenario, index: number) => (
       <Section key={index}>
         <H5>{scenario.description}</H5>
         <SubTitleH6>Link generated is: {getDynamicLink(scenario.dynamicLinkParams)}</SubTitleH6>
@@ -170,10 +160,13 @@ storiesOf('AcDynamicLinks', module).add('AcButtonsAndLinks', () => (
               type: 'button'
             }}
             dynamicLinkParams={scenario.dynamicLinkParams}
+            navigateParentWindow={getWindow()}
           >
             Navigate
           </AcButton>
-          <AcLink dynamicLinkParams={scenario.dynamicLinkParams}>Navigate</AcLink>
+          <AcLink dynamicLinkParams={scenario.dynamicLinkParams} navigateParentWindow={getWindow()}>
+            Navigate
+          </AcLink>
         </p>
       </Section>
     ))}
