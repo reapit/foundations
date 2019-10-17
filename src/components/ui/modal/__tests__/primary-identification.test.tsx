@@ -55,12 +55,12 @@ describe('PrimaryIdentification', () => {
       const result = mapStateToProps(mockState)
       const expected = {
         loading: false,
-        contactModel: {},
+        contactModel: undefined,
         initFormValues: {
-          details: undefined,
-          expiry: null,
+          details: '',
+          expiry: undefined,
           fileUrl: undefined,
-          typeId: undefined
+          typeId: ''
         },
         isDesktopMode: false
       }
