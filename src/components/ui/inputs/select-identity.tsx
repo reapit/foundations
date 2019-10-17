@@ -37,7 +37,6 @@ export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, f
     }
     return []
   }, [identityTypes])
-
   return <SelectBox {...props} options={listIdentity} />
 }
 
