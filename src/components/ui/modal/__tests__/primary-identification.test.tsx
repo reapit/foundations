@@ -58,7 +58,7 @@ describe('PrimaryIdentification', () => {
           details: undefined,
           expiry: null,
           fileUrl: undefined,
-          typeId: undefined
+          typeId: ''
         },
         isDesktopMode: false
       }
