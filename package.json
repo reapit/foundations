@@ -55,6 +55,7 @@
     "@types/react-router": "^5.0.1",
     "@types/react-router-dom": "^4.3.3",
     "@types/webdriverio": "^4.13.3",
+    "babel-polyfill": "^6.26.0",
     "browserstack-capabilities": "^0.7.0",
     "chromedriver": "^2.43.1",
     "concurrently": "^4.1.1",
