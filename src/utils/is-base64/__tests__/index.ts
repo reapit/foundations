@@ -18,4 +18,16 @@ describe('isBase64', () => {
     const result = isBase64(input)
     expect(result).toEqual(false)
   })
+
+  it('should return false', () => {
+    const input = undefined
+    const result = isBase64(input)
+    expect(result).toEqual(false)
+  })
+
+  it('should return false', () => {
+    const input = null
+    const result = isBase64(input)
+    expect(result).toEqual(false)
+  })
 })
