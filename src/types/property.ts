@@ -434,7 +434,7 @@ export interface PagedResultPropertyModel_ {
     totalCount?: number; // int32
 }
 export interface ProblemDetails {
-    [name: string]: any;
+    name: string
     type?: string;
     title?: string;
     status?: number; // int32
@@ -524,11 +524,11 @@ export interface PropertyModel {
     /**
      * Gets the property types
      */
-    type?: string[];
+    type?: string;
     /**
      * Gets the property style
      */
-    style?: string[];
+    style?: string;
     /**
      * Gets the property situation
      */

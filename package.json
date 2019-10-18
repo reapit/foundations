@@ -6,12 +6,14 @@
     "little-loader": "^0.2.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-icons": "^3.7.0",
     "react-scripts": "^3.2.0",
-    "typescript": "3.6.3"
+    "ts-optchain": "^0.1.8"
   },
   "scripts": {
     "start": "PORT=8080 ./node_modules/.bin/react-app-rewired start",
     "build": "./node_modules/.bin/react-app-rewired build",
+    "serve": "serve -d build -l 8080",
     "test": "./node_modules/.bin/react-app-rewired test",
     "eject": "react-scripts eject",
     "fetch-definitions": "node ./fetch-definitions.js"
@@ -32,9 +34,11 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^2.0.3",
     "@types/enzyme": "^3.10.3",
     "@types/jest": "24.0.18",
     "@types/little-loader": "^0.2.0",
+    "@types/lodash.merge": "^4.6.6",
     "@types/node": "12.7.12",
     "@types/react": "16.9.5",
     "@types/react-dom": "16.9.1",
@@ -43,8 +47,11 @@
     "enzyme-adapter-react-16": "^1.15.0",
     "enzyme-to-json": "^3.4.2",
     "isomorphic-fetch": "^2.2.1",
+    "lodash.merge": "^4.6.2",
     "react-app-rewired": "^2.1.3",
+    "serve": "^11.2.0",
     "styled-components": "^4.4.0",
-    "sw2dts": "^2.6.2"
+    "sw2dts": "^2.6.2",
+    "typescript": "3.6.3"
   }
 }

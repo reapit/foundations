@@ -1,5 +1,12 @@
 module.exports = {
   webpack: function(config, env) {
+    config.output.filename = 'bundle.min.js'
+
+    // Disable chunk - create only one file when building, without hash
+    delete config.output.chunkFileName
+    delete config.optimization.splitChunks
+    delete config.optimization.runtimeChunk
+    config.plugins.splice(1,1)
     return config;
   },
   jest: function(config) {
