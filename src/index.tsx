@@ -31,6 +31,8 @@ export * from './components/Layout'
 export * from './components/IconList'
 export * from './components/Editor'
 export * from './components/TextAreaEditor'
+export * from './components/AcDynamicLinks'
+export * from './components/AcDynamicLinks/dynamic-link-gen'
 
 // Utils
 export * from './utils/validators'
