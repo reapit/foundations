@@ -525,6 +525,10 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     options={
       Array [
         Object {
+          "label": "Please Select",
+          "value": "",
+        },
+        Object {
           "label": "Mortgage Statement or Mortgage Redemption Statement",
           "value": "Mortgage Statement or Mortgage Redemption Statement",
         },

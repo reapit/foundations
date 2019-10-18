@@ -40,6 +40,7 @@ const renderYearOptions = () => {
 }
 
 const optionsDocumentType = [
+  { label: 'Please Select', value: '' },
   { label: DOCUMENT_TYPE.MORTGATE, value: DOCUMENT_TYPE.MORTGATE },
   { label: DOCUMENT_TYPE.BILL, value: DOCUMENT_TYPE.BILL },
   { label: DOCUMENT_TYPE.TAX_BILL, value: DOCUMENT_TYPE.TAX_BILL },
@@ -139,7 +140,7 @@ export const renderForm = ({
           data-test="more-three-year"
           onClick={handleMoreThreeYear({ setShowMoreThreeYearInput, isShowMoreThreeYearInput })}
         >
-          More than 3 year?
+          Less than 3 years?
         </a>
       </div>
       {renderExtraForm({ isShowMoreThreeYearInput, index: addresses.length, isDesktopMode })}
