@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { AcLink, AcButton } from '../index'
 import toJson from 'enzyme-to-json'
 import { dynamicLinkScenarios } from '../ac-dynamic-links.stories'
-import { getDynamicLink, navigateDynamicApp } from '../dynamic-link-gen'
+import { getDynamicLink } from '../dynamic-link-gen'
 
 describe('AcButton AcLink', () => {
   const mockWindow = ({

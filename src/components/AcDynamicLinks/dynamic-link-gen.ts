@@ -97,6 +97,7 @@ export const navigateDynamicApp = (dynamicLinkParams: DynamicLinkParams, navigat
   }
 }
 
+// TODO - needs a test, just need to test in prod first, bit hacky
 export const setMessageEventListener = () => {
   window.addEventListener('message', (event: MessageEvent) => {
     if (event.origin.startsWith('https://reapit.github.io')) {
