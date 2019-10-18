@@ -41,7 +41,6 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
       .endOf('day')
   }
 
-
   // Enable this to fetch past data if there is no data for current period
   // start = dayjs().subtract(150, 'day')
   // end = dayjs()
