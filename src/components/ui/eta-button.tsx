@@ -1,5 +1,6 @@
 import React from 'react'
 import { isMacLike } from '@/utils/device-detection'
+import styles from '@/styles/ui/eta-button.scss?mod'
 
 interface ETAButtonProps {
   tel: string | string[]
@@ -14,7 +15,7 @@ export const ETAButton: React.FC<ETAButtonProps> = ({ body, children, tel }) => 
   }
 
   return (
-    <a href={href} className="button is-primary" data-test="eta-button">
+    <a href={href} className={`${styles.btnEta} button is-fullwidth is-centered is-primary`} data-test="eta-button">
       {children}
     </a>
   )

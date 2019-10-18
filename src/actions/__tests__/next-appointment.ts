@@ -11,7 +11,7 @@ describe('next-appointments actions', () => {
 
   it('should create a nextAppointmentValidate action', () => {
     expect(nextAppointmentValidate.type).toEqual(ActionTypes.NEXT_APPOINTMENT_VALIDATE)
-    expect(nextAppointmentValidate().data).toEqual(undefined)
+    expect(nextAppointmentValidate('WALK').data).toEqual('WALK')
   })
 
   it('should create a appointmentsRequestData action', () => {

@@ -21,7 +21,7 @@ import { AppointmentModel } from '@/types/appointments'
 
 export interface HomeMappedActions {
   requestAppointments: (time: AppointmentsTime) => void
-  requestNextAppointment: () => void
+  requestNextAppointment: (travelMode: string) => void
   setSelectedAppointment: (appointment: AppointmentModel | null) => void
 }
 
@@ -74,9 +74,9 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   React.useEffect(() => {
     const hasAppointments = oc(appointmentsState).appointments.data([]).length > 0
     if (appointmentsState.time === 'Today' && hasAppointments && !appointmentsState.loading) {
-      requestNextAppointment()
+      requestNextAppointment(travelMode)
     }
-  }, [appointmentsState.appointments, appointmentsState.time, appointmentsState.loading])
+  }, [appointmentsState.appointments, appointmentsState.time, appointmentsState.loading, travelMode])
 
   const handleTravelMode = React.useCallback(value => setTravelMode(value), [travelMode])
 
@@ -153,7 +153,7 @@ export interface HomeMappedActions {
 
 const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({
   requestAppointments: (time: AppointmentsTime) => dispatch(appointmentsRequestData({ time })),
-  requestNextAppointment: () => dispatch(nextAppointmentValidate()),
+  requestNextAppointment: (travelMode: string) => dispatch(nextAppointmentValidate(travelMode)),
   setSelectedAppointment: (appointment: AppointmentModel | null) => dispatch(setSelectedAppointment(appointment)),
   changeHomeTab: (tab: 'LIST' | 'MAP') => {
     dispatch(homeTabChange(tab))

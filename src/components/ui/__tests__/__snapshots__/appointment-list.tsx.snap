@@ -20,7 +20,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="NEP1600290"
             />
@@ -91,7 +91,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="56 High Street"
@@ -132,7 +132,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="BED1600537"
             />
@@ -186,7 +186,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="68 The Embankment"
@@ -227,7 +227,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="BUC1600211"
             />
@@ -298,7 +298,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="34 Sandhill Road"
@@ -339,7 +339,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="BUC1600210"
             />
@@ -393,7 +393,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="Wayside Little Tingewick"
@@ -434,11 +434,11 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="STS1600403"
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading=" "
@@ -479,11 +479,11 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="STS1600401"
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading=" "
@@ -524,7 +524,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="NEP1600288"
             />
@@ -578,7 +578,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="56 High Street"
@@ -619,11 +619,11 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="STS1600396"
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading=" "
@@ -664,11 +664,11 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="NEP1600287"
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading=" "
@@ -709,7 +709,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="BED1600534"
             />
@@ -780,7 +780,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="The Cottage Shelton Road"
@@ -821,11 +821,11 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="STS1600394"
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading=" "
@@ -866,7 +866,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="BED1600532"
             />
@@ -914,7 +914,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="49 The Causeway"
@@ -955,7 +955,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="MKC1600312"
             />
@@ -1026,7 +1026,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="39 Foxfield"
@@ -1067,7 +1067,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="BED1600530"
             />
@@ -1138,7 +1138,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="The Firs Bedford Road"
@@ -1179,7 +1179,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="BUC1600209"
             />
@@ -1262,7 +1262,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="Wayside Little Tingewick"
@@ -1303,7 +1303,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="BED1600525"
             />
@@ -1357,7 +1357,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="57 The Embankment"
@@ -1398,7 +1398,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="BED1600523"
             />
@@ -1469,7 +1469,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="54 Tyne Crescent"
@@ -1510,7 +1510,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="MKC1600311"
             />
@@ -1558,7 +1558,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                 }
               }
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading="8 Deacon Place"
@@ -1599,11 +1599,11 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     <Tile
       footerItems={
         Array [
-          <React.Fragment>
+          <div>
             <Memo(CurrentLocButtonWithRedux)
               id="STS1600389"
             />
-          </React.Fragment>,
+          </div>,
         ]
       }
       heading=" "

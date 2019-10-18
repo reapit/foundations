@@ -6,6 +6,7 @@ import { nextAppointmentValidateSuccess, nextAppointmentClear } from '@/actions/
 import { oc } from 'ts-optchain'
 import { selectUserCode } from '@/selectors/auth'
 import { filterLoggedInUser } from '@/components/common/appointment-detail/appointment-detail'
+import { Action } from '@/types/core'
 
 type Position = {
   lat: number
@@ -47,7 +48,7 @@ export const callCurrentPosition = function({
   })
 }
 
-export const validateNextAppointment = function*() {
+export const validateNextAppointment = function*({ data: travelMode }: Action<string>) {
   const appointments = yield select(selectAppointments)
   const appointment = getTodayNextAppointment(appointments)
 
@@ -65,7 +66,8 @@ export const validateNextAppointment = function*() {
         destination: {
           lat: oc(appointment).property.address.geolocation.latitude(testLatitude),
           lng: oc(appointment).property.address.geolocation.longitude(testLongitude)
-        }
+        },
+        travelMode: travelMode === 'DRIVING' ? google.maps.TravelMode.DRIVING : google.maps.TravelMode.WALKING
       })
 
       if (
@@ -105,7 +107,7 @@ export const validateNextAppointment = function*() {
 }
 
 export const nextAppointmentDataListen = function*() {
-  yield takeLatest(ActionTypes.NEXT_APPOINTMENT_VALIDATE, validateNextAppointment)
+  yield takeLatest<Action<string>>(ActionTypes.NEXT_APPOINTMENT_VALIDATE, validateNextAppointment)
 }
 
 const nextAppointmentSagas = function*() {

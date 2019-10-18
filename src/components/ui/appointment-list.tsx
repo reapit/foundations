@@ -7,6 +7,7 @@ import ViewDetailButton from '../container/view-detail-button'
 import ETAButton from './eta-button'
 import { NextAppointment } from '@/reducers/next-appointment'
 import containerStyle from '@/styles/pages/page-container.scss?mod'
+import appointmentListStyles from '@/styles/ui/appointment-list.scss?mod'
 import { ListItemModel } from '../../types/configuration'
 import { FaClock, FaStreetView, FaAddressCard } from 'react-icons/fa'
 
@@ -83,11 +84,7 @@ export const AppointmentList = memo(
           const address = `${line2 || ''} ${line3 || ''} ${line4 || ''} ${postcode || ''}`
 
           const displayETAButton =
-            nextAppointment &&
-            nextAppointment.id === item.id &&
-            nextAppointment.attendeeHaveMobile &&
-            // less than 10 minutes
-            nextAppointment.durationValue <= 600
+            nextAppointment && nextAppointment.id === item.id && nextAppointment.attendeeHaveMobile
 
           let renderETAButton: React.ReactNode = null
 
@@ -98,11 +95,9 @@ export const AppointmentList = memo(
             const name = oc(nextAppointment).attendeeHaveMobile[0].name('')
 
             renderETAButton = (
-              <div className="mt-4 ml-4">
-                <ETAButton tel={tel || ''} body={`Hi ${name}, I will be with you in 10 mins`}>
-                  ETA Text
-                </ETAButton>
-              </div>
+              <ETAButton tel={tel || ''} body={`Hi ${name}, I will be with you in 10 mins`}>
+                ETA Text
+              </ETAButton>
             )
           }
           return (
@@ -117,12 +112,12 @@ export const AppointmentList = memo(
                 key={item.id}
                 heading={heading}
                 footerItems={[
-                  <>
+                  <div className={appointmentListStyles.tileFooter}>
                     <ViewDetailButton id={item.id} />
 
                     {lat && lng ? <ViewDirectionButton appointment={item} /> : null}
                     {renderETAButton}
-                  </>
+                  </div>
                 ]}
               >
                 <IconList
