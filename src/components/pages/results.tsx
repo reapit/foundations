@@ -95,11 +95,18 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
   }, [search, pageNumber])
 
   const renderEmptyResult = () => (
-    <Info infoType="">
-      <H6>
-        No Results found <Link to={Routes.HOME}>Back to search page</Link>
-      </H6>
-    </Info>
+    <div>
+      <div>
+        <Info infoType="">
+          <H6>No Results found</H6>
+        </Info>
+      </div>
+      <div className={styles.buttonNewSearchContainer}>
+        <Button variant="primary" type="button">
+          <Link to={Routes.HOME}>New Search</Link>
+        </Button>
+      </div>
+    </div>
   )
 
   return (
