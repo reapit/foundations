@@ -19,7 +19,7 @@ const validate = values => {
   return errors
 }
 
-storiesOf('form/TextAreaEditor', module).add('Sample Form', () => (
+storiesOf('TextAreaEditor', module).add('Sample Form', () => (
   <section className="section">
     <Formik
       initialValues={{ description: '', text: '' }}
