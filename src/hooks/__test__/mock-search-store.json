@@ -1,0 +1,498 @@
+{
+  "data": [
+    {
+      "id": "AYL190002",
+      "created": "2019-09-17T11:57:27",
+      "modified": "2019-09-17T12:06:06",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "176c",
+        "line1": "Sussex Way",
+        "line2": "Archway",
+        "line3": "London",
+        "line4": "",
+        "postcode": "N19 4JF",
+        "country": "GB",
+        "geolocation": {
+          "latitude": 51.56449,
+          "longitude": -0.121057
+        }
+      },
+      "strapline": "Flat",
+      "description": "This is a flat",
+      "departmentId": "G",
+      "bedrooms": 0,
+      "receptions": 0,
+      "bathrooms": 0,
+      "internetAdvertising": true,
+      "epc": {
+        "exempt": false,
+        "eer": 0,
+        "eerPotential": 0,
+        "eir": 0,
+        "eirPotential": 0
+      },
+      "selling": {
+        "instructed": "2019-09-17T00:00:00",
+        "price": 0,
+        "qualifier": "guidePrice",
+        "status": "forSale"
+      },
+      "type": [],
+      "style": [],
+      "situation": [],
+      "parking": [],
+      "age": [],
+      "locality": [],
+      "rooms": [],
+      "relationships": [
+        {
+          "id": "LJW",
+          "type": "negotiator"
+        },
+        {
+          "id": "AYL",
+          "type": "office"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "AYL190001",
+      "created": "2019-09-17T10:27:41",
+      "modified": "2019-10-10T10:48:31",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "15",
+        "line1": "Furzen Cresent",
+        "line2": "Hatfield",
+        "line3": "Hertfordshire",
+        "line4": "",
+        "postcode": "AL10 9QN",
+        "country": "GB",
+        "geolocation": {
+          "latitude": 51.744647,
+          "longitude": -0.235076
+        }
+      },
+      "strapline": "3 Bed Mid terraced house",
+      "description": "Lovely 3 bed mid terraced house located in a quiet residential area in South Hatfield. The property comprises of 3 bed rooms, kitchen extention and private garden. Double glazed windows and a front door.",
+      "departmentId": "G",
+      "bedrooms": 3,
+      "receptions": 1,
+      "bathrooms": 1,
+      "internetAdvertising": true,
+      "epc": {
+        "exempt": false,
+        "eer": 0,
+        "eerPotential": 0,
+        "eir": 0,
+        "eirPotential": 0
+      },
+      "selling": {
+        "instructed": "2019-09-17T00:00:00",
+        "price": 500000,
+        "qualifier": "guidePrice",
+        "status": "forSale"
+      },
+      "type": [
+        "house"
+      ],
+      "style": [
+        "terraced"
+      ],
+      "situation": [
+        "garden"
+      ],
+      "parking": [],
+      "age": [],
+      "locality": [
+        "townCity"
+      ],
+      "rooms": [],
+      "relationships": [
+        {
+          "id": "LJW",
+          "type": "negotiator"
+        },
+        {
+          "id": "AYL",
+          "type": "office"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "NEP160047",
+      "created": "2019-05-12T12:58:28",
+      "modified": "2019-05-12T13:03:03",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "24",
+        "line1": "High Street",
+        "line2": "Haversham",
+        "line3": "Milton Keynes",
+        "line4": "Buckinghamshire",
+        "postcode": "MK19 7DU",
+        "country": "GB",
+        "geolocation": {
+          "latitude": 52.079762,
+          "longitude": -0.790573
+        }
+      },
+      "description": "Brick cottage \r\n\r\nDouble length garage",
+      "departmentId": "G",
+      "bedrooms": 3,
+      "receptions": 0,
+      "bathrooms": 1,
+      "internetAdvertising": true,
+      "epc": {
+        "exempt": false,
+        "eer": 0,
+        "eerPotential": 0,
+        "eir": 0,
+        "eirPotential": 0
+      },
+      "selling": {
+        "price": 0,
+        "qualifier": "askingPrice",
+        "status": "valuation"
+      },
+      "type": [
+        "house",
+        "cottage"
+      ],
+      "style": [
+        "semiDetached"
+      ],
+      "situation": [
+        "garden"
+      ],
+      "parking": [
+        "garage"
+      ],
+      "age": [],
+      "locality": [],
+      "rooms": [],
+      "relationships": [
+        {
+          "id": "AWM",
+          "type": "negotiator"
+        },
+        {
+          "id": "NEP",
+          "type": "office"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "BED160095",
+      "created": "2019-05-12T11:47:02",
+      "modified": "2019-05-12T11:47:42",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "Brook House",
+        "buildingNumber": "",
+        "line1": "Nomansland",
+        "line2": "Wheathampstead",
+        "line3": "St. Albans",
+        "line4": "Hertfordshire",
+        "postcode": "AL4 8EJ",
+        "country": "GB",
+        "geolocation": {
+          "latitude": 51.80086,
+          "longitude": -0.30289
+        }
+      },
+      "description": "Tenure: Freehold\nÃ¢â‚¬Â¢ Dining room\nÃ¢â‚¬Â¢ Sitting room \nÃ¢â‚¬Â¢ Kitchen/breakfast room \nÃ¢â‚¬Â¢ Utility room\nÃ¢â‚¬Â¢ Boot room\nÃ¢â‚¬Â¢ Conservatory\nÃ¢â‚¬Â¢ 4 bedrooms\nÃ¢â‚¬Â¢ 2 Family bathrooms\nÃ¢â‚¬Â¢ Glass covered link to -\n\nÃ¢â‚¬Â¢ Large family sitting room, 2 bedrooms and bathroom\n\nÃ¢â‚¬Â¢ Inner courtyard with outbuildings\nÃ¢â‚¬Â¢ Large Timber Framed Barn\nÃ¢â‚¬Â¢ Enclosed Yard with extensive stabling, barns and additional access\nÃ¢â‚¬Â¢ Gardens and paddocks\n\nÃ¢â‚¬Â¢ About 12.5 acres\n\nWheathampstead 1.5 miles\nHarpenden town centre 3.5 miles \nSt Albans town centre 4.5 miles\nHarpenden Station First Capital Connect to St Pancras International 27 mins \nSt Albans City Station First Capital Connect to St Pancras International 18 mins\nLondon Luton international airport 8 miles\nM1 (J9) 6 miles\nA1(M) (J4) 6 miles (Hatfield Tesco Extra Store)\n(Distances approximate)\n\nThe property is set back from the road and bordered by mature hedging with lawn area and flower beds. A driveway leads to the garage/barn and side access. \nThe large fully enclosed rear garden is mainly laid to lawn with established trees, shrubs and flower beds. An extensive patio area provides ample seating and entertaining areas. There is a glass house and childrenÃ¢â‚¬â„¢s play area.\nIn all about 12.5 acres\r\n\n\n\r\n\n\r\n\nMore information from this agent\n\r\n\nTo view this media, please visit the on-line version of this page at www.rightmove.co.uk/property-for-sale/property-46747889.html?premiumA=true",
+      "summary": "Grade II Listed detached home\r3014 approx. sq ft\rDining room, sitting room, conservatory\rKitchen/breakfast room \rUtility & boot room\r4 bedrooms, 2 family bathrooms\rAnnexe : Large family sitting room, 2 bedrooms and bathroom\rInner courtyard with outbuildings & barn\rEnclosed Yard with extensive stabling, barns and additional access\rGardens and paddocks about 12.5 acres",
+      "departmentId": "G",
+      "bedrooms": 5,
+      "receptions": 0,
+      "bathrooms": 0,
+      "internetAdvertising": true,
+      "externalArea": {
+        "type": "acres",
+        "min": 12.5
+      },
+      "epc": {
+        "exempt": false,
+        "eer": 0,
+        "eerPotential": 0,
+        "eir": 0,
+        "eirPotential": 0
+      },
+      "selling": {
+        "price": 1695000,
+        "qualifier": "guidePrice",
+        "status": "preAppraisal",
+        "tenure": {
+          "type": "freehold"
+        }
+      },
+      "type": [
+        "house"
+      ],
+      "style": [
+        "detached"
+      ],
+      "situation": [],
+      "parking": [],
+      "age": [],
+      "locality": [],
+      "rooms": [],
+      "relationships": [
+        {
+          "id": "CBM",
+          "type": "negotiator"
+        },
+        {
+          "id": "BED",
+          "type": "office"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "BED160094",
+      "created": "2019-05-12T11:44:00",
+      "modified": "2019-05-12T11:45:58",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "10",
+        "line1": "Roundwood Park",
+        "line2": "Harpenden",
+        "line3": "Hertfordshire",
+        "line4": "",
+        "postcode": "AL5 3AB",
+        "country": "GB",
+        "geolocation": {
+          "latitude": 51.821108,
+          "longitude": -0.370833
+        }
+      },
+      "description": "A magnificent and substantial detached family home constructed to a high specification approximately 4 years ago, by developers of repute, Raybridge Homes, in a highly sought after an convenient location, very close to Roundwood Schools and around a mile from the High Street and station.\n\nThis fine house has stylishly presented, well proportioned and versatile accommodation arranged over three floors, featuring a stunning kitchen/family room, beautifully appointed bathroom suites and a generous private garden.\n\nHarpenden is well noted for its excellent choice of schools for all age groups. Sports and social requirements are well catered for, including several challenging golf courses, a sports centre and pool, various clubs and associations and a comprehensive range of restaurants and bars. Harpenden benefits from a fast Thameslink train service to St. Pancras International (c. 26 mintues), the City, Gatwick Airport and beyond to Brighton.\n\nEntrance Via Front Door - \n\nEntrance Hall - Porcelanosa tiled floors with underfloor heating. Coved ceiling with spotlights. Two double glazed sash windows to side elevation. Door leading into the garage. Stairs to first floor. Storage cupboard, housing CCTV screen and CCTV box recorder (connects to 4 cameras around the house). Alarm control panel.\n\nLiving Room - 18'4 into bay x 13' (5.59m into bay x 3.96m) - Accessed via two glass and timber double doors. Porcelanosa tiled floor with underfloor heating. Two double glazed sash windows to side elevation. Double glazed sash bay windows to front elevation. Contemporary gas fire. TV and power points. Corniced ceiling with spotlights. Ceiling music speakers.\n\nKitchen/Family Room - 23'10 x 19'7 (7.26m x 5.97m) - Beautifully fitted kitchen with large range of base and wall units. Granite work surface with overhang and integral stainless steel sink. Space for range cooker with overhead extractor fan. Teppanyaki hot plate, indoor BBQ, induction hob and further extractor fan overhead. High specification Miele integrated appliances also include dishwasher, microwave oven, fridge, freezer, coffee machine. Ice maker. Porcelanosa tiled floor with underfloor heating. Two double glazed sash windows to both side elevations. Double glazed bi-fold doors to rear elevation stepping out onto patio area. Corniced ceiling with spotlights. TV points. Under stairs storage cupboard.\n\nPlay Room/Study - 8'9 x 8'6 (2.67m x 2.59m) - Porcelanosa tiling with underfloor heating. Two double glazed sash windows to rear elevation. Corniced ceiling with spotlights. TV and telephone points.\n\nUtility Room - Butler sink with granite worksurface. Plumbing for washing machine. Obscured double glazed sash window to side elevation. Corniced ceiling with spotlights. Porcelanosa tiled floor with underfloor heating. UPVC doors stepping out to side elevation.\n\nCloakroom - Concealed cistern WC with granite shelf above. Porcelanosa wall and tiled floor with underfloor heating. Corniced ceiling with spotlights. Vanity cupboard mounted wash hand basin.\n\nSolid oak staircase, leading up to the:\n\nFirst Floor - \n\nLanding - Double panel radiator. Airing cupboard with light, housing Megaflow tank and ample shelving.\n\nMaster Bedroom - 18'7 x 13' (5.66m x 3.96m) - Two double glazed sash windows to rear elevation. Two double panel radiators. Corniced ceiling with spotlights and built in speakers. Television and telephone points. Emergency alarm point. Hatch access to large loft storage area, (same size as room). Door leading into:\n\nEnsuite - Porcelanosa wall and floor tiles with underfloor heating. Heated towel rail. Jacuzzi bath. Television mounted into the wall. Two frosted double glazed sash windows to rear elevation. Corniced ceiling with spotlights and built in speakers. Low level WC. Vanity cupboard mounted wash hand basin. Shower cubicle.\n\nDressing Room - Accessed via door from Master bedroom. Fitted wardrobes and drawers with dressing area.\n\nBedroom Two - 15'3 x 13'11 (4.65m x 4.24m) - Double glazed sash windows to front elevation. Corniced ceiling with spotlights and built in speakers.\u0000 TV and telephone points. Built in wardrobes. Double panel radiator. Door into:\n\nEn-Suite - Porcelanosa wall and floor tiles with underfloor heating. Shower cubicle. Vanity cupboard mounted wash hand basin set into granite shelf. Frosted double glazed window to side elevation. Concealed cistern WC with granite worksurface and heated towel rail. Built in speaks in ceiling.\n\nBedroom Three - 11' x 10'10 into bay (3.35m x 3.30m into bay) - Double glazed sash windows to front elevation. Double panel radiator. Cornice ceiling with spotlights and built in speakers. Built in wardrobes. Telephone and television points.\n\nBedroom Four - 13'10 x 9'9 (4.22m x 2.97m) - Double glazed window to rear elevation. Double panel radiator. Built in wardrobes. Television and telephone points. Corniced ceiling with spotlights and built in speakers. Double panel radiator.\n\nFamily Bathroom - Porcelanosa wall and floor tiles with underfloor heating. Large walk in shower with glass screen. Heated towel rail. Frosted double glazed sash window to side elevation. Concealed cistern WC with granite shelf above and a vanity cupboard mounted wash hand basin. Built in speakers.\n\nStairs Leading Up To The - \n\nSecond Floor - \n\nLanding - Double panel radiator. Double glazed Velux skylight.\n\nBedroom Five - 23'7 x 10'9 (7.19m x 3.28m) - Two double glazed Velux skylights. Double panel radiator. Spotlights. Built in wardrobes. Comms cupboard. Door to\n\nJack And Jill Bathroom - Porcelanosa wall and floor tiles with underfloor heating. Shower cubicle. Spotlights. Double glazed Velux skylight. Vanity cupboard mounted wash hand basin set into granite shelf, concealed cistern WC. Heated towel rail.\n\nGames Room/Gym - 32'3 max x 12'2 max narrowing to 8'3 (9.83m max x - Double panel radiator. Two double glazed Velux skylights and double glazed window to front elevation. Two double panel radiators. Two built in wardrobes. Spotlights. Television and telephone points. Built in speakers. Door to comms cupboard.\n\nExterior - \n\nFront Garden - Paved driveway providing off road parking for several vehicles with plant/flower bed.\n\nGarage - 19'9 x 9'4 (6.02m x 2.84m) - Power and lighting, Up and over door. (Please note this garage could easily be converted into another room, subject to the usual building regulations, and could be easily connected to the underfloor heating system, if required.)\n\nRear Garden - Immediately adjacent to the house is an expanse of paved patio area with the remainder being laid to lawn. Path leading down the side to a rear decked area with large wooden summer house/timber garden studio. Enclosed mainly by panel fencing with brick built wall to the left hand side. Outside power, with exterior lighting and entertainment speakers around the garden.\n\nYou may download, store and use the material for your own personal use and research. You may not republish, retransmit, redistribute or otherwise make the material available to any party or make the same available on any website, online service or bulletin board of your own or of any other party or make the same available in hard copy or in any other media without the website owner's express prior written consent. The website owner's copyright must remain on all reproductions of material taken from this website.\n\n\r\n\n\n\r\n\n\r\n\nMore information from this agent\n\r\n\nTo view this media, please visit the on-line version of this page at www.rightmove.co.uk/property-for-sale/property-36479394.html?premiumA=true",
+      "summary": "5 bedrooms\r2 reception rooms\rkitchen/family room\r4 bathrooms\rgames room/gym",
+      "departmentId": "G",
+      "bedrooms": 6,
+      "receptions": 2,
+      "bathrooms": 4,
+      "internetAdvertising": true,
+      "epc": {
+        "exempt": false,
+        "eer": 0,
+        "eerPotential": 0,
+        "eir": 0,
+        "eirPotential": 0
+      },
+      "selling": {
+        "price": 1699995,
+        "qualifier": "guidePrice",
+        "status": "preAppraisal"
+      },
+      "type": [
+        "house"
+      ],
+      "style": [
+        "detached"
+      ],
+      "situation": [],
+      "parking": [],
+      "age": [],
+      "locality": [],
+      "rooms": [],
+      "relationships": [
+        {
+          "id": "CBM",
+          "type": "negotiator"
+        },
+        {
+          "id": "BED",
+          "type": "office"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "BUC160024",
+      "created": "2019-05-12T11:27:38",
+      "modified": "2019-05-12T11:27:54",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "72",
+        "line1": "Vicarage Road",
+        "line2": "Winslow",
+        "line3": "Buckingham",
+        "line4": "Buckinghamshire",
+        "postcode": "MK18 3BJ",
+        "country": "GB",
+        "geolocation": {
+          "latitude": 51.942562,
+          "longitude": -0.88397
+        }
+      },
+      "description": "",
+      "departmentId": "G",
+      "bedrooms": 0,
+      "receptions": 0,
+      "bathrooms": 0,
+      "internetAdvertising": true,
+      "epc": {
+        "exempt": false,
+        "eer": 0,
+        "eerPotential": 0,
+        "eir": 0,
+        "eirPotential": 0
+      },
+      "selling": {
+        "price": 0,
+        "qualifier": "askingPrice",
+        "status": "valuation"
+      },
+      "type": [],
+      "style": [],
+      "situation": [],
+      "parking": [],
+      "age": [],
+      "locality": [],
+      "rooms": [],
+      "relationships": [
+        {
+          "id": "PAE",
+          "type": "negotiator"
+        },
+        {
+          "id": "BUC",
+          "type": "office"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "BUC160023",
+      "created": "2019-05-12T11:13:01",
+      "modified": "2019-05-12T11:26:34",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "Willow Cottage",
+        "buildingNumber": "",
+        "line1": "Bletchley Road",
+        "line2": "Thornborough",
+        "line3": "Buckingham",
+        "line4": "Buckinghamshire",
+        "postcode": "MK18 2DZ",
+        "country": "GB",
+        "geolocation": {
+          "latitude": 0,
+          "longitude": 0
+        }
+      },
+      "description": "",
+      "departmentId": "G",
+      "bedrooms": 0,
+      "receptions": 0,
+      "bathrooms": 0,
+      "internetAdvertising": true,
+      "epc": {
+        "exempt": false,
+        "eer": 0,
+        "eerPotential": 0,
+        "eir": 0,
+        "eirPotential": 0
+      },
+      "selling": {
+        "price": 0,
+        "qualifier": "askingPrice",
+        "status": "valuation"
+      },
+      "type": [],
+      "style": [],
+      "situation": [],
+      "parking": [],
+      "age": [],
+      "locality": [],
+      "rooms": [],
+      "relationships": [
+        {
+          "id": "JAT",
+          "type": "negotiator"
+        },
+        {
+          "id": "BUC",
+          "type": "office"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "id": "BED160090",
+      "created": "2019-05-12T11:09:05",
+      "modified": "2019-05-12T11:36:50",
+      "marketingMode": "selling",
+      "address": {
+        "buildingName": "",
+        "buildingNumber": "19",
+        "line1": "Bearton Road",
+        "line2": "Hitchin",
+        "line3": "Hertfordshire",
+        "line4": "",
+        "postcode": "SG5 1UB",
+        "country": "GB",
+        "geolocation": {
+          "latitude": 51.956862,
+          "longitude": -0.27893
+        }
+      },
+      "description": "An attractive three bedroom semi detached Victorian house, situated in a popular and highly convenient location, within walking distance of the station and comprehensive town centre amenities. \n\nThe gas centrally heated accommodation includes a bay fronted sitting room and dining area, a kitchen/breakfast room, three bedrooms and a first floor bathroom with separate wc. Outside there is a low maintenance front garden and a good sized rear garden with side access.\n\nGround Floor - \n\nEntrance Lobby - Front door. Coved ceiling. Recessed downlight. Glazed door to:\n\nEntrance Hall - Radiator. Staircase to first floor. Coved ceiling. Recessed downlights. Glazed door to dining area.\n\nSitting/Dining Room - Comprising:\n\nSitting Area - 14'2 x 10'2 (4.32m x 3.10m) - Measured into bay window to front. Radiator. Oak flooring. Chimney breast with fireplace and fitted shelving to either side. Coved ceiling. Recessed downlights. Open plan to:\n\nDining Area - 12' x 10'4 (3.66m x 3.15m) - Sash window to rear. Radiator. Oak flooring. Chimney breast with fitted shelves to one side. Under stairs storage cupboard. Coved ceiling. Recessed downlights. Doorway to kitchen/breakfast room.\n\nKitchen/Breakfast Room - 20'7 x 8'2 (6.27m x 2.49m) - Double glazed window and door to side. Double glazed casement double doors to rear. Fitted with a comprehensive range of wall and base units. Oak block work surfaces incorporating a breakfast bar. Inset one and a half bowl stainless steel sink with mixer tap and drainer. Gas hob with glass splashback and extractor canopy. Fitted oven. Integrated dishwasher. Plumbed for washing machine. Recess for fridge/freezer. Wall mounted cupboard housing gas fired boiler. Oak floor. Radiator. Space for table and chairs. Recessed downlights.\n\nFirst Floor - \n\nLanding - Radiator. Coved ceiling. Loft access.\n\nBedroom One - 12' x 11'3 (3.66m x 3.43m) - Plus depth of custom built fitted wardrobes to one wall. Two double glazed sash windows to front. Radiator. Coved ceiling.\n\nBedroom Two - 12' x 7'8 (3.66m x 2.34m) - Sash window to rear. Radiator. Chimney breast. Coved ceiling.\n\nBedroom Three - 9'4 x 8'3 (2.84m x 2.51m) - Double glazed window to rear. Radiator. Cast iron fireplace. Coved ceiling.\n\nBathroom - Double glazed window to side. Suite comprising bath with mixer tap, wash hand basin and corner shower cubicle. Tiled splash areas. Heated towel rail. Tiled floor. Recessed downlights.\n\nSeparate Wc - Low level wc. Tiled floor. Window to side.\n\nOutside - \n\nFront Garden - Brick boundary wall. Tiled path and area of gravel with shrubs. Side access gate.\n\n\n\n\n\nRear Garden - Paved patio. Area of lawn. Various shrubs. Timber garden shed. Outside tap.\n\nFloorplan Disclaimer - Floorplans are provided for guidance only. They are not to scale and must not form any part of a legal contract or be reproduced without the written consent of a partner of Putterills.\n\nViewing Information - By appointment only through Putterills of Hertfordshire, through whom all negotiations should be conducted.\n\nSands Financial Management - We offer impartial, whole of market mortgage advice and insurance products from a selected panel of providers. So whether you are a first-time buyer, buying to let or moving house, we will help you find the best deal. Please contact us on 01462 632222.\n\nYou may download, store and use the material for your own personal use and research. You may not republish, retransmit, redistribute or otherwise make the material available to any party or make the same available on any website, online service or bulletin board of your own or of any other party or make the same available in hard copy or in any other media without the website owner's express prior written consent. The website owner's copyright must remain on all reproductions of material taken from this website.\n\n\r\n\n\n\r\n\n\r\n\nMore information from this agent\n\r\n\nTo view this media, please visit the on-line version of this page at www.rightmove.co.uk/property-for-sale/property-52847764.html",
+      "departmentId": "G",
+      "bedrooms": 3,
+      "receptions": 0,
+      "bathrooms": 0,
+      "internetAdvertising": true,
+      "epc": {
+        "exempt": false,
+        "eer": 0,
+        "eerPotential": 0,
+        "eir": 0,
+        "eirPotential": 0
+      },
+      "selling": {
+        "price": 450000,
+        "qualifier": "guidePrice",
+        "status": "preAppraisal"
+      },
+      "type": [
+        "house"
+      ],
+      "style": [
+        "semiDetached"
+      ],
+      "situation": [],
+      "parking": [],
+      "age": [],
+      "locality": [],
+      "rooms": [],
+      "relationships": [
+        {
+          "id": "CBM",
+          "type": "negotiator"
+        },
+        {
+          "id": "BED",
+          "type": "office"
+        }
+      ],
+      "metadata": {}
+    }
+  ],
+  "pageNumber": 1,
+  "pageSize": 10,
+  "pageCount": 10,
+  "totalCount": 2536
+}

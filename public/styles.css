@@ -1,7 +1,7 @@
 /* Base */
 body {
   margin: 0;
-  font-size: 16px
+  font-size: 16px;
 }
 
 /* Font */
@@ -11,13 +11,12 @@ body {
 
 /* Navbar */
 #path-bar {
-  fill: #8A8A8A;
+  fill: #8a8a8a;
 }
 
 #navbar {
   padding: 0rem 1.75rem;
-  color: #8A8A8A;
-
+  color: #8a8a8a;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,6 +32,45 @@ body {
 }
 
 /* Widget */
+#search-result-container {
+  margin: 4rem;
+}
+
+#reapit-search-map {
+  overflow: auto;
+}
+
+/* Responsive map */
+#reapit-search-map > div {
+  padding: 25vw;
+}
+
+@media and (max-width: 1600px) {
+  #reapit-search-map > div {
+    padding: 35vw;
+  }
+}
+
+#reapit-search-result {
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+}
+
+#reapit-search-widget-container {
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+#widget {
+  position: relative;
+}
+
 #widget > img {
   width: 100vw;
 }
@@ -49,7 +87,7 @@ body {
 }
 
 #approach > #our-approach {
-  background: #8A8A8A;
+  background: #8a8a8a;
   padding: 1.75rem 1.75rem;
   display: flex;
   flex-direction: column;
@@ -58,7 +96,7 @@ body {
 #approach button {
   margin-top: 1rem;
   background: white;
-  color: #8A8A8A;
+  color: #8a8a8a;
   padding: 0.75rem 1.75rem;
   border: 0rem;
   margin-left: auto;

@@ -13,7 +13,7 @@ exports[` 1`] = `
 
 exports[`google-map MapContainer should match snapshot 1`] = `
 <styled.div
-  id="map-container"
+  id="reapit-map-container"
 />
 `;
 

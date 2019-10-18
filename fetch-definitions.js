@@ -11,8 +11,11 @@ const BASE_URL = 'https://reapit.cloud.tyk.io'
 
 const apiSchema = [
   {
-    definitionFile: `${__dirname}/src/types/schema.ts`,
+    definitionFile: `${__dirname}/src/types/property.ts`,
     endpoint: `${BASE_URL}/properties/swagger/v1/swagger.json`,
+  }, {
+    definitionFile: `${__dirname}/src/types/propertyImage.ts`,
+    endpoint: `${BASE_URL}/propertyImages/swagger/v1/swagger.json`,
   }
 ]
 
