@@ -131,17 +131,32 @@ export const mapAddressToMetaData = ({ addressesMeta, responseUploadImages }) =>
   })
 }
 
-export const updateAddressHistory = function*({ data: { addresses, metadata } }: UpdateAddressHistoryParams) {
+export const updateAddressHistory = function*({ data: { addresses = [], metadata } }: UpdateAddressHistoryParams) {
   const contact: ContactModel = yield select(selectCheckListDetailContact)
   yield put(checkListDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
+    const formattedAddresses: AddressModel[] = addresses.map((address, index) => {
+      if (index > 0) {
+        return {
+          ...address,
+          type: 'secondary'
+        }
+      }
+      return address
+    })
     const addressesMeta = metadata && metadata.addresses
-    const uploadImageFunc = mapArrAddressToUploadImageFunc({ headers, addresses, addressesMeta })
+    const uploadImageFunc = mapArrAddressToUploadImageFunc({ headers, addresses: formattedAddresses, addressesMeta })
     const responseUploadImages = yield all(uploadImageFunc)
     const addressMeta = mapAddressToMetaData({ addressesMeta, responseUploadImages })
     if (responseUploadImages) {
-      yield put(checkListDetailUpdateData({ id: contact.id, addresses, metadata: { addresses: addressMeta } }))
+      yield put(
+        checkListDetailUpdateData({
+          id: contact.id,
+          addresses: formattedAddresses,
+          metadata: { addresses: addressMeta }
+        })
+      )
     }
   } catch (err) {
     console.error(err.message)

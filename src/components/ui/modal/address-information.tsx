@@ -25,13 +25,13 @@ const optionsMonth = [
   { label: '12', value: '12' }
 ] as SelectBoxOptions[]
 
-const MIN_YEAR = 1900
-const MAX_YEAR = 2100
+const MIN_NUMBER_OF_YEARS = 1
+const MAX_NUMBER_OF_YEARS = 100
 
 const renderYearOptions = () => {
   let i
   const yearArray: SelectBoxOptions[] = []
-  for (i = MIN_YEAR; i <= MAX_YEAR; i++) {
+  for (i = MIN_NUMBER_OF_YEARS; i <= MAX_NUMBER_OF_YEARS; i++) {
     const year = { label: `${i}`, value: `${i}` } as SelectBoxOptions
     yearArray.push(year)
   }
@@ -39,6 +39,7 @@ const renderYearOptions = () => {
 }
 
 const optionsDocumentType = [
+  { label: 'Please select', value: '' },
   { label: DOCUMENT_TYPE.MORTGATE, value: DOCUMENT_TYPE.MORTGATE },
   { label: DOCUMENT_TYPE.BILL, value: DOCUMENT_TYPE.BILL },
   { label: DOCUMENT_TYPE.TAX_BILL, value: DOCUMENT_TYPE.TAX_BILL },
@@ -62,7 +63,7 @@ export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThree
 export const AddressInput = ({ index, isDesktopMode }) => {
   return (
     <div key={index}>
-      <Input type="text" labelText="Type" id={`addresses[${index}][type]`} name={`addresses[${index}][type]`} />
+      <Input type="hidden" labelText="Type" id={`addresses[${index}][type]`} name={`addresses[${index}][type]`} />
       <Input
         type="text"
         labelText="Building Name"
@@ -86,13 +87,13 @@ export const AddressInput = ({ index, isDesktopMode }) => {
         name={`addresses[${index}][postcode]`}
       />
       <SelectBox
-        labelText="Year"
+        labelText="Number of Years at Address"
         options={renderYearOptions()}
         id={`metadata.addresses[${index}][year]`}
         name={`metadata.addresses[${index}][year]`}
       />
       <SelectBox
-        labelText="Month"
+        labelText="Number of Months at Address"
         id={`metadata.addresses[${index}][month]`}
         name={`metadata.addresses[${index}][month]`}
         options={optionsMonth}
@@ -135,7 +136,7 @@ export const renderForm = ({
           data-test="more-three-year"
           onClick={handleMoreThreeYear({ setShowMoreThreeYearInput, isShowMoreThreeYearInput })}
         >
-          More than 3 year?
+          Less than 3 years?
         </a>
       </div>
       {renderExtraForm({ isShowMoreThreeYearInput, index: addresses.length, isDesktopMode })}
