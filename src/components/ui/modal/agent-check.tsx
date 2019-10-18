@@ -1,6 +1,6 @@
 import React from 'react'
-import { Formik } from 'formik'
-import { SelectBox, DatePicker, SelectBoxOptions, Button, RadioSelect } from '@reapit/elements'
+import { Formik, Form } from 'formik'
+import { SelectBox, DatePicker, SelectBoxOptions, Button, RadioSelect, Input } from '@reapit/elements'
 import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
@@ -23,6 +23,10 @@ export const referralOptionsValues = {
 }
 
 const referralOptions = [
+  {
+    label: 'Please select',
+    value: ''
+  },
   {
     label: referralOptionsValues.APPLICANT,
     value: referralOptionsValues.APPLICANT
@@ -90,11 +94,10 @@ export const renderOptions = (minNumber, maxNumber, step): SelectBoxOptions[] =>
 
 export const renderForm = ({ isSubmitting }) => () => {
   return (
-    <div>
+    <Form>
       <SelectBox name="referralType" id="referralType" labelText="Referral Type" options={referralOptions} />
       <DatePicker name="dateCallClient" id="dateCallClient" labelText="Date to call client" />
-      <SelectBox name="hourSelection" id="hourSelection" labelText="Hour" options={renderOptions(1, 24, 1)} />
-      <SelectBox name="minuteSelection" id="minuteSelection" labelText="Minute" options={renderOptions(0, 60, 5)} />
+      <Input type="time" labelText="Time" id="timeSelection" name="timeSelection" />
       <RadioSelect
         id="clientType"
         dataTest="clientType"
@@ -125,22 +128,14 @@ export const renderForm = ({ isSubmitting }) => () => {
           Save
         </Button>
       </div>
-    </div>
+    </Form>
   )
 }
 
 export type AgentCheckProps = DispatchProps & StateProps
 
-export const AgentCheck: React.FC<AgentCheckProps> = ({ isSubmitting }) => {
-  return (
-    <Formik
-      initialValues={{}}
-      onSubmit={() => {
-        console.log('abc')
-      }}
-      render={renderForm({ isSubmitting })}
-    />
-  )
+export const AgentCheck: React.FC<AgentCheckProps> = ({ isSubmitting, onHandleSubmit }) => {
+  return <Formik initialValues={{}} onSubmit={onHandleSubmit} render={renderForm({ isSubmitting })} />
 }
 
 export type StateProps = {
@@ -156,7 +151,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
 }
 
 export type DispatchProps = {
-  onHandleSubmit?: (values: any) => void
+  onHandleSubmit: (values: any) => void
 }
 
 export const mapDispatchToProps = (): DispatchProps => {

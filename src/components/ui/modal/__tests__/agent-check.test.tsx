@@ -20,6 +20,7 @@ describe('agent-check', () => {
         id: '1',
         isSubmitting: true,
         onPrevHandler: jest.fn(),
+        onHandleSubmit: jest.fn(),
         contact: contacts
       }
       const wrapper = shallow(<AgentCheck {...mockProps} />)
