@@ -64,7 +64,7 @@ describe('AcButton AcLink', () => {
       component.simulate('click', { preventDefault: jest.fn() })
       expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
         { dynamicLink: scenario.expectedLink },
-        'http://localhost'
+        'https://dev.reapit.marketplace.com'
       )
     })
 
@@ -77,7 +77,7 @@ describe('AcButton AcLink', () => {
       component.simulate('click', { preventDefault: jest.fn() })
       expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
         { dynamicLink: scenario.expectedLink },
-        'http://localhost'
+        'https://dev.reapit.marketplace.com'
       )
     })
   })

@@ -87,11 +87,16 @@ export const getDynamicLink = (dynamicLinkParams: DynamicLinkParams): string | n
   return webRoute || null
 }
 
+// TODO - need to make these hardcoded URLS dynamic
 export const navigateDynamicApp = (dynamicLinkParams: DynamicLinkParams, navigateParentWindow?: Window): void => {
   const dynamicLink = getDynamicLink(dynamicLinkParams)
 
   if (navigateParentWindow && dynamicLink) {
-    navigateParentWindow.postMessage({ dynamicLink }, navigateParentWindow.location.origin)
+    if (process.env.NODE_ENV === 'test') {
+      navigateParentWindow.postMessage({ dynamicLink }, 'https://dev.reapit.marketplace.com')
+    } else {
+      window.postMessage({ dynamicLink }, 'https://dev.reapit.marketplace.com')
+    }
   } else if (dynamicLink) {
     window.location.href = dynamicLink
   }

@@ -132,18 +132,6 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
   }
 ]
 
-// I need to change the outermost window in storybook and because it uses iframes, get this recursively
-const getWindow = (windowToChange: Window = window): Window => {
-  if (
-    windowToChange.parent.location.href.includes('localhost') ||
-    windowToChange.parent.location.href.includes('reapit.com')
-  ) {
-    return windowToChange.parent
-  }
-
-  return getWindow(windowToChange.parent)
-}
-
 storiesOf('AcDynamicLinks', module).add('AcButtonsAndLinks', () => (
   <Content>
     {dynamicLinkScenarios.map((scenario: DynamicLinkScenario, index: number) => (
@@ -160,11 +148,11 @@ storiesOf('AcDynamicLinks', module).add('AcButtonsAndLinks', () => (
               type: 'button'
             }}
             dynamicLinkParams={scenario.dynamicLinkParams}
-            navigateParentWindow={getWindow()}
+            navigateParentWindow={window}
           >
             Navigate
           </AcButton>
-          <AcLink dynamicLinkParams={scenario.dynamicLinkParams} navigateParentWindow={getWindow()}>
+          <AcLink dynamicLinkParams={scenario.dynamicLinkParams} navigateParentWindow={window}>
             Navigate
           </AcLink>
         </p>
