@@ -36,7 +36,7 @@ export const SelectBox = ({ options, dataTest, labelText, id, name }: SelectBoxP
                   </option>
                 ))}
                 <option value="" selected disabled hidden>
-                  Please choose
+                  Please select
                 </option>
               </select>
             </div>
