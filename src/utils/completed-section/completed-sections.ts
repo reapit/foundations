@@ -1,4 +1,7 @@
 export const isCompletedProfile = (contact: any) => {
+  if (!contact) {
+    return false
+  }
   const { title, surname, forename, dateOfBirth, communications } = contact
   if (title && surname && forename && dateOfBirth && communications) {
     return communications.some((item: any) => item.label === 'Mobile' || item.label === 'Home')
@@ -6,40 +9,48 @@ export const isCompletedProfile = (contact: any) => {
   return false
 }
 
-export const isCompletedPrimaryID = (contact: any) => {
-  const { primaryId } = contact.metadata
-  let flag: boolean = false
-  if (primaryId) {
-    flag = true
-    primaryId.forEach((idList: any) => {
-      idList.documents.forEach((item: any) => {
-        if (!item.typeId || !item.details || !item.expiry || !item.fileUrl) {
-          flag = false
-        }
-      })
-    })
+export const isCompletedPrimaryID = (identityCheck: any) => {
+  const isValidIdentityCheck = identityCheck && identityCheck.metadata && identityCheck.documents
+  if (!isValidIdentityCheck) {
+    return false
   }
-  return flag
+  const { documents, metadata } = identityCheck
+  const { primaryIdUrl } = metadata
+  if (primaryIdUrl && documents[0]) {
+    if (documents[0].typeId && documents[0].expiry && documents[0].details) {
+      return true
+    }
+  }
+  return false
 }
 
-export const isCompletedSecondaryID = (contact: any) => {
-  const { secondaryId } = contact.metadata
-  let flag: boolean = false
-  if (secondaryId) {
-    flag = true
-    secondaryId.forEach((idList: any) => {
-      idList.documents.forEach((item: any) => {
-        console.log(item)
-        if (!item.typeId || !item.details || !item.expiry || !item.fileUrl) {
-          flag = false
-        }
-      })
-    })
+export const isCompletedSecondaryID = (identityCheck: any) => {
+  const isValidIdentityCheck = identityCheck && identityCheck.metadata && identityCheck.documents
+  if (!isValidIdentityCheck) {
+    return false
   }
-  return flag
+  const { documents, metadata } = identityCheck
+  const { primaryIdUrl, secondaryIdUrl } = metadata
+  const isHavePrimaryId = primaryIdUrl && secondaryIdUrl && documents[1]
+  if (isHavePrimaryId) {
+    if (documents[1].typeId && documents[1].expiry && documents[1].details) {
+      return true
+    }
+  }
+  const isNotHavePrimaryId = !primaryIdUrl && secondaryIdUrl && documents[0]
+  if (isNotHavePrimaryId) {
+    if (documents[0].typeId && documents[0].expiry && documents[0].details) {
+      return true
+    }
+  }
+
+  return false
 }
 
 export const isCompletedAddress = (contact: any) => {
+  if (!contact) {
+    return false
+  }
   const { addresses, metadata } = contact
   if (addresses && metadata && metadata.addresses) {
     return (
@@ -51,10 +62,10 @@ export const isCompletedAddress = (contact: any) => {
 }
 
 export const isCompletedDeclarationRisk = (contact: any) => {
-  const { metadata } = contact
-  if (metadata && metadata.declarationRisk) {
-    const { reason, type, declarationForm, riskAssessmentForm } = metadata.declarationRisk
-    return Boolean(reason && type && (declarationForm || riskAssessmentForm))
+  const isValidContactWithDecrationRisk = contact && contact.metadata && contact.metadata.declarationRisk
+  if (!isValidContactWithDecrationRisk) {
+    return false
   }
-  return false
+  const { reason, type, declarationForm, riskAssessmentForm } = contact.metadata.declarationRisk
+  return Boolean(reason && type && (declarationForm || riskAssessmentForm))
 }
