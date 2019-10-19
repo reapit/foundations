@@ -10,5 +10,6 @@ export const UPLOAD_FILE_BASE_URL = 'https://1qdnvftct6.execute-api.eu-west-2.am
 
 export const URLS = {
   contacts: '/contacts',
+  idChecks: '/identitychecks',
   configuration: '/configuration'
 }

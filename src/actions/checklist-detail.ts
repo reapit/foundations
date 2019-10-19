@@ -1,10 +1,11 @@
 import { ContactModel } from '@/types/contact-api-schema'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { IdentificationFormValues } from '@/components/ui/forms/identification'
+import { IdentityCheckModel, IdentityDocumentModel } from '../types/contact-api-schema'
 
 export type CheckListDetailReceiveDataParams = {
   contact: ContactModel
+  idCheck: IdentityCheckModel | null
 }
 
 export const checklistDetailRequestData = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA)
@@ -28,9 +29,9 @@ export const checkListDetailSearchPep = actionCreator<string>(ActionTypes.CHECKL
 // TODO: will replace any
 export const pepSearchResult = actionCreator<any>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP_RESULT)
 
-export const checkListDetailPrimaryIdUpdateData = actionCreator<IdentificationFormValues>(
+export const checkListDetailPrimaryIdUpdateData = actionCreator<IdentityDocumentModel>(
   ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA
 )
-export const checkListDetailSecondaryIdUpdateData = actionCreator<IdentificationFormValues>(
+export const checkListDetailSecondaryIdUpdateData = actionCreator<IdentityDocumentModel>(
   ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA
 )

@@ -31,6 +31,7 @@ describe('Identification', () => {
       const mockProps = {
         loading: false,
         contactModel: contact,
+        identityCheckModel: null,
         initFormValues: {} as any,
         onSaveHandler: jest.fn(),
         onNextHandler: jest.fn(),

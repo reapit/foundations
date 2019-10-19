@@ -10,6 +10,7 @@ import {
   pepSearchResult
 } from '../actions/checklist-detail'
 import { ContactModel } from '@/types/contact-api-schema'
+import { IdentityCheckModel } from '../types/contact-api-schema'
 import {
   isCompletedProfile,
   isCompletedPrimaryID,
@@ -35,6 +36,7 @@ export interface ChecklistDetailState {
   modalContentType: string
   checklistDetailData: {
     contact: ContactModel
+    idCheck: IdentityCheckModel | null
   } | null
   pepSearchParam: string
   // TODO will replace any when integrate API with pepSearchData

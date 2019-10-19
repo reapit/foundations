@@ -19,7 +19,7 @@ describe('checklist-detail actions', () => {
 
   it('should create a checklistDetailReceiveData action', () => {
     expect(checklistDetailReceiveData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_RECEIVE_DATA)
-    expect(checklistDetailReceiveData({ contact }).data).toEqual({ contact })
+    expect(checklistDetailReceiveData({ contact, idCheck: null }).data).toEqual({ contact, idCheck: null })
   })
 
   it('should create a checkListDetailShowModal action', () => {
