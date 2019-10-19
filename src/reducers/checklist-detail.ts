@@ -80,7 +80,7 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
       ...state,
       loading: false,
       checklistDetailData: action.data,
-      status: updateCheckListDetailFormStatus(action.data.contact)
+      status: updateCheckListDetailFormStatus(action.data)
     }
   }
 
@@ -117,18 +117,22 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
   return state
 }
 
+export type UpdateCheckListDetailFormStatusParams = {
+  contact: ContactModel
+  idCheck: IdentityCheckModel | null
+}
+
 /**
  * help to calculate the isComplete status of the forms following the rule
  * TODO: will be implemented when have enough information
  * @param contactModel
  */
-export const updateCheckListDetailFormStatus = (contact: ContactModel) => {
-  const metadata = contact.metadata
-
+export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateCheckListDetailFormStatusParams) => {
+  const { metadata } = contact
   return {
     profile: metadata ? isCompletedProfile(contact) : false,
-    primaryId: metadata ? isCompletedPrimaryID(contact) : false,
-    secondaryId: metadata ? isCompletedSecondaryID(contact) : false,
+    primaryId: isCompletedPrimaryID(idCheck),
+    secondaryId: isCompletedSecondaryID(idCheck),
     declarationRisk: metadata ? isCompletedDeclarationRisk(contact) : false,
     addresses: metadata ? isCompletedAddress(contact) : false,
     pepSearch: false,
