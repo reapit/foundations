@@ -9,6 +9,7 @@ import {
 describe('completed-sections', () => {
   it('isCompletedProfile', () => {
     ;[
+      [undefined, false],
       [
         {
           title: 'Mr',
@@ -33,110 +34,262 @@ describe('completed-sections', () => {
     })
   })
 
-  it('isCompletedPrimaryID', () => {
-    ;[
-      [
-        {
-          metadata: {
-            primaryId: [
-              {
-                documents: [
-                  {
-                    typeId: 'PP',
-                    details: '123456789',
-                    expiry: '20/12/2021',
-                    fileUrl: 'Test'
-                  }
-                ]
-              }
-            ]
+  describe('isCompletedPrimaryID', () => {
+    it('should return true', () => {
+      const mockIdentityCheck = {
+        id: 'RPT19000010',
+        contactId: 'MKC11001623',
+        created: '0001-01-01T00:00:00',
+        modified: '2019-10-19T02:52:10',
+        checkDate: '2019-10-19T02:52:10',
+        status: 'pending',
+        negotiatorId: 'DAC',
+        documents: [
+          {
+            typeId: 'RF',
+            expiry: '2019-10-24T09:51:48',
+            details: '2131231'
+          },
+          {
+            typeId: 'RF',
+            expiry: '2019-10-24T09:51:48',
+            details: '2131231'
           }
-        },
-        true
-      ],
-      [
-        {
-          metadata: {}
-        },
-        false
-      ],
-      [
-        {
-          metadata: {
-            primaryId: [
-              {
-                documents: [
-                  {
-                    typeId: 'PP',
-                    expiry: '20/12/2021',
-                    fileUrl: 'Test'
-                  }
-                ]
-              }
-            ]
+        ],
+        metadata: {
+          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
+        }
+      }
+      const result = isCompletedPrimaryID(mockIdentityCheck)
+      expect(result).toEqual(true)
+    })
+    it('should return true', () => {
+      const mockIdentityCheck = {
+        id: 'RPT19000010',
+        contactId: 'MKC11001623',
+        created: '0001-01-01T00:00:00',
+        modified: '2019-10-19T02:52:10',
+        checkDate: '2019-10-19T02:52:10',
+        status: 'pending',
+        negotiatorId: 'DAC',
+        documents: [
+          {
+            typeId: 'RF',
+            expiry: '2019-10-24T09:51:48',
+            details: '2131231'
           }
-        },
-        false
-      ]
-    ].forEach(([params, expected]) => {
-      const result = isCompletedPrimaryID(params)
-      expect(result).toBe(expected)
+        ],
+        metadata: {
+          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
+        }
+      }
+      const result = isCompletedPrimaryID(mockIdentityCheck)
+      expect(result).toEqual(true)
+    })
+    it('should return false', () => {
+      const mockIdentityCheck = {
+        id: 'RPT19000010',
+        contactId: 'MKC11001623',
+        created: '0001-01-01T00:00:00',
+        modified: '2019-10-19T02:52:10',
+        checkDate: '2019-10-19T02:52:10',
+        status: 'pending',
+        negotiatorId: 'DAC',
+        documents: [
+          {
+            typeId: 'RF',
+            expiry: '2019-10-24T09:51:48',
+            details: '2131231'
+          }
+        ],
+        metadata: {
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
+        }
+      }
+      const result = isCompletedPrimaryID(mockIdentityCheck)
+      expect(result).toEqual(false)
+    })
+    it('should return false', () => {
+      const mockIdentityCheck = {
+        id: 'RPT19000010',
+        contactId: 'MKC11001623',
+        created: '0001-01-01T00:00:00',
+        modified: '2019-10-19T02:52:10',
+        checkDate: '2019-10-19T02:52:10',
+        status: 'pending',
+        negotiatorId: 'DAC',
+        documents: [],
+        metadata: {},
+      }
+      const result = isCompletedPrimaryID(mockIdentityCheck)
+      expect(result).toEqual(false)
+    })
+    it('should return false', () => {
+      const mockIdentityCheck = {
+        id: 'RPT19000010',
+        contactId: 'MKC11001623',
+        created: '0001-01-01T00:00:00',
+        modified: '2019-10-19T02:52:10',
+        checkDate: '2019-10-19T02:52:10',
+        status: 'pending',
+        negotiatorId: 'DAC'
+      }
+      const result = isCompletedPrimaryID(mockIdentityCheck)
+      expect(result).toEqual(false)
+    })
+
+    it('should return false', () => {
+      const mockIdentityCheck = {
+        id: 'RPT19000010',
+        contactId: 'MKC11001623',
+        created: '0001-01-01T00:00:00',
+        modified: '2019-10-19T02:52:10',
+        checkDate: '2019-10-19T02:52:10',
+        status: 'pending',
+        negotiatorId: 'DAC',
+        documents: [
+          {
+            typeId: 'RF',
+            expiry: '2019-10-24T09:51:48',
+            details: undefined
+          }
+        ],
+        metadata: {
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
+        }
+      }
+      const result = isCompletedPrimaryID(mockIdentityCheck)
+      expect(result).toEqual(false)
+    })
+
+    it('should return false', () => {
+      const mockIdentityCheck = {
+        id: 'RPT19000010',
+        contactId: 'MKC11001623',
+        created: '0001-01-01T00:00:00',
+        modified: '2019-10-19T02:52:10',
+        checkDate: '2019-10-19T02:52:10',
+        status: 'pending',
+        negotiatorId: 'DAC',
+        documents: [
+          {
+            typeId: undefined,
+            expiry: undefined,
+            details: undefined
+          }
+        ],
+        metadata: {
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
+        }
+      }
+      const result = isCompletedPrimaryID(mockIdentityCheck)
+      expect(result).toEqual(false)
+    })
+    it('should return false', () => {
+      const mockIdentityCheck = {}
+      const result = isCompletedPrimaryID(mockIdentityCheck)
+      expect(result).toEqual(false)
+    })
+    it('should return false', () => {
+      const mockIdentityCheck = undefined
+      const result = isCompletedPrimaryID(mockIdentityCheck)
+      expect(result).toEqual(false)
     })
   })
 
-  it('isCompletedSecondaryID', () => {
-    ;[
-      [
-        {
-          metadata: {
-            secondaryId: [
-              {
-                documents: [
-                  {
-                    typeId: 'PP',
-                    details: '123456789',
-                    expiry: '20/12/2021',
-                    fileUrl: 'Test'
-                  }
-                ]
-              }
-            ]
+  describe('isCompletedSecondaryId', () => {
+    it('should return false', () => {
+      const mockIdentityCheck = {}
+      const result = isCompletedSecondaryID(mockIdentityCheck)
+      expect(result).toEqual(false)
+    })
+    it('should return false', () => {
+      const mockIdentityCheck = undefined
+      const result = isCompletedSecondaryID(mockIdentityCheck)
+      expect(result).toEqual(false)
+    })
+    it('should return true', () => {
+      const mockIdentityCheck = {
+        id: 'RPT19000010',
+        contactId: 'MKC11001623',
+        created: '0001-01-01T00:00:00',
+        modified: '2019-10-19T02:52:10',
+        checkDate: '2019-10-19T02:52:10',
+        status: 'pending',
+        negotiatorId: 'DAC',
+        documents: [
+          {
+            typeId: 'RF',
+            expiry: '2019-10-24T09:51:48',
+            details: '2131231'
+          },
+          {
+            typeId: 'RF',
+            expiry: '2019-10-24T09:51:48',
+            details: '2131231'
           }
-        },
-        true
-      ],
-      [
-        {
-          metadata: {}
-        },
-        false
-      ],
-      [
-        {
-          metadata: {
-            secondaryId: [
-              {
-                documents: [
-                  {
-                    typeId: 'PP',
-                    expiry: '20/12/2021',
-                    fileUrl: 'Test'
-                  }
-                ]
-              }
-            ]
+        ],
+        metadata: {
+          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
+        }
+      }
+      const result = isCompletedSecondaryID(mockIdentityCheck)
+      expect(result).toEqual(true)
+    })
+    it('should return true', () => {
+      const mockIdentityCheck = {
+        id: 'RPT19000010',
+        contactId: 'MKC11001623',
+        created: '0001-01-01T00:00:00',
+        modified: '2019-10-19T02:52:10',
+        checkDate: '2019-10-19T02:52:10',
+        status: 'pending',
+        negotiatorId: 'DAC',
+        documents: [
+          {
+            typeId: 'RF',
+            expiry: '2019-10-24T09:51:48',
+            details: '2131231'
           }
-        },
-        false
-      ]
-    ].forEach(([params, expected]) => {
-      const result = isCompletedSecondaryID(params)
-      expect(result).toBe(expected)
+        ],
+        metadata: {
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
+        }
+      }
+      const result = isCompletedSecondaryID(mockIdentityCheck)
+      expect(result).toEqual(true)
+    })
+
+    it('should return false', () => {
+      const mockIdentityCheck = {
+        id: 'RPT19000010',
+        contactId: 'MKC11001623',
+        created: '0001-01-01T00:00:00',
+        modified: '2019-10-19T02:52:10',
+        checkDate: '2019-10-19T02:52:10',
+        status: 'pending',
+        negotiatorId: 'DAC',
+        documents: [
+          {
+            typeId: 'RF',
+            expiry: '2019-10-24T09:51:48',
+            details: '2131231'
+          }
+        ],
+        metadata: {
+          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+        }
+      }
+      const result = isCompletedSecondaryID(mockIdentityCheck)
+      expect(result).toEqual(false)
     })
   })
 
   it('isCompletedAddress', () => {
     ;[
+      [undefined, false],
       [
         {
           addresses: [
@@ -179,6 +332,7 @@ describe('completed-sections', () => {
 
   it('isCompletedDeclarationRisk', () => {
     ;[
+      [undefined, false],
       [
         {
           metadata: {
