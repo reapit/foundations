@@ -23,22 +23,22 @@ const generateSection = (status: ChecklistStatus) => {
   return [
     {
       title: 'Personal Details',
-      complete: status.profile,
+      complete: oc(status).profile(false),
       children: <ProfileDetail />
     },
     {
       title: 'Primary ID',
-      complete: status.primaryId,
+      complete: oc(status).primaryId(false),
       children: <PrimaryIdentification />
     },
     {
       title: 'Secondary ID',
-      complete: status.secondaryId,
+      complete: oc(status).secondaryId(false),
       children: <SecondaryIdentification />
     },
     {
       title: 'Address History',
-      complete: status.addresses,
+      complete: oc(status).addresses(false),
       children: <AddressInformation />
     },
     {
