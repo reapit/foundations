@@ -26,13 +26,14 @@ describe('home reducer', () => {
       type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_DATA as ActionType,
       data: { contact: contact }
     })
+
     const expected = {
       ...defaultState,
       loading: false,
       checklistDetailData: {
         contact: contact
       },
-      status: updateCheckListDetailFormStatus(contact)
+      status: updateCheckListDetailFormStatus({ contact, idCheck: null })
     }
     expect(newState).toEqual(expected)
   })
