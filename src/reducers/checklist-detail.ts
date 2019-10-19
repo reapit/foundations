@@ -5,7 +5,7 @@ import {
   checklistDetailReceiveData,
   checkListDetailSubmitForm
 } from '../actions/checklist-detail'
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
 import { isCompletedProfile, isCompletedPrimaryID, isCompletedSecondaryID, isCompletedAddress } from '@reapit/elements'
 
 export interface ChecklistStatus {
@@ -28,6 +28,7 @@ export interface ChecklistDetailState {
   loading: boolean
   checklistDetailData: {
     contact: ContactModel
+    idCheck: IdentityCheckModel | null
   } | null
   isSubmitting: boolean
   status: ChecklistStatus
@@ -52,8 +53,8 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
     return {
       ...state,
       loading: false,
-      checklistDetailData: action.data || null,
-      status: updateCheckListDetailFormStatus(action.data.contact)
+      checklistDetailData: action.data,
+      status: updateCheckListDetailFormStatus(action.data)
     }
   }
 
@@ -67,17 +68,26 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
   return state
 }
 
+export type UpdateCheckListDetailFormStatusParams = {
+  contact: ContactModel
+  idCheck: IdentityCheckModel | null
+}
+
 /**
  * help to calculate the isComplete status of the forms following the rule
  * TODO: will be implemented when have enough information
  * @param contactModel
  */
-export const updateCheckListDetailFormStatus = (contact: ContactModel) => ({
-  profile: isCompletedProfile(contact),
-  primaryId: isCompletedPrimaryID(contact),
-  secondaryId: isCompletedSecondaryID(contact),
-  addresses: isCompletedAddress(contact),
-  agentChecks: false
-})
+export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateCheckListDetailFormStatusParams) => {
+  const { metadata } = contact
+
+  return {
+    profile: metadata ? isCompletedProfile(contact) : false,
+    primaryId: isCompletedPrimaryID(idCheck),
+    secondaryId: isCompletedSecondaryID(idCheck),
+    addresses: metadata ? isCompletedAddress(contact) : false,
+    agentChecks: false
+  }
+}
 
 export default checklistReducer

@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import { contact } from '@/sagas/__stubs__/contact'
 import { PrimaryIdentification, mapStateToProps, mapDispatchToProps } from '../primary-identification'
 import { ReduxState } from '@/types/core'
+import { IDENTIFICATION_FORM_DEFAULT_VALUES } from '../../forms/identification'
 describe('PrimaryIdentification', () => {
   describe('PrimaryIdentification', () => {
     it('should match snapshot', () => {
@@ -25,7 +26,8 @@ describe('PrimaryIdentification', () => {
         checklistDetail: {
           isSubmitting: false,
           checklistDetailData: {
-            contact
+            contact,
+            idCheck: null
           }
         },
         auth: {
@@ -38,10 +40,7 @@ describe('PrimaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: contact,
-        initFormValues: {
-          ...contact.metadata['primaryId'][0]['documents'][0],
-          expiry: new Date('2019-10-15T10:00:00.00Z')
-        },
+        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
         isDesktopMode: false
       }
       expect(result).toEqual(expected)
@@ -54,12 +53,7 @@ describe('PrimaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: {},
-        initFormValues: {
-          details: undefined,
-          expiry: null,
-          fileUrl: undefined,
-          typeId: ''
-        },
+        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
         isDesktopMode: false
       }
       expect(result).toEqual(expected)
