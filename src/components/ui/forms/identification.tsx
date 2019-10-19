@@ -1,18 +1,11 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel, IdentityDocumentModel } from '@/types/contact-api-schema'
 import { Button, Input, DatePicker, CameraImageInput } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/identification.scss?mod'
 
-export type IdentificationFormValues = {
-  typeId: string
-  details: string
-  expiry?: Date
-  fileUrl?: string
-}
-
-export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentificationFormValues = {
+export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentModel = {
   typeId: '',
   details: '',
   expiry: undefined,
@@ -21,7 +14,7 @@ export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentificationFormValues = {
 
 export type IdentificationProps = {
   contactModel: ContactModel
-  initFormValues: IdentificationFormValues
+  initFormValues: IdentityDocumentModel
   loading: boolean
   isDesktopMode: boolean
   onSaveHandler: () => void
@@ -66,7 +59,7 @@ export const renderFormHandler = ({ contactModel, loading, onNextHandler, onPrev
   )
 }
 
-export const onSubmitHandler = (formValues: IdentificationFormValues, onSaveHandler) => onSaveHandler(formValues)
+export const onSubmitHandler = (formValues: IdentityDocumentModel, onSaveHandler) => onSaveHandler(formValues)
 
 export const Identification: React.FC<IdentificationProps> = ({
   loading,
@@ -79,7 +72,7 @@ export const Identification: React.FC<IdentificationProps> = ({
 }) => (
   <Formik
     initialValues={initFormValues}
-    onSubmit={(formValues: IdentificationFormValues) => onSubmitHandler(formValues, onSaveHandler)}
+    onSubmit={(formValues: IdentityDocumentModel) => onSubmitHandler(formValues, onSaveHandler)}
     render={renderFormHandler({ contactModel, loading, onNextHandler, onPrevHandler, isDesktopMode })}
   />
 )
