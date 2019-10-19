@@ -1,10 +1,11 @@
 import { IdentificationFormValues } from '@/components/ui/forms/identification'
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 
 export type CheckListDetailReceiveDataParams = {
   contact: ContactModel
+  idCheck: IdentityCheckModel | null
 }
 
 export const checklistDetailRequestData = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA)
