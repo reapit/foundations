@@ -72,10 +72,10 @@ export const isCompletedDeclarationRisk = (contact: any) => {
 }
 
 export const isCompletedAgentCheck = (identityCheck: any) => {
-  const isValidAgentCheck = identityCheck && identityCheck.metadata && identityCheck.metadata.agentCheck
+  const isValidAgentCheck = identityCheck && identityCheck.metadata
   if (!isValidAgentCheck) {
     return false
   }
-  const { referralType, timeSelection, clientType, placeMeet, isUKResident } = identityCheck.metadata.agentCheck
+  const { referralType, timeSelection, clientType, placeMeet, isUKResident } = identityCheck.metadata
   return Boolean(referralType && timeSelection && clientType && placeMeet && isUKResident)
 }
