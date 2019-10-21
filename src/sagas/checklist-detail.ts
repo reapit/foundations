@@ -301,7 +301,6 @@ export const updateSecondaryId = function*({ data }: Action<IdentificationFormVa
 
 export const updateChecklistId = function*(data: IdentityCheckModel) {
   yield put(checkListDetailSubmitForm(true))
-  console.log(data)
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const contact = yield select(selectCheckListDetailContact)
@@ -385,7 +384,7 @@ export const updateId = function*({ data, type }: Action<IdentityDocumentModel>)
     const currentPrimaryIdUrl = oc(idCheck).metadata.primaryIdUrl()
     const currentSecondaryIdUrl = oc(idCheck).metadata.secondaryIdUrl()
     const documents = oc(idCheck).documents([])
-
+    console.log(documents)
     if (isPrimary) {
       if (currentPrimaryIdUrl && currentSecondaryIdUrl) {
         documents.shift()
@@ -432,6 +431,46 @@ export const updateId = function*({ data, type }: Action<IdentityDocumentModel>)
   }
 }
 
+export const updateAgentCheck = function*({ data }: any) {
+  yield put(checkListDetailSubmitForm(true))
+  try {
+    const contact = yield select(selectCheckListDetailContact)
+    const idCheck = yield select(selectCheckListDetailIdCheck)
+    const negotiatorId: string | undefined = yield select(selectUserCode)
+    let responseUpdate = null
+    if (idCheck) {
+      responseUpdate = yield call(updateChecklistId, {
+        ...idCheck,
+        metadata: {
+          ...idCheck.metadata,
+          ...data
+        }
+      } as IdentityCheckModel)
+    } else {
+      responseUpdate = yield call(createChecklistId, {
+        status: 'pending',
+        checkDate: new Date().toISOString(),
+        negotiatorId: negotiatorId,
+        metadata: {
+          ...data
+        }
+      })
+    }
+    if (responseUpdate) {
+      yield put(checklistDetailRequestData(contact.id as string))
+    }
+    yield put(checkListDetailSubmitForm(false))
+  } catch (error) {
+    const result: ErrorData = {
+      type: 'SERVER',
+      message: errorMessages.DEFAULT_SERVER_ERROR
+    }
+
+    yield put(checkListDetailSubmitForm(false))
+    yield put(errorThrownServer(result))
+  }
+}
+
 export const checklistDetailDataListen = function*() {
   yield takeLatest<Action<number>>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA, checklistDetailDataFetch)
 }
@@ -452,13 +491,18 @@ export const updateSecondaryIdListen = function*() {
   yield takeLatest<Action<IdentityDocumentModel>>(ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA, updateId)
 }
 
+export const updateAgentCheckListen = function*() {
+  yield takeLatest<Action<any>>(ActionTypes.CHECKLIST_DETAIL_AGENT_CHECK_UPDATE_DATA, updateAgentCheck)
+}
+
 export const checklistDetailSagas = function*() {
   yield all([
     fork(checklistDetailDataListen),
     fork(checkListDetailUpdateListen),
     fork(checkListDetailAddressUpdateListen),
     fork(updatePrimaryIdListen),
-    fork(updateSecondaryIdListen)
+    fork(updateSecondaryIdListen),
+    fork(updateAgentCheckListen)
   ])
 }
 

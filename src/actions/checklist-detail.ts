@@ -27,3 +27,7 @@ export const checkListDetailPrimaryIdUpdateData = actionCreator<IdentificationFo
 export const checkListDetailSecondaryIdUpdateData = actionCreator<IdentificationFormValues>(
   ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA
 )
+
+export const checkListDetailAgentCheckUpdateData = actionCreator<any>(
+  ActionTypes.CHECKLIST_DETAIL_AGENT_CHECK_UPDATE_DATA
+)
