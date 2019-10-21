@@ -4,7 +4,18 @@ import { connect } from 'react-redux'
 import { oc } from 'ts-optchain'
 import { TiTimes, TiTick, TiMail, TiHome, TiPhoneOutline, TiDevicePhone } from 'react-icons/ti'
 import { Dispatch } from 'redux'
-import { Modal, Loader, getTime, getDate, isSameDay, Tile, IconList } from '@reapit/elements'
+import {
+  Modal,
+  Loader,
+  getTime,
+  getDate,
+  isSameDay,
+  Tile,
+  IconList,
+  AcLink,
+  EntityType,
+  LoginMode
+} from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { ReduxState } from '@/types/core'
 import { appointmentDetailHideModal } from '@/actions/appointment-detail'
@@ -69,9 +80,10 @@ export const renderCheckMark = (isConfirmed: boolean | undefined) => {
   return <TiTick />
 }
 
-export const renderAttendees = (appointment: AppointmentModel) => {
+export const renderAttendees = (appointment: AppointmentModel, loginMode: LoginMode) => {
   const attendees = appointment.attendees
   const address = oc(appointment).property.address()
+  const propertyId = oc(appointment).property.id()
 
   if (!attendees) {
     return null
@@ -84,22 +96,34 @@ export const renderAttendees = (appointment: AppointmentModel) => {
         key={appointment.id}
         icon={<FaMale className="media-icon" />}
       >
-        {renderAddress(address)}
+        {renderAddress(loginMode, address, propertyId)}
         <div className="my-5">{renderCommunicationDetail(attendee.communicationDetails)}</div>
       </Tile>
     )
   })
 }
 
-export const renderAddress = (address: AddressModel | undefined) => {
+export const renderAddress = (
+  loginMode: LoginMode,
+  address: AddressModel | undefined,
+  propertyId: string | undefined
+) => {
   if (!address) {
     return null
   }
   return (
-    <div>
-      {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3} {address.line4}{' '}
-      {address.postcode} {address.country}
-    </div>
+    <AcLink
+      dynamicLinkParams={{
+        appMode: loginMode,
+        entityType: EntityType.PROPERTY,
+        entityCode: propertyId
+      }}
+    >
+      <div>
+        {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3} {address.line4}{' '}
+        {address.postcode} {address.country}
+      </div>
+    </AcLink>
   )
 }
 
@@ -173,7 +197,8 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   visible,
   afterClose,
   isLoading,
-  appointmentTypes
+  appointmentTypes,
+  loginMode
 }) => {
   const address = oc(appointment).property.address()
   const typeId = oc(appointment).typeId()
@@ -188,7 +213,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
         <>
           {renderDateTime(oc(appointment).property.address(), appointment)}
           {renderViewingType(oc(type).value())}
-          {renderAttendees(appointment)}
+          {renderAttendees(appointment, loginMode)}
           {renderNotes(appointment.description)}
           {renderArrangements(oc(appointment).property.arrangements())}
           {renderDirections(appointment.directions)}
@@ -203,6 +228,7 @@ export type AppointmentDetailMappedProps = {
   visible: boolean
   isLoading: boolean
   appointmentTypes: ListItemModel[] | null
+  loginMode: LoginMode
 }
 
 export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userCode: string): AttendeeModel[] => {
@@ -228,7 +254,8 @@ export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps
     appointment: newAppointment,
     visible: state.appointmentDetail.isModalVisible,
     isLoading: state.appointmentDetail.loading,
-    appointmentTypes: state.appointments.appointmentTypes
+    appointmentTypes: state.appointments.appointmentTypes,
+    loginMode: oc(state).auth.refreshSession.mode('WEB')
   }
 }
 
