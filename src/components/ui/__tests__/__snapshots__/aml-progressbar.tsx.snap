@@ -1,10 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
-<div>
-  <H3>
-    Mock title
-  </H3>
+<Fragment>
+  <Level>
+    <LevelLeft>
+      <LevelItem>
+        <H3>
+          <AcLink
+            dynamicLinkParams={
+              Object {
+                "appMode": "WEB",
+                "entityCode": "MKC16000098",
+                "entityType": "contacts",
+              }
+            }
+          >
+            Ms
+          </AcLink>
+        </H3>
+      </LevelItem>
+    </LevelLeft>
+  </Level>
   <div
     className="mb-1"
   >
@@ -21,5 +37,33 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
       Completed
     </span>
   </div>
-</div>
+  <Modal
+    afterClose={[Function]}
+    title="Update Status"
+    visible={false}
+  >
+    <div>
+      <p
+        className="mb-5"
+      >
+        You have completed 7 out of 7 sections for contact 
+        Ms Saoirse Chadwick
+        . Please now select one of the following options in order to continue
+      </p>
+      <Button
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        ID Check Successful
+      </Button>
+      <Button
+        type="button"
+        variant="primary"
+      >
+        Refer to Lifetime Legal
+      </Button>
+    </div>
+  </Modal>
+</Fragment>
 `;

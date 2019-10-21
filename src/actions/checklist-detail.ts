@@ -1,7 +1,6 @@
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel, IdentityCheckModel, IdentityDocumentModel } from '@/types/contact-api-schema'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { IdentityCheckModel, IdentityDocumentModel } from '../types/contact-api-schema'
 
 export const checklistDetailRequestData = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA)
 
@@ -39,4 +38,8 @@ export const checklistDetailPrimaryIdUpdateData = actionCreator<UpdateIdentityCh
 )
 export const checklistDetailSecondaryIdUpdateData = actionCreator<UpdateIdentityCheckParams>(
   ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA
+)
+
+export const checkListDetailIdentityCheckUpdateData = actionCreator<IdentityCheckModel>(
+  ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA
 )
