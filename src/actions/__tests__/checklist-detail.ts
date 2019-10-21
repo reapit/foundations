@@ -1,14 +1,14 @@
 import ActionTypes from '@/constants/action-types'
-import { contact } from '@/sagas/__stubs__/contact'
+// import { contact } from '@/sagas/__stubs__/contact'
 import {
   checklistDetailRequestData,
-  checklistDetailReceiveData,
-  checkListDetailShowModal,
-  checkListDetailHideModal,
-  checkListDetailSubmitForm,
+  // checklistDetailReceiveContact,
+  checklistDetailShowModal,
+  checklistDetailHideModal,
+  checklistDetailSubmitForm,
   pepSearchResult,
-  checkListDetailPrimaryIdUpdateData,
-  checkListDetailSecondaryIdUpdateData
+  checklistDetailPrimaryIdUpdateData,
+  checklistDetailSecondaryIdUpdateData
 } from '../checklist-detail'
 
 describe('checklist-detail actions', () => {
@@ -17,24 +17,24 @@ describe('checklist-detail actions', () => {
     expect(checklistDetailRequestData('test').data).toEqual('test')
   })
 
-  it('should create a checklistDetailReceiveData action', () => {
-    expect(checklistDetailReceiveData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_RECEIVE_DATA)
-    expect(checklistDetailReceiveData({ contact, idCheck: null }).data).toEqual({ contact, idCheck: null })
+  // it('should create a checklistDetailReceiveContact action', () => {
+  //   expect(checklistDetailReceiveContact.type).toEqual(ActionTypes.CHECKLIST_DETAIL_RECEIVE_DATA)
+  //   expect(checklistDetailReceiveContact({ contact, idCheck: null }).data).toEqual({ contact, idCheck: null })
+  // })
+
+  it('should create a checklistDetailShowModal action', () => {
+    expect(checklistDetailShowModal.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SHOW_MODAL)
+    expect(checklistDetailShowModal('STRING').data).toEqual('STRING')
   })
 
-  it('should create a checkListDetailShowModal action', () => {
-    expect(checkListDetailShowModal.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SHOW_MODAL)
-    expect(checkListDetailShowModal('STRING').data).toEqual('STRING')
+  it('should create a checklistDetailHideModal action', () => {
+    expect(checklistDetailHideModal.type).toEqual(ActionTypes.CHECKLIST_DETAIL_HIDE_MODAL)
+    expect(checklistDetailHideModal().data).toEqual(undefined)
   })
 
-  it('should create a checkListDetailHideModal action', () => {
-    expect(checkListDetailHideModal.type).toEqual(ActionTypes.CHECKLIST_DETAIL_HIDE_MODAL)
-    expect(checkListDetailHideModal().data).toEqual(undefined)
-  })
-
-  it('should create a checkListDetailSubmitForm action', () => {
-    expect(checkListDetailSubmitForm.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM)
-    expect(checkListDetailSubmitForm(true).data).toEqual(true)
+  it('should create a checklistDetailSubmitForm action', () => {
+    expect(checklistDetailSubmitForm.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM)
+    expect(checklistDetailSubmitForm(true).data).toEqual(true)
   })
 
   it('should create a pepSearchResult action', () => {
@@ -42,13 +42,13 @@ describe('checklist-detail actions', () => {
     expect(pepSearchResult(true).data).toEqual(true)
   })
 
-  it('should create a checkListDetailPrimaryIdUpdateData action', () => {
-    expect(checkListDetailPrimaryIdUpdateData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA)
-    expect(checkListDetailPrimaryIdUpdateData({} as any).data).toEqual({})
+  it('should create a checklistDetailPrimaryIdUpdateData action', () => {
+    expect(checklistDetailPrimaryIdUpdateData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA)
+    expect(checklistDetailPrimaryIdUpdateData({} as any).data).toEqual({})
   })
 
-  it('should create a checkListDetailSecondaryIdUpdateData action', () => {
-    expect(checkListDetailSecondaryIdUpdateData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA)
-    expect(checkListDetailSecondaryIdUpdateData({} as any).data).toEqual({})
+  it('should create a checklistDetailSecondaryIdUpdateData action', () => {
+    expect(checklistDetailSecondaryIdUpdateData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA)
+    expect(checklistDetailSecondaryIdUpdateData({} as any).data).toEqual({})
   })
 })

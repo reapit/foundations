@@ -26,10 +26,10 @@ export type ProfileModalProps = {
   afterClose: () => void
 }
 
-export const renderContent = ({ modalContentType, id }) => {
+export const renderContent = ({ modalContentType }) => {
   switch (modalContentType) {
     case STEPS.PROFILE:
-      return <Profile id={id} />
+      return <Profile />
 
     case STEPS.PRIMARY_IDENTIFICATION:
       return <PrimaryIdentification />
@@ -38,16 +38,16 @@ export const renderContent = ({ modalContentType, id }) => {
       return <SecondaryIdentification />
 
     case STEPS.ADDRESS_INFORMATION:
-      return <AddressInformation id={id} />
+      return <AddressInformation />
 
     case STEPS.REPORT:
       return <Report />
 
     case STEPS.PEP_SEARCH:
-      return <PepSearch id={id} />
+      return <PepSearch />
 
     case STEPS.DECLARATION_RISK_MANAGEMENT:
-      return <DeclarationAndRiskAssessment id={id} />
+      return <DeclarationAndRiskAssessment />
 
     default:
       return null
@@ -57,12 +57,11 @@ export const renderContent = ({ modalContentType, id }) => {
 export const ProfileModal: React.FC<ProfileModalProps> = ({
   visible,
   afterClose,
-  modalContentType = STEPS.PROFILE,
-  id
+  modalContentType = STEPS.PROFILE
 }) => {
   return (
     <Modal title={modalContentType} visible={visible} size="medium" afterClose={afterClose}>
-      <div>{renderContent({ modalContentType, id })}</div>
+      <div>{renderContent({ modalContentType })}</div>
     </Modal>
   )
 }

@@ -7,7 +7,7 @@ import { ContactModel } from '@/types/contact-api-schema'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
 import { oc } from 'ts-optchain'
-import { checkListDetailShowModal, checkListDetailDeclarationAndRiskUpdateData } from '@/actions/checklist-detail'
+import { checklistDetailShowModal, updateDeclarationAndRisk } from '@/actions/checklist-detail'
 import { STEPS } from './modal'
 import { Dispatch } from 'redux'
 
@@ -18,7 +18,7 @@ const optionsRiskAssessmentType = [
   { label: RISK_ASSESSMENT_TYPE.ENHANCED, value: RISK_ASSESSMENT_TYPE.ENHANCED }
 ]
 
-export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => () => {
+export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ({ values }) => {
   return (
     <Form>
       <div>
@@ -60,7 +60,7 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ()
         <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
           Previous
         </Button>
-        <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler}>
+        <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler(values)}>
           Next
         </Button>
       </div>
@@ -68,13 +68,7 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ()
   )
 }
 
-export type DeclarationAndRiskAssessmentProps = {
-  contact: ContactModel
-  isSubmitting: boolean
-  onNextHandler: () => void
-  onPrevHandler: () => void
-  onHandleSubmit: (values: any) => void
-}
+export type DeclarationAndRiskAssessmentProps = StateProps & DispatchProps
 
 export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessmentProps> = ({
   contact,
@@ -105,20 +99,20 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   )
 }
 
-export const mapStateToProps = (state: ReduxState): MappedProps => {
+export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
     contact: oc(state).checklistDetail.checklistDetailData.contact({})
   }
 }
 
-export type MappedProps = {
+export type StateProps = {
   isSubmitting: boolean
   contact: ContactModel
 }
 
-export type MappedActions = {
-  onNextHandler: () => void
+export type DispatchProps = {
+  onNextHandler: (values: any) => () => void
   onPrevHandler: () => void
   onHandleSubmit: (values: any) => void
 }
@@ -127,17 +121,14 @@ export type OwnPropsProps = {
   id: string
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnPropsProps): MappedActions => {
+export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    onHandleSubmit: values => {
-      const newValues = {
-        ...values,
-        id: ownProps.id
-      }
-      dispatch(checkListDetailDeclarationAndRiskUpdateData(newValues))
+    onHandleSubmit: values => dispatch(updateDeclarationAndRisk({ contact: values })),
+    onNextHandler: (values: any) => () => {
+      console.log(values)
+      dispatch(updateDeclarationAndRisk({ nextSection: STEPS.PEP_SEARCH, contact: values }))
     },
-    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.PEP_SEARCH)),
-    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.ADDRESS_INFORMATION))
+    onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.ADDRESS_INFORMATION))
   }
 }
 

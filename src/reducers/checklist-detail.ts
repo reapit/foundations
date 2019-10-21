@@ -3,11 +3,12 @@ import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import {
   checklistDetailLoading,
-  checklistDetailReceiveData,
-  checkListDetailShowModal,
-  checkListDetailHideModal,
-  checkListDetailSubmitForm,
-  pepSearchResult
+  checklistDetailReceiveContact,
+  checklistDetailReceiveIdentityCheck,
+  checklistDetailShowModal,
+  pepSearchResult,
+  checklistDetailHideModal,
+  checklistDetailSubmitForm
 } from '../actions/checklist-detail'
 import { ContactModel } from '@/types/contact-api-schema'
 import { IdentityCheckModel } from '../types/contact-api-schema'
@@ -36,7 +37,7 @@ export interface ChecklistDetailState {
   isModalVisible: boolean
   modalContentType: string
   checklistDetailData: {
-    contact: ContactModel
+    contact: ContactModel | null
     idCheck: IdentityCheckModel | null
   } | null
   pepSearchParam: string
@@ -76,16 +77,37 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
     }
   }
 
-  if (isType(action, checklistDetailReceiveData)) {
+  if (isType(action, checklistDetailReceiveContact)) {
     return {
       ...state,
       loading: false,
-      checklistDetailData: action.data,
-      status: updateCheckListDetailFormStatus(action.data)
+      checklistDetailData: {
+        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck,
+        contact: action.data
+      },
+      status: updateCheckListDetailFormStatus({
+        contact: action.data,
+        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck
+      })
     }
   }
 
-  if (isType(action, checkListDetailShowModal)) {
+  if (isType(action, checklistDetailReceiveIdentityCheck)) {
+    return {
+      ...state,
+      loading: false,
+      checklistDetailData: {
+        contact: state.checklistDetailData && state.checklistDetailData.contact,
+        idCheck: action.data
+      },
+      status: updateCheckListDetailFormStatus({
+        contact: state.checklistDetailData && state.checklistDetailData.contact,
+        idCheck: action.data
+      })
+    }
+  }
+
+  if (isType(action, checklistDetailShowModal)) {
     return {
       ...state,
       modalContentType: action.data,
@@ -93,14 +115,14 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
     }
   }
 
-  if (isType(action, checkListDetailHideModal)) {
+  if (isType(action, checklistDetailHideModal)) {
     return {
       ...state,
       isModalVisible: false
     }
   }
 
-  if (isType(action, checkListDetailSubmitForm)) {
+  if (isType(action, checklistDetailSubmitForm)) {
     return {
       ...state,
       isSubmitting: action.data
@@ -119,24 +141,24 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
 }
 
 export type UpdateCheckListDetailFormStatusParams = {
-  contact: ContactModel
+  contact: ContactModel | null
   idCheck: IdentityCheckModel | null
 }
 
 /**
  * help to calculate the isComplete status of the forms following the rule
  * TODO: will be implemented when have enough information
- * @param contactModel
+ * @param { idCheck, contact }
  */
 export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateCheckListDetailFormStatusParams) => {
-  const { metadata } = contact
+  const metadata = contact && contact.metadata
   return {
     profile: metadata ? isCompletedProfile(contact) : false,
     primaryId: isCompletedPrimaryID(idCheck),
     secondaryId: isCompletedSecondaryID(idCheck),
     declarationRisk: metadata ? isCompletedDeclarationRisk(contact) : false,
     addresses: metadata ? isCompletedAddress(contact) : false,
-    pepSearch: isCompletedPepSearch(contact),
+    pepSearch: isCompletedPepSearch(contact as ContactModel),
     experian: true,
     report: false
   }

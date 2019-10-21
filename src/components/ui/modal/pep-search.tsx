@@ -9,9 +9,9 @@ import { ReduxState } from '@/types/core'
 import dayjs from 'dayjs'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import {
-  checkListDetailShowModal,
-  checkListDetailSearchPep,
-  checkListDetailHideModal
+  checklistDetailShowModal,
+  checklistDetailSearchPep,
+  checklistDetailHideModal
 } from '@/actions/checklist-detail'
 import { STEPS } from './modal'
 
@@ -108,10 +108,6 @@ export type StateProps = {
   pepSearchParam: string
 }
 
-export type OwnProps = {
-  id: string
-}
-
 export const mapStateToProps = (state: ReduxState) => {
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
@@ -129,14 +125,14 @@ export type DispatchProps = {
 export const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     handleSubmit: values => {
-      dispatch(checkListDetailSearchPep(values.name))
+      dispatch(checklistDetailSearchPep(values.name))
     },
-    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
-    onNextHandler: () => dispatch(checkListDetailHideModal())
+    onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
+    onNextHandler: () => dispatch(checklistDetailHideModal())
   }
 }
 
-const PepSearchWithRedux = connect<StateProps, DispatchProps, OwnProps, ReduxState>(
+const PepSearchWithRedux = connect(
   mapStateToProps,
   mapDispatchToProps
 )(PepSearch)

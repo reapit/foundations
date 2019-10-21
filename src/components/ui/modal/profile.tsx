@@ -6,10 +6,10 @@ import { Dispatch } from 'redux'
 import { oc } from 'ts-optchain'
 import { ReduxState } from '@/types/core'
 import { CommunicationModel, ContactModel } from '@/types/contact-api-schema'
-import { checkListDetailShowModal, checkListDetailUpdateData } from '@/actions/checklist-detail'
+import { updateContact } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
 
-export const renderForm = ({ contact, onNextHandler, isSubmitting }) => () => {
+export const renderForm = ({ contact, onNextHandler, isSubmitting }) => ({ values }) => {
   const { id } = contact
   return (
     <Form>
@@ -35,7 +35,7 @@ export const renderForm = ({ contact, onNextHandler, isSubmitting }) => () => {
             type="button"
             variant="primary"
             dataTest="submit-revision-modal-edit-button"
-            onClick={onNextHandler}
+            onClick={onNextHandler(values)}
           >
             Next
           </Button>
@@ -61,12 +61,7 @@ export const filterCommunication = (
   return null
 }
 
-export type ProfileProps = {
-  onNextHandler: () => void
-  contact: ContactModel
-  onSubmitHandler: (values) => void
-  isSubmitting: boolean
-}
+export type ProfileProps = DispatchProps & StateProps
 
 export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubmitHandler, isSubmitting }) => {
   return (
@@ -89,14 +84,24 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubm
   )
 }
 
-export const mapStateToProps = (state: ReduxState) => {
+export type StateProps = {
+  isSubmitting: boolean
+  contact: ContactModel
+}
+
+export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
     contact: oc(state).checklistDetail.checklistDetailData.contact({})
   }
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch, ownProps) => {
+export type DispatchProps = {
+  onNextHandler: (values) => () => void
+  onSubmitHandler: (values: any) => void
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onSubmitHandler: values => {
       const newValues: ContactModel = {
@@ -106,12 +111,22 @@ export const mapDispatchToProps = (dispatch: Dispatch, ownProps) => {
           { label: 'Mobile', detail: values.mobile },
           { label: 'Work', detail: values.work },
           { label: 'E-Mail', detail: values.email }
-        ],
-        id: ownProps.id
+        ]
       }
-      dispatch(checkListDetailUpdateData(newValues))
+      dispatch(updateContact({ contact: newValues }))
     },
-    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.PRIMARY_IDENTIFICATION))
+    onNextHandler: values => () => {
+      const newValues: ContactModel = {
+        ...values,
+        communications: [
+          { label: 'Home', detail: values.home },
+          { label: 'Mobile', detail: values.mobile },
+          { label: 'Work', detail: values.work },
+          { label: 'E-Mail', detail: values.email }
+        ]
+      }
+      dispatch(updateContact({ nextSection: STEPS.PRIMARY_IDENTIFICATION, contact: newValues }))
+    }
   }
 }
 

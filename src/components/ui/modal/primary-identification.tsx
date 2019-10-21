@@ -4,18 +4,20 @@ import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
 import Identification, { IDENTIFICATION_FORM_DEFAULT_VALUES } from '@/components/ui/forms/identification'
 import { STEPS } from '@/components/ui/modal/modal'
-import { checkListDetailShowModal, checkListDetailPrimaryIdUpdateData } from '@/actions/checklist-detail'
+import { checklistDetailShowModal, checklistDetailPrimaryIdUpdateData } from '@/actions/checklist-detail'
 import {
   selectCheckListDetailContact,
   selectCheckListDetailPrimaryId,
   selectCheckListDetailIsSubmitting
 } from '@/selectors/checklist-detail'
 import { checkIsDesktopMode } from '@/selectors/auth'
-import { IdentityDocumentModel } from '@/types/contact-api-schema'
+import { IdentityDocumentModel, ContactModel } from '@/types/contact-api-schema'
 import { selectCheckListDetailPrimaryIdUrl } from '../../../selectors/checklist-detail'
 
-export const PrimaryIdentification = ({
-  contactModel,
+export type PrimaryIdentiticationProps = DispatchProps & StateProps
+
+export const PrimaryIdentification: React.FC<PrimaryIdentiticationProps> = ({
+  contact,
   initFormValues,
   loading,
   updateIdentification,
@@ -27,16 +29,23 @@ export const PrimaryIdentification = ({
     isDesktopMode={isDesktopMode}
     loading={loading}
     initFormValues={initFormValues}
-    contactModel={contactModel}
+    contact={contact}
     onSaveHandler={updateIdentification}
     onNextHandler={onNextHandler}
     onPrevHandler={onPrevHandler}
   />
 )
 
-export const mapStateToProps = (state: ReduxState) => {
+export type StateProps = {
+  loading: boolean
+  contact: ContactModel | null
+  initFormValues: IdentityDocumentModel
+  isDesktopMode: boolean
+}
+
+export const mapStateToProps = (state: ReduxState): StateProps => {
   const isSubmitting = selectCheckListDetailIsSubmitting(state)
-  const contactModel = selectCheckListDetailContact(state)
+  const contact = selectCheckListDetailContact(state)
   const primaryIdDocument = selectCheckListDetailPrimaryId(state)
   const primaryIdUrl = selectCheckListDetailPrimaryIdUrl(state)
 
@@ -57,16 +66,28 @@ export const mapStateToProps = (state: ReduxState) => {
 
   return {
     loading: isSubmitting,
-    contactModel,
+    contact,
     initFormValues,
     isDesktopMode
   }
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch) => ({
-  updateIdentification: (formValues: IdentityDocumentModel) => dispatch(checkListDetailPrimaryIdUpdateData(formValues)),
-  onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.PROFILE)),
-  onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.SECONDARY_IDENTIFICATION))
+export type DispatchProps = {
+  updateIdentification: (formValues: IdentityDocumentModel) => void
+  onPrevHandler: () => void
+  onNextHandler: (values: any) => () => void
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  updateIdentification: (values: IdentityDocumentModel) =>
+    dispatch(checklistDetailPrimaryIdUpdateData({ identityChecks: values })),
+  onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.PROFILE)),
+  onNextHandler: (values: any) => () =>
+    dispatch(
+      dispatch(
+        checklistDetailPrimaryIdUpdateData({ nextSection: STEPS.SECONDARY_IDENTIFICATION, identityChecks: values })
+      )
+    )
 })
 
 export default connect(
