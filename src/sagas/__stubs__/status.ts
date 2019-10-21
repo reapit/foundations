@@ -7,6 +7,5 @@ export const sectionsStatus: SectionsStatus = {
   declarationRisk: false,
   addresses: false,
   pepSearch: false,
-  experian: true,
-  report: false
+  experian: true
 }

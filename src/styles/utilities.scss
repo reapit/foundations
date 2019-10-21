@@ -1,0 +1,88 @@
+$units: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+
+@each $unit in $units {
+  .mt-#{$unit} {
+    margin-top: ($unit * 1rem/4);
+  }
+  .mb-#{$unit} {
+    margin-bottom: ($unit * 1rem/4);
+  }
+  .ml-#{$unit} {
+    margin-left: ($unit * 1rem/4);
+  }
+  .mr-#{$unit} {
+    margin-right: ($unit * 1rem/4);
+  }
+  .mx-#{$unit} {
+    margin-left: ($unit * 1rem/4);
+    margin-right: ($unit * 1rem/4);
+  }
+  .my-#{$unit} {
+    margin-top: ($unit * 1rem/4);
+    margin-bottom: ($unit * 1rem/4);
+  }
+
+  .pt-#{$unit} {
+    padding-top: ($unit * 1rem/4);
+  }
+  .pb-#{$unit} {
+    padding-bottom: ($unit * 1rem/4);
+  }
+  .pl-#{$unit} {
+    padding-left: ($unit * 1rem/4);
+  }
+  .pr-#{$unit} {
+    padding-right: ($unit * 1rem/4);
+  }
+  .px-#{$unit} {
+    padding-left: ($unit * 1rem/4);
+    padding-right: ($unit * 1rem/4);
+  }
+  .py-#{$unit} {
+    padding-top: ($unit * 1rem/4);
+    padding-bottom: ($unit * 1rem/4);
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.pin {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
