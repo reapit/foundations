@@ -29,13 +29,13 @@ export const SelectBox = ({ options, dataTest, labelText, id, name }: SelectBoxP
               <label className="label" htmlFor={id}>
                 {labelText}
               </label>
-              <select data-test={dataTest || ''} className={className} {...field}>
+              <select data-test={dataTest || ''} className={className} {...field} value={field.value || ''}>
                 {options.map(({ label, value }) => (
                   <option key={value} value={value}>
                     {label}
                   </option>
                 ))}
-                <option value="" selected disabled hidden>
+                <option value="" disabled hidden>
                   Please select
                 </option>
               </select>

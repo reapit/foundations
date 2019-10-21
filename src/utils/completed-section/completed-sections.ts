@@ -1,3 +1,4 @@
+// TODO: will replace any type
 export const isCompletedProfile = (contact: any) => {
   if (!contact) {
     return false
@@ -68,4 +69,13 @@ export const isCompletedDeclarationRisk = (contact: any) => {
   }
   const { reason, type, declarationForm, riskAssessmentForm } = contact.metadata.declarationRisk
   return Boolean(reason && type && (declarationForm || riskAssessmentForm))
+}
+
+export const isCompletedAgentCheck = (identityCheck: any) => {
+  const isValidAgentCheck = identityCheck && identityCheck.metadata && identityCheck.metadata.agentCheck
+  if (!isValidAgentCheck) {
+    return false
+  }
+  const { referralType, timeSelection, clientType, placeMeet, isUKResident } = identityCheck.metadata.agentCheck
+  return Boolean(referralType && timeSelection && clientType && placeMeet && isUKResident)
 }
