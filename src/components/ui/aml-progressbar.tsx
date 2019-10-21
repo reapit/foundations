@@ -10,7 +10,9 @@ import {
   Modal,
   LoginMode,
   AcLink,
-  EntityType
+  EntityType,
+  AcButton,
+  SubTitleH5
 } from '@reapit/elements'
 import styles from '@/styles/ui/aml-progressbar.scss?mod'
 import { SectionsStatus, defaultStatus } from '@/reducers/checklist-detail'
@@ -32,6 +34,7 @@ export const calculateProgress = (status: SectionsStatus) => {
 
 export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
   contact,
+  idCheck,
   status,
   loginMode,
   updateIdentityCheckStatus
@@ -46,28 +49,29 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
       <Level>
         <LevelLeft>
           <LevelItem>
-            <H3>
-              <AcLink
-                dynamicLinkParams={{
-                  appMode: loginMode,
-                  entityType: EntityType.CONTACT,
-                  entityCode: contact.id
-                }}
-              >
-                {`${title} ${forename} ${surname}`}
-              </AcLink>
-            </H3>
+            <div>
+              <H3>
+                <AcLink
+                  dynamicLinkParams={{
+                    appMode: loginMode,
+                    entityType: EntityType.CONTACT,
+                    entityCode: contact.id
+                  }}
+                >
+                  {`${title} ${forename} ${surname}`}
+                </AcLink>
+              </H3>
+              <SubTitleH5>{idCheck && idCheck.status && `Status: ${idCheck.status.toUpperCase()}`}</SubTitleH5>
+            </div>
           </LevelItem>
         </LevelLeft>
-        {progress.percentage === 100 && (
-          <LevelRight>
-            <LevelItem>
-              <Button type="button" variant="primary" onClick={() => setVisible(true)}>
-                Update Status
-              </Button>
-            </LevelItem>
-          </LevelRight>
-        )}
+        <LevelRight>
+          <LevelItem>
+            <Button disabled={!idCheck} type="button" variant="primary" onClick={() => setVisible(true)}>
+              Update Status
+            </Button>
+          </LevelItem>
+        </LevelRight>
       </Level>
 
       <div className="mb-1">
@@ -76,19 +80,49 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
       <div className={styles.progress}>
         {progress.completed}/{progress.total} <span>Completed</span>
       </div>
-      <Modal title="Update Status" visible={visible} afterClose={() => setVisible(false)}>
-        <div>
-          <p className="mb-5">
-            You have completed 7 out of 7 sections for contact {`${title} ${forename} ${surname}`}. Please now select
-            one of the following options in order to continue
-          </p>
-          <Button type="button" variant="primary" onClick={() => updateIdentityCheckStatus({ status: 'pass' })}>
-            ID Check Successful
-          </Button>
-          <Button type="button" variant="primary">
-            Refer to Lifetime Legal
-          </Button>
-        </div>
+      <Modal
+        title="Update Status"
+        visible={visible}
+        afterClose={() => setVisible(false)}
+        footerItems={
+          <>
+            <AcButton
+              dynamicLinkParams={{
+                entityType: EntityType.CONTACT,
+                entityCode: contact.id,
+                appMode: loginMode
+              }}
+              buttonProps={{
+                type: 'button',
+                variant: 'primary'
+              }}
+            >
+              <span onClick={() => updateIdentityCheckStatus({ status: 'pass' })}>ID Check Successful</span>
+            </AcButton>
+            <AcButton
+              dynamicLinkParams={{
+                entityType: EntityType.APPS,
+                appMode: loginMode,
+                queryParams: {
+                  id: '3ec48bb7-f152-4d0d-8b6a-b5d0c8fff010',
+                  closeApp: true
+                }
+              }}
+              buttonProps={{
+                type: 'button',
+                variant: 'primary'
+              }}
+            >
+              Refer to Lifetime Legal
+            </AcButton>
+          </>
+        }
+      >
+        <p>
+          You have completed {Object.keys(status).filter(key => status[key]).length} out of {Object.keys(status).length}{' '}
+          sections for contact {`${title} ${forename} ${surname}`}. Please now select one of the following options in
+          order to continue
+        </p>
       </Modal>
     </>
   )
@@ -96,12 +130,14 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
 
 export interface AMLProgressBarMappedProps {
   contact: ContactModel
+  idCheck: IdentityCheckModel | null
   status: SectionsStatus
   loginMode: LoginMode
 }
 
 export const mapStateToProps = (state: ReduxState): AMLProgressBarMappedProps => ({
   contact: oc(state).checklistDetail.checklistDetailData.contact({}),
+  idCheck: oc(state).checklistDetail.checklistDetailData.idCheck(null),
   status: oc(state).checklistDetail.status(defaultStatus),
   loginMode: oc(state).auth.refreshSession.mode('WEB')
 })
