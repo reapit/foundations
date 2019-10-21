@@ -12,7 +12,16 @@ export const renderRadio = ({ labelText, id, options, dataTest }) => ({ field, f
         </label>
         {options.map(({ label, value }, index: number) => (
           <div key={index} data-test={dataTest} className={className}>
-            <input id={value} className="checkbox" type="radio" key={value} name={name} value={value} {...field} />{' '}
+            <input
+              id={value}
+              className="checkbox"
+              type="radio"
+              key={value}
+              name={name}
+              checked={field.value === value}
+              {...field}
+              value={value}
+            />
             <label htmlFor={value}>{label}</label>
           </div>
         ))}
