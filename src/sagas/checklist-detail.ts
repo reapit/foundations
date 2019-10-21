@@ -533,14 +533,19 @@ export const updateIdentityCheckStatus = function*({ data }: Action<IdentityChec
   const headers = yield call(initAuthorizedRequestHeaders)
 
   if (idCheck) {
-    yield call(updateIdentityCheck, {
+    const newIdCheck = {
+      ...idCheck,
+      ...data
+    }
+    const responseIdentityCheck = yield call(updateIdentityCheck, {
       contactId: contact.id,
       headers,
-      identityChecks: {
-        ...idCheck,
-        ...data
-      }
+      identityChecks: newIdCheck
     })
+    if (responseIdentityCheck) {
+      yield put(checklistDetailReceiveIdentityCheck(newIdCheck))
+    }
+    yield put(checklistDetailHideModal())
   }
 }
 
