@@ -26,10 +26,6 @@ export const selectCheckListDetailFormStatus = (state: ReduxState, formName: str
       result = oc(state).checklistDetail.status.declarationRisk(false)
       break
 
-    case STEPS.REPORT:
-      result = oc(state).checklistDetail.status.report(false)
-      break
-
     default:
   }
 

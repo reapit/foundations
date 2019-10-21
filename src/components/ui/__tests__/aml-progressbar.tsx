@@ -13,7 +13,8 @@ describe('AMLProgressBar', () => {
         status: sectionsStatus,
         id: 'AYL19000002',
         loginMode: 'WEB' as LoginMode,
-        updateIdentityCheckStatus: jest.fn()
+        updateIdentityCheckStatus: jest.fn(),
+        idCheck: {}
       }
       const wrapper = shallow(<AMLProgressBar {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -21,7 +22,7 @@ describe('AMLProgressBar', () => {
   })
   describe('calculateProgress', () => {
     const result = calculateProgress(sectionsStatus)
-    const expected = { percentage: 37, completed: 3, total: 8 }
+    const expected = { percentage: 42, completed: 3, total: 7 }
     expect(result).toEqual(expected)
   })
 })

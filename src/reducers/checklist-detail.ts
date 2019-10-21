@@ -29,7 +29,6 @@ export interface SectionsStatus {
   addresses: boolean
   pepSearch: boolean
   experian: boolean
-  report: boolean
 }
 
 export interface ChecklistDetailState {
@@ -54,8 +53,7 @@ export const defaultStatus = {
   declarationRisk: false,
   addresses: false,
   pepSearch: false,
-  experian: true,
-  report: false
+  experian: true
 }
 
 export const defaultState: ChecklistDetailState = {
@@ -159,8 +157,7 @@ export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateChec
     declarationRisk: metadata ? isCompletedDeclarationRisk(contact) : false,
     addresses: metadata ? isCompletedAddress(contact) : false,
     pepSearch: isCompletedPepSearch(contact as ContactModel),
-    experian: true,
-    report: false
+    experian: true
   }
 }
 

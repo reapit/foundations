@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Loader, LoginMode, FlexContainerResponsive, Tile, Button, FlexContainerBasic } from '@reapit/elements'
+import { Loader, FlexContainerResponsive, Tile, Button, FlexContainerBasic } from '@reapit/elements'
 import { oc } from 'ts-optchain'
 import { ReduxState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -176,8 +176,6 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   loading,
   hideModal,
   showModal,
-  logout,
-  contact,
   status,
   modalContentType,
   match: {
