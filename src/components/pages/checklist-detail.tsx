@@ -1,15 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import {
-  Loader,
-  LoginMode,
-  FlexContainerResponsive,
-  Tile,
-  Button,
-  FlexContainerBasic,
-  LevelRight,
-  LevelItem
-} from '@reapit/elements'
+import { Loader, LoginMode, FlexContainerResponsive, Tile, Button, FlexContainerBasic } from '@reapit/elements'
 import { oc } from 'ts-optchain'
 import { ReduxState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -140,7 +131,7 @@ export const generateSection = (status: SectionsStatus, onClick: (modalType: str
     },
     {
       title: 'Report',
-      isCompleted: status.report,
+      isCompleted: false,
       onEdit: onClick(STEPS.REPORT),
       buttonText: 'View'
     }
@@ -191,28 +182,10 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   modalContentType,
   match: {
     params: { id }
-  },
-  mode
+  }
 }) => {
   if (loading) {
     return <Loader />
-  }
-
-  let title = ''
-  let forename = ''
-  let surname = ''
-
-  if (Object.keys(contact).length > 0) {
-    ;({ title = '', forename = '', surname = '' } = contact as ContactModel)
-  }
-
-  const handleLogout = () => {
-    if (mode === 'DESKTOP') {
-      // TODO implement later
-      window.location.href = `desktop://contact/SOME_CONTACT_ID`
-    } else {
-      logout()
-    }
   }
 
   // TODO: Will replace callback by dispatch to show modald`
@@ -221,15 +194,7 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
     <ErrorBoundary>
       <FlexContainerBasic isScrollable>
         <FlexContainerResponsive hasPadding flexColumn>
-          <LevelRight>
-            <LevelItem>
-              <a onClick={handleLogout}>Back to Client/Logout</a>
-            </LevelItem>
-            <LevelItem>
-              <a>Customise Form</a>
-            </LevelItem>
-          </LevelRight>
-          <AMLProgressBar title={`${title} ${forename} ${surname}`} status={status} />
+          <AMLProgressBar />
           {renderSections(sections)}
         </FlexContainerResponsive>
       </FlexContainerBasic>
@@ -244,7 +209,6 @@ export type HomeMappedProps = {
   contact: ContactModel | {}
   status: SectionsStatus
   modalContentType: string
-  mode: LoginMode | undefined
 }
 
 export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
@@ -252,8 +216,7 @@ export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   loading: oc(state).checklistDetail.loading(true),
   contact: oc(state).checklistDetail.checklistDetailData.contact({}),
   status: oc(state).checklistDetail.status(defaultStatus),
-  modalContentType: oc(state).checklistDetail.modalContentType('PROFILE'),
-  mode: oc(state).auth.refreshSession.mode()
+  modalContentType: oc(state).checklistDetail.modalContentType('PROFILE')
 })
 
 export type HomeMappedActions = {
