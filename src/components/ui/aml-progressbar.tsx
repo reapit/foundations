@@ -54,7 +54,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
                   entityCode: contact.id
                 }}
               >
-                {title}
+                {`${title} ${forename} ${surname}`}
               </AcLink>
             </H3>
           </LevelItem>
