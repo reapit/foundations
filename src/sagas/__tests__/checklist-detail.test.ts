@@ -23,7 +23,9 @@ import {
   updatePrimaryIdListen,
   updateSecondaryIdListen,
   updateSecondaryId,
-  updatePrimaryId
+  updatePrimaryId,
+  updateAgentCheckListen,
+  updateAgentCheck
 } from '../checklist-detail'
 import { contact } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -228,6 +230,17 @@ describe('check-list sagas', () => {
       expect(gen.next().done).toBe(true)
     })
   })
+
+  describe('checklist detail agent update listen', () => {
+    it('should request data when called', () => {
+      const gen = updateAgentCheckListen()
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_AGENT_CHECK_UPDATE_DATA, updateAgentCheck)
+      )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
   describe('checklistDetailSagas', () => {
     it('should listen data request', () => {
       const gen = checklistDetailSagas()
@@ -237,7 +250,8 @@ describe('check-list sagas', () => {
           fork(checkListDetailUpdateListen),
           fork(checkListDetailAddressUpdateListen),
           fork(updatePrimaryIdListen),
-          fork(updateSecondaryIdListen)
+          fork(updateSecondaryIdListen),
+          fork(updateAgentCheckListen)
         ])
       )
       expect(gen.next().done).toBe(true)

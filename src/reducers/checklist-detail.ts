@@ -6,7 +6,13 @@ import {
   checkListDetailSubmitForm
 } from '../actions/checklist-detail'
 import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
-import { isCompletedProfile, isCompletedPrimaryID, isCompletedSecondaryID, isCompletedAddress } from '@reapit/elements'
+import {
+  isCompletedProfile,
+  isCompletedPrimaryID,
+  isCompletedSecondaryID,
+  isCompletedAddress,
+  isCompletedAgentCheck
+} from '@reapit/elements'
 
 export interface ChecklistStatus {
   profile: boolean
@@ -86,7 +92,7 @@ export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateChec
     primaryId: isCompletedPrimaryID(idCheck),
     secondaryId: isCompletedSecondaryID(idCheck),
     addresses: metadata ? isCompletedAddress(contact) : false,
-    agentChecks: false
+    agentChecks: isCompletedAgentCheck(idCheck)
   }
 }
 

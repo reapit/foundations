@@ -1,9 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { renderOptions, AgentCheck, renderForm, mapStateToProps } from '../agent-check'
-import { contact } from '@/sagas/__stubs__/contact'
+import { renderOptions, AgentCheck, renderForm, mapStateToProps, mapDispatchToProps } from '../agent-check'
+import { idCheck } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
-import { contacts } from '@/sagas/__stubs__/contacts'
 
 describe('agent-check', () => {
   describe('renderOptions', () => {
@@ -21,7 +20,8 @@ describe('agent-check', () => {
         isSubmitting: true,
         onPrevHandler: jest.fn(),
         onHandleSubmit: jest.fn(),
-        contact: contacts
+        idCheck,
+        isDisabledSubmit: false
       }
       const wrapper = shallow(<AgentCheck {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -32,7 +32,8 @@ describe('agent-check', () => {
       const mockProps = {
         id: '1',
         isSubmitting: true,
-        onPrevHandler: jest.fn()
+        onPrevHandler: jest.fn(),
+        isDisabledSubmit: true
       }
       const component = renderForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -40,19 +41,21 @@ describe('agent-check', () => {
     })
   })
   describe('mapStateToProps', () => {
-    it('should match snapshot', () => {
+    it('should map correctly', () => {
       // @ts-ignore: only pick necessary props
       const mockState = {
         checklistDetail: {
           isSubmitting: true,
+          isDisabledSubmit: true,
           checklistDetailData: {
-            contact: contact
+            idCheck
           }
         }
       } as ReduxState
       const expected = {
         isSubmitting: true,
-        contact: contact
+        isDisabledSubmit: true,
+        idCheck
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -60,30 +63,32 @@ describe('agent-check', () => {
   })
 
   describe('mapDispatchToProps', () => {
-    it('should match snapshot', () => {
+    it('should map correctly', () => {
       const mockState = {
         checklistDetail: {
           isSubmitting: true,
+          isDisabledSubmit: true,
           checklistDetailData: {
-            contact: contact
+            idCheck
           }
         }
       } as any
       const expected = {
         isSubmitting: true,
-        contact: contact
+        isDisabledSubmit: true,
+        idCheck
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
     })
   })
 
-  // describe('mapDispatchToProps', () => {
-  //   it('should call dispatch when involked onPrevHandler', () => {
-  //     const mockDispatch = jest.fn()
-  //     const { onHandleSubmit } = mapDispatchToProps(mockDispatch)
-  //     onHandleSubmit && onHandleSubmit({})
-  //     expect(mockDispatch).toBeCalled()
-  //   })
-  // })
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch when involked onPrevHandler', () => {
+      const mockDispatch = jest.fn()
+      const { onHandleSubmit } = mapDispatchToProps(mockDispatch)
+      onHandleSubmit && onHandleSubmit({})
+      expect(mockDispatch).toBeCalled()
+    })
+  })
 })

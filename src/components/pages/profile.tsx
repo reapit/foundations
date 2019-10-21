@@ -43,7 +43,7 @@ const generateSection = (status: ChecklistStatus) => {
     },
     {
       title: 'Agent checks',
-      complete: false,
+      complete: oc(status).agentChecks(false),
       children: <AgentCheck />
     }
   ]

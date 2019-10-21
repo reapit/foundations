@@ -1,10 +1,12 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-import { SelectBox, DatePicker, SelectBoxOptions, Button, RadioSelect, Input } from '@reapit/elements'
+import { SelectBox, DatePicker, SelectBoxOptions, Button, Input, RadioSelect } from '@reapit/elements'
 import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { ContactModel } from '@/types/contact-api-schema'
+import { IdentityCheckModel } from '@/types/contact-api-schema'
+import { Dispatch } from 'redux'
+import { checkListDetailAgentCheckUpdateData } from '@/actions/checklist-detail'
 
 export const referralOptionsValues = {
   APPLICANT: 'Applicant',
@@ -92,7 +94,7 @@ export const renderOptions = (minNumber, maxNumber, step): SelectBoxOptions[] =>
   return options
 }
 
-export const renderForm = ({ isSubmitting }) => () => {
+export const renderForm = ({ isSubmitting, isDisabledSubmit }) => () => {
   return (
     <Form>
       <SelectBox name="referralType" id="referralType" labelText="Referral Type" options={referralOptions} />
@@ -124,7 +126,7 @@ export const renderForm = ({ isSubmitting }) => () => {
         ]}
       />
       <div className="flex justify-end">
-        <Button loading={isSubmitting} type="submit" className="mr-2" variant="primary">
+        <Button disabled={isDisabledSubmit} loading={isSubmitting} type="submit" className="mr-2" variant="primary">
           Save
         </Button>
       </div>
@@ -134,19 +136,30 @@ export const renderForm = ({ isSubmitting }) => () => {
 
 export type AgentCheckProps = DispatchProps & StateProps
 
-export const AgentCheck: React.FC<AgentCheckProps> = ({ isSubmitting, onHandleSubmit }) => {
-  return <Formik initialValues={{}} onSubmit={onHandleSubmit} render={renderForm({ isSubmitting })} />
+export const AgentCheck: React.FC<AgentCheckProps> = ({ isSubmitting, onHandleSubmit, idCheck, isDisabledSubmit }) => {
+  const agentCheck = oc(idCheck).metadata({})
+  return (
+    <Formik
+      initialValues={{
+        ...agentCheck
+      }}
+      onSubmit={onHandleSubmit}
+      render={renderForm({ isSubmitting, isDisabledSubmit })}
+    />
+  )
 }
 
 export type StateProps = {
   isSubmitting: boolean
-  contact: ContactModel
+  idCheck: IdentityCheckModel
+  isDisabledSubmit: boolean
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
-    contact: oc(state).checklistDetail.checklistDetailData.contact({})
+    idCheck: oc(state).checklistDetail.checklistDetailData.idCheck({}),
+    isDisabledSubmit: oc(state).checklistDetail.checklistDetailData.idCheck.documents([]).length !== 2
   }
 }
 
@@ -154,10 +167,10 @@ export type DispatchProps = {
   onHandleSubmit: (values: any) => void
 }
 
-export const mapDispatchToProps = (): DispatchProps => {
+export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onHandleSubmit: (values: any) => {
-      console.log(values)
+      dispatch(checkListDetailAgentCheckUpdateData(values))
     }
   }
 }
