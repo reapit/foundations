@@ -31,21 +31,31 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
     }
     key="BED1600597"
   >
-    <div>
-       
-      65
-       
-      Lindsey Close
-       
-      Great Denham
-       
-      Bedford
-       
-      Bedfordshire
-       
-      MK40 4GT
-       
-    </div>
+    <AcLink
+      dynamicLinkParams={
+        Object {
+          "appMode": "DESKTOP",
+          "entityCode": undefined,
+          "entityType": "properties",
+        }
+      }
+    >
+      <div>
+         
+        65
+         
+        Lindsey Close
+         
+        Great Denham
+         
+        Bedford
+         
+        Bedfordshire
+         
+        MK40 4GT
+         
+      </div>
+    </AcLink>
     <div
       className="my-5"
     >
@@ -77,21 +87,31 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
     }
     key="BED1600597"
   >
-    <div>
-       
-      65
-       
-      Lindsey Close
-       
-      Great Denham
-       
-      Bedford
-       
-      Bedfordshire
-       
-      MK40 4GT
-       
-    </div>
+    <AcLink
+      dynamicLinkParams={
+        Object {
+          "appMode": "DESKTOP",
+          "entityCode": undefined,
+          "entityType": "properties",
+        }
+      }
+    >
+      <div>
+         
+        65
+         
+        Lindsey Close
+         
+        Great Denham
+         
+        Bedford
+         
+        Bedfordshire
+         
+        MK40 4GT
+         
+      </div>
+    </AcLink>
     <div
       className="my-5"
     >
@@ -139,21 +159,31 @@ exports[`AppointmentModal AppointmentModal should render correctly when loading 
 
 exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
 <div>
-  <div>
-     
-    65
-     
-    Lindsey Close
-     
-    Great Denham
-     
-    Bedford
-     
-    Bedfordshire
-     
-    MK40 4GT
-     
-  </div>
+  <AcLink
+    dynamicLinkParams={
+      Object {
+        "appMode": "DESKTOP",
+        "entityCode": "SOME_ID",
+        "entityType": "properties",
+      }
+    }
+  >
+    <div>
+       
+      65
+       
+      Lindsey Close
+       
+      Great Denham
+       
+      Bedford
+       
+      Bedfordshire
+       
+      MK40 4GT
+       
+    </div>
+  </AcLink>
 </div>
 `;
 

@@ -16,6 +16,7 @@ import {
   filterLoggedInUser
 } from '../appointment-detail'
 import { appointmentDataStub } from '../../../../sagas/__stubs__/appointment'
+import { LoginMode } from '@reapit/elements'
 
 describe('AppointmentModal', () => {
   describe('AppointmentModal', () => {
@@ -26,7 +27,8 @@ describe('AppointmentModal', () => {
         afterClose: jest.fn(),
         isLoading: false,
         userCode: 'mockUserCode',
-        appointmentTypes: []
+        appointmentTypes: [],
+        loginMode: 'DESKTOP' as LoginMode
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
@@ -40,7 +42,8 @@ describe('AppointmentModal', () => {
         afterClose: jest.fn(),
         isLoading: true,
         userCode: 'mockUserCode',
-        appointmentTypes: []
+        appointmentTypes: [],
+        loginMode: 'DESKTOP' as LoginMode
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Loader')).toHaveLength(1)
@@ -116,6 +119,7 @@ describe('AppointmentModal', () => {
         recurring: false,
         cancelled: false,
         property: {
+          id: 'SOME_ID',
           address: {
             buildingName: '',
             buildingNumber: '65',
@@ -133,7 +137,7 @@ describe('AppointmentModal', () => {
         },
         attendees: []
       }
-      const data = renderAddress(input.property.address)
+      const data = renderAddress('DESKTOP' as LoginMode, input.property.address, input.property.id)
       const wrapper = shallow(<div>{data}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -148,6 +152,7 @@ describe('AppointmentModal', () => {
         recurring: false,
         cancelled: false,
         property: {
+          id: 'SOME_ID',
           address: {
             buildingName: '',
             buildingNumber: '65',
@@ -165,11 +170,11 @@ describe('AppointmentModal', () => {
         },
         attendees: []
       }
-      const data = renderAddress(input.property.address)
+      const data = renderAddress('DESKTOP' as LoginMode, input.property.address, input.property.id)
       expect(data).not.toBeNull()
     })
     it('should run correctly and show Today', () => {
-      const data = renderAddress(undefined)
+      const data = renderAddress('DESKTOP' as LoginMode, undefined, undefined)
       expect(data).toBeNull()
     })
   })
@@ -204,7 +209,7 @@ describe('AppointmentModal', () => {
           }
         ]
       }
-      const data = renderAttendees(input)
+      const data = renderAttendees(input, 'DESKTOP' as LoginMode)
       expect(data).toMatchSnapshot()
     })
     it('should run correctly and show not Today', () => {
@@ -236,14 +241,14 @@ describe('AppointmentModal', () => {
           }
         ]
       }
-      const data = renderAttendees(input)
+      const data = renderAttendees(input, 'DESKTOP' as LoginMode)
       expect(data).not.toBeNull()
     })
     it('should run correctly and show Today', () => {
       const input = {
         attendees: undefined
       }
-      const data = renderAttendees(input)
+      const data = renderAttendees(input, 'DESKTOP' as LoginMode)
       expect(data).toBeNull()
     })
   })
@@ -345,6 +350,9 @@ describe('AppointmentModal', () => {
         auth: {
           loginSession: {
             loginIdentity: { userCode: 'cbryan@reapit.com' }
+          },
+          refreshSession: {
+            mode: 'DESKTOP'
           }
         },
         appointments: {
@@ -355,7 +363,8 @@ describe('AppointmentModal', () => {
         appointment: appointmentDataStub,
         visible: true,
         isLoading: true,
-        appointmentTypes: []
+        appointmentTypes: [],
+        loginMode: 'DESKTOP'
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -382,7 +391,8 @@ describe('AppointmentModal', () => {
         appointment: {
           attendees: []
         },
-        appointmentTypes: []
+        appointmentTypes: [],
+        loginMode: 'WEB'
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
