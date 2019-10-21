@@ -18,6 +18,7 @@ import {
   isCompletedDeclarationRisk,
   isCompletedAddress
 } from '@reapit/elements'
+import { isCompletedPepSearch } from '@/utils/pep-search'
 
 export interface SectionsStatus {
   profile: boolean
@@ -135,7 +136,7 @@ export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateChec
     secondaryId: isCompletedSecondaryID(idCheck),
     declarationRisk: metadata ? isCompletedDeclarationRisk(contact) : false,
     addresses: metadata ? isCompletedAddress(contact) : false,
-    pepSearch: false,
+    pepSearch: isCompletedPepSearch(contact),
     experian: true,
     report: false
   }

@@ -24,6 +24,7 @@ import { oc } from 'ts-optchain'
 import { IdentityDocumentModel, CreateIdentityCheckModel } from '../types/contact-api-schema'
 import { selectUserCode } from '../selectors/auth'
 import store from '@/core/store'
+import { handlePepSearchStatus } from '@/utils/pep-search'
 
 export const checklistDetailDataFetch = function*({ data: id }) {
   yield put(checklistDetailLoading(true))
