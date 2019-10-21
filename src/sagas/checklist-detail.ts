@@ -527,6 +527,28 @@ export const updateChecklistListen = function*() {
   yield takeLatest<Action<UpdateContactParams>>(ActionTypes.CHECKLIST_DETAIL_UPDATE_DATA, onUpdateChecklist)
 }
 
+export const updateIdentityCheckStatus = function*({ data }: Action<IdentityCheckModel>) {
+  const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
+  const contact: ContactModel = yield select(selectCheckListDetailContact)
+  const headers = yield call(initAuthorizedRequestHeaders)
+
+  if (idCheck) {
+    const newIdCheck = {
+      ...idCheck,
+      ...data
+    }
+    const responseIdentityCheck = yield call(updateIdentityCheck, {
+      contactId: contact.id,
+      headers,
+      identityChecks: newIdCheck
+    })
+    if (responseIdentityCheck) {
+      yield put(checklistDetailReceiveIdentityCheck(newIdCheck))
+    }
+    yield put(checklistDetailHideModal())
+  }
+}
+
 export const updateAddressHistoryListen = function*() {
   yield takeLatest<Action<UpdateContactParams>>(
     ActionTypes.CHECKLIST_DETAIL_ADDRESS_UPDATE_DATA,
@@ -566,6 +588,13 @@ export const updateSecondaryIdListen = function*() {
   )
 }
 
+export const updateIdentityCheckStatusListen = function*() {
+  yield takeLatest<Action<IdentityCheckModel>>(
+    ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA,
+    updateIdentityCheckStatus
+  )
+}
+
 export const checklistDetailSagas = function*() {
   yield all([
     fork(fetchInitialDataListen),
@@ -574,7 +603,8 @@ export const checklistDetailSagas = function*() {
     fork(checkListDetailDeclarationAndRiskUpdateListen),
     fork(checkListDetailPepSearchListen),
     fork(updatePrimaryIdListen),
-    fork(updateSecondaryIdListen)
+    fork(updateSecondaryIdListen),
+    fork(updateIdentityCheckStatusListen)
   ])
 }
 

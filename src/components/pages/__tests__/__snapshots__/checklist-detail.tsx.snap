@@ -179,35 +179,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
       flexColumn={true}
       hasPadding={true}
     >
-      <LevelRight>
-        <LevelItem>
-          <a
-            onClick={[Function]}
-          >
-            Back to Client/Logout
-          </a>
-        </LevelItem>
-        <LevelItem>
-          <a>
-            Customise Form
-          </a>
-        </LevelItem>
-      </LevelRight>
-      <Component
-        status={
-          Object {
-            "addresses": false,
-            "declarationRisk": false,
-            "experian": true,
-            "pepSearch": false,
-            "primaryId": false,
-            "profile": true,
-            "report": false,
-            "secondaryId": true,
-          }
-        }
-        title="Ms Saoirse Chadwick"
-      />
+      <Connect(Component) />
       <div
         className="pb-4"
         key="0"
