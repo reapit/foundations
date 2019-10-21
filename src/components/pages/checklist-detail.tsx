@@ -128,7 +128,7 @@ export const generateSection = (status: SectionsStatus, onClick: (modalType: str
     },
     {
       title: 'PEP Search',
-      isCompleted: false,
+      isCompleted: status.pepSearch,
       onEdit: onClick(STEPS.PEP_SEARCH),
       buttonText: 'Edit'
     },
