@@ -2,7 +2,7 @@
 
 exports[`PrimaryIdentification PrimaryIdentification should match snapshot 1`] = `
 <Component
-  contactModel={
+  contact={
     Object {
       "active": true,
       "addresses": Array [

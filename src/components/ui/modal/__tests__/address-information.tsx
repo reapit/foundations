@@ -8,7 +8,7 @@ import {
   handleMoreThreeYear,
   renderExtraForm,
   mapStateToProps,
-  mapDispatchToProps,
+  // mapDispatchToProps,
   AddressInput
 } from '../address-information'
 
@@ -37,7 +37,7 @@ describe('AddressInformation', () => {
       isDesktopMode: true
     }
     const fn = renderForm(mockProps)
-    const component = fn()
+    const component = fn({ values: {} })
     expect(component).toBeDefined()
   })
 
@@ -123,26 +123,26 @@ describe('AddressInformation', () => {
     })
   })
 
-  describe('mapDispatchToProps', () => {
-    it('should render correctly', () => {
-      const mockDispatch = jest.fn()
-      const mockOwnProps = {
-        id: '1'
-      }
-      const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-      onNextHandler()
-      expect(mockDispatch).toBeCalled()
-    })
-    it('should render correctly', () => {
-      const mockDispatch = jest.fn()
-      const mockOwnProps = {
-        id: '1'
-      }
-      const { onPrevHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-      onPrevHandler()
-      expect(mockDispatch).toBeCalled()
-    })
-  })
+  // describe('mapDispatchToProps', () => {
+  //   it('should render correctly', () => {
+  //     const mockDispatch = jest.fn()
+  //     const mockOwnProps = {
+  //       id: '1'
+  //     }
+  //     const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
+  //     onNextHandler()
+  //     expect(mockDispatch).toBeCalled()
+  //   })
+  //   it('should render correctly', () => {
+  //     const mockDispatch = jest.fn()
+  //     const mockOwnProps = {
+  //       id: '1'
+  //     }
+  //     const { onPrevHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
+  //     onPrevHandler()
+  //     expect(mockDispatch).toBeCalled()
+  //   })
+  // })
 
   describe('AddressInput', () => {
     it('should render correctly', () => {

@@ -21,17 +21,18 @@ describe('home reducer', () => {
     expect(newState).toEqual(expected)
   })
 
-  it('should set approvals list data when CHECKLIST_DETAIL_RECEIVE_DATA action is called', () => {
+  it('should set approvals list data when CHECKLIST_DETAIL_RECEIVE_CONTACT action is called', () => {
     const newState = checklistReducer(undefined, {
-      type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_DATA as ActionType,
-      data: { contact: contact }
+      type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT as ActionType,
+      data: contact
     })
 
     const expected = {
       ...defaultState,
       loading: false,
       checklistDetailData: {
-        contact: contact
+        contact: contact,
+        idCheck: null
       },
       status: updateCheckListDetailFormStatus({ contact, idCheck: null })
     }

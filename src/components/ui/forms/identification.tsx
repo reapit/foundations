@@ -4,6 +4,7 @@ import { ContactModel, IdentityDocumentModel } from '@/types/contact-api-schema'
 import { Button, Input, DatePicker, CameraImageInput } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/identification.scss?mod'
+import { oc } from 'ts-optchain'
 
 export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentModel = {
   typeId: '',
@@ -13,18 +14,19 @@ export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentModel = {
 }
 
 export type IdentificationProps = {
-  contactModel: ContactModel
+  contact: ContactModel | null
   initFormValues: IdentityDocumentModel
   loading: boolean
   isDesktopMode: boolean
-  onSaveHandler: () => void
-  onNextHandler: () => void
+  onSaveHandler: (values: any) => void
+  onNextHandler: (values: any) => () => void
   onPrevHandler: () => void
 }
 
-export const renderFormHandler = ({ contactModel, loading, onNextHandler, onPrevHandler, isDesktopMode }) => () => {
-  const { id } = contactModel
-
+export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandler, isDesktopMode }) => ({
+  values
+}) => {
+  const id = oc(contact).id('')
   return (
     <Form>
       <SelectIdentity id="typeId" name="typeId" labelText="ID Type" />
@@ -50,7 +52,7 @@ export const renderFormHandler = ({ contactModel, loading, onNextHandler, onPrev
           <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler} disabled={loading}>
             Previous
           </Button>
-          <Button variant="primary" type="button" onClick={onNextHandler} disabled={loading}>
+          <Button variant="primary" type="button" onClick={onNextHandler(values)} disabled={loading}>
             Next
           </Button>
         </div>
@@ -63,7 +65,7 @@ export const onSubmitHandler = (formValues: IdentityDocumentModel, onSaveHandler
 
 export const Identification: React.FC<IdentificationProps> = ({
   loading,
-  contactModel,
+  contact,
   initFormValues,
   onSaveHandler,
   onNextHandler,
@@ -73,7 +75,7 @@ export const Identification: React.FC<IdentificationProps> = ({
   <Formik
     initialValues={initFormValues}
     onSubmit={(formValues: IdentityDocumentModel) => onSubmitHandler(formValues, onSaveHandler)}
-    render={renderFormHandler({ contactModel, loading, onNextHandler, onPrevHandler, isDesktopMode })}
+    render={renderFormHandler({ contact, loading, onNextHandler, onPrevHandler, isDesktopMode })}
   />
 )
 

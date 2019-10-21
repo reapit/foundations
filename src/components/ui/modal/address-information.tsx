@@ -1,14 +1,14 @@
 import React from 'react'
-import { Input, Button, SelectBox, SelectBoxOptions, CameraImageInput } from '@reapit/elements'
+import { Input, Button, SelectBoxOptions, SelectBox, CameraImageInput } from '@reapit/elements'
 import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { oc } from 'ts-optchain'
 import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
-import { ContactModel, AddressModel } from '@/types/contact-api-schema'
+import { ContactModel } from '@/types/contact-api-schema'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
-import { checkListDetailShowModal, checkListDetailAddressUpdateData } from '@/actions/checklist-detail'
+import { updateAddressHistory, checklistDetailShowModal } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
 
 const optionsMonth = [
@@ -129,7 +129,7 @@ export const renderForm = ({
   onNextHandler,
   onPrevHandler,
   isDesktopMode
-}) => () => {
+}) => ({ values }) => {
   return (
     <Form>
       {addresses.map((_, index) => {
@@ -151,7 +151,7 @@ export const renderForm = ({
         <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
           Previous
         </Button>
-        <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler}>
+        <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler(values)}>
           Next
         </Button>
       </div>
@@ -159,14 +159,7 @@ export const renderForm = ({
   )
 }
 
-export type AddressInformationProps = {
-  isSubmitting: boolean
-  contact: ContactModel
-  isDesktopMode: boolean
-  onNextHandler: () => void
-  onPrevHandler: () => void
-  onHandleSubmit: (values: any) => void
-}
+export type AddressInformationProps = DispatchProps & StateProps
 
 export const AddressInformation: React.FC<AddressInformationProps> = ({
   contact,
@@ -199,13 +192,13 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
   )
 }
 
-export type MappedProps = {
+export type StateProps = {
   isSubmitting: boolean
   contact: ContactModel
   isDesktopMode: boolean
 }
 
-export const mapStateToProps = (state: ReduxState): MappedProps => {
+export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
     contact: oc(state).checklistDetail.checklistDetailData.contact({}),
@@ -213,27 +206,20 @@ export const mapStateToProps = (state: ReduxState): MappedProps => {
   }
 }
 
-export type MappedActions = {
-  onNextHandler: () => void
+export type DispatchProps = {
+  onNextHandler: (values: any) => () => void
   onPrevHandler: () => void
-  onHandleSubmit: (values: AddressModel[]) => void
+  onHandleSubmit: (values: any) => void
 }
 
-export type OwnPropsProps = {
-  id: string
-}
-
-export const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnPropsProps): MappedActions => {
+export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onHandleSubmit: (values: any) => {
-      const newValues = {
-        ...values,
-        id: ownProps.id
-      }
-      dispatch(checkListDetailAddressUpdateData(newValues))
+      dispatch(updateAddressHistory({ contact: values }))
     },
-    onNextHandler: () => dispatch(checkListDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
-    onPrevHandler: () => dispatch(checkListDetailShowModal(STEPS.SECONDARY_IDENTIFICATION))
+    onNextHandler: (values: any) => () =>
+      dispatch(updateAddressHistory({ nextSection: STEPS.DECLARATION_RISK_MANAGEMENT, contact: values })),
+    onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.SECONDARY_IDENTIFICATION))
   }
 }
 

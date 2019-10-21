@@ -7,7 +7,7 @@ describe('Identification', () => {
   describe('renderFormHandler', () => {
     it('should match snapshot', () => {
       const mockProps = {
-        contactModel: contact,
+        contact: contact,
         loading: false,
         onNextHandler: jest.fn(),
         onPrevHandler: jest.fn(),
@@ -30,7 +30,7 @@ describe('Identification', () => {
     it('should match snapshot', () => {
       const mockProps = {
         loading: false,
-        contactModel: contact,
+        contact: contact,
         identityCheckModel: null,
         initFormValues: {} as any,
         onSaveHandler: jest.fn(),
