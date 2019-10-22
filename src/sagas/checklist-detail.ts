@@ -22,6 +22,7 @@ import { ContactModel, AddressModel, IdentityCheckModel } from '@/types/contact-
 import { oc } from 'ts-optchain'
 import { selectUserCode } from '../selectors/auth'
 import store from '@/core/store'
+import { handlePepSearchStatus } from '@/utils/pep-search'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {
@@ -345,12 +346,13 @@ export const pepSearch = function*({ data }) {
   yield put(checklistDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
+    const contact = yield select(selectCheckListDetailContact)
     const searchResults = yield fetchDataPepSearch({ name: data, headers })
+    // Change Pep search status in localstorage
+    yield call(handlePepSearchStatus, contact.id, 'passed')
     yield put(pepSearchResult({ searchParam: data, searchResults }))
     if (data.nextSection) {
       yield put(checklistDetailShowModal(data.nextSection))
-    } else {
-      yield put(checklistDetailHideModal())
     }
   } catch (err) {
     console.error(err.message)
