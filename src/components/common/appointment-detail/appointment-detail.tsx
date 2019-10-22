@@ -20,7 +20,6 @@ import {
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { ReduxState } from '@/types/core'
 import { appointmentDetailHideModal } from '@/actions/appointment-detail'
-import { FaStreetView, FaStickyNote, FaMale, FaClock, FaDirections, FaHandshake } from 'react-icons/fa'
 import { ListItemModel } from '../../../types/configuration'
 import styles from '@/styles/ui/appoinments-detail.scss?mod'
 import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
@@ -85,29 +84,6 @@ export const renderCheckMark = (isConfirmed: boolean | undefined) => {
   return <TiTick />
 }
 
-// export const renderAttendees = (appointment: AppointmentModel, loginMode: LoginMode) => {
-//   const attendees = appointment.attendees
-//   const address = oc(appointment).property.address()
-//   const propertyId = oc(appointment).property.id()
-
-//   if (!attendees) {
-//     return null
-//   }
-//   return attendees.map((attendee: AttendeeModel) => {
-//     return (
-//       <Tile
-//         hightlight={false}
-//         heading={oc(attendee).name('No Attendee Name')}
-//         key={appointment.id}
-//         icon={<FaMale className="media-icon" />}
-//       >
-//         {renderAddress(loginMode, address, propertyId)}
-//         <div className="my-5">{renderCommunicationDetail(attendee.communicationDetails)}</div>
-//       </Tile>
-//     )
-//   })
-// }
-
 export const renderAddress = (
   loginMode: LoginMode,
   address: AddressModel | undefined,
@@ -116,6 +92,9 @@ export const renderAddress = (
   if (!address) {
     return null
   }
+  let { buildingName, buildingNumber, country, line1, line2, line3, line4, postcode } = address
+  const addressParts = [buildingName, buildingNumber, line1, line2, line3, line4, postcode, country]
+
   return (
     <div className={appointmentDetailTextContainer}>
       <H4>Property:</H4>
@@ -126,10 +105,7 @@ export const renderAddress = (
           entityCode: propertyId
         }}
       >
-        <SubTitleH5>
-          {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3}{' '}
-          {address.line4} {address.postcode} {address.country}
-        </SubTitleH5>
+        <SubTitleH5>{addressParts.filter(p => p).join(', ')}</SubTitleH5>
       </AcLink>
     </div>
   )
@@ -176,7 +152,17 @@ export const renderApplicantAttendees = (attendees: AttendeeModel[]) => {
           <div className={appointmentDetailTextContainer}>
             <H4>{capitalizeFirstLetter(oc(attendee).type(''))}:</H4>
             <div>
-              <SubTitleH5>{attendee.name}</SubTitleH5>
+              <SubTitleH5>
+                {attendee.name} <br />
+                {oc(attendee)
+                  .communicationDetails([])
+                  .map(c => (
+                    <>
+                      {c.detail}
+                      <br />
+                    </>
+                  ))}
+              </SubTitleH5>
             </div>
           </div>
         )
@@ -209,28 +195,6 @@ export const renderArrangements = (arrangements: string | undefined) => {
   )
 }
 
-// export const renderDirections = (direction: string | undefined) => {
-//   if (!direction) {
-//     return null
-//   }
-//   return (
-//     <Tile hightlight={false} heading="Directions" icon={<FaDirections className="media-icon" />}>
-//       {direction}
-//     </Tile>
-//   )
-// }
-
-// export const renderViewingType = (type: string | undefined) => {
-//   if (!type) {
-//     return null
-//   }
-//   return (
-//     <Tile hightlight={false} heading="Appointment Type" icon={<FaStreetView className="media-icon" />}>
-//       {type}
-//     </Tile>
-//   )
-// }
-
 export const renderStartAndEndDate = (startTime: string, endTime: string) => {
   const startDate = dayjs(startTime)
   const isToday = isSameDay(startDate)
@@ -250,27 +214,32 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   additionalAttendees,
   applicantAttendees
 }) => {
-  const address = oc(appointment).property.address()
+  let address = oc(appointment).property.address()
   const typeId = oc(appointment).typeId()
-  const basicAddress = address ? `${address.buildingName} ${address.buildingNumber} ${address.line1}` : ''
+  const basicAddress = address
+    ? `${oc(address).buildingName('')} ${oc(address).buildingNumber('')} ${oc(address).line1('')} ${oc(address).line2(
+        ''
+      )}`
+    : ''
   const propertyId = oc(appointment).property.id()
 
   const type =
     typeId && appointmentTypes ? appointmentTypes.find(appointmentType => appointmentType.id === typeId) : null
+
   return (
-    <Modal visible={visible} title={`${basicAddress}, Ref: ${appointment.id}`} afterClose={afterClose}>
+    <Modal visible={visible} title={`${oc(type).value('')}: ${basicAddress}`} afterClose={afterClose}>
       {isLoading ? (
         <Loader />
       ) : (
-          <>
-            {renderDateTime(oc(appointment).property.address(), appointment)}
-            {renderAdditionalAttendees(additionalAttendees)}
-            {renderApplicantAttendees(applicantAttendees)}
-            {renderAddress(loginMode, address, propertyId)}
-            {renderNotes(appointment.description)}
-            {renderArrangements(oc(appointment).property.arrangements(''))}
-          </>
-        )}
+        <>
+          {renderDateTime(oc(appointment).property.address(), appointment)}
+          {renderAdditionalAttendees(additionalAttendees)}
+          {renderApplicantAttendees(applicantAttendees)}
+          {renderAddress(loginMode, address, propertyId)}
+          {renderNotes(appointment.description)}
+          {renderArrangements(oc(appointment).property.arrangements(''))}
+        </>
+      )}
     </Modal>
   )
 }
