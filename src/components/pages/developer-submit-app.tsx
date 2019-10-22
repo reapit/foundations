@@ -129,36 +129,6 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                         id="developerId"
                         name="developerId"
                       />
-                      {/* <Input
-                        dataTest="submit-app-company-reg-number"
-                        type="text"
-                        labelText="Company reg number"
-                        id="companyReg"
-                        name="companyReg"
-                      />
-                      <Input
-                        dataTest="submit-app-address1"
-                        type="text"
-                        labelText="Address 1"
-                        id="address1"
-                        name="lineOne"
-                      />
-                      <Input
-                        dataTest="submit-app-address2"
-                        type="text"
-                        labelText="Address 2"
-                        id="address2"
-                        name="lineTwo"
-                      />
-                      <Input dataTest="submit-app-city" type="text" labelText="City" id="city" name="town" />
-                      <Input dataTest="submit-app-country" type="text" labelText="Country" id="country" name="country" />
-                      <Input
-                        dataTest="submit-app-postcode"
-                        type="text"
-                        labelText="Postcode"
-                        id="postcode"
-                        name="postcode"
-                      /> */}
                     </GridItem>
                     <GridItem>
                       <Input
@@ -175,49 +145,6 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                         id="launch Url"
                         name="launchUri"
                       />
-                      {/* <Input
-                        dataTest="submit-app-display-summary"
-                        type="text"
-                        labelText="Display summary"
-                        id="displaySummary"
-                        name="displaySummary"
-                      />
-                      <Input
-                        dataTest="submit-app-business-address"
-                        type="text"
-                        labelText="Business address"
-                        id="businessAddress"
-                        name="businessAddress"
-                      />
-                      <Input dataTest="submit-app-county" type="text" labelText="County" id="county" name="County" />
-                      <Input
-                        dataTest="submit-app-developer-id"
-                        type="text"
-                        labelText="Developer ID"
-                        id="developerId"
-                        name="developerId"
-                      />
-                      <Input
-                        dataTest="submit-app-display-summary"
-                        type="text"
-                        labelText="Display summary"
-                        id="displaySummary"
-                        name="Developer ID"
-                      />
-                      <Input dataTest="submit-app-policy" type="text" labelText="Policy" id="pollicy" name="pollicy" />
-                      <Input
-                        dataTest="submit-app-endpoint"
-                        type="text"
-                        labelText="Endpoint"
-                        id="endpoint"
-                        name="endpoint"
-                      />
-                      <TextArea
-                        dataTest="submit-app-accepted-terms"
-                        labelText="Accepted Terms"
-                        id="acceptedTerms"
-                        name="acceptedTerms"
-                      /> */}
                       {renderScopesCheckbox(scopes)}
                       <ImageInput
                         id="iconImage"
