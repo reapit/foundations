@@ -1,9 +1,6 @@
 import React from 'react'
-import { context } from '../context'
 import load from 'little-loader'
 import { queryParams, Params } from '../utils/query-params'
-
-const {useContext} = React
 
 const GOOGLE_MAP_PLACES_API = "https://maps.googleapis.com/maps/api/js"
 
@@ -12,8 +9,8 @@ export type LoadedCallBackParams = {
   setGoogleMap: (googleMap: any) => void
 }
 
-export const loadedCallback= ({ setError, setGoogleMap }: LoadedCallBackParams) => (err: any) => {
-  if (err){
+export const loadedCallback = ({ setError, setGoogleMap }: LoadedCallBackParams) => (err: any) => {
+  if (err) {
     setError(err)
   }
   if (!err) {
@@ -29,7 +26,7 @@ export type HandleUseEffectParams = {
 }
 
 export const handleUseEffect = ({ setError, params, setGoogleMap }: HandleUseEffectParams) => () => {
-  load(`${GOOGLE_MAP_PLACES_API}?${queryParams(params)}`, loadedCallback({setError, setGoogleMap}))
+  load(`${GOOGLE_MAP_PLACES_API}?${queryParams(params)}`, loadedCallback({ setError, setGoogleMap }))
 }
 
 export type RenderProps = {
@@ -42,11 +39,11 @@ export type GoogleMapLoaderProps = {
   render: ({ googleMap, error }: RenderProps) => any
 }
 
-export const GoogleMapLoader: React.FC<GoogleMapLoaderProps>= ({ render, params }) => {
+export const GoogleMapLoader: React.FC<GoogleMapLoaderProps> = ({ render, params }) => {
   const [googleMap, setGoogleMap] = React.useState(null)
   const [error, setError] = React.useState('')
-  React.useEffect(handleUseEffect({setError, setGoogleMap, params}), [])
-  return render({googleMap, error})
+  React.useEffect(handleUseEffect({ setError, setGoogleMap, params }), [])
+  return render({ googleMap, error })
 }
 
 export default GoogleMapLoader

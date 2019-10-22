@@ -6,8 +6,8 @@ import styled from 'styled-components'
 import GoogleMapLoader, { RenderProps } from './google-map-loader'
 import { PropertyModel } from '../types/property'
 import { Params } from '../utils/query-params'
-import {Theme} from '../theme'
-import {getPrice} from '../search-result'
+import { Theme } from '../theme'
+import { getPrice } from '../search-result'
 
 const { useContext } = React
 
@@ -41,15 +41,15 @@ export type GetContentParams = {
   price: string,
 }
 
-export const getContent = ({ price,theme, latitude, longitude, address,  bedrooms, bathrooms, marketingMode, lettingPrice, rentFrequency, imageUrl = INVALID_BACKGROUND_AS_BASE64 }: GetContentParams) => `
+export const getContent = ({ price, theme, latitude, longitude, address, bedrooms, bathrooms, marketingMode, lettingPrice, rentFrequency, imageUrl = INVALID_BACKGROUND_AS_BASE64 }: GetContentParams) => `
   <div style="display:flex; font-family: ${theme.base.font.family}" id="coordinate-${latitude}-${longitude}">
     <div><img style="width: 110px; height: 110px; object-fit: cover" src="${imageUrl}"></div>
     <div style="padding: 0rem 1rem;">
       <div style="margin-bottom: 2px; font-weight:bold;font-size:1rem; color: ${theme.colors.base}">${address}</div>
       ${marketingMode === 'selling' ? (
-        `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:2rem">£${price}</div>`
+    `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:2rem">£${price}</div>`
   ) : (
-        `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:2rem">£${price}</div>`
+      `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:2rem">£${price}</div>`
     )}
       <div style="display:flex; margin-top: 2px">
         <div style="margin-right: 1.2rem">
@@ -87,7 +87,7 @@ export type HandleUseEffectParams = {
   price: string
 }
 
-export const handleUseEffect = ({ price,googleMap, center, zoom, restProps, property, mapRef, imageUrl, theme }: HandleUseEffectParams) => () => {
+export const handleUseEffect = ({ price, googleMap, center, zoom, restProps, property, mapRef, imageUrl, theme }: HandleUseEffectParams) => () => {
 
   if (googleMap && theme) {
     const map = new googleMap.Map(document.getElementById('reapit-map-container'), {
@@ -286,7 +286,7 @@ export const handleUseEffect = ({ price,googleMap, center, zoom, restProps, prop
       const bedrooms = property && property.bedrooms
       const bathrooms = property && property.bathrooms
       const infoWindow = new googleMap.InfoWindow({
-        content: getContent({ price,theme, latitude, longitude,  bedrooms, bathrooms, address, marketingMode, lettingPrice, rentFrequency, imageUrl })
+        content: getContent({ price, theme, latitude, longitude, bedrooms, bathrooms, address, marketingMode, lettingPrice, rentFrequency, imageUrl })
       })
       infoWindow.open(map, marker)
     }
@@ -304,12 +304,14 @@ export const MapContainer: React.FC<MapContainerProps> | null = ({ googleMap, ce
   const mapRef = React.useRef(null)
   const contextValue = useContext(context)
   const searchStore = useContext(context)
+
+
   let price = ''
   if (searchStore && searchStore.selectedProperty) {
     price = getPrice(searchStore.selectedProperty, searchStore.searchType)
   }
 
-  
+
   let imageUrl = INVALID_BACKGROUND_AS_BASE64
   if (searchStore && property) {
     const propertyId = oc(property).id('')
@@ -319,7 +321,7 @@ export const MapContainer: React.FC<MapContainerProps> | null = ({ googleMap, ce
     }
   }
 
-  React.useEffect(handleUseEffect({ price,googleMap, zoom, center, mapRef, restProps, property, imageUrl, theme: contextValue ? contextValue.theme : null }), [googleMap, restProps, center, zoom, property])
+  React.useEffect(handleUseEffect({ price, googleMap, zoom, center, mapRef, restProps, property, imageUrl, theme: contextValue ? contextValue.theme : null }), [googleMap, center, zoom, property])
 
   if (!contextValue) {
     return null

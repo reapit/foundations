@@ -1,49 +1,49 @@
 export interface Theme {
-    base:   Base;
-    button: Button;
-    colors: Colors;
+  base: Base;
+  button: Button;
+  colors: Colors;
 }
 
 export interface Base {
-    font: Font;
+  font: Font;
 }
 
 export interface Font {
-    family: string;
-    sizes:  Sizes;
+  family: string;
+  sizes: Sizes;
 }
 
 export interface Sizes {
-    base:     string;
-    headings: Headings;
+  base: string;
+  headings: Headings;
 }
 
 export interface Headings {
-    h1: string;
-    h2: string;
-    h3: string;
-    h4: string;
-    h5: string;
+  h1: string;
+  h2: string;
+  h3: string;
+  h4: string;
+  h5: string;
 }
 
 export interface Button {
-    background: string;
-    color:      string;
+  background: string;
+  color: string;
 }
 
 export interface Colors {
-    primary:       string;
-    secondary:     string;
-    icon:          string;
-    base:          string;
-    widgetHeading: string;
-    background:    string;
-    warning:       string;
-    loading:       string;
+  primary: string;
+  secondary: string;
+  icon: string;
+  base: string;
+  widgetHeading: string;
+  background: string;
+  warning: string;
+  loading: string;
 }
 
 
-export const theme:Theme = {
+export const theme: Theme = {
   base: {
     font: {
       family: "'Open Sans', sans-serif",

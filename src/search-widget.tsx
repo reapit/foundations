@@ -3,7 +3,7 @@ import { Loader } from './loader'
 import styled, { ThemeProvider } from 'styled-components'
 import { oc } from 'ts-optchain';
 import { Theme } from './theme'
-import { API_URL } from './constants'
+import { API_URL, IMAGE_API_URL } from './constants'
 
 import { useSearchStore } from './hooks/search-store'
 import { SearchResult } from './search-result'
@@ -134,8 +134,8 @@ const SearchWidget: React.FC<{ API_KEY: string, theme: Theme }> = ({ API_KEY, th
   const getPropertyImages = async (result: PropertyModel[]) => {
     const propertyIds = result.map(property => oc(property).id(''))
 
-    const url = new URL(API_URL)
-    url.searchParams.append('propertyId', propertyIds.join('&'))
+    const url = new URL(IMAGE_API_URL)
+    url.searchParams.append('propertyId', propertyIds.join(','))
 
     const response = await fetch(url.toString(), {
       headers: {
@@ -194,10 +194,10 @@ const SearchWidget: React.FC<{ API_KEY: string, theme: Theme }> = ({ API_KEY, th
     setStartFetching()
 
     const url = new URL('https://reapit.cloud.tyk.io/properties')
-    url.searchParams.append('LettingStatuses', ['forLet', 'underOffer'].join(';'))
+    url.searchParams.append('LettingStatuses', ['toLet', 'underOffer'].join(','))
     url.searchParams.append('internetAdvertising', "true")
     url.searchParams.append('PageSize', '8')
-    url.searchParams.append('marketingMode', ['letting', 'sellingAndLetting'].join(';'))
+    url.searchParams.append('marketingMode', ['letting', 'sellingAndLetting'].join(','))
     url.searchParams.append('Address', searchKeyword)
 
     try {
