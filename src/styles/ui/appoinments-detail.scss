@@ -1,13 +1,22 @@
 .appointment-detail-text-container {
   display: flex;
+  margin-bottom: 1.5rem;
 
-  h4,
-  h6 {
-    margin-bottom: 0;
-    width: 150px;
+  div,
+  h5 {
+    display: flex;
+    align-items: center;
   }
 
-  h6 {
+  h4,
+  h5 {
+    margin-bottom: 0 !important;
+    width: 200px;
+  }
+
+  h5,
+  a {
     flex: 1;
+    width: 100%;
   }
 }
