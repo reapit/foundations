@@ -17,7 +17,18 @@ const SearchResultContainer = styled.div`
 
 const SearchResultTextContainer = styled.h1`
   color: ${props => props.theme.colors.primary};
-  padding-left: 2.5rem;
+  
+  @media screen and (max-width: 1600px) {
+    & {
+      padding-top: 2.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1601px) {
+    & {
+      padding-left: 2.5rem;
+    }
+  }
   margin-top: 0;
   margin-bottom: 0;
 `
@@ -29,7 +40,19 @@ const SearchResultItemContainer = styled.div`
 
   /* responsive desktop: 4 images */
   & > div {
-    padding-left: 2.5rem;
+
+    @media screen and (max-width: 1600px) {
+      & {
+        padding-right: 2.5rem;
+      }
+    }
+
+    @media screen and (min-width: 1601px) {
+      & {
+        padding-left: 2.5rem;
+      }
+    }
+
     padding-top: 2.5rem;
     box-sizing: border-box;
 
@@ -201,7 +224,7 @@ export const SearchResult = () => {
         {resultArr.map(property => {
           const id = oc(property).id("")
           const propertyImage = propertyImages[id]
-          const imageUrl = oc(propertyImage).url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="')
+          const imageUrl = oc(propertyImage).url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII=')
 
           const selectedPropertyId = oc(selectedProperty).id('')
           const isSelectedProperty = property.id === selectedPropertyId
