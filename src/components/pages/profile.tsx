@@ -1,7 +1,15 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import ProfileToggle from '@/components/ui/profile-toggle'
-import { Button, H3, Loader, FlexContainerResponsive } from '@reapit/elements'
+import {
+  H3,
+  Loader,
+  FlexContainerResponsive,
+  AcButton,
+  EntityType,
+  LoginMode,
+  DynamicLinkParams
+} from '@reapit/elements'
 import styles from '@/styles/pages/profile.scss?mod'
 import { ReduxState, FormState } from '@/types/core'
 import { submitChecks } from '@/actions/submit-checks'
@@ -50,7 +58,7 @@ const generateSection = (status: ChecklistStatus) => {
 }
 
 export interface ProfileMappedActions {
-  submitChecks: (id: string) => void
+  submitChecks: (id: string, dynamicLinkParams: DynamicLinkParams) => void
 }
 
 export interface ProfileMappedProps {
@@ -58,11 +66,12 @@ export interface ProfileMappedProps {
   loading: boolean
   contact: ContactModel | { id: string }
   status: ChecklistStatus
+  loginMode: LoginMode
 }
 
 export type ProfileProps = ProfileMappedActions & ProfileMappedProps
 
-export const Profile = ({ submitChecksFormState, submitChecks, loading, contact, status }: ProfileProps) => {
+export const Profile = ({ submitChecksFormState, submitChecks, loading, contact, status, loginMode }: ProfileProps) => {
   const isSubmitting = submitChecksFormState === 'SUBMITTING'
 
   if (submitChecksFormState === 'SUCCESS') {
@@ -80,6 +89,12 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
   }
 
   const section = generateSection(status)
+  const dynamicLinkParams = {
+    entityType: EntityType.CONTACT,
+    entityCode: contact.id,
+    appMode: loginMode,
+    webRoute: Routes.CHECKLIST_DETAIL_ID_SUCCESS
+  }
 
   return (
     <ErrorBoundary>
@@ -96,15 +111,18 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
           ))}
         </div>
         <div className="flex justify-end mt-10">
-          <Button
-            variant="primary"
-            type="button"
-            loading={isSubmitting}
-            disabled={isSubmitting}
-            onClick={() => submitChecks(contact.id || '')}
+          <AcButton
+            buttonProps={{
+              variant: 'primary',
+              type: 'button',
+              loading: isSubmitting,
+              disabled: isSubmitting,
+              onClick: () => submitChecks(contact.id || '', dynamicLinkParams)
+            }}
+            dynamicLinkParams={dynamicLinkParams}
           >
             Submit Record for Checks
-          </Button>
+          </AcButton>
         </div>
       </FlexContainerResponsive>
     </ErrorBoundary>
@@ -115,11 +133,12 @@ const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
   submitChecksFormState: state.submitChecks.formState,
   loading: oc(state).checklistDetail.loading(true),
   contact: selectCheckListDetailContact(state),
-  status: selectCheckListDetailStatus(state)
+  status: selectCheckListDetailStatus(state),
+  loginMode: oc(state).auth.refreshSession.mode('WEB')
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): ProfileMappedActions => ({
-  submitChecks: (id: string) => dispatch(submitChecks(id))
+  submitChecks: (id: string, dynamicLinkParams: DynamicLinkParams) => dispatch(submitChecks({ id, dynamicLinkParams }))
 })
 
 export default connect(

@@ -56,15 +56,27 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
     <div
       className="flex justify-end mt-10"
     >
-      <Button
-        disabled={false}
-        loading={false}
-        onClick={[Function]}
-        type="button"
-        variant="primary"
+      <AcButton
+        buttonProps={
+          Object {
+            "disabled": false,
+            "loading": false,
+            "onClick": [Function],
+            "type": "button",
+            "variant": "primary",
+          }
+        }
+        dynamicLinkParams={
+          Object {
+            "appMode": "DESKTOP",
+            "entityCode": "MKC16000098",
+            "entityType": "contacts",
+            "webRoute": "/checklist-detail/:id/success",
+          }
+        }
       >
         Submit Record for Checks
-      </Button>
+      </AcButton>
     </div>
   </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
@@ -126,15 +138,27 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
     <div
       className="flex justify-end mt-10"
     >
-      <Button
-        disabled={true}
-        loading={true}
-        onClick={[Function]}
-        type="button"
-        variant="primary"
+      <AcButton
+        buttonProps={
+          Object {
+            "disabled": true,
+            "loading": true,
+            "onClick": [Function],
+            "type": "button",
+            "variant": "primary",
+          }
+        }
+        dynamicLinkParams={
+          Object {
+            "appMode": "DESKTOP",
+            "entityCode": "MKC16000098",
+            "entityType": "contacts",
+            "webRoute": "/checklist-detail/:id/success",
+          }
+        }
       >
         Submit Record for Checks
-      </Button>
+      </AcButton>
     </div>
   </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
