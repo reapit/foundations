@@ -61,6 +61,11 @@ export const LinkItem: React.SFC<{ item: MenuItem; children: React.ReactNode }> 
 export const Menu: React.FC<MenuConfig> = React.memo(({ menu, location, mode, defaultActiveKey }) => {
   const activeItem = getActiveItemKey(menu, location)
   const [activeKey, setIsActive] = React.useState(activeItem || defaultActiveKey)
+
+  React.useEffect(() => {
+    setIsActive(activeItem || defaultActiveKey)
+  }, [activeItem])
+
   return (
     <nav className={`nav-bar ${mode === 'DESKTOP' ? 'is-desktop' : ''}`}>
       <ul>

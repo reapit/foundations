@@ -1,5 +1,6 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
+import { MemoryRouter } from 'react-router'
 import toJson from 'enzyme-to-json'
 import { Menu, getActiveItemKey, LinkItem } from '../Menu'
 import { Location } from 'history'
@@ -59,6 +60,43 @@ describe('Menu', () => {
     it('should return null if location does not match an item', () => {
       const result = getActiveItemKey(mockMenuProps.menu, { pathname: '/some-random-path' } as Location<any>)
       expect(result).toBeNull()
+    })
+  })
+
+  describe('Change active menu item when location change', () => {
+    it('should hightlight correct item', () => {
+      const currentSelectedItem = mockMenuProps.menu[1]
+      const newSelectedItem = mockMenuProps.menu[2]
+
+      const currentLocation = { pathname: currentSelectedItem.url }
+      mockMenuProps.location = currentLocation as Location<any>
+
+      const Component = props => (
+        <MemoryRouter initialEntries={['/client']}>
+          <Menu {...props} />
+        </MemoryRouter>
+      )
+
+      const wrapper = mount(<Component {...mockMenuProps} />)
+
+      expect(
+        wrapper
+          .find('.is-active')
+          .at(0)
+          .childAt(1)
+          .text()
+      ).toEqual(currentSelectedItem.title)
+
+      wrapper.setProps({ location: { pathname: newSelectedItem.url } })
+      wrapper.update()
+
+      expect(
+        wrapper
+          .find('.is-active')
+          .at(0)
+          .childAt(1)
+          .text()
+      ).toEqual(newSelectedItem.title)
     })
   })
 })
