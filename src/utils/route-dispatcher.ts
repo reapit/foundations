@@ -8,7 +8,6 @@ import { identityTypesRequestData } from '@/actions/identity-types'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
   await getAccessToken()
-
   const id = params ? params.id : ''
 
   switch (route) {
