@@ -20,8 +20,8 @@
 .mapContainer.isDesktop {
   top: 0;
   height: 100vh;
-  left: 300px;
-  width: calc(100vw - 300px);
+  left: 350px;
+  width: calc(100vw - 350px);
 
   @media screen and (max-width: 768px) {
     top: 35px;
@@ -50,8 +50,8 @@
 .mapPanel {
   position: absolute;
   bottom: 0;
-  width: calc(100vw - 382px);
-  left: 382px;
+  width: calc(100vw - 416px);
+  left: 416px;
   display: flex;
   background-color: #fff;
   padding: 1.5rem;
@@ -69,7 +69,8 @@
 }
 
 .mapPanel.isDesktop {
-  left: 300px;
+  left: 350px;
+  width: calc(100vw - 350px);
   @media screen and (max-width: 768px) {
     left: 0;
   }
