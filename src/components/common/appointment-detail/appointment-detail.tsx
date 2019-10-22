@@ -143,6 +143,23 @@ export const renderDateTime = (address: AddressModel | undefined, appointment: A
   )
 }
 
+export const renderAdditionalAttendees = (attendees: AttendeeModel[]) => {
+  if (attendees.length === 0) {
+    return null
+  }
+
+  return (
+    <div className={appointmentDetailTextContainer}>
+      <H4>Additional Attendees:</H4>
+      <div>
+        {attendees.map(attendee => (
+          <SubTitleH6>{attendee.name}</SubTitleH6>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 // export const renderNotes = (description: string | undefined) => {
 //   if (!description) {
 //     return null
@@ -202,7 +219,8 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   afterClose,
   isLoading,
   appointmentTypes,
-  loginMode
+  loginMode,
+  additionalAttendees
 }) => {
   const address = oc(appointment).property.address()
   const typeId = oc(appointment).typeId()
@@ -216,6 +234,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
       ) : (
           <>
             {renderDateTime(oc(appointment).property.address(), appointment)}
+            {renderAdditionalAttendees(additionalAttendees)}
             {/* {renderViewingType(oc(type).value())}
             {renderAttendees(appointment, loginMode)}
             {renderNotes(appointment.description)}
@@ -233,6 +252,7 @@ export type AppointmentDetailMappedProps = {
   isLoading: boolean
   appointmentTypes: ListItemModel[] | null
   loginMode: LoginMode
+  additionalAttendees: AttendeeModel[]
 }
 
 export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userCode: string): AttendeeModel[] => {
@@ -275,7 +295,8 @@ export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps
     visible: state.appointmentDetail.isModalVisible,
     isLoading: state.appointmentDetail.loading,
     appointmentTypes: state.appointments.appointmentTypes,
-    loginMode: oc(state).auth.refreshSession.mode('WEB')
+    loginMode: oc(state).auth.refreshSession.mode('WEB'),
+    additionalAttendees: getAdditionalAttendees(oc(appointment).attendees([]))
   }
 }
 
