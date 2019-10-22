@@ -3,11 +3,7 @@ import { shallow } from 'enzyme'
 import {
   AppointmentModal,
   renderStartAndEndDate,
-  renderAdditionalAttendees
-  renderDirections,
-  renderNotes,
   renderAddress,
-  renderAttendees,
   renderCheckMark,
   renderCommunicationDetail,
   renderCommunicationType,
@@ -44,7 +40,9 @@ describe('AppointmentModal', () => {
         isLoading: false,
         userCode: 'mockUserCode',
         appointmentTypes: [],
-        loginMode: 'DESKTOP' as LoginMode
+        loginMode: 'DESKTOP' as LoginMode,
+        additionalAttendees: [],
+        applicantAttendees: []
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
@@ -59,7 +57,9 @@ describe('AppointmentModal', () => {
         isLoading: true,
         userCode: 'mockUserCode',
         appointmentTypes: [],
-        loginMode: 'DESKTOP' as LoginMode
+        loginMode: 'DESKTOP' as LoginMode,
+        additionalAttendees: [],
+        applicantAttendees: []
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Loader')).toHaveLength(1)
@@ -86,43 +86,6 @@ describe('AppointmentModal', () => {
     })
   })
 
-  describe('renderDirections', () => {
-    it('should matchSnapshot', () => {
-      const input = '123'
-      const data = renderDirections(input)
-      const wrapper = shallow(<div>{data}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-    it('should run correctly and show not Today', () => {
-      const input = '123'
-      const data = renderDirections(input)
-      expect(data).not.toBeNull()
-    })
-    it('should run correctly and show Today', () => {
-      const input = undefined
-      const data = renderDirections(input)
-      expect(data).toBeNull()
-    })
-  })
-
-  describe('renderNotes', () => {
-    it('should matchSnapshot', () => {
-      const input = '123'
-      const data = renderNotes(input)
-      const wrapper = shallow(<div>{data}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-    it('should run correctly and show not Today', () => {
-      const input = '123'
-      const data = renderNotes(input)
-      expect(data).not.toBeNull()
-    })
-    it('should run correctly and show Today', () => {
-      const input = undefined
-      const data = renderNotes(input)
-      expect(data).toBeNull()
-    })
-  })
   describe('renderAddress', () => {
     it('should matchSnapshot', () => {
       const input = {
@@ -195,79 +158,6 @@ describe('AppointmentModal', () => {
     })
   })
 
-  describe('renderAttendees', () => {
-    it('should matchSnapshot', () => {
-      const input = {
-        attendees: [
-          {
-            id: 'JJS',
-            type: 'negotiator',
-            name: 'Chase MacLean',
-            confirmed: true,
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'chase.maclean@reapitestates.net'
-              }
-            ]
-          },
-          {
-            id: 'JJS',
-            type: 'seller',
-            name: 'Chase MacLean',
-            confirmed: true,
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'chase.maclean@reapitestates.net'
-              }
-            ]
-          }
-        ]
-      }
-      const data = renderAttendees(input, 'DESKTOP' as LoginMode)
-      expect(data).toMatchSnapshot()
-    })
-    it('should run correctly and show not Today', () => {
-      const input = {
-        attendees: [
-          {
-            id: 'JJS',
-            type: 'negotiator',
-            name: 'Chase MacLean',
-            confirmed: true,
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'chase.maclean@reapitestates.net'
-              }
-            ]
-          },
-          {
-            id: 'JJS',
-            type: 'seller',
-            name: 'Chase MacLean',
-            confirmed: true,
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'chase.maclean@reapitestates.net'
-              }
-            ]
-          }
-        ]
-      }
-      const data = renderAttendees(input, 'DESKTOP' as LoginMode)
-      expect(data).not.toBeNull()
-    })
-    it('should run correctly and show Today', () => {
-      const input = {
-        attendees: undefined
-      }
-      const data = renderAttendees(input, 'DESKTOP' as LoginMode)
-      expect(data).toBeNull()
-    })
-  })
   describe('renderCheckMark', () => {
     it('should match snapshot', () => {
       const input = true
@@ -396,7 +286,6 @@ describe('AppointmentModal', () => {
           }
         ],
         applicantAttendees: [
-
           {
             id: 'JJS',
             type: 'seller',
