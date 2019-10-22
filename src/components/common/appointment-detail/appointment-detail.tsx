@@ -10,21 +10,17 @@ import {
   getTime,
   getDate,
   isSameDay,
-  H4,
+  Tile,
   IconList,
   AcLink,
   EntityType,
-  LoginMode,
-  SubTitleH5
+  LoginMode
 } from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { ReduxState } from '@/types/core'
 import { appointmentDetailHideModal } from '@/actions/appointment-detail'
+import { FaStreetView, FaStickyNote, FaMale, FaClock, FaDirections, FaHandshake } from 'react-icons/fa'
 import { ListItemModel } from '../../../types/configuration'
-import styles from '@/styles/ui/appoinments-detail.scss?mod'
-import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
-
-const { appointmentDetailTextContainer } = styles
 
 export type AppointmentModalProps = {
   appointment: AppointmentModel
@@ -84,6 +80,29 @@ export const renderCheckMark = (isConfirmed: boolean | undefined) => {
   return <TiTick />
 }
 
+export const renderAttendees = (appointment: AppointmentModel, loginMode: LoginMode) => {
+  const attendees = appointment.attendees
+  const address = oc(appointment).property.address()
+  const propertyId = oc(appointment).property.id()
+
+  if (!attendees) {
+    return null
+  }
+  return attendees.map((attendee: AttendeeModel) => {
+    return (
+      <Tile
+        hightlight={false}
+        heading={oc(attendee).name('No Attendee Name')}
+        key={appointment.id}
+        icon={<FaMale className="media-icon" />}
+      >
+        {renderAddress(loginMode, address, propertyId)}
+        <div className="my-5">{renderCommunicationDetail(attendee.communicationDetails)}</div>
+      </Tile>
+    )
+  })
+}
+
 export const renderAddress = (
   loginMode: LoginMode,
   address: AddressModel | undefined,
@@ -92,22 +111,19 @@ export const renderAddress = (
   if (!address) {
     return null
   }
-  let { buildingName, buildingNumber, country, line1, line2, line3, line4, postcode } = address
-  const addressParts = [buildingName, buildingNumber, line1, line2, line3, line4, postcode, country]
-
   return (
-    <div className={appointmentDetailTextContainer}>
-      <H4>Property:</H4>
-      <AcLink
-        dynamicLinkParams={{
-          appMode: loginMode,
-          entityType: EntityType.PROPERTY,
-          entityCode: propertyId
-        }}
-      >
-        <SubTitleH5>{addressParts.filter(p => p).join(', ')}</SubTitleH5>
-      </AcLink>
-    </div>
+    <AcLink
+      dynamicLinkParams={{
+        appMode: loginMode,
+        entityType: EntityType.PROPERTY,
+        entityCode: propertyId
+      }}
+    >
+      <div>
+        {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3} {address.line4}{' '}
+        {address.postcode} {address.country}
+      </div>
+    </AcLink>
   )
 }
 
@@ -116,58 +132,10 @@ export const renderDateTime = (address: AddressModel | undefined, appointment: A
     return null
   }
   return (
-    <div className={appointmentDetailTextContainer}>
-      <H4>Time:</H4>
-      <SubTitleH5>{renderStartAndEndDate(appointment.start || '', appointment.end || '')}</SubTitleH5>
-    </div>
-  )
-}
-
-export const renderAdditionalAttendees = (attendees: AttendeeModel[]) => {
-  if (attendees.length === 0) {
-    return null
-  }
-
-  return (
-    <div className={appointmentDetailTextContainer}>
-      <H4>Additional Attendees:</H4>
-      <div>
-        {attendees.map(attendee => (
-          <SubTitleH5>{attendee.name}</SubTitleH5>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-export const renderApplicantAttendees = (attendees: AttendeeModel[]) => {
-  if (attendees.length === 0) {
-    return null
-  }
-
-  return (
-    <>
-      {attendees.map(attendee => {
-        return (
-          <div className={appointmentDetailTextContainer}>
-            <H4>{capitalizeFirstLetter(oc(attendee).type(''))}:</H4>
-            <div>
-              <SubTitleH5>
-                {attendee.name} <br />
-                {oc(attendee)
-                  .communicationDetails([])
-                  .map(c => (
-                    <>
-                      {c.detail}
-                      <br />
-                    </>
-                  ))}
-              </SubTitleH5>
-            </div>
-          </div>
-        )
-      })}
-    </>
+    <Tile hightlight={false} heading="Time" icon={<FaClock className="icon-list-icon" />}>
+      {renderStartAndEndDate(appointment.start || '', appointment.end || '')}, {address.buildingName}
+      {address.buildingNumber} {address.line1}
+    </Tile>
   )
 }
 
@@ -176,22 +144,42 @@ export const renderNotes = (description: string | undefined) => {
     return null
   }
   return (
-    <div className={appointmentDetailTextContainer}>
-      <H4>Entry Notes:</H4>
-      <SubTitleH5>{description}</SubTitleH5>
-    </div>
+    <Tile hightlight={false} heading="Notes" icon={<FaStickyNote className="media-icon" />}>
+      {description}
+    </Tile>
   )
 }
 
-export const renderArrangements = (arrangements: string | undefined) => {
-  if (!arrangements) {
+export const renderArrangements = (description: string | undefined) => {
+  if (!description) {
     return null
   }
   return (
-    <div className={appointmentDetailTextContainer}>
-      <H4>Viewing Arrangements:</H4>
-      <SubTitleH5>{arrangements}</SubTitleH5>
-    </div>
+    <Tile hightlight={false} heading="Arrangements" icon={<FaHandshake className="media-icon" />}>
+      {description}
+    </Tile>
+  )
+}
+
+export const renderDirections = (direction: string | undefined) => {
+  if (!direction) {
+    return null
+  }
+  return (
+    <Tile hightlight={false} heading="Directions" icon={<FaDirections className="media-icon" />}>
+      {direction}
+    </Tile>
+  )
+}
+
+export const renderViewingType = (type: string | undefined) => {
+  if (!type) {
+    return null
+  }
+  return (
+    <Tile hightlight={false} heading="Appointment Type" icon={<FaStreetView className="media-icon" />}>
+      {type}
+    </Tile>
   )
 }
 
@@ -210,34 +198,25 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   afterClose,
   isLoading,
   appointmentTypes,
-  loginMode,
-  additionalAttendees,
-  applicantAttendees
+  loginMode
 }) => {
-  let address = oc(appointment).property.address()
+  const address = oc(appointment).property.address()
   const typeId = oc(appointment).typeId()
-  const basicAddress = address
-    ? `${oc(address).buildingName('')} ${oc(address).buildingNumber('')} ${oc(address).line1('')} ${oc(address).line2(
-        ''
-      )}`
-    : ''
-  const propertyId = oc(appointment).property.id()
-
+  const basicAddress = address ? `${address.buildingName} ${address.buildingNumber} ${address.line1}` : ''
   const type =
     typeId && appointmentTypes ? appointmentTypes.find(appointmentType => appointmentType.id === typeId) : null
-
   return (
-    <Modal visible={visible} title={`${oc(type).value('')}: ${basicAddress}`} afterClose={afterClose}>
+    <Modal visible={visible} title={`${basicAddress}, Ref: ${appointment.id}`} afterClose={afterClose}>
       {isLoading ? (
         <Loader />
       ) : (
         <>
           {renderDateTime(oc(appointment).property.address(), appointment)}
-          {renderAdditionalAttendees(additionalAttendees)}
-          {renderApplicantAttendees(applicantAttendees)}
-          {renderAddress(loginMode, address, propertyId)}
+          {renderViewingType(oc(type).value())}
+          {renderAttendees(appointment, loginMode)}
           {renderNotes(appointment.description)}
-          {renderArrangements(oc(appointment).property.arrangements(''))}
+          {renderArrangements(oc(appointment).property.arrangements())}
+          {renderDirections(appointment.directions)}
         </>
       )}
     </Modal>
@@ -250,8 +229,6 @@ export type AppointmentDetailMappedProps = {
   isLoading: boolean
   appointmentTypes: ListItemModel[] | null
   loginMode: LoginMode
-  additionalAttendees: AttendeeModel[]
-  applicantAttendees: AttendeeModel[]
 }
 
 export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userCode: string): AttendeeModel[] => {
@@ -263,22 +240,6 @@ export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userC
       return true
     }
     return attendee.id !== userCode
-  })
-}
-
-// Get attendees types: negotiator, office
-export const getAdditionalAttendees = (attendees: AttendeeModel[]) => {
-  return attendees.filter(attendee => {
-    const attendeeType = oc(attendee).type('')
-    return ['negotiator', 'office'].includes(attendeeType)
-  })
-}
-
-// Get attendees types: landlord, contact, applicant, tenant
-export const getApplicantAttendees = (attendees: AttendeeModel[]) => {
-  return attendees.filter(attendee => {
-    const attendeeType = oc(attendee).type('')
-    return ['landlord', 'contact', 'applicant', 'tenant'].includes(attendeeType)
   })
 }
 
@@ -294,9 +255,7 @@ export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps
     visible: state.appointmentDetail.isModalVisible,
     isLoading: state.appointmentDetail.loading,
     appointmentTypes: state.appointments.appointmentTypes,
-    loginMode: oc(state).auth.refreshSession.mode('WEB'),
-    additionalAttendees: getAdditionalAttendees(oc(appointment).attendees([])),
-    applicantAttendees: getApplicantAttendees(oc(appointment).attendees([]))
+    loginMode: oc(state).auth.refreshSession.mode('WEB')
   }
 }
 
