@@ -4,10 +4,11 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { ReduxState } from '@/types/core'
 import { ResultsState } from '@/reducers/results'
-import { Pagination, Table, Button, H3, FlexContainerResponsive, FlexContainerBasic } from '@reapit/elements'
+import { Pagination, Table, Button, H3, Info, H6, FlexContainerResponsive, FlexContainerBasic } from '@reapit/elements'
 import { resultRequestData, ContactsParams } from '@/actions/results'
 import { oc } from 'ts-optchain'
 import Routes from '@/constants/routes'
+import styles from '@/styles/pages/results.scss?mod'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
@@ -87,8 +88,29 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
   )
 
   React.useEffect(() => {
-    fetchContacts({ ...search, pageNumber })
+    if (search) {
+      fetchContacts({ ...search, pageNumber })
+    }
   }, [search, pageNumber])
+
+  const backToHome = () => {
+    history.push(Routes.SEARCH)
+  }
+
+  const renderEmptyResult = () => (
+    <div>
+      <div>
+        <Info infoType="">
+          <H6>No Results found</H6>
+        </Info>
+      </div>
+      <div className={styles.buttonNewSearchContainer}>
+        <Button onClick={backToHome} variant="primary" type="button">
+          New Search
+        </Button>
+      </div>
+    </div>
+  )
 
   return (
     <ErrorBoundary>
@@ -97,7 +119,11 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
           <FlexContainerResponsive hasBackground flexColumn hasPadding>
             <H3>Search Results</H3>
             {/* TODO: Will fix this by @Dan Nguyen */}
-            <Table scrollable loading={loading} data={data} columns={columns} />
+            {!search || Number(totalCount) === 0 ? (
+              renderEmptyResult()
+            ) : (
+              <Table scrollable loading={loading} data={data} columns={columns} />
+            )}
             <Pagination
               pageNumber={pageNumber}
               pageSize={pageSize}

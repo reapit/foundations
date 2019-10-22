@@ -2704,3 +2704,48 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
   </FlexContainerBasic>
 </Connect(ErrorBoundary)>
 `;
+
+exports[`Result should match a snapshot when no results found 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerBasic
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <div>
+      <FlexContainerResponsive
+        flexColumn={true}
+        hasBackground={true}
+        hasPadding={true}
+      >
+        <H3>
+          Search Results
+        </H3>
+        <div>
+          <div>
+            <Info
+              infoType=""
+            >
+              <H6>
+                No Results found
+              </H6>
+            </Info>
+          </div>
+          <div>
+            <Button
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              New Search
+            </Button>
+          </div>
+        </div>
+        <Pagination
+          onChange={[Function]}
+          pageNumber={1}
+        />
+      </FlexContainerResponsive>
+    </div>
+  </FlexContainerBasic>
+</Connect(ErrorBoundary)>
+`;
