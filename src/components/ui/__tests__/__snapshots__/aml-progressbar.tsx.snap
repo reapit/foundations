@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
-<Fragment>
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
   <Level>
     <LevelLeft>
       <LevelItem>
@@ -36,13 +39,9 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
       </LevelItem>
     </LevelRight>
   </Level>
-  <div
-    className="mb-1"
-  >
-    <ProgressBar
-      percentage={42}
-    />
-  </div>
+  <ProgressBar
+    percentage={42}
+  />
   <div>
     3
     /
@@ -59,6 +58,7 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
         <AcButton
           buttonProps={
             Object {
+              "onClick": [Function],
               "type": "button",
               "variant": "primary",
             }
@@ -71,11 +71,7 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
             }
           }
         >
-          <span
-            onClick={[Function]}
-          >
-            ID Check Successful
-          </span>
+          ID Check Successful
         </AcButton>
         <AcButton
           buttonProps={
@@ -89,9 +85,11 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
               "appMode": "WEB",
               "entityType": "apps",
               "queryParams": Object {
+                "appPram": "cntCode",
                 "closeApp": true,
                 "id": "3ec48bb7-f152-4d0d-8b6a-b5d0c8fff010",
               },
+              "webRoute": "https://dev.lifetime-legal-app.reapit.com?cntCode=MKC16000098",
             }
           }
         >
@@ -113,5 +111,5 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
       . Please now select one of the following options in order to continue
     </p>
   </Modal>
-</Fragment>
+</FlexContainerBasic>
 `;
