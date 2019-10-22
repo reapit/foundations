@@ -1,6 +1,7 @@
 import { ContactModel, IdentityCheckModel, IdentityDocumentModel } from '@/types/contact-api-schema'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
+import { DynamicLinkParams } from '@reapit/elements'
 
 export const checklistDetailRequestData = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA)
 
@@ -40,6 +41,7 @@ export const checklistDetailSecondaryIdUpdateData = actionCreator<UpdateIdentity
   ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA
 )
 
-export const checkListDetailIdentityCheckUpdateData = actionCreator<IdentityCheckModel>(
-  ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA
-)
+export const checkListDetailIdentityCheckUpdateData = actionCreator<{
+  idCheck: IdentityCheckModel
+  dynamicLinkParams: DynamicLinkParams
+}>(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA)

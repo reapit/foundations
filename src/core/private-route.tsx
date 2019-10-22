@@ -3,6 +3,7 @@ import { Route, RouteProps } from 'react-router'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import RouteFetcher from '../components/hocs/route-fetcher'
+import Routes from '@/constants/routes'
 
 export type LoginType = 'CLIENT' | 'DEVELOPER'
 
@@ -26,12 +27,20 @@ export const PrivateRoute = ({
 }: PrivateRouteProps & RouteProps) => {
   const allowTypes = Array.isArray(allow) ? allow : [allow]
   allowTypes.includes(loginType)
+
   return (
     <Route
       {...rest}
       render={props => {
         if (!allowTypes.includes(loginType)) {
           return <Redirect to="/404" />
+        }
+
+        const searchParams = new URLSearchParams(props.location.search)
+        const cncCode = searchParams && searchParams.get('cncCode') ? searchParams.get('cncCode') : ''
+
+        if (cncCode) {
+          return <Redirect to={`${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${cncCode}`} />
         }
         if (fetcher) {
           return <RouteFetcher routerProps={props} Component={component} />
