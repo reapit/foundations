@@ -15,7 +15,7 @@ import {
   AcLink,
   EntityType,
   LoginMode,
-  SubTitleH6
+  SubTitleH5
 } from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { ReduxState } from '@/types/core'
@@ -108,29 +108,32 @@ export const renderCheckMark = (isConfirmed: boolean | undefined) => {
 //   })
 // }
 
-// export const renderAddress = (
-//   loginMode: LoginMode,
-//   address: AddressModel | undefined,
-//   propertyId: string | undefined
-// ) => {
-//   if (!address) {
-//     return null
-//   }
-//   return (
-//     <AcLink
-//       dynamicLinkParams={{
-//         appMode: loginMode,
-//         entityType: EntityType.PROPERTY,
-//         entityCode: propertyId
-//       }}
-//     >
-//       <div>
-//         {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3} {address.line4}{' '}
-//         {address.postcode} {address.country}
-//       </div>
-//     </AcLink>
-//   )
-// }
+export const renderAddress = (
+  loginMode: LoginMode,
+  address: AddressModel | undefined,
+  propertyId: string | undefined
+) => {
+  if (!address) {
+    return null
+  }
+  return (
+    <div className={appointmentDetailTextContainer}>
+      <H4>Property:</H4>
+      <AcLink
+        dynamicLinkParams={{
+          appMode: loginMode,
+          entityType: EntityType.PROPERTY,
+          entityCode: propertyId
+        }}
+      >
+        <SubTitleH5>
+          {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3}{' '}
+          {address.line4} {address.postcode} {address.country}
+        </SubTitleH5>
+      </AcLink>
+    </div>
+  )
+}
 
 export const renderDateTime = (address: AddressModel | undefined, appointment: AppointmentModel) => {
   if (!address) {
@@ -138,8 +141,8 @@ export const renderDateTime = (address: AddressModel | undefined, appointment: A
   }
   return (
     <div className={appointmentDetailTextContainer}>
-      <H4>Time</H4>
-      <SubTitleH6>{renderStartAndEndDate(appointment.start || '', appointment.end || '')}</SubTitleH6>
+      <H4>Time:</H4>
+      <SubTitleH5>{renderStartAndEndDate(appointment.start || '', appointment.end || '')}</SubTitleH5>
     </div>
   )
 }
@@ -154,7 +157,7 @@ export const renderAdditionalAttendees = (attendees: AttendeeModel[]) => {
       <H4>Additional Attendees:</H4>
       <div>
         {attendees.map(attendee => (
-          <SubTitleH6>{attendee.name}</SubTitleH6>
+          <SubTitleH5>{attendee.name}</SubTitleH5>
         ))}
       </div>
     </div>
@@ -171,9 +174,9 @@ export const renderApplicantAttendees = (attendees: AttendeeModel[]) => {
       {attendees.map(attendee => {
         return (
           <div className={appointmentDetailTextContainer}>
-            <H4>{capitalizeFirstLetter(oc(attendee).type(''))}</H4>
+            <H4>{capitalizeFirstLetter(oc(attendee).type(''))}:</H4>
             <div>
-              <SubTitleH6>{attendee.name}</SubTitleH6>
+              <SubTitleH5>{attendee.name}</SubTitleH5>
             </div>
           </div>
         )
@@ -182,27 +185,29 @@ export const renderApplicantAttendees = (attendees: AttendeeModel[]) => {
   )
 }
 
-// export const renderNotes = (description: string | undefined) => {
-//   if (!description) {
-//     return null
-//   }
-//   return (
-//     <Tile hightlight={false} heading="Notes" icon={<FaStickyNote className="media-icon" />}>
-//       {description}
-//     </Tile>
-//   )
-// }
+export const renderNotes = (description: string | undefined) => {
+  if (!description) {
+    return null
+  }
+  return (
+    <div className={appointmentDetailTextContainer}>
+      <H4>Entry Notes:</H4>
+      <SubTitleH5>{description}</SubTitleH5>
+    </div>
+  )
+}
 
-// export const renderArrangements = (description: string | undefined) => {
-//   if (!description) {
-//     return null
-//   }
-//   return (
-//     <Tile hightlight={false} heading="Arrangements" icon={<FaHandshake className="media-icon" />}>
-//       {description}
-//     </Tile>
-//   )
-// }
+export const renderArrangements = (arrangements: string | undefined) => {
+  if (!arrangements) {
+    return null
+  }
+  return (
+    <div className={appointmentDetailTextContainer}>
+      <H4>Viewing Arrangements:</H4>
+      <SubTitleH5>{arrangements}</SubTitleH5>
+    </div>
+  )
+}
 
 // export const renderDirections = (direction: string | undefined) => {
 //   if (!direction) {
@@ -248,6 +253,8 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   const address = oc(appointment).property.address()
   const typeId = oc(appointment).typeId()
   const basicAddress = address ? `${address.buildingName} ${address.buildingNumber} ${address.line1}` : ''
+  const propertyId = oc(appointment).property.id()
+
   const type =
     typeId && appointmentTypes ? appointmentTypes.find(appointmentType => appointmentType.id === typeId) : null
   return (
@@ -259,11 +266,9 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
             {renderDateTime(oc(appointment).property.address(), appointment)}
             {renderAdditionalAttendees(additionalAttendees)}
             {renderApplicantAttendees(applicantAttendees)}
-            {/* {renderViewingType(oc(type).value())}
-            {renderAttendees(appointment, loginMode)}
+            {renderAddress(loginMode, address, propertyId)}
             {renderNotes(appointment.description)}
-            {renderArrangements(oc(appointment).property.arrangements())}
-            {renderDirections(appointment.directions)*/}
+            {renderArrangements(oc(appointment).property.arrangements(''))}
           </>
         )}
     </Modal>
