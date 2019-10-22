@@ -6,12 +6,20 @@ import { submitChecksSetFormState } from '@/actions/submit-checks'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { history } from '@/core/router'
 import routes from '@/constants/routes'
+import { DynamicLinkParams, EntityType } from '@reapit/elements'
 
 describe('submit-check post data', () => {
   const id = 'MKC16000098"'
-  const action: Action<string> = {
+  const action: Action<{ id: string; dynamicLinkParams: DynamicLinkParams }> = {
     type: ActionTypes.SUBMIT_CHECKS as ActionType,
-    data: id
+    data: {
+      id,
+      dynamicLinkParams: {
+        entityType: EntityType.CONTACT,
+        entityCode: 'SomeCode',
+        appMode: 'WEB'
+      }
+    }
   }
   const gen = cloneableGenerator(submitCheck)(action)
   expect(gen.next().value).toEqual(put(submitChecksSetFormState('SUBMITTING')))
@@ -24,7 +32,10 @@ describe('submit-check post data', () => {
 describe('submit-check thunks', () => {
   describe('submitCheckDataListen', () => {
     it('should submit data when called', () => {
-      takeLatest<Action<string>>(ActionTypes.SUBMIT_CHECKS_SET_FORM_STATE, submitCheck)
+      takeLatest<Action<{ id: string; dynamicLinkParams: DynamicLinkParams }>>(
+        ActionTypes.SUBMIT_CHECKS_SET_FORM_STATE,
+        submitCheck
+      )
     })
   })
 

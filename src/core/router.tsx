@@ -17,12 +17,13 @@ const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
-        <Route path={`(/|${Routes.LOGIN})`} exact render={() => <Login />} />
+        <Route path={Routes.LOGIN} exact render={() => <Login />} />
         <PrivateRouteWrapper path="/">
           <Switch>
             <PrivateRoute allow="CLIENT" path={Routes.CHECKLIST_DETAIL_ID_SUCCESS} component={SuccessPage} />
             <PrivateRoute allow="CLIENT" path={Routes.PROFILE_ID} component={ProfilePage} fetcher />
             <PrivateRoute allow="CLIENT" path={Routes.SEARCH} component={searchPage} />
+            <PrivateRoute allow="CLIENT" exact path={Routes.HOME} component={searchPage} />
             <PrivateRoute allow="CLIENT" path={Routes.RESULTS} component={resultsPage} />
           </Switch>
         </PrivateRouteWrapper>
