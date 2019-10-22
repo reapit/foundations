@@ -50,95 +50,97 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
 
   return (
     <FlexContainerBasic hasPadding flexColumn>
-      <Level>
-        <LevelLeft>
-          <LevelItem>
-            <div>
-              <H3>
-                <AcLink
-                  dynamicLinkParams={{
-                    appMode: loginMode,
-                    entityType: EntityType.CONTACT,
-                    entityCode: contact.id
-                  }}
-                >
-                  {`${title} ${forename} ${surname}`}
-                </AcLink>
-              </H3>
-              <SubTitleH5>{idCheck && idCheck.status && `Status: ${idCheck.status.toUpperCase()}`}</SubTitleH5>
-            </div>
-          </LevelItem>
-        </LevelLeft>
-        <LevelRight>
-          <LevelItem>
-            <Button disabled={!idCheck} type="button" variant="primary" onClick={() => setVisible(true)}>
-              Update Status
-            </Button>
-          </LevelItem>
-        </LevelRight>
-      </Level>
-      <ProgressBar percentage={progress.percentage} />
-      <div className={styles.progress}>
-        {progress.completed}/{progress.total} <span>Completed</span>
-      </div>
-      <Modal
-        title="Update Status"
-        visible={visible}
-        afterClose={() => setVisible(false)}
-        footerItems={
-          <>
-            <AcButton
-              dynamicLinkParams={{
-                entityType: EntityType.CONTACT,
-                entityCode: contact.id,
-                appMode: loginMode
-              }}
-              buttonProps={{
-                type: 'button',
-                variant: 'primary',
-                onClick: () =>
-                  updateIdentityCheckStatus(
-                    { status: 'pass' },
-                    {
-                      entityType: EntityType.CONTACT,
-                      entityCode: contact.id,
+      <div>
+        <Level>
+          <LevelLeft>
+            <LevelItem>
+              <div>
+                <H3>
+                  <AcLink
+                    dynamicLinkParams={{
                       appMode: loginMode,
-                      webRoute: `${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${contact.id}`
-                    }
-                  )
-              }}
-            >
-              ID Check Successful
-            </AcButton>
-            <AcButton
-              dynamicLinkParams={{
-                entityType: EntityType.APPS,
-                appMode: loginMode,
-                queryParams: {
-                  // TODO - this is the LTL dev app id - should be dynamic
-                  id: '3ec48bb7-f152-4d0d-8b6a-b5d0c8fff010',
-                  appPram: 'cntCode' as AppParams,
-                  closeApp: true
-                },
-                // TODO - as above, needs to not be hardcoded
-                webRoute: `https://dev.lifetime-legal-app.reapit.com?cntCode=${contact.id}`
-              }}
-              buttonProps={{
-                type: 'button',
-                variant: 'primary'
-              }}
-            >
-              Refer to Lifetime Legal
-            </AcButton>
-          </>
-        }
-      >
-        <p>
-          You have completed {Object.keys(status).filter(key => status[key]).length} out of {Object.keys(status).length}{' '}
-          sections for contact {`${title} ${forename} ${surname}`}. Please now select one of the following options in
-          order to continue
-        </p>
-      </Modal>
+                      entityType: EntityType.CONTACT,
+                      entityCode: contact.id
+                    }}
+                  >
+                    {`${title} ${forename} ${surname}`}
+                  </AcLink>
+                </H3>
+                <SubTitleH5>{idCheck && idCheck.status && `Status: ${idCheck.status.toUpperCase()}`}</SubTitleH5>
+              </div>
+            </LevelItem>
+          </LevelLeft>
+          <LevelRight>
+            <LevelItem>
+              <Button disabled={!idCheck} type="button" variant="primary" onClick={() => setVisible(true)}>
+                Update Status
+              </Button>
+            </LevelItem>
+          </LevelRight>
+        </Level>
+        <ProgressBar percentage={progress.percentage} />
+        <div className={styles.progress}>
+          {progress.completed}/{progress.total} <span>Completed</span>
+        </div>
+        <Modal
+          title="Update Status"
+          visible={visible}
+          afterClose={() => setVisible(false)}
+          footerItems={
+            <>
+              <AcButton
+                dynamicLinkParams={{
+                  entityType: EntityType.CONTACT,
+                  entityCode: contact.id,
+                  appMode: loginMode
+                }}
+                buttonProps={{
+                  type: 'button',
+                  variant: 'primary',
+                  onClick: () =>
+                    updateIdentityCheckStatus(
+                      { status: 'pass' },
+                      {
+                        entityType: EntityType.CONTACT,
+                        entityCode: contact.id,
+                        appMode: loginMode,
+                        webRoute: `${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${contact.id}`
+                      }
+                    )
+                }}
+              >
+                ID Check Successful
+              </AcButton>
+              <AcButton
+                dynamicLinkParams={{
+                  entityType: EntityType.APPS,
+                  appMode: loginMode,
+                  queryParams: {
+                    // TODO - this is the LTL dev app id - should be dynamic
+                    id: '3ec48bb7-f152-4d0d-8b6a-b5d0c8fff010',
+                    appPram: 'cntCode' as AppParams,
+                    closeApp: true
+                  },
+                  // TODO - as above, needs to not be hardcoded
+                  webRoute: `https://dev.lifetime-legal-app.reapit.com?cntCode=${contact.id}`
+                }}
+                buttonProps={{
+                  type: 'button',
+                  variant: 'primary'
+                }}
+              >
+                Refer to Lifetime Legal
+              </AcButton>
+            </>
+          }
+        >
+          <p>
+            You have completed {Object.keys(status).filter(key => status[key]).length} out of{' '}
+            {Object.keys(status).length} sections for contact {`${title} ${forename} ${surname}`}. Please now select one
+            of the following options in order to continue
+          </p>
+        </Modal>
+      </div>
     </FlexContainerBasic>
   )
 }
