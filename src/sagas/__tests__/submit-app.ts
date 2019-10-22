@@ -22,7 +22,7 @@ jest.mock('@reapit/elements')
 
 const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
 
-describe('submit-app post data', () => {
+xdescribe('submit-app post data', () => {
   const gen = cloneableGenerator(submitAppSaga)(params)
 
   expect(gen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
