@@ -21,17 +21,48 @@ import { ScopeModel } from '@/types/marketplace-api-schema'
 jest.mock('@reapit/elements')
 
 const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
+const generateDumpPromise = () => new Promise(() => null)
 
-xdescribe('submit-app post data', () => {
+describe('submit-app post data', () => {
+  const imageUploaderRequests = [
+    generateDumpPromise(),
+    generateDumpPromise(),
+    generateDumpPromise(),
+    generateDumpPromise(),
+    generateDumpPromise()
+  ]
+  const imageUploaderResults = [
+    { Url: 'base64 string...' },
+    { Url: 'base64 string...' },
+    { Url: 'base64 string...' },
+    { Url: 'base64 string...' },
+    { Url: 'base64 string...' }
+  ]
+  const updatedData = {
+    ...appSubmitStub.data,
+    iconImageData: '',
+    screen1ImageData: '',
+    screen2ImageData: '',
+    screen3ImageData: '',
+    screen4ImageData: '',
+    screen5ImageData: 'base64 string...',
+    iconImageUrl: 'base64 string...',
+    screen1ImageUrl: 'base64 string...',
+    screen2ImageUrl: 'base64 string...',
+    screen3ImageUrl: 'base64 string...',
+    screen4ImageUrl: 'base64 string...'
+  }
+
   const gen = cloneableGenerator(submitAppSaga)(params)
 
   expect(gen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(
+  expect(gen.next().value).toEqual(all(imageUploaderRequests))
+  expect(gen.next(imageUploaderResults).value).toEqual(
     call(fetcher, {
       url: URLS.apps,
       api: REAPIT_API_BASE_URL,
       method: 'POST',
-      body: appSubmitStub.data,
+      body: updatedData,
       headers: MARKETPLACE_HEADERS
     })
   )
