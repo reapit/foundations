@@ -10,92 +10,43 @@ import { initAuthorizedRequestHeaders, isBase64 } from '@/utils/api'
 import { errorThrownServer } from '../actions/error'
 import {
   checklistDetailLoading,
-  checklistDetailReceiveData,
-  checkListDetailSubmitForm,
-  checklistDetailRequestData,
-  checkListDetailUpdateData
+  contactReceiveData,
+  identityCheckReceiveData,
+  checkListDetailSubmitForm
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
-import {
-  ContactModel,
-  AddressModel,
-  CreateIdentityDocumentModel,
-  IdentityDocumentModel,
-  IdentityCheckModel,
-  CreateIdentityCheckModel
-} from '@/types/contact-api-schema'
-import { IdentificationFormValues } from '@/components/ui/forms/identification'
+import { ContactModel, AddressModel, IdentityDocumentModel, IdentityCheckModel } from '@/types/contact-api-schema'
 import { ErrorData } from '@/reducers/error'
+import store from '@/core/store'
 
-export const checklistDetailDataFetch = function*({ data: id }) {
-  yield put(checklistDetailLoading(true))
-
-  const headers = yield call(initAuthorizedRequestHeaders)
-
+const fetchContact = async ({ contactId, headers }) => {
   try {
-    const contact = yield call(fetcher, {
-      url: `${URLS.contacts}/${id}`,
+    const response = await fetcher({
+      url: `${URLS.contacts}/${contactId}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: headers
     })
+    return response
+  } catch (err) {
+    console.error(err)
+    return err
+  }
+}
 
-    const identityChecks = yield call(fetcher, {
-      url: `${URLS.contacts}/${id}${URLS.idChecks}`,
+const fetchIdentityCheck = async ({ headers, contactId }) => {
+  try {
+    const response = await fetcher({
+      url: `${URLS.contacts}/${contactId}${URLS.idChecks}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: headers
     })
-
-    const idCheck = oc(identityChecks).data[0](null)
-
-    yield put(checklistDetailReceiveData({ contact, idCheck }))
+    return oc(response).data[0](null)
   } catch (err) {
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
-    )
-  } finally {
-    yield put(checklistDetailLoading(false))
+    console.error(err)
+    return err
   }
-}
-
-export type UpdateCheckListDetailParams = {
-  data: ContactModel
-}
-
-export const updateChecklistDetail = function*({ data: { id, metadata, ...rest } }: UpdateCheckListDetailParams) {
-  const contact: ContactModel = yield select(selectCheckListDetailContact)
-  yield put(checkListDetailSubmitForm(true))
-  const headers = yield call(initAuthorizedRequestHeaders)
-  try {
-    const responseUpdate = yield call(fetcher, {
-      url: `${URLS.contacts}/${contact.id}`,
-      api: REAPIT_API_BASE_URL,
-      method: 'PATCH',
-      headers: headers,
-      body: { ...contact, ...rest, metadata: { ...contact.metadata, ...metadata } }
-    })
-    if (responseUpdate) {
-      yield put(checklistDetailRequestData(contact.id as string))
-    }
-    yield put(checkListDetailSubmitForm(false))
-  } catch (err) {
-    console.error(err.message)
-    yield put(checkListDetailSubmitForm(false))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
-    )
-  }
-}
-
-export type UpdateAddressHistoryParams = {
-  data: ContactModel
 }
 
 export const uploadImage = async ({ name, imageData, headers }) => {
@@ -117,6 +68,70 @@ export const uploadImage = async ({ name, imageData, headers }) => {
   }
 }
 
+export const updateContact = async ({ contactId, headers, contact }) => {
+  try {
+    const response = await fetcher({
+      url: `${URLS.contacts}/${contactId}`,
+      api: REAPIT_API_BASE_URL,
+      method: 'PATCH',
+      headers: headers,
+      body: contact
+    })
+    return response
+  } catch (err) {
+    console.error(err)
+    return err
+  }
+}
+
+export const updateChecklist = async ({ contact, headers }) => {
+  try {
+    const response = await fetcher({
+      url: `${URLS.contacts}/${contact.id}`,
+      api: REAPIT_API_BASE_URL,
+      method: 'PATCH',
+      headers: headers,
+      body: contact
+    })
+    return response
+  } catch (err) {
+    console.error(err.message)
+    return err
+  }
+}
+
+export const updateIdentityCheck = async ({ contactId, identityChecks, headers }) => {
+  try {
+    const response = await fetcher({
+      url: `${URLS.contacts}/${contactId}${URLS.idChecks}/${identityChecks.id}`,
+      api: REAPIT_API_BASE_URL,
+      method: 'PATCH',
+      headers: headers,
+      body: identityChecks
+    })
+    return response
+  } catch (err) {
+    console.error(err)
+    return err
+  }
+}
+
+export const createIdentityCheck = async ({ contactId, identityChecks, headers }) => {
+  try {
+    const response = await fetcher({
+      url: `${URLS.contacts}/${contactId}${URLS.idChecks}`,
+      api: REAPIT_API_BASE_URL,
+      method: 'POST',
+      headers: headers,
+      body: identityChecks
+    })
+    return response
+  } catch (err) {
+    console.error(err)
+    return err
+  }
+}
+
 export const mapArrAddressToUploadImageFunc = ({ addresses, headers, addressesMeta }): Promise<any>[] => {
   if (!addresses || !addressesMeta) {
     return []
@@ -125,7 +140,7 @@ export const mapArrAddressToUploadImageFunc = ({ addresses, headers, addressesMe
     if (!isBase64(addressesMeta[index].documentImage)) {
       return null
     }
-    return uploadImage({
+    return call(uploadImage, {
       headers,
       name: `${address.type}-${address.buildingNumber}-${address.buildingName}-${address.postcode}`,
       imageData: addressesMeta[index].documentImage
@@ -150,10 +165,77 @@ export const mapAddressToMetaData = ({ addressesMeta, responseUploadImages }) =>
   })
 }
 
-export const updateAddressHistory = function*({ data: { addresses = [], metadata } }: UpdateAddressHistoryParams) {
-  const contact: ContactModel = yield select(selectCheckListDetailContact)
+export const checklistDetailDataFetch = function*({ data: id }) {
+  yield put(checklistDetailLoading(true))
+  const headers = yield call(initAuthorizedRequestHeaders)
+  try {
+    const [contact, idCheck] = yield all([
+      call(fetchContact, { contactId: id, headers }),
+      call(fetchIdentityCheck, { contactId: id, headers })
+    ])
+    yield put(contactReceiveData(contact))
+    yield put(identityCheckReceiveData(idCheck))
+  } catch (err) {
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR
+      })
+    )
+  } finally {
+    yield put(checklistDetailLoading(false))
+  }
+}
+
+export type UpdateCheckListDetailParams = {
+  data: ContactModel
+}
+
+export const updateChecklistDetail = function*({ data: { id, metadata, ...rest } }: UpdateCheckListDetailParams) {
   yield put(checkListDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
+  const contact: ContactModel = yield select(selectCheckListDetailContact)
+  try {
+    const newContact = {
+      ...contact,
+      ...rest,
+      metadata: {
+        ...contact.metadata,
+        ...metadata
+      }
+    }
+    yield put(checklistDetailLoading(true))
+    const responseUpdate = yield call(updateContact, { contactId: contact.id, headers, contact: newContact })
+    if (responseUpdate) {
+      yield put(checklistDetailLoading(true))
+      const responseContact = yield call(fetchContact, { contactId: contact.id, headers })
+      if (responseContact) {
+        yield put(contactReceiveData(responseContact))
+      }
+      yield put(checklistDetailLoading(false))
+    }
+    yield put(checklistDetailLoading(false))
+  } catch (err) {
+    console.error(err.message)
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR
+      })
+    )
+  } finally {
+    yield put(checkListDetailSubmitForm(false))
+  }
+}
+
+export type UpdateAddressHistoryParams = {
+  data: ContactModel
+}
+
+export const updateAddressHistory = function*({ data: { addresses = [], metadata } }: UpdateAddressHistoryParams) {
+  yield put(checkListDetailSubmitForm(true))
+  const headers = yield call(initAuthorizedRequestHeaders)
+  const contact: ContactModel = yield select(selectCheckListDetailContact)
   try {
     const formattedAddresses: AddressModel[] = addresses.map((address, index) => {
       if (index > 0) {
@@ -169,305 +251,223 @@ export const updateAddressHistory = function*({ data: { addresses = [], metadata
     const responseUploadImages = yield all(uploadImageFunc)
     const addressMeta = mapAddressToMetaData({ addressesMeta, responseUploadImages })
     if (responseUploadImages) {
-      yield put(
-        checkListDetailUpdateData({
-          id: contact.id,
-          addresses: formattedAddresses,
-          metadata: { addresses: addressMeta }
-        })
-      )
+      const newContact = {
+        id: contact.id,
+        addresses: formattedAddresses,
+        metadata: { addresses: addressMeta }
+      }
+      const responseUpdate = yield call(updateContact, { contactId: contact.id, contact: newContact, headers })
+      if (responseUpdate) {
+        yield put(checklistDetailLoading(true))
+        const responseContact = yield call(fetchContact, { contactId: contact.id, headers })
+        if (responseContact) {
+          yield put(contactReceiveData(responseContact))
+        }
+        yield put(checklistDetailLoading(false))
+      }
     }
   } catch (err) {
     console.error(err.message)
-    yield put(checkListDetailSubmitForm(false))
     yield put(
       errorThrownServer({
         type: 'SERVER',
         message: errorMessages.DEFAULT_SERVER_ERROR
       })
     )
+  } finally {
+    yield put(checkListDetailSubmitForm(false))
   }
 }
 
-interface FileUploaderResponse {
+export type FileUploaderResponse = {
   Url: string
 }
 
-export const updatePrimaryId = function*({ data }: Action<IdentificationFormValues>) {
+export const updateSecondaryId = function*({ data }: Action<any>) {
   yield put(checkListDetailSubmitForm(true))
-
-  // TODO: we just allow 1 document right now - will be replaced when updating
   try {
-    const headers = yield call(initAuthorizedRequestHeaders)
-    const contact: ContactModel = yield select(selectCheckListDetailContact)
-
-    let uploaderDocument: FileUploaderResponse = { Url: data.fileUrl || '' }
-    if (isBase64(data.fileUrl)) {
-      uploaderDocument = yield uploadImage({
-        headers,
-        name: `${contact.id}-${data.details}`,
-        imageData: data.fileUrl
-      })
-    }
-
-    const updatedDocument = {
-      typeId: data.typeId,
-      expiry: data.expiry,
-      details: data.details,
-      fileUrl: uploaderDocument.Url
-    } as CreateIdentityDocumentModel
-
-    const updatedDocuments: CreateIdentityDocumentModel[] = []
-    updatedDocuments.push(updatedDocument)
-
-    const currentMetadata = contact.metadata ? contact.metadata : undefined
-
-    const updatedValues = {
-      id: contact.id,
-      metadata: {
-        ...currentMetadata,
-        primaryId: [
-          {
-            documents: updatedDocuments
-          }
-        ]
-      }
-    }
-
-    yield put(checkListDetailUpdateData(updatedValues))
-    yield put(checkListDetailSubmitForm(false))
-  } catch (err) {
-    const result: ErrorData = {
-      type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR
-    }
-    yield put(checkListDetailSubmitForm(false))
-    yield put(errorThrownServer(result))
-  }
-}
-
-export const updateSecondaryId = function*({ data }: Action<IdentificationFormValues>) {
-  yield put(checkListDetailSubmitForm(true))
-
-  // TODO: we just allow 1 document right now - will be replaced when updating
-  try {
-    const headers = yield call(initAuthorizedRequestHeaders)
-    const contactModel: ContactModel = yield select(selectCheckListDetailContact)
-
-    let uploaderDocument: FileUploaderResponse = { Url: data.fileUrl || '' }
-    if (isBase64(data.fileUrl)) {
-      uploaderDocument = yield uploadImage({
-        headers,
-        name: `${contactModel.id}-${data.details}`,
-        imageData: data.fileUrl
-      })
-    }
-
-    const updatedDocument = {
-      typeId: data.typeId,
-      expiry: data.expiry,
-      details: data.details,
-      fileUrl: uploaderDocument.Url
-    } as CreateIdentityDocumentModel
-
-    const updatedDocuments: CreateIdentityDocumentModel[] = []
-    updatedDocuments.push(updatedDocument)
-
-    const currentMetadata = contactModel.metadata ? contactModel.metadata : undefined
-
-    const updatedValues = {
-      id: contactModel.id,
-      metadata: {
-        ...currentMetadata,
-        secondaryId: [
-          {
-            documents: updatedDocuments
-          }
-        ]
-      }
-    }
-
-    yield put(checkListDetailUpdateData(updatedValues))
-    yield put(checkListDetailSubmitForm(false))
-  } catch (err) {
-    const result: ErrorData = {
-      type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR
-    }
-    yield put(checkListDetailSubmitForm(false))
-    yield put(errorThrownServer(result))
-  }
-}
-
-export const updateChecklistId = function*(data: IdentityCheckModel) {
-  yield put(checkListDetailSubmitForm(true))
-  const headers = yield call(initAuthorizedRequestHeaders)
-  try {
-    const contact = yield select(selectCheckListDetailContact)
-
-    const responseUpdate = yield call(fetcher, {
-      url: `${URLS.contacts}/${contact.id}${URLS.idChecks}/${data.id}`,
-      api: REAPIT_API_BASE_URL,
-      method: 'PATCH',
-      headers: headers,
-      body: data
-    })
-    if (responseUpdate) {
-      yield put(checklistDetailRequestData(contact.id as string))
-    }
-    yield put(checkListDetailSubmitForm(false))
-  } catch (err) {
-    console.error(err.message)
-    yield put(checkListDetailSubmitForm(false))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
-    )
-  }
-}
-
-export const createChecklistId = function*(data: CreateIdentityCheckModel) {
-  yield put(checkListDetailSubmitForm(true))
-  console.log(data)
-  const headers = yield call(initAuthorizedRequestHeaders)
-  try {
-    const contact = yield select(selectCheckListDetailContact)
-
-    const responseUpdate = yield call(fetcher, {
-      url: `${URLS.contacts}/${contact.id}${URLS.idChecks}`,
-      api: REAPIT_API_BASE_URL,
-      method: 'POST',
-      headers: headers,
-      body: data
-    })
-    if (responseUpdate) {
-      yield put(checklistDetailRequestData(contact.id as string))
-    }
-    yield put(checkListDetailSubmitForm(false))
-  } catch (err) {
-    console.error(err.message)
-    yield put(checkListDetailSubmitForm(false))
-    yield put(
-      errorThrownServer({
-        type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
-    )
-  }
-}
-
-export const updateId = function*({ data, type }: Action<IdentityDocumentModel>) {
-  yield put(checkListDetailSubmitForm(true))
-
-  try {
-    const isPrimary = type === ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA
     const headers = yield call(initAuthorizedRequestHeaders)
     const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
-    const negotiatorId: string | undefined = yield select(selectUserCode)
-    const contactModel: ContactModel = yield select(selectCheckListDetailContact)
+    const contact: ContactModel = yield select(selectCheckListDetailContact)
+    const secondaryIdUrl = data.fileUrl
     const uploaderDocument: FileUploaderResponse = isBase64(data.fileUrl)
-      ? yield uploadImage({
+      ? yield call(uploadImage, {
           headers,
-          name: `${contactModel.id}-${data.details}`,
+          name: `${contact.id}-${data.details}`,
           imageData: data.fileUrl
         })
-      : { Url: data.fileUrl || '' }
-
-    const updatedDocument = {
-      typeId: data.typeId,
-      expiry: data.expiry,
-      details: data.details
-    } as CreateIdentityDocumentModel
+      : null
 
     const currentPrimaryIdUrl = oc(idCheck).metadata.primaryIdUrl()
-    const currentSecondaryIdUrl = oc(idCheck).metadata.secondaryIdUrl()
     const documents = oc(idCheck).documents([])
-    console.log(documents)
-    if (isPrimary) {
-      if (currentPrimaryIdUrl && currentSecondaryIdUrl) {
-        documents.shift()
-      }
-      documents.unshift(updatedDocument)
-    } else {
-      if (currentPrimaryIdUrl && currentSecondaryIdUrl) {
-        documents.pop()
-      }
-      documents.push(updatedDocument)
+    if (documents.length <= 1) {
+      documents.push(data)
+    }
+    if (documents.length > 1) {
+      documents[1] = data
     }
 
     const baseValues = {
       metadata: {
-        primaryIdUrl: isPrimary ? uploaderDocument.Url : currentPrimaryIdUrl,
-        secondaryIdUrl: !isPrimary ? uploaderDocument.Url : currentSecondaryIdUrl
+        primaryIdUrl: currentPrimaryIdUrl,
+        secondaryIdUrl: uploaderDocument ? uploaderDocument.Url : secondaryIdUrl
       },
       documents
     } as IdentityCheckModel
 
     if (idCheck) {
-      yield call(updateChecklistId, {
-        ...idCheck,
-        ...baseValues
-      } as IdentityCheckModel)
+      yield call(updateIdentityCheck, {
+        contactId: contact.id,
+        headers,
+        identityChecks: {
+          ...idCheck,
+          ...baseValues
+        }
+      })
     } else {
-      yield call(createChecklistId, {
-        ...baseValues,
-        status: 'pending',
-        checkDate: new Date().toISOString(),
-        negotiatorId: negotiatorId
+      yield call(createIdentityCheck, {
+        headers,
+        contactId: contact.id,
+        identityChecks: {
+          ...baseValues,
+          status: 'pending',
+          checkDate: new Date().toISOString(),
+          negotiatorId: selectUserCode(store.state)
+        }
       })
     }
-
-    yield put(checkListDetailSubmitForm(false))
+    yield put(checklistDetailLoading(true))
+    const responseIdentityCheck = yield call(fetchIdentityCheck, { contactId: contact.id, headers })
+    if (responseIdentityCheck) {
+      yield put(identityCheckReceiveData(responseIdentityCheck))
+    }
+    yield put(checklistDetailLoading(false))
   } catch (err) {
     const result: ErrorData = {
       type: 'SERVER',
       message: errorMessages.DEFAULT_SERVER_ERROR
     }
-
-    yield put(checkListDetailSubmitForm(false))
     yield put(errorThrownServer(result))
+  } finally {
+    yield put(checkListDetailSubmitForm(false))
+  }
+}
+
+export const updatePrimaryId = function*({ data }: Action<any>) {
+  yield put(checkListDetailSubmitForm(true))
+
+  try {
+    const headers = yield call(initAuthorizedRequestHeaders)
+    const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
+    const contact: ContactModel = yield select(selectCheckListDetailContact)
+    const primaryIdUrl = data.fileUrl
+    const uploaderDocument: FileUploaderResponse = isBase64(data.fileUrl)
+      ? yield call(uploadImage, {
+          headers,
+          name: `${contact.id}-${data.details}`,
+          imageData: data.fileUrl
+        })
+      : null
+
+    const currentSecondaryIdUrl = oc(idCheck).metadata.secondaryIdUrl()
+    const documents = oc(idCheck).documents([])
+    if (documents.length === 0) {
+      documents.push(data)
+    }
+    if (documents.length > 0) {
+      documents[0] = data
+    }
+
+    const baseValues = {
+      metadata: {
+        primaryIdUrl: uploaderDocument ? uploaderDocument.Url : primaryIdUrl,
+        secondaryIdUrl: currentSecondaryIdUrl
+      },
+      documents
+    } as IdentityCheckModel
+
+    if (idCheck) {
+      yield call(updateIdentityCheck, {
+        contactId: contact.id,
+        headers,
+        identityChecks: {
+          ...idCheck,
+          ...baseValues
+        }
+      })
+    } else {
+      yield call(createIdentityCheck, {
+        headers,
+        contactId: contact.id,
+        identityChecks: {
+          ...baseValues,
+          status: 'pending',
+          checkDate: new Date().toISOString(),
+          negotiatorId: selectUserCode(store.state)
+        }
+      })
+    }
+    yield put(checklistDetailLoading(true))
+    const responseIdentityCheck = yield call(fetchIdentityCheck, { contactId: contact.id, headers })
+    if (responseIdentityCheck) {
+      yield put(identityCheckReceiveData(responseIdentityCheck))
+    }
+    yield put(checklistDetailLoading(false))
+  } catch (err) {
+    const result: ErrorData = {
+      type: 'SERVER',
+      message: errorMessages.DEFAULT_SERVER_ERROR
+    }
+    yield put(errorThrownServer(result))
+  } finally {
+    yield put(checkListDetailSubmitForm(false))
   }
 }
 
 export const updateAgentCheck = function*({ data }: any) {
   yield put(checkListDetailSubmitForm(true))
+  const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const contact = yield select(selectCheckListDetailContact)
     const idCheck = yield select(selectCheckListDetailIdCheck)
     const negotiatorId: string | undefined = yield select(selectUserCode)
     let responseUpdate = null
     if (idCheck) {
-      responseUpdate = yield call(updateChecklistId, {
+      const newIdCheck = {
         ...idCheck,
         metadata: {
           ...idCheck.metadata,
           ...data
         }
-      } as IdentityCheckModel)
+      }
+      responseUpdate = yield call(updateIdentityCheck, { contactId: contact.id, identityChecks: newIdCheck, headers })
     } else {
-      responseUpdate = yield call(createChecklistId, {
+      const newIdCheck = {
         status: 'pending',
         checkDate: new Date().toISOString(),
         negotiatorId: negotiatorId,
         metadata: {
           ...data
         }
-      })
+      }
+      responseUpdate = yield call(createIdentityCheck, { contactId: contact.id, identityChecks: newIdCheck, headers })
     }
     if (responseUpdate) {
-      yield put(checklistDetailRequestData(contact.id as string))
+      yield put(checklistDetailLoading(true))
+      const responseIdentityCheck = yield call(fetchIdentityCheck, { contactId: contact.id, headers })
+      if (responseIdentityCheck) {
+        yield put(identityCheckReceiveData(responseIdentityCheck))
+      }
+      yield put(checklistDetailLoading(false))
     }
-    yield put(checkListDetailSubmitForm(false))
   } catch (error) {
     const result: ErrorData = {
       type: 'SERVER',
       message: errorMessages.DEFAULT_SERVER_ERROR
     }
-
-    yield put(checkListDetailSubmitForm(false))
     yield put(errorThrownServer(result))
+  } finally {
+    yield put(checkListDetailSubmitForm(false))
   }
 }
 
@@ -484,11 +484,14 @@ export const checkListDetailAddressUpdateListen = function*() {
 }
 
 export const updatePrimaryIdListen = function*() {
-  yield takeLatest<Action<IdentityDocumentModel>>(ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA, updateId)
+  yield takeLatest<Action<IdentityDocumentModel>>(ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA, updatePrimaryId)
 }
 
 export const updateSecondaryIdListen = function*() {
-  yield takeLatest<Action<IdentityDocumentModel>>(ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA, updateId)
+  yield takeLatest<Action<IdentityDocumentModel>>(
+    ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA,
+    updateSecondaryId
+  )
 }
 
 export const updateAgentCheckListen = function*() {

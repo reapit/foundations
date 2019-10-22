@@ -16,8 +16,9 @@ export const checkListDetailAddressUpdateData = actionCreator<ContactModel>(
 export const checkListDetailUpdateDataLoading = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_MODAL_LOADING)
 
 export const checklistDetailLoading = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_LOADING)
-export const checklistDetailReceiveData = actionCreator<CheckListDetailReceiveDataParams>(
-  ActionTypes.CHECKLIST_DETAIL_RECEIVE_DATA
+export const contactReceiveData = actionCreator<ContactModel>(ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT_DATA)
+export const identityCheckReceiveData = actionCreator<IdentityCheckModel | null>(
+  ActionTypes.CHECKLIST_DETAIL_RECEIVE_ID_CHECK_DATA
 )
 export const checkListDetailSubmitForm = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM)
 
