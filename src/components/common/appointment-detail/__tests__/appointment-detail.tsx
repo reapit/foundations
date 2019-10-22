@@ -15,7 +15,7 @@ import {
   getApplicantAttendees
 } from '../appointment-detail'
 
-import { attendees } from './mockData'
+import { attendees } from '../__stubs__/attendees'
 import { appointmentDataStub } from '../../../../sagas/__stubs__/appointment'
 import { LoginMode } from '@reapit/elements'
 
@@ -285,20 +285,7 @@ describe('AppointmentModal', () => {
             ]
           }
         ],
-        applicantAttendees: [
-          {
-            id: 'JJS',
-            type: 'seller',
-            name: 'Chase MacLean',
-            confirmed: true,
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'chase.maclean@reapitestates.net'
-              }
-            ]
-          }
-        ]
+        applicantAttendees: []
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -326,7 +313,9 @@ describe('AppointmentModal', () => {
           attendees: []
         },
         appointmentTypes: [],
-        loginMode: 'WEB'
+        loginMode: 'WEB',
+        applicantAttendees: [],
+        additionalAttendees: []
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
