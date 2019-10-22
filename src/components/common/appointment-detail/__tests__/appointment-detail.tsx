@@ -394,6 +394,21 @@ describe('AppointmentModal', () => {
               }
             ]
           }
+        ],
+        applicantAttendees: [
+
+          {
+            id: 'JJS',
+            type: 'seller',
+            name: 'Chase MacLean',
+            confirmed: true,
+            communicationDetails: [
+              {
+                label: 'E-Mail',
+                detail: 'chase.maclean@reapitestates.net'
+              }
+            ]
+          }
         ]
       }
       const result = mapStateToProps(mockState)

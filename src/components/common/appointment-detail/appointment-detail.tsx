@@ -23,6 +23,7 @@ import { appointmentDetailHideModal } from '@/actions/appointment-detail'
 import { FaStreetView, FaStickyNote, FaMale, FaClock, FaDirections, FaHandshake } from 'react-icons/fa'
 import { ListItemModel } from '../../../types/configuration'
 import styles from '@/styles/ui/appoinments-detail.scss?mod'
+import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
 
 const { appointmentDetailTextContainer } = styles
 
@@ -160,6 +161,27 @@ export const renderAdditionalAttendees = (attendees: AttendeeModel[]) => {
   )
 }
 
+export const renderApplicantAttendees = (attendees: AttendeeModel[]) => {
+  if (attendees.length === 0) {
+    return null
+  }
+
+  return (
+    <>
+      {attendees.map(attendee => {
+        return (
+          <div className={appointmentDetailTextContainer}>
+            <H4>{capitalizeFirstLetter(oc(attendee).type(''))}</H4>
+            <div>
+              <SubTitleH6>{attendee.name}</SubTitleH6>
+            </div>
+          </div>
+        )
+      })}
+    </>
+  )
+}
+
 // export const renderNotes = (description: string | undefined) => {
 //   if (!description) {
 //     return null
@@ -220,7 +242,8 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   isLoading,
   appointmentTypes,
   loginMode,
-  additionalAttendees
+  additionalAttendees,
+  applicantAttendees
 }) => {
   const address = oc(appointment).property.address()
   const typeId = oc(appointment).typeId()
@@ -235,11 +258,12 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
           <>
             {renderDateTime(oc(appointment).property.address(), appointment)}
             {renderAdditionalAttendees(additionalAttendees)}
+            {renderApplicantAttendees(applicantAttendees)}
             {/* {renderViewingType(oc(type).value())}
             {renderAttendees(appointment, loginMode)}
             {renderNotes(appointment.description)}
             {renderArrangements(oc(appointment).property.arrangements())}
-            {renderDirections(appointment.directions)} */}
+            {renderDirections(appointment.directions)*/}
           </>
         )}
     </Modal>
@@ -253,6 +277,7 @@ export type AppointmentDetailMappedProps = {
   appointmentTypes: ListItemModel[] | null
   loginMode: LoginMode
   additionalAttendees: AttendeeModel[]
+  applicantAttendees: AttendeeModel[]
 }
 
 export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userCode: string): AttendeeModel[] => {
@@ -296,7 +321,8 @@ export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps
     isLoading: state.appointmentDetail.loading,
     appointmentTypes: state.appointments.appointmentTypes,
     loginMode: oc(state).auth.refreshSession.mode('WEB'),
-    additionalAttendees: getAdditionalAttendees(oc(appointment).attendees([]))
+    additionalAttendees: getAdditionalAttendees(oc(appointment).attendees([])),
+    applicantAttendees: getApplicantAttendees(oc(appointment).attendees([]))
   }
 }
 
