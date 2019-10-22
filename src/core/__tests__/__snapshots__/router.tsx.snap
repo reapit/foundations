@@ -29,7 +29,7 @@ exports[`Router should match a snapshot 1`] = `
     <Switch>
       <Route
         exact={true}
-        path="(/|/login)"
+        path="/login"
         render={[Function]}
       />
       <withRouter(Connect(Component))
@@ -72,6 +72,19 @@ exports[`Router should match a snapshot 1`] = `
               }
             }
             path="/search"
+          />
+          <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            path="/"
           />
           <Connect(Component)
             allow="CLIENT"
