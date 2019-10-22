@@ -8,7 +8,7 @@ exports[`App should match a snapshot 1`] = `
       "getState": [Function],
       "replaceReducer": [Function],
       "subscribe": [Function],
-      Symbol(Symbol.observable): [Function],
+      Symbol(observable): [Function],
     }
   }
 >
@@ -24,7 +24,7 @@ exports[`App should match a snapshot 1`] = `
         "purge": [Function],
         "replaceReducer": [Function],
         "subscribe": [Function],
-        Symbol(Symbol.observable): [Function],
+        Symbol(observable): [Function],
       }
     }
   >
