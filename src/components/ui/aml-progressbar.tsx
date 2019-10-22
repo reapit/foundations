@@ -12,7 +12,10 @@ import {
   AcLink,
   EntityType,
   AcButton,
-  SubTitleH5
+  SubTitleH5,
+  AppParams,
+  DynamicLinkParams,
+  FlexContainerBasic
 } from '@reapit/elements'
 import styles from '@/styles/ui/aml-progressbar.scss?mod'
 import { SectionsStatus, defaultStatus } from '@/reducers/checklist-detail'
@@ -22,6 +25,7 @@ import { checkListDetailIdentityCheckUpdateData } from '@/actions/checklist-deta
 import { ReduxState } from '@/types/core'
 import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
+import Routes from '@/constants/routes'
 
 export type AMLProgressBarProps = AMLProgressBarMappedActions & AMLProgressBarMappedProps
 
@@ -45,7 +49,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
   const { title = '', forename = '', surname = '' } = contact
 
   return (
-    <>
+    <FlexContainerBasic hasPadding flexColumn>
       <Level>
         <LevelLeft>
           <LevelItem>
@@ -73,10 +77,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
           </LevelItem>
         </LevelRight>
       </Level>
-
-      <div className="mb-1">
-        <ProgressBar percentage={progress.percentage} />
-      </div>
+      <ProgressBar percentage={progress.percentage} />
       <div className={styles.progress}>
         {progress.completed}/{progress.total} <span>Completed</span>
       </div>
@@ -94,19 +95,33 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
               }}
               buttonProps={{
                 type: 'button',
-                variant: 'primary'
+                variant: 'primary',
+                onClick: () =>
+                  updateIdentityCheckStatus(
+                    { status: 'pass' },
+                    {
+                      entityType: EntityType.CONTACT,
+                      entityCode: contact.id,
+                      appMode: loginMode,
+                      webRoute: `${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${contact.id}`
+                    }
+                  )
               }}
             >
-              <span onClick={() => updateIdentityCheckStatus({ status: 'pass' })}>ID Check Successful</span>
+              ID Check Successful
             </AcButton>
             <AcButton
               dynamicLinkParams={{
                 entityType: EntityType.APPS,
                 appMode: loginMode,
                 queryParams: {
+                  // TODO - this is the LTL dev app id - should be dynamic
                   id: '3ec48bb7-f152-4d0d-8b6a-b5d0c8fff010',
+                  appPram: 'cntCode' as AppParams,
                   closeApp: true
-                }
+                },
+                // TODO - as above, needs to not be hardcoded
+                webRoute: `https://dev.lifetime-legal-app.reapit.com?cntCode=${contact.id}`
               }}
               buttonProps={{
                 type: 'button',
@@ -124,7 +139,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
           order to continue
         </p>
       </Modal>
-    </>
+    </FlexContainerBasic>
   )
 }
 
@@ -143,12 +158,12 @@ export const mapStateToProps = (state: ReduxState): AMLProgressBarMappedProps =>
 })
 
 export interface AMLProgressBarMappedActions {
-  updateIdentityCheckStatus: (status: IdentityCheckModel) => void
+  updateIdentityCheckStatus: (idCheck: IdentityCheckModel, dynamicLinkParams: DynamicLinkParams) => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): AMLProgressBarMappedActions => ({
-  updateIdentityCheckStatus: ({ status }: IdentityCheckModel) =>
-    dispatch(checkListDetailIdentityCheckUpdateData({ status }))
+  updateIdentityCheckStatus: (idCheck: IdentityCheckModel, dynamicLinkParams: DynamicLinkParams) =>
+    dispatch(checkListDetailIdentityCheckUpdateData({ idCheck, dynamicLinkParams }))
 })
 
 export default connect(
