@@ -11,8 +11,7 @@ const props = (loading: boolean): SelectIdentityProps => ({
   identityState: {
     loading: loading,
     identityTypes: identityTypes
-  },
-  fetchIdentityTypes: jest.fn()
+  }
 })
 
 describe('Select identity', () => {
