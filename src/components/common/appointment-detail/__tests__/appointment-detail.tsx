@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import {
   AppointmentModal,
   renderStartAndEndDate,
+  renderAdditionalAttendees
   renderDirections,
   renderNotes,
   renderAddress,
@@ -379,7 +380,21 @@ describe('AppointmentModal', () => {
         visible: true,
         isLoading: true,
         appointmentTypes: [],
-        loginMode: 'DESKTOP'
+        loginMode: 'DESKTOP',
+        additionalAttendees: [
+          {
+            id: 'JJS',
+            type: 'negotiator',
+            name: 'Chase MacLean',
+            confirmed: true,
+            communicationDetails: [
+              {
+                label: 'E-Mail',
+                detail: 'chase.maclean@reapitestates.net'
+              }
+            ]
+          }
+        ]
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
