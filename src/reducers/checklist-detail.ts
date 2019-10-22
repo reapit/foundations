@@ -131,7 +131,11 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
     return {
       ...state,
       pepSearchParam: action.data.searchParam,
-      pepSearchResultData: action.data.searchResults
+      pepSearchResultData: action.data.searchResults,
+      status: updateCheckListDetailFormStatus({
+        contact: state.checklistDetailData && state.checklistDetailData.contact,
+        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck
+      })
     }
   }
 
