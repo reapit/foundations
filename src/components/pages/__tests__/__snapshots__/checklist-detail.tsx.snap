@@ -179,161 +179,163 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
       flexColumn={true}
       hasPadding={true}
     >
-      <Connect(Component) />
-      <div
-        className="pb-4"
-        key="0"
-      >
-        <Tile
-          heading="Personal Details"
-          menu={
-            <Button
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          }
+      <div>
+        <Connect(Component) />
+        <div
+          className="pb-4"
+          key="0"
         >
-          <div>
-            <span>
-              <TiTick />
-            </span>
-            <span>
-              Completed
-            </span>
-          </div>
-        </Tile>
-      </div>
-      <div
-        className="pb-4"
-        key="1"
-      >
-        <Tile
-          heading="Primary ID"
-          menu={
-            <Button
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          }
-        />
-      </div>
-      <div
-        className="pb-4"
-        key="2"
-      >
-        <Tile
-          heading="Secondary ID"
-          menu={
-            <Button
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          }
+          <Tile
+            heading="Personal Details"
+            menu={
+              <Button
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Button>
+            }
+          >
+            <div>
+              <span>
+                <TiTick />
+              </span>
+              <span>
+                Completed
+              </span>
+            </div>
+          </Tile>
+        </div>
+        <div
+          className="pb-4"
+          key="1"
         >
-          <div>
-            <span>
-              <TiTick />
-            </span>
-            <span>
-              Completed
-            </span>
-          </div>
-        </Tile>
-      </div>
-      <div
-        className="pb-4"
-        key="3"
-      >
-        <Tile
-          heading="Address History"
-          menu={
-            <Button
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          }
-        />
-      </div>
-      <div
-        className="pb-4"
-        key="4"
-      >
-        <Tile
-          heading="Declaration and Risk Assessment"
-          menu={
-            <Button
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          }
-        />
-      </div>
-      <div
-        className="pb-4"
-        key="5"
-      >
-        <Tile
-          heading="PEP Search"
-          menu={
-            <Button
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          }
-        />
-      </div>
-      <div
-        className="pb-4"
-        key="6"
-      >
-        <Tile
-          heading="Experian "
-          menu={
-            <Button
-              type="button"
-              variant="primary"
-            >
-              Edit
-            </Button>
-          }
+          <Tile
+            heading="Primary ID"
+            menu={
+              <Button
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Button>
+            }
+          />
+        </div>
+        <div
+          className="pb-4"
+          key="2"
         >
-          <div>
-            <span>
-              <TiTick />
-            </span>
-            <span>
-              Completed
-            </span>
-          </div>
-        </Tile>
-      </div>
-      <div
-        className="pb-4"
-        key="7"
-      >
-        <Tile
-          heading="Report"
-          menu={
-            <Button
-              type="button"
-              variant="primary"
-            >
-              View
-            </Button>
-          }
-        />
+          <Tile
+            heading="Secondary ID"
+            menu={
+              <Button
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Button>
+            }
+          >
+            <div>
+              <span>
+                <TiTick />
+              </span>
+              <span>
+                Completed
+              </span>
+            </div>
+          </Tile>
+        </div>
+        <div
+          className="pb-4"
+          key="3"
+        >
+          <Tile
+            heading="Address History"
+            menu={
+              <Button
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Button>
+            }
+          />
+        </div>
+        <div
+          className="pb-4"
+          key="4"
+        >
+          <Tile
+            heading="Declaration and Risk Assessment"
+            menu={
+              <Button
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Button>
+            }
+          />
+        </div>
+        <div
+          className="pb-4"
+          key="5"
+        >
+          <Tile
+            heading="PEP Search"
+            menu={
+              <Button
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Button>
+            }
+          />
+        </div>
+        <div
+          className="pb-4"
+          key="6"
+        >
+          <Tile
+            heading="Experian "
+            menu={
+              <Button
+                type="button"
+                variant="primary"
+              >
+                Edit
+              </Button>
+            }
+          >
+            <div>
+              <span>
+                <TiTick />
+              </span>
+              <span>
+                Completed
+              </span>
+            </div>
+          </Tile>
+        </div>
+        <div
+          className="pb-4"
+          key="7"
+        >
+          <Tile
+            heading="Report"
+            menu={
+              <Button
+                type="button"
+                variant="primary"
+              >
+                View
+              </Button>
+            }
+          />
+        </div>
       </div>
     </FlexContainerResponsive>
   </FlexContainerBasic>

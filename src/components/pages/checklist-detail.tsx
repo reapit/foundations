@@ -192,8 +192,10 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
     <ErrorBoundary>
       <FlexContainerBasic isScrollable>
         <FlexContainerResponsive hasPadding flexColumn>
-          <AMLProgressBar />
-          {renderSections(sections)}
+          <div>
+            <AMLProgressBar />
+            {renderSections(sections)}
+          </div>
         </FlexContainerResponsive>
       </FlexContainerBasic>
       <Modal id={id} visible={isModalVisible} afterClose={hideModal} modalContentType={modalContentType} />
