@@ -37,7 +37,7 @@ export const PrivateRoute = ({
         }
 
         const searchParams = new URLSearchParams(props.location.search)
-        const cncCode = searchParams && searchParams.get('cncCode') ? searchParams.get('cncCode') : ''
+        const cncCode = searchParams && searchParams.get('cncCode') ? searchParams.get('cncCode') : null
 
         if (cncCode) {
           return <Redirect to={`${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${cncCode}`} />

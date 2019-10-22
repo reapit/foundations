@@ -553,7 +553,6 @@ export const updateIdentityCheckStatus = function*({
       yield put(checklistDetailReceiveIdentityCheck(newIdCheck))
     }
     yield put(checklistDetailHideModal())
-    console.log(responseIdentityCheck, dynamicLinkParams)
     yield call(navigateDynamicApp, dynamicLinkParams)
   }
 }
