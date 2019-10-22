@@ -2,29 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { SelectBox } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
-import { Dispatch } from 'redux'
-import { identityTypesRequestData } from '@/actions/identity-types'
 import { IdentityTypesState } from '@/reducers/identity-types'
+import { oc } from 'ts-optchain'
 
-export interface SelectIdentityMappedActions {
-  fetchIdentityTypes: () => void
+export type StateProps = {
+  identityState?: IdentityTypesState
 }
 
-export interface SelectIdentityMappedProps {
-  identityState: IdentityTypesState
-}
+export type SelectIdentityProps = { labelText: string; name: string; id: string } & StateProps
 
-export type SelectIdentityProps = { labelText: string; name: string; id: string } & SelectIdentityMappedProps &
-  SelectIdentityMappedActions
-
-export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, fetchIdentityTypes, ...props }) => {
-  const { identityTypes } = identityState
-
-  React.useEffect(() => {
-    if (!identityTypes) {
-      fetchIdentityTypes()
-    }
-  }, [])
+export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, ...props }) => {
+  const identityTypes = oc(identityState).identityTypes([])
 
   const listIdentity = React.useMemo(() => {
     if (identityTypes) {
@@ -39,15 +27,11 @@ export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, f
   return <SelectBox {...props} options={listIdentity} />
 }
 
-const mapStateToProps = (state: ReduxState): SelectIdentityMappedProps => ({
+const mapStateToProps = (state: ReduxState): StateProps => ({
   identityState: state.identityTypes
-})
-
-const mapDispatchToProps = (dispatch: Dispatch): SelectIdentityMappedActions => ({
-  fetchIdentityTypes: () => dispatch(identityTypesRequestData())
 })
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(SelectIdentity)
