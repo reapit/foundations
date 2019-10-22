@@ -1,5 +1,5 @@
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
-import { fetcher, ErrorData, isBase64 } from '@reapit/elements'
+import { fetcher, ErrorData, isBase64, navigateDynamicApp, DynamicLinkParams } from '@reapit/elements'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
@@ -529,15 +529,20 @@ export const updateChecklistListen = function*() {
   yield takeLatest<Action<UpdateContactParams>>(ActionTypes.CHECKLIST_DETAIL_UPDATE_DATA, onUpdateChecklist)
 }
 
-export const updateIdentityCheckStatus = function*({ data }: Action<IdentityCheckModel>) {
-  const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
+export const updateIdentityCheckStatus = function*({
+  data: { idCheck, dynamicLinkParams }
+}: Action<{
+  idCheck: IdentityCheckModel
+  dynamicLinkParams: DynamicLinkParams
+}>) {
+  const existingIdCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
   const contact: ContactModel = yield select(selectCheckListDetailContact)
   const headers = yield call(initAuthorizedRequestHeaders)
 
   if (idCheck) {
     const newIdCheck = {
-      ...idCheck,
-      ...data
+      ...existingIdCheck,
+      ...idCheck
     }
     const responseIdentityCheck = yield call(updateIdentityCheck, {
       contactId: contact.id,
@@ -548,6 +553,8 @@ export const updateIdentityCheckStatus = function*({ data }: Action<IdentityChec
       yield put(checklistDetailReceiveIdentityCheck(newIdCheck))
     }
     yield put(checklistDetailHideModal())
+    console.log(responseIdentityCheck, dynamicLinkParams)
+    yield call(navigateDynamicApp, dynamicLinkParams)
   }
 }
 
@@ -591,10 +598,12 @@ export const updateSecondaryIdListen = function*() {
 }
 
 export const updateIdentityCheckStatusListen = function*() {
-  yield takeLatest<Action<IdentityCheckModel>>(
-    ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA,
-    updateIdentityCheckStatus
-  )
+  yield takeLatest<
+    Action<{
+      idCheck: IdentityCheckModel
+      dynamicLinkParams: DynamicLinkParams
+    }>
+  >(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA, updateIdentityCheckStatus)
 }
 
 export const checklistDetailSagas = function*() {
