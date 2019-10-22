@@ -10,17 +10,21 @@ import {
   getTime,
   getDate,
   isSameDay,
-  Tile,
+  H4,
   IconList,
   AcLink,
   EntityType,
-  LoginMode
+  LoginMode,
+  SubTitleH6
 } from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { ReduxState } from '@/types/core'
 import { appointmentDetailHideModal } from '@/actions/appointment-detail'
 import { FaStreetView, FaStickyNote, FaMale, FaClock, FaDirections, FaHandshake } from 'react-icons/fa'
 import { ListItemModel } from '../../../types/configuration'
+import styles from '@/styles/ui/appoinments-detail.scss?mod'
+
+const { appointmentDetailTextContainer } = styles
 
 export type AppointmentModalProps = {
   appointment: AppointmentModel
@@ -80,108 +84,108 @@ export const renderCheckMark = (isConfirmed: boolean | undefined) => {
   return <TiTick />
 }
 
-export const renderAttendees = (appointment: AppointmentModel, loginMode: LoginMode) => {
-  const attendees = appointment.attendees
-  const address = oc(appointment).property.address()
-  const propertyId = oc(appointment).property.id()
+// export const renderAttendees = (appointment: AppointmentModel, loginMode: LoginMode) => {
+//   const attendees = appointment.attendees
+//   const address = oc(appointment).property.address()
+//   const propertyId = oc(appointment).property.id()
 
-  if (!attendees) {
-    return null
-  }
-  return attendees.map((attendee: AttendeeModel) => {
-    return (
-      <Tile
-        hightlight={false}
-        heading={oc(attendee).name('No Attendee Name')}
-        key={appointment.id}
-        icon={<FaMale className="media-icon" />}
-      >
-        {renderAddress(loginMode, address, propertyId)}
-        <div className="my-5">{renderCommunicationDetail(attendee.communicationDetails)}</div>
-      </Tile>
-    )
-  })
-}
+//   if (!attendees) {
+//     return null
+//   }
+//   return attendees.map((attendee: AttendeeModel) => {
+//     return (
+//       <Tile
+//         hightlight={false}
+//         heading={oc(attendee).name('No Attendee Name')}
+//         key={appointment.id}
+//         icon={<FaMale className="media-icon" />}
+//       >
+//         {renderAddress(loginMode, address, propertyId)}
+//         <div className="my-5">{renderCommunicationDetail(attendee.communicationDetails)}</div>
+//       </Tile>
+//     )
+//   })
+// }
 
-export const renderAddress = (
-  loginMode: LoginMode,
-  address: AddressModel | undefined,
-  propertyId: string | undefined
-) => {
-  if (!address) {
-    return null
-  }
-  return (
-    <AcLink
-      dynamicLinkParams={{
-        appMode: loginMode,
-        entityType: EntityType.PROPERTY,
-        entityCode: propertyId
-      }}
-    >
-      <div>
-        {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3} {address.line4}{' '}
-        {address.postcode} {address.country}
-      </div>
-    </AcLink>
-  )
-}
+// export const renderAddress = (
+//   loginMode: LoginMode,
+//   address: AddressModel | undefined,
+//   propertyId: string | undefined
+// ) => {
+//   if (!address) {
+//     return null
+//   }
+//   return (
+//     <AcLink
+//       dynamicLinkParams={{
+//         appMode: loginMode,
+//         entityType: EntityType.PROPERTY,
+//         entityCode: propertyId
+//       }}
+//     >
+//       <div>
+//         {address.buildingName} {address.buildingNumber} {address.line1} {address.line2} {address.line3} {address.line4}{' '}
+//         {address.postcode} {address.country}
+//       </div>
+//     </AcLink>
+//   )
+// }
 
 export const renderDateTime = (address: AddressModel | undefined, appointment: AppointmentModel) => {
   if (!address) {
     return null
   }
   return (
-    <Tile hightlight={false} heading="Time" icon={<FaClock className="icon-list-icon" />}>
-      {renderStartAndEndDate(appointment.start || '', appointment.end || '')}, {address.buildingName}
-      {address.buildingNumber} {address.line1}
-    </Tile>
+    <div className={appointmentDetailTextContainer}>
+      <H4>Time</H4>
+      <SubTitleH6>{renderStartAndEndDate(appointment.start || '', appointment.end || '')}</SubTitleH6>
+    </div>
   )
 }
 
-export const renderNotes = (description: string | undefined) => {
-  if (!description) {
-    return null
-  }
-  return (
-    <Tile hightlight={false} heading="Notes" icon={<FaStickyNote className="media-icon" />}>
-      {description}
-    </Tile>
-  )
-}
+// export const renderNotes = (description: string | undefined) => {
+//   if (!description) {
+//     return null
+//   }
+//   return (
+//     <Tile hightlight={false} heading="Notes" icon={<FaStickyNote className="media-icon" />}>
+//       {description}
+//     </Tile>
+//   )
+// }
 
-export const renderArrangements = (description: string | undefined) => {
-  if (!description) {
-    return null
-  }
-  return (
-    <Tile hightlight={false} heading="Arrangements" icon={<FaHandshake className="media-icon" />}>
-      {description}
-    </Tile>
-  )
-}
+// export const renderArrangements = (description: string | undefined) => {
+//   if (!description) {
+//     return null
+//   }
+//   return (
+//     <Tile hightlight={false} heading="Arrangements" icon={<FaHandshake className="media-icon" />}>
+//       {description}
+//     </Tile>
+//   )
+// }
 
-export const renderDirections = (direction: string | undefined) => {
-  if (!direction) {
-    return null
-  }
-  return (
-    <Tile hightlight={false} heading="Directions" icon={<FaDirections className="media-icon" />}>
-      {direction}
-    </Tile>
-  )
-}
+// export const renderDirections = (direction: string | undefined) => {
+//   if (!direction) {
+//     return null
+//   }
+//   return (
+//     <Tile hightlight={false} heading="Directions" icon={<FaDirections className="media-icon" />}>
+//       {direction}
+//     </Tile>
+//   )
+// }
 
-export const renderViewingType = (type: string | undefined) => {
-  if (!type) {
-    return null
-  }
-  return (
-    <Tile hightlight={false} heading="Appointment Type" icon={<FaStreetView className="media-icon" />}>
-      {type}
-    </Tile>
-  )
-}
+// export const renderViewingType = (type: string | undefined) => {
+//   if (!type) {
+//     return null
+//   }
+//   return (
+//     <Tile hightlight={false} heading="Appointment Type" icon={<FaStreetView className="media-icon" />}>
+//       {type}
+//     </Tile>
+//   )
+// }
 
 export const renderStartAndEndDate = (startTime: string, endTime: string) => {
   const startDate = dayjs(startTime)
@@ -212,11 +216,11 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
       ) : (
           <>
             {renderDateTime(oc(appointment).property.address(), appointment)}
-            {renderViewingType(oc(type).value())}
+            {/* {renderViewingType(oc(type).value())}
             {renderAttendees(appointment, loginMode)}
             {renderNotes(appointment.description)}
             {renderArrangements(oc(appointment).property.arrangements())}
-            {renderDirections(appointment.directions)}
+            {renderDirections(appointment.directions)} */}
           </>
         )}
     </Modal>
