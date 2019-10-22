@@ -36,7 +36,6 @@ export const mapStateToProps = (state: ReduxState) => {
   const contactModel = selectCheckListDetailContact(state)
   const primaryIdDocument = selectCheckListDetailPrimaryId(state)
   const primaryIdUrl = selectCheckListDetailPrimaryIdUrl(state)
-
   const isDesktopMode = checkIsDesktopMode(state)
 
   let initFormValues = IDENTIFICATION_FORM_DEFAULT_VALUES

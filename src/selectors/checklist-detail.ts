@@ -23,22 +23,11 @@ export const selectCheckListDetailSecondaryIdUrl = (state: ReduxState) => {
 }
 
 export const selectCheckListDetailPrimaryId = (state: ReduxState) => {
-  const primaryIdUrl = selectCheckListDetailPrimaryIdUrl(state)
-
-  if (!primaryIdUrl) return undefined
-
   return oc(state).checklistDetail.checklistDetailData.idCheck.documents[0]()
 }
 
 export const selectCheckListDetailSecondaryId = (state: ReduxState) => {
-  const primaryIdUrl = selectCheckListDetailPrimaryIdUrl(state)
-  const secondaryIdUrl = selectCheckListDetailSecondaryIdUrl(state)
-
-  if (!secondaryIdUrl) return undefined
-
-  const index = primaryIdUrl && secondaryIdUrl ? 1 : 0
-
-  return oc(state).checklistDetail.checklistDetailData.idCheck.documents[index]()
+  return oc(state).checklistDetail.checklistDetailData.idCheck.documents[1]()
 }
 
 export const selectCheckListDetailIsSubmitting = (state: ReduxState) => {
