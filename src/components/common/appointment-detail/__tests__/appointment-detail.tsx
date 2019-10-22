@@ -13,12 +13,27 @@ import {
   mapStateToProps,
   mapDispatchToProps,
   renderHrefLink,
-  filterLoggedInUser
+  filterLoggedInUser,
+  getAdditionalAttendees,
+  getApplicantAttendees
 } from '../appointment-detail'
+
+import { attendees } from './mockData'
 import { appointmentDataStub } from '../../../../sagas/__stubs__/appointment'
 import { LoginMode } from '@reapit/elements'
 
+const { applicant, contact, landlord, negotiator, office, tenant } = attendees
+
 describe('AppointmentModal', () => {
+  describe('filter attendees', () => {
+    it('filter additional attendees when using getAdditionalAttendees', () => {
+      expect(getAdditionalAttendees(Object.values(attendees))).toEqual([negotiator, office])
+    })
+    it('filter applicant attendees when using getAdditionalAttendees', () => {
+      expect(getApplicantAttendees(Object.values(attendees))).toEqual([landlord, contact, applicant, tenant])
+    })
+  })
+
   describe('AppointmentModal', () => {
     it('should render correctly', () => {
       const mockProps = {

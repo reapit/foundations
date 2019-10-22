@@ -210,15 +210,15 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
       {isLoading ? (
         <Loader />
       ) : (
-        <>
-          {renderDateTime(oc(appointment).property.address(), appointment)}
-          {renderViewingType(oc(type).value())}
-          {renderAttendees(appointment, loginMode)}
-          {renderNotes(appointment.description)}
-          {renderArrangements(oc(appointment).property.arrangements())}
-          {renderDirections(appointment.directions)}
-        </>
-      )}
+          <>
+            {renderDateTime(oc(appointment).property.address(), appointment)}
+            {renderViewingType(oc(type).value())}
+            {renderAttendees(appointment, loginMode)}
+            {renderNotes(appointment.description)}
+            {renderArrangements(oc(appointment).property.arrangements())}
+            {renderDirections(appointment.directions)}
+          </>
+        )}
     </Modal>
   )
 }
@@ -240,6 +240,22 @@ export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userC
       return true
     }
     return attendee.id !== userCode
+  })
+}
+
+// Get attendees types: negotiator, office
+export const getAdditionalAttendees = (attendees: AttendeeModel[]) => {
+  return attendees.filter(attendee => {
+    const attendeeType = oc(attendee).type('')
+    return ['negotiator', 'office'].includes(attendeeType)
+  })
+}
+
+// Get attendees types: landlord, contact, applicant, tenant
+export const getApplicantAttendees = (attendees: AttendeeModel[]) => {
+  return attendees.filter(attendee => {
+    const attendeeType = oc(attendee).type('')
+    return ['landlord', 'contact', 'applicant', 'tenant'].includes(attendeeType)
   })
 }
 
