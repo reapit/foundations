@@ -6,13 +6,15 @@ import { PrivateRoute } from '../private-route'
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<PrivateRoute allow="CLIENT" loginType="CLIENT" component={() => null} />))).toMatchSnapshot()
+    expect(
+      toJson(shallow(<PrivateRoute loginMode="WEB" allow="CLIENT" loginType="CLIENT" component={() => null} />))
+    ).toMatchSnapshot()
   })
 
   it('should redirect to /404 page if isLogin is false', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={['/my-path']}>
-        <PrivateRoute allow="CLIENT" loginType="DEVELOPER" component={() => null} path="/my-path" />
+        <PrivateRoute loginMode="WEB" allow="CLIENT" loginType="DEVELOPER" component={() => null} path="/my-path" />
         <Route path="/404" render={() => <div className="not-found" />} />
       </MemoryRouter>
     )
@@ -23,6 +25,7 @@ describe('PrivateRouter', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={['/client']}>
         <PrivateRoute
+          loginMode="WEB"
           loginType="CLIENT"
           allow="CLIENT"
           component={() => <div className="render-class" />}
@@ -37,6 +40,7 @@ describe('PrivateRouter', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={['/developer/my-apps']}>
         <PrivateRoute
+          loginMode="WEB"
           allow={['CLIENT', 'DEVELOPER']}
           loginType="DEVELOPER"
           component={() => <div className="render-class" />}

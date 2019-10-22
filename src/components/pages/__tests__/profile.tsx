@@ -10,7 +10,8 @@ const props: ProfileProps = {
   loading: false,
   status: checklistStatus,
   submitChecks: jest.fn(),
-  submitChecksFormState: 'PENDING'
+  submitChecksFormState: 'PENDING',
+  loginMode: 'DESKTOP'
 }
 
 describe('Profile', () => {
