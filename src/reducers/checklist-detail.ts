@@ -1,8 +1,10 @@
+import { oc } from 'ts-optchain'
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import {
   checklistDetailLoading,
-  checklistDetailReceiveData,
+  contactReceiveData,
+  identityCheckReceiveData,
   checkListDetailSubmitForm
 } from '../actions/checklist-detail'
 import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
@@ -33,7 +35,7 @@ export const defaultStatus = {
 export interface ChecklistDetailState {
   loading: boolean
   checklistDetailData: {
-    contact: ContactModel
+    contact: ContactModel | null
     idCheck: IdentityCheckModel | null
   } | null
   isSubmitting: boolean
@@ -55,12 +57,33 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
     }
   }
 
-  if (isType(action, checklistDetailReceiveData)) {
+  if (isType(action, contactReceiveData)) {
     return {
       ...state,
       loading: false,
-      checklistDetailData: action.data,
-      status: updateCheckListDetailFormStatus(action.data)
+      checklistDetailData: {
+        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck,
+        contact: action.data
+      },
+      status: updateCheckListDetailFormStatus({
+        contact: action.data,
+        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck
+      })
+    }
+  }
+
+  if (isType(action, identityCheckReceiveData)) {
+    return {
+      ...state,
+      loading: false,
+      checklistDetailData: {
+        contact: state.checklistDetailData && state.checklistDetailData.contact,
+        idCheck: action.data
+      },
+      status: updateCheckListDetailFormStatus({
+        contact: state.checklistDetailData && state.checklistDetailData.contact,
+        idCheck: action.data
+      })
     }
   }
 
@@ -75,7 +98,7 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
 }
 
 export type UpdateCheckListDetailFormStatusParams = {
-  contact: ContactModel
+  contact: ContactModel | null
   idCheck: IdentityCheckModel | null
 }
 
@@ -85,7 +108,7 @@ export type UpdateCheckListDetailFormStatusParams = {
  * @param contactModel
  */
 export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateCheckListDetailFormStatusParams) => {
-  const { metadata } = contact
+  const metadata = oc(contact).metadata()
 
   return {
     profile: metadata ? isCompletedProfile(contact) : false,
