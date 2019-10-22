@@ -5,111 +5,113 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
   flexColumn={true}
   hasPadding={true}
 >
-  <Level>
-    <LevelLeft>
-      <LevelItem>
-        <div>
-          <H3>
-            <AcLink
-              dynamicLinkParams={
-                Object {
-                  "appMode": "WEB",
-                  "entityCode": "MKC16000098",
-                  "entityType": "contacts",
-                }
-              }
-            >
-              Ms Saoirse Chadwick
-            </AcLink>
-          </H3>
-          <SubTitleH5 />
-        </div>
-      </LevelItem>
-    </LevelLeft>
-    <LevelRight>
-      <LevelItem>
-        <Button
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          Update Status
-        </Button>
-      </LevelItem>
-    </LevelRight>
-  </Level>
-  <ProgressBar
-    percentage={42}
-  />
   <div>
-    3
-    /
-    7
-     
-    <span>
-      Completed
-    </span>
-  </div>
-  <Modal
-    afterClose={[Function]}
-    footerItems={
-      <React.Fragment>
-        <AcButton
-          buttonProps={
-            Object {
-              "onClick": [Function],
-              "type": "button",
-              "variant": "primary",
-            }
-          }
-          dynamicLinkParams={
-            Object {
-              "appMode": "WEB",
-              "entityCode": "MKC16000098",
-              "entityType": "contacts",
-            }
-          }
-        >
-          ID Check Successful
-        </AcButton>
-        <AcButton
-          buttonProps={
-            Object {
-              "type": "button",
-              "variant": "primary",
-            }
-          }
-          dynamicLinkParams={
-            Object {
-              "appMode": "WEB",
-              "entityType": "apps",
-              "queryParams": Object {
-                "appPram": "cntCode",
-                "closeApp": true,
-                "id": "3ec48bb7-f152-4d0d-8b6a-b5d0c8fff010",
-              },
-              "webRoute": "https://dev.lifetime-legal-app.reapit.com?cntCode=MKC16000098",
-            }
-          }
-        >
-          Refer to Lifetime Legal
-        </AcButton>
-      </React.Fragment>
-    }
-    title="Update Status"
-    visible={false}
-  >
-    <p>
-      You have completed 
+    <Level>
+      <LevelLeft>
+        <LevelItem>
+          <div>
+            <H3>
+              <AcLink
+                dynamicLinkParams={
+                  Object {
+                    "appMode": "WEB",
+                    "entityCode": "MKC16000098",
+                    "entityType": "contacts",
+                  }
+                }
+              >
+                Ms Saoirse Chadwick
+              </AcLink>
+            </H3>
+            <SubTitleH5 />
+          </div>
+        </LevelItem>
+      </LevelLeft>
+      <LevelRight>
+        <LevelItem>
+          <Button
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            Update Status
+          </Button>
+        </LevelItem>
+      </LevelRight>
+    </Level>
+    <ProgressBar
+      percentage={42}
+    />
+    <div>
       3
-       out of 
+      /
       7
        
-      sections for contact 
-      Ms Saoirse Chadwick
-      . Please now select one of the following options in order to continue
-    </p>
-  </Modal>
+      <span>
+        Completed
+      </span>
+    </div>
+    <Modal
+      afterClose={[Function]}
+      footerItems={
+        <React.Fragment>
+          <AcButton
+            buttonProps={
+              Object {
+                "onClick": [Function],
+                "type": "button",
+                "variant": "primary",
+              }
+            }
+            dynamicLinkParams={
+              Object {
+                "appMode": "WEB",
+                "entityCode": "MKC16000098",
+                "entityType": "contacts",
+              }
+            }
+          >
+            ID Check Successful
+          </AcButton>
+          <AcButton
+            buttonProps={
+              Object {
+                "type": "button",
+                "variant": "primary",
+              }
+            }
+            dynamicLinkParams={
+              Object {
+                "appMode": "WEB",
+                "entityType": "apps",
+                "queryParams": Object {
+                  "appPram": "cntCode",
+                  "closeApp": true,
+                  "id": "3ec48bb7-f152-4d0d-8b6a-b5d0c8fff010",
+                },
+                "webRoute": "https://dev.lifetime-legal-app.reapit.com?cntCode=MKC16000098",
+              }
+            }
+          >
+            Refer to Lifetime Legal
+          </AcButton>
+        </React.Fragment>
+      }
+      title="Update Status"
+      visible={false}
+    >
+      <p>
+        You have completed 
+        3
+         out of
+         
+        7
+         sections for contact 
+        Ms Saoirse Chadwick
+        . Please now select one of the following options in order to continue
+      </p>
+    </Modal>
+  </div>
 </FlexContainerBasic>
 `;
