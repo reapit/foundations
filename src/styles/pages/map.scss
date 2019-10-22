@@ -1,9 +1,10 @@
 @import '../base/colors.scss';
+@import '../base/layout.scss';
 
 .mapContainer {
   overflow: hidden;
   position: absolute;
-  left: 382px;
+  left: calc(#{$left-panel-width} + 66px);
   width: calc(100vw - 376px);
   top: 0;
   height: 100%;

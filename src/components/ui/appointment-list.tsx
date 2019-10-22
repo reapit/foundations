@@ -83,19 +83,27 @@ export const AppointmentList = memo(
           const heading = `${buildingNumber || buildingName || ''} ${line1 || ''}`
           const address = `${line2 || ''} ${line3 || ''} ${line4 || ''} ${postcode || ''}`
 
+          const nextAppointmentId = oc<NextAppointment | null>(nextAppointment).id()
+          const nextAppointmentType = oc<NextAppointment | null>(nextAppointment)
+            .attendeeHaveMobile.type('')
+            .toLowerCase()
+
           const displayETAButton =
-            nextAppointment && nextAppointment.id === item.id && nextAppointment.attendeeHaveMobile
+            nextAppointmentId === item.id &&
+            nextAppointmentType &&
+            nextAppointmentType !== 'negotiator' &&
+            nextAppointmentType !== 'office'
 
           let renderETAButton: React.ReactNode = null
-
           if (displayETAButton) {
             const tel = oc(nextAppointment)
               .attendeeHaveMobile.communicationDetails([])
               .filter(({ label }) => label === 'Mobile')[0].detail
             const name = oc(nextAppointment).attendeeHaveMobile[0].name('')
+            const duration = oc(nextAppointment).durationText()
 
             renderETAButton = (
-              <ETAButton tel={tel || ''} body={`Hi ${name}, I will be with you in 10 mins`}>
+              <ETAButton tel={tel || ''} body={`Hi ${name}, I will be with you in ${duration}`}>
                 ETA Text
               </ETAButton>
             )
