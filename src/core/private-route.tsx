@@ -7,7 +7,7 @@ import Navbar from '@/components/ui/navbar/navbar'
 import { FlexContainerBasic, LoginMode } from '@reapit/elements'
 import styles from '@/styles/index.scss?mod'
 import Routes from '@/constants/routes'
-import { ReduxState } from '../../../aml-checklist/src/types/core'
+import { ReduxState } from '../types/core'
 import { oc } from 'ts-optchain'
 
 export type LoginType = 'CLIENT' | 'DEVELOPER'
