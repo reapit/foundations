@@ -89,3 +89,28 @@ export const contact = {
     }
   }
 }
+
+export const idCheck = {
+  id: 'RPT19000010',
+  contactId: 'MKC11001623',
+  created: '0001-01-01T00:00:00',
+  modified: '2019-10-19T02:52:10',
+  checkDate: '2019-10-19T02:52:10',
+  status: 'pending',
+  negotiatorId: 'DAC',
+  documents: [
+    {
+      typeId: 'RF',
+      expiry: '2019-10-24T09:51:48',
+      details: '2131231'
+    }
+  ],
+  metadata: {
+    secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+    referralType: 'Vendor Compliance',
+    timeSelection: '10:00',
+    clientType: 'Individual',
+    placeMeet: 'Home Address',
+    isUKResident: 'Yes'
+  }
+}

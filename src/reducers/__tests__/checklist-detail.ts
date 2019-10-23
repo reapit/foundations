@@ -1,7 +1,7 @@
 import checklistReducer, { defaultState, updateCheckListDetailFormStatus } from '../checklist-detail'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
-import { contact } from '@/sagas/__stubs__/contact'
+import { contact, idCheck } from '@/sagas/__stubs__/contact'
 
 describe('home reducer', () => {
   it('should return default state if action not matched', () => {
@@ -35,6 +35,24 @@ describe('home reducer', () => {
         idCheck: null
       },
       status: updateCheckListDetailFormStatus({ contact, idCheck: null })
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set approvals list data when CHECKLIST_DETAIL_RECEIVE_IDENTITY_CHECKS action is called', () => {
+    const newState = checklistReducer(undefined, {
+      type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_IDENTITY_CHECKS as ActionType,
+      data: idCheck
+    })
+
+    const expected = {
+      ...defaultState,
+      loading: false,
+      checklistDetailData: {
+        contact: null,
+        idCheck: idCheck
+      },
+      status: updateCheckListDetailFormStatus({ contact: null, idCheck })
     }
     expect(newState).toEqual(expected)
   })
