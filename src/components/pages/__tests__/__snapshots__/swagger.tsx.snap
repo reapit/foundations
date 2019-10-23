@@ -12,7 +12,7 @@ exports[`Swagger should match a snapshot 1`] = `
       <SwaggerUI
         onComplete={[Function]}
         requestInterceptor={[Function]}
-        url="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/swagger.json"
+        url="https://6qngr3ic46.execute-api.eu-west-2.amazonaws.com/prod/swaggerdocs"
       />
     </div>
   </div>
