@@ -24,37 +24,44 @@ export type IdentificationProps = {
   contactModel: ContactModel
   initFormValues: IdentificationFormValues
   loading: boolean
+  disabled?: boolean
   isDesktopMode: boolean
   onSaveHandler: () => void
 }
 
-export const renderFormHandler = ({ contactModel, loading, isDesktopMode }) => () => {
+export const renderFormHandler = ({ contactModel, loading, isDesktopMode, disabled = false }) => () => {
   const id = oc(contactModel).id('')
   return (
-    <Form>
-      <SelectIdentity id="typeId" name="typeId" labelText="ID Type" />
-      <Input id="details" name="details" type="text" placeholder="ID Reference" labelText="ID Reference" />
-      <DatePicker id="expiry" name="expiry" labelText="Expiry Date" />
-      <CameraImageInput
-        id="fileUrl"
-        name="fileUrl"
-        labelText={isDesktopMode ? 'Upload file' : 'Upload File/Take a Pic'}
-        allowClear={true}
-      />
+    <>
+      {disabled && (
+        <p className="mb-4">*Please ensure the Primary ID has been completed before adding a Secondary ID</p>
+      )}
+      <Form>
+        <SelectIdentity id="typeId" name="typeId" labelText="ID Type" />
+        <Input id="details" name="details" type="text" placeholder="ID Reference" labelText="ID Reference" />
+        <DatePicker id="expiry" name="expiry" labelText="Expiry Date" />
+        <CameraImageInput
+          id="fileUrl"
+          name="fileUrl"
+          labelText={isDesktopMode ? 'Upload file' : 'Upload File/Take a Pic'}
+          allowClear={true}
+          inputProps={{ disabled: disabled }}
+        />
 
-      <div className={`flex mt-4 ${styles.justifyBetween}`}>
-        <div className="flex items-center">
-          <span>RPS Ref:</span>
-          <span className="ml-1">{id}</span>
-        </div>
+        <div className={`flex mt-4 ${styles.justifyBetween}`}>
+          <div className="flex items-center">
+            <span>RPS Ref:</span>
+            <span className="ml-1">{id}</span>
+          </div>
 
-        <div>
-          <Button className="mr-2" variant="primary" type="submit" loading={loading}>
-            Save
-          </Button>
+          <div>
+            <Button className="mr-2" variant="primary" type="submit" loading={loading} disabled={disabled}>
+              Save
+            </Button>
+          </div>
         </div>
-      </div>
-    </Form>
+      </Form>
+    </>
   )
 }
 
@@ -65,12 +72,13 @@ export const Identification: React.FC<IdentificationProps> = ({
   contactModel,
   initFormValues,
   onSaveHandler,
-  isDesktopMode
+  isDesktopMode,
+  disabled = false
 }) => (
   <Formik
     initialValues={initFormValues}
     onSubmit={(formValues: IdentificationFormValues) => onSubmitHandler(formValues, onSaveHandler)}
-    render={renderFormHandler({ contactModel, loading, isDesktopMode })}
+    render={renderFormHandler({ contactModel, loading, isDesktopMode, disabled })}
   />
 )
 
