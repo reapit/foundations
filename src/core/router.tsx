@@ -18,6 +18,10 @@ const AdminApprovalsPage = React.lazy(() => import('../components/pages/admin-ap
 const ApiDocsPage = React.lazy(() => import('../components/pages/api-docs'))
 const SwaggerPage = React.lazy(() => import('../components/pages/swagger'))
 const ElementsPage = React.lazy(() => import('../components/pages/elements'))
+const DesktopDocsPage = React.lazy(() => import('../components/pages/desktop-api-docs'))
+const WebComponentsPage = React.lazy(() => import('../components/pages/web-components'))
+const SettingsPage = React.lazy(() => import('../components/pages/settings'))
+const AnalyticsPage = React.lazy(() => import('../components/pages/analytics'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -45,6 +49,15 @@ const Router = () => (
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} exact component={ApiDocsPage} />
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_SWAGGER} exact component={SwaggerPage} />
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ELEMENTS} exact component={ElementsPage} />
+            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ANALYTICS} exact component={AnalyticsPage} />
+            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_DESKTOP_DOCS} exact component={DesktopDocsPage} />
+            <PrivateRoute
+              allow="DEVELOPER"
+              path={Routes.DEVELOPER_WEB_COMPONENTS}
+              exact
+              component={WebComponentsPage}
+            />
+            <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} exact component={SettingsPage} />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />
           </Switch>
