@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { FaSpinner, FaRegTimesCircle } from 'react-icons/fa'
 import { oc } from 'ts-optchain'
-import { Input, Button } from '@reapit/elements'
+import { Input, Button, H4, FlexContainerBasic } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import dayjs from 'dayjs'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
@@ -29,17 +29,15 @@ export const renderLoading = () => {
 export const renderNoResult = name => {
   const currentDateTime = dayjs().format('DD MMMM YY HH:mmA')
   return (
-    <div className="ml-8">
-      <div>Results</div>
-      <div className={styles.noResultContainer}>
-        <div className="mr-8">
-          <FaRegTimesCircle />
-        </div>
-        <div>
-          No Result Found for '{name}'. Search conducted for '{name}' on {currentDateTime}
-        </div>
+    <FlexContainerBasic className={styles.noResultContainer}>
+      <FaRegTimesCircle />
+      <div>
+        <H4 className={styles.noResultTitle}>No Result Found for "{name}".</H4>
+        <p>
+          Search conducted for "{name}" on {currentDateTime}
+        </p>
       </div>
-    </div>
+    </FlexContainerBasic>
   )
 }
 
@@ -59,7 +57,7 @@ export const renderForm = ({
         </Button>
       </div>
       {isSubmitting ? renderLoading() : null}
-      {pepSearchResultData && pepSearchResultData.length === 0 ? renderNoResult(pepSearchParam) : null}
+      {pepSearchResultData && pepSearchResultData.length === 0 && !isSubmitting ? renderNoResult(pepSearchParam) : null}
       <div className="flex justify-end">
         <Button
           disabled={isSubmitting}
@@ -69,7 +67,7 @@ export const renderForm = ({
           dataTest="prev-btn"
           onClick={onPrevHandler}
         >
-          Prev
+          Previous
         </Button>
         <Button disabled={isSubmitting} type="button" variant="primary" dataTest="next-btn" onClick={onNextHandler}>
           Finish
