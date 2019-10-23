@@ -19,7 +19,7 @@ import { ContactModel, AddressModel, IdentityDocumentModel, IdentityCheckModel }
 import { ErrorData } from '@/reducers/error'
 import store from '@/core/store'
 
-const fetchContact = async ({ contactId, headers }) => {
+export const fetchContact = async ({ contactId, headers }) => {
   try {
     const response = await fetcher({
       url: `${URLS.contacts}/${contactId}`,
@@ -34,7 +34,7 @@ const fetchContact = async ({ contactId, headers }) => {
   }
 }
 
-const fetchIdentityCheck = async ({ headers, contactId }) => {
+export const fetchIdentityCheck = async ({ headers, contactId }) => {
   try {
     const response = await fetcher({
       url: `${URLS.contacts}/${contactId}${URLS.idChecks}`,
@@ -80,22 +80,6 @@ export const updateContact = async ({ contactId, headers, contact }) => {
     return response
   } catch (err) {
     console.error(err)
-    return err
-  }
-}
-
-export const updateChecklist = async ({ contact, headers }) => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.contacts}/${contact.id}`,
-      api: REAPIT_API_BASE_URL,
-      method: 'PATCH',
-      headers: headers,
-      body: contact
-    })
-    return response
-  } catch (err) {
-    console.error(err.message)
     return err
   }
 }
@@ -204,7 +188,6 @@ export const updateChecklistDetail = function*({ data: { id, metadata, ...rest }
         ...metadata
       }
     }
-    yield put(checklistDetailLoading(true))
     const responseUpdate = yield call(updateContact, { contactId: contact.id, headers, contact: newContact })
     if (responseUpdate) {
       yield put(checklistDetailLoading(true))
@@ -214,7 +197,6 @@ export const updateChecklistDetail = function*({ data: { id, metadata, ...rest }
       }
       yield put(checklistDetailLoading(false))
     }
-    yield put(checklistDetailLoading(false))
   } catch (err) {
     console.error(err.message)
     yield put(
@@ -250,21 +232,19 @@ export const updateAddressHistory = function*({ data: { addresses = [], metadata
     const uploadImageFunc = mapArrAddressToUploadImageFunc({ headers, addresses: formattedAddresses, addressesMeta })
     const responseUploadImages = yield all(uploadImageFunc)
     const addressMeta = mapAddressToMetaData({ addressesMeta, responseUploadImages })
-    if (responseUploadImages) {
-      const newContact = {
-        id: contact.id,
-        addresses: formattedAddresses,
-        metadata: { addresses: addressMeta }
+    const newContact = {
+      id: contact.id,
+      addresses: formattedAddresses,
+      metadata: { addresses: addressMeta }
+    }
+    const responseUpdate = yield call(updateContact, { contactId: contact.id, contact: newContact, headers })
+    if (responseUpdate) {
+      yield put(checklistDetailLoading(true))
+      const responseContact = yield call(fetchContact, { contactId: contact.id, headers })
+      if (responseContact) {
+        yield put(contactReceiveData(responseContact))
       }
-      const responseUpdate = yield call(updateContact, { contactId: contact.id, contact: newContact, headers })
-      if (responseUpdate) {
-        yield put(checklistDetailLoading(true))
-        const responseContact = yield call(fetchContact, { contactId: contact.id, headers })
-        if (responseContact) {
-          yield put(contactReceiveData(responseContact))
-        }
-        yield put(checklistDetailLoading(false))
-      }
+      yield put(checklistDetailLoading(false))
     }
   } catch (err) {
     console.error(err.message)
