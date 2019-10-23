@@ -1,4 +1,4 @@
-.topNavbar{
+.topNavbar {
   text-align: right;
 }
 
@@ -25,7 +25,7 @@
 
 .contentTitle {
   font-weight: bold;
-  width: 30%
+  width: 30%;
 }
 
 .reportContainer {
@@ -41,42 +41,59 @@
 .pepSearchInputContainer {
   display: flex;
   align-items: center;
-  &>div{
-    width: 80%;
+  justify-content: space-between;
+
+  > div {
+    width: 100%;
+  }
+
+  button {
+    flex-shrink: 0;
+    margin-left: 1rem;
+    height: 45px;
   }
 }
 
 .pepSearchLoading {
   text-align: center;
-  svg{
+  svg {
     font-size: 2rem;
     animation: spinner 1s linear infinite;
   }
 }
 
-.noResultContainer  {
-  display: flex;
-  margin: 2rem 0;
+.noResultContainer {
   svg {
     font-size: 2rem;
+    margin-right: 1rem;
+  }
+
+  div {
+    margin-bottom: 1rem;
+  }
+
+  h4:not(:last-child) {
+    margin-bottom: 0.5rem;
   }
 }
 
 @keyframes spinner {
-  to {transform: rotate(360deg);}
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media print {
   .reportContainer {
-      background-color: white;
-      height: 100%;
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      margin: 0;
-      padding: 15px;
-      font-size: 14px;
-      line-height: 18px;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 18px;
   }
 }
