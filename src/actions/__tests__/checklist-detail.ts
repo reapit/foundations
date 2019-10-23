@@ -1,15 +1,18 @@
 import ActionTypes from '@/constants/action-types'
-// import { contact } from '@/sagas/__stubs__/contact'
+import { contact, idCheck } from '@/sagas/__stubs__/contact'
 import {
   checklistDetailRequestData,
-  // checklistDetailReceiveContact,
   checklistDetailShowModal,
   checklistDetailHideModal,
   checklistDetailSubmitForm,
   pepSearchResult,
   checklistDetailPrimaryIdUpdateData,
-  checklistDetailSecondaryIdUpdateData
+  checklistDetailSecondaryIdUpdateData,
+  checklistDetailReceiveContact,
+  checklistDetailReceiveIdentityCheck,
+  checkListDetailIdentityCheckUpdateData
 } from '../checklist-detail'
+import { EntityType } from '@reapit/elements'
 
 describe('checklist-detail actions', () => {
   it('should create a checklistDetailRequestData action', () => {
@@ -17,10 +20,15 @@ describe('checklist-detail actions', () => {
     expect(checklistDetailRequestData('test').data).toEqual('test')
   })
 
-  // it('should create a checklistDetailReceiveContact action', () => {
-  //   expect(checklistDetailReceiveContact.type).toEqual(ActionTypes.CHECKLIST_DETAIL_RECEIVE_DATA)
-  //   expect(checklistDetailReceiveContact({ contact, idCheck: null }).data).toEqual({ contact, idCheck: null })
-  // })
+  it('should create a checklistDetailReceiveContact action', () => {
+    expect(checklistDetailReceiveContact.type).toEqual(ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT)
+    expect(checklistDetailReceiveContact(contact).data).toEqual(contact)
+  })
+
+  it('should create a checklistDetailReceiveIdentityCheck action', () => {
+    expect(checklistDetailReceiveIdentityCheck.type).toEqual(ActionTypes.CHECKLIST_DETAIL_RECEIVE_IDENTITY_CHECKS)
+    expect(checklistDetailReceiveIdentityCheck(idCheck).data).toEqual(idCheck)
+  })
 
   it('should create a checklistDetailShowModal action', () => {
     expect(checklistDetailShowModal.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SHOW_MODAL)
@@ -50,5 +58,16 @@ describe('checklist-detail actions', () => {
   it('should create a checklistDetailSecondaryIdUpdateData action', () => {
     expect(checklistDetailSecondaryIdUpdateData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA)
     expect(checklistDetailSecondaryIdUpdateData({} as any).data).toEqual({})
+  })
+
+  it('should create a checkListDetailIdentityCheckUpdateData action', () => {
+    const dynamicLinkParams = { appMode: 'DESKTOP', entityType: EntityType.CONTACT }
+    expect(checkListDetailIdentityCheckUpdateData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA)
+    expect(
+      checkListDetailIdentityCheckUpdateData({
+        idCheck,
+        dynamicLinkParams: { appMode: 'DESKTOP', entityType: EntityType.CONTACT }
+      }).data
+    ).toEqual({ idCheck, dynamicLinkParams })
   })
 })

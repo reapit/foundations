@@ -84,11 +84,11 @@ describe('PrimaryIdentification', () => {
       expect(mockDispatch).toBeCalled()
     })
 
-    // it('onNextHandler', () => {
-    //   const mockDispatch = jest.fn()
-    //   const { onNextHandler } = mapDispatchToProps(mockDispatch)
-    //   onNextHandler()
-    //   expect(mockDispatch).toBeCalled()
-    // })
+    it('onNextHandler', () => {
+      const mockDispatch = jest.fn()
+      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      onNextHandler({})()
+      expect(mockDispatch).toBeCalled()
+    })
   })
 })

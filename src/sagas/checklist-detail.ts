@@ -240,16 +240,14 @@ export const onUpdateAddressHistory = function*({
         addresses: addressMeta
       }
     }
-    if (responseUpload) {
-      const responseUpdate = yield call(updateChecklist, { contact: newContact, headers })
-      if (responseUpdate) {
-        const responseContact = yield call(fetchChecklist, { id: currentContact.id, headers })
-        yield put(checklistDetailReceiveContact(responseContact))
-        if (nextSection) {
-          yield put(checklistDetailShowModal(nextSection))
-        } else {
-          yield put(checklistDetailHideModal())
-        }
+    const responseUpdate = yield call(updateChecklist, { contact: newContact, headers })
+    if (responseUpdate) {
+      const responseContact = yield call(fetchChecklist, { id: currentContact.id, headers })
+      yield put(checklistDetailReceiveContact(responseContact))
+      if (nextSection) {
+        yield put(checklistDetailShowModal(nextSection))
+      } else {
+        yield put(checklistDetailHideModal())
       }
     }
   } catch (err) {
@@ -347,7 +345,7 @@ export const pepSearch = function*({ data }) {
   const headers = yield call(initAuthorizedRequestHeaders)
   try {
     const contact = yield select(selectCheckListDetailContact)
-    const searchResults = yield fetchDataPepSearch({ name: data, headers })
+    const searchResults = yield call(fetchDataPepSearch, { name: data, headers })
     // Change Pep search status in localstorage
     yield call(handlePepSearchStatus, contact.id, 'passed')
     yield put(pepSearchResult({ searchParam: data, searchResults }))

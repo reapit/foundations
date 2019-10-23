@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Profile, renderForm, filterCommunication, mapStateToProps } from '../profile'
+import { Profile, renderForm, filterCommunication, mapStateToProps, mapDispatchToProps } from '../profile'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
 
@@ -76,24 +76,12 @@ describe('profile', () => {
       })
     })
   })
-  // describe('mapDispatchToProps', () => {
-  //   it('should render correctly', () => {
-  //     const mockDispatch = jest.fn()
-  //     const mockOwnProps = {
-  //       id: 1
-  //     }
-  //     const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-  //     onNextHandler()
-  //     expect(mockDispatch).toBeCalled()
-  //   })
-  //   it('should render correctly', () => {
-  //     const mockDispatch = jest.fn()
-  //     const mockOwnProps = {
-  //       id: 1
-  //     }
-  //     const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-  //     onNextHandler()
-  //     expect(mockDispatch).toBeCalled()
-  //   })
-  // })
+  describe('mapDispatchToProps', () => {
+    it('should run correctly', () => {
+      const mockDispatch = jest.fn()
+      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      onNextHandler({})()
+      expect(mockDispatch).toBeCalled()
+    })
+  })
 })

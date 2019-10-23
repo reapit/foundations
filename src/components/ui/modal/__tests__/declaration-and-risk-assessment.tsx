@@ -5,8 +5,8 @@ import { contact } from '@/sagas/__stubs__/contact'
 import {
   DeclarationAndRiskAssessment,
   renderForm,
-  mapStateToProps
-  // mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 } from '../declaration-and-risk-assessment'
 
 describe('DeclarationAndRiskAssessment', () => {
@@ -63,24 +63,18 @@ describe('DeclarationAndRiskAssessment', () => {
     })
   })
 
-  // describe('mapDispatchToProps', () => {
-  //   it('should render correctly', () => {
-  //     const mockDispatch = jest.fn()
-  //     const mockOwnProps = {
-  //       id: '1'
-  //     }
-  //     const { onNextHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-  //     onNextHandler()
-  //     expect(mockDispatch).toBeCalled()
-  //   })
-  //   it('should render correctly', () => {
-  //     const mockDispatch = jest.fn()
-  //     const mockOwnProps = {
-  //       id: '1'
-  //     }
-  //     const { onPrevHandler } = mapDispatchToProps(mockDispatch, mockOwnProps)
-  //     onPrevHandler()
-  //     expect(mockDispatch).toBeCalled()
-  //   })
-  // })
+  describe('mapDispatchToProps', () => {
+    it('should render correctly', () => {
+      const mockDispatch = jest.fn()
+      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      onNextHandler({})()
+      expect(mockDispatch).toBeCalled()
+    })
+    it('should render correctly', () => {
+      const mockDispatch = jest.fn()
+      const { onPrevHandler } = mapDispatchToProps(mockDispatch)
+      onPrevHandler()
+      expect(mockDispatch).toBeCalled()
+    })
+  })
 })
