@@ -101,12 +101,10 @@ export const idCheck = {
   ],
   metadata: {
     secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
-    agentCheck: {
-      referralType: 'Vendor Compliance',
-      timeSelection: '10:00',
-      clientType: 'Individual',
-      placeMeet: 'Home Address',
-      isUKResident: 'Yes'
-    }
+    referralType: 'Vendor Compliance',
+    timeSelection: '10:00',
+    clientType: 'Individual',
+    placeMeet: 'Home Address',
+    isUKResident: 'Yes'
   }
 }
