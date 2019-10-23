@@ -41,7 +41,7 @@ export const selectCheckListDetailIsSubmitting = (state: ReduxState) => {
 }
 
 export const selectCheckListDetailIdCheck = (state: ReduxState) => {
-  return oc(state).checklistDetail.checklistDetailData.idCheck(undefined)
+  return oc(state).checklistDetail.checklistDetailData.idCheck(null)
 }
 
 export const selectCheckListDetailPrimaryIdUrl = (state: ReduxState) => {
