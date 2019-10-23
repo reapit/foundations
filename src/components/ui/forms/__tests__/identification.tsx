@@ -5,10 +5,25 @@ import Identification, { renderFormHandler, onSubmitHandler } from '../identific
 
 describe('Identification', () => {
   describe('renderFormHandler', () => {
-    it('should match snapshot', () => {
+    it('should match snapshot when DISABLED true', () => {
       const mockProps = {
         contact: contact,
         loading: false,
+        disabled: true,
+        onNextHandler: jest.fn(),
+        onPrevHandler: jest.fn(),
+        isDesktopMode: false
+      }
+      const component = renderFormHandler(mockProps)
+      const wrapper = shallow(<div>{component}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should match snapshot when DISABLED false', () => {
+      const mockProps = {
+        contact: contact,
+        loading: false,
+        disabled: false,
         onNextHandler: jest.fn(),
         onPrevHandler: jest.fn(),
         isDesktopMode: false
