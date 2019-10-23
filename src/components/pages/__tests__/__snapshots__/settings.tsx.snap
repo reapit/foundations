@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings should match a snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <H3>
+        Settings
+      </H3>
+      <H4>
+        Payment Info
+      </H4>
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;

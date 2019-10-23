@@ -12,7 +12,7 @@ exports[`Swagger should match a snapshot 1`] = `
       <SwaggerUI
         onComplete={[Function]}
         requestInterceptor={[Function]}
-        url="https://reapit.cloud.tyk.io/api/swagger/v1/swagger.json"
+        url="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/swagger.json"
       />
     </div>
   </div>

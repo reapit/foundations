@@ -6,7 +6,18 @@ import { ReduxState } from '@/types/core'
 import { authLogout } from '@/actions/auth'
 import Routes from '../../constants/routes'
 import { Location } from 'history'
-import { FaCheck, FaSignOutAlt, FaCloud, FaReadme, FaCloudUploadAlt, FaCloudDownloadAlt } from 'react-icons/fa'
+import {
+  FaCheck,
+  FaSignOutAlt,
+  FaCloud,
+  FaReadme,
+  FaCloudUploadAlt,
+  FaCloudDownloadAlt,
+  FaCog,
+  FaDesktop,
+  FaNetworkWired,
+  FaChartLine
+} from 'react-icons/fa'
 import { GoDatabase, GoCode } from 'react-icons/go'
 import { oc } from 'ts-optchain'
 
@@ -67,7 +78,7 @@ export const generateMenuConfig = (
           icon: <FaCloudUploadAlt className="nav-item-icon" />
         },
         {
-          title: 'Swagger',
+          title: 'API',
           key: 'SWAGGER',
           url: Routes.DEVELOPER_SWAGGER,
           type: 'PRIMARY',
@@ -81,11 +92,39 @@ export const generateMenuConfig = (
           icon: <FaReadme className="nav-item-icon" />
         },
         {
+          title: 'Desktop',
+          key: 'DESKTOP_DOCS',
+          url: Routes.DEVELOPER_DESKTOP_DOCS,
+          type: 'PRIMARY',
+          icon: <FaDesktop className="nav-item-icon" />
+        },
+        {
           title: 'Elements',
           key: 'ELEMENTS',
           url: Routes.DEVELOPER_ELEMENTS,
           type: 'PRIMARY',
           icon: <GoCode className="nav-item-icon" />
+        },
+        {
+          title: 'Web',
+          key: 'WEB_COMPONENTS',
+          url: Routes.DEVELOPER_WEB_COMPONENTS,
+          type: 'PRIMARY',
+          icon: <FaNetworkWired className="nav-item-icon" />
+        },
+        {
+          title: 'Analytics',
+          key: 'ANALYTICS',
+          url: Routes.DEVELOPER_ANALYTICS,
+          icon: <FaChartLine className="nav-item-icon" />,
+          type: 'PRIMARY'
+        },
+        {
+          title: 'Settings',
+          key: 'SETTINGS',
+          url: Routes.SETTINGS,
+          icon: <FaCog className="nav-item-icon" />,
+          type: 'PRIMARY'
         },
         {
           title: 'Logout',

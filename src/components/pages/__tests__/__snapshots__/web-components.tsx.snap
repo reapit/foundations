@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebComponents should match a snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <H3>
+        Web Components
+      </H3>
+      <H4>
+        Downloads
+      </H4>
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;

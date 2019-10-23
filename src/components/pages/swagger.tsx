@@ -3,7 +3,7 @@ import SwaggerUI from 'swagger-ui-react'
 import 'swagger-ui-react/swagger-ui.css'
 import '../../styles/vendor/swagger.scss'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { REAPIT_API_BASE_URL, URLS, MARKETPLACE_HEADERS } from '../../constants/api'
+import { URLS, MARKETPLACE_HEADERS, SWAGGER_BASE_URL } from '../../constants/api'
 import { Loader } from '@reapit/elements'
 import { getAccessToken } from '@/utils/session'
 
@@ -26,7 +26,7 @@ const SwaggerPage: React.SFC = () => {
         {loading && <Loader />}
         <div className={`${loading ? 'swagger-loading' : ''}`}>
           <SwaggerUI
-            url={`${REAPIT_API_BASE_URL}${URLS.swagger}`}
+            url={`${SWAGGER_BASE_URL}${URLS.swagger}`}
             onComplete={() => setLoading(false)}
             requestInterceptor={fetchInterceptor}
           />
