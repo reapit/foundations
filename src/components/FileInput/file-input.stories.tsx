@@ -22,3 +22,27 @@ storiesOf('FileInput', module).add('Primary', () => (
     />
   </section>
 ))
+
+storiesOf('FileInput', module).add('Disabled', () => (
+  <section className="section">
+    <Formik
+      initialValues={{ fileInput: '' }}
+      onSubmit={values => {
+        action('Form Values' + values)
+      }}
+      render={() => (
+        <Form>
+          <div className="column is-half-desktop">
+            <FileInput
+              id="fileInput"
+              allowClear
+              name="fileInput"
+              labelText="File Input"
+              inputProps={{ disabled: true }}
+            />
+          </div>
+        </Form>
+      )}
+    />
+  </section>
+))

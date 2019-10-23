@@ -78,9 +78,7 @@ export const FileInput = ({
                     onChange={onChange}
                     accept={accept}
                   />
-                  <span className="file-cta">
-                    <span className="file-label">{labelText}</span>
-                  </span>
+                  <span className="file-cta">{labelText}</span>
                   {hasFile && (
                     <span data-test="fileUploadFileName" className="file-name">
                       {!isBase64(field.value) ? (
