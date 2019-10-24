@@ -6,25 +6,31 @@ import { PropertyImageModel } from '../types/propertyImage'
 export type SearchType = 'Sale' | 'Rent' | undefined
 
 export interface SearchStore {
-  err: Error | null,
-  isLoading: Boolean | null,
-  searchKeyWord: string,
-  searchType: SearchType | undefined,
-  propertyImages: Record<string, PropertyImageModel>,
-  result: PagedResultPropertyModel_ | null | undefined,
-  selectedProperty: PropertyModel | undefined,
+  err: Error | null
+  isLoading: Boolean | null
+  searchKeyWord: string
+  searchType: SearchType | undefined
+  propertyImages: Record<string, PropertyImageModel>
+  result: PagedResultPropertyModel_ | null | undefined
+  selectedProperty: PropertyModel | undefined
 
-  setStartFetching: () => void,
-  setFetchResult: (result: PagedResultPropertyModel_, propertyImages: Record<string, PropertyImageModel>, searchKeyWord: string, searchType: SearchType) => void,
-  setFetchError: (err: Error) => void,
-  setSearchKeyWord: (keyWord: string) => void,
-  setSelectedProperty: any,
-  setPropertyImages: (propertyImages: Record<string, PropertyImageModel>) => void,
-  getErrorString: () => string | null | undefined,
-  getCountResult: () => number | null | undefined,
-  getResultArr: () => PropertyModel[],
+  setStartFetching: () => void
+  setFetchResult: (
+    result: PagedResultPropertyModel_,
+    propertyImages: Record<string, PropertyImageModel>,
+    searchKeyWord: string,
+    searchType: SearchType
+  ) => void
+  setFetchError: (err: Error) => void
+  setSearchKeyWord: (keyWord: string) => void
+  setSelectedProperty: any
+  setPropertyImages: (
+    propertyImages: Record<string, PropertyImageModel>
+  ) => void
+  getErrorString: () => string | null | undefined
+  getCountResult: () => number | null | undefined
+  getResultArr: () => PropertyModel[]
 }
-
 
 export function useSearchStore(): SearchStore {
   const [result, _setResult] = useState<PagedResultPropertyModel_ | null>()
@@ -32,10 +38,17 @@ export function useSearchStore(): SearchStore {
   const [isLoading, _setIsLoading] = useState<Boolean | null>(false)
   const [searchKeyWord, setSearchKeyWord] = useState<string>('')
   const [searchType, setSearchType] = useState<SearchType>()
-  const [propertyImages, setPropertyImages] = useState<Record<string, PropertyImageModel>>({})
+  const [propertyImages, setPropertyImages] = useState<
+    Record<string, PropertyImageModel>
+  >({})
   const [selectedProperty, setSelectedProperty] = useState<PropertyModel>()
 
-  const setFetchResult = (result: PagedResultPropertyModel_, propertyImages: Record<string, PropertyImageModel>, searchKeyWord: string, searchType: SearchType) => {
+  const setFetchResult = (
+    result: PagedResultPropertyModel_,
+    propertyImages: Record<string, PropertyImageModel>,
+    searchKeyWord: string,
+    searchType: SearchType
+  ) => {
     _setResult(result)
     _setIsLoading(false)
     setPropertyImages(propertyImages)
@@ -52,7 +65,6 @@ export function useSearchStore(): SearchStore {
     _setIsLoading(true)
     _setErr(null)
   }
-
 
   const getErrorString = () => {
     if (!err) {
@@ -75,7 +87,6 @@ export function useSearchStore(): SearchStore {
       return []
     }
 
-
     return result.data
   }
 
@@ -95,6 +106,6 @@ export function useSearchStore(): SearchStore {
     setStartFetching,
     setSearchKeyWord,
     searchType,
-    setPropertyImages,
+    setPropertyImages
   }
 }

@@ -17,7 +17,7 @@ const LoaderContainer = styled.div`
   height: calc(1rem * 2.5);
 
   > div {
-    background-color: ${props=>props.theme.colors.loading};
+    background-color: ${props => props.theme.colors.loading};
     height: 100%;
     width: calc(1rem / 3);
     margin: 2px;
@@ -55,8 +55,6 @@ const LoaderContainer = styled.div`
   }
 `
 
-
-
 export const Loader: React.FunctionComponent<LoaderProps> = () => (
   <LoaderContainer>
     <div />
@@ -65,3 +63,5 @@ export const Loader: React.FunctionComponent<LoaderProps> = () => (
     <div />
   </LoaderContainer>
 )
+
+export default Loader

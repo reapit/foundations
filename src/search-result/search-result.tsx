@@ -1,13 +1,12 @@
 import * as React from 'react'
-import { Loader } from '../loader'
-import { oc } from 'ts-optchain';
+import Loader from '../loader'
+import { oc } from 'ts-optchain'
 import { AddressModel, PropertyModel } from '../types/property'
 import styled from 'styled-components'
 import { context } from '../context'
 import { FaBed, FaToilet } from 'react-icons/fa'
 import { ImgHandleError } from './img-handle-error'
-import { SearchType } from '../hooks/search-store';
-
+import { SearchType } from '../hooks/search-store'
 
 const { useContext } = React
 
@@ -17,7 +16,7 @@ const SearchResultContainer = styled.div`
 
 const SearchResultTextContainer = styled.h1`
   color: ${props => props.theme.colors.primary};
-  
+
   @media screen and (max-width: 1600px) {
     & {
       padding-top: 2.5rem;
@@ -37,10 +36,8 @@ const SearchResultItemContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-
   /* responsive desktop: 4 images */
   & > div {
-
     @media screen and (max-width: 1600px) {
       & {
         padding-right: 2.5rem;
@@ -66,23 +63,23 @@ const SearchResultItemContainer = styled.div`
     & > div {
       width: 100%;
       & img {
-        height: 300px
+        height: 300px;
       }
     }
   }
 
   /* 2 images in row */
   @media (min-width: 1024px) {
-      & > div {
+    & > div {
       width: 50%;
       & img {
-        height: 250px
+        height: 250px;
       }
     }
   }
 
   /* 3 images in row */
-  @media (min-width: 1800px) { 
+  @media (min-width: 1800px) {
     & > div {
       width: 33.3%;
       & img {
@@ -97,14 +94,11 @@ const SearchResultItemContainer = styled.div`
       width: 25%;
     }
   }
-
 `
 
 const AddressPrimaryText = styled.span`
   margin-right: 0.7rem;
   font-weight: bold;
-
-
 `
 
 const AddressSecondaryText = styled.span`
@@ -127,7 +121,7 @@ const PricingText = styled.span`
 `
 
 const NumBedTypeStyleText = styled.div`
-  font-weight: bold
+  font-weight: bold;
 `
 
 const DescriptionText = styled.div`
@@ -152,17 +146,17 @@ const IconContainer = styled.div`
   }
 
   svg:last-child {
-    margin-left: 1rem
+    margin-left: 1rem;
   }
 `
 
 const SearchResultItemDiv = styled.div`
-  cursor: pointer
+  cursor: pointer;
 `
 
 const SearchResultImageContainer = styled.div<{ isSelectedProperty: boolean }>`
-  border: ${props => `2px solid ${props.theme.colors.jade}`}; 
-  border-width: ${props => props.isSelectedProperty ? '2px' : '0px'};
+  border: ${props => `2px solid ${props.theme.colors.jade}`};
+  border-width: ${props => (props.isSelectedProperty ? '2px' : '0px')};
   width: 100%;
   border-radius: 5px;
 `
@@ -182,20 +176,27 @@ export const combineAdress = (address: AddressModel | undefined): string => {
     }
   }
 
-
   return addressString
 }
 
 export const getPrice = (result: PropertyModel, searchType: SearchType) => {
   if (searchType === 'Rent') {
-    return oc(result).letting.rent(0) + ' ' + oc(result).letting.rentFrequency('')
+    return (
+      oc(result).letting.rent(0) + ' ' + oc(result).letting.rentFrequency('')
+    )
   }
 
   return oc(result).selling.qualifier('') + ' ' + oc(result).selling.price(0)
 }
 
 export const combineNumberBedTypeStyle = (result: PropertyModel) => {
-  return oc(result).bedrooms(0) + ' ' + oc(result).style('') + ' ' + oc(result).type('')
+  return (
+    oc(result).bedrooms(0) +
+    ' ' +
+    oc(result).style('') +
+    ' ' +
+    oc(result).type('')
+  )
 }
 
 export const SearchResult = () => {
@@ -205,7 +206,17 @@ export const SearchResult = () => {
     return <div />
   }
 
-  const { isLoading, searchKeyWord, getCountResult, getResultArr, searchType, propertyImages, result: rawResult, selectedProperty, setSelectedProperty } = searchStore
+  const {
+    isLoading,
+    searchKeyWord,
+    getCountResult,
+    getResultArr,
+    searchType,
+    propertyImages,
+    result: rawResult,
+    selectedProperty,
+    setSelectedProperty
+  } = searchStore
 
   if (isLoading) {
     return <Loader />
@@ -219,33 +230,43 @@ export const SearchResult = () => {
 
   return (
     <SearchResultContainer>
-      <SearchResultTextContainer>{getCountResult()} Results showing for {searchKeyWord}, for {searchType}</SearchResultTextContainer>
+      <SearchResultTextContainer>
+        {getCountResult()} Results showing for {searchKeyWord}, for {searchType}
+      </SearchResultTextContainer>
       <SearchResultItemContainer>
         {resultArr.map(property => {
-          const id = oc(property).id("")
+          const id = oc(property).id('')
           const propertyImage = propertyImages[id]
-          const imageUrl = oc(propertyImage).url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII=')
+          const imageUrl = oc(propertyImage).url(
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII='
+          )
 
           const selectedPropertyId = oc(selectedProperty).id('')
           const isSelectedProperty = property.id === selectedPropertyId
-
 
           const onClick = () => {
             setSelectedProperty(property)
           }
 
-
           return (
             <SearchResultItemDiv key={property.id} onClick={onClick}>
-              <SearchResultImageContainer isSelectedProperty={isSelectedProperty}>
+              <SearchResultImageContainer
+                isSelectedProperty={isSelectedProperty}
+              >
                 <ImgHandleError src={imageUrl} />
               </SearchResultImageContainer>
               <div>
-                <AddressPrimaryText>{oc(property).address.line2()}</AddressPrimaryText>
-                <AddressSecondaryText>{combineAdress(property.address)}</AddressSecondaryText>
+                <AddressPrimaryText>
+                  {oc(property).address.line2()}
+                </AddressPrimaryText>
+                <AddressSecondaryText>
+                  {combineAdress(property.address)}
+                </AddressSecondaryText>
               </div>
               <PricingText>{getPrice(property, searchType)}</PricingText>
-              <NumBedTypeStyleText>{combineNumberBedTypeStyle(property)}</NumBedTypeStyleText>
+              <NumBedTypeStyleText>
+                {combineNumberBedTypeStyle(property)}
+              </NumBedTypeStyleText>
               <DescriptionText>{property.description}</DescriptionText>
               <IconContainer>
                 <FaBed /> {oc(property).bedrooms(0)}

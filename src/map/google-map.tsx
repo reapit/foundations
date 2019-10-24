@@ -1,6 +1,6 @@
 import React from 'react'
 import { INVALID_BACKGROUND_AS_BASE64 } from '../constants'
-import { oc } from 'ts-optchain';
+import { oc } from 'ts-optchain'
 import { context } from '../context'
 import styled from 'styled-components'
 import GoogleMapLoader, { RenderProps } from './google-map-loader'
@@ -12,15 +12,14 @@ import { getPrice } from '../search-result'
 const { useContext } = React
 
 const MapDiv = styled.div`
-
   min-height: 500px;
   @media screen and (max-width: 1600px) {
     & {
-      height: 500px
+      height: 500px;
     }
   }
-  
-  width:100%;
+
+  width: 100%;
   height: 100%;
 `
 
@@ -35,22 +34,38 @@ export type GetContentParams = {
   bathrooms?: number
   marketingMode?: string
   lettingPrice?: number
-  rentFrequency?: string,
-  imageUrl?: string,
-  theme: Theme,
-  price: string,
+  rentFrequency?: string
+  imageUrl?: string
+  theme: Theme
+  price: string
 }
 
-export const getContent = ({ price, theme, latitude, longitude, address, bedrooms, bathrooms, marketingMode, lettingPrice, rentFrequency, imageUrl = INVALID_BACKGROUND_AS_BASE64 }: GetContentParams) => `
-  <div style="display:flex; font-family: ${theme.base.font.family}" id="coordinate-${latitude}-${longitude}">
+export const getContent = ({
+  price,
+  theme,
+  latitude,
+  longitude,
+  address,
+  bedrooms,
+  bathrooms,
+  marketingMode,
+  lettingPrice,
+  rentFrequency,
+  imageUrl = INVALID_BACKGROUND_AS_BASE64
+}: GetContentParams) => `
+  <div style="display:flex; font-family: ${
+    theme.base.font.family
+  }" id="coordinate-${latitude}-${longitude}">
     <div><img style="width: 110px; height: 110px; object-fit: cover" src="${imageUrl}"></div>
     <div style="padding: 0rem 1rem;">
-      <div style="margin-bottom: 2px; font-weight:bold;font-size:1rem; color: ${theme.colors.base}">${address}</div>
-      ${marketingMode === 'selling' ? (
-    `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:2rem">£${price}</div>`
-  ) : (
-      `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:2rem">£${price}</div>`
-    )}
+      <div style="margin-bottom: 2px; font-weight:bold;font-size:1rem; color: ${
+        theme.colors.base
+      }">${address}</div>
+      ${
+        marketingMode === 'selling'
+          ? `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:2rem">£${price}</div>`
+          : `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:2rem">£${price}</div>`
+      }
       <div style="display:flex; margin-top: 2px">
         <div style="margin-right: 1.2rem">
           <span style="color: ${theme.colors.icon}">
@@ -81,212 +96,250 @@ export type HandleUseEffectParams = {
   zoom?: number
   property?: PropertyModel
   mapRef: any
-  restProps?: any,
-  imageUrl: string | undefined,
-  theme: Theme | null,
+  restProps?: any
+  imageUrl: string | undefined
+  theme: Theme | null
   price: string
 }
 
-export const handleUseEffect = ({ price, googleMap, center, zoom, restProps, property, mapRef, imageUrl, theme }: HandleUseEffectParams) => () => {
-
+export const handleUseEffect = ({
+  price,
+  googleMap,
+  center,
+  zoom,
+  restProps,
+  property,
+  mapRef,
+  imageUrl,
+  theme
+}: HandleUseEffectParams) => () => {
   if (googleMap && theme) {
-    const map = new googleMap.Map(document.getElementById('reapit-map-container'), {
-      center: center || DEFAULT_CENTER,
-      zoom: zoom || DEFAULT_ZOOM,
-      styles: [
-        {
-          "featureType": "all",
-          "elementType": "geometry.fill",
-          "stylers": [
-            {
-              "weight": "2.00"
-            }
-          ]
-        },
-        {
-          "featureType": "all",
-          "elementType": "geometry.stroke",
-          "stylers": [
-            {
-              "color": "#9c9c9c"
-            }
-          ]
-        },
-        {
-          "featureType": "all",
-          "elementType": "labels.text",
-          "stylers": [
-            {
-              "visibility": "on"
-            }
-          ]
-        },
-        {
-          "featureType": "landscape",
-          "elementType": "all",
-          "stylers": [
-            {
-              "color": "#f2f2f2"
-            }
-          ]
-        },
-        {
-          "featureType": "landscape",
-          "elementType": "geometry.fill",
-          "stylers": [
-            {
-              "color": "#ffffff"
-            }
-          ]
-        },
-        {
-          "featureType": "landscape.man_made",
-          "elementType": "geometry.fill",
-          "stylers": [
-            {
-              "color": "#ffffff"
-            }
-          ]
-        },
-        {
-          "featureType": "poi",
-          "elementType": "all",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "road",
-          "elementType": "all",
-          "stylers": [
-            {
-              "saturation": -100
-            },
-            {
-              "lightness": 45
-            }
-          ]
-        },
-        {
-          "featureType": "road",
-          "elementType": "geometry.fill",
-          "stylers": [
-            {
-              "color": "#eeeeee"
-            }
-          ]
-        },
-        {
-          "featureType": "road",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#7b7b7b"
-            }
-          ]
-        },
-        {
-          "featureType": "road",
-          "elementType": "labels.text.stroke",
-          "stylers": [
-            {
-              "color": "#ffffff"
-            }
-          ]
-        },
-        {
-          "featureType": "road.highway",
-          "elementType": "all",
-          "stylers": [
-            {
-              "visibility": "simplified"
-            }
-          ]
-        },
-        {
-          "featureType": "road.arterial",
-          "elementType": "labels.icon",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "transit",
-          "elementType": "all",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "water",
-          "elementType": "all",
-          "stylers": [
-            {
-              "color": "#46bcec"
-            },
-            {
-              "visibility": "on"
-            }
-          ]
-        },
-        {
-          "featureType": "water",
-          "elementType": "geometry.fill",
-          "stylers": [
-            {
-              "color": "#c8d7d4"
-            }
-          ]
-        },
-        {
-          "featureType": "water",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#070707"
-            }
-          ]
-        },
-        {
-          "featureType": "water",
-          "elementType": "labels.text.stroke",
-          "stylers": [
-            {
-              "color": "#ffffff"
-            }
-          ]
-        }
-      ],
-      ...restProps
-    })
-    const latitude = property && property.address && property.address.geolocation && property.address.geolocation.latitude
-    const longitude = property && property.address && property.address.geolocation && property.address.geolocation.longitude
+    const map = new googleMap.Map(
+      document.getElementById('reapit-map-container'),
+      {
+        center: center || DEFAULT_CENTER,
+        zoom: zoom || DEFAULT_ZOOM,
+        styles: [
+          {
+            featureType: 'all',
+            elementType: 'geometry.fill',
+            stylers: [
+              {
+                weight: '2.00'
+              }
+            ]
+          },
+          {
+            featureType: 'all',
+            elementType: 'geometry.stroke',
+            stylers: [
+              {
+                color: '#9c9c9c'
+              }
+            ]
+          },
+          {
+            featureType: 'all',
+            elementType: 'labels.text',
+            stylers: [
+              {
+                visibility: 'on'
+              }
+            ]
+          },
+          {
+            featureType: 'landscape',
+            elementType: 'all',
+            stylers: [
+              {
+                color: '#f2f2f2'
+              }
+            ]
+          },
+          {
+            featureType: 'landscape',
+            elementType: 'geometry.fill',
+            stylers: [
+              {
+                color: '#ffffff'
+              }
+            ]
+          },
+          {
+            featureType: 'landscape.man_made',
+            elementType: 'geometry.fill',
+            stylers: [
+              {
+                color: '#ffffff'
+              }
+            ]
+          },
+          {
+            featureType: 'poi',
+            elementType: 'all',
+            stylers: [
+              {
+                visibility: 'off'
+              }
+            ]
+          },
+          {
+            featureType: 'road',
+            elementType: 'all',
+            stylers: [
+              {
+                saturation: -100
+              },
+              {
+                lightness: 45
+              }
+            ]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry.fill',
+            stylers: [
+              {
+                color: '#eeeeee'
+              }
+            ]
+          },
+          {
+            featureType: 'road',
+            elementType: 'labels.text.fill',
+            stylers: [
+              {
+                color: '#7b7b7b'
+              }
+            ]
+          },
+          {
+            featureType: 'road',
+            elementType: 'labels.text.stroke',
+            stylers: [
+              {
+                color: '#ffffff'
+              }
+            ]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'all',
+            stylers: [
+              {
+                visibility: 'simplified'
+              }
+            ]
+          },
+          {
+            featureType: 'road.arterial',
+            elementType: 'labels.icon',
+            stylers: [
+              {
+                visibility: 'off'
+              }
+            ]
+          },
+          {
+            featureType: 'transit',
+            elementType: 'all',
+            stylers: [
+              {
+                visibility: 'off'
+              }
+            ]
+          },
+          {
+            featureType: 'water',
+            elementType: 'all',
+            stylers: [
+              {
+                color: '#46bcec'
+              },
+              {
+                visibility: 'on'
+              }
+            ]
+          },
+          {
+            featureType: 'water',
+            elementType: 'geometry.fill',
+            stylers: [
+              {
+                color: '#c8d7d4'
+              }
+            ]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.fill',
+            stylers: [
+              {
+                color: '#070707'
+              }
+            ]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.stroke',
+            stylers: [
+              {
+                color: '#ffffff'
+              }
+            ]
+          }
+        ],
+        ...restProps
+      }
+    )
+    const latitude =
+      property &&
+      property.address &&
+      property.address.geolocation &&
+      property.address.geolocation.latitude
+    const longitude =
+      property &&
+      property.address &&
+      property.address.geolocation &&
+      property.address.geolocation.longitude
     const marketingMode = property && property.marketingMode
 
     mapRef.current = map
 
     if (property) {
-
       const marker = new googleMap.Marker({
-        position: { lat: latitude || DEFAULT_CENTER.lat, lng: longitude || DEFAULT_CENTER.lng },
+        position: {
+          lat: latitude || DEFAULT_CENTER.lat,
+          lng: longitude || DEFAULT_CENTER.lng
+        },
         icon: null,
         map
       })
-      const address = property && property.address && property.address.line2 ? property.address.line2 : ''
+      const address =
+        property && property.address && property.address.line2
+          ? property.address.line2
+          : ''
 
       const lettingPrice = property && property.letting && property.letting.rent
-      const rentFrequency = property && property.letting && property.letting.rentFrequency
+      const rentFrequency =
+        property && property.letting && property.letting.rentFrequency
 
       const bedrooms = property && property.bedrooms
       const bathrooms = property && property.bathrooms
       const infoWindow = new googleMap.InfoWindow({
-        content: getContent({ price, theme, latitude, longitude, bedrooms, bathrooms, address, marketingMode, lettingPrice, rentFrequency, imageUrl })
+        content: getContent({
+          price,
+          theme,
+          latitude,
+          longitude,
+          bedrooms,
+          bathrooms,
+          address,
+          marketingMode,
+          lettingPrice,
+          rentFrequency,
+          imageUrl
+        })
       })
       infoWindow.open(map, marker)
     }
@@ -297,20 +350,24 @@ export type MapContainerProps = {
   googleMap: any
   center?: GeoLocation
   zoom?: number
-  property?: PropertyModel,
+  property?: PropertyModel
 }
 
-export const MapContainer: React.FC<MapContainerProps> | null = ({ googleMap, center, zoom, property, ...restProps }) => {
+export const MapContainer: React.FC<MapContainerProps> | null = ({
+  googleMap,
+  center,
+  zoom,
+  property,
+  ...restProps
+}) => {
   const mapRef = React.useRef(null)
   const contextValue = useContext(context)
   const searchStore = useContext(context)
-
 
   let price = ''
   if (searchStore && searchStore.selectedProperty) {
     price = getPrice(searchStore.selectedProperty, searchStore.searchType)
   }
-
 
   let imageUrl = INVALID_BACKGROUND_AS_BASE64
   if (searchStore && property) {
@@ -321,7 +378,20 @@ export const MapContainer: React.FC<MapContainerProps> | null = ({ googleMap, ce
     }
   }
 
-  React.useEffect(handleUseEffect({ price, googleMap, zoom, center, mapRef, restProps, property, imageUrl, theme: contextValue ? contextValue.theme : null }), [googleMap, center, zoom, property])
+  React.useEffect(
+    handleUseEffect({
+      price,
+      googleMap,
+      zoom,
+      center,
+      mapRef,
+      restProps,
+      property,
+      imageUrl,
+      theme: contextValue ? contextValue.theme : null
+    }),
+    [googleMap, center, zoom, property]
+  )
 
   if (!contextValue) {
     return null
@@ -335,11 +405,21 @@ export type RenderMapParams = {
   center?: GeoLocation
 }
 
-export const renderMap = ({ property, zoom, center }: RenderMapParams) => ({ googleMap, error }: RenderProps) => {
+export const renderMap = ({ property, zoom, center }: RenderMapParams) => ({
+  googleMap,
+  error
+}: RenderProps) => {
   if (error) {
     return <div>{error}</div>
   }
-  return <MapContainer googleMap={googleMap} property={property} zoom={zoom} center={center} />
+  return (
+    <MapContainer
+      googleMap={googleMap}
+      property={property}
+      zoom={zoom}
+      center={center}
+    />
+  )
 }
 
 export type GeoLocation = {
@@ -351,10 +431,15 @@ export type GoogleMapProps = {
   params: Params
   property?: PropertyModel
   zoom?: number
-  center?: GeoLocation,
+  center?: GeoLocation
 }
 
-export const GoogleMap: React.FC<GoogleMapProps> = ({ params, property, zoom, center }) => {
+export const GoogleMap: React.FC<GoogleMapProps> = ({
+  params,
+  property,
+  zoom,
+  center
+}) => {
   return (
     <GoogleMapLoader
       params={params}

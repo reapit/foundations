@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
-import { Loader } from './loader'
+import React, { useState } from 'react'
+import Loader from '../loader'
 import styled, { ThemeProvider } from 'styled-components'
-import { oc } from 'ts-optchain';
-import { Theme } from './theme'
-import { API_URL, IMAGE_API_URL } from './constants'
+import { oc } from 'ts-optchain'
+import { Theme } from '../theme'
+import { API_URL, IMAGE_API_URL } from '../constants'
 
-import { useSearchStore } from './hooks/search-store'
-import { SearchResult } from './search-result'
-import { context } from './context'
-import { PropertyModel } from './types/property';
-import { PagedResultPropertyImageModel_, PropertyImageModel } from './types/propertyImage';
-import { GoogleMap } from './map/google-map'
+import { useSearchStore } from '../hooks/search-store'
+import { SearchResult } from '../search-result'
+import { context } from '../context'
+import { PropertyModel } from '../types/property'
+import {
+  PagedResultPropertyImageModel_,
+  PropertyImageModel
+} from '../types/propertyImage'
+import { GoogleMap } from '../map/google-map'
 import { createPortal } from 'react-dom'
 
 const BaseStyle = styled.div`
   color: ${props => props.theme.colors.base};
   font-size: ${props => props.theme.base.font.sizes.base};
   font-family: ${props => props.theme.base.font.family};
-
 
   & h1 {
     font-size: ${props => props.theme.base.font.sizes.headings.h1};
@@ -95,22 +97,20 @@ const SearchResultContainer = styled.div`
   }
 `
 
-
 export type TabItem = 'SEARCH_RESULT' | 'MAP'
 
 const Tab = styled.div<{ isActive: boolean }>`
   padding: 1rem;
   cursor: pointer;
   border-bottom: 2px solid ${props => props.theme.colors.primary};
-  border-width: ${props => props.isActive ? '3px' : '1px'}
+  border-width: ${props => (props.isActive ? '3px' : '1px')};
 `
 
 const TabContent = styled.div<{ isActive: boolean }>`
   width: 100%;
   @media screen and (max-width: 1600px) {
     & {
-      display: ${props => props.isActive ? 'block' : 'none'};
-
+      display: ${props => (props.isActive ? 'block' : 'none')};
     }
   }
 `
@@ -123,13 +123,24 @@ const TabContainer = styled.div`
   }
 `
 
-const SearchWidget: React.FC<{ API_KEY: string, theme: Theme }> = ({ API_KEY, theme }) => {
+const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
+  API_KEY,
+  theme
+}) => {
   const [searchKeyword, _setSearchKeyword] = useState('')
   const searchStore = useSearchStore()
-  const { setSelectedProperty, setFetchResult, setFetchError, setStartFetching, setPropertyImages, isLoading, selectedProperty, result } = searchStore
+  const {
+    setSelectedProperty,
+    setFetchResult,
+    setFetchError,
+    setStartFetching,
+    setPropertyImages,
+    isLoading,
+    selectedProperty,
+    result
+  } = searchStore
 
   const [activeTab, setActiveTab] = useState<TabItem>('MAP')
-
 
   const getPropertyImages = async (result: PropertyModel[]) => {
     const propertyIds = result.map(property => oc(property).id(''))
@@ -140,9 +151,8 @@ const SearchWidget: React.FC<{ API_KEY: string, theme: Theme }> = ({ API_KEY, th
     const response = await fetch(url.toString(), {
       headers: {
         Authorization: API_KEY
-      },
-    }
-    )
+      }
+    })
 
     const parsedResponse: PagedResultPropertyImageModel_ = await response.json()
     if (!parsedResponse.data) {
@@ -155,20 +165,24 @@ const SearchWidget: React.FC<{ API_KEY: string, theme: Theme }> = ({ API_KEY, th
       imageMap[propertyId] = propertyImage
     }
 
-
     return imageMap
   }
-
 
   const searchForSale = async () => {
     setSelectedProperty(null)
     setStartFetching()
 
     const url = new URL(API_URL)
-    url.searchParams.append('SellingStatuses', ['forSale', 'underOffer'].join(','))
-    url.searchParams.append('InternetAdvertising', "true")
+    url.searchParams.append(
+      'SellingStatuses',
+      ['forSale', 'underOffer'].join(',')
+    )
+    url.searchParams.append('InternetAdvertising', 'true')
     url.searchParams.append('PageSize', '8')
-    url.searchParams.append('marketingMode', ['selling', 'sellingAndLetting'].join(','))
+    url.searchParams.append(
+      'marketingMode',
+      ['selling', 'sellingAndLetting'].join(',')
+    )
     url.searchParams.append('Address', searchKeyword)
 
     try {
@@ -176,8 +190,7 @@ const SearchWidget: React.FC<{ API_KEY: string, theme: Theme }> = ({ API_KEY, th
         headers: {
           Authorization: API_KEY
         }
-      }
-      )
+      })
       const result = await response.json()
 
       const propertyImages = await getPropertyImages(result.data)
@@ -194,10 +207,16 @@ const SearchWidget: React.FC<{ API_KEY: string, theme: Theme }> = ({ API_KEY, th
     setStartFetching()
 
     const url = new URL('https://reapit.cloud.tyk.io/properties')
-    url.searchParams.append('LettingStatuses', ['toLet', 'underOffer'].join(','))
-    url.searchParams.append('internetAdvertising', "true")
+    url.searchParams.append(
+      'LettingStatuses',
+      ['toLet', 'underOffer'].join(',')
+    )
+    url.searchParams.append('internetAdvertising', 'true')
     url.searchParams.append('PageSize', '8')
-    url.searchParams.append('marketingMode', ['letting', 'sellingAndLetting'].join(','))
+    url.searchParams.append(
+      'marketingMode',
+      ['letting', 'sellingAndLetting'].join(',')
+    )
     url.searchParams.append('Address', searchKeyword)
 
     try {
@@ -205,8 +224,7 @@ const SearchWidget: React.FC<{ API_KEY: string, theme: Theme }> = ({ API_KEY, th
         headers: {
           Authorization: API_KEY
         }
-      }
-      )
+      })
       const result = await response.json()
       const propertyImages = await getPropertyImages(result.data)
       setPropertyImages(propertyImages)
@@ -217,11 +235,11 @@ const SearchWidget: React.FC<{ API_KEY: string, theme: Theme }> = ({ API_KEY, th
     }
   }
 
-  const searchResultContainer = document.getElementById('search-result-container')
+  const searchResultContainer = document.getElementById(
+    'search-result-container'
+  )
   const onTabMapClick = () => setActiveTab('MAP')
   const onTabSearchResultClick = () => setActiveTab('SEARCH_RESULT')
-
-
 
   return (
     <ThemeProvider theme={theme}>
@@ -229,40 +247,63 @@ const SearchWidget: React.FC<{ API_KEY: string, theme: Theme }> = ({ API_KEY, th
         <context.Provider value={{ ...searchStore, theme }}>
           <WidgetContainer>
             <Title>Find your perfect home</Title>
-            <Input onChange={(e) => {
-              const value = e.target.value
-              _setSearchKeyword(value)
-            }} name="search" placeholder="enter your town or postcode" />
+            <Input
+              onChange={e => {
+                const value = e.target.value
+                _setSearchKeyword(value)
+              }}
+              name="search"
+              placeholder="enter your town or postcode"
+            />
             <ButtonContainer>
-              <Button onClick={searchForSale} disabled={Boolean(isLoading)}>FOR SALE</Button>
-              <Button onClick={searchToRent} disabled={Boolean(isLoading)}>TO RENT</Button>
+              <Button onClick={searchForSale} disabled={Boolean(isLoading)}>
+                FOR SALE
+              </Button>
+              <Button onClick={searchToRent} disabled={Boolean(isLoading)}>
+                TO RENT
+              </Button>
             </ButtonContainer>
           </WidgetContainer>
-          {searchResultContainer && createPortal(
-            <BaseStyle>
-              {isLoading && <Loader />}
-              {!isLoading && result &&
-                <div>
-                  <TabContainer>
-                    <Tab onClick={onTabMapClick} isActive={activeTab === 'MAP'}>Map</Tab>
-                    <Tab onClick={onTabSearchResultClick} isActive={activeTab === 'SEARCH_RESULT'}>Results</Tab>
-                  </TabContainer>
-                  <SearchResultContainer>
-                    <TabContent isActive={activeTab === 'MAP'}>
-                      <GoogleMap params={{ key: process.env.REACT_APP_MAP_API_KEY }} property={selectedProperty} />
-                    </TabContent>
-                    <TabContent isActive={activeTab === 'SEARCH_RESULT'}>
-                      <SearchResult />
-                    </TabContent>
-                  </SearchResultContainer>
-                </div>
-              }
-            </BaseStyle>
-            , searchResultContainer)}
+          {searchResultContainer &&
+            createPortal(
+              <BaseStyle>
+                {isLoading && <Loader />}
+                {!isLoading && result && (
+                  <div>
+                    <TabContainer>
+                      <Tab
+                        onClick={onTabMapClick}
+                        isActive={activeTab === 'MAP'}
+                      >
+                        Map
+                      </Tab>
+                      <Tab
+                        onClick={onTabSearchResultClick}
+                        isActive={activeTab === 'SEARCH_RESULT'}
+                      >
+                        Results
+                      </Tab>
+                    </TabContainer>
+                    <SearchResultContainer>
+                      <TabContent isActive={activeTab === 'MAP'}>
+                        <GoogleMap
+                          params={{ key: process.env.REACT_APP_MAP_API_KEY }}
+                          property={selectedProperty}
+                        />
+                      </TabContent>
+                      <TabContent isActive={activeTab === 'SEARCH_RESULT'}>
+                        <SearchResult />
+                      </TabContent>
+                    </SearchResultContainer>
+                  </div>
+                )}
+              </BaseStyle>,
+              searchResultContainer
+            )}
         </context.Provider>
       </BaseStyle>
     </ThemeProvider>
-  );
+  )
 }
 
-export default SearchWidget;
+export default SearchWidget
