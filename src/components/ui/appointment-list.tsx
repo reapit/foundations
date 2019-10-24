@@ -99,7 +99,7 @@ export const AppointmentList = memo(
             const tel = oc(nextAppointment)
               .attendeeHaveMobile.communicationDetails([])
               .filter(({ label }) => label === 'Mobile')[0].detail
-            const name = oc(nextAppointment).attendeeHaveMobile[0].name('')
+            const name = oc(nextAppointment).attendeeHaveMobile.name('')
             const duration = oc(nextAppointment).durationText()
 
             renderETAButton = (

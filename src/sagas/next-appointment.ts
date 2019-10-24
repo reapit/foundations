@@ -76,7 +76,15 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
         response.rows[0].elements[0].status === google.maps.DistanceMatrixElementStatus.OK
       ) {
         const userCode = yield select(selectUserCode)
-        const attendeeHaveMobile = filterLoggedInUser(appointment.attendees, userCode).filter(attendee => {
+
+        const noOfficeOrNegotiatorAttendees = filterLoggedInUser(appointment.attendees, userCode).filter(attendee => {
+          const type = oc(attendee)
+            .type('')
+            .toLowerCase()
+          return type !== 'negotiator' && type !== 'office'
+        })
+
+        const attendeeHaveMobile = noOfficeOrNegotiatorAttendees.filter(attendee => {
           if (!attendee.communicationDetails) {
             return false
           }
