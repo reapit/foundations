@@ -19,8 +19,7 @@ describe('AddressInformation', () => {
       isSubmitting: false,
       onNextHandler: jest.fn(),
       onPrevHandler: jest.fn(),
-      onHandleSubmit: jest.fn(),
-      isDesktopMode: true
+      onHandleSubmit: jest.fn()
     }
     const wrapper = shallow(<AddressInformation {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -33,8 +32,7 @@ describe('AddressInformation', () => {
       setShowMoreThreeYearInput: jest.fn(),
       isSubmitting: false,
       onNextHandler: jest.fn(),
-      onPrevHandler: jest.fn(),
-      isDesktopMode: true
+      onPrevHandler: jest.fn()
     }
     const fn = renderForm(mockProps)
     const component = fn({ values: {} })
@@ -56,8 +54,7 @@ describe('AddressInformation', () => {
         isShowMoreThreeYearInput: true,
         values: contact.addresses[0],
         index: 0,
-        setFieldValue: jest.fn(),
-        isDesktopMode: true
+        setFieldValue: jest.fn()
       }
       const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -68,8 +65,7 @@ describe('AddressInformation', () => {
         isShowMoreThreeYearInput: true,
         values: contact.addresses[0],
         index: 0,
-        setFieldValue: jest.fn(),
-        isDesktopMode: true
+        setFieldValue: jest.fn()
       }
       const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -80,8 +76,7 @@ describe('AddressInformation', () => {
         isShowMoreThreeYearInput: false,
         values: contact.addresses[0],
         index: 0,
-        setFieldValue: jest.fn(),
-        isDesktopMode: true
+        setFieldValue: jest.fn()
       }
       const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -98,18 +93,12 @@ describe('AddressInformation', () => {
           checklistDetailData: {
             contact
           }
-        },
-        auth: {
-          refreshSession: {
-            mode: 'DESKTOP'
-          }
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact,
-        isSubmitting: false,
-        isDesktopMode: true
+        isSubmitting: false
       })
     })
     it('should run correctly', () => {
@@ -117,8 +106,7 @@ describe('AddressInformation', () => {
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact: {},
-        isSubmitting: false,
-        isDesktopMode: false
+        isSubmitting: false
       })
     })
   })
@@ -141,8 +129,7 @@ describe('AddressInformation', () => {
   describe('AddressInput', () => {
     it('should render correctly', () => {
       const mockProps = {
-        index: 0,
-        isDesktopMode: true
+        index: 0
       }
       const wrapper = shallow(<AddressInput {...mockProps} />)
       expect(wrapper).toMatchSnapshot()

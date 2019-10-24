@@ -562,13 +562,6 @@ export const updateAddressHistoryListen = function*() {
   )
 }
 
-export const updateDeclarationAndRiskListen = function*() {
-  yield takeLatest<Action<UpdateContactParams>>(
-    ActionTypes.CHECKLIST_DETAIL_DECLARATION_AND_RISK_UPDATE_DATA,
-    onUpdateDeclarationAndRisk
-  )
-}
-
 export const checkListDetailDeclarationAndRiskUpdateListen = function*() {
   yield takeLatest<Action<UpdateContactParams>>(
     ActionTypes.CHECKLIST_DETAIL_DECLARATION_AND_RISK_UPDATE_DATA,

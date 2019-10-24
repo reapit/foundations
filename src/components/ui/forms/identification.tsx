@@ -17,21 +17,15 @@ export type IdentificationProps = {
   contact: ContactModel | null
   initFormValues: IdentityDocumentModel
   loading: boolean
-  isDesktopMode: boolean
   disabled?: boolean
   onSaveHandler: (values: any) => void
   onNextHandler: (values: any) => () => void
   onPrevHandler: () => void
 }
 
-export const renderFormHandler = ({
-  contact,
-  loading,
-  onNextHandler,
-  onPrevHandler,
-  isDesktopMode,
-  disabled = false
-}) => ({ values }) => {
+export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandler, disabled = false }) => ({
+  values
+}) => {
   const id = oc(contact).id('')
   return (
     <>
@@ -45,7 +39,7 @@ export const renderFormHandler = ({
         <CameraImageInput
           id="fileUrl"
           name="fileUrl"
-          labelText={isDesktopMode ? 'Upload File' : 'Upload File/Take a Pic'}
+          labelText="Upload File"
           allowClear={true}
           inputProps={{ disabled: disabled }}
         />
@@ -82,13 +76,12 @@ export const Identification: React.FC<IdentificationProps> = ({
   initFormValues,
   onSaveHandler,
   onNextHandler,
-  onPrevHandler,
-  isDesktopMode
+  onPrevHandler
 }) => (
   <Formik
     initialValues={initFormValues}
     onSubmit={(formValues: IdentityDocumentModel) => onSubmitHandler(formValues, onSaveHandler)}
-    render={renderFormHandler({ contact, loading, onNextHandler, onPrevHandler, isDesktopMode, disabled })}
+    render={renderFormHandler({ contact, loading, onNextHandler, onPrevHandler, disabled })}
   />
 )
 

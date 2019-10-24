@@ -10,7 +10,6 @@ import {
   selectCheckListDetailPrimaryId,
   selectCheckListDetailIsSubmitting
 } from '@/selectors/checklist-detail'
-import { checkIsDesktopMode } from '@/selectors/auth'
 import { IdentityDocumentModel, ContactModel } from '@/types/contact-api-schema'
 import { selectCheckListDetailPrimaryIdUrl } from '../../../selectors/checklist-detail'
 
@@ -22,11 +21,9 @@ export const PrimaryIdentification: React.FC<PrimaryIdentiticationProps> = ({
   loading,
   updateIdentification,
   onNextHandler,
-  onPrevHandler,
-  isDesktopMode
+  onPrevHandler
 }) => (
   <Identification
-    isDesktopMode={isDesktopMode}
     loading={loading}
     initFormValues={initFormValues}
     contact={contact}
@@ -40,7 +37,6 @@ export type StateProps = {
   loading: boolean
   contact: ContactModel | null
   initFormValues: IdentityDocumentModel
-  isDesktopMode: boolean
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
@@ -48,8 +44,6 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
   const contact = selectCheckListDetailContact(state)
   const primaryIdDocument = selectCheckListDetailPrimaryId(state)
   const primaryIdUrl = selectCheckListDetailPrimaryIdUrl(state)
-
-  const isDesktopMode = checkIsDesktopMode(state)
 
   let initFormValues = IDENTIFICATION_FORM_DEFAULT_VALUES
   const DEFAULT_TYPE = ''
@@ -67,8 +61,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     loading: isSubmitting,
     contact,
-    initFormValues,
-    isDesktopMode
+    initFormValues
   }
 }
 

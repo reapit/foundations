@@ -14,8 +14,7 @@ describe('SecondaryIdentification', () => {
         idCheck: idCheck,
         updateIdentification: jest.fn(),
         onNextHandler: jest.fn(),
-        onPrevHandler: jest.fn(),
-        isDesktopMode: false
+        onPrevHandler: jest.fn()
       }
       const wrapper = shallow(<SecondaryIdentification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -31,11 +30,6 @@ describe('SecondaryIdentification', () => {
           checklistDetailData: {
             contact
           }
-        },
-        auth: {
-          refreshSession: {
-            desktopMode: 'DESKTOP'
-          }
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
@@ -45,8 +39,7 @@ describe('SecondaryIdentification', () => {
         initFormValues: {
           ...contact.metadata['secondaryId'][0]['documents'][0],
           expiry: new Date('2019-10-10T00:00:00Z')
-        },
-        isDesktopMode: false
+        }
       }
       expect(result).toEqual(expected)
     })
@@ -63,8 +56,7 @@ describe('SecondaryIdentification', () => {
           expiry: undefined,
           fileUrl: undefined,
           typeId: ''
-        },
-        isDesktopMode: false
+        }
       }
       expect(result).toEqual(expected)
     })

@@ -97,7 +97,6 @@ exports[`SecondaryIdentification SecondaryIdentification should match snapshot 1
   }
   disabled={false}
   initFormValues={Object {}}
-  isDesktopMode={false}
   loading={false}
   onNextHandler={[MockFunction]}
   onPrevHandler={[MockFunction]}
