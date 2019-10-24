@@ -6,12 +6,10 @@ export interface ProfileToggleProps {
   isOpen?: boolean
   title: string
   complete: boolean
+  onToggle: () => void
 }
 
-const ProfileToggle: React.FC<ProfileToggleProps> = ({ isOpen = false, title, complete, children }) => {
-  const [open, setOpen] = useState(isOpen)
-  const toggle = () => setOpen(prev => !prev)
-
+const ProfileToggle: React.FC<ProfileToggleProps> = ({ isOpen = false, title, complete, children, onToggle }) => {
   return (
     <div className={styles.container} data-test="profile-toggle">
       <div
@@ -21,10 +19,10 @@ const ProfileToggle: React.FC<ProfileToggleProps> = ({ isOpen = false, title, co
         tabIndex={1}
         onKeyDown={e => {
           if (e.key === 'Enter' || e.keyCode === 13) {
-            toggle()
+            onToggle()
           }
         }}
-        onClick={toggle}
+        onClick={onToggle}
       >
         <h5 className={styles.heading}>{title}</h5>
         <div className="flex items-center">
@@ -32,12 +30,12 @@ const ProfileToggle: React.FC<ProfileToggleProps> = ({ isOpen = false, title, co
             {complete ? <MdCheck className={styles.check} /> : <MdClose className={styles.times} />}
             {complete ? 'Complete' : 'Incomplete'}
           </div>
-          <span className={`${styles.arrow} ${open ? styles.arrowUp : ''}`}>
+          <span className={`${styles.arrow} ${isOpen ? styles.arrowUp : ''}`}>
             <MdKeyboardArrowDown />
           </span>
         </div>
       </div>
-      {open && <div className={styles.body}>{children}</div>}
+      {isOpen && <div className={styles.body}>{children}</div>}
     </div>
   )
 }

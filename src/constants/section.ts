@@ -3,5 +3,5 @@ export const STEPS = {
   PRIMARY_IDENTIFICATION: 'Primary Identification',
   SECONDARY_IDENTIFICATION: 'Secondary Identification',
   ADDRESS_INFORMATION: 'Address Information',
-  AGENT_CHECK: 'Agent Check'
+  AGENT_CHECKS: 'Agent Checks'
 }
