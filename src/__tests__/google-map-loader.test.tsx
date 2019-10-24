@@ -7,7 +7,10 @@ describe('GoogleMapLoader', () => {
     it('should call setError', () => {
       const mockSetError = jest.fn()
       const mockSetGoogleMap = jest.fn()
-      const fn = loadedCallback({ setError: mockSetError, setGoogleMap: mockSetGoogleMap })
+      const fn = loadedCallback({
+        setError: mockSetError,
+        setGoogleMap: mockSetGoogleMap
+      })
       fn('mockError')
       expect(mockSetError).toBeCalledWith('mockError')
     })
@@ -15,7 +18,10 @@ describe('GoogleMapLoader', () => {
     it('should call setGoogleMap', () => {
       const mockSetError = jest.fn()
       const mockSetGoogleMap = jest.fn()
-      const fn = loadedCallback({ setError: mockSetError, setGoogleMap: mockSetGoogleMap })
+      const fn = loadedCallback({
+        setError: mockSetError,
+        setGoogleMap: mockSetGoogleMap
+      })
       fn(undefined)
       expect(mockSetGoogleMap).toBeCalled()
     })
@@ -24,10 +30,10 @@ describe('GoogleMapLoader', () => {
   describe('GoogleMapLoader', () => {
     it('should match snapshot', () => {
       const mockProps = {
-        params: { key: "123" },
+        params: { key: '123' },
         render: jest.fn()
       }
-      const wrapper = shallow(<GoogleMapLoader {...mockProps}/>)
+      const wrapper = shallow(<GoogleMapLoader {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
     })
   })

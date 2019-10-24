@@ -97,20 +97,12 @@
         "qualifier": "guidePrice",
         "status": "forSale"
       },
-      "type": [
-        "house"
-      ],
-      "style": [
-        "terraced"
-      ],
-      "situation": [
-        "garden"
-      ],
+      "type": ["house"],
+      "style": ["terraced"],
+      "situation": ["garden"],
       "parking": [],
       "age": [],
-      "locality": [
-        "townCity"
-      ],
+      "locality": ["townCity"],
       "rooms": [],
       "relationships": [
         {
@@ -161,19 +153,10 @@
         "qualifier": "askingPrice",
         "status": "valuation"
       },
-      "type": [
-        "house",
-        "cottage"
-      ],
-      "style": [
-        "semiDetached"
-      ],
-      "situation": [
-        "garden"
-      ],
-      "parking": [
-        "garage"
-      ],
+      "type": ["house", "cottage"],
+      "style": ["semiDetached"],
+      "situation": ["garden"],
+      "parking": ["garage"],
       "age": [],
       "locality": [],
       "rooms": [],
@@ -234,12 +217,8 @@
           "type": "freehold"
         }
       },
-      "type": [
-        "house"
-      ],
-      "style": [
-        "detached"
-      ],
+      "type": ["house"],
+      "style": ["detached"],
       "situation": [],
       "parking": [],
       "age": [],
@@ -295,12 +274,8 @@
         "qualifier": "guidePrice",
         "status": "preAppraisal"
       },
-      "type": [
-        "house"
-      ],
-      "style": [
-        "detached"
-      ],
+      "type": ["house"],
+      "style": ["detached"],
       "situation": [],
       "parking": [],
       "age": [],
@@ -467,12 +442,8 @@
         "qualifier": "guidePrice",
         "status": "preAppraisal"
       },
-      "type": [
-        "house"
-      ],
-      "style": [
-        "semiDetached"
-      ],
+      "type": ["house"],
+      "style": ["semiDetached"],
       "situation": [],
       "parking": [],
       "age": [],

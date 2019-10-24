@@ -17,8 +17,6 @@ describe('useSearchStore', () => {
     expect(result.current.isLoading).toBeTruthy()
     expect(result.current.err).toBeNull()
   }),
-
-
     it('handles fetch result', () => {
       const { result } = renderHook(() => useSearchStore())
 

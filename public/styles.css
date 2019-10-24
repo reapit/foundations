@@ -6,7 +6,7 @@ body {
 
 /* Font */
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Navbar */
@@ -28,7 +28,7 @@ body {
 }
 
 #navbar > svg {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* Widget */
