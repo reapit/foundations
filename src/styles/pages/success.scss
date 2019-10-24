@@ -1,50 +1,26 @@
 @import '../base/colors.scss';
 
-.name {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.header {
+.successButton {
   display: flex;
-  align-items: center;
-  margin: 40px 0 20px 0;
+  justify-content: end;
+  margin-top: 1.5rem;
 }
 
-.headerLeft {
-  width: 50%;
-}
-
-.headerRight {
-  width: 50%;
-  padding: 0 40px;
-}
-
-.leftBlock {
-  width: 50%;
-}
-
-.rightBlock {
-  padding: 0 40px;
-  width: 50%;
-}
-
-.successMessage {
-  display: flex;
-  padding: 20px;
+.successWrapper {
+  padding: 25px;
   border: 2px solid $grey-light;
-  font-size: 20px;
-  margin-bottom: 40px;
-}
-
-.refCode {
-  font-size: 18px;
+  margin-top: 3.5rem;
 }
 
 .successIcon {
   color: $green;
-  font-size: 30px;
-  width: 50px;
+  font-size: 20px;
   flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.successContent {
+  width: 80%;
+  font-size: 16px;
+  margin-top: 1rem;
 }
