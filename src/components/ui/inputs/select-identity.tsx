@@ -16,10 +16,12 @@ export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, .
 
   const listIdentity = React.useMemo(() => {
     if (identityTypes) {
-      return identityTypes.map(item => ({
-        label: item.value as string,
-        value: item.id as string
-      }))
+      return identityTypes
+        .filter(item => item.id)
+        .map(item => ({
+          label: item.value as string,
+          value: item.id as string
+        }))
     }
     return []
   }, [identityTypes])
