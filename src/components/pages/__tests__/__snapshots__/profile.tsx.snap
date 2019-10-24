@@ -81,7 +81,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
             "appMode": "DESKTOP",
             "entityCode": "MKC16000098",
             "entityType": "contacts",
-            "webRoute": "/checklist-detail/:id/success",
+            "webRoute": "/profile/:id/success",
           }
         }
       >
@@ -173,7 +173,7 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
             "appMode": "DESKTOP",
             "entityCode": "MKC16000098",
             "entityType": "contacts",
-            "webRoute": "/checklist-detail/:id/success",
+            "webRoute": "/profile/:id/success",
           }
         }
       >
@@ -186,6 +186,6 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
 
 exports[`Profile should match a snapshot when submitChecksFormState is SUCCESS 1`] = `
 <Redirect
-  to="/checklist-detail/:id/success"
+  to="/profile/:id/success"
 />
 `;

@@ -46,7 +46,7 @@ exports[`Router should match a snapshot 1`] = `
                 "_status": -1,
               }
             }
-            path="/checklist-detail/:id/success"
+            path="/profile/:id/success"
           />
           <Connect(Component)
             allow="CLIENT"
