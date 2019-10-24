@@ -124,10 +124,8 @@ export type OwnPropsProps = {
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onHandleSubmit: values => dispatch(updateDeclarationAndRisk({ contact: values })),
-    onNextHandler: (values: any) => () => {
-      console.log(values)
-      dispatch(updateDeclarationAndRisk({ nextSection: STEPS.PEP_SEARCH, contact: values }))
-    },
+    onNextHandler: (values: any) => () =>
+      dispatch(updateDeclarationAndRisk({ nextSection: STEPS.PEP_SEARCH, contact: values })),
     onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.ADDRESS_INFORMATION))
   }
 }
