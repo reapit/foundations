@@ -156,10 +156,11 @@ export type StateProps = {
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
+  const MINIMUM_DOCUMENT = 1
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
     idCheck: oc(state).checklistDetail.checklistDetailData.idCheck({}),
-    isDisabledSubmit: oc(state).checklistDetail.checklistDetailData.idCheck.documents([]).length !== 2
+    isDisabledSubmit: oc(state).checklistDetail.checklistDetailData.idCheck.documents([]).length < MINIMUM_DOCUMENT
   }
 }
 
