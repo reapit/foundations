@@ -11,8 +11,7 @@ describe('PrimaryIdentification', () => {
         contactModel: contact,
         initFormValues: {},
         loading: false,
-        updateIdentification: jest.fn(),
-        isDesktopMode: false
+        updateIdentification: jest.fn()
       }
       const wrapper = shallow(<PrimaryIdentification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -40,8 +39,7 @@ describe('PrimaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: contact,
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
-        isDesktopMode: false
+        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES
       }
       expect(result).toEqual(expected)
     })
@@ -53,8 +51,7 @@ describe('PrimaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: {},
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
-        isDesktopMode: false
+        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES
       }
       expect(result).toEqual(expected)
     })

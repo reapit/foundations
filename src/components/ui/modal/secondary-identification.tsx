@@ -14,21 +14,12 @@ import {
   selectCheckListDetailSecondaryIdUrl,
   selectCheckListDetailIdCheck
 } from '@/selectors/checklist-detail'
-import { checkIsDesktopMode } from '@/selectors/auth'
 import { isCompletedPrimaryID } from '@reapit/elements'
 
-export const SecondaryIdentification = ({
-  contactModel,
-  idCheck,
-  initFormValues,
-  loading,
-  updateIdentification,
-  isDesktopMode
-}) => {
+export const SecondaryIdentification = ({ contactModel, idCheck, initFormValues, loading, updateIdentification }) => {
   const isDisabled = !isCompletedPrimaryID(idCheck)
   return (
     <Identification
-      isDesktopMode={isDesktopMode}
       loading={loading}
       initFormValues={initFormValues}
       contactModel={contactModel}
@@ -43,7 +34,6 @@ export const mapStateToProps = (state: ReduxState) => {
   const contactModel = selectCheckListDetailContact(state)
   const secondaryIdDocument = selectCheckListDetailSecondaryId(state)
   const secondaryIdUrl = selectCheckListDetailSecondaryIdUrl(state)
-  const isDesktopMode = checkIsDesktopMode(state)
   const idCheck = selectCheckListDetailIdCheck(state)
 
   let initFormValues = IDENTIFICATION_FORM_DEFAULT_VALUES
@@ -63,8 +53,7 @@ export const mapStateToProps = (state: ReduxState) => {
     loading: isSubmitting,
     contactModel,
     idCheck,
-    initFormValues,
-    isDesktopMode
+    initFormValues
   }
 }
 

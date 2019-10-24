@@ -13,21 +13,13 @@ import {
   selectCheckListDetailIsSubmitting,
   selectCheckListDetailPrimaryIdUrl
 } from '@/selectors/checklist-detail'
-import { checkIsDesktopMode } from '@/selectors/auth'
 
-export const PrimaryIdentification = ({
-  contactModel,
-  initFormValues,
-  loading,
-  updateIdentification,
-  isDesktopMode
-}) => (
+export const PrimaryIdentification = ({ contactModel, initFormValues, loading, updateIdentification }) => (
   <Identification
     loading={loading}
     initFormValues={initFormValues}
     contactModel={contactModel}
     onSaveHandler={updateIdentification}
-    isDesktopMode={isDesktopMode}
   />
 )
 
@@ -36,7 +28,6 @@ export const mapStateToProps = (state: ReduxState) => {
   const contactModel = selectCheckListDetailContact(state)
   const primaryIdDocument = selectCheckListDetailPrimaryId(state)
   const primaryIdUrl = selectCheckListDetailPrimaryIdUrl(state)
-  const isDesktopMode = checkIsDesktopMode(state)
 
   let initFormValues = IDENTIFICATION_FORM_DEFAULT_VALUES
 
@@ -54,8 +45,7 @@ export const mapStateToProps = (state: ReduxState) => {
   return {
     loading: isSubmitting,
     contactModel,
-    initFormValues,
-    isDesktopMode
+    initFormValues
   }
 }
 
