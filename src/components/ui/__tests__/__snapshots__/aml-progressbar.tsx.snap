@@ -74,28 +74,13 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
           >
             ID Check Successful
           </AcButton>
-          <AcButton
-            buttonProps={
-              Object {
-                "type": "button",
-                "variant": "primary",
-              }
-            }
-            dynamicLinkParams={
-              Object {
-                "appMode": "WEB",
-                "entityType": "apps",
-                "queryParams": Object {
-                  "appPram": "cntCode",
-                  "closeApp": true,
-                  "id": "3ec48bb7-f152-4d0d-8b6a-b5d0c8fff010",
-                },
-                "webRoute": "https://dev.lifetime-legal-app.reapit.com?cntCode=MKC16000098",
-              }
-            }
+          <Button
+            onClick={[Function]}
+            type="button"
+            variant="primary"
           >
             Refer to Lifetime Legal
-          </AcButton>
+          </Button>
         </React.Fragment>
       }
       title="Update Status"

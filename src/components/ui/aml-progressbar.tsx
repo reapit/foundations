@@ -111,26 +111,15 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
               >
                 ID Check Successful
               </AcButton>
-              <AcButton
-                dynamicLinkParams={{
-                  entityType: EntityType.APPS,
-                  appMode: loginMode,
-                  queryParams: {
-                    // TODO - this is the LTL dev app id - should be dynamic
-                    id: '3ec48bb7-f152-4d0d-8b6a-b5d0c8fff010',
-                    appPram: 'cntCode' as AppParams,
-                    closeApp: true
-                  },
-                  // TODO - as above, needs to not be hardcoded
-                  webRoute: `https://dev.lifetime-legal-app.reapit.com?cntCode=${contact.id}`
-                }}
-                buttonProps={{
-                  type: 'button',
-                  variant: 'primary'
+              <Button
+                type="button"
+                variant="primary"
+                onClick={() => {
+                  window.location.href = `https://dev.lifetime-legal-app.reapit.com/profile/${contact.id}`
                 }}
               >
                 Refer to Lifetime Legal
-              </AcButton>
+              </Button>
             </>
           }
         >
