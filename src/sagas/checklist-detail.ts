@@ -126,7 +126,7 @@ export const mapArrAddressToUploadImageFunc = ({ addresses, headers, addressesMe
     return []
   }
   return addresses.map((address: AddressModel, index) => {
-    if (!isBase64(addressesMeta[index].documentImage)) {
+    if (!isBase64(addressesMeta && addressesMeta[index] && addressesMeta[index].documentImage)) {
       return null
     }
     return uploadImage({
@@ -277,7 +277,7 @@ export const onUpdateDeclarationAndRisk = function*({
   const headers = yield call(initAuthorizedRequestHeaders)
   const currentContact = yield select(selectCheckListDetailContact)
   try {
-    let { type, reason, declarationForm, riskAssessmentForm } = metadata && metadata.declarationRisk
+    let { type, reason, declarationForm, riskAssessmentForm } = metadata && oc(metadata).declarationRisk({})
     const [declarationResponse, riskAssessmentResponse] = yield all([
       isBase64(declarationForm)
         ? call(uploadImage, { headers, name: `declaration-${type}-${reason}`, imageData: declarationForm })
@@ -379,7 +379,7 @@ export const updateSecondaryId = function*({
     const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
     const secondaryIdUrl = identityChecks.fileUrl
-    const uploaderDocument: FileUploaderResponse = isBase64(identityChecks.fileUrl)
+    const uploaderDocument: FileUploaderResponse = isBase64(identityChecks && identityChecks.fileUrl)
       ? yield call(uploadImage, {
           headers,
           name: `${contact.id}-${identityChecks.details}`,
@@ -453,7 +453,7 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
     const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
     const primaryIdUrl = identityChecks.fileUrl
-    const uploaderDocument: FileUploaderResponse = isBase64(identityChecks.fileUrl)
+    const uploaderDocument: FileUploaderResponse = isBase64(identityChecks && identityChecks.fileUrl)
       ? yield call(uploadImage, {
           headers,
           name: `${contact.id}-${identityChecks.details}`,
