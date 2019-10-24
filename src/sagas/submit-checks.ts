@@ -16,7 +16,7 @@ export const submitCheck = function*({
     yield delay(2000)
     yield put(submitChecksSetFormState('SUCCESS'))
     if (dynamicLinkParams.appMode === 'WEB') {
-      yield history.push(routes.CHECKLIST_DETAIL_ID_SUCCESS.replace(':id', id))
+      yield history.push(routes.PROFILE_SUCCESS.replace(':id', id))
     } else {
       yield call(navigateDynamicApp, dynamicLinkParams)
     }
