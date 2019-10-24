@@ -6,7 +6,8 @@ import ProfileToggle, { ProfileToggleProps } from '../profile-toggle'
 const props: ProfileToggleProps = {
   complete: false,
   isOpen: false,
-  title: 'Title'
+  title: 'Title',
+  onToggle: jest.fn()
 }
 
 describe('ProfileToggle', () => {
@@ -17,36 +18,6 @@ describe('ProfileToggle', () => {
       </ProfileToggle>
     )
     expect(toJson(wrapper)).toMatchSnapshot()
-  })
-
-  it('Should toggle the pane when use mouse click', () => {
-    const wrapper = shallow(
-      <ProfileToggle {...props} isOpen={false}>
-        <div id="inner-component">Children</div>
-      </ProfileToggle>
-    )
-
-    const pane = wrapper.find('[role="button"]')
-    expect(wrapper.find('#inner-component')).toHaveLength(0)
-    pane.simulate('click')
-    expect(wrapper.find('#inner-component')).toHaveLength(1)
-    pane.simulate('click')
-    expect(wrapper.find('#inner-component')).toHaveLength(0)
-  })
-
-  it('Should toggle the pane when use keyboard Enter', () => {
-    const wrapper = shallow(
-      <ProfileToggle {...props} isOpen={false}>
-        <div id="inner-component">Children</div>
-      </ProfileToggle>
-    )
-
-    const pane = wrapper.find('[role="button"]')
-    expect(wrapper.find('#inner-component')).toHaveLength(0)
-    pane.simulate('keyDown', { key: 'Enter' })
-    expect(wrapper.find('#inner-component')).toHaveLength(1)
-    pane.simulate('keyDown', { key: 'Enter' })
-    expect(wrapper.find('#inner-component')).toHaveLength(0)
   })
 
   it('Should render the status complete/incomplete correctly', () => {
