@@ -6,7 +6,7 @@ exports[`ProfileToggle should match snapshot 1`] = `
 >
   <div
     aria-expanded={false}
-    onClick={[Function]}
+    onClick={[MockFunction]}
     onKeyDown={[Function]}
     role="button"
     tabIndex={1}

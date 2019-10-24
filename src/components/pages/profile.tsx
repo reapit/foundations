@@ -26,33 +26,39 @@ import PrimaryIdentification from '@/components/ui/modal/primary-identification'
 import SecondaryIdentification from '@/components/ui/modal/secondary-identification'
 import { selectCheckListDetailContact, selectCheckListDetailStatus } from '@/selectors/checklist-detail'
 import { ChecklistStatus } from '@/reducers/checklist-detail'
+import { STEPS } from '@/constants/section'
 
-const generateSection = (status: ChecklistStatus) => {
+const generateSection = (status: ChecklistStatus, onClick: (sectionType: string) => () => void) => {
   return [
     {
-      title: 'Personal Details',
+      title: STEPS.PROFILE,
       complete: oc(status).profile(false),
-      children: <ProfileDetail />
+      children: <ProfileDetail />,
+      onToggle: onClick(STEPS.PROFILE)
     },
     {
-      title: 'Primary ID',
+      title: STEPS.PRIMARY_IDENTIFICATION,
       complete: oc(status).primaryId(false),
-      children: <PrimaryIdentification />
+      children: <PrimaryIdentification />,
+      onToggle: onClick(STEPS.PRIMARY_IDENTIFICATION)
     },
     {
-      title: 'Secondary ID',
+      title: STEPS.SECONDARY_IDENTIFICATION,
       complete: oc(status).secondaryId(false),
-      children: <SecondaryIdentification />
+      children: <SecondaryIdentification />,
+      onToggle: onClick(STEPS.SECONDARY_IDENTIFICATION)
     },
     {
-      title: 'Address History',
+      title: STEPS.ADDRESS_INFORMATION,
       complete: oc(status).addresses(false),
-      children: <AddressInformation />
+      children: <AddressInformation />,
+      onToggle: onClick(STEPS.ADDRESS_INFORMATION)
     },
     {
-      title: 'Agent checks',
+      title: STEPS.AGENT_CHECKS,
       complete: oc(status).agentChecks(false),
-      children: <AgentCheck />
+      children: <AgentCheck />,
+      onToggle: onClick(STEPS.AGENT_CHECKS)
     }
   ]
 }
@@ -72,6 +78,21 @@ export interface ProfileMappedProps {
 export type ProfileProps = ProfileMappedActions & ProfileMappedProps
 
 export const Profile = ({ submitChecksFormState, submitChecks, loading, contact, status, loginMode }: ProfileProps) => {
+  const [toggle, setToggle] = React.useState<string>('')
+
+  const handleToggle = React.useCallback(
+    (sectionType: string) => () => {
+      if (toggle === sectionType) {
+        setToggle('')
+      } else {
+        setToggle(sectionType)
+      }
+    },
+    [toggle]
+  )
+
+  const section = React.useMemo(() => generateSection(status, handleToggle), [status, toggle])
+
   const isSubmitting = submitChecksFormState === 'SUBMITTING'
 
   if (submitChecksFormState === 'SUCCESS') {
@@ -88,7 +109,6 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
     ;({ title = '', forename = '', surname = '' } = contact as ContactModel)
   }
 
-  const section = generateSection(status)
   const dynamicLinkParams = {
     entityType: EntityType.CONTACT,
     entityCode: contact.id,
@@ -104,8 +124,14 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
           <div>RPS Reference: {contact.id ? contact.id : ''}</div>
         </div>
         <div>
-          {section.map(({ title, complete, children }) => (
-            <ProfileToggle key={title} title={title} complete={Boolean(complete)}>
+          {section.map(({ title, complete, children, onToggle }) => (
+            <ProfileToggle
+              key={title}
+              title={title}
+              complete={Boolean(complete)}
+              isOpen={toggle === title}
+              onToggle={onToggle}
+            >
               {children}
             </ProfileToggle>
           ))}

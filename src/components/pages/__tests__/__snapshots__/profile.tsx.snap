@@ -19,36 +19,46 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
     <div>
       <ProfileToggle
         complete={true}
+        isOpen={false}
         key="Personal Details"
+        onToggle={[Function]}
         title="Personal Details"
       >
         <ProfileInformationWithRedux />
       </ProfileToggle>
       <ProfileToggle
         complete={false}
-        key="Primary ID"
-        title="Primary ID"
+        isOpen={false}
+        key="Primary Identification"
+        onToggle={[Function]}
+        title="Primary Identification"
       >
         <Connect(Component) />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
-        key="Secondary ID"
-        title="Secondary ID"
+        isOpen={false}
+        key="Secondary Identification"
+        onToggle={[Function]}
+        title="Secondary Identification"
       >
         <Connect(Component) />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
-        key="Address History"
-        title="Address History"
+        isOpen={false}
+        key="Address Information"
+        onToggle={[Function]}
+        title="Address Information"
       >
         <AddressInformationWithRedux />
       </ProfileToggle>
       <ProfileToggle
         complete={false}
-        key="Agent checks"
-        title="Agent checks"
+        isOpen={false}
+        key="Agent Checks"
+        onToggle={[Function]}
+        title="Agent Checks"
       >
         <AgentCheckWithRedux />
       </ProfileToggle>
@@ -101,36 +111,46 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
     <div>
       <ProfileToggle
         complete={true}
+        isOpen={false}
         key="Personal Details"
+        onToggle={[Function]}
         title="Personal Details"
       >
         <ProfileInformationWithRedux />
       </ProfileToggle>
       <ProfileToggle
         complete={false}
-        key="Primary ID"
-        title="Primary ID"
+        isOpen={false}
+        key="Primary Identification"
+        onToggle={[Function]}
+        title="Primary Identification"
       >
         <Connect(Component) />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
-        key="Secondary ID"
-        title="Secondary ID"
+        isOpen={false}
+        key="Secondary Identification"
+        onToggle={[Function]}
+        title="Secondary Identification"
       >
         <Connect(Component) />
       </ProfileToggle>
       <ProfileToggle
         complete={true}
-        key="Address History"
-        title="Address History"
+        isOpen={false}
+        key="Address Information"
+        onToggle={[Function]}
+        title="Address Information"
       >
         <AddressInformationWithRedux />
       </ProfileToggle>
       <ProfileToggle
         complete={false}
-        key="Agent checks"
-        title="Agent checks"
+        isOpen={false}
+        key="Agent Checks"
+        onToggle={[Function]}
+        title="Agent Checks"
       >
         <AgentCheckWithRedux />
       </ProfileToggle>
