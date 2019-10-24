@@ -4,6 +4,7 @@ import { FileInput, FileInputProps } from '../FileInput'
 export const CameraImageInput = (props: FileInputProps) => (
   <FileInput
     inputProps={{
+      ...props.inputProps,
       capture: 'camera'
     }}
     dataTest={props.dataTest}
