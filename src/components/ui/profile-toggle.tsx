@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { MdCheck, MdClose, MdKeyboardArrowDown } from 'react-icons/md'
 import styles from '@/styles/ui/profile-toggle.scss?mod'
 

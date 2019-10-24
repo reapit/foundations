@@ -9,15 +9,15 @@ import { oc } from 'ts-optchain'
 export type IdentificationFormValues = {
   typeId: string
   details: string
-  expiry?: Date
+  expiry?: Date | null
   fileUrl?: string
 }
 
 export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentificationFormValues = {
   typeId: '',
   details: '',
-  expiry: undefined,
-  fileUrl: undefined
+  expiry: null,
+  fileUrl: ''
 }
 
 export type IdentificationProps = {
