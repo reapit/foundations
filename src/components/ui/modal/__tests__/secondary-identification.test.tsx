@@ -12,8 +12,7 @@ describe('SecondaryIdentification', () => {
         initFormValues: {},
         loading: false,
         idCheck: idCheck,
-        updateIdentification: jest.fn(),
-        isDesktopMode: false
+        updateIdentification: jest.fn()
       }
       const wrapper = shallow(<SecondaryIdentification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -41,8 +40,7 @@ describe('SecondaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: contact,
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
-        isDesktopMode: false
+        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES
       }
       expect(result).toEqual(expected)
     })
@@ -54,8 +52,7 @@ describe('SecondaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: {},
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
-        isDesktopMode: false
+        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES
       }
       expect(result).toEqual(expected)
     })
