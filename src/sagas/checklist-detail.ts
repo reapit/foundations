@@ -1,12 +1,12 @@
 import { selectUserCode } from '@/selectors/auth'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
-import { fetcher } from '@reapit/elements'
+import { fetcher, isBase64 } from '@reapit/elements'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { oc } from 'ts-optchain'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { URLS, REAPIT_API_BASE_URL, UPLOAD_FILE_BASE_URL } from '@/constants/api'
-import { initAuthorizedRequestHeaders, isBase64 } from '@/utils/api'
+import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '../actions/error'
 import {
   checklistDetailLoading,
@@ -121,7 +121,7 @@ export const mapArrAddressToUploadImageFunc = ({ addresses, headers, addressesMe
     return []
   }
   return addresses.map((address: AddressModel, index) => {
-    if (!isBase64(addressesMeta[index].documentImage)) {
+    if (!isBase64(addressesMeta && addressesMeta[index] && addressesMeta[index].documentImage)) {
       return null
     }
     return call(uploadImage, {
@@ -270,14 +270,14 @@ export const updateSecondaryId = function*({ data }: Action<any>) {
     const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
     const secondaryIdUrl = data.fileUrl
-    const uploaderDocument: FileUploaderResponse = isBase64(data.fileUrl)
-      ? yield call(uploadImage, {
-          headers,
-          name: `${contact.id}-${data.details}`,
-          imageData: data.fileUrl
-        })
-      : null
-
+    let uploaderDocument: FileUploaderResponse | null = null
+    if (isBase64(data.fileUrl)) {
+      uploaderDocument = yield call(uploadImage, {
+        headers,
+        name: `${contact.id}-${data.details}`,
+        imageData: data.fileUrl
+      })
+    }
     const currentPrimaryIdUrl = oc(idCheck).metadata.primaryIdUrl()
     const documents = oc(idCheck).documents([])
     if (documents.length <= 1) {
@@ -335,20 +335,19 @@ export const updateSecondaryId = function*({ data }: Action<any>) {
 
 export const updatePrimaryId = function*({ data }: Action<any>) {
   yield put(checkListDetailSubmitForm(true))
-
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
     const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
     const primaryIdUrl = data.fileUrl
-    const uploaderDocument: FileUploaderResponse = isBase64(data.fileUrl)
-      ? yield call(uploadImage, {
-          headers,
-          name: `${contact.id}-${data.details}`,
-          imageData: data.fileUrl
-        })
-      : null
-
+    let uploaderDocument: FileUploaderResponse | null = null
+    if (isBase64(data.fileUrl)) {
+      uploaderDocument = yield call(uploadImage, {
+        headers,
+        name: `${contact.id}-${data.details}`,
+        imageData: data.fileUrl
+      })
+    }
     const currentSecondaryIdUrl = oc(idCheck).metadata.secondaryIdUrl()
     const documents = oc(idCheck).documents([])
     if (documents.length === 0) {
@@ -360,12 +359,12 @@ export const updatePrimaryId = function*({ data }: Action<any>) {
 
     const baseValues = {
       metadata: {
+        // @ts-ignore
         primaryIdUrl: uploaderDocument ? uploaderDocument.Url : primaryIdUrl,
         secondaryIdUrl: currentSecondaryIdUrl
       },
       documents
     } as IdentityCheckModel
-
     if (idCheck) {
       yield call(updateIdentityCheck, {
         contactId: contact.id,
