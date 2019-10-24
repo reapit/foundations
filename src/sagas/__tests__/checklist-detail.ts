@@ -1,10 +1,8 @@
-import { fetcher } from '@reapit/elements'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import {
   checklistDetailLoading,
   checklistDetailSubmitForm,
-  checklistDetailRequestData,
   pepSearchResult,
   checklistDetailReceiveContact,
   checklistDetailReceiveIdentityCheck,
@@ -14,7 +12,6 @@ import {
 } from '@/actions/checklist-detail'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
-import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
 import {
   checklistDetailSagas,
   mapAddressToMetaData,
@@ -38,18 +35,15 @@ import {
   updateChecklistListen,
   updateAddressHistoryListen,
   fetchInitialDataListen,
-  updateIdentityCheckStatusListen,
-  updateDeclarationAndRiskListen
+  updateIdentityCheckStatusListen
 } from '../checklist-detail'
 import { contact, idCheck } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { ContactModel } from '@/types/contact-api-schema'
-import { selectDeclarationRisk, selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
+import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import { handlePepSearchStatus } from '@/utils/pep-search'
-
-// jest.mock('../../core/store')
 
 const mockHeaders = {
   Authorization: '123'

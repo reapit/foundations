@@ -13,8 +13,7 @@ describe('PrimaryIdentification', () => {
         loading: false,
         updateIdentification: jest.fn(),
         onNextHandler: jest.fn(),
-        onPrevHandler: jest.fn(),
-        isDesktopMode: false
+        onPrevHandler: jest.fn()
       }
       const wrapper = shallow(<PrimaryIdentification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -30,11 +29,6 @@ describe('PrimaryIdentification', () => {
           checklistDetailData: {
             contact
           }
-        },
-        auth: {
-          refreshSession: {
-            desktopMode: 'DESKTOP'
-          }
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
@@ -44,8 +38,7 @@ describe('PrimaryIdentification', () => {
         initFormValues: {
           ...contact.metadata['primaryId'][0]['documents'][0],
           expiry: new Date('2019-10-15T10:00:00.00Z')
-        },
-        isDesktopMode: false
+        }
       }
       expect(result).toEqual(expected)
     })
@@ -62,8 +55,7 @@ describe('PrimaryIdentification', () => {
           expiry: undefined,
           fileUrl: undefined,
           typeId: ''
-        },
-        isDesktopMode: false
+        }
       }
       expect(result).toEqual(expected)
     })

@@ -61,7 +61,7 @@ export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThree
   setShowMoreThreeYearInput(!isShowMoreThreeYearInput)
 }
 
-export const AddressInput = ({ index, isDesktopMode }) => {
+export const AddressInput = ({ index }) => {
   return (
     <div key={index}>
       <Input type="hidden" labelText="Type" id={`addresses[${index}][type]`} name={`addresses[${index}][type]`} />
@@ -106,7 +106,7 @@ export const AddressInput = ({ index, isDesktopMode }) => {
         options={optionsDocumentType}
       />
       <CameraImageInput
-        labelText={isDesktopMode ? 'Upload file' : 'Upload file/Take a picture'}
+        labelText="Upload file"
         id={`metadata.addresses.[${index}][documentImage]`}
         name={`metadata.addresses.[${index}][documentImage]`}
         allowClear={true}
@@ -115,9 +115,9 @@ export const AddressInput = ({ index, isDesktopMode }) => {
   )
 }
 
-export const renderExtraForm = ({ isShowMoreThreeYearInput, index, isDesktopMode }) => {
+export const renderExtraForm = ({ isShowMoreThreeYearInput, index }) => {
   if (isShowMoreThreeYearInput) {
-    return <AddressInput data-test="address-input" key={index} index={index} isDesktopMode={isDesktopMode} />
+    return <AddressInput data-test="address-input" key={index} index={index} />
   }
 }
 
@@ -127,13 +127,12 @@ export const renderForm = ({
   isShowMoreThreeYearInput,
   setShowMoreThreeYearInput,
   onNextHandler,
-  onPrevHandler,
-  isDesktopMode
+  onPrevHandler
 }) => ({ values }) => {
   return (
     <Form>
       {addresses.map((_, index) => {
-        return <AddressInput key={index} index={index} isDesktopMode={isDesktopMode} />
+        return <AddressInput key={index} index={index} />
       })}
       <div className={styles.moreThreeYearLink}>
         <a
@@ -143,7 +142,7 @@ export const renderForm = ({
           Less than 3 years?
         </a>
       </div>
-      {renderExtraForm({ isShowMoreThreeYearInput, index: addresses.length, isDesktopMode })}
+      {renderExtraForm({ isShowMoreThreeYearInput, index: addresses.length })}
       <div className={styles.footerBtn}>
         <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
           Save
@@ -166,8 +165,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
   onNextHandler,
   onPrevHandler,
   onHandleSubmit,
-  isSubmitting,
-  isDesktopMode
+  isSubmitting
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
   return (
@@ -184,8 +182,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
           setShowMoreThreeYearInput,
           onNextHandler,
           onPrevHandler,
-          isSubmitting,
-          isDesktopMode
+          isSubmitting
         })}
       />
     </div>
@@ -195,14 +192,12 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
 export type StateProps = {
   isSubmitting: boolean
   contact: ContactModel
-  isDesktopMode: boolean
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: oc(state).checklistDetail.isSubmitting(false),
-    contact: oc(state).checklistDetail.checklistDetailData.contact({}),
-    isDesktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
+    contact: oc(state).checklistDetail.checklistDetailData.contact({})
   }
 }
 

@@ -25,7 +25,7 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ({
         <div>
           <label className="label">Declaration Form</label>
           <CameraImageInput
-            labelText="Upload file/Take a picture"
+            labelText="Upload file"
             id="metadata.declarationRisk.declarationForm"
             name="metadata.declarationRisk.declarationForm"
             allowClear={true}

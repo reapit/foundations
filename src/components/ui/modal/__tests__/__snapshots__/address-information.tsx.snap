@@ -601,7 +601,6 @@ exports[`AddressInformation renderExtraForm should match Snapshot 1`] = `
   <Component
     data-test="address-input"
     index={0}
-    isDesktopMode={true}
     key="0"
   />
 </div>

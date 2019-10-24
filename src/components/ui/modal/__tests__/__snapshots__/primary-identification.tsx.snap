@@ -96,7 +96,6 @@ exports[`PrimaryIdentification PrimaryIdentification should match snapshot 1`] =
     }
   }
   initFormValues={Object {}}
-  isDesktopMode={false}
   loading={false}
   onNextHandler={[MockFunction]}
   onPrevHandler={[MockFunction]}

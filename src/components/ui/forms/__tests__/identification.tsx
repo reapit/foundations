@@ -11,8 +11,7 @@ describe('Identification', () => {
         loading: false,
         disabled: true,
         onNextHandler: jest.fn(),
-        onPrevHandler: jest.fn(),
-        isDesktopMode: false
+        onPrevHandler: jest.fn()
       }
       const component = renderFormHandler(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -25,8 +24,7 @@ describe('Identification', () => {
         loading: false,
         disabled: false,
         onNextHandler: jest.fn(),
-        onPrevHandler: jest.fn(),
-        isDesktopMode: false
+        onPrevHandler: jest.fn()
       }
       const component = renderFormHandler(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -50,8 +48,7 @@ describe('Identification', () => {
         initFormValues: {} as any,
         onSaveHandler: jest.fn(),
         onNextHandler: jest.fn(),
-        onPrevHandler: jest.fn(),
-        isDesktopMode: false
+        onPrevHandler: jest.fn()
       }
       const wrapper = shallow(<Identification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
