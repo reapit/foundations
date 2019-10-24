@@ -46,7 +46,6 @@ describe('agent-check', () => {
       const mockState = {
         checklistDetail: {
           isSubmitting: true,
-          isDisabledSubmit: true,
           checklistDetailData: {
             idCheck
           }
@@ -54,7 +53,7 @@ describe('agent-check', () => {
       } as ReduxState
       const expected = {
         isSubmitting: true,
-        isDisabledSubmit: true,
+        isDisabledSubmit: false,
         idCheck
       }
       const result = mapStateToProps(mockState)
@@ -67,7 +66,6 @@ describe('agent-check', () => {
       const mockState = {
         checklistDetail: {
           isSubmitting: true,
-          isDisabledSubmit: true,
           checklistDetailData: {
             idCheck
           }
@@ -75,7 +73,7 @@ describe('agent-check', () => {
       } as any
       const expected = {
         isSubmitting: true,
-        isDisabledSubmit: true,
+        isDisabledSubmit: false,
         idCheck
       }
       const result = mapStateToProps(mockState)
