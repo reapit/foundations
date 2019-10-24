@@ -10,6 +10,7 @@ module.exports = {
     delete config.optimization.splitChunks;
     delete config.optimization.runtimeChunk;
     config.plugins.splice(1, 1);
+    config.output.filename = 'search-widget.js'
 
     return config;
   },
