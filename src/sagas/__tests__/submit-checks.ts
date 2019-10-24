@@ -25,7 +25,7 @@ describe('submit-check post data', () => {
   expect(gen.next().value).toEqual(put(submitChecksSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(delay(2000))
   expect(gen.next().value).toEqual(put(submitChecksSetFormState('SUCCESS')))
-  expect(gen.next().value).toEqual(history.push(routes.CHECKLIST_DETAIL_ID_SUCCESS.replace(':id', id)))
+  expect(gen.next().value).toEqual(history.push(routes.PROFILE_SUCCESS.replace(':id', id)))
   expect(gen.next().done).toBe(true)
 })
 

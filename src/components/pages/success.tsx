@@ -46,56 +46,32 @@ export const SuccessPage = ({
     // code to redirect to "Contact Record" in RPS
   }
 
-  const { title = '', forename = '', surname = '' } = contact
-  const { buildingNumber, buildingName, line1, line2, line3 } = oc(contact).addresses[0]({})
-
   return (
     <ErrorBoundary>
-      <FlexContainerResponsive hasPadding flexColumn>
-        <div className={styles.header}>
-          <div className={styles.headerLeft}>
-            <H3>
-              {title} {forename} {surname}
-            </H3>
-          </div>
-          <div className={styles.headerRight}>
-            <h4 className={styles.refCode}>RPS Reference: {contact.id}</h4>
-          </div>
+      <FlexContainerResponsive flexColumn className={styles.successWrapper}>
+        <H3>
+          Referral Complete
+          <span className={styles.successIcon}>
+            <FaCheck />
+          </span>
+        </H3>
+        <div className={styles.successContent}>
+          <p>
+            Thank you for your referral. Our dedicated team will now process the information you have submitted, and we
+            will be in contact with you in due course.
+          </p>
+          <p className="my-5">Please ‘Complete Submission’ in order to continue.</p>
+          <p>Should you have any queries in the meantime, please do not hesitate to contact our team.</p>
         </div>
-
-        <div className="flex">
-          <div className={styles.leftBlock}>
-            <div className={styles.successMessage}>
-              <span className={styles.successIcon}>
-                <FaCheck />
-              </span>
-              <p>
-                Thank you for submitting this information, we are in the process of checking the details and will come
-                back to you shortly. Please click on the following button to complete this submission.
-              </p>
-            </div>
-            <Button
-              variant="primary"
-              type="button"
-              loading={submitCompleteFormState === 'SUBMITTING'}
-              onClick={() => submitComplete()}
-            >
-              Complete Submission
-            </Button>
-          </div>
-          <div className={styles.rightBlock}>
-            <ul>
-              <li>
-                Name: {title} {forename}
-              </li>
-              <li>
-                Address: {buildingNumber} {buildingName}, {line1}, {line2}, {line3}
-              </li>
-              <li>ID: Passport & Driving Licence</li>
-              <li>Address Information: 3 years 4 months</li>
-              <li>Agent Complete: completed</li>
-            </ul>
-          </div>
+        <div className={styles.successButton}>
+          <Button
+            variant="primary"
+            type="button"
+            loading={submitCompleteFormState === 'SUBMITTING'}
+            onClick={() => submitComplete()}
+          >
+            Complete Submission
+          </Button>
         </div>
       </FlexContainerResponsive>
     </ErrorBoundary>

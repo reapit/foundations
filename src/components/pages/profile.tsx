@@ -96,7 +96,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
   const isSubmitting = submitChecksFormState === 'SUBMITTING'
 
   if (submitChecksFormState === 'SUCCESS') {
-    return <Redirect to={Routes.CHECKLIST_DETAIL_ID_SUCCESS} />
+    return <Redirect to={Routes.PROFILE_SUCCESS} />
   }
   if (loading) {
     return <Loader />
@@ -113,7 +113,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
     entityType: EntityType.CONTACT,
     entityCode: contact.id,
     appMode: loginMode,
-    webRoute: Routes.CHECKLIST_DETAIL_ID_SUCCESS
+    webRoute: Routes.PROFILE_SUCCESS
   }
 
   return (
