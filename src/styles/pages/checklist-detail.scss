@@ -16,6 +16,10 @@
   text-align: right;
 }
 
+.footerBetween {
+  justify-content: space-between;
+}
+
 .informationRow {
   display: flex;
   & > span {
