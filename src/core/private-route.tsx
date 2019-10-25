@@ -37,10 +37,10 @@ export const PrivateRoute = ({
         }
 
         const searchParams = new URLSearchParams(props.location.search)
-        const cncCode = searchParams && searchParams.get('cncCode') ? searchParams.get('cncCode') : null
+        const cntCode = searchParams && searchParams.get('cntCode') ? searchParams.get('cntCode') : null
 
-        if (cncCode) {
-          return <Redirect to={`${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${cncCode}`} />
+        if (cntCode) {
+          return <Redirect to={`${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${cntCode}`} />
         }
         if (fetcher) {
           return <RouteFetcher routerProps={props} Component={component} />
