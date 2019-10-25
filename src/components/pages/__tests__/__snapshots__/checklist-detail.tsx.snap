@@ -9,24 +9,27 @@ exports[` 1`] = `
     <Tile
       heading="Personal Details"
       menu={
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
+        <div
+          className="flex"
         >
-          Edit
-        </Button>
+          <div>
+            <span>
+              <TiTick />
+            </span>
+            <span>
+              Completed
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
       }
-    >
-      <div>
-        <span>
-          <TiTick />
-        </span>
-        <span>
-          Completed
-        </span>
-      </div>
-    </Tile>
+    />
   </div>
   <div
     className="pb-4"
@@ -35,13 +38,25 @@ exports[` 1`] = `
     <Tile
       heading="Primary ID"
       menu={
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
+        <div
+          className="flex"
         >
-          Edit
-        </Button>
+          <div>
+            <span>
+              <TiTimes />
+            </span>
+            <span>
+              Incomplete
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
       }
     />
   </div>
@@ -52,39 +67,54 @@ exports[` 1`] = `
     <Tile
       heading="Secondary ID"
       menu={
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
+        <div
+          className="flex"
         >
-          Edit
-        </Button>
+          <div>
+            <span>
+              <TiTick />
+            </span>
+            <span>
+              Completed
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
       }
-    >
-      <div>
-        <span>
-          <TiTick />
-        </span>
-        <span>
-          Completed
-        </span>
-      </div>
-    </Tile>
+    />
   </div>
   <div
     className="pb-4"
     key="3"
   >
     <Tile
-      heading="Address History"
+      heading="Address Information"
       menu={
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
+        <div
+          className="flex"
         >
-          Edit
-        </Button>
+          <div>
+            <span>
+              <TiTimes />
+            </span>
+            <span>
+              Incomplete
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
       }
     />
   </div>
@@ -93,15 +123,27 @@ exports[` 1`] = `
     key="4"
   >
     <Tile
-      heading="Declaration and Risk Assessment"
+      heading="Declaration Risk Management"
       menu={
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
+        <div
+          className="flex"
         >
-          Edit
-        </Button>
+          <div>
+            <span>
+              <TiTimes />
+            </span>
+            <span>
+              Incomplete
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
       }
     />
   </div>
@@ -112,13 +154,25 @@ exports[` 1`] = `
     <Tile
       heading="PEP Search"
       menu={
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
+        <div
+          className="flex"
         >
-          Edit
-        </Button>
+          <div>
+            <span>
+              <TiTimes />
+            </span>
+            <span>
+              Incomplete
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
       }
     />
   </div>
@@ -127,26 +181,29 @@ exports[` 1`] = `
     key="6"
   >
     <Tile
-      heading="Experian "
+      heading="Experian"
       menu={
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
+        <div
+          className="flex"
         >
-          Edit
-        </Button>
+          <div>
+            <span>
+              <TiTick />
+            </span>
+            <span>
+              Completed
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
       }
-    >
-      <div>
-        <span>
-          <TiTick />
-        </span>
-        <span>
-          Completed
-        </span>
-      </div>
-    </Tile>
+    />
   </div>
   <div
     className="pb-4"
@@ -155,13 +212,17 @@ exports[` 1`] = `
     <Tile
       heading="Report"
       menu={
-        <Button
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
+        <div
+          className="flex"
         >
-          View
-        </Button>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            View
+          </Button>
+        </div>
       }
     />
   </div>
@@ -188,23 +249,26 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Personal Details"
             menu={
-              <Button
-                type="button"
-                variant="primary"
+              <div
+                className="flex"
               >
-                Edit
-              </Button>
+                <div>
+                  <span>
+                    <TiTick />
+                  </span>
+                  <span>
+                    Completed
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
             }
-          >
-            <div>
-              <span>
-                <TiTick />
-              </span>
-              <span>
-                Completed
-              </span>
-            </div>
-          </Tile>
+          />
         </div>
         <div
           className="pb-4"
@@ -213,12 +277,24 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Primary ID"
             menu={
-              <Button
-                type="button"
-                variant="primary"
+              <div
+                className="flex"
               >
-                Edit
-              </Button>
+                <div>
+                  <span>
+                    <TiTimes />
+                  </span>
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
             }
           />
         </div>
@@ -229,37 +305,52 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Secondary ID"
             menu={
-              <Button
-                type="button"
-                variant="primary"
+              <div
+                className="flex"
               >
-                Edit
-              </Button>
+                <div>
+                  <span>
+                    <TiTick />
+                  </span>
+                  <span>
+                    Completed
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
             }
-          >
-            <div>
-              <span>
-                <TiTick />
-              </span>
-              <span>
-                Completed
-              </span>
-            </div>
-          </Tile>
+          />
         </div>
         <div
           className="pb-4"
           key="3"
         >
           <Tile
-            heading="Address History"
+            heading="Address Information"
             menu={
-              <Button
-                type="button"
-                variant="primary"
+              <div
+                className="flex"
               >
-                Edit
-              </Button>
+                <div>
+                  <span>
+                    <TiTimes />
+                  </span>
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
             }
           />
         </div>
@@ -268,14 +359,26 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           key="4"
         >
           <Tile
-            heading="Declaration and Risk Assessment"
+            heading="Declaration Risk Management"
             menu={
-              <Button
-                type="button"
-                variant="primary"
+              <div
+                className="flex"
               >
-                Edit
-              </Button>
+                <div>
+                  <span>
+                    <TiTimes />
+                  </span>
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
             }
           />
         </div>
@@ -286,12 +389,24 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="PEP Search"
             menu={
-              <Button
-                type="button"
-                variant="primary"
+              <div
+                className="flex"
               >
-                Edit
-              </Button>
+                <div>
+                  <span>
+                    <TiTimes />
+                  </span>
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
             }
           />
         </div>
@@ -300,25 +415,28 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           key="6"
         >
           <Tile
-            heading="Experian "
+            heading="Experian"
             menu={
-              <Button
-                type="button"
-                variant="primary"
+              <div
+                className="flex"
               >
-                Edit
-              </Button>
+                <div>
+                  <span>
+                    <TiTick />
+                  </span>
+                  <span>
+                    Completed
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
             }
-          >
-            <div>
-              <span>
-                <TiTick />
-              </span>
-              <span>
-                Completed
-              </span>
-            </div>
-          </Tile>
+          />
         </div>
         <div
           className="pb-4"
@@ -327,12 +445,16 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Report"
             menu={
-              <Button
-                type="button"
-                variant="primary"
+              <div
+                className="flex"
               >
-                View
-              </Button>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  View
+                </Button>
+              </div>
             }
           />
         </div>

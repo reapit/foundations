@@ -3,7 +3,6 @@ import { Formik, Form } from 'formik'
 import { ContactModel, IdentityDocumentModel } from '@/types/contact-api-schema'
 import { Button, Input, DatePicker, CameraImageInput } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
-import styles from '@/styles/pages/identification.scss?mod'
 import { oc } from 'ts-optchain'
 
 export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentModel = {
@@ -44,7 +43,7 @@ export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandl
           inputProps={{ disabled: disabled }}
         />
 
-        <div className={`flex mt-4 ${styles.justifyBetween}`}>
+        <div className="flex mt-4 justify-between">
           <div className="flex items-center">
             <span>RPS Ref:</span>
             <span className="ml-1">{id}</span>

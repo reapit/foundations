@@ -34,9 +34,20 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
         id: 'address',
         accessor: d => d,
         Cell: ({ row }) => {
+          const addresses = (({ buildingName, buildingNumber, line1, line2 }) => ({
+            buildingName,
+            buildingNumber,
+            line1,
+            line2
+          }))(row.original.addresses[0])
+
           return (
             <div>
-              <span>{row.original.addresses[0].line1}</span>
+              <span>
+                {Object.values(addresses)
+                  .filter(value => value)
+                  .join(', ')}
+              </span>
             </div>
           )
         }
@@ -55,7 +66,15 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
       },
       {
         Header: 'Status',
-        accessor: 'identityCheck'
+        id: 'identityCheck',
+        accessor: d => d,
+        Cell: ({ row }) => {
+          return (
+            <div>
+              <span className="capitalize">{row.original.identityCheck}</span>
+            </div>
+          )
+        }
       },
       {
         Header: '',
@@ -78,6 +97,14 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
   )
   const { search, loading } = resultState
   const { totalCount, pageSize, data = [] } = oc<ResultState>(resultState).contacts({})
+
+  const searchTitle = React.useMemo(() => {
+    if (search) {
+      return Object.values(search)
+        .filter(value => value)
+        .join(', ')
+    }
+  }, [search])
 
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
@@ -112,7 +139,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
   return (
     <ErrorBoundary>
       <FlexContainerResponsive hasPadding flexColumn>
-        <H3>Search Results</H3>
+        {search && <H3>Show Results for '{searchTitle}'</H3>}
         {!search || Number(totalCount) === 0 ? (
           renderEmptyResult()
         ) : (
