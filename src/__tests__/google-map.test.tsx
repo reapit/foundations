@@ -9,6 +9,7 @@ import {
   GoogleMap
 } from '../map/google-map'
 import { shallow } from 'enzyme'
+import { theme } from '../theme'
 
 describe('google-map', () => {
   const latitude =
@@ -26,7 +27,7 @@ describe('google-map', () => {
     property && property.address && property.address.line2
       ? property.address.line2
       : ''
-  const qualifier = property && property.selling && property.selling.qualifier
+  const qualifier = property && property.selling && property.selling.qualifier as string
   const sellingPrice = property && property.selling && property.selling.price
 
   const lettingPrice = property && property.letting && property.letting.rent
@@ -50,12 +51,12 @@ describe('google-map', () => {
         longitude,
         marketingMode,
         address,
-        qualifier,
-        sellingPrice,
         lettingPrice,
         rentFrequency,
         bedrooms,
-        bathrooms
+        bathrooms,
+        theme,
+        price: ''
       })
       expect(result).toMatchSnapshot()
     })
@@ -65,12 +66,12 @@ describe('google-map', () => {
         longitude,
         marketingMode: 'abc',
         address,
-        qualifier,
-        sellingPrice,
         lettingPrice,
         rentFrequency,
         bedrooms,
-        bathrooms
+        bathrooms,
+        theme,
+        price: ''
       })
       expect(result).toMatchSnapshot()
     })
@@ -84,7 +85,10 @@ describe('google-map', () => {
         zoom: mockZoom,
         property,
         mapRef: mockMapRef,
-        restProps: undefined
+        restProps: undefined,
+        imageUrl: '',
+        price: '',
+        theme
       })
       fn()
       expect(mockGoogleMap.Marker).toBeCalled()
@@ -99,7 +103,10 @@ describe('google-map', () => {
         zoom: mockZoom,
         property,
         mapRef: mockMapRef,
-        restProps: undefined
+        restProps: undefined,
+        imageUrl: '',
+        price: '',
+        theme
       })
       fn()
       expect(mockGoogleMap.Marker).toBeCalled()

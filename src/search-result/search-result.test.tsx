@@ -28,8 +28,8 @@ describe('SearchResult', () => {
     expect(
       combineNumberBedTypeStyle({
         bedrooms: 1,
-        style: ['style1', 'style2'],
-        type: ['type1', 'type2']
+        style: 'style1 style2',
+        type: 'type1 type2'
       })
     ).toBe('1 style1 style2 type1 type2')
   })

@@ -1,4 +1,5 @@
-export const property = {
+import { PropertyModel } from '../types/property'
+export const property: PropertyModel = {
   id: 'AYL190002',
   created: '2019-09-17T11:57:27',
   modified: '2019-09-17T12:06:06',
@@ -41,8 +42,8 @@ export const property = {
     rent: 0,
     rentFrequency: 'mockRentFrequency'
   },
-  type: [],
-  style: [],
+  type: '',
+  style: '',
   situation: [],
   parking: [],
   age: [],

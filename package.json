@@ -2,6 +2,7 @@
   "name": "search-widget",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://demo-site.reapit.com",
   "dependencies": {
     "little-loader": "^0.2.0",
     "react": "^16.10.2",
@@ -13,7 +14,8 @@
   "scripts": {
     "start": "PORT=8080 ./node_modules/.bin/react-app-rewired start",
     "build": "./node_modules/.bin/react-app-rewired build",
-    "serve": "serve -d build -l 8080",
+    "postbuild": "mv ./build/search-widget.js ./public/scripts && rm -rf ./build && cd public && zip -r search-widget.zip ./scripts && cd ..",
+    "serve": "serve -d public -l 8080",
     "test": "./node_modules/.bin/react-app-rewired test",
     "eject": "react-scripts eject",
     "fetch-definitions": "node ./fetch-definitions.js",
@@ -63,7 +65,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
     }
   },
   "lint-staged": {
