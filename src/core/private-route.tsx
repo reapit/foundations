@@ -43,10 +43,10 @@ export const PrivateRoute = ({
         }
 
         const searchParams = new URLSearchParams(props.location.search)
-        const cncCode = searchParams && searchParams.get('cncCode') ? searchParams.get('cncCode') : null
+        const cntCode = searchParams && searchParams.get('cntCode') ? searchParams.get('cntCode') : null
 
-        if (cncCode) {
-          return <Redirect to={`${Routes.PROFILE}/${cncCode}`} />
+        if (cntCode) {
+          return <Redirect to={`${Routes.PROFILE}/${cntCode}`} />
         }
 
         const Component = component
