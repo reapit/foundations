@@ -76,12 +76,12 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
       entityCode: '',
       queryParams: {
         name: 'Bob',
-        appPram: AppParams.CONTACT_CODE,
+        appParam: AppParams.CONTACT_CODE,
         appId: '516060af-ea0a-4384-8465-28befc6f34b3'
       }
     },
     description: 'Launch a contact search for name "Bob" and return to marketplace',
-    expectedLink: 'agencycloud://contacts?name=Bob&appPram=cntCode&appId=516060af-ea0a-4384-8465-28befc6f34b3'
+    expectedLink: 'agencycloud://contacts?name=Bob&appParam=cntCode&appId=516060af-ea0a-4384-8465-28befc6f34b3'
   },
   {
     dynamicLinkParams: {
