@@ -1,6 +1,16 @@
 @import "../base/colors.scss";
 @import "../base/fonts.scss";
 
+
+.media-content {
+  & > .text-ellipisis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  overflow: hidden;
+}
+
 .notification {
   font-weight: bold;
   text-transform: uppercase;

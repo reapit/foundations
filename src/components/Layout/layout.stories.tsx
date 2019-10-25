@@ -7,7 +7,7 @@ import {
   Grid,
   GridItem,
   GridFiveCol,
-  GridFiveColItem,
+  GridFourColItem,
   Level,
   LevelLeft,
   LevelRight,
@@ -71,38 +71,38 @@ storiesOf('Layout', module)
       <Placeholder text="FlexContainerResponsiveRow NoCenter NoPadding" />
     </FlexContainerResponsive>
   ))
-  .add('GridFiveColTenItems', () => (
+  .add('GridFourColEightItems', () => (
     <GridFiveCol>
-      <GridFiveColItem>
-        <Placeholder text="GridFiveColItem1" />
-      </GridFiveColItem>
-      <GridFiveColItem>
-        <Placeholder text="GridFiveColItem2" />
-      </GridFiveColItem>
-      <GridFiveColItem>
-        <Placeholder text="GridFiveColItem3" />
-      </GridFiveColItem>
-      <GridFiveColItem>
-        <Placeholder text="GridFiveColItem4" />
-      </GridFiveColItem>
-      <GridFiveColItem>
-        <Placeholder text="GridFiveColItem5" />
-      </GridFiveColItem>
-      <GridFiveColItem>
-        <Placeholder text="GridFiveColItem6" />
-      </GridFiveColItem>
-      <GridFiveColItem>
-        <Placeholder text="GridFiveColItem7" />
-      </GridFiveColItem>
-      <GridFiveColItem>
-        <Placeholder text="GridFiveColItem8" />
-      </GridFiveColItem>
-      <GridFiveColItem>
-        <Placeholder text="GridFiveColItem9" />
-      </GridFiveColItem>
-      <GridFiveColItem>
-        <Placeholder text="GridFiveColItem10" />
-      </GridFiveColItem>
+      <GridFourColItem>
+        <Placeholder text="GridFourColItem1" />
+      </GridFourColItem>
+      <GridFourColItem>
+        <Placeholder text="GridFourColItem2" />
+      </GridFourColItem>
+      <GridFourColItem>
+        <Placeholder text="GridFourColItem3" />
+      </GridFourColItem>
+      <GridFourColItem>
+        <Placeholder text="GridFourColItem4" />
+      </GridFourColItem>
+      <GridFourColItem>
+        <Placeholder text="GridFourColItem5" />
+      </GridFourColItem>
+      <GridFourColItem>
+        <Placeholder text="GridFourColItem6" />
+      </GridFourColItem>
+      <GridFourColItem>
+        <Placeholder text="GridFourColItem7" />
+      </GridFourColItem>
+      <GridFourColItem>
+        <Placeholder text="GridFourColItem8" />
+      </GridFourColItem>
+      <GridFourColItem>
+        <Placeholder text="GridFourColItem9" />
+      </GridFourColItem>
+      <GridFourColItem>
+        <Placeholder text="GridFourColItem10" />
+      </GridFourColItem>
     </GridFiveCol>
   ))
   .add('Grid', () => (
