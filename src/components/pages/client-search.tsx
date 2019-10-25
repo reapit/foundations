@@ -88,7 +88,7 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
                         address: values.address ? values.address : '',
                         // TODO - this should be dynamic - is the hardcoded AML dev id
                         appId: '77f7c64f-0214-49eb-8963-f0b98f747072',
-                        appPram: AppParams.CONTACT_CODE
+                        appParam: AppParams.CONTACT_CODE
                       },
                       appMode: loginMode
                     }}
