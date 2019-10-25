@@ -15,12 +15,12 @@ export type ClientSearchProps = ClientSearchMappedActions & RouteComponentProps
 
 const identityCheckList = [
   { label: 'Please select…', value: '' },
-  { label: 'Pass', value: 'PASS' },
-  { label: 'Fail', value: 'FAIL' },
-  { label: 'Pending', value: 'PENDING' },
-  { label: 'Cancelled', value: 'CANCELLED' },
-  { label: 'Warnings', value: 'WARNINGS' },
-  { label: 'Unchecked', value: 'UNCHECKED' }
+  { label: 'Pass', value: 'Pass' },
+  { label: 'Fail', value: 'Fail' },
+  { label: 'Pending', value: 'Pending' },
+  { label: 'Cancelled', value: 'Cancelled' },
+  { label: 'Warnings', value: 'Warnings' },
+  { label: 'Unchecked', value: 'Unchecked' }
 ]
 
 export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history }) => {
