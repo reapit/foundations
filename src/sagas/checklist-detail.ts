@@ -280,6 +280,7 @@ export const updateSecondaryId = function*({ data }: Action<any>) {
     }
     const currentPrimaryIdUrl = oc(idCheck).metadata.primaryIdUrl()
     const documents = oc(idCheck).documents([])
+    delete data.fileUrl
     if (documents.length <= 1) {
       documents.push(data)
     }
@@ -350,6 +351,7 @@ export const updatePrimaryId = function*({ data }: Action<any>) {
     }
     const currentSecondaryIdUrl = oc(idCheck).metadata.secondaryIdUrl()
     const documents = oc(idCheck).documents([])
+    delete data.fileUrl
     if (documents.length === 0) {
       documents.push(data)
     }
