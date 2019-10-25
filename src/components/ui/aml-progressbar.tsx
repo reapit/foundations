@@ -13,7 +13,6 @@ import {
   EntityType,
   AcButton,
   SubTitleH5,
-  AppParams,
   DynamicLinkParams,
   FlexContainerBasic
 } from '@reapit/elements'
