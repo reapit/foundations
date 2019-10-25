@@ -26,3 +26,5 @@ yarn-error.log*
 
 public/scripts/search-widget.js
 public/search-widget.zip
+
+.DS_Store
