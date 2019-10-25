@@ -43,7 +43,7 @@ export const Tile: React.FC<TileProps> = ({
             </div>
           ) : null}
           <div className="media-content">
-            <H4>{heading}</H4>
+            <H4 className="text-ellipisis">{heading}</H4>
             <SubTitleH6>{subHeading}</SubTitleH6>
             {children}
           </div>

@@ -60,10 +60,8 @@ export const GridFiveCol: React.SFC<LayoutProps> = ({ children, className = '' }
   <div className={`columns is-multiline ${className}`}>{children}</div>
 )
 
-export const GridFiveColItem: React.SFC<LayoutProps> = ({ children, className = '' }) => (
-  <div
-    className={`column is-multiline is-half-tablet is-one-third-desktop is-one-quarter-widescreen is-one-fifth-fullhd ${className}`}
-  >
+export const GridFourColItem: React.SFC<LayoutProps> = ({ children, className = '' }) => (
+  <div className={`column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd ${className}`}>
     {children}
   </div>
 )

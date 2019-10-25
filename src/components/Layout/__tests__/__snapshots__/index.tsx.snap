@@ -60,12 +60,12 @@ exports[`LayoutComponents should match a snapshot for GridFiveCol 1`] = `
 </div>
 `;
 
-exports[`LayoutComponents should match a snapshot for GridFiveColItem 1`] = `
+exports[`LayoutComponents should match a snapshot for GridFourColItem 1`] = `
 <div
-  className="column is-multiline is-half-tablet is-one-third-desktop is-one-quarter-widescreen is-one-fifth-fullhd "
+  className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
 >
   <Component
-    text="GridFiveColItem"
+    text="GridFourColItem"
   />
 </div>
 `;
