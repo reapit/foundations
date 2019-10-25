@@ -13,7 +13,9 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
         hasPadding={true}
       >
         <H3>
-          Search Results
+          Showing Results for '
+          1
+          '
         </H3>
         <Table
           columns={
@@ -36,8 +38,10 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
                 "id": "postcode",
               },
               Object {
+                "Cell": [Function],
                 "Header": "Status",
-                "accessor": "identityCheck",
+                "accessor": [Function],
+                "id": "identityCheck",
               },
               Object {
                 "Cell": [Function],
@@ -2657,7 +2661,9 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
         hasPadding={true}
       >
         <H3>
-          Search Results
+          Showing Results for '
+          1
+          '
         </H3>
         <Table
           columns={
@@ -2680,8 +2686,10 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
                 "id": "postcode",
               },
               Object {
+                "Cell": [Function],
                 "Header": "Status",
-                "accessor": "identityCheck",
+                "accessor": [Function],
+                "id": "identityCheck",
               },
               Object {
                 "Cell": [Function],
@@ -2717,9 +2725,6 @@ exports[`Result should match a snapshot when no results found 1`] = `
         hasBackground={true}
         hasPadding={true}
       >
-        <H3>
-          Search Results
-        </H3>
         <div>
           <div>
             <Info
