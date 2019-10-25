@@ -33,9 +33,20 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
         id: 'address',
         accessor: d => d,
         Cell: ({ row }) => {
+          const addresses = (({ buildingName, buildingNumber, line1, line2 }) => ({
+            buildingName,
+            buildingNumber,
+            line1,
+            line2
+          }))(row.original.addresses[0])
+
           return (
             <div>
-              <span>{row.original.addresses[0].line1}</span>
+              <span>
+                {Object.values(addresses)
+                  .filter(value => value)
+                  .join(', ')}
+              </span>
             </div>
           )
         }
@@ -54,7 +65,15 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
       },
       {
         Header: 'Status',
-        accessor: 'identityCheck'
+        id: 'identityCheck',
+        accessor: d => d,
+        Cell: ({ row }) => {
+          return (
+            <div>
+              <span className="capitalize">{row.original.identityCheck}</span>
+            </div>
+          )
+        }
       },
       {
         Header: '',
@@ -77,6 +96,14 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
   )
   const { search, loading } = resultsState
   const { totalCount, pageSize, data = [] } = oc<ResultsState>(resultsState).contacts({})
+
+  const searchTitle = React.useMemo(() => {
+    if (search) {
+      return Object.values(search)
+        .filter(value => value)
+        .join(', ')
+    }
+  }, [search])
 
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
@@ -117,8 +144,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
       <FlexContainerBasic hasPadding flexColumn>
         <div>
           <FlexContainerResponsive hasBackground flexColumn hasPadding>
-            <H3>Search Results</H3>
-            {/* TODO: Will fix this by @Dan Nguyen */}
+            {search && <H3>Showing Results for '{searchTitle}'</H3>}
             {!search || Number(totalCount) === 0 ? (
               renderEmptyResult()
             ) : (
