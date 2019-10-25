@@ -32,7 +32,7 @@ export interface DynamicLinkQueryParams {
   // These two are special queries as they relate to the app to return to and the requested
   // return param from the entity eg appParam=code when I have asked for a contact
   appId: string
-  appPram: AppParams
+  appParam: AppParams
   // Only used for launching an app by id
   id: string
   // Should I close the current app after navigation
