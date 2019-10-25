@@ -7,4 +7,4 @@ dep:
 	yarn install
 
 s3:
-	aws --profile $(profile) s3 sync ./build s3://$(bucket) --delete --acl public-read
+	aws --profile $(profile) s3 sync ./public s3://$(bucket) --delete --acl public-read
