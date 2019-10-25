@@ -1,17 +1,33 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { Button, Input, SelectBox, FlexContainerResponsive, H3 } from '@reapit/elements'
+import {
+  Button,
+  Input,
+  SelectBox,
+  FlexContainerResponsive,
+  H3,
+  AcButton,
+  EntityType,
+  LoginMode,
+  AppParams
+} from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { Formik, Form } from 'formik'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/result'
+import { ReduxState } from '../../types/core'
+import { oc } from 'ts-optchain'
 
 export interface ClientSearchMappedActions {
   setSearchParams: (params: SearchParams) => void
 }
 
-export type ClientSearchProps = ClientSearchMappedActions & RouteComponentProps
+export interface ClientSearchMappedState {
+  loginMode: LoginMode
+}
+
+export type ClientSearchProps = ClientSearchMappedActions & ClientSearchMappedState & RouteComponentProps
 
 const identityCheckList = [
   { label: 'Please select…', value: '' },
@@ -23,7 +39,7 @@ const identityCheckList = [
   { label: 'Unchecked', value: 'UNCHECKED' }
 ]
 
-export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history }) => {
+export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history, loginMode }) => {
   const searchContacts = value => {
     setSearchParams(value)
     history.push(Routes.RESULTS)
@@ -63,6 +79,28 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
                 <Button className="is-right" type="submit" variant="primary" disabled={disabled}>
                   Search
                 </Button>
+                {loginMode === 'DESKTOP' && (
+                  <AcButton
+                    dynamicLinkParams={{
+                      entityType: EntityType.CONTACT,
+                      queryParams: {
+                        name: values.name ? values.name : '',
+                        address: values.address ? values.address : '',
+                        // TODO - this should be dynamic - is the hardcoded AML dev id
+                        appId: '77f7c64f-0214-49eb-8963-f0b98f747072',
+                        appPram: AppParams.CONTACT_CODE
+                      },
+                      appMode: loginMode
+                    }}
+                    buttonProps={{
+                      type: 'button',
+                      variant: 'primary',
+                      disabled: !values.name && !values.address
+                    }}
+                  >
+                    Advanced Search
+                  </AcButton>
+                )}
               </Form>
             )
           }}
@@ -76,9 +114,13 @@ const mapDispatchToProps = (dispatch: any): ClientSearchMappedActions => ({
   setSearchParams: (params: SearchParams) => dispatch(resultSetSearchParams(params))
 })
 
+const mapStateToProps = (state: ReduxState): ClientSearchMappedState => ({
+  loginMode: oc(state).auth.refreshSession.mode('WEB')
+})
+
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(ClientSearch)
 )
