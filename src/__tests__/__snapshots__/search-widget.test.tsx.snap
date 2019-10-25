@@ -1,48 +1,120 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should match snapshot 1`] = `
+exports[`Search widget should match snapshot 1`] = `
 <ThemeProvider
   theme={
     Object {
-      "colors": Object {
-        "backgroundColor": "#00a569",
-        "buttonBackgroundColor": "white",
-        "buttonTextColor": "gray",
-        "inputBackgroundColor": "white",
-        "inputTextColor": "gray",
-        "titleColor": "white",
+      "base": Object {
+        "font": Object {
+          "family": "'Open Sans', sans-serif",
+          "sizes": Object {
+            "base": "1.5rem",
+            "headings": Object {
+              "h1": "2.4rem",
+              "h2": "2.2rem",
+              "h3": "2.0rem",
+              "h4": "1.8rem",
+              "h5": "1.6rem",
+            },
+          },
+        },
       },
-      "font": Object {
-        "baseFontSize": "1rem",
-        "fontFamily": "inherit",
-        "headingFontSize": "",
+      "button": Object {
+        "background": "#ffffff",
+        "color": "#12263f",
+      },
+      "colors": Object {
+        "background": "#ffffff",
+        "base": "#12263f",
+        "icon": "gray",
+        "loading": "#95aac9",
+        "primary": "#00a569",
+        "secondary": "#828085",
+        "warning": "#d3033d",
+        "widgetHeading": "#ffffff",
       },
     }
   }
 >
   <styled.div>
-    <styled.div>
-      Find your perfect home
-    </styled.div>
-    <styled.input
-      name="search"
-      onChange={[Function]}
-      placeholder="enter your town or postcode"
-    />
-    <styled.div>
-      <styled.button
-        disabled={false}
-        onClick={[Function]}
-      >
-        FOR SALE
-      </styled.button>
-      <styled.button
-        disabled={false}
-        onClick={[Function]}
-      >
-        TO RENT
-      </styled.button>
-    </styled.div>
+    <ContextProvider
+      value={
+        Object {
+          "err": null,
+          "getCountResult": [Function],
+          "getErrorString": [Function],
+          "getResultArr": [Function],
+          "isLoading": false,
+          "propertyImages": Object {},
+          "result": undefined,
+          "searchKeyWord": "",
+          "searchType": undefined,
+          "selectedProperty": undefined,
+          "setFetchError": [Function],
+          "setFetchResult": [Function],
+          "setPropertyImages": [Function],
+          "setSearchKeyWord": [Function],
+          "setSelectedProperty": [Function],
+          "setStartFetching": [Function],
+          "theme": Object {
+            "base": Object {
+              "font": Object {
+                "family": "'Open Sans', sans-serif",
+                "sizes": Object {
+                  "base": "1.5rem",
+                  "headings": Object {
+                    "h1": "2.4rem",
+                    "h2": "2.2rem",
+                    "h3": "2.0rem",
+                    "h4": "1.8rem",
+                    "h5": "1.6rem",
+                  },
+                },
+              },
+            },
+            "button": Object {
+              "background": "#ffffff",
+              "color": "#12263f",
+            },
+            "colors": Object {
+              "background": "#ffffff",
+              "base": "#12263f",
+              "icon": "gray",
+              "loading": "#95aac9",
+              "primary": "#00a569",
+              "secondary": "#828085",
+              "warning": "#d3033d",
+              "widgetHeading": "#ffffff",
+            },
+          },
+        }
+      }
+    >
+      <styled.div>
+        <styled.h1>
+          Find your perfect home
+        </styled.h1>
+        <styled.input
+          name="search"
+          onChange={[Function]}
+          placeholder="enter your town or postcode"
+        />
+        <styled.div>
+          <styled.button
+            disabled={false}
+            onClick={[Function]}
+          >
+            FOR SALE
+          </styled.button>
+          <styled.button
+            disabled={false}
+            onClick={[Function]}
+          >
+            TO RENT
+          </styled.button>
+        </styled.div>
+      </styled.div>
+    </ContextProvider>
   </styled.div>
 </ThemeProvider>
 `;
