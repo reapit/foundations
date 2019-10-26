@@ -10,10 +10,10 @@ import Modal from '@/components/ui/modal'
 import { Dispatch } from 'redux'
 import { checklistDetailHideModal, checklistDetailShowModal } from '@/actions/checklist-detail'
 import { authLogout } from '@/actions/auth'
-import { ContactModel, CreateIdentityDocumentModel, CommunicationModel } from '@/types/contact-api-schema'
+import { ContactModel } from '@/types/contact-api-schema'
 import { STEPS } from '../ui/modal/modal'
 import styles from '@/styles/ui/section.scss?mod'
-import { TiTick } from 'react-icons/ti'
+import { TiTick, TiTimes } from 'react-icons/ti'
 import { SectionsStatus, defaultStatus } from '@/reducers/checklist-detail'
 
 export type CheckListDetailProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ id?: any }>
@@ -25,112 +25,52 @@ export type SectionProps = {
   buttonText: string
 }
 
-export const checkCompletePersonalDetail = (contact: ContactModel) => {
-  const { title, surname, forename, dateOfBirth, communications } = contact
-  if (title && surname && forename && dateOfBirth && communications) {
-    return communications.some((item: CommunicationModel) => item.label === 'Mobile' || item.label === 'Home')
-  }
-  return false
-}
-
-export const checkCompletePrimaryID = (contact: ContactModel) => {
-  const primaryId = oc(contact).metadata.primaryId(undefined)
-  let flag: boolean = false
-  if (primaryId) {
-    flag = true
-    primaryId.forEach(idList => {
-      idList.documents.forEach((item: CreateIdentityDocumentModel) => {
-        if (!item.typeId || !item.details || !item.expiry || !item.fileUrl) {
-          flag = false
-        }
-      })
-    })
-  }
-  return flag
-}
-
-export const checkCompleteSecondaryID = (contact: ContactModel) => {
-  const secondaryId = oc(contact).metadata.secondaryId(undefined)
-  let flag: boolean = false
-  if (secondaryId) {
-    flag = true
-    secondaryId.forEach(idList => {
-      idList.documents.forEach((item: CreateIdentityDocumentModel) => {
-        if (!item.typeId || !item.details || !item.expiry || !item.fileUrl) {
-          flag = false
-        }
-      })
-    })
-  }
-  return flag
-}
-
-export const checkCompleteAddress = (contact: ContactModel) => {
-  const { addresses, metadata } = contact
-  if (addresses && metadata && metadata.addresses) {
-    return (
-      addresses.some(item => item.line1 && item.line3 && item.postcode) &&
-      metadata.addresses.some(item => item.year && item.month && item.documentImage)
-    )
-  }
-  return false
-}
-
-export const checkCompleteDeclarationAndRisk = (contact: ContactModel) => {
-  const { metadata } = contact
-  if (metadata && metadata.declarationAndRisk) {
-    const { reason, type, declarationForm, riskAssessmentForm } = metadata.declarationAndRisk
-    return reason && type && (declarationForm || riskAssessmentForm)
-  }
-  return false
-}
-
 export const generateSection = (status: SectionsStatus, onClick: (modalType: string) => () => void) => {
   return [
     {
-      title: 'Personal Details',
+      title: STEPS.PROFILE,
       isCompleted: status.profile,
       onEdit: onClick(STEPS.PROFILE),
       buttonText: 'Edit'
     },
     {
-      title: 'Primary ID',
+      title: STEPS.PRIMARY_IDENTIFICATION,
       isCompleted: status.primaryId,
       onEdit: onClick(STEPS.PRIMARY_IDENTIFICATION),
       buttonText: 'Edit'
     },
     {
-      title: 'Secondary ID',
+      title: STEPS.SECONDARY_IDENTIFICATION,
       isCompleted: status.secondaryId,
       onEdit: onClick(STEPS.SECONDARY_IDENTIFICATION),
       buttonText: 'Edit'
     },
     {
-      title: 'Address History',
+      title: STEPS.ADDRESS_INFORMATION,
       isCompleted: status.addresses,
       onEdit: onClick(STEPS.ADDRESS_INFORMATION),
       buttonText: 'Edit'
     },
     {
-      title: 'Declaration and Risk Assessment',
+      title: STEPS.DECLARATION_RISK_MANAGEMENT,
       isCompleted: status.declarationRisk,
       onEdit: onClick(STEPS.DECLARATION_RISK_MANAGEMENT),
       buttonText: 'Edit'
     },
     {
-      title: 'PEP Search',
+      title: STEPS.PEP_SEARCH,
       isCompleted: status.pepSearch,
       onEdit: onClick(STEPS.PEP_SEARCH),
       buttonText: 'Edit'
     },
     {
-      title: 'Experian ',
+      title: STEPS.EXPERIAN,
       isCompleted: status.experian,
       onEdit: onClick(STEPS.EXPERIAN),
       buttonText: 'Edit'
     },
     {
-      title: 'Report',
+      title: STEPS.REPORT,
       isCompleted: false,
       onEdit: onClick(STEPS.REPORT),
       buttonText: 'View'
@@ -138,16 +78,13 @@ export const generateSection = (status: SectionsStatus, onClick: (modalType: str
   ]
 }
 
-export const renderCompletedCheckMark = (isCompleted: boolean) => {
-  if (!isCompleted) {
-    return null
-  }
+export const renderCheckMark = (isCompleted: boolean) => {
   return (
     <div className={styles.statusSection}>
       <span>
-        <TiTick className={styles.checkMark} />
+        {isCompleted ? <TiTick className={styles.checkCompleted} /> : <TiTimes className={styles.checkIncomplete} />}
       </span>
-      <span>Completed</span>
+      <span>{isCompleted ? 'Completed' : 'Incomplete'}</span>
     </div>
   )
 }
@@ -159,13 +96,14 @@ export const renderSections = (sections: SectionProps[]) => {
         <Tile
           heading={section.title}
           menu={
-            <Button type="button" variant="primary" onClick={section.onEdit}>
-              {section.buttonText}
-            </Button>
+            <div className="flex">
+              {section.title !== STEPS.REPORT && renderCheckMark(section.isCompleted)}
+              <Button type="button" variant="primary" onClick={section.onEdit}>
+                {section.buttonText}
+              </Button>
+            </div>
           }
-        >
-          {renderCompletedCheckMark(section.isCompleted)}
-        </Tile>
+        ></Tile>
       </div>
     )
   })
