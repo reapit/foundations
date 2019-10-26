@@ -5,6 +5,7 @@ import {
   Button,
   Input,
   SelectBox,
+  FlexContainerBasic,
   FlexContainerResponsive,
   H3,
   AcButton,
@@ -31,12 +32,12 @@ export type ClientSearchProps = ClientSearchMappedActions & ClientSearchMappedSt
 
 const identityCheckList = [
   { label: 'Please select…', value: '' },
-  { label: 'Pass', value: 'PASS' },
-  { label: 'Fail', value: 'FAIL' },
-  { label: 'Pending', value: 'PENDING' },
-  { label: 'Cancelled', value: 'CANCELLED' },
-  { label: 'Warnings', value: 'WARNINGS' },
-  { label: 'Unchecked', value: 'UNCHECKED' }
+  { label: 'Pass', value: 'Pass' },
+  { label: 'Fail', value: 'Fail' },
+  { label: 'Pending', value: 'Pending' },
+  { label: 'Cancelled', value: 'Cancelled' },
+  { label: 'Warnings', value: 'Warnings' },
+  { label: 'Unchecked', value: 'Unchecked' }
 ]
 
 export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history, loginMode }) => {
@@ -47,65 +48,69 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
 
   return (
     <ErrorBoundary>
-      <FlexContainerResponsive hasPadding flexColumn>
-        <H3>Client Search</H3>
+      <FlexContainerBasic hasPadding flexColumn>
         <Formik
           initialValues={{ name: '', address: '', identityCheck: '' }}
           onSubmit={values => searchContacts(values)}
           render={({ values }) => {
             const disabled = !values.name && !values.address && !values.identityCheck
             return (
-              <Form className="mb-8">
-                <Input
-                  id="name"
-                  type="text"
-                  placeholder="Firstname or Surname"
-                  name="name"
-                  labelText="Search by name"
-                />
-                <Input
-                  id="address"
-                  type="text"
-                  placeholder="Streetname, Village, Town or Postcode"
-                  name="address"
-                  labelText="Search by address"
-                />
-                <SelectBox
-                  id="identityCheck"
-                  name="identityCheck"
-                  labelText="Search by ID Status"
-                  options={identityCheckList}
-                />
-                <Button className="is-right" type="submit" variant="primary" disabled={disabled}>
-                  Search
-                </Button>
-                {loginMode === 'DESKTOP' && (
-                  <AcButton
-                    dynamicLinkParams={{
-                      entityType: EntityType.CONTACT,
-                      queryParams: {
-                        name: values.name ? values.name : '',
-                        address: values.address ? values.address : '',
-                        // TODO - this should be dynamic - is the hardcoded AML dev id
-                        appId: '77f7c64f-0214-49eb-8963-f0b98f747072',
-                        appParam: AppParams.CONTACT_CODE
-                      },
-                      appMode: loginMode
-                    }}
-                    buttonProps={{
-                      type: 'button',
-                      variant: 'primary',
-                      disabled: !values.name && !values.address
-                    }}
-                  >
-                    Advanced Search
-                  </AcButton>
-                )}
-              </Form>
+              <div>
+                <FlexContainerResponsive hasBackground flexColumn hasPadding>
+                  <H3>Client Search</H3>
+                  <Form className="mb-8">
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Firstname or Surname"
+                      name="name"
+                      labelText="Search by name"
+                    />
+                    <Input
+                      id="address"
+                      type="text"
+                      placeholder="Streetname, Village, Town or Postcode"
+                      name="address"
+                      labelText="Search by address"
+                    />
+                    <SelectBox
+                      id="identityCheck"
+                      name="identityCheck"
+                      labelText="Search by ID Status"
+                      options={identityCheckList}
+                    />
+                    <Button className="is-right" type="submit" variant="primary" disabled={disabled}>
+                      Search
+                    </Button>
+                    {loginMode === 'DESKTOP' && (
+                      <AcButton
+                        dynamicLinkParams={{
+                          entityType: EntityType.CONTACT,
+                          queryParams: {
+                            name: values.name ? values.name : '',
+                            address: values.address ? values.address : '',
+                            // TODO - this should be dynamic - is the hardcoded AML dev id
+                            appId: '77f7c64f-0214-49eb-8963-f0b98f747072',
+                            appParam: AppParams.CONTACT_CODE
+                          },
+                          appMode: loginMode
+                        }}
+                        buttonProps={{
+                          type: 'button',
+                          variant: 'primary',
+                          disabled: !values.name && !values.address
+                        }}
+                      >
+                        Advanced Search
+                      </AcButton>
+                    )}
+                  </Form>
+                </FlexContainerResponsive>
+              </div>
             )
           }}
         />
-      </FlexContainerResponsive>
+      </FlexContainerBasic>
     </ErrorBoundary>
   )
 }

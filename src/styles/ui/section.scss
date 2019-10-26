@@ -1,3 +1,5 @@
+@import '../base/colors.scss';
+
 .section {
   display: flex;
   justify-content: space-between;
@@ -12,13 +14,18 @@
   align-items: center;
 }
 
-.statusSection{
+.statusSection {
   margin-right: 2rem;
   align-items: center;
   display: flex;
 }
 
-.checkMark{
+.checkCompleted {
   font-size: 1.5rem;
-  color: green;
+  color: $green;
+}
+
+.checkIncomplete {
+  font-size: 1.5rem;
+  color: $red;
 }
