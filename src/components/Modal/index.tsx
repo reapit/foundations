@@ -13,6 +13,12 @@ export interface ModalProps {
   header?: React.ReactNode
   renderChildren?: boolean
   footerItems?: React.ReactNode
+  className?: string
+}
+
+export interface ModalHeaderProps {
+  title: string
+  afterClose: () => void
 }
 
 export const ModalFooter: React.SFC<{ footerItems: React.ReactNode }> = ({ footerItems }) => (
@@ -23,7 +29,7 @@ export const ModalBody: React.SFC<{ body: React.ReactNode }> = ({ body }) => (
   <section className="modal-card-body">{body}</section>
 )
 
-export const ModalHeader: React.SFC<{ title: string; afterClose: () => void }> = ({ title, afterClose }) => (
+export const ModalHeader: React.SFC<ModalHeaderProps> = ({ title, afterClose }) => (
   <header className="modal-card-head">
     <h4 className="modal-card-title is-4">{title}</h4>
     <button
@@ -46,7 +52,8 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   size = 'medium',
   deps,
   footerItems,
-  renderChildren
+  renderChildren,
+  className = ''
 }) => {
   // CLD-250: https://reapit.atlassian.net/secure/RapidBoard.jspa?rapidView=200&view=planning&selectedIssue=CLD-250
   // we can't access the showPortal in the component passed to usePortal
@@ -60,7 +67,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
 
   const [showPortal, hidePortal] = usePortal(
     () => (
-      <div className="modal is-active" data-test="modal">
+      <div className={`modal is-active ${className}`} data-test="modal">
         <div
           className="modal-background"
           data-test="modal-background"
