@@ -8,10 +8,10 @@ import {
   InfoType,
   Info,
   GridFiveCol,
-  GridFiveColItem,
   PaginationProps,
   Section,
   Pagination,
+  GridFourColItem,
   FlexContainerBasic
 } from '@reapit/elements'
 
@@ -43,7 +43,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
             <Info infoType={infoType} />
           ) : (
             list.map(app => (
-              <GridFiveColItem key={app.id}>
+              <GridFourColItem key={app.id}>
                 <AppCard
                   app={app}
                   onClick={
@@ -63,7 +63,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
                       : undefined
                   }
                 />
-              </GridFiveColItem>
+              </GridFourColItem>
             ))
           )}
         </GridFiveCol>
