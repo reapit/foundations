@@ -20,7 +20,7 @@ import { ScopeModel } from '@/types/marketplace-api-schema'
 
 jest.mock('@reapit/elements')
 
-const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
+export const params: Action<SubmitAppArgs> = { data: appSubmitStubWithActions.data, type: 'DEVELOPER_SUBMIT_APP' }
 const generateDumpPromise = () => new Promise(() => null)
 
 describe('submit-app post data', () => {

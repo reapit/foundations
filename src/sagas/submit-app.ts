@@ -1,5 +1,5 @@
 import { ImageUploaderRes } from './submit-app'
-import { fetcher, FetchError } from '@reapit/elements'
+import { fetcher, FetchError, isBase64 } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL, UPLOAD_FILE_BASE_URL } from '../constants/api'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
@@ -11,18 +11,18 @@ import errorMessages from '../constants/error-messages'
 import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '@/utils/form/errors'
 
 export type ImageUploaderReq = {
-  name?: String
-  imageData?: String
+  name?: string
+  imageData?: string
 }
 
 export type ImageUploaderRes = {
-  Url?: String
+  Url?: string
 }
 
 export const imageUploaderHelper = async (object: ImageUploaderReq) => {
   const { imageData, name } = object
 
-  if (!imageData || !name) {
+  if (!imageData || !name || !isBase64(imageData)) {
     return null
   }
 
