@@ -11,6 +11,7 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { developerRequestData } from '@/actions/developer'
+import { developerAppShowModal } from '@/actions/developer-app-modal'
 
 jest.mock('@reapit/elements')
 
@@ -46,6 +47,8 @@ describe('app-delete sagas', () => {
       )
       expect(clone.next().value).toEqual(put(appDeleteRequestSuccess()))
       expect(clone.next().value).toEqual(put(developerRequestData(1)))
+      expect(clone.next().value).toEqual(put(developerAppShowModal(false)))
+      expect(clone.next().done).toEqual(true)
     })
   })
 

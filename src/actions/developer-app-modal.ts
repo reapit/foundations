@@ -8,3 +8,4 @@ export const setDeveloperAppModalStateDelete = actionCreator<void>(ActionTypes.S
 export const setDeveloperAppModalStateViewDetail = actionCreator<void>(
   ActionTypes.SET_DEVELOPER_APP_MODAL_STATE_VIEW_DETAIL
 )
+export const developerAppShowModal = actionCreator<boolean>(ActionTypes.DEVELOPER_SHOW_MODAL)

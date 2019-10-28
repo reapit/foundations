@@ -50,4 +50,16 @@ describe('developer reducer', () => {
     }
     expect(newState).toEqual(expected)
   })
+
+  it('should set formState when DEVELOPER_SHOW_MODAL is called', () => {
+    const newState = developerReducer(undefined, {
+      type: ActionTypes.DEVELOPER_SHOW_MODAL as ActionType,
+      data: true
+    })
+    const expected = {
+      ...defaultState,
+      isVisible: true
+    }
+    expect(newState).toEqual(expected)
+  })
 })

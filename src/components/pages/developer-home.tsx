@@ -11,7 +11,7 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import { AppDetailState } from '@/reducers/app-detail'
 import { appDetailRequestData } from '@/actions/app-detail'
 import DeveloperAppModal from '../ui/developer-app-modal'
-import { setDeveloperAppModalStateViewDetail } from '@/actions/developer-app-modal'
+import { setDeveloperAppModalStateViewDetail, developerAppShowModal } from '@/actions/developer-app-modal'
 import { appDeleteSetInitFormState } from '@/actions/app-delete'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 
@@ -19,11 +19,13 @@ export interface DeveloperMappedActions {
   fetchAppDetail: (id: string) => void
   setDeveloperAppModalStateViewDetail: () => void
   appDeleteSetInitFormState: () => void
+  setVisible: (isVisible: boolean) => void
 }
 
 export interface DeveloperMappedProps {
   developerState: DeveloperState
   appDetail: AppDetailState
+  isVisible: boolean
 }
 
 export type DeveloperProps = DeveloperMappedActions & DeveloperMappedProps & RouteComponentProps<{ page?: any }>
@@ -35,14 +37,15 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   setDeveloperAppModalStateViewDetail,
   appDeleteSetInitFormState,
   appDetail,
-  history
+  history,
+  isVisible,
+  setVisible
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !developerState.developerData
   const loading = developerState.loading
   const list = oc<DeveloperState>(developerState).developerData.data.data([])
   const { totalCount, pageSize } = oc<DeveloperState>(developerState).developerData.data({})
-  const [visible, setVisible] = React.useState(false)
   const onChange = (page: number) => history.push(`${routes.DEVELOPER_MY_APPS}/${page}`)
 
   if (unfetched || loading) {
@@ -71,20 +74,22 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
           onChange
         }}
       />
-      <DeveloperAppModal visible={visible} afterClose={() => setVisible(false)} />
+      <DeveloperAppModal visible={isVisible} afterClose={() => setVisible(false)} />
     </ErrorBoundary>
   )
 }
 
 const mapStateToProps = (state: ReduxState): DeveloperMappedProps => ({
   developerState: state.developer,
-  appDetail: state.appDetail
+  appDetail: state.appDetail,
+  isVisible: state.developer.isVisible
 })
 
 const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
   fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id })),
   setDeveloperAppModalStateViewDetail: () => dispatch(setDeveloperAppModalStateViewDetail()),
-  appDeleteSetInitFormState: () => dispatch(appDeleteSetInitFormState())
+  appDeleteSetInitFormState: () => dispatch(appDeleteSetInitFormState()),
+  setVisible: (isVisible: boolean) => dispatch(developerAppShowModal(isVisible))
 })
 
 export default withRouter(
