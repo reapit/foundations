@@ -1,5 +1,5 @@
-@import "../base/colors.scss";
-@import "../base/fonts.scss";
+@import '../base/colors.scss';
+@import '../base/fonts.scss';
 
 
 .media-content {
@@ -60,7 +60,9 @@
   }
 }
 
-.button, .file-cta {
+.button,
+.file-cta,
+.file-name {
   display: inline-block;
   border-radius: 0;
   text-transform: uppercase;
@@ -83,6 +85,19 @@
   }
 }
 
+.file-label {
+  align-items: center;
+
+  .file-cta {
+    margin-right: 0;
+  }
+
+  .file-input:disabled + .file-cta {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
 .buttons.has-addons {
   .button {
     margin-left: 0;
@@ -100,7 +115,8 @@
   }
 }
 
-.subtitle, .subtitle:not(:last-child) {
+.subtitle,
+.subtitle:not(:last-child) {
   margin-bottom: 1rem;
 }
 
@@ -108,19 +124,25 @@
   text-transform: uppercase;
 }
 
-.input, .pagination-previous, .pagination-next, .pagination-link, .pagination-ellipsis {
+.input,
+.pagination-previous,
+.pagination-next,
+.pagination-link,
+.pagination-ellipsis {
   height: auto;
   padding: 0.8rem 1rem;
   border-radius: 0;
 }
 
-.pagination-previous, .pagination-next, .pagination-link, .pagination-ellipsis {
+.pagination-previous,
+.pagination-next,
+.pagination-link,
+.pagination-ellipsis {
   text-transform: uppercase;
 }
 
 .tabs {
   a {
-
     text-transform: uppercase;
     font-weight: bold;
   }
@@ -162,6 +184,7 @@
   font-family: $title-family;
 }
 
-.modal-card, .modal-content {
+.modal-card,
+.modal-content {
   margin: 0 auto;
 }
