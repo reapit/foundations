@@ -92,7 +92,7 @@ export const FileInput = ({
                   )}
                   {hasFile && allowClear && (
                     <a
-                      className="delete ml-2 mt-2"
+                      className="delete is-large"
                       onClick={e => {
                         e.preventDefault()
                         setFieldValue(name, '')
