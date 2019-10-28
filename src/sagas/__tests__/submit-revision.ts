@@ -18,17 +18,49 @@ const params: Action<CreateAppRevisionModel & { id: string }> = {
   type: 'DEVELOPER_SUBMIT_REVISION'
 }
 
+const generateDumpPromise = () => new Promise(() => null)
+
 describe('submit-revision post data', () => {
+  const imageUploaderRequests = [
+    generateDumpPromise(),
+    generateDumpPromise(),
+    generateDumpPromise(),
+    generateDumpPromise(),
+    generateDumpPromise()
+  ]
+  const imageUploaderResults = [
+    { Url: 'base64 string...' },
+    { Url: 'base64 string...' },
+    { Url: 'base64 string...' },
+    { Url: 'base64 string...' },
+    { Url: 'base64 string...' }
+  ]
+  const updatedData = {
+    ...revisionSubmitStub.data,
+    iconImageData: '',
+    screen1ImageData: '',
+    screen2ImageData: '',
+    screen3ImageData: '',
+    screen4ImageData: '',
+    screen5ImageData: 'base64 string...',
+    iconImageUrl: 'base64 string...',
+    screen1ImageUrl: 'base64 string...',
+    screen2ImageUrl: 'base64 string...',
+    screen3ImageUrl: 'base64 string...',
+    screen4ImageUrl: 'base64 string...'
+  }
+
   const gen = cloneableGenerator(submitRevisionSaga)(params)
   const { id, ...body } = params.data
 
   expect(gen.next().value).toEqual(put(submitRevisionSetFormState('SUBMITTING')))
-  expect(gen.next().value).toEqual(
+  expect(gen.next().value).toEqual(all(imageUploaderRequests))
+  expect(gen.next(imageUploaderResults).value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${id}/revisions`,
       api: REAPIT_API_BASE_URL,
       method: 'POST',
-      body,
+      body: updatedData,
       headers: MARKETPLACE_HEADERS
     })
   )
