@@ -8,6 +8,7 @@ import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { selectAppDetailId } from '@/selector/app-detail'
+import { developerAppShowModal } from '@/actions/developer-app-modal'
 
 export const appDeleteRequestSaga = function*() {
   try {
@@ -35,6 +36,8 @@ export const appDeleteRequestSaga = function*() {
         message: errorMessages.DEFAULT_SERVER_ERROR
       })
     )
+  } finally {
+    yield put(developerAppShowModal(false))
   }
 }
 

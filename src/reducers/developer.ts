@@ -1,13 +1,8 @@
 import { Action, FormState } from '../types/core'
 import { isType } from '../utils/actions'
-import {
-  developerLoading,
-  developerReceiveData,
-  developerClearData,
-  developerCreate,
-  developerSetFormState
-} from '../actions/developer'
+import { developerLoading, developerReceiveData, developerClearData, developerSetFormState } from '../actions/developer'
 import { PagedResultAppSummaryModel_, ScopeModel } from '@/types/marketplace-api-schema'
+import { developerAppShowModal } from '@/actions/developer-app-modal'
 
 export interface DeveloperItem {
   data: PagedResultAppSummaryModel_
@@ -18,12 +13,14 @@ export interface DeveloperState {
   loading: boolean
   developerData: DeveloperItem | null
   formState: FormState
+  isVisible: boolean
 }
 
 export const defaultState: DeveloperState = {
   loading: false,
   developerData: null,
-  formState: 'PENDING'
+  formState: 'PENDING',
+  isVisible: false
 }
 
 const developerReducer = (state: DeveloperState = defaultState, action: Action<any>): DeveloperState => {
@@ -54,6 +51,13 @@ const developerReducer = (state: DeveloperState = defaultState, action: Action<a
     return {
       ...state,
       formState: action.data
+    }
+  }
+
+  if (isType(action, developerAppShowModal)) {
+    return {
+      ...state,
+      isVisible: action.data
     }
   }
 
