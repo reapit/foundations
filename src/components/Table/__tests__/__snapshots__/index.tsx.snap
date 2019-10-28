@@ -2,7 +2,7 @@
 
 exports[`Table should match a snapshot when LOADING false 1`] = `
 <table
-  className="table is-striped is-fullwidth"
+  className="table is-striped is-fullwidth "
   style={Object {}}
 >
   <thead>
@@ -1874,7 +1874,7 @@ exports[`Table should match a snapshot when LOADING false 1`] = `
 
 exports[`Table should match a snapshot when LOADING true 1`] = `
 <table
-  className="table is-striped is-fullwidth"
+  className="table is-striped is-fullwidth "
   style={Object {}}
 >
   <thead>
@@ -1924,7 +1924,7 @@ exports[`Table should match a snapshot when table is scrollable 1`] = `
   className="table-responsive"
 >
   <table
-    className="table is-striped is-fullwidth"
+    className="table is-striped is-fullwidth "
     style={Object {}}
   >
     <thead>
