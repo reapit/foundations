@@ -14,6 +14,7 @@ export interface ModalProps {
   renderChildren?: boolean
   footerItems?: React.ReactNode
   className?: string
+  HeaderComponent?: React.FC
 }
 
 export interface ModalHeaderProps {
@@ -53,7 +54,8 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   deps,
   footerItems,
   renderChildren,
-  className = ''
+  className = '',
+  HeaderComponent
 }) => {
   // CLD-250: https://reapit.atlassian.net/secure/RapidBoard.jspa?rapidView=200&view=planning&selectedIssue=CLD-250
   // we can't access the showPortal in the component passed to usePortal
@@ -83,7 +85,8 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
               children
             ) : (
               <>
-                {afterClose && title && <ModalHeader title={title} afterClose={afterClose} />}
+                {HeaderComponent && <HeaderComponent />}
+                {!HeaderComponent && afterClose && title && <ModalHeader title={title} afterClose={afterClose} />}
                 {children && <ModalBody body={children} />}
                 {footerItems && <ModalFooter footerItems={footerItems} />}
               </>
