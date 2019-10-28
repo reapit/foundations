@@ -9,11 +9,22 @@ import { Loader } from '../Loader'
 export interface TableProps {
   columns: any[]
   data: any[]
-  loading: boolean
-  scrollable: boolean
+  loading?: boolean
+  scrollable?: boolean
+  bordered?: boolean
+  striped?: boolean
+  fullWidth?: boolean
 }
 
-export const Table = ({ columns, data, loading, scrollable = false }) => {
+export const Table = ({
+  columns,
+  data,
+  loading,
+  striped = true,
+  fullWidth = true,
+  scrollable = false,
+  bordered = false
+}) => {
   // Use the state and functions returned from useTable to build your UI
   const { getTableProps, headerGroups, rows, prepareRow } = useTable({
     columns,
@@ -22,7 +33,12 @@ export const Table = ({ columns, data, loading, scrollable = false }) => {
 
   // Render the UI for your table
   const renderTable = () => (
-    <table {...getTableProps()} className="table is-striped is-fullwidth">
+    <table
+      {...getTableProps()}
+      className={`table ${striped ? 'is-striped' : ''} ${fullWidth ? 'is-fullwidth' : ''} ${
+        bordered ? 'is-bordered' : ''
+      }`}
+    >
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
