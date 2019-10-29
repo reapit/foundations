@@ -91,6 +91,7 @@
     "dayjs": "^1.8.16",
     "formik": "^1.5.8",
     "hardtack": "^4.1.0",
+    "himalaya": "^1.1.0",
     "jsonwebtoken": "^8.5.1",
     "pell": "^1.0.6",
     "prop-types": "^15.7.2",
