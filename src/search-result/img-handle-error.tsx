@@ -27,7 +27,7 @@ export const ImgHandleError = React.memo(
 
     return <Img src={imgSrc} />
   },
-  ({ src }) => {
+  () => {
     return false
   }
 )

@@ -1,6 +1,5 @@
 import React from 'react'
 import { INVALID_BACKGROUND_AS_BASE64 } from '../constants'
-import { oc } from 'ts-optchain'
 import { context } from '../context'
 import styled from 'styled-components'
 import GoogleMapLoader, { RenderProps } from './google-map-loader'
@@ -49,8 +48,6 @@ export const getContent = ({
   bedrooms,
   bathrooms,
   marketingMode,
-  lettingPrice,
-  rentFrequency,
   imageUrl = INVALID_BACKGROUND_AS_BASE64
 }: GetContentParams) => `
   <div style="display:flex; font-family: ${
@@ -353,7 +350,7 @@ export type MapContainerProps = {
   property?: PropertyModel
 }
 
-export const MapContainer: React.FC<MapContainerProps> | null = ({
+export const MapContainer: React.FC<MapContainerProps> = ({
   googleMap,
   center,
   zoom,
@@ -371,8 +368,10 @@ export const MapContainer: React.FC<MapContainerProps> | null = ({
 
   let imageUrl = INVALID_BACKGROUND_AS_BASE64
   if (searchStore && property) {
-    const propertyId = oc(property).id('')
-    const propertyImage = searchStore.propertyImages[propertyId]
+    const propertyId = property && property.id
+    const propertyImage = propertyId
+      ? searchStore.propertyImages[propertyId]
+      : ''
     if (propertyImage && propertyImage.url) {
       imageUrl = propertyImage.url
     }

@@ -10,28 +10,31 @@ exports[`Search widget should match snapshot 1`] = `
           "sizes": Object {
             "base": "1.5rem",
             "headings": Object {
-              "h1": "2.4rem",
-              "h2": "2.2rem",
-              "h3": "2.0rem",
-              "h4": "1.8rem",
-              "h5": "1.6rem",
+              "h1": "2.0rem",
+              "h2": "1.8rem",
+              "h3": "1.6rem",
+              "h4": "1.4rem",
+              "h5": "1.2rem",
             },
           },
         },
       },
       "button": Object {
-        "background": "#ffffff",
-        "color": "#12263f",
+        "background": "#887d97",
+        "color": "#ffffff",
       },
       "colors": Object {
         "background": "#ffffff",
         "base": "#12263f",
         "icon": "gray",
         "loading": "#95aac9",
-        "primary": "#00a569",
+        "primary": "rgba(124, 160, 145, 1)",
         "secondary": "#828085",
         "warning": "#d3033d",
         "widgetHeading": "#ffffff",
+      },
+      "searchWidget": Object {
+        "backgroundColor": "rgba(124, 160, 145, 0.7)",
       },
     }
   }
@@ -63,28 +66,31 @@ exports[`Search widget should match snapshot 1`] = `
                 "sizes": Object {
                   "base": "1.5rem",
                   "headings": Object {
-                    "h1": "2.4rem",
-                    "h2": "2.2rem",
-                    "h3": "2.0rem",
-                    "h4": "1.8rem",
-                    "h5": "1.6rem",
+                    "h1": "2.0rem",
+                    "h2": "1.8rem",
+                    "h3": "1.6rem",
+                    "h4": "1.4rem",
+                    "h5": "1.2rem",
                   },
                 },
               },
             },
             "button": Object {
-              "background": "#ffffff",
-              "color": "#12263f",
+              "background": "#887d97",
+              "color": "#ffffff",
             },
             "colors": Object {
               "background": "#ffffff",
               "base": "#12263f",
               "icon": "gray",
               "loading": "#95aac9",
-              "primary": "#00a569",
+              "primary": "rgba(124, 160, 145, 1)",
               "secondary": "#828085",
               "warning": "#d3033d",
               "widgetHeading": "#ffffff",
+            },
+            "searchWidget": Object {
+              "backgroundColor": "rgba(124, 160, 145, 0.7)",
             },
           },
         }
@@ -94,12 +100,15 @@ exports[`Search widget should match snapshot 1`] = `
         <styled.h1>
           Find your perfect home
         </styled.h1>
-        <styled.input
-          name="search"
-          onChange={[Function]}
-          placeholder="enter your town or postcode"
-        />
         <styled.div>
+          Search for a property from Agent and Sons
+        </styled.div>
+        <styled.div>
+          <styled.input
+            name="search"
+            onChange={[Function]}
+            placeholder="e.g Town or Postcode"
+          />
           <styled.button
             disabled={false}
             onClick={[Function]}

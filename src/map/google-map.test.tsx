@@ -7,7 +7,7 @@ import {
   MapContainer,
   renderMap,
   GoogleMap
-} from '../map/google-map'
+} from './google-map'
 import { shallow } from 'enzyme'
 import { theme } from '../theme'
 
@@ -27,8 +27,6 @@ describe('google-map', () => {
     property && property.address && property.address.line2
       ? property.address.line2
       : ''
-  const qualifier = property && property.selling && property.selling.qualifier as string
-  const sellingPrice = property && property.selling && property.selling.price
 
   const lettingPrice = property && property.letting && property.letting.rent
   const rentFrequency =

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Loader from '../loader'
 import styled, { ThemeProvider } from 'styled-components'
 import { oc } from 'ts-optchain'
@@ -47,44 +47,77 @@ const BaseStyle = styled.div`
 `
 
 const WidgetContainer = styled.div`
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.searchWidget.backgroundColor};
   display: inline-block;
-  width: 50rem;
-  padding: 2rem 0;
+  min-width: 40rem;
+  padding: 1.5rem 0;
   text-align: center;
   margin: auto 0;
 `
 
+const Error = styled.div`
+  color: white;
+  font-size: 0.8rem;
+  text-align: left;
+  margin-left: 1rem;
+`
+
 const Title = styled.h1`
   color: ${props => props.theme.colors.widgetHeading};
-  margin: 0.7rem;
   font-family: inherit;
+  margin: 0rem;
+`
+
+const Subtitle = styled.div`
+  color: ${props => props.theme.colors.widgetHeading}
+  font-style: italic;
+  font-size: 1rem;
+  margin: 0.5rem 0rem 2rem 0rem;
 `
 
 const Button = styled.button`
-  width: 40%;
   height: 3rem;
   color: ${props => props.theme.button.color};
   font-size: 1rem;
   background: ${props => props.theme.button.background};
   font-family: inherit;
+  margin-left: 1rem;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+  border: none;
+  font-weight: bold;
+  padding: 0.7rem;
+  min-width: 6rem;
 `
 
-const ButtonContainer = styled.div`
-  margin: 0.7rem;
+const FormContainer = styled.div`
+  display: flex;
+  justify-content: center;
   color: ${props => props.theme.colors.base};
 `
 
 const Input = styled.input`
-  padding: 1rem;
-  width: 80%;
-  font-size: 2rem;
+  border: none;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+  width: 60%;
+  font-size: 1rem;
   text-align: center;
   font-weight: 150;
   background: ${props => props.theme.colors.inputBackgroundColor};
-  margin: 0.7rem;
   color: ${props => props.theme.colors.base};
   font-family: inherit;
+  &:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+  &:focus::-moz-placeholder {
+    color: transparent;
+  }
+  &:focus::-moz-placeholder {
+    color: transparent;
+  }
+  &:focus {
+    border-color: ${props => props.theme.button.background};
+    outline-color: ${props => props.theme.button.background};
+  }
 `
 
 const SearchResultContainer = styled.div`
@@ -141,6 +174,8 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
   } = searchStore
 
   const [activeTab, setActiveTab] = useState<TabItem>('MAP')
+  const [error, setError] = useState<string>('')
+  const searchInputRef = useRef(null)
 
   const getPropertyImages = async (result: PropertyModel[]) => {
     const propertyIds = result.map(property => oc(property).id(''))
@@ -169,6 +204,15 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
   }
 
   const searchForSale = async () => {
+    if (error) {
+      setError('')
+    }
+    if (searchKeyword === '') {
+      setError('*Please enter an area')
+      //@ts-ignore
+      searchInputRef.current.focus()
+      return
+    }
     setSelectedProperty(null)
     setStartFetching()
 
@@ -203,6 +247,15 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
   }
 
   const searchToRent = async () => {
+    if (error) {
+      setError('')
+    }
+    if (searchKeyword === '') {
+      setError('*Please enter an area')
+      //@ts-ignore
+      searchInputRef.current.focus()
+      return
+    }
     setSelectedProperty(null)
     setStartFetching()
 
@@ -247,22 +300,25 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
         <context.Provider value={{ ...searchStore, theme }}>
           <WidgetContainer>
             <Title>Find your perfect home</Title>
-            <Input
-              onChange={e => {
-                const value = e.target.value
-                _setSearchKeyword(value)
-              }}
-              name="search"
-              placeholder="enter your town or postcode"
-            />
-            <ButtonContainer>
+            <Subtitle>Search for a property from Agent and Sons</Subtitle>
+            <FormContainer>
+              <Input
+                ref={searchInputRef}
+                onChange={e => {
+                  const value = e.target.value
+                  _setSearchKeyword(value)
+                }}
+                name="search"
+                placeholder="e.g Town or Postcode"
+              />
               <Button onClick={searchForSale} disabled={Boolean(isLoading)}>
                 FOR SALE
               </Button>
               <Button onClick={searchToRent} disabled={Boolean(isLoading)}>
                 TO RENT
               </Button>
-            </ButtonContainer>
+            </FormContainer>
+            {error !== '' && <Error>{error}</Error>}
           </WidgetContainer>
           {searchResultContainer &&
             createPortal(
