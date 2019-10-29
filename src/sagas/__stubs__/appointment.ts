@@ -2,6 +2,8 @@ import { AppointmentModel } from '@/types/appointments'
 
 export const appointmentDataStub: AppointmentModel = {
   id: 'BED1600597',
+  description: 'hello world',
+
   created: '2019-05-12T17:58:40',
   modified: '2016-12-18T16:03:45',
   start: '2016-12-18T16:30:00',
