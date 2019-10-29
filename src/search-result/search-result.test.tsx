@@ -2,11 +2,33 @@ import React from 'react'
 import {
   combineAdress,
   combineNumberBedTypeStyle,
-  SearchResult
+  SearchResult,
+  formatPriceAndQuantifier
 } from './search-result'
 import { shallow } from 'enzyme'
 
 describe('SearchResult', () => {
+  describe('formatPriceAndQuantifier', () => {
+    it('runs correctly', () => {
+      // 0 = input, 1 = input
+      const testCases = [
+        ['askingPrice', '£500,000'],
+        ['priceOnApplication', "POA"],
+        ['guidePrice', 'Guide Price £500,000'],
+        ['offersInRegion', 'OIRO £500,000'],
+        ['offersOver', 'Offers Over £500,000'],
+        ['offersInExcess', 'OIEO £500,000'],
+        ['fixedPrice', 'Fixed Price £500,000'],
+        ['priceReducedTo', '£500,000'],
+      ]
+
+      for (let testCase of testCases) {
+        expect(
+          formatPriceAndQuantifier('500000', testCase[0])
+        ).toBe(testCase[1])
+      }
+    })
+  })
   it('should match snapshoot', () => {
     const wrapper = shallow(<SearchResult />)
     expect(wrapper).toMatchSnapshot()

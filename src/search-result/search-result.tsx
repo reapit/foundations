@@ -9,6 +9,7 @@ import { ImgHandleError } from './img-handle-error'
 import { SearchType } from '../hooks/search-store'
 
 const { useContext } = React
+const currencyFormatter = new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'GBP', minimumFractionDigits: 0 })
 
 const SearchResultContainer = styled.div`
   background: ${props => props.theme.colors.background};
@@ -179,6 +180,21 @@ export const combineAdress = (address: AddressModel | undefined): string => {
   return addressString
 }
 
+export const formatPriceAndQuantifier = (price:string, quantifier:string) => {
+  const formattedPrice = currencyFormatter.format(Number(price))
+  switch(quantifier) {
+    case 'askingPrice': return formattedPrice;
+    case 'priceOnApplication': return 'POA';
+    case 'guidePrice': return `Guide Price ${formattedPrice}`
+    case 'offersInRegion': return `OIRO ${formattedPrice}`
+    case 'offersOver': return `Offers Over ${formattedPrice}`
+    case 'offersInExcess': return `OIEO ${formattedPrice}`
+    case 'fixedPrice': return `Fixed Price ${formattedPrice}`
+    case 'priceReducedTo': return formattedPrice
+    default: return price + ' ' + quantifier;
+  }
+}
+
 export const getPrice = (result: PropertyModel, searchType: SearchType) => {
   if (searchType === 'Rent') {
     return (
@@ -186,7 +202,8 @@ export const getPrice = (result: PropertyModel, searchType: SearchType) => {
     )
   }
 
-  return oc(result).selling.qualifier('') + ' ' + oc(result).selling.price(0)
+  // return oc(result).selling.qualifier('') + ' ' + oc(result).selling.price(0)
+  return formatPriceAndQuantifier(oc(result).selling.price(0).toString(), oc(result).selling.qualifier(''))
 }
 
 export const combineNumberBedTypeStyle = (result: PropertyModel) => {
