@@ -1,5 +1,5 @@
 import React from 'react'
-import { loadedCallback, GoogleMapLoader } from '../map/google-map-loader'
+import { loadedCallback, GoogleMapLoader } from './google-map-loader'
 import { shallow } from 'enzyme'
 
 describe('GoogleMapLoader', () => {

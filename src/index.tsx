@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import SearchWidget from './search-widget'
 import { theme as defaultTheme, Theme } from './theme'
 import merge from 'lodash.merge'
-
 ;(window as any).initReaptSearchWidget = ({
   API_KEY,
   theme = {}

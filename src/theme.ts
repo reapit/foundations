@@ -2,6 +2,7 @@ export interface Theme {
   base: Base
   button: Button
   colors: Colors
+  searchWidget: SearchWidget
 }
 
 export interface Base {
@@ -42,28 +43,35 @@ export interface Colors {
   loading: string
 }
 
+export interface SearchWidget {
+  backgroundColor: string
+}
+
 export const theme: Theme = {
+  searchWidget: {
+    backgroundColor: 'rgba(124, 160, 145, 0.7)'
+  },
   base: {
     font: {
       family: "'Open Sans', sans-serif",
       sizes: {
         base: '1.5rem',
         headings: {
-          h1: '2.4rem',
-          h2: '2.2rem',
-          h3: '2.0rem',
-          h4: '1.8rem',
-          h5: '1.6rem'
+          h1: '2.0rem',
+          h2: '1.8rem',
+          h3: '1.6rem',
+          h4: '1.4rem',
+          h5: '1.2rem'
         }
       }
     }
   },
   button: {
-    background: '#ffffff',
-    color: '#12263f'
+    background: '#887d97',
+    color: '#ffffff'
   },
   colors: {
-    primary: '#00a569',
+    primary: 'rgba(124, 160, 145, 1)',
     secondary: '#828085',
     icon: 'gray',
     base: '#12263f',
