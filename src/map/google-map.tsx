@@ -24,7 +24,7 @@ const MapDiv = styled.div`
 `
 
 const DEFAULT_CENTER = { lat: 51.507325, lng: -0.127716 }
-const DEFAULT_ZOOM = 8
+const DEFAULT_ZOOM = 15
 
 export type GetContentParams = {
   latitude?: number
