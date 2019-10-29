@@ -5,10 +5,11 @@ import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppointmentModel, AddressModel } from '@/types/appointments'
 import invalidValues from '@/constants/invalid-values'
-import mapStyles from '@/styles/pages/map.scss?mod'
+import styles from '@/styles/pages/map.scss?mod'
 import MapPanel from '../ui/map-panel'
 import { appointmentDetailRequestData } from '@/actions/appointment-detail'
 import { Dispatch } from 'redux'
+import { mapStyles } from './map-styles'
 
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
 
@@ -106,8 +107,8 @@ export const MapContainer = ({
   return (
     <>
       <div
-        className={`${mapStyles.mapContainer} ${desktopMode ? mapStyles.isDesktop : ''} ${
-          hasMapPanel ? mapStyles.mapHasPanel : ''
+        className={`${styles.mapContainer} ${desktopMode ? styles.isDesktop : ''} ${
+          hasMapPanel ? styles.mapHasPanel : ''
         }`}
       >
         <Map
@@ -120,6 +121,7 @@ export const MapContainer = ({
           travelMode={travelMode}
           onLoadedDirection={onLoadedDirection}
           mapContainerStyles={{ height: '100%' }}
+          styles={mapStyles}
         />
       </div>
       <MapPanel
