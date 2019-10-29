@@ -1,4 +1,5 @@
 import { ContactModel } from '@/types/contact-api-schema'
+import dayjs from 'dayjs'
 
 const REAPIT_PEP_SEARCH_STATUS = 'reapitPepSearchStatus'
 
@@ -33,22 +34,23 @@ export const isCompletedPepSearch = (contact: ContactModel) => {
   const { id } = contact
 
   if (id) {
-    if (pepSearchStatus[id]) {
-      return pepSearchStatus[id] === 'passed' || pepSearchStatus[id] === 'failed'
+    if (pepSearchStatus[id] && pepSearchStatus[id].status) {
+      return pepSearchStatus[id].status === 'passed' || pepSearchStatus[id].status === 'failed'
     }
-    pepSearchStatus[id] = 'uncompleted'
+    pepSearchStatus[id] = { status: 'uncompleted' }
+
     setPepSearchStatus(pepSearchStatus)
   }
 
   return false
 }
 
-export const handlePepSearchStatus = (contactId: string, type: string) => {
-  if (!contactId) {
+export const handlePepSearchStatus = ({ id, param, result }) => {
+  if (!id) {
     return
   }
-
   const pepSearchStatus = getPepSearchStatus() || {}
-  pepSearchStatus[contactId] = type
+  const status = result ? 'passed' : 'failed'
+  pepSearchStatus[id] = { status, param, result, time: dayjs().format('DD MMMM YY HH:mmA') }
   setPepSearchStatus(pepSearchStatus)
 }

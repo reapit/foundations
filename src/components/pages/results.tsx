@@ -71,7 +71,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
         Cell: ({ row }) => {
           return (
             <div>
-              <span className="capitalize">{row.original.identityCheck}</span>
+              <span className={styles.columnText}>{row.original.identityCheck}</span>
             </div>
           )
         }
