@@ -33,6 +33,7 @@ export * from './components/Editor'
 export * from './components/TextAreaEditor'
 export * from './components/AcDynamicLinks'
 export * from './components/AcDynamicLinks/dynamic-link-gen'
+export * from './components/HtmlRender'
 
 // Utils
 export * from './utils/validators'
