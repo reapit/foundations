@@ -1,12 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ReportContainer, handleContent, handleTrigger, Report, mapStateToProps } from '../report'
+import { ReportContainer, handleContent, handleTrigger, mapStateToProps } from '../report'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
+import { idCheck } from '@/sagas/__stubs__/idCheck'
+import { sectionsStatus } from '@/sagas/__stubs__/status'
+import { defaultStatus } from '@/reducers/checklist-detail'
 
 describe('ReportContainer', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<ReportContainer contact={contact} />)
+    const wrapper = shallow(<ReportContainer contact={contact} idCheck={idCheck} status={sectionsStatus} />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -25,30 +28,32 @@ describe('ReportContainer', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('Report', () => {
-    const wrapper = shallow(<Report />)
-    expect(wrapper).toMatchSnapshot()
-  })
   describe('mapStateToProps', () => {
     it('should run correctly', () => {
       // @ts-ignore: only pick necessary props
       const mockState = {
         checklistDetail: {
           checklistDetailData: {
-            contact
-          }
+            contact,
+            idCheck
+          },
+          status: sectionsStatus
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        contact
+        contact,
+        idCheck,
+        status: sectionsStatus
       })
     })
     it('should run correctly', () => {
       const mockState = {} as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        contact: {}
+        contact: {},
+        idCheck: {},
+        status: defaultStatus
       })
     })
   })

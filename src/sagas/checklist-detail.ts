@@ -347,7 +347,7 @@ export const pepSearch = function*({ data }) {
     const contact = yield select(selectCheckListDetailContact)
     const searchResults = yield call(fetchDataPepSearch, { name: data, headers })
     // Change Pep search status in localstorage
-    yield call(handlePepSearchStatus, contact.id, 'passed')
+    yield call(handlePepSearchStatus, { id: contact.id, param: data, result: searchResults })
     yield put(pepSearchResult({ searchParam: data, searchResults }))
     if (data.nextSection) {
       yield put(checklistDetailShowModal(data.nextSection))

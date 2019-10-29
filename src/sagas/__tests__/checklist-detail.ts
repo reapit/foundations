@@ -350,7 +350,9 @@ describe('checklist-detail', () => {
       expect(clone.next(contact as any).value).toEqual(
         call(fetchDataPepSearch, { name: 'mockName', headers: mockHeaders })
       )
-      expect(clone.next([] as any).value).toEqual(call(handlePepSearchStatus, contact.id, 'passed'))
+      expect(clone.next([] as any).value).toEqual(
+        call(handlePepSearchStatus, { id: contact.id, param: 'mockName', result: [] })
+      )
       expect(clone.next().value).toEqual(put(pepSearchResult({ searchParam: 'mockName', searchResults: [] })))
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
       expect(clone.next().done).toBe(true)
