@@ -16,7 +16,7 @@
     "build": "./node_modules/.bin/react-app-rewired build",
     "postbuild": "mv ./build/search-widget.js ./public/scripts && rm -rf ./build && cd public && zip -r search-widget.zip ./scripts && cd ..",
     "serve": "serve -d public -l 8080",
-    "test": "./node_modules/.bin/react-app-rewired test",
+    "test": "./node_modules/.bin/react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "fetch-definitions": "node ./fetch-definitions.js",
     "prettify": "prettier -c --write \"*/**\""
@@ -47,6 +47,7 @@
     "@types/react": "16.9.5",
     "@types/react-dom": "16.9.1",
     "@types/styled-components": "^4.1.19",
+    "babel-jest": "^24.9.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.0",
     "enzyme-to-json": "^3.4.2",
@@ -66,7 +67,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
+      "pre-push": "CI=true yarn test"
     }
   },
   "lint-staged": {
