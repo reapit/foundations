@@ -10,7 +10,11 @@
   margin-top: 1rem;
   & > button {
     & > a {
-      color:white;
+      color: white;
     }
   }
+}
+
+.columnText {
+  text-transform: capitalize;
 }

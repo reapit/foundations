@@ -3,17 +3,17 @@ import { shallow } from 'enzyme'
 import { PepSearch, mapStateToProps, mapDispatchToProps, renderNoResult, renderLoading } from '../pep-search'
 import { ReduxState } from '@/types/core'
 import { renderForm } from '../declaration-and-risk-assessment'
+import { contact } from '@/sagas/__stubs__/contact'
 
 describe('pep-search', () => {
   describe('PepSearch', () => {
     it('should match snapshot', () => {
       const mockProps = {
+        contact: contact,
         handleSubmit: jest.fn(),
         onPrevHandler: jest.fn(),
         onNextHandler: jest.fn(),
-        isSubmitting: false,
-        pepSearchResultData: [],
-        pepSearchParam: ''
+        isSubmitting: false
       }
       const wrapper = shallow(<PepSearch {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -25,15 +25,15 @@ describe('pep-search', () => {
       // @ts-ignore: only pick necessary props
       const input = {
         checklistDetail: {
-          isSubmitting: true,
-          pepSearchParam: '',
-          pepSearchResultData: []
+          checklistDetailData: {
+            contact: contact
+          },
+          isSubmitting: true
         }
       } as ReduxState
       const expected = {
         isSubmitting: true,
-        pepSearchResultData: [],
-        pepSearchParam: ''
+        contact: contact
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -42,8 +42,7 @@ describe('pep-search', () => {
       const input = {} as ReduxState
       const expected = {
         isSubmitting: false,
-        pepSearchResultData: null,
-        pepSearchParam: ''
+        contact: {}
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -80,10 +79,7 @@ describe('pep-search', () => {
   describe('renderNoResult', () => {
     // Disabling test as fails on CI owing to mock DayJS issue - see jest.setup for explanation
     xit('should match snapshot', () => {
-      const mockProps = {
-        name: 'mockName'
-      }
-      const component = renderNoResult(mockProps)
+      const component = renderNoResult('param', 'time')
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
