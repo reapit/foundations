@@ -2,35 +2,59 @@
 
 exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
 <Modal
+  HeaderComponent={[Function]}
   afterClose={[MockFunction]}
-  title=" 65 Lindsey Close, Ref: BED1600597"
   visible={true}
 >
-  <Tile
-    heading="Time"
-    hightlight={false}
-    icon={
-      <FaClock
-        className="icon-list-icon"
-      />
-    }
-  >
-    18 Dec 2016 04:30 PM - 05:30 PM
-    , 
-    65
-     
-    Lindsey Close
-  </Tile>
-  <Tile
-    heading="Chase MacLean"
-    hightlight={false}
-    icon={
-      <FaMale
-        className="media-icon"
-      />
-    }
-    key="BED1600597"
-  >
+  <div>
+    <div>
+      <FaClock />
+      <H4>
+        Time:
+      </H4>
+    </div>
+    <SubTitleH5>
+      18 Dec 2016 04:30 PM - 05:30 PM
+    </SubTitleH5>
+  </div>
+  <div>
+    <div>
+      <FaMale />
+      <H4>
+        Attendees:
+      </H4>
+    </div>
+    <div>
+      <SubTitleH5>
+        Chase MacLean
+      </SubTitleH5>
+    </div>
+  </div>
+  <div>
+    <div>
+      <FaMale />
+      <H4>
+        Negotiator
+        :
+      </H4>
+    </div>
+    <div>
+      <SubTitleH5>
+        Chase MacLean
+         
+        <br />
+        chase.maclean@reapitestates.net
+        <br />
+      </SubTitleH5>
+    </div>
+  </div>
+  <div>
+    <div>
+      <FaHome />
+      <H4>
+        Property:
+      </H4>
+    </div>
     <AcLink
       dynamicLinkParams={
         Object {
@@ -40,117 +64,40 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
         }
       }
     >
-      <div>
-         
-        65
-         
-        Lindsey Close
-         
-        Great Denham
-         
-        Bedford
-         
-        Bedfordshire
-         
-        MK40 4GT
-         
-      </div>
+      <SubTitleH5>
+        65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
+      </SubTitleH5>
     </AcLink>
-    <div
-      className="my-5"
-    >
-      <IconList
-        items={
-          Array [
-            Object {
-              "icon": <TiMail
-                className="icon-list-icon"
-              />,
-              "text": <a
-                href="mailto:chase.maclean@reapitestates.net"
-              >
-                chase.maclean@reapitestates.net
-              </a>,
-            },
-          ]
-        }
-      />
+  </div>
+  <div>
+    <div>
+      <FaStickyNote />
+      <H4>
+        Entry Notes:
+      </H4>
     </div>
-  </Tile>
-  <Tile
-    heading="Chase MacLean"
-    hightlight={false}
-    icon={
-      <FaMale
-        className="media-icon"
-      />
-    }
-    key="BED1600597"
-  >
-    <AcLink
-      dynamicLinkParams={
-        Object {
-          "appMode": "DESKTOP",
-          "entityCode": undefined,
-          "entityType": "properties",
-        }
-      }
-    >
-      <div>
-         
-        65
-         
-        Lindsey Close
-         
-        Great Denham
-         
-        Bedford
-         
-        Bedfordshire
-         
-        MK40 4GT
-         
-      </div>
-    </AcLink>
-    <div
-      className="my-5"
-    >
-      <IconList
-        items={
-          Array [
-            Object {
-              "icon": <TiMail
-                className="icon-list-icon"
-              />,
-              "text": <a
-                href="mailto:chase.maclean@reapitestates.net"
-              >
-                chase.maclean@reapitestates.net
-              </a>,
-            },
-          ]
-        }
-      />
+    <SubTitleH5>
+      hello world
+    </SubTitleH5>
+  </div>
+  <div>
+    <div>
+      <FaHandshake />
+      <H4>
+        Viewing Arrangements:
+      </H4>
     </div>
-  </Tile>
-  <Tile
-    heading="Arrangements"
-    hightlight={false}
-    icon={
-      <FaHandshake
-        className="media-icon"
-      />
-    }
-  >
-    Switch lights on in living room
-  </Tile>
+    <SubTitleH5>
+      Switch lights on in living room
+    </SubTitleH5>
+  </div>
 </Modal>
 `;
 
 exports[`AppointmentModal AppointmentModal should render correctly when loading 1`] = `
 <Modal
+  HeaderComponent={[Function]}
   afterClose={[MockFunction]}
-  title=" 65 Lindsey Close, Ref: BED1600597"
   visible={true}
 >
   <Loader />
@@ -159,97 +106,28 @@ exports[`AppointmentModal AppointmentModal should render correctly when loading 
 
 exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
 <div>
-  <AcLink
-    dynamicLinkParams={
-      Object {
-        "appMode": "DESKTOP",
-        "entityCode": "SOME_ID",
-        "entityType": "properties",
-      }
-    }
-  >
+  <div>
     <div>
-       
-      65
-       
-      Lindsey Close
-       
-      Great Denham
-       
-      Bedford
-       
-      Bedfordshire
-       
-      MK40 4GT
-       
+      <FaHome />
+      <H4>
+        Property:
+      </H4>
     </div>
-  </AcLink>
+    <AcLink
+      dynamicLinkParams={
+        Object {
+          "appMode": "DESKTOP",
+          "entityCode": "SOME_ID",
+          "entityType": "properties",
+        }
+      }
+    >
+      <SubTitleH5>
+        65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
+      </SubTitleH5>
+    </AcLink>
+  </div>
 </div>
-`;
-
-exports[`AppointmentModal renderAttendees should matchSnapshot 1`] = `
-Array [
-  <Tile
-    heading="Chase MacLean"
-    hightlight={false}
-    icon={
-      <FaMale
-        className="media-icon"
-      />
-    }
-  >
-    <div
-      className="my-5"
-    >
-      <IconList
-        items={
-          Array [
-            Object {
-              "icon": <TiMail
-                className="icon-list-icon"
-              />,
-              "text": <a
-                href="mailto:chase.maclean@reapitestates.net"
-              >
-                chase.maclean@reapitestates.net
-              </a>,
-            },
-          ]
-        }
-      />
-    </div>
-  </Tile>,
-  <Tile
-    heading="Chase MacLean"
-    hightlight={false}
-    icon={
-      <FaMale
-        className="media-icon"
-      />
-    }
-  >
-    <div
-      className="my-5"
-    >
-      <IconList
-        items={
-          Array [
-            Object {
-              "icon": <TiMail
-                className="icon-list-icon"
-              />,
-              "text": <a
-                href="mailto:chase.maclean@reapitestates.net"
-              >
-                chase.maclean@reapitestates.net
-              </a>,
-            },
-          ]
-        }
-      />
-    </div>
-  </Tile>,
-]
 `;
 
 exports[`AppointmentModal renderCheckMark should match snapshot 1`] = `
@@ -284,37 +162,5 @@ exports[`AppointmentModal renderCommunicationType should match snapshot 1`] = `
   <TiMail
     className="icon-list-icon"
   />
-</div>
-`;
-
-exports[`AppointmentModal renderDirections should matchSnapshot 1`] = `
-<div>
-  <Tile
-    heading="Directions"
-    hightlight={false}
-    icon={
-      <FaDirections
-        className="media-icon"
-      />
-    }
-  >
-    123
-  </Tile>
-</div>
-`;
-
-exports[`AppointmentModal renderNotes should matchSnapshot 1`] = `
-<div>
-  <Tile
-    heading="Notes"
-    hightlight={false}
-    icon={
-      <FaStickyNote
-        className="media-icon"
-      />
-    }
-  >
-    123
-  </Tile>
 </div>
 `;
