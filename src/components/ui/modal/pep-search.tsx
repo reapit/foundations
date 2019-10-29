@@ -6,7 +6,6 @@ import { FaSpinner, FaRegTimesCircle } from 'react-icons/fa'
 import { oc } from 'ts-optchain'
 import { Input, Button, H4, FlexContainerBasic } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
-import dayjs from 'dayjs'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import {
   checklistDetailShowModal,
@@ -14,6 +13,8 @@ import {
   checklistDetailHideModal
 } from '@/actions/checklist-detail'
 import { STEPS } from './modal'
+import { getPepSearchStatus } from '@/utils/pep-search'
+import { ContactModel } from '@/types/contact-api-schema'
 
 export const renderLoading = () => {
   return (
@@ -26,28 +27,22 @@ export const renderLoading = () => {
   )
 }
 
-export const renderNoResult = name => {
-  const currentDateTime = dayjs().format('DD MMMM YY HH:mmA')
+export const renderNoResult = (param: string, time: string) => {
   return (
     <FlexContainerBasic className={styles.noResultContainer}>
       <FaRegTimesCircle />
       <div>
-        <H4 className={styles.noResultTitle}>No Result Found for "{name}".</H4>
+        <H4 className={styles.noResultTitle}>No Result Found for "{param}".</H4>
         <p>
-          Search conducted for "{name}" on {currentDateTime}
+          Search conducted for "{param}" on {time}
         </p>
       </div>
     </FlexContainerBasic>
   )
 }
 
-export const renderForm = ({
-  onPrevHandler,
-  onNextHandler,
-  isSubmitting,
-  pepSearchResultData,
-  pepSearchParam
-}) => () => {
+export const renderForm = ({ onPrevHandler, onNextHandler, isSubmitting, pepSearchStatus, contact }) => () => {
+  const { param, result, time } = pepSearchStatus && contact.id && pepSearchStatus[contact.id]
   return (
     <Form>
       <div className={styles.pepSearchInputContainer}>
@@ -57,7 +52,7 @@ export const renderForm = ({
         </Button>
       </div>
       {isSubmitting ? renderLoading() : null}
-      {pepSearchResultData && pepSearchResultData.length === 0 && !isSubmitting ? renderNoResult(pepSearchParam) : null}
+      {result && result.length === 0 && !isSubmitting ? renderNoResult(param, time) : null}
       <div className="flex justify-end">
         <Button
           disabled={isSubmitting}
@@ -80,21 +75,25 @@ export const renderForm = ({
 export type PepSearchProps = StateProps & DispatchProps
 
 export const PepSearch: React.FC<PepSearchProps> = ({
+  contact,
   handleSubmit,
   onPrevHandler,
   onNextHandler,
-  isSubmitting,
-  pepSearchResultData,
-  pepSearchParam
+  isSubmitting
 }) => {
+  const pepSearchStatus = getPepSearchStatus()
   return (
     <div>
       <Formik
-        initialValues={{
-          name: pepSearchParam
-        }}
+        initialValues={{ name: '' }}
         onSubmit={handleSubmit}
-        render={renderForm({ onPrevHandler, onNextHandler, isSubmitting, pepSearchResultData, pepSearchParam })}
+        render={renderForm({
+          onPrevHandler,
+          onNextHandler,
+          isSubmitting,
+          pepSearchStatus,
+          contact
+        })}
       />
     </div>
   )
@@ -102,15 +101,13 @@ export const PepSearch: React.FC<PepSearchProps> = ({
 
 export type StateProps = {
   isSubmitting: boolean
-  pepSearchResultData: any
-  pepSearchParam: string
+  contact: ContactModel
 }
 
 export const mapStateToProps = (state: ReduxState) => {
   return {
-    isSubmitting: oc(state).checklistDetail.isSubmitting(false),
-    pepSearchResultData: oc(state).checklistDetail.pepSearchResultData(null),
-    pepSearchParam: oc(state).checklistDetail.pepSearchParam('')
+    contact: oc(state).checklistDetail.checklistDetailData.contact({}),
+    isSubmitting: oc(state).checklistDetail.isSubmitting(false)
   }
 }
 
