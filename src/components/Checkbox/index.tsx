@@ -12,7 +12,7 @@ export const Checkbox = ({ name, labelText, id, dataTest }: CheckboxProps) => (
   <Field
     name={name}
     render={({ field }) => (
-      <div className="field">
+      <div className="field field-checkbox">
         <input
           className="checkbox"
           type="checkbox"
