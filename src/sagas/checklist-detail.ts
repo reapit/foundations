@@ -18,6 +18,7 @@ import errorMessages from '../constants/error-messages'
 import { ContactModel, AddressModel, IdentityDocumentModel, IdentityCheckModel } from '@/types/contact-api-schema'
 import { ErrorData } from '@/reducers/error'
 import store from '@/core/store'
+import dayjs from 'dayjs'
 
 export const fetchContact = async ({ contactId, headers }) => {
   try {
@@ -312,7 +313,9 @@ export const updateSecondaryId = function*({ data }: Action<any>) {
         identityChecks: {
           ...baseValues,
           status: 'pending',
-          checkDate: new Date().toISOString(),
+          checkDate: dayjs()
+            .startOf('day')
+            .format('YYYY-MM-DDTHH:mm:ss'),
           negotiatorId: selectUserCode(store.state)
         }
       })
@@ -383,7 +386,9 @@ export const updatePrimaryId = function*({ data }: Action<any>) {
         identityChecks: {
           ...baseValues,
           status: 'pending',
-          checkDate: new Date().toISOString(),
+          checkDate: dayjs()
+            .startOf('day')
+            .format('YYYY-MM-DDTHH:mm:ss'),
           negotiatorId: selectUserCode(store.state)
         }
       })
@@ -425,7 +430,9 @@ export const updateAgentCheck = function*({ data }: any) {
     } else {
       const newIdCheck = {
         status: 'pending',
-        checkDate: new Date().toISOString(),
+        checkDate: dayjs()
+          .startOf('day')
+          .format('YYYY-MM-DDTHH:mm:ss'),
         negotiatorId: negotiatorId,
         metadata: {
           ...data
