@@ -8,8 +8,7 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-icons": "^3.7.0",
-    "react-scripts": "^3.2.0",
-    "ts-optchain": "^0.1.8"
+    "react-scripts": "^3.2.0"
   },
   "scripts": {
     "start": "PORT=8080 ./node_modules/.bin/react-app-rewired start",
@@ -40,6 +39,7 @@
     "@babel/core": "^7.6.4",
     "@testing-library/react-hooks": "^2.0.3",
     "@types/enzyme": "^3.10.3",
+    "@types/googlemaps": "^3.38.0",
     "@types/jest": "^24.0.19",
     "@types/little-loader": "^0.2.0",
     "@types/lodash.merge": "^4.6.6",

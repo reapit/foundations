@@ -210,18 +210,18 @@ const createGoogleMapsMock = (libraries = []) => {
       UNKNOWN: 'UNKNOWN'
     },
     //@ts-ignore
-    LatLng: function(lat, lng) {
+    LatLng: jest.fn().mockImplementation(function() {
       //@ts-ignore
       createMVCObject(this)
       //@ts-ignore
-      createMockFuncsFromArray(this, ['setMap'])
-    },
-    LatLngBounds: function() {
+      createMockFuncsFromArray(this, ['setMap', 'lat', 'lng'])
+    }),
+    LatLngBounds: jest.fn().mockImplementation(function() {
       //@ts-ignore
       createMVCObject(this)
       //@ts-ignore
-      createMockFuncsFromArray(this, ['getCenter', 'extend'])
-    },
+      createMockFuncsFromArray(this, ['getCenter', 'extend', 'getPosition'])
+    }),
     MVCArray: function() {},
     MVCObject: jest.fn().mockImplementation(function() {
       //@ts-ignore

@@ -25,9 +25,7 @@ describe('SearchResult', () => {
       ]
 
       for (let testCase of testCases) {
-        expect(formatPriceAndQuantifier('500000', testCase[0])).toBe(
-          testCase[1]
-        )
+        expect(formatPriceAndQuantifier(500000, testCase[0])).toBe(testCase[1])
       }
     })
   })
@@ -90,8 +88,8 @@ describe('SearchResult', () => {
     expect(
       combineNumberBedTypeStyle({
         bedrooms: 1,
-        style: ['style1 style2'],
-        type: ['type1 type2']
+        style: ['style1', 'style2'],
+        type: ['type1', 'type2']
       })
     ).toBe('1 Bed style1 style2 type1 type2')
   })

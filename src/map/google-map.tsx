@@ -7,6 +7,8 @@ import { PropertyModel } from '../types/property'
 import { Params } from '../utils/query-params'
 import { Theme } from '../theme'
 import { getPrice } from '../search-result'
+import { mapStyles } from './map-style'
+import { SearchStore } from '../hooks/search-store'
 
 const { useContext } = React
 
@@ -25,10 +27,21 @@ const MapDiv = styled.div`
 const DEFAULT_CENTER = { lat: 51.507325, lng: -0.127716 }
 const DEFAULT_ZOOM = 15
 
+export type MarkersRef = {
+  current: google.maps.Marker[]
+}
+
+export type MapRef = {
+  current: google.maps.Map
+}
+
 export type GetContentParams = {
   latitude?: number
   longitude?: number
-  address?: string
+  address: {
+    line1: string
+    line2: string
+  }
   bedrooms?: number
   bathrooms?: number
   marketingMode?: string
@@ -57,11 +70,14 @@ export const getContent = ({
     <div style="padding: 0rem 1rem;">
       <div style="margin-bottom: 2px; font-weight:bold;font-size:1rem; color: ${
         theme.colors.base
-      }">${address}</div>
+      }">${address.line1}</div>
+      <div style="margin-bottom: 2px; font-size:1rem; color: ${
+        theme.colors.base
+      }">${address.line2}</div>
       ${
         marketingMode === 'selling'
-          ? `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:2rem">£${price}</div>`
-          : `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:2rem">£${price}</div>`
+          ? `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:1rem">${price}</div>`
+          : `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:1rem">${price}</div>`
       }
       <div style="display:flex; margin-top: 2px">
         <div style="margin-right: 1.2rem">
@@ -87,28 +103,166 @@ export const getContent = ({
   </div>
 `
 
+export type CreateMarkerParams = {
+  property: PropertyModel
+  googleMap: any
+  map: google.maps.Map
+  searchStore: SearchStore
+  theme: Theme
+  imageUrl?: string
+}
+
+export const getLatLng = (property: PropertyModel) => {
+  const latitude =
+    property.address &&
+    property.address.geolocation &&
+    property.address.geolocation.latitude
+  const longitude =
+    property.address &&
+    property.address.geolocation &&
+    property.address.geolocation.longitude
+  return {
+    latitude,
+    longitude
+  }
+}
+
+export const createMarker = ({
+  property,
+  googleMap,
+  map,
+  searchStore,
+  theme
+}: CreateMarkerParams) => {
+  if (property) {
+    let imageUrl = INVALID_BACKGROUND_AS_BASE64
+    if (searchStore && property) {
+      const propertyId = property && property.id
+      const propertyImage = propertyId
+        ? searchStore.propertyImages[propertyId]
+        : ''
+      if (propertyImage && propertyImage.url) {
+        imageUrl = propertyImage.url
+      }
+    }
+    let price = ''
+    if (searchStore && searchStore.searchType) {
+      price = getPrice(property, searchStore.searchType)
+    }
+    const { latitude, longitude } = getLatLng(property)
+    const marketingMode = property && property.marketingMode
+    const marker = new googleMap.Marker({
+      position: {
+        lat: latitude || DEFAULT_CENTER.lat,
+        lng: longitude || DEFAULT_CENTER.lng
+      },
+      icon: null,
+      map
+    })
+    const address = {
+      line1:
+        property && property.address && property.address.line1
+          ? property.address.line1
+          : '',
+      line2:
+        property && property.address && property.address.line2
+          ? property.address.line2
+          : ''
+    }
+    const lettingPrice = property && property.letting && property.letting.rent
+    const rentFrequency =
+      property && property.letting && property.letting.rentFrequency
+
+    const bedrooms = property && property.bedrooms
+    const bathrooms = property && property.bathrooms
+    const infoWindow = new googleMap.InfoWindow({
+      content: getContent({
+        price,
+        theme,
+        latitude,
+        longitude,
+        bedrooms,
+        bathrooms,
+        address,
+        marketingMode,
+        lettingPrice,
+        rentFrequency,
+        imageUrl
+      })
+    })
+    googleMap.event.addListener(marker, 'click', () => {
+      infoWindow.open(map, marker)
+    })
+    return { marker, infoWindow }
+  }
+  return null
+}
+
+export type ClearMapParams = {
+  markersRef: MarkersRef
+}
+
+export const clearMap = ({ markersRef }: ClearMapParams) => {
+  if (markersRef && markersRef.current) {
+    markersRef.current.forEach((marker: google.maps.Marker) =>
+      marker.setMap(null)
+    )
+  }
+}
+
+export type GetCurrentMarkerIndexParams = {
+  markersRef: MarkersRef
+  centerPoint: google.maps.LatLng
+}
+
+export const getCurrentMarkerIndex = ({
+  markersRef,
+  centerPoint
+}: GetCurrentMarkerIndexParams) => {
+  const markers = markersRef.current
+  if (!markersRef || !centerPoint || !markers || markers.length < 1) {
+    return null
+  }
+  const latitude = centerPoint.lat()
+  const longitude = centerPoint.lng()
+  for (let i = 0; i < markers.length; i++) {
+    const position: google.maps.LatLng =
+      markers && markers[i] && (markers[i].getPosition() as google.maps.LatLng)
+    if (
+      position &&
+      position.lat() === latitude &&
+      position.lng() === longitude
+    ) {
+      return i
+    }
+  }
+  return null
+}
+
 export type HandleUseEffectParams = {
   googleMap: any
-  center?: GeoLocation
+  mapRef: MapRef
+  theme: Theme | null
+  searchStore: any
+  markersRef: MarkersRef
+  center?: google.maps.LatLngLiteral
   zoom?: number
   property?: PropertyModel
-  mapRef: any
+  properties?: PropertyModel[]
   restProps?: any
-  imageUrl: string | undefined
-  theme: Theme | null
-  price: string
 }
 
 export const handleUseEffect = ({
-  price,
+  searchStore,
   googleMap,
   center,
   zoom,
   restProps,
   property,
   mapRef,
-  imageUrl,
-  theme
+  theme,
+  properties,
+  markersRef
 }: HandleUseEffectParams) => () => {
   if (googleMap && theme) {
     const map = new googleMap.Map(
@@ -116,238 +270,60 @@ export const handleUseEffect = ({
       {
         center: center || DEFAULT_CENTER,
         zoom: zoom || DEFAULT_ZOOM,
-        styles: [
-          {
-            featureType: 'all',
-            elementType: 'geometry.fill',
-            stylers: [
-              {
-                weight: '2.00'
-              }
-            ]
-          },
-          {
-            featureType: 'all',
-            elementType: 'geometry.stroke',
-            stylers: [
-              {
-                color: '#9c9c9c'
-              }
-            ]
-          },
-          {
-            featureType: 'all',
-            elementType: 'labels.text',
-            stylers: [
-              {
-                visibility: 'on'
-              }
-            ]
-          },
-          {
-            featureType: 'landscape',
-            elementType: 'all',
-            stylers: [
-              {
-                color: '#f2f2f2'
-              }
-            ]
-          },
-          {
-            featureType: 'landscape',
-            elementType: 'geometry.fill',
-            stylers: [
-              {
-                color: '#ffffff'
-              }
-            ]
-          },
-          {
-            featureType: 'landscape.man_made',
-            elementType: 'geometry.fill',
-            stylers: [
-              {
-                color: '#ffffff'
-              }
-            ]
-          },
-          {
-            featureType: 'poi',
-            elementType: 'all',
-            stylers: [
-              {
-                visibility: 'off'
-              }
-            ]
-          },
-          {
-            featureType: 'road',
-            elementType: 'all',
-            stylers: [
-              {
-                saturation: -100
-              },
-              {
-                lightness: 45
-              }
-            ]
-          },
-          {
-            featureType: 'road',
-            elementType: 'geometry.fill',
-            stylers: [
-              {
-                color: '#eeeeee'
-              }
-            ]
-          },
-          {
-            featureType: 'road',
-            elementType: 'labels.text.fill',
-            stylers: [
-              {
-                color: '#7b7b7b'
-              }
-            ]
-          },
-          {
-            featureType: 'road',
-            elementType: 'labels.text.stroke',
-            stylers: [
-              {
-                color: '#ffffff'
-              }
-            ]
-          },
-          {
-            featureType: 'road.highway',
-            elementType: 'all',
-            stylers: [
-              {
-                visibility: 'simplified'
-              }
-            ]
-          },
-          {
-            featureType: 'road.arterial',
-            elementType: 'labels.icon',
-            stylers: [
-              {
-                visibility: 'off'
-              }
-            ]
-          },
-          {
-            featureType: 'transit',
-            elementType: 'all',
-            stylers: [
-              {
-                visibility: 'off'
-              }
-            ]
-          },
-          {
-            featureType: 'water',
-            elementType: 'all',
-            stylers: [
-              {
-                color: '#46bcec'
-              },
-              {
-                visibility: 'on'
-              }
-            ]
-          },
-          {
-            featureType: 'water',
-            elementType: 'geometry.fill',
-            stylers: [
-              {
-                color: '#c8d7d4'
-              }
-            ]
-          },
-          {
-            featureType: 'water',
-            elementType: 'labels.text.fill',
-            stylers: [
-              {
-                color: '#070707'
-              }
-            ]
-          },
-          {
-            featureType: 'water',
-            elementType: 'labels.text.stroke',
-            stylers: [
-              {
-                color: '#ffffff'
-              }
-            ]
-          }
-        ],
+        styles: mapStyles,
         ...restProps
       }
     )
-    const latitude =
-      property &&
-      property.address &&
-      property.address.geolocation &&
-      property.address.geolocation.latitude
-    const longitude =
-      property &&
-      property.address &&
-      property.address.geolocation &&
-      property.address.geolocation.longitude
-    const marketingMode = property && property.marketingMode
-
     mapRef.current = map
-
-    if (property) {
-      const marker = new googleMap.Marker({
-        position: {
-          lat: latitude || DEFAULT_CENTER.lat,
-          lng: longitude || DEFAULT_CENTER.lng
-        },
-        icon: null,
-        map
-      })
-      const address =
-        property && property.address && property.address.line2
-          ? property.address.line2
-          : ''
-
-      const lettingPrice = property && property.letting && property.letting.rent
-      const rentFrequency =
-        property && property.letting && property.letting.rentFrequency
-
-      const bedrooms = property && property.bedrooms
-      const bathrooms = property && property.bathrooms
-      const infoWindow = new googleMap.InfoWindow({
-        content: getContent({
-          price,
+    const markers: any[] = []
+    const infoWindows: any[] = []
+    if (properties) {
+      clearMap({ markersRef })
+      properties.forEach(property => {
+        const newMarker = createMarker({
+          property,
+          googleMap,
+          map,
           theme,
-          latitude,
-          longitude,
-          bedrooms,
-          bathrooms,
-          address,
-          marketingMode,
-          lettingPrice,
-          rentFrequency,
-          imageUrl
+          searchStore
         })
+        markers.push(newMarker && newMarker.marker)
+        infoWindows.push(newMarker && newMarker.infoWindow)
       })
-      infoWindow.open(map, marker)
+      markersRef.current = markers
+    }
+    if (properties && !property) {
+      const bounds = new googleMap.LatLngBounds()
+      markers.forEach(marker => bounds.extend(marker.getPosition()))
+      map.fitBounds(bounds)
+      return
+    }
+    if (property) {
+      const { latitude, longitude } = getLatLng(property) as {
+        latitude: number
+        longitude: number
+      }
+      const centerPoint = new googleMap.LatLng(latitude, longitude)
+      const currentMarkerIndex = getCurrentMarkerIndex({
+        markersRef,
+        centerPoint
+      }) as number
+      map.setCenter(centerPoint)
+      map.setZoom(DEFAULT_ZOOM)
+      if (currentMarkerIndex) {
+        infoWindows[currentMarkerIndex].open(map, markers[currentMarkerIndex])
+      }
+      return
     }
   }
 }
 
 export type MapContainerProps = {
   googleMap: any
-  center?: GeoLocation
+  center?: google.maps.LatLngLiteral
   zoom?: number
   property?: PropertyModel
+  properties?: PropertyModel[]
 }
 
 export const MapContainer: React.FC<MapContainerProps> = ({
@@ -355,41 +331,27 @@ export const MapContainer: React.FC<MapContainerProps> = ({
   center,
   zoom,
   property,
+  properties,
   ...restProps
 }) => {
-  const mapRef = React.useRef(null)
+  const mapRef = React.useRef() as MapRef
+  const markersRef = React.useRef() as MarkersRef
   const contextValue = useContext(context)
   const searchStore = useContext(context)
-
-  let price = ''
-  if (searchStore && searchStore.selectedProperty) {
-    price = getPrice(searchStore.selectedProperty, searchStore.searchType)
-  }
-
-  let imageUrl = INVALID_BACKGROUND_AS_BASE64
-  if (searchStore && property) {
-    const propertyId = property && property.id
-    const propertyImage = propertyId
-      ? searchStore.propertyImages[propertyId]
-      : ''
-    if (propertyImage && propertyImage.url) {
-      imageUrl = propertyImage.url
-    }
-  }
-
   React.useEffect(
     handleUseEffect({
-      price,
+      searchStore,
       googleMap,
       zoom,
       center,
       mapRef,
+      markersRef,
       restProps,
       property,
-      imageUrl,
+      properties,
       theme: contextValue ? contextValue.theme : null
     }),
-    [googleMap, center, zoom, property]
+    [googleMap, center, zoom, property, properties]
   )
 
   if (!contextValue) {
@@ -400,14 +362,17 @@ export const MapContainer: React.FC<MapContainerProps> = ({
 
 export type RenderMapParams = {
   property?: PropertyModel
+  properties?: PropertyModel[]
   zoom?: number
-  center?: GeoLocation
+  center?: google.maps.LatLngLiteral
 }
 
-export const renderMap = ({ property, zoom, center }: RenderMapParams) => ({
-  googleMap,
-  error
-}: RenderProps) => {
+export const renderMap = ({
+  property,
+  zoom,
+  center,
+  properties
+}: RenderMapParams) => ({ googleMap, error }: RenderProps) => {
   if (error) {
     return <div>{error}</div>
   }
@@ -415,34 +380,32 @@ export const renderMap = ({ property, zoom, center }: RenderMapParams) => ({
     <MapContainer
       googleMap={googleMap}
       property={property}
+      properties={properties}
       zoom={zoom}
       center={center}
     />
   )
 }
 
-export type GeoLocation = {
-  lat: number
-  lng: number
-}
-
-export type GoogleMapProps = {
+export type GoogleMaType = {
   params: Params
   property?: PropertyModel
+  properties?: PropertyModel[]
   zoom?: number
-  center?: GeoLocation
+  center?: google.maps.LatLngLiteral
 }
 
-export const GoogleMap: React.FC<GoogleMapProps> = ({
+export const GoogleMap: React.FC<GoogleMaType> = ({
   params,
   property,
   zoom,
-  center
+  center,
+  properties
 }) => {
   return (
     <GoogleMapLoader
       params={params}
-      render={renderMap({ property, zoom, center })}
+      render={renderMap({ property, zoom, center, properties })}
     />
   )
 }

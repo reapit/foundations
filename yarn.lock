@@ -1386,6 +1386,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/googlemaps@^3.38.0":
+  version "3.38.0"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.38.0.tgz#069c0303ec60706b2e32b14330634c1e1cd59e45"
+  integrity sha512-Rp7FnrwyYGnjoxM+/q/4DRqUzvV9JKK1SBRXx8APxU6NNMtYMsWmOMsQOV2U6z8aMFzlUbRv3EDixLcDep8t9w==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.1.tgz#42995b446db9a48a11a07ec083499a860e9138ff"
@@ -10804,11 +10809,6 @@ ts-jest@^24.1.0:
     resolve "1.x"
     semver "^5.5"
     yargs-parser "10.x"
-
-ts-optchain@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/ts-optchain/-/ts-optchain-0.1.8.tgz#4e97e3c07a98ac1d9c48715460d25a3df2addc59"
-  integrity sha512-crvloFKZlPIysdVcP7Ej1w4HijBx7NmLdeorqfxOvt87DcUIbhKV4ZaSgCL+IQ+zzTgDx5zDuNHRvUbTIr9aqw==
 
 ts-pnp@1.1.4, ts-pnp@^1.1.2:
   version "1.1.4"
