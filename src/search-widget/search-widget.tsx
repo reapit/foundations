@@ -1,10 +1,8 @@
 import React, { useState, useRef } from 'react'
 import Loader from '../loader'
 import styled, { ThemeProvider } from 'styled-components'
-import { oc } from 'ts-optchain'
 import { Theme } from '../theme'
 import { API_URL, IMAGE_API_URL } from '../constants'
-
 import { useSearchStore } from '../hooks/search-store'
 import { SearchResult } from '../search-result'
 import { context } from '../context'
@@ -196,7 +194,9 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
   const searchInputRef = useRef(null)
 
   const getPropertyImages = async (result: PropertyModel[]) => {
-    const propertyIds = result.map(property => oc(property).id(''))
+    const propertyIds = result.map(
+      (property: PropertyModel) => property && property.id
+    )
 
     const url = new URL(IMAGE_API_URL)
     url.searchParams.append('propertyIds', propertyIds.join(','))
@@ -214,7 +214,7 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
 
     const imageMap: Record<string, PropertyImageModel> = {}
     for (let propertyImage of parsedResponse.data) {
-      const propertyId = oc(propertyImage).propertyId('invalid')
+      const propertyId = (propertyImage && propertyImage.id) || 'invalid'
       imageMap[propertyId] = propertyImage
     }
 
@@ -367,6 +367,7 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
                         <GoogleMap
                           params={{ key: process.env.REACT_APP_MAP_API_KEY }}
                           property={selectedProperty}
+                          properties={result.data || []}
                         />
                       </TabContent>
                       <TabContent isActive={activeTab === 'SEARCH_RESULT'}>

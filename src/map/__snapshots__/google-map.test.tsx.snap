@@ -18,8 +18,9 @@ exports[`google-map getContent should run correctly 1`] = `
   <div style=\\"display:flex; font-family: 'Open Sans', sans-serif\\" id=\\"coordinate-51.56449--0.121057\\">
     <div><img style=\\"width: 110px; height: 110px; object-fit: cover\\" src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII=\\"></div>
     <div style=\\"padding: 0rem 1rem;\\">
-      <div style=\\"margin-bottom: 2px; font-weight:bold;font-size:1rem; color: #12263f\\">Archway</div>
-      <div style=\\"color: #887d97 ;font-weight:bold;font-size:2rem\\">£</div>
+      <div style=\\"margin-bottom: 2px; font-weight:bold;font-size:1rem; color: #12263f\\">Sussex Way</div>
+      <div style=\\"margin-bottom: 2px; font-size:1rem; color: #12263f\\">Archway</div>
+      <div style=\\"color: #887d97 ;font-weight:bold;font-size:1rem\\"></div>
       <div style=\\"display:flex; margin-top: 2px\\">
         <div style=\\"margin-right: 1.2rem\\">
           <span style=\\"color: gray\\">
@@ -50,8 +51,9 @@ exports[`google-map getContent should run correctly 2`] = `
   <div style=\\"display:flex; font-family: 'Open Sans', sans-serif\\" id=\\"coordinate-51.56449--0.121057\\">
     <div><img style=\\"width: 110px; height: 110px; object-fit: cover\\" src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII=\\"></div>
     <div style=\\"padding: 0rem 1rem;\\">
-      <div style=\\"margin-bottom: 2px; font-weight:bold;font-size:1rem; color: #12263f\\">Archway</div>
-      <div style=\\"color: #887d97 ;font-weight:bold;font-size:2rem\\">£</div>
+      <div style=\\"margin-bottom: 2px; font-weight:bold;font-size:1rem; color: #12263f\\">Sussex Way</div>
+      <div style=\\"margin-bottom: 2px; font-size:1rem; color: #12263f\\">Archway</div>
+      <div style=\\"color: #887d97 ;font-weight:bold;font-size:1rem\\"></div>
       <div style=\\"display:flex; margin-top: 2px\\">
         <div style=\\"margin-right: 1.2rem\\">
           <span style=\\"color: gray\\">
@@ -193,12 +195,232 @@ exports[`google-map renderMap should match snapshot 1`] = `
           "TIMED_OUT": "TIMED_OUT",
           "UNKNOWN": "UNKNOWN",
         },
-        "LatLng": [Function],
-        "LatLngBounds": [Function],
+        "LatLng": [MockFunction] {
+          "calls": Array [
+            Array [
+              51.56449,
+              -0.121057,
+            ],
+            Array [
+              51.56449,
+              -0.121057,
+            ],
+            Array [
+              51.56449,
+              -0.121057,
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+        "LatLngBounds": [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
         "MVCArray": [Function],
         "MVCObject": [MockFunction],
         "Map": [MockFunction] {
           "calls": Array [
+            Array [],
+            Array [
+              null,
+              Object {
+                "center": Object {
+                  "lat": 0,
+                  "lng": 0,
+                },
+                "styles": Array [
+                  Object {
+                    "elementType": "geometry.fill",
+                    "featureType": "all",
+                    "stylers": Array [
+                      Object {
+                        "weight": "2.00",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "geometry.stroke",
+                    "featureType": "all",
+                    "stylers": Array [
+                      Object {
+                        "color": "#9c9c9c",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "labels.text",
+                    "featureType": "all",
+                    "stylers": Array [
+                      Object {
+                        "visibility": "on",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "all",
+                    "featureType": "landscape",
+                    "stylers": Array [
+                      Object {
+                        "color": "#f2f2f2",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "geometry.fill",
+                    "featureType": "landscape",
+                    "stylers": Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "geometry.fill",
+                    "featureType": "landscape.man_made",
+                    "stylers": Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "all",
+                    "featureType": "poi",
+                    "stylers": Array [
+                      Object {
+                        "visibility": "off",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "all",
+                    "featureType": "road",
+                    "stylers": Array [
+                      Object {
+                        "saturation": -100,
+                      },
+                      Object {
+                        "lightness": 45,
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "geometry.fill",
+                    "featureType": "road",
+                    "stylers": Array [
+                      Object {
+                        "color": "#eeeeee",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "labels.text.fill",
+                    "featureType": "road",
+                    "stylers": Array [
+                      Object {
+                        "color": "#7b7b7b",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "labels.text.stroke",
+                    "featureType": "road",
+                    "stylers": Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "all",
+                    "featureType": "road.highway",
+                    "stylers": Array [
+                      Object {
+                        "visibility": "simplified",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "labels.icon",
+                    "featureType": "road.arterial",
+                    "stylers": Array [
+                      Object {
+                        "visibility": "off",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "all",
+                    "featureType": "transit",
+                    "stylers": Array [
+                      Object {
+                        "visibility": "off",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "all",
+                    "featureType": "water",
+                    "stylers": Array [
+                      Object {
+                        "color": "#46bcec",
+                      },
+                      Object {
+                        "visibility": "on",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "geometry.fill",
+                    "featureType": "water",
+                    "stylers": Array [
+                      Object {
+                        "color": "#c8d7d4",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "labels.text.fill",
+                    "featureType": "water",
+                    "stylers": Array [
+                      Object {
+                        "color": "#070707",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "labels.text.stroke",
+                    "featureType": "water",
+                    "stylers": Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                    ],
+                  },
+                ],
+                "zoom": 8,
+              },
+            ],
             Array [
               null,
               Object {
@@ -561,6 +783,14 @@ exports[`google-map renderMap should match snapshot 1`] = `
             ],
           ],
           "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
             Object {
               "type": "return",
               "value": undefined,
@@ -589,6 +819,38 @@ exports[`google-map renderMap should match snapshot 1`] = `
           "calls": Array [
             Array [
               Object {
+                "map": mockConstructor {
+                  "addListener": [MockFunction addListener],
+                  "bindTo": [MockFunction bindTo],
+                  "fitBounds": [MockFunction fitBounds],
+                  "get": [MockFunction get],
+                  "getBounds": [MockFunction getBounds],
+                  "listeners": Object {},
+                  "mapDiv": undefined,
+                  "notify": [MockFunction notify],
+                  "opts": undefined,
+                  "panToBounds": [MockFunction panToBounds],
+                  "set": [MockFunction set],
+                  "setCenter": [MockFunction setCenter],
+                  "setClickableIcons": [MockFunction setClickableIcons],
+                  "setHeading": [MockFunction setHeading],
+                  "setMapTypeId": [MockFunction setMapTypeId],
+                  "setOptions": [MockFunction setOptions],
+                  "setStreetView": [MockFunction setStreetView],
+                  "setTilt": [MockFunction setTilt],
+                  "setValues": [MockFunction setValues],
+                  "setZoom": [MockFunction setZoom],
+                  "unbind": [MockFunction unbind],
+                  "unbindAll": [MockFunction unbindAll],
+                },
+                "position": Object {
+                  "lat": 51.56449,
+                  "lng": -0.121057,
+                },
+              },
+            ],
+            Array [
+              Object {
                 "icon": null,
                 "map": mockConstructor {
                   "addListener": [MockFunction addListener],
@@ -597,185 +859,9 @@ exports[`google-map renderMap should match snapshot 1`] = `
                   "get": [MockFunction get],
                   "getBounds": [MockFunction getBounds],
                   "listeners": Object {},
-                  "mapDiv": null,
+                  "mapDiv": undefined,
                   "notify": [MockFunction notify],
-                  "opts": Object {
-                    "center": Object {
-                      "lat": 0,
-                      "lng": 0,
-                    },
-                    "styles": Array [
-                      Object {
-                        "elementType": "geometry.fill",
-                        "featureType": "all",
-                        "stylers": Array [
-                          Object {
-                            "weight": "2.00",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "geometry.stroke",
-                        "featureType": "all",
-                        "stylers": Array [
-                          Object {
-                            "color": "#9c9c9c",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "labels.text",
-                        "featureType": "all",
-                        "stylers": Array [
-                          Object {
-                            "visibility": "on",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "all",
-                        "featureType": "landscape",
-                        "stylers": Array [
-                          Object {
-                            "color": "#f2f2f2",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "geometry.fill",
-                        "featureType": "landscape",
-                        "stylers": Array [
-                          Object {
-                            "color": "#ffffff",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "geometry.fill",
-                        "featureType": "landscape.man_made",
-                        "stylers": Array [
-                          Object {
-                            "color": "#ffffff",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "all",
-                        "featureType": "poi",
-                        "stylers": Array [
-                          Object {
-                            "visibility": "off",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "all",
-                        "featureType": "road",
-                        "stylers": Array [
-                          Object {
-                            "saturation": -100,
-                          },
-                          Object {
-                            "lightness": 45,
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "geometry.fill",
-                        "featureType": "road",
-                        "stylers": Array [
-                          Object {
-                            "color": "#eeeeee",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "labels.text.fill",
-                        "featureType": "road",
-                        "stylers": Array [
-                          Object {
-                            "color": "#7b7b7b",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "labels.text.stroke",
-                        "featureType": "road",
-                        "stylers": Array [
-                          Object {
-                            "color": "#ffffff",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "all",
-                        "featureType": "road.highway",
-                        "stylers": Array [
-                          Object {
-                            "visibility": "simplified",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "labels.icon",
-                        "featureType": "road.arterial",
-                        "stylers": Array [
-                          Object {
-                            "visibility": "off",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "all",
-                        "featureType": "transit",
-                        "stylers": Array [
-                          Object {
-                            "visibility": "off",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "all",
-                        "featureType": "water",
-                        "stylers": Array [
-                          Object {
-                            "color": "#46bcec",
-                          },
-                          Object {
-                            "visibility": "on",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "geometry.fill",
-                        "featureType": "water",
-                        "stylers": Array [
-                          Object {
-                            "color": "#c8d7d4",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "labels.text.fill",
-                        "featureType": "water",
-                        "stylers": Array [
-                          Object {
-                            "color": "#070707",
-                          },
-                        ],
-                      },
-                      Object {
-                        "elementType": "labels.text.stroke",
-                        "featureType": "water",
-                        "stylers": Array [
-                          Object {
-                            "color": "#ffffff",
-                          },
-                        ],
-                      },
-                    ],
-                    "zoom": 8,
-                  },
+                  "opts": undefined,
                   "panToBounds": [MockFunction panToBounds],
                   "set": [MockFunction set],
                   "setCenter": [MockFunction setCenter],
@@ -987,6 +1073,309 @@ exports[`google-map renderMap should match snapshot 1`] = `
                   },
                   "panToBounds": [MockFunction panToBounds],
                   "set": [MockFunction set],
+                  "setCenter": [MockFunction setCenter] {
+                    "calls": Array [
+                      Array [
+                        mockConstructor {
+                          "addListener": [MockFunction addListener],
+                          "bindTo": [MockFunction bindTo],
+                          "get": [MockFunction get],
+                          "lat": [MockFunction lat] {
+                            "calls": Array [
+                              Array [],
+                            ],
+                            "results": Array [
+                              Object {
+                                "type": "return",
+                                "value": undefined,
+                              },
+                            ],
+                          },
+                          "listeners": Object {},
+                          "lng": [MockFunction lng] {
+                            "calls": Array [
+                              Array [],
+                            ],
+                            "results": Array [
+                              Object {
+                                "type": "return",
+                                "value": undefined,
+                              },
+                            ],
+                          },
+                          "notify": [MockFunction notify],
+                          "set": [MockFunction set],
+                          "setMap": [MockFunction setMap],
+                          "setValues": [MockFunction setValues],
+                          "unbind": [MockFunction unbind],
+                          "unbindAll": [MockFunction unbindAll],
+                        },
+                      ],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  },
+                  "setClickableIcons": [MockFunction setClickableIcons],
+                  "setHeading": [MockFunction setHeading],
+                  "setMapTypeId": [MockFunction setMapTypeId],
+                  "setOptions": [MockFunction setOptions],
+                  "setStreetView": [MockFunction setStreetView],
+                  "setTilt": [MockFunction setTilt],
+                  "setValues": [MockFunction setValues],
+                  "setZoom": [MockFunction setZoom] {
+                    "calls": Array [
+                      Array [
+                        15,
+                      ],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  },
+                  "unbind": [MockFunction unbind],
+                  "unbindAll": [MockFunction unbindAll],
+                },
+                "position": Object {
+                  "lat": 51.56449,
+                  "lng": -0.121057,
+                },
+              },
+            ],
+            Array [
+              Object {
+                "icon": null,
+                "map": mockConstructor {
+                  "addListener": [MockFunction addListener],
+                  "bindTo": [MockFunction bindTo],
+                  "fitBounds": [MockFunction fitBounds] {
+                    "calls": Array [
+                      Array [
+                        mockConstructor {
+                          "addListener": [MockFunction addListener],
+                          "bindTo": [MockFunction bindTo],
+                          "extend": [MockFunction extend] {
+                            "calls": Array [
+                              Array [
+                                undefined,
+                              ],
+                            ],
+                            "results": Array [
+                              Object {
+                                "type": "return",
+                                "value": undefined,
+                              },
+                            ],
+                          },
+                          "get": [MockFunction get],
+                          "getCenter": [MockFunction getCenter],
+                          "getPosition": [MockFunction getPosition],
+                          "listeners": Object {},
+                          "notify": [MockFunction notify],
+                          "set": [MockFunction set],
+                          "setValues": [MockFunction setValues],
+                          "unbind": [MockFunction unbind],
+                          "unbindAll": [MockFunction unbindAll],
+                        },
+                      ],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  },
+                  "get": [MockFunction get],
+                  "getBounds": [MockFunction getBounds],
+                  "listeners": Object {},
+                  "mapDiv": null,
+                  "notify": [MockFunction notify],
+                  "opts": Object {
+                    "center": Object {
+                      "lat": 0,
+                      "lng": 0,
+                    },
+                    "styles": Array [
+                      Object {
+                        "elementType": "geometry.fill",
+                        "featureType": "all",
+                        "stylers": Array [
+                          Object {
+                            "weight": "2.00",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "geometry.stroke",
+                        "featureType": "all",
+                        "stylers": Array [
+                          Object {
+                            "color": "#9c9c9c",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "labels.text",
+                        "featureType": "all",
+                        "stylers": Array [
+                          Object {
+                            "visibility": "on",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "all",
+                        "featureType": "landscape",
+                        "stylers": Array [
+                          Object {
+                            "color": "#f2f2f2",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "geometry.fill",
+                        "featureType": "landscape",
+                        "stylers": Array [
+                          Object {
+                            "color": "#ffffff",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "geometry.fill",
+                        "featureType": "landscape.man_made",
+                        "stylers": Array [
+                          Object {
+                            "color": "#ffffff",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "all",
+                        "featureType": "poi",
+                        "stylers": Array [
+                          Object {
+                            "visibility": "off",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "all",
+                        "featureType": "road",
+                        "stylers": Array [
+                          Object {
+                            "saturation": -100,
+                          },
+                          Object {
+                            "lightness": 45,
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "geometry.fill",
+                        "featureType": "road",
+                        "stylers": Array [
+                          Object {
+                            "color": "#eeeeee",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "labels.text.fill",
+                        "featureType": "road",
+                        "stylers": Array [
+                          Object {
+                            "color": "#7b7b7b",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "labels.text.stroke",
+                        "featureType": "road",
+                        "stylers": Array [
+                          Object {
+                            "color": "#ffffff",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "all",
+                        "featureType": "road.highway",
+                        "stylers": Array [
+                          Object {
+                            "visibility": "simplified",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "labels.icon",
+                        "featureType": "road.arterial",
+                        "stylers": Array [
+                          Object {
+                            "visibility": "off",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "all",
+                        "featureType": "transit",
+                        "stylers": Array [
+                          Object {
+                            "visibility": "off",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "all",
+                        "featureType": "water",
+                        "stylers": Array [
+                          Object {
+                            "color": "#46bcec",
+                          },
+                          Object {
+                            "visibility": "on",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "geometry.fill",
+                        "featureType": "water",
+                        "stylers": Array [
+                          Object {
+                            "color": "#c8d7d4",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "labels.text.fill",
+                        "featureType": "water",
+                        "stylers": Array [
+                          Object {
+                            "color": "#070707",
+                          },
+                        ],
+                      },
+                      Object {
+                        "elementType": "labels.text.stroke",
+                        "featureType": "water",
+                        "stylers": Array [
+                          Object {
+                            "color": "#ffffff",
+                          },
+                        ],
+                      },
+                    ],
+                    "zoom": 8,
+                  },
+                  "panToBounds": [MockFunction panToBounds],
+                  "set": [MockFunction set],
                   "setCenter": [MockFunction setCenter],
                   "setClickableIcons": [MockFunction setClickableIcons],
                   "setHeading": [MockFunction setHeading],
@@ -1007,6 +1396,14 @@ exports[`google-map renderMap should match snapshot 1`] = `
             ],
           ],
           "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
             Object {
               "type": "return",
               "value": undefined,
@@ -1106,10 +1503,741 @@ exports[`google-map renderMap should match snapshot 1`] = `
         },
         "__gjsload__": [Function],
         "event": Object {
-          "addListener": [MockFunction addListener],
+          "addListener": [MockFunction addListener] {
+            "calls": Array [
+              Array [
+                mockConstructor {
+                  "addListener": [MockFunction addListener],
+                  "bindTo": [MockFunction bindTo],
+                  "get": [MockFunction get],
+                  "getPosition": [MockFunction getPosition],
+                  "listeners": Object {},
+                  "notify": [MockFunction notify],
+                  "opts": Object {
+                    "icon": null,
+                    "map": mockConstructor {
+                      "addListener": [MockFunction addListener],
+                      "bindTo": [MockFunction bindTo],
+                      "fitBounds": [MockFunction fitBounds],
+                      "get": [MockFunction get],
+                      "getBounds": [MockFunction getBounds],
+                      "listeners": Object {},
+                      "mapDiv": undefined,
+                      "notify": [MockFunction notify],
+                      "opts": undefined,
+                      "panToBounds": [MockFunction panToBounds],
+                      "set": [MockFunction set],
+                      "setCenter": [MockFunction setCenter],
+                      "setClickableIcons": [MockFunction setClickableIcons],
+                      "setHeading": [MockFunction setHeading],
+                      "setMapTypeId": [MockFunction setMapTypeId],
+                      "setOptions": [MockFunction setOptions],
+                      "setStreetView": [MockFunction setStreetView],
+                      "setTilt": [MockFunction setTilt],
+                      "setValues": [MockFunction setValues],
+                      "setZoom": [MockFunction setZoom],
+                      "unbind": [MockFunction unbind],
+                      "unbindAll": [MockFunction unbindAll],
+                    },
+                    "position": Object {
+                      "lat": 51.56449,
+                      "lng": -0.121057,
+                    },
+                  },
+                  "set": [MockFunction set],
+                  "setMap": [MockFunction setMap],
+                  "setOpacity": [MockFunction setOpacity],
+                  "setOptions": [MockFunction setOptions],
+                  "setPosition": [MockFunction setPosition],
+                  "setShape": [MockFunction setShape],
+                  "setTitle": [MockFunction setTitle],
+                  "setValues": [MockFunction setValues],
+                  "setVisible": [MockFunction setVisible],
+                  "setZIndex": [MockFunction setZIndex],
+                  "unbind": [MockFunction unbind],
+                  "unbindAll": [MockFunction unbindAll],
+                },
+                "click",
+                [Function],
+              ],
+              Array [
+                mockConstructor {
+                  "addListener": [MockFunction addListener],
+                  "bindTo": [MockFunction bindTo],
+                  "get": [MockFunction get],
+                  "getPosition": [MockFunction getPosition] {
+                    "calls": Array [
+                      Array [],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  },
+                  "listeners": Object {},
+                  "notify": [MockFunction notify],
+                  "opts": Object {
+                    "icon": null,
+                    "map": mockConstructor {
+                      "addListener": [MockFunction addListener],
+                      "bindTo": [MockFunction bindTo],
+                      "fitBounds": [MockFunction fitBounds],
+                      "get": [MockFunction get],
+                      "getBounds": [MockFunction getBounds],
+                      "listeners": Object {},
+                      "mapDiv": null,
+                      "notify": [MockFunction notify],
+                      "opts": Object {
+                        "center": Object {
+                          "lat": 0,
+                          "lng": 0,
+                        },
+                        "styles": Array [
+                          Object {
+                            "elementType": "geometry.fill",
+                            "featureType": "all",
+                            "stylers": Array [
+                              Object {
+                                "weight": "2.00",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "geometry.stroke",
+                            "featureType": "all",
+                            "stylers": Array [
+                              Object {
+                                "color": "#9c9c9c",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.text",
+                            "featureType": "all",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "on",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "landscape",
+                            "stylers": Array [
+                              Object {
+                                "color": "#f2f2f2",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "geometry.fill",
+                            "featureType": "landscape",
+                            "stylers": Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "geometry.fill",
+                            "featureType": "landscape.man_made",
+                            "stylers": Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "poi",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "off",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "saturation": -100,
+                              },
+                              Object {
+                                "lightness": 45,
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "geometry.fill",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "color": "#eeeeee",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.text.fill",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "color": "#7b7b7b",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.text.stroke",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "road.highway",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.icon",
+                            "featureType": "road.arterial",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "off",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "transit",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "off",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "water",
+                            "stylers": Array [
+                              Object {
+                                "color": "#46bcec",
+                              },
+                              Object {
+                                "visibility": "on",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "geometry.fill",
+                            "featureType": "water",
+                            "stylers": Array [
+                              Object {
+                                "color": "#c8d7d4",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.text.fill",
+                            "featureType": "water",
+                            "stylers": Array [
+                              Object {
+                                "color": "#070707",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.text.stroke",
+                            "featureType": "water",
+                            "stylers": Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                            ],
+                          },
+                        ],
+                        "zoom": 8,
+                      },
+                      "panToBounds": [MockFunction panToBounds],
+                      "set": [MockFunction set],
+                      "setCenter": [MockFunction setCenter] {
+                        "calls": Array [
+                          Array [
+                            mockConstructor {
+                              "addListener": [MockFunction addListener],
+                              "bindTo": [MockFunction bindTo],
+                              "get": [MockFunction get],
+                              "lat": [MockFunction lat] {
+                                "calls": Array [
+                                  Array [],
+                                ],
+                                "results": Array [
+                                  Object {
+                                    "type": "return",
+                                    "value": undefined,
+                                  },
+                                ],
+                              },
+                              "listeners": Object {},
+                              "lng": [MockFunction lng] {
+                                "calls": Array [
+                                  Array [],
+                                ],
+                                "results": Array [
+                                  Object {
+                                    "type": "return",
+                                    "value": undefined,
+                                  },
+                                ],
+                              },
+                              "notify": [MockFunction notify],
+                              "set": [MockFunction set],
+                              "setMap": [MockFunction setMap],
+                              "setValues": [MockFunction setValues],
+                              "unbind": [MockFunction unbind],
+                              "unbindAll": [MockFunction unbindAll],
+                            },
+                          ],
+                        ],
+                        "results": Array [
+                          Object {
+                            "type": "return",
+                            "value": undefined,
+                          },
+                        ],
+                      },
+                      "setClickableIcons": [MockFunction setClickableIcons],
+                      "setHeading": [MockFunction setHeading],
+                      "setMapTypeId": [MockFunction setMapTypeId],
+                      "setOptions": [MockFunction setOptions],
+                      "setStreetView": [MockFunction setStreetView],
+                      "setTilt": [MockFunction setTilt],
+                      "setValues": [MockFunction setValues],
+                      "setZoom": [MockFunction setZoom] {
+                        "calls": Array [
+                          Array [
+                            15,
+                          ],
+                        ],
+                        "results": Array [
+                          Object {
+                            "type": "return",
+                            "value": undefined,
+                          },
+                        ],
+                      },
+                      "unbind": [MockFunction unbind],
+                      "unbindAll": [MockFunction unbindAll],
+                    },
+                    "position": Object {
+                      "lat": 51.56449,
+                      "lng": -0.121057,
+                    },
+                  },
+                  "set": [MockFunction set],
+                  "setMap": [MockFunction setMap] {
+                    "calls": Array [
+                      Array [
+                        null,
+                      ],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  },
+                  "setOpacity": [MockFunction setOpacity],
+                  "setOptions": [MockFunction setOptions],
+                  "setPosition": [MockFunction setPosition],
+                  "setShape": [MockFunction setShape],
+                  "setTitle": [MockFunction setTitle],
+                  "setValues": [MockFunction setValues],
+                  "setVisible": [MockFunction setVisible],
+                  "setZIndex": [MockFunction setZIndex],
+                  "unbind": [MockFunction unbind],
+                  "unbindAll": [MockFunction unbindAll],
+                },
+                "click",
+                [Function],
+              ],
+              Array [
+                mockConstructor {
+                  "addListener": [MockFunction addListener],
+                  "bindTo": [MockFunction bindTo],
+                  "get": [MockFunction get],
+                  "getPosition": [MockFunction getPosition] {
+                    "calls": Array [
+                      Array [],
+                      Array [],
+                    ],
+                    "results": Array [
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                      Object {
+                        "type": "return",
+                        "value": undefined,
+                      },
+                    ],
+                  },
+                  "listeners": Object {},
+                  "notify": [MockFunction notify],
+                  "opts": Object {
+                    "icon": null,
+                    "map": mockConstructor {
+                      "addListener": [MockFunction addListener],
+                      "bindTo": [MockFunction bindTo],
+                      "fitBounds": [MockFunction fitBounds] {
+                        "calls": Array [
+                          Array [
+                            mockConstructor {
+                              "addListener": [MockFunction addListener],
+                              "bindTo": [MockFunction bindTo],
+                              "extend": [MockFunction extend] {
+                                "calls": Array [
+                                  Array [
+                                    undefined,
+                                  ],
+                                ],
+                                "results": Array [
+                                  Object {
+                                    "type": "return",
+                                    "value": undefined,
+                                  },
+                                ],
+                              },
+                              "get": [MockFunction get],
+                              "getCenter": [MockFunction getCenter],
+                              "getPosition": [MockFunction getPosition],
+                              "listeners": Object {},
+                              "notify": [MockFunction notify],
+                              "set": [MockFunction set],
+                              "setValues": [MockFunction setValues],
+                              "unbind": [MockFunction unbind],
+                              "unbindAll": [MockFunction unbindAll],
+                            },
+                          ],
+                        ],
+                        "results": Array [
+                          Object {
+                            "type": "return",
+                            "value": undefined,
+                          },
+                        ],
+                      },
+                      "get": [MockFunction get],
+                      "getBounds": [MockFunction getBounds],
+                      "listeners": Object {},
+                      "mapDiv": null,
+                      "notify": [MockFunction notify],
+                      "opts": Object {
+                        "center": Object {
+                          "lat": 0,
+                          "lng": 0,
+                        },
+                        "styles": Array [
+                          Object {
+                            "elementType": "geometry.fill",
+                            "featureType": "all",
+                            "stylers": Array [
+                              Object {
+                                "weight": "2.00",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "geometry.stroke",
+                            "featureType": "all",
+                            "stylers": Array [
+                              Object {
+                                "color": "#9c9c9c",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.text",
+                            "featureType": "all",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "on",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "landscape",
+                            "stylers": Array [
+                              Object {
+                                "color": "#f2f2f2",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "geometry.fill",
+                            "featureType": "landscape",
+                            "stylers": Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "geometry.fill",
+                            "featureType": "landscape.man_made",
+                            "stylers": Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "poi",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "off",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "saturation": -100,
+                              },
+                              Object {
+                                "lightness": 45,
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "geometry.fill",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "color": "#eeeeee",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.text.fill",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "color": "#7b7b7b",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.text.stroke",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "road.highway",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.icon",
+                            "featureType": "road.arterial",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "off",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "transit",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "off",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "all",
+                            "featureType": "water",
+                            "stylers": Array [
+                              Object {
+                                "color": "#46bcec",
+                              },
+                              Object {
+                                "visibility": "on",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "geometry.fill",
+                            "featureType": "water",
+                            "stylers": Array [
+                              Object {
+                                "color": "#c8d7d4",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.text.fill",
+                            "featureType": "water",
+                            "stylers": Array [
+                              Object {
+                                "color": "#070707",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels.text.stroke",
+                            "featureType": "water",
+                            "stylers": Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                            ],
+                          },
+                        ],
+                        "zoom": 8,
+                      },
+                      "panToBounds": [MockFunction panToBounds],
+                      "set": [MockFunction set],
+                      "setCenter": [MockFunction setCenter],
+                      "setClickableIcons": [MockFunction setClickableIcons],
+                      "setHeading": [MockFunction setHeading],
+                      "setMapTypeId": [MockFunction setMapTypeId],
+                      "setOptions": [MockFunction setOptions],
+                      "setStreetView": [MockFunction setStreetView],
+                      "setTilt": [MockFunction setTilt],
+                      "setValues": [MockFunction setValues],
+                      "setZoom": [MockFunction setZoom],
+                      "unbind": [MockFunction unbind],
+                      "unbindAll": [MockFunction unbindAll],
+                    },
+                    "position": Object {
+                      "lat": 51.56449,
+                      "lng": -0.121057,
+                    },
+                  },
+                  "set": [MockFunction set],
+                  "setMap": [MockFunction setMap],
+                  "setOpacity": [MockFunction setOpacity],
+                  "setOptions": [MockFunction setOptions],
+                  "setPosition": [MockFunction setPosition],
+                  "setShape": [MockFunction setShape],
+                  "setTitle": [MockFunction setTitle],
+                  "setValues": [MockFunction setValues],
+                  "setVisible": [MockFunction setVisible],
+                  "setZIndex": [MockFunction setZIndex],
+                  "unbind": [MockFunction unbind],
+                  "unbindAll": [MockFunction unbindAll],
+                },
+                "click",
+                [Function],
+              ],
+            ],
+            "results": Array [
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+              Object {
+                "type": "return",
+                "value": undefined,
+              },
+            ],
+          },
           "clearInstanceListeners": [MockFunction clearInstanceListeners],
         },
       }
+    }
+    properties={
+      Array [
+        Object {
+          "address": Object {
+            "buildingName": "",
+            "buildingNumber": "176c",
+            "country": "GB",
+            "geolocation": Object {
+              "latitude": 51.56449,
+              "longitude": -0.121057,
+            },
+            "line1": "Sussex Way",
+            "line2": "Archway",
+            "line3": "London",
+            "line4": "",
+            "postcode": "N19 4JF",
+          },
+          "age": Array [],
+          "bathrooms": 0,
+          "bedrooms": 0,
+          "created": "2019-09-17T11:57:27",
+          "departmentId": "G",
+          "description": "This is a flat",
+          "epc": Object {
+            "eer": 0,
+            "eerPotential": 0,
+            "eir": 0,
+            "eirPotential": 0,
+            "exempt": false,
+          },
+          "id": "AYL190002",
+          "internetAdvertising": true,
+          "letting": Object {
+            "rent": 0,
+            "rentFrequency": "mockRentFrequency",
+          },
+          "locality": Array [],
+          "marketingMode": "selling",
+          "metadata": Object {},
+          "modified": "2019-09-17T12:06:06",
+          "parking": Array [],
+          "receptions": 0,
+          "relationships": Array [
+            Object {
+              "id": "LJW",
+              "type": "negotiator",
+            },
+            Object {
+              "id": "AYL",
+              "type": "office",
+            },
+          ],
+          "rooms": Array [],
+          "selling": Object {
+            "instructed": "2019-09-17T00:00:00",
+            "price": 0,
+            "qualifier": "guidePrice",
+            "status": "forSale",
+          },
+          "situation": Array [],
+          "strapline": "Flat",
+          "style": Array [],
+          "type": Array [],
+        },
+      ]
     }
     property={
       Object {

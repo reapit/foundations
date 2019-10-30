@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Loader from '../loader'
-import { oc } from 'ts-optchain'
 import { AddressModel, PropertyModel } from '../types/property'
 import styled from 'styled-components'
 import { context } from '../context'
@@ -194,8 +193,8 @@ export const combineAdress = (address: AddressModel | undefined): string => {
   return addressString
 }
 
-export const formatPriceAndQuantifier = (price: string, quantifier: string) => {
-  const formattedPrice = currencyFormatter.format(Number(price))
+export const formatPriceAndQuantifier = (price: number, quantifier: string) => {
+  const formattedPrice = currencyFormatter.format(price)
   switch (quantifier) {
     case 'askingPrice':
       return formattedPrice
@@ -220,18 +219,15 @@ export const formatPriceAndQuantifier = (price: string, quantifier: string) => {
 
 export const getPrice = (result: PropertyModel, searchType: SearchType) => {
   if (searchType === 'Rent') {
-    return (
-      oc(result).letting.rent(0) + ' ' + oc(result).letting.rentFrequency('')
-    )
+    const rent = (result && result.letting && result.letting.rent) || 0
+    const rentFrequency =
+      (result && result.letting && result.letting.rentFrequency) || ''
+    return `${rent}' '${rentFrequency}`
   }
 
-  // return oc(result).selling.qualifier('') + ' ' + oc(result).selling.price(0)
-  return formatPriceAndQuantifier(
-    oc(result)
-      .selling.price(0)
-      .toString(),
-    oc(result).selling.qualifier('')
-  )
+  const price = (result && result.selling && result.selling.price) || 0
+  const qualifier = (result && result.selling && result.selling.qualifier) || ''
+  return formatPriceAndQuantifier(price, qualifier)
 }
 
 export const formatType = (style: string) => {
@@ -285,16 +281,10 @@ export const formatStyle = (style: string) => {
 }
 
 export const combineNumberBedTypeStyle = (result: PropertyModel) => {
-  const style = oc(result)
-    .style([])
-    .map(formatStyle)
-    .join(' ')
-  const type = oc(result)
-    .type([])
-    .map(formatType)
-    .join(' ')
-
-  return oc(result).bedrooms(0) + ' Bed ' + style + ' ' + type
+  const style = ((result && result.style) || []).map(formatStyle).join(' ')
+  const type = ((result && result.type) || []).map(formatType).join(' ')
+  const numberBedRoom = (result && result.bedrooms) || 0
+  return numberBedRoom + ' Bed ' + style + ' ' + type
 }
 
 export const SearchResult = () => {
@@ -327,15 +317,17 @@ export const SearchResult = () => {
   return (
     <SearchResultContainer>
       <SearchResultItemContainer>
-        {resultArr.map(property => {
-          const id = oc(property).id('')
+        {resultArr.map((property: PropertyModel) => {
+          const id = (property && property.id) || ''
           const propertyImage = propertyImages[id]
-          const imageUrl = oc(propertyImage).url(
+          const imageUrl =
+            (propertyImage && propertyImage.url) ||
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII='
-          )
-          const sellingStatus = oc(property).selling.status('')
-          const lettingStatus = oc(property).letting.status('')
-          const selectedPropertyId = oc(selectedProperty).id('')
+
+          const sellingStatus = (property && property.selling && property.selling.status) || ''
+          const lettingStatus = (property && property.letting && property.letting.status) || ''
+          const selectedPropertyId = (selectedProperty && selectedProperty.id) || ''
+
           const isSelectedProperty = property.id === selectedPropertyId
 
           const onClick = () => {
@@ -358,7 +350,8 @@ export const SearchResult = () => {
               <div>
                 <AddressSecondaryText>
                   <AddressPrimaryText>
-                    {oc(property).address.line1()}
+                    {(property && property.address && property.address.line1) ||
+                      ''}
                   </AddressPrimaryText>
                   {combineAdress(property.address)}
                 </AddressSecondaryText>
@@ -369,8 +362,8 @@ export const SearchResult = () => {
               </NumBedTypeStyleText>
               <DescriptionText>{property.description}</DescriptionText>
               <IconContainer>
-                <FaBed /> {oc(property).bedrooms(0)}
-                <FaToilet /> {oc(property).bathrooms(0)}
+                <FaBed /> {(property && property.bedrooms) || 0}
+                <FaToilet /> {(property && property.bathrooms) || 0}
               </IconContainer>
             </SearchResultItemDiv>
           )
