@@ -14,77 +14,80 @@ exports[`ReportContainer handleTrigger 1`] = `
 
 exports[`ReportContainer should match snapshot 1`] = `
 <Fragment>
-  <p>
-    Status: 
-    unchecked
-  </p>
-  <p>
-    Ms Saoirse Chadwick
-  </p>
   <div>
-    <Table
-      bordered={true}
-      columns={
-        Array [
-          Object {
-            "Header": "Section",
-            "accessor": "section",
-          },
-          Object {
-            "Cell": [Function],
-            "Header": "Description",
-            "accessor": "description",
-            "id": "description",
-          },
-          Object {
-            "Header": "Status",
-            "accessor": [Function],
-            "id": "status",
-          },
-        ]
-      }
-      data={
-        Array [
-          Object {
-            "description": [Function],
-            "section": "Personal Detail",
-            "status": true,
-          },
-          Object {
-            "description": [Function],
-            "section": "Primary ID",
-            "status": false,
-          },
-          Object {
-            "description": [Function],
-            "section": "Secondary ID",
-            "status": true,
-          },
-          Object {
-            "description": [Function],
-            "section": "Address History",
-            "status": false,
-          },
-          Object {
-            "description": [Function],
-            "section": "Declaration and Risk Assessment",
-            "status": false,
-          },
-          Object {
-            "description": [Function],
-            "section": "PEP Search",
-            "status": false,
-          },
-          Object {
-            "description": [Function],
-            "section": "Experian",
-            "status": true,
-          },
-        ]
-      }
-      loading={false}
-      striped={true}
-    />
+    <p>
+      Status: 
+      unchecked
+    </p>
+    <p>
+      Ms Saoirse Chadwick
+    </p>
+    <div>
+      <Table
+        bordered={true}
+        columns={
+          Array [
+            Object {
+              "Header": "Section",
+              "accessor": "section",
+            },
+            Object {
+              "Cell": [Function],
+              "Header": "Description",
+              "accessor": "description",
+              "id": "description",
+            },
+            Object {
+              "Cell": [Function],
+              "Header": "Status",
+              "accessor": "status",
+              "id": "status",
+            },
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "description": [Function],
+              "section": "Personal Detail",
+              "status": true,
+            },
+            Object {
+              "description": [Function],
+              "section": "Primary ID",
+              "status": false,
+            },
+            Object {
+              "description": [Function],
+              "section": "Secondary ID",
+              "status": true,
+            },
+            Object {
+              "description": [Function],
+              "section": "Address History",
+              "status": false,
+            },
+            Object {
+              "description": [Function],
+              "section": "Declaration and Risk Assessment",
+              "status": false,
+            },
+            Object {
+              "description": [Function],
+              "section": "PEP Search",
+              "status": false,
+            },
+            Object {
+              "description": [Function],
+              "section": "Experian",
+              "status": true,
+            },
+          ]
+        }
+        loading={false}
+        striped={true}
+      />
+    </div>
   </div>
   <div>
     <e

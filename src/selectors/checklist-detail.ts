@@ -1,39 +1,14 @@
 import { STEPS } from './../components/ui/modal/modal'
 import { ReduxState } from '@/types/core'
 import { oc } from 'ts-optchain'
+import { defaultStatus } from '@/constants/section-status'
 
-export const selectCheckListDetailFormStatus = (state: ReduxState, formName: string) => {
-  let result: boolean = false
-
-  switch (formName) {
-    case STEPS.PROFILE:
-      result = oc(state).checklistDetail.status.profile(false)
-      break
-
-    case STEPS.PRIMARY_IDENTIFICATION:
-      result = oc(state).checklistDetail.status.primaryId(false)
-      break
-
-    case STEPS.SECONDARY_IDENTIFICATION:
-      result = oc(state).checklistDetail.status.secondaryId(false)
-      break
-
-    case STEPS.ADDRESS_INFORMATION:
-      result = oc(state).checklistDetail.status.addresses(false)
-      break
-
-    case STEPS.DECLARATION_RISK_MANAGEMENT:
-      result = oc(state).checklistDetail.status.declarationRisk(false)
-      break
-
-    default:
-  }
-
-  return result
+export const selectCheckListDetailStatus = (state: ReduxState) => {
+  return oc(state).checklistDetail.status(defaultStatus)
 }
 
 export const selectCheckListDetailContact = (state: ReduxState) => {
-  return oc(state).checklistDetail.checklistDetailData.contact(null)
+  return oc(state).checklistDetail.checklistDetailData.contact({})
 }
 
 export const selectCheckListDetailIsSubmitting = (state: ReduxState) => {
@@ -41,7 +16,7 @@ export const selectCheckListDetailIsSubmitting = (state: ReduxState) => {
 }
 
 export const selectCheckListDetailIdCheck = (state: ReduxState) => {
-  return oc(state).checklistDetail.checklistDetailData.idCheck(null)
+  return oc(state).checklistDetail.checklistDetailData.idCheck({})
 }
 
 export const selectCheckListDetailPrimaryIdUrl = (state: ReduxState) => {
@@ -62,4 +37,8 @@ export const selectCheckListDetailSecondaryId = (state: ReduxState) => {
 
 export const selectDeclarationRisk = (state: ReduxState) => {
   return oc(state).checklistDetail.checklistDetailData.contact.metadata.declarationRisk({})
+}
+
+export const selectIdentityTypes = (state: ReduxState) => {
+  return oc(state).identityTypes.identityTypes([])
 }

@@ -5,11 +5,14 @@ import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
 import { idCheck } from '@/sagas/__stubs__/idCheck'
 import { sectionsStatus } from '@/sagas/__stubs__/status'
-import { defaultStatus } from '@/reducers/checklist-detail'
+import { defaultStatus } from '@/constants/section-status'
+import { identityTypes } from '@/sagas/__stubs__/identity-types'
 
 describe('ReportContainer', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<ReportContainer contact={contact} idCheck={idCheck} status={sectionsStatus} />)
+    const wrapper = shallow(
+      <ReportContainer contact={contact} idCheck={idCheck} status={sectionsStatus} identityTypes={identityTypes} />
+    )
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -38,13 +41,17 @@ describe('ReportContainer', () => {
             idCheck
           },
           status: sectionsStatus
+        },
+        identityTypes: {
+          identityTypes: identityTypes
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact,
         idCheck,
-        status: sectionsStatus
+        status: sectionsStatus,
+        identityTypes: identityTypes
       })
     })
     it('should run correctly', () => {
@@ -53,7 +60,8 @@ describe('ReportContainer', () => {
       expect(result).toEqual({
         contact: {},
         idCheck: {},
-        status: defaultStatus
+        status: defaultStatus,
+        identityTypes: []
       })
     })
   })
