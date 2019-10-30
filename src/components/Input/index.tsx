@@ -19,7 +19,7 @@ export const Input = ({ type, name, labelText, id, dataTest, placeholder = '' }:
       const hasError = touched[field.name] && errors[field.name]
       const className = hasError ? 'input is-danger' : 'input is-primary'
       return (
-        <div className="field pb-2">
+        <div className="field pb-4">
           <div className="control">
             {type !== 'hidden' && (
               <label className="label" htmlFor={id}>

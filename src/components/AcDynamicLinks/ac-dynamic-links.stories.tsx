@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { AcButton, AcLink } from './index'
 import { Section, Content } from '../Layout/index'
 import { DynamicLinkParams, EntityType, EntityParams, getDynamicLink, AppParams } from './dynamic-link-gen'
-import { H5, SubTitleH6 } from '../Typography/index'
+import { H6 } from '../Typography/index'
 
 export interface DynamicLinkScenario {
   dynamicLinkParams: DynamicLinkParams
@@ -136,8 +136,8 @@ storiesOf('AcDynamicLinks', module).add('AcButtonsAndLinks', () => (
   <Content>
     {dynamicLinkScenarios.map((scenario: DynamicLinkScenario, index: number) => (
       <Section key={index}>
-        <H5>{scenario.description}</H5>
-        <SubTitleH6>Link generated is: {getDynamicLink(scenario.dynamicLinkParams)}</SubTitleH6>
+        <H6>{scenario.description}</H6>
+        <p>Link generated is: {getDynamicLink(scenario.dynamicLinkParams)}</p>
         <p>
           <AcButton
             buttonProps={{

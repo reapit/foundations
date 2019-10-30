@@ -9,23 +9,27 @@ export interface CheckboxProps {
 }
 
 export const Checkbox = ({ name, labelText, id, dataTest }: CheckboxProps) => (
-  <Field
-    name={name}
-    render={({ field }) => (
-      <div className="field field-checkbox">
-        <input
-          className="checkbox"
-          type="checkbox"
-          id={id}
-          name={id}
-          data-test={dataTest || ''}
-          {...field}
-          checked={field.value}
-        />
-        <label className="label" htmlFor={id}>
-          {labelText}
-        </label>
-      </div>
-    )}
-  />
+  <div className="field pb-4">
+    <div className="control">
+      <Field
+        name={name}
+        render={({ field }) => (
+          <div className="field field-checkbox">
+            <input
+              className="checkbox"
+              type="checkbox"
+              id={id}
+              name={id}
+              data-test={dataTest || ''}
+              {...field}
+              checked={field.value}
+            />
+            <label className="label" htmlFor={id}>
+              {labelText}
+            </label>
+          </div>
+        )}
+      />
+    </div>
+  </div>
 )
