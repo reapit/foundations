@@ -19,7 +19,7 @@ exports[`google-map getContent should run correctly 1`] = `
     <div><img style=\\"width: 110px; height: 110px; object-fit: cover\\" src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII=\\"></div>
     <div style=\\"padding: 0rem 1rem;\\">
       <div style=\\"margin-bottom: 2px; font-weight:bold;font-size:1rem; color: #12263f\\">Archway</div>
-      <div style=\\"color: rgba(124, 160, 145, 1);font-weight:bold;font-size:2rem\\">£</div>
+      <div style=\\"color: #887d97 ;font-weight:bold;font-size:2rem\\">£</div>
       <div style=\\"display:flex; margin-top: 2px\\">
         <div style=\\"margin-right: 1.2rem\\">
           <span style=\\"color: gray\\">
@@ -51,7 +51,7 @@ exports[`google-map getContent should run correctly 2`] = `
     <div><img style=\\"width: 110px; height: 110px; object-fit: cover\\" src=\\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII=\\"></div>
     <div style=\\"padding: 0rem 1rem;\\">
       <div style=\\"margin-bottom: 2px; font-weight:bold;font-size:1rem; color: #12263f\\">Archway</div>
-      <div style=\\"color: rgba(124, 160, 145, 1);font-weight:bold;font-size:2rem\\">£</div>
+      <div style=\\"color: #887d97 ;font-weight:bold;font-size:2rem\\">£</div>
       <div style=\\"display:flex; margin-top: 2px\\">
         <div style=\\"margin-right: 1.2rem\\">
           <span style=\\"color: gray\\">
@@ -1171,8 +1171,8 @@ exports[`google-map renderMap should match snapshot 1`] = `
         },
         "situation": Array [],
         "strapline": "Flat",
-        "style": "",
-        "type": "",
+        "style": Array [],
+        "type": Array [],
       }
     }
     zoom={8}

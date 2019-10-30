@@ -15,19 +15,19 @@ describe('SearchResult', () => {
       // 0 = input, 1 = input
       const testCases = [
         ['askingPrice', '£500,000'],
-        ['priceOnApplication', "POA"],
+        ['priceOnApplication', 'POA'],
         ['guidePrice', 'Guide Price £500,000'],
         ['offersInRegion', 'OIRO £500,000'],
         ['offersOver', 'Offers Over £500,000'],
         ['offersInExcess', 'OIEO £500,000'],
         ['fixedPrice', 'Fixed Price £500,000'],
-        ['priceReducedTo', '£500,000'],
+        ['priceReducedTo', '£500,000']
       ]
 
       for (let testCase of testCases) {
-        expect(
-          formatPriceAndQuantifier('500000', testCase[0])
-        ).toBe(testCase[1])
+        expect(formatPriceAndQuantifier('500000', testCase[0])).toBe(
+          testCase[1]
+        )
       }
     })
   })
@@ -83,16 +83,16 @@ describe('SearchResult', () => {
         line4: '4',
         postcode: '5'
       })
-    ).toBe('3, 4, 5')
+    ).toBe('2, 3, 4, 5')
   })
 
   it('handles combineNumberBedTypeStyle correcly', () => {
     expect(
       combineNumberBedTypeStyle({
         bedrooms: 1,
-        style: 'style1 style2',
-        type: 'type1 type2'
+        style: ['style1 style2'],
+        type: ['type1 type2']
       })
-    ).toBe('1 style1 style2 type1 type2')
+    ).toBe('1 Bed style1 style2 type1 type2')
   })
 })
