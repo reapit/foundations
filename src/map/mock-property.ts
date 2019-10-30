@@ -42,8 +42,8 @@ export const property: PropertyModel = {
     rent: 0,
     rentFrequency: 'mockRentFrequency'
   },
-  type: '',
-  style: '',
+  type: [],
+  style: [],
   situation: [],
   parking: [],
   age: [],

@@ -206,14 +206,67 @@ export const getPrice = (result: PropertyModel, searchType: SearchType) => {
   return formatPriceAndQuantifier(oc(result).selling.price(0).toString(), oc(result).selling.qualifier(''))
 }
 
+export const formatType = (style: string) => {
+  switch (style) {
+    case 'house':
+      return 'House'
+    case 'bungalow':
+      return 'Bungalow'
+    case 'flatApartment':
+      return 'Flat/Apartment'
+    case 'maisonette':
+      return 'Maisonette'
+    case 'land':
+      return 'Land'
+    case 'farm':
+      return 'Farm'
+    case 'developmentPlot':
+      return 'Development Plot'
+    case 'cottage':
+      return 'Cottage'
+    default:
+      return style
+  }
+}
+
+export const formatStyle = (style: string) => {
+  switch (style) {
+    case 'terraced':
+      return 'Terraced'
+    case 'endTerrace':
+      return 'End of Terrace'
+    case 'detached':
+      return 'Detached'
+    case 'semiDetached':
+      return 'Semi Detached'
+    case 'linkDetached':
+      return 'Link Detached'
+    case 'basement':
+      return 'Basement'
+    case 'groundFloor':
+      return 'Ground floor'
+    case 'firstFloor':
+      return 'First floor'
+    case 'upperFloor':
+      return 'Upper floor'
+    case 'upperFloorWithLift':
+      return 'Upper floor with lift'
+    default:
+      return style
+  }
+}
+
 export const combineNumberBedTypeStyle = (result: PropertyModel) => {
-  return (
-    oc(result).bedrooms(0) +
-    ' ' +
-    oc(result).style('') +
-    ' ' +
-    oc(result).type('')
-  )
+  const style = oc(result)
+    .style([])
+    .map(formatStyle)
+    .join(' ')
+  const type = oc(result)
+    .type([])
+    .map(formatType)
+    .join(' ')
+
+  return oc(result).bedrooms(0) + ' Bed ' + style + ' ' + type
 }
 
 export const SearchResult = () => {

@@ -3,7 +3,9 @@ import {
   combineAdress,
   combineNumberBedTypeStyle,
   SearchResult,
-  formatPriceAndQuantifier
+  formatPriceAndQuantifier,
+  formatStyle,
+  formatType
 } from './search-result'
 import { shallow } from 'enzyme'
 
@@ -29,6 +31,44 @@ describe('SearchResult', () => {
       }
     })
   })
+  it('format style correctly using formatStyle', () => {
+    // 0 = input, 1 = input
+    const testCases = [
+      ['terraced', 'Terraced'],
+      ['endTerrace', 'End of Terrace'],
+      ['detached', 'Detached'],
+      ['semiDetached', 'Semi Detached'],
+      ['linkDetached', 'Link Detached'],
+      ['basement', 'Basement'],
+      ['groundFloor', 'Ground floor'],
+      ['firstFloor', 'First floor'],
+      ['upperFloor', 'Upper floor'],
+      ['upperFloorWithLift', 'Upper floor with lift']
+    ]
+
+    for (let testCase of testCases) {
+      expect(formatStyle(testCase[0])).toBe(testCase[1])
+    }
+  })
+
+  it('format type correctly using formatType', () => {
+    // 0 = input, 1 = input
+    const testCases = [
+      ['house', 'House'],
+      ['bungalow', 'Bungalow'],
+      ['flatApartment', 'Flat/Apartment'],
+      ['maisonette', 'Maisonette'],
+      ['land', 'Land'],
+      ['farm', 'Farm'],
+      ['developmentPlot', 'Development Plot'],
+      ['cottage', 'Cottage']
+    ]
+
+    for (let testCase of testCases) {
+      expect(formatType(testCase[0])).toBe(testCase[1])
+    }
+  })
+
   it('should match snapshoot', () => {
     const wrapper = shallow(<SearchResult />)
     expect(wrapper).toMatchSnapshot()

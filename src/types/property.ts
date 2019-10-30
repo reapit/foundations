@@ -433,133 +433,134 @@ export interface PagedResultPropertyModel_ {
   totalCount?: number // int32
 }
 export interface ProblemDetails {
-  name: string
-  type?: string
-  title?: string
-  status?: number // int32
-  detail?: string
-  instance?: string
+    name: string,
+    type?: string;
+    title?: string;
+    status?: number; // int32
+    detail?: string;
+    instance?: string;
 }
 /**
  * Model representing the details of a property
  */
 export interface PropertyModel {
-  /**
-   * Gets the unique identifier
-   */
-  id?: string
-  /**
-   * Gets the datetime when the property was created
-   */
-  created?: string // date-time
-  /**
-   * Gets the date and time that the property was last modified
-   */
-  modified?: string // date-time
-  /**
-   * Gets the marketing mode of the property (selling/letting/sellingAndLetting)
-   */
-  marketingMode?: string
-  /**
-   * Gets the address of the property
-   */
-  address?: AddressModel
-  /**
-   * Gets the strapline description
-   */
-  strapline?: string
-  /**
-   * Gets the brief description
-   */
-  description?: string
-  /**
-   * Gets the summary of accommodation
-   */
-  summary?: string
-  /**
-   * Gets the department id
-   */
-  departmentId?: string
-  /**
-   * Gets the number of bedrooms
-   */
-  bedrooms?: number // int32
-  /**
-   * Gets the number of reception rooms
-   */
-  receptions?: number // int32
-  /**
-   * Gets the number of bathrooms
-   */
-  bathrooms?: number // int32
-  /**
-   * Gets the council tax banding (A/B/C/D/E/F/G/H)
-   */
-  councilTax?: string
-  /**
-   * Gets a value indicating whether this property can be advertised on the internet
-   */
-  internetAdvertising?: boolean
-  /**
-   * Gets details of the external land area associated to this property
-   */
-  externalArea?: ExternalAreaModel
-  /**
-   * Gets details of the internal dimensions of the property
-   */
-  internalArea?: InternalAreaModel
-  /**
-   * Gets details of the EPC statistics
-   */
-  epc?: EpcModel
-  /**
-   * Gets the sales specific details of the property
-   */
-  selling?: SellingModel
-  /**
-   * Gets the lettings specific details of the property
-   */
-  letting?: LettingModel
-  /**
-   * Gets the property types
-   */
-  type?: string
-  /**
-   * Gets the property style
-   */
-  style?: string
-  /**
-   * Gets the property situation
-   */
-  situation?: string[]
-  /**
-   * Gets the property parking
-   */
-  parking?: string[]
-  /**
-   * Gets the property age
-   */
-  age?: string[]
-  /**
-   * Gets the property locality
-   */
-  locality?: string[]
-  /**
-   * Gets a listing of room details
-   */
-  rooms?: RoomModel[]
-  /**
-   * Gets a collection of entities that are related to this property
-   * This is usually the managing negotiators and offices
-   */
-  relationships?: RelationshipModel[]
-  /**
-   * Gets a listing of additional metadata that has been set against this contact
-   */
-  metadata?: {
-    [name: string]: {}
-  }
-  readonly links?: LinkModel[]
+    /**
+     * Gets the unique identifier
+     */
+    id?: string;
+    /**
+     * Gets the datetime when the property was created
+     */
+    created?: string; // date-time
+    /**
+     * Gets the date and time that the property was last modified
+     */
+    modified?: string; // date-time
+    /**
+     * Gets the marketing mode of the property (selling/letting/sellingAndLetting)
+     */
+    marketingMode?: string;
+    /**
+     * Gets the address of the property
+     */
+    address?: AddressModel;
+    /**
+     * Gets the strapline description
+     */
+    strapline?: string;
+    /**
+     * Gets the brief description
+     */
+    description?: string;
+    /**
+     * Gets the summary of accommodation
+     */
+    summary?: string;
+    /**
+     * Gets the department id
+     */
+    departmentId?: string;
+    /**
+     * Gets the number of bedrooms
+     */
+    bedrooms?: number; // int32
+    /**
+     * Gets the number of reception rooms
+     */
+    receptions?: number; // int32
+    /**
+     * Gets the number of bathrooms
+     */
+    bathrooms?: number; // int32
+    /**
+     * Gets the council tax banding (A/B/C/D/E/F/G/H)
+     */
+    councilTax?: string;
+    /**
+     * Gets a value indicating whether this property can be advertised on the internet
+     */
+    internetAdvertising?: boolean;
+    /**
+     * Gets details of the external land area associated to this property
+     */
+    externalArea?: ExternalAreaModel;
+    /**
+     * Gets details of the internal dimensions of the property
+     */
+    internalArea?: InternalAreaModel;
+    /**
+     * Gets details of the EPC statistics
+     */
+    epc?: EpcModel;
+    /**
+     * Gets the sales specific details of the property
+     */
+    selling?: SellingModel;
+    /**
+     * Gets the lettings specific details of the property
+     */
+    letting?: LettingModel;
+    /**
+     * Gets the property types
+     */
+    type?: string[];
+    /**
+     * Gets the property style
+     */
+    style?: string[];
+    /**
+     * Gets the property situation
+     */
+    situation?: string[];
+    /**
+     * Gets the property parking
+     */
+    parking?: string[];
+    /**
+     * Gets the property age
+     */
+    age?: string[];
+    /**
+     * Gets the property locality
+     */
+    locality?: string[];
+    /**
+     * Gets a listing of room details
+     */
+    rooms?: RoomModel[];
+    /**
+     * Gets a collection of entities that are related to this property
+     * This is usually the managing negotiators and offices
+     */
+    relationships?: RelationshipModel[];
+    /**
+     * Gets a listing of additional metadata that has been set against this contact
+     */
+    metadata?: {
+        [name: string]: {
+        };
+    };
+    readonly links?: LinkModel[];
 }
 /**
  * Model representing an entity that is related to the property

@@ -27,12 +27,12 @@ export interface PagedResultPropertyImageModel_ {
   totalCount?: number // int32
 }
 export interface ProblemDetails {
-  name?: string
-  type?: string
-  title?: string
-  status?: number // int32
-  detail?: string
-  instance?: string
+    name: string
+    type?: string;
+    title?: string;
+    status?: number; // int32
+    detail?: string;
+    instance?: string;
 }
 /**
  * Response model for property image details
