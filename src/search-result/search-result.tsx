@@ -89,6 +89,20 @@ const SearchResultItemContainer = styled.div`
   }
 `
 
+const ImageFlag = styled.div`
+  background: #00a569;
+  text-align: center;
+  position: absolute;
+  width: 200px;
+  padding: 20px;
+  top: 30px;
+  right: -60px;
+  transform: rotate(45deg);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+`
+
 const AddressPrimaryText = styled.span`
   font-size: 18px;
   font-weight: bold !important;
@@ -158,6 +172,8 @@ const SearchResultImageContainer = styled.div<{ isSelectedProperty: boolean }>`
   margin-top: 0px !important;
   width: 100%;
   border-radius: 5px;
+  position: relative;
+  overflow: hidden;
 `
 
 export const combineAdress = (address: AddressModel | undefined): string => {
@@ -317,7 +333,8 @@ export const SearchResult = () => {
           const imageUrl = oc(propertyImage).url(
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII='
           )
-
+          const sellingStatus = oc(property).selling.status('')
+          const lettingStatus = oc(property).letting.status('')
           const selectedPropertyId = oc(selectedProperty).id('')
           const isSelectedProperty = property.id === selectedPropertyId
 
@@ -330,6 +347,12 @@ export const SearchResult = () => {
               <SearchResultImageContainer
                 isSelectedProperty={isSelectedProperty}
               >
+                {sellingStatus === 'underOffer' && (
+                  <ImageFlag>Under Offer</ImageFlag>
+                )}
+                {lettingStatus === 'underOffer' && (
+                  <ImageFlag>Let Agreed</ImageFlag>
+                )}
                 <ImgHandleError src={imageUrl} />
               </SearchResultImageContainer>
               <div>
