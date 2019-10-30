@@ -9,16 +9,14 @@ import { oc } from 'ts-optchain'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import dayjs from 'dayjs'
 import { getPepSearchStatus } from '@/utils/pep-search'
-
-const defaultStatus = {
-  profile: false,
-  primaryId: false,
-  secondaryId: false,
-  declarationRisk: false,
-  addresses: false,
-  pepSearch: false,
-  experian: true
-}
+import { TiTick, TiTimes } from 'react-icons/ti'
+import {
+  selectCheckListDetailContact,
+  selectCheckListDetailIdCheck,
+  selectCheckListDetailStatus,
+  selectIdentityTypes
+} from '@/selectors/checklist-detail'
+import { IdentityDocumentTypesModel } from '@/types/configuration-api-schema'
 
 export const handleTrigger = () => (
   <Button className="mr-2" variant="primary" type="button">
@@ -30,19 +28,31 @@ export const handleContent = ({ printRef }) => () => {
   return printRef.current
 }
 
+export const mappedIdTypes = (idTypes: IdentityDocumentTypesModel[]) => {
+  return idTypes.reduce((cur, obj) => {
+    if (obj && obj.id) {
+      cur[obj.id] = obj.value
+    }
+    return cur
+  }, {})
+}
+
 export type ReportContainerProps = {
   contact: ContactModel
   idCheck: IdentityCheckModel
   status: SectionsStatus
+  identityTypes: IdentityDocumentTypesModel[]
 }
 
-export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idCheck, status }) => {
+export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idCheck, status, identityTypes }) => {
   const printRef = React.useRef<HTMLDivElement>(null)
 
   const { title, forename, surname } = contact
   const name = `${title} ${forename} ${surname}`.trim()
 
   const data = React.useMemo(() => {
+    const idTypes = mappedIdTypes(identityTypes)
+
     return [
       {
         section: 'Personal Detail',
@@ -69,7 +79,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
           const { typeId, details, expiry } = oc(idCheck).documents[0]({})
           return (
             <div>
-              {typeId && <p>Type: {typeId}</p>}
+              {typeId && <p>Type: {idTypes[typeId] || typeId}</p>}
               {details && <p>Reference: {details}</p>}
               {expiry && <p>Expiry Date: {dayjs(expiry).format('DD/MM/YYYY')}</p>}
             </div>
@@ -83,7 +93,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
           const { typeId, details, expiry } = oc(idCheck).documents[1]({})
           return (
             <div>
-              {typeId && <p>Type: {typeId}</p>}
+              {typeId && <p>Type: {idTypes[typeId] || typeId}</p>}
               {details && <p>Reference: {details}</p>}
               {expiry && <p>Expiry Date: {dayjs(expiry).format('DD/MM/YYYY')}</p>}
             </div>
@@ -137,11 +147,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
         description: () => {
           const pepSearchStatus = getPepSearchStatus()
           const { param, time } = pepSearchStatus && contact.id && pepSearchStatus[contact.id]
-          return (
-            <div>
-              Search conducted for "{param}" on {time}
-            </div>
-          )
+          return <div>{param && time && `Search conducted for "${param}" on ${time}`}</div>
         },
         status: status.pepSearch
       },
@@ -162,24 +168,33 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       Header: 'Description',
       id: 'description',
       accessor: 'description',
-      Cell: ({ row }) => {
-        console.log(row)
-        return row.original.description()
-      }
+      Cell: ({ row }) => row.original.description()
     },
     {
       Header: 'Status',
       id: 'status',
-      accessor: d => (d.status ? 'Completed' : 'Incomplete')
+      accessor: 'status',
+      Cell: ({ row }) => (
+        <div className={styles.statusColumn}>
+          {row.original.status ? (
+            <TiTick className={styles.checkCompleted} />
+          ) : (
+            <TiTimes className={styles.checkIncomplete} />
+          )}
+          <span>{row.original.status ? 'Completed' : 'Incomplete'}</span>
+        </div>
+      )
     }
   ]
 
   return (
     <>
-      <p className={styles.status}>Status: {contact.identityCheck}</p>
-      <p className={styles.title}>{name}</p>
-      <div ref={printRef} className={styles.reportContainer}>
-        <Table data={data} columns={columns} loading={false} bordered striped />
+      <div ref={printRef} className={styles.reportPrint}>
+        <p className={styles.status}>Status: {contact.identityCheck}</p>
+        <p className={styles.title}>{name}</p>
+        <div className={styles.reportContainer}>
+          <Table data={data} columns={columns} loading={false} bordered striped />
+        </div>
       </div>
       <div className={styles.footerContainer}>
         <ReactToPrint trigger={handleTrigger} content={handleContent({ printRef })} />
@@ -193,9 +208,10 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
 
 export const mapStateToProps = (state: ReduxState) => {
   return {
-    contact: oc(state).checklistDetail.checklistDetailData.contact({}),
-    idCheck: oc(state).checklistDetail.checklistDetailData.idCheck({}),
-    status: oc(state).checklistDetail.status(defaultStatus)
+    contact: selectCheckListDetailContact(state),
+    idCheck: selectCheckListDetailIdCheck(state),
+    status: selectCheckListDetailStatus(state),
+    identityTypes: selectIdentityTypes(state)
   }
 }
 

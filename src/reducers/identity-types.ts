@@ -9,12 +9,12 @@ import { IdentityDocumentTypesModel } from '@/types/configuration-api-schema'
 
 export interface IdentityTypesState {
   loading: boolean
-  identityTypes: IdentityDocumentTypesModel[] | null
+  identityTypes: IdentityDocumentTypesModel[]
 }
 
 export const defaultState: IdentityTypesState = {
   loading: false,
-  identityTypes: null
+  identityTypes: []
 }
 
 const identityTypesReducer = (state: IdentityTypesState = defaultState, action: Action<any>): IdentityTypesState => {
@@ -29,7 +29,7 @@ const identityTypesReducer = (state: IdentityTypesState = defaultState, action: 
     return {
       ...state,
       loading: false,
-      identityTypes: action.data || null
+      identityTypes: action.data || []
     }
   }
 
