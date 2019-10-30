@@ -16,6 +16,7 @@ describe('AppointmentList', () => {
             appointmentTypes={[]}
             selectedAppointment={null}
             setSelectedAppointment={jest.fn()}
+            isOnline={false}
           />
         )
       )
@@ -31,6 +32,7 @@ describe('AppointmentList', () => {
             appointmentTypes={oc(appointmentsDataStub).appointmentTypes([])}
             selectedAppointment={oc(appointmentsDataStub).appointments.data[0]() as AppointmentModel}
             setSelectedAppointment={jest.fn()}
+            isOnline={false}
           />
         )
       )

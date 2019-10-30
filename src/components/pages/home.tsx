@@ -18,6 +18,7 @@ import { setDestination } from '@/actions/direction'
 import { isMobile } from '../../utils/device-detection'
 import TravelMode from '../ui/travel-mode'
 import { AppointmentModel } from '@/types/appointments'
+import { selectOnlineStatus } from '@/selectors/online'
 
 export interface HomeMappedActions {
   requestAppointments: (time: AppointmentsTime) => void
@@ -30,6 +31,7 @@ export interface HomeMappedProps {
   nextAppointmentState: NextAppointmentState
   currentTab: 'LIST' | 'MAP'
   desktopMode: boolean
+  isOnline: boolean
 }
 
 export type HomeProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ page?: any }>
@@ -60,6 +62,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   nextAppointmentState,
   currentTab,
   changeHomeTab,
+  isOnline,
   desktopMode,
   setSelectedAppointment
 }) => {
@@ -124,6 +127,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
                 appointments={list}
                 appointmentTypes={appointmentsState.appointmentTypes || []}
                 nextAppointment={nextAppointmentState.data}
+                isOnline={isOnline}
                 selectedAppointment={selectedAppointment}
                 setSelectedAppointment={setSelectedAppointment}
               ></AppointmentList>
@@ -143,7 +147,8 @@ const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   appointmentsState: state.appointments,
   nextAppointmentState: state.nextAppointment,
   currentTab: state.home.homeTab,
-  desktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
+  desktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP',
+  isOnline: selectOnlineStatus(state)
 })
 
 export interface HomeMappedActions {

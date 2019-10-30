@@ -16,6 +16,7 @@ export interface AppointmentListProps {
   appointmentTypes: ListItemModel[]
   nextAppointment?: NextAppointment | null
   selectedAppointment: AppointmentModel | null
+  isOnline: boolean
   setSelectedAppointment: (appointment: AppointmentModel | null, type?: string) => void
 }
 
@@ -24,6 +25,7 @@ export const AppointmentList = memo(
     appointments,
     appointmentTypes,
     nextAppointment,
+    isOnline,
     selectedAppointment,
     setSelectedAppointment
   }: AppointmentListProps) => {
@@ -38,7 +40,7 @@ export const AppointmentList = memo(
 
     const onSelectAppointment = (e, item, type: string) => {
       if (e.target.type !== 'button') {
-        if (selectedAppointment && selectedAppointment.id === item.id) {
+        if (selectedAppointment && selectedAppointment.id === item.id && isOnline) {
           setSelectedAppointment(null)
         } else {
           setSelectedAppointment(item, type)

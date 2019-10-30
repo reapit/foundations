@@ -1,13 +1,15 @@
-import { Action } from '../types/core'
-import { isType } from '../utils/actions'
 import {
+  appointmentsReceiveTodayData,
+  appointmentsReceiveTomorrowData,
+  appointmentsReceiveWeekData,
   appointmentsRequestData,
   appointmentsLoading,
-  appointmentsReceiveData,
   appointmentsClearData,
   appointmentsRequestDataFailure,
   setSelectedAppointment
-} from '../actions/appointments'
+} from './../actions/appointments'
+import { Action } from '../types/core'
+import { isType } from '../utils/actions'
 import { PagedResultAppointmentModel_, AppointmentModel } from '@/types/appointments'
 import { ListItemModel } from '../types/configuration'
 
@@ -21,6 +23,9 @@ export interface AppointmentsData {
 export interface AppointmentsState {
   loading: boolean
   appointments: PagedResultAppointmentModel_ | null
+  today: PagedResultAppointmentModel_ | null
+  tomorrow: PagedResultAppointmentModel_ | null
+  weekView: PagedResultAppointmentModel_ | null
   time: AppointmentsTime
   selectedAppointment: AppointmentModel | null
   appointmentTypes: ListItemModel[] | null
@@ -29,6 +34,9 @@ export interface AppointmentsState {
 export const defaultState: AppointmentsState = {
   loading: false,
   appointments: null,
+  today: null,
+  tomorrow: null,
+  weekView: null,
   time: 'Today',
   selectedAppointment: null,
   appointmentTypes: null
@@ -41,6 +49,7 @@ const appointmentsReducer = (state: AppointmentsState = defaultState, action: Ac
       time: action.data.time
     }
   }
+
   if (isType(action, appointmentsLoading)) {
     return {
       ...state,
@@ -48,11 +57,32 @@ const appointmentsReducer = (state: AppointmentsState = defaultState, action: Ac
     }
   }
 
-  if (isType(action, appointmentsReceiveData)) {
+  if (isType(action, appointmentsReceiveTodayData)) {
     return {
       ...state,
       loading: false,
       appointments: action.data.appointments,
+      today: action.data.appointments,
+      appointmentTypes: action.data.appointmentTypes
+    }
+  }
+
+  if (isType(action, appointmentsReceiveTomorrowData)) {
+    return {
+      ...state,
+      loading: false,
+      appointments: action.data.appointments,
+      tomorrow: action.data.appointments,
+      appointmentTypes: action.data.appointmentTypes
+    }
+  }
+
+  if (isType(action, appointmentsReceiveWeekData)) {
+    return {
+      ...state,
+      loading: false,
+      appointments: action.data.appointments,
+      weekView: action.data.appointments,
       appointmentTypes: action.data.appointmentTypes
     }
   }

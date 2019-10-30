@@ -27,7 +27,7 @@
     "test-e2e:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e\" -k"
   },
   "dependencies": {
-    "@reapit/elements": "^0.4.47",
+    "@reapit/elements": "^0.4.57",
     "dayjs": "^1.8.16",
     "formik": "^1.5.8",
     "hardtack": "^4.1.0",

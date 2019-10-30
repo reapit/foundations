@@ -6,6 +6,7 @@ import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effec
 import {
   appointmentsLoading,
   appointmentsReceiveData,
+  appointmentsReceiveTodayData,
   appointmentsRequestDataFailure,
   AppointmentRequestParams
 } from '@/actions/appointments'
@@ -17,12 +18,13 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 
 import { appointmentsDataStub } from '../__stubs__/appointments'
+import { AppointmentsTime } from '@/reducers/appointments'
 
 jest.mock('../../core/store')
 jest.mock('@reapit/elements')
 
 const params: Action<AppointmentRequestParams> = {
-  data: { time: 'Today' },
+  data: { time: 'Today' as AppointmentsTime },
   type: 'APPOINTMENTS_REQUEST_DATA'
 }
 
@@ -34,11 +36,10 @@ const mockHeaders = {
 }
 
 describe('appointments should not fetch data', () => {
-  const gen = cloneableGenerator(appointmentsDataFetch)(params)
+  const gen = appointmentsDataFetch(params)
 
   expect(gen.next().value).toEqual(select(selectOnlineStatus))
-  // @ts-ignore
-  expect(gen.next(mockOfflineVal).done).toBe(true)
+  expect(gen.next(mockOfflineVal as any).done).toBe(false)
 })
 
 describe('appointments should fetch data', () => {
@@ -46,10 +47,10 @@ describe('appointments should fetch data', () => {
     const gen = appointmentsDataFetch(params)
 
     expect(gen.next().value).toEqual(select(selectOnlineStatus))
-    // @ts-ignore
-    expect(gen.next(mockOnlineVal).value).toEqual(put(appointmentsLoading(true)))
+    expect(gen.next(mockOnlineVal as any).value).toEqual(put(appointmentsLoading(true)))
     expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
-    expect(gen.next(mockHeaders).value).toEqual(
+
+    expect(gen.next(mockHeaders as any).value).toEqual(
       call(fetcher, {
         url:
           '/appointments?Start=2019-10-10T00:00:00.000Z&End=2019-10-10T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
@@ -59,12 +60,11 @@ describe('appointments should fetch data', () => {
       })
     )
 
-    expect(gen.next(appointmentsDataStub.appointments).value).toEqual(
-      call(sortAppoinmentsByStartTime, (appointmentsDataStub.appointments as PagedResultAppointmentModel_)
-        .data as AppointmentModel[])
+    expect(gen.next(appointmentsDataStub.appointments as any).value).toEqual(
+      call(sortAppoinmentsByStartTime, (appointmentsDataStub.appointments as any).data as AppointmentModel[])
     )
 
-    expect(gen.next(appointmentsDataStub.appointments).value).toEqual(
+    expect(gen.next(appointmentsDataStub.appointments as any).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
         api: REAPIT_API_BASE_URL,
@@ -72,25 +72,26 @@ describe('appointments should fetch data', () => {
         headers: mockHeaders
       })
     )
-    expect(gen.next(appointmentsDataStub.appointmentTypes).value).toEqual(
+
+    expect(gen.next(appointmentsDataStub.appointmentTypes as any).value).toEqual(
       put(
-        appointmentsReceiveData({
-          appointments: appointmentsDataStub.appointments,
+        appointmentsReceiveTodayData({
+          appointments: appointmentsDataStub.appointments as any,
           appointmentTypes: appointmentsDataStub.appointmentTypes
         })
       )
     )
+
     expect(gen.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const gen = appointmentsDataFetch(params)
-
     expect(gen.next().value).toEqual(select(selectOnlineStatus))
-    // @ts-ignore
-    expect(gen.next(mockOnlineVal).value).toEqual(put(appointmentsLoading(true)))
+    expect(gen.next(mockOnlineVal as any).value).toEqual(put(appointmentsLoading(true)))
     expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
-    expect(gen.next(mockHeaders).value).toEqual(
+
+    expect(gen.next(mockHeaders as any).value).toEqual(
       call(fetcher, {
         url:
           '/appointments?Start=2019-10-10T00:00:00.000Z&End=2019-10-10T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
@@ -108,6 +109,7 @@ describe('appointments should fetch data', () => {
         headers: mockHeaders
       })
     )
+
     expect(gen.next().value).toEqual(put(appointmentsRequestDataFailure()))
     expect(gen.next().done).toBe(true)
   })
@@ -127,7 +129,6 @@ describe('appointments thunks', () => {
   describe('appointmentsSagas', () => {
     it('should listen data request', () => {
       const gen = appointmentsSagas()
-
       expect(gen.next().value).toEqual(all([fork(appointmentsDataListen)]))
       expect(gen.next().done).toBe(true)
     })
