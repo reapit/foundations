@@ -299,15 +299,16 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@reapit/elements@^0.4.51":
-  version "0.4.51"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.51.tgz#077e5062fe5cb6bb1c51887e542fd0f1fda76d30"
-  integrity sha512-6sBsOyD+a7bdiSKQzXlaU+kN1Vyw7o5M2yJmzrpNftVE2OJAko1tHGGJdSfUexBaIULpfaGqhIgHMJorsFCNrw==
+"@reapit/elements@^0.4.57":
+  version "0.4.58"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.58.tgz#a2353ccc2726abfc4eb188a1a9f35e1e144027f3"
+  integrity sha512-Ps9cwIWCd7Q6vnELZZ2AnoiS4m+90XgdITIC+nb2eB63QdHPmWHa0uFAowW7aTuDg/yQ0CIB0VjkSB4d8inTaA==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.16"
     formik "^1.5.8"
     hardtack "^4.1.0"
+    himalaya "^1.1.0"
     jsonwebtoken "^8.5.1"
     pell "^1.0.6"
     prop-types "^15.7.2"
@@ -3925,6 +3926,11 @@ he@1.2.x:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
+
+himalaya@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/himalaya/-/himalaya-1.1.0.tgz#31724ae9d35714cd7c6f4be94888953f3604606a"
+  integrity sha512-LLase1dHCRMel68/HZTFft0N0wti0epHr3nNY7ynpLbyZpmrKMQ8YIpiOV77TM97cNpC8Wb2n6f66IRggwdWPw==
 
 history@^4.9.0:
   version "4.9.0"
