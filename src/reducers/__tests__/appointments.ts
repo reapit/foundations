@@ -22,6 +22,48 @@ describe('appointments reducer', () => {
     expect(newState).toEqual(expected)
   })
 
+  it('should set appointments item data when APPOINTMENTS_RECEIVE_TODAY_DATA action is called', () => {
+    const newState = appointmentsReducer(undefined, {
+      type: ActionTypes.APPOINTMENTS_RECEIVE_TODAY_DATA as ActionType,
+      data: appointmentsDataStub
+    })
+    const expected = {
+      ...defaultState,
+      appointments: appointmentsDataStub.appointments,
+      today: appointmentsDataStub.appointments,
+      appointmentTypes: appointmentsDataStub.appointmentTypes
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set appointments item data when APPOINTMENTS_RECEIVE_TOMORROW_DATA action is called', () => {
+    const newState = appointmentsReducer(undefined, {
+      type: ActionTypes.APPOINTMENTS_RECEIVE_TOMORROW_DATA as ActionType,
+      data: appointmentsDataStub
+    })
+    const expected = {
+      ...defaultState,
+      appointments: appointmentsDataStub.appointments,
+      tomorrow: appointmentsDataStub.appointments,
+      appointmentTypes: appointmentsDataStub.appointmentTypes
+    }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should set appointments item data when APPOINTMENTS_RECEIVE_WEEK_DATA action is called', () => {
+    const newState = appointmentsReducer(undefined, {
+      type: ActionTypes.APPOINTMENTS_RECEIVE_WEEK_DATA as ActionType,
+      data: appointmentsDataStub
+    })
+    const expected = {
+      ...defaultState,
+      appointments: appointmentsDataStub.appointments,
+      weekView: appointmentsDataStub.appointments,
+      appointmentTypes: appointmentsDataStub.appointmentTypes
+    }
+    expect(newState).toEqual(expected)
+  })
+
   it('should set loading to true when APPOINTMENTS_LOADING action is called', () => {
     const newState = appointmentsReducer(undefined, {
       type: ActionTypes.APPOINTMENTS_LOADING as ActionType,
@@ -30,19 +72,6 @@ describe('appointments reducer', () => {
     const expected = {
       ...defaultState,
       loading: true
-    }
-    expect(newState).toEqual(expected)
-  })
-
-  it('should set appointments item data when APPOINTMENTS_RECEIVE_DATA action is called', () => {
-    const newState = appointmentsReducer(undefined, {
-      type: ActionTypes.APPOINTMENTS_RECEIVE_DATA as ActionType,
-      data: appointmentsDataStub
-    })
-    const expected = {
-      ...defaultState,
-      appointments: appointmentsDataStub.appointments,
-      appointmentTypes: appointmentsDataStub.appointmentTypes
     }
     expect(newState).toEqual(expected)
   })

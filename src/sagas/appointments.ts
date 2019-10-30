@@ -1,5 +1,17 @@
+import {
+  selectTodayAppointments,
+  selectAppointmentTypes,
+  selectTomorrowAppointments,
+  selectWeekAppointments
+} from './../selectors/appointments'
+import {
+  appointmentsReceiveTodayData,
+  appointmentsReceiveTomorrowData,
+  appointmentsReceiveWeekData,
+  appointmentsLoading,
+  appointmentsRequestDataFailure
+} from './../actions/appointments'
 import dayjs from 'dayjs'
-import { appointmentsLoading, appointmentsReceiveData, appointmentsRequestDataFailure } from '../actions/appointments'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
@@ -15,7 +27,28 @@ import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
 
 export const appointmentsDataFetch = function*({ data: { time } }: Action<AppointmentRequestParams>) {
   const online = yield select(selectOnlineStatus)
+
   if (!online) {
+    let appointments = null
+    let appointmentTypes = yield select(selectAppointmentTypes)
+
+    switch (time) {
+      case 'Today':
+        appointments = yield select(selectTodayAppointments)
+        yield put(appointmentsReceiveTodayData({ appointments, appointmentTypes }))
+        break
+
+      case 'Tomorrow':
+        appointments = yield select(selectTomorrowAppointments)
+        yield put(appointmentsReceiveTomorrowData({ appointments, appointmentTypes }))
+        break
+
+      case 'Week View':
+        appointments = yield select(selectWeekAppointments)
+        yield put(appointmentsReceiveWeekData({ appointments, appointmentTypes }))
+        break
+    }
+
     return
   }
 
@@ -23,6 +56,7 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
 
   let start: dayjs.ConfigType
   let end: dayjs.ConfigType
+
   if (time === 'Today') {
     start = dayjs().startOf('day')
     end = dayjs().endOf('day')
@@ -69,7 +103,19 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
     })
 
     if (appointments && appointmentTypes) {
-      yield put(appointmentsReceiveData({ appointments, appointmentTypes }))
+      switch (time) {
+        case 'Today':
+          yield put(appointmentsReceiveTodayData({ appointments, appointmentTypes }))
+          break
+
+        case 'Tomorrow':
+          yield put(appointmentsReceiveTomorrowData({ appointments, appointmentTypes }))
+          break
+
+        case 'Week View':
+          yield put(appointmentsReceiveWeekData({ appointments, appointmentTypes }))
+          break
+      }
     } else {
       yield put(appointmentsRequestDataFailure())
     }

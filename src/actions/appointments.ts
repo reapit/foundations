@@ -13,3 +13,9 @@ export const appointmentsLoading = actionCreator<boolean>(ActionTypes.APPOINTMEN
 export const appointmentsReceiveData = actionCreator<AppointmentsData>(ActionTypes.APPOINTMENTS_RECEIVE_DATA)
 export const appointmentsClearData = actionCreator<null>(ActionTypes.APPOINTMENTS_CLEAR_DATA)
 export const setSelectedAppointment = actionCreator<AppointmentModel | null>(ActionTypes.SET_SELECTED_APPOINTMENT)
+
+export const appointmentsReceiveTodayData = actionCreator<AppointmentsData>(ActionTypes.APPOINTMENTS_RECEIVE_TODAY_DATA)
+export const appointmentsReceiveTomorrowData = actionCreator<AppointmentsData>(
+  ActionTypes.APPOINTMENTS_RECEIVE_TOMORROW_DATA
+)
+export const appointmentsReceiveWeekData = actionCreator<AppointmentsData>(ActionTypes.APPOINTMENTS_RECEIVE_WEEK_DATA)
