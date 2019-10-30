@@ -23,6 +23,7 @@ import { oc } from 'ts-optchain'
 import { selectUserCode } from '../selectors/auth'
 import store from '@/core/store'
 import { handlePepSearchStatus } from '@/utils/pep-search'
+import dayjs from 'dayjs'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {
@@ -421,7 +422,9 @@ export const updateSecondaryId = function*({
         identityChecks: {
           ...baseValues,
           status: 'pending',
-          checkDate: new Date().toISOString(),
+          checkDate: dayjs()
+            .startOf('day')
+            .format('YYYY-MM-DDTHH:mm:ss'),
           negotiatorId: selectUserCode(store.state)
         }
       })
@@ -496,7 +499,9 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
         identityChecks: {
           ...baseValues,
           status: 'pending',
-          checkDate: new Date().toISOString(),
+          checkDate: dayjs()
+            .startOf('day')
+            .format('YYYY-MM-DDTHH:mm:ss'),
           negotiatorId: selectUserCode(store.state)
         }
       })
