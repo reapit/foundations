@@ -20,6 +20,7 @@ import {
   isCompletedAddress
 } from '@reapit/elements'
 import { isCompletedPepSearch } from '@/utils/pep-search'
+import { defaultStatus } from '@/constants/section-status'
 
 export interface SectionsStatus {
   profile: boolean
@@ -44,16 +45,6 @@ export interface ChecklistDetailState {
   pepSearchResultData: any[] | null
   isSubmitting: boolean
   status: SectionsStatus
-}
-
-export const defaultStatus = {
-  profile: false,
-  primaryId: false,
-  secondaryId: false,
-  declarationRisk: false,
-  addresses: false,
-  pepSearch: false,
-  experian: true
 }
 
 export const defaultState: ChecklistDetailState = {

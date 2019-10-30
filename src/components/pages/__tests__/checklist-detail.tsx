@@ -11,8 +11,8 @@ import {
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
 import { getMockRouterProps } from '@/helper/mock-router'
-import { defaultStatus } from '@/reducers/checklist-detail'
 import { sectionsStatus } from '@/sagas/__stubs__/status'
+import { defaultStatus } from '@/constants/section-status'
 
 describe('checklist-detail', () => {
   describe('mapDispatchToProps', () => {

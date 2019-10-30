@@ -14,7 +14,8 @@ import { ContactModel } from '@/types/contact-api-schema'
 import { STEPS } from '../ui/modal/modal'
 import styles from '@/styles/ui/section.scss?mod'
 import { TiTick, TiTimes } from 'react-icons/ti'
-import { SectionsStatus, defaultStatus } from '@/reducers/checklist-detail'
+import { SectionsStatus } from '@/reducers/checklist-detail'
+import { defaultStatus } from '@/constants/section-status'
 
 export type CheckListDetailProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ id?: any }>
 

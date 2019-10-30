@@ -17,7 +17,7 @@ import {
   FlexContainerBasic
 } from '@reapit/elements'
 import styles from '@/styles/ui/aml-progressbar.scss?mod'
-import { SectionsStatus, defaultStatus } from '@/reducers/checklist-detail'
+import { SectionsStatus } from '@/reducers/checklist-detail'
 import { IdentityCheckModel, ContactModel } from '@/types/contact-api-schema'
 import { Dispatch } from 'redux'
 import { checkListDetailIdentityCheckUpdateData } from '@/actions/checklist-detail'
@@ -25,6 +25,7 @@ import { ReduxState } from '@/types/core'
 import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
 import Routes from '@/constants/routes'
+import { selectCheckListDetailStatus } from '@/selectors/checklist-detail'
 
 export type AMLProgressBarProps = AMLProgressBarMappedActions & AMLProgressBarMappedProps
 
@@ -143,7 +144,7 @@ export interface AMLProgressBarMappedProps {
 export const mapStateToProps = (state: ReduxState): AMLProgressBarMappedProps => ({
   contact: oc(state).checklistDetail.checklistDetailData.contact({}),
   idCheck: oc(state).checklistDetail.checklistDetailData.idCheck(null),
-  status: oc(state).checklistDetail.status(defaultStatus),
+  status: selectCheckListDetailStatus(state),
   loginMode: oc(state).auth.refreshSession.mode('WEB')
 })
 
