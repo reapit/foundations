@@ -68,7 +68,7 @@
   text-transform: uppercase;
   font-size: 1rem;
   font-weight: bold;
-  padding: 0.7rem 1rem;
+  padding: 0.6rem 0.9rem;
   height: auto;
 
   &:first-child {
@@ -98,6 +98,12 @@
   }
 }
 
+.button {
+  &.is-info {
+    background: $reapit-mid-blue;
+  }
+}
+
 .buttons.has-addons {
   .button {
     margin-left: 0;
@@ -124,14 +130,49 @@
   text-transform: uppercase;
 }
 
+.control {
+  .label {
+    color: $grey-dark;
+  }
+}
+
 .input,
 .pagination-previous,
 .pagination-next,
 .pagination-link,
 .pagination-ellipsis {
   height: auto;
-  padding: 0.8rem 1rem;
+  padding: 0.7rem 0.9rem;
   border-radius: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.pagination-link {
+  &.is-current {
+    background-color: $reapit-teal;
+    border-color: $reapit-teal;
+  }
+}
+
+.is-primary,
+.is-secondary,
+.is-danger,
+.is-info {
+  &.input, &.textarea {
+    &:focus {
+      box-shadow: none;
+    }
+    border-color: $grey;
+  }
+
+  &.button {
+    &:focus:not(:active) {
+      box-shadow: none;
+    }
+  }
 }
 
 .pagination-previous,

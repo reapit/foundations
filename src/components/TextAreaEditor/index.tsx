@@ -15,7 +15,7 @@ export const TextAreaEditor = ({ name, labelText, placeholder, id }: TextAreaEdi
     render={({ field, form: { touched, errors } }) => {
       const hasError = touched[field.name] && errors[field.name]
       return (
-        <div className="field">
+        <div className="field pb-4">
           <div className="control">
             <label className="label" htmlFor={id}>
               {labelText}

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutComponents should match a snapshot for an example form 1`] = `
+<Component
+  hasBackground={true}
+  hasPadding={true}
+>
+  <Formik
+    enableReinitialize={false}
+    initialValues={
+      Object {
+        "email": "",
+        "password": "",
+        "tel": "",
+        "text": "",
+      }
+    }
+    isInitialValid={false}
+    onSubmit={[Function]}
+    render={[Function]}
+    validateOnBlur={true}
+    validateOnChange={true}
+  />
+  <Component />
+</Component>
+`;

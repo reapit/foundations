@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export interface ButtonProps {
   type: 'submit' | 'reset' | 'button'
-  variant: 'primary' | 'secondary' | 'danger'
+  variant: 'primary' | 'secondary' | 'danger' | 'info'
   onClick?: () => void
   disabled?: boolean
   loading?: boolean
@@ -22,7 +22,14 @@ export const Button: React.SFC<ButtonProps> = ({
   onClick,
   dataTest = ''
 }) => {
-  const theme = variant === 'primary' ? 'is-primary' : variant === 'secondary' ? 'is-secondary' : 'is-danger'
+  const theme =
+    variant === 'primary'
+      ? 'is-primary'
+      : variant === 'secondary'
+      ? 'is-secondary'
+      : variant === 'info'
+      ? 'is-info'
+      : 'is-danger'
 
   return (
     <button
