@@ -1,20 +1,5 @@
 import * as React from 'react'
-
-export interface LayoutProps {
-  className?: string
-}
-
-export interface FlexContainerProps extends LayoutProps {
-  flexColumn?: boolean
-  centerContent?: boolean
-  hasPadding?: boolean
-  isScrollable?: boolean
-  hasBackground?: boolean
-}
-
-export interface GridProps extends LayoutProps {
-  isMultiLine?: boolean
-}
+import { LayoutProps } from '../Layout'
 
 export const FormHeading: React.SFC<LayoutProps> = ({ children, className = '' }) => (
   <div className={`form-heading mb-1 ${className}`}>{children}</div>
