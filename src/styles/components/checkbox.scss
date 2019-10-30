@@ -19,14 +19,16 @@
       margin-right: 1rem;
       display: inline-block;
       vertical-align: middle;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.6rem;
+      height: 1.6rem;
       background: white;
+      border: 1px solid $grey;
     }
 
     // Box hover
     &:hover + label:before {
       background: $reapit-teal;
+      border-color: $reapit-teal;
     }
 
     // Box focus
@@ -37,6 +39,7 @@
     // Box checked
     &:checked + label:before {
       background: $reapit-teal;
+      border-color: $reapit-teal;
     }
 
     &:disabled + label {

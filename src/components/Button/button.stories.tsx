@@ -22,18 +22,35 @@ storiesOf('Button', module).add('Primary', () => (
   </section>
 ))
 
-storiesOf('Button', module).add('Secondary', () => (
+storiesOf('Button', module).add('Primary', () => (
   <section className="section">
     <div className="column is-half-desktop">
       <Button
         type="submit"
-        variant="secondary"
+        variant="primary"
+        onClick={action('Clicking Primary')}
+        disabled={false}
+        loading={false}
+        fullWidth={false}
+      >
+        Primary
+      </Button>
+    </div>
+  </section>
+))
+
+storiesOf('Button', module).add('Info', () => (
+  <section className="section">
+    <div className="column is-half-desktop">
+      <Button
+        type="submit"
+        variant="info"
         onClick={action('Clicking Secondary')}
         disabled={false}
         loading={false}
         fullWidth={false}
       >
-        Secondary
+        Info
       </Button>
     </div>
   </section>
@@ -116,8 +133,8 @@ storiesOf('Button', module).add('ButtonGroup', () => {
         <ButtonGroup>
           <Button
             type="button"
-            className={`${isActive === 0 ? 'is-active' : ''}`}
-            variant="primary"
+            className={`${isActive === 0 ? 'is-info' : ''}`}
+            variant="secondary"
             onClick={() => setIsActive(0)}
             disabled={false}
             loading={false}
@@ -127,9 +144,20 @@ storiesOf('Button', module).add('ButtonGroup', () => {
           </Button>
           <Button
             type="button"
-            className={`${isActive === 1 ? 'is-active' : ''}`}
-            variant="primary"
+            className={`${isActive === 1 ? 'is-info' : ''}`}
+            variant="secondary"
             onClick={() => setIsActive(1)}
+            disabled={false}
+            loading={false}
+            fullWidth={false}
+          >
+            Center
+          </Button>
+          <Button
+            type="button"
+            className={`${isActive === 2 ? 'is-info' : ''}`}
+            variant="secondary"
+            onClick={() => setIsActive(2)}
             disabled={false}
             loading={false}
             fullWidth={false}

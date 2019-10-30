@@ -9,7 +9,7 @@ $pell-content-padding: 10px !default;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  border: 1px solid $reapit-teal;
+  border: 1px solid $grey;
   box-shadow: inset 0 1px 2px rgba(18, 38, 63, 0.1);
   border-radius: 0;
   overflow: hidden;
@@ -64,7 +64,7 @@ $pell-content-padding: 10px !default;
 
 .pell-actionbar {
   background-color: $white;
-  border-bottom: 1px solid $reapit-teal;
+  border-bottom: 1px solid $grey;
   padding-left: 8px;
 }
 

@@ -1,8 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox should match a snapshot 1`] = `
-<FormikConnect(FieldInner)
-  name="test"
-  render={[Function]}
-/>
+<div
+  className="field pb-4"
+>
+  <div
+    className="control"
+  >
+    <FormikConnect(FieldInner)
+      name="test"
+      render={[Function]}
+    />
+  </div>
+</div>
 `;
