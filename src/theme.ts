@@ -33,6 +33,7 @@ export interface Button {
 }
 
 export interface Colors {
+  searchResult: string
   primary: string
   secondary: string
   icon: string
@@ -57,11 +58,11 @@ export const theme: Theme = {
       sizes: {
         base: '1.5rem',
         headings: {
-          h1: '2.0rem',
-          h2: '1.8rem',
-          h3: '1.6rem',
-          h4: '1.4rem',
-          h5: '1.2rem'
+          h1: '3rem',
+          h2: '2.2rem',
+          h3: '2.0rem',
+          h4: '1.8rem',
+          h5: '1.6rem'
         }
       }
     }
@@ -71,7 +72,8 @@ export const theme: Theme = {
     color: '#ffffff'
   },
   colors: {
-    primary: 'rgba(124, 160, 145, 1)',
+    searchResult: '#7ca091',
+    primary: '#887d97 ',
     secondary: '#828085',
     icon: 'gray',
     base: '#12263f',

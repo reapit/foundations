@@ -22,9 +22,8 @@ body {
   justify-content: space-between;
 }
 
-#navbar h1 {
+#navbar img {
   margin: 1.75rem 0rem;
-  font-size: 1.5em;
 }
 
 #navbar > svg {
@@ -86,17 +85,24 @@ body {
   color: white;
 }
 
+#approach div {
+  flex: 1;
+}
+
+
 #approach > #our-approach {
-  background: #8a8a8a;
-  padding: 1.75rem 1.75rem;
+  color: #8a8a8a;
+  padding: 0 4rem;
   display: flex;
   flex-direction: column;
+  padding-bottom: 4rem;
 }
 
 #approach button {
   margin-top: 1rem;
   background: white;
-  color: #8a8a8a;
+  background: #887d978a;
+  color: white;
   padding: 0.75rem 1.75rem;
   border: 0rem;
   margin-left: auto;
