@@ -3,14 +3,16 @@
 .field {
   .checkbox {
     position: absolute;
+    width: 0;
+    height: 0;
     opacity: 0;
-  
+
     & + label {
       position: relative;
       cursor: pointer;
       padding: 0;
     }
-  
+
     // Box.
     & + label:before {
       content: '';
@@ -21,32 +23,32 @@
       height: 1.5rem;
       background: white;
     }
-  
+
     // Box hover
     &:hover + label:before {
       background: $reapit-teal;
     }
-    
+
     // Box focus
     label:before {
       box-shadow: 0 0 0 1px $grey-dark;
     }
-  
+
     // Box checked
     &:checked + label:before {
       background: $reapit-teal;
     }
-    
+
     &:disabled + label {
       color: #b8b8b8;
       cursor: auto;
     }
-  
+
     &:disabled + label:before {
       box-shadow: none;
       background: #ddd;
     }
-  
+
     // Checkmark
     &:checked + label:after {
       content: '';
@@ -56,14 +58,12 @@
       background: white;
       width: 2px;
       height: 2px;
-      box-shadow: 
-        2px 0 0 white,
-        4px 0 0 white,
-        4px -2px 0 white,
-        4px -4px 0 white,
-        4px -6px 0 white,
-        4px -8px 0 white;
+      box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
       transform: rotate(45deg);
     }
   }
+}
+
+.field-checkbox {
+  position: relative;
 }
