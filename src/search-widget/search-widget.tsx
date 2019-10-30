@@ -16,6 +16,21 @@ import {
 import { GoogleMap } from '../map/google-map'
 import { createPortal } from 'react-dom'
 
+const SearchResultTextContainer = styled.h1`
+  color: ${props => props.theme.colors.searchResult};
+
+  @media screen and (max-width: 1600px) {
+    & {
+      padding-top: 2rem;
+    }
+  }
+
+  padding-bottom: 2rem;
+
+  margin-top: 0;
+  margin-bottom: 0;
+`
+
 const BaseStyle = styled.div`
   color: ${props => props.theme.colors.base};
   font-size: ${props => props.theme.base.font.sizes.base};
@@ -163,6 +178,9 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
   const [searchKeyword, _setSearchKeyword] = useState('')
   const searchStore = useSearchStore()
   const {
+    searchKeyWord,
+    searchType,
+    getCountResult,
     setSelectedProperty,
     setFetchResult,
     setFetchError,
@@ -181,7 +199,7 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
     const propertyIds = result.map(property => oc(property).id(''))
 
     const url = new URL(IMAGE_API_URL)
-    url.searchParams.append('propertyId', propertyIds.join(','))
+    url.searchParams.append('propertyIds', propertyIds.join(','))
 
     const response = await fetch(url.toString(), {
       headers: {
@@ -340,6 +358,10 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
                         Results
                       </Tab>
                     </TabContainer>
+                    <SearchResultTextContainer>
+                      {getCountResult()} Results showing for {searchKeyWord},
+                      for {searchType}
+                    </SearchResultTextContainer>
                     <SearchResultContainer>
                       <TabContent isActive={activeTab === 'MAP'}>
                         <GoogleMap

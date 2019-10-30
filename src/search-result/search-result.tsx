@@ -9,28 +9,20 @@ import { ImgHandleError } from './img-handle-error'
 import { SearchType } from '../hooks/search-store'
 
 const { useContext } = React
-const currencyFormatter = new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'GBP', minimumFractionDigits: 0 })
+const currencyFormatter = new Intl.NumberFormat('en-GB', {
+  style: 'currency',
+  currency: 'GBP',
+  minimumFractionDigits: 0
+})
 
 const SearchResultContainer = styled.div`
   background: ${props => props.theme.colors.background};
 `
 
-const SearchResultTextContainer = styled.h1`
-  color: ${props => props.theme.colors.primary};
-
-  @media screen and (max-width: 1600px) {
-    & {
-      padding-top: 2.5rem;
-    }
-  }
-
-  @media screen and (min-width: 1601px) {
-    & {
-      padding-left: 2.5rem;
-    }
-  }
-  margin-top: 0;
-  margin-bottom: 0;
+const clampTextOneLineStyles = `
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `
 
 const SearchResultItemContainer = styled.div`
@@ -51,7 +43,7 @@ const SearchResultItemContainer = styled.div`
       }
     }
 
-    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
     box-sizing: border-box;
 
     & > *:not(img) {
@@ -98,31 +90,37 @@ const SearchResultItemContainer = styled.div`
 `
 
 const AddressPrimaryText = styled.span`
-  margin-right: 0.7rem;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: bold !important;
+  margin-right: 5px;
 `
 
-const AddressSecondaryText = styled.span`
+const AddressSecondaryText = styled.div`
   hyphens: auto;
   display: contents;
   color: ${props => props.theme.colors.secondary};
-  font-size: 1.2rem;
+
+  display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  max-width: 700px;
   overflow: hidden;
   text-overflow: ellipsis;
   height: 75px;
+
+  font-size: 18px;
 `
 
-const PricingText = styled.span`
+const PricingText = styled.div`
   color: ${props => props.theme.colors.primary};
-  font-size: 1.3rem;
+  font-size: 24px;
   font-weight: bold;
+  ${clampTextOneLineStyles}
 `
 
 const NumBedTypeStyleText = styled.div`
   font-weight: bold;
+  font-size: 18px;
+  ${clampTextOneLineStyles}
 `
 
 const DescriptionText = styled.div`
@@ -140,7 +138,6 @@ const IconContainer = styled.div`
   color: ${props => props.theme.colors.icon};
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
 
   svg {
     margin-right: 0.3rem;
@@ -158,6 +155,7 @@ const SearchResultItemDiv = styled.div`
 const SearchResultImageContainer = styled.div<{ isSelectedProperty: boolean }>`
   border: ${props => `2px solid ${props.theme.colors.jade}`};
   border-width: ${props => (props.isSelectedProperty ? '2px' : '0px')};
+  margin-top: 0px !important;
   width: 100%;
   border-radius: 5px;
 `
@@ -167,9 +165,9 @@ export const combineAdress = (address: AddressModel | undefined): string => {
     return ''
   }
 
-  const { line3, line4, postcode } = address
+  const { line2, line3, line4, postcode } = address
   let addressString = ''
-  const addressParts = [line3, line4, postcode]
+  const addressParts = [line2, line3, line4, postcode]
   for (let i = 0; i <= addressParts.length; i++) {
     addressString += addressParts[i] || ''
     if (addressParts[i + 1] && addressParts[i + 1] !== '') {
@@ -180,18 +178,27 @@ export const combineAdress = (address: AddressModel | undefined): string => {
   return addressString
 }
 
-export const formatPriceAndQuantifier = (price:string, quantifier:string) => {
+export const formatPriceAndQuantifier = (price: string, quantifier: string) => {
   const formattedPrice = currencyFormatter.format(Number(price))
-  switch(quantifier) {
-    case 'askingPrice': return formattedPrice;
-    case 'priceOnApplication': return 'POA';
-    case 'guidePrice': return `Guide Price ${formattedPrice}`
-    case 'offersInRegion': return `OIRO ${formattedPrice}`
-    case 'offersOver': return `Offers Over ${formattedPrice}`
-    case 'offersInExcess': return `OIEO ${formattedPrice}`
-    case 'fixedPrice': return `Fixed Price ${formattedPrice}`
-    case 'priceReducedTo': return formattedPrice
-    default: return price + ' ' + quantifier;
+  switch (quantifier) {
+    case 'askingPrice':
+      return formattedPrice
+    case 'priceOnApplication':
+      return 'POA'
+    case 'guidePrice':
+      return `Guide Price ${formattedPrice}`
+    case 'offersInRegion':
+      return `OIRO ${formattedPrice}`
+    case 'offersOver':
+      return `Offers Over ${formattedPrice}`
+    case 'offersInExcess':
+      return `OIEO ${formattedPrice}`
+    case 'fixedPrice':
+      return `Fixed Price ${formattedPrice}`
+    case 'priceReducedTo':
+      return formattedPrice
+    default:
+      return price + ' ' + quantifier
   }
 }
 
@@ -203,7 +210,12 @@ export const getPrice = (result: PropertyModel, searchType: SearchType) => {
   }
 
   // return oc(result).selling.qualifier('') + ' ' + oc(result).selling.price(0)
-  return formatPriceAndQuantifier(oc(result).selling.price(0).toString(), oc(result).selling.qualifier(''))
+  return formatPriceAndQuantifier(
+    oc(result)
+      .selling.price(0)
+      .toString(),
+    oc(result).selling.qualifier('')
+  )
 }
 
 export const formatType = (style: string) => {
@@ -278,8 +290,6 @@ export const SearchResult = () => {
 
   const {
     isLoading,
-    searchKeyWord,
-    getCountResult,
     getResultArr,
     searchType,
     propertyImages,
@@ -300,9 +310,6 @@ export const SearchResult = () => {
 
   return (
     <SearchResultContainer>
-      <SearchResultTextContainer>
-        {getCountResult()} Results showing for {searchKeyWord}, for {searchType}
-      </SearchResultTextContainer>
       <SearchResultItemContainer>
         {resultArr.map(property => {
           const id = oc(property).id('')
@@ -326,10 +333,10 @@ export const SearchResult = () => {
                 <ImgHandleError src={imageUrl} />
               </SearchResultImageContainer>
               <div>
-                <AddressPrimaryText>
-                  {oc(property).address.line2()}
-                </AddressPrimaryText>
                 <AddressSecondaryText>
+                  <AddressPrimaryText>
+                    {oc(property).address.line1()}
+                  </AddressPrimaryText>
                   {combineAdress(property.address)}
                 </AddressSecondaryText>
               </div>
