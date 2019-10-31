@@ -7,25 +7,26 @@ import {
   LevelLeft,
   Level,
   Button,
-  Modal,
   LoginMode,
   AcLink,
   EntityType,
-  AcButton,
   SubTitleH5,
-  DynamicLinkParams,
   FlexContainerBasic
 } from '@reapit/elements'
 import styles from '@/styles/ui/aml-progressbar.scss?mod'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { IdentityCheckModel, ContactModel } from '@/types/contact-api-schema'
 import { Dispatch } from 'redux'
-import { checkListDetailIdentityCheckUpdateData } from '@/actions/checklist-detail'
+import { checklistDetailShowModal } from '@/actions/checklist-detail'
 import { ReduxState } from '@/types/core'
 import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
-import Routes from '@/constants/routes'
-import { selectCheckListDetailStatus } from '@/selectors/checklist-detail'
+import {
+  selectCheckListDetailStatus,
+  selectCheckListDetailContact,
+  selectCheckListDetailIdCheck
+} from '@/selectors/checklist-detail'
+import { ID_STATUS } from './modal/modal'
 
 export type AMLProgressBarProps = AMLProgressBarMappedActions & AMLProgressBarMappedProps
 
@@ -36,17 +37,11 @@ export const calculateProgress = (status: SectionsStatus) => {
   return { percentage: Math.floor((completedCount / count) * 100), completed: completedCount, total: count }
 }
 
-export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
-  contact,
-  idCheck,
-  status,
-  loginMode,
-  updateIdentityCheckStatus
-}) => {
+export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck, status, loginMode, showModal }) => {
   const progress = React.useMemo(() => calculateProgress(status), [status])
-  const [visible, setVisible] = React.useState(false)
 
-  const { title = '', forename = '', surname = '' } = contact
+  const { id, title, forename, surname } = oc(contact)({})
+  const name = `${title} ${forename} ${surname}`.trim()
 
   return (
     <FlexContainerBasic hasPadding flexColumn>
@@ -60,10 +55,10 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
                     dynamicLinkParams={{
                       appMode: loginMode,
                       entityType: EntityType.CONTACT,
-                      entityCode: contact.id
+                      entityCode: id
                     }}
                   >
-                    {`${title} ${forename} ${surname}`}
+                    {name}
                   </AcLink>
                 </H3>
                 <SubTitleH5>{idCheck && idCheck.status && `Status: ${idCheck.status.toUpperCase()}`}</SubTitleH5>
@@ -72,7 +67,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
           </LevelLeft>
           <LevelRight>
             <LevelItem>
-              <Button disabled={!idCheck} type="button" variant="primary" onClick={() => setVisible(true)}>
+              <Button disabled={!idCheck} type="button" variant="primary" onClick={() => showModal(ID_STATUS.UPDATE)}>
                 Update Status
               </Button>
             </LevelItem>
@@ -82,79 +77,31 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({
         <div className={styles.progress}>
           {progress.completed}/{progress.total} <span>Completed</span>
         </div>
-        <Modal
-          title="Update Status"
-          visible={visible}
-          afterClose={() => setVisible(false)}
-          footerItems={
-            <>
-              <AcButton
-                dynamicLinkParams={{
-                  entityType: EntityType.CONTACT,
-                  entityCode: contact.id,
-                  appMode: loginMode
-                }}
-                buttonProps={{
-                  type: 'button',
-                  variant: 'primary',
-                  onClick: () =>
-                    updateIdentityCheckStatus(
-                      { status: 'pass' },
-                      {
-                        entityType: EntityType.CONTACT,
-                        entityCode: contact.id,
-                        appMode: loginMode,
-                        webRoute: `${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${contact.id}`
-                      }
-                    )
-                }}
-              >
-                ID Check Successful
-              </AcButton>
-              <Button
-                type="button"
-                variant="primary"
-                onClick={() => {
-                  window.location.href = `https://dev.lifetime-legal-app.reapit.com/profile/${contact.id}`
-                }}
-              >
-                Refer to Lifetime Legal
-              </Button>
-            </>
-          }
-        >
-          <p>
-            You have completed {Object.keys(status).filter(key => status[key]).length} out of{' '}
-            {Object.keys(status).length} sections for contact {`${title} ${forename} ${surname}`}. Please now select one
-            of the following options in order to continue
-          </p>
-        </Modal>
       </div>
     </FlexContainerBasic>
   )
 }
 
 export interface AMLProgressBarMappedProps {
-  contact: ContactModel
+  contact: ContactModel | null
   idCheck: IdentityCheckModel | null
   status: SectionsStatus
   loginMode: LoginMode
 }
 
 export const mapStateToProps = (state: ReduxState): AMLProgressBarMappedProps => ({
-  contact: oc(state).checklistDetail.checklistDetailData.contact({}),
-  idCheck: oc(state).checklistDetail.checklistDetailData.idCheck(null),
+  contact: selectCheckListDetailContact(state),
+  idCheck: selectCheckListDetailIdCheck(state),
   status: selectCheckListDetailStatus(state),
   loginMode: oc(state).auth.refreshSession.mode('WEB')
 })
 
 export interface AMLProgressBarMappedActions {
-  updateIdentityCheckStatus: (idCheck: IdentityCheckModel, dynamicLinkParams: DynamicLinkParams) => void
+  showModal: (modalType: string) => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): AMLProgressBarMappedActions => ({
-  updateIdentityCheckStatus: (idCheck: IdentityCheckModel, dynamicLinkParams: DynamicLinkParams) =>
-    dispatch(checkListDetailIdentityCheckUpdateData({ idCheck, dynamicLinkParams }))
+  showModal: (modalType: string) => dispatch(checklistDetailShowModal(modalType))
 })
 
 export default connect(

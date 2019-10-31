@@ -1,14 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Modal ProfileModal should match snapshot 1`] = `
-<Modal
-  afterClose={[MockFunction]}
-  size="medium"
-  title="PROFILE"
-  visible={true}
->
-  <div />
-</Modal>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
-exports[`Modal renderContent should return Profile 1`] = `<div />`;
+exports[`Modal renderContent should return Profile 1`] = `
+<div>
+  <ProfileInformationWithRedux />
+</div>
+`;

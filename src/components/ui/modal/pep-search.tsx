@@ -15,6 +15,7 @@ import {
 import { STEPS } from './modal'
 import { getPepSearchStatus } from '@/utils/pep-search'
 import { ContactModel } from '@/types/contact-api-schema'
+import { withRouter, RouteComponentProps } from 'react-router'
 
 export const renderLoading = () => {
   return (
@@ -72,7 +73,7 @@ export const renderForm = ({ onPrevHandler, onNextHandler, isSubmitting, pepSear
   )
 }
 
-export type PepSearchProps = StateProps & DispatchProps
+export type PepSearchProps = StateProps & DispatchProps & RouteComponentProps
 
 export const PepSearch: React.FC<PepSearchProps> = ({
   contact,
@@ -134,4 +135,4 @@ const PepSearchWithRedux = connect(
 
 PepSearchWithRedux.displayName = 'PepSearchWithRedux'
 
-export default PepSearchWithRedux
+export default withRouter(PepSearchWithRedux)
