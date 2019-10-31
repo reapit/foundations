@@ -16,7 +16,8 @@ import {
   EntityType,
   LoginMode,
   SubTitleH5,
-  H6
+  H6,
+  H4
 } from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { ReduxState } from '@/types/core'
@@ -24,7 +25,6 @@ import { appointmentDetailHideModal } from '@/actions/appointment-detail'
 import { ListItemModel } from '../../../types/configuration'
 import styles from '@/styles/ui/appoinments-detail.scss?mod'
 import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
-import { H4 } from '../../../../../elements/src/components/Typography/index'
 
 const { appointmentDetailTextContainer } = styles
 
