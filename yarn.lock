@@ -326,15 +326,16 @@
   dependencies:
     stream "^0.0.2"
 
-"@reapit/elements@^0.4.53":
-  version "0.4.54"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.54.tgz#24748fb4a4dab16dbe514260623af338ce21ce70"
-  integrity sha512-2ieHjdzyX2Kn6XBtk72S4eCMHCVIu+V8ZIYwARcZYIdlkETh6YcWsF85VNMeyaWnrR8raiPZgwhFeY62ZzH5Ng==
+"@reapit/elements@^0.4.57":
+  version "0.4.60"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.60.tgz#be19c8fc06b0f96f03552a27123120007fe256b3"
+  integrity sha512-OfYfIv3gziNAdMVFa1aheyYWTmcyR3YN2fPMVJ/HV7joZHPTiuwcz/7uEokngHs23djwN45B6QOa+R0PcNQw6A==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.16"
     formik "^1.5.8"
     hardtack "^4.1.0"
+    himalaya "^1.1.0"
     jsonwebtoken "^8.5.1"
     pell "^1.0.6"
     prop-types "^15.7.2"
@@ -4385,6 +4386,11 @@ he@1.2.x:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
+
+himalaya@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/himalaya/-/himalaya-1.1.0.tgz#31724ae9d35714cd7c6f4be94888953f3604606a"
+  integrity sha512-LLase1dHCRMel68/HZTFft0N0wti0epHr3nNY7ynpLbyZpmrKMQ8YIpiOV77TM97cNpC8Wb2n6f66IRggwdWPw==
 
 history@^4.9.0:
   version "4.10.1"
