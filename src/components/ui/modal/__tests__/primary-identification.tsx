@@ -49,7 +49,7 @@ describe('PrimaryIdentification', () => {
       const result = mapStateToProps(mockState)
       const expected = {
         loading: false,
-        contact: {},
+        contact: null,
         initFormValues: {
           details: '',
           expiry: undefined,

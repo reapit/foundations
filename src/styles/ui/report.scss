@@ -4,23 +4,17 @@
   font-size: 1.25rem;
   text-transform: capitalize;
   color: #363636;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .reportContainer {
   border: 1px solid;
   margin-bottom: 1rem;
-  table td {
-    vertical-align: bottom;
-  }
-}
-
-.columns {
-  vertical-align: bottom;
 }
 
 .statusColumn {

@@ -8,7 +8,7 @@ export const selectCheckListDetailStatus = (state: ReduxState) => {
 }
 
 export const selectCheckListDetailContact = (state: ReduxState) => {
-  return oc(state).checklistDetail.checklistDetailData.contact({})
+  return oc(state).checklistDetail.checklistDetailData.contact(null)
 }
 
 export const selectCheckListDetailIsSubmitting = (state: ReduxState) => {
@@ -16,7 +16,7 @@ export const selectCheckListDetailIsSubmitting = (state: ReduxState) => {
 }
 
 export const selectCheckListDetailIdCheck = (state: ReduxState) => {
-  return oc(state).checklistDetail.checklistDetailData.idCheck({})
+  return oc(state).checklistDetail.checklistDetailData.idCheck(null)
 }
 
 export const selectCheckListDetailPrimaryIdUrl = (state: ReduxState) => {
