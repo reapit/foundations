@@ -16,8 +16,8 @@ import {
   EntityType,
   LoginMode,
   SubTitleH5,
-  H5,
-  ModalHeaderProps
+  H6,
+  H4
 } from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { ReduxState } from '@/types/core'
@@ -33,6 +33,12 @@ export type AppointmentModalProps = {
   visible: boolean
   isLoading: boolean
   afterClose: () => void
+}
+
+interface GetHeaderParams {
+  basicAddress: string
+  afterClose: () => void
+  type?: ListItemModel | null
 }
 
 export const renderCommunicationType = (communicationLabel: string | undefined) => {
@@ -101,7 +107,7 @@ export const renderAddress = (
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaHome />
-        <H5>Property:</H5>
+        <H6>Property:</H6>
       </div>
       <AcLink
         dynamicLinkParams={{
@@ -110,7 +116,7 @@ export const renderAddress = (
           entityCode: propertyId
         }}
       >
-        <SubTitleH5>{addressParts.filter(p => p).join(', ')}</SubTitleH5>
+        <p>{addressParts.filter(p => p).join(', ')}</p>
       </AcLink>
     </div>
   )
@@ -124,9 +130,9 @@ export const renderDateTime = (address: AddressModel | undefined, appointment: A
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaClock />
-        <H5>Time:</H5>
+        <H6>Time:</H6>
       </div>
-      <SubTitleH5>{renderStartAndEndDate(appointment.start || '', appointment.end || '')}</SubTitleH5>
+      <p>{renderStartAndEndDate(appointment.start || '', appointment.end || '')}</p>
     </div>
   )
 }
@@ -140,13 +146,11 @@ export const renderAdditionalAttendees = (attendees: AttendeeModel[]) => {
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaMale />
-        <H5>Attendees:</H5>
+        <H6>Attendees:</H6>
       </div>
-      <div>
-        {attendees.map(attendee => (
-          <SubTitleH5>{attendee.name}</SubTitleH5>
-        ))}
-      </div>
+      {attendees.map(attendee => (
+        <p>{attendee.name}</p>
+      ))}
     </div>
   )
 }
@@ -163,21 +167,12 @@ export const renderApplicantAttendees = (attendees: AttendeeModel[]) => {
           <div className={appointmentDetailTextContainer}>
             <div className={styles.appointmentDetailIconContainer}>
               <FaMale />
-              <H5>{capitalizeFirstLetter(oc(attendee).type(''))}:</H5>
+              <H6>{capitalizeFirstLetter(oc(attendee).type(''))}:</H6>
             </div>
-            <div>
-              <SubTitleH5>
-                {attendee.name} <br />
-                {oc(attendee)
-                  .communicationDetails([])
-                  .map(c => (
-                    <>
-                      {c.detail}
-                      <br />
-                    </>
-                  ))}
-              </SubTitleH5>
-            </div>
+            <p>
+              <div className="mb-2">{attendee.name}</div>
+              {renderCommunicationDetail(oc(attendee).communicationDetails([]))}
+            </p>
           </div>
         )
       })}
@@ -193,9 +188,9 @@ export const renderNotes = (description: string | undefined) => {
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaStickyNote />
-        <H5>Entry Notes:</H5>
+        <H6>Entry Notes:</H6>
       </div>
-      <SubTitleH5>{description}</SubTitleH5>
+      <p>{description}</p>
     </div>
   )
 }
@@ -208,27 +203,34 @@ export const renderArrangements = (arrangements: string | undefined) => {
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaHandshake />
-        <H5>Arrangements:</H5>
+        <H6>Arrangements:</H6>
       </div>
-      <SubTitleH5>{arrangements}</SubTitleH5>
+      <p>{arrangements}</p>
     </div>
   )
 }
 
-export const ModalHeader: React.SFC<ModalHeaderProps> = ({ title, afterClose }) => (
-  <header className="modal-card-head">
-    <H5 className="modal-card-title">{title}</H5>
-    <button
-      className="delete"
-      aria-label="close"
-      data-test="modal-close-button"
-      onClick={event => {
-        event.preventDefault()
-        afterClose && afterClose()
-      }}
-    />
-  </header>
-)
+export const getModalHeader = ({ basicAddress, afterClose, type }: GetHeaderParams) => {
+  const ModalHeader: React.SFC = () => (
+    <header className="modal-card-head">
+      <div className={`${styles.appoinmentDetailHeaderText} modal-card-title`}>
+        <H4>{basicAddress}</H4>
+        <SubTitleH5>{type && type.value}</SubTitleH5>
+      </div>
+      <button
+        className="delete"
+        aria-label="close"
+        data-test="modal-close-button"
+        onClick={event => {
+          event.preventDefault()
+          afterClose && afterClose()
+        }}
+      />
+    </header>
+  )
+
+  return ModalHeader
+}
 
 export const renderStartAndEndDate = (startTime: string, endTime: string) => {
   const startDate = dayjs(startTime)
@@ -259,29 +261,9 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   const type =
     typeId && appointmentTypes ? appointmentTypes.find(appointmentType => appointmentType.id === typeId) : null
 
-  const CustomHeaderComponent = () => {
-    return (
-      <header className="modal-card-head">
-        <H5 className={`${styles.appoinmentDetailHeaderText} modal-card-title`}>
-          {type && type.value} <br />
-          {basicAddress}
-        </H5>
-        <button
-          className="delete"
-          aria-label="close"
-          data-test="modal-close-button"
-          onClick={event => {
-            event.preventDefault()
-            afterClose && afterClose()
-          }}
-        />
-      </header>
-    )
-  }
-
   return (
     <Modal
-      HeaderComponent={CustomHeaderComponent}
+      HeaderComponent={getModalHeader({ basicAddress, afterClose, type })}
       className={styles.appoinmentDetailModal}
       visible={visible}
       afterClose={afterClose}

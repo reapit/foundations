@@ -1,8 +1,14 @@
 .appoinmentDetailHeaderText {
-  margin-bottom: 0 !important;
   line-height: 2rem;
-  margin-left: 2.2rem;
 
+  h4 {
+    margin: 0.5rem 0 !important;
+  }
+
+  h5 {
+    margin: 0 !important;
+  }
+  
   @media (max-width: 480px) {
     font-size: 1rem !important;
     line-height: 1.7rem;
@@ -10,7 +16,7 @@
 }
 
 .appoinmentDetailModal {
-  header h5 {
+  header h4, h5 {
     @media (max-width: 480px) {
       font-size: 1rem;
     }
@@ -20,9 +26,9 @@
 .appointmentDetailIconContainer {
   width: 200px;
 
-    @media (max-width: 480px) {
-    width: 120px;
-    }
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 
   svg {
     margin-right: 1rem;
@@ -39,15 +45,21 @@
   display: flex;
   margin-bottom: 1.5rem;
 
-  h5 {
-    font-family: "Museo Sans W03_300",Helvetica,sans-serif;
+  @media (max-width: 480px) {
+    width: 100%;
+    flex-direction: column;
+
+    p {
+      margin-left: 2rem;
+    }
+
+    h6 {
+      margin-bottom: 0.5rem;
+    }
   }
 
-  @media (max-width: 480px) {
-    a,
-    h5 {
-      font-size: 0.7rem !important;
-    }
+  h5 {
+    font-family: "Museo Sans W03_300",Helvetica,sans-serif;
   }
 
   & > div:first-child,

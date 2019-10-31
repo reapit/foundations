@@ -9,7 +9,8 @@ import styles from '@/styles/pages/map.scss?mod'
 import MapPanel from '../ui/map-panel'
 import { appointmentDetailRequestData } from '@/actions/appointment-detail'
 import { Dispatch } from 'redux'
-import { mapStyles } from './map-styles'
+// TODO - Commenting out for demo as need better resolution on projector
+// import { mapStyles } from './map-styles'
 
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
 
@@ -121,7 +122,7 @@ export const MapContainer = ({
           travelMode={travelMode}
           onLoadedDirection={onLoadedDirection}
           mapContainerStyles={{ height: '100%' }}
-          styles={mapStyles}
+          styles={{} /* See import for explanation mapStyles */}
         />
       </div>
       <MapPanel

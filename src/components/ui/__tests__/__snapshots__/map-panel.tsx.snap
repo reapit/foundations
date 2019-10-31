@@ -21,7 +21,7 @@ exports[`MapPanel should match a snapshot when valid LAT, LONG 1`] = `
       className="is-medium"
       onClick={[Function]}
       type="button"
-      variant="primary"
+      variant="info"
     >
       Start Journey
     </Button>
@@ -31,7 +31,7 @@ exports[`MapPanel should match a snapshot when valid LAT, LONG 1`] = `
       className="is-medium"
       onClick={[MockFunction]}
       type="button"
-      variant="primary"
+      variant="info"
     >
       Today
     </Button>

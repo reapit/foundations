@@ -106,7 +106,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
                   <Button
                     type="button"
                     variant="secondary"
-                    className={filter === time ? `is-selected is-primary is-active` : ''}
+                    className={filter === time ? `is-selected is-info` : ''}
                     key={filter}
                     onClick={() => {
                       filter !== time && requestAppointments(filter)
