@@ -57,14 +57,20 @@ export const Editor = ({
     })
     if (containerEl && containerEl.current) {
       const content = containerEl.current.getElementsByClassName(contentClass)[0]
-      if (defaultContent) {
-        content.innerHTML = defaultContent
-      }
       if (placeholder) {
         content.setAttribute('placeholder', placeholder)
       }
     }
   }, [])
+
+  React.useEffect(() => {
+    if (containerEl && containerEl.current) {
+      const content = containerEl.current.getElementsByClassName(contentClass)[0]
+      if (defaultContent !== content.innerHTML) {
+        content.innerHTML = defaultContent || ''
+      }
+    }
+  }, [defaultContent])
 
   return <div ref={containerEl} className={`pell ${hasError && 'pell--is-danger'} ${containerClass}`} />
 }
