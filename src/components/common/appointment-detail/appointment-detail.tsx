@@ -11,12 +11,12 @@ import {
   getTime,
   getDate,
   isSameDay,
-  H4,
   IconList,
   AcLink,
   EntityType,
   LoginMode,
   SubTitleH5,
+  H5,
   ModalHeaderProps
 } from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
@@ -25,7 +25,6 @@ import { appointmentDetailHideModal } from '@/actions/appointment-detail'
 import { ListItemModel } from '../../../types/configuration'
 import styles from '@/styles/ui/appoinments-detail.scss?mod'
 import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
-import { appointmentDataStub } from '@/sagas/__stubs__/appointment'
 
 const { appointmentDetailTextContainer } = styles
 
@@ -102,7 +101,7 @@ export const renderAddress = (
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaHome />
-        <H4>Property:</H4>
+        <H5>Property:</H5>
       </div>
       <AcLink
         dynamicLinkParams={{
@@ -125,7 +124,7 @@ export const renderDateTime = (address: AddressModel | undefined, appointment: A
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaClock />
-        <H4>Time:</H4>
+        <H5>Time:</H5>
       </div>
       <SubTitleH5>{renderStartAndEndDate(appointment.start || '', appointment.end || '')}</SubTitleH5>
     </div>
@@ -141,7 +140,7 @@ export const renderAdditionalAttendees = (attendees: AttendeeModel[]) => {
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaMale />
-        <H4>Attendees:</H4>
+        <H5>Attendees:</H5>
       </div>
       <div>
         {attendees.map(attendee => (
@@ -164,7 +163,7 @@ export const renderApplicantAttendees = (attendees: AttendeeModel[]) => {
           <div className={appointmentDetailTextContainer}>
             <div className={styles.appointmentDetailIconContainer}>
               <FaMale />
-              <H4>{capitalizeFirstLetter(oc(attendee).type(''))}:</H4>
+              <H5>{capitalizeFirstLetter(oc(attendee).type(''))}:</H5>
             </div>
             <div>
               <SubTitleH5>
@@ -194,7 +193,7 @@ export const renderNotes = (description: string | undefined) => {
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaStickyNote />
-        <H4>Entry Notes:</H4>
+        <H5>Entry Notes:</H5>
       </div>
       <SubTitleH5>{description}</SubTitleH5>
     </div>
@@ -209,7 +208,7 @@ export const renderArrangements = (arrangements: string | undefined) => {
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaHandshake />
-        <H4>Viewing Arrangements:</H4>
+        <H5>Arrangements:</H5>
       </div>
       <SubTitleH5>{arrangements}</SubTitleH5>
     </div>
@@ -218,7 +217,7 @@ export const renderArrangements = (arrangements: string | undefined) => {
 
 export const ModalHeader: React.SFC<ModalHeaderProps> = ({ title, afterClose }) => (
   <header className="modal-card-head">
-    <h4 className="modal-card-title is-4">{title}</h4>
+    <H5 className="modal-card-title">{title}</H5>
     <button
       className="delete"
       aria-label="close"
@@ -250,10 +249,6 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   additionalAttendees,
   applicantAttendees
 }) => {
-  appointment = appointmentDataStub
-  additionalAttendees = [(appointmentDataStub.attendees as AttendeeModel[])[0]]
-  applicantAttendees = [(appointmentDataStub.attendees as AttendeeModel[])[0]]
-
   let address = oc(appointment).property.address()
   const typeId = oc(appointment).typeId()
   const propertyId = oc(appointment).property.id()
@@ -267,10 +262,10 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   const CustomHeaderComponent = () => {
     return (
       <header className="modal-card-head">
-        <h4 className="modal-card-title is-4">
+        <H5 className={`${styles.appoinmentDetailHeaderText} modal-card-title`}>
           {type && type.value} <br />
           {basicAddress}
-        </h4>
+        </H5>
         <button
           className="delete"
           aria-label="close"
