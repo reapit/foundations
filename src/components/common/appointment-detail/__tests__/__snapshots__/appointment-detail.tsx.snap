@@ -7,9 +7,9 @@ exports[`AppointmentModal AppointmentModal should render a header correctly 1`] 
   <div
     className="undefined modal-card-title"
   >
-    <Component>
+    <H4>
       Some address
-    </Component>
+    </H4>
     <SubTitleH5>
       Some type
     </SubTitleH5>
