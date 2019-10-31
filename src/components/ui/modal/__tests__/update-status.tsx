@@ -51,7 +51,7 @@ describe('UpdateStatus', () => {
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         isSubmitting: false,
-        contact: {},
+        contact: null,
         status: defaultStatus,
         loginMode: 'WEB'
       })
