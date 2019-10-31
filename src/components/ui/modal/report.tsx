@@ -38,8 +38,8 @@ export const mappedIdTypes = (idTypes: IdentityDocumentTypesModel[]) => {
 }
 
 export type ReportContainerProps = {
-  contact: ContactModel
-  idCheck: IdentityCheckModel
+  contact: ContactModel | null
+  idCheck: IdentityCheckModel | null
   status: SectionsStatus
   identityTypes: IdentityDocumentTypesModel[]
 }
@@ -47,7 +47,7 @@ export type ReportContainerProps = {
 export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idCheck, status, identityTypes }) => {
   const printRef = React.useRef<HTMLDivElement>(null)
 
-  const { title, forename, surname } = contact
+  const { id, identityCheck, title, forename, surname, dateOfBirth, communications } = oc(contact)({})
   const name = `${title} ${forename} ${surname}`.trim()
 
   const data = React.useMemo(() => {
@@ -57,7 +57,6 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Personal Detail',
         description: () => {
-          const { dateOfBirth, communications } = contact
           return (
             <div>
               {name && <p>Name: {name}</p>}
@@ -146,7 +145,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
         section: 'PEP Search',
         description: () => {
           const pepSearchStatus = getPepSearchStatus()
-          const { param, time } = pepSearchStatus && contact.id && pepSearchStatus[contact.id]
+          const { param, time } = pepSearchStatus && id && pepSearchStatus[id]
           return <div>{param && time && `Search conducted for "${param}" on ${time}`}</div>
         },
         status: status.pepSearch
@@ -190,8 +189,8 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
   return (
     <>
       <div ref={printRef} className={styles.reportPrint}>
-        <p className={styles.status}>Status: {contact.identityCheck}</p>
         <p className={styles.title}>{name}</p>
+        <p className={styles.status}>Status: {identityCheck}</p>
         <div className={styles.reportContainer}>
           <Table data={data} columns={columns} loading={false} bordered striped />
         </div>
