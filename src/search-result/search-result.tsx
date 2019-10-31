@@ -118,8 +118,8 @@ const AddressSecondaryText = styled.div`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 75px;
-
+  height: 65px;
+  line-height: 22px;
   font-size: 18px;
 `
 
@@ -143,8 +143,9 @@ const DescriptionText = styled.div`
   max-width: 700px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 130px;
-  font-size: 1rem;
+  height: 132px;
+  font-size: 16px;
+  line-height: 22px;
 `
 
 const IconContainer = styled.div`
@@ -324,9 +325,12 @@ export const SearchResult = () => {
             (propertyImage && propertyImage.url) ||
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII='
 
-          const sellingStatus = (property && property.selling && property.selling.status) || ''
-          const lettingStatus = (property && property.letting && property.letting.status) || ''
-          const selectedPropertyId = (selectedProperty && selectedProperty.id) || ''
+          const sellingStatus =
+            (property && property.selling && property.selling.status) || ''
+          const lettingStatus =
+            (property && property.letting && property.letting.status) || ''
+          const selectedPropertyId =
+            (selectedProperty && selectedProperty.id) || ''
 
           const isSelectedProperty = property.id === selectedPropertyId
 
