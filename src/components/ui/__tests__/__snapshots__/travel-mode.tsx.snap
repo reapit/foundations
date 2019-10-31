@@ -3,7 +3,7 @@
 exports[`TravelMode should match a snapshot 1`] = `
 <ButtonGroup>
   <Button
-    className="is-selected is-primary is-active"
+    className="is-selected is-info"
     onClick={[Function]}
     type="button"
     variant="secondary"

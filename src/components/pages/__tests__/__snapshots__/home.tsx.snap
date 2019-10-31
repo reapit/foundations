@@ -10,7 +10,7 @@ exports[`Home should match a snapshot 1`] = `
     >
       <ButtonGroup>
         <Button
-          className="is-selected is-primary is-active"
+          className="is-selected is-info"
           key="Today"
           onClick={[Function]}
           type="button"
