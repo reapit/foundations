@@ -16,3 +16,7 @@ export const checkIsDesktopMode = (state: ReduxState) => {
 export const checkIsWebMode = (state: ReduxState) => {
   return oc(state).auth.refreshSession.mode() === 'WEB'
 }
+
+export const selectLoginMode = (state: ReduxState) => {
+  return oc(state).auth.refreshSession.mode('WEB')
+}

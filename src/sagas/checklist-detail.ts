@@ -24,6 +24,7 @@ import { selectUserCode } from '../selectors/auth'
 import store from '@/core/store'
 import { handlePepSearchStatus } from '@/utils/pep-search'
 import dayjs from 'dayjs'
+import { ID_STATUS } from '@/components/ui/modal/modal'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {
@@ -549,6 +550,7 @@ export const updateIdentityCheckStatus = function*({
       ...existingIdCheck,
       ...idCheck
     }
+    yield put(checklistDetailSubmitForm(true))
     const responseIdentityCheck = yield call(updateIdentityCheck, {
       contactId: contact.id,
       headers,
@@ -557,8 +559,11 @@ export const updateIdentityCheckStatus = function*({
     if (responseIdentityCheck) {
       yield put(checklistDetailReceiveIdentityCheck(newIdCheck))
     }
-    yield put(checklistDetailHideModal())
-    yield call(navigateDynamicApp, dynamicLinkParams)
+    if (dynamicLinkParams.appMode === 'DESKTOP') {
+      yield call(navigateDynamicApp, dynamicLinkParams)
+    }
+    yield put(checklistDetailSubmitForm(false))
+    yield put(checklistDetailShowModal(ID_STATUS.SUCCESS))
   }
 }
 

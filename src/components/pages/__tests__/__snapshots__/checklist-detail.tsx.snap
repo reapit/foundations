@@ -461,7 +461,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
       </div>
     </FlexContainerResponsive>
   </FlexContainerBasic>
-  <Component
+  <withRouter()
     afterClose={[MockFunction]}
     id="123"
     modalContentType="PROFILE"
