@@ -110,6 +110,7 @@ export type CreateMarkerParams = {
   searchStore: SearchStore
   theme: Theme
   imageUrl?: string
+  infoWindows: google.maps.InfoWindow[]
 }
 
 export const getLatLng = (property: PropertyModel) => {
@@ -132,7 +133,8 @@ export const createMarker = ({
   googleMap,
   map,
   searchStore,
-  theme
+  theme,
+  infoWindows
 }: CreateMarkerParams) => {
   if (property) {
     let imageUrl = INVALID_BACKGROUND_AS_BASE64
@@ -191,6 +193,11 @@ export const createMarker = ({
       })
     })
     googleMap.event.addListener(marker, 'click', () => {
+      if (infoWindows && infoWindows.length > 0) {
+        infoWindows.forEach((item: google.maps.InfoWindow) => {
+          item.close()
+        })
+      }
       infoWindow.open(map, marker)
     })
     return { marker, infoWindow }
@@ -285,7 +292,8 @@ export const handleUseEffect = ({
           googleMap,
           map,
           theme,
-          searchStore
+          searchStore,
+          infoWindows
         })
         markers.push(newMarker && newMarker.marker)
         infoWindows.push(newMarker && newMarker.infoWindow)
