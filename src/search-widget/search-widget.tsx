@@ -13,6 +13,7 @@ import {
 } from '../types/propertyImage'
 import { GoogleMap } from '../map/google-map'
 import { createPortal } from 'react-dom'
+import scrollIntoView from '../utils/scroll-into-view'
 
 const SearchResultTextContainer = styled.h1`
   color: ${props => props.theme.colors.searchResult};
@@ -233,7 +234,20 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
     }
     setSelectedProperty(null)
     setStartFetching()
-
+    const resultElement = document.getElementById('search-result-container')
+    if (resultElement) {
+      const scrollingElement =
+        document.scrollingElement || document.documentElement
+      scrollIntoView(
+        scrollingElement,
+        'scrollTop',
+        '',
+        0,
+        resultElement.offsetTop,
+        500,
+        true
+      )
+    }
     const url = new URL(API_URL)
     url.searchParams.append(
       'SellingStatuses',
@@ -276,7 +290,20 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
     }
     setSelectedProperty(null)
     setStartFetching()
-
+    const resultElement = document.getElementById('search-result-container')
+    if (resultElement) {
+      const scrollingElement =
+        document.scrollingElement || document.documentElement
+      scrollIntoView(
+        scrollingElement,
+        'scrollTop',
+        '',
+        0,
+        resultElement.offsetTop,
+        500,
+        true
+      )
+    }
     const url = new URL('https://reapit.cloud.tyk.io/properties')
     url.searchParams.append(
       'LettingStatuses',
