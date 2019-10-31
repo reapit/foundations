@@ -121,6 +121,8 @@ export const renderExtraForm = ({ isShowMoreThreeYearInput, index }) => {
   }
 }
 
+const MAX_COUNT_ADDRESSES = 2
+
 export const renderForm = ({
   addresses,
   isSubmitting,
@@ -128,12 +130,12 @@ export const renderForm = ({
   setShowMoreThreeYearInput,
   onNextHandler,
   onPrevHandler
-}) => ({ values }) => {
-  return (
-    <Form>
-      {addresses.map((_, index) => {
-        return <AddressInput key={index} index={index} />
-      })}
+}) => ({ values }) => (
+  <Form>
+    {addresses.map((_, index) => {
+      return <AddressInput key={index} index={index} />
+    })}
+    {addresses && addresses.length < MAX_COUNT_ADDRESSES && (
       <div className={styles.moreThreeYearLink}>
         <a
           data-test="more-three-year"
@@ -142,21 +144,21 @@ export const renderForm = ({
           Less than 3 years?
         </a>
       </div>
-      {renderExtraForm({ isShowMoreThreeYearInput, index: addresses.length })}
-      <div className={styles.footerBtn}>
-        <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
-          Save
-        </Button>
-        <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
-          Previous
-        </Button>
-        <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler(values)}>
-          Next
-        </Button>
-      </div>
-    </Form>
-  )
-}
+    )}
+    {renderExtraForm({ isShowMoreThreeYearInput, index: addresses.length })}
+    <div className={styles.footerBtn}>
+      <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
+        Save
+      </Button>
+      <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
+        Previous
+      </Button>
+      <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler(values)}>
+        Next
+      </Button>
+    </div>
+  </Form>
+)
 
 export type AddressInformationProps = DispatchProps & StateProps
 
