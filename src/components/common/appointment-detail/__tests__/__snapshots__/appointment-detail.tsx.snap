@@ -9,9 +9,9 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
   <div>
     <div>
       <FaClock />
-      <H4>
+      <H5>
         Time:
-      </H4>
+      </H5>
     </div>
     <SubTitleH5>
       18 Dec 2016 04:30 PM - 05:30 PM
@@ -19,41 +19,10 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
   </div>
   <div>
     <div>
-      <FaMale />
-      <H4>
-        Attendees:
-      </H4>
-    </div>
-    <div>
-      <SubTitleH5>
-        Chase MacLean
-      </SubTitleH5>
-    </div>
-  </div>
-  <div>
-    <div>
-      <FaMale />
-      <H4>
-        Negotiator
-        :
-      </H4>
-    </div>
-    <div>
-      <SubTitleH5>
-        Chase MacLean
-         
-        <br />
-        chase.maclean@reapitestates.net
-        <br />
-      </SubTitleH5>
-    </div>
-  </div>
-  <div>
-    <div>
       <FaHome />
-      <H4>
+      <H5>
         Property:
-      </H4>
+      </H5>
     </div>
     <AcLink
       dynamicLinkParams={
@@ -72,9 +41,9 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
   <div>
     <div>
       <FaStickyNote />
-      <H4>
+      <H5>
         Entry Notes:
-      </H4>
+      </H5>
     </div>
     <SubTitleH5>
       hello world
@@ -83,9 +52,9 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
   <div>
     <div>
       <FaHandshake />
-      <H4>
-        Viewing Arrangements:
-      </H4>
+      <H5>
+        Arrangements:
+      </H5>
     </div>
     <SubTitleH5>
       Switch lights on in living room
@@ -109,9 +78,9 @@ exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
   <div>
     <div>
       <FaHome />
-      <H4>
+      <H5>
         Property:
-      </H4>
+      </H5>
     </div>
     <AcLink
       dynamicLinkParams={
