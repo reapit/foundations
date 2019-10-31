@@ -1,4 +1,3 @@
-import { STEPS } from './../components/ui/modal/modal'
 import { ReduxState } from '@/types/core'
 import { oc } from 'ts-optchain'
 import { defaultStatus } from '@/constants/section-status'
