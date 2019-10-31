@@ -1,11 +1,10 @@
 import appointmentsSagas, { appointmentsDataFetch, appointmentsDataListen } from '@/sagas/appointments'
-import { PagedResultAppointmentModel_, AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/appointments'
 import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import {
   appointmentsLoading,
-  appointmentsReceiveData,
   appointmentsReceiveTodayData,
   appointmentsRequestDataFailure,
   AppointmentRequestParams
@@ -14,7 +13,6 @@ import { selectOnlineStatus } from '@/selectors/online'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
 import { REAPIT_API_BASE_URL, URLS } from '@/constants/api'
-import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 
 import { appointmentsDataStub } from '../__stubs__/appointments'

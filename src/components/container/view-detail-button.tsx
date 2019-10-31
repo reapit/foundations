@@ -10,7 +10,7 @@ export type ViewDetailButtonProps = {
 
 export const ViewDetailButton: React.FC<ViewDetailButtonProps> = ({ onClick }) => {
   return (
-    <Button className="is-centered" variant="primary" type="button" onClick={onClick}>
+    <Button className="is-centered" variant="info" type="button" onClick={onClick}>
       Details
     </Button>
   )

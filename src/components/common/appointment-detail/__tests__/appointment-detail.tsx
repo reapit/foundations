@@ -12,7 +12,8 @@ import {
   renderHrefLink,
   filterLoggedInUser,
   getAdditionalAttendees,
-  getApplicantAttendees
+  getApplicantAttendees,
+  getModalHeader
 } from '../appointment-detail'
 
 import { attendees } from '../__stubs__/mockData'
@@ -46,6 +47,16 @@ describe('AppointmentModal', () => {
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should render a header correctly', () => {
+      const Header = getModalHeader({
+        basicAddress: 'Some address',
+        afterClose: jest.fn(),
+        type: { value: 'Some type' }
+      })
+      const wrapper = shallow(<Header />)
       expect(wrapper).toMatchSnapshot()
     })
 

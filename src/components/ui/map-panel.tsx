@@ -93,13 +93,13 @@ export const MapPanel = ({
         <p>{distance}</p>
       </div>
       <div>
-        <Button className="is-medium" type="button" variant="primary" onClick={openDefaultMap}>
+        <Button className="is-medium" type="button" variant="info" onClick={openDefaultMap}>
           Start Journey
         </Button>
       </div>
       {!isMobile() ? (
         <div>
-          <Button className="is-medium" type="button" variant="primary" onClick={showAllAppointment}>
+          <Button className="is-medium" type="button" variant="info" onClick={showAllAppointment}>
             {filterType}
           </Button>
         </div>
