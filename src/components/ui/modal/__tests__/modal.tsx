@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import ProfileModal, { renderContent } from '../modal'
+import ProfileModal, { renderContent, STEPS } from '../modal'
 import { contact } from '@/sagas/__stubs__/contact'
 
 describe('Modal', () => {
@@ -8,9 +8,10 @@ describe('Modal', () => {
     it('should return Profile', () => {
       const mockProps = {
         id: '123',
-        modalContentType: 'PROFILE',
+        modalContentType: STEPS.PROFILE,
         contact: contact,
-        isSubmitting: false
+        isSubmitting: false,
+        history: {}
       }
       const result = renderContent(mockProps)
       const wrapper = shallow(<div>{result}</div>)
@@ -26,11 +27,11 @@ describe('Modal', () => {
         visible: true,
         afterClose: jest.fn(),
         isSubmitting: false,
-        modalContentType: 'PROFILE'
+        modalContentType: STEPS.PROFILE,
+        history: {}
       }
       const wrapper = shallow(<ProfileModal {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
-      expect(wrapper.find('Modal')).toHaveLength(1)
     })
   })
 })

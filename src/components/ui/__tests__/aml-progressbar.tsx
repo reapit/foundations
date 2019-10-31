@@ -13,7 +13,7 @@ describe('AMLProgressBar', () => {
         status: sectionsStatus,
         id: 'AYL19000002',
         loginMode: 'WEB' as LoginMode,
-        updateIdentityCheckStatus: jest.fn(),
+        showModal: jest.fn(),
         idCheck: {}
       }
       const wrapper = shallow(<AMLProgressBar {...mockProps} />)
