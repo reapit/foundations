@@ -11,7 +11,7 @@ describe('DeveloperSubmitApp', () => {
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
         },
         formState: 'DONE'
       },
@@ -42,7 +42,7 @@ describe('DeveloperSubmitApp', () => {
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
         },
         formState: 'SUCCESS'
       },
@@ -59,7 +59,7 @@ describe('DeveloperSubmitApp', () => {
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
         },
         formState: 'SUBMITTING'
       },
@@ -76,7 +76,7 @@ describe('DeveloperSubmitApp', () => {
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
         },
         formState: 'PENDING'
       },
@@ -89,14 +89,14 @@ describe('DeveloperSubmitApp', () => {
   describe('renderScopesCheckbox run correctly', () => {
     it('when renderScopesCheckBox have scope', () => {
       const scopes = [
-        { name: 'Marketplace/developers.read', description: 'Read data about developers' },
-        { name: 'Marketplace/developers.write', description: 'Write data about developers' }
+        { name: 'AgencyCloud/properties.read', description: 'Read data about properties' },
+        { name: 'AgencyCloud/properties.write', description: 'Write data about developers' }
       ]
       const checkboxes = renderScopesCheckbox(scopes)
       expect(checkboxes).toHaveLength(2)
     })
     it('when renderScopesCheckBox have scope', () => {
-      const scopes = [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }]
+      const scopes = [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
       const checkboxes = renderScopesCheckbox(scopes)
       expect(checkboxes).toHaveLength(1)
     })
