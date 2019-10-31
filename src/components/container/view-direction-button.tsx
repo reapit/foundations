@@ -12,7 +12,7 @@ export type ViewDirectionButtonProps = {
 
 export const ViewDirectionButton = ({ handleOnClick }: ViewDirectionButtonProps) => {
   return (
-    <Button className="is-centered" variant="primary" type="button" onClick={handleOnClick}>
+    <Button className="is-centered" variant="info" type="button" onClick={handleOnClick}>
       Directions
     </Button>
   )

@@ -13,7 +13,7 @@ export const TravelMode = ({ travelMode, onChangeTravelMode }: TravelModeProps) 
     <Button
       type="button"
       variant="secondary"
-      className={travelMode === 'DRIVING' ? 'is-selected is-primary is-active' : ''}
+      className={travelMode === 'DRIVING' ? 'is-selected is-info' : ''}
       onClick={() => onChangeTravelMode('DRIVING')}
     >
       Car
@@ -21,7 +21,7 @@ export const TravelMode = ({ travelMode, onChangeTravelMode }: TravelModeProps) 
     <Button
       type="button"
       variant="secondary"
-      className={travelMode === 'WALKING' ? 'is-selected is-primary is-active' : ''}
+      className={travelMode === 'WALKING' ? 'is-selected is-info' : ''}
       onClick={() => onChangeTravelMode('WALKING')}
     >
       Walk

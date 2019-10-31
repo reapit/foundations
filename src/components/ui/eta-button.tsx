@@ -14,7 +14,7 @@ export const ETAButton: React.FC<ETAButtonProps> = ({ body, children, tel }) => 
   }
 
   return (
-    <a href={href} className="button is-centered is-primary" data-test="eta-button">
+    <a href={href} className="button is-centered is-info" data-test="eta-button">
       {children}
     </a>
   )
