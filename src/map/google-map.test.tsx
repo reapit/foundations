@@ -92,6 +92,9 @@ describe('google-map', () => {
     getResultArr: jest.fn(),
     selectedProperty: property
   }
+  const mockInfoWindow = new mockGoogleMap.InfoWindow({
+    content: 'mockContent'
+  })
 
   const mockProperties = [property]
 
@@ -159,7 +162,8 @@ describe('google-map', () => {
         googleMap: mockGoogleMap,
         map: mockMapRef.current,
         searchStore: mockSearchStore,
-        theme
+        theme,
+        infoWindows: [mockInfoWindow]
       })
       expect(result).toBeDefined()
     })
