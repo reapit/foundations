@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AppointmentModal AppointmentModal should render a header correctly 1`] = `
+<header
+  className="modal-card-head"
+>
+  <div
+    className="undefined modal-card-title"
+  >
+    <Component>
+      Some address
+    </Component>
+    <SubTitleH5>
+      Some type
+    </SubTitleH5>
+  </div>
+  <button
+    aria-label="close"
+    className="delete"
+    data-test="modal-close-button"
+    onClick={[Function]}
+  />
+</header>
+`;
+
 exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
 <Modal
   HeaderComponent={[Function]}
@@ -9,20 +32,20 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
   <div>
     <div>
       <FaClock />
-      <H5>
+      <H6>
         Time:
-      </H5>
+      </H6>
     </div>
-    <SubTitleH5>
+    <p>
       18 Dec 2016 04:30 PM - 05:30 PM
-    </SubTitleH5>
+    </p>
   </div>
   <div>
     <div>
       <FaHome />
-      <H5>
+      <H6>
         Property:
-      </H5>
+      </H6>
     </div>
     <AcLink
       dynamicLinkParams={
@@ -33,32 +56,32 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
         }
       }
     >
-      <SubTitleH5>
+      <p>
         65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
-      </SubTitleH5>
+      </p>
     </AcLink>
   </div>
   <div>
     <div>
       <FaStickyNote />
-      <H5>
+      <H6>
         Entry Notes:
-      </H5>
+      </H6>
     </div>
-    <SubTitleH5>
+    <p>
       hello world
-    </SubTitleH5>
+    </p>
   </div>
   <div>
     <div>
       <FaHandshake />
-      <H5>
+      <H6>
         Arrangements:
-      </H5>
+      </H6>
     </div>
-    <SubTitleH5>
+    <p>
       Switch lights on in living room
-    </SubTitleH5>
+    </p>
   </div>
 </Modal>
 `;
@@ -78,9 +101,9 @@ exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
   <div>
     <div>
       <FaHome />
-      <H5>
+      <H6>
         Property:
-      </H5>
+      </H6>
     </div>
     <AcLink
       dynamicLinkParams={
@@ -91,9 +114,9 @@ exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
         }
       }
     >
-      <SubTitleH5>
+      <p>
         65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
-      </SubTitleH5>
+      </p>
     </AcLink>
   </div>
 </div>
