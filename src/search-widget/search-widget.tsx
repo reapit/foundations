@@ -215,7 +215,8 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
 
     const imageMap: Record<string, PropertyImageModel> = {}
     for (let propertyImage of parsedResponse.data) {
-      const propertyId = (propertyImage && propertyImage.id) || 'invalid'
+      const propertyId =
+        (propertyImage && propertyImage.propertyId) || 'invalid'
       imageMap[propertyId] = propertyImage
     }
 
