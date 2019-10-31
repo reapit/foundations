@@ -119,20 +119,25 @@ export const renderExtraForm = ({ isShowMoreThreeYearInput, index }) => {
   }
 }
 
+const MAX_COUNT_ADDRESSES = 2
+
 export const renderForm = ({ addresses, isSubmitting, isShowMoreThreeYearInput, setShowMoreThreeYearInput }) => () => {
   return (
     <Form>
       {addresses.map((_, index) => {
         return <AddressInput key={index} index={index} />
       })}
-      <div className={styles.moreThreeYearLink}>
-        <a
-          data-test="more-three-year"
-          onClick={handleMoreThreeYear({ setShowMoreThreeYearInput, isShowMoreThreeYearInput })}
-        >
-          Less than 3 years?
-        </a>
-      </div>
+      {addresses && addresses.length < MAX_COUNT_ADDRESSES && (
+        <div className={styles.moreThreeYearLink}>
+          <a
+            data-test="more-three-year"
+            onClick={handleMoreThreeYear({ setShowMoreThreeYearInput, isShowMoreThreeYearInput })}
+          >
+            Less than 3 years?
+          </a>
+        </div>
+      )}
+
       {renderExtraForm({ isShowMoreThreeYearInput, index: addresses.length })}
       <div className={styles.footerBtn}>
         <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
