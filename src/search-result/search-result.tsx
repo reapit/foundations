@@ -143,7 +143,7 @@ const DescriptionText = styled.div`
   max-width: 700px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 132px;
+  height: 130px;
   font-size: 16px;
   line-height: 22px;
 `
