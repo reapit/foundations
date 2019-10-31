@@ -58,8 +58,8 @@ describe('ReportContainer', () => {
       const mockState = {} as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        contact: {},
-        idCheck: {},
+        contact: null,
+        idCheck: null,
         status: defaultStatus,
         identityTypes: []
       })
