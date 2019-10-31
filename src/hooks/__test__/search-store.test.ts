@@ -80,11 +80,6 @@ describe('useSearchStore', () => {
   })
 
   describe('handles getResultArr', () => {
-    it('handles result null', () => {
-      const { result } = renderHook(() => useSearchStore())
-      expect(result.current.getResultArr()).toEqual([])
-    })
-
     it('hanldes result not null', () => {
       const { result } = renderHook(() => useSearchStore())
 
