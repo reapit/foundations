@@ -1,11 +1,11 @@
 import * as React from 'react'
-
+import apiDocStyles from '@/styles/pages/api-docs.scss?mod'
 import { FlexContainerResponsive, Content, H3, H4, H5, Table, FlexContainerBasic } from '@reapit/elements'
 
 const ApiDocsPage: React.SFC = () => {
   return (
     <FlexContainerBasic flexColumn hasPadding>
-      <Content>
+      <Content className={apiDocStyles.apiDocs}>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H3>Foundations API </H3>
           <H4>Overview</H4>

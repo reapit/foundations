@@ -41,7 +41,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens the property edit screen for the property with specified id
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://properties/{id}
         </code>
@@ -52,7 +54,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Performs a property to applicant match for the applicant with specified id
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://properties/{id}/match
         </code>
@@ -63,7 +67,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens the journal screen for the specified property
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://properties/{id}/journal
         </code>
@@ -74,7 +80,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens the offers screen for the specified property
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://properties/{id}/offers
         </code>
@@ -85,7 +93,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens advanced search screen in property mode and runs a search with provided parameters. At least one parameter is required.
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://properties?address=MK43&mode=s
         </code>
@@ -162,7 +172,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens the applicant edit screen for the applicant with specified id
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://applicants/{id}
         </code>
@@ -173,7 +185,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Performs a applicant to applicant match for the applicant with specified id
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://applicants/{id}/match
         </code>
@@ -184,7 +198,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens the journal screen for the specified applicant
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://applicants/{id}/journal
         </code>
@@ -195,7 +211,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens advanced search screen in applicant mode and runs a search with provided parameters. At least one parameter is required.
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://applicants?name=smith&mode=lettings
         </code>
@@ -272,7 +290,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens the diary screen to provide a calendar view of appointments for the given date range. The dates don’t need to be set, but if you set one, you need to set both. If you don’t set a date range then the current default dates for the negotiator will be used.
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://appointments?dateFrom=2019/12/25&dateTo=2019/12/26
         </code>
@@ -325,7 +345,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens advanced search screen in contact mode and runs a search with provided parameters. At least one parameter is required.
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://contacts?name=smith
         </code>
@@ -393,7 +415,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens the contact edit screen for the contact with specified id
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://contacts/{id}
         </code>
@@ -404,7 +428,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Opens the journal screen for the specified contact
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           agencycloud://contacts/{id}/journal
         </code>
@@ -459,7 +485,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         The category of ID Check will be given to an application that can be used to replace the ID Check screen in Agency Cloud. The url that an application with this category would look like would be:
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&CntCode={PrimaryKey}
         </code>
@@ -515,7 +543,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         The category of Property Detail Generation can be given to an application that can replace the standard details template generation and brochure ordering process. This application could allow selection of a template as defined in the application – selection of pictures to include, what paper size to print the brochures on etc The url that this application would use would be like:
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&PrpCode={PrimaryKey}
         </code>
@@ -571,7 +601,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         The category of Applicant Preview would enable an application to be used to display a list of properties to a user. The application would need to be able to take a comma separated list of property codes which to display. The url that this application would use would be like:
       </p>
-      <p>
+      <p
+        className="mb-4"
+      >
         <code>
           https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true &PrpCodes={List of PrimaryKeys}
         </code>

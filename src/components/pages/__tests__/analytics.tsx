@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import DesktopApiDocs from '../desktop-api-docs'
+import Analytics from '../analytics'
 
 jest.mock('../../../core/store')
 
-describe('DesktopApiDocs', () => {
+describe('Analytics', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<DesktopApiDocs />))).toMatchSnapshot()
+    expect(toJson(shallow(<Analytics />))).toMatchSnapshot()
   })
 })
