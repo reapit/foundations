@@ -52,51 +52,6 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
         Completed
       </span>
     </div>
-    <Modal
-      afterClose={[Function]}
-      footerItems={
-        <React.Fragment>
-          <AcButton
-            buttonProps={
-              Object {
-                "onClick": [Function],
-                "type": "button",
-                "variant": "primary",
-              }
-            }
-            dynamicLinkParams={
-              Object {
-                "appMode": "WEB",
-                "entityCode": "MKC16000098",
-                "entityType": "contacts",
-              }
-            }
-          >
-            ID Check Successful
-          </AcButton>
-          <Button
-            onClick={[Function]}
-            type="button"
-            variant="primary"
-          >
-            Refer to Lifetime Legal
-          </Button>
-        </React.Fragment>
-      }
-      title="Update Status"
-      visible={false}
-    >
-      <p>
-        You have completed 
-        3
-         out of
-         
-        7
-         sections for contact 
-        Ms Saoirse Chadwick
-        . Please now select one of the following options in order to continue
-      </p>
-    </Modal>
   </div>
 </FlexContainerBasic>
 `;

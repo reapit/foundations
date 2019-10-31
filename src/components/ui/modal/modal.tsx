@@ -7,6 +7,9 @@ import PrimaryIdentification from './primary-identification'
 import SecondaryIdentification from './secondary-identification'
 import DeclarationAndRiskAssessment from './declaration-and-risk-assessment'
 import PepSearch from './pep-search'
+import UpdateStatus from './update-status'
+import UpdateStatusSuccess from './update-status-success'
+import { withRouter, RouteComponentProps } from 'react-router'
 
 export const STEPS = {
   PROFILE: 'Personal Details',
@@ -19,14 +22,19 @@ export const STEPS = {
   PEP_SEARCH: 'PEP Search'
 }
 
+export const ID_STATUS = {
+  UPDATE: 'Update Status',
+  SUCCESS: 'Update Status Success'
+}
+
 export type ProfileModalProps = {
   modalContentType: string
   visible: boolean
   id: string
   afterClose: () => void
-}
+} & RouteComponentProps
 
-export const renderContent = ({ modalContentType }) => {
+export const renderContent = ({ modalContentType, history }) => {
   switch (modalContentType) {
     case STEPS.PROFILE:
       return <Profile />
@@ -49,6 +57,11 @@ export const renderContent = ({ modalContentType }) => {
     case STEPS.DECLARATION_RISK_MANAGEMENT:
       return <DeclarationAndRiskAssessment />
 
+    case ID_STATUS.UPDATE:
+      return <UpdateStatus />
+
+    case ID_STATUS.SUCCESS:
+      return <UpdateStatusSuccess history={history} />
     default:
       return null
   }
@@ -57,13 +70,14 @@ export const renderContent = ({ modalContentType }) => {
 export const ProfileModal: React.FC<ProfileModalProps> = ({
   visible,
   afterClose,
-  modalContentType = STEPS.PROFILE
+  modalContentType = STEPS.PROFILE,
+  history
 }) => {
   return (
     <Modal title={modalContentType} visible={visible} size="medium" afterClose={afterClose}>
-      <div>{renderContent({ modalContentType })}</div>
+      <div>{renderContent({ modalContentType, history })}</div>
     </Modal>
   )
 }
 
-export default ProfileModal
+export default withRouter(ProfileModal)
