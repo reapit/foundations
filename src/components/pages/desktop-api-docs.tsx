@@ -29,12 +29,34 @@ const DesktopApiDocsPage: React.SFC = () => {
             available interactions is listed below, grouped by primary screen.
           </p>
           <H3>Property</H3>
+          <H4>Load Property</H4>
+          <p>Opens the property edit screen for the property with specified id</p>
+          <p>
+            <code>{`agencycloud://properties/{id}`}</code>
+          </p>
+          <H4>Perform Matching</H4>
+          <p>Performs a property to applicant match for the applicant with specified id</p>
+          <p>
+            <code>{`agencycloud://properties/{id}/match`}</code>
+          </p>
+          <H4>Load Journal</H4>
+          <p>Opens the journal screen for the specified property</p>
+          <p>
+            <code>{`agencycloud://properties/{id}/journal`}</code>
+          </p>
+          <H4>Load Offers</H4>
+          <p>Opens the offers screen for the specified property</p>
+          <p>
+            <code>{`agencycloud://properties/{id}/offers`}</code>
+          </p>
           <H4>Property Search</H4>
           <p>
             Opens advanced search screen in property mode and runs a search with provided parameters. At least one
             parameter is required.
           </p>
-          <code>{`agencycloud://properties?address=MK43&mode=s`}</code>
+          <p>
+            <code>{`agencycloud://properties?address=MK43&mode=s`}</code>
+          </p>
           <Table
             loading={false}
             columns={[
@@ -96,25 +118,30 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H4>Load Property</H4>
-          <p>Opens the property edit screen for the property with specified id</p>
-          <code>{`agencycloud://properties/{id}`}</code>
-          <H4>Perform Matching</H4>
-          <p>Performs a property to applicant match for the applicant with specified id</p>
-          <code>{`agencycloud://properties/{id}/match`}</code>
-          <H4>Load Journal</H4>
-          <p>Opens the journal screen for the specified property</p>
-          <code>{`agencycloud://properties/{id}/journal`}</code>
-          <H4>Load Offers</H4>
-          <p>Opens the offers screen for the specified property</p>
-          <code>{`agencycloud://properties/{id}/offers`}</code>
           <H3>Applicants</H3>
+          <H4>Load Applicant</H4>
+          <p>Opens the applicant edit screen for the applicant with specified id</p>
+          <p>
+            <code>{`agencycloud://applicants/{id}`}</code>
+          </p>
+          <H4>Perform Matching</H4>
+          <p>Performs a applicant to applicant match for the applicant with specified id</p>
+          <p>
+            <code>{`agencycloud://applicants/{id}/match`}</code>
+          </p>
+          <H4>Load Journal</H4>
+          <p>Opens the journal screen for the specified applicant</p>
+          <p>
+            <code>{`agencycloud://applicants/{id}/journal`}</code>
+          </p>
           <H4>Applicant Search</H4>
           <p>
             Opens advanced search screen in applicant mode and runs a search with provided parameters. At least one
             parameter is required.
           </p>
-          <code>{`agencycloud://applicants?name=smith&mode=lettings`}</code>
+          <p>
+            <code>{`agencycloud://applicants?name=smith&mode=lettings`}</code>
+          </p>
           <Table
             loading={false}
             columns={[
@@ -176,15 +203,6 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H4>Load Applicant</H4>
-          <p>Opens the applicant edit screen for the applicant with specified id</p>
-          <code>{`agencycloud://applicants/{id}`}</code>
-          <H4>Perform Matching</H4>
-          <p>Performs a applicant to applicant match for the applicant with specified id</p>
-          <code>{`agencycloud://applicants/{id}/match`}</code>
-          <H4>Load Journal</H4>
-          <p>Opens the journal screen for the specified applicant</p>
-          <code>{`agencycloud://applicants/{id}/journal`}</code>
           <H3>Appointments</H3>
           <H4>Load Diary</H4>
           <p>
@@ -192,7 +210,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             need to be set, but if you set one, you need to set both. If you don’t set a date range then the current
             default dates for the negotiator will be used.
           </p>
-          <code>{`agencycloud://appointments?dateFrom=2019/12/25&dateTo=2019/12/26`}</code>
+          <p>
+            <code>{`agencycloud://appointments?dateFrom=2019/12/25&dateTo=2019/12/26`}</code>
+          </p>
           <Table
             loading={false}
             columns={[
@@ -228,16 +248,15 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H4>Load Applicant</H4>
-          <p>Opens the applicant edit screen for the applicant with specified id</p>
-          <code>{`agencycloud://appointments/{id}`}</code>
           <H3>Contacts</H3>
           <H4>Contact Search</H4>
           <p>
             Opens advanced search screen in contact mode and runs a search with provided parameters. At least one
             parameter is required.
           </p>
-          <code>{`agencycloud://contacts?name=smith`}</code>
+          <p>
+            <code>{`agencycloud://contacts?name=smith`}</code>
+          </p>
           <Table
             loading={false}
             columns={[
@@ -295,10 +314,14 @@ const DesktopApiDocsPage: React.SFC = () => {
           />
           <H4>Load Contact</H4>
           <p>Opens the contact edit screen for the contact with specified id</p>
-          <code>{`agencycloud://contacts/{id}`}</code>
+          <p>
+            <code>{`agencycloud://contacts/{id}`}</code>
+          </p>
           <H4>Load Journal</H4>
           <p>Opens the journal screen for the specified contact</p>
-          <code>{`agencycloud://contacts/{id}/journal`}</code>
+          <p>
+            <code>{`agencycloud://contacts/{id}/journal`}</code>
+          </p>
           <H3>Agency Cloud Interaction API</H3>
           <H4>Overview</H4>
           <p>
@@ -345,7 +368,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             The category of ID Check will be given to an application that can be used to replace the ID Check screen in
             Agency Cloud. The url that an application with this category would look like would be:
           </p>
-          <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&CntCode={PrimaryKey}`}</code>
+          <p>
+            <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&CntCode={PrimaryKey}`}</code>
+          </p>
           <Table
             loading={false}
             columns={[
@@ -396,7 +421,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             template as defined in the application – selection of pictures to include, what paper size to print the
             brochures on etc The url that this application would use would be like:
           </p>
-          <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&PrpCode={PrimaryKey}`}</code>
+          <p>
+            <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&PrpCode={PrimaryKey}`}</code>
+          </p>
           <Table
             loading={false}
             columns={[
@@ -446,7 +473,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             a user. The application would need to be able to take a comma separated list of property codes which to
             display. The url that this application would use would be like:
           </p>
-          <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true &PrpCodes={List of PrimaryKeys}`}</code>
+          <p>
+            <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true &PrpCodes={List of PrimaryKeys}`}</code>
+          </p>
           <Table
             loading={false}
             columns={[
