@@ -221,9 +221,15 @@ export const formatPriceAndQuantifier = (price: number, quantifier: string) => {
 export const getPrice = (result: PropertyModel, searchType: SearchType) => {
   if (searchType === 'Rent') {
     const rent = (result && result.letting && result.letting.rent) || 0
-    const rentFrequency =
+    const formattedPrice = currencyFormatter.format(rent)
+    let rentFrequency =
       (result && result.letting && result.letting.rentFrequency) || ''
-    return `${rent}' '${rentFrequency}`
+    if (rentFrequency.length > 0) {
+      rentFrequency =
+        rentFrequency.charAt(0).toUpperCase() +
+        rentFrequency.substr(1, rentFrequency.length - 1)
+    }
+    return `${formattedPrice} ${rentFrequency}`
   }
 
   const price = (result && result.selling && result.selling.price) || 0
