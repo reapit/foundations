@@ -44,22 +44,25 @@ export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandl
           inputProps={{ disabled: disabled }}
         />
 
-        <div className={`flex mt-4 ${styles.footerBetween}`}>
-          <div className="flex items-center">
-            <span>RPS Ref:</span>
-            <span className="ml-1">{id}</span>
-          </div>
-
-          <div>
-            <Button className="mr-2" variant="primary" type="submit" loading={loading} disabled={disabled}>
-              Save
-            </Button>
-            <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler} disabled={loading}>
-              Previous
-            </Button>
-            <Button variant="primary" type="button" onClick={onNextHandler(values)} disabled={loading || disabled}>
-              Next
-            </Button>
+        <div className="field pb-2">
+          <div className={`columns ${styles.reverseColumns}`}>
+            <div className="column">
+              <div className="flex items-center">
+                <span>RPS Ref:</span>
+                <span className="ml-1">{id}</span>
+              </div>
+            </div>
+            <div className="column">
+              <Button className="mr-2" variant="primary" type="submit" loading={loading} disabled={disabled}>
+                Save
+              </Button>
+              <Button className="mr-2" variant="primary" type="button" onClick={onPrevHandler} disabled={loading}>
+                Previous
+              </Button>
+              <Button variant="primary" type="button" onClick={onNextHandler(values)} disabled={loading || disabled}>
+                Next
+              </Button>
+            </div>
           </div>
         </div>
       </Form>
