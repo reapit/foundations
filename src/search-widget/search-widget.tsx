@@ -62,11 +62,18 @@ const BaseStyle = styled.div`
 
 const WidgetContainer = styled.div`
   background-color: ${props => props.theme.searchWidget.backgroundColor};
-  display: inline-block;
-  min-width: 40rem;
   padding: 1.5rem 0;
   text-align: center;
   margin: auto 0;
+  @media (max-width: 565px) {
+    max-width: 565px;
+  }
+  @media (min-width: 566px) {
+    min-width: 40rem;
+  }
+  @media (min-width: 1280px) {
+    padding: 2rem 2rem;
+  }
 `
 
 const Error = styled.div`
@@ -76,10 +83,16 @@ const Error = styled.div`
   margin-left: 1rem;
 `
 
-const Title = styled.h1`
+const Title = styled.div`
   color: ${props => props.theme.colors.widgetHeading};
   font-family: inherit;
   margin: 0rem;
+  @media (max-width: 565px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 70px;
+  }
 `
 
 const Subtitle = styled.div`
@@ -87,6 +100,12 @@ const Subtitle = styled.div`
   font-style: italic;
   font-size: 1rem;
   margin: 0.5rem 0rem 2rem 0rem;
+  @media (max-width: 565px) {
+    font-size: 10px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 20px;
+  }
 `
 
 const Button = styled.button`
@@ -104,9 +123,10 @@ const Button = styled.button`
 `
 
 const FormContainer = styled.div`
-  display: flex;
-  justify-content: center;
   color: ${props => props.theme.colors.base};
+  @media (max-width: 565px) {
+    max-width: 565px;
+  }
 `
 
 const Input = styled.input`
@@ -114,6 +134,7 @@ const Input = styled.input`
   box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
   width: 60%;
   font-size: 1rem;
+  height: 3rem;
   text-align: center;
   font-weight: 150;
   background: ${props => props.theme.colors.inputBackgroundColor};
@@ -131,6 +152,10 @@ const Input = styled.input`
   &:focus {
     border-color: ${props => props.theme.button.background};
     outline-color: ${props => props.theme.button.background};
+  }
+  @media (max-width: 565px) {
+    margin-bottom: 10px;
+    width: 90%;
   }
 `
 
