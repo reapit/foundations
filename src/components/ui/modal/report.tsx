@@ -9,7 +9,7 @@ import { oc } from 'ts-optchain'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import dayjs from 'dayjs'
 import { getPepSearchStatus } from '@/utils/pep-search'
-import { TiTick, TiTimes } from 'react-icons/ti'
+import { FaCheck, FaTimes } from 'react-icons/fa'
 import {
   selectCheckListDetailContact,
   selectCheckListDetailIdCheck,
@@ -176,9 +176,9 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       Cell: ({ row }) => (
         <div className={styles.statusColumn}>
           {row.original.status ? (
-            <TiTick className={styles.checkCompleted} />
+            <FaCheck className={styles.checkCompleted} />
           ) : (
-            <TiTimes className={styles.checkIncomplete} />
+            <FaTimes className={styles.checkIncomplete} />
           )}
           <span>{row.original.status ? 'Completed' : 'Incomplete'}</span>
         </div>

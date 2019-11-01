@@ -1,57 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
-<FlexContainerBasic
-  flexColumn={true}
-  hasPadding={true}
+<div
+  className="mb-4"
 >
-  <div>
-    <Level>
-      <LevelLeft>
-        <LevelItem>
-          <div>
-            <H3>
-              <AcLink
-                dynamicLinkParams={
-                  Object {
-                    "appMode": "WEB",
-                    "entityCode": "MKC16000098",
-                    "entityType": "contacts",
-                  }
-                }
-              >
-                Ms Saoirse Chadwick
-              </AcLink>
-            </H3>
-            <SubTitleH5 />
-          </div>
-        </LevelItem>
-      </LevelLeft>
-      <LevelRight>
-        <LevelItem>
-          <Button
-            disabled={false}
-            onClick={[Function]}
-            type="button"
-            variant="primary"
-          >
-            Update Status
-          </Button>
-        </LevelItem>
-      </LevelRight>
-    </Level>
-    <ProgressBar
-      percentage={42}
-    />
+  <FlexContainerBasic
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
     <div>
-      3
-      /
-      7
-       
-      <span>
-        Completed
-      </span>
+      <Level>
+        <LevelLeft>
+          <LevelItem>
+            <div>
+              <H3>
+                <AcLink
+                  dynamicLinkParams={
+                    Object {
+                      "appMode": "WEB",
+                      "entityCode": "MKC16000098",
+                      "entityType": "contacts",
+                    }
+                  }
+                >
+                  Ms Saoirse Chadwick
+                </AcLink>
+              </H3>
+              <SubTitleH5 />
+            </div>
+          </LevelItem>
+        </LevelLeft>
+        <LevelRight>
+          <LevelItem>
+            <Button
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              Update Status
+            </Button>
+          </LevelItem>
+        </LevelRight>
+      </Level>
+      <ProgressBar
+        percentage={42}
+      />
+      <div>
+        3
+        /
+        7
+         
+        <span>
+          Completed
+        </span>
+      </div>
     </div>
-  </div>
-</FlexContainerBasic>
+  </FlexContainerBasic>
+</div>
 `;

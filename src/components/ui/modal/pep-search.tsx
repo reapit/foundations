@@ -2,9 +2,9 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import { FaSpinner, FaRegTimesCircle } from 'react-icons/fa'
+import { FaRegTimesCircle } from 'react-icons/fa'
 import { oc } from 'ts-optchain'
-import { Input, Button, H4, FlexContainerBasic } from '@reapit/elements'
+import { Input, Button, H4, FlexContainerBasic, Loader } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import {
@@ -19,10 +19,7 @@ import { ContactModel } from '@/types/contact-api-schema'
 export const renderLoading = () => {
   return (
     <div className={styles.pepSearchLoading}>
-      <div>
-        <FaSpinner />
-      </div>
-      <div>Please wait ...</div>
+      <Loader body={false} />
     </div>
   )
 }
@@ -47,7 +44,7 @@ export const renderForm = ({ onPrevHandler, onNextHandler, isSubmitting, pepSear
     <Form>
       <div className={styles.pepSearchInputContainer}>
         <Input type="text" name="name" id="name" labelText="Enter a name" />
-        <Button type="submit" variant="primary" className="mt-3">
+        <Button type="submit" variant="primary" className="mt-2">
           Search
         </Button>
       </div>
@@ -85,7 +82,7 @@ export const PepSearch: React.FC<PepSearchProps> = ({
   return (
     <div>
       <Formik
-        initialValues={{ name: '' }}
+        initialValues={{ name: `${contact.forename} ${contact.surname}` }}
         onSubmit={handleSubmit}
         render={renderForm({
           onPrevHandler,

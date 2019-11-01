@@ -9,15 +9,11 @@ exports[` 1`] = `
     <Tile
       heading="Personal Details"
       menu={
-        <div
-          className="flex"
-        >
+        <div>
           <div
             className="undefined undefined"
           >
-            <span>
-              <TiTick />
-            </span>
+            <FaCheck />
             <span>
               Completed
             </span>
@@ -35,9 +31,7 @@ exports[` 1`] = `
       <div
         className="undefined undefined"
       >
-        <span>
-          <TiTick />
-        </span>
+        <FaCheck />
         <span>
           Completed
         </span>
@@ -51,15 +45,11 @@ exports[` 1`] = `
     <Tile
       heading="Primary ID"
       menu={
-        <div
-          className="flex"
-        >
+        <div>
           <div
             className="undefined undefined"
           >
-            <span>
-              <TiTimes />
-            </span>
+            <FaTimes />
             <span>
               Incomplete
             </span>
@@ -77,9 +67,7 @@ exports[` 1`] = `
       <div
         className="undefined undefined"
       >
-        <span>
-          <TiTimes />
-        </span>
+        <FaTimes />
         <span>
           Incomplete
         </span>
@@ -93,15 +81,11 @@ exports[` 1`] = `
     <Tile
       heading="Secondary ID"
       menu={
-        <div
-          className="flex"
-        >
+        <div>
           <div
             className="undefined undefined"
           >
-            <span>
-              <TiTick />
-            </span>
+            <FaCheck />
             <span>
               Completed
             </span>
@@ -119,9 +103,7 @@ exports[` 1`] = `
       <div
         className="undefined undefined"
       >
-        <span>
-          <TiTick />
-        </span>
+        <FaCheck />
         <span>
           Completed
         </span>
@@ -135,15 +117,11 @@ exports[` 1`] = `
     <Tile
       heading="Address Information"
       menu={
-        <div
-          className="flex"
-        >
+        <div>
           <div
             className="undefined undefined"
           >
-            <span>
-              <TiTimes />
-            </span>
+            <FaTimes />
             <span>
               Incomplete
             </span>
@@ -161,9 +139,7 @@ exports[` 1`] = `
       <div
         className="undefined undefined"
       >
-        <span>
-          <TiTimes />
-        </span>
+        <FaTimes />
         <span>
           Incomplete
         </span>
@@ -177,15 +153,11 @@ exports[` 1`] = `
     <Tile
       heading="Declaration Risk Management"
       menu={
-        <div
-          className="flex"
-        >
+        <div>
           <div
             className="undefined undefined"
           >
-            <span>
-              <TiTimes />
-            </span>
+            <FaTimes />
             <span>
               Incomplete
             </span>
@@ -203,9 +175,7 @@ exports[` 1`] = `
       <div
         className="undefined undefined"
       >
-        <span>
-          <TiTimes />
-        </span>
+        <FaTimes />
         <span>
           Incomplete
         </span>
@@ -219,15 +189,11 @@ exports[` 1`] = `
     <Tile
       heading="PEP Search"
       menu={
-        <div
-          className="flex"
-        >
+        <div>
           <div
             className="undefined undefined"
           >
-            <span>
-              <TiTimes />
-            </span>
+            <FaTimes />
             <span>
               Incomplete
             </span>
@@ -245,9 +211,7 @@ exports[` 1`] = `
       <div
         className="undefined undefined"
       >
-        <span>
-          <TiTimes />
-        </span>
+        <FaTimes />
         <span>
           Incomplete
         </span>
@@ -261,15 +225,11 @@ exports[` 1`] = `
     <Tile
       heading="Experian"
       menu={
-        <div
-          className="flex"
-        >
+        <div>
           <div
             className="undefined undefined"
           >
-            <span>
-              <TiTick />
-            </span>
+            <FaCheck />
             <span>
               Completed
             </span>
@@ -287,9 +247,7 @@ exports[` 1`] = `
       <div
         className="undefined undefined"
       >
-        <span>
-          <TiTick />
-        </span>
+        <FaCheck />
         <span>
           Completed
         </span>
@@ -303,9 +261,7 @@ exports[` 1`] = `
     <Tile
       heading="Report"
       menu={
-        <div
-          className="flex"
-        >
+        <div>
           <Button
             onClick={[MockFunction]}
             type="button"
@@ -340,15 +296,11 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Personal Details"
             menu={
-              <div
-                className="flex"
-              >
+              <div>
                 <div
                   className="undefined undefined"
                 >
-                  <span>
-                    <TiTick />
-                  </span>
+                  <FaCheck />
                   <span>
                     Completed
                   </span>
@@ -365,9 +317,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
             <div
               className="undefined undefined"
             >
-              <span>
-                <TiTick />
-              </span>
+              <FaCheck />
               <span>
                 Completed
               </span>
@@ -381,15 +331,11 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Primary ID"
             menu={
-              <div
-                className="flex"
-              >
+              <div>
                 <div
                   className="undefined undefined"
                 >
-                  <span>
-                    <TiTimes />
-                  </span>
+                  <FaTimes />
                   <span>
                     Incomplete
                   </span>
@@ -406,9 +352,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
             <div
               className="undefined undefined"
             >
-              <span>
-                <TiTimes />
-              </span>
+              <FaTimes />
               <span>
                 Incomplete
               </span>
@@ -422,15 +366,11 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Secondary ID"
             menu={
-              <div
-                className="flex"
-              >
+              <div>
                 <div
                   className="undefined undefined"
                 >
-                  <span>
-                    <TiTick />
-                  </span>
+                  <FaCheck />
                   <span>
                     Completed
                   </span>
@@ -447,9 +387,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
             <div
               className="undefined undefined"
             >
-              <span>
-                <TiTick />
-              </span>
+              <FaCheck />
               <span>
                 Completed
               </span>
@@ -463,15 +401,11 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Address Information"
             menu={
-              <div
-                className="flex"
-              >
+              <div>
                 <div
                   className="undefined undefined"
                 >
-                  <span>
-                    <TiTimes />
-                  </span>
+                  <FaTimes />
                   <span>
                     Incomplete
                   </span>
@@ -488,9 +422,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
             <div
               className="undefined undefined"
             >
-              <span>
-                <TiTimes />
-              </span>
+              <FaTimes />
               <span>
                 Incomplete
               </span>
@@ -504,15 +436,11 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Declaration Risk Management"
             menu={
-              <div
-                className="flex"
-              >
+              <div>
                 <div
                   className="undefined undefined"
                 >
-                  <span>
-                    <TiTimes />
-                  </span>
+                  <FaTimes />
                   <span>
                     Incomplete
                   </span>
@@ -529,9 +457,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
             <div
               className="undefined undefined"
             >
-              <span>
-                <TiTimes />
-              </span>
+              <FaTimes />
               <span>
                 Incomplete
               </span>
@@ -545,15 +471,11 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="PEP Search"
             menu={
-              <div
-                className="flex"
-              >
+              <div>
                 <div
                   className="undefined undefined"
                 >
-                  <span>
-                    <TiTimes />
-                  </span>
+                  <FaTimes />
                   <span>
                     Incomplete
                   </span>
@@ -570,9 +492,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
             <div
               className="undefined undefined"
             >
-              <span>
-                <TiTimes />
-              </span>
+              <FaTimes />
               <span>
                 Incomplete
               </span>
@@ -586,15 +506,11 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Experian"
             menu={
-              <div
-                className="flex"
-              >
+              <div>
                 <div
                   className="undefined undefined"
                 >
-                  <span>
-                    <TiTick />
-                  </span>
+                  <FaCheck />
                   <span>
                     Completed
                   </span>
@@ -611,9 +527,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
             <div
               className="undefined undefined"
             >
-              <span>
-                <TiTick />
-              </span>
+              <FaCheck />
               <span>
                 Completed
               </span>
@@ -627,9 +541,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           <Tile
             heading="Report"
             menu={
-              <div
-                className="flex"
-              >
+              <div>
                 <Button
                   type="button"
                   variant="primary"
