@@ -3,11 +3,14 @@ import * as React from 'react'
 import { FlexContainerResponsive, Content, H3, H4, FlexContainerBasic } from '@reapit/elements'
 import { Link } from 'react-router-dom'
 import Routes from '../../constants/routes'
+import apiDocStyles from '@/styles/pages/api-docs.scss?mod'
 
 const WebComponentsPage: React.SFC = () => {
+  const [copiedClipboardWidgetText, setCopiedClipboardWidget] = React.useState('click here to copy to clipboard')
+  const [copiedClipboardThemeText, setCopiedClipboardTheme] = React.useState('click here to copy to clipboard')
   return (
     <FlexContainerBasic flexColumn hasPadding>
-      <Content>
+      <Content className={apiDocStyles.apiDocs}>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H3>Web Components</H3>
           <p>
@@ -25,52 +28,86 @@ const WebComponentsPage: React.SFC = () => {
             Properties service. On search, the widget will render a list of matching properties and plot them on a
             Google Map.
           </p>
-          <p>To embed the widget on your page, you need to add the two bundled scripts as per below:</p>
+          <p>
+            To embed the widget on your page, you need to add the script link to our CDN (
+            <a
+              id="https://demo-site.reapit.com/scripts/search-widget.js"
+              href="#"
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.preventDefault()
+
+                const el = document.createElement('textarea')
+                const href = (e.target as HTMLAnchorElement).id
+                el.value = href
+                document.body.appendChild(el)
+                el.select()
+                document.execCommand('copy')
+                document.body.removeChild(el)
+                setCopiedClipboardWidget('copied to clipboard!')
+              }}
+            >
+              {copiedClipboardWidgetText}
+            </a>
+            ):
+          </p>
           <pre>
-            <code>
-              {`<script src="./scripts/theme.js" />
-<script src="./scripts/search-widget.js" />`}
-            </code>
+            <code>{`<script src="https://demo-site.reapit.com/scripts/search-widget.js"></script>`}</code>
           </pre>
           <p>
             The widget is themeable and any of the below default options can be overridden by editing the theme.js file
-            and updating the theme object in the below example:
+            and updating the theme object in the below example (
+            <a
+              id={`window.addEventListener("load", function() {
+                if (window.initReaptSearchWidget) {
+                  window.initReaptSearchWidget({
+                    API_KEY: "EXAMPLE_AP_KEY",
+                    theme: {
+                      base: {
+                        font: {
+                          family: "'Open Sans', sans-serif",
+                        }
+                      },
+                      colors: {
+                        primary: '#00a569',
+                        secondary: '#828085'
+                      }
+                    }
+                  });
+                }
+              });`}
+              href="#"
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.preventDefault()
+
+                const el = document.createElement('textarea')
+                const href = (e.target as HTMLAnchorElement).id
+                el.value = href
+                document.body.appendChild(el)
+                el.select()
+                document.execCommand('copy')
+                document.body.removeChild(el)
+                setCopiedClipboardTheme('copied to clipboard!')
+              }}
+            >
+              {copiedClipboardThemeText}
+            </a>
+            ):
           </p>
           <pre>
             <code>
               {`window.addEventListener("load", function() {
   if (window.initReaptSearchWidget) {
     window.initReaptSearchWidget({
-      API_KEY: "abc",
+      API_KEY: "EXAMPLE_AP_KEY",
       theme: {
         base: {
           font: {
             family: "'Open Sans', sans-serif",
-            sizes: {
-              base: '1.5rem',
-              headings: {
-                h1: '2.4rem',
-                h2: '2.2rem',
-                h3: '2.0rem',
-                h4: '1.8rem',
-                h5: '1.6rem'
-              }
-            }
           }
-        },
-        button: {
-          background: '#ffffff',
-          color: '#12263f'
         },
         colors: {
           primary: '#00a569',
-          secondary: '#828085',
-          icon: 'gray',
-          base: '#12263f',
-          widgetHeading: '#ffffff',
-          background: '#ffffff',
-          warning: '#d3033d',
-          loading: '#95aac9'
+          secondary: '#828085'
         }
       }
     });
@@ -78,11 +115,12 @@ const WebComponentsPage: React.SFC = () => {
 });`}
             </code>
           </pre>
+          <p>You can also download these scripts as bundle from the below link:</p>
           <p>
             <a
               href="https://reapit-demo-site.s3.eu-west-2.amazonaws.com/search-widget.zip"
               download
-              className="button is-primary"
+              className="button is-info"
             >
               Download Search Widget
             </a>
@@ -97,7 +135,7 @@ const WebComponentsPage: React.SFC = () => {
             <a
               href="https://reapit-app-store-webcomponents.s3.eu-west-2.amazonaws.com/elements-v0.4.53.zip"
               download
-              className="button is-primary"
+              className="button is-info"
             >
               Download Elements
             </a>
@@ -114,7 +152,7 @@ const WebComponentsPage: React.SFC = () => {
             <a
               href="https://reapit-app-store-webcomponents.s3.eu-west-2.amazonaws.com/foundations-type-definitions.zip"
               download
-              className="button is-primary"
+              className="button is-info"
             >
               Download foundations.d.ts
             </a>
