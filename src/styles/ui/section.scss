@@ -29,3 +29,21 @@
   font-size: 1.5rem;
   color: $red;
 }
+
+.hideOnMobile {
+  display: none;
+}
+
+.showOnMobile {
+  display: flex;
+}
+
+@media (min-width: 481px) {
+  .hideOnMobile {
+    display: flex;
+  }
+
+  .showOnMobile {
+    display: none;
+  }
+}

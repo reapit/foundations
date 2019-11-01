@@ -12,6 +12,7 @@ import { checklistDetailHideModal, checklistDetailShowModal } from '@/actions/ch
 import { authLogout } from '@/actions/auth'
 import { ContactModel } from '@/types/contact-api-schema'
 import { STEPS } from '../ui/modal/modal'
+import checkListDetailStyles from '@/styles/pages/checklist-detail.scss?mod'
 import styles from '@/styles/ui/section.scss?mod'
 import { TiTick, TiTimes } from 'react-icons/ti'
 import { SectionsStatus } from '@/reducers/checklist-detail'
@@ -79,9 +80,9 @@ export const generateSection = (status: SectionsStatus, onClick: (modalType: str
   ]
 }
 
-export const renderCheckMark = (isCompleted: boolean) => {
+export const renderCheckMark = (isCompleted: boolean, isOnMobile: boolean) => {
   return (
-    <div className={styles.statusSection}>
+    <div className={`${styles.statusSection} ${isOnMobile ? styles.showOnMobile : styles.hideOnMobile}`}>
       <span>
         {isCompleted ? <TiTick className={styles.checkCompleted} /> : <TiTimes className={styles.checkIncomplete} />}
       </span>
@@ -98,13 +99,15 @@ export const renderSections = (sections: SectionProps[]) => {
           heading={section.title}
           menu={
             <div className="flex">
-              {section.title !== STEPS.REPORT && renderCheckMark(section.isCompleted)}
+              {section.title !== STEPS.REPORT && renderCheckMark(section.isCompleted, false)}
               <Button type="button" variant="primary" onClick={section.onEdit}>
                 {section.buttonText}
               </Button>
             </div>
           }
-        ></Tile>
+        >
+          {section.title !== STEPS.REPORT && renderCheckMark(section.isCompleted, true)}
+        </Tile>
       </div>
     )
   })
@@ -130,12 +133,14 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   return (
     <ErrorBoundary>
       <FlexContainerBasic isScrollable>
-        <FlexContainerResponsive hasPadding flexColumn>
-          <div>
-            <AMLProgressBar />
-            {renderSections(sections)}
-          </div>
-        </FlexContainerResponsive>
+        <div className={checkListDetailStyles.detailContent}>
+          <FlexContainerResponsive hasPadding flexColumn>
+            <>
+              <AMLProgressBar />
+              {renderSections(sections)}
+            </>
+          </FlexContainerResponsive>
+        </div>
       </FlexContainerBasic>
       <Modal id={id} visible={isModalVisible} afterClose={hideModal} modalContentType={modalContentType} />
     </ErrorBoundary>
