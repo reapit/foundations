@@ -1,10 +1,11 @@
 /* These are the Bulma initialisers - have to come before overides */
-@import "../base/colors.scss";
-@import "../base/fonts.scss";
-@import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import '../base/colors.scss';
+@import '../base/fonts.scss';
+@import '../../../node_modules/bulma/sass/utilities/initial-variables.sass';
 
-/* Bulma override defaults 
-Things that can be customised here: https://bulma.io/documentation/customize/variables/
+/*
+  Bulma override defaults
+  Things that can be customised here: https://bulma.io/documentation/customize/variables/
 */
 
 // Fonts
@@ -23,7 +24,7 @@ $dark: $grey-dark;
 $orange: $reapit-orange;
 $yellow: $reapit-gold;
 $green: $reapit-green;
-$turquoise:	$reapit-teal;
+$turquoise: $reapit-teal;
 $cyan: $reapit-light-blue;
 $blue: $reapit-dark-blue;
 $purple: $reapit-plumb;
@@ -32,7 +33,6 @@ $red: $reapit-red;
 $title-color: $black;
 
 $text: $dark;
-
 
 $title-weight: $weight-bold;
 $subtitle-weight: $weight-bold;
@@ -54,5 +54,4 @@ $modal-card-foot-radius: 0;
 // Form elements
 $checkbox-radius: 0;
 
-@import "../../../node_modules/bulma/bulma.sass";
-
+@import '../../../node_modules/bulma/bulma.sass';

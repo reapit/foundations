@@ -64,9 +64,9 @@ export const FileInput = ({
           }
         }
         return (
-          <div className={field}>
-            <div className={containerClassName}>
-              <div className="control pb-2">
+          <>
+            <div className={`${containerClassName} field pb-2`}>
+              <div className="file-input-container control">
                 <label data-test="file-input-label" className="file-label" htmlFor={id}>
                   <input
                     {...inputProps}
@@ -111,7 +111,7 @@ export const FileInput = ({
                 {errors[field.name]}
               </div>
             )}
-          </div>
+          </>
         )
       }}
     />
