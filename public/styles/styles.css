@@ -22,6 +22,12 @@ body {
   justify-content: space-between;
 }
 
+@media (max-width: 565px) {
+  #navbar {
+    padding: 0rem 0.5rem;
+  }  
+}
+
 #navbar img {
   margin: 1.75rem 0rem;
 }
@@ -33,6 +39,12 @@ body {
 /* Widget */
 #search-result-container {
   padding: 2rem;
+}
+
+@media (max-width: 565px) {
+  #search-result-container {
+    padding: 1rem;
+  }
 }
 
 #reapit-search-map {
@@ -120,10 +132,14 @@ body {
 
 @media (max-width: 565px) {
   #approach > #our-approach {
-    padding: 0.2rem;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  #approach > #img-approach {
+    padding: 1rem;
   }
 }
-
 
 /* Our approuch - handle responsive */
 @media (max-width: 768px) {
@@ -132,9 +148,12 @@ body {
   }
 }
 
-
 @media (min-width: 1024px) {
   #approach > #our-approach > h1 {
     font-size: 48px;
   }
+}
+
+#approach > #our-approach > h1 {
+  margin-top: 0;
 }
