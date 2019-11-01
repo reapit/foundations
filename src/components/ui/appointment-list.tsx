@@ -87,7 +87,7 @@ export const AppointmentList = memo(
 
           const nextAppointmentId = oc<NextAppointment | null>(nextAppointment).id()
           const nextAppointmentType = oc<NextAppointment | null>(nextAppointment)
-            .attendeeHaveMobile.type('')
+            .attendeeWithMobile.type('')
             .toLowerCase()
 
           const displayETAButton =
@@ -99,13 +99,20 @@ export const AppointmentList = memo(
           let renderETAButton: React.ReactNode = null
           if (displayETAButton) {
             const tel = oc(nextAppointment)
-              .attendeeHaveMobile.communicationDetails([])
+              .attendeeWithMobile.communicationDetails([])
               .filter(({ label }) => label === 'Mobile')[0].detail
-            const name = oc(nextAppointment).attendeeHaveMobile.name('')
+
+            const name = oc(nextAppointment).attendeeWithMobile.name('')
+            const negName = oc(nextAppointment).currentNegotiator.name('')
             const duration = oc(nextAppointment).durationText()
 
             renderETAButton = (
-              <ETAButton tel={tel || ''} body={`Hi ${name}, I will be with you in ${duration}`}>
+              <ETAButton
+                tel={tel || ''}
+                body={`Hi ${name}, ${
+                  negName ? `this is ${negName}, ` : ''
+                }I am on my way to you. I will be with you in approximately ${duration}.`}
+              >
                 ETA Text
               </ETAButton>
             )

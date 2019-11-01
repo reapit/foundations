@@ -5,7 +5,8 @@ import { AttendeeModel } from '@/types/appointments'
 
 export interface NextAppointment {
   id: string
-  attendeeHaveMobile: AttendeeModel | undefined
+  attendeeWithMobile: AttendeeModel | undefined
+  currentNegotiator: AttendeeModel | undefined
   durationValue: number
   durationText: string
   distanceValue: number
