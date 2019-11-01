@@ -20,7 +20,13 @@ export const AcLink: React.SFC<AcLinkParams> = ({ dynamicLinkParams, navigatePar
   }
 
   return (
-    <a onClick={onClick} href="#">
+    <a
+      className={`dynamic-link ${
+        dynamicLinkParams.appMode === 'DESKTOP' ? 'desktop' : dynamicLinkParams.webRoute ? 'web' : ''
+      }`}
+      onClick={onClick}
+      href="#"
+    >
       {children}
     </a>
   )

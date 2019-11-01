@@ -61,11 +61,13 @@ describe('AcButton AcLink', () => {
           Navigate
         </AcButton>
       )
-      component.simulate('click', { preventDefault: jest.fn() })
-      expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
-        { dynamicLink: scenario.expectedLink },
-        'https://dev.reapit.marketplace.com'
-      )
+      if (scenario.expectedLink) {
+        component.simulate('click', { preventDefault: jest.fn() })
+        expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
+          { dynamicLink: scenario.expectedLink },
+          'https://dev.reapit.marketplace.com'
+        )
+      }
     })
 
     it('should respond to a link click event by navigating to expected url for ' + scenario.description, () => {
@@ -75,10 +77,12 @@ describe('AcButton AcLink', () => {
         </AcLink>
       )
       component.simulate('click', { preventDefault: jest.fn() })
-      expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
-        { dynamicLink: scenario.expectedLink },
-        'https://dev.reapit.marketplace.com'
-      )
+      if (scenario.expectedLink) {
+        expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
+          { dynamicLink: scenario.expectedLink },
+          'https://dev.reapit.marketplace.com'
+        )
+      }
     })
   })
 })
