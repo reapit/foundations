@@ -17,6 +17,10 @@ import scrollIntoView from '../utils/scroll-into-view'
 
 const SearchResultTextContainer = styled.h1`
   color: ${props => props.theme.colors.searchResult};
+  font-size: 18px;
+  padding-bottom: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
 
   @media screen and (max-width: 1600px) {
     & {
@@ -24,10 +28,11 @@ const SearchResultTextContainer = styled.h1`
     }
   }
 
-  padding-bottom: 2rem;
-
-  margin-top: 0;
-  margin-bottom: 0;
+  @media (max-width: 565px) {
+    & {
+      padding: 1rem;
+    }
+  }
 `
 
 const BaseStyle = styled.div`
@@ -37,6 +42,12 @@ const BaseStyle = styled.div`
 
   & h1 {
     font-size: ${props => props.theme.base.font.sizes.headings.h1};
+
+    @media (max-width: 565px) {
+      & {
+        font-size: 1.5rem;
+      }
+    }
   }
 
   & h2 {
@@ -87,8 +98,10 @@ const Title = styled.div`
   color: ${props => props.theme.colors.widgetHeading};
   font-family: inherit;
   margin: 0rem;
+  font-size: 48px;
+
   @media (max-width: 565px) {
-    font-size: 18px;
+    font-size: 22px;
   }
   @media (min-width: 1280px) {
     font-size: 70px;
@@ -96,12 +109,12 @@ const Title = styled.div`
 `
 
 const Subtitle = styled.div`
-  color: ${props => props.theme.colors.widgetHeading}
+  color: ${props => props.theme.colors.widgetHeading};
   font-style: italic;
   font-size: 1rem;
   margin: 0.5rem 0rem 2rem 0rem;
   @media (max-width: 565px) {
-    font-size: 10px;
+    font-size: 16px;
   }
   @media (min-width: 1280px) {
     font-size: 20px;
