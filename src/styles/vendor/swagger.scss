@@ -39,17 +39,23 @@
       display: none;
     }
 
+    hgroup.main {
+      pre.base-url, a {
+        display: none;
+      }
+    }
+
     h2, .info h2 {
       font-family: $font-family-museo-bold;
       font-size: 2rem;
       font-weight: bold;
     }
 
-    .info .base-url, .info h2 {
+    .info h2 {
       margin-bottom: 1rem;
     }
 
-    .info .base-url, code, .prop-format {
+    code, .prop-format {
       font-family: $font-family-monospace;
       color: $grey-dark;
     }

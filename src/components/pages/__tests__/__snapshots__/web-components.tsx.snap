@@ -27,52 +27,64 @@ exports[`WebComponents should match a snapshot 1`] = `
         The search widget is an embeddable React Widget, that renders a search box, fetching data from the Properties service. On search, the widget will render a list of matching properties and plot them on a Google Map.
       </p>
       <p>
-        To embed the widget on your page, you need to add the two bundled scripts as per below:
+        To embed the widget on your page, you need to add the script link to our CDN (
+        <a
+          href="#"
+          id="https://demo-site.reapit.com/scripts/search-widget.js"
+          onClick={[Function]}
+        >
+          click here to copy to clipboard
+        </a>
+        ):
       </p>
       <pre>
         <code>
-          &lt;script src="./scripts/theme.js" /&gt;
-&lt;script src="./scripts/search-widget.js" /&gt;
+          &lt;script src="https://demo-site.reapit.com/scripts/search-widget.js"&gt;&lt;/script&gt;
         </code>
       </pre>
       <p>
-        The widget is themeable and any of the below default options can be overridden by editing the theme.js file and updating the theme object in the below example:
+        The widget is themeable and any of the below default options can be overridden by editing the theme.js file and updating the theme object in the below example (
+        <a
+          href="#"
+          id="window.addEventListener(\\"load\\", function() {
+                if (window.initReaptSearchWidget) {
+                  window.initReaptSearchWidget({
+                    API_KEY: \\"EXAMPLE_AP_KEY\\",
+                    theme: {
+                      base: {
+                        font: {
+                          family: \\"'Open Sans', sans-serif\\",
+                        }
+                      },
+                      colors: {
+                        primary: '#00a569',
+                        secondary: '#828085'
+                      }
+                    }
+                  });
+                }
+              });"
+          onClick={[Function]}
+        >
+          click here to copy to clipboard
+        </a>
+        ):
       </p>
       <pre>
         <code>
           window.addEventListener("load", function() {
   if (window.initReaptSearchWidget) {
     window.initReaptSearchWidget({
-      API_KEY: "abc",
+      API_KEY: "EXAMPLE_AP_KEY",
       theme: {
         base: {
           font: {
             family: "'Open Sans', sans-serif",
-            sizes: {
-              base: '1.5rem',
-              headings: {
-                h1: '2.4rem',
-                h2: '2.2rem',
-                h3: '2.0rem',
-                h4: '1.8rem',
-                h5: '1.6rem'
-              }
-            }
           }
-        },
-        button: {
-          background: '#ffffff',
-          color: '#12263f'
         },
         colors: {
           primary: '#00a569',
-          secondary: '#828085',
-          icon: 'gray',
-          base: '#12263f',
-          widgetHeading: '#ffffff',
-          background: '#ffffff',
-          warning: '#d3033d',
-          loading: '#95aac9'
+          secondary: '#828085'
         }
       }
     });
@@ -81,8 +93,11 @@ exports[`WebComponents should match a snapshot 1`] = `
         </code>
       </pre>
       <p>
+        You can also download these scripts as bundle from the below link:
+      </p>
+      <p>
         <a
-          className="button is-primary"
+          className="button is-info"
           download={true}
           href="https://reapit-demo-site.s3.eu-west-2.amazonaws.com/search-widget.zip"
         >
@@ -103,7 +118,7 @@ exports[`WebComponents should match a snapshot 1`] = `
       </p>
       <p>
         <a
-          className="button is-primary"
+          className="button is-info"
           download={true}
           href="https://reapit-app-store-webcomponents.s3.eu-west-2.amazonaws.com/elements-v0.4.53.zip"
         >
@@ -124,7 +139,7 @@ exports[`WebComponents should match a snapshot 1`] = `
       </p>
       <p>
         <a
-          className="button is-primary"
+          className="button is-info"
           download={true}
           href="https://reapit-app-store-webcomponents.s3.eu-west-2.amazonaws.com/foundations-type-definitions.zip"
         >
