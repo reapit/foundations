@@ -14,9 +14,9 @@ import { ContactModel } from '@/types/contact-api-schema'
 import { STEPS } from '../ui/modal/modal'
 import checkListDetailStyles from '@/styles/pages/checklist-detail.scss?mod'
 import styles from '@/styles/ui/section.scss?mod'
-import { TiTick, TiTimes } from 'react-icons/ti'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { defaultStatus } from '@/constants/section-status'
+import { FaCheck, FaTimes } from 'react-icons/fa'
 
 export type CheckListDetailProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ id?: any }>
 
@@ -83,10 +83,8 @@ export const generateSection = (status: SectionsStatus, onClick: (modalType: str
 export const renderCheckMark = (isCompleted: boolean, isOnMobile: boolean) => {
   return (
     <div className={`${styles.statusSection} ${isOnMobile ? styles.showOnMobile : styles.hideOnMobile}`}>
-      <span>
-        {isCompleted ? <TiTick className={styles.checkCompleted} /> : <TiTimes className={styles.checkIncomplete} />}
-      </span>
-      <span>{isCompleted ? 'Completed' : 'Incomplete'}</span>
+      {isCompleted ? <FaCheck className={styles.checkCompleted} /> : <FaTimes className={styles.checkIncomplete} />}
+      <span className={styles.statusText}>{isCompleted ? 'Completed' : 'Incomplete'}</span>
     </div>
   )
 }
@@ -98,7 +96,7 @@ export const renderSections = (sections: SectionProps[]) => {
         <Tile
           heading={section.title}
           menu={
-            <div className="flex">
+            <div className={styles.statusSectionWrap}>
               {section.title !== STEPS.REPORT && renderCheckMark(section.isCompleted, false)}
               <Button type="button" variant="primary" onClick={section.onEdit}>
                 {section.buttonText}

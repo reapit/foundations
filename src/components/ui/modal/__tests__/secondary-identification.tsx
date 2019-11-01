@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { contact } from '@/sagas/__stubs__/contact'
 import { SecondaryIdentification, mapStateToProps, mapDispatchToProps } from '../secondary-identification'
 import { ReduxState } from '@/types/core'
-import { idCheck } from '@/sagas/__stubs__/idCheck'
+import { idCheck } from '@/sagas/__stubs__/id-check'
 describe('SecondaryIdentification', () => {
   describe('SecondaryIdentification', () => {
     it('should match snapshot', () => {

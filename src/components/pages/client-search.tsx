@@ -101,7 +101,7 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
                           disabled: !values.name && !values.address
                         }}
                       >
-                        Advanced Search
+                        Desktop Search
                       </AcButton>
                     )}
                   </Form>
