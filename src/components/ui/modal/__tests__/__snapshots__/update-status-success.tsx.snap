@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UpdateStatus should match snapshot 1`] = `
+exports[`UpdateStatusSuccess should match snapshot 1`] = `
 <Fragment>
   <p>
     Success. The ID Status has been updated

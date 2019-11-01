@@ -12,7 +12,6 @@ export type UpdateStatusSuccessProps = {
 
 export const UpdateStatusSuccess: React.FC<UpdateStatusSuccessProps> = ({ history, hideModal }) => {
   const handleClose = () => {
-    console.log(hideModal)
     hideModal()
     history.replace('/')
   }
