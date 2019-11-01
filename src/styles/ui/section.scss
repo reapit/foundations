@@ -14,20 +14,31 @@
   align-items: center;
 }
 
-.statusSection {
-  margin-right: 2rem;
+.statusSectionWrap {
   align-items: center;
   display: flex;
 }
 
+.statusSection {
+  margin-right: 2rem;
+  align-items: top;
+  display: flex;
+}
+
+.statusText {
+  font-weight: 700;
+  font-size: 16px;
+  margin-left: 1rem;
+}
+
 .checkCompleted {
   font-size: 1.5rem;
-  color: $green;
+  color: $reapit-green;
 }
 
 .checkIncomplete {
   font-size: 1.5rem;
-  color: $red;
+  color: $reapit-red;
 }
 
 .hideOnMobile {

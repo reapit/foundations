@@ -6,7 +6,7 @@ exports[`pep-search PepSearch should match snapshot 1`] = `
     enableReinitialize={false}
     initialValues={
       Object {
-        "name": "",
+        "name": "Saoirse Chadwick",
       }
     }
     isInitialValid={false}
@@ -27,12 +27,9 @@ exports[`pep-search renderForm should match snapshot 1`] = `
 exports[`pep-search renderLoading should match snapshot 1`] = `
 <div>
   <div>
-    <div>
-      <FaSpinner />
-    </div>
-    <div>
-      Please wait ...
-    </div>
+    <Loader
+      body={false}
+    />
   </div>
 </div>
 `;
