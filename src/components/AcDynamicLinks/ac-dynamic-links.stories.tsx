@@ -9,7 +9,7 @@ import { H6 } from '../Typography/index'
 export interface DynamicLinkScenario {
   dynamicLinkParams: DynamicLinkParams
   description: string
-  expectedLink: string // Hardcoded, for unit test assertions
+  expectedLink: string | null // Hardcoded, for unit test assertions
 }
 
 export const dynamicLinkScenarios: DynamicLinkScenario[] = [
@@ -129,6 +129,18 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
     },
     description: 'Launch a property search for address "E2" and close app',
     expectedLink: 'agencycloud://properties?address=E2&closeApp=true'
+  },
+  {
+    dynamicLinkParams: {
+      appMode: 'WEB',
+      entityType: EntityType.PROPERTY,
+      queryParams: {
+        address: 'E2',
+        closeApp: true
+      }
+    },
+    description: 'Web mode, valid link but should just render some text',
+    expectedLink: null
   }
 ]
 
