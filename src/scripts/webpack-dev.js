@@ -39,7 +39,7 @@ module.exports = {
       persistentCache: true,
       inject: true,
       background: '#fff',
-      title: 'Reapit',
+      title: 'Geo Diary',
       icons: {
         android: true,
         appleIcon: true,
