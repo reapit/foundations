@@ -1,15 +1,7 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import ProfileToggle from '@/components/ui/profile-toggle'
-import {
-  H3,
-  Loader,
-  FlexContainerResponsive,
-  AcButton,
-  EntityType,
-  LoginMode,
-  DynamicLinkParams
-} from '@reapit/elements'
+import { H3, Loader, FlexContainerResponsive, LoginMode, Button } from '@reapit/elements'
 import styles from '@/styles/pages/profile.scss?mod'
 import { ReduxState, FormState } from '@/types/core'
 import { submitChecks } from '@/actions/submit-checks'
@@ -64,7 +56,7 @@ const generateSection = (status: ChecklistStatus, onClick: (sectionType: string)
 }
 
 export interface ProfileMappedActions {
-  submitChecks: (id: string, dynamicLinkParams: DynamicLinkParams) => void
+  submitChecks: (id: string) => void
 }
 
 export interface ProfileMappedProps {
@@ -109,13 +101,6 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
     ;({ title = '', forename = '', surname = '' } = contact as ContactModel)
   }
 
-  const dynamicLinkParams = {
-    entityType: EntityType.CONTACT,
-    entityCode: contact.id,
-    appMode: loginMode,
-    webRoute: Routes.PROFILE_SUCCESS
-  }
-
   return (
     <ErrorBoundary>
       <FlexContainerResponsive hasPadding flexColumn hasBackground>
@@ -137,18 +122,9 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
           ))}
         </div>
         <div className="flex justify-end mt-10">
-          <AcButton
-            buttonProps={{
-              variant: 'primary',
-              type: 'button',
-              loading: isSubmitting,
-              disabled: isSubmitting,
-              onClick: () => submitChecks(contact.id || '', dynamicLinkParams)
-            }}
-            dynamicLinkParams={dynamicLinkParams}
-          >
+          <Button variant="primary" type="button" loading={isSubmitting} onClick={() => submitChecks(contact.id || '')}>
             Submit Record for Checks
-          </AcButton>
+          </Button>
         </div>
       </FlexContainerResponsive>
     </ErrorBoundary>
@@ -164,7 +140,7 @@ const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): ProfileMappedActions => ({
-  submitChecks: (id: string, dynamicLinkParams: DynamicLinkParams) => dispatch(submitChecks({ id, dynamicLinkParams }))
+  submitChecks: (id: string) => dispatch(submitChecks(id))
 })
 
 export default connect(

@@ -25,14 +25,27 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is PEN
       </p>
     </div>
     <div>
-      <Button
-        loading={false}
-        onClick={[Function]}
-        type="button"
-        variant="primary"
+      <AcButton
+        buttonProps={
+          Object {
+            "disabled": false,
+            "loading": false,
+            "onClick": [Function],
+            "type": "button",
+            "variant": "primary",
+          }
+        }
+        dynamicLinkParams={
+          Object {
+            "appMode": "WEB",
+            "entityCode": "MKC16000098",
+            "entityType": "contacts",
+            "webRoute": "/",
+          }
+        }
       >
         Complete Submission
-      </Button>
+      </AcButton>
     </div>
   </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
@@ -63,21 +76,79 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUB
       </p>
     </div>
     <div>
-      <Button
-        loading={true}
-        onClick={[Function]}
-        type="button"
-        variant="primary"
+      <AcButton
+        buttonProps={
+          Object {
+            "disabled": true,
+            "loading": true,
+            "onClick": [Function],
+            "type": "button",
+            "variant": "primary",
+          }
+        }
+        dynamicLinkParams={
+          Object {
+            "appMode": "WEB",
+            "entityCode": "MKC16000098",
+            "entityType": "contacts",
+            "webRoute": "/",
+          }
+        }
       >
         Complete Submission
-      </Button>
+      </AcButton>
     </div>
   </FlexContainerResponsive>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUCCESS 1`] = `
-<Redirect
-  to="/results"
-/>
+<Connect(ErrorBoundary)>
+  <FlexContainerResponsive
+    flexColumn={true}
+  >
+    <H3>
+      Referral Complete
+      <span>
+        <FaCheck />
+      </span>
+    </H3>
+    <div>
+      <p>
+        Thank you for your referral. Our dedicated team will now process the information you have submitted, and we will be in contact with you in due course.
+      </p>
+      <p
+        className="my-5"
+      >
+        Please ‘Complete Submission’ in order to continue.
+      </p>
+      <p>
+        Should you have any queries in the meantime, please do not hesitate to contact our team.
+      </p>
+    </div>
+    <div>
+      <AcButton
+        buttonProps={
+          Object {
+            "disabled": false,
+            "loading": false,
+            "onClick": [Function],
+            "type": "button",
+            "variant": "primary",
+          }
+        }
+        dynamicLinkParams={
+          Object {
+            "appMode": "WEB",
+            "entityCode": "MKC16000098",
+            "entityType": "contacts",
+            "webRoute": "/",
+          }
+        }
+      >
+        Complete Submission
+      </AcButton>
+    </div>
+  </FlexContainerResponsive>
+</Connect(ErrorBoundary)>
 `;
