@@ -8,18 +8,12 @@ import routes from '@/constants/routes'
 import { history } from '@/core/router'
 import { DynamicLinkParams, navigateDynamicApp } from '@reapit/elements'
 
-export const submitCheck = function*({
-  data: { id, dynamicLinkParams }
-}: Action<{ id: string; dynamicLinkParams: DynamicLinkParams }>) {
+export const submitCheck = function*({ data: id }: Action<string>) {
   yield put(submitChecksSetFormState('SUBMITTING'))
   try {
     yield delay(2000)
     yield put(submitChecksSetFormState('SUCCESS'))
-    if (dynamicLinkParams.appMode === 'WEB') {
-      yield history.push(routes.PROFILE_SUCCESS.replace(':id', id))
-    } else {
-      yield call(navigateDynamicApp, dynamicLinkParams)
-    }
+    yield history.push(routes.PROFILE_SUCCESS.replace(':id', id))
   } catch (err) {
     console.error(err)
     yield put(submitChecksSetFormState('ERROR'))
@@ -33,7 +27,7 @@ export const submitCheck = function*({
 }
 
 export const submitCheckListen = function*() {
-  yield takeLatest<Action<{ id: string; dynamicLinkParams: DynamicLinkParams }>>(ActionTypes.SUBMIT_CHECKS, submitCheck)
+  yield takeLatest<Action<string>>(ActionTypes.SUBMIT_CHECKS, submitCheck)
 }
 
 export const submitCheckSagas = function*() {
