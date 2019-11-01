@@ -28,12 +28,14 @@
 
 .checkCompleted {
   font-size: 1.5rem;
-  color: $green;
+  color: $reapit-green;
+  margin-right: 0.5rem;
 }
 
 .checkIncomplete {
   font-size: 1.5rem;
-  color: $red;
+  color: $reapit-red;
+  margin-right: 0.5rem;
 }
 
 @media print {

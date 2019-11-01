@@ -44,41 +44,43 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
   const name = `${title} ${forename} ${surname}`.trim()
 
   return (
-    <FlexContainerBasic hasPadding flexColumn>
-      <div>
-        <Level>
-          <LevelLeft>
-            <LevelItem>
-              <div>
-                <H3>
-                  <AcLink
-                    dynamicLinkParams={{
-                      appMode: loginMode,
-                      entityType: EntityType.CONTACT,
-                      entityCode: id
-                    }}
-                  >
-                    {name}
-                  </AcLink>
-                </H3>
-                <SubTitleH5>{idCheck && idCheck.status && `Status: ${idCheck.status.toUpperCase()}`}</SubTitleH5>
-              </div>
-            </LevelItem>
-          </LevelLeft>
-          <LevelRight>
-            <LevelItem>
-              <Button disabled={!idCheck} type="button" variant="primary" onClick={() => showModal(ID_STATUS.UPDATE)}>
-                Update Status
-              </Button>
-            </LevelItem>
-          </LevelRight>
-        </Level>
-        <ProgressBar percentage={progress.percentage} />
-        <div className={styles.progress}>
-          {progress.completed}/{progress.total} <span>Completed</span>
+    <div className="mb-4">
+      <FlexContainerBasic hasPadding flexColumn hasBackground>
+        <div>
+          <Level>
+            <LevelLeft>
+              <LevelItem>
+                <div>
+                  <H3>
+                    <AcLink
+                      dynamicLinkParams={{
+                        appMode: loginMode,
+                        entityType: EntityType.CONTACT,
+                        entityCode: id
+                      }}
+                    >
+                      {name}
+                    </AcLink>
+                  </H3>
+                  <SubTitleH5>{idCheck && idCheck.status && `Status: ${idCheck.status.toUpperCase()}`}</SubTitleH5>
+                </div>
+              </LevelItem>
+            </LevelLeft>
+            <LevelRight>
+              <LevelItem>
+                <Button disabled={!idCheck} type="button" variant="primary" onClick={() => showModal(ID_STATUS.UPDATE)}>
+                  Update Status
+                </Button>
+              </LevelItem>
+            </LevelRight>
+          </Level>
+          <ProgressBar percentage={progress.percentage} />
+          <div className={styles.progress}>
+            {progress.completed}/{progress.total} <span>Completed</span>
+          </div>
         </div>
-      </div>
-    </FlexContainerBasic>
+      </FlexContainerBasic>
+    </div>
   )
 }
 
