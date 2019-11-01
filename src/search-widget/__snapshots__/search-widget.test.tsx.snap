@@ -99,9 +99,9 @@ exports[`Search widget should match snapshot 1`] = `
       }
     >
       <styled.div>
-        <styled.h1>
+        <styled.div>
           Find your perfect home
-        </styled.h1>
+        </styled.div>
         <styled.div>
           Search for a property from Agent and Sons
         </styled.div>
