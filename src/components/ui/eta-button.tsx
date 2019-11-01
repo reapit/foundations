@@ -1,5 +1,4 @@
 import React from 'react'
-import { isMacLike } from '@/utils/device-detection'
 
 interface ETAButtonProps {
   tel: string | string[]
@@ -9,8 +8,8 @@ interface ETAButtonProps {
 export const ETAButton: React.FC<ETAButtonProps> = ({ body, children, tel }) => {
   let href = `sms:${tel}`
 
-  if (body && !isMacLike()) {
-    href += `?body=${body}`
+  if (body) {
+    href += `?&body=${body}`
   }
 
   return (

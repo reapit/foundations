@@ -137,7 +137,7 @@ export const renderDateTime = (address: AddressModel | undefined, appointment: A
   )
 }
 
-export const renderAdditionalAttendees = (attendees: AttendeeModel[]) => {
+export const renderAdditionalAttendees = (attendees: AttendeeModel[], loginMode: LoginMode) => {
   if (attendees.length === 0) {
     return null
   }
@@ -150,14 +150,24 @@ export const renderAdditionalAttendees = (attendees: AttendeeModel[]) => {
       </div>
       <div>
         {attendees.map(attendee => (
-          <div>{attendee.name}</div>
+          <div>
+            <AcLink
+              dynamicLinkParams={{
+                appMode: loginMode,
+                entityType: EntityType.CONTACT,
+                entityCode: attendee.id
+              }}
+            >
+              <p>{attendee.name}</p>
+            </AcLink>
+          </div>
         ))}
       </div>
     </div>
   )
 }
 
-export const renderApplicantAttendees = (attendees: AttendeeModel[]) => {
+export const renderApplicantAttendees = (attendees: AttendeeModel[], loginMode: LoginMode) => {
   if (attendees.length === 0) {
     return null
   }
@@ -172,7 +182,17 @@ export const renderApplicantAttendees = (attendees: AttendeeModel[]) => {
               <H6>{capitalizeFirstLetter(oc(attendee).type(''))}:</H6>
             </div>
             <p>
-              <div className="mb-2">{attendee.name}</div>
+              <div className="mb-2">
+                <AcLink
+                  dynamicLinkParams={{
+                    appMode: loginMode,
+                    entityType: EntityType.CONTACT,
+                    entityCode: attendee.id
+                  }}
+                >
+                  <p>{attendee.name}</p>
+                </AcLink>
+              </div>
               {renderCommunicationDetail(oc(attendee).communicationDetails([]))}
             </p>
           </div>
@@ -275,8 +295,8 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
       ) : (
         <>
           {renderDateTime(oc(appointment).property.address(), appointment)}
-          {renderAdditionalAttendees(additionalAttendees)}
-          {renderApplicantAttendees(applicantAttendees)}
+          {renderAdditionalAttendees(additionalAttendees, loginMode)}
+          {renderApplicantAttendees(applicantAttendees, loginMode)}
           {renderAddress(loginMode, address, propertyId)}
           {renderNotes(appointment.description)}
           {renderArrangements(oc(appointment).property.arrangements(''))}
@@ -305,6 +325,18 @@ export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userC
       return true
     }
     return attendee.id !== userCode
+  })
+}
+
+export const getLoggedInUser = (
+  attendees: AttendeeModel[] | undefined,
+  userCode: string
+): AttendeeModel | undefined => {
+  if (!attendees) {
+    return
+  }
+  return attendees.find((attendee: AttendeeModel) => {
+    return attendee.id === userCode
   })
 }
 
