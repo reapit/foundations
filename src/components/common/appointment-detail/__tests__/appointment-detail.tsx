@@ -282,6 +282,7 @@ describe('AppointmentModal', () => {
         isLoading: true,
         appointmentTypes: [],
         loginMode: 'DESKTOP',
+        applicantAttendees: [],
         additionalAttendees: [
           {
             id: 'JJS',
@@ -295,8 +296,7 @@ describe('AppointmentModal', () => {
               }
             ]
           }
-        ],
-        applicantAttendees: []
+        ]
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -320,9 +320,7 @@ describe('AppointmentModal', () => {
       const expected = {
         visible: true,
         isLoading: true,
-        appointment: {
-          attendees: []
-        },
+        appointment: {},
         appointmentTypes: [],
         loginMode: 'WEB',
         additionalAttendees: [],

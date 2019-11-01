@@ -42,6 +42,18 @@ export const appointmentDataStub: AppointmentModel = {
       ]
     },
     {
+      id: 'cbryan@reapit.com',
+      type: 'negotiator',
+      name: 'nghia',
+      confirmed: true,
+      communicationDetails: [
+        {
+          label: 'E-Mail',
+          detail: 'chase.maclean@reapitestates.net'
+        }
+      ]
+    },
+    {
       id: 'JJS',
       type: 'seller',
       name: 'Chase MacLean',

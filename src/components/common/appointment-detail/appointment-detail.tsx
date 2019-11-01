@@ -148,9 +148,11 @@ export const renderAdditionalAttendees = (attendees: AttendeeModel[]) => {
         <FaMale />
         <H6>Attendees:</H6>
       </div>
-      {attendees.map(attendee => (
-        <p>{attendee.name}</p>
-      ))}
+      <div>
+        {attendees.map(attendee => (
+          <div>{attendee.name}</div>
+        ))}
+      </div>
     </div>
   )
 }
@@ -325,17 +327,13 @@ export const getApplicantAttendees = (attendees: AttendeeModel[]) => {
 export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps => {
   const appointment = oc(state).appointmentDetail.appointmentDetail({})
   const userCode = oc(state).auth.loginSession.loginIdentity.userCode('')
-  const newAppointment = {
-    ...appointment,
-    attendees: filterLoggedInUser(appointment.attendees, userCode)
-  }
   return {
-    appointment: newAppointment,
+    appointment: appointment,
     visible: state.appointmentDetail.isModalVisible,
     isLoading: state.appointmentDetail.loading,
     appointmentTypes: state.appointments.appointmentTypes,
     loginMode: oc(state).auth.refreshSession.mode('WEB'),
-    additionalAttendees: getAdditionalAttendees(oc(appointment).attendees([])),
+    additionalAttendees: filterLoggedInUser(getAdditionalAttendees(oc(appointment).attendees([])), userCode),
     applicantAttendees: getApplicantAttendees(oc(appointment).attendees([]))
   }
 }
