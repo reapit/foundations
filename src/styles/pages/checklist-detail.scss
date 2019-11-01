@@ -77,3 +77,10 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 767px) {
+  .reverseColumns {
+    flex-direction: column-reverse;
+    display: flex;
+  }
+}
