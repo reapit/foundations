@@ -76,6 +76,14 @@
   }
 }
 
+.isFullHeight {
+  height: 100%;
+}
+
+.btnContainer {
+  text-align: right;
+}
+
 @keyframes spinner {
   to {
     transform: rotate(360deg);
@@ -86,5 +94,9 @@
   .reverseColumns {
     flex-direction: column-reverse;
     display: flex;
+  }
+
+  .btnContainer {
+    text-align: left;
   }
 }
