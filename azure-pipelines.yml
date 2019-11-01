@@ -60,7 +60,7 @@ jobs:
   - deployment: S3DeployWebDev
     displayName: 'Dev | S3 Deployment'
     dependsOn: buildWebApp
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/task/cld-363-fix-desktop-url'))
     pool:
       vmImage: 'ubuntu-latest'
     environment: 'reapit-lifetime-legal-dev'

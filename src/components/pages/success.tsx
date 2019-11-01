@@ -14,7 +14,7 @@ import styles from '@/styles/pages/success.scss?mod'
 import { ReduxState, FormState } from '@/types/core'
 import { connect } from 'react-redux'
 import { submitComplete, submitCompleteSetFormState } from '@/actions/success'
-import { Redirect, RouteComponentProps, withRouter } from 'react-router'
+import { RouteComponentProps, withRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import { ContactModel } from '@/types/contact-api-schema'
 import { oc } from 'ts-optchain'
@@ -45,14 +45,6 @@ export const SuccessPage = ({
   React.useEffect(() => {
     resetSubmitCompleteFormState()
   }, [])
-
-  // if ((submitCompleteFormState === 'SUCCESS' && isRPS) || id === undefined || id !== contact.id) {
-  //   return <Redirect to={Routes.RESULTS} />
-  // }
-
-  // if (submitCompleteFormState === 'SUCCESS' && !isRPS) {
-  //   // code to redirect to "Contact Record" in RPS
-  // }
 
   const dynamicLinkParams = {
     entityType: EntityType.CONTACT,
