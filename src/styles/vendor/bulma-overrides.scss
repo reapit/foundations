@@ -1,7 +1,6 @@
 @import '../base/colors.scss';
 @import '../base/fonts.scss';
 
-
 .media-content {
   & > .text-ellipisis {
     overflow: hidden;
@@ -85,6 +84,11 @@
   }
 }
 
+.file-input-container {
+  max-width: 100%;
+  width: 100%;
+}
+
 .file-label {
   align-items: center;
 
@@ -161,7 +165,8 @@
 .is-secondary,
 .is-danger,
 .is-info {
-  &.input, &.textarea {
+  &.input,
+  &.textarea {
     &:focus {
       box-shadow: none;
     }
@@ -228,4 +233,11 @@
 .modal-card,
 .modal-content {
   margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .reverse-columns {
+    flex-direction: column-reverse;
+    display: flex;
+  }
 }
