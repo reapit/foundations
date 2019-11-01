@@ -47,12 +47,12 @@ export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandl
         <div className="field pb-2">
           <div className={`columns ${styles.reverseColumns}`}>
             <div className="column">
-              <div className="flex items-center">
+              <div className={`${styles.isFullHeight} flex items-center`}>
                 <span>RPS Ref:</span>
                 <span className="ml-1">{id}</span>
               </div>
             </div>
-            <div className="column">
+            <div className={`column ${styles.btnContainer}`}>
               <Button className="mr-2" variant="primary" type="submit" loading={loading} disabled={disabled}>
                 Save
               </Button>
