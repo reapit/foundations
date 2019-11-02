@@ -144,7 +144,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
         renderEmptyResult()
       ) : (
         <FlexContainerBasic hasPadding flexColumn>
-          <FlexContainerBasic hasBackground flexColumn hasPadding>
+          <FlexContainerBasic hasBackground flexColumn hasPadding isScrollable>
             {search && <H3>Show Results for '{searchTitle}'</H3>}
             <div className={styles.tableWrap}>
               <Table scrollable data={data} columns={columns} loading={loading} />

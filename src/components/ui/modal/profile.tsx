@@ -22,24 +22,28 @@ export const renderForm = ({ contact, onNextHandler, isSubmitting }) => ({ value
       <Input type="text" labelText="Mobile" id="mobile" name="mobile" />
       <Input type="text" labelText="Work" id="work" name="work" />
       <Input type="email" labelText="Email" id="email" name="email" />
-      <div className={`flex mt-4 ${styles.footerBetween}`}>
-        <div className="flex items-center">
-          <span>RPS Ref:</span>
-          <span className="ml-1">{id}</span>
-        </div>
-        <div>
-          <Button loading={isSubmitting} type="submit" className="mr-2" variant="primary">
-            Save
-          </Button>
-          <Button
-            disabled={isSubmitting}
-            type="button"
-            variant="primary"
-            dataTest="submit-revision-modal-edit-button"
-            onClick={onNextHandler(values)}
-          >
-            Next
-          </Button>
+      <div className="field pb-2">
+        <div className={`columns ${styles.reverseColumns}`}>
+          <div className="column">
+            <div className={`${styles.isFullHeight} flex items-center`}>
+              <span>RPS Ref:</span>
+              <span className="ml-1">{id}</span>
+            </div>
+          </div>
+          <div className={`column ${styles.btnContainer}`}>
+            <Button loading={isSubmitting} type="submit" className="mr-2" variant="primary">
+              Save
+            </Button>
+            <Button
+              disabled={isSubmitting}
+              type="button"
+              variant="primary"
+              dataTest="submit-revision-modal-edit-button"
+              onClick={onNextHandler(values)}
+            >
+              Next
+            </Button>
+          </div>
         </div>
       </div>
     </Form>
