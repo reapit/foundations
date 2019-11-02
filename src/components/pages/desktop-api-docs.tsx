@@ -7,20 +7,21 @@ const DesktopApiDocsPage: React.SFC = () => {
     <FlexContainerBasic flexColumn hasPadding>
       <Content>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <H3>Desktop API </H3>
-          <H4>Overview</H4>
+          <H3>Desktop API</H3>
+          <H4>Introduction</H4>
+          <H5>Overview</H5>
           <p>
             Applications that are built on our Foundations Platform are able to communicate with Reapit's Agency Cloud
             CRM system. Using a well-defined API, you are able to trigger a wide variety of actions in our award-winning
             desktop application to augment your own applications and build a rich integration between systems.
           </p>
-          <H4>URL Scheme</H4>
+          <H5>URL Scheme</H5>
           <p>
             When a Marketplace application is launched and hosted within Agency Cloud, that application can interact
             with Agency Cloud by using our custom URI scheme. When a user triggers a link with an agencycloud: prefix,
             Agency Cloud will interpret that action and perform the corresponding action.
           </p>
-          <H4>Format</H4>
+          <H5>Format</H5>
           <p>
             Links are structured in a REST style to provide a well-defined and descriptive mechanism for interacting
             with the screens and functionality that Agency Cloud offers. The primary and secondary screens that exist in
@@ -28,28 +29,28 @@ const DesktopApiDocsPage: React.SFC = () => {
             also accept parameters which can be applied to the URI in the usual manner. Full documentation of the
             available interactions is listed below, grouped by primary screen.
           </p>
-          <H3>Property</H3>
-          <H4>Load Property</H4>
+          <H4>Property</H4>
+          <H5>Load Property</H5>
           <p>Opens the property edit screen for the property with specified id</p>
           <p className="mb-4">
             <code>{`agencycloud://properties/{id}`}</code>
           </p>
-          <H4>Perform Matching</H4>
+          <H5>Perform Matching</H5>
           <p>Performs a property to applicant match for the applicant with specified id</p>
           <p className="mb-4">
             <code>{`agencycloud://properties/{id}/match`}</code>
           </p>
-          <H4>Load Journal</H4>
+          <H5>Load Journal</H5>
           <p>Opens the journal screen for the specified property</p>
           <p className="mb-4">
             <code>{`agencycloud://properties/{id}/journal`}</code>
           </p>
-          <H4>Load Offers</H4>
+          <H5>Load Offers</H5>
           <p>Opens the offers screen for the specified property</p>
           <p className="mb-4">
             <code>{`agencycloud://properties/{id}/offers`}</code>
           </p>
-          <H4>Property Search</H4>
+          <H5>Property Search</H5>
           <p>
             Opens advanced search screen in property mode and runs a search with provided parameters. At least one
             parameter is required.
@@ -118,23 +119,23 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H3>Applicants</H3>
-          <H4>Load Applicant</H4>
+          <H4>Applicants</H4>
+          <H5>Load Applicant</H5>
           <p>Opens the applicant edit screen for the applicant with specified id</p>
           <p className="mb-4">
             <code>{`agencycloud://applicants/{id}`}</code>
           </p>
-          <H4>Perform Matching</H4>
+          <H5>Perform Matching</H5>
           <p>Performs a applicant to applicant match for the applicant with specified id</p>
           <p className="mb-4">
             <code>{`agencycloud://applicants/{id}/match`}</code>
           </p>
-          <H4>Load Journal</H4>
+          <H5>Load Journal</H5>
           <p>Opens the journal screen for the specified applicant</p>
           <p className="mb-4">
             <code>{`agencycloud://applicants/{id}/journal`}</code>
           </p>
-          <H4>Applicant Search</H4>
+          <H5>Applicant Search</H5>
           <p>
             Opens advanced search screen in applicant mode and runs a search with provided parameters. At least one
             parameter is required.
@@ -203,8 +204,8 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H3>Appointments</H3>
-          <H4>Load Diary</H4>
+          <H4>Appointments</H4>
+          <H5>Load Diary</H5>
           <p>
             Opens the diary screen to provide a calendar view of appointments for the given date range. The dates don’t
             need to be set, but if you set one, you need to set both. If you don’t set a date range then the current
@@ -248,8 +249,8 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H3>Contacts</H3>
-          <H4>Contact Search</H4>
+          <H4>Contacts</H4>
+          <H5>Contact Search</H5>
           <p>
             Opens advanced search screen in contact mode and runs a search with provided parameters. At least one
             parameter is required.
@@ -312,18 +313,18 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H4>Load Contact</H4>
+          <H5>Load Contact</H5>
           <p>Opens the contact edit screen for the contact with specified id</p>
           <p className="mb-4">
             <code>{`agencycloud://contacts/{id}`}</code>
           </p>
-          <H4>Load Journal</H4>
+          <H5>Load Journal</H5>
           <p>Opens the journal screen for the specified contact</p>
           <p className="mb-4">
             <code>{`agencycloud://contacts/{id}/journal`}</code>
           </p>
-          <H3>Agency Cloud Interaction API</H3>
-          <H4>Overview</H4>
+          <H4>Agency Cloud Interaction API</H4>
+          <H5>Overview</H5>
           <p>
             Not only can Applications built on the Foundations Platform trigger events in the Agency Cloud CRM system,
             but installed apps can also be associated with common actions in Agency Cloud to replace the default
@@ -346,7 +347,7 @@ const DesktopApiDocsPage: React.SFC = () => {
             to be linked to an action. They will just be hosted in the marketplace and launched in Agency Cloud – for
             example the Geo Diary application.
           </p>
-          <H4>Categorisation</H4>
+          <H5>Categorisation</H5>
           <p>
             To be able to associate an application with an action in Agency Cloud the application will need to be given
             a category. This will be required so that Agency Cloud can be confident of the way the application will
@@ -362,8 +363,8 @@ const DesktopApiDocsPage: React.SFC = () => {
             <li>Property Detail Generation (print wizard)</li>
             <li>Applicant Preview</li>
           </ul>
-          <H3>Categories</H3>
-          <H4>Id Check</H4>
+          <H4>Categories</H4>
+          <H5>Id Check</H5>
           <p>
             The category of ID Check will be given to an application that can be used to replace the ID Check screen in
             Agency Cloud. The url that an application with this category would look like would be:
@@ -414,7 +415,7 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H4>Property Detail Generation</H4>
+          <H5>Property Detail Generation</H5>
           <p>
             The category of Property Detail Generation can be given to an application that can replace the standard
             details template generation and brochure ordering process. This application could allow selection of a
@@ -467,7 +468,7 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H4>Applicant Preview</H4>
+          <H5>Applicant Preview</H5>
           <p>
             The category of Applicant Preview would enable an application to be used to display a list of properties to
             a user. The application would need to be able to take a comma separated list of property codes which to

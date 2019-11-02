@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { Formik, Form } from 'formik'
-import { Input, Button, Alert, H1, Level } from '@reapit/elements'
+import { Input, Button, Alert, H1, Level, FormSection, FormHeading, FormSubHeading } from '@reapit/elements'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import { registerValidate } from '@/utils/form/register'
 import { Link } from 'react-router-dom'
@@ -73,63 +73,73 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
               onSubmit={values => developerCreate(values as CreateDeveloperModel)}
               render={() => (
                 <Form noValidate={true} data-test="register-form">
-                  <Input
-                    dataTest="register-name"
-                    type="text"
-                    labelText="Full name"
-                    id="name"
-                    name="name"
-                    placeholder="Joe Developer"
-                  />
-                  <Input
-                    dataTest="register-company-name"
-                    type="text"
-                    labelText="Company name"
-                    id="companyName"
-                    name="companyName"
-                    placeholder="Acme Industries Ltd"
-                  />
-                  <Input
-                    dataTest="register-email"
-                    type="email"
-                    labelText="Email"
-                    id="email"
-                    name="email"
-                    placeholder="name@address.com"
-                  />
-                  <Input
-                    dataTest="register-telephone"
-                    type="tel"
-                    labelText="Telephone"
-                    id="telephone"
-                    name="telephone"
-                    placeholder="0800 800 800"
-                  />
-                  <Input
-                    dataTest="register-password"
-                    type="password"
-                    labelText="Password"
-                    id="password"
-                    name="password"
-                  />
-                  <Input
-                    dataTest="register-confirm-password"
-                    type="password"
-                    labelText="Confirm password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                  />
-                  <Level>
-                    <Button type="submit" loading={isDisabled} variant="primary" disabled={isDisabled} fullWidth>
-                      Register
-                    </Button>
-                  </Level>
-                  <Level>
-                    Already have an account?<Link to={Routes.LOGIN}>Login</Link>
-                  </Level>
-                  {formState === 'ERROR' && (
-                    <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
-                  )}
+                  <FormSection>
+                    <FormHeading>Register for Foundations</FormHeading>
+                    <FormSubHeading>
+                      By registering for the Foundations platform, you will get access to the Reapit developer portal
+                      and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We
+                      look forward to seeing what you build!
+                    </FormSubHeading>
+                    <Input
+                      dataTest="register-name"
+                      type="text"
+                      labelText="Full name"
+                      id="name"
+                      name="name"
+                      placeholder="Joe Developer"
+                    />
+                    <Input
+                      dataTest="register-company-name"
+                      type="text"
+                      labelText="Company name"
+                      id="companyName"
+                      name="companyName"
+                      placeholder="Acme Industries Ltd"
+                    />
+                    <Input
+                      dataTest="register-email"
+                      type="email"
+                      labelText="Email"
+                      id="email"
+                      name="email"
+                      placeholder="name@address.com"
+                    />
+                    <Input
+                      dataTest="register-telephone"
+                      type="tel"
+                      labelText="Telephone"
+                      id="telephone"
+                      name="telephone"
+                      placeholder="0800 800 800"
+                    />
+                    <Input
+                      dataTest="register-password"
+                      type="password"
+                      labelText="Password"
+                      id="password"
+                      name="password"
+                    />
+                    <Input
+                      dataTest="register-confirm-password"
+                      type="password"
+                      labelText="Confirm password"
+                      id="confirmPassword"
+                      name="confirmPassword"
+                    />
+                  </FormSection>
+                  <FormSection>
+                    <Level>
+                      <Button type="submit" loading={isDisabled} variant="primary" disabled={isDisabled} fullWidth>
+                        Register
+                      </Button>
+                    </Level>
+                    <Level>
+                      Already have an account?<Link to={Routes.LOGIN}>Login</Link>
+                    </Level>
+                    {formState === 'ERROR' && (
+                      <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
+                    )}
+                  </FormSection>
                 </Form>
               )}
             />

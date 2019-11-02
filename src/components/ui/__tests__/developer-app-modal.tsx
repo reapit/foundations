@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { DeveloperAppModalInner, DeveloperAppInnerProps, renderScopesCheckbox } from '../developer-app-modal'
+import { DeveloperAppModalInner, DeveloperAppInnerProps, CheckboxElement } from '../developer-app-modal'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { Button } from '@reapit/elements'
 import { Formik } from 'formik'
@@ -25,35 +25,35 @@ describe('DeveloperAppModalInner', () => {
     expect(toJson(shallow(<DeveloperAppModalInner {...props(false, true)} />))).toMatchSnapshot()
   })
 
-  describe('renderScopesCheckbox run correctly', () => {
-    it('when renderScopesCheckBox have scope', () => {
+  describe('CheckboxElement run correctly', () => {
+    it('when CheckboxElement have scope', () => {
       const scopes = [
-        { name: 'Marketplace/developers.read', description: 'Read data about developers' },
-        { name: 'Marketplace/developers.write', description: 'Write data about developers' }
+        { name: 'Marketplace/properties.read', description: 'Read data about properties' },
+        { name: 'Marketplace/properties.write', description: 'Write data about properties' }
       ]
-      const checkboxes = renderScopesCheckbox(scopes)
-      expect(checkboxes).toHaveLength(2)
+      const checkboxes = shallow(<CheckboxElement scopes={scopes} />)
+      expect(checkboxes.find('Checkbox')).toHaveLength(2)
     })
-    it('when renderScopesCheckBox have scope', () => {
-      const scopes = [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }]
-      const checkboxes = renderScopesCheckbox(scopes)
-      expect(checkboxes).toHaveLength(1)
+    it('when CheckboxElement have scope', () => {
+      const scopes = [{ name: 'Marketplace/properties.read', description: 'Read data about properties' }]
+      const checkboxes = shallow(<CheckboxElement scopes={scopes} />)
+      expect(checkboxes.find('Checkbox')).toHaveLength(1)
     })
 
-    it('when renderScopesCheckBox have no scopes', () => {
+    it('when CheckboxElement have no scopes', () => {
       const scopes = undefined
-      const checkboxes = renderScopesCheckbox(scopes)
-      expect(checkboxes).toHaveLength(0)
+      const checkboxes = shallow(<CheckboxElement scopes={scopes} />)
+      expect(checkboxes.find('Checkbox')).toHaveLength(0)
     })
-    it('when renderScopesCheckBox have [] scopes', () => {
+    it('when CheckboxElement have [] scopes', () => {
       const scopes = []
-      const checkboxes = renderScopesCheckbox(scopes)
-      expect(checkboxes).toHaveLength(0)
+      const checkboxes = shallow(<CheckboxElement scopes={scopes} />)
+      expect(checkboxes.find('Checkbox')).toHaveLength(0)
     })
-    it('when renderScopesCheckBox have null scopes', () => {
+    it('when CheckboxElement have null scopes', () => {
       const scopes = []
-      const checkboxes = renderScopesCheckbox(scopes)
-      expect(checkboxes).toHaveLength(0)
+      const checkboxes = shallow(<CheckboxElement scopes={scopes} />)
+      expect(checkboxes.find('Checkbox')).toHaveLength(0)
     })
   })
 })

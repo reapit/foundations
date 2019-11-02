@@ -30,8 +30,6 @@ const ApiDocsPage: React.SFC = () => {
             Alternatively, our <a href="#developersandbox">Developer Sandbox</a> provides a quick start experience to
             quickly get to grips with the platform and start developing.
           </p>
-        </FlexContainerResponsive>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H4>REST</H4>
           <H5 id="httpmethods">HTTP Methods</H5>
           <p>
@@ -127,7 +125,7 @@ const ApiDocsPage: React.SFC = () => {
               },
               {
                 code: '404',
-                title: 'Not found<',
+                title: 'Not found',
                 description: 'The requested resource was not found'
               },
               {
@@ -150,8 +148,6 @@ const ApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-        </FlexContainerResponsive>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H4 id="authorization">Authorization</H4>
           <p>
             The Foundation platform uses <a href="https://openid.net/connect/faq/">OpenID Connect</a> (OIDC) as it's
@@ -215,25 +211,28 @@ const ApiDocsPage: React.SFC = () => {
             authorization code, you need to send it along with the client id issued to your application during
             Marketplace registration to the following endpoint:
           </p>
-          <pre>
-            <code>
-              POST https://foundations.reapit.com/oauth/access_token
-              {`
+          <p className="mb-4">
+            <pre>
+              <code>
+                POST https://foundations.reapit.com/oauth/access_token
+                {`
   {
     "clientId" : "xxxxxxxxxxxxxxxx",
     "code" : "xxxxxxxxxxxxxxx"
   }
               `}
-            </code>
-          </pre>
+              </code>
+            </pre>
+          </p>
           <p>
             Issuing a request with a valid authorization code and client id will provide a response in the following
             format:
           </p>
-          <pre>
-            <code>
-              Content-Type: application/json
-              {`
+          <p className="mb-4">
+            <pre>
+              <code>
+                Content-Type: application/json
+                {`
 {
   "id_token" : "xxxxxxxxxxxxxx"
   "refresh_token" : "xxxxxxxxxxxxxx",
@@ -241,8 +240,9 @@ const ApiDocsPage: React.SFC = () => {
   "expires_in" : 3600,
 }
               `}
-            </code>
-          </pre>
+              </code>
+            </pre>
+          </p>
           <Table
             loading={false}
             columns={[
@@ -274,7 +274,6 @@ const ApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-
           <H5>Create a request</H5>
           <p>
             The access token must then be sent in the Authorization header to be able to access protected Foundation
@@ -289,8 +288,6 @@ const ApiDocsPage: React.SFC = () => {
             <li>The access token contains the required scopes to perform the action that the endpoint requires</li>
             <li>The applications access to the end users data has not been revoked.</li>
           </ul>
-        </FlexContainerResponsive>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H4 id="developersandbox">Developer Sandbox</H4>
           <p>
             You can use the Foundation API in Sandbox mode which provides a set of demonstration data that can be
@@ -313,30 +310,31 @@ const ApiDocsPage: React.SFC = () => {
             Alternatively, our Interactive API Explorer will automatically grant access to sandbox data when you're
             logged into the Developer Portal.
           </p>
-        </FlexContainerResponsive>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H4>Errors</H4>
           <p>
             Unsuccessful requests return an error response in JSON format. This includes a status code, a time stamp and
             textual description of the error:
           </p>
-          <pre>
-            <code>
-              Content-Type: application/json
-              {`
+          <p className="mb-4">
+            <pre>
+              <code>
+                Content-Type: application/json
+                {`
 {
   "statusCode": 404,
   "dateTime": "2019-04-23T18:25:43.511Z",
   "description": "Contact RPT19000001 was not found."
 }
               `}
-            </code>
-          </pre>
+              </code>
+            </pre>
+          </p>
           <p>Validation errors will also include a breakdown of the problems with the submitted payload:</p>
-          <pre>
-            <code>
-              Content-Type: application/json
-              {`
+          <p className="mb-4">
+            <pre>
+              <code>
+                Content-Type: application/json
+                {`
 {
   "statusCode": 422,
   "dateTime": "2019-04-23T18:25:43.511Z",
@@ -350,10 +348,9 @@ const ApiDocsPage: React.SFC = () => {
   ]
 }
               `}
-            </code>
-          </pre>
-        </FlexContainerResponsive>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
+              </code>
+            </pre>
+          </p>
           <H4>Rate limits</H4>
           <p>
             You can make 1000 requests per minute to our APIs. Each response will include HTTP headers to provide
@@ -392,18 +389,18 @@ const ApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-
           <p>
             <br />
             If the rate limit is hit, a response similar to below will be issued:
           </p>
-          <pre>
-            <code>
-              HTTP/1.1 429 Too Many Requests X-RateLimit-Limit: 1000 X-RateLimit-Remaining: 0 X-RateLimit-Reset:
-              1402010983 Retry-After: 30
-              <br />
-              Content-Type: application/json
-              {`
+          <p className="mb-4">
+            <pre>
+              <code>
+                HTTP/1.1 429 Too Many Requests X-RateLimit-Limit: 1000 X-RateLimit-Remaining: 0 X-RateLimit-Reset:
+                1402010983 Retry-After: 30
+                <br />
+                Content-Type: application/json
+                {`
 {
   "statusCode": 429,
   "dateTime": "2019-04-23T18:25:43.511Z",
@@ -412,10 +409,9 @@ const ApiDocsPage: React.SFC = () => {
                   This limit will be reset in 30 seconds."
 }
               `}
-            </code>
-          </pre>
-        </FlexContainerResponsive>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
+              </code>
+            </pre>
+          </p>
           <H4>Pagination</H4>
           <p>
             All collection API resources can be paged and share a common structure in their responses. Page size and
@@ -429,10 +425,11 @@ const ApiDocsPage: React.SFC = () => {
             </code>
           </p>
           <H5>Response</H5>
-          <pre>
-            <code>
-              Content-Type: application/json
-              {`
+          <p className="mb-4">
+            <pre>
+              <code>
+                Content-Type: application/json
+                {`
 {
   "pageNumber": 2,
   "pageSize": 10,
@@ -443,10 +440,9 @@ const ApiDocsPage: React.SFC = () => {
   ]
 }               
               `}
-            </code>
-          </pre>
-        </FlexContainerResponsive>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
+              </code>
+            </pre>
+          </p>
           <H4>Resource expansion</H4>
           <p>
             Some of the top level resources made available by the platform include resource expansion functionality.
@@ -473,10 +469,11 @@ const ApiDocsPage: React.SFC = () => {
           <p>
             A paged response from the <code>/contacts</code> request example above:
           </p>
-          <pre>
-            <code>
-              Content-Type: application/json
-              {`
+          <p className="mb-4">
+            <pre>
+              <code>
+                Content-Type: application/json
+                {`
 {
   "data" :
   [
@@ -505,10 +502,9 @@ const ApiDocsPage: React.SFC = () => {
   "totalCount" : 142,
 }
               `}
-            </code>
-          </pre>
-        </FlexContainerResponsive>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
+              </code>
+            </pre>
+          </p>
           <H4>Metadata</H4>
           <p>
             Resources that support editing have a <code>metadata</code> attribute available in their payload. This
@@ -530,9 +526,7 @@ const ApiDocsPage: React.SFC = () => {
             party applications. Do not store any sensitive information (personally identifiable information, bank
             details, etc.) as metadata.
           </p>
-        </FlexContainerResponsive>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <H4>Versioning</H4>
+          {/* <H4>Versioning</H4> */}
         </FlexContainerResponsive>
       </Content>
     </FlexContainerBasic>

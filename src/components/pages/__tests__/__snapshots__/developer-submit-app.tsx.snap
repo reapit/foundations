@@ -6,38 +6,43 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
     className=""
     data-test="app-input-form"
     flexColumn={true}
-    hasBackground={true}
     hasPadding={true}
   >
-    <H3>
-      Submit App
-    </H3>
-    <Formik
-      enableReinitialize={false}
-      initialValues={
-        Object {
-          "description": "",
-          "developerId": null,
-          "homePage": "",
-          "iconImageData": "",
-          "launchUri": "",
-          "name": "",
-          "screen1ImageData": "",
-          "screen2ImageData": "",
-          "screen3ImageData": "",
-          "screen4ImageData": "",
-          "summary": "",
-          "supportEmail": "",
-          "telephone": "",
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <H3>
+        Submit App
+      </H3>
+      <Formik
+        enableReinitialize={false}
+        initialValues={
+          Object {
+            "description": "",
+            "developerId": null,
+            "homePage": "",
+            "iconImageData": "",
+            "launchUri": "",
+            "name": "",
+            "screen1ImageData": "",
+            "screen2ImageData": "",
+            "screen3ImageData": "",
+            "screen4ImageData": "",
+            "summary": "",
+            "supportEmail": "",
+            "telephone": "",
+          }
         }
-      }
-      isInitialValid={false}
-      onSubmit={[MockFunction]}
-      render={[Function]}
-      validate={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
+        isInitialValid={false}
+        onSubmit={[MockFunction]}
+        render={[Function]}
+        validate={[Function]}
+        validateOnBlur={true}
+        validateOnChange={true}
+      />
+    </FlexContainerResponsive>
   </FlexContainerBasic>
 </Fragment>
 `;
