@@ -1,24 +1,33 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Button, FlexContainerResponsive, H3 } from '@reapit/elements'
+import {
+  Button,
+  FlexContainerResponsive,
+  H3,
+  AcButton,
+  EntityType,
+  LoginMode,
+  DynamicLinkParams
+} from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'
 import styles from '@/styles/pages/success.scss?mod'
 import { ReduxState, FormState } from '@/types/core'
 import { connect } from 'react-redux'
 import { submitComplete, submitCompleteSetFormState } from '@/actions/success'
-import { Redirect, RouteComponentProps, withRouter } from 'react-router'
+import { RouteComponentProps, withRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import { ContactModel } from '@/types/contact-api-schema'
 import { oc } from 'ts-optchain'
 
 export interface SuccessMappedActions {
-  submitComplete: () => void
+  submitComplete: (id: string, dynamicLinkParams: DynamicLinkParams) => void
   resetSubmitCompleteFormState: () => void
 }
 
 export interface SuccessMappedProps {
   submitCompleteFormState: FormState
   contact: ContactModel
+  loginMode: LoginMode
 }
 
 export type SuccessProps = SuccessMappedActions & SuccessMappedProps & RouteComponentProps<{ id?: any }>
@@ -28,22 +37,20 @@ export const SuccessPage = ({
   submitCompleteFormState,
   resetSubmitCompleteFormState,
   contact,
+  loginMode,
   match: {
     params: { id }
   }
 }: SuccessProps) => {
-  const isRPS = true
-
   React.useEffect(() => {
     resetSubmitCompleteFormState()
   }, [])
 
-  if ((submitCompleteFormState === 'SUCCESS' && isRPS) || id === undefined || id !== contact.id) {
-    return <Redirect to={Routes.RESULTS} />
-  }
-
-  if (submitCompleteFormState === 'SUCCESS' && !isRPS) {
-    // code to redirect to "Contact Record" in RPS
+  const dynamicLinkParams = {
+    entityType: EntityType.CONTACT,
+    entityCode: contact.id,
+    appMode: loginMode,
+    webRoute: Routes.HOME
   }
 
   return (
@@ -64,14 +71,18 @@ export const SuccessPage = ({
           <p>Should you have any queries in the meantime, please do not hesitate to contact our team.</p>
         </div>
         <div className={styles.successButton}>
-          <Button
-            variant="primary"
-            type="button"
-            loading={submitCompleteFormState === 'SUBMITTING'}
-            onClick={() => submitComplete()}
+          <AcButton
+            buttonProps={{
+              variant: 'primary',
+              type: 'button',
+              loading: submitCompleteFormState === 'SUBMITTING',
+              disabled: submitCompleteFormState === 'SUBMITTING',
+              onClick: () => submitComplete(id, dynamicLinkParams)
+            }}
+            dynamicLinkParams={dynamicLinkParams}
           >
             Complete Submission
-          </Button>
+          </AcButton>
         </div>
       </FlexContainerResponsive>
     </ErrorBoundary>
@@ -80,11 +91,13 @@ export const SuccessPage = ({
 
 const mapStateToProps = (state: ReduxState): SuccessMappedProps => ({
   submitCompleteFormState: state.success.submitCompleteFormState,
-  contact: oc(state).checklistDetail.checklistDetailData.contact({})
+  contact: oc(state).checklistDetail.checklistDetailData.contact({}),
+  loginMode: oc(state).auth.refreshSession.mode('WEB')
 })
 
 const mapDispatchToProps = (dispatch: any): SuccessMappedActions => ({
-  submitComplete: () => dispatch(submitComplete()),
+  submitComplete: (id: string, dynamicLinkParams: DynamicLinkParams) =>
+    dispatch(submitComplete({ id, dynamicLinkParams })),
   resetSubmitCompleteFormState: () => dispatch(submitCompleteSetFormState('PENDING'))
 })
 
