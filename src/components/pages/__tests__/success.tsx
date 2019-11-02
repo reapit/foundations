@@ -3,11 +3,13 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { SuccessPage, SuccessProps } from '../success'
 import { contact as contactStub } from '@/sagas/__stubs__/contact'
+import { LoginMode } from '@reapit/elements'
 
 const props: SuccessProps = {
   submitComplete: jest.fn(),
   submitCompleteFormState: 'PENDING',
   contact: contactStub,
+  loginMode: 'WEB' as LoginMode,
   // @ts-ignore only pick needed props
   match: {
     params: {
