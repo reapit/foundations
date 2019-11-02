@@ -10,6 +10,7 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
+      isScrollable={true}
     >
       <H3>
         Show Results for '
@@ -2660,6 +2661,7 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
+      isScrollable={true}
     >
       <H3>
         Show Results for '
