@@ -1,14 +1,6 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import {
-  Button,
-  FlexContainerResponsive,
-  H3,
-  AcButton,
-  EntityType,
-  LoginMode,
-  DynamicLinkParams
-} from '@reapit/elements'
+import { FlexContainerResponsive, H3, AcButton, EntityType, LoginMode, DynamicLinkParams } from '@reapit/elements'
 import { FaCheck } from 'react-icons/fa'
 import styles from '@/styles/pages/success.scss?mod'
 import { ReduxState, FormState } from '@/types/core'

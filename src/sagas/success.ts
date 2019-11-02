@@ -7,7 +7,7 @@ import errorMessages from '../constants/error-messages'
 import { DynamicLinkParams, navigateDynamicApp } from '@reapit/elements'
 
 export const submitComplete = function*({
-  data: { id, dynamicLinkParams }
+  data: { dynamicLinkParams }
 }: Action<{ id: string; dynamicLinkParams: DynamicLinkParams }>) {
   yield put(submitCompleteSetFormState('SUBMITTING'))
   try {
