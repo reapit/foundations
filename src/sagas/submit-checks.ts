@@ -1,12 +1,11 @@
 import { submitChecksSetFormState } from '../actions/submit-checks'
-import { put, fork, all, takeLatest, delay, call } from '@redux-saga/core/effects'
+import { put, fork, all, takeLatest, delay } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import routes from '@/constants/routes'
 import { history } from '@/core/router'
-import { DynamicLinkParams, navigateDynamicApp } from '@reapit/elements'
 
 export const submitCheck = function*({ data: id }: Action<string>) {
   yield put(submitChecksSetFormState('SUBMITTING'))

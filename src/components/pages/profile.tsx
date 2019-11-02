@@ -69,7 +69,7 @@ export interface ProfileMappedProps {
 
 export type ProfileProps = ProfileMappedActions & ProfileMappedProps
 
-export const Profile = ({ submitChecksFormState, submitChecks, loading, contact, status, loginMode }: ProfileProps) => {
+export const Profile = ({ submitChecksFormState, submitChecks, loading, contact, status }: ProfileProps) => {
   const [toggle, setToggle] = React.useState<string>('')
 
   const handleToggle = React.useCallback(
