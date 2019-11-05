@@ -278,7 +278,7 @@ export const SubmitApp: React.FunctionComponent<SubmitAppProps> = ({
                       </GridItem>
                     </Grid>
                     <FormSection>
-                      <FormHeading>Permssions</FormHeading>
+                      <FormHeading>Permissions</FormHeading>
                       <FormSubHeading>
                         To access a client's data, you will need to specify the entities you need access to on a read or
                         write basis. You should be familar with these entities from the sandbox. When the user installs
