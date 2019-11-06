@@ -11,7 +11,7 @@ export const history = createBrowserHistory()
 const Login = React.lazy(() => import('../components/pages/login'))
 const Client = React.lazy(() => import('../components/pages/client'))
 const MyApps = React.lazy(() => import('../components/pages/my-apps'))
-const Register = React.lazy(() => import('../components/pages/register'))
+// const Register = React.lazy(() => import('../components/pages/register'))
 const DeveloperHome = React.lazy(() => import('../components/pages/developer-home'))
 const DeveloperSubmitApp = React.lazy(() => import('../components/pages/developer-submit-app'))
 const AdminApprovalsPage = React.lazy(() => import('../components/pages/admin-approvals'))
@@ -29,7 +29,7 @@ const Router = () => (
       <Switch>
         <Route path={Routes.LOGIN} exact render={() => <Login />} />
         <Route path={Routes.ADMIN_LOGIN} exact render={() => <Login />} />
-        <Route path={Routes.REGISTER} exact render={() => <Register />} />
+        {/* <Route path={Routes.REGISTER} exact render={() => <Register />} /> */}
         <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
         <PrivateRouteWrapper path="/">
           <Switch>

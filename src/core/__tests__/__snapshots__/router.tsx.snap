@@ -39,11 +39,6 @@ exports[`Router should match a snapshot 1`] = `
       />
       <Route
         exact={true}
-        path="/register"
-        render={[Function]}
-      />
-      <Route
-        exact={true}
         path="/404"
         render={[Function]}
       />
