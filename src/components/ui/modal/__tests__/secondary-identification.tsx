@@ -28,7 +28,8 @@ describe('SecondaryIdentification', () => {
         checklistDetail: {
           isSubmitting: false,
           checklistDetailData: {
-            contact
+            contact,
+            idCheck
           }
         }
       } as ReduxState
@@ -37,20 +38,21 @@ describe('SecondaryIdentification', () => {
         loading: false,
         contact: contact,
         initFormValues: {
-          ...contact.metadata['secondaryId'][0]['documents'][0],
-          expiry: new Date('2019-10-10T00:00:00Z')
+          ...contact.metadata['primaryId'][0]['documents'][0],
+          expiry: new Date('2019-10-15T10:00:00.00Z')
         }
       }
       expect(result).toEqual(expected)
     })
 
-    xit('should return correctly', () => {
+    it('should return correctly', () => {
       // @ts-ignore: only pick necessary props
       const mockState = {} as ReduxState
       const result = mapStateToProps(mockState)
       const expected = {
         loading: false,
-        contact: undefined,
+        contact: null,
+        idCheck: null,
         initFormValues: {
           details: '',
           expiry: undefined,

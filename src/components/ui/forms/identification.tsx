@@ -70,7 +70,9 @@ export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandl
   )
 }
 
-export const onSubmitHandler = (formValues: IdentityDocumentModel, onSaveHandler) => onSaveHandler(formValues)
+export const onSubmitHandler = (onSaveHandler: (formValues: IdentityDocumentModel) => void) => (
+  formValues: IdentityDocumentModel
+) => onSaveHandler(formValues)
 
 export const Identification: React.FC<IdentificationProps> = ({
   loading,
@@ -83,7 +85,7 @@ export const Identification: React.FC<IdentificationProps> = ({
 }) => (
   <Formik
     initialValues={initFormValues}
-    onSubmit={(formValues: IdentityDocumentModel) => onSubmitHandler(formValues, onSaveHandler)}
+    onSubmit={onSubmitHandler(onSaveHandler)}
     render={renderFormHandler({ contact, loading, onNextHandler, onPrevHandler, disabled })}
   />
 )

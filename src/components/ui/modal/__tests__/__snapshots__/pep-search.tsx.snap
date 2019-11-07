@@ -20,7 +20,62 @@ exports[`pep-search PepSearch should match snapshot 1`] = `
 
 exports[`pep-search renderForm should match snapshot 1`] = `
 <div>
-  <Component />
+  <Form>
+    <div>
+      <Input
+        id="name"
+        labelText="Enter a name"
+        name="name"
+        type="text"
+      />
+      <Button
+        className="mt-2"
+        type="submit"
+        variant="primary"
+      >
+        Search
+      </Button>
+    </div>
+    <FlexContainerBasic>
+      <FaRegTimesCircle />
+      <div>
+        <H4>
+          No Result Found for "
+          a
+          ".
+        </H4>
+        <p>
+          Search conducted for "
+          a
+          " on 
+          1
+        </p>
+      </div>
+    </FlexContainerBasic>
+    <div
+      className="flex justify-end"
+    >
+      <Button
+        className="mr-2"
+        dataTest="prev-btn"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+        variant="primary"
+      >
+        Previous
+      </Button>
+      <Button
+        dataTest="next-btn"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+        variant="primary"
+      >
+        Finish
+      </Button>
+    </div>
+  </Form>
 </div>
 `;
 
