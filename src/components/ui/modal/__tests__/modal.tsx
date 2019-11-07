@@ -1,19 +1,64 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import ProfileModal, { renderContent, STEPS } from '../modal'
+import ProfileModal, { renderContent, STEPS, ID_STATUS } from '../modal'
 import { contact } from '@/sagas/__stubs__/contact'
 
 describe('Modal', () => {
   describe('renderContent', () => {
+    const mockProps = (type: string) => ({
+      id: '123',
+      modalContentType: type,
+      contact: contact,
+      isSubmitting: false,
+      history: {}
+    })
     it('should return Profile', () => {
-      const mockProps = {
-        id: '123',
-        modalContentType: STEPS.PROFILE,
-        contact: contact,
-        isSubmitting: false,
-        history: {}
-      }
-      const result = renderContent(mockProps)
+      const result = renderContent(mockProps(STEPS.PROFILE))
+      const wrapper = shallow(<div>{result}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should return PrimaryId', () => {
+      const result = renderContent(mockProps(STEPS.PRIMARY_IDENTIFICATION))
+      const wrapper = shallow(<div>{result}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should return SecondaryId', () => {
+      const result = renderContent(mockProps(STEPS.SECONDARY_IDENTIFICATION))
+      const wrapper = shallow(<div>{result}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should return Address history', () => {
+      const result = renderContent(mockProps(STEPS.ADDRESS_INFORMATION))
+      const wrapper = shallow(<div>{result}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should return Declaration and Risk', () => {
+      const result = renderContent(mockProps(STEPS.DECLARATION_RISK_MANAGEMENT))
+      const wrapper = shallow(<div>{result}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should return Pep search', () => {
+      const result = renderContent(mockProps(STEPS.PEP_SEARCH))
+      const wrapper = shallow(<div>{result}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should return Report', () => {
+      const result = renderContent(mockProps(STEPS.REPORT))
+      const wrapper = shallow(<div>{result}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should return Update Status', () => {
+      const result = renderContent(mockProps(ID_STATUS.UPDATE))
+      const wrapper = shallow(<div>{result}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should return Update Status Success', () => {
+      const result = renderContent(mockProps(ID_STATUS.SUCCESS))
+      const wrapper = shallow(<div>{result}</div>)
+      expect(wrapper).toMatchSnapshot()
+    })
+    it('should return null', () => {
+      const result = renderContent(mockProps(''))
       const wrapper = shallow(<div>{result}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -23,10 +68,8 @@ describe('Modal', () => {
     it('should match snapshot', () => {
       const mockProps = {
         id: '123',
-        contact: contact,
         visible: true,
         afterClose: jest.fn(),
-        isSubmitting: false,
         modalContentType: STEPS.PROFILE,
         history: {}
       }

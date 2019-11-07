@@ -1,7 +1,7 @@
 import { actionCreator, isType } from '../actions'
 import ActionTypes from '../../constants/action-types'
-import { homeLoading } from '../../actions/home'
 import { Action } from '../../types/core'
+import { homeLoading } from '@/actions/home'
 
 describe('actions utils', () => {
   describe('actionCreator', () => {

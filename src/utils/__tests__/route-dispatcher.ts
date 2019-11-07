@@ -2,14 +2,13 @@ import routeDispatcher from '../route-dispatcher'
 import store from '../../core/store'
 import Routes from '../../constants/routes'
 import { RouteValue } from '../../types/core'
-import { homeRequestData } from '../../actions/home'
+import { checklistDetailRequestData } from '@/actions/checklist-detail'
 
 jest.mock('../../core/store')
-jest.mock('../../sagas/home')
 
 describe('routeDispatcher', () => {
-  it('should dispatch to homeRequestData for the home route', async () => {
-    await routeDispatcher(Routes.HOME as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(homeRequestData())
+  it('should dispatch to checkListDetail for the home route', async () => {
+    await routeDispatcher(Routes.CHECKLIST_DETAIL as RouteValue, { id: '1' })
+    expect(store.dispatch).toHaveBeenCalledWith(checklistDetailRequestData('1'))
   })
 })
