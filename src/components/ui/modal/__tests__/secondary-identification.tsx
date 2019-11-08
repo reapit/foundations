@@ -22,7 +22,7 @@ describe('SecondaryIdentification', () => {
   })
 
   describe('mapStateToProps', () => {
-    xit('should run correctly', () => {
+    it('should run correctly', () => {
       // @ts-ignore: only pick necessary props
       const mockState = {
         checklistDetail: {
@@ -34,12 +34,16 @@ describe('SecondaryIdentification', () => {
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
+      const { typeId, expiry, details } = idCheck.documents[1]
       const expected = {
         loading: false,
         contact: contact,
+        idCheck,
         initFormValues: {
-          ...contact.metadata['primaryId'][0]['documents'][0],
-          expiry: new Date('2019-10-15T10:00:00.00Z')
+          typeId,
+          details,
+          expiry: new Date(expiry),
+          fileUrl: idCheck.metadata.secondaryIdUrl
         }
       }
       expect(result).toEqual(expected)

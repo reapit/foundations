@@ -48,6 +48,8 @@ import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/se
 import { handlePepSearchStatus } from '@/utils/pep-search'
 import { EntityType, navigateDynamicApp, DynamicLinkParams } from '@reapit/elements'
 
+jest.mock('../../core/store.ts')
+
 const mockHeaders = {
   Authorization: '123'
 }
