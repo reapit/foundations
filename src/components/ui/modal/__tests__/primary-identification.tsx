@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import { contact } from '@/sagas/__stubs__/contact'
 import { PrimaryIdentification, mapStateToProps, mapDispatchToProps } from '../primary-identification'
 import { ReduxState } from '@/types/core'
+import { idCheck } from '@/sagas/__stubs__/id-check'
 describe('PrimaryIdentification', () => {
   describe('PrimaryIdentification', () => {
     it('should match snapshot', () => {
@@ -21,23 +22,27 @@ describe('PrimaryIdentification', () => {
   })
 
   describe('mapStateToProps', () => {
-    xit('should run correctly', () => {
+    it('should run correctly', () => {
       // @ts-ignore: only pick necessary props
       const mockState = {
         checklistDetail: {
           isSubmitting: false,
           checklistDetailData: {
-            contact
+            contact,
+            idCheck
           }
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
+      const { typeId, expiry, details } = idCheck.documents[0]
       const expected = {
         loading: false,
         contact: contact,
         initFormValues: {
-          ...contact.metadata['primaryId'][0]['documents'][0],
-          expiry: new Date('2019-10-15T10:00:00.00Z')
+          typeId,
+          details,
+          expiry: new Date(expiry),
+          fileUrl: idCheck.metadata.primaryIdUrl
         }
       }
       expect(result).toEqual(expected)

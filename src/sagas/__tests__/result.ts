@@ -13,7 +13,7 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 
-jest.mock('../../core/store')
+jest.mock('../../core/store.ts')
 
 const mockHeaders = {
   Authorization: '123'

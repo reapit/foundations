@@ -91,8 +91,7 @@ describe('pep-search', () => {
     })
   })
   describe('renderNoResult', () => {
-    // Disabling test as fails on CI owing to mock DayJS issue - see jest.setup for explanation
-    xit('should match snapshot', () => {
+    it('should match snapshot', () => {
       const component = renderNoResult('param', 'time')
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()

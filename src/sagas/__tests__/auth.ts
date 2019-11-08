@@ -10,6 +10,7 @@ import { mockLoginSession } from '../../utils/__mocks__/session'
 import { authLoginSuccess, authLoginFailure } from '@/actions/auth'
 
 jest.mock('../../utils/session')
+jest.mock('../../core/store.ts')
 jest.mock('../../core/router', () => ({
   history: {
     push: jest.fn()
