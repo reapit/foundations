@@ -5,6 +5,32 @@ import { Link } from 'react-router-dom'
 import Routes from '../../constants/routes'
 import apiDocStyles from '@/styles/pages/api-docs.scss?mod'
 
+export const handleOnClickSearchWidget = ({ setCopiedClipboardWidget }) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault()
+
+  const el = document.createElement('textarea')
+  const href = (e.target as HTMLAnchorElement).id
+  el.value = href
+  document.body.appendChild(el)
+  el.select()
+  document.execCommand('copy')
+  document.body.removeChild(el)
+  setCopiedClipboardWidget('copied to clipboard!')
+}
+
+export const handleCopiedClipboardTheme = ({ setCopiedClipboardTheme }) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault()
+
+  const el = document.createElement('textarea')
+  const href = (e.target as HTMLAnchorElement).id
+  el.value = href
+  document.body.appendChild(el)
+  el.select()
+  document.execCommand('copy')
+  document.body.removeChild(el)
+  setCopiedClipboardTheme('copied to clipboard!')
+}
+
 const WebComponentsPage: React.SFC = () => {
   const [copiedClipboardWidgetText, setCopiedClipboardWidget] = React.useState('click here to copy to clipboard')
   const [copiedClipboardThemeText, setCopiedClipboardTheme] = React.useState('click here to copy to clipboard')
@@ -33,18 +59,7 @@ const WebComponentsPage: React.SFC = () => {
             <a
               id="https://demo-site.reapit.com/scripts/search-widget.js"
               href="#"
-              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                e.preventDefault()
-
-                const el = document.createElement('textarea')
-                const href = (e.target as HTMLAnchorElement).id
-                el.value = href
-                document.body.appendChild(el)
-                el.select()
-                document.execCommand('copy')
-                document.body.removeChild(el)
-                setCopiedClipboardWidget('copied to clipboard!')
-              }}
+              onClick={handleOnClickSearchWidget({ setCopiedClipboardWidget })}
             >
               {copiedClipboardWidgetText}
             </a>
@@ -76,18 +91,7 @@ const WebComponentsPage: React.SFC = () => {
                 }
               });`}
               href="#"
-              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                e.preventDefault()
-
-                const el = document.createElement('textarea')
-                const href = (e.target as HTMLAnchorElement).id
-                el.value = href
-                document.body.appendChild(el)
-                el.select()
-                document.execCommand('copy')
-                document.body.removeChild(el)
-                setCopiedClipboardTheme('copied to clipboard!')
-              }}
+              onClick={handleCopiedClipboardTheme({ setCopiedClipboardTheme })}
             >
               {copiedClipboardThemeText}
             </a>

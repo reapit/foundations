@@ -6,7 +6,12 @@ import developerSagas, {
 } from '../developer'
 import ActionTypes from '@/constants/action-types'
 import { call, put, takeLatest, all, fork, select } from '@redux-saga/core/effects'
-import { developerLoading, developerReceiveData, developerRequestDataFailure } from '@/actions/developer'
+import {
+  developerLoading,
+  developerReceiveData,
+  developerRequestDataFailure,
+  developerSetFormState
+} from '@/actions/developer'
 import { MARKETPLACE_HEADERS, URLS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher } from '@reapit/elements'
@@ -19,13 +24,15 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectDeveloperId } from '@/selector/developer'
 import { DeveloperItem } from '@/reducers/developer'
+import { appDetailDataStub } from '../__stubs__/app-detail'
+import { CreateDeveloperModel } from '@/types/marketplace-api-schema'
 
 jest.mock('@reapit/elements')
 
 const params = { data: 1 }
 
 describe('developer fetch data', () => {
-  const gen = cloneableGenerator(developerDataFetch)(params)
+  const gen = cloneableGenerator(developerDataFetch as any)(params)
   const developerId = '72ad4ed6-0df0-4a28-903c-55899cffee85'
 
   expect(gen.next().value).toEqual(put(developerLoading(true)))
@@ -83,6 +90,40 @@ describe('developer fetch data', () => {
         })
       )
     )
+  })
+})
+
+describe('developer create', () => {
+  const params: CreateDeveloperModel = { name: '123', password: '123' }
+  const gen = cloneableGenerator(developerCreate as any)({ data: params })
+  expect(gen.next().value).toEqual(put(developerSetFormState('SUBMITTING')))
+  expect(gen.next().value).toEqual(
+    call(fetcher, {
+      url: URLS.developerCreate,
+      api: REAPIT_API_BASE_URL,
+      method: 'POST',
+      body: params,
+      headers: MARKETPLACE_HEADERS
+    })
+  )
+  it('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next('SUCCESS').value).toEqual(put(developerSetFormState('SUCCESS')))
+    expect(clone.next().done).toEqual(true)
+  })
+  it('api call error', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw('error').value).toEqual(put(developerSetFormState('ERROR')))
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
+    )
+    expect(clone.next().done).toEqual(true)
   })
 })
 

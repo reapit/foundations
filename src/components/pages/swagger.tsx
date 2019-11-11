@@ -7,7 +7,7 @@ import { URLS, MARKETPLACE_HEADERS, SWAGGER_BASE_URL } from '../../constants/api
 import { Loader } from '@reapit/elements'
 import { getAccessToken } from '@/utils/session'
 
-const fetchInterceptor = async (params: RequestInit) => {
+export const fetchInterceptor = async (params: RequestInit) => {
   return {
     ...params,
     headers: {
@@ -17,7 +17,9 @@ const fetchInterceptor = async (params: RequestInit) => {
   }
 }
 
-const SwaggerPage: React.SFC = () => {
+export const handleOnComplete = setLoading => () => setLoading(false)
+
+export const SwaggerPage: React.SFC = () => {
   const [loading, setLoading] = React.useState(true)
 
   return (
@@ -27,7 +29,7 @@ const SwaggerPage: React.SFC = () => {
         <div className={`${loading ? 'swagger-loading' : ''}`}>
           <SwaggerUI
             url={`${SWAGGER_BASE_URL}${URLS.swagger}`}
-            onComplete={() => setLoading(false)}
+            onComplete={handleOnComplete(setLoading)}
             requestInterceptor={fetchInterceptor}
           />
         </div>

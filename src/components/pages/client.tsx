@@ -24,6 +24,14 @@ export interface ClientMappedProps {
   clientId: string
 }
 
+export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
+export const handleOnChange = history => (page: number) => history.push(`${routes.CLIENT}/${page}`)
+export const handleOnCardClick = ({ setVisible, appDetail, fetchAppDetail, clientId }) => (app: AppSummaryModel) => {
+  setVisible(true)
+  if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
+    fetchAppDetail(app.id, clientId)
+  }
+}
 export type ClientProps = ClientMappedActions & ClientMappedProps & RouteComponentProps<{ page?: any }>
 
 export const Client: React.FunctionComponent<ClientProps> = ({
@@ -40,7 +48,6 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   const list = oc<ClientState>(clientState).clientData.data.data([])
   const { totalCount, pageSize } = oc<ClientState>(clientState).clientData.data({})
   const [visible, setVisible] = React.useState(false)
-  const onChange = (page: number) => history.push(`${routes.CLIENT}/${page}`)
 
   if (unfetched || loading) {
     return <Loader />
@@ -51,32 +58,27 @@ export const Client: React.FunctionComponent<ClientProps> = ({
         list={list}
         title="Browse Apps"
         loading={loading}
-        onCardClick={(app: AppSummaryModel) => {
-          setVisible(true)
-          if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
-            fetchAppDetail(app.id, clientId)
-          }
-        }}
+        onCardClick={handleOnCardClick({ setVisible, appDetail, fetchAppDetail, clientId })}
         infoType="CLIENT_APPS_EMPTY"
         pagination={{
           totalCount,
           pageSize,
           pageNumber,
-          onChange
+          onChange: handleOnChange(history)
         }}
       />
-      <AppDetailModal visible={visible} afterClose={() => setVisible(false)} />
+      <AppDetailModal visible={visible} afterClose={handleAfterClose({ setVisible })} />
     </ErrorBoundary>
   )
 }
 
-const mapStateToProps = (state: ReduxState): ClientMappedProps => ({
+export const mapStateToProps = (state: ReduxState): ClientMappedProps => ({
   clientState: state.client,
   appDetail: state.appDetail,
   clientId: selectClientId(state)
 })
 
-const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId }))
 })
 

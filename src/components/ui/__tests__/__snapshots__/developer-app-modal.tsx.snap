@@ -75,7 +75,7 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
       </React.Fragment>
     }
   />
-  <Connect(DeleteAppModal)
+  <AppDeleteModalWithRedux
     afterClose={[Function]}
     onDeleteSuccess={[Function]}
     visible={false}

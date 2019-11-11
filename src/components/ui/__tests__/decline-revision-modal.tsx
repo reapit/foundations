@@ -1,7 +1,12 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { DeclineRevisionModal, DeclineRevisionModalProps } from '../decline-revision-modal'
+import {
+  DeclineRevisionModal,
+  DeclineRevisionModalProps,
+  handleAfterClose,
+  handleOnSubmit
+} from '../decline-revision-modal'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
 const props: DeclineRevisionModalProps = {
@@ -30,5 +35,43 @@ describe('DeclineRevisionModal', () => {
 
   afterEach(() => {
     jest.resetAllMocks()
+  })
+})
+
+describe('handleAfterClose', () => {
+  it('should call afterClose', () => {
+    const mockProps = {
+      isSuccessed: false,
+      onDeclineSuccess: jest.fn(),
+      isLoading: false,
+      afterClose: jest.fn()
+    }
+    const fn = handleAfterClose(mockProps)
+    fn()
+    expect(mockProps.afterClose).toBeCalled()
+  })
+  it('should call onDeclineSuccess', () => {
+    const mockProps = {
+      isSuccessed: true,
+      onDeclineSuccess: jest.fn(),
+      isLoading: true,
+      afterClose: jest.fn()
+    }
+    const fn = handleAfterClose(mockProps)
+    fn()
+    expect(mockProps.onDeclineSuccess).toBeCalled()
+  })
+
+  it('handleOnSubmit', () => {
+    const mockProps = {
+      appId: '123',
+      appRevisionId: '123',
+      setRejectionReason: jest.fn(),
+      submitDeclineRevision: jest.fn()
+    }
+    const fn = handleOnSubmit(mockProps)
+    fn({})
+    expect(mockProps.setRejectionReason).toBeCalled()
+    expect(mockProps.submitDeclineRevision).toBeCalled()
   })
 })

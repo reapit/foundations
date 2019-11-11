@@ -68,3 +68,5 @@ exports[`Client should match a snapshot 1`] = `
   />
 </Connect(ErrorBoundary)>
 `;
+
+exports[`Client should match a snapshot 2`] = `<Loader />`;

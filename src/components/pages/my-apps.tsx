@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReduxState, FormState } from '@/types/core'
 import { MyAppsState } from '@/reducers/my-apps'
-import { Loader, Pagination } from '@reapit/elements'
+import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import { oc } from 'ts-optchain'
@@ -32,6 +32,15 @@ export interface MyAppsMappedProps {
 
 export type MyAppsProps = MyAppsMappedActions & MyAppsMappedProps & RouteComponentProps<{ page?: any }>
 
+export const handleOnChange = history => (page: number) => history.push(`${routes.MY_APPS}/${page}`)
+
+export const handleUseEffect = ({ isSuccess, appUninstallDone, fetchMyApp, pageNumber }) => () => {
+  if (isSuccess) {
+    appUninstallDone()
+    fetchMyApp(pageNumber)
+  }
+}
+
 export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   myAppsState,
   clientId,
@@ -49,15 +58,9 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   const list = oc<MyAppsState>(myAppsState).myAppsData.data.data([])
   const { totalCount, pageSize } = oc<MyAppsState>(myAppsState).myAppsData.data({})
   const [visible, setVisible] = React.useState(false)
-  const isSuccessed = appUninstallFormState === 'SUCCESS'
-  const onChange = (page: number) => history.push(`${routes.MY_APPS}/${page}`)
+  const isSuccess = appUninstallFormState === 'SUCCESS'
 
-  React.useEffect(() => {
-    if (isSuccessed) {
-      appUninstallDone()
-      fetchMyApp(pageNumber)
-    }
-  }, [isSuccessed])
+  React.useEffect(handleUseEffect({ isSuccess, appUninstallDone, fetchMyApp, pageNumber }), [isSuccess])
 
   if (unfetched || loading) {
     return <Loader />
@@ -81,7 +84,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
           totalCount,
           pageSize,
           pageNumber,
-          onChange
+          onChange: handleOnChange(history)
         }}
       />
       <AppDetailModal visible={visible} afterClose={() => setVisible(false)} />
@@ -89,14 +92,14 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   )
 }
 
-const mapStateToProps = (state: ReduxState): MyAppsMappedProps => ({
+export const mapStateToProps = (state: ReduxState): MyAppsMappedProps => ({
   myAppsState: state.myApps,
   appDetail: state.appDetail,
   clientId: selectClientId(state),
   appUninstallFormState: state.appUninstall.formState
 })
 
-const mapDispatchToProps = (dispatch: any): MyAppsMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): MyAppsMappedActions => ({
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
   fetchMyApp: (page: number) => dispatch(myAppsRequestData(page)),
   appUninstallDone: () => dispatch(appUninstallDone())

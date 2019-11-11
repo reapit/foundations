@@ -23,17 +23,28 @@ export interface AppDeleteMappedActions {
 
 export type AppDeleteProps = Pick<ModalProps, 'visible' | 'afterClose'> & AppDeleteMappedActions & AppDeleteMappedProps
 
-const mapStateToProps = (state: ReduxState, ownProps: AppDeleteModalWithConnectOwnProps): AppDeleteMappedProps => ({
+export const mapStateToProps = (
+  state: ReduxState,
+  ownProps: AppDeleteModalWithConnectOwnProps
+): AppDeleteMappedProps => ({
   formState: state.appDelete.formState,
   appName: oc(state.appDetail.appDetailData).data.name(''),
   onDeleteSuccess: ownProps.onDeleteSuccess
 })
 
-const mapDispatchToProps = (dispatch: any): AppDeleteMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): AppDeleteMappedActions => ({
   appDeleteRequest: () => dispatch(appDeleteRequest())
 })
 
-const DeleteAppModal = ({
+export const handleAfterClose = ({ isSuccedded, onDeleteSuccess, isLoading, afterClose }) => () => {
+  if (isSuccedded) {
+    onDeleteSuccess()
+  } else if (!isLoading && afterClose) {
+    afterClose()
+  }
+}
+
+export const DeleteAppModal = ({
   appName,
   formState,
   afterClose,
@@ -47,13 +58,7 @@ const DeleteAppModal = ({
   return (
     <Modal
       visible={visible}
-      afterClose={() => {
-        if (isSuccedded) {
-          onDeleteSuccess()
-        } else if (!isLoading && afterClose) {
-          afterClose()
-        }
-      }}
+      afterClose={handleAfterClose({ isSuccedded, onDeleteSuccess, isLoading, afterClose })}
       renderChildren
     >
       <>
@@ -120,7 +125,11 @@ const DeleteAppModal = ({
   )
 }
 
-export default connect(
+const AppDeleteModalWithRedux = connect(
   mapStateToProps,
   mapDispatchToProps
 )(DeleteAppModal)
+
+AppDeleteModalWithRedux.displayName = 'AppDeleteModalWithRedux'
+
+export default AppDeleteModalWithRedux

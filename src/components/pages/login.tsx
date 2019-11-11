@@ -47,16 +47,23 @@ export const tabConfigs = ({ loginType, authChangeLoginType }: LoginProps): TabC
   }
 ]
 
+export const handleUseEffect = ({ setIsSubmitting, error }) => () => {
+  if (error) {
+    setIsSubmitting(false)
+  }
+}
+
+export const onSubmitHandler = ({ setIsSubmitting, loginType, mode, login }) => values => {
+  setIsSubmitting(true)
+  login({ ...values, loginType, mode })
+}
+
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { hasSession, error, login, loginType, location, authChangeLoginType, mode } = props
   const { disabled, wrapper, container, image, register } = loginStyles
 
-  React.useEffect(() => {
-    if (error) {
-      setIsSubmitting(false)
-    }
-  }, [error])
+  React.useEffect(handleUseEffect({ setIsSubmitting, error }), [error])
 
   if (location.pathname === Routes.ADMIN_LOGIN) {
     authChangeLoginType('ADMIN')
@@ -85,10 +92,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
         <Formik
           validate={validate}
           initialValues={{ userName: '', password: '' } as LoginFormValues}
-          onSubmit={values => {
-            setIsSubmitting(true)
-            login({ ...values, loginType, mode })
-          }}
+          onSubmit={onSubmitHandler({ setIsSubmitting, login, loginType, mode })}
           render={() => (
             <Form noValidate={true} data-test="login-form">
               <Input
@@ -130,14 +134,14 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   )
 }
 
-const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
+export const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
   error: state.auth.error,
   loginType: state.auth.loginType,
   mode: oc(state).auth.refreshSession.mode('WEB')
 })
 
-const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
+export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
   login: (params: LoginParams) => dispatch(authLogin(params)),
   authChangeLoginType: (loginType: string) => dispatch(authChangeLoginType(loginType as LoginType))
 })

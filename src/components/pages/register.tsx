@@ -153,11 +153,11 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
   )
 }
 
-const mapStateToProps = (state: ReduxState): RegisterMappedProps => ({
+export const mapStateToProps = (state: ReduxState): RegisterMappedProps => ({
   formState: state.developer.formState
 })
 
-const mapDispatchToProps = (dispatch: Dispatch): RegisterMappedActions => ({
+export const mapDispatchToProps = (dispatch: Dispatch): RegisterMappedActions => ({
   developerCreate: (developer: CreateDeveloperModel) => dispatch(developerCreate(developer))
 })
 

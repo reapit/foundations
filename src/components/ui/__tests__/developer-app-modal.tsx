@@ -1,10 +1,18 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { DeveloperAppModalInner, DeveloperAppInnerProps, CheckboxElement } from '../developer-app-modal'
+import {
+  DeveloperAppModalInner,
+  DeveloperAppInnerProps,
+  CheckboxElement,
+  handleUseEffect,
+  mapStateToProps,
+  mapDispatchToProps
+} from '../developer-app-modal'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { Button } from '@reapit/elements'
 import { Formik } from 'formik'
+import { ReduxState } from '@/types/core'
 
 // @ts-ignore: just need to pick relevant props to test
 const props = (loading: boolean, error: boolean): DeveloperAppInnerProps => ({
@@ -54,6 +62,72 @@ describe('DeveloperAppModalInner', () => {
       const scopes = []
       const checkboxes = shallow(<CheckboxElement scopes={scopes} />)
       expect(checkboxes.find('Checkbox')).toHaveLength(0)
+    })
+  })
+
+  describe('handleUseEffect', () => {
+    it('should run correctly', () => {
+      const mockProps = {
+        isSucceeded: true,
+        setDeveloperAppModalStateViewDetail: jest.fn(),
+        closeParentModal: jest.fn()
+      }
+      const fn = handleUseEffect(mockProps)
+      fn()
+      expect(mockProps.closeParentModal).toBeCalled()
+      expect(mockProps.setDeveloperAppModalStateViewDetail).toBeCalled()
+    })
+  })
+
+  describe('mapStateToProps', () => {
+    it('should run correctly', () => {
+      // @ts-ignore: only pick neccessary component
+      const mockState = {
+        developer: {
+          developerData: {
+            scopes: []
+          }
+        },
+        appDetail: {},
+        submitRevision: {}
+      } as ReduxState
+      const mockOwnProps = {
+        closeParentModal: jest.fn()
+      }
+      const result = mapStateToProps(mockState, mockOwnProps)
+      expect(result).toEqual({
+        allScopes: [],
+        appDetailState: {},
+        closeParentModal: mockOwnProps.closeParentModal,
+        submitRevisionState: {}
+      })
+    })
+  })
+
+  describe('mapDispatchToProps', () => {
+    it('submitRevision', () => {
+      const mockDispatch = jest.fn()
+      const { submitRevision } = mapDispatchToProps(mockDispatch)
+      submitRevision('123', { scopes: [] })
+      expect(mockDispatch).toBeCalled()
+    })
+    it('submitRevisionSetFormState', () => {
+      const mockDispatch = jest.fn()
+      const { submitRevisionSetFormState } = mapDispatchToProps(mockDispatch)
+      submitRevisionSetFormState('PENDING')
+      expect(mockDispatch).toBeCalled()
+    })
+    it('setDeveloperAppModalStateEditDetail', () => {
+      const mockDispatch = jest.fn()
+      const { setDeveloperAppModalStateEditDetail } = mapDispatchToProps(mockDispatch)
+      setDeveloperAppModalStateEditDetail()
+      expect(mockDispatch).toBeCalled()
+    })
+    it('setDeveloperAppModalStateViewDetail', () => {
+      const mockDispatch = jest.fn()
+      const { setDeveloperAppModalStateViewDetail } = mapDispatchToProps(mockDispatch)
+      setDeveloperAppModalStateViewDetail()
+      expect(mockDispatch).toBeCalled()
     })
   })
 })

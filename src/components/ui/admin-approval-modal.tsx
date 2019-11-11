@@ -49,6 +49,20 @@ export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: Scop
   return !!result
 }
 
+export const handleOnApproveSuccess = ({ closeParentModal, setIsApproveModalOpen }) => () => {
+  closeParentModal && closeParentModal()
+  setIsApproveModalOpen(false)
+}
+
+export const handleOnDeclineSuccess = ({ closeParentModal, setIsDeclineModalOpen }) => () => {
+  closeParentModal && closeParentModal()
+  setIsDeclineModalOpen(false)
+}
+
+export const handleSetIsApproveModal = (setIsApproveModalOpen, value) => () => setIsApproveModalOpen(value)
+
+export const handleSetIsDeclineModal = (setIsDeclineModalOpen, value) => () => setIsDeclineModalOpen(value)
+
 export const renderCheckboxesDiff = ({
   scopes,
   appScopes,
@@ -131,19 +145,13 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
       />
       <ApproveRevisionModal
         visible={isApproveModalOpen}
-        afterClose={() => setIsApproveModalOpen(false)}
-        onApproveSuccess={() => {
-          closeParentModal && closeParentModal()
-          setIsApproveModalOpen(false)
-        }}
+        afterClose={handleSetIsApproveModal(setIsApproveModalOpen, false)}
+        onApproveSuccess={handleOnApproveSuccess({ closeParentModal, setIsApproveModalOpen })}
       />
       <DeclineRevisionModal
         visible={isDeclineModalOpen}
-        afterClose={() => setIsDeclineModalOpen(false)}
-        onDeclineSuccess={() => {
-          closeParentModal && closeParentModal()
-          setIsDeclineModalOpen(false)
-        }}
+        afterClose={handleSetIsDeclineModal(setIsDeclineModalOpen, false)}
+        onDeclineSuccess={handleOnDeclineSuccess({ closeParentModal, setIsDeclineModalOpen })}
       />
 
       <ModalBody
@@ -187,7 +195,7 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
               className="mr-2"
               variant="primary"
               type="button"
-              onClick={() => setIsApproveModalOpen(true)}
+              onClick={handleSetIsApproveModal(setIsApproveModalOpen, true)}
               dataTest="revision-approve-button"
             >
               Approve
@@ -195,7 +203,7 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
             <Button
               variant="danger"
               type="button"
-              onClick={() => setIsDeclineModalOpen(true)}
+              onClick={handleSetIsDeclineModal(setIsDeclineModalOpen, true)}
               data-test="revision-decline-button"
             >
               Decline

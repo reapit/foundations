@@ -30,7 +30,7 @@ export interface AppDetailModalMappedActions {
 
 export type AppDetailProps = AppDetailModalMappedActions & AppDetailModalMappedProps & AppDetailModalInnerProps
 
-const SlickButtonNav = ({ currentSlide, setAppDetailModalStateViewConfirm, slideCount, children, ...props }) => (
+export const SlickButtonNav = ({ currentSlide, setAppDetailModalStateViewConfirm, slideCount, children, ...props }) => (
   <button {...props}>{children}</button>
 )
 
