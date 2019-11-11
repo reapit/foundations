@@ -35,10 +35,7 @@ export const mapDispatchToProps = (
   onClick: handleOnClick(dispatch, ownProps)
 })
 
-const CurrentLocButtonWithRedux = connect(
-  null,
-  mapDispatchToProps
-)(ViewDetailButton)
+const CurrentLocButtonWithRedux = connect(null, mapDispatchToProps)(ViewDetailButton)
 
 CurrentLocButtonWithRedux.displayName = 'CurrentLocButtonWithRedux'
 

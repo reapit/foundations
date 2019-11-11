@@ -1,7 +1,6 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import { connect } from 'react-redux'
-import { oc } from 'ts-optchain'
 import { TiTimes, TiTick, TiMail, TiHome, TiPhoneOutline, TiDevicePhone } from 'react-icons/ti'
 import { FaClock, FaMale, FaHome, FaStickyNote, FaHandshake } from 'react-icons/fa'
 import { Dispatch } from 'redux'
@@ -179,7 +178,7 @@ export const renderApplicantAttendees = (attendees: AttendeeModel[], loginMode: 
           <div className={appointmentDetailTextContainer}>
             <div className={styles.appointmentDetailIconContainer}>
               <FaMale />
-              <H6>{capitalizeFirstLetter(oc(attendee).type(''))}:</H6>
+              <H6>{capitalizeFirstLetter(attendee?.type || '')}:</H6>
             </div>
             <p>
               <div className="mb-2">
@@ -193,7 +192,7 @@ export const renderApplicantAttendees = (attendees: AttendeeModel[], loginMode: 
                   <p>{attendee.name}</p>
                 </AcLink>
               </div>
-              {renderCommunicationDetail(oc(attendee).communicationDetails([]))}
+              {renderCommunicationDetail(attendee?.communicationDetails || [])}
             </p>
           </div>
         )
@@ -273,11 +272,11 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   additionalAttendees,
   applicantAttendees
 }) => {
-  let address = oc(appointment).property.address()
-  const typeId = oc(appointment).typeId()
-  const propertyId = oc(appointment).property.id()
+  let address = appointment?.property?.address
+  const typeId = appointment?.typeId
+  const propertyId = appointment?.property?.id
   const basicAddress = address
-    ? `${oc(address).buildingName('')} ${oc(address).buildingNumber('')} ${oc(address).line1('')}`
+    ? `${address?.buildingName || ''} ${address?.buildingNumber || ''} ${address?.line1 || ''}`
     : ''
 
   const type =
@@ -294,12 +293,12 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
         <Loader />
       ) : (
         <>
-          {renderDateTime(oc(appointment).property.address(), appointment)}
+          {renderDateTime(appointment?.property?.address, appointment)}
           {renderAdditionalAttendees(additionalAttendees, loginMode)}
           {renderApplicantAttendees(applicantAttendees, loginMode)}
           {renderAddress(loginMode, address, propertyId)}
           {renderNotes(appointment.description)}
-          {renderArrangements(oc(appointment).property.arrangements(''))}
+          {renderArrangements(appointment?.property?.arrangements || '')}
         </>
       )}
     </Modal>
@@ -343,7 +342,7 @@ export const getLoggedInUser = (
 // Get attendees types: negotiator, office
 export const getAdditionalAttendees = (attendees: AttendeeModel[]) => {
   return attendees.filter(attendee => {
-    const attendeeType = oc(attendee).type('')
+    const attendeeType = attendee?.type || ''
     return ['negotiator', 'office'].includes(attendeeType)
   })
 }
@@ -351,22 +350,22 @@ export const getAdditionalAttendees = (attendees: AttendeeModel[]) => {
 // Get attendees types: landlord, contact, applicant, tenant
 export const getApplicantAttendees = (attendees: AttendeeModel[]) => {
   return attendees.filter(attendee => {
-    const attendeeType = oc(attendee).type('')
+    const attendeeType = attendee?.type || ''
     return ['landlord', 'contact', 'applicant', 'tenant'].includes(attendeeType)
   })
 }
 
 export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps => {
-  const appointment = oc(state).appointmentDetail.appointmentDetail({})
-  const userCode = oc(state).auth.loginSession.loginIdentity.userCode('')
+  const appointment = state?.appointmentDetail?.appointmentDetail || {}
+  const userCode = state?.auth?.loginSession?.loginIdentity?.userCode || ''
   return {
     appointment: appointment,
     visible: state.appointmentDetail.isModalVisible,
     isLoading: state.appointmentDetail.loading,
     appointmentTypes: state.appointments.appointmentTypes,
-    loginMode: oc(state).auth.refreshSession.mode('WEB'),
-    additionalAttendees: filterLoggedInUser(getAdditionalAttendees(oc(appointment).attendees([])), userCode),
-    applicantAttendees: getApplicantAttendees(oc(appointment).attendees([]))
+    loginMode: state?.auth?.refreshSession?.mode || 'WEB',
+    additionalAttendees: filterLoggedInUser(getAdditionalAttendees(appointment?.attendees || []), userCode),
+    applicantAttendees: getApplicantAttendees(appointment?.attendees || [])
   }
 }
 
@@ -378,10 +377,7 @@ export const mapDispatchToProps = (dispatch: Dispatch): AppointmentDetailMappedA
   afterClose: () => dispatch(appointmentDetailHideModal())
 })
 
-const AppointmentDetailWithRedux = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppointmentModal)
+const AppointmentDetailWithRedux = connect(mapStateToProps, mapDispatchToProps)(AppointmentModal)
 
 AppointmentDetailWithRedux.displayName = 'AppointmentDetailWithRedux'
 

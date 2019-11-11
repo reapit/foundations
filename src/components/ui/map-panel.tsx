@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Button } from '@reapit/elements'
-import { oc } from 'ts-optchain'
 import mapStyles from '@/styles/pages/map.scss?mod'
 import { isIOS } from '@/utils/device-detection'
 import { isMobile } from '../../utils/device-detection'
@@ -53,15 +52,15 @@ export const getMapUrl = ({
   mapUrl += '://maps.google.com/maps?'
 
   if (
-    oc(currentLocation.lat)(UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER &&
-    oc(currentLocation.lng)(UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER
+    (currentLocation?.lat || UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER &&
+    (currentLocation?.lng || UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER
   ) {
     mapUrl += `saddr=${currentLocation.lat},${currentLocation.lng}&`
   }
 
   if (
-    oc(destination.lat)(UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER &&
-    oc(destination.lng)(UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER
+    (destination?.lat || UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER &&
+    (destination?.lng || UNDEFINED_LATLNG_NUMBER) !== UNDEFINED_LATLNG_NUMBER
   ) {
     mapUrl += `daddr=${destination.lat},${destination.lng}`
   }
@@ -110,8 +109,8 @@ export const MapPanel = ({
 
 export const mapStateToProps = (state: ReduxState) => {
   return {
-    isDesktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP',
-    filterType: oc(state).appointments.time('Today')
+    isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
+    filterType: state?.appointments?.time || 'Today'
   }
 }
 
@@ -123,10 +122,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
   }
 }
 
-const MapPanelWithRedux = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MapPanel)
+const MapPanelWithRedux = connect(mapStateToProps, mapDispatchToProps)(MapPanel)
 MapPanelWithRedux.displayName = 'MapPanelWithRedux'
 
 export default MapPanelWithRedux

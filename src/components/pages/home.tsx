@@ -4,7 +4,6 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import { ReduxState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AppointmentsState, AppointmentsTime } from '@/reducers/appointments'
-import { oc } from 'ts-optchain'
 import { Loader, Tabs, TabConfig, ButtonGroup, Button } from '@reapit/elements'
 import { AppointmentList } from '../ui/appointment-list'
 import { appointmentsRequestData, setSelectedAppointment } from '@/actions/appointments'
@@ -58,7 +57,7 @@ export const tabConfigs = ({ currentTab, changeHomeTab }): TabConfig[] => [
 const filterTimes: AppointmentsTime[] = ['Today', 'Tomorrow', 'Week View']
 
 export const handleUseEffect = ({ appointmentsState, requestNextAppointment, travelMode }) => () => {
-  const hasAppointments = oc(appointmentsState).appointments.data([]).length > 0
+  const hasAppointments = (appointmentsState?.appointments?.data || []).length > 0
   if (appointmentsState.time === 'Today' && hasAppointments && !appointmentsState.loading) {
     requestNextAppointment(travelMode)
   }
@@ -85,7 +84,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   const unfetched = !appointmentsState.appointments
   const loading = appointmentsState.loading
   const selectedAppointment = appointmentsState.selectedAppointment
-  const list = oc<AppointmentsState>(appointmentsState).appointments.data([])
+  const list = appointmentsState?.appointments?.data || []
   const time = appointmentsState.time
   const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
   const isMobileView = isMobile()
@@ -160,7 +159,7 @@ export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   appointmentsState: state.appointments,
   nextAppointmentState: state.nextAppointment,
   currentTab: state.home.homeTab,
-  desktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP',
+  desktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
   isOnline: selectOnlineStatus(state)
 })
 
@@ -179,9 +178,4 @@ export const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({
   }
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Home)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home))
