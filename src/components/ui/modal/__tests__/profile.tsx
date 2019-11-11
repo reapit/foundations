@@ -9,7 +9,9 @@ describe('profile', () => {
     it('should match snapshot', () => {
       const mockOnNextHandler = jest.fn()
       const mockIsSubmitting = false
-      const component = renderForm({ contact, onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })
+      const component = renderForm({ contact, onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })({
+        values: {}
+      })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -18,7 +20,9 @@ describe('profile', () => {
     it('should match snapshot', () => {
       const mockOnNextHandler = jest.fn()
       const mockIsSubmitting = false
-      const component = renderForm({ contact, onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })
+      const component = renderForm({ contact, onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })({
+        values: {}
+      })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -77,10 +81,16 @@ describe('profile', () => {
     })
   })
   describe('mapDispatchToProps', () => {
-    it('should run correctly', () => {
+    it('should run correctly onNextHandler', () => {
       const mockDispatch = jest.fn()
       const { onNextHandler } = mapDispatchToProps(mockDispatch)
       onNextHandler({})()
+      expect(mockDispatch).toBeCalled()
+    })
+    it('should run correctly onSubmitHandler', () => {
+      const mockDispatch = jest.fn()
+      const { onSubmitHandler } = mapDispatchToProps(mockDispatch)
+      onSubmitHandler({})
       expect(mockDispatch).toBeCalled()
     })
   })
