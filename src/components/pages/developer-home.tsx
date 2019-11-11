@@ -28,6 +28,25 @@ export interface DeveloperMappedProps {
   isVisible: boolean
 }
 
+export const handleOnCardClick = ({
+  setVisible,
+  appDetail,
+  fetchAppDetail,
+  setDeveloperAppModalStateViewDetail,
+  appDeleteSetInitFormState
+}) => (app: AppSummaryModel) => {
+  setVisible(true)
+  setDeveloperAppModalStateViewDetail()
+  appDeleteSetInitFormState()
+  if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
+    fetchAppDetail(app.id)
+  }
+}
+
+export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
+
+export const handleOnChange = history => (page: number) => history.push(`${routes.DEVELOPER_MY_APPS}/${page}`)
+
 export type DeveloperProps = DeveloperMappedActions & DeveloperMappedProps & RouteComponentProps<{ page?: any }>
 
 export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
@@ -46,7 +65,6 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   const loading = developerState.loading
   const list = oc<DeveloperState>(developerState).developerData.data.data([])
   const { totalCount, pageSize } = oc<DeveloperState>(developerState).developerData.data({})
-  const onChange = (page: number) => history.push(`${routes.DEVELOPER_MY_APPS}/${page}`)
 
   if (unfetched || loading) {
     return <Loader />
@@ -58,34 +76,33 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
         list={list}
         title="My Apps"
         loading={loading}
-        onCardClick={(app: AppSummaryModel) => {
-          setVisible(true)
-          setDeveloperAppModalStateViewDetail()
-          appDeleteSetInitFormState()
-          if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
-            fetchAppDetail(app.id)
-          }
-        }}
+        onCardClick={handleOnCardClick({
+          setVisible,
+          appDetail,
+          fetchAppDetail,
+          setDeveloperAppModalStateViewDetail,
+          appDeleteSetInitFormState
+        })}
         infoType="DEVELOPER_APPS_EMPTY"
         pagination={{
           totalCount,
           pageSize,
           pageNumber,
-          onChange
+          onChange: handleOnChange(history)
         }}
       />
-      <DeveloperAppModal visible={isVisible} afterClose={() => setVisible(false)} />
+      <DeveloperAppModal visible={isVisible} afterClose={handleAfterClose({ setVisible })} />
     </ErrorBoundary>
   )
 }
 
-const mapStateToProps = (state: ReduxState): DeveloperMappedProps => ({
+export const mapStateToProps = (state: ReduxState): DeveloperMappedProps => ({
   developerState: state.developer,
   appDetail: state.appDetail,
   isVisible: state.developer.isVisible
 })
 
-const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
   fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id })),
   setDeveloperAppModalStateViewDetail: () => dispatch(setDeveloperAppModalStateViewDetail()),
   appDeleteSetInitFormState: () => dispatch(appDeleteSetInitFormState()),

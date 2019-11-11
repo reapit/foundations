@@ -43,6 +43,20 @@ export type ApproveRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose
   ApproveRevisionModalMappedProps &
   ApproveRevisionModalMappedActions
 
+export const handleAfterClose = ({ isSuccessed, onApproveSuccess, isLoading, afterClose }) => () => {
+  if (isSuccessed) {
+    onApproveSuccess()
+  } else if (!isLoading && afterClose) {
+    afterClose()
+  }
+}
+
+export const handleOnSubmit = ({ appId, appRevisionId, submitApproveRevision }) => formValues => {
+  if (appId && appRevisionId) {
+    submitApproveRevision({ appId, appRevisionId, ...formValues })
+  }
+}
+
 export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalProps> = ({
   visible = true,
   afterClose,
@@ -63,21 +77,11 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
     <Modal
       visible={visible}
       renderChildren
-      afterClose={() => {
-        if (isSuccessed) {
-          onApproveSuccess()
-        } else if (!isLoading && afterClose) {
-          afterClose()
-        }
-      }}
+      afterClose={handleAfterClose({ isSuccessed, onApproveSuccess, isLoading, afterClose })}
     >
       <Formik
         initialValues={{ email, name } as ApproveModel}
-        onSubmit={formValues => {
-          if (appId && appRevisionId) {
-            submitApproveRevision({ appId, appRevisionId, ...formValues })
-          }
-        }}
+        onSubmit={handleOnSubmit({ appRevisionId, submitApproveRevision, appId })}
         data-test="revision-approve-form"
         render={() => {
           return isSuccessed ? (

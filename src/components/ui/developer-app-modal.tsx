@@ -87,6 +87,13 @@ export const CheckboxElement: React.SFC<{ scopes?: ScopeModel[] }> = ({ scopes =
   )
 }
 
+export const handleUseEffect = ({ isSucceeded, setDeveloperAppModalStateViewDetail, closeParentModal }) => () => {
+  if (isSucceeded) {
+    setDeveloperAppModalStateViewDetail()
+    closeParentModal && closeParentModal()
+  }
+}
+
 export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerProps> = ({
   allScopes,
   appDetailState,
@@ -111,12 +118,9 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     }
   }, [])
 
-  React.useEffect(() => {
-    if (isSucceeded) {
-      setDeveloperAppModalStateViewDetail()
-      closeParentModal && closeParentModal()
-    }
-  }, [isSucceeded])
+  React.useEffect(handleUseEffect({ isSucceeded, setDeveloperAppModalStateViewDetail, closeParentModal }), [
+    isSucceeded
+  ])
 
   if (appDetailState.loading) {
     return <ModalBody body={<Loader />} />
@@ -412,14 +416,17 @@ interface DeveloperAppModalOwnProps {
   closeParentModal?: () => void
 }
 
-const mapStateToProps = (state: ReduxState, ownState: DeveloperAppModalOwnProps): DeveloperAppModalMappedProps => ({
+export const mapStateToProps = (
+  state: ReduxState,
+  ownProps: DeveloperAppModalOwnProps
+): DeveloperAppModalMappedProps => ({
   allScopes: (state.developer.developerData && state.developer.developerData.scopes) || [],
   appDetailState: state.appDetail,
   submitRevisionState: state.submitRevision,
-  closeParentModal: ownState.closeParentModal
+  closeParentModal: ownProps.closeParentModal
 })
 
-const mapDispatchToProps = (dispatch: any): DeveloperAppModalMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): DeveloperAppModalMappedActions => ({
   submitRevision: (id, revision) => {
     const scopes = transformObjectToDotNotation(revision.scopes as ScopeObject)
     dispatch(submitRevision({ ...revision, id, scopes }))

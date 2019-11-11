@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
-import { AppDetail, AppDetailProps, mapDispatchToProps } from '../app-detail'
+import { mount, shallow } from 'enzyme'
+import { AppDetail, AppDetailProps, mapDispatchToProps, SlickButtonNav } from '../app-detail'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import { setAppDetailModalStateViewConfirm, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 
@@ -55,5 +55,20 @@ describe('AppDetailModalInner', () => {
       mappedSetDeveloperAppModalStateDelete()
       expect(mockedDispatch).toHaveBeenNthCalledWith(1, setDeveloperAppModalStateDelete())
     })
+  })
+})
+
+describe('SlickButtonNav', () => {
+  it('should match snapshot', () => {
+    const mockProps = {
+      currentSlide: '',
+      setAppDetailModalStateViewConfirm: jest.fn(),
+      slideCount: jest.fn()
+    }
+    const wrapper = shallow(
+      <SlickButtonNav {...mockProps}>
+        <div>mockComponent</div>
+      </SlickButtonNav>
+    )
   })
 })

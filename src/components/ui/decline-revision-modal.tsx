@@ -46,6 +46,23 @@ export type DeclineRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose
   DeclineRevisionModalMappedProps &
   DeclineRevisionModalMappedActions
 
+export const handleAfterClose = ({ isSuccessed, onDeclineSuccess, isLoading, afterClose }) => () => {
+  if (isSuccessed) {
+    onDeclineSuccess()
+  } else if (!isLoading && afterClose) {
+    afterClose()
+  }
+}
+
+export const handleOnSubmit = ({ appId, appRevisionId, setRejectionReason, submitDeclineRevision }) => (
+  formValues: RejectRevisionModel
+) => {
+  if (appId && appRevisionId) {
+    setRejectionReason(formValues.rejectionReason || '')
+    submitDeclineRevision({ appId, appRevisionId, ...formValues })
+  }
+}
+
 export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalProps> = ({
   visible,
   submitDeclineRevision,
@@ -66,24 +83,13 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
     <Modal
       visible={visible}
       renderChildren
-      afterClose={() => {
-        if (isSuccessed) {
-          onDeclineSuccess()
-        } else if (!isLoading && afterClose) {
-          afterClose()
-        }
-      }}
+      afterClose={handleAfterClose({ isSuccessed, onDeclineSuccess, isLoading, afterClose })}
     >
       <Formik
         initialValues={{ email, name, rejectionReason } as RejectRevisionModel}
         data-test="revision-decline-form"
         validate={validate}
-        onSubmit={(formValues: RejectRevisionModel) => {
-          if (appId && appRevisionId) {
-            setRejectionReason(formValues.rejectionReason || '')
-            submitDeclineRevision({ appId, appRevisionId, ...formValues })
-          }
-        }}
+        onSubmit={handleOnSubmit({ appId, appRevisionId, setRejectionReason, submitDeclineRevision })}
         render={() => {
           return isSuccessed ? (
             <ModalBody

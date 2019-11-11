@@ -29,6 +29,10 @@ export type AdminApprovalsProps = AdminApprovalsMappedActions &
   AdminApprovalsMappedProps &
   RouteComponentProps<{ page?: any }>
 
+export const handleAfterClose = ({ setIsModalOpen }) => () => setIsModalOpen(false)
+
+export const handleOnPageChange = history => page => history.push(`${routes.ADMIN_APPROVALS}/${page}`)
+
 export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
   approvalsState,
   match,
@@ -118,24 +122,24 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
           </div>
         )}
         <Pagination
-          onChange={page => history.push(`${routes.ADMIN_APPROVALS}/${page}`)}
+          onChange={handleOnPageChange(history)}
           totalCount={totalCount}
           pageSize={pageSize}
           pageNumber={pageNumber}
         />
       </FlexContainerResponsive>
-      <AdminApprovalModal visible={isModalOpen} afterClose={() => setIsModalOpen(false)} />
+      <AdminApprovalModal visible={isModalOpen} afterClose={handleAfterClose({ setIsModalOpen })} />
     </ErrorBoundary>
   )
 }
 
-const mapStateToProps = (state: ReduxState): AdminApprovalsMappedProps => ({
+export const mapStateToProps = (state: ReduxState): AdminApprovalsMappedProps => ({
   approvalsState: state.adminApprovals,
   appDetail: state.appDetail,
   revisionDetail: state.revisionDetail
 })
 
-const mapDispatchToProps = (dispatch: any): AdminApprovalsMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): AdminApprovalsMappedActions => ({
   fetchRevisionDetail: param => dispatch(revisionDetailRequestData(param)),
   fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id }))
 })

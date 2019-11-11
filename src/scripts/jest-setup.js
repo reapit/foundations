@@ -1,3 +1,4 @@
+
 const Adapter = require('enzyme-adapter-react-16')
 const Enzyme = require('enzyme')
 const fetchMock = require('jest-fetch-mock')
@@ -25,6 +26,16 @@ const mockStorage = (() => {
 
 Object.defineProperty(window, 'localStorage', {
   value: mockStorage
+})
+
+Object.defineProperty(document, 'execCommand', {
+  value: jest.fn(),
+});
+
+Object.defineProperty(window, 'location', {
+  value: {
+    href: ''
+  }
 })
 
 // https://github.com/akiran/react-slick/issues/742

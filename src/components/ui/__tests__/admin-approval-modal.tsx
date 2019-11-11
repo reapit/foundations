@@ -5,7 +5,11 @@ import {
   AdminApprovalModalInner,
   AdminApprovalInnerProps,
   isAppearInScope,
-  renderCheckboxesDiff
+  renderCheckboxesDiff,
+  handleOnApproveSuccess,
+  handleOnDeclineSuccess,
+  handleSetIsDeclineModal,
+  handleSetIsApproveModal
 } from '../admin-approval-modal'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
@@ -84,5 +88,45 @@ describe('renderCheckboxesDiff', () => {
       revisionScopes: scopes
     })
     expect(checkboxes).toHaveLength(3)
+  })
+})
+
+describe('handleOnApproveSuccess', () => {
+  it('should call function correctly', () => {
+    const closeParentModal = jest.fn()
+    const setIsApproveModalOpen = jest.fn()
+    const fn = handleOnApproveSuccess({ closeParentModal, setIsApproveModalOpen })
+    fn()
+    expect(closeParentModal).toBeCalled()
+    expect(setIsApproveModalOpen).toBeCalled()
+  })
+})
+
+describe('handleOnDeclineSuccess', () => {
+  it('should call function correctly', () => {
+    const closeParentModal = jest.fn()
+    const setIsDeclineModalOpen = jest.fn()
+    const fn = handleOnDeclineSuccess({ closeParentModal, setIsDeclineModalOpen })
+    fn()
+    expect(closeParentModal).toBeCalled()
+    expect(setIsDeclineModalOpen).toBeCalled()
+  })
+})
+
+describe('handleSetIsDeclineModal', () => {
+  it('should call function correctly', () => {
+    const setIsDeclineModalOpen = jest.fn()
+    const fn = handleSetIsDeclineModal(setIsDeclineModalOpen, true)
+    fn()
+    expect(setIsDeclineModalOpen).toBeCalled()
+  })
+})
+
+describe('handleSetIsApproveModal', () => {
+  it('should call function correctly', () => {
+    const setIsApproveModalOpen = jest.fn()
+    const fn = handleSetIsApproveModal(setIsApproveModalOpen, true)
+    fn()
+    expect(setIsApproveModalOpen).toBeCalled()
   })
 })
