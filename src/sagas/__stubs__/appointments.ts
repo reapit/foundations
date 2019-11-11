@@ -70,7 +70,7 @@ export const appointmentsDataStub: AppointmentsData = {
         id: 'BED1600537',
         created: '2019-05-08T17:00:15',
         modified: '2016-12-14T17:25:22',
-        start: '2019-05-09T13:30:00',
+        start: '2019-10-10T22:45:00',
         end: '2019-05-09T14:00:00',
         typeId: 'VW',
         recurring: false,

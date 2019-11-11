@@ -57,7 +57,7 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
     try {
       const {
         coords: { latitude, longitude }
-      } = yield getCurrentPosition()
+      } = yield call(getCurrentPosition)
 
       const testLatitude = 52.130189
       const testLongitude = -0.757117

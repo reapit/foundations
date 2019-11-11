@@ -29,11 +29,46 @@ export interface LoginFormValues {
 
 export type LoginProps = LoginMappedActions & LoginMappedProps & RouteComponentProps
 
-export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginFormValues) => {
+export const onSubmitHandler = (setIsSubmitting: any, login: any) => (values: LoginFormValues) => {
   const { email, password } = values
 
   setIsSubmitting(true)
   login({ userName: email, password, loginType: LOGIN_TYPE.CLIENT } as LoginParams)
+}
+
+export const renderForm = ({ isSubmitting, error }) => () => (
+  <Form data-test="login-form">
+    <Input
+      dataTest="login-email"
+      type="email"
+      labelText="Email"
+      id="email"
+      name="email"
+      placeholder="name@address.com"
+    />
+    <Input
+      dataTest="login-password"
+      type="password"
+      labelText="Password"
+      id="password"
+      name="password"
+      placeholder="Enter your password"
+    />
+
+    <Level>
+      <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
+        Login
+      </Button>
+    </Level>
+
+    {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
+  </Form>
+)
+
+export const handleUseEffect = ({ setIsSubmitting, error }) => () => {
+  if (error) {
+    setIsSubmitting(false)
+  }
 }
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
@@ -41,11 +76,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   const { hasSession, error, login } = props
   const { disabled, wrapper, container, image } = loginStyles
 
-  React.useEffect(() => {
-    if (error) {
-      setIsSubmitting(false)
-    }
-  }, [error])
+  React.useEffect(handleUseEffect({ setIsSubmitting, error }), [error])
 
   if (hasSession) {
     return <Redirect to={Routes.HOME} />
@@ -60,35 +91,8 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
         <Formik
           validate={validate}
           initialValues={{ email: '', password: '' } as LoginFormValues}
-          onSubmit={values => onSubmitHandler(setIsSubmitting, login, values)}
-          render={() => (
-            <Form data-test="login-form">
-              <Input
-                dataTest="login-email"
-                type="email"
-                labelText="Email"
-                id="email"
-                name="email"
-                placeholder="name@address.com"
-              />
-              <Input
-                dataTest="login-password"
-                type="password"
-                labelText="Password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-              />
-
-              <Level>
-                <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
-                  Login
-                </Button>
-              </Level>
-
-              {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
-            </Form>
-          )}
+          onSubmit={onSubmitHandler(setIsSubmitting, login)}
+          render={renderForm({ isSubmitting, error })}
         />
       </div>
 
@@ -99,12 +103,12 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   )
 }
 
-const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
+export const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
   error: state.auth.error
 })
 
-const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
+export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
   login: (params: LoginParams) => dispatch(authLogin(params))
 })
 

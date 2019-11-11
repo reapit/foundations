@@ -8,13 +8,15 @@ export interface TravelModeProps {
   onChangeTravelMode: (mode: string) => void
 }
 
+export const handleOnClick = ({ onChangeTravelMode, travelMode }) => () => onChangeTravelMode(travelMode)
+
 export const TravelMode = ({ travelMode, onChangeTravelMode }: TravelModeProps) => (
   <ButtonGroup>
     <Button
       type="button"
       variant="secondary"
       className={travelMode === 'DRIVING' ? 'is-selected is-info' : ''}
-      onClick={() => onChangeTravelMode('DRIVING')}
+      onClick={handleOnClick({ onChangeTravelMode, travelMode: 'DRIVING' })}
     >
       Car
     </Button>
@@ -22,7 +24,7 @@ export const TravelMode = ({ travelMode, onChangeTravelMode }: TravelModeProps) 
       type="button"
       variant="secondary"
       className={travelMode === 'WALKING' ? 'is-selected is-info' : ''}
-      onClick={() => onChangeTravelMode('WALKING')}
+      onClick={handleOnClick({ onChangeTravelMode, travelMode: 'WALKING' })}
     >
       Walk
     </Button>

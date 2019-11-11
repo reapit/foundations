@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AppointmentList } from '../appointment-list'
+import { AppointmentList, handleUseEffect } from '../appointment-list'
 import toJson from 'enzyme-to-json'
 import { shallow } from 'enzyme'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
@@ -37,5 +37,18 @@ describe('AppointmentList', () => {
         )
       )
     ).toMatchSnapshot()
+  })
+
+  describe('handleUseEffect', () => {
+    it('should run correctly', () => {
+      const mockRefAppointment = {
+        current: {
+          scrollIntoView: jest.fn()
+        }
+      }
+      const fn = handleUseEffect({ refAppointment: mockRefAppointment })
+      fn()
+      expect(mockRefAppointment.current.scrollIntoView).toBeCalled()
+    })
   })
 })

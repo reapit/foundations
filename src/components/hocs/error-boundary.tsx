@@ -51,11 +51,11 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   }
 }
 
-const mapStateToProps = (state: ReduxState): ErrorMappedProps => ({
+export const mapStateToProps = (state: ReduxState): ErrorMappedProps => ({
   componentError: state.error.componentError
 })
 
-const mapDispatchToProps = (dispatch: Dispatch): ErrorMappedActions => ({
+export const mapDispatchToProps = (dispatch: Dispatch): ErrorMappedActions => ({
   errorThrownComponent: (error: ErrorData) => dispatch(errorThrownComponent(error))
 })
 

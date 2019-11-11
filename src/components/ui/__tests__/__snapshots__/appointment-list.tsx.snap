@@ -181,7 +181,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
                     },
                   },
                   "recurring": false,
-                  "start": "2019-05-09T13:30:00",
+                  "start": "2019-10-10T22:45:00",
                   "typeId": "VW",
                 }
               }
@@ -212,7 +212,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
               "icon": <FaClock
                 className="icon-list-icon"
               />,
-              "text": "01:30 PM - 02:00 PM",
+              "text": "10:45 PM - 02:00 PM",
             },
           ]
         }
