@@ -13,6 +13,10 @@ describe('Alert', () => {
     expect(wrapper.props().type).toEqual('danger')
     wrapper.setProps({ type: 'warning' })
     expect(wrapper.props().type).toEqual('warning')
+    wrapper.setProps({ type: 'success' })
+    expect(wrapper.props().type).toEqual('success')
+    wrapper.setProps({ type: 'info' })
+    expect(wrapper.props().type).toEqual('info')
   })
 
   it('should allow custom className', () => {
@@ -30,6 +34,12 @@ describe('Alert', () => {
     const wrapper = shallow(<Alert message="Error message" afterClose={mockCallBack} closable />)
     wrapper.find('button').simulate('click')
     expect(mockCallBack).toBeCalledTimes(1)
+  })
+
+  it('simulates closeButton event when afterClose is not func', () => {
+    const mockCallBack = undefined
+    const wrapper = shallow(<Alert message="Error message" afterClose={mockCallBack} closable />)
+    wrapper.find('button').simulate('click')
   })
 
   afterEach(() => {

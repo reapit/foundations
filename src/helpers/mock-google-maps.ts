@@ -1,5 +1,5 @@
 /* tslint:disable */
-const createMockFuncsFromArray = (instance, names: string[] = []) => {
+const createMockFuncsFromArray = (instance: any, names: string[] = []) => {
   names.forEach(name => {
     instance[name] = jest.fn().mockName(name)
   })
@@ -7,7 +7,7 @@ const createMockFuncsFromArray = (instance, names: string[] = []) => {
 
 const createGoogleMapsMock = (libraries = []) => {
   const createMVCObject = (instance: any) => {
-    const listeners = {}
+    const listeners: any = {}
     instance.listeners = listeners
 
     instance.addListener = jest
@@ -21,7 +21,7 @@ const createGoogleMapsMock = (libraries = []) => {
             if (index !== -1) {
               listeners[event].splice(index, 1)
             }
-          },
+          }
         }
       })
       .mockName('addListener')
@@ -34,20 +34,20 @@ const createGoogleMapsMock = (libraries = []) => {
       BOUNCE: 1,
       DROP: 2,
       Lo: 3,
-      Go: 4,
+      Go: 4
     },
     BicyclingLayer: jest.fn().mockImplementation(function() {
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
+      // @ts-ignore
       createMockFuncsFromArray(this, ['setMap'])
     }),
     Circle: jest.fn().mockImplementation(function(opts) {
-      //@ts-ignore
+      // @ts-ignore
       this.opts = opts
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
+      // @ts-ignore
       createMockFuncsFromArray(this, [
         'setCenter',
         'setDraggable',
@@ -55,7 +55,7 @@ const createGoogleMapsMock = (libraries = []) => {
         'setMap',
         'setOptions',
         'setRadius',
-        'setVisible',
+        'setVisible'
       ])
     }),
     ControlPosition: {
@@ -74,30 +74,30 @@ const createGoogleMapsMock = (libraries = []) => {
       BOTTOM: 11,
       BOTTOM_CENTER: 11,
       BOTTOM_RIGHT: 12,
-      CENTER: 13,
+      CENTER: 13
     },
     Data: jest.fn().mockImplementation(function(options) {
-//@ts-ignore
+      // @ts-ignore
       this.options = options
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
+      // @ts-ignore
       createMockFuncsFromArray(this, ['setControlPosition', 'setControls', 'setDrawingMode', 'setMap', 'setStyle'])
     }),
     DirectionsRenderer: jest.fn().mockImplementation(function(opts) {
-//@ts-ignore
+      // @ts-ignore
       this.opts = opts
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
+      // @ts-ignore
       createMockFuncsFromArray(this, ['setDirections', 'setMap', 'setOptions', 'setPanel', 'setRouteIndex'])
     }),
     DirectionsService: jest.fn().mockImplementation(function(opts) {
-//@ts-ignore
+      // @ts-ignore
       this.opts = opts
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
+      // @ts-ignore
       createMockFuncsFromArray(this, ['route'])
     }),
     DirectionsStatus: {
@@ -108,22 +108,22 @@ const createGoogleMapsMock = (libraries = []) => {
       OVER_QUERY_LIMIT: 'OVER_QUERY_LIMIT',
       REQUEST_DENIED: 'REQUEST_DENIED',
       UNKNOWN_ERROR: 'UNKNOWN_ERROR',
-      ZERO_RESULTS: 'ZERO_RESULTS',
+      ZERO_RESULTS: 'ZERO_RESULTS'
     },
     DirectionsTravelMode: {
       BICYCLING: 'BICYCLING',
       DRIVING: 'DRIVING',
       TRANSIT: 'TRANSIT',
-      WALKING: 'WALKING',
+      WALKING: 'WALKING'
     },
     DirectionsUnitSystem: {
       IMPERIAL: 1,
-      METRIC: 0,
+      METRIC: 0
     },
     DistanceMatrixElementStatus: {
       NOT_FOUND: 'NOT_FOUND',
       OK: 'OK',
-      ZERO_RESULTS: 'ZERO_RESULTS',
+      ZERO_RESULTS: 'ZERO_RESULTS'
     },
     DistanceMatrixService: function() {},
     DistanceMatrixStatus: {
@@ -133,7 +133,7 @@ const createGoogleMapsMock = (libraries = []) => {
       OK: 'OK',
       OVER_QUERY_LIMIT: 'OVER_QUERY_LIMIT',
       REQUEST_DENIED: 'REQUEST_DENIED',
-      UNKNOWN_ERROR: 'UNKNOWN_ERROR',
+      UNKNOWN_ERROR: 'UNKNOWN_ERROR'
     },
     ElevationService: function() {},
     ElevationStatus: {
@@ -142,14 +142,14 @@ const createGoogleMapsMock = (libraries = []) => {
       OK: 'OK',
       OVER_QUERY_LIMIT: 'OVER_QUERY_LIMIT',
       REQUEST_DENIED: 'REQUEST_DENIED',
-      UNKNOWN_ERROR: 'UNKNOWN_ERROR',
+      UNKNOWN_ERROR: 'UNKNOWN_ERROR'
     },
     FusionTablesLayer: jest.fn().mockImplementation(function(options) {
-//@ts-ignore
+      // @ts-ignore
       this.options = options
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
+      // @ts-ignore
       createMockFuncsFromArray(this, ['setMap', 'setOptions'])
     }),
     Geocoder: function() {},
@@ -157,7 +157,7 @@ const createGoogleMapsMock = (libraries = []) => {
       APPROXIMATE: 'APPROXIMATE',
       GEOMETRIC_CENTER: 'GEOMETRIC_CENTER',
       RANGE_INTERPOLATED: 'RANGE_INTERPOLATED',
-      ROOFTOP: 'ROOFTOP',
+      ROOFTOP: 'ROOFTOP'
     },
     GeocoderStatus: {
       ERROR: 'ERROR',
@@ -166,20 +166,18 @@ const createGoogleMapsMock = (libraries = []) => {
       OVER_QUERY_LIMIT: 'OVER_QUERY_LIMIT',
       REQUEST_DENIED: 'REQUEST_DENIED',
       UNKNOWN_ERROR: 'UNKNOWN_ERROR',
-      ZERO_RESULTS: 'ZERO_RESULTS',
+      ZERO_RESULTS: 'ZERO_RESULTS'
     },
     GroundOverlay: function() {},
     ImageMapType: function() {},
-    InfoWindow: function(opts) {
-      //@ts-ignore
+    InfoWindow: jest.fn().mockImplementation(function(opts: any) {
+      // @ts-ignore
       this.opts = opts
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
-      createMockFuncsFromArray(this, [
-        'setContent'
-      ])
-    },
+      // @ts-ignore
+      createMockFuncsFromArray(this, ['setContent', 'open'])
+    }),
     KmlLayer: function() {},
     KmlLayerStatus: {
       DOCUMENT_NOT_FOUND: 'DOCUMENT_NOT_FOUND',
@@ -190,39 +188,34 @@ const createGoogleMapsMock = (libraries = []) => {
       LIMITS_EXCEEDED: 'LIMITS_EXECEEDED',
       OK: 'OK',
       TIMED_OUT: 'TIMED_OUT',
-      UNKNOWN: 'UNKNOWN',
+      UNKNOWN: 'UNKNOWN'
     },
-    //@ts-ignore
-    LatLng: function(lat, lng) {
-      //@ts-ignore
+    // @ts-ignore
+    LatLng: jest.fn().mockImplementation(function() {
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
-      createMockFuncsFromArray(this, [
-        'setMap'
-      ])
-    },
-    LatLngBounds: function() {
-      //@ts-ignore
+      // @ts-ignore
+      createMockFuncsFromArray(this, ['setMap', 'lat', 'lng'])
+    }),
+    LatLngBounds: jest.fn().mockImplementation(function() {
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
-      createMockFuncsFromArray(this, [
-        'getCenter',
-        'extend'
-      ])
-    },
+      // @ts-ignore
+      createMockFuncsFromArray(this, ['getCenter', 'extend', 'getPosition'])
+    }),
     MVCArray: function() {},
     MVCObject: jest.fn().mockImplementation(function() {
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
     }),
     Map: jest.fn().mockImplementation(function(mapDiv, opts) {
-      //@ts-ignore
+      // @ts-ignore
       this.mapDiv = mapDiv
-      //@ts-ignore
+      // @ts-ignore
       this.opts = opts
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
+      // @ts-ignore
       createMockFuncsFromArray(this, [
         'setCenter',
         'setClickableIcons',
@@ -234,7 +227,7 @@ const createGoogleMapsMock = (libraries = []) => {
         'setZoom',
         'fitBounds',
         'getBounds',
-        'panToBounds',
+        'panToBounds'
       ])
     }),
     MapTypeControlStyle: {
@@ -242,21 +235,21 @@ const createGoogleMapsMock = (libraries = []) => {
       DROPDOWN_MENU: 2,
       HORIZONTAL_BAR: 1,
       INSET: 3,
-      INSET_LARGE: 4,
+      INSET_LARGE: 4
     },
     MapTypeId: {
       HYBRID: 'hybrid',
       ROADMAP: 'roadmap',
       SATELLITE: 'satellite',
-      TERRAIN: 'terrain',
+      TERRAIN: 'terrain'
     },
     MapTypeRegistry: function() {},
     Marker: jest.fn().mockImplementation(function(opts) {
-//@ts-ignore
+      // @ts-ignore
       this.opts = opts
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
+      // @ts-ignore
       createMockFuncsFromArray(this, [
         'setMap',
         'setOpacity',
@@ -277,7 +270,7 @@ const createGoogleMapsMock = (libraries = []) => {
     },
     MaxZoomStatus: {
       ERROR: 'ERROR',
-      OK: 'OK',
+      OK: 'OK'
     },
     NavigationControlStyle: {
       ANDROID: 2,
@@ -285,7 +278,7 @@ const createGoogleMapsMock = (libraries = []) => {
       Mo: 4,
       SMALL: 1,
       ZOOM_PAN: 3,
-      ik: 5,
+      ik: 5
     },
     OverlayView: function() {},
     Point: function() {},
@@ -294,29 +287,29 @@ const createGoogleMapsMock = (libraries = []) => {
     Rectangle: function() {},
     SaveWidget: function() {},
     ScaleControlStyle: {
-      DEFAULT: 0,
+      DEFAULT: 0
     },
     Size: function() {},
     StreetViewCoverageLayer: function() {},
     StreetViewPanorama: function() {},
     StreetViewPreference: {
       BEST: 'best',
-      NEAREST: 'nearest',
+      NEAREST: 'nearest'
     },
     StreetViewService: function() {},
     StreetViewSource: {
       DEFAULT: 'default',
-      OUTDOOR: 'outdoor',
+      OUTDOOR: 'outdoor'
     },
     StreetViewStatus: {
       OK: 'OK',
       UNKNOWN_ERROR: 'UNKNOWN_ERROR',
-      ZERO_RESULTS: 'ZERO_RESULTS',
+      ZERO_RESULTS: 'ZERO_RESULTS'
     },
     StrokePosition: {
       CENTER: 0,
       INSIDE: 1,
-      OUTSIDE: 2,
+      OUTSIDE: 2
     },
     StyledMapType: function() {},
     SymbolPath: {
@@ -324,25 +317,25 @@ const createGoogleMapsMock = (libraries = []) => {
       BACKWARD_OPEN_ARROW: 4,
       CIRCLE: 0,
       FORWARD_CLOSED_ARROW: 1,
-      FORWARD_OPEN_ARROW: 2,
+      FORWARD_OPEN_ARROW: 2
     },
     TrafficLayer: jest.fn().mockImplementation(function(opts) {
-//@ts-ignore
+      // @ts-ignore
       this.opts = opts
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
+      // @ts-ignore
       createMockFuncsFromArray(this, ['setMap', 'setOptions'])
     }),
     TrafficModel: {
       BEST_GUESS: 'bestguess',
       OPTIMISTIC: 'optimistic',
-      PESSIMISTIC: 'pessimistic',
+      PESSIMISTIC: 'pessimistic'
     },
     TransitLayer: jest.fn().mockImplementation(function() {
-      //@ts-ignore
+      // @ts-ignore
       createMVCObject(this)
-      //@ts-ignore
+      // @ts-ignore
       createMockFuncsFromArray(this, ['setMap'])
     }),
     TransitMode: {
@@ -350,40 +343,40 @@ const createGoogleMapsMock = (libraries = []) => {
       RAIL: 'RAIL',
       SUBWAY: 'SUBWAY',
       TRAIN: 'TRAIN',
-      TRAM: 'TRAM',
+      TRAM: 'TRAM'
     },
     TransitRoutePreference: {
       FEWER_TRANSFERS: 'FEWER_TRANSFERS',
-      LESS_WALKING: 'LESS_WALKING',
+      LESS_WALKING: 'LESS_WALKING'
     },
     TravelMode: {
       BICYCLING: 'BICYCLING',
       DRIVING: 'DRIVING',
       TRANSIT: 'TRANSIT',
-      WALKING: 'WALKING',
+      WALKING: 'WALKING'
     },
     UnitSystem: {
       IMPERIAL: 1,
-      METRIC: 0,
+      METRIC: 0
     },
     ZoomControlStyle: {
       DEFAULT: 0,
       LARGE: 2,
       SMALL: 1,
-      ik: 3,
+      ik: 3
     },
     __gjsload__: function() {},
     event: {
       clearInstanceListeners: jest.fn().mockName('clearInstanceListeners'),
       addListener: jest.fn().mockName('addListener')
-    },
+    }
   }
   if (libraries.includes('places' as never)) {
     // @ts-ignore
     maps.places = {
       AutocompleteService: jest.fn(() => ({
-        getPlacePredictions: jest.fn(),
-      })),
+        getPlacePredictions: jest.fn()
+      }))
     }
   }
 

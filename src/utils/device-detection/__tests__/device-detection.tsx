@@ -1,10 +1,21 @@
-import { isAndroid, isIOS, isMacLike } from '../device-detection'
+import React from 'react'
+import { isAndroid, isIOS, isMacLike, isMobile } from '../device-detection'
+import { mount } from 'enzyme'
 
 let userAgentGetter
 
+const TestHook = ({ callback }) => {
+  return callback()
+}
+const testHook = callback => {
+  mount(<TestHook callback={callback} />)
+}
+
 describe('device-detection', () => {
+  let result: boolean
   beforeEach(() => {
     userAgentGetter = jest.spyOn(window.navigator, 'userAgent', 'get')
+    testHook(() => (result = isMobile()))
   })
   it('isAndroid', () => {
     userAgentGetter.mockReturnValue(
@@ -25,5 +36,9 @@ describe('device-detection', () => {
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'
     )
     expect(isMacLike()).toBeTruthy()
+  })
+  it('isMobile', () => {
+    const output = false
+    expect(result).toEqual(output)
   })
 })

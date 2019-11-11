@@ -188,6 +188,19 @@ describe('Map', () => {
       expect(mockMap.fitBounds).toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
     })
+
+    it('should not call setCenter', () => {
+      setZoomAndCenter({
+        bounds: mockBounds,
+        center: {},
+        zoom: undefined,
+        map: mockMap,
+        markers: [],
+        googleMaps: mockGoogleMaps
+      })
+      expect(mockMap.setZoom).toBeCalledWith(10)
+      expect(mockMap.setCenter).toBeCalled()
+    })
   })
 
   describe('renderDirectionAndMarkers', () => {
@@ -225,7 +238,7 @@ describe('Map', () => {
 
   describe('handleOnLoaded', () => {
     it('should run correctly', () => {
-      handleOnLoaded({
+      const fn = handleOnLoaded({
         googleMapsRef: {
           current: mockGoogleMaps
         },
@@ -241,6 +254,7 @@ describe('Map', () => {
         boundsRef: mockBounds,
         onLoaded: mockOnLoadedDirection
       })
+      fn(mockGoogleMaps, mockMap)
       expect(mockOnLoadedDirection).toBeCalled()
     })
   })
@@ -334,7 +348,7 @@ describe('Map', () => {
   })
   describe('handleUseEffect', () => {
     it('should run correctly', () => {
-      const result = handleUseEffect({
+      const fn = handleUseEffect({
         googleMapsRef: {
           current: mockGoogleMaps
         },
@@ -362,6 +376,8 @@ describe('Map', () => {
         markerCallBack,
         destinationAddress: ''
       })
+      expect(fn).toBeDefined()
+      const result = fn()
       expect(result).toBeDefined()
     })
 

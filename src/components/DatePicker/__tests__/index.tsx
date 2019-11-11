@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import { DatePicker, DatePickerProps } from '../index'
+import { DatePicker, DatePickerProps, CustomInput } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
 
@@ -13,8 +13,32 @@ const props: DatePickerProps = {
 }
 
 describe('Date-time picker', () => {
-  it('should map value correctly from textbox to formik', (done) => {
+  describe('DatePicker', () => {
+    it('should match a snapshot', () => {
+      expect(shallow(<DatePicker {...props} />)).toMatchSnapshot()
+    })
+  })
+
+  describe('CustomInput', () => {
+    it('should match a snapshot', () => {
+      const mockProps = {
+        onChange: jest.fn(),
+        value: '',
+        id: 'mockId',
+        onClick: jest.fn(),
+        className: ''
+      }
+      expect(shallow(<CustomInput {...mockProps} />)).toMatchSnapshot()
+    })
+  })
+
+  it('should map value correctly from textbox to formik', done => {
     const submitCallback = jest.fn()
+    const mockEvent = {
+      target: {
+        value: '22/11/1997'
+      }
+    }
     const wrapper = mount(
       <Formik
         initialValues={{ test: '1997-11-20T17:00:00' }}
@@ -28,13 +52,8 @@ describe('Date-time picker', () => {
         }}
       />
     )
-
     const input = wrapper.find('input')
-    input.simulate('change', {
-      target: {
-        value: '22/11/1997'
-      }
-    })
+    input.simulate('change', mockEvent)
 
     // onChange
     const form = wrapper.find('form')
@@ -43,7 +62,7 @@ describe('Date-time picker', () => {
     setTimeout(() => {
       expect(submitCallback.mock.calls[0][0]).toMatchObject({ test: '1997-11-22T00:00:00' })
       done()
-    }, 1);
+    }, 1)
   })
 
   describe('should map value correctly from formik to text box', () => {
@@ -83,7 +102,7 @@ describe('Date-time picker', () => {
       const input = wrapper.find('input')
       expect(input.props().value).toBe('')
     })
-    it('handles normal case', (done) => {
+    it('handles normal case', done => {
       const wrapper = mount(
         <Formik
           initialValues={{ test: '1997-11-20T17:00:00' }}
@@ -116,10 +135,6 @@ describe('Date-time picker', () => {
     })
   })
 
-  it('should match a snapshot', () => {
-    expect(toJson(shallow(<DatePicker {...props} />))).toMatchSnapshot()
-  })
-
   it('should work when integrating with Formik', () => {
     const wrapper = mount(
       <Formik
@@ -133,5 +148,19 @@ describe('Date-time picker', () => {
       />
     )
     expect(wrapper.find('label')).toHaveLength(1)
+  })
+
+  it('simulate on blur', () => {
+    const mockProps = {
+      onChange: jest.fn(),
+      value: '',
+      id: 'mockId',
+      onClick: jest.fn(),
+      className: ''
+    }
+    const wrapper = shallow(<CustomInput {...mockProps} />)
+    const inputWrapper = wrapper.find('input')
+    inputWrapper.simulate('blur')
+    expect(inputWrapper.props().value).toEqual('')
   })
 })

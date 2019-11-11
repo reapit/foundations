@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import { MemoryRouter } from 'react-router'
 import toJson from 'enzyme-to-json'
-import { Menu, getActiveItemKey, LinkItem } from '../Menu'
+import { Menu, getActiveItemKey, LinkItem } from '../index'
 import { Location } from 'history'
 import { mockMenuProps } from '../__mocks__/menu-props'
 
