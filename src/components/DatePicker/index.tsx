@@ -13,7 +13,7 @@ export interface DatePickerProps {
   labelText: string
 }
 
-const Input = ({
+export const CustomInput = ({
   onChange,
   value,
   id,
@@ -21,9 +21,9 @@ const Input = ({
   className
 }: {
   onChange?: any
-  placeholder?: any
+  placeholder?: string
   value?: any
-  id?: any
+  id?: string
   onClick?: any
   className: string
 }) => {
@@ -181,7 +181,7 @@ export const DatePicker = ({ name, id, labelText }: DatePickerProps) => {
                 onChange={value => {
                   setFieldValue(name, dayjs(value).format('YYYY-MM-DDTHH:mm:ss'))
                 }}
-                customInput={<Input className={className} />}
+                customInput={<CustomInput className={className} />}
               />
               {hasError && (
                 <div className="has-text-danger" data-test="input-error">
