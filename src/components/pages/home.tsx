@@ -38,22 +38,38 @@ export type HomeProps = HomeMappedActions & HomeMappedProps & RouteComponentProp
 
 export type TabType = 'LIST' | 'MAP'
 
+export const changeHomeTabHandler = (changeHomeTab, tab) => () => changeHomeTab(tab)
+
 export const tabConfigs = ({ currentTab, changeHomeTab }): TabConfig[] => [
   {
     tabIdentifier: 'LIST',
     displayText: 'List',
-    onTabClick: () => changeHomeTab('LIST'),
+    onTabClick: changeHomeTabHandler(changeHomeTab, 'LIST'),
     active: currentTab === 'LIST'
   },
   {
     tabIdentifier: 'MAP',
     displayText: 'Map',
-    onTabClick: () => changeHomeTab('MAP'),
+    onTabClick: changeHomeTabHandler(changeHomeTab, 'MAP'),
     active: currentTab === 'MAP'
   }
 ]
 
 const filterTimes: AppointmentsTime[] = ['Today', 'Tomorrow', 'Week View']
+
+export const handleUseEffect = ({ appointmentsState, requestNextAppointment, travelMode }) => () => {
+  const hasAppointments = oc(appointmentsState).appointments.data([]).length > 0
+  if (appointmentsState.time === 'Today' && hasAppointments && !appointmentsState.loading) {
+    requestNextAppointment(travelMode)
+  }
+}
+
+export const handleUseCallback = ({ setTravelMode }) => value => setTravelMode(value)
+
+export const handleOnClickFilterTime = ({ requestAppointments, filter, time, setSelectedAppointment }) => () => {
+  filter !== time && requestAppointments(filter)
+  setSelectedAppointment(null)
+}
 
 export const Home: React.FunctionComponent<HomeProps> = ({
   appointmentsState,
@@ -74,14 +90,14 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
   const isMobileView = isMobile()
 
-  React.useEffect(() => {
-    const hasAppointments = oc(appointmentsState).appointments.data([]).length > 0
-    if (appointmentsState.time === 'Today' && hasAppointments && !appointmentsState.loading) {
-      requestNextAppointment(travelMode)
-    }
-  }, [appointmentsState.appointments, appointmentsState.time, appointmentsState.loading, travelMode])
+  React.useEffect(handleUseEffect({ appointmentsState, requestNextAppointment, travelMode }), [
+    appointmentsState.appointments,
+    appointmentsState.time,
+    appointmentsState.loading,
+    travelMode
+  ])
 
-  const handleTravelMode = React.useCallback(value => setTravelMode(value), [travelMode])
+  const handleTravelMode = React.useCallback(handleUseCallback({ setTravelMode }), [travelMode])
 
   return unfetched && loading ? (
     <Loader />
@@ -108,10 +124,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
                     variant="secondary"
                     className={filter === time ? `is-selected is-info` : ''}
                     key={filter}
-                    onClick={() => {
-                      filter !== time && requestAppointments(filter)
-                      setSelectedAppointment(null)
-                    }}
+                    onClick={handleOnClickFilterTime({ filter, requestAppointments, time, setSelectedAppointment })}
                   >
                     {filter}
                   </Button>
@@ -143,7 +156,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   )
 }
 
-const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
+export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   appointmentsState: state.appointments,
   nextAppointmentState: state.nextAppointment,
   currentTab: state.home.homeTab,
@@ -156,7 +169,7 @@ export interface HomeMappedActions {
   changeHomeTab: (tab: 'LIST' | 'MAP') => void
 }
 
-const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({
   requestAppointments: (time: AppointmentsTime) => dispatch(appointmentsRequestData({ time })),
   requestNextAppointment: (travelMode: string) => dispatch(nextAppointmentValidate(travelMode)),
   setSelectedAppointment: (appointment: AppointmentModel | null) => dispatch(setSelectedAppointment(appointment)),

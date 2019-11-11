@@ -7,6 +7,7 @@ import Routes from '../../constants/routes'
 import { LoginParams, getCognitoSession, removeSessionCookie } from '@reapit/elements'
 import { Action, ActionType } from '@/types/core'
 import { mockLoginSession } from '@/utils/__mocks__/session'
+import errorMessages from '@/constants/error-messages'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/store', () => ({
@@ -37,8 +38,8 @@ describe('auth sagas', () => {
 
     test('login fail', () => {
       const gen = doLogin(action)
-      expect(gen.next(null).value).toEqual(call(getCognitoSession, loginParams))
-      expect(gen.next(null).value).toEqual(put(authLoginFailure()))
+      expect(gen.next().value).toEqual(call(getCognitoSession, loginParams))
+      expect(gen.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(put(authLoginFailure()))
       expect(gen.next().done).toBe(true)
     })
   })
@@ -51,6 +52,13 @@ describe('auth sagas', () => {
       expect(history.push).toHaveBeenCalledTimes(1)
       expect(history.push).toHaveBeenLastCalledWith(Routes.LOGIN)
       expect(gen.next().value).toEqual(put(authLogoutSuccess()))
+      expect(gen.next().done).toBe(true)
+    })
+
+    it('on logout fail', () => {
+      const gen = doLogout()
+      expect(gen.next().value).toEqual(call(removeSessionCookie))
+      gen.next(gen.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value)
       expect(gen.next().done).toBe(true)
     })
   })

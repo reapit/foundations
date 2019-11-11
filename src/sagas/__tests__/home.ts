@@ -1,9 +1,11 @@
 import homeSagas, { homeDataFetch, homeDataListen } from '../home'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork } from '@redux-saga/core/effects'
-import { homeLoading, homeReceiveData } from '@/actions/home'
+import { homeLoading, homeReceiveData, homeRequestDataFailure } from '@/actions/home'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
+import errorMessages from '@/constants/error-messages'
+import { errorThrownServer } from '@/actions/error'
 
 describe('home fetch data', () => {
   const gen = cloneableGenerator(homeDataFetch)()
@@ -14,6 +16,21 @@ describe('home fetch data', () => {
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next().value).toEqual(put(homeReceiveData({})))
+    expect(clone.next().done).toBe(true)
+  })
+
+  test('api call failure', () => {
+    const clone = gen.clone()
+    // @ts-ignore
+    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(put(homeRequestDataFailure()))
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
+    )
     expect(clone.next().done).toBe(true)
   })
 })

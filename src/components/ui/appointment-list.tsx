@@ -20,6 +20,15 @@ export interface AppointmentListProps {
   setSelectedAppointment: (appointment: AppointmentModel | null, type?: string) => void
 }
 
+export const handleUseEffect = ({ refAppointment }) => () => {
+  if (refAppointment.current) {
+    refAppointment.current.scrollIntoView({
+      block: 'center',
+      inline: 'center'
+    })
+  }
+}
+
 export const AppointmentList = memo(
   ({
     appointments,
@@ -48,14 +57,7 @@ export const AppointmentList = memo(
       }
     }
 
-    React.useEffect(() => {
-      if (refAppointment.current) {
-        refAppointment.current.scrollIntoView({
-          block: 'center',
-          inline: 'center'
-        })
-      }
-    }, [])
+    React.useEffect(handleUseEffect({ refAppointment }), [])
 
     if (appointments.length === 0) {
       return <div className="py-8 px-3 text-center">No appointments</div>
