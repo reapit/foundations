@@ -6,7 +6,6 @@ import { authLogout } from '@/actions/auth'
 import { Location } from 'history'
 import { FaSignOutAlt, FaCloud, FaMapMarkerAlt } from 'react-icons/fa'
 import { ReduxState } from '../../types/core'
-import { oc } from 'ts-optchain'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -72,12 +71,7 @@ export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({
 })
 
 export const mapStateToProps = (state: ReduxState): MenuMappedState => ({
-  mode: oc(state).auth.refreshSession.mode('WEB')
+  mode: state?.auth?.refreshSession?.mode || 'WEB'
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Menu)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Menu))

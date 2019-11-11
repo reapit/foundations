@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { oc } from 'ts-optchain'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
 import { appointmentDataStub } from '@/sagas/__stubs__/appointment'
+import { OnlineState } from '@/reducers/online'
+import { ReduxState } from '@/types/core'
 import {
   Home,
   HomeProps,
@@ -14,8 +15,19 @@ import {
   mapStateToProps,
   tabConfigs
 } from '../home'
-import { ReduxState } from '@/types/core'
-import { OnlineState } from '@/reducers/online'
+
+const props = {
+  appointmentsState: {
+    appointments: appointmentsDataStub.appointments,
+    loading: false,
+    time: 'Today',
+    selectedAppointment: appointmentsDataStub?.appointments?.data?.[0]
+  },
+  nextAppointmentState: {
+    data: null
+  },
+  desktopMode: false
+} as HomeProps
 
 describe('Home', () => {
   it('should match a snapshot', () => {
@@ -24,7 +36,7 @@ describe('Home', () => {
         appointments: appointmentsDataStub.appointments,
         loading: false,
         time: 'Today',
-        selectedAppointment: oc(appointmentsDataStub).appointments.data[0]()
+        selectedAppointment: appointmentsDataStub?.appointments?.data?.[0]
       },
       nextAppointmentState: {
         data: null
@@ -41,7 +53,7 @@ describe('Home', () => {
         appointments: appointmentsDataStub.appointments,
         loading: true,
         time: 'Today',
-        selectedAppointment: oc(appointmentsDataStub).appointments.data[0]()
+        selectedAppointment: appointmentsDataStub?.appointments?.data?.[0]
       },
       nextAppointmentState: {
         data: null

@@ -4,7 +4,6 @@ import toJson from 'enzyme-to-json'
 import { shallow } from 'enzyme'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
 import { AppointmentModel } from '@/types/appointments'
-import { oc } from 'ts-optchain'
 
 describe('AppointmentList', () => {
   it('Should match snapshot if having no data', () => {
@@ -28,9 +27,9 @@ describe('AppointmentList', () => {
       toJson(
         shallow(
           <AppointmentList
-            appointments={oc(appointmentsDataStub).appointments.data([])}
-            appointmentTypes={oc(appointmentsDataStub).appointmentTypes([])}
-            selectedAppointment={oc(appointmentsDataStub).appointments.data[0]() as AppointmentModel}
+            appointments={appointmentsDataStub?.appointments?.data || []}
+            appointmentTypes={appointmentsDataStub?.appointmentTypes || []}
+            selectedAppointment={appointmentsDataStub?.appointments?.data?.[0] as AppointmentModel}
             setSelectedAppointment={jest.fn()}
             isOnline={false}
           />

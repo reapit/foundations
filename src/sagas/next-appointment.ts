@@ -3,7 +3,6 @@ import ActionTypes from '../constants/action-types'
 import { selectAppointments } from '@/selectors/appointments'
 import { getTodayNextAppointment } from '@/utils/get-today-next-appointment'
 import { nextAppointmentValidateSuccess, nextAppointmentClear } from '@/actions/next-appointment'
-import { oc } from 'ts-optchain'
 import { selectUserCode } from '@/selectors/auth'
 import { filterLoggedInUser } from '@/components/common/appointment-detail/appointment-detail'
 import { Action } from '@/types/core'
@@ -53,7 +52,7 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
   const appointments = yield select(selectAppointments)
   const appointment = getTodayNextAppointment(appointments)
 
-  if (window.google && oc(appointment).property.address.geolocation()) {
+  if (window.google && appointment?.property?.address?.geolocation) {
     try {
       const {
         coords: { latitude, longitude }
@@ -65,8 +64,8 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
       const response: google.maps.DistanceMatrixResponse = yield call(callCurrentPosition, {
         origin: { lat: latitude, lng: longitude },
         destination: {
-          lat: oc(appointment).property.address.geolocation.latitude(testLatitude),
-          lng: oc(appointment).property.address.geolocation.longitude(testLongitude)
+          lat: appointment?.property?.address?.geolocation?.latitude || testLatitude,
+          lng: appointment?.property?.address?.geolocation?.longitude || testLongitude
         },
         travelMode: travelMode === 'DRIVING' ? google.maps.TravelMode.DRIVING : google.maps.TravelMode.WALKING
       })
@@ -79,9 +78,7 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
         const userCode = yield select(selectUserCode)
 
         const noOfficeOrNegotiatorAttendees = filterLoggedInUser(appointment.attendees, userCode).filter(attendee => {
-          const type = oc(attendee)
-            .type('')
-            .toLowerCase()
+          const type = (attendee?.type || '').toLowerCase()
           return type !== 'negotiator' && type !== 'office'
         })
 
@@ -93,10 +90,10 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
         })[0]
 
         const currentNegotiator = getLoggedInUser(appointment.attendees, userCode)
-        const durationValue = oc(response).rows[0].elements[0].duration.value(0)
-        const durationText = oc(response).rows[0].elements[0].duration.text('')
-        const distanceValue = oc(response).rows[0].elements[0].distance.value(0)
-        const distanceText = oc(response).rows[0].elements[0].distance.text('')
+        const durationValue = response.rows?.[0]?.elements?.[0]?.duration?.value || 0
+        const durationText = response.rows?.[0]?.elements?.[0]?.duration?.text || ''
+        const distanceValue = response.rows?.[0]?.elements?.[0]?.distance?.value || 0
+        const distanceText = response.rows?.[0]?.elements?.[0]?.distance?.text || ''
         yield put(
           nextAppointmentValidateSuccess({
             durationText,

@@ -2,7 +2,6 @@ import React, { memo } from 'react'
 import { Tile, getTime, closestTo, IconList } from '@reapit/elements'
 import { AppointmentModel } from '@/types/appointments'
 import ViewDirectionButton from '@/components/container/view-direction-button'
-import { oc } from 'ts-optchain'
 import ViewDetailButton from '../container/view-detail-button'
 import ETAButton from './eta-button'
 import { NextAppointment } from '@/reducers/next-appointment'
@@ -40,7 +39,7 @@ export const AppointmentList = memo(
   }: AppointmentListProps) => {
     const appointmentNearest = React.useMemo(() => {
       // Get all start date
-      const startDatesArray = appointments.map(item => oc<AppointmentModel>(item).start(''))
+      const startDatesArray = appointments.map(item => item?.start || '')
       // Find appointment nearest current time
       return appointments.find(item => item.start === closestTo(new Date(), startDatesArray))
     }, [appointments])
@@ -66,20 +65,20 @@ export const AppointmentList = memo(
     return (
       <div className={`px-4 ${containerStyle.appointmentsListWrapper}`}>
         {appointments.map(item => {
-          const line1 = oc<AppointmentModel>(item).property.address.line1()
-          const line2 = oc<AppointmentModel>(item).property.address.line2()
-          const line3 = oc<AppointmentModel>(item).property.address.line3()
-          const line4 = oc<AppointmentModel>(item).property.address.line4()
-          const postcode = oc<AppointmentModel>(item).property.address.postcode()
-          const buildingName = oc<AppointmentModel>(item).property.address.buildingName()
-          const buildingNumber = oc<AppointmentModel>(item).property.address.buildingNumber()
-          const typeId = oc<AppointmentModel>(item).typeId()
-          const start = getTime(oc<AppointmentModel>(item).start(''))
-          const end = getTime(oc<AppointmentModel>(item).end(''))
-          const lat = oc<AppointmentModel>(item).property.address.geolocation.latitude()
-          const lng = oc<AppointmentModel>(item).property.address.geolocation.longitude()
+          const line1 = item?.property?.address?.line1
+          const line2 = item?.property?.address?.line2
+          const line3 = item?.property?.address?.line3
+          const line4 = item?.property?.address?.line4
+          const postcode = item?.property?.address?.postcode
+          const buildingName = item?.property?.address?.buildingName
+          const buildingNumber = item?.property?.address?.buildingNumber
+          const typeId = item?.typeId
+          const start = getTime(item?.start || '')
+          const end = getTime(item?.end || '')
+          const lat = item?.property?.address?.geolocation?.latitude
+          const lng = item?.property?.address?.geolocation?.longitude
           const type = typeId ? appointmentTypes.find(appointmentType => appointmentType.id === typeId) : null
-          const cancelled = oc<AppointmentModel>(item).cancelled()
+          const cancelled = item?.cancelled
 
           const hightlight = selectedAppointment
             ? selectedAppointment.id === item.id
@@ -87,10 +86,8 @@ export const AppointmentList = memo(
           const heading = `${buildingNumber || buildingName || ''} ${line1 || ''}`
           const address = `${line2 || ''} ${line3 || ''} ${line4 || ''} ${postcode || ''}`
 
-          const nextAppointmentId = oc<NextAppointment | null>(nextAppointment).id()
-          const nextAppointmentType = oc<NextAppointment | null>(nextAppointment)
-            .attendeeWithMobile.type('')
-            .toLowerCase()
+          const nextAppointmentId = nextAppointment?.id
+          const nextAppointmentType = (nextAppointment?.attendeeWithMobile?.type || '').toLowerCase()
 
           const displayETAButton =
             nextAppointmentId === item.id &&
@@ -100,13 +97,13 @@ export const AppointmentList = memo(
 
           let renderETAButton: React.ReactNode = null
           if (displayETAButton) {
-            const tel = oc(nextAppointment)
-              .attendeeWithMobile.communicationDetails([])
-              .filter(({ label }) => label === 'Mobile')[0].detail
+            const tel = (nextAppointment?.attendeeWithMobile?.communicationDetails || []).filter(
+              ({ label }) => label === 'Mobile'
+            )[0].detail
 
-            const name = oc(nextAppointment).attendeeWithMobile.name('')
-            const negName = oc(nextAppointment).currentNegotiator.name('')
-            const duration = oc(nextAppointment).durationText()
+            const name = nextAppointment?.attendeeWithMobile?.name || ''
+            const negName = nextAppointment?.currentNegotiator?.name || ''
+            const duration = nextAppointment?.durationText
 
             renderETAButton = (
               <ETAButton

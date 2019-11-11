@@ -30,7 +30,7 @@ const PurgecssLoader = {
 
 module.exports = {
   context: process.cwd(),
-  entry: ['babel-polyfill', './src/core/index.tsx'],
+  entry: ['@babel/polyfill', './src/core/index.tsx'],
   output: {
     path: path.join(process.cwd(), 'public', 'dist'),
     filename: '[name].[hash].js'

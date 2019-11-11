@@ -1,5 +1,5 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils');
-const { compilerOptions } = require('./tsconfig');
+const { pathsToModuleNameMapper } = require('ts-jest/utils')
+const { compilerOptions } = require('./tsconfig')
 
 module.exports = {
   preset: 'ts-jest',
@@ -8,17 +8,16 @@ module.exports = {
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coverageDirectory: './src/tests/coverage',
   coveragePathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]', 'service-worker.ts'
+    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
+    'service-worker.ts'
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
   moduleNameMapper: {
-    '^.+\.(?=.*scss|sass|css|jpg).*': '<rootDir>/src/scripts/css-stub.js',
+    '^.+.(?=.*scss|sass|css|jpg).*': '<rootDir>/src/scripts/css-stub.js',
     ...pathsToModuleNameMapper(compilerOptions.paths, {
-      prefix: '<rootDir>/',
+      prefix: '<rootDir>/'
     })
   },
-  globalSetup: "./jest-global-setup.js",
-  snapshotSerializers: [
-    "enzyme-to-json/serializer"
-  ],
-};
+  globalSetup: './jest-global-setup.js',
+  snapshotSerializers: ['enzyme-to-json/serializer']
+}

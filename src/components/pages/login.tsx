@@ -112,9 +112,4 @@ export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
   login: (params: LoginParams) => dispatch(authLogin(params))
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Login)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))

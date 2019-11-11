@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { CoordinateProps, Coords, Map, combineAddress } from '@reapit/elements'
-import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppointmentModel, AddressModel } from '@/types/appointments'
@@ -70,10 +69,10 @@ export const MapContainer = ({
   const coordinates: CoordinateProps<any> = filterInvalidMarker(
     appointments.map(
       (appointment: AppointmentModel): Coordinate => {
-        const lat = oc(appointment).property.address.geolocation.latitude(UNDEFINED_LATLNG_NUMBER)
-        const lng = oc(appointment).property.address.geolocation.longitude(UNDEFINED_LATLNG_NUMBER)
-        const id = oc(appointment).id(UNDEFINED_NULL_STRING)
-        const address = oc(appointment).property.address({})
+        const lat = appointment?.property?.address?.geolocation?.latitude || UNDEFINED_LATLNG_NUMBER
+        const lng = appointment?.property?.address?.geolocation?.longitude || UNDEFINED_LATLNG_NUMBER
+        const id = appointment?.id || UNDEFINED_NULL_STRING
+        const address = appointment?.property?.address || {}
         return {
           id,
           address,
@@ -136,10 +135,10 @@ export const MapContainer = ({
 }
 
 export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
-  const appointments = oc(state).appointments.appointments.data([])
-  const destinationLat = oc(state).direction.destination.property.address.geolocation.latitude(undefined)
-  const destinationLng = oc(state).direction.destination.property.address.geolocation.longitude(undefined)
-  const destinationAddress = combineAddress(oc(state).direction.destination.property.address({}))
+  const appointments = state?.appointments?.appointments?.data || []
+  const destinationLat = state?.direction?.destination?.property?.address?.geolocation?.latitude
+  const destinationLng = state?.direction?.destination?.property?.address?.geolocation?.longitude
+  const destinationAddress = combineAddress(state?.direction?.destination?.property?.address || {})
   return {
     appointments,
     destinationLatLng: {
@@ -147,7 +146,7 @@ export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
       lng: destinationLng
     },
     destinationAddress,
-    desktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
+    desktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP'
   }
 }
 
@@ -157,10 +156,7 @@ export const mapDispatchToProps = (dispatch: Dispatch): MapContainerMappedAction
   }
 })
 
-const MapContainerWithConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MapContainer)
+const MapContainerWithConnect = connect(mapStateToProps, mapDispatchToProps)(MapContainer)
 
 MapContainerWithConnect.displayName = 'CurrentLocButtonWithConnect'
 

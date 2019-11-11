@@ -5,12 +5,11 @@ import { shallow } from 'enzyme'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
 import { appointmentDataStub } from '@/sagas/__stubs__/appointment'
 import { TravelMode } from '../../ui/travel-mode'
-import { oc } from 'ts-optchain'
 
 describe('Map', () => {
   it('Should match snapshot', () => {
     const mockProps = {
-      appointments: oc(appointmentsDataStub).appointments.data([]),
+      appointments: appointmentsDataStub?.appointments?.data || [],
       destinationLatLng: { lat: 0, lng: 0 },
       travelMode: 'WALKING' as TravelMode,
       handleOnClick: jest.fn(),
@@ -52,7 +51,7 @@ describe('Map', () => {
       } as any
       const result = mapStateToProps(mockState)
       const expected = {
-        appointments: oc(appointmentsDataStub).appointments.data([]),
+        appointments: appointmentsDataStub?.appointments?.data || [],
         destinationLatLng: {
           lat: 52.1284,
           lng: -0.507145
