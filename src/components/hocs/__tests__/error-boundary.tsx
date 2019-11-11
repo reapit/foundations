@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { ErrorBoundary, ErrorState } from '../error-boundary'
+import { ErrorBoundary, ErrorState, mapStateToProps, mapDispatchToProps } from '../error-boundary'
 import errorMessages from '../../../constants/error-messages'
 import { ErrorData } from '../../../reducers/error'
+import { ReduxState } from '@/types/core'
 
 jest.mock('../../../utils/route-dispatcher')
 
@@ -47,6 +48,52 @@ describe('ErrorBoundary', () => {
       message: errorMessages.DEFAULT_COMPONENT_ERROR
     })
     expect((component.state() as ErrorState).hasFailed).toBe(true)
+  })
+
+  describe('mapStateToProps', () => {
+    it('should run correctly', () => {
+      const mockState = {
+        error: {
+          componentError: {
+            status: 403,
+            message: 'mockError',
+            type: 'SERVER'
+          }
+        }
+      } as ReduxState
+      const output = {
+        componentError: mockState.error.componentError
+      }
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual(output)
+    })
+
+    it('should run correctly', () => {
+      const mockState = {
+        error: {
+          componentError: null
+        }
+      } as ReduxState
+      const output = {
+        componentError: null
+      }
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual(output)
+    })
+  })
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch', () => {
+      const mockDispatch = jest.fn()
+      const mockErrorData = {
+        status: 403,
+        message: 'mockError',
+        type: 'SERVER'
+      } as ErrorData
+      const { errorThrownComponent } = mapDispatchToProps(mockDispatch)
+      errorThrownComponent(mockErrorData)
+      expect(mockDispatch).toBeCalled()
+    })
   })
 
   afterEach(() => {

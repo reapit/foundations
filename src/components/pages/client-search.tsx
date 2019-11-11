@@ -23,60 +23,56 @@ const identityCheckList = [
   { label: 'Unchecked', value: 'Unchecked' }
 ]
 
-export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history }) => {
-  const searchContacts = value => {
-    setSearchParams(value)
-    history.push(Routes.RESULTS)
-  }
+export const searchContacts = ({ setSearchParams, history }) => values => {
+  setSearchParams(values)
+  history.push(Routes.RESULTS)
+}
 
+export const renderForm = ({ values }) => {
+  const disabled = !values.name && !values.address && !values.identityCheck
+  return (
+    <div>
+      <FlexContainerResponsive hasBackground flexColumn hasPadding>
+        <H3>Client Search</H3>
+        <Form className="mb-8">
+          <Input id="name" type="text" placeholder="Firstname or Surname" name="name" labelText="Search by name" />
+          <Input
+            id="address"
+            type="text"
+            placeholder="Streetname, Village, Town or Postcode"
+            name="address"
+            labelText="Search by address"
+          />
+          <SelectBox
+            id="identityCheck"
+            name="identityCheck"
+            labelText="Search by ID Status"
+            options={identityCheckList}
+          />
+          <Button className="is-right" type="submit" variant="primary" disabled={disabled}>
+            Search
+          </Button>
+        </Form>
+      </FlexContainerResponsive>
+    </div>
+  )
+}
+
+export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history }) => {
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn>
         <Formik
           initialValues={{ name: '', address: '', identityCheck: '' }}
-          onSubmit={values => searchContacts(values)}
-          render={({ values }) => {
-            const disabled = !values.name && !values.address && !values.identityCheck
-            return (
-              <div>
-                <FlexContainerResponsive hasBackground flexColumn hasPadding>
-                  <H3>Client Search</H3>
-                  <Form className="mb-8">
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder="Firstname or Surname"
-                      name="name"
-                      labelText="Search by name"
-                    />
-                    <Input
-                      id="address"
-                      type="text"
-                      placeholder="Streetname, Village, Town or Postcode"
-                      name="address"
-                      labelText="Search by address"
-                    />
-                    <SelectBox
-                      id="identityCheck"
-                      name="identityCheck"
-                      labelText="Search by ID Status"
-                      options={identityCheckList}
-                    />
-                    <Button className="is-right" type="submit" variant="primary" disabled={disabled}>
-                      Search
-                    </Button>
-                  </Form>
-                </FlexContainerResponsive>
-              </div>
-            )
-          }}
+          onSubmit={searchContacts({ setSearchParams, history })}
+          render={renderForm}
         />
       </FlexContainerBasic>
     </ErrorBoundary>
   )
 }
 
-const mapDispatchToProps = (dispatch: any): ClientSearchMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): ClientSearchMappedActions => ({
   setSearchParams: (params: SearchParams) => dispatch(resultSetSearchParams(params))
 })
 

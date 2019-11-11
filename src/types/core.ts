@@ -1,7 +1,6 @@
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { ErrorState } from '../reducers/error'
-import { HomeState } from '@/reducers/home'
 import { ResultsState } from '@/reducers/results'
 import { AuthState } from '@/reducers/auth'
 import { SubmitChecksState } from '@/reducers/submit-checks'
@@ -42,7 +41,6 @@ export interface FetcherParams<T> {
 
 export interface ReduxState {
   error: ErrorState
-  home: HomeState
   success: SuccessState
   auth: AuthState
   results: ResultsState
