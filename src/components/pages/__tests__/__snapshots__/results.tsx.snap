@@ -28,25 +28,21 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
               Object {
                 "Cell": [Function],
                 "Header": "Address",
-                "accessor": [Function],
                 "id": "address",
               },
               Object {
                 "Cell": [Function],
                 "Header": "Postcode",
-                "accessor": [Function],
                 "id": "postcode",
               },
               Object {
                 "Cell": [Function],
                 "Header": "Status",
-                "accessor": [Function],
                 "id": "identityCheck",
               },
               Object {
                 "Cell": [Function],
                 "Header": "",
-                "accessor": [Function],
                 "id": "action",
               },
             ]
@@ -2676,25 +2672,21 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
               Object {
                 "Cell": [Function],
                 "Header": "Address",
-                "accessor": [Function],
                 "id": "address",
               },
               Object {
                 "Cell": [Function],
                 "Header": "Postcode",
-                "accessor": [Function],
                 "id": "postcode",
               },
               Object {
                 "Cell": [Function],
                 "Header": "Status",
-                "accessor": [Function],
                 "id": "identityCheck",
               },
               Object {
                 "Cell": [Function],
                 "Header": "",
-                "accessor": [Function],
                 "id": "action",
               },
             ]

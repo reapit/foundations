@@ -30,11 +30,42 @@ export interface LoginFormValues {
 
 export type LoginProps = LoginMappedActions & LoginMappedProps & RouteComponentProps
 
-export const onSubmitHandler = (
-  setIsSubmitting: (isSubmitting: boolean) => void,
-  login: (params: LoginParams) => void,
-  values: LoginFormValues
-) => {
+export const handleUseEffect = ({ setIsSubmitting, error }) => () => {
+  if (error) {
+    setIsSubmitting(false)
+  }
+}
+
+export const renderForm = ({ isSubmitting, error }) => () => (
+  <Form data-test="login-form">
+    <Input
+      dataTest="login-email"
+      type="email"
+      labelText="Email"
+      id="email"
+      name="email"
+      placeholder="name@address.com"
+    />
+    <Input
+      dataTest="login-password"
+      type="password"
+      labelText="Password"
+      id="password"
+      name="password"
+      placeholder="Enter your password"
+    />
+
+    <Level>
+      <Button type="submit" loading={isSubmitting} variant="primary" fullWidth disabled={isSubmitting}>
+        Login
+      </Button>
+    </Level>
+
+    {error && <Alert type="danger" message="Login failed, user credentials not recognised" />}
+  </Form>
+)
+
+export const onSubmitHandler = (setIsSubmitting: any, login: any) => (values: LoginFormValues) => {
   const { email, password } = values
 
   setIsSubmitting(true)
@@ -46,11 +77,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   const { hasSession, error, login } = props
   const { disabled, wrapper, container, imageLogo, wrapperBorder } = loginStyles
 
-  React.useEffect(() => {
-    if (error) {
-      setIsSubmitting(false)
-    }
-  }, [error])
+  React.useEffect(handleUseEffect({ setIsSubmitting, error }), [error])
 
   if (hasSession) {
     return <Redirect to={Routes.SEARCH} />
@@ -64,35 +91,8 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
           <Formik
             validate={validate}
             initialValues={{ email: '', password: '' } as LoginFormValues}
-            onSubmit={values => onSubmitHandler(setIsSubmitting, login, values)}
-            render={() => (
-              <Form data-test="login-form">
-                <Input
-                  dataTest="login-email"
-                  type="email"
-                  labelText="Email"
-                  id="email"
-                  name="email"
-                  placeholder="name@address.com"
-                />
-                <Input
-                  dataTest="login-password"
-                  type="password"
-                  labelText="Password"
-                  id="password"
-                  name="password"
-                  placeholder="Enter your password"
-                />
-
-                <Level>
-                  <Button type="submit" loading={isSubmitting} variant="primary" fullWidth disabled={isSubmitting}>
-                    Login
-                  </Button>
-                </Level>
-
-                {error && <Alert type="danger" message="Login failed, user credentials not recognised" />}
-              </Form>
-            )}
+            onSubmit={onSubmitHandler(setIsSubmitting, login)}
+            render={renderForm({ isSubmitting, error })}
           />
         </div>
       </div>
@@ -102,12 +102,12 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   return LoginForm
 }
 
-const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
+export const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
   error: state.auth.error
 })
 
-const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
+export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
   login: (params: LoginParams) => dispatch(authLogin(params))
 })
 

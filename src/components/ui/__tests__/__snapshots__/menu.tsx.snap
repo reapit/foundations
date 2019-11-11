@@ -1,3 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`Menu should match snapshot 1`] = `
+<Memo()
+  defaultActiveKey="CLIENT_SEARCH"
+  location={
+    Object {
+      "hash": "mockHash",
+      "key": "mockKey",
+      "pathname": "mockPathname",
+      "search": "mockSearch",
+      "state": Object {},
+    }
+  }
+  menu={
+    Array [
+      Object {
+        "icon": <ReapitLogo
+          className="nav-item-icon"
+        />,
+        "key": "LOGO",
+        "type": "LOGO",
+      },
+      Object {
+        "icon": <FaSearch
+          className="nav-item-icon"
+        />,
+        "key": "CLIENT_SEARCH",
+        "title": "Search",
+        "type": "PRIMARY",
+        "url": "/",
+      },
+      Object {
+        "icon": <FaList
+          className="nav-item-icon"
+        />,
+        "key": "SEARCH_RESULTS",
+        "title": "Results",
+        "type": "PRIMARY",
+        "url": "/results",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaCloud
+          className="nav-item-icon"
+        />,
+        "key": "APPS",
+        "title": "Apps",
+        "type": "PRIMARY",
+      },
+      Object {
+        "callback": [MockFunction],
+        "icon": <FaSignOutAlt
+          className="nav-item-icon"
+        />,
+        "key": "LOGOUT",
+        "title": "Logout",
+        "type": "SECONDARY",
+      },
+    ]
+  }
+  mode="WEB"
+/>
+`;

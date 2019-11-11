@@ -24,6 +24,12 @@ export interface SuccessMappedProps {
 
 export type SuccessProps = SuccessMappedActions & SuccessMappedProps & RouteComponentProps<{ id?: any }>
 
+export const handleUseEffect = resetSubmitCompleteFormState => () => {
+  resetSubmitCompleteFormState()
+}
+
+export const handleSubmit = ({ submitComplete, id, dynamicLinkParams }) => () => submitComplete(id, dynamicLinkParams)
+
 export const SuccessPage = ({
   submitComplete,
   submitCompleteFormState,
@@ -34,9 +40,7 @@ export const SuccessPage = ({
     params: { id }
   }
 }: SuccessProps) => {
-  React.useEffect(() => {
-    resetSubmitCompleteFormState()
-  }, [])
+  React.useEffect(handleUseEffect(resetSubmitCompleteFormState), [])
 
   const dynamicLinkParams = {
     entityType: EntityType.CONTACT,
@@ -69,7 +73,7 @@ export const SuccessPage = ({
               type: 'button',
               loading: submitCompleteFormState === 'SUBMITTING',
               disabled: submitCompleteFormState === 'SUBMITTING',
-              onClick: () => submitComplete(id, dynamicLinkParams)
+              onClick: handleSubmit({ submitComplete, id, dynamicLinkParams })
             }}
             dynamicLinkParams={dynamicLinkParams}
           >
@@ -81,13 +85,13 @@ export const SuccessPage = ({
   )
 }
 
-const mapStateToProps = (state: ReduxState): SuccessMappedProps => ({
+export const mapStateToProps = (state: ReduxState): SuccessMappedProps => ({
   submitCompleteFormState: state.success.submitCompleteFormState,
   contact: oc(state).checklistDetail.checklistDetailData.contact({}),
   loginMode: oc(state).auth.refreshSession.mode('WEB')
 })
 
-const mapDispatchToProps = (dispatch: any): SuccessMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): SuccessMappedActions => ({
   submitComplete: (id: string, dynamicLinkParams: DynamicLinkParams) =>
     dispatch(submitComplete({ id, dynamicLinkParams })),
   resetSubmitCompleteFormState: () => dispatch(submitCompleteSetFormState('PENDING'))
