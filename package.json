@@ -59,6 +59,7 @@
     "browserstack-capabilities": "^0.7.0",
     "chromedriver": "^2.43.1",
     "concurrently": "^4.1.1",
+    "core-js": "^3.4.1",
     "css-loader": "^3.0.0",
     "dotenv": "^8.0.0",
     "dotenv-webpack": "^1.7.0",
