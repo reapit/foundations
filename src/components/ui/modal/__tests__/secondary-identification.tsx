@@ -22,35 +22,41 @@ describe('SecondaryIdentification', () => {
   })
 
   describe('mapStateToProps', () => {
-    xit('should run correctly', () => {
+    it('should run correctly', () => {
       // @ts-ignore: only pick necessary props
       const mockState = {
         checklistDetail: {
           isSubmitting: false,
           checklistDetailData: {
-            contact
+            contact,
+            idCheck
           }
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
+      const { typeId, expiry, details } = idCheck.documents[1]
       const expected = {
         loading: false,
         contact: contact,
+        idCheck,
         initFormValues: {
-          ...contact.metadata['secondaryId'][0]['documents'][0],
-          expiry: new Date('2019-10-10T00:00:00Z')
+          typeId,
+          details,
+          expiry: new Date(expiry),
+          fileUrl: idCheck.metadata.secondaryIdUrl
         }
       }
       expect(result).toEqual(expected)
     })
 
-    xit('should return correctly', () => {
+    it('should return correctly', () => {
       // @ts-ignore: only pick necessary props
       const mockState = {} as ReduxState
       const result = mapStateToProps(mockState)
       const expected = {
         loading: false,
-        contact: undefined,
+        contact: null,
+        idCheck: null,
         initFormValues: {
           details: '',
           expiry: undefined,

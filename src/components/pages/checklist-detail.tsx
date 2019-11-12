@@ -9,7 +9,6 @@ import AMLProgressBar from '@/components/ui/aml-progressbar'
 import Modal from '@/components/ui/modal'
 import { Dispatch } from 'redux'
 import { checklistDetailHideModal, checklistDetailShowModal } from '@/actions/checklist-detail'
-import { authLogout } from '@/actions/auth'
 import { ContactModel } from '@/types/contact-api-schema'
 import { STEPS } from '../ui/modal/modal'
 import checkListDetailStyles from '@/styles/pages/checklist-detail.scss?mod'
@@ -164,13 +163,11 @@ export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
 export type HomeMappedActions = {
   hideModal: () => void
   showModal: (modalType: string) => () => void
-  logout: () => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): HomeMappedActions => ({
   hideModal: () => dispatch(checklistDetailHideModal()),
-  showModal: (modalType: string) => () => dispatch(checklistDetailShowModal(modalType)),
-  logout: () => dispatch(authLogout())
+  showModal: (modalType: string) => () => dispatch(checklistDetailShowModal(modalType))
 })
 
 export default withRouter(

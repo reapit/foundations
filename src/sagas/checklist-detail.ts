@@ -544,13 +544,13 @@ export const updateIdentityCheckStatus = function*({
   const existingIdCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
   const contact: ContactModel = yield select(selectCheckListDetailContact)
   const headers = yield call(initAuthorizedRequestHeaders)
+  yield put(checklistDetailSubmitForm(true))
 
   if (idCheck) {
     const newIdCheck = {
       ...existingIdCheck,
       ...idCheck
     }
-    yield put(checklistDetailSubmitForm(true))
     const responseIdentityCheck = yield call(updateIdentityCheck, {
       contactId: contact.id,
       headers,
@@ -562,9 +562,9 @@ export const updateIdentityCheckStatus = function*({
     if (dynamicLinkParams.appMode === 'DESKTOP') {
       yield call(navigateDynamicApp, dynamicLinkParams)
     }
-    yield put(checklistDetailSubmitForm(false))
     yield put(checklistDetailShowModal(ID_STATUS.SUCCESS))
   }
+  yield put(checklistDetailSubmitForm(false))
 }
 
 export const updateAddressHistoryListen = function*() {

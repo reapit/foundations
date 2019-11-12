@@ -6,8 +6,60 @@ exports[`Modal ProfileModal should match snapshot 1`] = `
 </ContextConsumer>
 `;
 
+exports[`Modal renderContent should return Address history 1`] = `
+<div>
+  <AddressInformationWithRedux />
+</div>
+`;
+
+exports[`Modal renderContent should return Declaration and Risk 1`] = `
+<div>
+  <DeclarationAndRiskAssessmentWithReduxWithRedux />
+</div>
+`;
+
+exports[`Modal renderContent should return Pep search 1`] = `
+<div>
+  <PepSearchWithRedux />
+</div>
+`;
+
+exports[`Modal renderContent should return PrimaryId 1`] = `
+<div>
+  <Connect(Component) />
+</div>
+`;
+
 exports[`Modal renderContent should return Profile 1`] = `
 <div>
   <ProfileInformationWithRedux />
 </div>
 `;
+
+exports[`Modal renderContent should return Report 1`] = `
+<div>
+  <ReportContainerRedux />
+</div>
+`;
+
+exports[`Modal renderContent should return SecondaryId 1`] = `
+<div>
+  <Connect(Component) />
+</div>
+`;
+
+exports[`Modal renderContent should return Update Status 1`] = `
+<div>
+  <UpdateStatusWithRedux />
+</div>
+`;
+
+exports[`Modal renderContent should return Update Status Success 1`] = `
+<div>
+  <Connect(Component)
+    history={Object {}}
+  />
+</div>
+`;
+
+exports[`Modal renderContent should return null 1`] = `<div />`;

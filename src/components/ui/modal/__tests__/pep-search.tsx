@@ -1,8 +1,14 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { PepSearch, mapStateToProps, mapDispatchToProps, renderNoResult, renderLoading } from '../pep-search'
+import {
+  PepSearch,
+  mapStateToProps,
+  mapDispatchToProps,
+  renderNoResult,
+  renderLoading,
+  renderForm
+} from '../pep-search'
 import { ReduxState } from '@/types/core'
-import { renderForm } from '../declaration-and-risk-assessment'
 import { contact } from '@/sagas/__stubs__/contact'
 
 describe('pep-search', () => {
@@ -62,6 +68,12 @@ describe('pep-search', () => {
       onPrevHandler()
       expect(mockDispatch).toHaveBeenCalled()
     })
+    it('handleSubmit should run correctly', () => {
+      const mockDispatch = jest.fn()
+      const { handleSubmit } = mapDispatchToProps(mockDispatch)
+      handleSubmit({})
+      expect(mockDispatch).toHaveBeenCalled()
+    })
   })
 
   describe('renderForm', () => {
@@ -69,16 +81,17 @@ describe('pep-search', () => {
       const mockProps = {
         onPrevHandler: jest.fn(),
         onNextHandler: jest.fn(),
-        isSubmitting: false
+        isSubmitting: false,
+        pepSearchStatus: { MKC16000098: { param: 'a', result: [], time: '1' } },
+        contact: contact
       }
-      const component = renderForm(mockProps)
+      const component = renderForm(mockProps)()
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })
   describe('renderNoResult', () => {
-    // Disabling test as fails on CI owing to mock DayJS issue - see jest.setup for explanation
-    xit('should match snapshot', () => {
+    it('should match snapshot', () => {
       const component = renderNoResult('param', 'time')
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()

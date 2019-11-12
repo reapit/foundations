@@ -1,5 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Login renderForm should match a snapshot when ERROR true 1`] = `
+<Form
+  data-test="login-form"
+>
+  <Input
+    dataTest="login-email"
+    id="email"
+    labelText="Email"
+    name="email"
+    placeholder="name@address.com"
+    type="email"
+  />
+  <Input
+    dataTest="login-password"
+    id="password"
+    labelText="Password"
+    name="password"
+    placeholder="Enter your password"
+    type="password"
+  />
+  <Level>
+    <Button
+      disabled={false}
+      loading={false}
+      type="submit"
+      variant="primary"
+    >
+      Login
+    </Button>
+  </Level>
+  <Alert
+    message="Login failed, user credentials not recognised"
+    type="danger"
+  />
+</Form>
+`;
+
+exports[`Login renderForm should match a snapshot when ERROR true 2`] = `
+<Form
+  data-test="login-form"
+>
+  <Input
+    dataTest="login-email"
+    id="email"
+    labelText="Email"
+    name="email"
+    placeholder="name@address.com"
+    type="email"
+  />
+  <Input
+    dataTest="login-password"
+    id="password"
+    labelText="Password"
+    name="password"
+    placeholder="Enter your password"
+    type="password"
+  />
+  <Level>
+    <Button
+      disabled={false}
+      loading={false}
+      type="submit"
+      variant="primary"
+    >
+      Login
+    </Button>
+  </Level>
+</Form>
+`;
+
 exports[`Login should match a snapshot 1`] = `
 <div>
   <div
@@ -38,4 +108,10 @@ exports[`Login should match a snapshot 1`] = `
     />
   </div>
 </div>
+`;
+
+exports[`Login should match a snapshot when hasSession 1`] = `
+<Redirect
+  to="/"
+/>
 `;
