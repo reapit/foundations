@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ReportContainer, handleContent, handleTrigger, mapStateToProps } from '../report'
+import { ReportContainer, handleContent, handleTrigger, mapStateToProps, mapDispatchToProps } from '../report'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
 import { idCheck } from '@/sagas/__stubs__/id-check'
@@ -63,6 +63,15 @@ describe('ReportContainer', () => {
         status: defaultStatus,
         identityTypes: []
       })
+    })
+  })
+
+  describe('mapDispatchToProps', () => {
+    it('should run correctly', () => {
+      const mockDispatch = jest.fn()
+      const { onEmailReport } = mapDispatchToProps(mockDispatch)
+      onEmailReport()
+      // expect(mockDispatch).toBeCalled()
     })
   })
 })

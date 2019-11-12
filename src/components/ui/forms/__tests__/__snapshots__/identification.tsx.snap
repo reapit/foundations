@@ -14,12 +14,181 @@ exports[`Identification Identification should match snapshot 1`] = `
 
 exports[`Identification renderFormHandler should match snapshot when DISABLED false 1`] = `
 <div>
-  <Component />
+  <Form>
+    <Connect(Component)
+      id="typeId"
+      labelText="ID Type"
+      name="typeId"
+    />
+    <Input
+      id="details"
+      labelText="ID Reference"
+      name="details"
+      placeholder="ID Reference"
+      type="text"
+    />
+    <DatePicker
+      id="expiry"
+      labelText="Expiry Date"
+      name="expiry"
+    />
+    <CameraImageInput
+      allowClear={true}
+      id="fileUrl"
+      inputProps={
+        Object {
+          "disabled": false,
+        }
+      }
+      labelText="Upload File"
+      name="fileUrl"
+    />
+    <div
+      className="field pb-2"
+    >
+      <div
+        className="columns undefined"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="undefined flex items-center"
+          >
+            <span>
+              RPS Ref:
+            </span>
+            <span
+              className="ml-1"
+            >
+              MKC16000098
+            </span>
+          </div>
+        </div>
+        <div
+          className="column undefined"
+        >
+          <Button
+            className="mr-2"
+            disabled={false}
+            loading={false}
+            type="submit"
+            variant="primary"
+          >
+            Save
+          </Button>
+          <Button
+            className="mr-2"
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Previous
+          </Button>
+          <Button
+            disabled={false}
+            type="button"
+            variant="primary"
+          >
+            Next
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Form>
 </div>
 `;
 
 exports[`Identification renderFormHandler should match snapshot when DISABLED true 1`] = `
 <div>
-  <Component />
+  <p
+    className="mb-4"
+  >
+    *Please ensure the Primary ID has been completed before adding a Secondary ID
+  </p>
+  <Form>
+    <Connect(Component)
+      id="typeId"
+      labelText="ID Type"
+      name="typeId"
+    />
+    <Input
+      id="details"
+      labelText="ID Reference"
+      name="details"
+      placeholder="ID Reference"
+      type="text"
+    />
+    <DatePicker
+      id="expiry"
+      labelText="Expiry Date"
+      name="expiry"
+    />
+    <CameraImageInput
+      allowClear={true}
+      id="fileUrl"
+      inputProps={
+        Object {
+          "disabled": true,
+        }
+      }
+      labelText="Upload File"
+      name="fileUrl"
+    />
+    <div
+      className="field pb-2"
+    >
+      <div
+        className="columns undefined"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="undefined flex items-center"
+          >
+            <span>
+              RPS Ref:
+            </span>
+            <span
+              className="ml-1"
+            >
+              MKC16000098
+            </span>
+          </div>
+        </div>
+        <div
+          className="column undefined"
+        >
+          <Button
+            className="mr-2"
+            disabled={true}
+            loading={false}
+            type="submit"
+            variant="primary"
+          >
+            Save
+          </Button>
+          <Button
+            className="mr-2"
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Previous
+          </Button>
+          <Button
+            disabled={true}
+            type="button"
+            variant="primary"
+          >
+            Next
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Form>
 </div>
 `;

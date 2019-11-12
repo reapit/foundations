@@ -8,7 +8,8 @@ import {
   checklistDetailReceiveIdentityCheck,
   checklistDetailHideModal,
   checklistDetailShowModal,
-  UpdateContactParams
+  UpdateContactParams,
+  UpdateIdentityCheckParams
 } from '@/actions/checklist-detail'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
@@ -35,15 +36,19 @@ import {
   updateChecklistListen,
   updateAddressHistoryListen,
   fetchInitialDataListen,
-  updateIdentityCheckStatusListen
+  updateIdentityCheckStatusListen,
+  updateIdentityCheckStatus
 } from '../checklist-detail'
 import { contact, idCheck } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import { handlePepSearchStatus } from '@/utils/pep-search'
+import { EntityType, navigateDynamicApp, DynamicLinkParams } from '@reapit/elements'
+
+jest.mock('../../core/store.ts')
 
 const mockHeaders = {
   Authorization: '123'
@@ -486,6 +491,39 @@ describe('checklist-detail', () => {
       expect(clone.next().done).toBe(true)
     })
   })
+
+  describe('checklist-detail updateIdentityCheckStatus', () => {
+    const params = {
+      dynamicLinkParams: { appMode: 'DESKTOP', entityType: EntityType.CONTACT },
+      idCheck: { status: 'pass' }
+    }
+    const gen = cloneableGenerator(updateIdentityCheckStatus as any)({
+      data: params
+    })
+    expect(gen.next().value).toEqual(select(selectCheckListDetailIdCheck))
+    expect(gen.next(idCheck as any).value).toEqual(select(selectCheckListDetailContact))
+    expect(gen.next(contact as any).value).toEqual(call(initAuthorizedRequestHeaders))
+    expect(gen.next(mockHeaders as any).value).toEqual(put(checklistDetailSubmitForm(true)))
+
+    test('api call success', () => {
+      const clone = gen.clone()
+
+      expect(clone.next(true as any).value).toEqual(
+        call(updateIdentityCheck, {
+          contactId: contact.id,
+          headers: mockHeaders,
+          identityChecks: {
+            ...idCheck,
+            ...params.idCheck
+          }
+        })
+      )
+      expect(clone.next({ ...idCheck, ...params.idCheck } as any).value).toEqual(
+        put(checklistDetailReceiveIdentityCheck({ ...idCheck, ...params.idCheck }))
+      )
+    })
+  })
+
   describe('check-list sagas', () => {
     describe('checklist detail listen', () => {
       it('should request data when called', () => {
@@ -538,6 +576,47 @@ describe('checklist-detail', () => {
         const gen = checkListDetailPepSearchListen()
         expect(gen.next().value).toEqual(
           takeLatest<Action<UpdateContactParams>>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP, pepSearch)
+        )
+        expect(gen.next().done).toBe(true)
+      })
+    })
+
+    describe('checklist detail updatePrimaryIdListen', () => {
+      it('should request data when called', () => {
+        const gen = updatePrimaryIdListen()
+        expect(gen.next().value).toEqual(
+          takeLatest<Action<UpdateIdentityCheckParams>>(
+            ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA,
+            updatePrimaryId
+          )
+        )
+        expect(gen.next().done).toBe(true)
+      })
+    })
+
+    describe('checklist detail updateSecondaryIdListen', () => {
+      it('should request data when called', () => {
+        const gen = updateSecondaryIdListen()
+        expect(gen.next().value).toEqual(
+          takeLatest<Action<UpdateIdentityCheckParams>>(
+            ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA,
+            updateSecondaryId
+          )
+        )
+        expect(gen.next().done).toBe(true)
+      })
+    })
+
+    describe('checklist detail updateIdentityCheckStatusListen', () => {
+      it('should request data when called', () => {
+        const gen = updateIdentityCheckStatusListen()
+        expect(gen.next().value).toEqual(
+          takeLatest<
+            Action<{
+              idCheck: IdentityCheckModel
+              dynamicLinkParams: DynamicLinkParams
+            }>
+          >(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA, updateIdentityCheckStatus)
         )
         expect(gen.next().done).toBe(true)
       })

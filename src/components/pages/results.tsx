@@ -6,7 +6,7 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { ReduxState } from '@/types/core'
 import { ResultState } from '@/reducers/result'
 import { Pagination, Table, Button, H3, Info, H6, FlexContainerBasic, Section } from '@reapit/elements'
-import { resultRequestData, ContactsParams } from '@/actions/result'
+import { resultRequestData, ContactsParams, SearchParams } from '@/actions/result'
 import Routes from '@/constants/routes'
 import styles from '@/styles/pages/results.scss?mod'
 import { oc } from 'ts-optchain'
@@ -19,124 +19,126 @@ export interface ResultMappedProps {
   resultState: ResultState
 }
 
-export type ResultProps = ResultMappedActions & ResultMappedProps & RouteComponentProps<{ page?: any }>
+export type ResultProps = ResultMappedActions & ResultMappedProps & RouteComponentProps
+
+export const generateColumns = history => () => [
+  {
+    Header: 'Name',
+    id: 'name',
+    accessor: d => `${d.forename} ${d.surname}`
+  },
+  {
+    Header: 'Address',
+    id: 'address',
+    accessor: d => d,
+    Cell: ({ row }) => {
+      const addresses = (({ buildingName, buildingNumber, line1, line2 }) => ({
+        buildingName,
+        buildingNumber,
+        line1,
+        line2
+      }))(row.original.addresses[0])
+
+      return (
+        <div>
+          <span>
+            {Object.values(addresses)
+              .filter(value => value)
+              .join(', ')}
+          </span>
+        </div>
+      )
+    }
+  },
+  {
+    Header: 'Postcode',
+    id: 'postcode',
+    accessor: d => d,
+    Cell: ({ row }) => {
+      return (
+        <div>
+          <span>{row.original.addresses[0].postcode}</span>
+        </div>
+      )
+    }
+  },
+  {
+    Header: 'Status',
+    id: 'identityCheck',
+    accessor: d => d,
+    Cell: ({ row }) => {
+      return (
+        <div>
+          <span className={styles.columnText}>{row.original.identityCheck}</span>
+        </div>
+      )
+    }
+  },
+  {
+    Header: '',
+    id: 'action',
+    accessor: d => d,
+    Cell: ({ row }) => {
+      return (
+        <Button type="button" variant="primary" onClick={() => history.push(`/checklist-detail/${row.original.id}`)}>
+          Edit
+        </Button>
+      )
+    }
+  }
+]
+
+export const generateSearchTitle = (search: SearchParams | null) => () => {
+  if (search) {
+    return Object.values(search)
+      .filter(value => value)
+      .join(', ')
+  }
+}
+
+export const fnChangePage = (setPageNumber: (page: number) => void) => (page: number) => {
+  setPageNumber(page)
+}
+
+export const fnFetchContacts = (
+  search: SearchParams | null,
+  pageNumber: number,
+  fetchContacts: (params: ContactsParams) => void
+) => () => {
+  if (search) {
+    fetchContacts({ ...search, pageNumber })
+  }
+}
+
+export const renderEmptyResult = () => (
+  <FlexContainerBasic hasBackground flexColumn>
+    <div>
+      <Info infoType="">
+        <H6>No Results found</H6>
+      </Info>
+    </div>
+    <div className={styles.buttonNewSearchContainer}>
+      <Link to={Routes.HOME}>
+        <Button variant="info" type="button">
+          New Search{' '}
+        </Button>
+      </Link>
+    </div>
+  </FlexContainerBasic>
+)
 
 export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetchContacts, history }) => {
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: 'Name',
-        id: 'name',
-        accessor: d => `${d.forename} ${d.surname}`
-      },
-      {
-        Header: 'Address',
-        id: 'address',
-        accessor: d => d,
-        Cell: ({ row }) => {
-          const addresses = (({ buildingName, buildingNumber, line1, line2 }) => ({
-            buildingName,
-            buildingNumber,
-            line1,
-            line2
-          }))(row.original.addresses[0])
-
-          return (
-            <div>
-              <span>
-                {Object.values(addresses)
-                  .filter(value => value)
-                  .join(', ')}
-              </span>
-            </div>
-          )
-        }
-      },
-      {
-        Header: 'Postcode',
-        id: 'postcode',
-        accessor: d => d,
-        Cell: ({ row }) => {
-          return (
-            <div>
-              <span>{row.original.addresses[0].postcode}</span>
-            </div>
-          )
-        }
-      },
-      {
-        Header: 'Status',
-        id: 'identityCheck',
-        accessor: d => d,
-        Cell: ({ row }) => {
-          return (
-            <div>
-              <span className={styles.columnText}>{row.original.identityCheck}</span>
-            </div>
-          )
-        }
-      },
-      {
-        Header: '',
-        id: 'action',
-        accessor: d => d,
-        Cell: ({ row }) => {
-          return (
-            <Button
-              type="button"
-              variant="primary"
-              onClick={() => history.push(`/checklist-detail/${row.original.id}`)}
-            >
-              Edit
-            </Button>
-          )
-        }
-      }
-    ],
-    []
-  )
   const { search, loading } = resultState
   const { totalCount, pageSize, data = [] } = oc<ResultState>(resultState).contacts({})
-
-  const searchTitle = React.useMemo(() => {
-    if (search) {
-      return Object.values(search)
-        .filter(value => value)
-        .join(', ')
-    }
-  }, [search])
-
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
-  const handleChangePage = React.useCallback(
-    page => {
-      setPageNumber(page)
-    },
-    [pageNumber]
-  )
+  const columns = React.useMemo(generateColumns(history), [data])
 
-  React.useEffect(() => {
-    if (search) {
-      fetchContacts({ ...search, pageNumber })
-    }
-  }, [search, pageNumber])
+  const searchTitle = React.useMemo(generateSearchTitle(search), [search])
 
-  const renderEmptyResult = () => (
-    <FlexContainerBasic hasBackground flexColumn>
-      <div>
-        <Info infoType="">
-          <H6>No Results found</H6>
-        </Info>
-      </div>
-      <div className={styles.buttonNewSearchContainer}>
-        <Link to={Routes.HOME}>
-          <Button variant="info" type="button">
-            New Search{' '}
-          </Button>
-        </Link>
-      </div>
-    </FlexContainerBasic>
-  )
+  const handleChangePage = React.useCallback(fnChangePage(setPageNumber), [pageNumber])
+
+  React.useEffect(fnFetchContacts(search, pageNumber, fetchContacts), [search, pageNumber])
 
   return (
     <ErrorBoundary>
@@ -164,11 +166,11 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
   )
 }
 
-const mapStateToProps = (state: ReduxState): ResultMappedProps => ({
+export const mapStateToProps = (state: ReduxState): ResultMappedProps => ({
   resultState: state.result
 })
 
-const mapDispatchToProps = (dispatch: any): ResultMappedActions => ({
+export const mapDispatchToProps = (dispatch: any): ResultMappedActions => ({
   fetchContacts: (params: ContactsParams) => dispatch(resultRequestData(params))
 })
 

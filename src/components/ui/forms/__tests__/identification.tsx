@@ -13,7 +13,7 @@ describe('Identification', () => {
         onNextHandler: jest.fn(),
         onPrevHandler: jest.fn()
       }
-      const component = renderFormHandler(mockProps)
+      const component = renderFormHandler(mockProps)({ values: {} })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -26,7 +26,7 @@ describe('Identification', () => {
         onNextHandler: jest.fn(),
         onPrevHandler: jest.fn()
       }
-      const component = renderFormHandler(mockProps)
+      const component = renderFormHandler(mockProps)({ values: {} })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -35,7 +35,7 @@ describe('Identification', () => {
   describe('onSubmitHandler', () => {
     it('should run correctly', () => {
       const mockOnSaveHandler = jest.fn()
-      onSubmitHandler({} as any, mockOnSaveHandler)
+      onSubmitHandler(mockOnSaveHandler)({})
       expect(mockOnSaveHandler).toBeCalledWith({})
     })
   })

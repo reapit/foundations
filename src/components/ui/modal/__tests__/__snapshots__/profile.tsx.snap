@@ -27,12 +27,196 @@ exports[` 1`] = `
 
 exports[`profile renderForm should match snapshot 1`] = `
 <div>
-  <Component />
+  <Form>
+    <Input
+      id="title"
+      labelText="Title"
+      name="title"
+      type="text"
+    />
+    <Input
+      id="forename"
+      labelText="Forename"
+      name="forename"
+      type="text"
+    />
+    <Input
+      id="surname"
+      labelText="Surname"
+      name="surname"
+      type="text"
+    />
+    <DatePicker
+      id="dateOfBirth"
+      labelText="Date Of Birth"
+      name="dateOfBirth"
+    />
+    <Input
+      id="home"
+      labelText="Home"
+      name="home"
+      type="text"
+    />
+    <Input
+      id="mobile"
+      labelText="Mobile"
+      name="mobile"
+      type="text"
+    />
+    <Input
+      id="work"
+      labelText="Work"
+      name="work"
+      type="text"
+    />
+    <Input
+      id="email"
+      labelText="Email"
+      name="email"
+      type="email"
+    />
+    <div
+      className="field pb-2"
+    >
+      <div
+        className="columns undefined"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="undefined flex items-center"
+          >
+            <span>
+              RPS Ref:
+            </span>
+            <span
+              className="ml-1"
+            >
+              MKC16000098
+            </span>
+          </div>
+        </div>
+        <div
+          className="column undefined"
+        >
+          <Button
+            className="mr-2"
+            loading={false}
+            type="submit"
+            variant="primary"
+          >
+            Save
+          </Button>
+          <Button
+            dataTest="submit-revision-modal-edit-button"
+            disabled={false}
+            type="button"
+            variant="primary"
+          >
+            Next
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Form>
 </div>
 `;
 
 exports[`profile renderForm should match snapshot 2`] = `
 <div>
-  <Component />
+  <Form>
+    <Input
+      id="title"
+      labelText="Title"
+      name="title"
+      type="text"
+    />
+    <Input
+      id="forename"
+      labelText="Forename"
+      name="forename"
+      type="text"
+    />
+    <Input
+      id="surname"
+      labelText="Surname"
+      name="surname"
+      type="text"
+    />
+    <DatePicker
+      id="dateOfBirth"
+      labelText="Date Of Birth"
+      name="dateOfBirth"
+    />
+    <Input
+      id="home"
+      labelText="Home"
+      name="home"
+      type="text"
+    />
+    <Input
+      id="mobile"
+      labelText="Mobile"
+      name="mobile"
+      type="text"
+    />
+    <Input
+      id="work"
+      labelText="Work"
+      name="work"
+      type="text"
+    />
+    <Input
+      id="email"
+      labelText="Email"
+      name="email"
+      type="email"
+    />
+    <div
+      className="field pb-2"
+    >
+      <div
+        className="columns undefined"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="undefined flex items-center"
+          >
+            <span>
+              RPS Ref:
+            </span>
+            <span
+              className="ml-1"
+            >
+              MKC16000098
+            </span>
+          </div>
+        </div>
+        <div
+          className="column undefined"
+        >
+          <Button
+            className="mr-2"
+            loading={false}
+            type="submit"
+            variant="primary"
+          >
+            Save
+          </Button>
+          <Button
+            dataTest="submit-revision-modal-edit-button"
+            disabled={false}
+            type="button"
+            variant="primary"
+          >
+            Next
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Form>
 </div>
 `;

@@ -2,7 +2,6 @@ import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { AuthState } from '@/reducers/auth'
 import { ErrorState } from '../reducers/error'
-import { HomeState } from '@/reducers/home'
 import { ChecklistDetailState } from '@/reducers/checklist-detail'
 import { ResultState } from '@/reducers/result'
 import { IdentityTypesState } from '@/reducers/identity-types'
@@ -40,7 +39,6 @@ export interface FetcherParams<T> {
 
 export interface ReduxState {
   error: ErrorState
-  home: HomeState
   auth: AuthState
   checklistDetail: ChecklistDetailState
   result: ResultState

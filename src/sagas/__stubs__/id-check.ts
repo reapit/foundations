@@ -1,6 +1,4 @@
-import { IdentityCheckModel } from '@/types/contact-api-schema'
-
-export const idCheck: IdentityCheckModel = {
+export const idCheck = {
   id: 'AYL19000004',
   contactId: 'AYL19000002',
   created: '2019-10-14T15:23:21',

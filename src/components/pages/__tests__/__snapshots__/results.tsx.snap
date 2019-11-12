@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Result renderEmptyResult should run correctly 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasBackground={true}
+>
+  <div>
+    <Info
+      infoType=""
+    >
+      <H6>
+        No Results found
+      </H6>
+    </Info>
+  </div>
+  <div>
+    <Link
+      to="/"
+    >
+      <Button
+        type="button"
+        variant="info"
+      >
+        New Search
+         
+      </Button>
+    </Link>
+  </div>
+</FlexContainerBasic>
+`;
+
 exports[`Result should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
   <FlexContainerBasic
@@ -2665,7 +2695,6 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
     >
       <H3>
         Show Results for '
-        1
         '
       </H3>
       <div>
@@ -2704,7 +2733,7 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
             ]
           }
           data={Array []}
-          loading={true}
+          loading={false}
           scrollable={true}
         />
       </div>
