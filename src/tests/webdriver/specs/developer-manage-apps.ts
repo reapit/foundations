@@ -20,11 +20,8 @@ describe('Developer Manage Apps Page', () => {
 
   it('should find the app submitted in the list', () => {
     expect(Common.appId.length).toBeGreaterThan(0)
-    expect(
-      DeveloperHomePage.getAppCardByName()
-        .getAttribute('data-test')
-        .split('_')[1]
-    ).toEqual(Common.appId)
+    const testString = DeveloperHomePage.getAppCardByName().getAttribute('data-test') as string
+    expect(testString.split('_')[1]).toEqual(Common.appId)
   })
 
   afterAll(() => {

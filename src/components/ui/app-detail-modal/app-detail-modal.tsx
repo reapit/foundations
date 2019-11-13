@@ -45,9 +45,6 @@ export const AppDetailModal: React.FunctionComponent<AppDetailModalProps> = ({
   )
 }
 
-const AppDetailModalWithConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppDetailModal)
+const AppDetailModalWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppDetailModal)
 
 export default AppDetailModalWithConnect

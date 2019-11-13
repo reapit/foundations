@@ -6,9 +6,8 @@ import errorMessages from '../constants/error-messages'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { fetcher } from '@reapit/elements'
-import { Action, ReduxState } from '@/types/core'
+import { Action } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../constants/api'
-import { oc } from 'ts-optchain'
 import { selectClientId } from '@/selector/client'
 
 export const clientDataFetch = function*({ data: page }) {

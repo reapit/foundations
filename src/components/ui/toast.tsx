@@ -24,7 +24,4 @@ const mapDispatchToProps = (dispatch: Dispatch): ToastMappedActions => ({
   errorClearedComponent: () => dispatch(errorClearedComponent(null))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Toast)
+export default connect(mapStateToProps, mapDispatchToProps)(Toast)

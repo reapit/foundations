@@ -7,7 +7,6 @@ import { Form, Formik } from 'formik'
 import { validate } from '@/utils/form/reject-revision'
 import { declineRevision, RevisionDeclineRequestParams } from '@/actions/revision-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
-import { oc } from 'ts-optchain'
 import CallToAction from './call-to-action'
 
 interface DeclineRevisionInnerWithConnectOwnProps {
@@ -31,8 +30,8 @@ const mapStateToProps = (
   ownProps: DeclineRevisionInnerWithConnectOwnProps
 ): DeclineRevisionModalMappedProps => ({
   revisionDetail: state.revisionDetail,
-  email: oc(state).auth.loginSession.loginIdentity.email(''),
-  name: oc(state).auth.loginSession.loginIdentity.name(''),
+  email: state?.auth?.loginSession?.loginIdentity?.email || '',
+  name: state?.auth?.loginSession?.loginIdentity?.name || '',
   closeModal: ownProps.closeModal,
   onDeclineSuccess: ownProps.onDeclineSuccess,
   visible: ownProps.visible
@@ -73,7 +72,7 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
   email
 }) => {
   const { declineFormState } = revisionDetail
-  const { appId, id: appRevisionId } = oc<RevisionDetailState>(revisionDetail).revisionDetailData.data({})
+  const { appId, id: appRevisionId } = revisionDetail?.revisionDetailData?.data || {}
   const [rejectionReason, setRejectionReason] = React.useState('')
 
   const isLoading = declineFormState === 'SUBMITTING'
@@ -152,7 +151,4 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
   )
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DeclineRevisionModal)
+export default connect(mapStateToProps, mapDispatchToProps)(DeclineRevisionModal)

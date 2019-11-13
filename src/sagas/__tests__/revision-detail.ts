@@ -83,7 +83,7 @@ const approveSubmitParams: Action<RevisionApproveRequestParams> = {
 }
 
 describe('revision approve submmit', () => {
-  const gen = cloneableGenerator(approveRevision)(approveSubmitParams)
+  const gen = cloneableGenerator(approveRevision as any)(approveSubmitParams)
   const { appId, appRevisionId, ...body } = approveSubmitParams.data
   expect(gen.next().value).toEqual(select(getApprovalPageNumber))
   expect(gen.next({ pageNumber }).value).toEqual(put(approveRevisionSetFormState('SUBMITTING')))
@@ -123,7 +123,7 @@ const declineSubmitParams: Action<RevisionDeclineRequestParams> = {
 }
 
 describe('revision decline submmit', () => {
-  const gen = cloneableGenerator(declineRevision)(declineSubmitParams)
+  const gen = cloneableGenerator(declineRevision as any)(declineSubmitParams)
   const { appId, appRevisionId, ...body } = declineSubmitParams.data
   expect(gen.next().value).toEqual(select(getApprovalPageNumber))
   expect(gen.next({ pageNumber }).value).toEqual(put(declineRevisionSetFormState('SUBMITTING')))

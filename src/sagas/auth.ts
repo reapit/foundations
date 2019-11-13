@@ -6,7 +6,6 @@ import { history } from '../core/router'
 import Routes from '../constants/routes'
 import { LoginSession, LoginParams, getCognitoSession, removeSessionCookie } from '@reapit/elements'
 import store from '../core/store'
-import { oc } from 'ts-optchain'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
@@ -25,7 +24,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
 
 export const doLogout = function*() {
   try {
-    const loginType = oc(store).state.auth.loginSession.loginType('CLIENT')
+    const loginType = store?.state?.auth?.loginSession?.loginType || 'CLIENT'
     yield call(removeSessionCookie)
     yield history.push(loginType !== 'ADMIN' ? Routes.LOGIN : Routes.ADMIN_LOGIN)
     yield put(authLogoutSuccess())

@@ -226,10 +226,7 @@ const mapStateToProps = (state: ReduxState, ownState: AdminApprovalModalOwnProps
 
 const mapDispatchToProps = (dispatch: any): AdminApprovalModalMappedActions => ({})
 
-const AdminApprovalInnerWithConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AdminApprovalModalInner)
+const AdminApprovalInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AdminApprovalModalInner)
 
 export const AdminApprovalModal: React.FunctionComponent<AdminApprovalModalProps> = ({
   visible = true,

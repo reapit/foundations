@@ -159,10 +159,7 @@ export const mapDispatchToProps = (dispatch: any): AppDetailModalMappedActions =
   setDeveloperAppModalStateDelete: () => dispatch(setDeveloperAppModalStateDelete())
 })
 
-const AppDetailWithConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppDetail)
+const AppDetailWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppDetail)
 
 AppDetailWithConnect.displayName = 'AppDetailWithConnect'
 

@@ -5,7 +5,6 @@ import { AdminApprovalsState } from '@/reducers/admin-approvals'
 import { Loader, Pagination, Table, Button, Info, FlexContainerResponsive } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { oc } from 'ts-optchain'
 import routes from '@/constants/routes'
 import { AppDetailState } from '@/reducers/app-detail'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
@@ -45,10 +44,10 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !approvalsState.adminApprovalsData
   const loading = approvalsState.loading
-  const list = oc<AdminApprovalsState>(approvalsState).adminApprovalsData.data.data([])
-  const { totalCount, pageSize } = oc<AdminApprovalsState>(approvalsState).adminApprovalsData.data({})
+  const list = approvalsState?.adminApprovalsData?.data?.data || []
+  const { totalCount, pageSize } = approvalsState?.adminApprovalsData?.data || {}
   const [isModalOpen, setIsModalOpen] = React.useState(false)
-  const pageNumberInState = oc<AdminApprovalsState>(approvalsState).adminApprovalsData.data.pageNumber(1)
+  const pageNumberInState = approvalsState?.adminApprovalsData?.data?.pageNumber || 1
   const tableColumns = [
     {
       Header: '#',
@@ -82,8 +81,8 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
             onClick={() => {
               const { appId, appRevisionId } = original
               if (appRevisionId && appId) {
-                const currentRevisionId = oc<RevisionDetailState>(revisionDetail).revisionDetailData.data.id(undefined)
-                const currentAppId = oc<AppDetailState>(appDetail).appDetailData.data.id(undefined)
+                const currentRevisionId = revisionDetail?.revisionDetailData?.data?.id
+                const currentAppId = appDetail?.appDetailData?.data?.id
                 if (currentRevisionId !== appRevisionId) {
                   fetchRevisionDetail({ appId, appRevisionId })
                 }
@@ -144,9 +143,4 @@ export const mapDispatchToProps = (dispatch: any): AdminApprovalsMappedActions =
   fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id }))
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(AdminApprovals)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AdminApprovals))

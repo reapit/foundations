@@ -6,7 +6,6 @@ import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { Loader } from '@reapit/elements'
 import { AppSummaryModel } from '../../../types/marketplace-api-schema'
 import AppCard from '../app-card'
-import { oc } from 'ts-optchain'
 
 const props: AppListProps = {
   list: appsDataStub.data.data as AppSummaryModel[],
@@ -40,6 +39,6 @@ describe('AppList', () => {
       .first()
       .simulate('click', { stopPropagation: jest.fn() })
     expect(props.onCardClick).toHaveBeenCalledTimes(1)
-    expect(props.onCardClick).toHaveBeenCalledWith(oc(appsDataStub).data.data[0]())
+    expect(props.onCardClick).toHaveBeenCalledWith(appsDataStub?.data?.data?.[0])
   })
 })

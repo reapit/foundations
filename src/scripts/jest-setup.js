@@ -1,4 +1,3 @@
-
 const Adapter = require('enzyme-adapter-react-16')
 const Enzyme = require('enzyme')
 const fetchMock = require('jest-fetch-mock')
@@ -29,8 +28,8 @@ Object.defineProperty(window, 'localStorage', {
 })
 
 Object.defineProperty(document, 'execCommand', {
-  value: jest.fn(),
-});
+  value: jest.fn()
+})
 
 Object.defineProperty(window, 'location', {
   value: {

@@ -2,10 +2,9 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { ClientState } from '@/reducers/client'
-import { Loader, Pagination, Section } from '@reapit/elements'
+import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { oc } from 'ts-optchain'
 import AppList from '@/components/ui/app-list'
 import routes from '@/constants/routes'
 import { appDetailRequestData } from '@/actions/app-detail'
@@ -45,8 +44,8 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !clientState.clientData
   const loading = clientState.loading
-  const list = oc<ClientState>(clientState).clientData.data.data([])
-  const { totalCount, pageSize } = oc<ClientState>(clientState).clientData.data({})
+  const list = clientState?.clientData?.data?.data || []
+  const { totalCount, pageSize } = clientState?.clientData?.data || {}
   const [visible, setVisible] = React.useState(false)
 
   if (unfetched || loading) {
@@ -82,9 +81,4 @@ export const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId }))
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Client)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Client))
