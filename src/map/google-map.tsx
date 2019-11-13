@@ -318,7 +318,11 @@ export const handleUseEffect = ({
       }) as number
       map.setCenter(centerPoint)
       map.setZoom(DEFAULT_ZOOM)
-      if (currentMarkerIndex) {
+      const FIRST_INFO_WINDOW_INDEX = 0
+      if (
+        currentMarkerIndex ||
+        currentMarkerIndex === FIRST_INFO_WINDOW_INDEX
+      ) {
         infoWindows[currentMarkerIndex].open(map, markers[currentMarkerIndex])
       }
       return
