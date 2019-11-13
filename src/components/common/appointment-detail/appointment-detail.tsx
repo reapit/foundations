@@ -24,6 +24,7 @@ import { appointmentDetailHideModal } from '@/actions/appointment-detail'
 import { ListItemModel } from '../../../types/configuration'
 import styles from '@/styles/ui/appoinments-detail.scss?mod'
 import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
+import { getAttendeeEntityType } from '@/utils/get-attendee-entity-type'
 
 const { appointmentDetailTextContainer } = styles
 
@@ -185,7 +186,7 @@ export const renderApplicantAttendees = (attendees: AttendeeModel[], loginMode: 
                 <AcLink
                   dynamicLinkParams={{
                     appMode: loginMode,
-                    entityType: EntityType.CONTACT,
+                    entityType: getAttendeeEntityType(attendee?.type || ''),
                     entityCode: attendee.id
                   }}
                 >
