@@ -9,12 +9,12 @@ export interface Element {
   content?: string
 }
 
-const sortContentType = (domItem: Element, index: number) =>
-  domItem.type === 'text' ? domItem.content || null : rendererModule.sortTags(domItem, index)
+const sortContentType = (domItem: Element, index: number, diffing: boolean) =>
+  domItem.type === 'text' ? domItem.content || null : rendererModule.sortTags(domItem, index, diffing)
 
-const getChildren = (domTag: Element) =>
+const getChildren = (domTag: Element, diffing: boolean) =>
   domTag.children
-    ? domTag.children.map((child: Element, index: number) => rendererModule.sortContentType(child, index))
+    ? domTag.children.map((child: Element, index: number) => rendererModule.sortContentType(child, index, diffing))
     : null
 
 const getAttributes = (domTag: Element, index: number) => {
@@ -22,8 +22,8 @@ const getAttributes = (domTag: Element, index: number) => {
   return { ...attributes, style: {}, key: index }
 }
 
-const sortTags = (domTag: Element, index: number) => {
-  const children = rendererModule.getChildren(domTag)
+const sortTags = (domTag: Element, index: number, diffing: boolean) => {
+  const children = rendererModule.getChildren(domTag, diffing)
   const attributes = rendererModule.getAttributes(domTag, index)
   if (!children || !children.length) {
     return null
@@ -57,13 +57,23 @@ const sortTags = (domTag: Element, index: number) => {
       return <pre {...attributes}>{children}</pre>
     case 'hr':
       return <hr {...attributes} />
+    case 'ins':
+      return diffing ? <ins {...attributes}>{children}</ins> : <div {...attributes}>{children}</div>
+    case 'del':
+      return diffing ? (
+        <del className="del-diff" {...attributes}>
+          {children}
+        </del>
+      ) : (
+        <div {...attributes}>{children}</div>
+      )
     default:
       return <div {...attributes}>{children}</div>
   }
 }
 
-const renderer = (domContent: Element[]) =>
-  domContent.map((domItem: Element, index: number) => rendererModule.sortContentType(domItem, index))
+const renderer = (domContent: Element[], diffing: boolean) =>
+  domContent.map((domItem: Element, index: number) => rendererModule.sortContentType(domItem, index, diffing))
 
 export const rendererModule = {
   sortContentType,
