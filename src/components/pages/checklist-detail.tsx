@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Loader, FlexContainerResponsive, Tile, Button, FlexContainerBasic } from '@reapit/elements'
-import { oc } from 'ts-optchain'
 import { ReduxState } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
@@ -153,11 +152,11 @@ export type HomeMappedProps = {
 }
 
 export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
-  isModalVisible: oc(state).checklistDetail.isModalVisible(false),
-  loading: oc(state).checklistDetail.loading(true),
-  contact: oc(state).checklistDetail.checklistDetailData.contact({}),
-  status: oc(state).checklistDetail.status(defaultStatus),
-  modalContentType: oc(state).checklistDetail.modalContentType('PROFILE')
+  isModalVisible: state?.checklistDetail?.isModalVisible || false,
+  loading: state?.checklistDetail?.loading || true,
+  contact: state?.checklistDetail?.checklistDetailData?.contact || {},
+  status: state?.checklistDetail?.status || defaultStatus,
+  modalContentType: state?.checklistDetail?.modalContentType || 'PROFILE'
 })
 
 export type HomeMappedActions = {
@@ -170,9 +169,4 @@ export const mapDispatchToProps = (dispatch: Dispatch): HomeMappedActions => ({
   showModal: (modalType: string) => () => dispatch(checklistDetailShowModal(modalType))
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(ChecklistDetail)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChecklistDetail))

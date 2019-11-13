@@ -5,7 +5,6 @@ import { Button, Table } from '@reapit/elements'
 import styles from '@/styles/ui/report.scss?mod'
 import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
 import { ReduxState } from '@/types/core'
-import { oc } from 'ts-optchain'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import dayjs from 'dayjs'
 import { getPepSearchStatus } from '@/utils/pep-search'
@@ -48,7 +47,7 @@ export type ReportContainerProps = {
 export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idCheck, status, identityTypes }) => {
   const printRef = React.useRef<HTMLDivElement>(null)
 
-  const { id, identityCheck, title, forename, surname, dateOfBirth, communications } = oc(contact)({})
+  const { id, identityCheck, title, forename, surname, dateOfBirth, communications } = contact || {}
   const name = `${title} ${forename} ${surname}`.trim()
 
   const data = React.useMemo(() => {
@@ -76,7 +75,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Primary ID',
         description: () => {
-          const { typeId, details, expiry } = oc(idCheck).documents[0]({})
+          const { typeId, details, expiry } = idCheck?.documents?.[0] || {}
           return (
             <div>
               {typeId && <p>Type: {idTypes[typeId] || typeId}</p>}
@@ -90,7 +89,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Secondary ID',
         description: () => {
-          const { typeId, details, expiry } = oc(idCheck).documents[1]({})
+          const { typeId, details, expiry } = idCheck?.documents?.[1] || {}
           return (
             <div>
               {typeId && <p>Type: {idTypes[typeId] || typeId}</p>}
@@ -104,8 +103,8 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Address History',
         description: () => {
-          const addresses = oc(contact).addresses([])
-          const metaAddress = oc(contact).metadata.addresses([])
+          const addresses = contact?.addresses || []
+          const metaAddress = contact?.metadata?.addresses || []
           const mAddress = addresses.map((item, index) => ({ ...item, ...metaAddress[index] }))
           return (
             mAddress &&
@@ -132,7 +131,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Declaration and Risk Assessment',
         description: () => {
-          const { reason, type } = oc(contact).metadata.declarationRisk({})
+          const { reason, type } = contact?.metadata?.declarationRisk || {}
           return (
             <div>
               {type && <p>Type: {type}</p>}
@@ -223,10 +222,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
   }
 }
 
-export const ReportContainerRedux = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ReportContainer)
+export const ReportContainerRedux = connect(mapStateToProps, mapDispatchToProps)(ReportContainer)
 
 ReportContainerRedux.displayName = 'ReportContainerRedux'
 

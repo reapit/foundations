@@ -19,7 +19,6 @@ import { IdentityCheckModel, ContactModel } from '@/types/contact-api-schema'
 import { Dispatch } from 'redux'
 import { checklistDetailShowModal } from '@/actions/checklist-detail'
 import { ReduxState } from '@/types/core'
-import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
 import {
   selectCheckListDetailStatus,
@@ -40,7 +39,7 @@ export const calculateProgress = (status: SectionsStatus) => {
 export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck, status, loginMode, showModal }) => {
   const progress = React.useMemo(() => calculateProgress(status), [status])
 
-  const { id, title, forename, surname } = oc(contact)({})
+  const { id, title, forename, surname } = contact || {}
   const name = `${title} ${forename} ${surname}`.trim()
 
   return (
@@ -95,7 +94,7 @@ export const mapStateToProps = (state: ReduxState): AMLProgressBarMappedProps =>
   contact: selectCheckListDetailContact(state),
   idCheck: selectCheckListDetailIdCheck(state),
   status: selectCheckListDetailStatus(state),
-  loginMode: oc(state).auth.refreshSession.mode('WEB')
+  loginMode: state?.auth?.refreshSession?.mode || 'WEB'
 })
 
 export interface AMLProgressBarMappedActions {
@@ -106,7 +105,4 @@ export const mapDispatchToProps = (dispatch: Dispatch): AMLProgressBarMappedActi
   showModal: (modalType: string) => dispatch(checklistDetailShowModal(modalType))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AMLProgressBar)
+export default connect(mapStateToProps, mapDispatchToProps)(AMLProgressBar)

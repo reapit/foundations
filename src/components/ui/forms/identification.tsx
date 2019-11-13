@@ -3,7 +3,6 @@ import { Formik, Form } from 'formik'
 import { ContactModel, IdentityDocumentModel } from '@/types/contact-api-schema'
 import { Button, Input, DatePicker, CameraImageInput } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
-import { oc } from 'ts-optchain'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 
 export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentModel = {
@@ -26,7 +25,7 @@ export type IdentificationProps = {
 export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandler, disabled = false }) => ({
   values
 }) => {
-  const id = oc(contact).id('')
+  const id = contact?.id || ''
   return (
     <>
       {disabled && (

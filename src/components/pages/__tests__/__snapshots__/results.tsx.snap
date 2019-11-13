@@ -15,7 +15,7 @@ exports[`Result renderEmptyResult should run correctly 1`] = `
     </Info>
   </div>
   <div>
-    <Link
+    <ForwardRef
       to="/"
     >
       <Button
@@ -25,7 +25,7 @@ exports[`Result renderEmptyResult should run correctly 1`] = `
         New Search
          
       </Button>
-    </Link>
+    </ForwardRef>
   </div>
 </FlexContainerBasic>
 `;

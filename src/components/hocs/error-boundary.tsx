@@ -59,7 +59,4 @@ const mapDispatchToProps = (dispatch: Dispatch): ErrorMappedActions => ({
   errorThrownComponent: (error: ErrorData) => dispatch(errorThrownComponent(error))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ErrorBoundary)
+export default connect(mapStateToProps, mapDispatchToProps)(ErrorBoundary)
