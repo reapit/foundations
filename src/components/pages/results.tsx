@@ -9,7 +9,6 @@ import { Pagination, Table, Button, H3, Info, H6, FlexContainerBasic, Section } 
 import { resultRequestData, ContactsParams, SearchParams } from '@/actions/result'
 import Routes from '@/constants/routes'
 import styles from '@/styles/pages/results.scss?mod'
-import { oc } from 'ts-optchain'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
@@ -129,7 +128,7 @@ export const renderEmptyResult = () => (
 
 export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetchContacts, history }) => {
   const { search, loading } = resultState
-  const { totalCount, pageSize, data = [] } = oc<ResultState>(resultState).contacts({})
+  const { totalCount, pageSize, data = [] } = resultState?.contacts || {}
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
   const columns = React.useMemo(generateColumns(history), [data])
@@ -174,9 +173,4 @@ export const mapDispatchToProps = (dispatch: any): ResultMappedActions => ({
   fetchContacts: (params: ContactsParams) => dispatch(resultRequestData(params))
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Result)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Result))

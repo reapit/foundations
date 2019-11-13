@@ -83,7 +83,4 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
     )
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PrimaryIdentification)
+export default connect(mapStateToProps, mapDispatchToProps)(PrimaryIdentification)

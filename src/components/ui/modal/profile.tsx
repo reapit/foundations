@@ -3,7 +3,6 @@ import { Button, Input, DatePicker } from '@reapit/elements'
 import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import { oc } from 'ts-optchain'
 import { ReduxState } from '@/types/core'
 import { CommunicationModel, ContactModel } from '@/types/contact-api-schema'
 import { updateContact } from '@/actions/checklist-detail'
@@ -96,8 +95,8 @@ export type StateProps = {
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
-    isSubmitting: oc(state).checklistDetail.isSubmitting(false),
-    contact: oc(state).checklistDetail.checklistDetailData.contact({})
+    isSubmitting: state?.checklistDetail?.isSubmitting || false,
+    contact: state?.checklistDetail?.checklistDetailData?.contact || {}
   }
 }
 
@@ -135,10 +134,7 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   }
 }
 
-export const ProfileInformationWithRedux = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Profile)
+export const ProfileInformationWithRedux = connect(mapStateToProps, mapDispatchToProps)(Profile)
 
 ProfileInformationWithRedux.displayName = 'ProfileInformationWithRedux'
 
