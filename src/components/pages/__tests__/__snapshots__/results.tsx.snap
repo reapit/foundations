@@ -43,7 +43,7 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
       isScrollable={true}
     >
       <H3>
-        Show Results for '
+        Showing Results for '
         1
         '
       </H3>
@@ -2694,7 +2694,7 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
       isScrollable={true}
     >
       <H3>
-        Show Results for '
+        Showing Results for '
         '
       </H3>
       <div>
