@@ -129,6 +129,28 @@ jobs:
                 globExpressions: '**'
                 filesAcl: 'public-read'
                 createBucket: true
+
+  - deployment: S3DeployWebDemo
+    displayName: 'Demo | S3 Deployment'
+    dependsOn: buildWebApp
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/demo'))
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'reapit-geo-diary-demo'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: S3Upload@1
+              displayName: Deploy assets to S3
+              inputs:
+                awsCredentials: 'df-huy'
+                regionName: 'eu-west-2'
+                bucketName: 'reapit-demo-geodiary'
+                sourceFolder: '$(Pipeline.Workspace)/AppStoreBundle'
+                globExpressions: '**'
+                filesAcl: 'public-read'
+                createBucket: true
 # no benefits as we only have 1 parallel jobs
 # - job: e2e
 #   displayName: E2E Test
