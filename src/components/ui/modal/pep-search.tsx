@@ -3,7 +3,6 @@ import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { FaRegTimesCircle } from 'react-icons/fa'
-import { oc } from 'ts-optchain'
 import { Input, Button, H4, FlexContainerBasic, Loader } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
@@ -103,8 +102,8 @@ export type StateProps = {
 
 export const mapStateToProps = (state: ReduxState) => {
   return {
-    contact: oc(state).checklistDetail.checklistDetailData.contact({}),
-    isSubmitting: oc(state).checklistDetail.isSubmitting(false)
+    contact: state?.checklistDetail?.checklistDetailData?.contact || {},
+    isSubmitting: state?.checklistDetail?.isSubmitting || false
   }
 }
 
@@ -124,10 +123,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
   }
 }
 
-const PepSearchWithRedux = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PepSearch)
+const PepSearchWithRedux = connect(mapStateToProps, mapDispatchToProps)(PepSearch)
 
 PepSearchWithRedux.displayName = 'PepSearchWithRedux'
 

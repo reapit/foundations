@@ -6,7 +6,6 @@ import { Menu as Sidebar, LoginMode, MenuConfig, ReapitLogo } from '@reapit/elem
 import Routes from '@/constants/routes'
 import { authLogout } from '@/actions/auth'
 import { Location } from 'history'
-import { oc } from 'ts-optchain'
 import { ReduxState } from '@/types/core'
 import { FaCloud, FaSignOutAlt, FaSearch, FaList } from 'react-icons/fa'
 
@@ -77,13 +76,10 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
 }
 
 export const mapStateToProps = (state: ReduxState) => ({
-  mode: oc(state).auth.refreshSession.mode('WEB')
+  mode: state?.auth?.refreshSession?.mode || 'WEB'
 })
 
-export const MenuWithRedux = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Menu)
+export const MenuWithRedux = connect(mapStateToProps, mapDispatchToProps)(Menu)
 MenuWithRedux.displayName = 'MenuWithRedux'
 
 export const MenuWithRouter = withRouter(MenuWithRedux)

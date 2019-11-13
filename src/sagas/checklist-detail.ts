@@ -19,7 +19,6 @@ import {
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
 import { ContactModel, AddressModel, IdentityCheckModel } from '@/types/contact-api-schema'
-import { oc } from 'ts-optchain'
 import { selectUserCode } from '../selectors/auth'
 import store from '@/core/store'
 import { handlePepSearchStatus } from '@/utils/pep-search'
@@ -49,7 +48,7 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
       method: 'GET',
       headers: headers
     })
-    return oc(response).data[0](null)
+    return response?.data?.[0] || null
   } catch (err) {
     console.error(err.message)
     return err
@@ -279,7 +278,7 @@ export const onUpdateDeclarationAndRisk = function*({
   const headers = yield call(initAuthorizedRequestHeaders)
   const currentContact = yield select(selectCheckListDetailContact)
   try {
-    let { type, reason, declarationForm, riskAssessmentForm } = metadata && oc(metadata).declarationRisk({})
+    let { type, reason, declarationForm, riskAssessmentForm } = metadata?.declarationRisk || {}
     const [declarationResponse, riskAssessmentResponse] = yield all([
       isBase64(declarationForm)
         ? call(uploadImage, { headers, name: `declaration-${type}-${reason}`, imageData: declarationForm })
@@ -389,8 +388,8 @@ export const updateSecondaryId = function*({
         })
       : null
 
-    const currentPrimaryIdUrl = oc(idCheck).metadata.primaryIdUrl()
-    const documents = oc(idCheck).documents([])
+    const currentPrimaryIdUrl = idCheck?.metadata?.primaryIdUrl
+    const documents = idCheck?.documents || []
     delete identityChecks.fileUrl
     if (documents.length <= 1) {
       documents.push(identityChecks)
@@ -466,8 +465,8 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
         })
       : null
 
-    const currentSecondaryIdUrl = oc(idCheck).metadata.secondaryIdUrl()
-    const documents = oc(idCheck).documents([])
+    const currentSecondaryIdUrl = idCheck?.metadata?.secondaryIdUrl
+    const documents = idCheck?.documents || []
     delete identityChecks.fileUrl
     if (documents.length === 0) {
       documents.push(identityChecks)

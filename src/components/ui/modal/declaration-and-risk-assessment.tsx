@@ -6,7 +6,6 @@ import { RISK_ASSESSMENT_TYPE } from '@/constants/appointment-detail'
 import { ContactModel } from '@/types/contact-api-schema'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
-import { oc } from 'ts-optchain'
 import { checklistDetailShowModal, updateDeclarationAndRisk } from '@/actions/checklist-detail'
 import { STEPS } from './modal'
 import { Dispatch } from 'redux'
@@ -77,7 +76,7 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   onHandleSubmit,
   isSubmitting
 }) => {
-  const metadata = oc(contact).metadata({})
+  const metadata = contact?.metadata || {}
   const initialValues = React.useMemo(
     () => ({
       metadata
@@ -101,8 +100,8 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
-    isSubmitting: oc(state).checklistDetail.isSubmitting(false),
-    contact: oc(state).checklistDetail.checklistDetailData.contact({})
+    isSubmitting: state?.checklistDetail?.isSubmitting || false,
+    contact: state?.checklistDetail?.checklistDetailData?.contact || {}
   }
 }
 
