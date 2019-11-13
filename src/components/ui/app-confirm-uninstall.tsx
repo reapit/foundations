@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { FormState, ReduxState } from '@/types/core'
-import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, SubTitleH6, ModalFooter, ModalBody, ModalHeader } from '@reapit/elements'
 import { appUninstallRequestData, appUninstallDone } from '@/actions/app-uninstall'
 import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
-import { oc } from 'ts-optchain'
 
 export type AppConfirmUninstallMappedProps = {
   appUninstallFormState: FormState
@@ -92,7 +90,7 @@ export const AppConfirmUninstall = ({
 }
 
 export const mapStateToProps = (state: ReduxState): AppConfirmUninstallMappedProps => ({
-  appName: oc(state).appDetail.appDetailData.data.name(''),
+  appName: state?.appDetail?.appDetailData?.data?.name || '',
   appUninstallFormState: state.appUninstall.formState
 })
 
@@ -102,10 +100,7 @@ export const mapDispatchToProps = (dispatch: any): AppConfirmUninstallMappedActi
   uninstallDone: () => dispatch(appUninstallDone())
 })
 
-const AppConfirmUninstallInnerWithConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppConfirmUninstall)
+const AppConfirmUninstallInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppConfirmUninstall)
 
 AppConfirmUninstallInnerWithConnect.displayName = 'AppConfirmUninstallInnerWithConnect'
 

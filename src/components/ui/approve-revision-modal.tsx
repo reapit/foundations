@@ -6,7 +6,6 @@ import { Button, Modal, ModalProps, ModalBody, SubTitleH6, ModalFooter } from '@
 import { Form, Formik } from 'formik'
 import { approveRevision, RevisionApproveRequestParams } from '@/actions/revision-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
-import { oc } from 'ts-optchain'
 import CallToAction from './call-to-action'
 
 interface ApproveRevisionModalWithConnectOwnProps {
@@ -29,8 +28,8 @@ const mapStateToProps = (
   ownProps: ApproveRevisionModalWithConnectOwnProps
 ): ApproveRevisionModalMappedProps => ({
   revisionDetail: state.revisionDetail,
-  email: oc(state).auth.loginSession.loginIdentity.email(''),
-  name: oc(state).auth.loginSession.loginIdentity.name(''),
+  email: state?.auth?.loginSession?.loginIdentity?.email || '',
+  name: state?.auth?.loginSession?.loginIdentity?.name || '',
   closeModal: ownProps.closeModal,
   onApproveSuccess: ownProps.onApproveSuccess
 })
@@ -68,7 +67,7 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
 }) => {
   const { approveFormState } = revisionDetail
 
-  const { appId, id: appRevisionId } = oc<RevisionDetailState>(revisionDetail).revisionDetailData.data({})
+  const { appId, id: appRevisionId } = revisionDetail?.revisionDetailData?.data || {}
 
   const isLoading = approveFormState === 'SUBMITTING'
   const isSuccessed = approveFormState === 'SUCCESS'
@@ -137,7 +136,4 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
   )
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ApproveRevisionModal)
+export default connect(mapStateToProps, mapDispatchToProps)(ApproveRevisionModal)

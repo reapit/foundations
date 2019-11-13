@@ -64,14 +64,14 @@ class DeveloperManageAppsPage extends Base {
 
   selectEditableApp() {
     this.editableApp.click()
-    return this.editableApp.getAttribute('data-test').split('_')[1]
+    const testString = this.editableApp.getAttribute('data-test') as string
+    return testString.split('_')[1]
   }
 
   getAppId() {
     this.getAppCardByName().waitForVisible()
-    return this.getAppCardByName()
-      .getAttribute('data-test')
-      .split('_')[1]
+    const testString = this.getAppCardByName().getAttribute('data-test') as string
+    return testString.split('_')[1]
   }
 
   openWithoutLogin() {

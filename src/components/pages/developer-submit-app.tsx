@@ -331,7 +331,4 @@ const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
   submitAppSetFormState: formState => dispatch(submitAppSetFormState(formState))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SubmitApp)
+export default connect(mapStateToProps, mapDispatchToProps)(SubmitApp)

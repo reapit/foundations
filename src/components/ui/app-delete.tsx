@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
 import { FormState } from '../../types/core'
 import { appDeleteRequest } from '@/actions/app-delete'
@@ -28,7 +27,7 @@ export const mapStateToProps = (
   ownProps: AppDeleteModalWithConnectOwnProps
 ): AppDeleteMappedProps => ({
   formState: state.appDelete.formState,
-  appName: oc(state.appDetail.appDetailData).data.name(''),
+  appName: state?.appDetail?.appDetailData?.data?.name || '',
   onDeleteSuccess: ownProps.onDeleteSuccess
 })
 
@@ -125,10 +124,7 @@ export const DeleteAppModal = ({
   )
 }
 
-const AppDeleteModalWithRedux = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DeleteAppModal)
+const AppDeleteModalWithRedux = connect(mapStateToProps, mapDispatchToProps)(DeleteAppModal)
 
 AppDeleteModalWithRedux.displayName = 'AppDeleteModalWithRedux'
 

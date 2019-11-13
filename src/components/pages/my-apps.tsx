@@ -6,7 +6,6 @@ import { MyAppsState } from '@/reducers/my-apps'
 import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
-import { oc } from 'ts-optchain'
 import AppList from '@/components/ui/app-list'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
@@ -55,8 +54,8 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !myAppsState.myAppsData
   const loading = myAppsState.loading
-  const list = oc<MyAppsState>(myAppsState).myAppsData.data.data([])
-  const { totalCount, pageSize } = oc<MyAppsState>(myAppsState).myAppsData.data({})
+  const list = myAppsState?.myAppsData?.data?.data || []
+  const { totalCount, pageSize } = myAppsState?.myAppsData?.data || {}
   const [visible, setVisible] = React.useState(false)
   const isSuccess = appUninstallFormState === 'SUCCESS'
 
@@ -105,9 +104,4 @@ export const mapDispatchToProps = (dispatch: any): MyAppsMappedActions => ({
   appUninstallDone: () => dispatch(appUninstallDone())
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(MyApps)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MyApps))

@@ -11,7 +11,6 @@ import loginStyles from '@/styles/pages/login.scss?mod'
 import { withRouter, RouteComponentProps } from 'react-router'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { Input, Button, Tabs, TabConfig, LoginType, LoginParams, LoginMode, Alert, H1, Level } from '@reapit/elements'
-import { oc } from 'ts-optchain'
 
 export interface LoginMappedActions {
   login: (params: LoginParams) => void
@@ -138,7 +137,7 @@ export const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
   error: state.auth.error,
   loginType: state.auth.loginType,
-  mode: oc(state).auth.refreshSession.mode('WEB')
+  mode: state?.auth?.refreshSession?.mode || 'WEB'
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
@@ -146,9 +145,4 @@ export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
   authChangeLoginType: (loginType: string) => dispatch(authChangeLoginType(loginType as LoginType))
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Login)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))

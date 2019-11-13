@@ -3,10 +3,9 @@ import { connect } from 'react-redux'
 import { FormState, ReduxState } from '@/types/core'
 import { ScopeModel } from '@/types/marketplace-api-schema'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import { Button, H3, SubTitleH6, ModalHeader, ModalBody, ModalFooter } from '@reapit/elements'
+import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter } from '@reapit/elements'
 import { appInstallRequestData, appInstallDone } from '@/actions/app-install'
 import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
-import { oc } from 'ts-optchain'
 
 export type AppConfirmInstallContentMappedProps = {
   permissions: ScopeModel[]
@@ -108,8 +107,8 @@ export const AppConfirmInstallContent = ({
 }
 
 export const mapStateToProps = (state: ReduxState): AppConfirmInstallContentMappedProps => ({
-  permissions: oc(state).appDetail.appDetailData.data.scopes([]),
-  appName: oc(state).appDetail.appDetailData.data.name(''),
+  permissions: state?.appDetail?.appDetailData?.data?.scopes || [],
+  appName: state?.appDetail?.appDetailData?.data?.name || '',
   appInstallFormState: state.appInstall.formState
 })
 
@@ -119,10 +118,7 @@ export const mapDispatchToProps = (dispatch: any): AppConfirmInstallContentMappe
   installDone: () => dispatch(appInstallDone())
 })
 
-const AppConfirmInstallContentInnerWithConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppConfirmInstallContent)
+const AppConfirmInstallContentInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppConfirmInstallContent)
 
 AppConfirmInstallContentInnerWithConnect.displayName = 'AppConfirmInstallContentInnerWithConnect'
 

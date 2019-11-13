@@ -436,10 +436,7 @@ export const mapDispatchToProps = (dispatch: any): DeveloperAppModalMappedAction
   setDeveloperAppModalStateViewDetail: () => dispatch(setDeveloperAppModalStateViewDetail())
 })
 
-const DeveloperAppInnerWithConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DeveloperAppModalInner)
+const DeveloperAppInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(DeveloperAppModalInner)
 
 export const DeveloperAppModal: React.FunctionComponent<DeveloperAppModalProps> = ({ visible = true, afterClose }) => {
   return (

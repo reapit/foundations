@@ -5,7 +5,6 @@ import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { DeveloperState } from '@/reducers/developer'
 import routes from '@/constants/routes'
-import { oc } from 'ts-optchain'
 import AppList from '@/components/ui/app-list'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { AppDetailState } from '@/reducers/app-detail'
@@ -63,8 +62,8 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !developerState.developerData
   const loading = developerState.loading
-  const list = oc<DeveloperState>(developerState).developerData.data.data([])
-  const { totalCount, pageSize } = oc<DeveloperState>(developerState).developerData.data({})
+  const list = developerState?.developerData?.data?.data || []
+  const { totalCount, pageSize } = developerState?.developerData?.data || {}
 
   if (unfetched || loading) {
     return <Loader />
@@ -109,9 +108,4 @@ export const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
   setVisible: (isVisible: boolean) => dispatch(developerAppShowModal(isVisible))
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(DeveloperHome)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeveloperHome))

@@ -19,7 +19,6 @@ import {
   FaChartLine
 } from 'react-icons/fa'
 import { GoDatabase, GoCode } from 'react-icons/go'
-import { oc } from 'ts-optchain'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -190,16 +189,11 @@ export const Menu: React.FunctionComponent<MenuProps> = ({ logout, loginType, lo
 
 export const mapStateToProps = (state: ReduxState): MenuMappedProps => ({
   loginType: state.auth.loginType,
-  mode: oc(state).auth.refreshSession.mode('WEB')
+  mode: state?.auth?.refreshSession?.mode || 'WEB'
 })
 
 export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({
   logout: () => dispatch(authLogout())
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Menu)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Menu))

@@ -8,7 +8,6 @@ import AppInstallConfirm from '@/components/ui/app-confirm-install'
 import AppUninstallConfirm from '@/components/ui/app-confirm-uninstall'
 import CallToAction from '../call-to-action'
 import { handleCloseModal, mapDispatchToProps } from '../app-confirm-install'
-import { oc } from 'ts-optchain'
 import { ModalBody } from '@reapit/elements'
 
 export interface AppDetailInnerMappedProps {
@@ -52,8 +51,8 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   }
 
   if (appDetailModalState === 'VIEW_DETAIL_ACTION_SUCCESS') {
-    const appName = oc(appDetailState).appDetailData.data.name('App')
-    const isInstalled = !!oc(appDetailState).appDetailData.data.installationId()
+    const appName = appDetailState?.appDetailData?.data?.name || 'App'
+    const isInstalled = !!appDetailState?.appDetailData?.data?.installationId
     return (
       <ModalBody
         body={
@@ -74,9 +73,6 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   return null
 }
 
-const AppDetailInnerWithConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppDetailInner)
+const AppDetailInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppDetailInner)
 
 export default AppDetailInnerWithConnect

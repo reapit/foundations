@@ -161,7 +161,4 @@ export const mapDispatchToProps = (dispatch: Dispatch): RegisterMappedActions =>
   developerCreate: (developer: CreateDeveloperModel) => dispatch(developerCreate(developer))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Register)
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

@@ -1,4 +1,3 @@
-import { ImageUploaderRes } from './submit-app'
 import { fetcher, FetchError, isBase64 } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL, UPLOAD_FILE_BASE_URL } from '../constants/api'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
