@@ -3,7 +3,6 @@ import { Input, Button, SelectBoxOptions, SelectBox, CameraImageInput } from '@r
 import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import { oc } from 'ts-optchain'
 import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
 import { ContactModel } from '@/types/contact-api-schema'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
@@ -198,8 +197,8 @@ export type StateProps = {
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
-    isSubmitting: oc(state).checklistDetail.isSubmitting(false),
-    contact: oc(state).checklistDetail.checklistDetailData.contact({})
+    isSubmitting: state?.checklistDetail?.isSubmitting || false,
+    contact: state?.checklistDetail?.checklistDetailData?.contact || {}
   }
 }
 
@@ -220,10 +219,7 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   }
 }
 
-export const AddressInformationWithRedux = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddressInformation)
+export const AddressInformationWithRedux = connect(mapStateToProps, mapDispatchToProps)(AddressInformation)
 
 AddressInformationWithRedux.displayName = 'AddressInformationWithRedux'
 

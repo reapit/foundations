@@ -18,7 +18,6 @@ import { Formik, Form } from 'formik'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/result'
 import { ReduxState } from '../../types/core'
-import { oc } from 'ts-optchain'
 
 export interface ClientSearchMappedActions {
   setSearchParams: (params: SearchParams) => void
@@ -116,12 +115,7 @@ export const mapDispatchToProps = (dispatch: any): ClientSearchMappedActions => 
 })
 
 export const mapStateToProps = (state: ReduxState): ClientSearchMappedState => ({
-  loginMode: oc(state).auth.refreshSession.mode('WEB')
+  loginMode: state?.auth?.refreshSession?.mode || 'WEB'
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(ClientSearch)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClientSearch))

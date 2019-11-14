@@ -9,7 +9,6 @@ import Routes from '@/constants/routes'
 import { selectUserLoginStatus } from '@/selectors/auth'
 import { Dispatch } from 'redux'
 import { authSetRefreshSession } from '../actions/auth'
-import { oc } from 'ts-optchain'
 
 const { Suspense } = React
 
@@ -54,16 +53,11 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
   hasSession: selectUserLoginStatus(state),
-  isDesktopMode: oc(state).auth.refreshSession.mode() === 'DESKTOP'
+  isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP'
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({
   setRefreshSession: refreshParams => dispatch(authSetRefreshSession(refreshParams))
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(PrivateRouteWrapper)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PrivateRouteWrapper))
