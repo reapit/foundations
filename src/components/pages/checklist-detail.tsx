@@ -153,7 +153,7 @@ export type HomeMappedProps = {
 
 export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   isModalVisible: state?.checklistDetail?.isModalVisible || false,
-  loading: state?.checklistDetail?.loading || true,
+  loading: state?.checklistDetail?.loading || false,
   contact: state?.checklistDetail?.checklistDetailData?.contact || {},
   status: state?.checklistDetail?.status || defaultStatus,
   modalContentType: state?.checklistDetail?.modalContentType || 'PROFILE'
