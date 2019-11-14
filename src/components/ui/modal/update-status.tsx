@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import { oc } from 'ts-optchain'
 import { Button, DynamicLinkParams, AcButton, EntityType, LoginMode } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
@@ -22,7 +21,7 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
   isSubmitting,
   updateIdentityCheckStatus
 }) => {
-  const { id, title, forename, surname } = oc(contact)({})
+  const { id, title, forename, surname } = contact || {}
 
   const name = React.useMemo(() => `${title} ${forename} ${surname}`.trim(), [contact])
 
@@ -85,7 +84,7 @@ export const mapStateToProps = (state: ReduxState) => {
     contact: selectCheckListDetailContact(state),
     loginMode: selectLoginMode(state),
     status: selectCheckListDetailStatus(state),
-    isSubmitting: oc(state).checklistDetail.isSubmitting(false)
+    isSubmitting: state?.checklistDetail?.isSubmitting || false
   }
 }
 
@@ -100,10 +99,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
   }
 }
 
-const UpdateStatusWithRedux = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UpdateStatus)
+const UpdateStatusWithRedux = connect(mapStateToProps, mapDispatchToProps)(UpdateStatus)
 
 UpdateStatusWithRedux.displayName = 'UpdateStatusWithRedux'
 

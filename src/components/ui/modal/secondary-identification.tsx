@@ -90,7 +90,4 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
     )
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SecondaryIdentification)
+export default connect(mapStateToProps, mapDispatchToProps)(SecondaryIdentification)
