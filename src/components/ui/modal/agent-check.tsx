@@ -1,7 +1,6 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
 import { SelectBox, DatePicker, SelectBoxOptions, Button, Input, RadioSelect } from '@reapit/elements'
-import { oc } from 'ts-optchain'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { IdentityCheckModel } from '@/types/contact-api-schema'
@@ -105,14 +104,20 @@ export const renderForm = ({ isSubmitting, isDisabledSubmit }) => () => {
         dataTest="clientType"
         name="clientType"
         labelText="Is the client acting on their own behalf or on behalf of a Company?"
-        options={[{ label: 'Individual', value: 'Individual' }, { label: 'Company', value: 'Company' }]}
+        options={[
+          { label: 'Individual', value: 'Individual' },
+          { label: 'Company', value: 'Company' }
+        ]}
       />
       <RadioSelect
         id="isUKResident"
         dataTest="isUKResident"
         name="isUKResident"
         labelText="Is the client a UK resident?"
-        options={[{ label: 'Yes', value: 'Yes' }, { label: 'No', value: 'No' }]}
+        options={[
+          { label: 'Yes', value: 'Yes' },
+          { label: 'No', value: 'No' }
+        ]}
       />
       <RadioSelect
         id="placeMeet"
@@ -137,7 +142,7 @@ export const renderForm = ({ isSubmitting, isDisabledSubmit }) => () => {
 export type AgentCheckProps = DispatchProps & StateProps
 
 export const AgentCheck: React.FC<AgentCheckProps> = ({ isSubmitting, onHandleSubmit, idCheck, isDisabledSubmit }) => {
-  const agentCheck = oc(idCheck).metadata({})
+  const agentCheck = idCheck?.metadata || {}
   return (
     <Formik
       initialValues={{
@@ -158,9 +163,9 @@ export type StateProps = {
 export const mapStateToProps = (state: ReduxState): StateProps => {
   const MINIMUM_DOCUMENT = 1
   return {
-    isSubmitting: oc(state).checklistDetail.isSubmitting(false),
-    idCheck: oc(state).checklistDetail.checklistDetailData.idCheck({}),
-    isDisabledSubmit: oc(state).checklistDetail.checklistDetailData.idCheck.documents([]).length < MINIMUM_DOCUMENT
+    isSubmitting: state?.checklistDetail?.isSubmitting || false,
+    idCheck: state?.checklistDetail?.checklistDetailData?.idCheck || {},
+    isDisabledSubmit: (state?.checklistDetail?.checklistDetailData?.idCheck?.documents || []).length < MINIMUM_DOCUMENT
   }
 }
 

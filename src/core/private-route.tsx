@@ -8,7 +8,6 @@ import { FlexContainerBasic, LoginMode } from '@reapit/elements'
 import styles from '@/styles/index.scss?mod'
 import Routes from '@/constants/routes'
 import { ReduxState } from '../types/core'
-import { oc } from 'ts-optchain'
 
 export type LoginType = 'CLIENT' | 'DEVELOPER'
 
@@ -66,6 +65,6 @@ export const PrivateRoute = ({
 
 const mapStateToProps = (state: ReduxState): PrivateRouteConnectProps => ({
   loginType: 'CLIENT',
-  loginMode: oc(state).auth.refreshSession.mode('WEB')
+  loginMode: state?.auth?.refreshSession?.mode || 'WEB'
 })
 export default connect(mapStateToProps)(PrivateRoute)

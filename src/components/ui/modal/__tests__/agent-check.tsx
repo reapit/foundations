@@ -8,7 +8,10 @@ describe('agent-check', () => {
   describe('renderOptions', () => {
     it('should run correctly', () => {
       const result = renderOptions(1, 2, 1)
-      const expected = [{ label: '1', value: '1' }, { label: '2', value: '2' }]
+      const expected = [
+        { label: '1', value: '1' },
+        { label: '2', value: '2' }
+      ]
       expect(result).toEqual(expected)
     })
   })

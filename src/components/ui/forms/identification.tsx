@@ -4,7 +4,6 @@ import { ContactModel } from '@/types/contact-api-schema'
 import { Button, Input, DatePicker, CameraImageInput } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/identification.scss?mod'
-import { oc } from 'ts-optchain'
 
 export type IdentificationFormValues = {
   typeId: string
@@ -29,7 +28,7 @@ export type IdentificationProps = {
 }
 
 export const renderFormHandler = ({ contactModel, loading, disabled = false }) => () => {
-  const id = oc(contactModel).id('')
+  const id = contactModel?.id || ''
   return (
     <>
       {disabled && (

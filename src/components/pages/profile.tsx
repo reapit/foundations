@@ -9,7 +9,6 @@ import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import Routes from '@/constants/routes'
-import { oc } from 'ts-optchain'
 import { ContactModel } from '@/types/contact-api-schema'
 import ProfileDetail from '@/components/ui/modal/profile'
 import AddressInformation from '@/components/ui/modal/address-information'
@@ -24,31 +23,31 @@ const generateSection = (status: ChecklistStatus, onClick: (sectionType: string)
   return [
     {
       title: STEPS.PROFILE,
-      complete: oc(status).profile(false),
+      complete: status?.profile || false,
       children: <ProfileDetail />,
       onToggle: onClick(STEPS.PROFILE)
     },
     {
       title: STEPS.PRIMARY_IDENTIFICATION,
-      complete: oc(status).primaryId(false),
+      complete: status?.primaryId || false,
       children: <PrimaryIdentification />,
       onToggle: onClick(STEPS.PRIMARY_IDENTIFICATION)
     },
     {
       title: STEPS.SECONDARY_IDENTIFICATION,
-      complete: oc(status).secondaryId(false),
+      complete: status?.secondaryId || false,
       children: <SecondaryIdentification />,
       onToggle: onClick(STEPS.SECONDARY_IDENTIFICATION)
     },
     {
       title: STEPS.ADDRESS_INFORMATION,
-      complete: oc(status).addresses(false),
+      complete: status?.addresses || false,
       children: <AddressInformation />,
       onToggle: onClick(STEPS.ADDRESS_INFORMATION)
     },
     {
       title: STEPS.AGENT_CHECKS,
-      complete: oc(status).agentChecks(false),
+      complete: status?.agentChecks || false,
       children: <AgentCheck />,
       onToggle: onClick(STEPS.AGENT_CHECKS)
     }
@@ -133,17 +132,14 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
 
 const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
   submitChecksFormState: state.submitChecks.formState,
-  loading: oc(state).checklistDetail.loading(true),
+  loading: state?.checklistDetail?.loading || true,
   contact: selectCheckListDetailContact(state),
   status: selectCheckListDetailStatus(state),
-  loginMode: oc(state).auth.refreshSession.mode('WEB')
+  loginMode: state?.auth?.refreshSession?.mode || 'WEB'
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): ProfileMappedActions => ({
   submitChecks: (id: string) => dispatch(submitChecks(id))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)
