@@ -1061,7 +1061,7 @@ exports[`Home should match a snapshot 1`] = `
   <div
     style={
       Object {
-        "display": "block",
+        "display": "inline-block",
       }
     }
   >
@@ -1120,7 +1120,7 @@ exports[`Home should match a snapshot when loading 1`] = `
   <div
     style={
       Object {
-        "display": "block",
+        "display": "inline-block",
       }
     }
   >

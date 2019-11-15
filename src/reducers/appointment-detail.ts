@@ -5,7 +5,9 @@ import {
   appointmentDetailLoading,
   appointmentDetailReceiveData,
   appointmentDetailShowModal,
-  appointmentDetailHideModal
+  appointmentDetailHideModal,
+  showHideConfirmModal,
+  showConfirmModalSubmitting
 } from '../actions/appointment-detail'
 import { AppointmentModel } from '@/types/appointments'
 
@@ -13,12 +15,20 @@ export interface AppointmentDetailState {
   loading: boolean
   appointmentDetail: AppointmentModel | null | undefined
   isModalVisible: boolean
+  confirmModal: {
+    isConfirmContentVisible: boolean
+    isSubmitting: boolean
+  }
 }
 
 export const defaultState: AppointmentDetailState = {
   loading: false,
   appointmentDetail: null,
-  isModalVisible: false
+  isModalVisible: false,
+  confirmModal: {
+    isConfirmContentVisible: false,
+    isSubmitting: false
+  }
 }
 
 export const appointmentDetailReducer = (
@@ -56,6 +66,26 @@ export const appointmentDetailReducer = (
     return {
       ...state,
       isModalVisible: false
+    }
+  }
+
+  if (isType(action, showHideConfirmModal)) {
+    return {
+      ...state,
+      confirmModal: {
+        ...state.confirmModal,
+        isConfirmContentVisible: action.data
+      }
+    }
+  }
+
+  if (isType(action, showConfirmModalSubmitting)) {
+    return {
+      ...state,
+      confirmModal: {
+        ...state.confirmModal,
+        isSubmitting: action.data
+      }
     }
   }
 

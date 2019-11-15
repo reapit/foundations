@@ -2,29 +2,25 @@ import {
   appointmentDetailLoading,
   appointmentDetailReceiveData,
   appointmentDetailRequestDataFailure,
-  appointmentDetailShowModal
+  appointmentDetailShowModal,
+  showConfirmModalSubmitting,
+  showHideConfirmModal
 } from '../actions/appointment-detail'
-import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
+import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
-import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { AppointmentDetailRequestParams } from '@/actions/appointment-detail'
-import { initAuthorizedRequestHeaders } from '@/utils/api'
+import { selectAppointmentDetail } from '@/selectors/appointment-detail'
+import { AppointmentModel } from '@/types/appointments'
+import { fetchAppointment, updateAppointment } from './api'
 
 export const appointmentDetailDataFetch = function*({ data: { id } }: Action<AppointmentDetailRequestParams>) {
   yield put(appointmentDetailShowModal())
   yield put(appointmentDetailLoading(true))
   try {
-    const headers = yield call(initAuthorizedRequestHeaders)
-    const response = yield call(fetcher, {
-      url: `${URLS.appointments}/${id}`,
-      api: REAPIT_API_BASE_URL,
-      method: 'GET',
-      headers: headers
-    })
+    const response = yield call(fetchAppointment, { id })
     if (response) {
       yield put(appointmentDetailReceiveData(response))
       yield put(appointmentDetailLoading(false))
@@ -43,6 +39,33 @@ export const appointmentDetailDataFetch = function*({ data: { id } }: Action<App
   }
 }
 
+export const cancelAppointmentRequest = function*() {
+  try {
+    yield put(showConfirmModalSubmitting(true))
+    const currentAppointment = yield select(selectAppointmentDetail) as AppointmentModel
+    const newAppointment: AppointmentModel = {
+      ...currentAppointment,
+      cancelled: true
+    }
+    const updateResponse = yield call(updateAppointment, newAppointment)
+    if (updateResponse) {
+      const fetchResponse = yield call(fetchAppointment, { id: currentAppointment.id })
+      yield put(appointmentDetailReceiveData(fetchResponse))
+      yield put(showHideConfirmModal(false))
+    }
+  } catch (error) {
+    console.error(error)
+    yield put(
+      errorThrownServer({
+        type: 'SERVER',
+        message: errorMessages.DEFAULT_SERVER_ERROR
+      })
+    )
+  } finally {
+    yield put(showConfirmModalSubmitting(false))
+  }
+}
+
 export const appointmentDetailDataListen = function*() {
   yield takeLatest<Action<AppointmentDetailRequestParams>>(
     ActionTypes.APPOINTMENT_DETAIL_REQUEST_DATA,
@@ -50,8 +73,12 @@ export const appointmentDetailDataListen = function*() {
   )
 }
 
+export const cancelAppointmentListen = function*() {
+  yield takeLatest<Action<void>>(ActionTypes.CANCEL_APPOINTMENT, cancelAppointmentRequest)
+}
+
 const appointmentDetailSagas = function*() {
-  yield all([fork(appointmentDetailDataListen)])
+  yield all([fork(appointmentDetailDataListen), fork(cancelAppointmentListen)])
 }
 
 export default appointmentDetailSagas
