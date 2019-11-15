@@ -30,7 +30,7 @@ const PurgecssLoader = {
 
 module.exports = {
   context: process.cwd(),
-  entry: ['@babel/polyfill', 'core-js', './src/core/index.tsx'],
+  entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', './src/core/index.tsx'],
   output: {
     path: path.join(process.cwd(), 'public', 'dist'),
     filename: '[name].[hash].js'
@@ -104,7 +104,28 @@ module.exports = {
     rules: [
       {
         test: /.tsx?$/,
-        use: [{ loader: 'ts-loader', options: { transpileOnly: true } }]
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    useBuiltIns: 'entry',
+                    corejs: '3.0.0',
+                    targets: {
+                      esmodules: true,
+                      chrome: '58',
+                      ie: '11'
+                    }
+                  }
+                ]
+              ]
+            }
+          },
+          { loader: 'ts-loader', options: { transpileOnly: true } }
+        ]
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,

@@ -147,7 +147,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
           </>
         )}
       </div>
-      <div style={{ display: currentTab === 'MAP' || !isMobileView ? 'block' : 'none' }}>
+      <div style={{ display: currentTab === 'MAP' || !isMobileView ? 'inline-block' : 'none' }}>
         <MapContainer travelMode={travelMode} />
       </div>
       <AppointmentDetailModal />
