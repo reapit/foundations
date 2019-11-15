@@ -79,7 +79,7 @@ export const generateColumns = history => () => [
     accessor: d => d,
     Cell: ({ row }) => {
       return (
-        <Button type="button" variant="primary" onClick={() => history.push(`/checklist-detail/${row.original.id}`)}>
+        <Button type="button" variant="info" onClick={() => history.push(`/checklist-detail/${row.original.id}`)}>
           Edit
         </Button>
       )
@@ -146,7 +146,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
       ) : (
         <FlexContainerBasic hasPadding flexColumn>
           <FlexContainerBasic hasBackground flexColumn hasPadding isScrollable>
-            {search && <H3>Show Results for '{searchTitle}'</H3>}
+            {search && <H3>Showing Results for '{searchTitle}'</H3>}
             <div className={styles.tableWrap}>
               <Table scrollable data={data} columns={columns} loading={loading} />
             </div>
