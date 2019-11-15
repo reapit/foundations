@@ -103,9 +103,8 @@ export const MapContainer = ({
   )
 
   const hasMapPanel = destinationLatLng.lng && destinationLatLng.lat
-
   return (
-    <>
+    <React.Fragment>
       <div
         className={`${styles.mapContainer} ${desktopMode ? styles.isDesktop : ''} ${
           hasMapPanel ? styles.mapHasPanel : ''
@@ -130,7 +129,7 @@ export const MapContainer = ({
         currentLocation={currentLocation}
         destination={destinationLatLng}
       />
-    </>
+    </React.Fragment>
   )
 }
 

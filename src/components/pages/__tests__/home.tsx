@@ -16,19 +16,6 @@ import {
   tabConfigs
 } from '../home'
 
-const props = {
-  appointmentsState: {
-    appointments: appointmentsDataStub.appointments,
-    loading: false,
-    time: 'Today',
-    selectedAppointment: appointmentsDataStub?.appointments?.data?.[0]
-  },
-  nextAppointmentState: {
-    data: null
-  },
-  desktopMode: false
-} as HomeProps
-
 describe('Home', () => {
   it('should match a snapshot', () => {
     const mockProps = {

@@ -1,5 +1,11 @@
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
-import { selectAppointments, selectAppointmentTypes, selectTodayAppointments, selectTomorrowAppointments, selectWeekAppointments } from '../appointments'
+import {
+  selectAppointments,
+  selectAppointmentTypes,
+  selectTodayAppointments,
+  selectTomorrowAppointments,
+  selectWeekAppointments
+} from '../appointments'
 import { ReduxState } from '@/types/core'
 
 describe('appointments selector', () => {

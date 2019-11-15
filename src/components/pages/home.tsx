@@ -147,7 +147,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
           </>
         )}
       </div>
-      <div style={{ display: currentTab === 'MAP' || !isMobileView ? 'block' : 'none' }}>
+      <div style={{ display: currentTab === 'MAP' || !isMobileView ? 'inline-block' : 'none' }}>
         <MapContainer travelMode={travelMode} />
       </div>
       <AppointmentDetailModal />
@@ -171,7 +171,11 @@ export interface HomeMappedActions {
 export const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({
   requestAppointments: (time: AppointmentsTime) => dispatch(appointmentsRequestData({ time })),
   requestNextAppointment: (travelMode: string) => dispatch(nextAppointmentValidate(travelMode)),
-  setSelectedAppointment: (appointment: AppointmentModel | null) => dispatch(setSelectedAppointment(appointment)),
+  setSelectedAppointment: (appointment: AppointmentModel | null) => {
+    dispatch(setSelectedAppointment(appointment))
+    dispatch(setDestination(appointment))
+    dispatch(homeTabChange('MAP'))
+  },
   changeHomeTab: (tab: 'LIST' | 'MAP') => {
     dispatch(homeTabChange(tab))
     dispatch(setDestination(null))

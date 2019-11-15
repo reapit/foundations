@@ -4,7 +4,10 @@ import {
   appointmentDetailLoading,
   appointmentDetailReceiveData,
   appointmentDetailShowModal,
-  appointmentDetailHideModal
+  appointmentDetailHideModal,
+  showHideConfirmModal,
+  cancelAppointment,
+  showConfirmModalSubmitting
 } from '../appointment-detail'
 import ActionTypes from '../../constants/action-types'
 import { appointmentDataStub } from '../../sagas/__stubs__/appointment'
@@ -37,5 +40,20 @@ describe('appointment-detail actions', () => {
   it('should create a appointmentDetailHideModal action', () => {
     expect(appointmentDetailHideModal.type).toEqual(ActionTypes.APPOINTMENT_DETAIL_HIDE_MODAL)
     expect(appointmentDetailHideModal().data).toEqual(undefined)
+  })
+
+  it('should create a showHideConfirmModal action', () => {
+    expect(showHideConfirmModal.type).toEqual(ActionTypes.SHOW_HIDE_CONFIRM_MODAL)
+    expect(showHideConfirmModal(true).data).toEqual(true)
+  })
+
+  it('should create a confirmCancel action', () => {
+    expect(cancelAppointment.type).toEqual(ActionTypes.CANCEL_APPOINTMENT)
+    expect(cancelAppointment().data).toEqual(undefined)
+  })
+
+  it('should create a showConfirmModalSubmitting action', () => {
+    expect(showConfirmModalSubmitting.type).toEqual(ActionTypes.SHOW_CONFIRM_MODAL_SUBMITTING)
+    expect(showConfirmModalSubmitting(true).data).toEqual(true)
   })
 })
