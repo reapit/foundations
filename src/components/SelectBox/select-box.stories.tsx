@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import { Form, Formik } from 'formik'
 
 import { storiesOf } from '@storybook/react'
@@ -12,7 +12,7 @@ storiesOf('SelectBox', module)
     return (
       <section className="section">
         <Formik
-          initialValues={{ demo: 'b' }}
+          initialValues={{ demo: new Date().toString() }}
           onSubmit={values => {
             action('Form Values' + values)
           }}
@@ -29,22 +29,18 @@ storiesOf('SelectBox', module)
   })
   .add('HasError', () => {
     const Parent = () => {
-      const ref = useRef(null)
       const mockedOptions: SelectBoxOptions[] = [{ label: 'option1', value: 'a' }, { label: 'option2', value: 'b' }]
-      useEffect(() => {
-        console.log((ref.current as any).setTouched({ demo: true }))
-      }, [])
-
       return (
         <section className="section">
           <Formik
-            ref={ref}
-            validate={() => {
-              return {
-                demo: 'error'
+            validate={values => {
+              if (values.demo !== 'a') {
+                return {
+                  demo: 'Not valid'
+                }
               }
             }}
-            initialValues={{ demo: 'b' }}
+            initialValues={{ demo: new Date().toString() }}
             onSubmit={values => {
               action('Form Values' + values)
             }}

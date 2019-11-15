@@ -14,4 +14,13 @@ const Usage = () => {
   )
 }
 
-stories.add('Primary', () => <Usage />)
+const UsageWithDisabled = () => {
+  const [pageNumber, setPageNumber] = useState(1)
+  return (
+    <section className="section">
+      <Pagination pageNumber={pageNumber} onChange={setPageNumber} pageSize={10} totalCount={20} />
+    </section>
+  )
+}
+
+stories.add('Primary', () => <Usage />).add('Disabled Next and Prev', () => <UsageWithDisabled />)

@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import { SelectBox, SelectBoxOptions, SelectBoxProps } from '../index'
-import { Formik, Form } from 'formik'
+import { Formik, Form, FormikErrors } from 'formik'
 import toJson from 'enzyme-to-json'
-const { useRef, useEffect } = React
 
 const mockedOptions: SelectBoxOptions[] = [{ label: 'a', value: 'a' }, { label: 'b', value: 'b' }]
 const selectBoxProps: SelectBoxProps = {
@@ -32,30 +31,25 @@ const createFormikWrapper = () => {
 }
 
 const ErrorFomrikComponent = () => {
-  const ref = React.useRef<Formik>(null)
-
-  const mockedOptions: SelectBoxOptions[] = [{ label: 'option1', value: 'a' }, { label: 'option2', value: 'b' }]
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.setTouched({ demo: true })
-    }
-  }, [])
-
   return (
     <section className="section">
       <Formik
-        ref={ref}
-        validate={() => {
-          return {
-            demo: 'error'
+        validate={values => {
+          const errors: FormikErrors<any> = {
+            demo: ''
           }
+          if (values.demo === 'b') {
+            errors.demo = 'Required'
+            return errors
+          }
+          return errors
         }}
-        initialValues={{ demo: 'b' }}
+        initialValues={{ demo: 'a' }}
         onSubmit={jest.fn()}
         render={() => (
           <Form>
             <div className="column is-half-desktop">
-              <SelectBox name="demo" options={mockedOptions} labelText="Demo" id="test" />
+              <SelectBox dataTest="select-box" name="demo" options={mockedOptions} labelText="Demo" id="test" />
             </div>
           </Form>
         )}
@@ -72,13 +66,15 @@ describe('SelectBox', () => {
   describe('should work when integrating with Formik', () => {
     it('Render error correctly', done => {
       const wrapper = mount(<ErrorFomrikComponent />)
-      // Since formik is asynchronous. Use setTimeout to move it to bottom of the event-lo
+      const select = wrapper.find('select')
+      select.simulate('focus')
+      select.simulate('change', { target: { name: 'demo', value: 'b' } })
+      select.simulate('blur', { target: { name: 'demo', value: 'b' } })
+      select.update()
       setTimeout(() => {
-        wrapper.update()
-        const label = wrapper.find('.has-text-danger').first()
-        expect(label.text()).toBe('error')
+        expect(wrapper.find('select').props().value).toBe('b')
         done()
-      }, 1)
+      }, 100)
     })
   })
 

@@ -191,6 +191,7 @@ Wizard.Step = function<T>({ Component, initialValue, onNavigate, validate, onSub
           )
         } else {
           rightRender =
+            // @ts-ignore
             typeof rightFooterRender === 'function' ? rightFooterRender({ context, form }) : rightFooterRender
         }
 

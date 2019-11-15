@@ -56,21 +56,21 @@
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.0",
     "formik": "^1.5.8",
     "husky": "^3.0.3",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "jest-fetch-mock": "^2.1.2",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
     "purgecss": "^1.3.0",
     "purify-css": "^1.2.5",
-    "react": "^16.9.0",
+    "react": "^16.11.0",
     "react-docgen-typescript-loader": "^3.1.1",
-    "react-dom": "^16.9.0",
-    "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1",
+    "react-dom": "^16.11.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "rimraf": "^2.7.0",
     "rollup": "^1.19.4",
     "rollup-plugin-scss": "^1.0.2",
@@ -84,11 +84,11 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.5.3"
+    "typescript": "3.7.2"
   },
   "dependencies": {
     "bulma": "^0.7.5",
-    "dayjs": "^1.8.16",
+    "dayjs": "^1.8.17",
     "formik": "^1.5.8",
     "hardtack": "^4.1.0",
     "himalaya": "^1.1.0",
@@ -102,10 +102,10 @@
     "react-table": "7.0.0-alpha.35"
   },
   "peerDependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1"
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
   },
   "husky": {
     "hooks": {
