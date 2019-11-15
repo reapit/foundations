@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2020",
     "module": "esnext",
     "moduleResolution": "node",
     "noImplicitAny": false,
@@ -15,7 +15,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["es2015", "es2017", "dom", "es5", "es6", "esnext"]
+    "lib": ["dom", "es2015", "es2017", "es2018", "es2019", "es2020", "es5", "es6", "es7", "esnext"]
   },
   "include": ["src"],
   "exclude": ["public", "dist", "./webpack.config.js", "node_modules", "src/tests/coverage"]
