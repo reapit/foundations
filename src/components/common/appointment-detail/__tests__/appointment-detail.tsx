@@ -19,6 +19,7 @@ import {
 import { attendees } from '../__stubs__/mockData'
 import { appointmentDataStub } from '../../../../sagas/__stubs__/appointment'
 import { LoginMode } from '@reapit/elements'
+import { ReduxState } from '@/types/core'
 
 const { applicant, contact, landlord, negotiator, office, tenant } = attendees
 
@@ -43,7 +44,28 @@ describe('AppointmentModal', () => {
         appointmentTypes: [],
         loginMode: 'DESKTOP' as LoginMode,
         additionalAttendees: [],
-        applicantAttendees: []
+        applicantAttendees: [],
+        handleCancelAppointment: jest.fn(),
+        isConfirmContentVisible: false
+      }
+      const wrapper = shallow(<AppointmentModal {...mockProps} />)
+      expect(wrapper.find('Modal')).toHaveLength(1)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should render correctly for confirm content', () => {
+      const mockProps = {
+        appointment: appointmentDataStub,
+        visible: true,
+        afterClose: jest.fn(),
+        isLoading: false,
+        userCode: 'mockUserCode',
+        appointmentTypes: [],
+        loginMode: 'DESKTOP' as LoginMode,
+        additionalAttendees: [],
+        applicantAttendees: [],
+        handleCancelAppointment: jest.fn(),
+        isConfirmContentVisible: true
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
@@ -70,7 +92,9 @@ describe('AppointmentModal', () => {
         appointmentTypes: [],
         loginMode: 'DESKTOP' as LoginMode,
         additionalAttendees: [],
-        applicantAttendees: []
+        applicantAttendees: [],
+        handleCancelAppointment: jest.fn(),
+        isConfirmContentVisible: false
       }
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Loader')).toHaveLength(1)
@@ -258,8 +282,12 @@ describe('AppointmentModal', () => {
   })
   describe('mapStateToProps', () => {
     it('should run correctly', () => {
+      // @ts-ignore: only pick neccessary props
       const mockState = {
         appointmentDetail: {
+          confirmModal: {
+            isConfirmContentVisible: true
+          },
           appointmentDetail: appointmentDataStub,
           isModalVisible: true,
           loading: true
@@ -275,8 +303,9 @@ describe('AppointmentModal', () => {
         appointments: {
           appointmentTypes: []
         }
-      } as any
+      } as ReduxState
       const expected = {
+        isConfirmContentVisible: true,
         appointment: appointmentDataStub,
         visible: true,
         isLoading: true,
@@ -331,10 +360,17 @@ describe('AppointmentModal', () => {
     })
   })
   describe('mapDispatchToProps', () => {
-    it('should run correctly', () => {
+    it('afterClose should run correctly', () => {
       const mockDispatch = jest.fn()
       const fn = mapDispatchToProps(mockDispatch)
       fn.afterClose()
+      expect(mockDispatch).toBeCalled()
+    })
+
+    it('handleCancelAppointment should run correctly', () => {
+      const mockDispatch = jest.fn()
+      const fn = mapDispatchToProps(mockDispatch)
+      fn.handleCancelAppointment()
       expect(mockDispatch).toBeCalled()
     })
   })

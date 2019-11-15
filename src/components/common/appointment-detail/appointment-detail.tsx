@@ -16,15 +16,18 @@ import {
   LoginMode,
   SubTitleH5,
   H6,
-  H4
+  H4,
+  Button,
+  FlexContainerResponsive
 } from '@reapit/elements'
 import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
 import { ReduxState } from '@/types/core'
-import { appointmentDetailHideModal } from '@/actions/appointment-detail'
+import { appointmentDetailHideModal, showHideConfirmModal } from '@/actions/appointment-detail'
 import { ListItemModel } from '../../../types/configuration'
 import styles from '@/styles/ui/appoinments-detail.scss?mod'
 import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
 import { getAttendeeEntityType } from '@/utils/get-attendee-entity-type'
+import ConfirmContent from './confirm-content'
 
 const { appointmentDetailTextContainer } = styles
 
@@ -33,6 +36,7 @@ export type AppointmentModalProps = {
   visible: boolean
   isLoading: boolean
   afterClose: () => void
+  handleCancelAppointment: () => void
 }
 
 interface GetHeaderParams {
@@ -263,6 +267,51 @@ export const renderStartAndEndDate = (startTime: string, endTime: string) => {
   return `${displayDate} ${displayStart} - ${displayEnd}`
 }
 
+export type RenderModalContentParams = {
+  isLoading: boolean
+  isConfirmContentVisible: boolean
+  appointment: AppointmentModel
+  loginMode: LoginMode
+  applicantAttendees: AttendeeModel[]
+  additionalAttendees: AttendeeModel[]
+  handleCancelAppointment: () => void
+}
+
+export const renderModalContent = ({
+  isLoading,
+  isConfirmContentVisible,
+  appointment,
+  additionalAttendees,
+  loginMode,
+  applicantAttendees,
+  handleCancelAppointment
+}: RenderModalContentParams) => {
+  if (isLoading) {
+    return <Loader />
+  }
+  if (isConfirmContentVisible) {
+    return <ConfirmContent />
+  }
+  const address = appointment?.property?.address
+  const propertyId = appointment?.property?.id
+  const isCancelledAppointment = appointment?.cancelled
+  return (
+    <React.Fragment>
+      {renderDateTime(appointment?.property?.address, appointment)}
+      {renderAdditionalAttendees(additionalAttendees, loginMode)}
+      {renderApplicantAttendees(applicantAttendees, loginMode)}
+      {renderAddress(loginMode, address, propertyId)}
+      {renderNotes(appointment.description)}
+      {renderArrangements(appointment?.property?.arrangements || '')}
+      <FlexContainerResponsive>
+        <Button disabled={isCancelledAppointment} onClick={handleCancelAppointment} type="button" variant="primary">
+          {isCancelledAppointment ? 'Cancelled' : 'Cancel Appointment'}
+        </Button>
+      </FlexContainerResponsive>
+    </React.Fragment>
+  )
+}
+
 export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetailMappedProps> = ({
   appointment,
   visible,
@@ -271,38 +320,36 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
   appointmentTypes,
   loginMode,
   additionalAttendees,
-  applicantAttendees
+  applicantAttendees,
+  handleCancelAppointment,
+  isConfirmContentVisible
 }) => {
-  let address = appointment?.property?.address
-  const typeId = appointment?.typeId
-  const propertyId = appointment?.property?.id
+  const address = appointment?.property?.address
   const basicAddress = address
     ? `${address?.buildingName || ''} ${address?.buildingNumber || ''} ${address?.line1 || ''}`
     : ''
-
+  const typeId = appointment?.typeId
   const type =
     typeId && appointmentTypes ? appointmentTypes.find(appointmentType => appointmentType.id === typeId) : null
-
   return (
-    <Modal
-      HeaderComponent={getModalHeader({ basicAddress, afterClose, type })}
-      className={styles.appoinmentDetailModal}
-      visible={visible}
-      afterClose={afterClose}
-    >
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          {renderDateTime(appointment?.property?.address, appointment)}
-          {renderAdditionalAttendees(additionalAttendees, loginMode)}
-          {renderApplicantAttendees(applicantAttendees, loginMode)}
-          {renderAddress(loginMode, address, propertyId)}
-          {renderNotes(appointment.description)}
-          {renderArrangements(appointment?.property?.arrangements || '')}
-        </>
-      )}
-    </Modal>
+    <React.Fragment>
+      <Modal
+        HeaderComponent={getModalHeader({ basicAddress, afterClose, type })}
+        className={styles.appoinmentDetailModal}
+        visible={visible}
+        afterClose={afterClose}
+      >
+        {renderModalContent({
+          isLoading,
+          isConfirmContentVisible,
+          appointment,
+          handleCancelAppointment,
+          additionalAttendees,
+          loginMode,
+          applicantAttendees
+        })}
+      </Modal>
+    </React.Fragment>
   )
 }
 
@@ -314,6 +361,7 @@ export type AppointmentDetailMappedProps = {
   loginMode: LoginMode
   additionalAttendees: AttendeeModel[]
   applicantAttendees: AttendeeModel[]
+  isConfirmContentVisible: boolean
 }
 
 export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userCode: string): AttendeeModel[] => {
@@ -360,6 +408,7 @@ export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps
   const appointment = state?.appointmentDetail?.appointmentDetail || {}
   const userCode = state?.auth?.loginSession?.loginIdentity?.userCode || ''
   return {
+    isConfirmContentVisible: state?.appointmentDetail?.confirmModal?.isConfirmContentVisible,
     appointment: appointment,
     visible: state.appointmentDetail.isModalVisible,
     isLoading: state.appointmentDetail.loading,
@@ -372,10 +421,12 @@ export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps
 
 export type AppointmentDetailMappedAction = {
   afterClose: () => void
+  handleCancelAppointment: () => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): AppointmentDetailMappedAction => ({
-  afterClose: () => dispatch(appointmentDetailHideModal())
+  afterClose: () => dispatch(appointmentDetailHideModal()),
+  handleCancelAppointment: () => dispatch(showHideConfirmModal(true))
 })
 
 const AppointmentDetailWithRedux = connect(mapStateToProps, mapDispatchToProps)(AppointmentModal)
