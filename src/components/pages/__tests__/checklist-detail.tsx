@@ -61,7 +61,7 @@ describe('checklist-detail', () => {
       } as ReduxState
       const expected = {
         isModalVisible: false,
-        loading: true,
+        loading: false,
         contact: {},
         modalContentType: 'PROFILE',
         status: defaultStatus
