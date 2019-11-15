@@ -30,7 +30,7 @@ describe('ViewDirectionButton', () => {
     const { handleOnClick } = mapDispatchToProps(mockedDispatch, mockedOwnProps)
     it('run handleOnClick successfully', () => {
       handleOnClick()
-      expect(mockedDispatch).toBeCalledTimes(2)
+      expect(mockedDispatch).toBeCalledTimes(3)
     })
   })
 })
