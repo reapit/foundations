@@ -46,7 +46,6 @@ storiesOf('DatePicker', module)
       useEffect(() => {
         console.log((ref.current as any).setTouched({ demo: true }))
       }, [])
-
       return (
         <section className="section">
           <Formik

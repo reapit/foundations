@@ -41,7 +41,6 @@ export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount 
     <div className="flex justify-center">
       <nav className="pagination is-centered" role="navigation" aria-label="pagination">
         {
-          // @ts-ignore: skip bulma link disabled complaint
           <a
             onClick={e => {
               e.preventDefault()
@@ -49,14 +48,12 @@ export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount 
                 onChange(pageNumber - 1)
               }
             }}
-            className="pagination-previous"
-            disabled={pageNumber < 2}
+            className={`pagination-previous ${pageNumber < 2 ? 'pagination-disabled' : ''}`}
           >
             Previous
           </a>
         }
         {
-          // @ts-ignore: skip bulma link disabled complaint
           <a
             onClick={e => {
               e.preventDefault()
@@ -64,8 +61,7 @@ export const Pagination = ({ onChange, pageNumber = 1, pageSize = 1, totalCount 
                 onChange(pageNumber + 1)
               }
             }}
-            className="pagination-next"
-            disabled={pageNumber + 1 > maxPage}
+            className={`pagination-next  ${pageNumber + 1 > maxPage ? 'pagination-disabled' : ''}`}
           >
             Next page
           </a>

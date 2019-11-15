@@ -10,15 +10,13 @@ exports[`Pagination render test Should match a snapshot 1`] = `
     role="navigation"
   >
     <a
-      className="pagination-previous"
-      disabled={false}
+      className="pagination-previous "
       onClick={[Function]}
     >
       Previous
     </a>
     <a
-      className="pagination-next"
-      disabled={false}
+      className="pagination-next  "
       onClick={[Function]}
     >
       Next page
