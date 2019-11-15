@@ -1,0 +1,147 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+<Meta title="MDX|Cognito" />
+
+# Cognito
+Using for Authentication System
+
+### **Types**
+
+```
+  type LoginMode = 'DESKTOP' | 'WEB'
+
+type LoginType = 'DEVELOPER' | 'CLIENT' | 'ADMIN'
+
+interface LoginParams {
+  userName: string
+  password: string
+  loginType: LoginType
+  mode: LoginMode
+}
+
+interface RefreshParams {
+  refreshToken: string
+  userName: string
+  loginType: LoginType
+  mode: LoginMode
+}
+
+interface CoginitoIdentity {
+  sub: string
+  email_verified: boolean
+  iss: string
+  phone_number_verified: boolean
+  'cognito:username': string
+  'custom:reapit:developerId'?: string
+  'custom:reapit:clientCode'?: string
+  'custom:reapit:marketAdmin'?: string
+  aud: string
+  token_use: string
+  auth_time: number
+  name: string
+  phone_number: string
+  exp: number
+  iat: number
+  email: string
+}
+
+interface LoginIdentity {
+  email: string
+  name: string
+  developerId: string | null
+  clientId: string | null
+  adminId: string | null
+  userCode: string | null
+}
+
+interface LoginSession {
+  userName: string
+  accessToken: string
+  accessTokenExpiry: number
+  idToken: string
+  idTokenExpiry: number
+  refreshToken: string
+  loginType: LoginType
+  loginIdentity: LoginIdentity
+  mode: LoginMode
+}
+
+```
+
+### **Get Cognito Session**
+```
+const getCognitoSession = async ({
+    userName,
+    password,
+    loginType,
+    mode
+  }: LoginParams): Promise<LoginSession | null> => {
+    try {
+      const loginDetails: Partial<LoginSession> | undefined = await fetcher({
+        api: COGNITO_API_BASE_URL,
+        url: `/login`,
+        method: 'POST',
+        body: { userName, password },
+        headers: COGNITO_HEADERS
+      })
+
+      if (loginDetails) {
+        const loginIdentity = deserializeIdToken(loginDetails)
+        if (checkHasIdentityId(loginType, loginIdentity)) {
+          const loginSession = { ...loginDetails, loginType, mode, userName, loginIdentity } as LoginSession
+
+          setSessionCookie(loginSession)
+
+          return loginSession
+        }
+      }
+      return null
+    } catch (err) {
+      console.error('ERROR LOGING IN', err)
+      return null
+    }
+  }
+```
+
+### **Refresh Cognito Session**
+```
+const refreshCognitoSession = async ({
+  userName,
+  refreshToken,
+  loginType,
+  mode
+}: RefreshParams): Promise<LoginSession | null> => {
+  try {
+    const refreshedSession: Partial<LoginSession> | undefined = await fetcher({
+      api: COGNITO_API_BASE_URL,
+      url: '/refresh',
+      method: 'POST',
+      body: { userName, refreshToken },
+      headers: COGNITO_HEADERS
+    })
+
+    if (refreshedSession) {
+      const loginIdentity = deserializeIdToken(refreshedSession)
+
+      if (checkHasIdentityId(loginType, loginIdentity)) {
+        const loginSession = {
+          ...refreshedSession,
+          loginType,
+          userName,
+          mode,
+          loginIdentity
+        } as LoginSession
+
+        setSessionCookie(loginSession)
+
+        return loginSession
+      }
+    }
+
+    return null
+  } catch (err) {
+    console.error('ERROR REFRESHING', err)
+    return null
+  }
+}
+```
