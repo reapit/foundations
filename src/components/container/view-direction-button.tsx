@@ -2,6 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { setDestination } from '@/actions/direction'
+import { setSelectedAppointment } from '@/actions/appointments'
 import { Button } from '@reapit/elements'
 import { AppointmentModel } from '@/types/appointments'
 import { homeTabChange } from '@/actions/home'
@@ -31,7 +32,9 @@ export const mapDispatchToProps = (
   ownProps: ViewDirectionButtonOwnProps
 ): ViewDirectionButtonMappedActions => ({
   handleOnClick: () => {
-    dispatch(setDestination(ownProps.appointment))
+    const appointment = ownProps.appointment
+    dispatch(setSelectedAppointment(appointment))
+    dispatch(setDestination(appointment))
     dispatch(homeTabChange('MAP'))
   }
 })
