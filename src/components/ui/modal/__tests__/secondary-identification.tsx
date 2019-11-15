@@ -40,7 +40,8 @@ describe('SecondaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: contact,
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES
+        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
+        idCheck: null
       }
       expect(result).toEqual(expected)
     })

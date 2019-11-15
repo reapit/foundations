@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { SelectBox } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { IdentityTypesState } from '@/reducers/identity-types'
-import { oc } from 'ts-optchain'
 
 export type StateProps = {
   identityState?: IdentityTypesState
@@ -12,7 +11,7 @@ export type StateProps = {
 export type SelectIdentityProps = { labelText: string; name: string; id: string } & StateProps
 
 export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, ...props }) => {
-  const identityTypes = oc(identityState).identityTypes([])
+  const identityTypes = identityState?.identityTypes || []
 
   const listIdentity = React.useMemo(() => {
     if (identityTypes) {
@@ -33,7 +32,4 @@ const mapStateToProps = (state: ReduxState): StateProps => ({
   identityState: state.identityTypes
 })
 
-export default connect(
-  mapStateToProps,
-  null
-)(SelectIdentity)
+export default connect(mapStateToProps, null)(SelectIdentity)

@@ -9,7 +9,6 @@ import { submitComplete, submitCompleteSetFormState } from '@/actions/success'
 import { RouteComponentProps, withRouter } from 'react-router'
 import Routes from '@/constants/routes'
 import { ContactModel } from '@/types/contact-api-schema'
-import { oc } from 'ts-optchain'
 
 export interface SuccessMappedActions {
   submitComplete: (id: string, dynamicLinkParams: DynamicLinkParams) => void
@@ -87,8 +86,8 @@ export const SuccessPage = ({
 
 export const mapStateToProps = (state: ReduxState): SuccessMappedProps => ({
   submitCompleteFormState: state.success.submitCompleteFormState,
-  contact: oc(state).checklistDetail.checklistDetailData.contact({}),
-  loginMode: oc(state).auth.refreshSession.mode('WEB')
+  contact: state?.checklistDetail?.checklistDetailData?.contact || {},
+  loginMode: state?.auth?.refreshSession?.mode || 'WEB'
 })
 
 export const mapDispatchToProps = (dispatch: any): SuccessMappedActions => ({
@@ -97,9 +96,4 @@ export const mapDispatchToProps = (dispatch: any): SuccessMappedActions => ({
   resetSubmitCompleteFormState: () => dispatch(submitCompleteSetFormState('PENDING'))
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(SuccessPage)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SuccessPage))

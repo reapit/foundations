@@ -2,7 +2,6 @@ import { selectUserCode } from '@/selectors/auth'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import { fetcher, isBase64 } from '@reapit/elements'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
-import { oc } from 'ts-optchain'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import { URLS, REAPIT_API_BASE_URL, UPLOAD_FILE_BASE_URL } from '@/constants/api'
@@ -43,7 +42,7 @@ export const fetchIdentityCheck = async ({ headers, contactId }) => {
       method: 'GET',
       headers: headers
     })
-    return oc(response).data[0](null)
+    return response?.data?.[0] || null
   } catch (err) {
     console.error(err)
     return err
@@ -279,8 +278,8 @@ export const updateSecondaryId = function*({ data }: Action<any>) {
         imageData: data.fileUrl
       })
     }
-    const currentPrimaryIdUrl = oc(idCheck).metadata.primaryIdUrl()
-    const documents = oc(idCheck).documents([])
+    const currentPrimaryIdUrl = idCheck?.metadata?.primaryIdUrl
+    const documents = idCheck?.documents || []
     delete data.fileUrl
     if (documents.length <= 1) {
       documents.push(data)
@@ -352,8 +351,8 @@ export const updatePrimaryId = function*({ data }: Action<any>) {
         imageData: data.fileUrl
       })
     }
-    const currentSecondaryIdUrl = oc(idCheck).metadata.secondaryIdUrl()
-    const documents = oc(idCheck).documents([])
+    const currentSecondaryIdUrl = idCheck?.metadata?.secondaryIdUrl
+    const documents = idCheck?.documents || []
     delete data.fileUrl
     if (documents.length === 0) {
       documents.push(data)

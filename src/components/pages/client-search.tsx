@@ -76,9 +76,4 @@ export const mapDispatchToProps = (dispatch: any): ClientSearchMappedActions => 
   setSearchParams: (params: SearchParams) => dispatch(resultSetSearchParams(params))
 })
 
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps
-  )(ClientSearch)
-)
+export default withRouter(connect(null, mapDispatchToProps)(ClientSearch))

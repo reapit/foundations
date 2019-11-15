@@ -1,4 +1,3 @@
-import { oc } from 'ts-optchain'
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import {
@@ -108,7 +107,7 @@ export type UpdateCheckListDetailFormStatusParams = {
  * @param contactModel
  */
 export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateCheckListDetailFormStatusParams) => {
-  const metadata = oc(contact).metadata()
+  const metadata = contact?.metadata
 
   return {
     profile: metadata ? isCompletedProfile(contact) : false,

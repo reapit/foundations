@@ -6,7 +6,6 @@ import { ReduxState } from '@/types/core'
 import { ResultsState } from '@/reducers/results'
 import { Pagination, Table, Button, H3, Info, H6, FlexContainerResponsive, FlexContainerBasic } from '@reapit/elements'
 import { resultRequestData, ContactsParams } from '@/actions/results'
-import { oc } from 'ts-optchain'
 import Routes from '@/constants/routes'
 import styles from '@/styles/pages/results.scss?mod'
 
@@ -101,7 +100,7 @@ export const handleUseCallback = setPageNumber => page => {
 
 export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fetchContacts, history }) => {
   const { search, loading } = resultsState
-  const { totalCount, pageSize, data = [] } = oc<ResultsState>(resultsState).contacts({})
+  const { totalCount, pageSize, data = [] } = resultsState?.contacts || {}
   const columns = React.useMemo(generateColumn(history), [])
   const searchTitle = React.useMemo(() => {
     if (search) {
@@ -164,9 +163,4 @@ export const mapDispatchToProps = (dispatch: any): ResultMappedActions => ({
   fetchContacts: (params: ContactsParams) => dispatch(resultRequestData(params))
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Result)
-)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Result))

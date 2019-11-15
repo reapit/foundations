@@ -62,7 +62,4 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
     dispatch(checkListDetailSecondaryIdUpdateData(formValues))
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SecondaryIdentification)
+export default connect(mapStateToProps, mapDispatchToProps)(SecondaryIdentification)
