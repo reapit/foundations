@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`confirm-content it should match snapshot 1`] = `
+<Fragment>
+  <H5>
+    Are you sure you want to cancel this appointment?
+  </H5>
+  <FlexContainerResponsive>
+    <Button
+      loading={false}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Yes
+    </Button>
+    <Button
+      disabled={false}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      No
+    </Button>
+  </FlexContainerResponsive>
+</Fragment>
+`;
+
+exports[`confirm-content it should match snapshot when isSubmitting equal to true 1`] = `
+<Fragment>
+  <H5>
+    Are you sure you want to cancel this appointment?
+  </H5>
+  <FlexContainerResponsive>
+    <Button
+      loading={true}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      Yes
+    </Button>
+    <Button
+      disabled={true}
+      onClick={[MockFunction]}
+      type="button"
+      variant="primary"
+    >
+      No
+    </Button>
+  </FlexContainerResponsive>
+</Fragment>
+`;

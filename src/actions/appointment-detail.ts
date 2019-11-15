@@ -16,3 +16,6 @@ export const appointmentDetailReceiveData = actionCreator<AppointmentModel | und
 )
 export const appointmentDetailShowModal = actionCreator<void>(ActionTypes.APPOINTMENT_DETAIL_SHOW_MODAL)
 export const appointmentDetailHideModal = actionCreator<void>(ActionTypes.APPOINTMENT_DETAIL_HIDE_MODAL)
+export const showHideConfirmModal = actionCreator<boolean>(ActionTypes.SHOW_HIDE_CONFIRM_MODAL)
+export const cancelAppointment = actionCreator<void>(ActionTypes.CANCEL_APPOINTMENT)
+export const showConfirmModalSubmitting = actionCreator<boolean>(ActionTypes.SHOW_CONFIRM_MODAL_SUBMITTING)

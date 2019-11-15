@@ -1,6 +1,6 @@
 import { ActionType } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { appointmentDetailReducer, defaultState } from '../appointment-detail'
+import { appointmentDetailReducer, defaultState, AppointmentDetailState } from '../appointment-detail'
 import { appointmentDataStub } from '../../sagas/__stubs__/appointment'
 
 describe('appointmentDetail reducer', () => {
@@ -17,7 +17,11 @@ describe('appointmentDetail reducer', () => {
     const expected = {
       appointmentDetail: appointmentDataStub,
       isModalVisible: false,
-      loading: false
+      loading: false,
+      confirmModal: {
+        isConfirmContentVisible: false,
+        isSubmitting: false
+      }
     }
     expect(newState).toEqual(expected)
   })
@@ -30,7 +34,11 @@ describe('appointmentDetail reducer', () => {
     const expected = {
       appointmentDetail: null,
       isModalVisible: false,
-      loading: false
+      loading: false,
+      confirmModal: {
+        isConfirmContentVisible: false,
+        isSubmitting: false
+      }
     }
     expect(newState).toEqual(expected)
   })
@@ -43,7 +51,11 @@ describe('appointmentDetail reducer', () => {
     const expected = {
       appointmentDetail: null,
       isModalVisible: false,
-      loading: true
+      loading: true,
+      confirmModal: {
+        isConfirmContentVisible: false,
+        isSubmitting: false
+      }
     }
     expect(newState).toEqual(expected)
   })
@@ -55,7 +67,11 @@ describe('appointmentDetail reducer', () => {
     const expected = {
       appointmentDetail: null,
       loading: false,
-      isModalVisible: true
+      isModalVisible: true,
+      confirmModal: {
+        isConfirmContentVisible: false,
+        isSubmitting: false
+      }
     }
     expect(newState).toEqual(expected)
   })
@@ -67,8 +83,45 @@ describe('appointmentDetail reducer', () => {
     const expected = {
       appointmentDetail: null,
       loading: false,
-      isModalVisible: false
+      isModalVisible: false,
+      confirmModal: {
+        isConfirmContentVisible: false,
+        isSubmitting: false
+      }
     }
+    expect(newState).toEqual(expected)
+  })
+  it('should return isModalVisible false if action APPOINTMENT_DETAIL_HIDE_MODAL called', () => {
+    const newState = appointmentDetailReducer(undefined, {
+      type: ActionTypes.SHOW_HIDE_CONFIRM_MODAL as ActionType,
+      data: true
+    })
+    const expected = {
+      appointmentDetail: null,
+      loading: false,
+      isModalVisible: false,
+      confirmModal: {
+        isSubmitting: false,
+        isConfirmContentVisible: true
+      }
+    } as AppointmentDetailState
+    expect(newState).toEqual(expected)
+  })
+
+  it('should return isModalVisible false if action SHOW_CONFIRM_MODAL_SUBMITTING called', () => {
+    const newState = appointmentDetailReducer(undefined, {
+      type: ActionTypes.SHOW_CONFIRM_MODAL_SUBMITTING as ActionType,
+      data: true
+    })
+    const expected = {
+      appointmentDetail: null,
+      loading: false,
+      isModalVisible: false,
+      confirmModal: {
+        isConfirmContentVisible: false,
+        isSubmitting: true
+      }
+    } as AppointmentDetailState
     expect(newState).toEqual(expected)
   })
 })
