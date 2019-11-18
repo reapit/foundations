@@ -34,7 +34,7 @@ describe('PrivateRouter', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={['/my-path']}>
         <PrivateRouteWrapper {...props} />
-        <Route path="/login" render={() => <div className="login" />} />
+        <Route path="/client/login" render={() => <div className="login" />} />
       </MemoryRouter>
     )
     expect(wrapper.find('.login')).toHaveLength(1)

@@ -47,7 +47,7 @@ describe('auth thunks', () => {
       expect(gen.next().value).toEqual(call(removeSessionCookie))
       gen.next()
       expect(history.push).toHaveBeenCalledTimes(1)
-      expect(history.push).toHaveBeenLastCalledWith(Routes.LOGIN)
+      expect(history.push).toHaveBeenLastCalledWith(Routes.CLIENT_LOGIN)
       expect(gen.next().value).toEqual(put(authLogoutSuccess()))
       expect(gen.next().done).toBe(true)
     })

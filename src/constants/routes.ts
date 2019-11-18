@@ -1,5 +1,4 @@
 const Routes = {
-  LOGIN: '/login',
   CLIENT: '/client/apps',
   CLIENT_PAGINATE: '/client/apps/:page',
   MY_APPS: '/client/installed',
@@ -20,6 +19,8 @@ const Routes = {
   ADMIN_APPROVALS: '/admin/approvals',
   ADMIN_APPROVALS_PAGINATE: '/admin/approvals/:page',
   ADMIN_LOGIN: '/admin/login',
+  CLIENT_LOGIN: '/client/login',
+  DEVELOPER_LOGIN: '/developer/login',
   FOUR_O_FOUR: '/404'
 }
 

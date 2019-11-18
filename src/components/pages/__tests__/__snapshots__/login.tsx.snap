@@ -22,13 +22,13 @@ exports[`Login should match a snapshot 1`] = `
           Object {
             "active": true,
             "displayText": "Client",
-            "onTabClick": [MockFunction],
+            "onTabClick": [Function],
             "tabIdentifier": "CLIENT",
           },
           Object {
             "active": false,
             "displayText": "Developer",
-            "onTabClick": [MockFunction],
+            "onTabClick": [Function],
             "tabIdentifier": "DEVELOPER",
           },
         ]

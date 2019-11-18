@@ -27,8 +27,11 @@ const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
-        <Route path={Routes.LOGIN} exact render={() => <Login />} />
-        <Route path={Routes.ADMIN_LOGIN} exact render={() => <Login />} />
+        <Route
+          path={[Routes.CLIENT_LOGIN, Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]}
+          exact
+          render={() => <Login />}
+        />
         {/* <Route path={Routes.REGISTER} exact render={() => <Register />} /> */}
         <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
         <PrivateRouteWrapper path="/">
@@ -62,7 +65,7 @@ const Router = () => (
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />
           </Switch>
         </PrivateRouteWrapper>
-        <Redirect to={Routes.LOGIN} />
+        <Redirect to={Routes.CLIENT_LOGIN} />
       </Switch>
     </React.Suspense>
   </BrowserRouter>

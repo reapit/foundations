@@ -49,7 +49,7 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
             dataTest="register-success-message"
             onButtonClick={() =>
               import('../../core/router').then(router => {
-                router.history.push(Routes.LOGIN)
+                router.history.push(Routes.DEVELOPER_LOGIN)
               })
             }
             isCenter
@@ -134,7 +134,7 @@ export const Register: React.FunctionComponent<RegisterProps> = ({ developerCrea
                       </Button>
                     </Level>
                     <Level>
-                      Already have an account?<Link to={Routes.LOGIN}>Login</Link>
+                      Already have an account?<Link to={Routes.DEVELOPER_LOGIN}>Login</Link>
                     </Level>
                     {formState === 'ERROR' && (
                       <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
