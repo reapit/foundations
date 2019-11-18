@@ -11,6 +11,7 @@ import loginStyles from '@/styles/pages/login.scss?mod'
 import { withRouter, RouteComponentProps } from 'react-router'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { Input, Button, Tabs, TabConfig, LoginType, LoginParams, LoginMode, Alert, H1, Level } from '@reapit/elements'
+import { getLoginTypeByPath } from '@/utils/auth-route'
 
 export interface LoginMappedActions {
   login: (params: LoginParams) => void
@@ -31,17 +32,21 @@ export interface LoginFormValues {
 
 export type LoginProps = LoginMappedActions & LoginMappedProps & RouteComponentProps
 
-export const tabConfigs = ({ loginType, authChangeLoginType }: LoginProps): TabConfig[] => [
+export const tabConfigs = ({ loginType, history }: LoginProps): TabConfig[] => [
   {
     tabIdentifier: 'CLIENT',
     displayText: 'Client',
-    onTabClick: authChangeLoginType,
+    onTabClick: () => {
+      history.push(Routes.CLIENT_LOGIN)
+    },
     active: loginType === 'CLIENT'
   },
   {
     tabIdentifier: 'DEVELOPER',
     displayText: 'Developer',
-    onTabClick: authChangeLoginType,
+    onTabClick: () => {
+      history.push(Routes.DEVELOPER_LOGIN)
+    },
     active: loginType === 'DEVELOPER'
   }
 ]
@@ -64,9 +69,8 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
 
   React.useEffect(handleUseEffect({ setIsSubmitting, error }), [error])
 
-  if (location.pathname === Routes.ADMIN_LOGIN) {
-    authChangeLoginType('ADMIN')
-  }
+  let currentLoginType = getLoginTypeByPath(location.pathname)
+  authChangeLoginType(currentLoginType)
 
   if (hasSession) {
     return (

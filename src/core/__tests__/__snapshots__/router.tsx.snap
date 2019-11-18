@@ -28,12 +28,13 @@ exports[`Router should match a snapshot 1`] = `
     <Switch>
       <Route
         exact={true}
-        path="/login"
-        render={[Function]}
-      />
-      <Route
-        exact={true}
-        path="/admin/login"
+        path={
+          Array [
+            "/client/login",
+            "/developer/login",
+            "/admin/login",
+          ]
+        }
         render={[Function]}
       />
       <Route
@@ -261,7 +262,7 @@ exports[`Router should match a snapshot 1`] = `
         </Switch>
       </withRouter(Connect(Component))>
       <Redirect
-        to="/login"
+        to="/client/login"
       />
     </Switch>
   </Suspense>

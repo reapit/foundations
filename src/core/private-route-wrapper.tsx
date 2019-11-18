@@ -5,6 +5,7 @@ import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
 import Routes from '../constants/routes'
 import {
+  LoginType,
   RefreshParams,
   Loader,
   getTokenFromQueryString,
@@ -15,6 +16,7 @@ import {
 import { Dispatch } from 'redux'
 import { withRouter } from 'react-router'
 import { authSetRefreshSession } from '../actions/auth'
+import { getAuthRouteByLoginType } from '@/utils/auth-route'
 
 const { Suspense } = React
 
@@ -25,6 +27,7 @@ export interface PrivateRouteWrapperConnectActions {
 export interface PrivateRouteWrapperConnectState {
   hasSession: boolean
   isDesktopMode: boolean
+  loginType: LoginType
 }
 
 export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
@@ -37,6 +40,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   setRefreshSession,
   children,
   hasSession,
+  loginType,
   location,
   isDesktopMode
 }) => {
@@ -48,7 +52,9 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (!hasSession) {
-    return <Redirect to={Routes.LOGIN} />
+    const route = getAuthRouteByLoginType(loginType)
+    console.log('no session, route', route)
+    return <Redirect to={route} />
   }
 
   return (
@@ -71,6 +77,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
+  loginType: state?.auth?.loginSession?.loginType || 'CLIENT',
   isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP'
 })
 

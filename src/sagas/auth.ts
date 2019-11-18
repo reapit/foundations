@@ -3,9 +3,9 @@ import ActionTypes from '../constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess } from '../actions/auth'
 import { Action } from '@/types/core.ts'
 import { history } from '../core/router'
-import Routes from '../constants/routes'
-import { LoginSession, LoginParams, getCognitoSession, removeSessionCookie } from '@reapit/elements'
+import { LoginSession, LoginParams, getCognitoSession, removeSessionCookie, LoginType } from '@reapit/elements'
 import store from '../core/store'
+import { getAuthRouteByLoginType } from '@/utils/auth-route'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
@@ -25,8 +25,9 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
 export const doLogout = function*() {
   try {
     const loginType = store?.state?.auth?.loginSession?.loginType || 'CLIENT'
+    const authRoute = getAuthRouteByLoginType(loginType)
     yield call(removeSessionCookie)
-    yield history.push(loginType !== 'ADMIN' ? Routes.LOGIN : Routes.ADMIN_LOGIN)
+    yield history.push(authRoute)
     yield put(authLogoutSuccess())
   } catch (err) {
     console.error(err.message)
