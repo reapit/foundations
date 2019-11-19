@@ -1,9 +1,9 @@
-import { takeLatest, put, call, all } from '@redux-saga/core/effects'
+import { takeLatest, put, call, all, fork } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess } from '../actions/auth'
 import { Action } from '@/types/core.ts'
 import { history } from '../core/router'
-import { LoginSession, LoginParams, getCognitoSession, removeSessionCookie, LoginType } from '@reapit/elements'
+import { LoginSession, LoginParams, getCognitoSession, removeSessionCookie } from '@reapit/elements'
 import store from '../core/store'
 import { getAuthRouteByLoginType } from '@/utils/auth-route'
 
@@ -34,6 +34,15 @@ export const doLogout = function*() {
   }
 }
 
+export const clearAuth = function*() {
+  try {
+    yield call(removeSessionCookie)
+    yield put(authLogoutSuccess())
+  } catch (err) {
+    console.error(err.message)
+  }
+}
+
 export const loginListen = function*() {
   yield takeLatest(ActionTypes.AUTH_LOGIN, doLogin)
 }
@@ -42,8 +51,12 @@ export const logoutListen = function*() {
   yield takeLatest(ActionTypes.AUTH_LOGOUT, doLogout)
 }
 
+export const clearAuthListen = function*() {
+  yield takeLatest(ActionTypes.AUTH_CLEAR, clearAuth)
+}
+
 const authSaga = function*() {
-  yield all([loginListen(), logoutListen()])
+  yield all([fork(loginListen), fork(logoutListen), fork(clearAuthListen)])
 }
 
 export default authSaga

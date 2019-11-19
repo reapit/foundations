@@ -5,7 +5,8 @@ import {
   authLogout,
   authLogoutSuccess,
   authChangeLoginType,
-  authSetRefreshSession
+  authSetRefreshSession,
+  authClear
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { LoginType, LoginSession, LoginMode } from '@reapit/elements'
@@ -53,5 +54,10 @@ describe('auth actions', () => {
     }
     expect(authSetRefreshSession.type).toEqual(ActionTypes.AUTH_SET_REFRESH_SESSION)
     expect(authSetRefreshSession(refreshParams).data).toEqual(refreshParams)
+  })
+
+  it('should create a authClear action', () => {
+    expect(authClear.type).toEqual(ActionTypes.AUTH_CLEAR)
+    expect(authClear().data).toEqual(undefined)
   })
 })

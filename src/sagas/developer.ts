@@ -66,7 +66,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
 
   try {
     const regResponse: true | undefined = yield call(fetcher, {
-      url: URLS.developerCreate,
+      url: URLS.developers,
       api: REAPIT_API_BASE_URL,
       method: 'POST',
       body: data,

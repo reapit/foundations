@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Check should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`Check should match snapshot 1`] = `
+<svg
+  fill="currentColor"
+  height="1em"
+  stroke="currentColor"
+  strokeWidth="0"
+  viewBox="0 0 24 24"
+  width="1em"
+>
+  <path
+    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+  />
+</svg>
+`;

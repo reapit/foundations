@@ -1,13 +1,14 @@
-import authSagas, { doLogin, doLogout, loginListen, logoutListen } from '../auth'
+import authSagas, { doLogin, doLogout, loginListen, logoutListen, clearAuthListen, clearAuth } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { put, all, takeLatest, call } from '@redux-saga/core/effects'
-import { authLoginSuccess, authLogoutSuccess, authLoginFailure } from '../../actions/auth'
+import { put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
+import { authLoginSuccess, authLogoutSuccess, authLoginFailure, authClear } from '../../actions/auth'
 import { Action } from '@/types/core'
 import { getCognitoSession, removeSessionCookie, LoginParams } from '@reapit/elements'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
 import { mockLoginSession } from '@/utils/__mocks__/cognito'
 import { ActionType } from '../../types/core'
+import { cloneableGenerator } from '@redux-saga/testing-utils'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({
@@ -71,11 +72,29 @@ describe('auth thunks', () => {
     })
   })
 
+  describe('clearAuthListen', () => {
+    it('should trigger logout action', () => {
+      const gen = clearAuthListen()
+
+      expect(gen.next().value).toEqual(takeLatest(ActionTypes.AUTH_CLEAR, clearAuth))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
   describe('itemSagas', () => {
     it('should wait for login and logout action get called', () => {
       const gen = authSagas()
 
-      expect(gen.next().value).toEqual(all([loginListen(), logoutListen()]))
+      expect(gen.next().value).toEqual(all([fork(loginListen), fork(logoutListen), fork(clearAuthListen)]))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('clearAuth', () => {
+    it('should run correctly', () => {
+      const gen = cloneableGenerator(clearAuth)()
+      expect(gen.next().value).toEqual(call(removeSessionCookie))
+      expect(gen.next().value).toEqual(put(authLogoutSuccess()))
       expect(gen.next().done).toBe(true)
     })
   })

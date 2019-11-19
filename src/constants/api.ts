@@ -20,7 +20,7 @@ export const UPLOAD_FILE_BASE_URL = 'https://1qdnvftct6.execute-api.eu-west-2.am
 export const SWAGGER_BASE_URL = 'https://6qngr3ic46.execute-api.eu-west-2.amazonaws.com'
 
 export const URLS = {
-  developerCreate: '/marketplace/developers',
+  developers: '/marketplace/developers',
   apps: '/marketplace/apps',
   approvals: '/marketplace/approvals',
   swagger: '/prod/swaggerdocs',
