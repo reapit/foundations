@@ -1,5 +1,5 @@
 import { getLoginSession, getNewUser } from '../cognito'
-import { mockCognitoUserSession } from '../../api/__mocks__/cognito'
+import { mockCognitoUserSession } from '../../__mocks__/cognito'
 import { CognitoUserSession, AuthenticationDetails } from 'amazon-cognito-identity-js'
 
 jest.mock('amazon-cognito-identity-js', () => ({
