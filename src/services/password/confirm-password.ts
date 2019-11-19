@@ -10,11 +10,11 @@ export const confirmPasswordService = async ({
     const cognitoUser = getNewUser(userName)
 
     cognitoUser.confirmPassword(verificationCode, newPassword, {
-      onSuccess() {
+      onSuccess: () => {
         resolve('SUCCESS')
       },
-      onFailure(err) {
-        reject(`CHANGE PASSWORD ERROR ${JSON.stringify(err)}`)
+      onFailure: err => {
+        reject(`CHANGE PASSWORD ERROR ${JSON.stringify(err.message)}`)
       }
     })
   })
