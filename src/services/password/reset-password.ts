@@ -10,7 +10,7 @@ export const resetPasswordService = async ({ userName }: ConfirmPasswordParams):
         resolve(data)
       },
       onFailure: err => {
-        reject(`CHANGE PASSWORD ERROR ${JSON.stringify(err)}`)
+        reject(`CHANGE PASSWORD ERROR ${JSON.stringify(err.message)}`)
       }
     })
   })
