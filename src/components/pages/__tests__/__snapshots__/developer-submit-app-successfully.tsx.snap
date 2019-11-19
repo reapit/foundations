@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperSubmitAppSuccessfully renders correctly 1`] = `
+<FlexContainerResponsive
+  flexColumn={true}
+  hasPadding={true}
+>
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <CallToAction
+      buttonDataTest="submit-another-button"
+      buttonText="Submit Another App"
+      dataTest="submit-success-section"
+      isCard={true}
+      onButtonClick={[Function]}
+      title="Submit Success"
+    >
+      You have successfully submitted your App. You will be notified via email once your app has been approved. Please see 
+      <Link
+        to="/developer/apps"
+      >
+        Manage Apps
+      </Link>
+       to edit and set status to be "listed" on the marketplace.
+    </CallToAction>
+  </FlexContainerResponsive>
+</FlexContainerResponsive>
+`;

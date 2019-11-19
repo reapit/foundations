@@ -1,44 +1,163 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { match } from 'react-router'
 import toJson from 'enzyme-to-json'
-import { SubmitApp, SubmitAppProps, renderScopesCheckbox } from '../developer-submit-app'
+import { shallow, mount } from 'enzyme'
+import { getMockRouterProps } from '@/utils/mock-helper'
+import { SubmitApp, SubmitAppProps, renderScopesCheckbox, SubmitAppMappedActions } from '../developer-submit-app'
+import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
+
+const submitAppMappedActionsProps: SubmitAppMappedActions = {
+  submitApp: jest.fn(),
+  submitAppSetFormState: jest.fn(),
+  submitRevision: jest.fn(),
+  submitRevisionSetFormState: jest.fn()
+}
+
+const mockRouterProps = getMockRouterProps(null)
 
 describe('DeveloperSubmitApp', () => {
   it('should match a snapshot', () => {
     const props: SubmitAppProps = {
-      submitApp: jest.fn(),
-      submitAppSetFormState: jest.fn(),
+      ...submitAppMappedActionsProps,
+      appDetailState: { loading: false, error: false, appDetailData: null },
+      submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
           scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
         },
-        formState: 'DONE'
+        formState: 'PENDING'
       },
-      developerId: null
+      developerId: '',
+      match: {} as match<{ appid?: string }>,
+      history: mockRouterProps.history,
+      location: mockRouterProps.location
     }
+
     expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
   })
 
   it('should show when fetch data loading', () => {
     const props: SubmitAppProps = {
-      submitApp: jest.fn(),
-      submitAppSetFormState: jest.fn(),
-      submitAppState: {
-        loading: true,
-        submitAppData: null,
-        formState: 'PENDING'
-      },
-      developerId: null
+      ...submitAppMappedActionsProps,
+      appDetailState: { loading: true, error: false, appDetailData: null },
+      submitRevisionState: { formState: 'PENDING' },
+      submitAppState: { loading: true, submitAppData: null, formState: 'PENDING' },
+      developerId: null,
+      match: {} as match<{ appid?: string }>,
+      history: mockRouterProps.history,
+      location: mockRouterProps.location
     }
+
     const wrapper = shallow(<SubmitApp {...props} />)
     expect(wrapper.find('Loader')).toHaveLength(1)
   })
 
-  it('should show CallToAction when form state SUCCESS', () => {
+  it('should match submit revision form snapshot', () => {
     const props: SubmitAppProps = {
-      submitApp: jest.fn(),
-      submitAppSetFormState: jest.fn(),
+      ...submitAppMappedActionsProps,
+      appDetailState: { loading: false, error: false, appDetailData: appDetailDataStub },
+      submitRevisionState: { formState: 'PENDING' },
+      submitAppState: {
+        loading: false,
+        submitAppData: {
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+        },
+        formState: 'PENDING'
+      },
+      developerId: '2',
+      match: {
+        params: {
+          appid: '1'
+        }
+      } as match<{ appid?: string }>,
+      history: mockRouterProps.history,
+      location: mockRouterProps.location
+    }
+
+    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+  })
+
+  it('should match submit revision form when appDetailState is loading snapshot', () => {
+    const props: SubmitAppProps = {
+      ...submitAppMappedActionsProps,
+      appDetailState: { loading: true, error: false, appDetailData: null },
+      submitRevisionState: { formState: 'PENDING' },
+      submitAppState: {
+        loading: false,
+        submitAppData: {
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+        },
+        formState: 'PENDING'
+      },
+      developerId: '2',
+      match: {
+        params: {
+          appid: '1'
+        }
+      } as match<{ appid?: string }>,
+      history: mockRouterProps.history,
+      location: mockRouterProps.location
+    }
+
+    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+  })
+
+  it('should match submit revision form when appDetailState is having errors snapshot', () => {
+    const props: SubmitAppProps = {
+      ...submitAppMappedActionsProps,
+      appDetailState: { loading: false, error: true, appDetailData: null },
+      submitRevisionState: { formState: 'PENDING' },
+      submitAppState: {
+        loading: false,
+        submitAppData: {
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+        },
+        formState: 'PENDING'
+      },
+      developerId: '2',
+      match: {
+        params: {
+          appid: '1'
+        }
+      } as match<{ appid?: string }>,
+      history: mockRouterProps.history,
+      location: mockRouterProps.location
+    }
+
+    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+  })
+
+  it('should match submit revision form when appDetailState is having null snapshot', () => {
+    const props: SubmitAppProps = {
+      ...submitAppMappedActionsProps,
+      appDetailState: { loading: false, error: false, appDetailData: null },
+      submitRevisionState: { formState: 'PENDING' },
+      submitAppState: {
+        loading: false,
+        submitAppData: {
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+        },
+        formState: 'PENDING'
+      },
+      developerId: '2',
+      match: {
+        params: {
+          appid: '1'
+        }
+      } as match<{ appid?: string }>,
+      history: mockRouterProps.history,
+      location: mockRouterProps.location
+    }
+
+    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+  })
+
+  it('should match submit app successfully snapshot', () => {
+    const props: SubmitAppProps = {
+      ...submitAppMappedActionsProps,
+      appDetailState: { loading: false, error: false, appDetailData: null },
+      submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
@@ -46,33 +165,20 @@ describe('DeveloperSubmitApp', () => {
         },
         formState: 'SUCCESS'
       },
-      developerId: null
+      developerId: '2',
+      match: {} as match<{ appid?: string }>,
+      history: mockRouterProps.history,
+      location: mockRouterProps.location
     }
-    const wrapper = shallow(<SubmitApp {...props} />)
-    expect(wrapper.find('[dataTest="submit-success-section"]')).toHaveLength(1)
+
+    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
   })
 
-  it('should disabled submit button when submit form', () => {
+  it('should match submit revision successfully snapshot', () => {
     const props: SubmitAppProps = {
-      submitApp: jest.fn(),
-      submitAppSetFormState: jest.fn(),
-      submitAppState: {
-        loading: false,
-        submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
-        },
-        formState: 'SUBMITTING'
-      },
-      developerId: null
-    }
-    const wrapper = mount(<SubmitApp {...props} />)
-    expect(wrapper.find('[data-test="submit-app-button"]').prop('disabled')).toEqual(true)
-  })
-
-  it('should show enough scope checkbox', () => {
-    const props: SubmitAppProps = {
-      submitApp: jest.fn(),
-      submitAppSetFormState: jest.fn(),
+      ...submitAppMappedActionsProps,
+      appDetailState: { loading: false, error: false, appDetailData: null },
+      submitRevisionState: { formState: 'SUCCESS' },
       submitAppState: {
         loading: false,
         submitAppData: {
@@ -80,41 +186,73 @@ describe('DeveloperSubmitApp', () => {
         },
         formState: 'PENDING'
       },
-      developerId: null
+      developerId: '2',
+      match: {
+        params: {
+          appid: '1'
+        }
+      } as match<{ appid?: string }>,
+      history: mockRouterProps.history,
+      location: mockRouterProps.location
     }
+
+    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+  })
+
+  it('should show enough scope checkbox', () => {
+    const props: SubmitAppProps = {
+      ...submitAppMappedActionsProps,
+      appDetailState: { loading: true, error: false, appDetailData: null },
+      submitRevisionState: { formState: 'PENDING' },
+      submitAppState: {
+        loading: false,
+        submitAppData: {
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+        },
+        formState: 'SUBMITTING'
+      },
+      developerId: null,
+      match: {} as match<{ appid?: string }>,
+      history: mockRouterProps.history,
+      location: mockRouterProps.location
+    }
+
     const wrapper = mount(<SubmitApp {...props} />)
     expect(wrapper.find('Checkbox')).toHaveLength(1)
   })
+})
 
-  describe('renderScopesCheckbox run correctly', () => {
-    it('when renderScopesCheckBox have scope', () => {
-      const scopes = [
-        { name: 'AgencyCloud/properties.read', description: 'Read data about properties' },
-        { name: 'AgencyCloud/properties.write', description: 'Write data about developers' }
-      ]
-      const checkboxes = renderScopesCheckbox(scopes)
-      expect(checkboxes).toHaveLength(2)
-    })
-    it('when renderScopesCheckBox have scope', () => {
-      const scopes = [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
-      const checkboxes = renderScopesCheckbox(scopes)
-      expect(checkboxes).toHaveLength(1)
-    })
+describe('renderScopesCheckbox run correctly', () => {
+  it('when renderScopesCheckBox have scope', () => {
+    const scopes = [
+      { name: 'AgencyCloud/properties.read', description: 'Read data about properties' },
+      { name: 'AgencyCloud/properties.write', description: 'Write data about developers' }
+    ]
+    const checkboxes = renderScopesCheckbox(scopes)
+    expect(checkboxes).toHaveLength(2)
+  })
 
-    it('when renderScopesCheckBox have no scopes', () => {
-      const scopes = undefined
-      const checkboxes = renderScopesCheckbox(scopes)
-      expect(checkboxes).toHaveLength(0)
-    })
-    it('when renderScopesCheckBox have [] scopes', () => {
-      const scopes = []
-      const checkboxes = renderScopesCheckbox(scopes)
-      expect(checkboxes).toHaveLength(0)
-    })
-    it('when renderScopesCheckBox have null scopes', () => {
-      const scopes = []
-      const checkboxes = renderScopesCheckbox(scopes)
-      expect(checkboxes).toHaveLength(0)
-    })
+  it('when renderScopesCheckBox have scope', () => {
+    const scopes = [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+    const checkboxes = renderScopesCheckbox(scopes)
+    expect(checkboxes).toHaveLength(1)
+  })
+
+  it('when renderScopesCheckBox have no scopes', () => {
+    const scopes = undefined
+    const checkboxes = renderScopesCheckbox(scopes)
+    expect(checkboxes).toHaveLength(0)
+  })
+
+  it('when renderScopesCheckBox have [] scopes', () => {
+    const scopes = []
+    const checkboxes = renderScopesCheckbox(scopes)
+    expect(checkboxes).toHaveLength(0)
+  })
+
+  it('when renderScopesCheckBox have null scopes', () => {
+    const scopes = []
+    const checkboxes = renderScopesCheckbox(scopes)
+    expect(checkboxes).toHaveLength(0)
   })
 })

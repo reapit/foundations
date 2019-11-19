@@ -40,11 +40,19 @@ const Router = () => (
             <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher exact />
             <PrivateRoute allow="CLIENT" path={Routes.CLIENT_PAGINATE} component={Client} fetcher />
             <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
+
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />
             <PrivateRoute
               allow="DEVELOPER"
               path={Routes.DEVELOPER_MY_APPS_PAGINATE}
               component={DeveloperHome}
+              exact
+              fetcher
+            />
+            <PrivateRoute
+              allow="DEVELOPER"
+              path={Routes.DEVELOPER_MY_APPS_EDIT}
+              component={DeveloperSubmitApp}
               exact
               fetcher
             />
@@ -61,6 +69,7 @@ const Router = () => (
               component={WebComponentsPage}
             />
             <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} exact component={SettingsPage} />
+
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />
           </Switch>
