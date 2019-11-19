@@ -20,7 +20,7 @@ Simple Lambda around AWS Cognito for basic authentication flow
 ## API
 
 - The service deploys two endpoints;
-  - POST `https://1wke0xp728.execute-api.eu-west-2.amazonaws.com/dev/api/login`
+  - POST `https://rbsbshnxvb.execute-api.eu-west-2.amazonaws.com/dev/api/login`
     - Logs the user in and returns 3 tokens; access, refresh and id. Id and access tokens expire each hour and so an expiry time for each is returned. When near expiry, developer should refresh the session with the refreshToken to the endpoint below.
     - Request example;
     ```JSON
@@ -40,7 +40,7 @@ Simple Lambda around AWS Cognito for basic authentication flow
           "refreshToken": "SOME_TOKEN"
       }
     ```
-  - POST `https://1wke0xp728.execute-api.eu-west-2.amazonaws.com/dev/api/refresh`
+  - POST `https://rbsbshnxvb.execute-api.eu-west-2.amazonaws.com/dev/api/refresh`
     - Refreshes the session when near expiry and returns a new session by using passing the refreshToken and userName to Cognito.
     - Request example;
     ```JSON
