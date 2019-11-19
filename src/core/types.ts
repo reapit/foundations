@@ -27,3 +27,7 @@ export interface ConfirmPasswordParams {
   newPassword: string
   verificationCode: string
 }
+
+export interface ResetPasswordParams {
+  userName: string
+}

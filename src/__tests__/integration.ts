@@ -1,5 +1,5 @@
 import 'isomorphic-fetch'
-import { LoginSession } from '../utils/cognito'
+import { LoginSession } from '../core/types'
 
 jest.setTimeout(20000)
 
@@ -10,7 +10,7 @@ describe('integration tests', () => {
     it('should return a positive 200 response if I log in with valid credentials', async () => {
       const body = JSON.stringify({
         userName: 'wmcvay@reapit.com',
-        password: 'NewPassword123'
+        password: 'T00lb0x53'
       })
 
       const response = await fetch('http://localhost:3000/api/login', {

@@ -6,8 +6,10 @@ enum errorStrings {
   REFRESH_SESSION_FAILED = 'Bad request, failed to refresh session',
   CHANGE_PASSWORD_FAILED = 'Bad request, failed to change password',
   CONFIRM_PASSWORD_FAILED = 'Bad request, failed to confirm password change',
+  RESET_PASSWORD_FAILED = 'Bad request, failed to reset password',
   USERNAME_PASSWORD_NEWPASSWORD_REQUIRED = 'Bad request, password, newPassword and username are required',
-  USERNAME_CODE_NEWPASSWORD_REQUIRED = 'Bad request, verification code, USERNAME_CODE_NEWPASSWORD_REQUIRED and newPassword are required'
+  USERNAME_CODE_NEWPASSWORD_REQUIRED = 'Bad request, verification code, USERNAME_CODE_NEWPASSWORD_REQUIRED and newPassword are required',
+  USERNAME_REQUIRED = 'Bad request, username is required'
 }
 
 export default errorStrings
