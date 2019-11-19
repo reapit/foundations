@@ -20,7 +20,7 @@ describe('error handler', () => {
     expect(stubRes.json).toHaveBeenCalledWith({
       error: {
         status,
-        message
+        message: `${message} ${error.message}`
       }
     })
     expect(stubRes.end).toHaveBeenCalledTimes(1)

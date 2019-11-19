@@ -6,7 +6,7 @@ const errorHandler = (res: Response, status: number, message?: string, err?: Err
   res.json({
     error: {
       status,
-      message: `message ${(err && err.message) || ''}` || 'Bad request'
+      message: `${message} ${(err && err.message) || ''}` || 'Bad request'
     }
   })
   res.end()
