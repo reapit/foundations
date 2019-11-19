@@ -1,48 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperSubmitApp should match a snapshot 1`] = `
-<Fragment>
-  <FlexContainerBasic
-    className=""
-    data-test="app-input-form"
+<FlexContainerBasic
+  className=""
+  data-test="app-input-form"
+  flexColumn={true}
+  hasPadding={true}
+>
+  <FlexContainerResponsive
     flexColumn={true}
+    hasBackground={true}
     hasPadding={true}
   >
-    <FlexContainerResponsive
-      flexColumn={true}
-      hasBackground={true}
-      hasPadding={true}
-    >
-      <H3>
-        Submit App
-      </H3>
-      <Formik
-        enableReinitialize={false}
-        initialValues={
-          Object {
-            "description": "",
-            "developerId": null,
-            "homePage": "",
-            "iconImageData": "",
-            "launchUri": "",
-            "name": "",
-            "screen1ImageData": "",
-            "screen2ImageData": "",
-            "screen3ImageData": "",
-            "screen4ImageData": "",
-            "summary": "",
-            "supportEmail": "",
-            "telephone": "",
-          }
+    <H3>
+      Submit App
+    </H3>
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "description": undefined,
+          "developerId": undefined,
+          "homePage": undefined,
+          "iconImageData": "",
+          "isListed": undefined,
+          "launchUri": undefined,
+          "name": undefined,
+          "scopes": Object {},
+          "summary": undefined,
+          "supportEmail": undefined,
+          "telephone": undefined,
         }
-        isInitialValid={false}
-        onSubmit={[MockFunction]}
-        render={[Function]}
-        validate={[Function]}
-        validateOnBlur={true}
-        validateOnChange={true}
-      />
-    </FlexContainerResponsive>
-  </FlexContainerBasic>
-</Fragment>
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validate={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    />
+  </FlexContainerResponsive>
+</FlexContainerBasic>
 `;
+
+exports[`DeveloperSubmitApp should match submit app successfully snapshot 1`] = `
+<Component
+  onClickHandler={[Function]}
+/>
+`;
+
+exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
+<FlexContainerBasic
+  className=""
+  data-test="app-input-form"
+  flexColumn={true}
+  hasPadding={true}
+>
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <H3>
+      Submit App
+    </H3>
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co",
+          "developerId": undefined,
+          "homePage": "http://myawesomeproptechproduct.io",
+          "iconImageData": "",
+          "isListed": undefined,
+          "launchUri": undefined,
+          "name": "Peter's Properties",
+          "scopes": Object {
+            "Marketplace/developers": Object {
+              "read": true,
+              "write": true,
+            },
+          },
+          "screenundefinedImageData": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+          "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
+          "supportEmail": "support@reapit.com",
+          "telephone": "0113 288 2900",
+        }
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validate={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    />
+  </FlexContainerResponsive>
+</FlexContainerBasic>
+`;
+
+exports[`DeveloperSubmitApp should match submit revision form when appDetailState is having errors snapshot 1`] = `
+<Alert
+  message="Failed to fetch. Please try later."
+  type="danger"
+/>
+`;
+
+exports[`DeveloperSubmitApp should match submit revision form when appDetailState is having null snapshot 1`] = `""`;
+
+exports[`DeveloperSubmitApp should match submit revision form when appDetailState is loading snapshot 1`] = `<Loader />`;
+
+exports[`DeveloperSubmitApp should match submit revision successfully snapshot 1`] = `""`;

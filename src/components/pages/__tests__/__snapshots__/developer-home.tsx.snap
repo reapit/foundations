@@ -62,7 +62,7 @@ exports[`DeveloperHome should match a snapshot 1`] = `
     }
     title="My Apps"
   />
-  <Component
+  <withRouter()
     afterClose={[Function]}
   />
 </Connect(ErrorBoundary)>
@@ -132,7 +132,7 @@ exports[`DeveloperHome should match a snapshot 3`] = `
     }
     title="My Apps"
   />
-  <Component
+  <withRouter()
     afterClose={[Function]}
   />
 </Connect(ErrorBoundary)>

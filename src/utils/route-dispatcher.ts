@@ -1,3 +1,4 @@
+import { appDetailRequestData } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
 import store from '../core/store'
@@ -26,6 +27,11 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
       break
     case Routes.DEVELOPER_MY_APPS:
       store.dispatch(developerRequestData(1))
+      break
+    case Routes.DEVELOPER_MY_APPS_EDIT:
+      const id = params && params.appid ? params.appid : ''
+      store.dispatch(submitAppRequestData())
+      store.dispatch(appDetailRequestData({ id }))
       break
     case Routes.DEVELOPER_MY_APPS_PAGINATE:
       store.dispatch(developerRequestData(params && params.page ? Number(params.page) : 1))
