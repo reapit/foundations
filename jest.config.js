@@ -1,5 +1,5 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils');
-const { compilerOptions } = require('./tsconfig');
+const { pathsToModuleNameMapper } = require('ts-jest/utils')
+const { compilerOptions } = require('./tsconfig')
 
 module.exports = {
   preset: 'ts-jest',
@@ -7,14 +7,13 @@ module.exports = {
   setupFiles: ['<rootDir>/src/scripts/jest-setup.js'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coverageDirectory: './src/tests/coverage',
-  coveragePathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
-  ],
+  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]'],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
   moduleNameMapper: {
-    '^.+\.(?=.*scss|sass|css|jpg).*': '<rootDir>/src/scripts/css-stub.js',
+    '^.+.(?=.*scss|sass|css|jpg).*': '<rootDir>/src/scripts/css-stub.js',
     ...pathsToModuleNameMapper(compilerOptions.paths, {
-      prefix: '<rootDir>/',
+      prefix: '<rootDir>/'
     })
   }
-};
+}

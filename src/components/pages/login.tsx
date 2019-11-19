@@ -5,7 +5,7 @@ import { ReduxState } from '../../types/core'
 import { Formik, Form } from 'formik'
 import { authLogin, authChangeLoginType } from '../../actions/auth'
 import { validate } from '../../utils/form/login'
-import { Dispatch } from 'redux'
+import { Dispatch, compose } from 'redux'
 import Routes from '../../constants/routes'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import { withRouter, RouteComponentProps } from 'react-router'
@@ -86,6 +86,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
     )
   }
 
+  const isChangePasswordSuccess = props.location?.search === '?isChangePasswordSuccess=1'
   return (
     <div className={container}>
       <div className={`${wrapper} ${isSubmitting && disabled}`}>
@@ -125,6 +126,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                   Login
                 </Button>
               </Level>
+              {isChangePasswordSuccess && <Alert message="Password changed successfully" type="success" />}
               {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
             </Form>
           )}
@@ -149,4 +151,6 @@ export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
   authChangeLoginType: (loginType: string) => dispatch(authChangeLoginType(loginType as LoginType))
 })
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))
+export const withRedux = connect(mapStateToProps, mapDispatchToProps)
+
+export default compose(withRouter, withRedux)(Login) as React.LazyExoticComponent<any>

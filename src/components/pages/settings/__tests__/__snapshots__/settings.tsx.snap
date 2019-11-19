@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingsPage should match snapshot 1`] = `<Component />`;
+
+exports[`SettingsPage should match snapshot 2`] = `<Component />`;

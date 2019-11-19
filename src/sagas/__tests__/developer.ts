@@ -99,7 +99,7 @@ describe('developer create', () => {
   expect(gen.next().value).toEqual(put(developerSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(
     call(fetcher, {
-      url: URLS.developerCreate,
+      url: URLS.developers,
       api: REAPIT_API_BASE_URL,
       method: 'POST',
       body: params,
