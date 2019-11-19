@@ -1,21 +1,21 @@
 import { Request, Response } from 'express'
 import errorHandler from '../../utils/error-handler'
 import errorStrings from '../../constants/error-strings'
-import { confirmPasswordService } from '../../services/password/confirm-password'
-import { ConfirmPasswordParams } from '../../core/types'
+import { resetPasswordService } from '../../services/password/reset-password'
+import { ResetPasswordParams } from '../../core/types'
 import successHandler from '../../utils/success-handler'
 
-export const confirmPasswordApi = async (req: Request, res: Response) => {
-  const { verificationCode, newPassword, userName } = req.body as ConfirmPasswordParams
+export const resetPasswordApi = async (req: Request, res: Response) => {
+  const { userName } = req.body as ResetPasswordParams
 
-  if (!verificationCode || !newPassword || !userName) {
-    return errorHandler(res, 400, errorStrings.USERNAME_PASSWORD_NEWPASSWORD_REQUIRED)
+  if (!userName) {
+    return errorHandler(res, 400, errorStrings.USERNAME_REQUIRED)
   }
 
   try {
-    const confirmPasswordResponse = await confirmPasswordService(req.body)
-    successHandler(res, 200, { message: confirmPasswordResponse })
+    const resetPasswordResponse = await resetPasswordService(req.body)
+    successHandler(res, 200, resetPasswordResponse)
   } catch (err) {
-    errorHandler(res, 400, errorStrings.CONFIRM_PASSWORD_FAILED, err)
+    errorHandler(res, 400, errorStrings.RESET_PASSWORD_FAILED, err)
   }
 }
