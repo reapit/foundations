@@ -1,5 +1,5 @@
 import { CognitoUserSession } from 'amazon-cognito-identity-js'
-import { LoginSession } from '../../utils/cognito'
+import { LoginSession } from '../core/types'
 
 export const mockCognitoUserSession = {
   getAccessToken: () =>

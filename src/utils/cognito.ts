@@ -1,12 +1,5 @@
 import { CognitoUserPool, CognitoUser, CognitoUserSession } from 'amazon-cognito-identity-js'
-
-export interface LoginSession {
-  accessToken: string
-  accessTokenExpiry: number
-  idToken: string
-  idTokenExpiry: number
-  refreshToken: string
-}
+import { LoginSession } from '../core/types'
 /**
  * Convenience method to deserialize a CognitoUser session - necessary as these getter methods are
  * not available when I have saved and retreived the session from localStorage
