@@ -22,7 +22,7 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({ isSubmit
         <FormHeading>Change password</FormHeading>
         <FormSubHeading>
           Please complete the following fields to change your password. You will be automatically logged out for the
-          changed to be applied
+          changes to be applied
         </FormSubHeading>
         <Grid>
           <GridItem>
