@@ -98,7 +98,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
           initialValues={{ userName: '', password: '' } as LoginFormValues}
           onSubmit={onSubmitHandler({ setIsSubmitting, login, loginType, mode })}
           render={() => (
-            <Form noValidate={true} data-test="login-form">
+            <Form noValidate={true} className={loginStyles.loginForm} data-test="login-form">
               <Input
                 dataTest="login-email"
                 type="email"
@@ -107,6 +107,11 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                 name="userName"
                 placeholder="name@address.com"
               />
+              {loginType === 'DEVELOPER' && (
+                <div className={loginStyles.forgotPasswordContainer}>
+                  <Link to={Routes.FORGOT_PASSWORD}>Forgotten Password</Link>
+                </div>
+              )}
               <Input
                 dataTest="login-password"
                 type="password"

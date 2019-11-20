@@ -15,7 +15,7 @@ import {
 import { DeveloperModel } from '@/types/marketplace-api-schema'
 import { URLS, REAPIT_API_BASE_URL, MARKETPLACE_HEADERS } from '@/constants/api'
 
-export type ContactInformationFormProps = FormikProps<{}>
+export type ContactInformationFormProps = FormikProps<ContactInformationValues>
 
 export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
   isSubmitting,
@@ -99,6 +99,7 @@ export const handleSubmitContactInformation = async (
   } catch (error) {
     console.error(error)
     props.errorNotification()
+    setSubmitting(false)
   }
 }
 
