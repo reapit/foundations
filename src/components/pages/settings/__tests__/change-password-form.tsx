@@ -8,6 +8,8 @@ import {
   mapPropsChangePassword,
   handleSubmitChangePassword
 } from '../change-password-form'
+import { getMockRouterProps } from '@/utils/mock-helper'
+import { mockFormikAction } from '@/utils/mock-formik'
 
 jest.mock('@reapit/elements', () => ({
   fetcher: jest.fn().mockResolvedValue(true)
@@ -73,19 +75,19 @@ describe('ChangePasswordForm', () => {
         password: '456',
         confirmPassword: '456'
       }
-      const mockSetSubmitting = jest.fn()
+      const mockForm = {
+        ...mockFormikAction
+      }
       const mockProps = {
         errorNotification: jest.fn(),
         logout: jest.fn(),
-        history: {
-          replace: jest.fn()
-        }
+        ...getMockRouterProps({})
       }
-      // @ts-ignore: only pick neccessary function
-      handleSubmitChangePassword(mockValues, { setSubmitting: mockSetSubmitting, props: mockProps })
+      handleSubmitChangePassword(mockValues, { ...mockForm, props: mockProps })
       setTimeout(() => {
-        expect(mockSetSubmitting).toBeCalledWith(false)
+        expect(mockForm.setSubmitting).toBeCalledWith(false)
         expect(mockProps.logout).toBeCalled()
+        expect(mockProps.history.replace).toBeCalledWith('/developer/login?isChangePasswordSuccess=1')
         done()
       }, 2000)
     })

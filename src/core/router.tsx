@@ -22,6 +22,7 @@ const DesktopDocsPage = React.lazy(() => import('../components/pages/desktop-api
 const WebComponentsPage = React.lazy(() => import('../components/pages/web-components'))
 const SettingsPage = React.lazy(() => import('../components/pages/settings'))
 const AnalyticsPage = React.lazy(() => import('../components/pages/analytics'))
+const ResetPassword = React.lazy(() => import('../components/pages/reset-password'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -32,6 +33,7 @@ const Router = () => (
           exact
           render={() => <Login />}
         />
+        <Route path={Routes.DEVELOPER_RESET_PASSWORD} component={ResetPassword} />
         {/* <Route path={Routes.REGISTER} exact render={() => <Register />} /> */}
         <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
         <PrivateRouteWrapper path="/">
