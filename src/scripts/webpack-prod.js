@@ -22,6 +22,7 @@ const PurgecssLoader = {
     whitelistPatterns: [/^(slick)/, /^(modal)/],
     whitelist: PurgecssWhitelister([
       'src/styles/utilities.scss',
+      'src/styles/ui/appoinments-detail.scss',
       'src/styles/vendor/normalize.scss',
       'node_modules/@reapit/elements/dist/*.css'
     ])
