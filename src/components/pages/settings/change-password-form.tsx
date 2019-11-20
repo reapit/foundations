@@ -12,8 +12,9 @@ import {
   Button
 } from '@reapit/elements'
 import { withRouter, RouterProps } from 'react-router'
+import Routes from '@/constants/routes'
 
-export type ChangePasswordFormProps = FormikProps<{}>
+export type ChangePasswordFormProps = FormikProps<ChangePasswordValues>
 
 export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({ isSubmitting, isValidating, isValid }) => {
   return (
@@ -106,12 +107,13 @@ export const handleSubmitChangePassword = async (
     if (response) {
       setSubmitting(false)
       props.logout()
-      const SUCCESS_ALERT_LOGIN_PAGE = '/developer/login?isChangePasswordSuccess=1'
+      const SUCCESS_ALERT_LOGIN_PAGE = `${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`
       props.history.replace(SUCCESS_ALERT_LOGIN_PAGE)
     }
   } catch (error) {
     console.error(error)
     props.errorNotification()
+    setSubmitting(false)
   }
 }
 

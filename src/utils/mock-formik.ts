@@ -14,3 +14,48 @@ export const mockFormikAction = {
   submitForm: jest.fn(),
   setFormikState: jest.fn()
 }
+
+export const mockFormikSharedConfig = {
+  validateOnChange: true,
+  validateOnBlur: true,
+  isInitialValid: true,
+  enableReinitialize: true
+}
+
+export const mockFormikState = values => ({
+  values,
+  error: {},
+  errors: {},
+  touched: {},
+  isValidating: true,
+  isSubmitting: true,
+  status: {},
+  submitCount: 1
+})
+
+export const mockFormikHandler = {
+  handleSubmit: jest.fn(),
+  handleReset: jest.fn(),
+  handleBlur: jest.fn(),
+  handleChange: jest.fn()
+}
+
+export const mockFormikComputeProps = values => ({
+  dirty: true,
+  isValid: true,
+  initialValues: values
+})
+
+export const mockFormikRegistration = {
+  registerField: jest.fn(),
+  unregisterField: jest.fn()
+}
+
+export const mockWithFormik = values => ({
+  ...mockFormikAction,
+  ...mockFormikSharedConfig,
+  ...mockFormikState(values),
+  ...mockFormikHandler,
+  ...mockFormikComputeProps(values),
+  ...mockFormikRegistration
+})
