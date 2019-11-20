@@ -19,3 +19,7 @@ export const selectTomorrowAppointments = (state: ReduxState) => {
 export const selectWeekAppointments = (state: ReduxState) => {
   return state?.appointments?.weekView || null
 }
+
+export const selectAppointmentsFilterTime = (state: ReduxState) => {
+  return state?.appointments?.time || 'Today'
+}

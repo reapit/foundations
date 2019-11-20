@@ -3,9 +3,11 @@ import {
   appointmentDetailReceiveData,
   appointmentDetailRequestDataFailure,
   appointmentDetailShowModal,
+  appointmentDetailHideModal,
   showConfirmModalSubmitting,
   showHideConfirmModal
 } from '../actions/appointment-detail'
+import { appointmentsRequestData } from '@/actions/appointments'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
@@ -13,6 +15,7 @@ import errorMessages from '@/constants/error-messages'
 import { Action } from '@/types/core'
 import { AppointmentDetailRequestParams } from '@/actions/appointment-detail'
 import { selectAppointmentDetail } from '@/selectors/appointment-detail'
+import { selectAppointmentsFilterTime } from '@/selectors/appointments'
 import { AppointmentModel } from '@/types/appointments'
 import { fetchAppointment, updateAppointment } from './api'
 
@@ -52,6 +55,10 @@ export const cancelAppointmentRequest = function*() {
       const fetchResponse = yield call(fetchAppointment, { id: currentAppointment.id })
       yield put(appointmentDetailReceiveData(fetchResponse))
       yield put(showHideConfirmModal(false))
+      yield put(appointmentDetailHideModal())
+      // refresh appoiments list
+      const filterTime = yield select(selectAppointmentsFilterTime)
+      yield put(appointmentsRequestData({ time: filterTime }))
     }
   } catch (error) {
     console.error(error)
