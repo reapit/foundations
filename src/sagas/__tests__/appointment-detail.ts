@@ -3,11 +3,13 @@ import {
   AppointmentDetailRequestParams,
   appointmentDetailLoading,
   appointmentDetailShowModal,
+  appointmentDetailHideModal,
   appointmentDetailReceiveData,
   appointmentDetailRequestDataFailure,
   showConfirmModalSubmitting,
   showHideConfirmModal
 } from '@/actions/appointment-detail'
+import { appointmentsRequestData } from '@/actions/appointments'
 import { put, call, takeLatest, all, fork, select } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
@@ -21,6 +23,7 @@ import appointmentDetailSagas, {
 import { appointmentDataStub } from '@/sagas/__stubs__/appointment'
 import ActionTypes from '@/constants/action-types'
 import { selectAppointmentDetail } from '@/selectors/appointment-detail'
+import { selectAppointmentsFilterTime } from '@/selectors/appointments'
 import { fetchAppointment, updateAppointment } from '../api'
 
 jest.mock('../../core/store')
@@ -123,6 +126,9 @@ describe('appointment-detail', () => {
       expect(clone.next(true as any).value).toEqual(call(fetchAppointment, { id: appointmentDataStub.id }))
       expect(clone.next(appointmentDataStub).value).toEqual(put(appointmentDetailReceiveData(appointmentDataStub)))
       expect(clone.next().value).toEqual(put(showHideConfirmModal(false)))
+      expect(clone.next().value).toEqual(put(appointmentDetailHideModal()))
+      expect(clone.next().value).toEqual(select(selectAppointmentsFilterTime))
+      expect(clone.next('Today').value).toEqual(put(appointmentsRequestData({ time: 'Today' })))
       expect(clone.next().value).toEqual(put(showConfirmModalSubmitting(false)))
       expect(clone.next().done).toEqual(true)
     })
