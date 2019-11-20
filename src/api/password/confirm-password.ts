@@ -9,13 +9,13 @@ export const confirmPasswordApi = async (req: Request, res: Response) => {
   const { verificationCode, newPassword, userName } = req.body as ConfirmPasswordParams
 
   if (!verificationCode || !newPassword || !userName) {
-    return errorHandler(res, 400, errorStrings.USERNAME_PASSWORD_NEWPASSWORD_REQUIRED)
+    return errorHandler(res, 400, errorStrings.USERNAME_CODE_NEWPASSWORD_REQUIRED)
   }
 
   try {
     const confirmPasswordResponse = await confirmPasswordService(req.body)
-    successHandler(res, 200, { message: confirmPasswordResponse })
+    successHandler(res, 200, req.url, { message: confirmPasswordResponse })
   } catch (err) {
-    errorHandler(res, 400, errorStrings.CONFIRM_PASSWORD_FAILED, err)
+    errorHandler(res, 400, `${errorStrings.CONFIRM_PASSWORD_FAILED} ${err.message}`)
   }
 }

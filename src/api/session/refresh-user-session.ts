@@ -14,8 +14,8 @@ export const refreshUserSessionApi = async (req: Request, res: Response) => {
 
   try {
     const refreshResponse = await refreshUserSessionService({ userName, refreshToken })
-    successHandler(res, 200, refreshResponse)
+    successHandler(res, 200, req.url, refreshResponse)
   } catch (err) {
-    errorHandler(res, 400, errorStrings.REFRESH_SESSION_FAILED, err)
+    errorHandler(res, 400, `${errorStrings.REFRESH_SESSION_FAILED} ${err.message}`)
   }
 }

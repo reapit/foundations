@@ -61,7 +61,7 @@
     ],
     "coverageDirectory": "./coverage",
     "coveragePathIgnorePatterns": [
-      "<rootDir>[/\\\\](node_modules)[/\\\\]"
+      "<rootDir>[/\\\\](node_modules|src/core)[/\\\\]", "<rootDir>/src/app.ts", "<rootDir>/src/app.dev.ts"
     ],
     "modulePathIgnorePatterns": [
       "<rootDir>[/\\\\](node_modules|public)[/\\\\]"

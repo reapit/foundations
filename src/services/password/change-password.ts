@@ -1,6 +1,7 @@
 import { getNewUser } from '../../utils/cognito'
 import { ChangePasswordParams } from '../../core/types'
 import { AuthenticationDetails } from 'amazon-cognito-identity-js'
+import errorStrings from '../../constants/error-strings'
 
 export const changePasswordService = async ({
   password,
@@ -18,13 +19,13 @@ export const changePasswordService = async ({
       onSuccess: () => {
         cognitoUser.changePassword(password, newPassword, (err, result) => {
           if (err) {
-            reject(`CHANGE PASSWORD ERROR ${JSON.stringify(err.message)}`)
+            reject(`${errorStrings.CHANGE_PASSWORD_SERVICE_ERROR} ${err.message}`)
           }
           resolve(result)
         })
       },
       onFailure: err => {
-        reject(`CHANGE PASSWORD ERROR ${JSON.stringify(err.message)}`)
+        reject(`${errorStrings.CHANGE_PASSWORD_SERVICE_ERROR} ${err.message}`)
       }
     })
   })
