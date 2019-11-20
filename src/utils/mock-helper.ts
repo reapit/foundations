@@ -6,7 +6,7 @@ export function getMockRouterProps<P>(data: P) {
     hash: '',
     key: '',
     pathname: '',
-    search: '',
+    search: '?token=123',
     state: {}
   }
 

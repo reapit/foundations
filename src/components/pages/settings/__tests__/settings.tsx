@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { SettingsPageProps, SettingsPage, mapStateToProps, handleUseEffect } from '../settings'
+import { SettingsPageProps, SettingsPage, mapStateToProps, handleUseEffect, mapDispatchToProps } from '../settings'
 import { ReduxState } from '@/types/core'
 
 const mockDeveloperInformation = {
@@ -77,6 +77,21 @@ describe('SettingsPage', () => {
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(output)
+    })
+  })
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch when logout', () => {
+      const mockDispatch = jest.fn()
+      const { logout } = mapDispatchToProps(mockDispatch)
+      logout()
+      expect(mockDispatch).toBeCalled()
+    })
+
+    it('should call dispatch when errorNotification', () => {
+      const mockDispatch = jest.fn()
+      const { errorNotification } = mapDispatchToProps(mockDispatch)
+      errorNotification()
+      expect(mockDispatch).toBeCalled()
     })
   })
 })

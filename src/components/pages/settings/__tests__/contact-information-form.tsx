@@ -8,6 +8,7 @@ import {
   ContactInformationValues,
   handleSubmitContactInformation
 } from '../contact-information-form'
+import { mockFormikAction } from '@/utils/mock-formik'
 
 jest.mock('@reapit/elements', () => ({
   fetcher: jest.fn().mockResolvedValue(true)
@@ -85,17 +86,18 @@ describe('ContactInformationForm', () => {
         jobTitle: 'Head of Cloud',
         telephone: '01234 567890'
       }
-      const setSubmitting = jest.fn()
+      const mockForm = {
+        ...mockFormikAction
+      }
       const mockProps: EnhanceContactInformationProps = {
         setLoading: jest.fn(),
         developerId: '7b2517b3-aad3-4ad8-b31c-988a4b3d112d',
         developerInformation: {},
         errorNotification: jest.fn()
       }
-      // @ts-ignore: only pick neccessary props
-      const fn = handleSubmitContactInformation(mockValues, { setSubmitting, props: mockProps })
+      handleSubmitContactInformation(mockValues, { ...mockForm, props: mockProps })
       setTimeout(() => {
-        expect(setSubmitting).toBeCalledWith(false)
+        expect(mockForm.setSubmitting).toBeCalledWith(false)
         expect(mockProps.setLoading).toBeCalledWith(true)
         done()
       }, 100)

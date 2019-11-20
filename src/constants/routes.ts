@@ -13,6 +13,7 @@ const Routes = {
   DEVELOPER_DESKTOP_DOCS: '/developer/desktop-docs',
   DEVELOPER_WEB_COMPONENTS: '/developer/web-components',
   DEVELOPER_ANALYTICS: '/developer/analytics',
+  DEVELOPER_RESET_PASSWORD: '/developer/reset-password',
   SETTINGS: '/developer/settings',
   SUBMIT_APP: '/developer/submit-app',
   REGISTER: '/register',
