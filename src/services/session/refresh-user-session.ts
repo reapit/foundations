@@ -1,5 +1,6 @@
 import { LoginSession, RefreshParams } from '../../core/types'
 import { getNewUser, getLoginSession } from '../../utils/cognito'
+import errorStrings from '../../constants/error-strings'
 
 export const refreshUserSessionService = async ({ userName, refreshToken }: RefreshParams): Promise<LoginSession> => {
   return new Promise((resolve, reject) => {
@@ -12,7 +13,7 @@ export const refreshUserSessionService = async ({ userName, refreshToken }: Refr
       if (!err && session) {
         return resolve(getLoginSession(session))
       }
-      return reject(`REFRESH ERROR ${JSON.stringify(err.message)}`)
+      return reject(`${errorStrings.REFRESH_SESSION_SERVICE_ERROR} ${err.message}`)
     })
   })
 }

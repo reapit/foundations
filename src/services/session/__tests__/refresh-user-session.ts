@@ -1,17 +1,8 @@
-import { CognitoUserSession } from 'amazon-cognito-identity-js'
 import { refreshUserSessionService } from '../refresh-user-session'
 import { mockCognitoUserSession } from '../../../__mocks__/cognito'
 import { getLoginSession } from '../../../utils/cognito'
 
-jest.mock('amazon-cognito-identity-js', () => ({
-  CognitoUserPool: jest.fn(),
-  AuthenticationDetails: jest.fn(),
-  CognitoUser: jest.fn(() => ({
-    refreshSession: (_token: string, callback = (_err: Error | undefined, session: CognitoUserSession) => session) => {
-      return callback(undefined, mockCognitoUserSession)
-    }
-  }))
-}))
+jest.mock('amazon-cognito-identity-js', () => require('../../../__mocks__/cognito').mockCognito)
 
 describe('cognitoRefreshSession', () => {
   it('should return a CognitoUserSession', async () => {

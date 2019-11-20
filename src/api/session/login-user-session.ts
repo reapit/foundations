@@ -5,7 +5,7 @@ import { loginUserSessionService } from '../../services/session/login-user-sessi
 import { LoginParams } from '../../core/types'
 import successHandler from '../../utils/success-handler'
 
-export const loginUserApi = async (req: Request, res: Response) => {
+export const loginUserSessionApi = async (req: Request, res: Response) => {
   const { userName, password } = req.body as LoginParams
 
   if (!userName || !password) {
@@ -14,8 +14,8 @@ export const loginUserApi = async (req: Request, res: Response) => {
 
   try {
     const loginResponse = await loginUserSessionService({ userName, password })
-    successHandler(res, 200, loginResponse)
+    successHandler(res, 200, req.url, loginResponse)
   } catch (err) {
-    errorHandler(res, 400, errorStrings.AUTHENTICATION_FAILED, err)
+    errorHandler(res, 400, `${errorStrings.AUTHENTICATION_FAILED} ${err.message}`)
   }
 }

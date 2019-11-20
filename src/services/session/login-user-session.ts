@@ -1,6 +1,7 @@
 import { LoginParams, LoginSession } from '../../core/types'
 import { AuthenticationDetails } from 'amazon-cognito-identity-js'
 import { getNewUser, getLoginSession } from '../../utils/cognito'
+import errorStrings from '../../constants/error-strings'
 
 export const loginUserSessionService = async ({ userName, password }: LoginParams): Promise<LoginSession> => {
   return new Promise((resolve, reject) => {
@@ -15,7 +16,7 @@ export const loginUserSessionService = async ({ userName, password }: LoginParam
         resolve(getLoginSession(session))
       },
       onFailure: err => {
-        reject(`LOGIN ERROR ${JSON.stringify(err.message)}`)
+        reject(`${errorStrings.LOGIN_SESSION_SERVICE_ERROR} ${err.message}`)
       }
     })
   })
