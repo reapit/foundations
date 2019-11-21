@@ -1,4 +1,4 @@
-service: cognito-auth-api
+service: cognito-auth-api-dev
 provider:
  name: aws
  runtime: nodejs10.x
