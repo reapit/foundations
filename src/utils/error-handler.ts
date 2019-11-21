@@ -1,12 +1,12 @@
 import { Response } from 'express'
 
-const errorHandler = (res: Response, status: number, message?: string, err?: Error) => {
-  console.error(message, JSON.stringify(err))
+const errorHandler = (res: Response, status: number, message: string) => {
+  console.error(message)
   res.status(status)
   res.json({
     error: {
       status,
-      message: message || 'Bad request'
+      message
     }
   })
   res.end()

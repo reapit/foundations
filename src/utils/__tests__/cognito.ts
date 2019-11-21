@@ -1,14 +1,7 @@
 import { getLoginSession, getNewUser } from '../cognito'
-import { mockCognitoUserSession } from '../../api/__mocks__/cognito'
-import { CognitoUserSession, AuthenticationDetails } from 'amazon-cognito-identity-js'
+import { mockCognitoUserSession } from '../../__mocks__/cognito'
 
-jest.mock('amazon-cognito-identity-js', () => ({
-  CognitoUserPool: jest.fn(),
-  CognitoUser: jest.fn(() => ({
-    refreshSession: jest.fn(),
-    authenticateUser: jest.fn()
-  }))
-}))
+jest.mock('amazon-cognito-identity-js', () => require('../../__mocks__/cognito').mockCognito)
 
 describe('getLoginSession', () => {
   it('should correctly return a LoginSession', () => {
