@@ -18,12 +18,12 @@ export const validate = (values: CreateAppRevisionModel) => {
       'telephone',
       'supportEmail',
       'launchUri',
-      'iconImageData',
+      'iconImageUrl',
       'homePage',
       'description',
       'summary',
-      'screen1ImageData'
-    ]
+      'screen1ImageUrl'
+    ] as SubmitRevisionFormErrorKeys[]
   })
 
   errors = validateMinCharacterLength({ values, currentErrors: errors, keys: ['description'], length: 150 })

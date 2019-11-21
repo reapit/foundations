@@ -68,7 +68,7 @@ export const renderScopesCheckbox = (scopes: ScopeModel[] = []) =>
     return null
   })
 
-export const generateInitialValues = (appDetail: AppDetailModel, developerId: string | null) => {
+export const generateInitialValues = (appDetail: AppDetailModel | null, developerId: string | null) => {
   let initialValues
 
   if (appDetail) {
@@ -84,15 +84,14 @@ export const generateInitialValues = (appDetail: AppDetailModel, developerId: st
       media,
       name,
       isListed,
-      pendingRevisions,
       scopes: appScopes
     } = appDetail
 
     const icon = (media || []).filter(({ order }) => order === 0)[0]
-    const iconImageData = icon ? icon.uri : ''
+    const iconImageUrl = icon ? icon.uri : ''
     const images = (media || [])
       .filter(({ order }) => order !== 0)
-      .reduce((a, c) => ({ ...a, [`screen${c.order}ImageData`]: c.uri }), {})
+      .reduce((a, c) => ({ ...a, [`screen${c.order}ImageUrl`]: c.uri }), {})
 
     initialValues = {
       name,
@@ -103,22 +102,22 @@ export const generateInitialValues = (appDetail: AppDetailModel, developerId: st
       supportEmail,
       summary,
       launchUri,
-      iconImageData,
+      iconImageUrl,
       isListed,
       scopes: transformDotNotationToObject(appScopes),
       ...images
     }
   } else {
     initialValues = {
-      screen4ImageData: '',
-      screen3ImageData: '',
-      screen2ImageData: '',
-      screen1ImageData: '',
+      screen4ImageUrl: '',
+      screen3ImageUrl: '',
+      screen2ImageUrl: '',
+      screen1ImageUrl: '',
       name: '',
       telephone: '',
       supportEmail: '',
       launchUri: '',
-      iconImageData: '',
+      iconImageUrl: '',
       homePage: '',
       description: '',
       summary: '',
@@ -156,7 +155,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
       return <Loader />
     }
 
-    initialValues = generateInitialValues({} as AppDetailModel, developerId)
+    initialValues = generateInitialValues(null, developerId)
   }
 
   if (isSubmitRevision) {
@@ -209,10 +208,11 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
           validate={validate}
           initialValues={initialValues}
           onSubmit={(appModel, actions) => {
+            const scopes = transformObjectToDotNotation(appModel.scopes)
             if (!appid) {
-              submitApp(appModel, actions)
+              submitApp({ ...appModel, scopes }, actions)
             } else {
-              submitRevision(appid, appModel)
+              submitRevision(appid, { ...appModel, scopes })
             }
           }}
           render={() => {
@@ -237,7 +237,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                               id="iconImage"
                               dataTest="submit-app-icon"
                               labelText="Upload Image"
-                              name="iconImageData"
+                              name="iconImageUrl"
                               allowClear
                             />
                           </div>
@@ -328,7 +328,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                               id="screenshot1"
                               dataTest="submit-app-screenshot1"
                               labelText="Upload Image"
-                              name="screen1ImageData"
+                              name="screen1ImageUrl"
                               allowClear
                             />
                           </div>
@@ -338,7 +338,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                               id="screenshot2"
                               dataTest="submit-app-screenshot2"
                               labelText="Upload Image"
-                              name="screen2ImageData"
+                              name="screen2ImageUrl"
                               allowClear
                             />
                           </div>
@@ -350,7 +350,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                               id="screenshot3"
                               dataTest="submit-app-screenshot3"
                               labelText="Upload Image"
-                              name="screen3ImageData"
+                              name="screen3ImageUrl"
                               allowClear
                             />
                           </div>
@@ -360,7 +360,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                               id="screenshot4"
                               dataTest="submit-app-screenshot4"
                               labelText="Upload Image"
-                              name="screen4ImageData"
+                              name="screen4ImageUrl"
                               allowClear
                             />
                           </div>
@@ -417,12 +417,10 @@ const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
 
 const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
   submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions) => {
-    const scopes = transformObjectToDotNotation(appModel.scopes as ScopeObject)
-    dispatch(submitApp({ ...appModel, actions, scopes }))
+    dispatch(submitApp({ ...appModel, actions }))
   },
   submitRevision: (id, revision) => {
-    const scopes = transformObjectToDotNotation(revision.scopes as ScopeObject)
-    dispatch(submitRevision({ ...revision, id, scopes }))
+    dispatch(submitRevision({ ...revision, id }))
   },
   submitRevisionSetFormState: formState => dispatch(submitRevisionSetFormState(formState)),
   submitAppSetFormState: formState => dispatch(submitAppSetFormState(formState))

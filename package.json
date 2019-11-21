@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack --color --mode production --config ./src/scripts/webpack-prod.js",
+    "build": "yarn fetch-definitions && webpack --color --mode production --config ./src/scripts/webpack-prod.js",
     "start": "node ./public/index.js app-store",
     "stop": "killall -SIGINT app-store",
     "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
@@ -27,7 +27,7 @@
     "test-perf:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-perf\" -k"
   },
   "dependencies": {
-    "@reapit/elements": "^0.4.64",
+    "@reapit/elements": "^0.4.92",
     "diff": "^4.0.1",
     "formik": "~1.5.8",
     "hardtack": "^4.1.0",

@@ -6,21 +6,14 @@ require('isomorphic-fetch')
 const fs = require('fs')
 const sw2dts = require('sw2dts')
 
-const BASE_URL = 'https://reapit.cloud.tyk.io'
+const BASE_URL = 'https://dev.platformmarketplace.reapit.net'
 
 const apiSchema = [
   {
-    definitionFile: `${__dirname}/../types/platform-api-schema.ts`,
-    endpoint: `${BASE_URL}/api/swagger/v1/swagger.json`,
-    headers: {
-      Authorisation: process.env.PLATFORM_API_KEY
-    }
-  },
-  {
     definitionFile: `${__dirname}/../types/marketplace-api-schema.ts`,
-    endpoint: `${BASE_URL}/marketplace/swagger/v1/swagger.json`,
+    endpoint: `${BASE_URL}/swagger/v1/swagger.json`,
     headers: {
-      Authorisation: process.env.MARKETPLACE_API_KEY
+      'X-Api-Key': process.env.MARKETPLACE_API_KEY_DEV
     }
   }
 ]
@@ -31,7 +24,7 @@ const fetchDefinitionsForSchema = async schemaConfig => {
     const response = await fetch(endpoint, {
       headers
     })
-
+    console.log(response.status)
     if (response.status < 400) {
       const definitions = await response.json()
 
@@ -57,6 +50,6 @@ const fetchDefinitionsForSchema = async schemaConfig => {
 ;(async () => {
   return Promise.all(apiSchema.map(fetchDefinitionsForSchema))
 })().catch(err => {
-  console.error(JSON.stringify(err))
+  console.error(JSON.stringify(err.message))
   process.exit(1)
 })

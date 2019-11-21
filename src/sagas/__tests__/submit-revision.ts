@@ -37,12 +37,6 @@ describe('submit-revision post data', () => {
   ]
   const updatedData = {
     ...revisionSubmitStub.data,
-    iconImageData: '',
-    screen1ImageData: '',
-    screen2ImageData: '',
-    screen3ImageData: '',
-    screen4ImageData: '',
-    screen5ImageData: 'base64 string...',
     iconImageUrl: 'base64 string...',
     screen1ImageUrl: 'base64 string...',
     screen2ImageUrl: 'base64 string...',
