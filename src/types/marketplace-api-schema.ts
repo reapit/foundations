@@ -1,5 +1,3 @@
-import { ScopeObject } from '@/utils/common'
-
 /**
  * App detailed representation
  */
@@ -8,6 +6,10 @@ export interface AppDetailModel {
    * Gets the GUID of the app
    */
   id?: string // uuid
+  /**
+   * Gets the date and time the app was originally registered on the marketplace
+   */
+  created?: string // date-time
   /**
    * Gets the GUID of the developer who has created the app
    */
@@ -65,11 +67,19 @@ export interface AppDetailModel {
    */
   isSandbox?: boolean
   /**
+   * Gets a flag determining whether or not the app is featured
+   */
+  isFeatured?: boolean
+  /**
    * Gets the status of whether the app has pending revisions
    */
   pendingRevisions?: boolean
   /**
-   * Gets the scopes that have been associated to this revision
+   * Gets the apps category
+   */
+  category?: CategoryModel
+  /**
+   * Gets the collection of scopes against the app
    */
   scopes?: ScopeModel[]
   /**
@@ -134,6 +144,10 @@ export interface AppRevisionModel {
    */
   isListed?: boolean
   /**
+   * Gets the app revisions category
+   */
+  category?: CategoryModel
+  /**
    * Gets the scopes that have been associated to this revision
    */
   scopes?: ScopeModel[]
@@ -154,6 +168,10 @@ export interface AppSummaryModel {
    * Gets the GUID of the app
    */
   id?: string // uuid
+  /**
+   * Gets the date and time the app was originally registered on the marketplace
+   */
+  created?: string // date-time
   /**
    * Gets the GUID of the developer who has created the app
    */
@@ -183,6 +201,10 @@ export interface AppSummaryModel {
    */
   isSandbox?: boolean
   /**
+   * Gets a flag determining whether or not the app is featured
+   */
+  isFeatured?: boolean
+  /**
    * Gets the public Url for accessing this app's icon
    */
   iconUri?: string
@@ -190,6 +212,10 @@ export interface AppSummaryModel {
    * Gets the time stamp of the installed date
    */
   installedOn?: string // date-time
+  /**
+   * Gets the Uri at which the app is launched
+   */
+  launchUri?: string
   /**
    * Gets the status of whether the app has pending revisions
    */
@@ -242,6 +268,27 @@ export interface ApproveModel {
   email?: string
 }
 /**
+ * Model to expose category info
+ */
+export interface CategoryModel {
+  /**
+   * Gets the unique identifier associated to the category
+   */
+  id?: string
+  /**
+   * Gets the name of the category
+   */
+  name?: string
+  /**
+   * Gets the description of the category
+   */
+  description?: string
+  /**
+   * Gets the links associated to this model
+   */
+  readonly links?: LinkModel[]
+}
+/**
  * The model responsible for creation of an app definition
  */
 export interface CreateAppModel {
@@ -278,33 +325,41 @@ export interface CreateAppModel {
    */
   developerId?: string // uuid
   /**
+   * Sets the unique identifer of the apps category
+   */
+  categoryId?: string
+  /**
+   * Sets a flag determining whether or not the app is featured
+   */
+  isFeatured?: boolean
+  /**
    * Sets the list of scope keys required for this app to run
    */
-  scopes?: ScopeObject | string[]
+  scopes?: string[]
   /**
-   * Sets the base64 encoded data representing the app icon image
+   * Sets the location url of the app icon image
    */
-  iconImageData?: string
+  iconImageUrl?: string
   /**
-   * Sets the base64 encoded data representing the app first app screenshot image
+   * Sets the location url of the first app screenshot image
    */
-  screen1ImageData?: string
+  screen1ImageUrl?: string
   /**
-   * Sets the base64 encoded data representing the app second (optional) app screenshot image
+   * Sets the location url of the second (optional) app screenshot image
    */
-  screen2ImageData?: string
+  screen2ImageUrl?: string
   /**
-   * Sets the base64 encoded data representing the app third (optional) app screenshot image
+   * Sets the location url of the third (optional) app screenshot image
    */
-  screen3ImageData?: string
+  screen3ImageUrl?: string
   /**
-   * Sets the base64 encoded data representing the app fourth (optional) app screenshot image
+   * Sets the location url of the fourth (optional) app screenshot image
    */
-  screen4ImageData?: string
+  screen4ImageUrl?: string
   /**
-   * Sets the base64 encoded data representing the app fifth (optional) app screenshot image
+   * Sets the location url of the fifth (optional) app screenshot image
    */
-  screen5ImageData?: string
+  screen5ImageUrl?: string
 }
 /**
  * The model responsible for creation of an app revision
@@ -339,29 +394,33 @@ export interface CreateAppRevisionModel {
    */
   developerId?: string // uuid
   /**
-   * Sets the base64 encoded data representing the app icon image
+   * Sets the unique identifer of the app revisions category
    */
-  iconImageData?: string
+  categoryId?: string
   /**
-   * Sets the base64 encoded data representing the app first app screenshot image
+   * Sets location url of the app icon image
    */
-  screen1ImageData?: string
+  iconImageUrl?: string
   /**
-   * Sets the base64 encoded data representing the app second (optional) app screenshot image
+   * Sets the location url of the first app screenshot image
    */
-  screen2ImageData?: string
+  screen1ImageUrl?: string
   /**
-   * Sets the base64 encoded data representing the app third (optional) app screenshot image
+   * Sets the location url of the second (optional) app screenshot image
    */
-  screen3ImageData?: string
+  screen2ImageUrl?: string
   /**
-   * Sets the base64 encoded data representing the app fourth (optional) app screenshot image
+   * Sets the location url of the third (optional) app screenshot image
    */
-  screen4ImageData?: string
+  screen3ImageUrl?: string
   /**
-   * Sets the base64 encoded data representing the app fifth (optional) app screenshot image
+   * Sets the location url of the fourth (optional) app screenshot image
    */
-  screen5ImageData?: string
+  screen4ImageUrl?: string
+  /**
+   * Sets the location url of the fifth (optional) app screenshot image
+   */
+  screen5ImageUrl?: string
   /**
    * Sets the apps launch uri
    */
@@ -374,7 +433,24 @@ export interface CreateAppRevisionModel {
   /**
    * Sets the list of scope keys required for this app revision
    */
-  scopes?: ScopeObject | string[]
+  scopes?: string[]
+}
+/**
+ * The model responsible for creation of a category
+ */
+export interface CreateCategoryModel {
+  /**
+   * Sets the unique identifier of the category
+   */
+  id?: string
+  /**
+   * Sets the name of the category
+   */
+  name?: string
+  /**
+   * Sets the description of the category
+   */
+  description?: string
 }
 /**
  * The model responsible for creation of a developer
@@ -404,6 +480,10 @@ export interface CreateDeveloperModel {
    * Sets the telephone number of the developer
    */
   telephone?: string
+  /**
+   * Sets the date the developer agreed to the terms
+   */
+  readonly agreedTerms?: string // date-time
 }
 /**
  * The model responsible for creation of an installation between a specific client and app
@@ -433,7 +513,7 @@ export interface DeveloperModel {
   /**
    * Gets the id of this developer
    */
-  readonly id?: string
+  readonly id?: string // uuid
   /**
    * Gets the id of this developer held in the gateway
    */
@@ -459,11 +539,15 @@ export interface DeveloperModel {
    */
   readonly telephone?: string
   /**
-   * Gets or sets the timestamp of entity creation
+   * Gets the date the developer agreed to the terms
+   */
+  readonly agreedTerms?: string // date-time
+  /**
+   * Gets the timestamp of entity creation
    */
   readonly created?: string // date-time
   /**
-   * Gets or sets the timestamp of entity modification
+   * Gets the timestamp of entity modification
    */
   readonly modified?: string // date-time
   /**
@@ -596,6 +680,19 @@ export interface PagedResultApprovalModel_ {
 /**
  * Model to handle paged data and information
  */
+export interface PagedResultCategoryModel_ {
+  /**
+   * List of paged data
+   */
+  data?: CategoryModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+}
+/**
+ * Model to handle paged data and information
+ */
 export interface PagedResultDeveloperModel_ {
   /**
    * List of paged data
@@ -691,4 +788,8 @@ export interface UpdateDeveloperModel {
    * Sets the telephone number of the developer
    */
   telephone?: string
+  /**
+   * Sets the date the developer agreed to the terms
+   */
+  readonly agreedTerms?: string // date-time
 }

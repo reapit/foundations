@@ -32,10 +32,14 @@ jobs:
       - bash: printenv > src/constants/.env
         displayName: Injects ENVs
         env:
+          # Deprecated keys and ids - necessary to support demo env in short term
           COGNITO_CLIENT_ID: $(COGNITO_CLIENT_ID)
           COGNITO_USERPOOL_ID: $(COGNITO_USERPOOL_ID)
           MARKETPLACE_API_KEY: $(MARKETPLACE_API_KEY)
-          REAPIT_API_KEY: $(REAPIT_API_KEY)
+          # Keys for dev environment
+          COGNITO_CLIENT_ID_DEV: $(COGNITO_CLIENT_ID_DEV)
+          COGNITO_USERPOOL_ID_DEV: $(COGNITO_USERPOOL_ID_DEV)
+          MARKETPLACE_API_KEY_DEV: $(MARKETPLACE_API_KEY_DEV)
 
       - script: yarn test:ci
         displayName: Unit tests

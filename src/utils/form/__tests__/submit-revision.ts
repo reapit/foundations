@@ -10,15 +10,15 @@ describe('submitRevisionValidation', () => {
       telephone: '',
       supportEmail: '',
       launchUri: '',
-      iconImageData: '',
+      iconImageUrl: '',
       homePage: '',
       description: '',
       summary: '',
       isListed: false,
-      screen1ImageData: '',
-      screen2ImageData: '',
-      screen3ImageData: '',
-      screen4ImageData: ''
+      screen1ImageUrl: '',
+      screen2ImageUrl: '',
+      screen3ImageUrl: '',
+      screen4ImageUrl: ''
     }
 
     const validateRequiredKeys = [
@@ -26,11 +26,11 @@ describe('submitRevisionValidation', () => {
       'telephone',
       'supportEmail',
       'launchUri',
-      'iconImageData',
+      'iconImageUrl',
       'homePage',
       'description',
       'summary',
-      'screen1ImageData'
+      'screen1ImageUrl'
     ]
 
     const output = {}
@@ -86,7 +86,7 @@ describe('submitRevisionValidation', () => {
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque blandit est, et laoreet sapien congue vitae. Nulla lacus nulla, interdum quis bibendum in, consequat gravida quam.',
       summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque blandit est.',
-      screen1ImageData: 'base64 string...'
+      screen1ImageUrl: 'base64 string...'
     }
 
     expect(validate(input)).toEqual({})

@@ -40,25 +40,20 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
 
   yield put(submitAppSetFormState('SUBMITTING'))
   try {
-    const { name, iconImageData, screen1ImageData, screen2ImageData, screen3ImageData, screen4ImageData } = values
+    const { name, iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl } = values
 
     const formatedName = name ? name.replace(/\s+/g, '-') : ''
     const imageUploaderReqs = [
-      imageUploaderHelper({ name: `${formatedName}-icon`, imageData: iconImageData }),
-      imageUploaderHelper({ name: `${formatedName}-screen1ImageData`, imageData: screen1ImageData }),
-      imageUploaderHelper({ name: `${formatedName}-screen2ImageData`, imageData: screen2ImageData }),
-      imageUploaderHelper({ name: `${formatedName}-screen3ImageData`, imageData: screen3ImageData }),
-      imageUploaderHelper({ name: `${formatedName}-screen4ImageData`, imageData: screen4ImageData })
+      imageUploaderHelper({ name: `${formatedName}-icon`, imageData: iconImageUrl }),
+      imageUploaderHelper({ name: `${formatedName}-screen1ImageUrl`, imageData: screen1ImageUrl }),
+      imageUploaderHelper({ name: `${formatedName}-screen2ImageUrl`, imageData: screen2ImageUrl }),
+      imageUploaderHelper({ name: `${formatedName}-screen3ImageUrl`, imageData: screen3ImageUrl }),
+      imageUploaderHelper({ name: `${formatedName}-screen4ImageUrl`, imageData: screen4ImageUrl })
     ]
 
     const imageUploaderResults = yield all(imageUploaderReqs)
     const updatedValues = {
       ...values,
-      iconImageData: '',
-      screen1ImageData: '',
-      screen2ImageData: '',
-      screen3ImageData: '',
-      screen4ImageData: '',
       iconImageUrl: imageUploaderResults[0] ? imageUploaderResults[0].Url : '',
       screen1ImageUrl: imageUploaderResults[1] ? imageUploaderResults[1].Url : '',
       screen2ImageUrl: imageUploaderResults[2] ? imageUploaderResults[2].Url : '',

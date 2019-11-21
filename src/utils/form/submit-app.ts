@@ -1,19 +1,24 @@
 import { CreateAppModel } from '@/types/marketplace-api-schema'
 import { validateRequire, validateEmail } from '@reapit/elements'
+import { ScopeObject } from '../common'
+
+export type CreateAppFormModel = Omit<CreateAppModel, 'scopes'> & {
+  scopes: ScopeObject
+}
 
 export type SubmitAppFormErrorKeys =
   | 'name'
   | 'telephone'
   | 'supportEmail'
   | 'launchUri'
-  | 'iconImageData'
+  | 'iconImageUrl'
   | 'homePage'
   | 'description'
   | 'summary'
-  | 'screen1ImageData'
+  | 'screen1ImageUrl'
 
-export const validate = (values: CreateAppModel) => {
-  let errors = validateRequire<CreateAppModel, SubmitAppFormErrorKeys>({
+export const validate = (values: CreateAppFormModel) => {
+  let errors = validateRequire<CreateAppFormModel, SubmitAppFormErrorKeys>({
     values,
     currentErrors: {},
     keys: [
@@ -21,11 +26,11 @@ export const validate = (values: CreateAppModel) => {
       'telephone',
       'supportEmail',
       'launchUri',
-      'iconImageData',
+      'iconImageUrl',
       'homePage',
       'description',
       'summary',
-      'screen1ImageData'
+      'screen1ImageUrl'
     ]
   })
 

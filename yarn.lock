@@ -326,13 +326,13 @@
   dependencies:
     stream "^0.0.2"
 
-"@reapit/elements@^0.4.64":
-  version "0.4.64"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.64.tgz#98bae2271479a32ed4297603627e5c7db43b7f1a"
-  integrity sha512-Tv2CswcKB5A0+b2A1wYOD4YwMLlNddn8NfJsGrcRwjrd26z8FX7+6Rure2bKfStzu0jiFjMvNLsOqtCNnagjaw==
+"@reapit/elements@^0.4.92":
+  version "0.4.92"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.4.92.tgz#19606a2ad758e4dcb155194cea692a8b342d9d3f"
+  integrity sha512-ZxNalnykWyQqPtg3Aqdvmmb8orsDEC/I+dQhVDtOmvU9yPtSYH/5QLq4ZNbuGfMG6NTzqRtaWV8zHsNPP0McFQ==
   dependencies:
     bulma "^0.7.5"
-    dayjs "^1.8.16"
+    dayjs "^1.8.17"
     formik "^1.5.8"
     hardtack "^4.1.0"
     himalaya "^1.1.0"
@@ -2572,10 +2572,10 @@ date-now@^0.1.4:
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
 
-dayjs@^1.8.16:
-  version "1.8.16"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.16.tgz#2a3771de537255191b947957af2fd90012e71e64"
-  integrity sha512-XPmqzWz/EJiaRHjBqSJ2s6hE/BUoCIHKgdS2QPtTQtKcS9E4/Qn0WomoH1lXanWCzri+g7zPcuNV4aTZ8PMORQ==
+dayjs@^1.8.17:
+  version "1.8.17"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.17.tgz#53ec413f2a7b02afbea1846d61bb260fa8567cea"
+  integrity sha512-47VY/htqYqr9GHd7HW/h56PpQzRBSJcxIQFwqL3P20bMF/3az5c3PWdVY3LmPXFl6cQCYHL7c79b9ov+2bOBbw==
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8:
   version "2.6.9"

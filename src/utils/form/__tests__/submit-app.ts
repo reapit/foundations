@@ -1,23 +1,23 @@
-import { validate, SubmitAppFormErrorKeys } from '../submit-app'
-import { CreateAppModel } from '@/types/marketplace-api-schema'
+import { validate, CreateAppFormModel } from '../submit-app'
 
 import errorMessages from '@/constants/error-messages'
 
 describe('submitAppValidation', () => {
   it('validate require all field', () => {
-    const input: CreateAppModel = {
-      screen4ImageData: '',
-      screen3ImageData: '',
-      screen2ImageData: '',
-      screen1ImageData: '',
+    const input: CreateAppFormModel = {
+      screen4ImageUrl: '',
+      screen3ImageUrl: '',
+      screen2ImageUrl: '',
+      screen1ImageUrl: '',
       name: '',
       telephone: '',
       supportEmail: '',
       launchUri: '',
-      iconImageData: '',
+      iconImageUrl: '',
       homePage: '',
       description: '',
-      summary: ''
+      summary: '',
+      scopes: {}
     }
 
     const validateRequiredKeys = [
@@ -25,10 +25,10 @@ describe('submitAppValidation', () => {
       'telephone',
       'supportEmail',
       'launchUri',
-      'iconImageData',
+      'iconImageUrl',
       'homePage',
       'description',
-      'screen1ImageData',
+      'screen1ImageUrl',
       'summary'
     ]
 
@@ -41,19 +41,20 @@ describe('submitAppValidation', () => {
   })
 
   it('validate email field support email', () => {
-    const input: CreateAppModel = {
-      screen4ImageData: 'test',
-      screen3ImageData: 'test',
-      screen2ImageData: 'test',
-      screen1ImageData: 'test',
+    const input: CreateAppFormModel = {
+      screen4ImageUrl: 'test',
+      screen3ImageUrl: 'test',
+      screen2ImageUrl: 'test',
+      screen1ImageUrl: 'test',
       name: 'test',
       telephone: 'test',
       supportEmail: 'invalid email',
       launchUri: 'test',
-      iconImageData: 'test',
+      iconImageUrl: 'test',
       homePage: 'test',
       description: 'test',
-      summary: 'test'
+      summary: 'test',
+      scopes: {}
     }
 
     expect(validate(input)).toEqual({
@@ -62,19 +63,20 @@ describe('submitAppValidation', () => {
   })
 
   it('return empty object it everything is valid', () => {
-    const input: CreateAppModel = {
-      screen4ImageData: 'test',
-      screen3ImageData: 'test',
-      screen2ImageData: 'test',
-      screen1ImageData: 'test',
+    const input: CreateAppFormModel = {
+      screen4ImageUrl: 'test',
+      screen3ImageUrl: 'test',
+      screen2ImageUrl: 'test',
+      screen1ImageUrl: 'test',
       name: 'test',
       telephone: 'test',
       supportEmail: 'test@test.com',
       launchUri: 'test',
-      iconImageData: 'test',
+      iconImageUrl: 'test',
       homePage: 'test',
       description: 'test',
-      summary: 'test'
+      summary: 'test',
+      scopes: {}
     }
 
     expect(validate(input)).toEqual({})
