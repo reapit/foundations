@@ -7,6 +7,7 @@ import {
   Grid,
   GridItem,
   GridFiveCol,
+  GridThreeColItem,
   GridFourColItem,
   Level,
   LevelLeft,
@@ -103,6 +104,28 @@ storiesOf('Layout', module)
       <GridFourColItem>
         <Placeholder text="GridFourColItem10" />
       </GridFourColItem>
+    </GridFiveCol>
+  ))
+  .add('GridThreeColsSixItems', () => (
+    <GridFiveCol>
+      <GridThreeColItem>
+        <Placeholder text="GridThreeColItem1" />
+      </GridThreeColItem>
+      <GridThreeColItem>
+        <Placeholder text="GridThreeColItem2" />
+      </GridThreeColItem>
+      <GridThreeColItem>
+        <Placeholder text="GridThreeColItem3" />
+      </GridThreeColItem>
+      <GridThreeColItem>
+        <Placeholder text="GridThreeColItem4" />
+      </GridThreeColItem>
+      <GridThreeColItem>
+        <Placeholder text="GridThreeColItem5" />
+      </GridThreeColItem>
+      <GridThreeColItem>
+        <Placeholder text="GridThreeColItem6" />
+      </GridThreeColItem>
     </GridFiveCol>
   ))
   .add('Grid', () => (

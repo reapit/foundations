@@ -6,3 +6,10 @@ exports[`Input should match a snapshot 1`] = `
   render={[Function]}
 />
 `;
+
+exports[`Input should match a snapshot with right icon 1`] = `
+<FormikConnect(FieldInner)
+  name="username"
+  render={[Function]}
+/>
+`;

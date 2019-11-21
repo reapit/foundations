@@ -66,6 +66,10 @@ export const GridFourColItem: React.SFC<LayoutProps> = ({ children, className = 
   </div>
 )
 
+export const GridThreeColItem: React.SFC<LayoutProps> = ({ children, className = '' }) => (
+  <div className={`column is-multiline is-half-tablet is-one-third-widescreen ${className}`}>{children}</div>
+)
+
 export const Grid: React.SFC<GridProps> = ({ children, isMultiLine = false, className = '' }) => (
   <div className={`columns ${isMultiLine ? 'is-multiline' : ''} ${className}`}>{children}</div>
 )

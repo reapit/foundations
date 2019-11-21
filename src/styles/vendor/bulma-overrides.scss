@@ -138,6 +138,13 @@
   .label {
     color: $grey-dark;
   }
+  &.has-icons-right, &.has-icons-left {
+    .icon {
+      &.is-right, &.is-left {
+        height: 100%;
+      }
+    }
+  }
 }
 
 .input,
