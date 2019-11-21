@@ -10,9 +10,10 @@ export interface InputProps {
   dataTest?: string
   value?: string | number | null
   onChange?: () => void
+  rightIcon?: React.ReactNode
 }
 
-export const Input = ({ type, name, labelText, id, dataTest, placeholder = '' }: InputProps) => (
+export const Input = ({ type, name, labelText, id, dataTest, placeholder = '', rightIcon }: InputProps) => (
   <Field
     name={name}
     render={({ field, form: { touched, errors } }) => {
@@ -20,8 +21,8 @@ export const Input = ({ type, name, labelText, id, dataTest, placeholder = '' }:
       const className = hasError ? 'input is-danger' : 'input is-primary'
       return (
         <div className="field pb-4">
-          <div className="control">
-            {type !== 'hidden' && (
+          <div className={`control ${rightIcon ? 'has-icons-right' : ''}`}>
+            {type !== 'hidden' && !rightIcon && (
               <label className="label" htmlFor={id}>
                 {labelText}
               </label>
@@ -34,6 +35,7 @@ export const Input = ({ type, name, labelText, id, dataTest, placeholder = '' }:
               className={className}
               {...field}
             />
+            {rightIcon && <span className="icon is-right">{rightIcon}</span>}
           </div>
           {hasError && (
             <div className="has-text-danger" data-test="input-error">

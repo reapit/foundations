@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme'
 import { Input, InputProps } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
+import { FaSearch } from 'react-icons/fa'
 
 const props: InputProps = {
   id: 'username',
@@ -11,9 +12,21 @@ const props: InputProps = {
   type: 'text'
 }
 
+const hasRightIconInputProps: InputProps = {
+  id: 'username',
+  name: 'username',
+  labelText: 'User name',
+  type: 'text',
+  rightIcon: <FaSearch />
+}
+
 describe('Input', () => {
   it('should match a snapshot', () => {
     expect(toJson(shallow(<Input {...props} />))).toMatchSnapshot()
+  })
+
+  it('should match a snapshot with right icon', () => {
+    expect(toJson(shallow(<Input {...hasRightIconInputProps} />))).toMatchSnapshot()
   })
 
   it('should work when integrating with Formik', () => {

@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { Input } from '.'
 import { Form, Formik } from 'formik'
+import { FaSearch } from 'react-icons/fa'
 
 storiesOf('Input', module).add('InputVariants', () => (
   <section className="section">
@@ -19,6 +20,7 @@ storiesOf('Input', module).add('InputVariants', () => (
             <Input id="email" type="email" placeholder="bob@acme.com" name="email" labelText="Email" />
             <Input id="password" type="password" placeholder="********" name="password" labelText="Password" />
             <Input id="tel" type="tel" placeholder="0800 800 800" name="tel" labelText="Telephone" />
+            <Input id="search" type="text" rightIcon={<FaSearch />} placeholder="Search..." name="search" />
           </div>
         </Form>
       )}
