@@ -14,6 +14,7 @@ import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { AppInstallState } from '@/reducers/app-install'
 import { AppUninstallState } from '@/reducers/app-uninstall'
 import { AppCategoriesState } from '@/reducers/app-categories'
+import { ForgotPasswordState } from '@/reducers/forgot-password'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -66,4 +67,5 @@ export interface ReduxState {
   appUninstall: AppUninstallState
   appDelete: RequestState
   appCategories: AppCategoriesState
+  forgotPassword: ForgotPasswordState
 }
