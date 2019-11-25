@@ -9,11 +9,9 @@ import {
   FormSubHeading,
   Grid,
   Input,
-  Button,
-  fetcher
+  Button
 } from '@reapit/elements'
 import { DeveloperModel } from '@/types/marketplace-api-schema'
-import { URLS, REAPIT_API_BASE_URL, MARKETPLACE_HEADERS } from '@/constants/api'
 
 export type ContactInformationFormProps = FormikProps<ContactInformationValues>
 
@@ -75,32 +73,15 @@ export const mapPropsContactInformation = ({ developerInformation }: EnhanceCont
 
 export type EnhanceContactInformationProps = {
   developerInformation: DeveloperModel | null
-  setLoading: (isLoading: boolean) => void
-  developerId: string | null
-  errorNotification: () => void
+  updateDeveloperInformation: (values: ContactInformationValues) => void
 }
 
 export const handleSubmitContactInformation = async (
   values: ContactInformationValues,
   { setSubmitting, props }: FormikBag<EnhanceContactInformationProps, ContactInformationValues>
 ) => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.developers}/${props.developerId}`,
-      api: REAPIT_API_BASE_URL,
-      method: 'PUT',
-      headers: MARKETPLACE_HEADERS,
-      body: values
-    })
-    if (response) {
-      props.setLoading(true)
-    }
-    setSubmitting(false)
-  } catch (error) {
-    console.error(error)
-    props.errorNotification()
-    setSubmitting(false)
-  }
+  setSubmitting(true)
+  props.updateDeveloperInformation(values)
 }
 
 export const withContactInformationForm = withFormik({

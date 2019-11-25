@@ -11,8 +11,6 @@ import {
   Input,
   Button
 } from '@reapit/elements'
-import { withRouter, RouterProps } from 'react-router'
-import Routes from '@/constants/routes'
 
 export type ChangePasswordFormProps = FormikProps<ChangePasswordValues>
 
@@ -74,47 +72,28 @@ export const validateChangePasswordForm = (values: ChangePasswordValues) => {
   return errors
 }
 
-export const mapPropsChangePassword = () => ({
+export const mapPropsChangePassword = (): ChangePasswordValues => ({
   currentPassword: '',
   password: '',
   confirmPassword: ''
 })
 
-export const changePassword = (values: ChangePasswordValues) => {
-  console.log(values)
-  // TODO: will replace mock here for real API
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(true)
-    }, 500)
-    setTimeout(() => {
-      reject(new Error('some errors'))
-    }, 500)
-  })
+export type ChangePasswordParams = {
+  values: ChangePasswordValues
+  email: string
 }
 
 export type EnhanceChangePasswordFormProps = {
-  logout: () => void
-  errorNotification: () => void
+  changePassword: (values: ChangePasswordValues) => void
+  email: string
 }
 
 export const handleSubmitChangePassword = async (
   values: ChangePasswordValues,
-  { setSubmitting, props }: FormikBag<EnhanceChangePasswordFormProps & RouterProps, ChangePasswordValues>
+  { setSubmitting, props }: FormikBag<EnhanceChangePasswordFormProps, ChangePasswordValues>
 ) => {
-  try {
-    const response = await changePassword(values)
-    if (response) {
-      setSubmitting(false)
-      props.logout()
-      const SUCCESS_ALERT_LOGIN_PAGE = `${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`
-      props.history.replace(SUCCESS_ALERT_LOGIN_PAGE)
-    }
-  } catch (error) {
-    console.error(error)
-    props.errorNotification()
-    setSubmitting(false)
-  }
+  setSubmitting(true)
+  props.changePassword(values)
 }
 
 export const withChangePasswordForm = withFormik({
@@ -124,10 +103,9 @@ export const withChangePasswordForm = withFormik({
   handleSubmit: handleSubmitChangePassword
 })
 
-const EnhanceChangePasswordForm = compose<React.FC<EnhanceChangePasswordFormProps>>(
-  withRouter,
-  withChangePasswordForm
-)(ChangePasswordForm)
+const EnhanceChangePasswordForm = compose<React.FC<EnhanceChangePasswordFormProps>>(withChangePasswordForm)(
+  ChangePasswordForm
+)
 EnhanceChangePasswordForm.displayName = 'EnhanceChangePasswordForm'
 
 export default EnhanceChangePasswordForm

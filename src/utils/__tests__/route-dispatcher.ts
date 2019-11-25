@@ -7,6 +7,7 @@ import { developerRequestData } from '../../actions/developer'
 import { myAppsRequestData } from '../../actions/my-apps'
 import { adminApprovalsRequestData } from '../../actions/admin-approvals'
 import { getAccessToken } from '../../utils/session'
+import { requestDeveloperData } from '@/actions/settings'
 
 jest.mock('@reapit/elements')
 jest.mock('../../utils/session')
@@ -58,5 +59,10 @@ describe('routeDispatcher', () => {
   it('should dispatch to adminApprovalsRequestData for the admin approvals paginate route', async () => {
     await routeDispatcher(Routes.ADMIN_APPROVALS_PAGINATE as RouteValue, { page: '2' })
     expect(store.dispatch).toHaveBeenCalledWith(adminApprovalsRequestData(2))
+  })
+
+  it('should dispatch to requestDeveloperData for the admin approvals paginate route', async () => {
+    await routeDispatcher(Routes.SETTINGS as RouteValue, { page: '2' })
+    expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
   })
 })

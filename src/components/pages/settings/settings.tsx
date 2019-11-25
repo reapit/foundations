@@ -10,42 +10,27 @@ import {
   fetcher
 } from '@reapit/elements'
 import { URLS, REAPIT_API_BASE_URL, MARKETPLACE_HEADERS } from '@/constants/api'
-import EnhanceContactInformation from './contact-information-form'
-import EnhanceChangePasswordForm from './change-password-form'
+import EnhanceContactInformation, { ContactInformationValues } from './contact-information-form'
+import EnhanceChangePasswordForm, { ChangePasswordValues } from './change-password-form'
 import { compose, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { authClear } from '@/actions/auth'
-
-export type HandleUseEffectProps = {
-  developerId: string | null
-  setDeveloperInformation: React.Dispatch<React.SetStateAction<null>>
-  setLoading: (isLoading: boolean) => void
-}
-
-export const handleUseEffect = ({ developerId, setDeveloperInformation, setLoading }: HandleUseEffectProps) => () => {
-  const fetchData = async () => {
-    const response = await fetcher({
-      url: `${URLS.developers}/${developerId}`,
-      api: REAPIT_API_BASE_URL,
-      method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
-    setDeveloperInformation(response)
-    setLoading(false)
-  }
-  fetchData()
-}
+import { DeveloperModel } from '@/types/marketplace-api-schema'
+import { updateDeveloperData, changePassword } from '@/actions/settings'
 
 export type SettingsPageProps = StateProps & DispatchProps
 
-export const SettingsPage: React.FC<SettingsPageProps> = ({ developerId, logout, errorNotification }) => {
-  const [isLoading, setLoading] = React.useState(true)
-  const [developerInformation, setDeveloperInformation] = React.useState(null)
-  React.useEffect(handleUseEffect({ developerId, setDeveloperInformation, setLoading }), [isLoading])
-  if (isLoading) {
+export const SettingsPage: React.FC<SettingsPageProps> = ({
+  developerInfo,
+  email,
+  loading,
+  updateDeveloperInformation,
+  changePassword
+}) => {
+  if (loading) {
     return <Loader />
   }
   return (
@@ -56,14 +41,12 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ developerId, logout,
           <Grid>
             <GridItem>
               <EnhanceContactInformation
-                developerInformation={developerInformation}
-                setLoading={setLoading}
-                developerId={developerId}
-                errorNotification={errorNotification}
+                developerInformation={developerInfo}
+                updateDeveloperInformation={updateDeveloperInformation}
               />
             </GridItem>
             <GridItem>
-              <EnhanceChangePasswordForm errorNotification={errorNotification} logout={logout} />
+              <EnhanceChangePasswordForm email={email} changePassword={changePassword} />
             </GridItem>
           </Grid>
         </FlexContainerResponsive>
@@ -73,30 +56,28 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ developerId, logout,
 }
 
 export type StateProps = {
-  developerId: string | null
+  developerInfo: DeveloperModel | null
+  email: string
+  loading: boolean
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
-    developerId: state.auth?.loginSession?.loginIdentity.developerId || null
+    developerInfo: state.settings.developerInfomation || {},
+    email: state.auth?.loginSession?.loginIdentity?.email || '',
+    loading: state.settings?.loading
   }
 }
 
 export type DispatchProps = {
-  logout: () => void
-  errorNotification: () => void
+  updateDeveloperInformation: (values: ContactInformationValues) => void
+  changePassword: (values: ChangePasswordValues) => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    logout: () => dispatch(authClear()),
-    errorNotification: () =>
-      dispatch(
-        errorThrownServer({
-          type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+    updateDeveloperInformation: (values: ContactInformationValues) => dispatch(updateDeveloperData(values)),
+    changePassword: (values: ChangePasswordValues) => dispatch(changePassword(values))
   }
 }
 
