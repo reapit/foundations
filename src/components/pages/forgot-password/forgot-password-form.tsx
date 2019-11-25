@@ -1,13 +1,29 @@
 import React from 'react'
-import { Form, withFormik, FormikProps, FormikBag, FormikErrors } from 'formik'
+import { Form, withFormik, FormikProps, FormikBag } from 'formik'
 import { compose } from 'redux'
-import { FlexContainerResponsive, GridItem, FormSubHeading, Grid, Input, Button } from '@reapit/elements'
-import { RouterProps, withRouter } from 'react-router'
-import Routes from '@/constants/routes'
+import {
+  FlexContainerResponsive,
+  GridItem,
+  FormSubHeading,
+  Grid,
+  Input,
+  Button,
+  COGNITO_API_BASE_URL,
+  fetcher,
+  Alert
+} from '@reapit/elements'
+import { withRouter, RouteComponentProps } from 'react-router'
+import { MARKETPLACE_HEADERS } from '@/constants/api'
 
-export type ForgotPasswordFormProps = FormikProps<ForgotPasswordValues>
+export type ForgotPasswordFormProps = FormikProps<ForgotPasswordValues> & RouteComponentProps
 
-export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ isSubmitting, isValidating, isValid }) => {
+export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
+  isSubmitting,
+  isValidating,
+  isValid,
+  location
+}) => {
+  const isError = location.search === '?isError=1'
   return (
     <Form>
       <FormSubHeading>Please enter your email address to reset your password</FormSubHeading>
@@ -16,6 +32,12 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({ isSubmit
           <Input dataTest="email" type="email" labelText="Email" id="email" name="email" />
         </GridItem>
       </Grid>
+      {isError && (
+        <Alert
+          type="danger"
+          message="Your forgotten password request has failed. Please try again or contact our support desk"
+        />
+      )}
       <FlexContainerResponsive>
         <Button disabled={!isValid} loading={isSubmitting || isValidating} variant="primary" type="submit">
           Submit
@@ -33,34 +55,11 @@ export const mapPropsToValues = (): ForgotPasswordValues => ({
   email: ''
 })
 
-export const requestForgotPassword = (values: ForgotPasswordValues) => {
-  console.log(values)
-  // TODO: will replace mock here for real API
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(true)
-    }, 500)
-    setTimeout(() => {
-      reject(new Error('some errors'))
-    }, 500)
-  })
-}
-
 export const handleSubmitForgotPassword = async (
   values: ForgotPasswordValues,
-  { setSubmitting, props, setErrors }: FormikBag<EnhanceForgotPasswordFormProps & RouterProps, ForgotPasswordValues>
+  { props }: FormikBag<EnhanceForgotPasswordFormProps & RouteComponentProps, ForgotPasswordValues>
 ) => {
-  try {
-    const response = await requestForgotPassword(values)
-    if (response) {
-      setSubmitting(false)
-      props.history.push(`${Routes.FORGOT_PASSWORD}?isSuccessRequestResetPassword=1`)
-    }
-  } catch (error) {
-    console.error(error)
-    setErrors({ email: 'We could not find an account registered with that email address' })
-    setSubmitting(false)
-  }
+  props.submitEmail(values.email)
 }
 
 export const withForgotPasswordForm = withFormik({
@@ -69,7 +68,9 @@ export const withForgotPasswordForm = withFormik({
   handleSubmit: handleSubmitForgotPassword
 })
 
-export type EnhanceForgotPasswordFormProps = {}
+export type EnhanceForgotPasswordFormProps = {
+  submitEmail: (email: string) => void
+}
 
 const EnhanceForgotPasswordForm = compose<React.FC<EnhanceForgotPasswordFormProps>>(
   withRouter,

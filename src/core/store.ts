@@ -29,6 +29,8 @@ import revisionDetailSagas from '../sagas/revision-detail'
 import appInstallSagas from '../sagas/app-install'
 import appUninstallSagas from '../sagas/app-uninstall'
 import appDeleteSagas from '../sagas/app-delete'
+import forgotPasswordSagas from '../sagas/forgot-password'
+import forgotPasswordReducer from '../reducers/forgot-password'
 
 export class Store {
   static _instance: Store
@@ -60,7 +62,8 @@ export class Store {
     appInstall,
     appUninstall,
     appDelete: appDeleteReducer,
-    appCategories
+    appCategories,
+    forgotPassword: forgotPasswordReducer
   })
 
   static sagas = function*() {
@@ -76,7 +79,8 @@ export class Store {
       fork(revisionDetailSagas),
       fork(appInstallSagas),
       fork(appUninstallSagas),
-      fork(appDeleteSagas)
+      fork(appDeleteSagas),
+      fork(forgotPasswordSagas)
     ])
   }
 

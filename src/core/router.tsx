@@ -23,7 +23,7 @@ const WebComponentsPage = React.lazy(() => import('../components/pages/web-compo
 const SettingsPage = React.lazy(() => import('../components/pages/settings'))
 const AnalyticsPage = React.lazy(() => import('../components/pages/analytics'))
 const ResetPassword = React.lazy(() => import('../components/pages/reset-password'))
-const ForgotPassword = React.lazy(() => import('../components/pages/forgot-password'))
+const ForgotPassword = React.lazy(() => import('../components/pages/forgot-password/forgot-password'))
 
 const Router = () => (
   <BrowserRouter history={history}>

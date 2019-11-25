@@ -13,7 +13,25 @@ import {
 describe('ForgotPasswordForm', () => {
   it('should match snapshot', () => {
     const mockProps = {
-      ...mockWithFormik({ email: '1' })
+      ...mockWithFormik({ email: '1' }),
+      ...getMockRouterProps({})
+    } as ForgotPasswordFormProps
+    const wrapper = shallow(<ForgotPasswordForm {...mockProps} />)
+    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.find('[dataTest="email"]')).toHaveLength(1)
+  })
+
+  it('should match snapshot', () => {
+    const mockProps = {
+      ...mockWithFormik({ email: '1' }),
+      ...getMockRouterProps({}),
+      location: {
+        hash: '',
+        key: '',
+        pathname: '',
+        search: '?isError=1',
+        state: {}
+      }
     } as ForgotPasswordFormProps
     const wrapper = shallow(<ForgotPasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -40,17 +58,17 @@ describe('ForgotPasswordForm', () => {
         email: 'abc@gmail.com'
       } as ForgotPasswordValues
       const mockProps = {
-        ...getMockRouterProps({})
+        ...getMockRouterProps({}),
+        submitEmail: jest.fn()
       }
       const mockFormik = {
         ...mockFormikAction
       }
-      handleSubmitForgotPassword(mockValues, { ...mockFormik, props: mockProps })
       setTimeout(() => {
-        expect(mockProps.history.push).toBeCalled()
-        expect(mockFormik.setSubmitting).toBeCalledWith(false)
+        handleSubmitForgotPassword(mockValues, { ...mockFormik, props: mockProps })
+        expect(mockProps.submitEmail).toBeCalled()
         done()
-      }, 2000)
+      }, 1000)
     })
   })
 })
