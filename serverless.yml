@@ -1,12 +1,17 @@
 service: cognito-auth-api-dev
 provider:
- name: aws
- runtime: nodejs10.x
- stage: dev
- region: eu-west-2
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: eu-west-2
 functions:
- server:
-   handler: public/app.handler
-   events:
-     - http: ANY /
-     - http: 'ANY {proxy+}'
+  api:
+    handler: public/app.apiHandler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+  mailer:
+    handler: public/app.mailHandler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
