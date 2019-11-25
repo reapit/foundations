@@ -20,7 +20,9 @@ import {
   GridFiveCol,
   GridFourColItem,
   LevelRight,
-  FlexContainerResponsive
+  FlexContainerResponsive,
+  SelectBox,
+  SelectBoxOptions
 } from '@reapit/elements'
 import { validate } from '@/utils/form/submit-app'
 import { transformObjectToDotNotation, ScopeObject, transformDotNotationToObject } from '@/utils/common'
@@ -29,10 +31,11 @@ import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/acti
 import { SubmitAppState } from '@/reducers/submit-app'
 import { AppDetailState } from '@/reducers/app-detail'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
-import { CreateAppModel, ScopeModel, AppDetailModel } from '@/types/marketplace-api-schema'
+import { CreateAppModel, ScopeModel, AppDetailModel, CategoryModel } from '@/types/marketplace-api-schema'
 import Routes from '@/constants/routes'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
 import DeveloperSubmitAppSuccessfully from './developer-submit-app-successfully'
+import { selectCategories } from '../../selector/app-categories'
 
 export interface SubmitAppMappedActions {
   submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions) => void
@@ -46,6 +49,7 @@ export interface SubmitAppMappedProps {
   appDetailState: AppDetailState
   submitRevisionState: SubmitRevisionState
   developerId: string | null
+  categories: CategoryModel[]
 }
 
 export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps & RouteComponentProps<{ appid?: string }>
@@ -74,6 +78,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
   if (appDetail) {
     const {
       id,
+      category,
       description,
       developerId,
       homePage,
@@ -95,6 +100,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
 
     initialValues = {
       name,
+      categoryId: category?.id || '',
       description,
       developerId,
       homePage,
@@ -109,6 +115,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
     }
   } else {
     initialValues = {
+      categoryId: '',
       screen4ImageUrl: '',
       screen3ImageUrl: '',
       screen2ImageUrl: '',
@@ -138,7 +145,8 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
   appDetailState,
   developerId,
   match,
-  history
+  history,
+  categories
 }) => {
   let initialValues
   let formState
@@ -195,6 +203,11 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
     history.push(Routes.DEVELOPER_MY_APPS)
   }
 
+  const categoryOptions: SelectBoxOptions[] = categories.map(category => ({
+    value: category.id as string,
+    label: category.name as string
+  }))
+
   return (
     <FlexContainerBasic
       hasPadding
@@ -241,6 +254,18 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                               allowClear
                             />
                           </div>
+                        </GridItem>
+                      </Grid>
+                    </FormSection>
+                    <FormSection>
+                      <FormHeading>APP CATEGORY</FormHeading>
+                      <FormSubHeading>
+                        To ensure your App is searchable on the Marketplace, please choose the most relevant category
+                        from the list below.
+                      </FormSubHeading>
+                      <Grid>
+                        <GridItem>
+                          <SelectBox id="categoryId" name="categoryId" options={categoryOptions} labelText="CATEGORY" />
                         </GridItem>
                       </Grid>
                     </FormSection>
@@ -412,7 +437,8 @@ const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
   submitAppState: state.submitApp,
   appDetailState: state.appDetail,
   submitRevisionState: state.submitRevision,
-  developerId: state.auth.loginSession ? state.auth.loginSession.loginIdentity.developerId : null
+  developerId: state.auth.loginSession ? state.auth.loginSession.loginIdentity.developerId : null,
+  categories: selectCategories(state)
 })
 
 const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({

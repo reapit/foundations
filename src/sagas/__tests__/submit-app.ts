@@ -9,14 +9,16 @@ import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import { submitAppSetFormState, SubmitAppArgs, submitAppLoading, submitAppReceiveData } from '@/actions/submit-app'
+import { categoriesReceiveData } from '@/actions/app-categories'
 import { errorThrownServer } from '@/actions/error'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
+import { appCategorieStub } from '../__stubs__/app-categories'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
-import { ScopeModel } from '@/types/marketplace-api-schema'
+import { ScopeModel, PagedResultCategoryModel_ } from '@/types/marketplace-api-schema'
 
 jest.mock('@reapit/elements')
 
@@ -84,23 +86,32 @@ describe('submit-app post data', () => {
 })
 
 describe('submit-app fetch data', () => {
-  const gen = cloneableGenerator(submitAppsDataFetch)()
+  const gen = cloneableGenerator(submitAppsDataFetch as any)()
 
   expect(gen.next().value).toEqual(put(submitAppLoading(true)))
   expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${URLS.scopes}`,
-      method: 'GET',
-      api: REAPIT_API_BASE_URL,
-      headers: MARKETPLACE_HEADERS
-    })
+    all([
+      call(fetcher, {
+        url: `${URLS.scopes}`,
+        method: 'GET',
+        api: REAPIT_API_BASE_URL,
+        headers: MARKETPLACE_HEADERS
+      }),
+      call(fetcher, {
+        url: `${URLS.categories}`,
+        method: 'GET',
+        api: REAPIT_API_BASE_URL,
+        headers: MARKETPLACE_HEADERS
+      })
+    ])
   )
 
   test('api fetch success', () => {
     const clone = gen.clone()
-    const response: ScopeModel[] = [{ name: '1', description: '1' }]
+    const response = [[{ name: '1', description: '1' }], appCategorieStub]
     expect(clone.next(response).value).toEqual(put(submitAppLoading(false)))
-    expect(clone.next().value).toEqual(put(submitAppReceiveData(response)))
+    expect(clone.next().value).toEqual(put(submitAppReceiveData(response[0] as ScopeModel[])))
+    expect(clone.next().value).toEqual(put(categoriesReceiveData(response[1] as PagedResultCategoryModel_)))
     expect(clone.next().done).toBe(true)
   })
 

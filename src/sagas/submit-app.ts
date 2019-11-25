@@ -1,6 +1,7 @@
 import { fetcher, FetchError, isBase64 } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL, UPLOAD_FILE_BASE_URL } from '../constants/api'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
+import { categoriesReceiveData } from '../actions/app-categories'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
@@ -95,14 +96,23 @@ export const submitAppsDataFetch = function*() {
   yield put(submitAppLoading(true))
 
   try {
-    const response = yield call(fetcher, {
-      url: `${URLS.scopes}`,
-      method: 'GET',
-      api: REAPIT_API_BASE_URL,
-      headers: MARKETPLACE_HEADERS
-    })
+    const [scopes, categories] = yield all([
+      call(fetcher, {
+        url: `${URLS.scopes}`,
+        method: 'GET',
+        api: REAPIT_API_BASE_URL,
+        headers: MARKETPLACE_HEADERS
+      }),
+      call(fetcher, {
+        url: `${URLS.categories}`,
+        method: 'GET',
+        api: REAPIT_API_BASE_URL,
+        headers: MARKETPLACE_HEADERS
+      })
+    ])
     yield put(submitAppLoading(false))
-    yield put(submitAppReceiveData(response))
+    yield put(submitAppReceiveData(scopes))
+    yield put(categoriesReceiveData(categories))
   } catch (err) {
     yield put(submitAppLoading(false))
     console.error(err.message)

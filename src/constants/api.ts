@@ -20,5 +20,6 @@ export const URLS = {
   approvals: '/approvals',
   swagger: '/prod/swaggerdocs',
   installations: '/installations',
-  scopes: '/scopes'
+  scopes: '/scopes',
+  categories: '/categories'
 }

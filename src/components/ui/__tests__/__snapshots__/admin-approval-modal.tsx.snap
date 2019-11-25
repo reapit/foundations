@@ -50,6 +50,20 @@ exports[`AdminRevisionModalInner should match a snapshot when LOADING false 1`] 
           <h4
             className="mb-2"
           >
+            Category
+          </h4>
+          <DiffViewer
+            changedString=""
+            currentString=""
+            type="words"
+          />
+        </div>
+        <div
+          className="mb-3"
+        >
+          <h4
+            className="mb-2"
+          >
             Home page
           </h4>
           <DiffViewer
