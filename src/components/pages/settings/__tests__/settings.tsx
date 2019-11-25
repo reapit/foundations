@@ -1,68 +1,52 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { SettingsPageProps, SettingsPage, mapStateToProps, handleUseEffect, mapDispatchToProps } from '../settings'
+import { SettingsPageProps, SettingsPage, mapStateToProps, mapDispatchToProps } from '../settings'
 import { ReduxState } from '@/types/core'
-
-const mockDeveloperInformation = {
-  id: '7b2517b3-aad3-4ad8-b31c-988a4b3d112d',
-  externalId: 'ecaf36e1-2b4c-46c2-90d8-1cb493e5dcbd',
-  name: 'Reapit Ltd',
-  company: 'Reapit Ltd',
-  jobTitle: 'Head of Cloud',
-  email: 'wmcvay@reapit.com',
-  telephone: '01234 567890',
-  created: '2019-07-31T11:34:30',
-  modified: '2019-11-18T08:04:52'
-}
-
-jest.mock('@reapit/elements', () => ({
-  fetcher: jest.fn().mockResolvedValue(mockDeveloperInformation)
-}))
+import { developerStub } from '@/sagas/__stubs__/developer'
 
 describe('SettingsPage', () => {
   it('should match snapshot', () => {
     const mockProps: SettingsPageProps = {
-      developerId: '7b2517b3-aad3-4ad8-b31c-988a4b3d112d',
-      logout: jest.fn(),
-      errorNotification: jest.fn()
+      email: 'test@gmail.com',
+      developerInfo: developerStub,
+      loading: true,
+      updateDeveloperInformation: jest.fn(),
+      changePassword: jest.fn()
     }
     const wrapper = shallow(<SettingsPage {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
   it('should match snapshot', () => {
     const mockProps: SettingsPageProps = {
-      developerId: null,
-      logout: jest.fn(),
-      errorNotification: jest.fn()
+      email: 'test@gmail.com',
+      developerInfo: developerStub,
+      loading: false,
+      updateDeveloperInformation: jest.fn(),
+      changePassword: jest.fn()
     }
     const wrapper = shallow(<SettingsPage {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
-  describe('handleUseEffect', () => {
-    it('should run correctly', done => {
-      const mockProps = { developerId: '123', setDeveloperInformation: jest.fn(), setLoading: jest.fn() }
-      const fn = handleUseEffect(mockProps)
-      fn()
-      setTimeout(() => {
-        expect(mockProps.setDeveloperInformation).toBeCalled()
-        expect(mockProps.setLoading).toBeCalled()
-        done()
-      }, 100)
-    })
-  })
+
   describe('mapStateToProps', () => {
     it('should run correctly', () => {
       const mockState = {
+        settings: {
+          loading: true,
+          developerInfomation: developerStub
+        },
         auth: {
           loginSession: {
             loginIdentity: {
-              developerId: '123'
+              email: developerStub.email
             }
           }
         }
       } as ReduxState
       const output = {
-        developerId: mockState.auth?.loginSession?.loginIdentity.developerId
+        developerInfo: mockState.settings.developerInfomation,
+        email: mockState.auth?.loginSession?.loginIdentity?.email,
+        loading: mockState.settings.loading
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(output)
@@ -70,10 +54,13 @@ describe('SettingsPage', () => {
 
     it('should return null', () => {
       const mockState = {
+        settings: {},
         auth: {}
       } as ReduxState
       const output = {
-        developerId: null
+        developerInfo: mockState.settings.developerInfomation || {},
+        email: mockState.auth?.loginSession?.loginIdentity?.email || '',
+        loading: mockState.settings?.loading
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(output)
@@ -82,15 +69,15 @@ describe('SettingsPage', () => {
   describe('mapDispatchToProps', () => {
     it('should call dispatch when logout', () => {
       const mockDispatch = jest.fn()
-      const { logout } = mapDispatchToProps(mockDispatch)
-      logout()
+      const { updateDeveloperInformation } = mapDispatchToProps(mockDispatch)
+      updateDeveloperInformation({ name: '123', companyName: '123', jobTitle: '123', telephone: '1234567890' })
       expect(mockDispatch).toBeCalled()
     })
 
     it('should call dispatch when errorNotification', () => {
       const mockDispatch = jest.fn()
-      const { errorNotification } = mapDispatchToProps(mockDispatch)
-      errorNotification()
+      const { changePassword } = mapDispatchToProps(mockDispatch)
+      changePassword({ currentPassword: '123', password: '1232', confirmPassword: '1232' })
       expect(mockDispatch).toBeCalled()
     })
   })

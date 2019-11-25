@@ -8,10 +8,10 @@ import { developerRequestData } from '../actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { submitAppRequestData } from '../actions/submit-app'
 import { getAccessToken } from './session'
+import { requestDeveloperData } from '@/actions/settings'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
   await getAccessToken()
-
   switch (route) {
     case Routes.CLIENT:
       store.dispatch(clientRequestData(1))
@@ -44,6 +44,9 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
       break
     case Routes.SUBMIT_APP:
       store.dispatch(submitAppRequestData())
+      break
+    case Routes.SETTINGS:
+      store.dispatch(requestDeveloperData())
       break
     default:
       console.error('Route not found, nothing to fetch')

@@ -14,6 +14,7 @@ import revisionDetail from '../reducers/revision-detail'
 import appDetailModal from '../reducers/app-detail-modal'
 import appDeleteReducer from '../reducers/app-delete'
 import appCategories from '../reducers/app-categories'
+import settingsReducer from '../reducers/settings'
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
@@ -31,6 +32,7 @@ import appUninstallSagas from '../sagas/app-uninstall'
 import appDeleteSagas from '../sagas/app-delete'
 import forgotPasswordSagas from '../sagas/forgot-password'
 import forgotPasswordReducer from '../reducers/forgot-password'
+import settingSagas from '../sagas/settings'
 
 export class Store {
   static _instance: Store
@@ -63,7 +65,8 @@ export class Store {
     appUninstall,
     appDelete: appDeleteReducer,
     appCategories,
-    forgotPassword: forgotPasswordReducer
+    forgotPassword: forgotPasswordReducer,
+    settings: settingsReducer
   })
 
   static sagas = function*() {
@@ -80,7 +83,8 @@ export class Store {
       fork(appInstallSagas),
       fork(appUninstallSagas),
       fork(appDeleteSagas),
-      fork(forgotPasswordSagas)
+      fork(forgotPasswordSagas),
+      fork(settingSagas)
     ])
   }
 

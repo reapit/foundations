@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SettingsPage should match snapshot 1`] = `<Component />`;
+exports[`SettingsPage should match snapshot 1`] = `<Loader />`;
 
-exports[`SettingsPage should match snapshot 2`] = `<Component />`;
+exports[`SettingsPage should match snapshot 2`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <H3>
+        Settings
+      </H3>
+      <Grid>
+        <GridItem>
+          <EnhanceContactInformation
+            developerInformation={
+              Object {
+                "company": "Dwarves Foundation",
+                "created": "2019-11-21T08:46:41",
+                "email": "tanphamhaiduong@gmail.com",
+                "externalId": "6447271a-0268-4546-b628-878308d091eb",
+                "id": "7a96e6b2-3778-4118-9c9b-6450851e5608",
+                "jobTitle": "Software Engineer",
+                "name": "Duong Pham",
+                "telephone": "0978100461",
+              }
+            }
+            updateDeveloperInformation={[MockFunction]}
+          />
+        </GridItem>
+        <GridItem>
+          <EnhanceChangePasswordForm
+            changePassword={[MockFunction]}
+            email="test@gmail.com"
+          />
+        </GridItem>
+      </Grid>
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;
