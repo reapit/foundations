@@ -13,6 +13,7 @@ import { RevisionDetailState } from '@/reducers/revision-detail'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { AppInstallState } from '@/reducers/app-install'
 import { AppUninstallState } from '@/reducers/app-uninstall'
+import { AppCategoriesState } from '@/reducers/app-categories'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -64,4 +65,5 @@ export interface ReduxState {
   appInstall: AppInstallState
   appUninstall: AppUninstallState
   appDelete: RequestState
+  appCategories: AppCategoriesState
 }

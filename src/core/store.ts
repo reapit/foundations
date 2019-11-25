@@ -13,6 +13,7 @@ import adminApprovals from '../reducers/admin-approvals'
 import revisionDetail from '../reducers/revision-detail'
 import appDetailModal from '../reducers/app-detail-modal'
 import appDeleteReducer from '../reducers/app-delete'
+import appCategories from '../reducers/app-categories'
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
@@ -58,7 +59,8 @@ export class Store {
     appDetailModal,
     appInstall,
     appUninstall,
-    appDelete: appDeleteReducer
+    appDelete: appDeleteReducer,
+    appCategories
   })
 
   static sagas = function*() {

@@ -13,6 +13,7 @@ import DiffCheckbox from './diff-checkbox'
 
 const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   name: 'Name',
+  category: 'Category',
   homePage: 'Home page',
   launchUri: 'Launch URI',
   supportEmail: 'Support Email',
@@ -158,12 +159,25 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
         body={
           <>
             {Object.keys(diffStringList).map(key => {
-              return (
-                <div className="mb-3" key={key}>
-                  <h4 className="mb-2">{diffStringList[key]}</h4>
-                  <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
-                </div>
-              )
+              if (key === 'category') {
+                return (
+                  <div className="mb-3" key={key}>
+                    <h4 className="mb-2">{diffStringList[key]}</h4>
+                    <DiffViewer
+                      currentString={app.category?.name || ''}
+                      changedString={revision.category?.name || ''}
+                      type="words"
+                    />
+                  </div>
+                )
+              } else {
+                return (
+                  <div className="mb-3" key={key}>
+                    <h4 className="mb-2">{diffStringList[key]}</h4>
+                    <DiffViewer currentString={app[key] || ''} changedString={revision[key] || ''} type="words" />
+                  </div>
+                )
+              }
             })}
             {renderCheckboxesDiff({ scopes, appScopes: app.scopes, revisionScopes: revision.scopes })}
             <div className="mb-3">

@@ -5,6 +5,7 @@ import { shallow, mount } from 'enzyme'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { SubmitApp, SubmitAppProps, renderScopesCheckbox, SubmitAppMappedActions } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
+import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
 
 const submitAppMappedActionsProps: SubmitAppMappedActions = {
   submitApp: jest.fn(),
@@ -31,7 +32,8 @@ describe('DeveloperSubmitApp', () => {
       developerId: '',
       match: {} as match<{ appid?: string }>,
       history: mockRouterProps.history,
-      location: mockRouterProps.location
+      location: mockRouterProps.location,
+      categories: appCategorieStub?.data || []
     }
 
     expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
@@ -46,7 +48,8 @@ describe('DeveloperSubmitApp', () => {
       developerId: null,
       match: {} as match<{ appid?: string }>,
       history: mockRouterProps.history,
-      location: mockRouterProps.location
+      location: mockRouterProps.location,
+      categories: appCategorieStub?.data || []
     }
 
     const wrapper = shallow(<SubmitApp {...props} />)
@@ -72,7 +75,8 @@ describe('DeveloperSubmitApp', () => {
         }
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
-      location: mockRouterProps.location
+      location: mockRouterProps.location,
+      categories: appCategorieStub?.data || []
     }
 
     expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
@@ -97,7 +101,8 @@ describe('DeveloperSubmitApp', () => {
         }
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
-      location: mockRouterProps.location
+      location: mockRouterProps.location,
+      categories: appCategorieStub?.data || []
     }
 
     expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
@@ -122,7 +127,8 @@ describe('DeveloperSubmitApp', () => {
         }
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
-      location: mockRouterProps.location
+      location: mockRouterProps.location,
+      categories: appCategorieStub?.data || []
     }
 
     expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
@@ -147,7 +153,8 @@ describe('DeveloperSubmitApp', () => {
         }
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
-      location: mockRouterProps.location
+      location: mockRouterProps.location,
+      categories: appCategorieStub?.data || []
     }
 
     expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
@@ -168,7 +175,8 @@ describe('DeveloperSubmitApp', () => {
       developerId: '2',
       match: {} as match<{ appid?: string }>,
       history: mockRouterProps.history,
-      location: mockRouterProps.location
+      location: mockRouterProps.location,
+      categories: appCategorieStub?.data || []
     }
 
     expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
@@ -193,7 +201,8 @@ describe('DeveloperSubmitApp', () => {
         }
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
-      location: mockRouterProps.location
+      location: mockRouterProps.location,
+      categories: appCategorieStub?.data || []
     }
 
     expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
@@ -214,7 +223,8 @@ describe('DeveloperSubmitApp', () => {
       developerId: null,
       match: {} as match<{ appid?: string }>,
       history: mockRouterProps.history,
-      location: mockRouterProps.location
+      location: mockRouterProps.location,
+      categories: appCategorieStub?.data || []
     }
 
     const wrapper = mount(<SubmitApp {...props} />)
