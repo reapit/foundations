@@ -15,8 +15,7 @@ import {
   FaCloudDownloadAlt,
   FaCog,
   FaDesktop,
-  FaNetworkWired,
-  FaChartLine
+  FaNetworkWired
 } from 'react-icons/fa'
 import { GoDatabase, GoCode } from 'react-icons/go'
 
@@ -110,13 +109,6 @@ export const generateMenuConfig = (
           url: Routes.DEVELOPER_WEB_COMPONENTS,
           type: 'PRIMARY',
           icon: <FaNetworkWired className="nav-item-icon" />
-        },
-        {
-          title: 'Analytics',
-          key: 'ANALYTICS',
-          url: Routes.DEVELOPER_ANALYTICS,
-          icon: <FaChartLine className="nav-item-icon" />,
-          type: 'PRIMARY'
         },
         {
           title: 'Settings',
