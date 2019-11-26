@@ -40,6 +40,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   setAppDetailModalStateUninstall,
   appUninstallFormState,
   isCurrentLoggedUserClient,
+  isCurrentLoggedUserDeveloper,
   afterClose,
   footerItems
 }) => {
@@ -89,6 +90,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
               }
             />
             <H6>{developer}</H6>
+            {isCurrentLoggedUserDeveloper && <p>App ID: {id}</p>}
             {carouselImages.length > 0 && (
               <div className={carouselStyles.container}>
                 <Slider {...settings}>
