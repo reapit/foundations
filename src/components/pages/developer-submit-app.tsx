@@ -77,7 +77,6 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
 
   if (appDetail) {
     const {
-      id,
       category,
       description,
       developerId,
@@ -392,6 +391,15 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         </GridItem>
                       </Grid>
                     </FormSection>
+                    {isSubmitRevision && (
+                      <FormSection>
+                        <Grid>
+                          <GridItem>
+                            <Checkbox name="isListed" labelText="Is Listed" id="isListed" />
+                          </GridItem>
+                        </Grid>
+                      </FormSection>
+                    )}
                   </GridItem>
                 </Grid>
                 <FormSection>
