@@ -7,17 +7,24 @@ import AppDelete from '@/components/ui/app-delete'
 import AppDetail from './app-detail'
 import { withRouter, RouteComponentProps } from 'react-router'
 import routes from '@/constants/routes'
+import { developerRequestData } from '@/actions/developer'
+import { Dispatch } from 'redux'
 
 export interface DeveloperAppModalMappedProps {
   appDetailState: AppDetailState
   closeParentModal?: () => void
 }
 
-export type DeveloperAppInnerProps = DeveloperAppModalMappedProps & RouteComponentProps
+export interface DeveloperAppModalMappedAction {
+  fetchDeveloperApps: (page: number) => void
+}
+
+export type DeveloperAppInnerProps = DeveloperAppModalMappedProps & DeveloperAppModalMappedAction & RouteComponentProps
 export type DeveloperAppModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & RouteComponentProps
 
 export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerProps> = ({
   appDetailState,
+  fetchDeveloperApps,
   closeParentModal,
   history
 }) => {
@@ -35,7 +42,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
     return null
   }
 
-  const { pendingRevisions, id } = appDetailState.appDetailData.data
+  const { pendingRevisions, id, name } = appDetailState.appDetailData.data
 
   return (
     <>
@@ -67,11 +74,14 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
       />
 
       <AppDelete
+        appId={id || ''}
+        appName={name || ''}
         afterClose={() => setIsDeleteModalOpen(false)}
         visible={isDeleteModalOpen}
         onDeleteSuccess={() => {
           closeParentModal && closeParentModal()
           setIsDeleteModalOpen(false)
+          fetchDeveloperApps(1)
         }}
       />
     </>
@@ -87,7 +97,11 @@ const mapStateToProps = (state: ReduxState, ownState) => ({
   closeParentModal: ownState.closeParentModal
 })
 
-const DeveloperAppInnerWithConnect = connect(mapStateToProps, null)(DeveloperAppModalInner)
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  fetchDeveloperApps: (page: number) => dispatch(developerRequestData(page))
+})
+
+const DeveloperAppInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(DeveloperAppModalInner)
 
 export const DeveloperAppModal: React.FunctionComponent<DeveloperAppModalProps> = ({
   visible = true,

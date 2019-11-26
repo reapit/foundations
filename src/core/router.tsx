@@ -24,6 +24,7 @@ const SettingsPage = React.lazy(() => import('../components/pages/settings'))
 // const AnalyticsPage = React.lazy(() => import('../components/pages/analytics'))
 const ResetPassword = React.lazy(() => import('../components/pages/reset-password'))
 const ForgotPassword = React.lazy(() => import('../components/pages/forgot-password/forgot-password'))
+const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -76,6 +77,7 @@ const Router = () => (
 
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />
+            <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} exact />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.CLIENT_LOGIN} />

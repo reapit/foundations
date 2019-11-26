@@ -283,6 +283,19 @@ exports[`Router should match a snapshot 1`] = `
             fetcher={true}
             path="/admin/approvals/:page"
           />
+          <Connect(Component)
+            allow="ADMIN"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            path="/admin/apps"
+          />
         </Switch>
       </withRouter(Connect(Component))>
       <Redirect

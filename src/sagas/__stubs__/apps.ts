@@ -1,5 +1,4 @@
 import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
-import { ScopeObject } from '@/utils/common'
 
 export const appsDataStub: { data: PagedResultAppSummaryModel_ } = {
   data: {

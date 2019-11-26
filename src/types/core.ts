@@ -16,6 +16,7 @@ import { AppUninstallState } from '@/reducers/app-uninstall'
 import { AppCategoriesState } from '@/reducers/app-categories'
 import { ForgotPasswordState } from '@/reducers/forgot-password'
 import { SettingsState } from '@/reducers/settings'
+import { AdminAppsState } from '@/reducers/admin-apps'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -61,6 +62,7 @@ export interface ReduxState {
   error: ErrorState
   submitApp: SubmitAppState
   submitRevision: SubmitRevisionState
+  adminApps: AdminAppsState
   adminApprovals: AdminApprovalsState
   revisionDetail: RevisionDetailState
   appDetailModal: AppDetailModalState

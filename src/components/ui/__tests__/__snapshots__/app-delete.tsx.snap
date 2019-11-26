@@ -9,7 +9,7 @@ exports[`app-delete should match snapshot 1`] = `
   <ModalHeader
     afterClose={[MockFunction]}
     data-test="confirm-content"
-    title="Confirm  deletion"
+    title="Confirm test deletion"
   />
   <ModalBody
     body={
@@ -17,7 +17,7 @@ exports[`app-delete should match snapshot 1`] = `
         isCentered={true}
       >
         Are you sure you want to remove this App '
-        
+        test
         '. By clicking 'Confirm' it will remove the App and all its data, including all revisions and listings. Please click 'Confirm' to continue with deletion.
       </SubTitleH6>
     }
@@ -28,7 +28,7 @@ exports[`app-delete should match snapshot 1`] = `
         <Button
           dataTest="agree-btn"
           loading={false}
-          onClick={[MockFunction]}
+          onClick={[Function]}
           type="button"
           variant="danger"
         >

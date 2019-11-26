@@ -15,40 +15,45 @@ import { developerAppShowModal } from '@/actions/developer-app-modal'
 
 jest.mock('@reapit/elements')
 
+const params: Action<string> = {
+  data: '1',
+  type: 'APP_DELETE_REQUEST'
+}
+
 describe('app-delete sagas', () => {
   describe('app-delete request', () => {
-    const gen = cloneableGenerator(appDeleteRequestSaga)()
-    expect(gen.next().value).toEqual(select(selectAppDetailId))
+    const gen = cloneableGenerator(appDeleteRequestSaga)(params)
 
-    test('appId not exist', () => {
-      const clone = gen.clone()
-      expect(clone.next().value).toEqual(put(appDeleteRequestFailure()))
-      expect(clone.next().value).toEqual(
-        put(
-          errorThrownServer({
-            type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
-      )
-    })
+    expect(gen.next().value).toEqual(put(appDeleteRequestLoading()))
+    expect(gen.next().value).toEqual(
+      call(fetcher, {
+        url: `${URLS.apps}/1`,
+        api: REAPIT_API_BASE_URL,
+        method: 'DELETE',
+        headers: MARKETPLACE_HEADERS
+      })
+    )
 
     test('api call success', () => {
       const clone = gen.clone()
-
-      expect(clone.next(1).value).toEqual(put(appDeleteRequestLoading()))
-      expect(clone.next().value).toEqual(
-        call(fetcher, {
-          url: `${URLS.apps}/1`,
-          api: REAPIT_API_BASE_URL,
-          method: 'DELETE',
-          headers: MARKETPLACE_HEADERS
-        })
-      )
       expect(clone.next().value).toEqual(put(appDeleteRequestSuccess()))
-      expect(clone.next().value).toEqual(put(developerRequestData(1)))
-      expect(clone.next().value).toEqual(put(developerAppShowModal(false)))
       expect(clone.next().done).toEqual(true)
+    })
+
+    test('api call fail', () => {
+      const clone = gen.clone()
+      if (clone.throw) {
+        expect(clone.throw(new Error('')).value).toEqual(put(appDeleteRequestFailure()))
+        expect(clone.next().value).toEqual(
+          put(
+            errorThrownServer({
+              type: 'SERVER',
+              message: errorMessages.DEFAULT_SERVER_ERROR
+            })
+          )
+        )
+        expect(clone.next().done).toBe(true)
+      }
     })
   })
 
@@ -56,7 +61,9 @@ describe('app-delete sagas', () => {
     describe('appDeleteRequestDataListen', () => {
       it('should trigger app delete when called', () => {
         const gen = appDeleteRequestListen()
-        expect(gen.next().value).toEqual(takeLatest<Action<void>>(ActionTypes.APP_DELETE_REQUEST, appDeleteRequestSaga))
+        expect(gen.next().value).toEqual(
+          takeLatest<Action<string>>(ActionTypes.APP_DELETE_REQUEST, appDeleteRequestSaga)
+        )
         expect(gen.next().done).toBe(true)
       })
     })
