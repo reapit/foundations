@@ -7,7 +7,8 @@ import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 describe('app-delete', () => {
   it('should match snapshot', () => {
     const mockProps = {
-      appName: '',
+      appId: '1',
+      appName: 'test',
       formState: 'PENDING',
       afterClose: jest.fn(),
       visible: true,
@@ -47,7 +48,7 @@ describe('app-delete', () => {
     it('should run correctly', () => {
       const mockDispatch = jest.fn()
       const { appDeleteRequest } = mapDispatchToProps(mockDispatch)
-      appDeleteRequest()
+      appDeleteRequest('1')
       expect(mockDispatch).toBeCalled()
     })
   })
@@ -63,12 +64,15 @@ describe('app-delete', () => {
         }
       } as ReduxState
       const mockOwnProps = {
+        appId: '1',
+        appName: 'test',
         onDeleteSuccess: jest.fn()
       }
       const result = mapStateToProps(mockState, mockOwnProps)
       const output = {
         formState: 'PENDING',
-        appName: "Peter's Properties",
+        appId: '1',
+        appName: 'test',
         onDeleteSuccess: mockOwnProps.onDeleteSuccess
       }
       expect(result).toEqual(output)

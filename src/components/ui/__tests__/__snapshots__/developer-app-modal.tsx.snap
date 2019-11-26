@@ -95,6 +95,8 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
   />
   <AppDeleteModalWithRedux
     afterClose={[Function]}
+    appId="9b6fd5f7-2c15-483d-b925-01b650538e52"
+    appName="Peter's Properties"
     onDeleteSuccess={[Function]}
     visible={false}
   />

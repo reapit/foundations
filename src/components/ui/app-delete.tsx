@@ -8,16 +8,17 @@ import appPermissionContentStyles from '@/styles/pages/app-permission-content.sc
 import CallToAction from './call-to-action'
 
 interface AppDeleteModalWithConnectOwnProps {
+  appId: string
+  appName: string
   closeModal?: () => void
   onDeleteSuccess: () => void
 }
 
 export interface AppDeleteMappedProps extends AppDeleteModalWithConnectOwnProps {
   formState: FormState
-  appName: string
 }
 export interface AppDeleteMappedActions {
-  appDeleteRequest: () => void
+  appDeleteRequest: (appId: string) => void
 }
 
 export type AppDeleteProps = Pick<ModalProps, 'visible' | 'afterClose'> & AppDeleteMappedActions & AppDeleteMappedProps
@@ -27,12 +28,13 @@ export const mapStateToProps = (
   ownProps: AppDeleteModalWithConnectOwnProps
 ): AppDeleteMappedProps => ({
   formState: state.appDelete.formState,
-  appName: state?.appDetail?.appDetailData?.data?.name || '',
+  appId: ownProps.appId,
+  appName: ownProps.appName,
   onDeleteSuccess: ownProps.onDeleteSuccess
 })
 
 export const mapDispatchToProps = (dispatch: any): AppDeleteMappedActions => ({
-  appDeleteRequest: () => dispatch(appDeleteRequest())
+  appDeleteRequest: (appId: string) => dispatch(appDeleteRequest(appId))
 })
 
 export const handleAfterClose = ({ isSuccedded, onDeleteSuccess, isLoading, afterClose }) => () => {
@@ -44,6 +46,7 @@ export const handleAfterClose = ({ isSuccedded, onDeleteSuccess, isLoading, afte
 }
 
 export const DeleteAppModal = ({
+  appId,
   appName,
   formState,
   afterClose,
@@ -100,7 +103,7 @@ export const DeleteAppModal = ({
                     className={appPermissionContentStyles.installButton}
                     type="button"
                     variant="danger"
-                    onClick={appDeleteRequest}
+                    onClick={() => appDeleteRequest(appId)}
                   >
                     Confirm
                   </Button>

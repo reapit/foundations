@@ -15,6 +15,7 @@ import appDetailModal from '../reducers/app-detail-modal'
 import appDeleteReducer from '../reducers/app-delete'
 import appCategories from '../reducers/app-categories'
 import settingsReducer from '../reducers/settings'
+import adminApps from '../reducers/admin-apps'
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
@@ -33,6 +34,7 @@ import appDeleteSagas from '../sagas/app-delete'
 import forgotPasswordSagas from '../sagas/forgot-password'
 import forgotPasswordReducer from '../reducers/forgot-password'
 import settingSagas from '../sagas/settings'
+import adminAppsSagas from '../sagas/admin-apps'
 
 export class Store {
   static _instance: Store
@@ -58,6 +60,7 @@ export class Store {
     error,
     submitApp,
     submitRevision,
+    adminApps,
     adminApprovals,
     revisionDetail,
     appDetailModal,
@@ -84,7 +87,8 @@ export class Store {
       fork(appUninstallSagas),
       fork(appDeleteSagas),
       fork(forgotPasswordSagas),
-      fork(settingSagas)
+      fork(settingSagas),
+      fork(adminAppsSagas)
     ])
   }
 
