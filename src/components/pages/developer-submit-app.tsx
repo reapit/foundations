@@ -255,6 +255,13 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                           </div>
                         </GridItem>
                       </Grid>
+                      {isSubmitRevision && (
+                        <Grid>
+                          <GridItem>
+                            <Checkbox name="isListed" labelText="Is Listed" id="isListed" />
+                          </GridItem>
+                        </Grid>
+                      )}
                     </FormSection>
                     <FormSection>
                       <FormHeading>APP CATEGORY</FormHeading>
@@ -391,15 +398,6 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         </GridItem>
                       </Grid>
                     </FormSection>
-                    {isSubmitRevision && (
-                      <FormSection>
-                        <Grid>
-                          <GridItem>
-                            <Checkbox name="isListed" labelText="Is Listed" id="isListed" />
-                          </GridItem>
-                        </Grid>
-                      </FormSection>
-                    )}
                   </GridItem>
                 </Grid>
                 <FormSection>
