@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Email templates</title>
+    <style>
+      .container {
+        width: 80%;
+        margin: 2rem auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <%- include('forgotten-password', { userName: 'will@mail.com', verificationCode: '1212312' }) %>
+    </main>
+  </body>
+</html>

@@ -8,7 +8,7 @@
     "test-ci": "concurrently --success=\"first\" \"yarn start-dev\" \"yarn test\" -k",
     "test-dev": "jest --watch --verbose",
     "lint": "tslint --fix --project tsconfig.json --format stylish",
-    "build": "tsc",
+    "build": "tsc && rm -rf ./public/templates/ejs && cp -rf ./src/templates/ejs ./public/templates/ejs",
     "start-dev": "node ./public/app.dev.js",
     "serverless": "serverless deploy",
     "deploy": "yarn lint && yarn build && yarn test-ci && yarn serverless",
@@ -28,6 +28,7 @@
   "dependencies": {
     "amazon-cognito-identity-js": "~3.0.13",
     "cors": "^2.8.5",
+    "ejs": "^3.0.1",
     "express": "~4.17.1",
     "isomorphic-fetch": "~2.2.1",
     "serverless-http": "~2.0.2"
@@ -36,6 +37,7 @@
     "@types/aws-serverless-express": "~3.3.1",
     "@types/cors": "^2.8.5",
     "@types/dotenv": "~6.1.1",
+    "@types/ejs": "^2.7.0",
     "@types/express": "~4.17.0",
     "@types/isomorphic-fetch": "~0.0.35",
     "@types/jest": "~24.0.15",
@@ -61,7 +63,9 @@
     ],
     "coverageDirectory": "./coverage",
     "coveragePathIgnorePatterns": [
-      "<rootDir>[/\\\\](node_modules|src/core)[/\\\\]", "<rootDir>/src/app.ts", "<rootDir>/src/app.dev.ts"
+      "<rootDir>[/\\\\](node_modules|src/core)[/\\\\]",
+      "<rootDir>/src/app.ts",
+      "<rootDir>/src/app.dev.ts"
     ],
     "modulePathIgnorePatterns": [
       "<rootDir>[/\\\\](node_modules|public)[/\\\\]"
