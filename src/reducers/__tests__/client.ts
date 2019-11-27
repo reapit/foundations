@@ -38,4 +38,19 @@ describe('client reducer', () => {
     }
     expect(newState).toEqual(expected)
   })
+
+  it('should set client item data when CLIENT_RECEIVE_SEARCH_APPS action is called', () => {
+    const data = appsDataStub.data
+    const newState = clientReducer(undefined, {
+      type: ActionTypes.CLIENT_RECEIVE_SEARCH_APPS as ActionType,
+      data: data
+    })
+    const expected = {
+      ...defaultState,
+      clientData: {
+        data
+      }
+    }
+    expect(newState).toEqual(expected)
+  })
 })

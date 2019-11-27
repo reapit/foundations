@@ -1,6 +1,12 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { clientLoading, clientReceiveData, clientClearData, clientRequestDataFailure } from '../actions/client'
+import {
+  clientLoading,
+  clientReceiveData,
+  clientClearData,
+  clientRequestDataFailure,
+  clientReceiveSearchApps
+} from '../actions/client'
 import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
 
 export interface ClientItem {
@@ -45,6 +51,16 @@ const clientReducer = (state: ClientState = defaultState, action: Action<any>): 
     return {
       ...state,
       loading: false
+    }
+  }
+
+  if (isType(action, clientReceiveSearchApps)) {
+    return {
+      ...state,
+      clientData: {
+        ...state?.clientData,
+        data: action.data
+      }
     }
   }
 

@@ -2,10 +2,11 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { ClientState } from '@/reducers/client'
-import { Loader } from '@reapit/elements'
+import { Loader, FlexContainerBasic } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
 import AppList from '@/components/ui/app-list'
+import AppSidebar from '@/components/ui/app-sidebar'
 import routes from '@/constants/routes'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
@@ -48,24 +49,28 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   const { totalCount, pageSize } = clientState?.clientData?.data || {}
   const [visible, setVisible] = React.useState(false)
 
-  if (unfetched || loading) {
-    return <Loader />
-  }
   return (
     <ErrorBoundary>
-      <AppList
-        list={list}
-        title="Browse Apps"
-        loading={loading}
-        onCardClick={handleOnCardClick({ setVisible, appDetail, fetchAppDetail, clientId })}
-        infoType="CLIENT_APPS_EMPTY"
-        pagination={{
-          totalCount,
-          pageSize,
-          pageNumber,
-          onChange: handleOnChange(history)
-        }}
-      />
+      <div className="columns is-vcentered">
+        <AppSidebar />
+        {unfetched || loading ? (
+          <Loader />
+        ) : (
+          <AppList
+            list={list}
+            title="Featured Apps"
+            loading={loading}
+            onCardClick={handleOnCardClick({ setVisible, appDetail, fetchAppDetail, clientId })}
+            infoType="CLIENT_APPS_EMPTY"
+            pagination={{
+              totalCount,
+              pageSize,
+              pageNumber,
+              onChange: handleOnChange(history)
+            }}
+          />
+        )}
+      </div>
       <AppDetailModal visible={visible} afterClose={handleAfterClose({ setVisible })} />
     </ErrorBoundary>
   )
