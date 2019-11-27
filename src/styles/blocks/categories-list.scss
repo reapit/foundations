@@ -1,0 +1,20 @@
+.categoryItem {
+  display: inline;
+  margin: 4px;
+}
+
+.categoryItem:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 769px) {
+  .categoryItem {
+    display: block;
+    margin: 4px;
+  }
+}
+
+.categoryItemActive {
+  color: black;
+  font-weight: 700;
+}

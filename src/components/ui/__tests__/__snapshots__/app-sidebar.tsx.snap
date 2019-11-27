@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppSidebar should match a snapshot 1`] = `
+<div>
+  <FlexContainerBasic
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <H3>
+      Browse Apps
+    </H3>
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "search": "",
+        }
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    />
+    <CategoriesList
+      categories={
+        Array [
+          Object {
+            "description": "apps for game",
+            "id": "3",
+            "name": "Game",
+          },
+          Object {
+            "description": "apps for entertainment",
+            "id": "2",
+            "name": "entertainment",
+          },
+          Object {
+            "description": "apps for education",
+            "id": "1",
+            "name": "education",
+          },
+        ]
+      }
+    />
+  </FlexContainerBasic>
+</div>
+`;

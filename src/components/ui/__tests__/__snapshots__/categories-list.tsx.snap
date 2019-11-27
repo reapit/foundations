@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoriesList should match a snapshot 1`] = `
+<ul>
+  <li
+    className="undefined undefined"
+    key="3"
+  >
+    <a>
+      Game
+    </a>
+  </li>
+  <li
+    className="undefined undefined"
+    key="2"
+  >
+    <a>
+      entertainment
+    </a>
+  </li>
+  <li
+    className="undefined undefined"
+    key="1"
+  >
+    <a>
+      education
+    </a>
+  </li>
+</ul>
+`;

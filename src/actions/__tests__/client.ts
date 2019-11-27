@@ -1,4 +1,11 @@
-import { clientLoading, clientReceiveData, clientRequestData, clientClearData } from '../client'
+import {
+  clientLoading,
+  clientReceiveData,
+  clientRequestData,
+  clientClearData,
+  clientSearchApps,
+  clientReceiveSearchApps
+} from '../client'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
 
@@ -21,5 +28,14 @@ describe('client actions', () => {
   it('should create a clientClearData action', () => {
     expect(clientClearData.type).toEqual(ActionTypes.CLIENT_CLEAR_DATA)
     expect(clientClearData(null).data).toEqual(null)
+  })
+
+  it('should create a clientSearchApps action', () => {
+    expect(clientSearchApps.type).toEqual(ActionTypes.CLIENT_SEARCH_APPS)
+    expect(clientSearchApps('DATA').data).toEqual('DATA')
+  })
+  it('should create a clientReceiveSearchApps action', () => {
+    expect(clientReceiveSearchApps.type).toEqual(ActionTypes.CLIENT_RECEIVE_SEARCH_APPS)
+    expect(clientReceiveSearchApps({}).data).toEqual({})
   })
 })
