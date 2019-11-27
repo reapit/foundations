@@ -4,6 +4,7 @@ provider:
   runtime: nodejs10.x
   stage: dev
   region: eu-west-2
+custom: ${file(./env.yml)}
 functions:
   api:
     handler: public/app.apiHandler
@@ -13,5 +14,7 @@ functions:
   mailer:
     handler: public/app.mailHandler
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - cognitoUserPool:
+        pool: ${self:custom.COGNITO_USERPOOL_ID}
+        trigger: CustomMessage
+        existing: true

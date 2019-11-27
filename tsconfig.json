@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "allowJs": true,
     "module": "commonjs",
     "esModuleInterop": true,
-    "declaration": true,
     "outDir": "public",
     "strict": true,
-    "lib": ["dom"]
+    "lib": ["dom"],
+    "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "public"]
