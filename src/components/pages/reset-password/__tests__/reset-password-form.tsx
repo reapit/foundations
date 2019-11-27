@@ -8,10 +8,16 @@ import {
   validateResetPasswordForm,
   parseQueryParamsToToken,
   handleSubmitResetPassword,
-  mapDispatchToProps
+  mapDispatchToProps,
+  mapStateToProps
 } from '../reset-password-form'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { mockFormikAction } from '@/utils/mock-formik'
+import { ReduxState } from '@/types/core'
+
+jest.mock('@reapit/elements', () => ({
+  fetcher: jest.fn().mockResolvedValue({ message: 'SUCCESS' })
+}))
 
 describe('ResetPasswordForm', () => {
   it('should match snapshot', () => {
@@ -29,7 +35,9 @@ describe('ResetPasswordForm', () => {
       const result = mapPropsToValues()
       expect(result).toEqual({
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        email: '',
+        verificationCode: ''
       })
     })
   })
@@ -38,7 +46,9 @@ describe('ResetPasswordForm', () => {
     it('should not return errors', () => {
       const mockValues: ResetPasswordValues = {
         password: '456',
-        confirmPassword: '456'
+        confirmPassword: '456',
+        email: 'abc@gmail.com',
+        verificationCode: '123'
       }
       const result = validateResetPasswordForm(mockValues)
       expect(result).toEqual({})
@@ -47,11 +57,15 @@ describe('ResetPasswordForm', () => {
     it('should return errors', () => {
       const mockValues: ResetPasswordValues = {
         password: '456',
-        confirmPassword: '4567'
+        confirmPassword: '4567',
+        email: '',
+        verificationCode: ''
       }
       const result = validateResetPasswordForm(mockValues)
       expect(result).toEqual({
-        confirmPassword: 'Passwords do not match'
+        confirmPassword: 'Passwords do not match',
+        email: 'Please input email',
+        verificationCode: 'Please input verification code'
       })
     })
   })
@@ -90,48 +104,21 @@ describe('ResetPasswordForm', () => {
     it('should call setSubmitting', done => {
       const mockValues: ResetPasswordValues = {
         password: '456',
-        confirmPassword: '456'
+        confirmPassword: '456',
+        email: 'abc@gmail.com',
+        verificationCode: '123'
       }
       const mockForm = {
         ...mockFormikAction
       }
       const mockProps = {
-        errorNotification: jest.fn(),
+        resetPassword: jest.fn(),
         logout: jest.fn(),
         ...getMockRouterProps({})
       }
       handleSubmitResetPassword(mockValues, { ...mockForm, props: mockProps })
       setTimeout(() => {
-        expect(mockForm.setSubmitting).toBeCalledWith(false)
-        expect(mockProps.history.replace).toBeCalledWith('/developer/login?isChangePasswordSuccess=1')
-        done()
-      }, 2000)
-    })
-
-    it('should not call setSubmitting', done => {
-      const mockValues: ResetPasswordValues = {
-        password: '456',
-        confirmPassword: '456'
-      }
-      const mockForm = {
-        ...mockFormikAction
-      }
-      const mockProps = {
-        errorNotification: jest.fn(),
-        logout: jest.fn(),
-        ...getMockRouterProps({}),
-        location: {
-          hash: '',
-          key: '',
-          pathname: '',
-          search: '',
-          state: {}
-        }
-      }
-      handleSubmitResetPassword(mockValues, { ...mockForm, props: mockProps })
-      setTimeout(() => {
-        expect(mockForm.setSubmitting).toBeCalledWith(false)
-        expect(mockProps.history.replace).not.toBeCalledWith('/developer/login?isChangePasswordSuccess=1')
+        expect(mockProps.resetPassword).toBeCalled()
         done()
       }, 2000)
     })
@@ -140,9 +127,29 @@ describe('ResetPasswordForm', () => {
   describe('mapDispatchToProps', () => {
     it('should call dispatch when errorNotification', () => {
       const mockDispatch = jest.fn()
-      const { errorNotification } = mapDispatchToProps(mockDispatch)
-      errorNotification()
+      const { resetPassword } = mapDispatchToProps(mockDispatch)
+      resetPassword({
+        confirmPassword: '123',
+        password: '123',
+        email: 'abc@gmail.com',
+        verificationCode: '123'
+      })
       expect(mockDispatch).toBeCalled()
+    })
+  })
+
+  describe('mapStateToProps', () => {
+    it('should run correctly', () => {
+      const mockState = {
+        resetPassword: {
+          loading: true
+        }
+      } as ReduxState
+      const result = mapStateToProps(mockState)
+      const output = {
+        loading: true
+      }
+      expect(result).toEqual(output)
     })
   })
 })
