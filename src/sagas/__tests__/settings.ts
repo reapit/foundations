@@ -108,8 +108,8 @@ describe('settings', () => {
         call(callChangePassword, { values: data, email: 'abc@gmail.com' })
       )
       expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(removeSessionCookie))
-      expect(clone.next().value).toEqual(history.replace(`${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`))
       expect(clone.next().value).toEqual(put(authLogoutSuccess()))
+      expect(clone.next().value).toEqual(history.replace(`${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`))
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
     })
     it('should call API fail', () => {
