@@ -117,8 +117,8 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     if (isCallAPISuccess) {
       const SUCCESS_ALERT_LOGIN_PAGE = `${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`
       yield call(removeSessionCookie)
-      yield history.replace(SUCCESS_ALERT_LOGIN_PAGE)
       yield put(authLogoutSuccess())
+      yield history.replace(SUCCESS_ALERT_LOGIN_PAGE)
     }
   } catch (error) {
     yield put(
