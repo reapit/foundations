@@ -10,6 +10,7 @@ import ApproveRevisionModal from './approve-revision-modal'
 import DeclineRevisionModal from './decline-revision-modal'
 import DiffMedia from '@/components/ui/diff-media'
 import DiffCheckbox from './diff-checkbox'
+import { compose } from 'redux'
 
 const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   name: 'Name',
@@ -90,8 +91,10 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
   appDetailState,
   closeParentModal
 }) => {
-  const [isApproveModalOpen, setIsApproveModalOpen] = React.useState(false)
-  const [isDeclineModalOpen, setIsDeclineModalOpen] = React.useState(false)
+  const isShowApproveModal = revisionDetailState.approveFormState === 'SUCCESS'
+  const isShowDeclineModal = revisionDetailState.declineFormState === 'SUCCESS'
+  const [isApproveModalOpen, setIsApproveModalOpen] = React.useState(isShowApproveModal || false)
+  const [isDeclineModalOpen, setIsDeclineModalOpen] = React.useState(isShowDeclineModal || false)
   if (revisionDetailState.loading || appDetailState.loading) {
     return <ModalBody body={<Loader />} />
   }
@@ -238,9 +241,9 @@ const mapStateToProps = (state: ReduxState, ownState: AdminApprovalModalOwnProps
   closeParentModal: ownState.closeParentModal
 })
 
-const mapDispatchToProps = (dispatch: any): AdminApprovalModalMappedActions => ({})
+export const withRedux = connect(mapStateToProps, null)
 
-const AdminApprovalInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AdminApprovalModalInner)
+const AdminApprovalInnerWithConnect = compose<React.FC<AdminApprovalModalOwnProps>>(withRedux)(AdminApprovalModalInner)
 
 export const AdminApprovalModal: React.FunctionComponent<AdminApprovalModalProps> = ({
   visible = true,
