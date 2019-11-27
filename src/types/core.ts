@@ -17,6 +17,7 @@ import { AppCategoriesState } from '@/reducers/app-categories'
 import { ForgotPasswordState } from '@/reducers/forgot-password'
 import { SettingsState } from '@/reducers/settings'
 import { AdminAppsState } from '@/reducers/admin-apps'
+import { ResetPasswordState } from '@/reducers/reset-password'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -72,4 +73,5 @@ export interface ReduxState {
   appCategories: AppCategoriesState
   forgotPassword: ForgotPasswordState
   settings: SettingsState
+  resetPassword: ResetPasswordState
 }

@@ -35,6 +35,8 @@ import forgotPasswordSagas from '../sagas/forgot-password'
 import forgotPasswordReducer from '../reducers/forgot-password'
 import settingSagas from '../sagas/settings'
 import adminAppsSagas from '../sagas/admin-apps'
+import resetPasswordReducer from '../reducers/reset-password'
+import resetPasswordSagas from '../sagas/reset-password'
 
 export class Store {
   static _instance: Store
@@ -69,7 +71,8 @@ export class Store {
     appDelete: appDeleteReducer,
     appCategories,
     forgotPassword: forgotPasswordReducer,
-    settings: settingsReducer
+    settings: settingsReducer,
+    resetPassword: resetPasswordReducer
   })
 
   static sagas = function*() {
@@ -88,7 +91,8 @@ export class Store {
       fork(appDeleteSagas),
       fork(forgotPasswordSagas),
       fork(settingSagas),
-      fork(adminAppsSagas)
+      fork(adminAppsSagas),
+      fork(resetPasswordSagas)
     ])
   }
 
