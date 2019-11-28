@@ -46,7 +46,7 @@ export const generateColumn = history => () => [
         buildingNumber,
         line1,
         line2
-      }))(row.original.addresses[0])
+      }))(row?.original?.addresses?.[0] || {})
 
       return (
         <div>
@@ -63,9 +63,10 @@ export const generateColumn = history => () => [
     Header: 'Postcode',
     id: 'postcode',
     Cell: ({ row }) => {
+      const postcode = row?.original?.addresses?.[0]?.postcode
       return (
         <div>
-          <span>{row.original.addresses[0].postcode}</span>
+          <span>{postcode}</span>
         </div>
       )
     }
