@@ -54,7 +54,6 @@ export const generateColumns = history => () => [
     id: 'postcode',
     accessor: d => d,
     Cell: ({ row }) => {
-      // @ts-ignore
       const postcode = row?.original?.addresses?.[0]?.postcode
       return (
         <div>
