@@ -1,6 +1,5 @@
 const Routes = {
   CLIENT: '/client/apps',
-  CLIENT_PAGINATE: '/client/apps/:page',
   MY_APPS: '/client/installed',
   MY_APPS_PAGINATE: '/client/installed/:page',
   DEVELOPER: '/developer',

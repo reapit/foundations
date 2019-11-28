@@ -2,29 +2,45 @@
 
 exports[`CategoriesList should match a snapshot 1`] = `
 <ul>
-  <li
-    className="undefined undefined"
+  <CategoryItem
+    onSelectCategory={[MockFunction]}
+    selected={true}
+  />
+  <CategoryItem
+    category={
+      Object {
+        "description": "apps for game",
+        "id": "3",
+        "name": "Game",
+      }
+    }
     key="3"
-  >
-    <a>
-      Game
-    </a>
-  </li>
-  <li
-    className="undefined undefined"
+    onSelectCategory={[MockFunction]}
+    selected={false}
+  />
+  <CategoryItem
+    category={
+      Object {
+        "description": "apps for entertainment",
+        "id": "2",
+        "name": "entertainment",
+      }
+    }
     key="2"
-  >
-    <a>
-      entertainment
-    </a>
-  </li>
-  <li
-    className="undefined undefined"
+    onSelectCategory={[MockFunction]}
+    selected={false}
+  />
+  <CategoryItem
+    category={
+      Object {
+        "description": "apps for education",
+        "id": "1",
+        "name": "education",
+      }
+    }
     key="1"
-  >
-    <a>
-      education
-    </a>
-  </li>
+    onSelectCategory={[MockFunction]}
+    selected={false}
+  />
 </ul>
 `;

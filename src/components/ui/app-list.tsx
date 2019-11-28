@@ -20,9 +20,9 @@ export type AppListProps = {
   loading: boolean
   onCardClick?: (app: AppSummaryModel) => void
   onSettingsClick?: (app: AppSummaryModel) => void
-  title: string
+  title?: string
   infoType: InfoType
-  pagination: PaginationProps
+  pagination?: PaginationProps
 }
 
 export const AppList: React.FunctionComponent<AppListProps> = ({
@@ -36,7 +36,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
 }) => {
   return (
     <FlexContainerBasic hasPadding flexColumn>
-      <H3>{title}</H3>
+      {title && <H3>{title}</H3>}
       <div>
         <GridFiveCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
           {!list.length && !loading ? (
@@ -68,10 +68,12 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
           )}
         </GridFiveCol>
       </div>
-      <Section>
-        <Pagination {...pagination} />
-      </Section>
       {loading && <Loader body />}
+      {pagination && (
+        <Section>
+          <Pagination {...pagination} />
+        </Section>
+      )}
     </FlexContainerBasic>
   )
 }

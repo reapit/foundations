@@ -31,7 +31,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: true,
-      template: 'public/index.html'
+      template: 'public/index.html',
+      chunksSortMode: 'none'
     }),
     new FaviconsWebpackPlugin({
       logo: './public/logo.png',

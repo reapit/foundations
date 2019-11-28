@@ -47,6 +47,7 @@ module.exports = {
       hash: true,
       inject: true,
       template: 'public/index.html',
+      chunksSortMode: 'none',
       minify: {
         removeComments: true,
         collapseWhitespace: true,

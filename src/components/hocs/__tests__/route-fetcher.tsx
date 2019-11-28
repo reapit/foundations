@@ -14,6 +14,9 @@ const props = {
     match: {
       path: Routes.CLIENT,
       params: { page: 1 }
+    },
+    location: {
+      search: 'page=1'
     }
   } as RouteComponentProps<any, StaticContext, any>
 }
@@ -26,7 +29,11 @@ describe('RouteFetcher', () => {
   it('should call the routeDispatcher with the route path', () => {
     shallow(<RouteFetcher {...props} />)
     expect(routeDispatcher).toHaveBeenCalledTimes(1)
-    expect(routeDispatcher).toHaveBeenCalledWith(props.routerProps.match.path, props.routerProps.match.params)
+    expect(routeDispatcher).toHaveBeenCalledWith(
+      props.routerProps.match.path,
+      props.routerProps.match.params,
+      props.routerProps.location.search
+    )
   })
 
   afterEach(() => {

@@ -4,12 +4,13 @@ import toJson from 'enzyme-to-json'
 import { AppSidebar, AppSidebarProps } from '../app-sidebar'
 import CategoriesList from '@/components/ui/categories-list'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
-import { CategoryModel } from '@/types/marketplace-api-schema'
 
-const props: AppSidebarProps = {
-  categories: appCategorieStub.data as CategoryModel[],
-  searchApps: jest.fn()
-}
+const props = {
+  categories: appCategorieStub.data || [],
+  location: {
+    search: 'page=1'
+  }
+} as AppSidebarProps
 
 describe('AppSidebar', () => {
   it('should match a snapshot', () => {

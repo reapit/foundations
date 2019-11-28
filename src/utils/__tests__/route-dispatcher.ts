@@ -8,6 +8,7 @@ import { myAppsRequestData } from '../../actions/my-apps'
 import { adminApprovalsRequestData } from '../../actions/admin-approvals'
 import { getAccessToken } from '../../utils/session'
 import { requestDeveloperData } from '@/actions/settings'
+import { getParamsFromPath } from '@/utils/client-url-params'
 
 jest.mock('@reapit/elements')
 jest.mock('../../utils/session')
@@ -23,12 +24,7 @@ describe('routeDispatcher', () => {
 
   it('should dispatch to clientRequestData for the client route', async () => {
     await routeDispatcher(Routes.CLIENT as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(clientRequestData(1))
-  })
-
-  it('should dispatch to clientRequestData for the client paginate route', async () => {
-    await routeDispatcher(Routes.CLIENT_PAGINATE as RouteValue, { page: '2' })
-    expect(store.dispatch).toHaveBeenCalledWith(clientRequestData(2))
+    expect(store.dispatch).toHaveBeenCalledWith(clientRequestData(getParamsFromPath('')))
   })
 
   it('should dispatch to myAppsRequestData for the my-apps route', async () => {

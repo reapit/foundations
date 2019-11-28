@@ -56,3 +56,41 @@ export const appsDataStub: { data: PagedResultAppSummaryModel_ } = {
     totalCount: 6
   }
 }
+
+export const featuredAppsDataStub: { data: PagedResultAppSummaryModel_ } = {
+  data: {
+    data: [
+      {
+        id: 'da20d0ac-47ab-44c9-af3e-b44e25f2ec2b',
+        created: '2019-11-26T03:38:45',
+        developerId: '7a96e6b2-3778-4118-9c9b-6450851e5608',
+        name: 'Google',
+        summary: "Search the world's information, including webpages, images, videos and more.",
+        developer: 'Dwarves Foundation',
+        homePage: 'https://google.com',
+        isListed: true,
+        isSandbox: false,
+        isFeatured: true,
+        iconUri: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/Google-icon(3).jpg',
+        launchUri: 'https://google.com',
+        pendingRevisions: false,
+        links: [
+          {
+            rel: 'self',
+            href: 'http://dev.platformmarketplace.reapit.net/apps/da20d0ac-47ab-44c9-af3e-b44e25f2ec2b',
+            action: 'GET'
+          },
+          {
+            rel: 'developer',
+            href: 'http://dev.platformmarketplace.reapit.net/developers/7a96e6b2-3778-4118-9c9b-6450851e5608',
+            action: 'GET'
+          }
+        ]
+      }
+    ],
+    pageNumber: 1,
+    pageSize: 3,
+    pageCount: 1,
+    totalCount: 1
+  }
+}

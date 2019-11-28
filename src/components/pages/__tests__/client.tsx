@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { appsDataStub } from '@/sagas/__stubs__/apps'
+import { appsDataStub, featuredAppsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import routes from '@/constants/routes'
+import { ClientItem } from '@/reducers/client'
 import {
   Client,
   ClientProps,
@@ -13,19 +14,27 @@ import {
   handleOnChange,
   handleOnCardClick
 } from '../client'
+import { addQuery } from '@/utils/client-url-params'
 
 describe('Client', () => {
   it('should match a snapshot', () => {
     const props: ClientProps = {
       clientState: {
         loading: false,
-        clientData: appsDataStub
+        clientData: {
+          featuredApps: featuredAppsDataStub.data,
+          apps: appsDataStub
+        } as ClientItem
       },
       // @ts-ignore: just pick the needed props for the test
       match: {
         params: {
           page: '2'
         }
+      },
+      // @ts-ignore: just pick the needed props for the test
+      location: {
+        search: 'page=1'
       }
     }
     expect(toJson(shallow(<Client {...props} />))).toMatchSnapshot()
@@ -35,13 +44,20 @@ describe('Client', () => {
     const props: ClientProps = {
       clientState: {
         loading: true,
-        clientData: appsDataStub
+        clientData: {
+          featuredApps: featuredAppsDataStub.data,
+          apps: appsDataStub
+        } as ClientItem
       },
       // @ts-ignore: just pick the needed props for the test
       match: {
         params: {
           page: '2'
         }
+      },
+      // @ts-ignore: just pick the needed props for the test
+      location: {
+        search: 'page=1'
       }
     }
     expect(toJson(shallow(<Client {...props} />))).toMatchSnapshot()
@@ -86,7 +102,7 @@ describe('Client', () => {
       }
       const fn = handleOnChange(mockHistory)
       fn(1)
-      expect(mockHistory.push).toBeCalledWith(`${routes.CLIENT}/${1}`)
+      expect(mockHistory.push).toBeCalledWith(addQuery({ page: 1 }))
     })
   })
 

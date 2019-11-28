@@ -2,17 +2,19 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { ClientState } from '@/reducers/client'
-import { Loader, FlexContainerBasic } from '@reapit/elements'
+import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
 import AppList from '@/components/ui/app-list'
 import AppSidebar from '@/components/ui/app-sidebar'
-import routes from '@/constants/routes'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
 import AppDetailModal from '@/components/ui/app-detail-modal'
 import { selectClientId } from '@/selector/client'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import styles from '@/styles/pages/client.scss?mod'
+
+import { addQuery, getParamValueFromPath, hasFilterParams } from '@/utils/client-url-params'
 
 export interface ClientMappedActions {
   fetchAppDetail: (id: string, clientId: string) => void
@@ -25,7 +27,9 @@ export interface ClientMappedProps {
 }
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
-export const handleOnChange = history => (page: number) => history.push(`${routes.CLIENT}/${page}`)
+export const handleOnChange = history => (page: number) => {
+  history.push(addQuery({ page }))
+}
 export const handleOnCardClick = ({ setVisible, appDetail, fetchAppDetail, clientId }) => (app: AppSummaryModel) => {
   setVisible(true)
   if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
@@ -36,39 +40,58 @@ export type ClientProps = ClientMappedActions & ClientMappedProps & RouteCompone
 
 export const Client: React.FunctionComponent<ClientProps> = ({
   clientState,
-  match,
   history,
+  location,
   fetchAppDetail,
   appDetail,
   clientId
 }) => {
-  const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
+  const pageNumber =
+    !isNaN(Number(getParamValueFromPath(location.search, 'page'))) &&
+    Number(getParamValueFromPath(location.search, 'page')) > 0
+      ? Number(getParamValueFromPath(location.search, 'page'))
+      : 1
+  const hasParams = hasFilterParams(location.search)
   const unfetched = !clientState.clientData
   const loading = clientState.loading
-  const list = clientState?.clientData?.data?.data || []
-  const { totalCount, pageSize } = clientState?.clientData?.data || {}
+  const apps = clientState?.clientData?.apps?.data || []
+  const featuredApps = clientState?.clientData?.featuredApps || []
+  const { totalCount, pageSize } = clientState?.clientData?.apps || {}
   const [visible, setVisible] = React.useState(false)
 
   return (
     <ErrorBoundary>
-      <div className="columns is-vcentered">
+      <div className={styles.clientContainer}>
         <AppSidebar />
         {unfetched || loading ? (
           <Loader />
         ) : (
-          <AppList
-            list={list}
-            title="Featured Apps"
-            loading={loading}
-            onCardClick={handleOnCardClick({ setVisible, appDetail, fetchAppDetail, clientId })}
-            infoType="CLIENT_APPS_EMPTY"
-            pagination={{
-              totalCount,
-              pageSize,
-              pageNumber,
-              onChange: handleOnChange(history)
-            }}
-          />
+          <div className={styles.clientContent}>
+            {!hasParams && (
+              <>
+                <AppList
+                  list={featuredApps}
+                  title="Featured Apps"
+                  loading={loading}
+                  onCardClick={handleOnCardClick({ setVisible, appDetail, fetchAppDetail, clientId })}
+                  infoType="CLIENT_APPS_EMPTY"
+                />
+                <div className={styles.divider} />
+              </>
+            )}
+            <AppList
+              list={apps}
+              loading={loading}
+              onCardClick={handleOnCardClick({ setVisible, appDetail, fetchAppDetail, clientId })}
+              infoType="CLIENT_APPS_EMPTY"
+              pagination={{
+                totalCount,
+                pageSize,
+                pageNumber,
+                onChange: handleOnChange(history)
+              }}
+            />
+          </div>
         )}
       </div>
       <AppDetailModal visible={visible} afterClose={handleAfterClose({ setVisible })} />
