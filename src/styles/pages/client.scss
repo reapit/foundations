@@ -1,0 +1,22 @@
+.clientContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 769px) {
+  .clientContainer {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.clientContent {
+  width: 100%;
+}
+
+.divider {
+  height: 1px;
+  background-color: rgba(9, 30, 66, 0.08);
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

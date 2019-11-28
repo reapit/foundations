@@ -10,14 +10,13 @@ import { submitAppRequestData } from '../actions/submit-app'
 import { getAccessToken } from './session'
 import { requestDeveloperData } from '@/actions/settings'
 
-const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
+import { getParamsFromPath } from '@/utils/client-url-params'
+
+const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   await getAccessToken()
   switch (route) {
     case Routes.CLIENT:
-      store.dispatch(clientRequestData(1))
-      break
-    case Routes.CLIENT_PAGINATE:
-      store.dispatch(clientRequestData(params && params.page ? Number(params.page) : 1))
+      store.dispatch(clientRequestData(getParamsFromPath(search || '')))
       break
     case Routes.MY_APPS:
       store.dispatch(myAppsRequestData(1))

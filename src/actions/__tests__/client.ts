@@ -1,13 +1,6 @@
-import {
-  clientLoading,
-  clientReceiveData,
-  clientRequestData,
-  clientClearData,
-  clientSearchApps,
-  clientReceiveSearchApps
-} from '../client'
+import { clientLoading, clientReceiveData, clientRequestData, clientClearData } from '../client'
 import ActionTypes from '../../constants/action-types'
-import { appsDataStub } from '../../sagas/__stubs__/apps'
+import { appsDataStub, featuredAppsDataStub } from '../../sagas/__stubs__/apps'
 
 describe('client actions', () => {
   it('should create a clientLoading action', () => {
@@ -17,25 +10,19 @@ describe('client actions', () => {
 
   it('should create a clientReceiveData action', () => {
     expect(clientReceiveData.type).toEqual(ActionTypes.CLIENT_RECEIVE_DATA)
-    expect(clientReceiveData(appsDataStub).data).toEqual(appsDataStub)
+    expect(clientReceiveData({ featuredApps: featuredAppsDataStub.data.data, apps: appsDataStub.data }).data).toEqual({
+      featuredApps: featuredAppsDataStub.data.data,
+      apps: appsDataStub.data
+    })
   })
 
   it('should create a clientRequestData action', () => {
     expect(clientRequestData.type).toEqual(ActionTypes.CLIENT_REQUEST_DATA)
-    expect(clientRequestData(1).data).toEqual(1)
+    expect(clientRequestData({ page: 1 }).data).toEqual({ page: 1 })
   })
 
   it('should create a clientClearData action', () => {
     expect(clientClearData.type).toEqual(ActionTypes.CLIENT_CLEAR_DATA)
     expect(clientClearData(null).data).toEqual(null)
-  })
-
-  it('should create a clientSearchApps action', () => {
-    expect(clientSearchApps.type).toEqual(ActionTypes.CLIENT_SEARCH_APPS)
-    expect(clientSearchApps('DATA').data).toEqual('DATA')
-  })
-  it('should create a clientReceiveSearchApps action', () => {
-    expect(clientReceiveSearchApps.type).toEqual(ActionTypes.CLIENT_RECEIVE_SEARCH_APPS)
-    expect(clientReceiveSearchApps({}).data).toEqual({})
   })
 })

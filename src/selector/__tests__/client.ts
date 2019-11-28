@@ -1,5 +1,6 @@
 import { ReduxState } from '@/types/core'
-import { selectClientId, selectLoggedUserEmail } from '../client'
+import { selectClientId, selectLoggedUserEmail, selectFeaturedApps } from '../client'
+import { featuredAppsDataStub } from '@/sagas/__stubs__/apps'
 
 describe('selectClientId', () => {
   it('should run correctly', () => {
@@ -44,5 +45,25 @@ describe('selectLoggedUserEmail', () => {
     const input = {} as ReduxState
     const result = selectLoggedUserEmail(input)
     expect(result).toEqual(undefined)
+  })
+})
+
+describe('selectFeaturedApps', () => {
+  it('should run correctly', () => {
+    const input = {
+      client: {
+        clientData: {
+          featuredApps: featuredAppsDataStub.data
+        }
+      }
+    } as ReduxState
+    const result = selectFeaturedApps(input)
+    expect(result).toEqual(featuredAppsDataStub.data)
+  })
+
+  it('should run correctly and return [', () => {
+    const input = {} as ReduxState
+    const result = selectFeaturedApps(input)
+    expect(result).toEqual([])
   })
 })

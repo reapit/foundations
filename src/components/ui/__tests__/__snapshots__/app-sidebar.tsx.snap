@@ -42,6 +42,8 @@ exports[`AppSidebar should match a snapshot 1`] = `
           },
         ]
       }
+      onSelectCategory={[Function]}
+      selectedCategory=""
     />
   </FlexContainerBasic>
 </div>

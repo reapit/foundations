@@ -1,34 +1,43 @@
-import clientSagas, { clientDataFetch, clientDataListen, clientSearchAppListen } from '../client'
+import clientSagas, { clientDataFetch, clientDataListen } from '../client'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import { clientLoading, clientReceiveData, clientRequestDataFailure } from '@/actions/client'
 import { categoriesReceiveData } from '@/actions/app-categories'
-import { appsDataStub } from '../__stubs__/apps'
+import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
-import { APPS_PER_PAGE } from '@/constants/paginator'
+import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { selectClientId } from '@/selector/client'
-import { PagedResultCategoryModel_ } from '@/types/marketplace-api-schema'
+import { selectClientId, selectFeaturedApps } from '@/selector/client'
+import { selectCategories } from '@/selector/app-categories'
+import { PagedResultCategoryModel_, PagedResultAppSummaryModel_, AppSummaryModel } from '@/types/marketplace-api-schema'
 import { appCategorieStub } from '../__stubs__/app-categories'
 
 jest.mock('@reapit/elements')
-const params = { data: 1 }
+const params = { data: { page: 1, search: '', category: '' } }
 
 describe('client fetch data', () => {
   const gen = cloneableGenerator(clientDataFetch as any)(params)
 
   expect(gen.next().value).toEqual(put(clientLoading(true)))
   expect(gen.next().value).toEqual(select(selectClientId))
+  expect(gen.next('1').value).toEqual(select(selectCategories))
+  expect(gen.next([]).value).toEqual(select(selectFeaturedApps))
 
-  expect(gen.next('1').value).toEqual(
+  expect(gen.next([]).value).toEqual(
     all([
       call(fetcher, {
-        url: `${URLS.apps}?clientId=1&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
+        url: `${URLS.apps}?clientId=1&PageNumber=${params.data.page}&PageSize=${APPS_PER_PAGE}&AppName=${params.data.search}&Category=${params.data.category}&IsFeatured=false`,
+        api: REAPIT_API_BASE_URL,
+        method: 'GET',
+        headers: MARKETPLACE_HEADERS
+      }),
+      call(fetcher, {
+        url: `${URLS.apps}?clientId=1&PageNumber=${params.data.page}&PageSize=${FEATURED_APPS}&IsFeatured=true`,
         api: REAPIT_API_BASE_URL,
         method: 'GET',
         headers: MARKETPLACE_HEADERS
@@ -44,9 +53,16 @@ describe('client fetch data', () => {
 
   test('api call success', () => {
     const clone = gen.clone()
-    const response = [appsDataStub.data, appCategorieStub]
-    expect(clone.next(response).value).toEqual(put(clientReceiveData({ data: response[0] })))
-    expect(clone.next().value).toEqual(put(categoriesReceiveData(response[1] as PagedResultCategoryModel_)))
+    const response = [appsDataStub.data, featuredAppsDataStub.data, appCategorieStub]
+    expect(clone.next(response).value).toEqual(
+      put(
+        clientReceiveData({
+          apps: response[0] as PagedResultAppSummaryModel_,
+          featuredApps: response[1].data as AppSummaryModel[]
+        })
+      )
+    )
+    expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
     expect(clone.next().done).toBe(true)
   })
 
@@ -101,7 +117,7 @@ describe('client thunks', () => {
     it('should listen data request', () => {
       const gen = clientSagas()
 
-      expect(gen.next().value).toEqual(all([fork(clientDataListen), fork(clientSearchAppListen)]))
+      expect(gen.next().value).toEqual(all([fork(clientDataListen)]))
       expect(gen.next().done).toBe(true)
     })
   })
