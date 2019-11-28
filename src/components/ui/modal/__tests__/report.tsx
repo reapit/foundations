@@ -68,8 +68,7 @@ describe('ReportContainer', () => {
 
   describe('mapDispatchToProps', () => {
     it('should run correctly', () => {
-      const mockDispatch = jest.fn()
-      const { onEmailReport } = mapDispatchToProps(mockDispatch)
+      const { onEmailReport } = mapDispatchToProps()
       onEmailReport()
       // expect(mockDispatch).toBeCalled()
     })

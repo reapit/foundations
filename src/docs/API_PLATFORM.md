@@ -19,9 +19,9 @@ If you get an API runtime error because of an incorrect definition, firstly fetc
 
 Because the app has three distinct permissioned areas, you need different dev credentials to access each area of the site.
 
-For a client, you can login at `/login` with `cbryan@reapit.com` and `myPassword12345`
-For a developer, you can login at `/login` with `wmcvay@reapit.com` and `NewPassword123`
-For an admin, you can login at `/admin/login` with `rwilcox@reapit.com` and `myPassword12345`
+For a client, you can login at `/login` with `plittlewood@reapit.com` and `T00lb0x53`
+For a developer, you can login at `/login` with `wmcvay@reapit.com` and `T00lb0x53`
+For an admin, you can login at `/admin/login` with `rwilcox@reapit.com` and `T00lb0x53`
 
 
 ## Read on:

@@ -1,4 +1,3 @@
-// @ts-ignore
 /**
  * Model representing the physical address of a building or premise
  */
@@ -45,11 +44,11 @@ export interface AddressModel {
  */
 export interface CommunicationModel {
   /**
-   * Gets the label representing the type of detail (eg E-mail)
+   * Gets the label representing the type of detail (eg. mobile, email address)
    */
   label?: string
   /**
-   * Gets the contact detail (eg the actual telephone number or email address)
+   * Gets the communication detail (eg. 07999 876543, developers@reapit.com)
    */
   detail?: string
 }
@@ -99,12 +98,10 @@ export interface ContactModel {
   identityCheck?: string
   /**
    * Gets a collection of the contacts communication details
-   * Eg. Email address, mobile number, landline
    */
   communications?: CommunicationModel[]
   /**
-   * Gets a collection of addresses that this contact has been associated to
-   * A maximum of three addresses can be associated to a contact
+   * Gets a collection of addresses (maximum 3) that this contact has been associated to
    */
   addresses?: AddressModel[]
   /**
@@ -221,7 +218,7 @@ export interface CreateContactModel {
    * Sets a JSON fragment to attach to this contact as metadata
    */
   metadata?: {
-    [name: string]: {}
+    [name: string]: any
   }
 }
 /**
@@ -250,7 +247,7 @@ export interface CreateIdentityCheckModel {
    * Sets a JSON fragment to attach to this identity check as metadata
    */
   metadata?: {
-    [name: string]: {}
+    [name: string]: any
   }
 }
 /**
@@ -329,7 +326,7 @@ export interface IdentityCheckModel {
    * Gets a listing of additional metadata that has been set against this identity check
    */
   metadata?: {
-    [name: string]: {}
+    [name: string]: any
   }
   readonly links?: LinkModel[]
 }
@@ -375,6 +372,7 @@ export interface PagedResultIdentityCheckModel_ {
   totalCount?: number // int32
 }
 export interface ProblemDetails {
+  [name: string]: any
   type?: string
   title?: string
   status?: number // int32
@@ -390,9 +388,10 @@ export interface RelationshipModel {
    */
   id?: string
   /**
-   * Gets the type of relationship
+   * Gets the type of relationship (office/negotiator)
    */
   type?: string
+  readonly links?: LinkModel[]
 }
 /**
  * Model to update a contact address
@@ -495,7 +494,7 @@ export interface UpdateContactModel {
    * Sets a JSON fragment to attach to this contact as metadata
    */
   metadata?: {
-    [name: string]: {}
+    [name: string]: any
   }
 }
 /**
@@ -524,7 +523,7 @@ export interface UpdateIdentityCheckModel {
    * Sets a JSON fragment to attach to this identity check as metadata
    */
   metadata?: {
-    [name: string]: {}
+    [name: string]: any
   }
 }
 /**
