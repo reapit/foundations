@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@reapit/elements": "^0.4.93",
+    "dayjs": "^1.8.17",
     "diff": "^4.0.1",
     "formik": "~1.5.8",
     "hardtack": "^4.1.0",
