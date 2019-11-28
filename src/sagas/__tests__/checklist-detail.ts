@@ -46,7 +46,7 @@ import errorMessages from '@/constants/error-messages'
 import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import { handlePepSearchStatus } from '@/utils/pep-search'
-import { EntityType, navigateDynamicApp, DynamicLinkParams } from '@reapit/elements'
+import { EntityType, DynamicLinkParams } from '@reapit/elements'
 
 jest.mock('../../core/store.ts')
 

@@ -16,7 +16,6 @@ import {
   selectIdentityTypes
 } from '@/selectors/checklist-detail'
 import { IdentityDocumentTypesModel } from '@/types/configuration-api-schema'
-import { Dispatch } from 'redux'
 
 export const handleTrigger = () => (
   <Button className="mr-2" variant="primary" type="button">
@@ -214,7 +213,7 @@ export const mapStateToProps = (state: ReduxState) => {
   }
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch) => {
+export const mapDispatchToProps = () => {
   return {
     onEmailReport: () => {
       console.log('send Email')

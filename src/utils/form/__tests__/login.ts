@@ -4,8 +4,14 @@ import { LoginFormValues } from '@/components/pages/login'
 type InputOutput = [LoginFormValues, LoginFormError]
 
 const invalidValues: InputOutput[] = [
-  [{ email: '', password: '' }, { email: 'Required', password: 'Required' }],
-  [{ email: 'invalid.com', password: '' }, { email: 'Invalid email address', password: 'Required' }],
+  [
+    { email: '', password: '' },
+    { email: 'Required', password: 'Required' }
+  ],
+  [
+    { email: 'invalid.com', password: '' },
+    { email: 'Invalid email address', password: 'Required' }
+  ],
   [{ email: '', password: '12345678' }, { email: 'Required' }],
   [{ email: '@@@.org', password: 'password' }, { email: 'Invalid email address' }]
 ]
