@@ -36,7 +36,7 @@ export const generateColumns = history => () => [
         buildingNumber,
         line1,
         line2
-      }))(row.original.addresses[0])
+      }))(row?.original?.addresses?.[0] || {})
 
       return (
         <div>
@@ -54,9 +54,11 @@ export const generateColumns = history => () => [
     id: 'postcode',
     accessor: d => d,
     Cell: ({ row }) => {
+      // @ts-ignore
+      const postcode = row?.original?.addresses?.[0]?.postcode
       return (
         <div>
-          <span>{row.original.addresses[0].postcode}</span>
+          <span>{postcode}</span>
         </div>
       )
     }
@@ -131,6 +133,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
   const { totalCount, pageSize, data = [] } = resultState?.contacts || {}
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
+  
   const columns = React.useMemo(generateColumns(history), [data])
 
   const searchTitle = React.useMemo(generateSearchTitle(search), [search])
