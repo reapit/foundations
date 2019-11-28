@@ -95,7 +95,7 @@ export interface AppointmentModel {
    * Gets a listing of additional metadata that has been set against this appointment
    */
   metadata?: {
-    [name: string]: {}
+    [name: string]: any
   }
   readonly links?: LinkModel[]
 }
@@ -173,7 +173,7 @@ export interface CreateAppointmentModel {
    * Sets a JSON fragment to attach to this appointment as metadata
    */
   metadata?: {
-    [name: string]: {}
+    [name: string]: any
   }
 }
 /**
@@ -236,6 +236,7 @@ export interface PagedResultAppointmentModel_ {
   totalCount?: number // int32
 }
 export interface ProblemDetails {
+  [name: string]: any
   type?: string
   title?: string
   status?: number // int32
@@ -299,7 +300,7 @@ export interface UpdateAppointmentModel {
    * Sets a JSON fragment to attach to this appointment as metadata
    */
   metadata?: {
-    [name: string]: {}
+    [name: string]: any
   }
 }
 /**
