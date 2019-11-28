@@ -1,5 +1,5 @@
 import { CognitoUserPoolTriggerHandler } from 'aws-lambda'
-import { forgotPasswordTemplate } from '../templates/index'
+import { forgotPasswordTemplate, confirmRegistrationTemplate } from './templates/index'
 
 export const customMailer: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
   if (event.userPoolId === process.env.COGNITO_USERPOOL_ID) {
@@ -13,12 +13,10 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
         break
       case 'CustomMessage_SignUp':
         event.response.emailSubject = 'Welcome to Reapit Foundations'
-        event.response.emailMessage =
-          'Welcome to the service. Your user name is ' +
-          event.request.usernameParameter +
-          'Thank you for signing up. ' +
-          event.request.codeParameter +
-          ' is your verification code'
+        event.response.emailMessage = await confirmRegistrationTemplate({
+          verificationCode: event.request.codeParameter as string,
+          userName: event.request.userAttributes.email
+        })
         break
     }
   }

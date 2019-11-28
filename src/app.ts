@@ -2,7 +2,7 @@ import 'isomorphic-fetch'
 import { Context, Handler, CognitoUserPoolTriggerHandler } from 'aws-lambda'
 import server from './core/server'
 import serverless from 'serverless-http'
-import { customMailer } from './core/custom-mailer'
+import { customMailer } from './mailer/custom-mailer'
 ;(global as any).navigator = {}
 
 const app = serverless(server)
