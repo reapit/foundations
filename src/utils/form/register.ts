@@ -34,5 +34,9 @@ export function registerValidate(values: RegisterFormValues) {
     }
   }
 
+  if (!values.agreedTerms) {
+    errors.agreedTerms = 'Required'
+  }
+
   return errors
 }

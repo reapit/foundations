@@ -15,25 +15,105 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
     >
       Reapit Foundations developers
     </p>
-    <Formik
-      enableReinitialize={false}
-      initialValues={
-        Object {
-          "companyName": "",
-          "confirmPassword": "",
-          "email": "",
-          "name": "",
-          "password": "",
-          "telephone": "",
-        }
-      }
-      isInitialValid={false}
-      onSubmit={[Function]}
-      render={[Function]}
-      validate={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
+    <Form
+      data-test="register-form"
+      noValidate={true}
+    >
+      <FormSection>
+        <FormHeading>
+          Register for Foundations
+        </FormHeading>
+        <FormSubHeading>
+          By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
+        </FormSubHeading>
+        <Input
+          dataTest="register-name"
+          id="name"
+          labelText="Full name"
+          name="name"
+          placeholder="Joe Developer"
+          type="text"
+        />
+        <Input
+          dataTest="register-company-name"
+          id="companyName"
+          labelText="Company name"
+          name="companyName"
+          placeholder="Acme Industries Ltd"
+          type="text"
+        />
+        <Input
+          dataTest="register-email"
+          id="email"
+          labelText="Email"
+          name="email"
+          placeholder="name@address.com"
+          type="email"
+        />
+        <Input
+          dataTest="register-telephone"
+          id="telephone"
+          labelText="Telephone"
+          name="telephone"
+          placeholder="0800 800 800"
+          type="tel"
+        />
+        <Input
+          dataTest="register-password"
+          id="password"
+          labelText="Password"
+          name="password"
+          type="password"
+        />
+        <Input
+          dataTest="register-confirm-password"
+          id="confirmPassword"
+          labelText="Confirm password"
+          name="confirmPassword"
+          type="password"
+        />
+        <div
+          className="field field-checkbox flex justify-end"
+        >
+          <input
+            checked={false}
+            className="checkbox"
+            id="terms"
+            name="terms"
+            onClick={[Function]}
+            type="checkbox"
+          />
+          <label
+            className="label undefined"
+            htmlFor="terms"
+          >
+            I agree to the Terms and Conditions
+          </label>
+        </div>
+      </FormSection>
+      <FormSection>
+        <Level>
+          <Button
+            disabled={false}
+            fullWidth={true}
+            loading={false}
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Register
+          </Button>
+        </Level>
+        <Level>
+          Already have an account?
+          <Link
+            to="/developer/login"
+          >
+            Login
+          </Link>
+        </Level>
+      </FormSection>
+    </Form>
   </div>
   <div>
     <img
@@ -41,6 +121,12 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
       src=""
     />
   </div>
+  <Component
+    afterClose={[Function]}
+    onAccept={[Function]}
+    onDecline={[Function]}
+    visible={false}
+  />
 </div>
 `;
 
@@ -75,5 +161,11 @@ exports[`Register should match a snapshot for SUCCESS state 1`] = `
       src=""
     />
   </div>
+  <Component
+    afterClose={[Function]}
+    onAccept={[Function]}
+    onDecline={[Function]}
+    visible={false}
+  />
 </div>
 `;
