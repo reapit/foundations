@@ -72,16 +72,6 @@ exports[`ReportContainer should match snapshot 1`] = `
               "section": "Declaration and Risk Assessment",
               "status": false,
             },
-            Object {
-              "description": [Function],
-              "section": "PEP Search",
-              "status": false,
-            },
-            Object {
-              "description": [Function],
-              "section": "Experian",
-              "status": true,
-            },
           ]
         }
         loading={false}
@@ -94,12 +84,6 @@ exports[`ReportContainer should match snapshot 1`] = `
       content={[Function]}
       trigger={[Function]}
     />
-    <Button
-      type="button"
-      variant="primary"
-    >
-      Email Report
-    </Button>
   </div>
 </Fragment>
 `;

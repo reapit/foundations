@@ -19,7 +19,7 @@ import {
   isCompletedDeclarationRisk,
   isCompletedAddress
 } from '@reapit/elements'
-import { isCompletedPepSearch } from '@/utils/pep-search'
+// import { isCompletedPepSearch } from '@/utils/pep-search'
 import { defaultStatus } from '@/constants/section-status'
 
 export interface SectionsStatus {
@@ -28,8 +28,8 @@ export interface SectionsStatus {
   secondaryId: boolean
   declarationRisk: boolean
   addresses: boolean
-  pepSearch: boolean
-  experian: boolean
+  // pepSearch: boolean
+  // experian: boolean
 }
 
 export interface ChecklistDetailState {
@@ -150,9 +150,9 @@ export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateChec
     primaryId: isCompletedPrimaryID(idCheck),
     secondaryId: isCompletedSecondaryID(idCheck),
     declarationRisk: metadata ? isCompletedDeclarationRisk(contact) : false,
-    addresses: metadata ? isCompletedAddress(contact) : false,
-    pepSearch: isCompletedPepSearch(contact as ContactModel),
-    experian: true
+    addresses: metadata ? isCompletedAddress(contact) : false
+    // pepSearch: isCompletedPepSearch(contact as ContactModel),
+    // experian: true
   }
 }
 
