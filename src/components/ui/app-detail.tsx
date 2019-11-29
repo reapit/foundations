@@ -9,6 +9,7 @@ import { setAppDetailModalStateViewConfirm, setAppDetailModalStateUninstall } fr
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { Button, Tile, ModalHeader, ModalBody, ModalFooter, H6 } from '@reapit/elements'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
+import styles from '@/styles/blocks/app-detail.scss?mod'
 
 export interface AppDetailModalInnerProps {
   data: AppDetailModel
@@ -48,7 +49,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
     return null
   }
 
-  const { id, media = [], description, name, summary, developer, installedOn } = data
+  const { id, media = [], description, name, summary, developer, installedOn, scopes } = data
   const icon = media.filter(({ type }) => type === 'icon')[0]
   const carouselImages = media.filter(({ type }) => type === 'image')
 
@@ -105,6 +106,20 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
             <br />
             <p>{description}</p>
             <br />
+            <p className={styles.permission}>Permission</p>
+            <small>
+              {isCurrentLoggedUserDeveloper && <i>You have requested the following permissions for this App:</i>}
+              {isCurrentLoggedUserClient && installedOn ? (
+                <i>This app has been granted the following permissions to your data: </i>
+              ) : (
+                <i>This App requires the following permissions in order to access your data:</i>
+              )}
+            </small>
+            <ul className={styles.permissionList}>
+              {scopes?.map(item => (
+                <li>{item.description}</li>
+              ))}
+            </ul>
           </>
         }
       />
