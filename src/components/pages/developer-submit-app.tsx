@@ -20,12 +20,11 @@ import {
   GridFiveCol,
   GridFourColItem,
   LevelRight,
-  FlexContainerResponsive,
   SelectBox,
   SelectBoxOptions
 } from '@reapit/elements'
 import { validate } from '@/utils/form/submit-app'
-import { transformObjectToDotNotation, ScopeObject, transformDotNotationToObject } from '@/utils/common'
+import { transformObjectToDotNotation, transformDotNotationToObject } from '@/utils/common'
 import { connect } from 'react-redux'
 import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/actions/submit-app'
 import { SubmitAppState } from '@/reducers/submit-app'
@@ -214,7 +213,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
       className={`${isSubmitting ? 'disabled' : ''}`}
       data-test="app-input-form"
     >
-      <FlexContainerResponsive flexColumn hasBackground hasPadding>
+      <FlexContainerBasic flexColumn hasBackground hasPadding>
         <H3>Submit App</H3>
         <Formik
           validate={validate}
@@ -238,7 +237,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         These fields refer to the name and icon of your application as they will appear to a user in the
                         Marketplace and in their installed apps.
                       </FormSubHeading>
-                      <Grid>
+                      <Grid isMultiLine>
                         <GridItem>
                           <Input dataTest="submit-app-name" type="text" labelText="Name" id="name" name="name" />
                         </GridItem>
@@ -351,7 +350,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         You can select a minimum of one and up to four screenshots of your application, that will appear
                         in a carousel in the details view of your app listing.
                       </FormSubHeading>
-                      <Grid>
+                      <Grid isMultiLine>
                         <GridItem>
                           <div className="control mb-4">
                             <label className="label">Screenshot 1</label>
@@ -434,7 +433,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
             )
           }}
         />
-      </FlexContainerResponsive>
+      </FlexContainerBasic>
     </FlexContainerBasic>
   )
 }

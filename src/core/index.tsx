@@ -1,4 +1,5 @@
 import '../styles/index.scss'
+import '../styles/vendor/bulma-overrides.scss'
 import * as React from 'react'
 import { render } from 'react-dom'
 import Router from './router'
