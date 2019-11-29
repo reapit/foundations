@@ -1,0 +1,15 @@
+.permission {
+  text-decoration: underline;
+}
+
+.permissionList {
+  padding-left: 1rem;
+  list-style-type: disc;
+  display: flex;
+  flex-flow: wrap column;
+  max-height: 170px;
+
+  @media screen and (max-width: 768px) {
+    max-height: unset;
+  }
+}
