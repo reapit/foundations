@@ -7,7 +7,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
   flexColumn={true}
   hasPadding={true}
 >
-  <FlexContainerResponsive
+  <FlexContainerBasic
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
@@ -42,7 +42,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
       validateOnBlur={true}
       validateOnChange={true}
     />
-  </FlexContainerResponsive>
+  </FlexContainerBasic>
 </FlexContainerBasic>
 `;
 
@@ -59,7 +59,7 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
   flexColumn={true}
   hasPadding={true}
 >
-  <FlexContainerResponsive
+  <FlexContainerBasic
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
@@ -98,7 +98,7 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
       validateOnBlur={true}
       validateOnChange={true}
     />
-  </FlexContainerResponsive>
+  </FlexContainerBasic>
 </FlexContainerBasic>
 `;
 
