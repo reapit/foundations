@@ -132,7 +132,6 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
   const { totalCount, pageSize, data = [] } = resultState?.contacts || {}
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
-  
   const columns = React.useMemo(generateColumns(history), [data])
 
   const searchTitle = React.useMemo(generateSearchTitle(search), [search])

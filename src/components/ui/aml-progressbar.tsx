@@ -40,7 +40,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
   const progress = React.useMemo(() => calculateProgress(status), [status])
 
   const { id, title, forename, surname } = contact || {}
-  const name = `${title} ${forename} ${surname}`.trim()
+  const name = `${title || ''} ${forename || ''} ${surname || ''}`.trim()
 
   return (
     <div className="mb-4">

@@ -26,7 +26,7 @@ describe('AMLProgressBar', () => {
   })
   describe('calculateProgress', () => {
     const result = calculateProgress(sectionsStatus)
-    const expected = { percentage: 42, completed: 3, total: 7 }
+    const expected = { percentage: 40, completed: 2, total: 5 }
     expect(result).toEqual(expected)
   })
 
