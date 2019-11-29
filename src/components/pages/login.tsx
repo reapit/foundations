@@ -121,12 +121,12 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                 placeholder="Enter your password"
               />
               <Level>
-                {loginType === 'DEVELOPER' && (
+                {/* {loginType === 'DEVELOPER' && (
                   <div className={register}>
                     Don't have an account yet?&nbsp;
                     <Link to={Routes.REGISTER}>Register</Link>
                   </div>
-                )}
+                )} */}
                 <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
                   Login
                 </Button>
