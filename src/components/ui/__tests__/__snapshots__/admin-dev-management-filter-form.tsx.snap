@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
+<FlexContainerBasic
+  className="pb-4"
+  flexColumn={true}
+>
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <Formik
+      enableReinitialize={false}
+      initialValues={
+        Object {
+          "company": "company",
+          "name": "name",
+        }
+      }
+      isInitialValid={false}
+      onSubmit={[Function]}
+      render={[Function]}
+      validateOnBlur={true}
+      validateOnChange={true}
+    />
+  </FlexContainerResponsive>
+</FlexContainerBasic>
+`;

@@ -9778,7 +9778,7 @@ swagger-client@^3.9.6:
     utf8-bytes "0.0.1"
     utfstring "^2.0.0"
 
-swagger-ui-react@^3.23.3:
+swagger-ui-react@^3.24.3:
   version "3.24.3"
   resolved "https://registry.yarnpkg.com/swagger-ui-react/-/swagger-ui-react-3.24.3.tgz#0cb5ad408450b8d5471893ee74c8b7532d22c113"
   integrity sha512-vLwl+rMs1MK06TtnL5UJvqqBimnzI9UD5e+Lzpd6fquzWH2uhbA2M+28/rmvuz2tLrWPDTvb7WIx8gmOPcsduQ==

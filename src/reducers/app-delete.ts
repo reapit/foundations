@@ -1,12 +1,11 @@
-import { Action } from '../types/core'
-import { isType } from '../utils/actions'
+import { isType } from '@/utils/actions'
 import {
   appDeleteSetInitFormState,
   appDeleteRequestSuccess,
   appDeleteRequestLoading,
   appDeleteRequestFailure
 } from '@/actions/app-delete'
-import { RequestState } from '@/types/core'
+import { RequestState, Action } from '@/types/core'
 
 export const defaultState: RequestState = {
   formState: 'PENDING'
