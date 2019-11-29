@@ -83,7 +83,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
               list={apps}
               loading={loading}
               onCardClick={handleOnCardClick({ setVisible, appDetail, fetchAppDetail, clientId })}
-              infoType="CLIENT_APPS_EMPTY"
+              infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
               pagination={{
                 totalCount,
                 pageSize,

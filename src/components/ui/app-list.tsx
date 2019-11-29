@@ -40,7 +40,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
       <div>
         <GridFiveCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
           {!list.length && !loading ? (
-            <Info infoType={infoType} />
+            <Info infoType={infoType}>{!infoType && 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}</Info>
           ) : (
             list.map(app => (
               <GridThreeColItem key={app.id}>
