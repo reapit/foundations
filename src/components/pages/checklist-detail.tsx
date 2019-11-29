@@ -57,18 +57,18 @@ export const generateSection = (status: SectionsStatus, onClick: (modalType: str
       onEdit: onClick(STEPS.DECLARATION_RISK_MANAGEMENT),
       buttonText: 'Edit'
     },
-    {
-      title: STEPS.PEP_SEARCH,
-      isCompleted: status.pepSearch,
-      onEdit: onClick(STEPS.PEP_SEARCH),
-      buttonText: 'Edit'
-    },
-    {
-      title: STEPS.EXPERIAN,
-      isCompleted: status.experian,
-      onEdit: onClick(STEPS.EXPERIAN),
-      buttonText: 'Edit'
-    },
+    // {
+    //   title: STEPS.PEP_SEARCH,
+    //   isCompleted: status.pepSearch,
+    //   onEdit: onClick(STEPS.PEP_SEARCH),
+    //   buttonText: 'Edit'
+    // },
+    // {
+    //   title: STEPS.EXPERIAN,
+    //   isCompleted: status.experian,
+    //   onEdit: onClick(STEPS.EXPERIAN),
+    //   buttonText: 'Edit'
+    // },
     {
       title: STEPS.REPORT,
       isCompleted: false,

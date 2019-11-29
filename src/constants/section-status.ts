@@ -3,7 +3,7 @@ export const defaultStatus = {
   primaryId: false,
   secondaryId: false,
   declarationRisk: false,
-  addresses: false,
-  pepSearch: false,
-  experian: true
+  addresses: false
+  // pepSearch: false,
+  // experian: true
 }
