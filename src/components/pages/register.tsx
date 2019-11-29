@@ -187,7 +187,10 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
                   <Alert message="Failed to register" type="danger" dataTest="register-error-message" />
                 )}
                 {touched.agreedTerms && errors.agreedTerms && (
-                  <Alert message="Required agree Tearms and Conditions" type="danger" />
+                  <Alert
+                    message="Please indicate that you have read and agree to the ‘Terms and Conditions’."
+                    type="danger"
+                  />
                 )}
               </FormSection>
             </Form>
