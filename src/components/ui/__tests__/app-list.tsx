@@ -27,6 +27,10 @@ describe('AppList', () => {
     expect(toJson(shallow(<AppList {...props} />))).toMatchSnapshot()
   })
 
+  it('should match a snapshot when use empty infoType', () => {
+    expect(toJson(shallow(<AppList infoType={''} {...props} />))).toMatchSnapshot()
+  })
+
   it('should show loading', () => {
     const wrapper = shallow(<AppList {...props} loading />)
     expect(wrapper.find(Loader)).toHaveLength(1)
