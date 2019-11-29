@@ -75,7 +75,7 @@ describe('integration tests', () => {
     it('should return a 400 response if my refresh credentials are not valid', async () => {
       const body = JSON.stringify({
         userName: 'INVALID_USERNAME',
-        refreshTokem: 'INVALID_TOKEN'
+        refreshToken: 'INVALID_TOKEN'
       })
 
       const response = await fetch('http://localhost:3000/api/refresh', {

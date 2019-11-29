@@ -4,7 +4,7 @@ Simple Lambda around AWS Cognito for basic authentication flow
 
 ## Getting started
 
-- First create a `.env` file at the root of the project. You will see the keys you will need in the `.env.example` file - you should obtain the values from the AWS Console.
+- First create a `.env.yml` file at the root of the project. You will see the keys you will need in the `.env.example.yml` file - you should obtain the values from the AWS Console.
 - Assuming you have NodeJS@10.x installed, run `npm install -g serverless yarn`
 - Run `yarn` to install dependant node modules.
 - Add your personal AWS IAM credentials to your $PATH using `serverless config credentials --provider aws --key <<KEY>> --secret <<SECRET_KEY>>`, full docs [here](https://github.com/serverless/serverless/blob/master/docs/providers/aws/guide/credentials.md)
@@ -115,3 +115,8 @@ Simple Lambda around AWS Cognito for basic authentication flow
         "message": "SUCCESS"
       }
     ```
+## Emails
+
+The service also deploys a lambda that intercepts email events from AWS Lambda and returns custom emails. This service is a single function in the `src/mailer` folder. It appends html (ejs), templates served from the `src/mailer/ejs` folder. 
+
+To develop on these templates, just run `yarn dev` as normal and navigate to `localhost:3000/emails` - nodemon will hot reload as you make changes. This route is only available in development mode.
