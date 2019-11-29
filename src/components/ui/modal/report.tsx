@@ -7,7 +7,7 @@ import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
 import { ReduxState } from '@/types/core'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import dayjs from 'dayjs'
-import { getPepSearchStatus } from '@/utils/pep-search'
+// import { getPepSearchStatus } from '@/utils/pep-search'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import {
   selectCheckListDetailContact,
@@ -46,8 +46,8 @@ export type ReportContainerProps = {
 export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idCheck, status, identityTypes }) => {
   const printRef = React.useRef<HTMLDivElement>(null)
 
-  const { id, identityCheck, title, forename, surname, dateOfBirth, communications } = contact || {}
-  const name = `${title} ${forename} ${surname}`.trim()
+  const { identityCheck, title, forename, surname, dateOfBirth, communications } = contact || {}
+  const name = `${title || ''} ${forename || ''} ${surname || ''}`.trim()
 
   const data = React.useMemo(() => {
     const idTypes = mappedIdTypes(identityTypes)
@@ -139,21 +139,21 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
           )
         },
         status: status.declarationRisk
-      },
-      {
-        section: 'PEP Search',
-        description: () => {
-          const pepSearchStatus = getPepSearchStatus()
-          const { param, time } = pepSearchStatus && id && pepSearchStatus[id]
-          return <div>{param && time && `Search conducted for "${param}" on ${time}`}</div>
-        },
-        status: status.pepSearch
-      },
-      {
-        section: 'Experian',
-        description: () => <div></div>,
-        status: status.experian
       }
+      // {
+      //   section: 'PEP Search',
+      //   description: () => {
+      //     const pepSearchStatus = getPepSearchStatus()
+      //     const { param, time } = pepSearchStatus && id && pepSearchStatus[id]
+      //     return <div>{param && time && `Search conducted for "${param}" on ${time}`}</div>
+      //   },
+      //   status: status.pepSearch
+      // },
+      // {
+      //   section: 'Experian',
+      //   description: () => <div></div>,
+      //   status: status.experian
+      // }
     ]
   }, [contact, idCheck])
 
@@ -196,9 +196,9 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       </div>
       <div className={styles.footerContainer}>
         <ReactToPrint trigger={handleTrigger} content={handleContent({ printRef })} />
-        <Button variant="primary" type="button">
+        {/* <Button variant="primary" type="button">
           Email Report
-        </Button>
+        </Button> */}
       </div>
     </>
   )

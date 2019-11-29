@@ -45,12 +45,12 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
         </LevelRight>
       </Level>
       <ProgressBar
-        percentage={42}
+        percentage={40}
       />
       <div>
-        3
+        2
         /
-        7
+        5
          
         <span>
           Completed
