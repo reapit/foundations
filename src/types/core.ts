@@ -1,3 +1,4 @@
+import { AdminDevManamgenetState } from './../reducers/admin-dev-management'
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { ClientState } from '../reducers/client'
@@ -65,6 +66,8 @@ export interface ReduxState {
   submitRevision: SubmitRevisionState
   adminApps: AdminAppsState
   adminApprovals: AdminApprovalsState
+  adminDevManagement: AdminDevManamgenetState
+  developerDelete: RequestState
   revisionDetail: RevisionDetailState
   appDetailModal: AppDetailModalState
   appInstall: AppInstallState

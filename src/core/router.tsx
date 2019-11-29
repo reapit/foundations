@@ -15,6 +15,7 @@ const Register = React.lazy(() => import('../components/pages/register'))
 const DeveloperHome = React.lazy(() => import('../components/pages/developer-home'))
 const DeveloperSubmitApp = React.lazy(() => import('../components/pages/developer-submit-app'))
 const AdminApprovalsPage = React.lazy(() => import('../components/pages/admin-approvals'))
+const AdminDevManagementPage = React.lazy(() => import('../components/pages/admin-dev-management'))
 const ApiDocsPage = React.lazy(() => import('../components/pages/api-docs'))
 const SwaggerPage = React.lazy(() => import('../components/pages/swagger'))
 const ElementsPage = React.lazy(() => import('../components/pages/elements'))
@@ -78,6 +79,20 @@ const Router = () => (
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} exact />
             <Route render={() => <Info infoType="404" />} />
+            <PrivateRoute
+              allow="ADMIN"
+              path={Routes.ADMIN_DEV_MANAGEMENT}
+              component={AdminDevManagementPage}
+              exact
+              fetcher
+            />
+            <PrivateRoute
+              allow="ADMIN"
+              path={Routes.ADMIN_DEV_MANAGEMENT_PAGINATE}
+              component={AdminDevManagementPage}
+              exact
+              fetcher
+            />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.CLIENT_LOGIN} />

@@ -291,6 +291,34 @@ exports[`Router should match a snapshot 1`] = `
           <Route
             render={[Function]}
           />
+          <Connect(Component)
+            allow="ADMIN"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            fetcher={true}
+            path="/admin/dev-management"
+          />
+          <Connect(Component)
+            allow="ADMIN"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            fetcher={true}
+            path="/admin/dev-management/:page"
+          />
         </Switch>
       </withRouter(Connect(Component))>
       <Redirect

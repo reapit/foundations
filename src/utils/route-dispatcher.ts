@@ -1,3 +1,4 @@
+import { AdminDevManagementRequestDataValues } from './../actions/admin-dev-management'
 import { appDetailRequestData } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
@@ -6,10 +7,10 @@ import { clientRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
 import { developerRequestData } from '../actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
+import { adminDevManagementRequestData } from '../actions/admin-dev-management'
 import { submitAppRequestData } from '../actions/submit-app'
 import { getAccessToken } from './session'
 import { requestDeveloperData } from '@/actions/settings'
-
 import { getParamsFromPath } from '@/utils/client-url-params'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
@@ -40,6 +41,19 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.ADMIN_APPROVALS_PAGINATE:
       store.dispatch(adminApprovalsRequestData(params && params.page ? Number(params.page) : 1))
+      break
+    case Routes.ADMIN_DEV_MANAGEMENT:
+      store.dispatch(
+        adminDevManagementRequestData({ page: 1, queryString: search } as AdminDevManagementRequestDataValues)
+      )
+      break
+    case Routes.ADMIN_DEV_MANAGEMENT_PAGINATE:
+      store.dispatch(
+        adminDevManagementRequestData({
+          page: params && params.page ? Number(params.page) : 1,
+          queryString: search
+        } as AdminDevManagementRequestDataValues)
+      )
       break
     case Routes.SUBMIT_APP:
       store.dispatch(submitAppRequestData())
