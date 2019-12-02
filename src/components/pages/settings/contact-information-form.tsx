@@ -1,5 +1,4 @@
 import React from 'react'
-import { Form, withFormik, FormikProps, FormikBag } from 'formik'
 import { compose } from 'redux'
 import {
   FlexContainerResponsive,
@@ -9,7 +8,11 @@ import {
   FormSubHeading,
   Grid,
   Input,
-  Button
+  Button,
+  Form,
+  withFormik,
+  FormikProps,
+  FormikBag
 } from '@reapit/elements'
 import { DeveloperModel } from '@/types/marketplace-api-schema'
 

@@ -37,13 +37,20 @@ export const mockFormikHandler = {
   handleSubmit: jest.fn(),
   handleReset: jest.fn(),
   handleBlur: jest.fn(),
-  handleChange: jest.fn()
+  handleChange: jest.fn(),
+  getFieldProps: jest.fn(),
+  getFieldMeta: jest.fn()
 }
 
 export const mockFormikComputeProps = values => ({
   dirty: true,
   isValid: true,
-  initialValues: values
+  initialValues: values,
+  value: '123',
+  error: '',
+  touched: false,
+  initialTouched: false,
+  initialErrors: ''
 })
 
 export const mockFormikRegistration = {

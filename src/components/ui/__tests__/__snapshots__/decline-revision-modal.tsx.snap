@@ -8,7 +8,6 @@ exports[`DeclineRevisionModal should match a snapshot 1`] = `
 >
   <Formik
     data-test="revision-decline-form"
-    enableReinitialize={false}
     initialValues={
       Object {
         "email": "email",
@@ -16,12 +15,9 @@ exports[`DeclineRevisionModal should match a snapshot 1`] = `
         "rejectionReason": "",
       }
     }
-    isInitialValid={false}
     onSubmit={[Function]}
     render={[Function]}
     validate={[Function]}
-    validateOnBlur={true}
-    validateOnChange={true}
   />
 </Modal>
 `;

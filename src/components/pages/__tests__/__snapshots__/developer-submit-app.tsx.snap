@@ -16,7 +16,6 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
       Submit App
     </H3>
     <Formik
-      enableReinitialize={false}
       initialValues={
         Object {
           "categoryId": "",
@@ -26,6 +25,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
           "iconImageUrl": "",
           "launchUri": "",
           "name": "",
+          "scopes": Array [],
           "screen1ImageUrl": "",
           "screen2ImageUrl": "",
           "screen3ImageUrl": "",
@@ -35,13 +35,11 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
           "telephone": "",
         }
       }
-      isInitialValid={false}
       onSubmit={[Function]}
-      render={[Function]}
       validate={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
+    >
+      <Component />
+    </Formik>
   </FlexContainerBasic>
 </FlexContainerBasic>
 `;
@@ -68,7 +66,6 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
       Submit App
     </H3>
     <Formik
-      enableReinitialize={false}
       initialValues={
         Object {
           "categoryId": "",
@@ -79,25 +76,21 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
           "isListed": undefined,
           "launchUri": undefined,
           "name": "Peter's Properties",
-          "scopes": Object {
-            "Marketplace/developers": Object {
-              "read": true,
-              "write": true,
-            },
-          },
+          "scopes": Array [
+            "Marketplace/developers.read",
+            "Marketplace/developers.write",
+          ],
           "screenundefinedImageUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
           "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
           "supportEmail": "support@reapit.com",
           "telephone": "0113 288 2900",
         }
       }
-      isInitialValid={false}
       onSubmit={[Function]}
-      render={[Function]}
       validate={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
+    >
+      <Component />
+    </Formik>
   </FlexContainerBasic>
 </FlexContainerBasic>
 `;

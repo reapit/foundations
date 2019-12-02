@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Formik, Form } from 'formik'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReduxState, FormState } from '@/types/core'
 import {
@@ -21,10 +20,13 @@ import {
   GridFourColItem,
   LevelRight,
   SelectBox,
-  SelectBoxOptions
+  SelectBoxOptions,
+  Formik,
+  Form,
+  FormikHelpers
 } from '@reapit/elements'
+
 import { validate } from '@/utils/form/submit-app'
-import { transformObjectToDotNotation, transformDotNotationToObject } from '@/utils/common'
 import { connect } from 'react-redux'
 import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/actions/submit-app'
 import { SubmitAppState } from '@/reducers/submit-app'
@@ -63,12 +65,10 @@ export const renderScopesCheckbox = (scopes: ScopeModel[] = []) =>
     ) {
       return (
         <GridFourColItem key={item.name}>
-          <Checkbox name={`scopes.${item.name}`} labelText={item.description || ''} id={item.name || ''} />
+          <Checkbox name="scopes" labelText={item.description || ''} id={item.name || ''} value={item.name} />
         </GridFourColItem>
       )
     }
-
-    return null
   })
 
 export const generateInitialValues = (appDetail: AppDetailModel | null, developerId: string | null) => {
@@ -108,7 +108,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       launchUri,
       iconImageUrl,
       isListed,
-      scopes: transformDotNotationToObject(appScopes),
+      scopes: appScopes?.map(item => item.name),
       ...images
     }
   } else {
@@ -126,7 +126,8 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       homePage: '',
       description: '',
       summary: '',
-      developerId
+      developerId,
+      scopes: []
     }
   }
 
@@ -218,15 +219,15 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
         <Formik
           validate={validate}
           initialValues={initialValues}
-          onSubmit={(appModel, actions) => {
-            const scopes = transformObjectToDotNotation(appModel.scopes)
+          onSubmit={(appModel: CreateAppModel, actions: FormikHelpers<CreateAppModel>) => {
             if (!appid) {
-              submitApp({ ...appModel, scopes }, actions)
+              submitApp(appModel, actions)
             } else {
-              submitRevision(appid, { ...appModel, scopes })
+              submitRevision(appid, appModel)
             }
           }}
-          render={() => {
+        >
+          {() => {
             return (
               <Form noValidate={true}>
                 <Grid data-test="submit-app-form">
@@ -432,7 +433,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
               </Form>
             )
           }}
-        />
+        </Formik>
       </FlexContainerBasic>
     </FlexContainerBasic>
   )

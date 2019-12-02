@@ -1,10 +1,10 @@
-import { validate, CreateAppFormModel } from '../submit-app'
-
 import errorMessages from '@/constants/error-messages'
+import { CreateAppModel } from '@/types/marketplace-api-schema'
+import { validate } from '../submit-app'
 
 describe('submitAppValidation', () => {
   it('validate require all field', () => {
-    const input: CreateAppFormModel = {
+    const input: CreateAppModel = {
       screen4ImageUrl: '',
       screen3ImageUrl: '',
       screen2ImageUrl: '',
@@ -17,7 +17,7 @@ describe('submitAppValidation', () => {
       homePage: '',
       description: '',
       summary: '',
-      scopes: {}
+      scopes: []
     }
 
     const validateRequiredKeys = [
@@ -41,7 +41,7 @@ describe('submitAppValidation', () => {
   })
 
   it('validate email field support email', () => {
-    const input: CreateAppFormModel = {
+    const input: CreateAppModel = {
       screen4ImageUrl: 'test',
       screen3ImageUrl: 'test',
       screen2ImageUrl: 'test',
@@ -54,7 +54,7 @@ describe('submitAppValidation', () => {
       homePage: 'test',
       description: 'test',
       summary: 'test',
-      scopes: {}
+      scopes: []
     }
 
     expect(validate(input)).toEqual({
@@ -63,7 +63,7 @@ describe('submitAppValidation', () => {
   })
 
   it('return empty object it everything is valid', () => {
-    const input: CreateAppFormModel = {
+    const input: CreateAppModel = {
       screen4ImageUrl: 'test',
       screen3ImageUrl: 'test',
       screen2ImageUrl: 'test',
@@ -76,7 +76,7 @@ describe('submitAppValidation', () => {
       homePage: 'test',
       description: 'test',
       summary: 'test',
-      scopes: {}
+      scopes: []
     }
 
     expect(validate(input)).toEqual({})

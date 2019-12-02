@@ -15,10 +15,6 @@ import { getMockRouterProps } from '@/utils/mock-helper'
 import { mockFormikAction } from '@/utils/mock-formik'
 import { ReduxState } from '@/types/core'
 
-jest.mock('@reapit/elements', () => ({
-  fetcher: jest.fn().mockResolvedValue({ message: 'SUCCESS' })
-}))
-
 describe('ResetPasswordForm', () => {
   it('should match snapshot', () => {
     const mockProps = {

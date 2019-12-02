@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
+import { FlexContainerBasic, H3, Input, Formik, Form, FormikValues } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { withRouter, RouteComponentProps } from 'react-router'
 import styles from '@/styles/blocks/app-sidebar.scss?mod'
-import { FlexContainerBasic, H3, Input, H5 } from '@reapit/elements'
-import { Formik, Form, FormikValues } from 'formik'
 import CategoriesList from '@/components/ui/categories-list'
 import { FaSearch } from 'react-icons/fa'
 import { CategoryModel } from '@/types/marketplace-api-schema'
@@ -49,12 +48,13 @@ export const AppSidebar: React.FunctionComponent<AppSidebarProps> = ({
           onSubmit={values => {
             handleSearchApp(values)
           }}
-          render={() => (
+        >
+          {() => (
             <Form>
               <Input id="search" type="text" placeholder="Search..." name="search" rightIcon={<FaSearch />} />
             </Form>
           )}
-        />
+        </Formik>
         <CategoriesList
           selectedCategory={getParamValueFromPath(location.search, 'category')}
           categories={categories}

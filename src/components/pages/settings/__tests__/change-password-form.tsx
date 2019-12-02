@@ -10,10 +10,6 @@ import {
 } from '../change-password-form'
 import { mockFormikAction } from '@/utils/mock-formik'
 
-jest.mock('@reapit/elements', () => ({
-  fetcher: jest.fn().mockResolvedValue({ message: 'SUCCESS' })
-}))
-
 describe('ChangePasswordForm', () => {
   it('should match snapshot', () => {
     const mockProps = {

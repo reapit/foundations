@@ -8,18 +8,14 @@ exports[`ApproveRevisionModal should match a snapshot 1`] = `
 >
   <Formik
     data-test="revision-approve-form"
-    enableReinitialize={false}
     initialValues={
       Object {
         "email": "email",
         "name": "name",
       }
     }
-    isInitialValid={false}
     onSubmit={[Function]}
     render={[Function]}
-    validateOnBlur={true}
-    validateOnChange={true}
   />
 </Modal>
 `;

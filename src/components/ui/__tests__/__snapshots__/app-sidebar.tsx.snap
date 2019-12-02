@@ -10,18 +10,15 @@ exports[`AppSidebar should match a snapshot 1`] = `
       Browse Apps
     </H3>
     <Formik
-      enableReinitialize={false}
       initialValues={
         Object {
           "search": "",
         }
       }
-      isInitialValid={false}
       onSubmit={[Function]}
-      render={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
+    >
+      <Component />
+    </Formik>
     <CategoriesList
       categories={
         Array [
