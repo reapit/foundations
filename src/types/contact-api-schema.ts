@@ -113,7 +113,7 @@ export interface ContactModel {
    * Gets a listing of additional metadata that has been set against this contact
    */
   metadata?: {
-    [name: string]: any
+    [name: string]: {}
   }
   readonly links?: LinkModel[]
 }
@@ -218,7 +218,7 @@ export interface CreateContactModel {
    * Sets a JSON fragment to attach to this contact as metadata
    */
   metadata?: {
-    [name: string]: any
+    [name: string]: {}
   }
 }
 /**
@@ -247,7 +247,7 @@ export interface CreateIdentityCheckModel {
    * Sets a JSON fragment to attach to this identity check as metadata
    */
   metadata?: {
-    [name: string]: any
+    [name: string]: {}
   }
 }
 /**
@@ -326,7 +326,7 @@ export interface IdentityCheckModel {
    * Gets a listing of additional metadata that has been set against this identity check
    */
   metadata?: {
-    [name: string]: any
+    [name: string]: {}
   }
   readonly links?: LinkModel[]
 }
@@ -494,7 +494,7 @@ export interface UpdateContactModel {
    * Sets a JSON fragment to attach to this contact as metadata
    */
   metadata?: {
-    [name: string]: any
+    [name: string]: {}
   }
 }
 /**
@@ -523,7 +523,7 @@ export interface UpdateIdentityCheckModel {
    * Sets a JSON fragment to attach to this identity check as metadata
    */
   metadata?: {
-    [name: string]: any
+    [name: string]: {}
   }
 }
 /**
