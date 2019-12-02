@@ -67,6 +67,13 @@ export const mockCognito = {
       }
     ) => {
       callback.onSuccess('SUCCESS')
+    },
+    confirmRegistration: (
+      _verificationCode: string,
+      _forceAliasCreation: boolean,
+      callback = (_err: Error | undefined, result: any) => result
+    ) => {
+      return callback(undefined, 'SUCCESS')
     }
   }))
 }

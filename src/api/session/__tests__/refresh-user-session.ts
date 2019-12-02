@@ -46,7 +46,7 @@ describe('refreshUserSessionApi', () => {
     })
     await refreshUserSessionApi(request, mockRes)
     expect(errorHandler).toHaveBeenCalledTimes(1)
-    expect(errorHandler).toHaveBeenCalledWith(mockRes, 400, `${errorStrings.REFRESH_SESSION_FAILED} ${error.message}`)
+    expect(errorHandler).toHaveBeenCalledWith(mockRes, 400, `${errorStrings.REFRESH_SESSION_FAILED}, ${error}`)
   })
 
   afterEach(() => {

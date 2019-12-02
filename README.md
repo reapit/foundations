@@ -115,6 +115,23 @@ Simple Lambda around AWS Cognito for basic authentication flow
         "message": "SUCCESS"
       }
     ```
+
+  - POST `https://rbsbshnxvb.execute-api.eu-west-2.amazonaws.com/dev/api/registration/confirm`
+    - Takes verificationCode from registration flow and confirms account with Cognito
+    - Request example;
+    ```JSON
+      {
+        "userName": "willmcvay@pm.me",
+        "verificationCode": "123849"
+      }
+
+    ```
+    - Response example;
+    ```JSON
+      {
+        "message": "SUCCESS"
+      }
+    ```
 ## Emails
 
 The service also deploys a lambda that intercepts email events from AWS Lambda and returns custom emails. This service is a single function in the `src/mailer` folder. It appends html (ejs), templates served from the `src/mailer/ejs` folder. 

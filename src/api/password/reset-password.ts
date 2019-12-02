@@ -16,6 +16,6 @@ export const resetPasswordApi = async (req: Request, res: Response) => {
     const resetPasswordResponse = await resetPasswordService(req.body)
     successHandler(res, 200, req.url, resetPasswordResponse)
   } catch (err) {
-    errorHandler(res, 400, `${errorStrings.RESET_PASSWORD_FAILED} ${err.message}`)
+    errorHandler(res, 400, `${errorStrings.RESET_PASSWORD_FAILED}, ${err}`)
   }
 }

@@ -46,7 +46,7 @@ describe('confirmPasswordApi', () => {
     })
     await confirmPasswordApi(request, mockRes)
     expect(errorHandler).toHaveBeenCalledTimes(1)
-    expect(errorHandler).toHaveBeenCalledWith(mockRes, 400, `${errorStrings.CONFIRM_PASSWORD_FAILED} ${error.message}`)
+    expect(errorHandler).toHaveBeenCalledWith(mockRes, 400, `${errorStrings.CONFIRM_PASSWORD_FAILED}, ${error}`)
   })
 
   afterEach(() => {
