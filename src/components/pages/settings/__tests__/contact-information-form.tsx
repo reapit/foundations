@@ -11,10 +11,6 @@ import {
 import { mockFormikAction } from '@/utils/mock-formik'
 import { developerStub } from '@/sagas/__stubs__/developer'
 
-jest.mock('@reapit/elements', () => ({
-  fetcher: jest.fn().mockResolvedValue(true)
-}))
-
 describe('ContactInformationForm', () => {
   it('should match snapshot', () => {
     const mockProps = {

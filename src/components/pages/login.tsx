@@ -1,8 +1,21 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
+import {
+  Formik,
+  Form,
+  Input,
+  Button,
+  Tabs,
+  TabConfig,
+  LoginType,
+  LoginParams,
+  LoginMode,
+  Alert,
+  H1,
+  Level
+} from '@reapit/elements'
 import { Redirect, Link } from 'react-router-dom'
 import { ReduxState } from '../../types/core'
-import { Formik, Form } from 'formik'
 import { authLogin, authChangeLoginType } from '../../actions/auth'
 import { validate } from '../../utils/form/login'
 import { Dispatch, compose } from 'redux'
@@ -10,7 +23,6 @@ import Routes from '../../constants/routes'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import { withRouter, RouteComponentProps } from 'react-router'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
-import { Input, Button, Tabs, TabConfig, LoginType, LoginParams, LoginMode, Alert, H1, Level } from '@reapit/elements'
 import { getLoginTypeByPath } from '@/utils/auth-route'
 
 export interface LoginMappedActions {
@@ -97,7 +109,8 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
           validate={validate}
           initialValues={{ userName: '', password: '' } as LoginFormValues}
           onSubmit={onSubmitHandler({ setIsSubmitting, login, loginType, mode })}
-          render={() => (
+        >
+          {() => (
             <Form noValidate={true} className={loginStyles.loginForm} data-test="login-form">
               <Input
                 dataTest="login-email"
@@ -135,7 +148,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
               {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
             </Form>
           )}
-        />
+        </Formik>
       </div>
       <div className={image}>
         <img src={logoImage} alt="Reapit Graphic" />

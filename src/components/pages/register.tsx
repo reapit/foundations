@@ -2,9 +2,20 @@ import * as React from 'react'
 import { compose, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { Form, withFormik, FormikProps } from 'formik'
 import dayjs from 'dayjs'
-import { Input, Button, Alert, H1, Level, FormSection, FormHeading, FormSubHeading } from '@reapit/elements'
+import {
+  Input,
+  Button,
+  Alert,
+  H1,
+  Level,
+  FormSection,
+  FormHeading,
+  FormSubHeading,
+  Form,
+  withFormik,
+  FormikProps
+} from '@reapit/elements'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import { registerValidate } from '@/utils/form/register'
 import { Link } from 'react-router-dom'

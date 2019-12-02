@@ -1,5 +1,4 @@
 import React from 'react'
-import { Form, withFormik, FormikProps, FormikBag, FormikErrors } from 'formik'
 import { compose } from 'redux'
 import {
   FlexContainerResponsive,
@@ -9,7 +8,12 @@ import {
   FormSubHeading,
   Grid,
   Input,
-  Button
+  Button,
+  Form,
+  withFormik,
+  FormikProps,
+  FormikBag,
+  FormikErrors
 } from '@reapit/elements'
 
 export type ChangePasswordFormProps = FormikProps<ChangePasswordValues>

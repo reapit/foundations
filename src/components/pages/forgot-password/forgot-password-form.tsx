@@ -1,5 +1,4 @@
 import React from 'react'
-import { Form, withFormik, FormikProps, FormikBag } from 'formik'
 import { compose } from 'redux'
 import {
   FlexContainerResponsive,
@@ -8,12 +7,13 @@ import {
   Grid,
   Input,
   Button,
-  COGNITO_API_BASE_URL,
-  fetcher,
-  Alert
+  Alert,
+  Form,
+  withFormik,
+  FormikProps,
+  FormikBag
 } from '@reapit/elements'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { MARKETPLACE_HEADERS } from '@/constants/api'
 
 export type ForgotPasswordFormProps = FormikProps<ForgotPasswordValues> & RouteComponentProps
 

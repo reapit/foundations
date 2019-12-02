@@ -11,18 +11,14 @@ exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
     hasPadding={true}
   >
     <Formik
-      enableReinitialize={false}
       initialValues={
         Object {
           "company": "company",
           "name": "name",
         }
       }
-      isInitialValid={false}
       onSubmit={[Function]}
       render={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
     />
   </FlexContainerResponsive>
 </FlexContainerBasic>

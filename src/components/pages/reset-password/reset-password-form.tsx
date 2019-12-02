@@ -1,6 +1,18 @@
 import React from 'react'
-import { FlexContainerBasic, Grid, GridItem, Input, FlexContainerResponsive, Button, Loader } from '@reapit/elements'
-import { Form, withFormik, FormikProps, FormikErrors, FormikBag } from 'formik'
+import {
+  FlexContainerBasic,
+  Grid,
+  GridItem,
+  Input,
+  FlexContainerResponsive,
+  Button,
+  Loader,
+  Form,
+  withFormik,
+  FormikProps,
+  FormikErrors,
+  FormikBag
+} from '@reapit/elements'
 import { compose, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { resetPassword } from '@/actions/reset-password'

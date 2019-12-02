@@ -13,3 +13,9 @@ App store for Reapit PAAS platform. Initial scaffold from [React App Boilerplate
 - [Version Control](./VERSION_CONTROL.md)
 - [Definition of Done](./src/docs/DEFINITION_OF_DONE.md)
 - [Deployment](./src/docs/DEPLOYMENT.md)
+
+## How to use with @reapit/elements in local dev environment
+### Step 1: Change Dir to element repo.
+`yarn link`
+### Step 2: Change dir to app-store repo.
+`yarn link @reapit/elements`

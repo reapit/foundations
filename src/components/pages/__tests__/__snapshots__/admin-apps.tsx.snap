@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminApps renderForm should return correctly 1`] = `
-<Form>
+<ForwardRef>
   <Grid>
     <GridItem>
       <Input
@@ -36,7 +36,7 @@ exports[`AdminApps renderForm should return correctly 1`] = `
       </Button>
     </GridItem>
   </Grid>
-</Form>
+</ForwardRef>
 `;
 
 exports[`AdminApps should match a snapshot when LOADING false 1`] = `
@@ -52,17 +52,13 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
         Admin Apps
       </H3>
       <Formik
-        enableReinitialize={false}
         initialValues={
           Object {
             "appName": "",
             "developerName": "",
           }
         }
-        isInitialValid={false}
         onSubmit={[Function]}
-        validateOnBlur={true}
-        validateOnChange={true}
       >
         <Component />
       </Formik>
@@ -195,17 +191,13 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
         Admin Apps
       </H3>
       <Formik
-        enableReinitialize={false}
         initialValues={
           Object {
             "appName": "",
             "developerName": "",
           }
         }
-        isInitialValid={false}
         onSubmit={[Function]}
-        validateOnBlur={true}
-        validateOnChange={true}
       >
         <Component />
       </Formik>

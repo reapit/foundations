@@ -1,131 +1,131 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContactInformationForm should match snapshot 1`] = `
-<Component>
+<FormSection>
   <Form>
-    <Component>
+    <FormHeading>
       Contact Information
-    </Component>
-    <Component>
+    </FormHeading>
+    <FormSubHeading>
       Please use the fields below to edit your contact information
       <br />
       <br />
-    </Component>
-    <Component>
-      <Component>
-        <Component
+    </FormSubHeading>
+    <Grid>
+      <GridItem>
+        <Input
           dataTest="company-name"
           id="companyName"
           labelText="Company Name"
           name="companyName"
           type="text"
         />
-      </Component>
-      <Component>
-        <Component
+      </GridItem>
+      <GridItem>
+        <Input
           dataTest="name"
           id="name"
           labelText="Full Name"
           name="name"
           type="text"
         />
-      </Component>
-    </Component>
-    <Component>
-      <Component>
-        <Component
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
+        <Input
           dataTest="job-title"
           id="jobTitle"
           labelText="Job Title"
           name="jobTitle"
           type="text"
         />
-      </Component>
-      <Component>
-        <Component
+      </GridItem>
+      <GridItem>
+        <Input
           dataTest="telephone"
           id="phone"
           labelText="Telephone"
           name="telephone"
           type="tel"
         />
-      </Component>
-    </Component>
-    <Component>
-      <Component
+      </GridItem>
+    </Grid>
+    <FlexContainerResponsive>
+      <Button
         disabled={false}
         loading={false}
         type="submit"
         variant="primary"
       >
         Save Changes
-      </Component>
-    </Component>
+      </Button>
+    </FlexContainerResponsive>
   </Form>
-</Component>
+</FormSection>
 `;
 
 exports[`ContactInformationForm should match snapshot 2`] = `
-<Component>
+<FormSection>
   <Form>
-    <Component>
+    <FormHeading>
       Contact Information
-    </Component>
-    <Component>
+    </FormHeading>
+    <FormSubHeading>
       Please use the fields below to edit your contact information
       <br />
       <br />
-    </Component>
-    <Component>
-      <Component>
-        <Component
+    </FormSubHeading>
+    <Grid>
+      <GridItem>
+        <Input
           dataTest="company-name"
           id="companyName"
           labelText="Company Name"
           name="companyName"
           type="text"
         />
-      </Component>
-      <Component>
-        <Component
+      </GridItem>
+      <GridItem>
+        <Input
           dataTest="name"
           id="name"
           labelText="Full Name"
           name="name"
           type="text"
         />
-      </Component>
-    </Component>
-    <Component>
-      <Component>
-        <Component
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
+        <Input
           dataTest="job-title"
           id="jobTitle"
           labelText="Job Title"
           name="jobTitle"
           type="text"
         />
-      </Component>
-      <Component>
-        <Component
+      </GridItem>
+      <GridItem>
+        <Input
           dataTest="telephone"
           id="phone"
           labelText="Telephone"
           name="telephone"
           type="tel"
         />
-      </Component>
-    </Component>
-    <Component>
-      <Component
+      </GridItem>
+    </Grid>
+    <FlexContainerResponsive>
+      <Button
         disabled={true}
         loading={true}
         type="submit"
         variant="primary"
       >
         Save Changes
-      </Component>
-    </Component>
+      </Button>
+    </FlexContainerResponsive>
   </Form>
-</Component>
+</FormSection>
 `;

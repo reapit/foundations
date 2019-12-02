@@ -1,10 +1,17 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { Register, mapStateToProps, mapDispatchToProps, handleSubmitCreateDeveloper } from '../register'
+import {
+  Register,
+  mapStateToProps,
+  mapDispatchToProps,
+  handleSubmitCreateDeveloper,
+  RegisterProps,
+  RegisterFormValues
+} from '../register'
 import { FormState, ReduxState } from '../../../types/core'
-import { Formik, FormikProps } from 'formik'
 import { mockWithFormik } from '@/utils/mock-formik'
+import { FormikProps } from '@reapit/elements'
 
 jest.mock('react-router-dom')
 
@@ -21,7 +28,7 @@ const props = {
     confirmPassword: '123123',
     agreedTerms: '123'
   })
-}
+} as RegisterProps & FormikProps<RegisterFormValues>
 
 describe('Register', () => {
   it('should match a snapshot for PENDING state', () => {
