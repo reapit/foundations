@@ -215,7 +215,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
       data-test="app-input-form"
     >
       <FlexContainerBasic flexColumn hasBackground hasPadding>
-        <H3>Submit App</H3>
+        {isSubmitApp ? <H3>Submit App</H3> : <H3>Edit App</H3>}
         <Formik
           validate={validate}
           initialValues={initialValues}

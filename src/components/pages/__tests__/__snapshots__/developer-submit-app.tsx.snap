@@ -63,7 +63,7 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
     hasPadding={true}
   >
     <H3>
-      Submit App
+      Edit App
     </H3>
     <Formik
       initialValues={
