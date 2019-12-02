@@ -16,7 +16,7 @@ export const loginUserSessionService = async ({ userName, password }: LoginParam
         resolve(getLoginSession(session))
       },
       onFailure: err => {
-        reject(`${errorStrings.LOGIN_SESSION_SERVICE_ERROR} ${err.message}`)
+        reject(`${errorStrings.LOGIN_SESSION_SERVICE_ERROR} ${JSON.stringify(err)}`)
       }
     })
   })

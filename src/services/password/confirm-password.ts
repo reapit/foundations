@@ -15,7 +15,7 @@ export const confirmPasswordService = async ({
         resolve('SUCCESS')
       },
       onFailure: err => {
-        reject(`${errorStrings.CONFIRM_PASSWORD_SERVICE_ERROR} ${err.message}`)
+        reject(`${errorStrings.CONFIRM_PASSWORD_SERVICE_ERROR} ${JSON.stringify(err)}`)
       }
     })
   })

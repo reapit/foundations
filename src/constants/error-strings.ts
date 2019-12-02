@@ -14,7 +14,10 @@ enum errorStrings {
   REFRESH_SESSION_SERVICE_ERROR = 'Bad request, refreshUserSessionService faild to authenticate',
   CHANGE_PASSWORD_SERVICE_ERROR = 'Bad request, change password service failed',
   RESET_PASSWORD_SERVICE_ERROR = 'Bad request, reset password service failed',
-  CONFIRM_PASSWORD_SERVICE_ERROR = 'Bad request, confirm password service failed'
+  CONFIRM_PASSWORD_SERVICE_ERROR = 'Bad request, confirm password service failed',
+  CONFIRM_REGISTRATION_SERVICE_ERROR = 'Bad request, confirm registration service failed',
+  CONFIRM_REGISTRATION_FAILED = 'Bad request, failed to confirm registration',
+  USERNAME_CODE_REQUIRED = 'Bad request, verification code and username are required'
 }
 
 export default errorStrings

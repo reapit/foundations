@@ -16,6 +16,6 @@ export const changePasswordApi = async (req: Request, res: Response) => {
     const changePasswordResponse = await changePasswordService(req.body)
     successHandler(res, 200, req.url, { message: changePasswordResponse })
   } catch (err) {
-    errorHandler(res, 400, `${errorStrings.CHANGE_PASSWORD_FAILED} ${err.message}`)
+    errorHandler(res, 400, `${errorStrings.CHANGE_PASSWORD_FAILED}, ${err}`)
   }
 }

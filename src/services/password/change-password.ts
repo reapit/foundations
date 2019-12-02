@@ -19,13 +19,13 @@ export const changePasswordService = async ({
       onSuccess: () => {
         cognitoUser.changePassword(password, newPassword, (err, result) => {
           if (err) {
-            reject(`${errorStrings.CHANGE_PASSWORD_SERVICE_ERROR} ${err.message}`)
+            reject(`${errorStrings.CHANGE_PASSWORD_SERVICE_ERROR} ${JSON.stringify(err)}`)
           }
           resolve(result)
         })
       },
       onFailure: err => {
-        reject(`${errorStrings.CHANGE_PASSWORD_SERVICE_ERROR} ${err.message}`)
+        reject(`${errorStrings.CHANGE_PASSWORD_SERVICE_ERROR} ${JSON.stringify(err)}`)
       }
     })
   })
