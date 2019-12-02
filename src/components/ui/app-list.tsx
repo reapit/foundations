@@ -12,7 +12,8 @@ import {
   Section,
   Pagination,
   GridThreeColItem,
-  FlexContainerBasic
+  FlexContainerBasic,
+  GridFourColItem
 } from '@reapit/elements'
 
 export type AppListProps = {
@@ -23,6 +24,7 @@ export type AppListProps = {
   title?: string
   infoType: InfoType
   pagination?: PaginationProps
+  numOfColumn?: number
 }
 
 export const AppList: React.FunctionComponent<AppListProps> = ({
@@ -32,8 +34,11 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   onSettingsClick,
   title,
   infoType,
-  pagination
+  pagination,
+  numOfColumn = 4
 }) => {
+  const WrapperContainer = numOfColumn === 4 ? GridFourColItem : GridThreeColItem
+
   return (
     <FlexContainerBasic hasPadding flexColumn>
       {title && <H3>{title}</H3>}
@@ -43,7 +48,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
             <Info infoType={infoType}>{!infoType && 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}</Info>
           ) : (
             list.map(app => (
-              <GridThreeColItem key={app.id}>
+              <WrapperContainer key={app.id}>
                 <AppCard
                   app={app}
                   onClick={
@@ -63,7 +68,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
                       : undefined
                   }
                 />
-              </GridThreeColItem>
+              </WrapperContainer>
             ))
           )}
         </GridFiveCol>

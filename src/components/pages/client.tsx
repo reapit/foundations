@@ -75,6 +75,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
                   loading={loading}
                   onCardClick={handleOnCardClick({ setVisible, appDetail, fetchAppDetail, clientId })}
                   infoType="CLIENT_APPS_EMPTY"
+                  numOfColumn={3}
                 />
                 <div className={styles.divider} />
               </>
@@ -90,6 +91,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
                 pageNumber,
                 onChange: handleOnChange(history)
               }}
+              numOfColumn={3}
             />
           </div>
         )}
