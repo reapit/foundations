@@ -45,6 +45,7 @@ exports[`Client should match a snapshot 1`] = `
           }
         }
         loading={false}
+        numOfColumn={3}
         onCardClick={[Function]}
         title="Featured Apps"
       />
@@ -104,6 +105,7 @@ exports[`Client should match a snapshot 1`] = `
           }
         }
         loading={false}
+        numOfColumn={3}
         onCardClick={[Function]}
         pagination={
           Object {
