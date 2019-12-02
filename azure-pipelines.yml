@@ -71,7 +71,7 @@ jobs:
             - task: S3Upload@1
               displayName: Deploy assets to S3
               inputs:
-                awsCredentials: 'df-huy'
+                awsCredentials: 'df-duong'
                 regionName: 'eu-west-2'
                 bucketName: 'reapit-lifetime-legal-dev'
                 sourceFolder: '$(Pipeline.Workspace)/AppBundle'
@@ -93,7 +93,7 @@ jobs:
             - task: S3Upload@1
               displayName: Deploy assets to S3
               inputs:
-                awsCredentials: 'df-huy'
+                awsCredentials: 'df-duong'
                 regionName: 'eu-west-2'
                 bucketName: 'reapit-lifetime-legal-prod'
                 sourceFolder: '$(Pipeline.Workspace)/AppBundle'
