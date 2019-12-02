@@ -11,7 +11,7 @@ export const resetPasswordService = async ({ userName }: ResetPasswordParams): P
         resolve(data)
       },
       onFailure: err => {
-        reject(`${errorStrings.RESET_PASSWORD_SERVICE_ERROR} ${err.message}`)
+        reject(`${errorStrings.RESET_PASSWORD_SERVICE_ERROR} ${JSON.stringify(err)}`)
       }
     })
   })

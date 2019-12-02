@@ -13,7 +13,7 @@ export const refreshUserSessionService = async ({ userName, refreshToken }: Refr
       if (!err && session) {
         return resolve(getLoginSession(session))
       }
-      return reject(`${errorStrings.REFRESH_SESSION_SERVICE_ERROR} ${err.message}`)
+      return reject(`${errorStrings.REFRESH_SESSION_SERVICE_ERROR} ${JSON.stringify(err)}`)
     })
   })
 }

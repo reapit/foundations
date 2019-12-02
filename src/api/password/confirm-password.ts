@@ -16,6 +16,6 @@ export const confirmPasswordApi = async (req: Request, res: Response) => {
     const confirmPasswordResponse = await confirmPasswordService(req.body)
     successHandler(res, 200, req.url, { message: confirmPasswordResponse })
   } catch (err) {
-    errorHandler(res, 400, `${errorStrings.CONFIRM_PASSWORD_FAILED} ${err.message}`)
+    errorHandler(res, 400, `${errorStrings.CONFIRM_PASSWORD_FAILED}, ${err}`)
   }
 }
