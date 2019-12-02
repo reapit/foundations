@@ -81,7 +81,6 @@ describe('customMailer', () => {
     expect(event.response).toEqual({
       emailSubject: 'Welcome to Reapit Foundations',
       emailMessage: await confirmRegistrationTemplate({
-        verificationCode: event.request?.codeParameter as string,
         userName: event.request?.userAttributes.email as string
       })
     })

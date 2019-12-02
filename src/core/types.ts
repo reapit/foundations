@@ -28,6 +28,11 @@ export interface ConfirmPasswordParams {
   verificationCode: string
 }
 
+export interface ConfirmRegistrationParams {
+  userName: string
+  verificationCode: string
+}
+
 export interface ResetPasswordParams {
   userName: string
 }

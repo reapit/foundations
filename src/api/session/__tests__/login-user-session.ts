@@ -46,7 +46,7 @@ describe('loginUserSessionApi', () => {
     })
     await loginUserSessionApi(request, mockRes)
     expect(errorHandler).toHaveBeenCalledTimes(1)
-    expect(errorHandler).toHaveBeenCalledWith(mockRes, 400, `${errorStrings.AUTHENTICATION_FAILED} ${error.message}`)
+    expect(errorHandler).toHaveBeenCalledWith(mockRes, 400, `${errorStrings.AUTHENTICATION_FAILED}, ${error}`)
   })
 
   afterEach(() => {

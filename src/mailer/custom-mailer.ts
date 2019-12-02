@@ -13,9 +13,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
         break
       case 'CustomMessage_SignUp':
         event.response.emailSubject = 'Welcome to Reapit Foundations'
-        // TODO - fix bug where this template is not being applied properly to the event
         event.response.emailMessage = await confirmRegistrationTemplate({
-          verificationCode: event.request.codeParameter as string,
           userName: event.request.userAttributes.email
         })
         break
