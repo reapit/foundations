@@ -7,7 +7,8 @@ import {
   mapPropsToValues,
   ForgotPasswordValues,
   handleSubmitForgotPassword,
-  ForgotPasswordFormProps
+  ForgotPasswordFormProps,
+  SuccessForgetPasswordContent
 } from '../forgot-password-form'
 
 describe('ForgotPasswordForm', () => {
@@ -36,6 +37,22 @@ describe('ForgotPasswordForm', () => {
     const wrapper = shallow(<ForgotPasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.find('[dataTest="email"]')).toHaveLength(1)
+  })
+
+  it('should match snapshot', () => {
+    const mockProps = {
+      ...mockWithFormik({ email: '1' }),
+      ...getMockRouterProps({}),
+      location: {
+        hash: '',
+        key: '',
+        pathname: '',
+        search: '?isSuccess=1',
+        state: {}
+      }
+    } as ForgotPasswordFormProps
+    const wrapper = shallow(<ForgotPasswordForm {...mockProps} />)
+    expect(wrapper).toMatchSnapshot()
   })
 
   describe('mapPropsToValues', () => {
@@ -70,5 +87,12 @@ describe('ForgotPasswordForm', () => {
         done()
       }, 1000)
     })
+  })
+})
+
+describe('SuccessForgetPasswordContent', () => {
+  it('should match snapshot', () => {
+    const wrapper = shallow(<SuccessForgetPasswordContent />)
+    expect(wrapper).toMatchSnapshot()
   })
 })

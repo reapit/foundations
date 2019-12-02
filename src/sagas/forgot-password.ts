@@ -26,7 +26,7 @@ export const requestForgotPassword = function*({ data: email }) {
   try {
     const response = yield call(callAPIForgotPassword, email)
     if (response.CodeDeliveryDetails) {
-      yield history.push(Routes.DEVELOPER_RESET_PASSWORD)
+      yield history.push(`${Routes.FORGOT_PASSWORD}?isSuccess=1`)
     }
   } catch (error) {
     console.error(error.message)

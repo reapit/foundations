@@ -11,9 +11,25 @@ import {
   Form,
   withFormik,
   FormikProps,
-  FormikBag
+  FormikBag,
+  H5,
+  FlexContainerBasic
 } from '@reapit/elements'
 import { withRouter, RouteComponentProps } from 'react-router'
+import { Link } from 'react-router-dom'
+
+export const SuccessForgetPasswordContent: React.FC = () => {
+  return (
+    <FlexContainerBasic flexColumn centerContent hasPadding>
+      <H5 isCentered>Success</H5>
+      <span>
+        Please check your inbox for an email we have just sent you with instructions for how to reset your password.
+      </span>
+      <br />
+      <Link to="/developer/login">Click here to return to the login page</Link>
+    </FlexContainerBasic>
+  )
+}
 
 export type ForgotPasswordFormProps = FormikProps<ForgotPasswordValues> & RouteComponentProps
 
@@ -24,6 +40,10 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
   location
 }) => {
   const isError = location.search === '?isError=1'
+  const isSuccess = location.search === '?isSuccess=1'
+  if (isSuccess) {
+    return <SuccessForgetPasswordContent />
+  }
   return (
     <Form>
       <FormSubHeading>Please enter your email address to reset your password</FormSubHeading>

@@ -17,7 +17,7 @@ describe('requestForgotPassword', () => {
   expect(gen.next().value).toEqual(call(callAPIForgotPassword, 'abc@gmail.com'))
   it('should call API success', () => {
     const clone = gen.clone()
-    expect(clone.next({ CodeDeliveryDetails: {} }).value).toEqual(history.push(Routes.DEVELOPER_RESET_PASSWORD))
+    expect(clone.next({ CodeDeliveryDetails: {} }).value).toEqual(history.push(`${Routes.FORGOT_PASSWORD}?isSuccess=1`))
     expect(clone.next().value).toEqual(put(forgotPasswordLoading(false)))
     expect(clone.next().done).toEqual(true)
   })
