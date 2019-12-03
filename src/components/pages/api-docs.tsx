@@ -1,22 +1,36 @@
 import * as React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import apiDocStyles from '@/styles/pages/api-docs.scss?mod'
 import { FlexContainerResponsive, Content, H3, H4, H5, Table, FlexContainerBasic } from '@reapit/elements'
 
-const ApiDocsPage: React.SFC = () => {
+export const handleUseLayoutEffect = hash => () => {
+  if (document) {
+    const element = hash ? document.getElementById(hash.slice(1)) : document.getElementById('api')
+    if (element) {
+      element.scrollIntoView()
+    }
+  }
+}
+
+const ApiDocsPage: React.FC = () => {
+  const { hash } = useLocation()
+  /* scroll before paint by using useLayoutEffect */
+  React.useLayoutEffect(handleUseLayoutEffect(hash), [hash])
+
   return (
     <FlexContainerBasic flexColumn hasPadding>
       <Content className={apiDocStyles.apiDocs}>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <H3>Foundations API </H3>
+          <H3 id="api">Foundations API </H3>
           <H4>Overview</H4>
           <p>
             The Foundations API is organised around{' '}
             <a title="REST" href="http://en.wikipedia.org/wiki/Representational_State_Transfer">
               REST
             </a>{' '}
-            with all resources accessible using standard <a href="#httpmethods">HTTP methods</a> and returning
-            predictable <a href="#statuscodes">response codes</a>. All request and response bodies, including errors,
-            are encoded in <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> and served over{' '}
+            with all resources accessible using standard <Link to="#httpmethods">HTTP methods</Link> and returning
+            predictable <Link to="#statuscodes">response codes</Link>. All request and response bodies, including
+            errors, are encoded in <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> and served over{' '}
             <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">HTTPS TLS v1.1+</a> to ensure data privacy
             and security.
           </p>
@@ -24,11 +38,11 @@ const ApiDocsPage: React.SFC = () => {
             Our API resources are secured and require an{' '}
             <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">authorization JWT bearer token</a> to be submitted as
             part of requests sent to protected endpoints. For more information how our APIs are secured, please see{' '}
-            <a href="#authorization">Authorization</a>.
+            <Link to="#authorization">Authorization</Link>.
           </p>
           <p>
-            Alternatively, our <a href="#developersandbox">Developer Sandbox</a> provides a quick start experience to
-            quickly get to grips with the platform and start developing.
+            Alternatively, our <Link to="#developersandbox">Developer Sandbox</Link> provides a quick start experience
+            to quickly get to grips with the platform and start developing.
           </p>
           <H4>REST</H4>
           <H5 id="httpmethods">HTTP Methods</H5>
@@ -160,8 +174,8 @@ const ApiDocsPage: React.SFC = () => {
           <H5>Registering your application</H5>
           <p>
             Your application must be registered with our Marketplace before it can interact with data, functionality and
-            assets provided by the Foundations API. For more information on how to register your application, see our{' '}
-            <a href="#marketplace">Marketplace</a> documentation.
+            assets provided by the Foundations API. For more information on how to register your application, see our
+            Marketplace documentation.
           </p>
           <p>
             As part of creating your application, you'll be required to choose the{' '}
@@ -186,8 +200,8 @@ const ApiDocsPage: React.SFC = () => {
           </p>
           <p>
             Once installed, an application can access Foundation services on an end users behalf. The recommended way to
-            achieve this is to use one of our <a href="#clientlibraries">Client Libraries</a>, however you can interact
-            directly with our APIs as detailed below.
+            achieve this is to use one of our Client Libraries, however you can interact directly with our APIs as
+            detailed below.
           </p>
           <H5>Create an authorization code</H5>
           <p>
@@ -438,7 +452,7 @@ const ApiDocsPage: React.SFC = () => {
   "data" : [
     ...
   ]
-}               
+}
               `}
               </code>
             </pre>
@@ -484,7 +498,7 @@ const ApiDocsPage: React.SFC = () => {
       "surname" : "Smith",
       ...
       "embedded": {
-          "identityChecks" : 
+          "identityChecks" :
           [
             {
               "id" : "RPT1900050",
