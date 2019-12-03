@@ -9,7 +9,7 @@ describe('integration tests', () => {
   describe('Login integration tests', () => {
     it('should return a positive 200 response if I log in with valid credentials', async () => {
       const body = JSON.stringify({
-        userName: 'tanphamhaiduong@gmail.com',
+        userName: 'wmcvay@reapit.com',
         password: 'T00lb0x53'
       })
 
