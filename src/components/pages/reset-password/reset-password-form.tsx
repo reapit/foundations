@@ -17,6 +17,7 @@ import { compose, Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { resetPassword } from '@/actions/reset-password'
 import { ReduxState } from '@/types/core'
+import { withRouter, RouteComponentProps } from 'react-router'
 
 export type ResetPasswordFormProps = FormikProps<ResetPasswordValues> & StateProps & DispatchProps
 
@@ -27,11 +28,6 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ isValid, l
   return (
     <FlexContainerBasic flexColumn hasPadding>
       <Form>
-        <Grid>
-          <GridItem>
-            <Input dataTest="email" type="email" labelText="Email" id="email" name="email" />
-          </GridItem>
-        </Grid>
         <Grid>
           <GridItem>
             <Input dataTest="password" type="password" labelText="Password" id="password" name="password" />
@@ -48,17 +44,6 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ isValid, l
             />
           </GridItem>
         </Grid>
-        <Grid>
-          <GridItem>
-            <Input
-              dataTest="verificationCode"
-              type="text"
-              labelText="Verification Code"
-              id="verificationCode"
-              name="verificationCode"
-            />
-          </GridItem>
-        </Grid>
         <FlexContainerResponsive>
           <Button disabled={!isValid} variant="primary" type="submit">
             Reset Password
@@ -71,28 +56,18 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ isValid, l
 
 export const mapPropsToValues = (): ResetPasswordValues => {
   return {
-    email: '',
     password: '',
-    confirmPassword: '',
-    verificationCode: ''
+    confirmPassword: ''
   }
 }
 
 export type ResetPasswordValues = {
-  email: string
   password: string
   confirmPassword: string
-  verificationCode: string
 }
 
 export const validateResetPasswordForm = (values: ResetPasswordValues) => {
   const errors: FormikErrors<ResetPasswordValues> = {}
-  if (values.email === '') {
-    errors.email = 'Please input email'
-  }
-  if (values.verificationCode === '') {
-    errors.verificationCode = 'Please input verification code'
-  }
   if (values.password !== values.confirmPassword) {
     errors.confirmPassword = 'Passwords do not match'
   }
@@ -104,24 +79,16 @@ export type ResetPasswordParams = {
   token: string
 }
 
-export const parseQueryParamsToToken = (queryParams: string): string => {
-  const token = ''
-  if (!queryParams || queryParams === '') {
-    return token
-  }
-  const queryParamsArray = queryParams.split('=')
-  const isValidQueryParams = queryParamsArray && queryParamsArray.length >= 1
-  if (isValidQueryParams) {
-    return queryParamsArray[1]
-  }
-  return token
-}
-
 export const handleSubmitResetPassword = async (
   values: ResetPasswordValues,
-  { props }: FormikBag<DispatchProps, ResetPasswordValues>
+  { props }: FormikBag<DispatchProps & RouteComponentProps, ResetPasswordValues>
 ) => {
-  props.resetPassword(values)
+  const queryParams = new URLSearchParams(props.location.search)
+  const email = queryParams.get('userName')
+  const verificationCode = queryParams.get('verificationCode')
+  if (email && verificationCode) {
+    props.resetPassword({ ...values, email, verificationCode })
+  }
 }
 
 export const withForm = withFormik({
@@ -132,12 +99,13 @@ export const withForm = withFormik({
 })
 
 export type DispatchProps = {
-  resetPassword: (values: ResetPasswordValues) => void
+  resetPassword: (values: ResetPasswordValues & { email: string; verificationCode: string }) => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    resetPassword: (values: ResetPasswordValues) => dispatch(resetPassword(values))
+    resetPassword: (values: ResetPasswordValues & { email: string; verificationCode: string }) =>
+      dispatch(resetPassword(values))
   }
 }
 
@@ -156,6 +124,7 @@ export const withRedux = connect(mapStateToProps, mapDispatchToProps)
 export type EnhanceResetPasswordFormProps = {}
 
 export const EnhanceResetPasswordForm = compose<React.FC<EnhanceResetPasswordFormProps>>(
+  withRouter,
   withRedux,
   withForm
 )(ResetPasswordForm)
