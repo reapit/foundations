@@ -38,6 +38,7 @@ describe('customMailer', () => {
 
   it('should call the callback with an updated event if the trigger source is CustomMessage_ForgotPassword', async () => {
     process.env.COGNITO_USERPOOL_ID = 'SOME_ID'
+    expect(process.env.COGNITO_USERPOOL_ID).toEqual('SOME_ID')
     const callback = jest.fn()
     const event = {
       triggerSource: 'CustomMessage_ForgotPassword',
