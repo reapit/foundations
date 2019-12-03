@@ -98,7 +98,7 @@ exports[`Router should match a snapshot 1`] = `
             }
             exact={true}
             fetcher={true}
-            path="/client/installed"
+            path="/client/manage"
           />
           <Connect(Component)
             allow="CLIENT"

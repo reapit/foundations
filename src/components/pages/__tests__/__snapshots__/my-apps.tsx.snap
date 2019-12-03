@@ -61,7 +61,7 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
         "totalCount": 6,
       }
     }
-    title="Installed Apps"
+    title="Manage Apps"
   />
   <Connect(Component)
     afterClose={[Function]}

@@ -69,7 +69,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
     <ErrorBoundary>
       <AppList
         list={list}
-        title="Installed Apps"
+        title="Manage Apps"
         loading={loading}
         onCardClick={(app: AppSummaryModel) => handleLaunchApp(app)}
         onSettingsClick={(app: AppSummaryModel) => {
