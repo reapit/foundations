@@ -106,7 +106,7 @@ jobs:
             - task: S3Upload@1
               displayName: Deploy assets to S3
               inputs:
-                awsCredentials: 'df-huy'
+                awsCredentials: 'df-duong'
                 regionName: 'eu-west-2'
                 bucketName: 'reapit-app-store'
                 sourceFolder: '$(Pipeline.Workspace)/AppStoreBundle'
@@ -128,7 +128,7 @@ jobs:
             - task: S3Upload@1
               displayName: Deploy assets to S3
               inputs:
-                awsCredentials: 'df-huy'
+                awsCredentials: 'df-duong'
                 regionName: 'eu-west-2'
                 bucketName: 'reapit-app-store-prod'
                 sourceFolder: '$(Pipeline.Workspace)/AppStoreBundle'
@@ -150,7 +150,7 @@ jobs:
             - task: S3Upload@1
               displayName: Deploy assets to S3
               inputs:
-                awsCredentials: 'df-huy'
+                awsCredentials: 'df-duong'
                 regionName: 'eu-west-2'
                 bucketName: 'reapit-demo-marketplace'
                 sourceFolder: '$(Pipeline.Workspace)/AppStoreBundle'
