@@ -84,6 +84,10 @@
   }
 }
 
+.file-name {
+  max-width: 6em;
+}
+
 .file-input-container {
   max-width: 100%;
   width: 100%;
@@ -138,9 +142,11 @@
   .label {
     color: $grey-dark;
   }
-  &.has-icons-right, &.has-icons-left {
+  &.has-icons-right,
+  &.has-icons-left {
     .icon {
-      &.is-right, &.is-left {
+      &.is-right,
+      &.is-left {
         height: 100%;
       }
     }
