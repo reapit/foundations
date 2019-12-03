@@ -5,7 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "test": "jest --coverage --silent",
-    "test-ci": "concurrently --success=\"first\" \"yarn start-dev\" \"yarn test\" -k",
+    "test-ci": "rm -rf ./public && yarn build && ./node_modules/.bin/concurrently --success=\"first\" \"yarn start-dev\" \"yarn test\" -k",
     "test-dev": "jest --watch --verbose",
     "lint": "tslint --fix --project tsconfig.json --format stylish",
     "build": "tsc && rm -rf ./public/mailer/templates/ejs && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",

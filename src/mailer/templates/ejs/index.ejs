@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Email templates</title>
-    <style>
-      .container {
-        width: 80%;
-        margin: 2rem auto;
-      }
-    </style>
+    <title>Email Header</title>
+    <%- include('styles') %>
   </head>
-  <body>
-    <main class="container">
-      <%- include('forgotten-password', { userName: 'will@mail.com', verificationCode: '1212312' }) %>
-      <%- include('confirm-registration', { userName: 'will@mail.com', verificationCode: '1212312' }) %>
+  <body class="body--container">
+      <%- include('header') %>
+      <main class="main--container">
+      <h1 class="main--title">Email Header</h1>
+      <article>
+        <p>Hi <%= userName %></p>
+        <br />
+        <p>Example word for an email</p>
+        <div class="main--article-button-container">
+          <a class="main--article--button">CTA BUTTON</a>
+        </div>
+        <p>Example word for an email</p>
+        <br />
+        <p>Best Regards,</p>
+        <p>Reapit Team</p>
+      </article>
     </main>
   </body>
 </html>
