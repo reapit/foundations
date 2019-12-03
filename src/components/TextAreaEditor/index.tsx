@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Field } from 'formik'
+import { Field, FieldInputProps, FieldProps } from 'formik'
+import { checkError } from '../../utils/form'
 import { Editor } from '../Editor'
 
 export interface TextAreaEditorProps {
@@ -9,12 +10,17 @@ export interface TextAreaEditorProps {
   name: string
 }
 
-export const handleOnChange = ({ field, name }) => (html: string) => {
+export type HandleTextAreaOnChangeParams = {
+  field: FieldInputProps<string>
+  name: string
+}
+
+export const handleTextAreaOnChange = ({ field, name }: HandleTextAreaOnChangeParams) => (html: string) => {
   field.onChange({ target: { value: html, name } })
 }
 
-export const renderForm = ({ labelText, id, placeholder }) => ({ field, form: { touched, errors } }) => {
-  const hasError = touched[field.name] && errors[field.name]
+export const renderTextAreaEditor = ({ labelText, id, placeholder }) => ({ field, meta }: FieldProps<string>) => {
+  const hasError = checkError(meta)
   return (
     <div className="field pb-2">
       <div className="control">
@@ -25,12 +31,12 @@ export const renderForm = ({ labelText, id, placeholder }) => ({ field, form: { 
           hasError={hasError}
           placeholder={placeholder}
           defaultContent={field.value}
-          onChange={handleOnChange({ field, name })}
+          onChange={handleTextAreaOnChange({ field, name })}
         />
       </div>
       {hasError && (
         <div data-test="input-error" className="has-text-danger">
-          {errors[field.name]}
+          {meta.error}
         </div>
       )}
     </div>
@@ -38,5 +44,5 @@ export const renderForm = ({ labelText, id, placeholder }) => ({ field, form: { 
 }
 
 export const TextAreaEditor = ({ name, labelText, placeholder, id }: TextAreaEditorProps) => (
-  <Field name={name} render={renderForm({ labelText, id, placeholder })} />
+  <Field name={name}>{renderTextAreaEditor({ labelText, id, placeholder })}</Field>
 )

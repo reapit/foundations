@@ -15,8 +15,9 @@ exports[`Date-time picker CustomInput should match a snapshot 1`] = `
 `;
 
 exports[`Date-time picker DatePicker should match a snapshot 1`] = `
-<FormikConnect(FieldInner)
+<Field
   name="abc"
-  render={[Function]}
-/>
+>
+  <Component />
+</Field>
 `;

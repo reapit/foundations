@@ -25,15 +25,13 @@ describe('RadioSelect', () => {
       options: [{ label: 'label', value: 'value' }, { label: 'label1', value: 'value1' }]
     }
     const wrapper = mount(
-      <Formik
-        initialValues={{ username: '' }}
-        onSubmit={jest.fn()}
-        render={() => (
+      <Formik initialValues={{ username: '' }} onSubmit={jest.fn()}>
+        {() => (
           <Form>
             <RadioSelect {...mockProps} />
           </Form>
         )}
-      />
+      </Formik>
     )
     expect(wrapper.find('label')).toHaveLength(3)
     expect(wrapper.find('input')).toHaveLength(2)

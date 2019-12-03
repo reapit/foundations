@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextAreaEditor renderForm should match snapshot 1`] = `
+exports[`TextAreaEditor renderTextAreaEditor should match snapshot 1`] = `
 <div>
   <div
     className="field pb-2"
@@ -15,6 +15,8 @@ exports[`TextAreaEditor renderForm should match snapshot 1`] = `
         mockLabel
       </label>
       <Component
+        defaultContent="1"
+        hasError={false}
         onChange={[Function]}
         placeholder="mockPlaceholder"
       />
@@ -23,7 +25,7 @@ exports[`TextAreaEditor renderForm should match snapshot 1`] = `
 </div>
 `;
 
-exports[`TextAreaEditor renderForm should match snapshot 2`] = `
+exports[`TextAreaEditor renderTextAreaEditor should match snapshot 2`] = `
 <div>
   <div
     className="field pb-2"
@@ -38,6 +40,7 @@ exports[`TextAreaEditor renderForm should match snapshot 2`] = `
         mockLabel
       </label>
       <Component
+        hasError={false}
         onChange={[Function]}
         placeholder="mockPlaceholder"
       />
@@ -47,8 +50,9 @@ exports[`TextAreaEditor renderForm should match snapshot 2`] = `
 `;
 
 exports[`TextAreaEditor should match a snapshot 1`] = `
-<FormikConnect(FieldInner)
+<Field
   name="username"
-  render={[Function]}
-/>
+>
+  <Component />
+</Field>
 `;

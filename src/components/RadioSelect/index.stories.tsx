@@ -20,14 +20,15 @@ storiesOf('RadioSelect', module).add('Primary', () => {
         onSubmit={values => {
           action('Form Values' + values)
         }}
-        render={() => (
+      >
+        {() => (
           <Form>
             <div className="column is-half-desktop">
               <RadioSelect {...mockProps} />
             </div>
           </Form>
         )}
-      />
+      </Formik>
     </section>
   )
 })

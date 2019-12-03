@@ -2,7 +2,6 @@ import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import { DatePicker, DatePickerProps, CustomInput } from '../index'
 import { Formik, Form } from 'formik'
-import toJson from 'enzyme-to-json'
 
 jest.unmock('dayjs')
 
@@ -40,17 +39,15 @@ describe('Date-time picker', () => {
       }
     }
     const wrapper = mount(
-      <Formik
-        initialValues={{ test: '1997-11-20T17:00:00' }}
-        onSubmit={submitCallback}
-        render={() => {
+      <Formik initialValues={{ test: '1997-11-20T17:00:00' }} onSubmit={submitCallback}>
+        {() => {
           return (
             <Form>
               <DatePicker name="test" id="test" labelText="test" />
             </Form>
           )
         }}
-      />
+      </Formik>
     )
     const input = wrapper.find('input')
     input.simulate('change', mockEvent)
@@ -60,25 +57,24 @@ describe('Date-time picker', () => {
     form.simulate('submit')
 
     setTimeout(() => {
+      wrapper.update()
       expect(submitCallback.mock.calls[0][0]).toMatchObject({ test: '1997-11-22T00:00:00' })
       done()
-    }, 1)
+    }, 100)
   })
 
   describe('should map value correctly from formik to text box', () => {
     it('handles error case', () => {
       const wrapper = mount(
-        <Formik
-          initialValues={{ test: 'asdfasd' }}
-          onSubmit={jest.fn()}
-          render={() => {
+        <Formik initialValues={{ test: 'asdfasd' }} onSubmit={jest.fn()}>
+          {() => {
             return (
               <Form>
                 <DatePicker name="test" id="test" labelText="test" />
               </Form>
             )
           }}
-        />
+        </Formik>
       )
 
       const input = wrapper.find('input')
@@ -86,17 +82,15 @@ describe('Date-time picker', () => {
     })
     it('handles empty case', () => {
       const wrapper = mount(
-        <Formik
-          initialValues={{ test: '' }}
-          onSubmit={jest.fn()}
-          render={() => {
+        <Formik initialValues={{ test: '' }} onSubmit={jest.fn()}>
+          {() => {
             return (
               <Form>
                 <DatePicker name="test" id="test" labelText="test" />
               </Form>
             )
           }}
-        />
+        </Formik>
       )
 
       const input = wrapper.find('input')
@@ -104,17 +98,15 @@ describe('Date-time picker', () => {
     })
     it('handles normal case', done => {
       const wrapper = mount(
-        <Formik
-          initialValues={{ test: '1997-11-20T17:00:00' }}
-          onSubmit={jest.fn()}
-          render={() => {
+        <Formik initialValues={{ test: '1997-11-20T17:00:00' }} onSubmit={jest.fn()}>
+          {() => {
             return (
               <Form>
                 <DatePicker name="test" id="test" labelText="test" />
               </Form>
             )
           }}
-        />
+        </Formik>
       )
 
       const input = wrapper.find('input')
@@ -137,15 +129,13 @@ describe('Date-time picker', () => {
 
   it('should work when integrating with Formik', () => {
     const wrapper = mount(
-      <Formik
-        initialValues={{ test: false }}
-        onSubmit={jest.fn()}
-        render={() => (
+      <Formik initialValues={{ test: false }} onSubmit={jest.fn()}>
+        {() => (
           <Form>
             <DatePicker {...props} />
           </Form>
         )}
-      />
+      </Formik>
     )
     expect(wrapper.find('label')).toHaveLength(1)
   })

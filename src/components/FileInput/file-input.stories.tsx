@@ -12,14 +12,15 @@ storiesOf('FileInput', module).add('Primary', () => (
       onSubmit={values => {
         action('Form Values' + values)
       }}
-      render={() => (
+    >
+      {() => (
         <Form>
           <div className="column is-half-desktop">
             <FileInput id="fileInput" allowClear name="fileInput" labelText="File Input" />
           </div>
         </Form>
       )}
-    />
+    </Formik>
   </section>
 ))
 
@@ -30,7 +31,8 @@ storiesOf('FileInput', module).add('Disabled', () => (
       onSubmit={values => {
         action('Form Values' + values)
       }}
-      render={() => (
+    >
+      {() => (
         <Form>
           <div className="column is-half-desktop">
             <FileInput
@@ -43,6 +45,6 @@ storiesOf('FileInput', module).add('Disabled', () => (
           </div>
         </Form>
       )}
-    />
+    </Formik>
   </section>
 ))

@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Field } from 'formik'
+import { Field, FieldProps } from 'formik'
+import { checkError } from '../../utils/form'
 
 export interface SelectBoxOptions {
   label: string
@@ -12,16 +13,13 @@ export interface SelectBoxProps {
   labelText: string
   name: string
   id: string
-  value?: string | number | null
-  onChange?: () => void
 }
 
-export const SelectBox = ({ options, dataTest, labelText, id, name }: SelectBoxProps) => {
+export const SelectBox = ({ options, dataTest = '', labelText, id, name }: SelectBoxProps) => {
   return (
-    <Field
-      name={name}
-      render={({ field, form: { touched, errors } }) => {
-        const hasError = touched[field.name] && errors[field.name]
+    <Field name={name}>
+      {({ field, meta }: FieldProps<string>) => {
+        const hasError = checkError(meta)
         const className = hasError ? 'input is-danger' : 'input is-primary'
         return (
           <div className="field pb-2">
@@ -29,7 +27,7 @@ export const SelectBox = ({ options, dataTest, labelText, id, name }: SelectBoxP
               <label className="label" htmlFor={id}>
                 {labelText}
               </label>
-              <select data-test={dataTest || ''} className={className} {...field} value={field.value || ''}>
+              <select data-test={dataTest} className={className} {...field} value={field.value || ''}>
                 {options.map(({ label, value }) => (
                   <option key={value} value={value}>
                     {label}
@@ -42,12 +40,12 @@ export const SelectBox = ({ options, dataTest, labelText, id, name }: SelectBoxP
             </div>
             {hasError && (
               <div className="has-text-danger" data-test="input-error">
-                {errors[field.name]}
+                {meta.error}
               </div>
             )}
           </div>
         )
       }}
-    />
+    </Field>
   )
 }

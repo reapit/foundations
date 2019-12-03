@@ -26,27 +26,27 @@ export const useWizardContext = (): WizardContextValues => {
   return useContext(WizardContext)
 }
 
-export type WizardRenderCallbackParams<T> = {
+export type WizardRenderCallbackParams = {
   context: WizardContextValues
-  form: FormikProps<T>
+  form: FormikProps<any>
 }
 
-export type WizardRenderContextValues<T> = {
-  leftFooterRender: ((params: WizardRenderCallbackParams<T>) => React.ReactNode) | React.ReactNode
-  rightFooterRender: ((params: WizardRenderCallbackParams<T>) => React.ReactNode) | React.ReactNode
+export type WizardRenderContextValues = {
+  leftFooterRender: ((params: WizardRenderCallbackParams) => React.ReactNode) | React.ReactNode
+  rightFooterRender: ((params: WizardRenderCallbackParams) => React.ReactNode) | React.ReactNode
 }
 
 // @ts-ignore: ignore fulfill default values
 const RenderWizardContext = createContext<WizardRenderContextValues>({})
 
-export const WizardRenderContextProvider = <T extends {}>({
+export const WizardRenderContextProvider = ({
   children,
   value
 }: {
-  value: WizardRenderContextValues<T>
+  value: WizardRenderContextValues
   children: React.ReactNode
 }) => <RenderWizardContext.Provider value={value}>{children}</RenderWizardContext.Provider>
 
-export const useRenderWizardContext = <T extends {}>(): WizardRenderContextValues<T> => {
+export const useRenderWizardContext = (): WizardRenderContextValues => {
   return useContext(RenderWizardContext)
 }

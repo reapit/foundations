@@ -1,17 +1,12 @@
 import * as React from 'react'
-import { Field } from 'formik'
+import { Field, FieldProps } from 'formik'
 import ReactDatePicker from 'react-datepicker'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import { checkError } from '../../utils/form'
 ;(dayjs as any).extend(customParseFormat)
 
 const { useState, useEffect } = React
-
-export interface DatePickerProps {
-  name: string
-  id: string
-  labelText: string
-}
 
 export const CustomInput = ({
   onChange,
@@ -144,24 +139,28 @@ export const CustomInput = ({
   )
 }
 
+export interface DatePickerProps {
+  name: string
+  id: string
+  labelText: string
+}
+
 export const DatePicker = ({ name, id, labelText }: DatePickerProps) => {
   return (
-    <Field
-      name={name}
-      render={({ field, form: { touched, errors, setFieldValue } }) => {
-        const fieldValue = field.value
-        const parsedDayJsValue = dayjs(fieldValue)
-        let parsedValue = ''
+    <Field name={name}>
+      {({ field, meta }: FieldProps<string>) => {
+        const parsedDayJsValue = dayjs(field.value)
+        let fieldValue: string = ''
         let parseDate: Date | undefined = undefined
 
         if (!parsedDayJsValue.isValid()) {
-          parsedValue = ''
+          fieldValue = ''
         } else {
-          parsedValue = parsedDayJsValue.format('DD/MM/YYYY')
+          fieldValue = parsedDayJsValue.format('DD/MM/YYYY')
           parseDate = parsedDayJsValue.toDate()
         }
 
-        const hasError = touched[field.name] && errors[field.name]
+        const hasError = checkError(meta)
         const className = hasError ? 'input is-danger' : 'input is-primary'
 
         return (
@@ -172,26 +171,28 @@ export const DatePicker = ({ name, id, labelText }: DatePickerProps) => {
               </label>
               <ReactDatePicker
                 className={className}
-                name={name}
                 id={id}
                 labelText={labelText}
                 {...field}
-                value={parsedValue}
+                value={fieldValue}
                 selected={parseDate}
-                onChange={value => {
-                  setFieldValue(name, dayjs(value).format('YYYY-MM-DDTHH:mm:ss'))
-                }}
+                onChange={value =>
+                  field.onChange({ target: { value: dayjs(value).format('YYYY-MM-DDTHH:mm:ss'), name: field.name } })
+                }
+                onSelect={value =>
+                  field.onChange({ target: { value: dayjs(value).format('YYYY-MM-DDTHH:mm:ss'), name: field.name } })
+                }
                 customInput={<CustomInput className={className} />}
               />
               {hasError && (
                 <div className="has-text-danger" data-test="input-error">
-                  {errors[field.name]}
+                  {meta.error}
                 </div>
               )}
             </div>
           </div>
         )
       }}
-    />
+    </Field>
   )
 }

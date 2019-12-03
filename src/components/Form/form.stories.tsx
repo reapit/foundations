@@ -16,7 +16,8 @@ export const FormExample: React.SFC = () => (
       onSubmit={values => {
         action('Form Values' + values)
       }}
-      render={() => (
+    >
+      {() => (
         <Form className="form">
           <Grid>
             <GridItem>
@@ -87,7 +88,7 @@ export const FormExample: React.SFC = () => (
           </FormSection>
         </Form>
       )}
-    />
+    </Formik>
     <FormSection></FormSection>
   </FlexContainerBasic>
 )

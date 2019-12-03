@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioSelect should match snapshot 1`] = `
-<FormikConnect(FieldInner)
+<Field
   name="mockName"
-  render={[Function]}
-/>
+  type="radio"
+>
+  <Component />
+</Field>
 `;

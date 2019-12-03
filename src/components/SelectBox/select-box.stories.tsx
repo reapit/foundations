@@ -16,14 +16,15 @@ storiesOf('SelectBox', module)
           onSubmit={values => {
             action('Form Values' + values)
           }}
-          render={() => (
+        >
+          {() => (
             <Form>
               <div className="column is-half-desktop">
                 <SelectBox name="demo" options={mockedOptions} labelText="Demo" id="test" />
               </div>
             </Form>
           )}
-        />
+        </Formik>
       </section>
     )
   })
@@ -33,25 +34,24 @@ storiesOf('SelectBox', module)
       return (
         <section className="section">
           <Formik
-            validate={values => {
-              if (values.demo !== 'a') {
-                return {
-                  demo: 'Not valid'
-                }
+            validate={() => {
+              return {
+                demo: 'error'
               }
             }}
             initialValues={{ demo: new Date().toString() }}
             onSubmit={values => {
               action('Form Values' + values)
             }}
-            render={() => (
+          >
+            {() => (
               <Form>
                 <div className="column is-half-desktop">
                   <SelectBox name="demo" options={mockedOptions} labelText="Demo" id="test" />
                 </div>
               </Form>
             )}
-          />
+          </Formik>
         </section>
       )
     }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import { Checkbox, CheckboxProps } from '../index'
+import { Checkbox, CheckboxProps, handleOnCheckboxChange } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
 
@@ -17,17 +17,58 @@ describe('Checkbox', () => {
 
   it('should work when integrating with Formik', () => {
     const wrapper = mount(
-      <Formik
-        initialValues={{ test: false }}
-        onSubmit={jest.fn()}
-        render={() => (
+      <Formik initialValues={{ test: false }} onSubmit={jest.fn()}>
+        {() => (
           <Form>
             <Checkbox {...props} />
           </Form>
         )}
-      />
+      </Formik>
     )
     expect(wrapper.find('label')).toHaveLength(1)
+  })
+
+  describe('handleOnCheckboxChange', () => {
+    it('should remove item', () => {
+      const mockField = {
+        value: ['1', '2'],
+        name: 'mockName',
+        multiple: true,
+        checked: true,
+        onChange: jest.fn(),
+        onBlur: jest.fn()
+      }
+      const fn = handleOnCheckboxChange({ field: mockField, value: '1' })
+      fn()
+      expect(mockField.onChange).toBeCalledWith({ target: { value: ['2'], name: 'mockName' } })
+    })
+    it('should add item', () => {
+      const mockField = {
+        value: ['2'],
+        name: 'mockName',
+        multiple: true,
+        checked: true,
+        onChange: jest.fn(),
+        onBlur: jest.fn()
+      }
+      const fn = handleOnCheckboxChange({ field: mockField, value: '1' })
+      fn()
+      expect(mockField.onChange).toBeCalledWith({ target: { value: ['2', '1'], name: 'mockName' } })
+    })
+
+    it('should add item', () => {
+      const mockField = {
+        value: '1',
+        name: 'mockName',
+        multiple: true,
+        checked: true,
+        onChange: jest.fn(),
+        onBlur: jest.fn()
+      }
+      const fn = handleOnCheckboxChange({ field: mockField, value: '1' })
+      fn()
+      expect(mockField.onChange).toBeCalledWith({ target: { value: false, name: 'mockName', checked: false } })
+    })
   })
 
   afterEach(() => {

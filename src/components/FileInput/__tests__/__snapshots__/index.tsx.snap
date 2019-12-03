@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FileInput should match a snapshot 1`] = `
-<FormikConnect(FieldInner)
+<Field
   name="test"
-  render={[Function]}
-/>
+>
+  <Component />
+</Field>
 `;

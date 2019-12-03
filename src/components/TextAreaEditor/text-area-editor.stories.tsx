@@ -27,7 +27,8 @@ storiesOf('TextAreaEditor', module).add('Sample Form', () => (
         console.log('Form Values', values)
       }}
       validate={validate}
-      render={() => (
+    >
+      {() => (
         <Form>
           <div className="column is-half-desktop">
             <Input id="text" type="text" placeholder="Some text here" name="text" labelText="Text" />
@@ -38,6 +39,6 @@ storiesOf('TextAreaEditor', module).add('Sample Form', () => (
           </div>
         </Form>
       )}
-    />
+    </Formik>
   </section>
 ))

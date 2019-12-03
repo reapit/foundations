@@ -12,13 +12,14 @@ storiesOf('TextArea', module).add('Primary', () => (
       onSubmit={values => {
         action('Form Values' + values)
       }}
-      render={() => (
+    >
+      {() => (
         <Form>
           <div className="column is-half-desktop">
             <TextArea id="text" placeholder="Some text here" name="primary" labelText="Primary" />
           </div>
         </Form>
       )}
-    />
+    </Formik>
   </section>
 ))

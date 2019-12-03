@@ -7,10 +7,12 @@ exports[`Checkbox should match a snapshot 1`] = `
   <div
     className="control"
   >
-    <FormikConnect(FieldInner)
+    <Field
       name="test"
-      render={[Function]}
-    />
+      type="checkbox"
+    >
+      <Component />
+    </Field>
   </div>
 </div>
 `;

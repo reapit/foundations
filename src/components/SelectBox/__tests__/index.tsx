@@ -14,17 +14,15 @@ const selectBoxProps: SelectBoxProps = {
 
 const createFormikWrapper = () => {
   const wrapper = mount(
-    <Formik
-      onSubmit={jest.fn()}
-      initialValues={{ demo: 'b' }}
-      render={() => (
+    <Formik onSubmit={jest.fn()} initialValues={{ demo: 'b' }}>
+      {() => (
         <Form>
           <div className="column is-half-desktop">
             <SelectBox name="demo" options={mockedOptions} labelText="Demo" id="test" />
           </div>
         </Form>
       )}
-    />
+    </Formik>
   )
 
   return wrapper
@@ -46,14 +44,15 @@ const ErrorFomrikComponent = () => {
         }}
         initialValues={{ demo: 'a' }}
         onSubmit={jest.fn()}
-        render={() => (
+      >
+        {() => (
           <Form>
             <div className="column is-half-desktop">
               <SelectBox dataTest="select-box" name="demo" options={mockedOptions} labelText="Demo" id="test" />
             </div>
           </Form>
         )}
-      />
+      </Formik>
     </section>
   )
 }

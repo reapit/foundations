@@ -13,7 +13,8 @@ storiesOf('Input', module).add('InputVariants', () => (
       onSubmit={values => {
         action('Form Values' + values)
       }}
-      render={() => (
+    >
+      {() => (
         <Form>
           <div className="column is-half-desktop">
             <Input id="text" type="text" placeholder="Some text here" name="text" labelText="Text" />
@@ -24,6 +25,6 @@ storiesOf('Input', module).add('InputVariants', () => (
           </div>
         </Form>
       )}
-    />
+    </Formik>
   </section>
 ))
