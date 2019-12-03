@@ -1,8 +1,17 @@
-<div>
-  <h1 style="color: blue;">Confirm Registration</h1>
-  <p>
-    Click
-    <a href=<%= `https://dev.marketplace.reapit.com/register/confirm?userName=${userName}&verificationCode={####}` %>>here</a>
-    to confirm your registration
-  </p>
-</div>
+<article style="font-family: Arial, Helvetica, sans-serif;margin:0px;background-color:#F6F6F6;line-height: 1.5rem;font-style: italic;">
+  <img style="width: 100%;" src="https://reapit-s3-policy-test.s3.eu-west-2.amazonaws.com/public/image-20191122-114228.png" />
+  <h1 style="text-align: center;font-size: 34px;">Verify your account</h1>
+  <div style="padding:0 20px 20px 50px;">
+    <p>Hi <%= userName %></p>
+    <br />
+    <p>Thanks for registering with the Marketplace.</p>
+    <p>Please click on the following button to verify your account</p>
+    <div style="text-align: center;">
+      <a style="border: solid thin #0061a8;padding: 10px;background-color: #0061a8;color: white;z-index: 1;text-decoration: none;" href=<%= `${url}?userName=${userName}&verificationCode={####}` %>>VERIFY ACCOUNT</a>
+    </div>
+    <p>Once your account has been verified, you will be redirected to the login page.</p>
+    <br />
+    <p>Best Regards,</p>
+    <p>Reapit Team</p>
+  </div>
+</article>
