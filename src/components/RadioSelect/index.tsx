@@ -1,39 +1,6 @@
 import React from 'react'
-import { Field } from 'formik'
-
-export const renderRadio = ({ labelText, id, options, dataTest }) => ({ field, form: { touched, errors } }) => {
-  const hasError = touched[field.name] && errors[field.name]
-  const className = hasError ? 'input is-danger' : ''
-  return (
-    <div className="field pb-2">
-      <div className="control">
-        <label className="label" htmlFor={id}>
-          {labelText}
-        </label>
-        {options.map(({ label, value }, index: number) => (
-          <div key={index} data-test={dataTest} className={className}>
-            <input
-              id={value}
-              className="checkbox"
-              type="radio"
-              key={value}
-              name={name}
-              checked={field.value === value}
-              {...field}
-              value={value}
-            />
-            <label htmlFor={value}>{label}</label>
-          </div>
-        ))}
-      </div>
-      {hasError && (
-        <div className="has-text-danger" data-test="input-error">
-          {errors[field.name]}
-        </div>
-      )}
-    </div>
-  )
-}
+import { Field, FieldProps } from 'formik'
+import { checkError } from '../../utils/form'
 
 export type RadioSelectOption = {
   label: string | number
@@ -49,7 +16,42 @@ export type RadioSelectProps = {
 }
 
 export const RadioSelect: React.FC<RadioSelectProps> = ({ name, labelText, id, dataTest, options }) => {
-  return <Field name={name} render={renderRadio({ options, labelText, id, dataTest })} />
+  return (
+    <Field type="radio" name={name}>
+      {({ field, meta }: FieldProps<string>) => {
+        const hasError = checkError(meta)
+        const className = hasError ? 'input is-danger' : ''
+        return (
+          <div className="field pb-2">
+            <div className="control">
+              <label className="label" htmlFor={id}>
+                {labelText}
+              </label>
+              {options.map(({ label, value }: RadioSelectOption, index: number) => (
+                <div key={index} data-test={dataTest} className={className}>
+                  <input
+                    id={value as string}
+                    className="checkbox"
+                    type="radio"
+                    key={value}
+                    checked={field.value === value}
+                    {...field}
+                    value={value}
+                  />
+                  <label htmlFor={name}>{label}</label>
+                </div>
+              ))}
+            </div>
+            {hasError && (
+              <div className="has-text-danger" data-test="input-error">
+                {meta.error}
+              </div>
+            )}
+          </div>
+        )
+      }}
+    </Field>
+  )
 }
 
 export default RadioSelect

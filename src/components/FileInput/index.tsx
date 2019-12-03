@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Field } from 'formik'
+import { Field, FieldProps } from 'formik'
 import { isBase64 } from '../../utils/is-base64'
+import { checkError } from '../../utils/form'
 
 const { useState } = React
 
@@ -9,37 +10,34 @@ export interface FileInputTestProps {
 }
 
 export interface FileInputProps {
-  labelText: string
   name: string
-  dataTest?: string
+  labelText: string
   id?: string
+  dataTest?: string
   accept?: string
   allowClear?: boolean
   // props specialized for unit test
   testProps?: FileInputTestProps
   inputProps?: Record<string, any>
-  value?: string | null
-  onChange?: () => void
 }
 
 export const FileInput = ({
-  testProps,
   name,
-  dataTest,
-  id = name,
   labelText,
+  id = name,
+  dataTest = '',
   accept = '',
   allowClear = false,
+  testProps,
   inputProps
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState()
   const inputFile = React.useRef<HTMLInputElement>(null)
 
   return (
-    <Field
-      name={name}
-      render={({ field, form: { touched, errors, setFieldValue } }) => {
-        const hasError = touched[field.name] && errors[field.name]
+    <Field name={name}>
+      {({ field, meta }: FieldProps<string>) => {
+        const hasError = checkError(meta)
         const hasFile = fileUrl || field.value
         const containerClassName = `file ${hasError ? 'is-danger' : 'is-primary'} ${hasFile ? 'has-name' : ''}`
 
@@ -52,8 +50,7 @@ export const FileInput = ({
             reader.readAsDataURL(file)
             reader.onload = function() {
               const base64 = reader.result
-              setFieldValue(name, base64)
-
+              field.onChange({ target: { value: base64, name: field.name } })
               if (testProps) {
                 testProps.waitUntilDataReaderLoadResolver()
               }
@@ -64,7 +61,7 @@ export const FileInput = ({
           }
         }
         return (
-          <>
+          <React.Fragment>
             <div className={`${containerClassName} field pb-2`}>
               <div className="file-input-container control">
                 <label data-test="file-input-label" className="file-label" htmlFor={id}>
@@ -74,7 +71,7 @@ export const FileInput = ({
                     id={id}
                     className="file-input"
                     type="file"
-                    data-test={dataTest || ''}
+                    data-test={dataTest}
                     onChange={onChange}
                     accept={accept}
                   />
@@ -95,7 +92,7 @@ export const FileInput = ({
                       className="delete is-large"
                       onClick={e => {
                         e.preventDefault()
-                        setFieldValue(name, '')
+                        field.onChange({ target: { value: '', name: field.name } })
                         setFileName('')
                         if (inputFile.current) {
                           inputFile.current.value = ''
@@ -108,12 +105,12 @@ export const FileInput = ({
             </div>
             {hasError && (
               <div className="has-text-danger" data-test="input-error">
-                {errors[field.name]}
+                {meta.error}
               </div>
             )}
-          </>
+          </React.Fragment>
         )
       }}
-    />
+    </Field>
   )
 }

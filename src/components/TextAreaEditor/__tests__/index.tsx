@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { TextAreaEditor, TextAreaEditorProps, handleOnChange, renderForm } from '../index'
-import toJson from 'enzyme-to-json'
+import { FieldProps, FieldInputProps, FieldMetaProps } from 'formik'
+import { TextAreaEditor, TextAreaEditorProps, handleTextAreaOnChange, renderTextAreaEditor } from '../index'
 
 const props: TextAreaEditorProps = {
   id: 'username',
@@ -12,34 +12,40 @@ const props: TextAreaEditorProps = {
 
 describe('TextAreaEditor', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<TextAreaEditor {...props} />))).toMatchSnapshot()
+    expect(shallow(<TextAreaEditor {...props} />)).toMatchSnapshot()
   })
   describe('onChange', () => {
     const mockField = {
-      onChange: jest.fn()
-    }
-    const fn = handleOnChange({ field: mockField, name: '' })
+      onChange: jest.fn(),
+      onBlur: jest.fn(),
+      name: '123',
+      value: '1'
+    } as FieldInputProps<string>
+    const fn = handleTextAreaOnChange({ field: mockField, name: '' })
     fn('<div></div>')
     expect(mockField.onChange).toBeCalledWith({ target: { value: '<div></div>', name: '' } })
   })
-  describe('renderForm', () => {
+  describe('renderTextAreaEditor', () => {
     it('should match snapshot', () => {
       const mockProps = {
         labelText: 'mockLabel',
         id: '123',
         placeholder: 'mockPlaceholder'
       }
-      const fn = renderForm(mockProps)
+      const fn = renderTextAreaEditor(mockProps)
       const mockField = {
-        field: {
-          name: '123'
-        }
-      }
-      const mockForm = {
-        touched: ['123'],
-        errors: ['123']
-      }
-      const component = fn({ field: mockField, form: mockForm })
+        name: '123',
+        value: '1'
+      } as FieldInputProps<string>
+      const mockMeta = {
+        touched: true,
+        errors: '123',
+        value: '123',
+        initialValue: '123',
+        initialTouched: false,
+        initialError: ''
+      } as FieldMetaProps<string>
+      const component = fn({ field: mockField, meta: mockMeta } as FieldProps<string>)
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })
@@ -50,17 +56,19 @@ describe('TextAreaEditor', () => {
         id: '123',
         placeholder: 'mockPlaceholder'
       }
-      const fn = renderForm(mockProps)
+      const fn = renderTextAreaEditor(mockProps)
       const mockField = {
-        field: {
-          name: '123'
-        }
-      }
-      const mockForm = {
-        touched: [],
-        errors: ['123']
-      }
-      const component = fn({ field: mockField, form: mockForm })
+        name: '123'
+      } as FieldInputProps<string>
+      const mockMeta = {
+        touched: false,
+        errors: '',
+        value: '123',
+        initialValue: '123',
+        initialTouched: false,
+        initialError: ''
+      } as FieldMetaProps<string>
+      const component = fn({ field: mockField, meta: mockMeta } as FieldProps<string>)
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
     })

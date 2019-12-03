@@ -1,6 +1,9 @@
 // Hooks
 export * from './hooks/UsePortal'
 
+// Dependencies
+export * from 'formik'
+
 // Components
 export * from './components/Pagination'
 export * from './components/Menu'

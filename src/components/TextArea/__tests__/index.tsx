@@ -17,15 +17,13 @@ describe('Input', () => {
 
   it('should work when integrating with Formik', () => {
     const wrapper = mount(
-      <Formik
-        initialValues={{ username: '' }}
-        onSubmit={jest.fn()}
-        render={() => (
+      <Formik initialValues={{ username: '' }} onSubmit={jest.fn()}>
+        {() => (
           <Form>
             <TextArea {...props} />
           </Form>
         )}
-      />
+      </Formik>
     )
     expect(wrapper.find('label')).toHaveLength(1)
     wrapper.find('textarea').simulate('change', {

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
@@ -13,14 +13,15 @@ storiesOf('DatePicker', module)
         onSubmit={values => {
           action('Form Values' + values)
         }}
-        render={() => (
+      >
+        {() => (
           <Form>
             <div className="column is-half-desktop">
               <DatePicker name="demo" labelText="demo" id="demo" />
             </div>
           </Form>
         )}
-      />
+      </Formik>
     </section>
   ))
   .add('Date Picker - Empty', () => (
@@ -30,26 +31,22 @@ storiesOf('DatePicker', module)
         onSubmit={values => {
           action('Form Values' + values)
         }}
-        render={() => (
+      >
+        {() => (
           <Form>
             <div className="column is-half-desktop">
               <DatePicker name="demo" labelText="demo" id="demo" />
             </div>
           </Form>
         )}
-      />
+      </Formik>
     </section>
   ))
   .add('Date Picker - Error', () => {
     const Parent = () => {
-      const ref = useRef(null)
-      useEffect(() => {
-        console.log((ref.current as any).setTouched({ demo: true }))
-      }, [])
       return (
         <section className="section">
           <Formik
-            ref={ref}
             validate={() => {
               return {
                 demo: 'error'
@@ -59,14 +56,15 @@ storiesOf('DatePicker', module)
             onSubmit={values => {
               action('Form Values' + values)
             }}
-            render={() => (
+          >
+            {() => (
               <Form>
                 <div className="column is-half-desktop">
                   <DatePicker name="demo" labelText="Demo" id="test" />
                 </div>
               </Form>
             )}
-          />
+          </Formik>
         </section>
       )
     }

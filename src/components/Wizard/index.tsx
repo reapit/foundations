@@ -17,8 +17,8 @@ export interface WizardProps {
   isLoading?: boolean
   visible: boolean
   afterClose?: () => void
-  leftFooterRender?: ((params: WizardRenderCallbackParams<any>) => React.ReactNode) | React.ReactNode
-  rightFooterRender?: ((params: WizardRenderCallbackParams<any>) => React.ReactNode) | React.ReactNode
+  leftFooterRender?: ((params: WizardRenderCallbackParams) => React.ReactNode) | React.ReactNode
+  rightFooterRender?: ((params: WizardRenderCallbackParams) => React.ReactNode) | React.ReactNode
 }
 
 export const Wizard = ({

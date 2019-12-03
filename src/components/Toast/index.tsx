@@ -32,7 +32,6 @@ export const Toast: React.FC<ToastProps> = ({
   if (isVisible) {
     setTimeout(errorClearHandler, 5000)
   }
-  console.log(error)
 
   return (
     <div data-test="toast-wrapper" className={`toast ${isVisible ? 'visible' : ''}`} onClick={errorClearHandler}>

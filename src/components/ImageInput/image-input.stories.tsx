@@ -12,13 +12,14 @@ storiesOf('ImageInput', module).add('Primary', () => (
       onSubmit={values => {
         action('Form Values' + values)
       }}
-      render={() => (
+    >
+      {() => (
         <Form>
           <div className="column is-half-desktop">
             <ImageInput id="imageInput" allowClear name="imageInput" labelText="Image Input" />
           </div>
         </Form>
       )}
-    />
+    </Formik>
   </section>
 ))

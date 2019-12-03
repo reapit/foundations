@@ -20,13 +20,11 @@ describe('FileInput', () => {
 
   it('should render label correctly', () => {
     const Wrapper = () => (
-      <Formik
-        initialValues={{ test: '' }}
-        onSubmit={jest.fn()}
-        render={() => {
+      <Formik initialValues={{ test: '' }} onSubmit={jest.fn()}>
+        {() => {
           return <FileInput id="test" labelText="test" name="test" />
         }}
-      />
+      </Formik>
     )
 
     const wrapper = mount(<Wrapper />)
@@ -46,17 +44,14 @@ describe('FileInput', () => {
     }
 
     const Wrapper = () => (
-      <Formik
-        validate={() => ({ test: 'test' })}
-        initialValues={{ test: '' }}
-        onSubmit={onSubmit}
-        render={({ handleSubmit, validateForm }) => {
+      <Formik validate={() => ({ test: 'test' })} initialValues={{ test: '' }} onSubmit={onSubmit}>
+        {({ handleSubmit }) => {
           submitForm = handleSubmit
 
           // force form vaidate to test
           return <FileInput id="test" labelText="test" name="test" />
         }}
-      />
+      </Formik>
     )
 
     // trigger upload even
@@ -94,10 +89,8 @@ describe('FileInput', () => {
     }
 
     const Wrapper = () => (
-      <Formik
-        initialValues={{ test: '' }}
-        onSubmit={onSubmit}
-        render={({ handleSubmit }) => {
+      <Formik initialValues={{ test: '' }} onSubmit={onSubmit}>
+        {({ handleSubmit }) => {
           submitForm = handleSubmit
           return (
             <FileInput
@@ -110,7 +103,7 @@ describe('FileInput', () => {
             />
           )
         }}
-      />
+      </Formik>
     )
 
     // trigger upload even
@@ -138,10 +131,8 @@ describe('FileInput', () => {
 
   it('Spread the input props to input element', () => {
     const Wrapper = () => (
-      <Formik
-        onSubmit={jest.fn()}
-        initialValues={{ test: '' }}
-        render={({ handleSubmit }) => {
+      <Formik onSubmit={jest.fn()} initialValues={{ test: '' }}>
+        {() => {
           return (
             <FileInput
               inputProps={{
@@ -153,7 +144,7 @@ describe('FileInput', () => {
             />
           )
         }}
-      />
+      </Formik>
     )
 
     const wrapper = mount(<Wrapper />)
@@ -168,10 +159,8 @@ describe('FileInput', () => {
     })
 
     const Wrapper = () => (
-      <Formik
-        initialValues={{ test: '' }}
-        onSubmit={jest.fn()}
-        render={() => {
+      <Formik initialValues={{ test: '' }} onSubmit={jest.fn()}>
+        {() => {
           return (
             <FileInput
               testProps={{
@@ -183,7 +172,7 @@ describe('FileInput', () => {
             />
           )
         }}
-      />
+      </Formik>
     )
 
     // trigger upload even

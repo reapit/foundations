@@ -36,7 +36,6 @@ exports[`LayoutComponents should match a snapshot for an example form 1`] = `
   hasPadding={true}
 >
   <Formik
-    enableReinitialize={false}
     initialValues={
       Object {
         "email": "",
@@ -45,12 +44,10 @@ exports[`LayoutComponents should match a snapshot for an example form 1`] = `
         "text": "",
       }
     }
-    isInitialValid={false}
     onSubmit={[Function]}
-    render={[Function]}
-    validateOnBlur={true}
-    validateOnChange={true}
-  />
+  >
+    <Component />
+  </Formik>
   <Component />
 </Component>
 `;
