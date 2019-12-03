@@ -27,7 +27,7 @@
     "test-perf:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-perf\" -k"
   },
   "dependencies": {
-    "@reapit/elements": "^0.5.0-beta",
+    "@reapit/elements": "0.5.1-beta",
     "dayjs": "^1.8.17",
     "diff": "^4.0.1",
     "hardtack": "^4.1.0",

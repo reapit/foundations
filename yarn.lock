@@ -318,10 +318,10 @@
   dependencies:
     stream "^0.0.2"
 
-"@reapit/elements@^0.5.0-beta":
-  version "0.5.0-beta"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.0-beta.tgz#09b2da67da8895df289c54eebc19de32caa694e4"
-  integrity sha512-xxMPhNp7G3OQjGAFVanhUGc9ah10L3EeoX/myrV+eMksP/DYt/CnmTC5n10aE9sFwsBwTjY1Vr2obhfdEKUowQ==
+"@reapit/elements@0.5.1-beta":
+  version "0.5.1-beta"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.1-beta.tgz#12d7b19b681babb6ae4ddc9bca98d5f837d5d911"
+  integrity sha512-SxghvpDwJh9EslH2dy11e6M+viUIM64myGQ3LGKGfYVfDxg416Aefm+GFTp5WnGihoamS2K91OhmKJ4JsGSuLg==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.17"
