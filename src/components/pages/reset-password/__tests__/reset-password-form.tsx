@@ -6,7 +6,6 @@ import {
   mapPropsToValues,
   ResetPasswordValues,
   validateResetPasswordForm,
-  parseQueryParamsToToken,
   handleSubmitResetPassword,
   mapDispatchToProps,
   mapStateToProps
@@ -31,9 +30,7 @@ describe('ResetPasswordForm', () => {
       const result = mapPropsToValues()
       expect(result).toEqual({
         password: '',
-        confirmPassword: '',
-        email: '',
-        verificationCode: ''
+        confirmPassword: ''
       })
     })
   })
@@ -42,9 +39,7 @@ describe('ResetPasswordForm', () => {
     it('should not return errors', () => {
       const mockValues: ResetPasswordValues = {
         password: '456',
-        confirmPassword: '456',
-        email: 'abc@gmail.com',
-        verificationCode: '123'
+        confirmPassword: '456'
       }
       const result = validateResetPasswordForm(mockValues)
       expect(result).toEqual({})
@@ -53,56 +48,20 @@ describe('ResetPasswordForm', () => {
     it('should return errors', () => {
       const mockValues: ResetPasswordValues = {
         password: '456',
-        confirmPassword: '4567',
-        email: '',
-        verificationCode: ''
+        confirmPassword: '4567'
       }
       const result = validateResetPasswordForm(mockValues)
       expect(result).toEqual({
-        confirmPassword: 'Passwords do not match',
-        email: 'Please input email',
-        verificationCode: 'Please input verification code'
+        confirmPassword: 'Passwords do not match'
       })
     })
   })
 
-  describe('parseQueryParamsToToken', () => {
-    it('should return correctly', () => {
-      const mockQueryParams = '?token=1234'
-      const result = parseQueryParamsToToken(mockQueryParams)
-      const output = '1234'
-      expect(result).toEqual(output)
-    })
-
-    it('should return ""', () => {
-      const mockQueryParams = '?token='
-      const result = parseQueryParamsToToken(mockQueryParams)
-      const output = ''
-      expect(result).toEqual(output)
-    })
-
-    it('should return ""', () => {
-      const mockQueryParams = ''
-      const result = parseQueryParamsToToken(mockQueryParams)
-      const output = ''
-      expect(result).toEqual(output)
-    })
-
-    it('should return ""', () => {
-      const mockQueryParams = '='
-      const result = parseQueryParamsToToken(mockQueryParams)
-      const output = ''
-      expect(result).toEqual(output)
-    })
-  })
-
   describe('handleSubmitResetPassword', () => {
-    it('should call setSubmitting', done => {
+    it('should not call resetPassword', done => {
       const mockValues: ResetPasswordValues = {
         password: '456',
-        confirmPassword: '456',
-        email: 'abc@gmail.com',
-        verificationCode: '123'
+        confirmPassword: '456'
       }
       const mockForm = {
         ...mockFormikAction
@@ -111,6 +70,35 @@ describe('ResetPasswordForm', () => {
         resetPassword: jest.fn(),
         logout: jest.fn(),
         ...getMockRouterProps({})
+      }
+      handleSubmitResetPassword(mockValues, { ...mockForm, props: mockProps })
+      setTimeout(() => {
+        expect(mockProps.resetPassword).not.toBeCalled()
+        done()
+      }, 2000)
+    })
+  })
+
+  describe('handleSubmitResetPassword', () => {
+    it('should call resetPassword', done => {
+      const mockValues: ResetPasswordValues = {
+        password: '456',
+        confirmPassword: '456'
+      }
+      const mockForm = {
+        ...mockFormikAction
+      }
+      const mockProps = {
+        resetPassword: jest.fn(),
+        logout: jest.fn(),
+        ...getMockRouterProps({}),
+        location: {
+          hash: '',
+          key: '',
+          pathname: '',
+          search: '?userName=mockEmail@gmail.com&verificationCode=123',
+          state: {}
+        }
       }
       handleSubmitResetPassword(mockValues, { ...mockForm, props: mockProps })
       setTimeout(() => {
