@@ -160,11 +160,11 @@ export const generateMenuConfig = (
           icon: <FaCloud className="nav-item-icon" />
         },
         {
-          title: 'Installed',
+          title: 'Manage',
           key: 'MY_APPS',
           url: Routes.MY_APPS,
           type: 'PRIMARY',
-          icon: <FaCloudDownloadAlt className="nav-item-icon" />
+          icon: <FaClipboardList className="nav-item-icon" />
         },
         {
           title: 'Logout',

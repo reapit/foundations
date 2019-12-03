@@ -27,13 +27,13 @@ exports[`Menu should match a snapshot 1`] = `
         "url": "/client/apps",
       },
       Object {
-        "icon": <FaCloudDownloadAlt
+        "icon": <FaClipboardList
           className="nav-item-icon"
         />,
         "key": "MY_APPS",
-        "title": "Installed",
+        "title": "Manage",
         "type": "PRIMARY",
-        "url": "/client/installed",
+        "url": "/client/manage",
       },
       Object {
         "callback": [Function],
