@@ -64,6 +64,10 @@ export interface AppointmentModel {
    */
   end?: string // date-time
   /**
+   * Gets the date that the appointment should be followed up on
+   */
+  followUpOn?: string // date-time
+  /**
    * Gets the type of appointment
    */
   typeId?: string
@@ -88,54 +92,17 @@ export interface AppointmentModel {
    */
   property?: PropertyModel
   /**
-   * Gets a collection of attendees who are requested to attend the appointment
-   */
-  attendees?: AttendeeModel[]
-  /**
    * Gets a listing of additional metadata that has been set against this appointment
    */
   metadata?: {
-    [name: string]: any
+    [name: string]: {}
   }
-  readonly links?: LinkModel[]
-}
-/**
- * Model representing an appointment attendee
- */
-export interface AttendeeModel {
-  /**
-   * Gets the identifier of the attendee
-   */
-  id?: string
-  /**
-   * Gets the type of attendee
-   */
-  type?: string
-  /**
-   * Gets the name of the attendee
-   */
-  name?: string
-  /**
-   * Flag denoting whether or not the attendee has confirmed their attendance to the appointment
-   */
-  confirmed?: boolean
-  /**
-   * Gets a collection of the attendees' contact details
-   */
-  communicationDetails?: CommunicationModel[]
-}
-/**
- * Model representing a single contact detail (eg mobile telephone number)
- */
-export interface CommunicationModel {
-  /**
-   * Gets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Gets the contact detail (eg the actual telephone number or email address)
-   */
-  detail?: string
+  readonly _links?: {
+    [name: string]: LinkModel
+  }
+  readonly _embedded?: {
+    [name: string]: {}
+  }
 }
 /**
  * Model required to create a calendar entry
@@ -149,6 +116,10 @@ export interface CreateAppointmentModel {
    * Sets the date and time that the appointment will end
    */
   end?: string // date-time
+  /**
+   * Sets the date that the appointment should be followed up on
+   */
+  followUpOn?: string // date-time
   /**
    * Sets the type of appointment
    */
@@ -173,7 +144,7 @@ export interface CreateAppointmentModel {
    * Sets a JSON fragment to attach to this appointment as metadata
    */
   metadata?: {
-    [name: string]: any
+    [name: string]: {}
   }
 }
 /**
@@ -211,6 +182,29 @@ export interface CreateRecurrenceModel {
   until?: string // date-time
 }
 /**
+ * Model representing appointment follow up data
+ */
+export interface FollowUpModel {
+  /**
+   * Gets the unique identifier of the appointment this follow up relates to
+   */
+  appointmentId?: string
+  /**
+   * Gets the unique identifier of a pre-defined follow up response type
+   */
+  responseId?: string
+  /**
+   * Gets the internal follow up notes to be stored against the appointment
+   */
+  notes?: string
+  readonly _links?: {
+    [name: string]: LinkModel
+  }
+  readonly _embedded?: {
+    [name: string]: {}
+  }
+}
+/**
  * Model representing the geographical location of an address using coordinates
  */
 export interface GeolocationModel {
@@ -224,16 +218,20 @@ export interface GeolocationModel {
   longitude?: number // double
 }
 export interface LinkModel {
-  rel?: string
   href?: string
-  action?: string
 }
 export interface PagedResultAppointmentModel_ {
-  data?: AppointmentModel[]
+  _embedded?: AppointmentModel[]
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
   totalCount?: number // int32
+  _links?: {
+    [name: string]: PagingLinkModel
+  }
+}
+export interface PagingLinkModel {
+  href?: string
 }
 export interface ProblemDetails {
   [name: string]: any
@@ -273,6 +271,10 @@ export interface UpdateAppointmentModel {
    */
   end?: string // date-time
   /**
+   * Sets the date that the appointment should be followed up on
+   */
+  followUpOn?: string // date-time
+  /**
    * Sets the type of appointment
    */
   typeId?: string
@@ -300,7 +302,7 @@ export interface UpdateAppointmentModel {
    * Sets a JSON fragment to attach to this appointment as metadata
    */
   metadata?: {
-    [name: string]: any
+    [name: string]: {}
   }
 }
 /**
@@ -319,6 +321,19 @@ export interface UpdateAttendeeModel {
    * Flag denoting whether or not the attendee has confirmed their attendance to the appointment
    */
   confirmed?: boolean
+}
+/**
+ * Model used to update the follow up information on a single appointment
+ */
+export interface UpdateFollowUpModel {
+  /**
+   * Sets the unique identifier of a pre-defined follow up response type
+   */
+  responseId?: string
+  /**
+   * Sets the internal follow up notes to be stored against the appointment
+   */
+  notes?: string
 }
 /**
  * Model to update the recurrence details of an appointment
