@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Client should match a snapshot 1`] = `
+exports[`Client should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
   <div>
     <withRouter(Connect(Component)) />
@@ -80,7 +80,7 @@ exports[`Client should match a snapshot 1`] = `
 </Connect(ErrorBoundary)>
 `;
 
-exports[`Client should match a snapshot 2`] = `
+exports[`Client should match a snapshot when LOADING true 1`] = `
 <Connect(ErrorBoundary)>
   <div>
     <withRouter(Connect(Component)) />

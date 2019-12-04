@@ -8,7 +8,6 @@ const props: AppDetailProps = {
   setDeveloperAppModalStateDelete: jest.fn(),
   setAppDetailModalStateViewConfirm: jest.fn(),
   setAppDetailModalStateUninstall: jest.fn(),
-  appUninstallFormState: 'PENDING',
   isCurrentLoggedUserDeveloper: true,
   isCurrentLoggedUserClient: false,
   data: {},

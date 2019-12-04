@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { ReduxState } from '@/types/core'
+import { ReduxState, FormState } from '@/types/core'
 import { ClientState } from '@/reducers/client'
 import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -13,17 +13,20 @@ import AppDetailModal from '@/components/ui/app-detail-modal'
 import { selectClientId } from '@/selector/client'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import styles from '@/styles/pages/client.scss?mod'
+import { appInstallationsSetFormState } from '@/actions/app-installations'
 
 import { addQuery, getParamValueFromPath, hasFilterParams } from '@/utils/client-url-params'
 
 export interface ClientMappedActions {
   fetchAppDetail: (id: string, clientId: string) => void
+  installationsSetFormState: (formState: FormState) => void
 }
 
 export interface ClientMappedProps {
   clientState: ClientState
   appDetail: AppDetailState
   clientId: string
+  installationsFormState: FormState
 }
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
@@ -36,6 +39,20 @@ export const handleOnCardClick = ({ setVisible, appDetail, fetchAppDetail, clien
     fetchAppDetail(app.id, clientId)
   }
 }
+
+export const handleInstallationDone = ({
+  isDone,
+  installationsSetFormState,
+  fetchAppDetail,
+  appDetail,
+  clientId
+}) => () => {
+  if (isDone) {
+    installationsSetFormState('PENDING')
+    fetchAppDetail(appDetail.appDetailData.data.id, clientId)
+  }
+}
+
 export type ClientProps = ClientMappedActions & ClientMappedProps & RouteComponentProps<{ page?: any }>
 
 export const Client: React.FunctionComponent<ClientProps> = ({
@@ -44,7 +61,9 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   location,
   fetchAppDetail,
   appDetail,
-  clientId
+  clientId,
+  installationsFormState,
+  installationsSetFormState
 }) => {
   const pageNumber =
     !isNaN(Number(getParamValueFromPath(location.search, 'page'))) &&
@@ -58,6 +77,12 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   const featuredApps = clientState?.clientData?.featuredApps || []
   const { totalCount, pageSize } = clientState?.clientData?.apps || {}
   const [visible, setVisible] = React.useState(false)
+
+  const isDone = installationsFormState === 'DONE'
+
+  React.useEffect(handleInstallationDone({ isDone, installationsSetFormState, fetchAppDetail, appDetail, clientId }), [
+    isDone
+  ])
 
   return (
     <ErrorBoundary>
@@ -104,11 +129,13 @@ export const Client: React.FunctionComponent<ClientProps> = ({
 export const mapStateToProps = (state: ReduxState): ClientMappedProps => ({
   clientState: state.client,
   appDetail: state.appDetail,
-  clientId: selectClientId(state)
+  clientId: selectClientId(state),
+  installationsFormState: state.installations.formState
 })
 
 export const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
-  fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId }))
+  fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
+  installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Client))

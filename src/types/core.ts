@@ -12,13 +12,12 @@ import { SubmitRevisionState } from '@/reducers/submit-revision'
 import { AdminApprovalsState } from '@/reducers/admin-approvals'
 import { RevisionDetailState } from '@/reducers/revision-detail'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
-import { AppInstallState } from '@/reducers/app-install'
-import { AppUninstallState } from '@/reducers/app-uninstall'
 import { AppCategoriesState } from '@/reducers/app-categories'
 import { ForgotPasswordState } from '@/reducers/forgot-password'
 import { SettingsState } from '@/reducers/settings'
 import { AdminAppsState } from '@/reducers/admin-apps'
 import { ResetPasswordState } from '@/reducers/reset-password'
+import { AppInstallationsState } from '@/reducers/app-installations'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -70,11 +69,10 @@ export interface ReduxState {
   developerDelete: RequestState
   revisionDetail: RevisionDetailState
   appDetailModal: AppDetailModalState
-  appInstall: AppInstallState
-  appUninstall: AppUninstallState
   appDelete: RequestState
   appCategories: AppCategoriesState
   forgotPassword: ForgotPasswordState
   settings: SettingsState
   resetPassword: ResetPasswordState
+  installations: AppInstallationsState
 }

@@ -11,21 +11,21 @@ import { appDetailRequestData } from '@/actions/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
 import AppDetailModal from '../ui/app-detail-modal'
 import { myAppsRequestData } from '@/actions/my-apps'
-import { appUninstallDone } from '@/actions/app-uninstall'
 import { selectClientId } from '@/selector/client'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import { handleLaunchApp } from '../../utils/launch-app'
+import { appInstallationsSetFormState } from '@/actions/app-installations'
 
 export interface MyAppsMappedActions {
   fetchAppDetail: (id: string, clientId: string) => void
   fetchMyApp: (page: number) => void
-  appUninstallDone: () => void
+  installationsSetFormState: (formState: FormState) => void
 }
 
 export interface MyAppsMappedProps {
   myAppsState: MyAppsState
   appDetail: AppDetailState
-  appUninstallFormState: FormState
+  installationsFormState: FormState
   clientId: string
 }
 
@@ -33,9 +33,9 @@ export type MyAppsProps = MyAppsMappedActions & MyAppsMappedProps & RouteCompone
 
 export const handleOnChange = history => (page: number) => history.push(`${routes.MY_APPS}/${page}`)
 
-export const handleUseEffect = ({ isSuccess, appUninstallDone, fetchMyApp, pageNumber }) => () => {
-  if (isSuccess) {
-    appUninstallDone()
+export const handleUseEffect = ({ isDone, installationsSetFormState, fetchMyApp, pageNumber }) => () => {
+  if (isDone) {
+    installationsSetFormState('PENDING')
     fetchMyApp(pageNumber)
   }
 }
@@ -47,8 +47,8 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   fetchMyApp,
   fetchAppDetail,
   appDetail,
-  appUninstallDone,
-  appUninstallFormState,
+  installationsFormState,
+  installationsSetFormState,
   history
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
@@ -57,9 +57,9 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   const list = myAppsState?.myAppsData?.data?.data || []
   const { totalCount, pageSize } = myAppsState?.myAppsData?.data || {}
   const [visible, setVisible] = React.useState(false)
-  const isSuccess = appUninstallFormState === 'SUCCESS'
+  const isDone = installationsFormState === 'DONE'
 
-  React.useEffect(handleUseEffect({ isSuccess, appUninstallDone, fetchMyApp, pageNumber }), [isSuccess])
+  React.useEffect(handleUseEffect({ isDone, installationsSetFormState, fetchMyApp, pageNumber }), [isDone])
 
   if (unfetched || loading) {
     return <Loader />
@@ -95,13 +95,13 @@ export const mapStateToProps = (state: ReduxState): MyAppsMappedProps => ({
   myAppsState: state.myApps,
   appDetail: state.appDetail,
   clientId: selectClientId(state),
-  appUninstallFormState: state.appUninstall.formState
+  installationsFormState: state.installations.formState
 })
 
 export const mapDispatchToProps = (dispatch: any): MyAppsMappedActions => ({
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
   fetchMyApp: (page: number) => dispatch(myAppsRequestData(page)),
-  appUninstallDone: () => dispatch(appUninstallDone())
+  installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MyApps))

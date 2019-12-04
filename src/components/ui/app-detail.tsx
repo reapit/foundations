@@ -20,7 +20,6 @@ export interface AppDetailModalInnerProps {
 export interface AppDetailModalMappedProps {
   isCurrentLoggedUserClient: boolean
   isCurrentLoggedUserDeveloper: boolean
-  appUninstallFormState: FormState
 }
 
 export interface AppDetailModalMappedActions {
@@ -39,7 +38,6 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   data,
   setAppDetailModalStateViewConfirm,
   setAppDetailModalStateUninstall,
-  appUninstallFormState,
   isCurrentLoggedUserClient,
   isCurrentLoggedUserDeveloper,
   afterClose,
@@ -49,11 +47,9 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
     return null
   }
 
-  const { id, media = [], description, name, summary, developer, installedOn, scopes } = data
+  const { id, media = [], description, name, summary, developer, installedOn, scopes = [] } = data
   const icon = media.filter(({ type }) => type === 'icon')[0]
   const carouselImages = media.filter(({ type }) => type === 'image')
-
-  const isLoadingUninstall = appUninstallFormState === 'SUBMITTING'
 
   const settings: Settings = {
     dots: false,
@@ -106,17 +102,18 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
             <br />
             <p>{description}</p>
             <br />
-            <p className={styles.permission}>Permission</p>
+            <p className={styles.permission}>Permissions</p>
             <small>
               {isCurrentLoggedUserDeveloper && <i>You have requested the following permissions for this App:</i>}
-              {isCurrentLoggedUserClient && installedOn ? (
-                <i>This app has been granted the following permissions to your data: </i>
-              ) : (
-                <i>This App requires the following permissions in order to access your data:</i>
-              )}
+              {isCurrentLoggedUserClient &&
+                (installedOn ? (
+                  <i>This app has been granted the following permissions to your data: </i>
+                ) : (
+                  <i>This App requires the following permissions in order to access your data:</i>
+                ))}
             </small>
             <ul className={styles.permissionList}>
-              {scopes?.map(item => (
+              {scopes.map(item => (
                 <li>{item.description}</li>
               ))}
             </ul>
@@ -133,8 +130,6 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                   type="button"
                   variant="primary"
                   dataTest="btnAppDetailUninstallApp"
-                  loading={Boolean(isLoadingUninstall)}
-                  disabled={Boolean(isLoadingUninstall)}
                   onClick={setAppDetailModalStateUninstall}
                 >
                   Uninstall App
@@ -144,8 +139,6 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                   type="button"
                   variant="primary"
                   dataTest="btnAppDetailInstallApp"
-                  loading={false}
-                  disabled={false}
                   onClick={() => {
                     if (!id) {
                       return
@@ -165,8 +158,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
 export const mapStateToProps = (state: ReduxState): AppDetailModalMappedProps => {
   return {
     isCurrentLoggedUserClient: state.auth.loginType === 'CLIENT',
-    isCurrentLoggedUserDeveloper: state.auth.loginType === 'DEVELOPER',
-    appUninstallFormState: state.appUninstall.formState
+    isCurrentLoggedUserDeveloper: state.auth.loginType === 'DEVELOPER'
   }
 }
 

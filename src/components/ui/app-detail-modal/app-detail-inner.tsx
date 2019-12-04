@@ -1,14 +1,15 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
-import { ReduxState } from '@/types/core'
+import { ReduxState, FormState } from '@/types/core'
 import AppDetail from '@/components/ui/app-detail'
 import { AppDetailState } from '@/reducers/app-detail'
 import AppInstallConfirm from '@/components/ui/app-confirm-install'
 import AppUninstallConfirm from '@/components/ui/app-confirm-uninstall'
 import CallToAction from '../call-to-action'
-import { handleCloseModal, mapDispatchToProps } from '../app-confirm-install'
 import { ModalBody } from '@reapit/elements'
+import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
+import { appInstallationsSetFormState } from '@/actions/app-installations'
 
 export interface AppDetailInnerMappedProps {
   appDetailModalState: AppDetailModalState
@@ -17,6 +18,7 @@ export interface AppDetailInnerMappedProps {
 
 export interface AppDetailInnerMappedActions {
   setAppDetailModalStateView: () => void
+  installationsSetFormState: (formState: FormState) => void
 }
 
 export const mapStateToProps = (state: ReduxState): AppDetailInnerMappedProps => ({
@@ -24,16 +26,32 @@ export const mapStateToProps = (state: ReduxState): AppDetailInnerMappedProps =>
   appDetailState: state.appDetail
 })
 
+export const mapDispatchToProps = (dispatch: any): AppDetailInnerMappedActions => ({
+  setAppDetailModalStateView: () => dispatch(setAppDetailModalStateView()),
+  installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState))
+})
+
 export type AppDetailInnerProps = AppDetailInnerMappedProps &
   AppDetailInnerMappedActions & {
     afterClose?: () => void
   }
 
+export const handleCloseModal = (
+  setAppDetailModalStateView: () => void,
+  afterClose?: () => void,
+  installationsSetFormState?: (formState: FormState) => void
+) => () => {
+  afterClose && afterClose()
+  installationsSetFormState && installationsSetFormState('DONE')
+  setAppDetailModalStateView()
+}
+
 export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   appDetailModalState,
   appDetailState,
   afterClose,
-  setAppDetailModalStateView
+  setAppDetailModalStateView,
+  installationsSetFormState
 }) => {
   if (appDetailModalState === 'VIEW_DETAIL') {
     if (!appDetailState.appDetailData || !appDetailState.appDetailData.data) {
@@ -60,7 +78,7 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
             title="Success!"
             buttonText="Back to List"
             dataTest="alertInstalledSuccess"
-            onButtonClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
+            onButtonClick={handleCloseModal(setAppDetailModalStateView, afterClose, installationsSetFormState)}
             isCenter
           >
             {appName} has been successfully {isInstalled ? 'installed' : 'uninstalled'}

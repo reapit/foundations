@@ -2,58 +2,75 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { FormState, ReduxState } from '@/types/core'
 import { Button, SubTitleH6, ModalFooter, ModalBody, ModalHeader } from '@reapit/elements'
-import { appUninstallRequestData, appUninstallDone } from '@/actions/app-uninstall'
-import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
+import { setAppDetailModalStateView, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
+import { AppDetailModel } from '@/types/marketplace-api-schema'
+import { appInstallationsRequestUninstall, UninstallParams } from '@/actions/app-installations'
 
-export type AppConfirmUninstallMappedProps = {
-  appUninstallFormState: FormState
-  appName: string
+export interface AppConfirmUninstallInnerProps {
+  afterClose?: () => void
+}
+
+export interface AppConfirmUninstallMappedProps {
+  appDetailData?: AppDetailModel
+  installationsFormState: FormState
 }
 
 export interface AppConfirmUninstallMappedActions {
   setAppDetailModalStateView: () => void
-  requestUninstall: () => void
-  uninstallDone: () => void
+  setAppDetailModalStateSuccess: () => void
+  uninstallApp: (params: UninstallParams) => () => void
 }
 
-export type AppConfirmUninstallInnerProps = AppConfirmUninstallMappedProps &
-  AppConfirmUninstallMappedActions & {
-    setAppDetailModalStateView: () => void
-    afterClose?: () => void
-  }
+export type AppConfirmUninstallProps = AppConfirmUninstallInnerProps &
+  AppConfirmUninstallMappedProps &
+  AppConfirmUninstallMappedActions
 
 export const handleCloseModal = (setAppDetailModalStateView: () => void, afterClose?: () => void) => () => {
   if (afterClose) afterClose()
   setAppDetailModalStateView()
 }
 
-export const AppConfirmUninstall = ({
-  requestUninstall,
-  uninstallDone,
-  appUninstallFormState,
-  appName,
-  afterClose,
-  setAppDetailModalStateView
-}: AppConfirmUninstallInnerProps) => {
-  const isLoading = appUninstallFormState === 'SUBMITTING'
-  const isSuccessed = appUninstallFormState === 'SUCCESS'
-
+export const handleUninstallSuccess = ({ isSuccessed, setAppDetailModalStateSuccess }) => () => {
   if (isSuccessed) {
-    uninstallDone()
-    return null
+    setAppDetailModalStateSuccess()
   }
+}
+
+export const generateUninstallParams = ({ id, installationId }) => () => {
+  return {
+    appId: id,
+    installationId,
+    terminatedReason: 'User uninstall'
+  } as UninstallParams
+}
+
+export const AppConfirmUninstall = ({
+  appDetailData,
+  uninstallApp,
+  installationsFormState,
+  afterClose,
+  setAppDetailModalStateView,
+  setAppDetailModalStateSuccess
+}: AppConfirmUninstallProps) => {
+  const isLoading = installationsFormState === 'SUBMITTING'
+  const isSuccessed = installationsFormState === 'SUCCESS'
+  const { id, installationId, name } = appDetailData || {}
+
+  React.useEffect(handleUninstallSuccess({ isSuccessed, setAppDetailModalStateSuccess }), [isSuccessed])
+
+  const uninstallParams = React.useMemo(generateUninstallParams({ id, installationId }), [appDetailData])
 
   return (
     <>
       <ModalHeader
-        title={`Confirm ${appName} uninstall`}
+        title={`Confirm ${name} uninstall`}
         afterClose={afterClose as () => void}
         data-test="confirm-content"
       />
       <ModalBody
         body={
           <SubTitleH6 isCentered>
-            Are you sure you wish to uninstall {appName}? This action will uninstall the app for ALL platform users.
+            Are you sure you wish to uninstall {name}? This action will uninstall the app for ALL platform users.
           </SubTitleH6>
         }
       />
@@ -67,7 +84,7 @@ export const AppConfirmUninstall = ({
               fullWidth
               type="button"
               variant="primary"
-              onClick={requestUninstall}
+              onClick={uninstallApp(uninstallParams)}
             >
               Agree
             </Button>
@@ -90,14 +107,14 @@ export const AppConfirmUninstall = ({
 }
 
 export const mapStateToProps = (state: ReduxState): AppConfirmUninstallMappedProps => ({
-  appName: state?.appDetail?.appDetailData?.data?.name || '',
-  appUninstallFormState: state.appUninstall.formState
+  appDetailData: state.appDetail.appDetailData?.data,
+  installationsFormState: state.installations.formState
 })
 
 export const mapDispatchToProps = (dispatch: any): AppConfirmUninstallMappedActions => ({
   setAppDetailModalStateView: () => dispatch(setAppDetailModalStateView()),
-  requestUninstall: () => dispatch(appUninstallRequestData()),
-  uninstallDone: () => dispatch(appUninstallDone())
+  setAppDetailModalStateSuccess: () => dispatch(setAppDetailModalStateSuccess()),
+  uninstallApp: (params: UninstallParams) => () => dispatch(appInstallationsRequestUninstall(params))
 })
 
 const AppConfirmUninstallInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppConfirmUninstall)

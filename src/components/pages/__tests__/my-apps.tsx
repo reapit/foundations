@@ -40,15 +40,15 @@ describe('MyApps', () => {
 
   it('handleUseEffect', () => {
     const mockProps = {
-      isSuccess: true,
-      appUninstallDone: jest.fn(),
+      isDone: true,
+      installationsSetFormState: jest.fn(),
       fetchMyApp: jest.fn(),
       pageNumber: 1
     }
     const fn = handleUseEffect(mockProps)
     fn()
+    expect(mockProps.installationsSetFormState).toBeCalled()
     expect(mockProps.fetchMyApp).toBeCalledWith(mockProps.pageNumber)
-    expect(mockProps.appUninstallDone).toBeCalled()
   })
 
   it('mapStateToProps', () => {
@@ -62,7 +62,7 @@ describe('MyApps', () => {
           }
         }
       },
-      appUninstall: {
+      installations: {
         formState: 'PENDING'
       }
     } as ReduxState
@@ -71,7 +71,7 @@ describe('MyApps', () => {
       myAppsState: {},
       appDetail: {},
       clientId: '',
-      appUninstallFormState: 'PENDING'
+      installationsFormState: 'PENDING'
     }
     expect(result).toEqual(output)
   })
@@ -91,10 +91,10 @@ describe('MyApps', () => {
       expect(mockDispatch).toBeCalled()
     })
 
-    it('appUninstallDone', () => {
+    it('installationsSetFormState', () => {
       const mockDispatch = jest.fn()
-      const { appUninstallDone } = mapDispatchToProps(mockDispatch)
-      appUninstallDone()
+      const { installationsSetFormState } = mapDispatchToProps(mockDispatch)
+      installationsSetFormState('PENDING')
       expect(mockDispatch).toBeCalled()
     })
   })

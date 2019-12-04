@@ -5,7 +5,7 @@ exports[`AppConfirmUninstall render correctly 1`] = `
   <ModalHeader
     afterClose={[MockFunction]}
     data-test="confirm-content"
-    title="Confirm mockAppName uninstall"
+    title="Confirm Peter's Properties uninstall"
   />
   <ModalBody
     body={
@@ -13,7 +13,7 @@ exports[`AppConfirmUninstall render correctly 1`] = `
         isCentered={true}
       >
         Are you sure you wish to uninstall 
-        mockAppName
+        Peter's Properties
         ? This action will uninstall the app for ALL platform users.
       </SubTitleH6>
     }
@@ -26,7 +26,6 @@ exports[`AppConfirmUninstall render correctly 1`] = `
           dataTest="agree-btn"
           fullWidth={true}
           loading={false}
-          onClick={[MockFunction]}
           type="button"
           variant="primary"
         >
@@ -54,7 +53,7 @@ exports[`AppConfirmUninstall render correctly 2`] = `
   <ModalHeader
     afterClose={[MockFunction]}
     data-test="confirm-content"
-    title="Confirm mockAppName uninstall"
+    title="Confirm Peter's Properties uninstall"
   />
   <ModalBody
     body={
@@ -62,7 +61,7 @@ exports[`AppConfirmUninstall render correctly 2`] = `
         isCentered={true}
       >
         Are you sure you wish to uninstall 
-        mockAppName
+        Peter's Properties
         ? This action will uninstall the app for ALL platform users.
       </SubTitleH6>
     }
@@ -75,7 +74,6 @@ exports[`AppConfirmUninstall render correctly 2`] = `
           dataTest="agree-btn"
           fullWidth={true}
           loading={false}
-          onClick={[MockFunction]}
           type="button"
           variant="primary"
         >
@@ -103,7 +101,7 @@ exports[`AppConfirmUninstall render correctly 3`] = `
   <ModalHeader
     afterClose={[MockFunction]}
     data-test="confirm-content"
-    title="Confirm mockAppName uninstall"
+    title="Confirm Peter's Properties uninstall"
   />
   <ModalBody
     body={
@@ -111,7 +109,7 @@ exports[`AppConfirmUninstall render correctly 3`] = `
         isCentered={true}
       >
         Are you sure you wish to uninstall 
-        mockAppName
+        Peter's Properties
         ? This action will uninstall the app for ALL platform users.
       </SubTitleH6>
     }
@@ -124,7 +122,6 @@ exports[`AppConfirmUninstall render correctly 3`] = `
           dataTest="agree-btn"
           fullWidth={true}
           loading={true}
-          onClick={[MockFunction]}
           type="button"
           variant="primary"
         >
@@ -152,7 +149,7 @@ exports[`AppConfirmUninstall render correctly 4`] = `
   <ModalHeader
     afterClose={[MockFunction]}
     data-test="confirm-content"
-    title="Confirm mockAppName uninstall"
+    title="Confirm Peter's Properties uninstall"
   />
   <ModalBody
     body={
@@ -160,7 +157,7 @@ exports[`AppConfirmUninstall render correctly 4`] = `
         isCentered={true}
       >
         Are you sure you wish to uninstall 
-        mockAppName
+        Peter's Properties
         ? This action will uninstall the app for ALL platform users.
       </SubTitleH6>
     }
@@ -173,7 +170,6 @@ exports[`AppConfirmUninstall render correctly 4`] = `
           dataTest="agree-btn"
           fullWidth={true}
           loading={false}
-          onClick={[MockFunction]}
           type="button"
           variant="primary"
         >
@@ -196,4 +192,50 @@ exports[`AppConfirmUninstall render correctly 4`] = `
 </Fragment>
 `;
 
-exports[`AppConfirmUninstall render correctly 5`] = `""`;
+exports[`AppConfirmUninstall render correctly 5`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties uninstall"
+  />
+  <ModalBody
+    body={
+      <SubTitleH6
+        isCentered={true}
+      >
+        Are you sure you wish to uninstall 
+        Peter's Properties
+        ? This action will uninstall the app for ALL platform users.
+      </SubTitleH6>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          className="mx-4"
+          dataTest="agree-btn"
+          fullWidth={true}
+          loading={false}
+          type="button"
+          variant="primary"
+        >
+          Agree
+        </Button>
+        <Button
+          className="mx-4"
+          dataTest="disagree-btn"
+          disabled={false}
+          fullWidth={true}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Disagree
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;

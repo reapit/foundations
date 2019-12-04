@@ -73,24 +73,36 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
     }
     data-test="app-detail-modal"
     footerItems={
-      <React.Fragment>
-        <Button
-          dataTest="detail-modal-delete-button"
-          onClick={[Function]}
-          type="button"
-          variant="secondary"
-        >
-          Delete App
-        </Button>
-        <Button
-          dataTest="detail-modal-edit-button"
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          Edit Detail
-        </Button>
-      </React.Fragment>
+      <Level>
+        <LevelLeft>
+          <Button
+            dataTest="detail-modal-delete-button"
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            Installations
+          </Button>
+        </LevelLeft>
+        <LevelRight>
+          <Button
+            dataTest="detail-modal-delete-button"
+            onClick={[Function]}
+            type="button"
+            variant="secondary"
+          >
+            Delete App
+          </Button>
+          <Button
+            dataTest="detail-modal-edit-button"
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            Edit Detail
+          </Button>
+        </LevelRight>
+      </Level>
     }
   />
   <AppDeleteModalWithRedux
@@ -98,6 +110,13 @@ exports[`DeveloperAppModalInner should match a snapshot when LOADING false 1`] =
     appId="9b6fd5f7-2c15-483d-b925-01b650538e52"
     appName="Peter's Properties"
     onDeleteSuccess={[Function]}
+    visible={false}
+  />
+  <Component
+    afterClose={[Function]}
+    appId="9b6fd5f7-2c15-483d-b925-01b650538e52"
+    appName="Peter's Properties"
+    onUninstallSuccess={[Function]}
     visible={false}
   />
 </Fragment>

@@ -1,7 +1,5 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
 import auth from '../reducers/auth'
-import appInstall from '../reducers/app-install'
-import appUninstall from '../reducers/app-uninstall'
 import client from '../reducers/client'
 import myApps from '../reducers/my-apps'
 import developer from '../reducers/developer'
@@ -18,6 +16,7 @@ import appDeleteReducer from '../reducers/app-delete'
 import appCategories from '../reducers/app-categories'
 import settingsReducer from '../reducers/settings'
 import adminApps from '../reducers/admin-apps'
+import appInstallationsReducer from '../reducers/app-installations'
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
@@ -32,8 +31,6 @@ import adminApprovalSagas from '../sagas/admin-approvals'
 import adminDevManagementSagas from '../sagas/admin-dev-management'
 import developerDeleteSagas from '../sagas/developer-delete'
 import revisionDetailSagas from '../sagas/revision-detail'
-import appInstallSagas from '../sagas/app-install'
-import appUninstallSagas from '../sagas/app-uninstall'
 import appDeleteSagas from '../sagas/app-delete'
 import forgotPasswordSagas from '../sagas/forgot-password'
 import forgotPasswordReducer from '../reducers/forgot-password'
@@ -41,6 +38,7 @@ import settingSagas from '../sagas/settings'
 import adminAppsSagas from '../sagas/admin-apps'
 import resetPasswordReducer from '../reducers/reset-password'
 import resetPasswordSagas from '../sagas/reset-password'
+import appInstallationsSagas from '../sagas/app-installations'
 
 export class Store {
   static _instance: Store
@@ -72,13 +70,12 @@ export class Store {
     developerDelete,
     revisionDetail,
     appDetailModal,
-    appInstall,
-    appUninstall,
     appDelete: appDeleteReducer,
     appCategories,
     forgotPassword: forgotPasswordReducer,
     settings: settingsReducer,
-    resetPassword: resetPasswordReducer
+    resetPassword: resetPasswordReducer,
+    installations: appInstallationsReducer
   })
 
   static sagas = function*() {
@@ -94,13 +91,12 @@ export class Store {
       fork(adminDevManagementSagas),
       fork(developerDeleteSagas),
       fork(revisionDetailSagas),
-      fork(appInstallSagas),
-      fork(appUninstallSagas),
       fork(appDeleteSagas),
       fork(forgotPasswordSagas),
       fork(settingSagas),
       fork(adminAppsSagas),
-      fork(resetPasswordSagas)
+      fork(resetPasswordSagas),
+      fork(appInstallationsSagas)
     ])
   }
 
