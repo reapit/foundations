@@ -15,6 +15,7 @@ import {
   FormikBag,
   FormikErrors
 } from '@reapit/elements'
+import { validate } from '@/utils/form/change-password'
 
 export type ChangePasswordFormProps = FormikProps<ChangePasswordValues>
 
@@ -68,14 +69,6 @@ export type ChangePasswordValues = {
   confirmPassword: string
 }
 
-export const validateChangePasswordForm = (values: ChangePasswordValues) => {
-  const errors: FormikErrors<ChangePasswordValues> = {}
-  if (values.password !== values.confirmPassword) {
-    errors.confirmPassword = 'Passwords do not match'
-  }
-  return errors
-}
-
 export const mapPropsChangePassword = (): ChangePasswordValues => ({
   currentPassword: '',
   password: '',
@@ -102,7 +95,7 @@ export const handleSubmitChangePassword = async (
 
 export const withChangePasswordForm = withFormik({
   displayName: 'WithChangePasswordForm',
-  validate: validateChangePasswordForm,
+  validate,
   mapPropsToValues: mapPropsChangePassword,
   handleSubmit: handleSubmitChangePassword
 })

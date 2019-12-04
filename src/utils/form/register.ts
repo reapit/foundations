@@ -1,5 +1,6 @@
 import { isEmail } from '../validate'
 import { RegisterFormValues } from '@/components/pages/register'
+import { isValidPassword } from '@reapit/elements'
 
 export type RegisterFormError = Partial<RegisterFormValues>
 
@@ -24,8 +25,9 @@ export function registerValidate(values: RegisterFormValues) {
     errors.telephone = 'Required'
   }
 
-  if (!values.password) {
-    errors.password = 'Required'
+  if (!isValidPassword(values.password)) {
+    errors.password =
+      'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number'
   } else {
     if (!values.confirmPassword) {
       errors.confirmPassword = 'Required'

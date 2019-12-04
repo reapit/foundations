@@ -10,7 +10,6 @@ import {
   Form,
   withFormik,
   FormikProps,
-  FormikErrors,
   FormikBag
 } from '@reapit/elements'
 import { compose, Dispatch } from 'redux'
@@ -18,6 +17,7 @@ import { connect } from 'react-redux'
 import { resetPassword } from '@/actions/reset-password'
 import { ReduxState } from '@/types/core'
 import { withRouter, RouteComponentProps } from 'react-router'
+import { validate } from '@/utils/form/reset-password'
 
 export type ResetPasswordFormProps = FormikProps<ResetPasswordValues> & StateProps & DispatchProps
 
@@ -66,14 +66,6 @@ export type ResetPasswordValues = {
   confirmPassword: string
 }
 
-export const validateResetPasswordForm = (values: ResetPasswordValues) => {
-  const errors: FormikErrors<ResetPasswordValues> = {}
-  if (values.password !== values.confirmPassword) {
-    errors.confirmPassword = 'Passwords do not match'
-  }
-  return errors
-}
-
 export type ResetPasswordParams = {
   values: ResetPasswordValues
   token: string
@@ -93,7 +85,7 @@ export const handleSubmitResetPassword = async (
 
 export const withForm = withFormik({
   displayName: 'ResetPasswordPageWithForm',
-  validate: validateResetPasswordForm,
+  validate,
   mapPropsToValues: mapPropsToValues,
   handleSubmit: handleSubmitResetPassword
 })
