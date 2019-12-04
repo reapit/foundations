@@ -1,4 +1,3 @@
-
 // @ts-ignore
 require('dotenv').config({
   path: '../constants/.env'
@@ -50,7 +49,7 @@ const fetchDefinitionsForSchema = async (schemaConfig, accessToken) => {
        * reason: because metadata child fields can be any type: string, number, object
        *
        */
-      const cookedDefinitions = convertedDefinitions.replace(/\[name[^}]+}/g, '[name: string]:any')
+      const cookedDefinitions = convertedDefinitions.replace(/\[name: string]: {\n\s{4}};\n/g, '[name: string]:any;\n')
 
       // Write interfaces to file
       fs.writeFile(definitionFile, cookedDefinitions, error => {
