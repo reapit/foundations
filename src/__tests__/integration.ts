@@ -5,7 +5,8 @@ jest.setTimeout(20000)
 
 let storedRefreshToken = ''
 
-describe('integration tests', () => {
+// TODO - Skipping test suite as service will soon be deprecated
+xdescribe('integration tests', () => {
   describe('Login integration tests', () => {
     it('should return a positive 200 response if I log in with valid credentials', async () => {
       const body = JSON.stringify({
