@@ -10,7 +10,8 @@ import {
   validateMinCharacterLength,
   validateRequire,
   validateURI,
-  validateEmail
+  validateEmail,
+  validatePassword
 } from './index'
 
 const validate = values => {
@@ -21,6 +22,7 @@ const validate = values => {
   errors = validateMaxCharacterLength({ values, currentErrors: errors, keys: ['name'], length: 10 })
   errors = validateEmail({ values, currentErrors: errors, keys: ['email'] })
   errors = validateURI({ values, currentErrors: errors, keys: ['uri'] })
+  errors = validatePassword({ values, currentErrors: errors, keys: ['password'] })
 
   return errors
 }
@@ -44,6 +46,8 @@ storiesOf('Validators', module).add('Primary', () => {
                 <Input type="email" name="email" id="email" labelText="Email" />
                 <H3>Validate URI</H3>
                 <Input type="text" name="uri" id="uri" labelText="Uri" />
+                <H3>Validate Password</H3>
+                <Input type="password" name="password" id="password" labelText="Password" />
               </div>
             </Form>
           )

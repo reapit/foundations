@@ -10,3 +10,4 @@ export {
 export { validateEmail, isEmail } from './validate-email'
 export { validateRequire } from './validate-require'
 export { validateURI } from './validate-uri'
+export { validatePassword, isValidPassword } from './validate-password'
