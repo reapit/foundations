@@ -3,7 +3,7 @@ import { AuthenticationDetails } from 'amazon-cognito-identity-js'
 import { getNewUser, getLoginSession } from '../../utils/cognito'
 import errorStrings from '../../constants/error-strings'
 
-export const loginUserSessionService = async ({ userName, password }: LoginParams): Promise<LoginSession> => {
+export const loginUserSessionService = async ({ userName, password }: LoginParams): Promise<Partial<LoginSession>> => {
   return new Promise((resolve, reject) => {
     const authenticationData = {
       Username: userName,
