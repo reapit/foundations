@@ -78,7 +78,6 @@ const Router = () => (
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} exact />
-            <Route render={() => <Info infoType="404" />} />
             <PrivateRoute
               allow="ADMIN"
               path={Routes.ADMIN_DEV_MANAGEMENT}
@@ -93,6 +92,7 @@ const Router = () => (
               exact
               fetcher
             />
+            <Route render={() => <Info infoType="404" />} />
           </Switch>
         </PrivateRouteWrapper>
         <Redirect to={Routes.CLIENT_LOGIN} />
