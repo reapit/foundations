@@ -4,11 +4,6 @@ import { connect } from 'react-redux'
 import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
 import AppDetailInner from './app-detail-inner'
 import AppDetailAsyncContainer from './app-detail-async-container'
-import { FormState, ReduxState } from '@/types/core'
-
-export interface ActionDetailModalMappedState {
-  appInstallFormState: FormState
-}
 
 export interface ActionDetailModalMappedAction {
   setAppDetailModalStateView: () => void
@@ -18,10 +13,6 @@ export type AppDetailModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & A
 
 const mapDispatchToProps = (dispatch: any): ActionDetailModalMappedAction => ({
   setAppDetailModalStateView: () => dispatch(setAppDetailModalStateView())
-})
-
-const mapStateToProps = (state: ReduxState): ActionDetailModalMappedState => ({
-  appInstallFormState: state.appInstall.formState
 })
 
 export const handleAfterClose = (setAppDetailModalStateView: () => void, afterClose?: () => void) => () => {
@@ -45,6 +36,6 @@ export const AppDetailModal: React.FunctionComponent<AppDetailModalProps> = ({
   )
 }
 
-const AppDetailModalWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppDetailModal)
+const AppDetailModalWithConnect = connect(null, mapDispatchToProps)(AppDetailModal)
 
 export default AppDetailModalWithConnect

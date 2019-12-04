@@ -1,27 +1,25 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { FormState, ReduxState } from '@/types/core'
-import { ScopeModel } from '@/types/marketplace-api-schema'
+import { ScopeModel, AppDetailModel } from '@/types/marketplace-api-schema'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter } from '@reapit/elements'
-import { appInstallRequestData, appInstallDone } from '@/actions/app-install'
-import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
+import { setAppDetailModalStateView, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
+import { InstallParams, appInstallationsRequestInstall } from '@/actions/app-installations'
 
 export type AppConfirmInstallContentMappedProps = {
-  permissions: ScopeModel[]
-  appInstallFormState: FormState
-  appName: string
+  installationsFormState: FormState
+  appDetailData?: AppDetailModel
 }
 
 export interface AppConfirmInstallContentMappedActions {
   setAppDetailModalStateView: () => void
-  requestInstall: () => void
-  installDone: () => void
+  setAppDetailModalStateSuccess: () => void
+  installApp: (params: InstallParams) => () => void
 }
 
 export type AppConfirmInstallContentInnerProps = AppConfirmInstallContentMappedProps &
   AppConfirmInstallContentMappedActions & {
-    setAppDetailModalStateView: () => void
     afterClose?: () => void
   }
 
@@ -30,41 +28,45 @@ export const handleCloseModal = (setAppDetailModalStateView: () => void, afterCl
   setAppDetailModalStateView()
 }
 
-export const AppConfirmInstallContent = ({
-  permissions,
-  requestInstall,
-  installDone,
-  appInstallFormState,
-  appName,
-  afterClose,
-  setAppDetailModalStateView
-}: AppConfirmInstallContentInnerProps) => {
-  const isLoading = appInstallFormState === 'SUBMITTING'
-  const isSuccessed = appInstallFormState === 'SUCCESS'
-
+export const handleInstallSuccess = ({ isSuccessed, setAppDetailModalStateSuccess }) => () => {
   if (isSuccessed) {
-    installDone()
-    return null
+    setAppDetailModalStateSuccess()
   }
+}
+
+export const AppConfirmInstallContent = ({
+  installApp,
+  installationsFormState,
+  appDetailData,
+  afterClose,
+  setAppDetailModalStateView,
+  setAppDetailModalStateSuccess
+}: AppConfirmInstallContentInnerProps) => {
+  const isLoading = installationsFormState === 'SUBMITTING'
+  const isSuccessed = installationsFormState === 'SUCCESS'
+
+  const { name, id, scopes = [] } = appDetailData || {}
+
+  React.useEffect(handleInstallSuccess({ isSuccessed, setAppDetailModalStateSuccess }), [isSuccessed])
 
   return (
     <>
       <ModalHeader
-        title={`Confirm ${appName} installation`}
+        title={`Confirm ${name} installation`}
         afterClose={afterClose as () => void}
         data-test="confirm-content"
       />
       <ModalBody
         body={
-          permissions.length ? (
+          scopes.length ? (
             <>
               <SubTitleH6 isCentered>
                 This action will install the app for ALL platform users.
                 <br />
-                {appName} requires the permissions below. By installing you are granting permission to your data.
+                {name} requires the permissions below. By installing you are granting permission to your data.
               </SubTitleH6>
               <ul className={appPermissionContentStyles.permissionList}>
-                {permissions.map(({ description, name }) => (
+                {scopes.map(({ description, name }) => (
                   <li key={name} className={appPermissionContentStyles.permissionListItem}>
                     {description}
                   </li>
@@ -85,7 +87,7 @@ export const AppConfirmInstallContent = ({
               className={appPermissionContentStyles.installButton}
               type="button"
               variant="primary"
-              onClick={requestInstall}
+              onClick={installApp({ appId: id })}
             >
               Confirm
             </Button>
@@ -107,15 +109,14 @@ export const AppConfirmInstallContent = ({
 }
 
 export const mapStateToProps = (state: ReduxState): AppConfirmInstallContentMappedProps => ({
-  permissions: state?.appDetail?.appDetailData?.data?.scopes || [],
-  appName: state?.appDetail?.appDetailData?.data?.name || '',
-  appInstallFormState: state.appInstall.formState
+  appDetailData: state?.appDetail?.appDetailData?.data,
+  installationsFormState: state.installations.formState
 })
 
 export const mapDispatchToProps = (dispatch: any): AppConfirmInstallContentMappedActions => ({
   setAppDetailModalStateView: () => dispatch(setAppDetailModalStateView()),
-  requestInstall: () => dispatch(appInstallRequestData()),
-  installDone: () => dispatch(appInstallDone())
+  setAppDetailModalStateSuccess: () => dispatch(setAppDetailModalStateSuccess()),
+  installApp: (params: InstallParams) => () => dispatch(appInstallationsRequestInstall(params))
 })
 
 const AppConfirmInstallContentInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppConfirmInstallContent)

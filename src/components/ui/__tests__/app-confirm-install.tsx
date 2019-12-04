@@ -4,83 +4,47 @@ import toJson from 'enzyme-to-json'
 import { FormState, ReduxState } from '@/types/core'
 import { AppConfirmInstallContent, handleCloseModal, mapDispatchToProps, mapStateToProps } from '../app-confirm-install'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
+
+const mockProps = {
+  appDetailData: appDetailDataStub.data,
+  installationsFormState: 'PENDING' as FormState,
+  afterClose: jest.fn(),
+  installApp: jest.fn(),
+  setAppDetailModalStateView: jest.fn(),
+  setAppDetailModalStateSuccess: jest.fn()
+}
 
 describe('AppConfirmInstallContent', () => {
   it('render correctly', () => {
-    const mockProps = {
-      permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
-      requestInstall: jest.fn(),
-      installDone: jest.fn(),
-      appName: 'mockAppName',
-      afterClose: jest.fn(),
-      setAppDetailModalStateView: jest.fn()
-    }
-    const wrapper = shallow(<AppConfirmInstallContent appInstallFormState="PENDING" {...mockProps} />)
+    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
     expect(toJson(wrapper)).toMatchSnapshot()
-    const wrapper1 = shallow(<AppConfirmInstallContent appInstallFormState="DONE" {...mockProps} />)
+    const wrapper1 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="DONE" />)
     expect(toJson(wrapper1)).toMatchSnapshot()
-    const wrapper2 = shallow(<AppConfirmInstallContent appInstallFormState="SUBMITTING" {...mockProps} />)
+    const wrapper2 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="SUBMITTING" />)
     expect(toJson(wrapper2)).toMatchSnapshot()
-    const wrapper3 = shallow(<AppConfirmInstallContent appInstallFormState="ERROR" {...mockProps} />)
+    const wrapper3 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="ERROR" />)
     expect(toJson(wrapper3)).toMatchSnapshot()
-    const wrapper4 = shallow(<AppConfirmInstallContent appInstallFormState="SUCCESS" {...mockProps} />)
+    const wrapper4 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="SUCCESS" />)
     expect(toJson(wrapper4)).toMatchSnapshot()
   })
 
   it('should return null when formState SUCCESS', () => {
-    const mockProps = {
-      permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
-      requestInstall: jest.fn(),
-      installDone: jest.fn(),
-      appName: 'mockAppName',
-      afterClose: jest.fn(),
-      setAppDetailModalStateView: jest.fn(),
-      appInstallFormState: 'SUCCESS' as FormState
-    }
-    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
+    const wrapper = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="SUCCESS" />)
     expect(wrapper).toEqual({})
   })
 
   it('show confirm content', () => {
-    const mockProps = {
-      permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
-      requestInstall: jest.fn(),
-      installDone: jest.fn(),
-      appName: 'mockAppName',
-      afterClose: jest.fn(),
-      setAppDetailModalStateView: jest.fn(),
-      appInstallFormState: 'PENDING' as FormState
-    }
     const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
     expect(wrapper.find('[data-test="confirm-content"]')).toHaveLength(1)
   })
 
   it('button agree show loading when agree install', () => {
-    const mockProps = {
-      permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
-      requestInstall: jest.fn(),
-      installDone: jest.fn(),
-      appName: 'mockAppName',
-      afterClose: jest.fn(),
-      setAppDetailModalStateView: jest.fn(),
-      appInstallFormState: 'SUBMITTING' as FormState
-    }
-    const wrapper = mount(<AppConfirmInstallContent {...mockProps} />)
+    const wrapper = mount(<AppConfirmInstallContent {...mockProps} installationsFormState="SUBMITTING" />)
     expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
   })
 
   it('button disagree show loading when agree install', () => {
-    const mockProps = {
-      permissions: [{ name: 'Marketplace/developers.read', description: 'Read data about developers' }],
-      requestInstall: jest.fn(),
-      installDone: jest.fn(),
-      appName: 'mockAppName',
-      afterClose: jest.fn(),
-      setAppDetailModalStateView: jest.fn(),
-      appInstallFormState: 'SUBMITTING' as FormState
-    }
-    const wrapper = mount(<AppConfirmInstallContent {...mockProps} />)
+    const wrapper = mount(<AppConfirmInstallContent {...mockProps} installationsFormState="SUBMITTING" />)
     expect(wrapper.find('[dataTest="agree-btn"]').prop('loading')).toEqual(true)
   })
   it('handleCloseModal', () => {
@@ -94,15 +58,17 @@ describe('AppConfirmInstallContent', () => {
 
   describe('mapDispatchToProps', () => {
     const dispatch = jest.fn()
-    const afterClose = jest.fn()
-    const setAppDetailModalStateView = jest.fn()
     const fn = mapDispatchToProps(dispatch)
     it('should call dispatch when involke request install', () => {
-      fn.requestInstall()
+      fn.installApp({ appId: '1' })()
       expect(dispatch).toBeCalled()
     })
-    it('should call dispatch when involke request install', () => {
+    it('should call dispatch when involke setAppDetailModalStateView', () => {
       fn.setAppDetailModalStateView()
+      expect(dispatch).toBeCalled()
+    })
+    it('should call dispatch when involke setAppDetailModalStateSuccess', () => {
+      fn.setAppDetailModalStateSuccess()
       expect(dispatch).toBeCalled()
     })
   })
@@ -113,31 +79,15 @@ describe('AppConfirmInstallContent', () => {
         appDetail: {
           appDetailData: appDetailDataStub
         },
-        appInstall: {
+        installations: {
           formState: 'PENDING'
         }
-      }
+      } as ReduxState
       const expected = {
-        permissions: appPermissionStub,
-        appName: `Peter's Properties`,
-        appInstallFormState: 'PENDING'
+        appDetailData: appDetailDataStub.data,
+        installationsFormState: 'PENDING'
       }
-      const result = mapStateToProps(mockState as ReduxState)
-      expect(result).toEqual(expected)
-    })
-
-    it('should return correct Props when no data', () => {
-      const mockState = {
-        appInstall: {
-          formState: 'PENDING'
-        }
-      }
-      const expected = {
-        permissions: [],
-        appName: '',
-        appInstallFormState: 'PENDING'
-      }
-      const result = mapStateToProps(mockState as ReduxState)
+      const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
     })
   })

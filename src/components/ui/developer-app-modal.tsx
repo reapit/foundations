@@ -2,13 +2,15 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AppDetailState } from '@/reducers/app-detail'
-import { Button, Modal, ModalProps, Loader, Alert, ModalBody, ModalHeader } from '@reapit/elements'
+import { Button, Modal, ModalProps, Loader, Alert, ModalBody, Level, LevelLeft, LevelRight } from '@reapit/elements'
 import AppDelete from '@/components/ui/app-delete'
 import AppDetail from './app-detail'
 import { withRouter, RouteComponentProps } from 'react-router'
 import routes from '@/constants/routes'
 import { developerRequestData } from '@/actions/developer'
 import { Dispatch } from 'redux'
+import styles from '@/styles/blocks/developer-app-modal.scss?mod'
+import AppInstallations from './app-installations/app-installations-modal'
 
 export interface DeveloperAppModalMappedProps {
   appDetailState: AppDetailState
@@ -29,6 +31,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
   history
 }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
+  const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
 
   if (appDetailState.loading) {
     return <ModalBody body={<Loader />} />
@@ -51,25 +54,37 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
         afterClose={closeParentModal as () => void}
         data-test="app-detail-modal"
         footerItems={
-          <>
-            <Button
-              type="button"
-              variant="secondary"
-              dataTest="detail-modal-delete-button"
-              onClick={() => setIsDeleteModalOpen(true)}
-            >
-              Delete App
-            </Button>
-            <Button
-              type="button"
-              variant="primary"
-              dataTest="detail-modal-edit-button"
-              onClick={() => history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)}
-              disabled={pendingRevisions}
-            >
-              {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
-            </Button>
-          </>
+          <Level className={styles.footer}>
+            <LevelLeft>
+              <Button
+                type="button"
+                variant="primary"
+                dataTest="detail-modal-delete-button"
+                onClick={() => setIsInstallationsModalOpen(true)}
+              >
+                Installations
+              </Button>
+            </LevelLeft>
+            <LevelRight>
+              <Button
+                type="button"
+                variant="secondary"
+                dataTest="detail-modal-delete-button"
+                onClick={() => setIsDeleteModalOpen(true)}
+              >
+                Delete App
+              </Button>
+              <Button
+                type="button"
+                variant="primary"
+                dataTest="detail-modal-edit-button"
+                onClick={() => history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)}
+                disabled={pendingRevisions}
+              >
+                {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
+              </Button>
+            </LevelRight>
+          </Level>
         }
       />
 
@@ -82,6 +97,17 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
           closeParentModal && closeParentModal()
           setIsDeleteModalOpen(false)
           fetchDeveloperApps(1)
+        }}
+      />
+
+      <AppInstallations
+        appId={id || ''}
+        appName={name || ''}
+        visible={isInstallationsModalOpen}
+        afterClose={() => setIsInstallationsModalOpen(false)}
+        onUninstallSuccess={() => {
+          closeParentModal && closeParentModal()
+          setIsInstallationsModalOpen(false)
         }}
       />
     </>
