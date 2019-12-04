@@ -67,7 +67,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
           <Loader />
         ) : (
           <div className={styles.clientContent}>
-            {!hasParams && (
+            {!hasParams && featuredApps.length > 0 && (
               <>
                 <AppList
                   list={featuredApps}

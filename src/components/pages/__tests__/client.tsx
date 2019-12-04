@@ -12,9 +12,13 @@ import {
   mapDispatchToProps,
   handleAfterClose,
   handleOnChange,
-  handleOnCardClick
+  handleOnCardClick,
+  ClientMappedProps
 } from '../client'
 import { addQuery } from '@/utils/client-url-params'
+import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { RouteComponentProps, StaticContext } from 'react-router'
+import { AppDetailState } from '@/reducers/app-detail'
 
 describe('Client', () => {
   it('should match a snapshot', () => {
@@ -59,6 +63,62 @@ describe('Client', () => {
       location: {
         search: 'page=1'
       }
+    }
+    expect(toJson(shallow(<Client {...props} />))).toMatchSnapshot()
+  })
+
+  it('should match a snapshot when featured apps is empty []', () => {
+    const routerProps = {
+      match: {
+        params: {
+          page: '2'
+        }
+      },
+      location: {
+        search: 'page=1'
+      }
+    } as RouteComponentProps<any, StaticContext, any>
+
+    const props: ClientProps = {
+      clientState: {
+        loading: false,
+        clientData: {
+          featuredApps: [] as AppSummaryModel[],
+          apps: appsDataStub
+        } as ClientItem
+      },
+      fetchAppDetail: jest.fn(),
+      appDetail: {} as AppDetailState,
+      clientId: 'ABC',
+      ...routerProps
+    }
+    expect(toJson(shallow(<Client {...props} />))).toMatchSnapshot()
+  })
+
+  it('should match a snapshot when featured apps is undefined', () => {
+    const routerProps = {
+      match: {
+        params: {
+          page: '2'
+        }
+      },
+      location: {
+        search: 'page=1'
+      }
+    } as RouteComponentProps<any, StaticContext, any>
+
+    const props: ClientProps = {
+      clientState: {
+        loading: false,
+        clientData: {
+          featuredApps: undefined,
+          apps: appsDataStub
+        } as ClientItem
+      },
+      fetchAppDetail: jest.fn(),
+      appDetail: {} as AppDetailState,
+      clientId: 'ABC',
+      ...routerProps
     }
     expect(toJson(shallow(<Client {...props} />))).toMatchSnapshot()
   })
