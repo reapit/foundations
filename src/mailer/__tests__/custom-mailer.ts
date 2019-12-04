@@ -56,7 +56,8 @@ describe('customMailer', () => {
       emailSubject: 'Reapit Foundations: Forgotten Password',
       emailMessage: await forgotPasswordTemplate({
         verificationCode: event.request?.codeParameter as string,
-        userName: event.request?.userAttributes.email as string
+        userName: event.request?.userAttributes.email as string,
+        url: 'https://dev.marketplace.reapit.com/developer/reset-password'
       })
     })
     expect(callback).toHaveBeenCalledWith(null, event)
@@ -81,7 +82,8 @@ describe('customMailer', () => {
     expect(event.response).toEqual({
       emailSubject: 'Welcome to Reapit Foundations',
       emailMessage: await confirmRegistrationTemplate({
-        userName: event.request?.userAttributes.email as string
+        userName: event.request?.userAttributes.email as string,
+        url: 'https://dev.marketplace.reapit.com/register/confirm'
       })
     })
     expect(callback).toHaveBeenCalledWith(null, event)
