@@ -5,7 +5,6 @@ import {
   ResetPasswordForm,
   mapPropsToValues,
   ResetPasswordValues,
-  validateResetPasswordForm,
   handleSubmitResetPassword,
   mapDispatchToProps,
   mapStateToProps
@@ -35,28 +34,6 @@ describe('ResetPasswordForm', () => {
     })
   })
 
-  describe('validateResetPasswordForm', () => {
-    it('should not return errors', () => {
-      const mockValues: ResetPasswordValues = {
-        password: '456',
-        confirmPassword: '456'
-      }
-      const result = validateResetPasswordForm(mockValues)
-      expect(result).toEqual({})
-    })
-
-    it('should return errors', () => {
-      const mockValues: ResetPasswordValues = {
-        password: '456',
-        confirmPassword: '4567'
-      }
-      const result = validateResetPasswordForm(mockValues)
-      expect(result).toEqual({
-        confirmPassword: 'Passwords do not match'
-      })
-    })
-  })
-
   describe('handleSubmitResetPassword', () => {
     it('should not call resetPassword', done => {
       const mockValues: ResetPasswordValues = {
@@ -82,8 +59,8 @@ describe('ResetPasswordForm', () => {
   describe('handleSubmitResetPassword', () => {
     it('should call resetPassword', done => {
       const mockValues: ResetPasswordValues = {
-        password: '456',
-        confirmPassword: '456'
+        password: 'Password1',
+        confirmPassword: 'Password1'
       }
       const mockForm = {
         ...mockFormikAction
@@ -113,8 +90,8 @@ describe('ResetPasswordForm', () => {
       const mockDispatch = jest.fn()
       const { resetPassword } = mapDispatchToProps(mockDispatch)
       resetPassword({
-        confirmPassword: '123',
-        password: '123',
+        confirmPassword: 'Password1',
+        password: 'Password1',
         email: 'abc@gmail.com',
         verificationCode: '123'
       })

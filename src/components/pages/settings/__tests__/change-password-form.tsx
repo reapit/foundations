@@ -4,11 +4,11 @@ import {
   ChangePasswordForm,
   ChangePasswordFormProps,
   ChangePasswordValues,
-  validateChangePasswordForm,
   mapPropsChangePassword,
   handleSubmitChangePassword
 } from '../change-password-form'
 import { mockFormikAction } from '@/utils/mock-formik'
+import { validate } from '@/utils/form/change-password'
 
 describe('ChangePasswordForm', () => {
   it('should match snapshot', () => {
@@ -33,22 +33,35 @@ describe('ChangePasswordForm', () => {
     it('should not return errors', () => {
       const mockValues: ChangePasswordValues = {
         currentPassword: '123',
-        password: '456',
-        confirmPassword: '456'
+        password: 'Password1',
+        confirmPassword: 'Password1'
       }
-      const result = validateChangePasswordForm(mockValues)
+      const result = validate(mockValues)
       expect(result).toEqual({})
     })
 
-    it('should return errors', () => {
+    it('should return errors when passwords do not match', () => {
       const mockValues: ChangePasswordValues = {
         currentPassword: '123',
-        password: '456',
-        confirmPassword: '4567'
+        password: 'Password1',
+        confirmPassword: 'Password2'
       }
-      const result = validateChangePasswordForm(mockValues)
+      const result = validate(mockValues)
       expect(result).toEqual({
-        confirmPassword: 'Passwords do not match'
+        confirmPassword: 'Passwords do not match.'
+      })
+    })
+
+    it('should return errors when password is invalid', () => {
+      const mockValues: ChangePasswordValues = {
+        currentPassword: '123',
+        password: 'abc@123',
+        confirmPassword: 'abc@123'
+      }
+      const result = validate(mockValues)
+      expect(result).toEqual({
+        password:
+          'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number.'
       })
     })
   })
@@ -67,8 +80,8 @@ describe('ChangePasswordForm', () => {
     it('should call setSubmitting', () => {
       const mockValues: ChangePasswordValues = {
         currentPassword: '123',
-        password: '456',
-        confirmPassword: '456'
+        password: 'Password1',
+        confirmPassword: 'Password1'
       }
       const mockForm = {
         ...mockFormikAction

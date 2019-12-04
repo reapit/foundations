@@ -11,7 +11,8 @@ const invalidValues: InputOutput[] = [
       companyName: 'Required',
       email: 'Required',
       telephone: 'Required',
-      password: 'Required',
+      password:
+        'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number',
       agreedTerms: 'Required'
     }
   ],
@@ -25,7 +26,13 @@ const invalidValues: InputOutput[] = [
       confirmPassword: 'xxxxxx',
       agreedTerms: ''
     },
-    { email: 'Required', telephone: 'Required', password: 'Required', agreedTerms: 'Required' }
+    {
+      email: 'Required',
+      telephone: 'Required',
+      password:
+        'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number',
+      agreedTerms: 'Required'
+    }
   ],
   [
     {
@@ -37,7 +44,13 @@ const invalidValues: InputOutput[] = [
       confirmPassword: 'xxxxxx',
       agreedTerms: ''
     },
-    { name: 'Required', email: 'Invalid email address', agreedTerms: 'Required' }
+    {
+      name: 'Required',
+      email: 'Invalid email address',
+      password:
+        'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number',
+      agreedTerms: 'Required'
+    }
   ],
   [
     {
@@ -45,11 +58,16 @@ const invalidValues: InputOutput[] = [
       companyName: 'Doe John',
       email: 'invalid.com@.com',
       telephone: '12345678',
-      password: 'xxxxxx',
-      confirmPassword: 'xxxxxx',
+      password: 'password',
+      confirmPassword: 'password',
       agreedTerms: '123'
     },
-    { name: 'Required', email: 'Invalid email address' }
+    {
+      name: 'Required',
+      email: 'Invalid email address',
+      password:
+        'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number'
+    }
   ],
   [
     {
@@ -57,8 +75,8 @@ const invalidValues: InputOutput[] = [
       companyName: 'Doe',
       email: 'valid@company.com',
       telephone: '12345678',
-      password: 'xxxxxx',
-      confirmPassword: 'xxxxxy',
+      password: 'Password1',
+      confirmPassword: 'Password2',
       agreedTerms: '123'
     },
     { confirmPassword: 'Password does not match' }
@@ -71,8 +89,8 @@ const validValues: RegisterFormValues[] = [
     companyName: 'Doe',
     email: 'alice_doe@gmail.com',
     telephone: '12345678',
-    password: '123456',
-    confirmPassword: '123456',
+    password: 'Password1',
+    confirmPassword: 'Password1',
     agreedTerms: '123'
   },
   {
@@ -80,8 +98,8 @@ const validValues: RegisterFormValues[] = [
     companyName: 'yyyyy',
     email: 'xxxyyyy@company.org',
     telephone: '12345678',
-    password: 'a',
-    confirmPassword: 'a',
+    password: 'Password123',
+    confirmPassword: 'Password123',
     agreedTerms: '123'
   }
 ]
