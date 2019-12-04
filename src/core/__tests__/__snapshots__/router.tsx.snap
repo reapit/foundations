@@ -288,9 +288,6 @@ exports[`Router should match a snapshot 1`] = `
             exact={true}
             path="/admin/apps"
           />
-          <Route
-            render={[Function]}
-          />
           <Connect(Component)
             allow="ADMIN"
             component={
@@ -318,6 +315,9 @@ exports[`Router should match a snapshot 1`] = `
             exact={true}
             fetcher={true}
             path="/admin/dev-management/:page"
+          />
+          <Route
+            render={[Function]}
           />
         </Switch>
       </withRouter(Connect(Component))>

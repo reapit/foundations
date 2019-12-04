@@ -52,7 +52,7 @@ export const generateMenuConfig = (
           type: 'PRIMARY'
         },
         {
-          title: 'Dev Management',
+          title: 'Developers',
           key: 'DEV_MANAGEMENT',
           url: Routes.ADMIN_DEV_MANAGEMENT,
           icon: <FaPortrait className="nav-item-icon" />,
