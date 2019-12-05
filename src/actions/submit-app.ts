@@ -5,7 +5,9 @@ import { CreateAppModel, ScopeModel } from '@/types/marketplace-api-schema'
 import { FormState } from '@/types/core'
 
 export type SubmitAppFormikActions = FormikHelpers<CreateAppModel>
-export type SubmitAppArgs = CreateAppModel & { actions: SubmitAppFormikActions }
+export type SubmitAppArgs = CreateAppModel & { actions: SubmitAppFormikActions } & {
+  setSubmitError: (error: string) => void
+}
 
 export const submitApp = actionCreator<SubmitAppArgs>(ActionTypes.DEVELOPER_SUBMIT_APP)
 export const submitAppSetFormState = actionCreator<FormState>(ActionTypes.DEVELOPER_SUBMIT_APP_SET_FORM_STATE)
