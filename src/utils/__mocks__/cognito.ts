@@ -1,4 +1,4 @@
-import { mockLoginSession, mockRefreshParams } from '../../__mocks__/cognito'
+import { mockLoginSession, mockRefreshParams } from '../../__mocks__/cognito-session'
 
 export const tokenExpired = jest.fn(() => false)
 export const checkHasIdentityId = () => true

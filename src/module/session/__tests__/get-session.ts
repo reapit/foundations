@@ -1,6 +1,6 @@
 import { getSession } from '../get-session'
 import { LoginSession, RefreshParams } from '../../../core/types'
-import { mockLoginSession } from '../../../__mocks__/cognito'
+import { mockLoginSession } from '../../../__mocks__/cognito-session'
 
 jest.mock('../refresh-user-session')
 

@@ -2,7 +2,7 @@ import { loginUserSession, setUserSession } from '../login-user-session'
 import { loginUserSessionService } from '../../../services/session/login-user-session'
 import errorStrings from '../../../constants/error-strings'
 import { LoginParams } from '../../../core/types'
-import { mockLoginSession, mockLoginParams } from '../../../__mocks__/cognito'
+import { mockLoginSession, mockLoginParams } from '../../../__mocks__/cognito-session'
 
 jest.mock('../../../services/session/login-user-session')
 jest.mock('../../../utils/success-handler')
