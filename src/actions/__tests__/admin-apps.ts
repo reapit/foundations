@@ -10,10 +10,10 @@ describe('adminApps actions', () => {
 
   it('should create a adminAppsRequestData action', () => {
     expect(adminAppsRequestData.type).toEqual(ActionTypes.ADMIN_APPS_REQUEST_DATA)
-    expect(adminAppsRequestData({ pageNumber: 1, appName: '1', developerName: '1' }).data).toEqual({
+    expect(adminAppsRequestData({ pageNumber: 1, appName: '1', companyName: '1' }).data).toEqual({
       pageNumber: 1,
       appName: '1',
-      developerName: '1'
+      companyName: '1'
     })
   })
 

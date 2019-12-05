@@ -13,9 +13,9 @@ exports[`AdminApps renderForm should return correctly 1`] = `
     </GridItem>
     <GridItem>
       <Input
-        id="developerName"
+        id="companyName"
         labelText="Developer Name"
-        name="developerName"
+        name="companyName"
         type="text"
       />
     </GridItem>
@@ -55,7 +55,7 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
         initialValues={
           Object {
             "appName": "",
-            "developerName": "",
+            "companyName": "",
           }
         }
         onSubmit={[Function]}
@@ -180,11 +180,6 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
     flexColumn={true}
   >
     <div
-      className="pin absolute flex items-center justify-center"
-    >
-      <Loader />
-    </div>
-    <div
       className="mb-5"
     >
       <H3>
@@ -194,7 +189,7 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
         initialValues={
           Object {
             "appName": "",
-            "developerName": "",
+            "companyName": "",
           }
         }
         onSubmit={[Function]}

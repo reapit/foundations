@@ -12,7 +12,7 @@ describe('admin approvals reducer', () => {
   it('should set loading to true when ADMIN_APPS_REQUEST_DATA action is called', () => {
     const newState = adminAppsReducer(undefined, {
       type: ActionTypes.ADMIN_APPS_REQUEST_DATA as ActionType,
-      data: { pageNumber: 1, appName: '1', developerName: '1' }
+      data: { pageNumber: 1, appName: '1', companyName: '1' }
     })
     const expected = {
       ...defaultState,
