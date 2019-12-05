@@ -5,9 +5,9 @@ import { deserializeIdToken, checkHasIdentityId, setSessionCookie } from '../../
 
 export const refreshUserSession = async (params: RefreshParams): Promise<Partial<LoginSession> | undefined> => {
   const { userName, refreshToken } = params
-
+  const paramsValid = userName && refreshToken
   try {
-    if (!userName || !refreshToken) {
+    if (!paramsValid) {
       throw new Error(errorStrings.REFRESH_TOKEN_PASSWORD_REQUIRED)
     }
     const session = await refreshUserSessionService(params)
@@ -20,24 +20,15 @@ export const refreshUserSession = async (params: RefreshParams): Promise<Partial
 export const setRefreshSession = async (params: RefreshParams): Promise<LoginSession | null> => {
   const { userName, loginType, mode } = params
   const refreshedSession: Partial<LoginSession> | undefined = await refreshUserSession(params)
-
-  if (refreshedSession) {
-    const loginIdentity = deserializeIdToken(refreshedSession)
-
-    if (checkHasIdentityId(loginType, loginIdentity)) {
-      const loginSession = {
-        ...refreshedSession,
-        loginType,
-        userName,
-        mode,
-        loginIdentity
-      } as LoginSession
-
-      setSessionCookie(loginSession)
-
-      return loginSession
-    }
+  const loginIdentity = refreshedSession && deserializeIdToken(refreshedSession)
+  if (loginIdentity && checkHasIdentityId(loginType, loginIdentity)) {
+    return {
+      ...refreshedSession,
+      loginType,
+      userName,
+      mode,
+      loginIdentity
+    } as LoginSession
   }
-
   return null
 }

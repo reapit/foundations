@@ -4,9 +4,9 @@ import { ChangePasswordParams } from '../../core/types'
 
 export const changePassword = async (params: ChangePasswordParams): Promise<string | undefined> => {
   const { userName, password, newPassword } = params
-
+  const paramsValid = userName && password && newPassword
   try {
-    if (!userName || !password || !newPassword) {
+    if (!paramsValid) {
       throw new Error(errorStrings.USERNAME_PASSWORD_NEWPASSWORD_REQUIRED)
     }
     return await changePasswordService(params)
