@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import { Input, InputProps } from '../index'
+import { Input, InputProps, requiredValidate } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
 import { FaSearch } from 'react-icons/fa'
@@ -20,6 +20,14 @@ const hasRightIconInputProps: InputProps = {
   rightIcon: <FaSearch />
 }
 
+const requiredInputProps: InputProps = {
+  id: 'username',
+  name: 'username',
+  labelText: 'User name',
+  type: 'text',
+  required: true
+}
+
 describe('Input', () => {
   it('should match a snapshot', () => {
     expect(toJson(shallow(<Input {...props} />))).toMatchSnapshot()
@@ -27,6 +35,10 @@ describe('Input', () => {
 
   it('should match a snapshot with right icon', () => {
     expect(toJson(shallow(<Input {...hasRightIconInputProps} />))).toMatchSnapshot()
+  })
+
+  it('should match a snapshot if field is required', () => {
+    expect(toJson(shallow(<Input {...requiredInputProps} />))).toMatchSnapshot()
   })
 
   it('should work when integrating with Formik', () => {
@@ -51,5 +63,12 @@ describe('Input', () => {
 
   afterEach(() => {
     jest.resetAllMocks()
+  })
+})
+
+describe('requiredValidate', () => {
+  it('should run correctly', () => {
+    const value = '';
+    expect(requiredValidate(value)).toEqual('Required')
   })
 })
