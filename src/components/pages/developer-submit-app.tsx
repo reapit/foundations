@@ -23,7 +23,9 @@ import {
   SelectBoxOptions,
   Formik,
   Form,
-  FormikHelpers
+  FormikHelpers,
+  H6,
+  FormikValues
 } from '@reapit/elements'
 
 import { validate } from '@/utils/form/submit-app'
@@ -39,7 +41,11 @@ import DeveloperSubmitAppSuccessfully from './developer-submit-app-successfully'
 import { selectCategories } from '../../selector/app-categories'
 
 export interface SubmitAppMappedActions {
-  submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions) => void
+  submitApp: (
+    appModel: CreateAppModel,
+    actions: SubmitAppFormikActions,
+    setSubmitError: (error: string) => void
+  ) => void
   submitAppSetFormState: (formState: FormState) => void
   submitRevision: (id: string, revision: CreateAppModel) => void
   submitRevisionSetFormState: (formState: FormState) => void
@@ -134,6 +140,17 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
   return initialValues
 }
 
+export const handleSubmitApp = ({ appId, submitApp, submitRevision, setSubmitError }) => (
+  appModel: CreateAppModel,
+  actions: FormikHelpers<CreateAppModel>
+) => {
+  if (!appId) {
+    submitApp(appModel, actions, setSubmitError)
+  } else {
+    submitRevision(appId, appModel)
+  }
+}
+
 export const SubmitApp: React.FC<SubmitAppProps> = ({
   submitAppSetFormState,
   submitApp,
@@ -149,7 +166,9 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
 }) => {
   let initialValues
   let formState
-  let appid
+  let appId
+
+  const [submitError, setSubmitError] = React.useState<string>()
 
   const isSubmitRevision = Boolean(match.params && match.params.appid)
   const isSubmitApp = !isSubmitRevision
@@ -181,7 +200,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
       return null
     }
 
-    appid = appDetailData.data.id
+    appId = appDetailData.data.id
     initialValues = generateInitialValues(appDetailData.data, developerId)
   }
 
@@ -219,13 +238,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
         <Formik
           validate={validate}
           initialValues={initialValues}
-          onSubmit={(appModel: CreateAppModel, actions: FormikHelpers<CreateAppModel>) => {
-            if (!appid) {
-              submitApp(appModel, actions)
-            } else {
-              submitRevision(appid, appModel)
-            }
-          }}
+          onSubmit={handleSubmitApp({ appId, submitApp, submitRevision, setSubmitError })}
         >
           {() => {
             return (
@@ -412,6 +425,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                 </FormSection>
                 <FormSection>
                   <LevelRight>
+                    {submitError && <H6 className="has-text-danger mr-5">{submitError}</H6>}
                     <Button
                       type="submit"
                       dataTest="submit-app-button"
@@ -448,8 +462,8 @@ const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
 })
 
 const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
-  submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions) => {
-    dispatch(submitApp({ ...appModel, actions }))
+  submitApp: (appModel: CreateAppModel, actions: SubmitAppFormikActions, setSubmitError: (error: string) => void) => {
+    dispatch(submitApp({ ...appModel, actions, setSubmitError }))
   },
   submitRevision: (id, revision) => {
     dispatch(submitRevision({ ...revision, id }))
