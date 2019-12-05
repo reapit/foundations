@@ -13,7 +13,7 @@ import { mockCognitoUserSession, mockLoginSession } from '../../__mocks__/cognit
 import hardtack from 'hardtack'
 import { LoginIdentity } from '../../core/types'
 
-jest.mock('amazon-cognito-identity-js', () => require('../../__mocks__/cognito').mockCognito)
+jest.mock('amazon-cognito-identity-js', () => require('../../__mocks__/cognito-session').mockCognito)
 
 jest.mock('jsonwebtoken', () => ({
   __esModule: true,
