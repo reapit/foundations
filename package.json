@@ -1,6 +1,6 @@
 {
-  "name": "cognitio-auth",
-  "version": "1.0.0",
+  "name": "@reapit/cognito-auth",
+  "version": "2.0.0",
   "description": "Simple wrapper around AWS Cognito for basic authentication flow",
   "main": "dist/index.js",
   "umd:main": "dist/cognito-auth.umd.production.js",
@@ -79,7 +79,8 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>[/\\\\](node_modules|src/core)[/\\\\]",
       "<rootDir>/src/app.ts",
-      "<rootDir>/src/app.dev.ts"
+      "<rootDir>/src/app.dev.ts",
+      "<rootDir>/src/index.ts"
     ],
     "modulePathIgnorePatterns": [
       "<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]"
