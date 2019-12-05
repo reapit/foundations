@@ -22,13 +22,17 @@ export const setRefreshSession = async (params: RefreshParams): Promise<LoginSes
   const refreshedSession: Partial<LoginSession> | undefined = await refreshUserSession(params)
   const loginIdentity = refreshedSession && deserializeIdToken(refreshedSession)
   if (loginIdentity && checkHasIdentityId(loginType, loginIdentity)) {
-    return {
+    const loginSession = {
       ...refreshedSession,
       loginType,
       userName,
       mode,
       loginIdentity
     } as LoginSession
+
+    setSessionCookie(loginSession)
+
+    return loginSession
   }
   return null
 }
