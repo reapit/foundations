@@ -5,6 +5,7 @@ import { loginUserSessionService } from '../../../services/session/login-user-se
 import successHandler from '../../../utils/success-handler'
 import errorHandler from '../../../utils/error-handler'
 import errorStrings from '../../../constants/error-strings'
+import { LoginParams } from '../../../core/types'
 
 jest.mock('../../../services/session/login-user-session')
 jest.mock('../../../utils/success-handler')
@@ -16,7 +17,7 @@ describe('loginUserSessionApi', () => {
   it('should call the success handler correctly on success', async () => {
     const request = {
       ...mockReq,
-      body: { userName: 'will@mail.com', password: 'password' }
+      body: { userName: 'will@mail.com', password: 'password' } as LoginParams
     } as Request
     mockedSessionService.mockImplementation(() => 'SUCCESS')
     await loginUserSessionApi(request, mockRes)
@@ -27,7 +28,7 @@ describe('loginUserSessionApi', () => {
   it('should call the error handler correctly if params are missing', async () => {
     const request = {
       ...mockReq,
-      body: { userName: null, password: null }
+      body: { userName: '', password: '' } as LoginParams
     } as Request
     mockedSessionService.mockImplementation(() => 'SUCCESS')
     await loginUserSessionApi(request, mockRes)
@@ -38,7 +39,7 @@ describe('loginUserSessionApi', () => {
   it('should call the error handler correctly if service thows an error', async () => {
     const request = {
       ...mockReq,
-      body: { userName: 'will@mail.com', password: 'password' }
+      body: { userName: 'will@mail.com', password: 'password' } as LoginParams
     } as Request
     const error = new Error('API FAILED')
     mockedSessionService.mockImplementation(() => {
