@@ -5,6 +5,7 @@ import Routes from '../constants/routes'
 import store from '../core/store'
 import { clientRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
+import { installedAppsRequestData } from '../actions/installed-apps'
 import { developerRequestData } from '../actions/developer'
 import { adminApprovalsRequestData } from '../actions/admin-approvals'
 import { adminDevManagementRequestData } from '../actions/admin-dev-management'
@@ -18,6 +19,12 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
   switch (route) {
     case Routes.CLIENT:
       store.dispatch(clientRequestData(getParamsFromPath(search || '')))
+      break
+    case Routes.INSTALLED_APPS:
+      store.dispatch(installedAppsRequestData(1))
+      break
+    case Routes.INSTALLED_APPS_PAGINATE:
+      store.dispatch(installedAppsRequestData(params && params.page ? Number(params.page) : 1))
       break
     case Routes.MY_APPS:
       store.dispatch(myAppsRequestData(1))

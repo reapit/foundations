@@ -2,6 +2,7 @@ import { AdminDevManamgenetState } from './../reducers/admin-dev-management'
 import Routes from '../constants/routes'
 import ActionTypes from '../constants/action-types'
 import { ClientState } from '../reducers/client'
+import { InstalledAppsState } from '../reducers/installed-apps'
 import { MyAppsState } from '../reducers/my-apps'
 import { DeveloperState } from '../reducers/developer'
 import { AuthState } from '../reducers/auth'
@@ -56,6 +57,7 @@ export interface FetcherParams<T> {
 
 export interface ReduxState {
   client: ClientState
+  installedApps: InstalledAppsState
   myApps: MyAppsState
   appDetail: AppDetailState
   developer: DeveloperState

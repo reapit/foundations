@@ -1,8 +1,9 @@
 const Routes = {
   CLIENT: '/client/apps',
   INSTALLED_APPS: '/client/installed',
+  INSTALLED_APPS_PAGINATE: '/client/installed/:page',
   MY_APPS: '/client/manage',
-  MY_APPS_PAGINATE: '/client/installed/:page',
+  MY_APPS_PAGINATE: '/client/manage/:page',
   DEVELOPER: '/developer',
   DEVELOPER_MY_APPS: '/developer/apps',
   DEVELOPER_SWAGGER: '/developer/swagger',

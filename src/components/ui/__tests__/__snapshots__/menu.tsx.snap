@@ -27,6 +27,15 @@ exports[`Menu should match a snapshot 1`] = `
         "url": "/client/apps",
       },
       Object {
+        "icon": <FaCloudDownloadAlt
+          className="nav-item-icon"
+        />,
+        "key": "INSTALLED",
+        "title": "Installed",
+        "type": "PRIMARY",
+        "url": "/client/installed",
+      },
+      Object {
         "icon": <FaClipboardList
           className="nav-item-icon"
         />,

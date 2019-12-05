@@ -1,0 +1,14 @@
+@import './installed-app-card.scss';
+
+$gap-columns: 65px;
+.content-is-loading {
+  opacity: 0.75;
+}
+.wrap-list {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, $icon-width);
+  grid-gap: $gap-columns;
+}
