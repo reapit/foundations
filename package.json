@@ -1,6 +1,6 @@
 {
   "name": "@reapit/cognito-auth",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Simple wrapper around AWS Cognito for basic authentication flow",
   "main": "dist/index.js",
   "umd:main": "dist/cognito-auth.umd.production.js",
