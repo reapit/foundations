@@ -1,0 +1,29 @@
+$icon-width: 130px;
+$icon-height: 130px;
+
+.container {
+  width: $icon-width + 2px;
+}
+.wrapIcon {
+  cursor: pointer;
+  border-radius: 15px;
+  border: 1px solid #95aac9;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.icon {
+  width: $icon-width;
+  height: $icon-height;
+}
+
+.app-title {
+  margin-top: 1rem;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 16px;
+}

@@ -10,6 +10,7 @@ export const history = createBrowserHistory()
 
 const Login = React.lazy(() => import('../components/pages/login'))
 const Client = React.lazy(() => import('../components/pages/client'))
+const InstalledApps = React.lazy(() => import('../components/pages/installed-apps'))
 const MyApps = React.lazy(() => import('../components/pages/my-apps'))
 const Register = React.lazy(() => import('../components/pages/register'))
 const DeveloperHome = React.lazy(() => import('../components/pages/developer-home'))
@@ -42,6 +43,8 @@ const Router = () => (
         <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
         <PrivateRouteWrapper path="/">
           <Switch>
+            <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS_PAGINATE} component={InstalledApps} fetcher />
+            <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
             <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={MyApps} fetcher />
             <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher exact />
             <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
