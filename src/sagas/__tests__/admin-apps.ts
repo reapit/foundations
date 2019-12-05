@@ -24,7 +24,7 @@ const params = {
   data: {
     pageNumber: 1,
     appName: '1',
-    developerName: 'a'
+    companyName: 'a'
   }
 }
 

@@ -30,7 +30,7 @@ import {
 import AppDeleteModal from '../ui/app-delete'
 
 export interface AdminAppsMappedActions {
-  fetchApps: (filter: AdminAppsParams) => void
+  fetchApps: (filter: AdminAppsParams) => () => void
   onChangeFeatured: (params: AdminAppsFeaturedParams) => void
 }
 
@@ -41,21 +41,93 @@ export interface AdminAppsMappedProps {
 export type AdminAppsProps = AdminAppsMappedActions & AdminAppsMappedProps
 
 export const refreshForm = (setFilter, resetForm) => () => {
-  setFilter({ appName: '', developerName: '' })
+  setFilter({ appName: '', companyName: '' })
   resetForm()
 }
 
-export const handleDeleteSuccess = (setDeleteModal, fetchApps, filter, pageNumber) => () => {
+export const handleDeleteSuccess = ({ setDeleteModal, fetchApps, filter, pageNumber }) => () => {
   setDeleteModal({ visible: false, appId: '', appName: '' })
   fetchApps({ ...filter, pageNumber })
 }
 
-export const handleAfterClose = setDeleteModal => () => {
+export const handleAfterClose = ({ setDeleteModal }) => () => {
   setDeleteModal({ visible: false, appId: '', appName: '' })
 }
 
+export const handleFormStateSuccess = ({ formState, fetchApps, filter, pageNumber }) => () => {
+  if (formState === 'SUCCESS') {
+    fetchApps({ ...filter, pageNumber })
+  }
+}
+
+export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal }) => () => {
+  return [
+    {
+      Header: 'AppID',
+      accessor: 'id'
+    },
+    {
+      Header: 'App Name',
+      accessor: 'name'
+    },
+    {
+      Header: 'App Summary',
+      accessor: 'summary'
+    },
+    {
+      Header: 'Developer Name',
+      accessor: 'developer'
+    },
+    {
+      Header: 'Is Listed',
+      accessor: 'isListed'
+    },
+    {
+      Header: 'Pending Revisions',
+      accessor: 'pendingRevisions'
+    },
+    {
+      Header: 'External App',
+      accessor: () => 'TBC'
+    },
+    {
+      Header: 'Featured',
+      Cell: ({ row }) => {
+        const { id, isFeatured } = row.original
+        return (
+          <div className="field field-checkbox">
+            <input
+              className="checkbox"
+              type="checkbox"
+              id={id}
+              name={id}
+              checked={isFeatured}
+              onChange={evt => onChangeFeatured({ id, isFeatured: evt.target.checked })}
+            />
+            <label className="label" htmlFor={id}></label>
+          </div>
+        )
+      }
+    },
+    {
+      id: 'Delete',
+      Cell: ({ row }) => (
+        <Button
+          type="button"
+          variant="danger"
+          onClick={() =>
+            setDeleteModal({ ...deleteModal, visible: true, appId: row.original.id, appName: row.original.name })
+          }
+        >
+          Delete
+        </Button>
+      )
+    }
+  ]
+}
+
 export const renderForm = (setFilter: (filter: AdminAppsFilter) => void) => ({ values, resetForm }) => {
-  const disabled = !values.appName && !values.developerName
+  const disabled = !values.appName && !values.companyName
   return (
     <Form>
       <Grid>
@@ -63,7 +135,7 @@ export const renderForm = (setFilter: (filter: AdminAppsFilter) => void) => ({ v
           <Input type="text" name="appName" id="appName" labelText="App Name" />
         </GridItem>
         <GridItem className={styles.filterBlock}>
-          <Input type="text" name="developerName" id="developerName" labelText="Developer Name" />
+          <Input type="text" name="companyName" id="companyName" labelText="Developer Name" />
         </GridItem>
         <GridItem className={styles.filterButton}>
           <Button type="submit" variant="primary" disabled={disabled}>
@@ -83,86 +155,15 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({ adminAppsSt
   const { loading, formState } = adminAppsState
   const { data = [], totalCount, pageSize } = adminAppsState.adminAppsData || {}
 
-  const [filter, setFilter] = React.useState<AdminAppsFilter>({ appName: '', developerName: '' })
+  const [filter, setFilter] = React.useState<AdminAppsFilter>({ appName: '', companyName: '' })
   const [pageNumber, setPageNumber] = React.useState<number>(1)
   const [deleteModal, setDeleteModal] = React.useState({ visible: false, appId: '', appName: '' })
 
-  React.useEffect(() => {
-    fetchApps({ ...filter, pageNumber })
-  }, [pageNumber, filter])
+  React.useEffect(fetchApps({ ...filter, pageNumber }), [pageNumber, filter])
 
-  React.useEffect(() => {
-    if (formState === 'SUCCESS') {
-      fetchApps({ ...filter, pageNumber })
-    }
-  }, [formState])
+  React.useEffect(handleFormStateSuccess({ formState, fetchApps, filter, pageNumber }), [formState])
 
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: 'AppID',
-        accessor: 'id'
-      },
-      {
-        Header: 'App Name',
-        accessor: 'name'
-      },
-      {
-        Header: 'App Summary',
-        accessor: 'summary'
-      },
-      {
-        Header: 'Developer Name',
-        accessor: 'developer'
-      },
-      {
-        Header: 'Is Listed',
-        accessor: 'isListed'
-      },
-      {
-        Header: 'Pending Revisions',
-        accessor: 'pendingRevisions'
-      },
-      {
-        Header: 'External App',
-        accessor: () => 'TBC'
-      },
-      {
-        Header: 'Featured',
-        Cell: ({ row }) => {
-          const { id, isFeatured } = row.original
-          return (
-            <div className="field field-checkbox">
-              <input
-                className="checkbox"
-                type="checkbox"
-                id={id}
-                name={id}
-                checked={isFeatured}
-                onChange={evt => onChangeFeatured({ id, isFeatured: evt.target.checked })}
-              />
-              <label className="label" htmlFor={id}></label>
-            </div>
-          )
-        }
-      },
-      {
-        id: 'Delete',
-        Cell: ({ row }) => (
-          <Button
-            type="button"
-            variant="danger"
-            onClick={() =>
-              setDeleteModal({ ...deleteModal, visible: true, appId: row.original.id, appName: row.original.name })
-            }
-          >
-            Delete
-          </Button>
-        )
-      }
-    ],
-    [data]
-  )
+  const columns = React.useMemo(generateColumns({ onChangeFeatured, setDeleteModal, deleteModal }), [data])
 
   if (unfetched) {
     return <Loader />
@@ -178,7 +179,7 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({ adminAppsSt
         )}
         <div className="mb-5">
           <H3>Admin Apps</H3>
-          <Formik initialValues={{ appName: '', developerName: '' }} onSubmit={setFilter}>
+          <Formik initialValues={{ appName: '', companyName: '' }} onSubmit={setFilter}>
             {renderForm(setFilter)}
           </Formik>
         </div>
@@ -194,9 +195,9 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({ adminAppsSt
       <AppDeleteModal
         appId={deleteModal.appId}
         appName={deleteModal.appName}
-        afterClose={handleAfterClose(setDeleteModal)}
+        afterClose={handleAfterClose({ setDeleteModal })}
         visible={deleteModal.visible}
-        onDeleteSuccess={handleDeleteSuccess(setDeleteModal, fetchApps, filter, pageNumber)}
+        onDeleteSuccess={handleDeleteSuccess({ setDeleteModal, fetchApps, filter, pageNumber })}
       />
     </ErrorBoundary>
   )
@@ -207,7 +208,9 @@ export const mapStateToProps = (state: ReduxState): AdminAppsMappedProps => ({
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): AdminAppsMappedActions => ({
-  fetchApps: (params: AdminAppsParams) => dispatch(adminAppsRequestData(params)),
+  fetchApps: (params: AdminAppsParams) => () => {
+    dispatch(adminAppsRequestData(params))
+  },
   onChangeFeatured: (params: AdminAppsFeaturedParams) => dispatch(adminAppsRequestFeatured(params))
 })
 
