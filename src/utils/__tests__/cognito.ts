@@ -9,7 +9,7 @@ import {
   tokenExpired,
   checkHasIdentityId
 } from '../cognito'
-import { mockCognitoUserSession, mockLoginSession } from '../../__mocks__/cognito'
+import { mockCognitoUserSession, mockLoginSession } from '../../__mocks__/cognito-session'
 import hardtack from 'hardtack'
 import { LoginIdentity } from '../../core/types'
 

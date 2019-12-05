@@ -1,5 +1,5 @@
 import { loginUserSessionService } from '../login-user-session'
-import { mockCognitoUserSession } from '../../../__mocks__/cognito'
+import { mockCognitoUserSession } from '../../../__mocks__/cognito-session'
 import { getLoginSession } from '../../../utils/cognito'
 import { LoginParams } from '../../../core/types'
 

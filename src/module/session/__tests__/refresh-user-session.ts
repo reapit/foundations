@@ -2,7 +2,7 @@ import { refreshUserSession, setRefreshSession } from '../refresh-user-session'
 import { refreshUserSessionService } from '../../../services/session/refresh-user-session'
 import errorStrings from '../../../constants/error-strings'
 import { RefreshParams } from '../../../core/types'
-import { mockRefreshParams, mockLoginSession } from '../../../__mocks__/cognito'
+import { mockRefreshParams, mockLoginSession } from '../../../__mocks__/cognito-session'
 
 jest.mock('../../../services/session/refresh-user-session')
 jest.mock('../../../utils/success-handler')
