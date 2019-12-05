@@ -1,6 +1,6 @@
 import { confirmRegistrationService } from '../confirm-registration'
 
-jest.mock('amazon-cognito-identity-js', () => require('../../../__mocks__/cognito').mockCognito)
+jest.mock('amazon-cognito-identity-js', () => require('../../../__mocks__/cognito-session').mockCognito)
 
 describe('confirmRegistrationService', () => {
   it('should return a success message', async () => {

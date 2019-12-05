@@ -1,6 +1,6 @@
 import { confirmPasswordService } from '../confirm-password'
 
-jest.mock('amazon-cognito-identity-js', () => require('../../../__mocks__/cognito').mockCognito)
+jest.mock('amazon-cognito-identity-js', () => require('../../../__mocks__/cognito-session').mockCognito)
 
 describe('confirmPasswordService', () => {
   it('should return a success message', async () => {
