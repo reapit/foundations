@@ -17,7 +17,7 @@
     "prepublish": "yarn test && yarn build",
     "prebuild": "rimraf dist && rimraf public",
     "build-npm": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
-    "build-serverless": "tsc && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
+    "build-serverless": "tsc --p tsconfig.legacy.json && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
     "build": "yarn build-serverless && yarn build-npm",
     "start-dev": "node ./public/app.dev.js",
     "serverless": "serverless deploy",
