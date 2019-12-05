@@ -5,9 +5,9 @@ import { deserializeIdToken, checkHasIdentityId, setSessionCookie } from '../../
 
 export const loginUserSession = async (params: LoginParams): Promise<Partial<LoginSession> | undefined> => {
   const { userName, password } = params
-
+  const paramsValid = userName && password
   try {
-    if (!userName || !password) {
+    if (!paramsValid) {
       throw new Error(errorStrings.USERNAME_PASSWORD_REQUIRED)
     }
     const session = await loginUserSessionService(params)
@@ -21,16 +21,13 @@ export const setUserSession = async (params: LoginParams): Promise<LoginSession 
   const { userName, loginType, mode } = params
 
   const loginDetails: Partial<LoginSession> | undefined = await loginUserSession(params)
+  const loginIdentity = loginDetails && deserializeIdToken(loginDetails)
+  if (loginIdentity && checkHasIdentityId(loginType, loginIdentity)) {
+    const loginSession = { ...loginDetails, loginType, mode, userName, loginIdentity } as LoginSession
 
-  if (loginDetails) {
-    const loginIdentity = deserializeIdToken(loginDetails)
-    if (checkHasIdentityId(loginType, loginIdentity)) {
-      const loginSession = { ...loginDetails, loginType, mode, userName, loginIdentity } as LoginSession
+    setSessionCookie(loginSession)
 
-      setSessionCookie(loginSession)
-
-      return loginSession
-    }
+    return loginSession
   }
   return null
 }

@@ -4,8 +4,9 @@ import { ConfirmPasswordParams } from '../../core/types'
 
 export const confirmPassword = async (params: ConfirmPasswordParams): Promise<string | undefined> => {
   const { verificationCode, newPassword, userName } = params
+  const paramsValid = verificationCode && newPassword && userName
   try {
-    if (!verificationCode || !newPassword || !userName) {
+    if (!paramsValid) {
       throw new Error(errorStrings.USERNAME_CODE_NEWPASSWORD_REQUIRED)
     }
 

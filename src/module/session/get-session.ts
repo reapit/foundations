@@ -6,27 +6,22 @@ export const getSession = async (
   loginSession: LoginSession | null,
   refreshSession: RefreshParams | null
 ): Promise<LoginSession | null> => {
-  if (loginSession) {
-    const sessionExpired = tokenExpired(loginSession.accessTokenExpiry)
+  const sessionExpired = loginSession && tokenExpired(loginSession.accessTokenExpiry)
 
-    if (!sessionExpired) {
-      return loginSession
-    }
+  if (loginSession && !sessionExpired) {
+    return loginSession
   }
 
-  const sessionToRefresh = refreshSession || getSessionCookie()
+  try {
+    const sessionToRefresh = refreshSession || getSessionCookie()
+    const refreshedSession = sessionToRefresh && (await setRefreshSession(sessionToRefresh))
 
-  if (sessionToRefresh) {
-    try {
-      const refreshedSession = await setRefreshSession(sessionToRefresh)
-
-      if (refreshedSession) {
-        return refreshedSession
-      }
-    } catch (err) {
-      console.error(err)
-      return null
+    if (refreshedSession) {
+      return refreshedSession
     }
+  } catch (err) {
+    console.error(err)
+    return null
   }
 
   return null
