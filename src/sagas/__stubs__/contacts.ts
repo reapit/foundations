@@ -1,5 +1,5 @@
 export const contacts = {
-  data: [
+  _embedded: [
     {
       id: 'MKC16000098',
       created: '2019-05-12T17:05:19',

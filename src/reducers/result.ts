@@ -7,7 +7,7 @@ import {
   SearchParams,
   resultSetSearchParams
 } from '../actions/result'
-import { PagedResultContactModel_ } from '@/types/contact-api-schema'
+import { PagedResultContactModel_ } from '@/types/platform'
 
 export interface ResultState {
   loading: boolean

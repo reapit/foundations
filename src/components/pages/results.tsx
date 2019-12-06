@@ -129,10 +129,10 @@ export const renderEmptyResult = () => (
 
 export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetchContacts, history }) => {
   const { search, loading } = resultState
-  const { totalCount, pageSize, data = [] } = resultState?.contacts || {}
+  const { totalCount, pageSize, _embedded = [] } = resultState?.contacts || {}
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
-  const columns = React.useMemo(generateColumns(history), [data])
+  const columns = React.useMemo(generateColumns(history), [_embedded])
 
   const searchTitle = React.useMemo(generateSearchTitle(search), [search])
 
@@ -149,7 +149,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
           <FlexContainerBasic hasBackground flexColumn hasPadding isScrollable>
             {search && <H3>Showing Results for '{searchTitle}'</H3>}
             <div className={styles.tableWrap}>
-              <Table scrollable data={data} columns={columns} loading={loading} />
+              <Table scrollable data={_embedded} columns={columns} loading={loading} />
             </div>
             <Section>
               <Pagination

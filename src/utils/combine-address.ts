@@ -1,6 +1,6 @@
-import { AddressModel } from '@/types/contact-api-schema'
+import { ContactAddressModel } from '@/types/platform'
 
-export const combineAdress = (addresses: AddressModel[] | undefined): string => {
+export const combineAdress = (addresses: ContactAddressModel[] | undefined): string => {
   let addressCombined = ''
   if (!addresses || (addresses && addresses.length === 0)) {
     return addressCombined

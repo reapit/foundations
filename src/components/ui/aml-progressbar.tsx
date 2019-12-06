@@ -15,7 +15,7 @@ import {
 } from '@reapit/elements'
 import styles from '@/styles/ui/aml-progressbar.scss?mod'
 import { SectionsStatus } from '@/reducers/checklist-detail'
-import { IdentityCheckModel, ContactModel } from '@/types/contact-api-schema'
+import { ContactIdentityCheckModel, ContactModel } from '@/types/platform'
 import { Dispatch } from 'redux'
 import { checklistDetailShowModal } from '@/actions/checklist-detail'
 import { ReduxState } from '@/types/core'
@@ -85,7 +85,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
 
 export interface AMLProgressBarMappedProps {
   contact: ContactModel | null
-  idCheck: IdentityCheckModel | null
+  idCheck: ContactIdentityCheckModel | null
   status: SectionsStatus
   loginMode: LoginMode
 }

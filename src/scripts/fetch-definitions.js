@@ -1,30 +1,25 @@
 // @ts-ignore
-require('dotenv').config({
-  path: '../constants/.env'
-})
 require('isomorphic-fetch')
+require('dotenv').config({
+  path: `${__dirname}/../constants/.env`
+})
 
 const fs = require('fs')
 const sw2dts = require('sw2dts')
 const { exec } = require('child_process')
-
-const BASE_URL = 'https://dev.platform.reapit.net'
+const loginUserSession = require('@reapit/cognito-auth').loginUserSession
 
 const apiSchemas = [
   {
-    definitionFile: `${__dirname}/../types/contact-api-schema.ts`,
-    endpoint: `${BASE_URL}/contacts/swagger/v1/swagger.json`
+    definitionFile: `${__dirname}/../types/platform.ts`,
+    endpoint: `https://dev.platform.reapit.net/docs`
   }
 ]
 
 // Fetch definitions for a given schema
-const fetchDefinitionsForSchema = async (schemaConfig, accessToken) => {
+const fetchDefinitionsForSchema = async (schemaConfig) => {
     const { definitionFile, endpoint } = schemaConfig
-    const response = await fetch(endpoint, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    })
+    const response = await fetch(endpoint)
     if (response.status < 400) {
       const definitions = await response.json()
       // Convert definitions to TypeScript interfaces
@@ -65,19 +60,7 @@ const fetchDefinitionsForSchema = async (schemaConfig, accessToken) => {
 
   // Fetch definitions for all schemas
 ;(async () => {
-  const session = await fetch('https://rbsbshnxvb.execute-api.eu-west-2.amazonaws.com/dev/api/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      password: 'T00lb0x53',
-      userName: 'plittlewood@reapit.com'
-    })
-  })
-  const sessionJson = await session.json()
-  const accessToken = sessionJson.accessToken
-  Promise.all(apiSchemas.map(apiSchema => fetchDefinitionsForSchema(apiSchema, accessToken))).then(() => {
+  Promise.all(apiSchemas.map(apiSchema => fetchDefinitionsForSchema(apiSchema))).then(() => {
     // Have tslint fixed format (tslint/prettier)
     exec('yarn lint', err => {
       if (err) throw err

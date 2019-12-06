@@ -1,6 +1,6 @@
-import { IdentityDocumentTypesModel } from '@/types/configuration-api-schema'
+import { ListItemModel } from '@/types/platform'
 
-export const identityTypes: IdentityDocumentTypesModel[] = [
+export const identityTypes: ListItemModel[] = [
   {
     id: 'BB',
     value: 'BenefitBook'
