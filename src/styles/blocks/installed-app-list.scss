@@ -1,13 +1,17 @@
 @import './installed-app-card.scss';
 
 $gap-columns: 65px;
+$margin-lr: calc(#{$gap-columns} - 2rem);
+$margin-tb: calc(#{$gap-columns} - 1.5rem);
+
 .content-is-loading {
   opacity: 0.75;
 }
 .wrap-list {
+  margin: $margin-tb $margin-lr;
   display: grid;
   justify-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   grid-template-columns: repeat(auto-fit, $icon-width);
   grid-gap: $gap-columns;

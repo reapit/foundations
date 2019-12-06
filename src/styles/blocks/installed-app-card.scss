@@ -4,7 +4,7 @@ $icon-height: 130px;
 .container {
   width: $icon-width + 2px;
 }
-.wrapIcon {
+.wrap-icon {
   cursor: pointer;
   border-radius: 15px;
   border: 1px solid #95aac9;
@@ -21,9 +21,11 @@ $icon-height: 130px;
 }
 
 .app-title {
+  white-space: nowrap;
   margin-top: 1rem;
   text-align: center;
   text-overflow: ellipsis;
   overflow: hidden;
   font-size: 16px;
+  font-weight: bold;
 }

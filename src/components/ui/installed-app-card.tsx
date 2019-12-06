@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import { FaEllipsisH } from 'react-icons/fa'
-import { Tile } from '@reapit/elements'
 import installedAppCardStyles from '@/styles/blocks/installed-app-card.scss?mod'
 
 export interface InstalledAppCardProps {
@@ -12,10 +11,10 @@ export interface InstalledAppCardProps {
 const InstalledAppCard: React.FC<InstalledAppCardProps> = ({ app, onClick }: InstalledAppCardProps) => {
   return (
     <div className={installedAppCardStyles.container}>
-      <div id="installed-card-icon" onClick={onClick} className={installedAppCardStyles.wrapIcon}>
+      <div id="installed-card-icon" onClick={onClick} className={installedAppCardStyles['wrap-icon']}>
         <img className={installedAppCardStyles.icon} src={app.iconUri} alt="iconUri" />
       </div>
-      <p className={installedAppCardStyles.appTitle}>{app.name}</p>
+      <p className={installedAppCardStyles['app-title']}>{app.name}</p>
     </div>
   )
 }
