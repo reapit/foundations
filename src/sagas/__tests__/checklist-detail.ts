@@ -43,7 +43,7 @@ import { contact, idCheck } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
+import { ContactModel, ContactIdentityCheckModel } from '@/types/platform'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import { handlePepSearchStatus } from '@/utils/pep-search'
 import { EntityType, DynamicLinkParams } from '@reapit/elements'
@@ -613,7 +613,7 @@ describe('checklist-detail', () => {
         expect(gen.next().value).toEqual(
           takeLatest<
             Action<{
-              idCheck: IdentityCheckModel
+              idCheck: ContactIdentityCheckModel
               dynamicLinkParams: DynamicLinkParams
             }>
           >(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA, updateIdentityCheckStatus)

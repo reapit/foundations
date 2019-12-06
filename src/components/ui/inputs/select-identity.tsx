@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { SelectBox } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { IdentityTypesState } from '@/reducers/identity-types'
-import { IdentityDocumentTypesModel } from '@/types/configuration-api-schema'
+import { ListItemModel } from '@/types/platform'
 
 export type StateProps = {
   identityState?: IdentityTypesState
@@ -11,7 +11,7 @@ export type StateProps = {
 
 export type SelectIdentityProps = { labelText: string; name: string; id: string } & StateProps
 
-export const generateListIdentity = (identityTypes: IdentityDocumentTypesModel[]) => () => {
+export const generateListIdentity = (identityTypes: ListItemModel[]) => () => {
   return identityTypes
     .filter(item => item.id)
     .map(item => ({

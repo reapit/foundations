@@ -1,15 +1,15 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
+import { ListItemModel } from '@/types/platform'
 import {
   identityTypesRequestFailure,
   identityTypesRequestData,
   identityTypesReceiveData
 } from '../actions/identity-types'
-import { IdentityDocumentTypesModel } from '@/types/configuration-api-schema'
 
 export interface IdentityTypesState {
   loading: boolean
-  identityTypes: IdentityDocumentTypesModel[]
+  identityTypes: ListItemModel[]
 }
 
 export const defaultState: IdentityTypesState = {

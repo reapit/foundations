@@ -4,7 +4,7 @@ import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
-import { CommunicationModel, ContactModel } from '@/types/contact-api-schema'
+import { ContactCommunicationModel, ContactModel } from '@/types/platform'
 import { updateContact } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
@@ -50,15 +50,17 @@ export const renderForm = ({ contact, onNextHandler, isSubmitting }) => ({ value
 }
 
 export const filterCommunication = (
-  communications: CommunicationModel[] | undefined,
+  communications: ContactCommunicationModel[] | undefined,
   type: 'Home' | 'Mobile' | 'Work' | 'E-Mail'
 ) => {
   if (!communications) {
     return null
   }
-  const newCommunication: CommunicationModel | undefined = communications.find((communication: CommunicationModel) => {
-    return communication.label === type
-  })
+  const newCommunication: ContactCommunicationModel | undefined = communications.find(
+    (communication: ContactCommunicationModel) => {
+      return communication.label === type
+    }
+  )
   if (newCommunication) {
     return newCommunication.detail
   }

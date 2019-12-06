@@ -12,7 +12,7 @@ import {
   selectCheckListDetailSecondaryIdUrl,
   selectCheckListDetailIdCheck
 } from '@/selectors/checklist-detail'
-import { IdentityDocumentModel, ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
+import { ContactIdentityDocumentModel, ContactModel, ContactIdentityCheckModel } from '@/types/platform'
 import { isCompletedPrimaryID } from '@reapit/elements'
 
 export const SecondaryIdentification = ({
@@ -41,8 +41,8 @@ export const SecondaryIdentification = ({
 export type StateProps = {
   loading: boolean
   contact: ContactModel | null
-  initFormValues: IdentityDocumentModel
-  idCheck: IdentityCheckModel | null
+  initFormValues: ContactIdentityDocumentModel
+  idCheck: ContactIdentityCheckModel | null
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
@@ -63,7 +63,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
       expiry: expiry ? new Date(expiry) : undefined,
       details: details,
       fileUrl: secondaryIdUrl
-    } as IdentityDocumentModel
+    } as ContactIdentityDocumentModel
   }
 
   return {
@@ -75,13 +75,13 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
 }
 
 export type DispatchProps = {
-  updateIdentification: (formValues: IdentityDocumentModel) => void
+  updateIdentification: (formValues: ContactIdentityDocumentModel) => void
   onPrevHandler: () => void
   onNextHandler: (values: any) => () => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  updateIdentification: (values: IdentityDocumentModel) =>
+  updateIdentification: (values: ContactIdentityDocumentModel) =>
     dispatch(checklistDetailSecondaryIdUpdateData({ identityChecks: values })),
   onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.PRIMARY_IDENTIFICATION)),
   onNextHandler: (values: any) => () =>

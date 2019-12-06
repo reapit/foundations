@@ -4,7 +4,7 @@ import { put, all, takeLatest, call } from '@redux-saga/core/effects'
 import { authLogoutSuccess } from '../../actions/auth'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
-import { LoginParams, getCognitoSession, removeSessionCookie } from '@reapit/elements'
+import { LoginParams, loginUserSession, removeSession } from '@reapit/cognito-auth'
 import { Action, ActionType } from '@/types/core'
 import { mockLoginSession } from '../../utils/__mocks__/session'
 import { authLoginSuccess, authLoginFailure } from '@/actions/auth'
@@ -27,14 +27,14 @@ describe('auth sagas', () => {
 
     test('login success', () => {
       const gen = doLogin(action)
-      expect(gen.next(mockLoginSession).value).toEqual(call(getCognitoSession, loginParams))
+      expect(gen.next(mockLoginSession).value).toEqual(call(loginUserSession, loginParams))
       expect(gen.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))
       expect(gen.next().done).toBe(true)
     })
 
     test('login fail', () => {
       const gen = doLogin(action)
-      expect(gen.next(null).value).toEqual(call(getCognitoSession, loginParams))
+      expect(gen.next(null).value).toEqual(call(loginUserSession, loginParams))
       expect(gen.next(null).value).toEqual(put(authLoginFailure()))
       expect(gen.next().done).toBe(true)
     })
@@ -43,7 +43,7 @@ describe('auth sagas', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSessionCookie))
+      expect(gen.next().value).toEqual(call(removeSession))
       gen.next()
       expect(history.push).toHaveBeenCalledTimes(1)
       expect(history.push).toHaveBeenLastCalledWith(Routes.LOGIN)

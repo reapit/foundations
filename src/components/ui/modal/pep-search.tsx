@@ -13,7 +13,7 @@ import {
 } from '@/actions/checklist-detail'
 import { STEPS } from './modal'
 import { getPepSearchStatus } from '@/utils/pep-search'
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel } from '@/types/platform'
 
 export const renderLoading = () => {
   return (

@@ -1,4 +1,4 @@
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel } from '@/types/platform'
 import dayjs from 'dayjs'
 
 const REAPIT_PEP_SEARCH_STATUS = 'reapitPepSearchStatus'

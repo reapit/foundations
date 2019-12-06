@@ -5,7 +5,7 @@ import { Button, DynamicLinkParams, AcButton, EntityType, LoginMode } from '@rea
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { checkListDetailIdentityCheckUpdateData } from '@/actions/checklist-detail'
-import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
+import { ContactModel, ContactIdentityCheckModel } from '@/types/platform'
 import { selectCheckListDetailContact, selectCheckListDetailStatus } from '@/selectors/checklist-detail'
 import { selectLoginMode } from '@/selectors/auth'
 import Routes from '@/constants/routes'
@@ -89,12 +89,12 @@ export const mapStateToProps = (state: ReduxState) => {
 }
 
 export type DispatchProps = {
-  updateIdentityCheckStatus: (idCheck: IdentityCheckModel, dynamicLinkParams: DynamicLinkParams) => void
+  updateIdentityCheckStatus: (idCheck: ContactIdentityCheckModel, dynamicLinkParams: DynamicLinkParams) => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    updateIdentityCheckStatus: (idCheck: IdentityCheckModel, dynamicLinkParams: DynamicLinkParams) =>
+    updateIdentityCheckStatus: (idCheck: ContactIdentityCheckModel, dynamicLinkParams: DynamicLinkParams) =>
       dispatch(checkListDetailIdentityCheckUpdateData({ idCheck, dynamicLinkParams }))
   }
 }

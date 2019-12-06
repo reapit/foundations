@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { PagedResultContactModel_ } from '@/types/contact-api-schema'
+import { PagedResultContactModel_ } from '@/types/platform'
 
 export interface SearchParams {
   name?: string

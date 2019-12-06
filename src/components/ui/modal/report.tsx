@@ -3,7 +3,7 @@ import ReactToPrint from 'react-to-print'
 import { connect } from 'react-redux'
 import { Button, Table } from '@reapit/elements'
 import styles from '@/styles/ui/report.scss?mod'
-import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
+import { ContactModel, ContactIdentityCheckModel, ListItemModel } from '@/types/platform'
 import { ReduxState } from '@/types/core'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import dayjs from 'dayjs'
@@ -15,7 +15,6 @@ import {
   selectCheckListDetailStatus,
   selectIdentityTypes
 } from '@/selectors/checklist-detail'
-import { IdentityDocumentTypesModel } from '@/types/configuration-api-schema'
 
 export const handleTrigger = () => (
   <Button className="mr-2" variant="primary" type="button">
@@ -27,7 +26,7 @@ export const handleContent = ({ printRef }) => () => {
   return printRef.current
 }
 
-export const mappedIdTypes = (idTypes: IdentityDocumentTypesModel[]) => {
+export const mappedIdTypes = (idTypes: ListItemModel[]) => {
   return idTypes.reduce((cur, obj) => {
     if (obj && obj.id) {
       cur[obj.id] = obj.value
@@ -38,9 +37,9 @@ export const mappedIdTypes = (idTypes: IdentityDocumentTypesModel[]) => {
 
 export type ReportContainerProps = {
   contact: ContactModel | null
-  idCheck: IdentityCheckModel | null
+  idCheck: ContactIdentityCheckModel | null
   status: SectionsStatus
-  identityTypes: IdentityDocumentTypesModel[]
+  identityTypes: ListItemModel[]
 }
 
 export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idCheck, status, identityTypes }) => {
@@ -130,7 +129,8 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Declaration and Risk Assessment',
         description: () => {
-          const { reason, type } = contact?.metadata?.declarationRisk || {}
+          const reason = (contact?.metadata?.declarationRisk as any)?.reason
+          const type = (contact?.metadata?.declarationRisk as any)?.type
           return (
             <div>
               {type && <p>Type: {type}</p>}

@@ -10,8 +10,7 @@ import {
   checklistDetailHideModal,
   checklistDetailSubmitForm
 } from '../actions/checklist-detail'
-import { ContactModel } from '@/types/contact-api-schema'
-import { IdentityCheckModel } from '../types/contact-api-schema'
+import { ContactModel, ContactIdentityCheckModel } from '@/types/platform'
 import {
   isCompletedProfile,
   isCompletedPrimaryID,
@@ -38,7 +37,7 @@ export interface ChecklistDetailState {
   modalContentType: string
   checklistDetailData: {
     contact: ContactModel | null
-    idCheck: IdentityCheckModel | null
+    idCheck: ContactIdentityCheckModel | null
   } | null
   pepSearchParam: string
   // TODO will replace any when integrate API with pepSearchData
@@ -135,7 +134,7 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
 
 export type UpdateCheckListDetailFormStatusParams = {
   contact: ContactModel | null
-  idCheck: IdentityCheckModel | null
+  idCheck: ContactIdentityCheckModel | null
 }
 
 /**

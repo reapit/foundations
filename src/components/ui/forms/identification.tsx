@@ -1,11 +1,11 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-import { ContactModel, IdentityDocumentModel } from '@/types/contact-api-schema'
+import { ContactModel, ContactIdentityDocumentModel } from '@/types/platform'
 import { Button, Input, DatePicker, CameraImageInput } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 
-export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentModel = {
+export const IDENTIFICATION_FORM_DEFAULT_VALUES: ContactIdentityDocumentModel = {
   typeId: '',
   details: '',
   expiry: undefined,
@@ -14,7 +14,7 @@ export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentModel = {
 
 export type IdentificationProps = {
   contact: ContactModel | null
-  initFormValues: IdentityDocumentModel
+  initFormValues: ContactIdentityDocumentModel
   loading: boolean
   disabled?: boolean
   onSaveHandler: (values: any) => void
@@ -69,8 +69,8 @@ export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandl
   )
 }
 
-export const onSubmitHandler = (onSaveHandler: (formValues: IdentityDocumentModel) => void) => (
-  formValues: IdentityDocumentModel
+export const onSubmitHandler = (onSaveHandler: (formValues: ContactIdentityDocumentModel) => void) => (
+  formValues: ContactIdentityDocumentModel
 ) => onSaveHandler(formValues)
 
 export const Identification: React.FC<IdentificationProps> = ({
