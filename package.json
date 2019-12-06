@@ -12,15 +12,14 @@
   "scripts": {
     "test": "jest --coverage --silent",
     "test-dev": "jest --watch --verbose",
-    "postpublish": "yarn deploy-storybook",
     "prebuild": "rimraf dist",
-    "prepublish": "yarn test && yarn build",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c",
     "start": "cross-env NODE_ENV=development tsdx watch",
     "lint": "tslint --fix --project tsconfig.json --format stylish",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "deploy-storybook": "storybook-to-ghpages"
+    "build-storybook": "build-storybook -o out",
+    "release:develop": "node scripts/releaseDevelop.js",
+    "release:master": "node scripts/releaseMaster.js"
   },
   "repository": {
     "type": "git",
