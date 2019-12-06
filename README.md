@@ -22,17 +22,9 @@ A collection of React components and utilities for building apps for Reapit Mark
 
 ### Building and Publishing
 
-- You will need an npm token to publish the package - this should be added to the `.npmrc` file.
-- Publishing should always be from the master branch, when a Pull Request has been approved.
-- You should follow standard convention semantic releasing.
-- To publish run `npm publish`. This will;
-  - Run the tests.
-  - Build and minify the JavaScript dist files from the TypeScript into adm, esm and cjs versions.
-  - Build and purify the Sass with rollup.
-  - Export to dist folder
-  - Publish to NPM
-  - Tag the release (you need to manually push tags with `git push --tags`).
-- You should publish a release on github from the generated tag.
+- When a PR is created, checks will run to make sure testcases have been passed, code have passes linter standard. If one of checks fail, the PR won't able to be merged, and require the sumbmitter to update his/her code again.
+- Create a PR to merge develop. When the PR merged, npm package will be published to npm as beta tag, and release will be created automatically.
+- To release a stable/latest version of npm package, create a PR to merge master. When the PR merged, npm package will be published to npm, release will be created automatically, storybook assets will be deployed to GH-pages
 
 ### To use the project
 
