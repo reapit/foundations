@@ -3,18 +3,15 @@
 exports[`pep-search PepSearch should match snapshot 1`] = `
 <div>
   <Formik
-    enableReinitialize={false}
     initialValues={
       Object {
         "name": "Saoirse Chadwick",
       }
     }
-    isInitialValid={false}
     onSubmit={[MockFunction]}
-    render={[Function]}
-    validateOnBlur={true}
-    validateOnChange={true}
-  />
+  >
+    <Component />
+  </Formik>
 </div>
 `;
 

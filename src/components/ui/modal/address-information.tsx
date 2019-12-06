@@ -1,6 +1,5 @@
 import React from 'react'
-import { Input, Button, SelectBoxOptions, SelectBox, CameraImageInput } from '@reapit/elements'
-import { Formik, Form } from 'formik'
+import { Input, Button, SelectBoxOptions, SelectBox, CameraImageInput, Formik, Form } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
@@ -177,7 +176,8 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
           metadata: contact.metadata || {}
         }}
         onSubmit={onHandleSubmit}
-        render={renderForm({
+      >
+        {renderForm({
           addresses: contact.addresses,
           isShowMoreThreeYearInput,
           setShowMoreThreeYearInput,
@@ -185,7 +185,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
           onPrevHandler,
           isSubmitting
         })}
-      />
+      </Formik>
     </div>
   )
 }

@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@reapit/cognito-auth": "^2.0.4",
-    "@reapit/elements": "^0.4.64",
+    "@reapit/elements": "^0.5.2-beta",
     "dayjs": "^1.8.17",
     "react": "^16.11.0",
     "react-datepicker": "^2.9.6",

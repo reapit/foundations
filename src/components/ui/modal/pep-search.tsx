@@ -1,9 +1,8 @@
 import React from 'react'
-import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { FaRegTimesCircle } from 'react-icons/fa'
-import { Input, Button, H4, FlexContainerBasic, Loader } from '@reapit/elements'
+import { Input, Button, H4, FlexContainerBasic, Loader, Formik, Form } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import {
@@ -80,17 +79,15 @@ export const PepSearch: React.FC<PepSearchProps> = ({
   const pepSearchStatus = getPepSearchStatus()
   return (
     <div>
-      <Formik
-        initialValues={{ name: `${contact.forename} ${contact.surname}` }}
-        onSubmit={handleSubmit}
-        render={renderForm({
+      <Formik initialValues={{ name: `${contact.forename} ${contact.surname}` }} onSubmit={handleSubmit}>
+        {renderForm({
           onPrevHandler,
           onNextHandler,
           isSubmitting,
           pepSearchStatus,
           contact
         })}
-      />
+      </Formik>
     </div>
   )
 }

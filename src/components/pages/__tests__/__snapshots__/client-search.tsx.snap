@@ -10,7 +10,7 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKT
     <H3>
       Client Search
     </H3>
-    <Form
+    <ForwardRef
       className="mb-8"
     >
       <Input
@@ -95,7 +95,7 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKT
       >
         Advanced Search
       </AcButton>
-    </Form>
+    </ForwardRef>
   </FlexContainerResponsive>
 </div>
 `;
@@ -110,7 +110,7 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1
     <H3>
       Client Search
     </H3>
-    <Form
+    <ForwardRef
       className="mb-8"
     >
       <Input
@@ -172,7 +172,7 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1
       >
         Search
       </Button>
-    </Form>
+    </ForwardRef>
   </FlexContainerResponsive>
 </div>
 `;
@@ -184,7 +184,6 @@ exports[`ClientSearch should match a snapshot 1`] = `
     hasPadding={true}
   >
     <Formik
-      enableReinitialize={false}
       initialValues={
         Object {
           "address": "",
@@ -192,12 +191,10 @@ exports[`ClientSearch should match a snapshot 1`] = `
           "name": "",
         }
       }
-      isInitialValid={false}
       onSubmit={[Function]}
-      render={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
+    >
+      <Component />
+    </Formik>
   </FlexContainerBasic>
 </Connect(ErrorBoundary)>
 `;

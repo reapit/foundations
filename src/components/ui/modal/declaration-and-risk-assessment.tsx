@@ -1,6 +1,5 @@
 import React from 'react'
-import { Input, Button, CameraImageInput, SelectBox } from '@reapit/elements'
-import { Formik, Form } from 'formik'
+import { Input, Button, CameraImageInput, SelectBox, Formik, Form } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { RISK_ASSESSMENT_TYPE } from '@/constants/appointment-detail'
 import { ContactModel } from '@/types/platform'
@@ -85,15 +84,13 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   )
   return (
     <div>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={onHandleSubmit}
-        render={renderForm({
+      <Formik initialValues={initialValues} onSubmit={onHandleSubmit}>
+        {renderForm({
           onNextHandler,
           onPrevHandler,
           isSubmitting
         })}
-      />
+      </Formik>
     </div>
   )
 }
