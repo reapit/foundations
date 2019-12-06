@@ -90,11 +90,11 @@ describe('appointments reducer', () => {
   it('should set selectedAppointment item data when SET_SELECTED_APPOINTMENT action is called', () => {
     const newState = appointmentsReducer(undefined, {
       type: ActionTypes.SET_SELECTED_APPOINTMENT as ActionType,
-      data: appointmentsDataStub?.appointments?.data?.[0]
+      data: appointmentsDataStub?.appointments?._embedded?.[0]
     })
     const expected = {
       ...defaultState,
-      selectedAppointment: appointmentsDataStub?.appointments?.data?.[0]
+      selectedAppointment: appointmentsDataStub?.appointments?._embedded?.[0]
     }
     expect(newState).toEqual(expected)
   })

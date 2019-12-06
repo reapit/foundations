@@ -9,7 +9,7 @@ import {
   showHideConfirmModal,
   showConfirmModalSubmitting
 } from '../actions/appointment-detail'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/platform'
 
 export interface AppointmentDetailState {
   loading: boolean

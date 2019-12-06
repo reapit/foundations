@@ -1,7 +1,7 @@
 import { ReduxState } from '@/types/core'
 
 export const selectAppointments = (state: ReduxState) => {
-  return state?.appointments?.appointments?.data || []
+  return state?.appointments?.appointments?._embedded || []
 }
 
 export const selectAppointmentTypes = (state: ReduxState) => {

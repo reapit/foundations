@@ -1,4 +1,4 @@
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/platform'
 import dayjs from 'dayjs'
 
 export const sortAppoinmentsByStartTime = (appointments: AppointmentModel[]) => {

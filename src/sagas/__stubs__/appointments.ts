@@ -2,7 +2,7 @@ import { AppointmentsData } from '@/reducers/appointments'
 
 export const appointmentsDataStub: AppointmentsData = {
   appointments: {
-    data: [
+    _embedded: [
       {
         id: 'NEP1600290',
         created: '2019-05-08T17:07:39',

@@ -1,4 +1,4 @@
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/platform'
 
 export const appointmentDataStub: AppointmentModel = {
   id: 'BED1600597',

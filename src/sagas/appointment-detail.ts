@@ -16,7 +16,7 @@ import { Action } from '@/types/core'
 import { AppointmentDetailRequestParams } from '@/actions/appointment-detail'
 import { selectAppointmentDetail } from '@/selectors/appointment-detail'
 import { selectAppointmentsFilterTime } from '@/selectors/appointments'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/platform'
 import { fetchAppointment, updateAppointment } from './api'
 
 export const appointmentDetailDataFetch = function*({ data: { id } }: Action<AppointmentDetailRequestParams>) {

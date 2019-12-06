@@ -1,5 +1,5 @@
 import { getTodayNextAppointment } from '../get-today-next-appointment'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/platform'
 
 describe('getTodayNextAppointment', () => {
   test('Should return the next appointment in today', () => {

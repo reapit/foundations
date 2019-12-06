@@ -90,8 +90,8 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
     })
 
     // Sort appoinments by start time
-    if (appointments && appointments.data) {
-      const sortedAppoinments = yield call(sortAppoinmentsByStartTime, appointments.data)
+    if (appointments && appointments._embedded) {
+      const sortedAppoinments = yield call(sortAppoinmentsByStartTime, appointments._embedded)
       appointments.data = sortedAppoinments
     }
 

@@ -1,5 +1,5 @@
 import appointmentsSagas, { appointmentsDataFetch, appointmentsDataListen } from '@/sagas/appointments'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel, ListItemModel } from '@/types/platform'
 import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
@@ -26,11 +26,11 @@ import {
   selectTomorrowAppointments,
   selectWeekAppointments
 } from '@/selectors/appointments'
-import { ListItemModel } from '@/types/configuration'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 
 jest.mock('../../core/store')
 jest.mock('@reapit/elements')
+jest.mock('@reapit/cognito-auth')
 
 const params: Action<AppointmentRequestParams> = {
   data: { time: 'Today' as AppointmentsTime },
@@ -122,7 +122,7 @@ describe('appointments should fetch data', () => {
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
-      call(sortAppoinmentsByStartTime, (appointmentsDataStub.appointments as any).data as AppointmentModel[])
+      call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as AppointmentModel[])
     )
 
     expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
@@ -180,7 +180,7 @@ describe('appointments should fetch data tomowrrow', () => {
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
-      call(sortAppoinmentsByStartTime, (appointmentsDataStub.appointments as any).data as AppointmentModel[])
+      call(sortAppoinmentsByStartTime, appointmentsDataStub.appointments?._embedded as AppointmentModel[])
     )
 
     expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
@@ -237,11 +237,11 @@ describe('appointments should fetch data week view', () => {
   )
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
-      call(sortAppoinmentsByStartTime, (appointmentsDataStub.appointments as any).data as AppointmentModel[])
+    expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
+      call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as AppointmentModel[])
     )
 
-    expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
+    expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
         api: REAPIT_API_BASE_URL,
@@ -250,10 +250,10 @@ describe('appointments should fetch data week view', () => {
       })
     )
 
-    expect(clone.next(appointmentsDataStub.appointmentTypes as any).value).toEqual(
+    expect(clone.next(appointmentsDataStub.appointmentTypes).value).toEqual(
       put(
         appointmentsReceiveWeekData({
-          appointments: appointmentsDataStub.appointments as any,
+          appointments: appointmentsDataStub.appointments,
           appointmentTypes: appointmentsDataStub.appointmentTypes
         })
       )

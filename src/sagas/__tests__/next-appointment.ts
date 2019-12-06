@@ -19,7 +19,7 @@ describe('next appointment validate', () => {
       const gen = cloneableGenerator(validateNextAppointment as any)('DRIVING')
       expect(gen.next().value).toEqual(select(selectAppointments))
       expect(
-        gen.next(appointmentsDataStub.appointments && (appointmentsDataStub.appointments.data as any)).value
+        gen.next(appointmentsDataStub.appointments && (appointmentsDataStub.appointments._embedded as any)).value
       ).toEqual(call(getCurrentPosition))
       expect(gen.next().value).toEqual(put(nextAppointmentClear()))
       expect(gen.next().done).toEqual(true)

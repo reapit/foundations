@@ -10,8 +10,7 @@ import {
 } from './../actions/appointments'
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { PagedResultAppointmentModel_, AppointmentModel } from '@/types/appointments'
-import { ListItemModel } from '../types/configuration'
+import { PagedResultAppointmentModel_, AppointmentModel, ListItemModel } from '@/types/platform'
 
 export type AppointmentsTime = 'Today' | 'Tomorrow' | 'Week View'
 

@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/platform'
 
 export function getTodayNextAppointment(appointments: AppointmentModel[]) {
   return appointments
