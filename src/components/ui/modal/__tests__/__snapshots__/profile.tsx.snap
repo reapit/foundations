@@ -3,7 +3,6 @@
 exports[` 1`] = `
 <div>
   <Formik
-    enableReinitialize={false}
     initialValues={
       Object {
         "dateOfBirth": null,
@@ -16,12 +15,10 @@ exports[` 1`] = `
         "work": "020 7946 1556",
       }
     }
-    isInitialValid={false}
     onSubmit={[MockFunction]}
-    render={[Function]}
-    validateOnBlur={true}
-    validateOnChange={true}
-  />
+  >
+    <Component />
+  </Formik>
 </div>
 `;
 

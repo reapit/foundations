@@ -11,10 +11,11 @@ import {
   AcButton,
   EntityType,
   LoginMode,
-  AppParams
+  AppParams,
+  Form,
+  Formik
 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Formik, Form } from 'formik'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/result'
 import { ReduxState } from '../../types/core'
@@ -103,8 +104,9 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
         <Formik
           initialValues={{ name: '', address: '', identityCheck: '' }}
           onSubmit={searchContacts({ setSearchParams, history })}
-          render={renderForm({ loginMode })}
-        />
+        >
+          {renderForm({ loginMode })}
+        </Formik>
       </FlexContainerBasic>
     </ErrorBoundary>
   )

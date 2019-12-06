@@ -1,7 +1,6 @@
 import React from 'react'
-import { Formik, Form } from 'formik'
 import { ContactModel, ContactIdentityDocumentModel } from '@/types/platform'
-import { Button, Input, DatePicker, CameraImageInput } from '@reapit/elements'
+import { Button, Input, DatePicker, CameraImageInput, Formik, Form } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 
@@ -82,11 +81,9 @@ export const Identification: React.FC<IdentificationProps> = ({
   onNextHandler,
   onPrevHandler
 }) => (
-  <Formik
-    initialValues={initFormValues}
-    onSubmit={onSubmitHandler(onSaveHandler)}
-    render={renderFormHandler({ contact, loading, onNextHandler, onPrevHandler, disabled })}
-  />
+  <Formik initialValues={initFormValues} onSubmit={onSubmitHandler(onSaveHandler)}>
+    {renderFormHandler({ contact, loading, onNextHandler, onPrevHandler, disabled })}
+  </Formik>
 )
 
 export default Identification

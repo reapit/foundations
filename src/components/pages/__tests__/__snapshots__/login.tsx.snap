@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login renderForm should match a snapshot when ERROR true 1`] = `
-<Form
+<ForwardRef
   data-test="login-form"
 >
   <Input
@@ -34,11 +34,11 @@ exports[`Login renderForm should match a snapshot when ERROR true 1`] = `
     message="Login failed, user credentials not recognised"
     type="danger"
   />
-</Form>
+</ForwardRef>
 `;
 
 exports[`Login renderForm should match a snapshot when ERROR true 2`] = `
-<Form
+<ForwardRef
   data-test="login-form"
 >
   <Input
@@ -67,7 +67,7 @@ exports[`Login renderForm should match a snapshot when ERROR true 2`] = `
       Login
     </Button>
   </Level>
-</Form>
+</ForwardRef>
 `;
 
 exports[`Login should match a snapshot 1`] = `
@@ -86,20 +86,17 @@ exports[`Login should match a snapshot 1`] = `
       Welcome to Reapit Online Check List
     </p>
     <Formik
-      enableReinitialize={false}
       initialValues={
         Object {
           "email": "",
           "password": "",
         }
       }
-      isInitialValid={false}
       onSubmit={[Function]}
-      render={[Function]}
       validate={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
+    >
+      <Component />
+    </Formik>
   </div>
   <div>
     <img
