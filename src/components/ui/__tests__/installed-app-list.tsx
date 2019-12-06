@@ -1,10 +1,16 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { InstalledAppList, InstalledAppListProps } from '../installed-app-list'
+import { InstalledAppList, InstalledAppListProps, onClickHandler } from '../installed-app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { Loader, GridFourColItem, GridThreeColItem } from '@reapit/elements'
 import { AppSummaryModel } from '../../../types/marketplace-api-schema'
 import InstalledAppCard from '../installed-app-card'
+
+const app = (appsDataStub as { data: { data: AppSummaryModel[] } }).data.data[0]
+
+const event = ({
+  stopPropagation: jest.fn()
+} as unknown) as React.MouseEvent
 
 const props: InstalledAppListProps = {
   list: appsDataStub.data.data as AppSummaryModel[],
@@ -42,5 +48,14 @@ describe('InstalledAppList', () => {
       .simulate('click', { stopPropagation: jest.fn() })
     expect(props.onCardClick).toHaveBeenCalledTimes(1)
     expect(props.onCardClick).toHaveBeenCalledWith(appsDataStub?.data?.data?.[0])
+  })
+
+  describe('onClickHandler', () => {
+    it('should call onCardClick when it is defined', () => {
+      const onCardClick = jest.fn()
+      const fn = onClickHandler(onCardClick, app)
+      fn(event)
+      expect(onCardClick).toHaveBeenCalledWith(app)
+    })
   })
 })
