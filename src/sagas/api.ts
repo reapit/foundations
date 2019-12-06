@@ -1,7 +1,7 @@
 import { fetcher } from '@reapit/elements'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/platform'
 
 export const fetchAppointment = async ({ id }) => {
   const headers = await initAuthorizedRequestHeaders()

@@ -1,13 +1,12 @@
 import React, { memo } from 'react'
 import { Tile, getTime, closestTo, IconList } from '@reapit/elements'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel, ListItemModel } from '@/types/platform'
 import ViewDirectionButton from '@/components/container/view-direction-button'
 import ViewDetailButton from '../container/view-detail-button'
 import ETAButton from './eta-button'
 import { NextAppointment } from '@/reducers/next-appointment'
 import containerStyle from '@/styles/pages/page-container.scss?mod'
 import appointmentListStyles from '@/styles/ui/appointment-list.scss?mod'
-import { ListItemModel } from '../../types/configuration'
 import { FaClock, FaStreetView, FaAddressCard } from 'react-icons/fa'
 
 export interface AppointmentListProps {

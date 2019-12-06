@@ -2,7 +2,7 @@ import * as React from 'react'
 import { CoordinateProps, Coords, Map, combineAddress } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { AppointmentModel, AddressModel } from '@/types/appointments'
+import { AppointmentModel, AppointmentPropertyAddressModel } from '@/types/platform'
 import invalidValues from '@/constants/invalid-values'
 import styles from '@/styles/pages/map.scss?mod'
 import MapPanel from '../ui/map-panel'
@@ -28,7 +28,7 @@ export interface Coordinate {
     lat: number
     lng: number
   }
-  address: AddressModel
+  address: AppointmentPropertyAddressModel
   id: string
 }
 
@@ -134,7 +134,7 @@ export const MapContainer = ({
 }
 
 export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
-  const appointments = state?.appointments?.appointments?.data || []
+  const appointments = state?.appointments?.appointments?._embedded || []
   const destinationLat = state?.direction?.destination?.property?.address?.geolocation?.latitude
   const destinationLng = state?.direction?.destination?.property?.address?.geolocation?.longitude
   const destinationAddress = combineAddress(state?.direction?.destination?.property?.address || {})

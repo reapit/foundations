@@ -27,6 +27,7 @@
     "test-e2e:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e\" -k"
   },
   "dependencies": {
+    "@reapit/cognito-auth": "^2.0.4",
     "@reapit/elements": "^0.4.64",
     "dayjs": "^1.8.17",
     "formik": "^1.5.8",

@@ -15,7 +15,8 @@ describe('appointments selector', () => {
       const input = {
         appointments: appointmentsDataStub
       } as ReduxState
-      const output = appointmentsDataStub && appointmentsDataStub.appointments && appointmentsDataStub.appointments.data
+      const output =
+        appointmentsDataStub && appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
       const result = selectAppointments(input)
       expect(result).toEqual(output)
     })
@@ -50,10 +51,10 @@ describe('appointments selector', () => {
     it('should run correctly', () => {
       const input = {
         appointments: {
-          today: appointmentsDataStub.appointments && appointmentsDataStub.appointments.data
+          today: appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
         }
       } as ReduxState
-      const output = appointmentsDataStub.appointments && appointmentsDataStub.appointments.data
+      const output = appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
       const result = selectTodayAppointments(input)
       expect(result).toEqual(output)
     })
@@ -70,10 +71,10 @@ describe('appointments selector', () => {
     it('should run correctly', () => {
       const input = {
         appointments: {
-          tomorrow: appointmentsDataStub.appointments && appointmentsDataStub.appointments.data
+          tomorrow: appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
         }
       } as ReduxState
-      const output = appointmentsDataStub.appointments && appointmentsDataStub.appointments.data
+      const output = appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
       const result = selectTomorrowAppointments(input)
       expect(result).toEqual(output)
     })
@@ -90,10 +91,10 @@ describe('appointments selector', () => {
     it('should run correctly', () => {
       const input = {
         appointments: {
-          weekView: appointmentsDataStub.appointments && appointmentsDataStub.appointments.data
+          weekView: appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
         }
       } as ReduxState
-      const output = appointmentsDataStub.appointments && appointmentsDataStub.appointments.data
+      const output = appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
       const result = selectWeekAppointments(input)
       expect(result).toEqual(output)
     })

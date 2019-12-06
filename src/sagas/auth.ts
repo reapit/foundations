@@ -4,11 +4,11 @@ import { Action } from '@/types/core.ts'
 import Routes from '@/constants/routes'
 import ActionTypes from '@/constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess } from '@/actions/auth'
-import { LoginSession, LoginParams, getCognitoSession, removeSessionCookie } from '@reapit/elements'
+import { LoginParams, LoginSession, loginUserSession, removeSession } from '@reapit/cognito-auth'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
-    const loginSession: LoginSession | null = yield call(getCognitoSession, data)
+    const loginSession: LoginSession | null = yield call(loginUserSession, data)
 
     if (loginSession) {
       yield put(authLoginSuccess(loginSession))
@@ -23,7 +23,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
 
 export const doLogout = function*() {
   try {
-    yield call(removeSessionCookie)
+    yield call(removeSession)
     yield history.push(Routes.LOGIN)
     yield put(authLogoutSuccess())
   } catch (err) {

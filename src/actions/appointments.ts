@@ -1,7 +1,7 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { AppointmentsData, AppointmentsTime } from '../reducers/appointments'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/platform'
 
 export interface AppointmentRequestParams {
   time: AppointmentsTime

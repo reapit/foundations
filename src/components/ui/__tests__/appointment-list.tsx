@@ -3,7 +3,7 @@ import { AppointmentList, handleUseEffect } from '../appointment-list'
 import toJson from 'enzyme-to-json'
 import { shallow } from 'enzyme'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/platform'
 
 describe('AppointmentList', () => {
   it('Should match snapshot if having no data', () => {
@@ -27,9 +27,9 @@ describe('AppointmentList', () => {
       toJson(
         shallow(
           <AppointmentList
-            appointments={appointmentsDataStub?.appointments?.data || []}
+            appointments={appointmentsDataStub?.appointments?._embedded || []}
             appointmentTypes={appointmentsDataStub?.appointmentTypes || []}
-            selectedAppointment={appointmentsDataStub?.appointments?.data?.[0] as AppointmentModel}
+            selectedAppointment={appointmentsDataStub?.appointments?._embedded?.[0] as AppointmentModel}
             setSelectedAppointment={jest.fn()}
             isOnline={false}
           />

@@ -20,10 +20,15 @@ import {
   Button,
   FlexContainerResponsive
 } from '@reapit/elements'
-import { AppointmentModel, CommunicationModel, AttendeeModel, AddressModel } from '@/types/appointments'
+import {
+  AppointmentModel,
+  AppointmentAttendeeCommunicationModel,
+  ListItemModel,
+  AppointmentPropertyAddressModel,
+  AppointmentAttendeeModel
+} from '@/types/platform'
 import { ReduxState } from '@/types/core'
 import { appointmentDetailHideModal, showHideConfirmModal } from '@/actions/appointment-detail'
-import { ListItemModel } from '../../../types/configuration'
 import styles from '@/styles/ui/appoinments-detail.scss?mod'
 import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
 import { getAttendeeEntityType } from '@/utils/get-attendee-entity-type'
@@ -69,13 +74,15 @@ export const renderHrefLink = (communicationLabel: string | undefined) => {
   }
 }
 
-export const renderCommunicationDetail = (communicationDetails: CommunicationModel[] | undefined) => {
+export const renderCommunicationDetail = (
+  communicationDetails: AppointmentAttendeeCommunicationModel[] | undefined
+) => {
   if (!communicationDetails) {
     return null
   }
   return (
     <IconList
-      items={communicationDetails.map((communicationDetail: CommunicationModel) => {
+      items={communicationDetails.map((communicationDetail: AppointmentAttendeeCommunicationModel) => {
         return {
           icon: renderCommunicationType(communicationDetail.label),
           text: (
@@ -98,7 +105,7 @@ export const renderCheckMark = (isConfirmed: boolean | undefined) => {
 
 export const renderAddress = (
   loginMode: LoginMode,
-  address: AddressModel | undefined,
+  address: AppointmentPropertyAddressModel | undefined,
   propertyId: string | undefined
 ) => {
   if (!address) {
@@ -126,7 +133,7 @@ export const renderAddress = (
   )
 }
 
-export const renderDateTime = (address: AddressModel | undefined, appointment: AppointmentModel) => {
+export const renderDateTime = (address: AppointmentPropertyAddressModel | undefined, appointment: AppointmentModel) => {
   if (!address) {
     return null
   }
@@ -141,7 +148,7 @@ export const renderDateTime = (address: AddressModel | undefined, appointment: A
   )
 }
 
-export const renderAdditionalAttendees = (attendees: AttendeeModel[], loginMode: LoginMode) => {
+export const renderAdditionalAttendees = (attendees: AppointmentAttendeeModel[], loginMode: LoginMode) => {
   if (attendees.length === 0) {
     return null
   }
@@ -171,7 +178,7 @@ export const renderAdditionalAttendees = (attendees: AttendeeModel[], loginMode:
   )
 }
 
-export const renderApplicantAttendees = (attendees: AttendeeModel[], loginMode: LoginMode) => {
+export const renderApplicantAttendees = (attendees: AppointmentAttendeeModel[], loginMode: LoginMode) => {
   if (attendees.length === 0) {
     return null
   }
@@ -272,8 +279,8 @@ export type RenderModalContentParams = {
   isConfirmContentVisible: boolean
   appointment: AppointmentModel
   loginMode: LoginMode
-  applicantAttendees: AttendeeModel[]
-  additionalAttendees: AttendeeModel[]
+  applicantAttendees: AppointmentAttendeeModel[]
+  additionalAttendees: AppointmentAttendeeModel[]
   handleCancelAppointment: () => void
 }
 
@@ -359,16 +366,19 @@ export type AppointmentDetailMappedProps = {
   isLoading: boolean
   appointmentTypes: ListItemModel[] | null
   loginMode: LoginMode
-  additionalAttendees: AttendeeModel[]
-  applicantAttendees: AttendeeModel[]
+  additionalAttendees: AppointmentAttendeeModel[]
+  applicantAttendees: AppointmentAttendeeModel[]
   isConfirmContentVisible: boolean
 }
 
-export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userCode: string): AttendeeModel[] => {
+export const filterLoggedInUser = (
+  attendees: AppointmentAttendeeModel[] | undefined,
+  userCode: string
+): AppointmentAttendeeModel[] => {
   if (!attendees) {
     return []
   }
-  return attendees.filter((attendee: AttendeeModel) => {
+  return attendees.filter((attendee: AppointmentAttendeeModel) => {
     if (!attendee) {
       return true
     }
@@ -377,19 +387,19 @@ export const filterLoggedInUser = (attendees: AttendeeModel[] | undefined, userC
 }
 
 export const getLoggedInUser = (
-  attendees: AttendeeModel[] | undefined,
+  attendees: AppointmentAttendeeModel[] | undefined,
   userCode: string
-): AttendeeModel | undefined => {
+): AppointmentAttendeeModel | undefined => {
   if (!attendees) {
     return
   }
-  return attendees.find((attendee: AttendeeModel) => {
+  return attendees.find((attendee: AppointmentAttendeeModel) => {
     return attendee.id === userCode
   })
 }
 
 // Get attendees types: negotiator, office
-export const getAdditionalAttendees = (attendees: AttendeeModel[]) => {
+export const getAdditionalAttendees = (attendees: AppointmentAttendeeModel[]) => {
   return attendees.filter(attendee => {
     const attendeeType = attendee?.type || ''
     return ['negotiator', 'office'].includes(attendeeType)
@@ -397,7 +407,7 @@ export const getAdditionalAttendees = (attendees: AttendeeModel[]) => {
 }
 
 // Get attendees types: landlord, contact, applicant, tenant
-export const getApplicantAttendees = (attendees: AttendeeModel[]) => {
+export const getApplicantAttendees = (attendees: AppointmentAttendeeModel[]) => {
   return attendees.filter(attendee => {
     const attendeeType = attendee?.type || ''
     return ['landlord', 'contact', 'applicant', 'tenant'].includes(attendeeType)

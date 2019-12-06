@@ -1,12 +1,12 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import { nextAppointmentValidateSuccess, nextAppointmentClear } from '../actions/next-appointment'
-import { AttendeeModel } from '@/types/appointments'
+import { AppointmentAttendeeModel } from '@/types/platform'
 
 export interface NextAppointment {
   id: string
-  attendeeWithMobile: AttendeeModel | undefined
-  currentNegotiator: AttendeeModel | undefined
+  attendeeWithMobile: AppointmentAttendeeModel | undefined
+  currentNegotiator: AppointmentAttendeeModel | undefined
   durationValue: number
   durationText: string
   distanceValue: number

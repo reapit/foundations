@@ -16,7 +16,7 @@ import { homeTabChange } from '@/actions/home'
 import { setDestination } from '@/actions/direction'
 import { isMobile } from '../../utils/device-detection'
 import TravelMode from '../ui/travel-mode'
-import { AppointmentModel } from '@/types/appointments'
+import { AppointmentModel } from '@/types/platform'
 import { selectOnlineStatus } from '@/selectors/online'
 
 export interface HomeMappedActions {
@@ -57,7 +57,7 @@ export const tabConfigs = ({ currentTab, changeHomeTab }): TabConfig[] => [
 const filterTimes: AppointmentsTime[] = ['Today', 'Tomorrow', 'Week View']
 
 export const handleUseEffect = ({ appointmentsState, requestNextAppointment, travelMode }) => () => {
-  const hasAppointments = (appointmentsState?.appointments?.data || []).length > 0
+  const hasAppointments = (appointmentsState?.appointments?._embedded || []).length > 0
   if (appointmentsState.time === 'Today' && hasAppointments && !appointmentsState.loading) {
     requestNextAppointment(travelMode)
   }
@@ -84,7 +84,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   const unfetched = !appointmentsState.appointments
   const loading = appointmentsState.loading
   const selectedAppointment = appointmentsState.selectedAppointment
-  const list = appointmentsState?.appointments?.data || []
+  const list = appointmentsState?.appointments?._embedded || []
   const time = appointmentsState.time
   const [travelMode, setTravelMode] = React.useState<'DRIVING' | 'WALKING'>('DRIVING')
   const isMobileView = isMobile()

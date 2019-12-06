@@ -23,7 +23,7 @@ describe('Home', () => {
         appointments: appointmentsDataStub.appointments,
         loading: false,
         time: 'Today',
-        selectedAppointment: appointmentsDataStub?.appointments?.data?.[0]
+        selectedAppointment: appointmentsDataStub?.appointments?._embedded?.[0]
       },
       nextAppointmentState: {
         data: null
@@ -40,7 +40,7 @@ describe('Home', () => {
         appointments: appointmentsDataStub.appointments,
         loading: true,
         time: 'Today',
-        selectedAppointment: appointmentsDataStub?.appointments?.data?.[0]
+        selectedAppointment: appointmentsDataStub?.appointments?._embedded?.[0]
       },
       nextAppointmentState: {
         data: null

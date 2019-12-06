@@ -9,7 +9,7 @@ import { TravelMode } from '../../ui/travel-mode'
 describe('Map', () => {
   it('Should match snapshot', () => {
     const mockProps = {
-      appointments: appointmentsDataStub?.appointments?.data || [],
+      appointments: appointmentsDataStub?.appointments?._embedded || [],
       destinationLatLng: { lat: 0, lng: 0 },
       travelMode: 'WALKING' as TravelMode,
       handleOnClick: jest.fn(),
@@ -51,7 +51,7 @@ describe('Map', () => {
       } as any
       const result = mapStateToProps(mockState)
       const expected = {
-        appointments: appointmentsDataStub?.appointments?.data || [],
+        appointments: appointmentsDataStub?.appointments?._embedded || [],
         destinationLatLng: {
           lat: 52.1284,
           lng: -0.507145
