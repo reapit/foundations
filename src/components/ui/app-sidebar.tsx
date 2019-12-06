@@ -17,48 +17,45 @@ export interface AppSidebarMappedProps {
 
 export type AppSidebarProps = AppSidebarMappedProps & RouteComponentProps
 
-export const AppSidebar: React.FunctionComponent<AppSidebarProps> = ({
-  categories,
-  location,
-  history
-}: AppSidebarProps) => {
-  const handleSelectCategory = (categoryId?: string) => {
-    if (categoryId) {
-      history.push(addQuery({ category: categoryId }))
-    } else {
-      history.push(removeQuery(['category']))
-    }
-  }
+export interface History {
+  push: (path: string) => void
+}
 
-  const handleSearchApp = (values: FormikValues) => {
-    const { search } = values
-    if (search) {
-      history.push(addQuery({ search }))
-    } else {
-      history.push(removeQuery(['search']))
-    }
+export const handleSelectCategory = (history: History) => (categoryId?: string) => {
+  if (categoryId) {
+    history.push(addQuery({ category: categoryId }))
+  } else {
+    history.push(removeQuery(['category', 'search']))
   }
+}
 
+export const handleSearchApp = (history: History) => (values: FormikValues) => {
+  const { search } = values
+  if (search) {
+    history.push(addQuery({ search }))
+  } else {
+    history.push(removeQuery(['search']))
+  }
+}
+
+export const AppSidebar: React.FC<AppSidebarProps> = ({ categories, location, history }: AppSidebarProps) => {
   return (
     <div className={styles.sidebar}>
       <FlexContainerBasic hasPadding flexColumn>
         <H3>Browse Apps</H3>
         <Formik
+          enableReinitialize={true}
           initialValues={{ search: getParamValueFromPath(location.search, 'search') }}
-          onSubmit={values => {
-            handleSearchApp(values)
-          }}
+          onSubmit={handleSearchApp(history)}
         >
-          {() => (
-            <Form>
-              <Input id="search" type="text" placeholder="Search..." name="search" rightIcon={<FaSearch />} />
-            </Form>
-          )}
+          <Form>
+            <Input id="search" type="text" placeholder="Search..." name="search" rightIcon={<FaSearch />} />
+          </Form>
         </Formik>
         <CategoriesList
           selectedCategory={getParamValueFromPath(location.search, 'category')}
           categories={categories}
-          onSelectCategory={handleSelectCategory}
+          onSelectCategory={handleSelectCategory(history)}
         />
       </FlexContainerBasic>
     </div>
