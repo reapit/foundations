@@ -2,7 +2,10 @@ import { LoginSession, RefreshParams } from '../../core/types'
 import { getNewUser, getLoginSession } from '../../utils/cognito'
 import errorStrings from '../../constants/error-strings'
 
-export const refreshUserSessionService = async ({ userName, refreshToken }: RefreshParams): Promise<LoginSession> => {
+export const refreshUserSessionService = async ({
+  userName,
+  refreshToken
+}: RefreshParams): Promise<Partial<LoginSession>> => {
   return new Promise((resolve, reject) => {
     const refreshTokenObject = {
       getToken: () => refreshToken

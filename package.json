@@ -1,17 +1,27 @@
 {
-  "name": "cognitio-auth",
-  "version": "1.0.0",
+  "name": "@reapit/cognito-auth",
+  "version": "2.0.4",
   "description": "Simple wrapper around AWS Cognito for basic authentication flow",
-  "main": "handler.js",
+  "main": "dist/index.js",
+  "umd:main": "dist/cognito-auth.umd.production.js",
+  "module": "dist/cognito-auth.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "jest --coverage --silent",
     "test-ci": "rm -rf ./public && yarn build && ./node_modules/.bin/concurrently --success=\"first\" \"yarn start-dev\" \"yarn test\" -k",
     "test-dev": "jest --watch --verbose",
     "lint": "tslint --fix --project tsconfig.json --format stylish",
-    "build": "tsc && rm -rf ./public/mailer/templates/ejs && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
+    "prepublish": "yarn test && yarn build",
+    "prebuild": "rimraf dist && rimraf public",
+    "build-npm": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
+    "build-serverless": "tsc --p tsconfig.legacy.json && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
+    "build": "yarn build-serverless && yarn build-npm",
     "start-dev": "node ./public/app.dev.js",
     "serverless": "serverless deploy",
-    "deploy": "yarn lint && yarn build && yarn test-ci && yarn serverless",
+    "deploy": "yarn lint && yarn build-serverless && yarn test-ci && yarn serverless",
     "dev": "nodemon"
   },
   "repository": {
@@ -26,11 +36,14 @@
   },
   "homepage": "https://github.com/reapit/cognitio-auth#readme",
   "dependencies": {
+    "@types/jsonwebtoken": "^8.3.5",
     "amazon-cognito-identity-js": "~3.0.13",
     "cors": "^2.8.5",
     "ejs": "^3.0.1",
     "express": "~4.17.1",
+    "hardtack": "^4.1.2",
     "isomorphic-fetch": "~2.2.1",
+    "jsonwebtoken": "^8.5.1",
     "serverless-http": "~2.0.2"
   },
   "devDependencies": {
@@ -47,8 +60,10 @@
     "lint-staged": "~9.2.0",
     "nodemon": "~1.19.1",
     "prettier": "~1.19.1",
+    "rimraf": "^3.0.0",
     "ts-jest": "~24.0.2",
     "ts-node": "~8.3.0",
+    "tsdx": "^0.11.0",
     "tslint": "~5.20.1",
     "tslint-config-prettier": "~1.18.0",
     "tslint-config-standard": "~9.0.0",
@@ -65,16 +80,17 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>[/\\\\](node_modules|src/core)[/\\\\]",
       "<rootDir>/src/app.ts",
-      "<rootDir>/src/app.dev.ts"
+      "<rootDir>/src/app.dev.ts",
+      "<rootDir>/src/index.ts"
     ],
     "modulePathIgnorePatterns": [
-      "<rootDir>[/\\\\](node_modules|public)[/\\\\]"
+      "<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]"
     ]
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test-ci"
+      "pre-push": "yarn test"
     }
   },
   "lint-staged": {
