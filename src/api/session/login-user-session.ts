@@ -13,7 +13,7 @@ export const loginUserSessionApi = async (req: Request, res: Response) => {
   }
 
   try {
-    const loginResponse = await loginUserSessionService({ userName, password })
+    const loginResponse = await loginUserSessionService(req.body)
     successHandler(res, 200, req.url, loginResponse)
   } catch (err) {
     errorHandler(res, 400, `${errorStrings.AUTHENTICATION_FAILED}, ${err}`)

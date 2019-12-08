@@ -5,6 +5,7 @@ import { refreshUserSessionService } from '../../../services/session/refresh-use
 import successHandler from '../../../utils/success-handler'
 import errorHandler from '../../../utils/error-handler'
 import errorStrings from '../../../constants/error-strings'
+import { RefreshParams } from '../../../core/types'
 
 jest.mock('../../../services/session/refresh-user-session')
 jest.mock('../../../utils/success-handler')
@@ -16,7 +17,7 @@ describe('refreshUserSessionApi', () => {
   it('should call the success handler correctly on success', async () => {
     const request = {
       ...mockReq,
-      body: { userName: 'will@mail.com', refreshToken: 'SOME_TOKEN' }
+      body: { userName: 'will@mail.com', refreshToken: 'SOME_TOKEN' } as RefreshParams
     } as Request
     mockedSessionService.mockImplementation(() => 'SUCCESS')
     await refreshUserSessionApi(request, mockRes)
@@ -27,7 +28,7 @@ describe('refreshUserSessionApi', () => {
   it('should call the error handler correctly if params are missing', async () => {
     const request = {
       ...mockReq,
-      body: { userName: null, password: null }
+      body: { userName: '', refreshToken: '' } as RefreshParams
     } as Request
     mockedSessionService.mockImplementation(() => 'SUCCESS')
     await refreshUserSessionApi(request, mockRes)
@@ -38,7 +39,7 @@ describe('refreshUserSessionApi', () => {
   it('should call the error handler correctly if service thows an error', async () => {
     const request = {
       ...mockReq,
-      body: { userName: 'will@mail.com', refreshToken: 'SOME_TOKEN' }
+      body: { userName: 'will@mail.com', refreshToken: 'SOME_TOKEN' } as RefreshParams
     } as Request
     const error = new Error('API FAILED')
     mockedSessionService.mockImplementation(() => {
