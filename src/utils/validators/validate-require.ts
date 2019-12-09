@@ -15,3 +15,11 @@ export const validateRequire = <ValuesType, ErrorKeys extends string>({
     currentErrors
   })
 }
+
+export const fieldValidateRequire = (value: string) => {
+  console.log('validate', value)
+  if (value) {
+    return null
+  }
+  return errorMessages.FIELD_REQUIRED
+}

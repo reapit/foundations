@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Field, FieldProps } from 'formik'
 import { checkError } from '../../utils/form'
+import { fieldValidateRequire } from '../../utils/validators'
 
 export interface InputProps {
   type: 'text' | 'password' | 'email' | 'tel' | 'hidden' | 'time'
@@ -13,14 +14,6 @@ export interface InputProps {
   required?: boolean
 }
 
-export const requiredValidate = (value: string) => {
-  let error
-  if (!value) {
-    error = 'Required'
-  }
-  return error
-}
-
 export const Input = ({
   type,
   name,
@@ -31,7 +24,7 @@ export const Input = ({
   rightIcon,
   required = false
 }: InputProps) => (
-  <Field name={name} validate={required ? requiredValidate : null}>
+  <Field name={name} validate={required ? fieldValidateRequire : null}>
     {({ field, meta }: FieldProps<string | number>) => {
       const hasError = checkError(meta)
       const className = hasError ? 'input is-danger' : 'input is-primary'
