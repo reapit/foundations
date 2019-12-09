@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.2-beta",
+  "version": "0.5.3-beta",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -33,6 +33,7 @@
   "homepage": "https://github.com/reapit/elements#readme",
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@octokit/rest": "^16.35.0",
     "@storybook/addon-actions": "^5.2.6",
     "@storybook/addon-docs": "^5.2.6",
     "@storybook/addon-info": "^5.2.6",
