@@ -61,7 +61,7 @@ describe('AdminApps', () => {
     it('should call dispatch correctly', () => {
       const mockDispatch = jest.fn()
       const { fetchApps } = mapDispatchToProps(mockDispatch)
-      fetchApps({ pageNumber: 1, appName: '1', companyName: 'a' })()
+      fetchApps({ pageNumber: 1, appName: '1', companyName: 'a', developerName: '1' })()
       expect(mockDispatch).toBeCalled()
     })
 

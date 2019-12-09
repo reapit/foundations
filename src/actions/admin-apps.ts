@@ -6,6 +6,7 @@ import { FormState } from '@/types/core'
 export interface AdminAppsFilter {
   appName: string
   companyName: string
+  developerName: string
 }
 
 export type AdminAppsParams = {

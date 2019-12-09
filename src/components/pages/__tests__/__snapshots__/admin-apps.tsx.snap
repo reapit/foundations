@@ -2,40 +2,56 @@
 
 exports[`AdminApps renderForm should return correctly 1`] = `
 <ForwardRef>
-  <Grid>
-    <GridItem>
-      <Input
-        id="appName"
-        labelText="App Name"
-        name="appName"
-        type="text"
-      />
-    </GridItem>
-    <GridItem>
-      <Input
-        id="companyName"
-        labelText="Developer Name"
-        name="companyName"
-        type="text"
-      />
-    </GridItem>
-    <GridItem>
-      <Button
-        disabled={true}
-        type="submit"
-        variant="primary"
-      >
-        Search
-      </Button>
-      <Button
-        onClick={[Function]}
-        type="button"
-        variant="primary"
-      >
-        Refresh
-      </Button>
-    </GridItem>
-  </Grid>
+  <FormSection>
+    <FormHeading>
+      Admin Apps Filter Form
+    </FormHeading>
+    <FormSubHeading>
+      Filter the result by App, Developer and Company
+    </FormSubHeading>
+    <Grid>
+      <GridItem>
+        <Input
+          id="appName"
+          labelText="App Name"
+          name="appName"
+          type="text"
+        />
+      </GridItem>
+      <GridItem>
+        <Input
+          id="developerName"
+          labelText="Developer Name"
+          name="developerName"
+          type="text"
+        />
+      </GridItem>
+      <GridItem>
+        <Input
+          id="companyName"
+          labelText="Company Name"
+          name="companyName"
+          type="text"
+        />
+      </GridItem>
+      <GridItem>
+        <Button
+          disabled={true}
+          type="submit"
+          variant="primary"
+        >
+          Search
+        </Button>
+        <Button
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Refresh
+        </Button>
+      </GridItem>
+    </Grid>
+  </FormSection>
 </ForwardRef>
 `;
 
@@ -56,6 +72,7 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
           Object {
             "appName": "",
             "companyName": "",
+            "developerName": "",
           }
         }
         onSubmit={[Function]}
@@ -190,6 +207,7 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
           Object {
             "appName": "",
             "companyName": "",
+            "developerName": "",
           }
         }
         onSubmit={[Function]}
