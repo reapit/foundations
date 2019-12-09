@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import { Input, InputProps, requiredValidate } from '../index'
+import { Input, InputProps } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
 import { FaSearch } from 'react-icons/fa'
+import { fieldValidateRequire } from '../../../utils/validators'
 
 const props: InputProps = {
   id: 'username',
@@ -69,6 +70,6 @@ describe('Input', () => {
 describe('requiredValidate', () => {
   it('should run correctly', () => {
     const value = '';
-    expect(requiredValidate(value)).toEqual('Required')
+    expect(fieldValidateRequire(value)).toEqual('Required')
   })
 })

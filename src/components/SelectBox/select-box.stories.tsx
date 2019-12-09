@@ -12,7 +12,7 @@ storiesOf('SelectBox', module)
     return (
       <section className="section">
         <Formik
-          initialValues={{ demo: new Date().toString() }}
+          initialValues={{ demo: null }}
           onSubmit={values => {
             action('Form Values' + values)
           }}
@@ -28,18 +28,13 @@ storiesOf('SelectBox', module)
       </section>
     )
   })
-  .add('HasError', () => {
+  .add('Required', () => {
     const Parent = () => {
       const mockedOptions: SelectBoxOptions[] = [{ label: 'option1', value: 'a' }, { label: 'option2', value: 'b' }]
       return (
         <section className="section">
           <Formik
-            validate={() => {
-              return {
-                demo: 'error'
-              }
-            }}
-            initialValues={{ demo: new Date().toString() }}
+            initialValues={{ demo: '' }}
             onSubmit={values => {
               action('Form Values' + values)
             }}
@@ -47,7 +42,7 @@ storiesOf('SelectBox', module)
             {() => (
               <Form>
                 <div className="column is-half-desktop">
-                  <SelectBox name="demo" options={mockedOptions} labelText="Demo" id="test" />
+                  <SelectBox required name="demo" options={mockedOptions} labelText="Demo" id="test" />
                 </div>
               </Form>
             )}
