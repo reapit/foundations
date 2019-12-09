@@ -31,7 +31,7 @@ describe('client fetch data', () => {
   expect(gen.next([]).value).toEqual(
     all([
       call(fetcher, {
-        url: `${URLS.apps}?clientId=1&PageNumber=${params.data.page}&PageSize=${APPS_PER_PAGE}&AppName=${params.data.search}&Category=${params.data.category}&IsFeatured=false`,
+        url: `${URLS.apps}?clientId=1&PageNumber=${params.data.page}&PageSize=${APPS_PER_PAGE}&AppName=${params.data.search}&Category=${params.data.category}`,
         api: REAPIT_API_BASE_URL,
         method: 'GET',
         headers: MARKETPLACE_HEADERS
