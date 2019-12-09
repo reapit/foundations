@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import { Input, InputProps, requiredValidate } from '../index'
+import { Input, InputProps } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
 import { FaSearch } from 'react-icons/fa'
@@ -69,11 +69,7 @@ describe('Input', () => {
 
 describe('requiredValidate', () => {
   it('should run correctly', () => {
-    const value = '';
-<<<<<<< HEAD
+    const value = ''
     expect(fieldValidateRequire(value)).toEqual('Required')
-=======
-    expect(requiredValidate(value)).toEqual('Required')
->>>>>>> [CLD-391] Implement required field in elements
   })
 })
