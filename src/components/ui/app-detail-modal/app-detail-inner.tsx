@@ -81,7 +81,7 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
             onButtonClick={handleCloseModal(setAppDetailModalStateView, afterClose, installationsSetFormState)}
             isCenter
           >
-            {appName} has been successfully {isInstalled ? 'installed' : 'uninstalled'}
+            {appName} has been successfully {isInstalled ? 'uninstalled' : 'installed'}
           </CallToAction>
         }
       />

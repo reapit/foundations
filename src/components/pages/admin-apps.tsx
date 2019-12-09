@@ -13,7 +13,10 @@ import {
   Grid,
   GridItem,
   Formik,
-  Form
+  Form,
+  FormSection,
+  FormHeading,
+  FormSubHeading
 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AdminAppsState } from '@/reducers/admin-apps'
@@ -41,7 +44,7 @@ export interface AdminAppsMappedProps {
 export type AdminAppsProps = AdminAppsMappedActions & AdminAppsMappedProps
 
 export const refreshForm = (setFilter, resetForm) => () => {
-  setFilter({ appName: '', companyName: '' })
+  setFilter({ appName: '', companyName: '', developerName: '' })
   resetForm()
 }
 
@@ -127,25 +130,32 @@ export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal 
 }
 
 export const renderForm = (setFilter: (filter: AdminAppsFilter) => void) => ({ values, resetForm }) => {
-  const disabled = !values.appName && !values.companyName
+  const disabled = !values.appName && !values.companyName && !values.developerName
   return (
     <Form>
-      <Grid>
-        <GridItem className={styles.filterBlock}>
-          <Input type="text" name="appName" id="appName" labelText="App Name" />
-        </GridItem>
-        <GridItem className={styles.filterBlock}>
-          <Input type="text" name="companyName" id="companyName" labelText="Developer Name" />
-        </GridItem>
-        <GridItem className={styles.filterButton}>
-          <Button type="submit" variant="primary" disabled={disabled}>
-            Search
-          </Button>
-          <Button type="button" variant="primary" onClick={refreshForm(setFilter, resetForm)}>
-            Refresh
-          </Button>
-        </GridItem>
-      </Grid>
+      <FormSection>
+        <FormHeading>Admin Apps Filter Form</FormHeading>
+        <FormSubHeading>Filter the result by App, Developer and Company</FormSubHeading>
+        <Grid>
+          <GridItem className={styles.filterBlock}>
+            <Input type="text" name="appName" id="appName" labelText="App Name" />
+          </GridItem>
+          <GridItem className={styles.filterBlock}>
+            <Input type="text" name="developerName" id="developerName" labelText="Developer Name" />
+          </GridItem>
+          <GridItem className={styles.filterBlock}>
+            <Input type="text" name="companyName" id="companyName" labelText="Company Name" />
+          </GridItem>
+          <GridItem className={styles.filterButton}>
+            <Button type="submit" variant="primary" disabled={disabled}>
+              Search
+            </Button>
+            <Button type="button" variant="primary" onClick={refreshForm(setFilter, resetForm)}>
+              Refresh
+            </Button>
+          </GridItem>
+        </Grid>
+      </FormSection>
     </Form>
   )
 }
@@ -155,9 +165,9 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({ adminAppsSt
   const { loading, formState } = adminAppsState
   const { data = [], totalCount, pageSize } = adminAppsState.adminAppsData || {}
 
-  const [filter, setFilter] = React.useState<AdminAppsFilter>({ appName: '', companyName: '' })
+  const [filter, setFilter] = React.useState<AdminAppsFilter>({ appName: '', companyName: '', developerName: '' })
   const [pageNumber, setPageNumber] = React.useState<number>(1)
-  const [deleteModal, setDeleteModal] = React.useState({ visible: false, appId: '', appName: '' })
+  const [deleteModal, setDeleteModal] = React.useState({ visible: false, appId: '', appName: '', developerName: '' })
 
   React.useEffect(fetchApps({ ...filter, pageNumber }), [pageNumber, filter])
 
@@ -179,7 +189,7 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({ adminAppsSt
         )}
         <div className="mb-5">
           <H3>Admin Apps</H3>
-          <Formik initialValues={{ appName: '', companyName: '' }} onSubmit={setFilter}>
+          <Formik initialValues={{ appName: '', companyName: '', developerName: '' }} onSubmit={setFilter}>
             {renderForm(setFilter)}
           </Formik>
         </div>
