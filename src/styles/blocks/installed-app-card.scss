@@ -5,6 +5,8 @@ $icon-height: 130px;
   width: $icon-width + 2px;
 }
 .wrap-icon {
+  width: $icon-width;
+  height: $icon-height;
   cursor: pointer;
   border-radius: 15px;
   border: 1px solid #95aac9;
@@ -16,8 +18,8 @@ $icon-height: 130px;
 }
 
 .icon {
-  width: $icon-width;
-  height: $icon-height;
+  width: $icon-width - 30px;
+  height: $icon-height - 30px;
 }
 
 .app-title {
