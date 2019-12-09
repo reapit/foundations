@@ -37,9 +37,16 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
           Time:
         </H6>
       </div>
-      <p>
-        18 Dec 2016 04:30 PM - 05:30 PM
-      </p>
+      <div>
+        <p>
+          18 Dec 2016 04:30 PM - 05:30 PM
+        </p>
+        <p
+          className="is-size-7 is-italic"
+        >
+          This is a recurring appointment
+        </p>
+      </div>
     </div>
     <div>
       <div>
