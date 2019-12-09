@@ -9,7 +9,7 @@ export const appointmentDataStub: AppointmentModel = {
   start: '2016-12-18T16:30:00',
   end: '2016-12-18T17:30:00',
   typeId: 'IA',
-  recurring: false,
+  recurring: true,
   cancelled: false,
   property: {
     arrangements: 'Switch lights on in living room',

@@ -143,7 +143,10 @@ export const renderDateTime = (address: AppointmentPropertyAddressModel | undefi
         <FaClock />
         <H6>Time:</H6>
       </div>
-      <p>{renderStartAndEndDate(appointment.start || '', appointment.end || '')}</p>
+      <div>
+        <p>{renderStartAndEndDate(appointment.start || '', appointment.end || '')}</p>
+        {appointment.recurring && <p className="is-size-7 is-italic">This is a recurring appointment</p>}
+      </div>
     </div>
   )
 }
