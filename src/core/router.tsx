@@ -12,7 +12,7 @@ const Login = React.lazy(() => import('../components/pages/login'))
 const Client = React.lazy(() => import('../components/pages/client'))
 const InstalledApps = React.lazy(() => import('../components/pages/installed-apps'))
 const MyApps = React.lazy(() => import('../components/pages/my-apps'))
-const Register = React.lazy(() => import('../components/pages/register'))
+// const Register = React.lazy(() => import('../components/pages/register'))
 const DeveloperHome = React.lazy(() => import('../components/pages/developer-home'))
 const DeveloperSubmitApp = React.lazy(() => import('../components/pages/developer-submit-app'))
 const AdminApprovalsPage = React.lazy(() => import('../components/pages/admin-approvals'))
@@ -27,6 +27,7 @@ const SettingsPage = React.lazy(() => import('../components/pages/settings'))
 const ResetPassword = React.lazy(() => import('../components/pages/reset-password'))
 const ForgotPassword = React.lazy(() => import('../components/pages/forgot-password/forgot-password'))
 const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
+const RegisterConfirm = React.lazy(() => import('../components/pages/register-confirm'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -38,7 +39,8 @@ const Router = () => (
           render={() => <Login />}
         />
         <Route path={Routes.DEVELOPER_RESET_PASSWORD} component={ResetPassword} />
-        <Route path={Routes.REGISTER} exact render={() => <Register />} />
+        {/* <Route path={Routes.REGISTER} exact component={Register} /> */}
+        <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
         <Route path={Routes.FORGOT_PASSWORD} component={ForgotPassword} />
         <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
         <PrivateRouteWrapper path="/">

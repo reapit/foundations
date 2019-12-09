@@ -49,9 +49,16 @@ exports[`Router should match a snapshot 1`] = `
         path="/developer/reset-password"
       />
       <Route
+        component={
+          Object {
+            "$$typeof": Symbol(react.lazy),
+            "_ctor": [Function],
+            "_result": null,
+            "_status": -1,
+          }
+        }
         exact={true}
-        path="/register"
-        render={[Function]}
+        path="/register/confirm"
       />
       <Route
         component={

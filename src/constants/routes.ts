@@ -18,6 +18,7 @@ const Routes = {
   SETTINGS: '/developer/settings',
   SUBMIT_APP: '/developer/submit-app',
   REGISTER: '/register',
+  REGISTER_CONFIRM: '/register/confirm',
   ADMIN: '/admin',
   ADMIN_APPS: '/admin/apps',
   ADMIN_APPROVALS: '/admin/approvals',

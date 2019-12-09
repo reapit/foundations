@@ -98,7 +98,10 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
     )
   }
 
-  const isChangePasswordSuccess = props.location?.search === '?isChangePasswordSuccess=1'
+  const queryParams = new URLSearchParams(props.location.search)
+  const isChangePasswordSuccess = queryParams.get('isChangePasswordSuccess')
+  const confirmError = queryParams.get('confirmError')
+
   return (
     <div className={container}>
       <div className={`${wrapper} ${isSubmitting && disabled}`}>
@@ -146,6 +149,12 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
               </Level>
               {isChangePasswordSuccess && <Alert message="Password changed successfully" type="success" />}
               {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
+              {confirmError && (
+                <Alert
+                  type="danger"
+                  message="Unfortunately, the verification process has failed. Please contact the Administrator."
+                />
+              )}
             </Form>
           )}
         </Formik>
