@@ -12,14 +12,20 @@ import {
   Form,
   withFormik,
   FormikProps,
-  FormikBag,
-  FormikErrors
+  FormikBag
 } from '@reapit/elements'
 import { validate } from '@/utils/form/change-password'
 
 export type ChangePasswordFormProps = FormikProps<ChangePasswordValues>
 
-export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({ isSubmitting, isValidating, isValid }) => {
+export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({
+  isSubmitting,
+  isValidating,
+  isValid,
+  touched
+}) => {
+  const isEnable =
+    isValid && Boolean(touched) && (touched.confirmPassword || touched.currentPassword || touched.password)
   return (
     <FormSection>
       <Form>
@@ -54,7 +60,7 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({ isSubmit
           </GridItem>
         </Grid>
         <FlexContainerResponsive>
-          <Button disabled={!isValid} loading={isSubmitting || isValidating} variant="primary" type="submit">
+          <Button disabled={!isEnable} loading={isSubmitting || isValidating} variant="primary" type="submit">
             Change Password
           </Button>
         </FlexContainerResponsive>
