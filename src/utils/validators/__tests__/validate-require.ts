@@ -1,4 +1,4 @@
-import { validateRequire } from '../validate-require'
+import { validateRequire, fieldValidateRequire } from '../validate-require'
 import errorMessages from '../error-messages'
 
 interface ValueTypes {
@@ -54,5 +54,12 @@ describe('validate-require', () => {
       const result = validateRequire(input)
       expect(result).toEqual(output)
     })
+  })
+})
+
+describe('fieldValidateRequire', () => {
+  it('work correctly', () => {
+    const value = ''
+    expect(fieldValidateRequire(value)).toStrictEqual(errorMessages.FIELD_REQUIRED)
   })
 })
