@@ -53,7 +53,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
     </Grid>
     <FlexContainerResponsive>
       <Button
-        disabled={false}
+        disabled={true}
         loading={false}
         type="submit"
         variant="primary"

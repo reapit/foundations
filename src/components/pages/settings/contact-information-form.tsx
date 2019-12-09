@@ -21,8 +21,11 @@ export type ContactInformationFormProps = FormikProps<ContactInformationValues>
 export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
   isSubmitting,
   isValidating,
-  isValid
+  isValid,
+  touched
 }) => {
+  const isEnable =
+    isValid && Boolean(touched) && (touched.companyName || touched.jobTitle || touched.name || touched.telephone)
   return (
     <FormSection>
       <Form>
@@ -49,7 +52,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
           </GridItem>
         </Grid>
         <FlexContainerResponsive>
-          <Button disabled={!isValid} loading={isSubmitting || isValidating} variant="primary" type="submit">
+          <Button disabled={!isEnable} loading={isSubmitting || isValidating} variant="primary" type="submit">
             Save Changes
           </Button>
         </FlexContainerResponsive>
