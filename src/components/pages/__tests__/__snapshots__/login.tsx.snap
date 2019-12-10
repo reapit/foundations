@@ -90,20 +90,17 @@ exports[`Login should match a snapshot 1`] = `
       Welcome to GEO Diary
     </p>
     <Formik
-      enableReinitialize={false}
       initialValues={
         Object {
           "email": "",
           "password": "",
         }
       }
-      isInitialValid={false}
       onSubmit={[Function]}
-      render={[Function]}
       validate={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
+    >
+      <Component />
+    </Formik>
   </div>
   <div>
     <img
