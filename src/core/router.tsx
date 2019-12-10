@@ -28,6 +28,7 @@ const ResetPassword = React.lazy(() => import('../components/pages/reset-passwor
 const ForgotPassword = React.lazy(() => import('../components/pages/forgot-password/forgot-password'))
 const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
 const RegisterConfirm = React.lazy(() => import('../components/pages/register-confirm'))
+const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -97,6 +98,7 @@ const Router = () => (
               exact
               fetcher
             />
+            <PrivateRoute allow="ADMIN" path={Routes.ADMIN_STATS} component={AdminStats} exact fetcher />
             <Route render={() => <Info infoType="404" />} />
           </Switch>
         </PrivateRouteWrapper>
