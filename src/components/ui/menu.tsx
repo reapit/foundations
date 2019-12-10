@@ -17,7 +17,8 @@ import {
   FaDesktop,
   FaNetworkWired,
   FaClipboardList,
-  FaPortrait
+  FaPortrait,
+  FaTable
 } from 'react-icons/fa'
 import { GoDatabase, GoCode } from 'react-icons/go'
 
@@ -56,6 +57,13 @@ export const generateMenuConfig = (
           key: 'DEV_MANAGEMENT',
           url: Routes.ADMIN_DEV_MANAGEMENT,
           icon: <FaPortrait className="nav-item-icon" />,
+          type: 'PRIMARY'
+        },
+        {
+          title: 'Stats',
+          key: 'STATS',
+          url: Routes.ADMIN_STATS,
+          icon: <FaTable className="nav-item-icon" />,
           type: 'PRIMARY'
         },
         {
