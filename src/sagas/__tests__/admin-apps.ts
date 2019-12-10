@@ -1,7 +1,7 @@
 import adminAppsSagas, { adminAppsFeatured, adminAppsFetch, adminAppsListen } from '../admin-apps'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
-import { appsDataStub } from '../__stubs__/apps'
+import { appsDataStub, featuredAppsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
@@ -75,8 +75,16 @@ const featuredParams = {
 
 describe('adminAppsFeatured', () => {
   const gen = cloneableGenerator(adminAppsFeatured as any)(featuredParams)
+  const data = featuredAppsDataStub.data
   expect(gen.next().value).toEqual(put(adminAppsSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(select(selectAdminAppsData))
+  const newData = data.data?.map(d => ({
+    ...d,
+    isFeatured: d.id === featuredParams.data.id ? !d.isFeatured : d.isFeatured
+  }))
+  // expect equal store
+  expect(gen.next({ ...data, data: newData }).value).toEqual(put(adminAppsReceiveData({ ...data, data: newData })))
+
   expect(gen.next(appsDataStub.data).value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/1/feature`,
@@ -105,6 +113,8 @@ describe('adminAppsFeatured', () => {
           })
         )
       )
+      // expect store to be reverted back
+      expect(clone.next().value).toEqual(put(adminAppsReceiveData(featuredAppsDataStub.data)))
       expect(clone.next().done).toBe(true)
     }
   })
