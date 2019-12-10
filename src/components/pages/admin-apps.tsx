@@ -95,8 +95,10 @@ export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal 
     },
     {
       Header: 'Featured',
-      Cell: ({ row }) => {
-        const { id, isFeatured } = row.original
+      accessor: 'isFeatured',
+      Cell: ({ row, cell }) => {
+        const { id } = row.original
+        const { value } = cell
         return (
           <div className="field field-checkbox">
             <input
@@ -104,7 +106,7 @@ export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal 
               type="checkbox"
               id={id}
               name={id}
-              checked={isFeatured}
+              checked={value}
               onChange={evt => onChangeFeatured({ id, isFeatured: evt.target.checked })}
             />
             <label className="label" htmlFor={id}></label>

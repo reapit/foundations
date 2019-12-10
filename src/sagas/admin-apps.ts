@@ -41,9 +41,9 @@ export const adminAppsFetch = function*({ data }) {
 }
 
 export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
+  yield put(adminAppsSetFormState('SUBMITTING'))
+  const { data, ...rest } = yield select(selectAdminAppsData)
   try {
-    yield put(adminAppsSetFormState('SUBMITTING'))
-    const { data } = yield select(selectAdminAppsData)
     const featuredCount = data.filter((item: AppDetailModel) => item.isFeatured).length
     if (isFeatured && featuredCount === 3) {
       yield put(
@@ -54,6 +54,10 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
       )
       return
     }
+
+    // update store first after changing isFeatured field
+    const newData = data.map(d => ({ ...d, isFeatured: d.id === id ? isFeatured : d.isFeatured }))
+    yield put(adminAppsReceiveData({ ...rest, data: newData }))
 
     yield call(fetcher, {
       url: `${URLS.apps}/${id}/feature`,
@@ -72,6 +76,8 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
         message: errorMessages.DEFAULT_SERVER_ERROR
       })
     )
+    // if error revert back the old store
+    yield put(adminAppsReceiveData({ ...rest, data }))
   }
 }
 
