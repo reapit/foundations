@@ -8,7 +8,7 @@ import {
   authSetRefreshSession,
   authChangeLoginType
 } from '../actions/auth'
-import { LoginSession, RefreshParams, getSessionCookie, LoginType } from '@reapit/elements'
+import { LoginSession, RefreshParams, getSessionCookie, LoginType } from '@reapit/cognito-auth'
 
 export interface AuthState {
   error: boolean

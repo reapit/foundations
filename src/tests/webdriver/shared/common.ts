@@ -1,7 +1,7 @@
 import DeveloperSubmitAppPage from '../page-objects/developer-submit-app'
 import DeveloperManageAppsPage from '../page-objects/developer-manage-apps'
 import LoginPage from '../page-objects/login'
-import { COOKIE_SESSION_KEY } from '@reapit/elements'
+import { COOKIE_SESSION_KEY } from '@reapit/cognito-auth'
 
 export type WdElement = WebdriverIO.Client<WebdriverIO.RawResult<WebdriverIO.Element>> &
   WebdriverIO.RawResult<WebdriverIO.Element>

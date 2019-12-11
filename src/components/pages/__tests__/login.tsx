@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { Login, LoginProps, handleUseEffect, onSubmitHandler, mapStateToProps, mapDispatchToProps } from '../login'
 import { ReduxState } from '@/types/core'
-import { LoginParams } from '@reapit/elements'
+import { LoginParams } from '@reapit/cognito-auth'
 
 const props: LoginProps = {
   error: false,

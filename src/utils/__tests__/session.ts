@@ -1,10 +1,8 @@
 import { getAccessToken } from '../session'
-import { getSession } from '@reapit/elements'
+import { getSession } from '@reapit/cognito-auth'
 
 jest.mock('../../core/store')
-jest.mock('@reapit/elements', () => ({
-  getSession: jest.fn()
-}))
+jest.mock('@reapit/cognito-auth')
 
 describe('getAccessToken', () => {
   it('should correctly return an access token if a valid session exists', async () => {

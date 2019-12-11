@@ -9,7 +9,7 @@ import {
   authClear
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { LoginType, LoginSession, LoginMode } from '@reapit/elements'
+import { LoginType, LoginSession, LoginMode } from '@reapit/cognito-auth'
 
 describe('auth actions', () => {
   it('should create a authLogin action', () => {

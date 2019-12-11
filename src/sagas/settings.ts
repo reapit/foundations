@@ -1,5 +1,6 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
-import { fetcher, removeSessionCookie } from '@reapit/elements'
+import { fetcher } from '@reapit/elements'
+import { removeSession } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
@@ -116,7 +117,7 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     const isCallAPISuccess = response.message === 'SUCCESS'
     if (isCallAPISuccess) {
       const SUCCESS_ALERT_LOGIN_PAGE = `${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`
-      yield call(removeSessionCookie)
+      yield call(removeSession)
       yield put(authLogoutSuccess())
       yield history.replace(SUCCESS_ALERT_LOGIN_PAGE)
     }

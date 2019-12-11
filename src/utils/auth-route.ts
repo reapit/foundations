@@ -1,4 +1,4 @@
-import { LoginType } from '@reapit/elements'
+import { LoginType } from '@reapit/cognito-auth'
 import Routes from '../constants/routes'
 
 export function getAuthRouteByLoginType(loginType: LoginType) {

@@ -1,19 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import {
-  Formik,
-  Form,
-  Input,
-  Button,
-  Tabs,
-  TabConfig,
-  LoginType,
-  LoginParams,
-  LoginMode,
-  Alert,
-  H1,
-  Level
-} from '@reapit/elements'
+import { Formik, Form, Input, Button, Tabs, TabConfig, Alert, H1, Level } from '@reapit/elements'
+import { LoginParams, LoginMode, LoginType } from '@reapit/cognito-auth'
 import { Redirect, Link } from 'react-router-dom'
 import { ReduxState } from '../../types/core'
 import { authLogin, authChangeLoginType } from '../../actions/auth'
