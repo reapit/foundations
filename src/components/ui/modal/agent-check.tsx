@@ -1,6 +1,5 @@
 import React from 'react'
-import { Formik, Form } from 'formik'
-import { SelectBox, DatePicker, SelectBoxOptions, Button, Input, RadioSelect } from '@reapit/elements'
+import { SelectBox, DatePicker, SelectBoxOptions, Button, Input, RadioSelect, Formik, Form } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { ContactIdentityCheckModel } from '@/types/contact-api-schema'
@@ -149,8 +148,9 @@ export const AgentCheck: React.FC<AgentCheckProps> = ({ isSubmitting, onHandleSu
         ...agentCheck
       }}
       onSubmit={onHandleSubmit}
-      render={renderForm({ isSubmitting, isDisabledSubmit })}
-    />
+    >
+      {renderForm({ isSubmitting, isDisabledSubmit })}
+    </Formik>
   )
 }
 

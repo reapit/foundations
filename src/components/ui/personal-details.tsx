@@ -1,9 +1,8 @@
 import React from 'react'
-import { Button, Input, DatePicker } from '@reapit/elements'
-import { Formik, Form } from 'formik'
+import { Button, Input, DatePicker, Formik, Form } from '@reapit/elements'
 import { ContactCommunicationModel, ContactAddressModel, ContactModel } from '@/types/contact-api-schema'
 
-export const renderForm = () => {
+export const renderForm = () => () => {
   return (
     <Form>
       <Input type="text" labelText="Name" id="name" name="name" />
@@ -96,8 +95,9 @@ export const PersonalDetails = ({ contact }) => {
         onSubmit={values => {
           console.log(values)
         }}
-        render={renderForm}
-      />
+      >
+        {renderForm()}
+      </Formik>
       <div className="flex justify-end">
         <Button
           type="submit"

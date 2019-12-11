@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, Input, DatePicker } from '@reapit/elements'
-import { Formik, Form } from 'formik'
+import { Button, Input, DatePicker, Formik, Form } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
@@ -62,8 +61,9 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onSubmitHandler, isSu
           email: filterCommunication(contact.communications, 'E-Mail')
         }}
         onSubmit={onSubmitHandler}
-        render={renderForm({ isSubmitting })}
-      />
+      >
+        {renderForm({ isSubmitting })}
+      </Formik>
     </div>
   )
 }

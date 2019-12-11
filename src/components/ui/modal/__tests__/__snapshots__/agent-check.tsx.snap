@@ -2,7 +2,6 @@
 
 exports[`agent-check AgentCheck should match snapshot 1`] = `
 <Formik
-  enableReinitialize={false}
   initialValues={
     Object {
       "clientType": "Individual",
@@ -13,12 +12,10 @@ exports[`agent-check AgentCheck should match snapshot 1`] = `
       "timeSelection": "10:00",
     }
   }
-  isInitialValid={false}
   onSubmit={[MockFunction]}
-  render={[Function]}
-  validateOnBlur={true}
-  validateOnChange={true}
-/>
+>
+  <Component />
+</Formik>
 `;
 
 exports[`agent-check renderForm should match snapshot 1`] = `

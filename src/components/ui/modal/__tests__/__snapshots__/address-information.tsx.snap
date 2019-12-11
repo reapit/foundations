@@ -608,7 +608,6 @@ exports[`AddressInformation renderExtraForm should match Snapshot 1`] = `
 exports[`AddressInformation should match snapshot 1`] = `
 <div>
   <Formik
-    enableReinitialize={false}
     initialValues={
       Object {
         "addresses": Array [
@@ -660,19 +659,16 @@ exports[`AddressInformation should match snapshot 1`] = `
         },
       }
     }
-    isInitialValid={false}
     onSubmit={[MockFunction]}
-    render={[Function]}
-    validateOnBlur={true}
-    validateOnChange={true}
-  />
+  >
+    <Component />
+  </Formik>
 </div>
 `;
 
 exports[`AddressInformation should match snapshot when desktop mode 1`] = `
 <div>
   <Formik
-    enableReinitialize={false}
     initialValues={
       Object {
         "addresses": Array [
@@ -724,11 +720,9 @@ exports[`AddressInformation should match snapshot when desktop mode 1`] = `
         },
       }
     }
-    isInitialValid={false}
     onSubmit={[MockFunction]}
-    render={[Function]}
-    validateOnBlur={true}
-    validateOnChange={true}
-  />
+  >
+    <Component />
+  </Formik>
 </div>
 `;

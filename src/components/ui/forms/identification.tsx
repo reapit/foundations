@@ -1,7 +1,6 @@
 import React from 'react'
-import { Formik, Form } from 'formik'
 import { ContactModel } from '@/types/contact-api-schema'
-import { Button, Input, DatePicker, CameraImageInput } from '@reapit/elements'
+import { Button, Input, DatePicker, CameraImageInput, Formik, Form } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/identification.scss?mod'
 
@@ -75,8 +74,9 @@ export const Identification: React.FC<IdentificationProps> = ({
   <Formik
     initialValues={initFormValues}
     onSubmit={(formValues: IdentificationFormValues) => onSubmitHandler(formValues, onSaveHandler)}
-    render={renderFormHandler({ contactModel, loading, disabled })}
-  />
+  >
+    {renderFormHandler({ contactModel, loading, disabled })}
+  </Formik>
 )
 
 export default Identification
