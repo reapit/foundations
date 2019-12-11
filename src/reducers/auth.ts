@@ -1,7 +1,7 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authSetRefreshSession } from '@/actions/auth'
-import { RefreshParams, LoginSession, getSessionCookie } from '@reapit/elements'
+import { RefreshParams, LoginSession, getSessionCookie } from '@reapit/cognito-auth'
 
 export interface AuthState {
   error: boolean

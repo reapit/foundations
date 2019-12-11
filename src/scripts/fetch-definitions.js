@@ -17,7 +17,7 @@ const apiSchemas = [
 ]
 
 // Fetch definitions for a given schema
-const fetchDefinitionsForSchema = async (schemaConfig) => {
+const fetchDefinitionsForSchema = async schemaConfig => {
     const { definitionFile, endpoint } = schemaConfig
     const response = await fetch(endpoint)
     if (response.status < 400) {

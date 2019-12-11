@@ -1,6 +1,6 @@
 import ActionTypes from '@/constants/action-types'
 import { actionCreator } from '@/utils/actions'
-import { LoginSession, RefreshParams, LoginParams } from '@reapit/elements'
+import { LoginSession, RefreshParams, LoginParams } from '@reapit/cognito-auth'
 
 export const authLogin = actionCreator<LoginParams>(ActionTypes.AUTH_LOGIN)
 export const authLoginSuccess = actionCreator<LoginSession>(ActionTypes.AUTH_LOGIN_SUCCESS)
