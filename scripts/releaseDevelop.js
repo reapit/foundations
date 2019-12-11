@@ -4,7 +4,6 @@ const tagName=`v${npm_package_version}-beta`
 const { execSync } = require('child_process');
 
 // delete tag remotely and locally
-execSync(`git remote add origin ${remoteRepo}`)
 execSync(`git config --global user.email "${GITHUB_ACTOR}@email.com"`)
 execSync(`git config --global user.name "${GITHUB_ACTOR}"`)
 
