@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.2-beta",
+  "version": "0.5.6-beta",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -19,7 +19,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o out",
     "release:develop": "node scripts/releaseDevelop.js",
-    "release:master": "node scripts/releaseMaster.js"
+    "release:master": "node scripts/releaseMaster.js",
+    "checkVersion": "node ./scripts/checkVersion.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
   "homepage": "https://github.com/reapit/elements#readme",
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@octokit/rest": "^16.35.0",
     "@storybook/addon-actions": "^5.2.6",
     "@storybook/addon-docs": "^5.2.6",
     "@storybook/addon-info": "^5.2.6",
@@ -54,11 +56,11 @@
     "@types/storybook__react": "^4.0.2",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
+    "compare-versions": "^3.5.1",
     "css-loader": "^3.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.0",
-    "husky": "^3.0.3",
     "jest": "^24.9.0",
     "jest-fetch-mock": "^2.1.2",
     "node-sass": "^4.12.0",
