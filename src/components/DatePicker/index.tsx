@@ -4,18 +4,23 @@ import ReactDatePicker from 'react-datepicker'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { checkError } from '../../utils/form'
+import { fieldValidateRequire } from '../../utils/validators'
 ;(dayjs as any).extend(customParseFormat)
 
 const { useState, useEffect } = React
 
 export const CustomInput = ({
   onChange,
+  onBlur,
   value,
   id,
   onClick,
-  className
+  className,
+  ...rest
 }: {
   onChange?: any
+  onBlur?: any
+  onFocus?: any
   placeholder?: string
   value?: any
   id?: string
@@ -120,8 +125,9 @@ export const CustomInput = ({
     }
   }
 
-  const onBlur = () => {
+  const _onBlur = e => {
     setInputValue(value)
+    onBlur(e)
   }
 
   return (
@@ -133,8 +139,9 @@ export const CustomInput = ({
       id={id}
       onChange={_onChange}
       onKeyDown={onKeyUp}
-      onBlur={onBlur}
+      onBlur={_onBlur}
       onClick={onClick}
+      {...rest}
     />
   )
 }
@@ -143,11 +150,12 @@ export interface DatePickerProps {
   name: string
   id: string
   labelText: string
+  required?: boolean
 }
 
-export const DatePicker = ({ name, id, labelText }: DatePickerProps) => {
+export const DatePicker = ({ name, id, labelText, required = false }: DatePickerProps) => {
   return (
-    <Field name={name}>
+    <Field name={name} validate={required ? fieldValidateRequire : null}>
       {({ field, meta }: FieldProps<string>) => {
         const parsedDayJsValue = dayjs(field.value)
         let fieldValue: string = ''
@@ -166,7 +174,7 @@ export const DatePicker = ({ name, id, labelText }: DatePickerProps) => {
         return (
           <div className="field pb-2">
             <div className="control">
-              <label className="label" htmlFor={id}>
+              <label className={`label ${required ? 'required-label' : ''}`} htmlFor={id}>
                 {labelText}
               </label>
               <ReactDatePicker

@@ -19,6 +19,7 @@ export interface FileInputProps {
   // props specialized for unit test
   testProps?: FileInputTestProps
   inputProps?: Record<string, any>
+  required?: boolean
 }
 
 export const FileInput = ({
@@ -29,7 +30,8 @@ export const FileInput = ({
   accept = '',
   allowClear = false,
   testProps,
-  inputProps
+  inputProps,
+  required = false
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState()
   const inputFile = React.useRef<HTMLInputElement>(null)
@@ -75,7 +77,7 @@ export const FileInput = ({
                     onChange={onChange}
                     accept={accept}
                   />
-                  <span className="file-cta">{labelText}</span>
+                  <span className={`file-cta ${required && !hasFile ? 'required-label' : ''}`}>{labelText}</span>
                   {hasFile && (
                     <span data-test="fileUploadFileName" className="file-name">
                       {!isBase64(field.value) ? (

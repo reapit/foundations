@@ -9,7 +9,7 @@ storiesOf('DatePicker', module)
   .add('Primary', () => (
     <section className="section">
       <Formik
-        initialValues={{ demo: '' }}
+        initialValues={{ demo: new Date() }}
         onSubmit={values => {
           action('Form Values' + values)
         }}
@@ -47,12 +47,7 @@ storiesOf('DatePicker', module)
       return (
         <section className="section">
           <Formik
-            validate={() => {
-              return {
-                demo: 'error'
-              }
-            }}
-            initialValues={{ demo: new Date() }}
+            initialValues={{ demo: '' }}
             onSubmit={values => {
               action('Form Values' + values)
             }}
@@ -60,7 +55,7 @@ storiesOf('DatePicker', module)
             {() => (
               <Form>
                 <div className="column is-half-desktop">
-                  <DatePicker name="demo" labelText="Demo" id="test" />
+                  <DatePicker required name="demo" labelText="Demo" id="test" />
                 </div>
               </Form>
             )}

@@ -17,6 +17,7 @@ exports[`Date-time picker CustomInput should match a snapshot 1`] = `
 exports[`Date-time picker DatePicker should match a snapshot 1`] = `
 <Field
   name="abc"
+  validate={null}
 >
   <Component />
 </Field>

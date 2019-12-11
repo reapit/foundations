@@ -17,7 +17,7 @@ storiesOf('Input', module).add('InputVariants', () => (
       {() => (
         <Form>
           <div className="column is-half-desktop">
-            <Input id="text" type="text" placeholder="Some text here" name="text" labelText="Text" />
+            <Input id="text" type="text" placeholder="Some text here" name="text" labelText="Text" required />
             <Input id="email" type="email" placeholder="bob@acme.com" name="email" labelText="Email" />
             <Input id="password" type="password" placeholder="********" name="password" labelText="Password" />
             <Input id="tel" type="tel" placeholder="0800 800 800" name="tel" labelText="Telephone" />

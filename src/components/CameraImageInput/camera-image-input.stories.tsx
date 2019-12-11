@@ -16,7 +16,7 @@ storiesOf('CameraImageInput', module).add('Primary', () => (
       {() => (
         <Form>
           <div className="column is-half-desktop">
-            <CameraImageInput id="imageInput" allowClear name="imageInput" labelText="Image Input" />
+            <CameraImageInput required id="imageInput" allowClear name="imageInput" labelText="Image Input" />
           </div>
         </Form>
       )}
