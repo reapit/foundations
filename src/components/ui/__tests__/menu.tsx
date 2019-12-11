@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { getMockRouterProps } from '@/helper/mock-router'
 import { Menu, mapStateToProps, mapDispatchToProps } from '../menu'
-import { LoginMode } from '@reapit/elements'
+import { LoginMode } from '@reapit/cognito-auth'
 import { ReduxState } from '@/types/core'
 
 describe('Menu', () => {

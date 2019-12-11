@@ -11,7 +11,7 @@ import {
   resetSubmitting
 } from '@/components/pages/login'
 import { ReduxState } from '@/types/core'
-import { LoginParams } from '@reapit/elements'
+import { LoginParams } from '@reapit/cognito-auth'
 
 const props = (hasSession: boolean): LoginProps => ({
   error: false,
