@@ -7,7 +7,7 @@ import Routes from '../../constants/routes'
 import { Action, ActionType } from '@/types/core'
 import { mockLoginSession } from '@/utils/__mocks__/session'
 import errorMessages from '@/constants/error-messages'
-import { LoginParams, loginUserSession, removeSession } from '@reapit/cognito-auth'
+import { LoginParams, setUserSession, removeSession } from '@reapit/cognito-auth'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/store', () => ({
@@ -31,14 +31,14 @@ describe('auth sagas', () => {
 
     test('login success', () => {
       const gen = doLogin(action)
-      expect(gen.next(mockLoginSession).value).toEqual(call(loginUserSession, loginParams))
+      expect(gen.next(mockLoginSession).value).toEqual(call(setUserSession, loginParams))
       expect(gen.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))
       expect(gen.next().done).toBe(true)
     })
 
     test('login fail', () => {
       const gen = doLogin(action)
-      expect(gen.next().value).toEqual(call(loginUserSession, loginParams))
+      expect(gen.next().value).toEqual(call(setUserSession, loginParams))
       expect(gen.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(put(authLoginFailure()))
       expect(gen.next().done).toBe(true)
     })
