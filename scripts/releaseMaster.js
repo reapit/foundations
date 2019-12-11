@@ -6,13 +6,13 @@ const releaseMaster = async () => {
   const token = process.env.GITHUB_TOKEN
 
   const octokit = new Octokit({
-    auth: token
+    auth: token,
   })
 
-  await octokit.git
+    await octokit.git
     .createRef({
       owner: 'reapit',
-      repo: 'elements',
+      repo: 'cognitio-auth',
       ref: 'refs/tags/' + tagName,
       sha: process.env.GITHUB_SHA
     })
@@ -21,7 +21,7 @@ const releaseMaster = async () => {
   await octokit.repos
     .createRelease({
       owner: 'reapit',
-      repo: 'elements',
+      repo: 'cognitio-auth',
       tag_name: tagName
     })
 }
