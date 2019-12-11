@@ -21,7 +21,12 @@ export interface MenuItem {
 
 export const getActiveItemKey = (menu: MenuItem[], location?: Location<any>): string | null => {
   if (location && location.pathname) {
-    const activeItem = menu.find(item => location.pathname === item.url)
+    const activeItem = menu.find(item => {
+      const isExactRoot = location.pathname === '/' && item.url === '/'
+      const isNotRootAndHasCommonPrefix = item.url && item.url !== '/' && location.pathname.startsWith(item.url)
+      return isExactRoot || isNotRootAndHasCommonPrefix
+    })
+
     if (activeItem && activeItem.url) {
       return activeItem.key
     }

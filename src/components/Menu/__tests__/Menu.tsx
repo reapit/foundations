@@ -50,7 +50,9 @@ describe('Menu', () => {
 
   describe('getActiveItemKey', () => {
     it('should return url if matches an item', () => {
-      const result = getActiveItemKey(mockMenuProps.menu, { pathname: mockMenuProps.menu[1].url } as Location<any>)
+      const result = getActiveItemKey(mockMenuProps.menu, {
+        pathname: mockMenuProps.menu[1].url
+      } as Location<any>)
       expect(result).toEqual(mockMenuProps.menu[1].key)
     })
     it('should return null if location is undefined', () => {
@@ -58,8 +60,14 @@ describe('Menu', () => {
       expect(result).toBeNull()
     })
     it('should return null if location does not match an item', () => {
-      const result = getActiveItemKey(mockMenuProps.menu, { pathname: '/some-random-path' } as Location<any>)
+      const result = getActiveItemKey(mockMenuProps.menu, {
+        pathname: '/some-random-path'
+      } as Location<any>)
       expect(result).toBeNull()
+    })
+    it('should default back to defaultActiveKey if pathname === /', () => {
+      const result = getActiveItemKey(mockMenuProps.menu, { pathname: '/' } as Location<any>)
+      expect(result).toBe(null)
     })
   })
 
@@ -88,6 +96,41 @@ describe('Menu', () => {
       ).toEqual(currentSelectedItem.title)
 
       wrapper.setProps({ location: { pathname: newSelectedItem.url } })
+      wrapper.update()
+
+      expect(
+        wrapper
+          .find('.is-active')
+          .at(0)
+          .childAt(1)
+          .text()
+      ).toEqual(newSelectedItem.title)
+    })
+
+    it('should hightlight correct item when paged', () => {
+      const currentSelectedItem = mockMenuProps.menu[4]
+      const newSelectedItem = mockMenuProps.menu[4]
+
+      const currentLocation = { pathname: '/docs' }
+      mockMenuProps.location = currentLocation as Location<any>
+
+      const Component = props => (
+        <MemoryRouter initialEntries={['/client']}>
+          <Menu {...props} />
+        </MemoryRouter>
+      )
+
+      const wrapper = mount(<Component {...mockMenuProps} />)
+
+      expect(
+        wrapper
+          .find('.is-active')
+          .at(0)
+          .childAt(1)
+          .text()
+      ).toEqual(currentSelectedItem.title)
+
+      wrapper.setProps({ location: { pathname: '/docs/2' } })
       wrapper.update()
 
       expect(
