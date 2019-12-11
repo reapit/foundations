@@ -10,6 +10,7 @@ import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { Button, Tile, ModalHeader, ModalBody, ModalFooter, H6 } from '@reapit/elements'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import styles from '@/styles/blocks/app-detail.scss?mod'
+import { FaCheck, FaTimes } from 'react-icons/fa'
 
 export interface AppDetailModalInnerProps {
   data: AppDetailModel
@@ -47,7 +48,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
     return null
   }
 
-  const { id, media = [], description, name, summary, developer, installedOn, scopes = [] } = data
+  const { id, media = [], description, name, summary, developer, installedOn, scopes = [], isListed } = data
   const icon = media.filter(({ type }) => type === 'icon')[0]
   const carouselImages = media.filter(({ type }) => type === 'image')
 
@@ -85,7 +86,14 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                   alt={name}
                 />
               }
-            />
+            >
+              {isCurrentLoggedUserDeveloper && (
+                <div className="flex items-center">
+                  {isListed ? <FaCheck color="#a0c862" /> : <FaTimes color="#d3033d" />}
+                  <span className="ml-2">{isListed ? 'Is listed' : 'Not listed'}</span>
+                </div>
+              )}
+            </Tile>
             <H6>{developer}</H6>
             {isCurrentLoggedUserDeveloper && <p>App ID: {id}</p>}
             {carouselImages.length > 0 && (
