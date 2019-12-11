@@ -22,6 +22,9 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: yarn install
 
+      - name: Check version
+        run: yarn checkVersion
+
       - name: Test
         run: yarn test
 

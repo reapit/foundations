@@ -2,8 +2,8 @@ import React from 'react'
 import { H4, SubTitleH6 } from '../Typography/index'
 
 export interface TileProps {
-  heading: string
-  subHeading?: string
+  heading: React.ReactNode
+  subHeading?: React.ReactNode
   hightlight?: boolean
   icon?: React.ReactNode
   image?: React.ReactNode
