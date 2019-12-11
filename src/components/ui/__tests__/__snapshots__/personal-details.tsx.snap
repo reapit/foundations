@@ -3,7 +3,6 @@
 exports[` 1`] = `
 <div>
   <Formik
-    enableReinitialize={false}
     initialValues={
       Object {
         "address": " Tilbrook Farm Station Road Bow Brickhill Milton Keynes Buckinghamshire MK17 9JU",
@@ -14,12 +13,10 @@ exports[` 1`] = `
         "name": "Ms Saoirse Chadwick",
       }
     }
-    isInitialValid={false}
     onSubmit={[Function]}
-    render={[Function]}
-    validateOnBlur={true}
-    validateOnChange={true}
-  />
+  >
+    <Component />
+  </Formik>
   <div
     className="flex justify-end"
   >
@@ -44,84 +41,12 @@ exports[` 1`] = `
 
 exports[`profile renderForm should match snapshot 1`] = `
 <div>
-  <Form>
-    <Input
-      id="name"
-      labelText="Name"
-      name="name"
-      type="text"
-    />
-    <DatePicker
-      id="dateOfBirth"
-      labelText="Date Of Birth"
-      name="dateOfBirth"
-    />
-    <Input
-      id="address"
-      labelText="Address"
-      name="address"
-      type="text"
-    />
-    <Input
-      id="home"
-      labelText="Home"
-      name="home"
-      type="text"
-    />
-    <Input
-      id="mobile"
-      labelText="Mobile"
-      name="mobile"
-      type="text"
-    />
-    <Input
-      id="email"
-      labelText="Email"
-      name="email"
-      type="email"
-    />
-  </Form>
+  <Component />
 </div>
 `;
 
 exports[`profile renderForm should match snapshot 2`] = `
 <div>
-  <Form>
-    <Input
-      id="name"
-      labelText="Name"
-      name="name"
-      type="text"
-    />
-    <DatePicker
-      id="dateOfBirth"
-      labelText="Date Of Birth"
-      name="dateOfBirth"
-    />
-    <Input
-      id="address"
-      labelText="Address"
-      name="address"
-      type="text"
-    />
-    <Input
-      id="home"
-      labelText="Home"
-      name="home"
-      type="text"
-    />
-    <Input
-      id="mobile"
-      labelText="Mobile"
-      name="mobile"
-      type="text"
-    />
-    <Input
-      id="email"
-      labelText="Email"
-      name="email"
-      type="email"
-    />
-  </Form>
+  <Component />
 </div>
 `;

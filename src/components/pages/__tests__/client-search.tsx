@@ -46,12 +46,12 @@ describe('ClientSearch', () => {
 
   describe('renderForm', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(<div>{renderForm({ values: {} })}</div>)
+      const wrapper = shallow(<div>{renderForm()({ values: {} })}</div>)
       expect(wrapper).toMatchSnapshot()
     })
 
     it('should match snapshot', () => {
-      const wrapper = shallow(<div>{renderForm({ values: { name: 'mockName' } })}</div>)
+      const wrapper = shallow(<div>{renderForm()({ values: { name: 'mockName' } })}</div>)
       expect(wrapper).toMatchSnapshot()
     })
   })

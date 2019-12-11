@@ -1,9 +1,17 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { Button, Input, SelectBox, FlexContainerBasic, H3, FlexContainerResponsive } from '@reapit/elements'
+import {
+  Button,
+  Input,
+  SelectBox,
+  FlexContainerBasic,
+  H3,
+  FlexContainerResponsive,
+  Formik,
+  Form
+} from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Formik, Form } from 'formik'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/results'
 
@@ -28,7 +36,7 @@ export const searchContacts = ({ setSearchParams, history }) => values => {
   history.push(Routes.RESULTS)
 }
 
-export const renderForm = ({ values }) => {
+export const renderForm = () => ({ values }) => {
   const disabled = !values.name && !values.address && !values.identityCheck
   return (
     <div>
@@ -65,8 +73,9 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
         <Formik
           initialValues={{ name: '', address: '', identityCheck: '' }}
           onSubmit={searchContacts({ setSearchParams, history })}
-          render={renderForm}
-        />
+        >
+          {renderForm()}
+        </Formik>
       </FlexContainerBasic>
     </ErrorBoundary>
   )

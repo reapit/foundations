@@ -165,7 +165,6 @@ exports[`ClientSearch should match a snapshot 1`] = `
     hasPadding={true}
   >
     <Formik
-      enableReinitialize={false}
       initialValues={
         Object {
           "address": "",
@@ -173,12 +172,10 @@ exports[`ClientSearch should match a snapshot 1`] = `
           "name": "",
         }
       }
-      isInitialValid={false}
       onSubmit={[Function]}
-      render={[Function]}
-      validateOnBlur={true}
-      validateOnChange={true}
-    />
+    >
+      <Component />
+    </Formik>
   </FlexContainerBasic>
 </Connect(ErrorBoundary)>
 `;

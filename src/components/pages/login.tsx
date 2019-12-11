@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { Formik, Form } from 'formik'
 import { Dispatch } from 'redux'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReduxState } from '@/types/core'
@@ -9,7 +8,7 @@ import { authLogin } from '@/actions/auth'
 import { validate } from '@/utils/form/login'
 import Routes from '@/constants/routes'
 import { LOGIN_TYPE } from '@/constants/auth'
-import { Input, Button, Alert, Level } from '@reapit/elements'
+import { Input, Button, Alert, Level, Formik, Form } from '@reapit/elements'
 import { LoginParams } from '@reapit/cognito-auth'
 
 import loginStyles from '@/styles/pages/login.scss?mod'
@@ -93,8 +92,9 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
             validate={validate}
             initialValues={{ email: '', password: '' } as LoginFormValues}
             onSubmit={onSubmitHandler(setIsSubmitting, login)}
-            render={renderForm({ isSubmitting, error })}
-          />
+          >
+            {renderForm({ isSubmitting, error })}
+          </Formik>
         </div>
       </div>
     </div>
