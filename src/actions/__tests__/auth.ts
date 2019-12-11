@@ -1,6 +1,6 @@
 import { authLogin, authLoginFailure, authLoginSuccess, authLogout, authLogoutSuccess } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { LoginType, LoginSession } from '@reapit/elements'
+import { LoginType, LoginSession } from '@reapit/cognito-auth'
 
 describe('auth actions', () => {
   it('should create a authLogin action', () => {

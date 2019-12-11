@@ -17,15 +17,16 @@
     "lint": "tslint --fix --project tsconfig.json --format stylish",
     "start": "node ./public/index.js lifetime-legal",
     "test": "jest --coverage --silent",
-    "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test-dev": "jest --watch --verbose",
     "test-dev-e2e": "wdio ./src/scripts/wdio.conf.js --watch",
     "test-e2e": "wdio ./src/scripts/wdio.conf.js",
     "test-e2e:bstack": "wdio ./src/scripts/browserstack.conf.js",
     "test-e2e:bstack:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e:bstack\" -k",
-    "test-e2e:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e\" -k"
+    "test-e2e:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e\" -k",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
+    "@reapit/cognito-auth": "^2.0.5",
     "@reapit/elements": "^0.4.64",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

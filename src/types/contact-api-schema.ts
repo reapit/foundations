@@ -1,7 +1,7 @@
 /**
  * Model representing the physical address of a building or premise
  */
-export interface AddressModel {
+export interface ContactAddressModel {
   /**
    * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
    */
@@ -42,7 +42,7 @@ export interface AddressModel {
 /**
  * Model representing a single contact detail (eg mobile telephone number)
  */
-export interface CommunicationModel {
+export interface ContactCommunicationModel {
   /**
    * Gets the label representing the type of detail (eg. mobile, email address)
    */
@@ -51,6 +51,84 @@ export interface CommunicationModel {
    * Gets the communication detail (eg. 07999 876543, developers@reapit.com)
    */
   detail?: string
+}
+/**
+ * Represents an attempt to verify an individual contacts identity
+ */
+export interface ContactIdentityCheckModel {
+  /**
+   * Gets the unique identifier
+   */
+  id?: string
+  /**
+   * Gets the unique identifier of the contact associated to the id check
+   */
+  contactId?: string
+  /**
+   * Gets the date and time that the identity check was created
+   */
+  created?: string // date-time
+  /**
+   * Gets the date and time that the identity check was last modified
+   */
+  modified?: string // date-time
+  /**
+   * Gets the date that the identity check was performed
+   * Note that this can be different to the date that the check was created
+   */
+  checkDate?: string // date-time
+  /**
+   * Gets the status of this identity check  (pass/fail/pending/cancelled/warnings/unchecked)
+   */
+  status?: string
+  /**
+   * Gets the id of the negotiator that performed the identity check
+   * Note that this can be different to the negotiator that created the check
+   */
+  negotiatorId?: string
+  /**
+   * Gets the details of the documents that have been provided for this identity check
+   */
+  documents?: ContactIdentityDocumentModel[]
+  /**
+   * Gets a listing of additional metadata that has been set against this identity check
+   */
+  metadata?: {
+    [name: string]: {}
+  }
+  readonly _links?: {
+    [name: string]: LinkModel
+  }
+  readonly _embedded?: {
+    [name: string]: {}
+  }
+}
+/**
+ * Represents the details of a document added to an identity check
+ */
+export interface ContactIdentityDocumentModel {
+  /**
+   * Gets the id of the document type that describes this document
+   */
+  typeId?: string
+  /**
+   * Gets the date that this document expires
+   */
+  expiry?: string // date-time
+  /**
+   * Gets the textual details of the identity document (eg. passport number)
+   */
+  details?: string
+  /**
+   * Gets the location of the physical file that relates to this document (eg. scan of driving license)
+   */
+  fileUrl?: string
+  readonly _links?: {
+    [name: string]: LinkModel
+  }
+  readonly _embedded?: {
+    [name: string]: {}
+  }
 }
 /**
  * Model representing the details of a person
@@ -99,28 +177,36 @@ export interface ContactModel {
   /**
    * Gets a collection of the contacts communication details
    */
-  communications?: CommunicationModel[]
+  communications?: ContactCommunicationModel[]
   /**
    * Gets a collection of addresses (maximum 3) that this contact has been associated to
    */
-  addresses?: AddressModel[]
+  addresses?: ContactAddressModel[]
   /**
-   * Gets a collection of entities that are related to this contact
-   * This is usually the managing negotiators and offices
+   * Gets a collection of office ids that are related to this contact
    */
-  relationships?: RelationshipModel[]
+  officeIds?: string[]
+  /**
+   * Gets a collection of negotiator ids that are related to this contact
+   */
+  negotiatorIds?: string[]
   /**
    * Gets a listing of additional metadata that has been set against this contact
    */
   metadata?: {
     [name: string]: {}
   }
-  readonly links?: LinkModel[]
+  readonly _links?: {
+    [name: string]: LinkModel
+  }
+  readonly _embedded?: {
+    [name: string]: {}
+  }
 }
 /**
  * Model to create a contact address
  */
-export interface CreateAddressModel {
+export interface CreateContactAddressModel {
   /**
    * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
    */
@@ -161,7 +247,7 @@ export interface CreateAddressModel {
 /**
  * Model to create a communication detail for a contact (eg. an email address)
  */
-export interface CreateCommunicationModel {
+export interface CreateContactCommunicationModel {
   /**
    * Sets the label representing the type of detail (eg E-mail)
    */
@@ -170,6 +256,56 @@ export interface CreateCommunicationModel {
    * Sets the contact detail (eg the actual telephone number or email address)
    */
   detail?: string
+}
+/**
+ * Model to create an identity check
+ */
+export interface CreateContactIdentityCheckModel {
+  /**
+   * Sets the date that the identity check was performed
+   * Note that this can be different to the date that the check was created
+   */
+  checkDate?: string // date-time
+  /**
+   * Sets the status of this identity check  (pass/fail/pending/cancelled/warnings/unchecked)
+   */
+  status?: string
+  /**
+   * Sets the id of the negotiator that performed the identity check
+   * Note that this can be different to the negotiator that created the check
+   */
+  negotiatorId?: string
+  /**
+   * Sets the details of the documents that have been provided for this identity check
+   */
+  documents?: CreateContactIdentityDocumentModel[]
+  /**
+   * Sets a JSON fragment to attach to this identity check as metadata
+   */
+  metadata?: {
+    [name: string]: {}
+  }
+}
+/**
+ * Model to create an identity check document
+ */
+export interface CreateContactIdentityDocumentModel {
+  /**
+   * Sets the id of the document type that describes this document
+   */
+  typeId?: string
+  /**
+   * Sets the date that this document expires
+   */
+  expiry?: string // date-time
+  /**
+   * Sets the textual details of the identity document (eg. passport number)
+   */
+  details?: string
+  /**
+   * Sets the location of the physical file that relates to this document (eg. scan of driving license)
+   */
+  fileUrl?: string
 }
 /**
  * Model to create a new contact record
@@ -203,17 +339,20 @@ export interface CreateContactModel {
    * Sets a collection of the contacts communication details
    * Eg. Email address, mobile number, landline
    */
-  communications?: CreateCommunicationModel[]
+  communications?: CreateContactCommunicationModel[]
   /**
-   * Sets a collection of entities that are related to this contact
-   * This is usually the managing negotiators and offices
+   * Sets a collection of office ids that are related to this contact
    */
-  relationships?: CreateRelationshipModel[]
+  officeIds?: string[]
+  /**
+   * Sets a collection of negotiator ids that are related to this contact
+   */
+  negotiatorIds?: string[]
   /**
    * Sets a collection of addresses that this contact has been associated to
    * A maximum of three addresses can be associated to a contact
    */
-  addresses?: CreateAddressModel[]
+  addresses?: CreateContactAddressModel[]
   /**
    * Sets a JSON fragment to attach to this contact as metadata
    */
@@ -221,155 +360,31 @@ export interface CreateContactModel {
     [name: string]: {}
   }
 }
-/**
- * Model to create an identity check
- */
-export interface CreateIdentityCheckModel {
-  /**
-   * Sets the date that the identity check was performed
-   * Note that this can be different to the date that the check was created
-   */
-  checkDate?: string // date-time
-  /**
-   * Sets the status of this identity check  (pass/fail/pending/cancelled/warnings/unchecked)
-   */
-  status?: string
-  /**
-   * Sets the id of the negotiator that performed the identity check
-   * Note that this can be different to the negotiator that created the check
-   */
-  negotiatorId?: string
-  /**
-   * Sets the details of the documents that have been provided for this identity check
-   */
-  documents?: CreateIdentityDocumentModel[]
-  /**
-   * Sets a JSON fragment to attach to this identity check as metadata
-   */
-  metadata?: {
-    [name: string]: {}
-  }
-}
-/**
- * Model to create an identity check document
- */
-export interface CreateIdentityDocumentModel {
-  /**
-   * Sets the id of the document type that describes this document
-   */
-  typeId?: string
-  /**
-   * Sets the date that this document expires
-   */
-  expiry?: string // date-time
-  /**
-   * Sets the textual details of the identity document (eg. passport number)
-   */
-  details?: string
-  /**
-   * Sets the location of the physical file that relates to this document (eg. scan of driving license)
-   */
-  fileUrl?: string
-}
-/**
- * Model to create a relationship between a contact and another entity
- */
-export interface CreateRelationshipModel {
-  /**
-   * Sets the identifier of the attendee
-   */
-  id?: string
-  /**
-   * Sets the type of attendee
-   */
-  type?: string
-}
-/**
- * Represents an attempt to verify an individual contacts identity
- */
-export interface IdentityCheckModel {
-  /**
-   * Gets the unique identifier
-   */
-  id?: string
-  /**
-   * Gets the unique identifier of the contact associated to the id check
-   */
-  contactId?: string
-  /**
-   * Gets the date and time that the identity check was created
-   */
-  created?: string // date-time
-  /**
-   * Gets the date and time that the identity check was last modified
-   */
-  modified?: string // date-time
-  /**
-   * Gets the date that the identity check was performed
-   * Note that this can be different to the date that the check was created
-   */
-  checkDate?: string // date-time
-  /**
-   * Gets the status of this identity check  (pass/fail/pending/cancelled/warnings/unchecked)
-   */
-  status?: string
-  /**
-   * Gets the id of the negotiator that performed the identity check
-   * Note that this can be different to the negotiator that created the check
-   */
-  negotiatorId?: string
-  /**
-   * Gets the details of the documents that have been provided for this identity check
-   */
-  documents?: IdentityDocumentModel[]
-  /**
-   * Gets a listing of additional metadata that has been set against this identity check
-   */
-  metadata?: {
-    [name: string]: {}
-  }
-  readonly links?: LinkModel[]
-}
-/**
- * Represents the details of a document added to an identity check
- */
-export interface IdentityDocumentModel {
-  /**
-   * Gets the id of the document type that describes this document
-   */
-  typeId?: string
-  /**
-   * Gets the date that this document expires
-   */
-  expiry?: string // date-time
-  /**
-   * Gets the textual details of the identity document (eg. passport number)
-   */
-  details?: string
-  /**
-   * Gets the location of the physical file that relates to this document (eg. scan of driving license)
-   */
-  fileUrl?: string
-  readonly links?: LinkModel[]
-}
 export interface LinkModel {
-  rel?: string
   href?: string
-  action?: string
+}
+export interface PagedResultContactIdentityCheckModel_ {
+  _embedded?: ContactIdentityCheckModel[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: PagingLinkModel
+  }
 }
 export interface PagedResultContactModel_ {
-  data?: ContactModel[]
+  _embedded?: ContactModel[]
   pageNumber?: number // int32
   pageSize?: number // int32
   pageCount?: number // int32
   totalCount?: number // int32
+  _links?: {
+    [name: string]: PagingLinkModel
+  }
 }
-export interface PagedResultIdentityCheckModel_ {
-  data?: IdentityCheckModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
+export interface PagingLinkModel {
+  href?: string
 }
 export interface ProblemDetails {
   [name: string]: any
@@ -380,23 +395,9 @@ export interface ProblemDetails {
   instance?: string
 }
 /**
- * Model representing an entity that is related to the contact
- */
-export interface RelationshipModel {
-  /**
-   * Gets the identifier of the related entity
-   */
-  id?: string
-  /**
-   * Gets the type of relationship (office/negotiator)
-   */
-  type?: string
-  readonly links?: LinkModel[]
-}
-/**
  * Model to update a contact address
  */
-export interface UpdateAddressModel {
+export interface UpdateContactAddressModel {
   /**
    * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
    */
@@ -437,7 +438,7 @@ export interface UpdateAddressModel {
 /**
  * Model to update a communication detail for a contact (eg. an email address)
  */
-export interface UpdateCommunicationModel {
+export interface UpdateContactCommunicationModel {
   /**
    * Sets the label representing the type of detail (eg E-mail)
    */
@@ -446,6 +447,56 @@ export interface UpdateCommunicationModel {
    * Sets the contact detail (eg the actual telephone number or email address)
    */
   detail?: string
+}
+/**
+ * Model to update an existing identity check
+ */
+export interface UpdateContactIdentityCheckModel {
+  /**
+   * Sets the date that the identity check was performed
+   * Note that this can be different to the date that the check was created
+   */
+  checkDate?: string // date-time
+  /**
+   * Sets the status of this identity check  (pass/fail/pending/cancelled/warnings/unchecked)
+   */
+  status?: string
+  /**
+   * Sets the id of the negotiator that performed the identity check
+   * Note that this can be different to the negotiator that created the check
+   */
+  negotiatorId?: string
+  /**
+   * Sets the details of the documents that have been provided for this identity check
+   */
+  documents?: UpdateContactIdentityDocumentModel[]
+  /**
+   * Sets a JSON fragment to attach to this identity check as metadata
+   */
+  metadata?: {
+    [name: string]: {}
+  }
+}
+/**
+ * Model to update an identity document
+ */
+export interface UpdateContactIdentityDocumentModel {
+  /**
+   * Sets the id of the document type that describes this document
+   */
+  typeId?: string
+  /**
+   * Sets the date that this document expires
+   */
+  expiry?: string // date-time
+  /**
+   * Sets the textual details of the identity document (eg. passport number)
+   */
+  details?: string
+  /**
+   * Sets the location of the physical file that relates to this document (eg. scan of driving license)
+   */
+  fileUrl?: string
 }
 /**
  * Model to update a contact record
@@ -479,84 +530,21 @@ export interface UpdateContactModel {
    * Sets a collection of the contacts communication details
    * Eg. Email address, mobile number, landline
    */
-  communications?: UpdateCommunicationModel[]
+  communications?: UpdateContactCommunicationModel[]
+  officeIds?: string[]
   /**
-   * Sets a collection of entities that are related to this contact
-   * This is usually the managing negotiators and offices
+   * Sets a collection of negotiator ids that are related to this contact
    */
-  relationships?: UpdateRelationshipModel[]
+  negotiatorIds?: string[]
   /**
    * Sets a collection of addresses that this contact has been associated to
    * A maximum of three addresses can be associated to a contact
    */
-  addresses?: UpdateAddressModel[]
+  addresses?: UpdateContactAddressModel[]
   /**
    * Sets a JSON fragment to attach to this contact as metadata
    */
   metadata?: {
     [name: string]: {}
   }
-}
-/**
- * Model to update an existing identity check
- */
-export interface UpdateIdentityCheckModel {
-  /**
-   * Sets the date that the identity check was performed
-   * Note that this can be different to the date that the check was created
-   */
-  checkDate?: string // date-time
-  /**
-   * Sets the status of this identity check  (pass/fail/pending/cancelled/warnings/unchecked)
-   */
-  status?: string
-  /**
-   * Sets the id of the negotiator that performed the identity check
-   * Note that this can be different to the negotiator that created the check
-   */
-  negotiatorId?: string
-  /**
-   * Sets the details of the documents that have been provided for this identity check
-   */
-  documents?: UpdateIdentityDocumentModel[]
-  /**
-   * Sets a JSON fragment to attach to this identity check as metadata
-   */
-  metadata?: {
-    [name: string]: {}
-  }
-}
-/**
- * Model to update an identity document
- */
-export interface UpdateIdentityDocumentModel {
-  /**
-   * Sets the id of the document type that describes this document
-   */
-  typeId?: string
-  /**
-   * Sets the date that this document expires
-   */
-  expiry?: string // date-time
-  /**
-   * Sets the textual details of the identity document (eg. passport number)
-   */
-  details?: string
-  /**
-   * Sets the location of the physical file that relates to this document (eg. scan of driving license)
-   */
-  fileUrl?: string
-}
-/**
- * Model to update a relationship between a contact and another entity
- */
-export interface UpdateRelationshipModel {
-  /**
-   * Sets the identifier of the attendee
-   */
-  id?: string
-  /**
-   * Sets the type of attendee
-   */
-  type?: string
 }

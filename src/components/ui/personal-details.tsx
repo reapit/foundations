@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Input, DatePicker } from '@reapit/elements'
 import { Formik, Form } from 'formik'
-import { CommunicationModel, AddressModel, ContactModel } from '@/types/contact-api-schema'
+import { ContactCommunicationModel, ContactAddressModel, ContactModel } from '@/types/contact-api-schema'
 
 export const renderForm = () => {
   return (
@@ -17,22 +17,24 @@ export const renderForm = () => {
 }
 
 export const filterCommunication = (
-  communications: CommunicationModel[] | undefined,
+  communications: ContactCommunicationModel[] | undefined,
   type: 'Home' | 'Mobile' | 'Work' | 'E-Mail'
 ) => {
   if (!communications) {
     return null
   }
-  const newCommunication: CommunicationModel | undefined = communications.find((communication: CommunicationModel) => {
-    return communication.label === type
-  })
+  const newCommunication: ContactCommunicationModel | undefined = communications.find(
+    (communication: ContactCommunicationModel) => {
+      return communication.label === type
+    }
+  )
   if (newCommunication) {
     return newCommunication.detail
   }
   return null
 }
 
-export const combineAdress = (addresses: AddressModel[] | undefined): string => {
+export const combineAdress = (addresses: ContactAddressModel[] | undefined): string => {
   let addressCombined = ''
   if (!addresses || (addresses && addresses.length === 0)) {
     return addressCombined

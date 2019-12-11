@@ -6,7 +6,7 @@ import {
   identityCheckReceiveData,
   checkListDetailSubmitForm
 } from '../actions/checklist-detail'
-import { ContactModel, IdentityCheckModel } from '@/types/contact-api-schema'
+import { ContactModel, ContactIdentityCheckModel } from '@/types/contact-api-schema'
 import {
   isCompletedProfile,
   isCompletedPrimaryID,
@@ -35,7 +35,7 @@ export interface ChecklistDetailState {
   loading: boolean
   checklistDetailData: {
     contact: ContactModel | null
-    idCheck: IdentityCheckModel | null
+    idCheck: ContactIdentityCheckModel | null
   } | null
   isSubmitting: boolean
   status: ChecklistStatus
@@ -98,7 +98,7 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
 
 export type UpdateCheckListDetailFormStatusParams = {
   contact: ContactModel | null
-  idCheck: IdentityCheckModel | null
+  idCheck: ContactIdentityCheckModel | null
 }
 
 /**
