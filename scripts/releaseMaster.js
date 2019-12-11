@@ -1,5 +1,5 @@
 const Octokit = require('@octokit/rest')
-module.exports = async env => {
+const releaseMaster = async () => {
   const currentVersion = process.env.npm_package_version
   let tagName = 'v' + currentVersion
 
@@ -25,3 +25,6 @@ module.exports = async env => {
       tag_name: tagName
     })
 }
+releaseMaster()
+
+
