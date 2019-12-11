@@ -18,7 +18,7 @@ import {
 
 import { attendees } from '../__stubs__/mockData'
 import { appointmentDataStub } from '../../../../sagas/__stubs__/appointment'
-import { LoginMode } from '@reapit/elements'
+import { LoginMode } from '@reapit/cognito-auth'
 import { ReduxState } from '@/types/core'
 
 const { applicant, contact, landlord, negotiator, office, tenant } = attendees

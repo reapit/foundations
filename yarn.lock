@@ -967,10 +967,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@reapit/cognito-auth@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@reapit/cognito-auth/-/cognito-auth-2.0.4.tgz#ed845dfa69010d7aec1e945c953cef2d5bae5bb8"
-  integrity sha512-RZyIY0PW5sEJfzdQGnvzOjqZNmxAKKfl1vpJVdUcS+cbFprHu+ibjWz+EHdwxMaMFfv48Rw6HMtwV6kLXiGPtQ==
+"@reapit/cognito-auth@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@reapit/cognito-auth/-/cognito-auth-2.0.5.tgz#a49dbe206648de240e9a65cb239dd688bac28644"
+  integrity sha512-vr7Ml9RvkBHhO2hR0eCPbf2eZ2oi/D7TTnIv1p0plhDn6OI/8zeTz4A02LySpyWc8EUzfMyoqxRlaT6Fo/OA6Q==
   dependencies:
     "@types/jsonwebtoken" "^8.3.5"
     amazon-cognito-identity-js "~3.0.13"
