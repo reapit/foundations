@@ -2,6 +2,15 @@
   width: 100%;
 }
 
+.btnSearch {
+  height: 100%;
+  outline: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  pointer-events: initial;
+}
+
 @media screen and (min-width: 769px) {
   .sidebar {
     width: 240px;

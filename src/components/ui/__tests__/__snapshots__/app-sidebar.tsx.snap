@@ -23,7 +23,13 @@ exports[`AppSidebar should match a snapshot 1`] = `
           id="search"
           name="search"
           placeholder="Search..."
-          rightIcon={<FaSearch />}
+          rightIcon={
+            <button
+              type="submit"
+            >
+              <FaSearch />
+            </button>
+          }
           type="text"
         />
       </Form>

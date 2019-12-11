@@ -49,7 +49,17 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({ categories, location, hi
           onSubmit={handleSearchApp(history)}
         >
           <Form>
-            <Input id="search" type="text" placeholder="Search..." name="search" rightIcon={<FaSearch />} />
+            <Input
+              id="search"
+              type="text"
+              placeholder="Search..."
+              name="search"
+              rightIcon={
+                <button className={styles.btnSearch} type="submit">
+                  <FaSearch />
+                </button>
+              }
+            />
           </Form>
         </Formik>
         <CategoriesList
