@@ -1,4 +1,4 @@
-import { RefreshParams, LoginSession } from '@reapit/elements'
+import { RefreshParams, LoginSession } from '@reapit/cognito-auth'
 
 export const mockLoginSession: LoginSession = {
   userName: 'bob@acme.com',

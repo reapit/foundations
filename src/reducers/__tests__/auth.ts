@@ -1,7 +1,7 @@
 import authReducer, { defaultState } from '../auth'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
-import { LoginType } from '@reapit/elements'
+import { LoginType } from '@reapit/cognito-auth'
 
 describe('auth reducer', () => {
   it('should return default state if action not matched', () => {

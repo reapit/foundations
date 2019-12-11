@@ -1,6 +1,6 @@
 import LoginPage from '../page-objects/login'
 import Common from '../shared/common'
-import { COOKIE_SESSION_KEY } from '@reapit/elements'
+import { COOKIE_SESSION_KEY } from '@reapit/cognito-auth'
 
 interface LoginSession {
   value: string | null

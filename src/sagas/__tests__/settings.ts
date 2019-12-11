@@ -19,7 +19,7 @@ import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { developerStub } from '../__stubs__/developer'
-import { removeSessionCookie } from '@reapit/elements'
+import { removeSession } from '@reapit/cognito-auth'
 import { history } from '../../core/router'
 import Routes from '@/constants/routes'
 import { authLogoutSuccess } from '@/actions/auth'
@@ -107,7 +107,7 @@ describe('settings', () => {
       expect(clone.next('abc@gmail.com').value).toEqual(
         call(callChangePassword, { values: data, email: 'abc@gmail.com' })
       )
-      expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(removeSessionCookie))
+      expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(removeSession))
       expect(clone.next().value).toEqual(put(authLogoutSuccess()))
       expect(clone.next().value).toEqual(history.replace(`${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`))
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))

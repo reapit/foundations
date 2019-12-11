@@ -1,9 +1,9 @@
 import authSagas, { doLogin, doLogout, loginListen, logoutListen, clearAuthListen, clearAuth } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
-import { authLoginSuccess, authLogoutSuccess, authLoginFailure, authClear } from '../../actions/auth'
+import { authLoginSuccess, authLogoutSuccess, authLoginFailure } from '../../actions/auth'
 import { Action } from '@/types/core'
-import { getCognitoSession, removeSessionCookie, LoginParams } from '@reapit/elements'
+import { setUserSession, removeSession, LoginParams } from '@reapit/cognito-auth'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
 import { mockLoginSession } from '@/utils/__mocks__/cognito'
@@ -17,7 +17,7 @@ jest.mock('../../core/router', () => ({
   }
 }))
 jest.mock('../../core/store')
-jest.mock('@reapit/elements')
+jest.mock('@reapit/cognito-auth')
 
 describe('login submit', () => {
   const loginParams: LoginParams = { loginType: 'CLIENT', userName: 'bob@acme.com', password: 'xxxxxx', mode: 'WEB' }
@@ -28,14 +28,14 @@ describe('login submit', () => {
 
   it('api call success', () => {
     const gen = doLogin(action)
-    expect(gen.next(mockLoginSession).value).toEqual(call(getCognitoSession, loginParams))
+    expect(gen.next(mockLoginSession).value).toEqual(call(setUserSession, loginParams))
     expect(gen.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))
     expect(gen.next().done).toBe(true)
   })
 
   test('api call fail', () => {
     const gen = doLogin(action)
-    expect(gen.next(null).value).toEqual(call(getCognitoSession, loginParams))
+    expect(gen.next(null).value).toEqual(call(setUserSession, loginParams))
     expect(gen.next(null).value).toEqual(put(authLoginFailure()))
     expect(gen.next().done).toBe(true)
   })
@@ -45,7 +45,7 @@ describe('auth thunks', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSessionCookie))
+      expect(gen.next().value).toEqual(call(removeSession))
       gen.next()
       expect(history.push).toHaveBeenCalledTimes(1)
       expect(history.push).toHaveBeenLastCalledWith(Routes.CLIENT_LOGIN)
@@ -93,7 +93,7 @@ describe('auth thunks', () => {
   describe('clearAuth', () => {
     it('should run correctly', () => {
       const gen = cloneableGenerator(clearAuth)()
-      expect(gen.next().value).toEqual(call(removeSessionCookie))
+      expect(gen.next().value).toEqual(call(removeSession))
       expect(gen.next().value).toEqual(put(authLogoutSuccess()))
       expect(gen.next().done).toBe(true)
     })

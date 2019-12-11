@@ -1,6 +1,6 @@
 import store from '../core/store'
 import { authLoginSuccess, authLogout } from '../actions/auth'
-import { getSession } from '@reapit/elements'
+import { getSession } from '@reapit/cognito-auth'
 
 export const getAccessToken = async (): Promise<string | null> => {
   const { loginSession, refreshSession } = store.state.auth
