@@ -14,7 +14,12 @@ import {
   checkListDetailSubmitForm
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
-import { ContactModel, AddressModel, IdentityDocumentModel, IdentityCheckModel } from '@/types/contact-api-schema'
+import {
+  ContactModel,
+  ContactAddressModel,
+  ContactIdentityDocumentModel,
+  ContactIdentityCheckModel
+} from '@/types/contact-api-schema'
 import { ErrorData } from '@/reducers/error'
 import store from '@/core/store'
 import dayjs from 'dayjs'
@@ -120,7 +125,7 @@ export const mapArrAddressToUploadImageFunc = ({ addresses, headers, addressesMe
   if (!addresses || !addressesMeta) {
     return []
   }
-  return addresses.map((address: AddressModel, index) => {
+  return addresses.map((address: ContactAddressModel, index) => {
     if (!isBase64(addressesMeta && addressesMeta[index] && addressesMeta[index].documentImage)) {
       return null
     }
@@ -219,7 +224,7 @@ export const updateAddressHistory = function*({ data: { addresses = [], metadata
   const headers = yield call(initAuthorizedRequestHeaders)
   const contact: ContactModel = yield select(selectCheckListDetailContact)
   try {
-    const formattedAddresses: AddressModel[] = addresses.map((address, index) => {
+    const formattedAddresses: ContactAddressModel[] = addresses.map((address, index) => {
       if (index > 0) {
         return {
           ...address,
@@ -267,7 +272,7 @@ export const updateSecondaryId = function*({ data }: Action<any>) {
   yield put(checkListDetailSubmitForm(true))
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
-    const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
+    const idCheck: ContactIdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
     const secondaryIdUrl = data.fileUrl
     let uploaderDocument: FileUploaderResponse | null = null
@@ -294,7 +299,7 @@ export const updateSecondaryId = function*({ data }: Action<any>) {
         secondaryIdUrl: uploaderDocument ? uploaderDocument.Url : secondaryIdUrl
       },
       documents
-    } as IdentityCheckModel
+    } as ContactIdentityCheckModel
 
     if (idCheck) {
       yield call(updateIdentityCheck, {
@@ -340,7 +345,7 @@ export const updatePrimaryId = function*({ data }: Action<any>) {
   yield put(checkListDetailSubmitForm(true))
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
-    const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
+    const idCheck: ContactIdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
     const primaryIdUrl = data.fileUrl
     let uploaderDocument: FileUploaderResponse | null = null
@@ -368,7 +373,7 @@ export const updatePrimaryId = function*({ data }: Action<any>) {
         secondaryIdUrl: currentSecondaryIdUrl
       },
       documents
-    } as IdentityCheckModel
+    } as ContactIdentityCheckModel
     if (idCheck) {
       yield call(updateIdentityCheck, {
         contactId: contact.id,
@@ -471,11 +476,14 @@ export const checkListDetailAddressUpdateListen = function*() {
 }
 
 export const updatePrimaryIdListen = function*() {
-  yield takeLatest<Action<IdentityDocumentModel>>(ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA, updatePrimaryId)
+  yield takeLatest<Action<ContactIdentityDocumentModel>>(
+    ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA,
+    updatePrimaryId
+  )
 }
 
 export const updateSecondaryIdListen = function*() {
-  yield takeLatest<Action<IdentityDocumentModel>>(
+  yield takeLatest<Action<ContactIdentityDocumentModel>>(
     ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA,
     updateSecondaryId
   )

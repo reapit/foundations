@@ -1,7 +1,8 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import ProfileToggle from '@/components/ui/profile-toggle'
-import { H3, Loader, FlexContainerResponsive, LoginMode, Button } from '@reapit/elements'
+import { H3, Loader, FlexContainerResponsive, Button } from '@reapit/elements'
+import { LoginMode } from '@reapit/cognito-auth'
 import styles from '@/styles/pages/profile.scss?mod'
 import { ReduxState, FormState } from '@/types/core'
 import { submitChecks } from '@/actions/submit-checks'
@@ -132,7 +133,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
 
 const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
   submitChecksFormState: state.submitChecks.formState,
-  loading: state?.checklistDetail?.loading || true,
+  loading: !!state?.checklistDetail?.loading,
   contact: selectCheckListDetailContact(state),
   status: selectCheckListDetailStatus(state),
   loginMode: state?.auth?.refreshSession?.mode || 'WEB'

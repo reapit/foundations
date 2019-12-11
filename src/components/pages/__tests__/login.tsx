@@ -11,7 +11,7 @@ import {
 } from '@/components/pages/login'
 import { ReduxState } from '@/types/core'
 import { LOGIN_TYPE } from '@/constants/auth'
-import { LoginParams } from '@reapit/elements'
+import { LoginParams } from '@reapit/cognito-auth'
 
 describe('Login', () => {
   it('should match a snapshot', () => {

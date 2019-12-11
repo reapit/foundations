@@ -10,7 +10,8 @@ import {
   mapDispatchToProps
 } from '../success'
 import { contact as contactStub, contact } from '@/sagas/__stubs__/contact'
-import { LoginMode, EntityType } from '@reapit/elements'
+import { EntityType } from '@reapit/elements'
+import { LoginMode } from '@reapit/cognito-auth'
 import { ReduxState } from '@/types/core'
 
 const props: SuccessProps = {

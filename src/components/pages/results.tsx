@@ -101,7 +101,7 @@ export const handleUseCallback = setPageNumber => page => {
 
 export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fetchContacts, history }) => {
   const { search, loading } = resultsState
-  const { totalCount, pageSize, data = [] } = resultsState?.contacts || {}
+  const { totalCount, pageSize, _embedded = [] } = resultsState?.contacts || {}
   const columns = React.useMemo(generateColumn(history), [])
   const searchTitle = React.useMemo(() => {
     if (search) {
@@ -141,7 +141,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
             {!search || Number(totalCount) === 0 ? (
               renderEmptyResult()
             ) : (
-              <Table scrollable loading={loading} data={data} columns={columns} />
+              <Table scrollable loading={loading} data={_embedded} columns={columns} />
             )}
             <Pagination
               pageNumber={pageNumber}

@@ -58,11 +58,11 @@ describe('Result', () => {
           search: {},
           contacts: contacts
         }
-      } as ReduxState
+      } as Pick<ReduxState, 'results'>
       const output = {
         resultsState: mockState.results
       }
-      const result = mapStateToProps(mockState)
+      const result = mapStateToProps(mockState as ReduxState)
       expect(result).toEqual(output)
     })
   })

@@ -4,7 +4,7 @@ import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
-import { ContactModel, AddressModel } from '@/types/contact-api-schema'
+import { ContactModel, ContactAddressModel } from '@/types/contact-api-schema'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
 import { checkListDetailAddressUpdateData } from '@/actions/checklist-detail'
@@ -187,7 +187,7 @@ export const mapStateToProps = (state: ReduxState): MappedProps => {
 }
 
 export type MappedActions = {
-  onHandleSubmit: (values: AddressModel[]) => void
+  onHandleSubmit: (values: ContactAddressModel[]) => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): MappedActions => {

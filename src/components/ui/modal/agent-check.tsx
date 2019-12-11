@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik'
 import { SelectBox, DatePicker, SelectBoxOptions, Button, Input, RadioSelect } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { IdentityCheckModel } from '@/types/contact-api-schema'
+import { ContactIdentityCheckModel } from '@/types/contact-api-schema'
 import { Dispatch } from 'redux'
 import { checkListDetailAgentCheckUpdateData } from '@/actions/checklist-detail'
 
@@ -156,7 +156,7 @@ export const AgentCheck: React.FC<AgentCheckProps> = ({ isSubmitting, onHandleSu
 
 export type StateProps = {
   isSubmitting: boolean
-  idCheck: IdentityCheckModel
+  idCheck: ContactIdentityCheckModel
   isDisabledSubmit: boolean
 }
 
