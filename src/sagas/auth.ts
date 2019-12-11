@@ -4,11 +4,11 @@ import { Action } from '@/types/core.ts'
 import Routes from '@/constants/routes'
 import ActionTypes from '@/constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess } from '@/actions/auth'
-import { LoginParams, LoginSession, loginUserSession, removeSession } from '@reapit/cognito-auth'
+import { LoginParams, LoginSession, setUserSession, removeSession } from '@reapit/cognito-auth'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
-    const loginSession: LoginSession | null = yield call(loginUserSession, data)
+    const loginSession: LoginSession | null = yield call(setUserSession, data)
 
     if (loginSession) {
       yield put(authLoginSuccess(loginSession))
