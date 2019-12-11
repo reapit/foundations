@@ -9,7 +9,7 @@ import {
   mapDispatchToProps,
   searchContacts
 } from '../client-search'
-import { LoginMode } from '@reapit/elements'
+import { LoginMode } from '@reapit/cognito-auth'
 import { ReduxState } from '@/types/core'
 import Routes from '@/constants/routes'
 
