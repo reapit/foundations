@@ -145,7 +145,7 @@ export type UpdateCheckListDetailFormStatusParams = {
 export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateCheckListDetailFormStatusParams) => {
   const metadata = contact && contact.metadata
   return {
-    profile: metadata ? isCompletedProfile(contact) : false,
+    profile: isCompletedProfile(contact),
     primaryId: isCompletedPrimaryID(idCheck),
     secondaryId: isCompletedSecondaryID(idCheck),
     declarationRisk: metadata ? isCompletedDeclarationRisk(contact) : false,

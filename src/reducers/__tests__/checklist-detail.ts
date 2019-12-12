@@ -1,4 +1,8 @@
-import checklistReducer, { defaultState, updateCheckListDetailFormStatus } from '../checklist-detail'
+import checklistReducer, {
+  defaultState,
+  updateCheckListDetailFormStatus,
+  ChecklistDetailState
+} from '../checklist-detail'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
 import { contact, idCheck } from '@/sagas/__stubs__/contact'
@@ -104,6 +108,52 @@ describe('home reducer', () => {
       pepSearchParam: '',
       pepSearchResultData: []
     }
+    expect(newState).toEqual(expected)
+  })
+
+  it('should mark personal details not completed because missing date of birth', () => {
+    const newState = checklistReducer(undefined, {
+      type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT as ActionType,
+      data: contact
+    })
+
+    const expected: ChecklistDetailState = {
+      ...defaultState,
+      loading: false,
+      checklistDetailData: {
+        contact: contact,
+        idCheck: null
+      },
+      status: {
+        ...updateCheckListDetailFormStatus({ contact, idCheck: null }),
+        profile: false
+      }
+    }
+
+    expect(newState).toEqual(expected)
+  })
+
+  it('should mark personal details completed', () => {
+    const contactWithDOB = { ...contact, dateOfBirth: new Date().toISOString() }
+
+    const newState = checklistReducer(undefined, {
+      type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT as ActionType,
+      data: contactWithDOB
+    })
+
+    const expected: ChecklistDetailState = {
+      ...defaultState,
+      loading: false,
+      checklistDetailData: {
+        contact: contactWithDOB,
+        idCheck: null
+      },
+      status: {
+        ...updateCheckListDetailFormStatus({ contact, idCheck: null }),
+        profile: true
+      }
+    }
+
     expect(newState).toEqual(expected)
   })
 })
