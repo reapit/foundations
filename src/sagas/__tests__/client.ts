@@ -33,10 +33,9 @@ describe('client fetch data', () => {
       call(fetcher, {
         url: `${URLS.apps}?${setQueryParams({
           clientId: '1',
-          category: 'game',
-          appName: '1',
-          companyName: '1',
-          pageNumber: 5,
+          category: params.data.category,
+          appName: params.data.search,
+          pageNumber: params.data.page,
           pageSize: APPS_PER_PAGE
         })}`,
         api: REAPIT_API_BASE_URL,
