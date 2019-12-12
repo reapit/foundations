@@ -25,7 +25,7 @@ function scrollIntoView(
     }
   }, 25)
   if (prop) {
-    // @ts-ignore
+    //
     element[style] = from + unit
   } else {
     // @ts-ignore

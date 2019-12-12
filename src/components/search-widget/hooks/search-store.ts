@@ -1,6 +1,7 @@
 import { PagedResultPropertyModel_, PropertyModel } from '@/types/property'
 import { useState } from 'react'
 import { PropertyImageModel } from '@/types/propertyImage'
+import { property } from '../map/mock-property'
 
 export type SearchType = 'Sale' | 'Rent' | undefined
 
@@ -82,13 +83,11 @@ export function useSearchStore(): SearchStore {
   }
 
   const getResultArr = () => {
-    // @ts-ignore
-    if (!result || !result.data) {
+    if (!result || !result._embedded) {
       return []
     }
 
-    // @ts-ignore
-    return result.data
+    return result._embedded
   }
 
   return {
