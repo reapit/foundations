@@ -7,10 +7,13 @@ import { Button } from '../Button'
  * class to primary and success
  */
 
+export type ErrorDataType = 'COMPONENT' | 'SERVER' | 'INFO'
+export type ButtonVariant = 'danger' | 'info'
+
 export interface ErrorData {
   readonly status?: number
   readonly message?: string
-  readonly type: 'COMPONENT' | 'SERVER'
+  readonly type: ErrorDataType
 }
 
 export interface ToastProps {
@@ -18,6 +21,15 @@ export interface ToastProps {
   componentError: ErrorData | null
   errorClearedServer: () => void
   errorClearedComponent: () => void
+}
+
+export const getVariant = (type: ErrorDataType): ButtonVariant => {
+  let variantClass: ButtonVariant = 'danger'
+  // use switch case if we have more options
+  if (type === 'INFO') {
+    variantClass = 'info'
+  }
+  return variantClass
 }
 
 export const Toast: React.FC<ToastProps> = ({
@@ -29,13 +41,15 @@ export const Toast: React.FC<ToastProps> = ({
   const error = componentError || serverError || null
   const isVisible = Boolean(error)
   const errorClearHandler = error && error.type === 'SERVER' ? errorClearedServer : errorClearedComponent
+  const variant = getVariant(error ? error.type : 'INFO')
+
   if (isVisible) {
     setTimeout(errorClearHandler, 5000)
   }
 
   return (
     <div data-test="toast-wrapper" className={`toast ${isVisible ? 'visible' : ''}`} onClick={errorClearHandler}>
-      <Button type="reset" variant="danger" fullWidth>
+      <Button type="reset" variant={variant} fullWidth>
         {error && error.message}
       </Button>
     </div>
