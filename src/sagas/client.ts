@@ -31,7 +31,6 @@ export const clientDataFetch = function*({ data }) {
           clientId,
           category,
           appName: search,
-          companyName: search,
           pageNumber: page,
           pageSize: APPS_PER_PAGE
         })}`,
