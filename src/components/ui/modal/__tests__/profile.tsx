@@ -105,7 +105,6 @@ describe('profile', () => {
       }
       const output = {
         home: 'At least one telephone number is required',
-        email: ''
       }
       expect(validate(input)).toEqual(output)
     })
@@ -118,7 +117,6 @@ describe('profile', () => {
         email: 'client@'
       }
       const output = {
-        home: '',
         email: 'Invalid email format'
       }
       expect(validate(input)).toEqual(output)

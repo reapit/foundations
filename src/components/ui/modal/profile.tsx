@@ -9,15 +9,14 @@ import { STEPS } from '@/components/ui/modal/modal'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 
 export const validate = (values: FormikValues): FormikErrors<FormikValues> => {
-  const errors = { home: '', email: '' }
+  const errors = {} as FormikErrors<FormikValues>
   if (!values.home && !values.mobile && !values.work) {
     errors.home = 'At least one telephone number is required'
   }
 
-  if (!isEmail(values.email)) {
+  if (values.email && !isEmail(values.email)) {
     errors.email = 'Invalid email format'
   }
-
   return errors
 }
 
