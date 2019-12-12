@@ -1,13 +1,12 @@
 import { PagedResultPropertyModel_, PropertyModel } from '@/types/property'
 import { useState } from 'react'
 import { PropertyImageModel } from '@/types/propertyImage'
-import { property } from '../map/mock-property'
 
 export type SearchType = 'Sale' | 'Rent' | undefined
 
 export interface SearchStore {
   err: Error | null
-  isLoading: Boolean | null
+  isLoading: boolean | null
   searchKeyWord: string
   searchType: SearchType | undefined
   propertyImages: Record<string, PropertyImageModel>
@@ -35,7 +34,7 @@ export interface SearchStore {
 export function useSearchStore(): SearchStore {
   const [result, _setResult] = useState<PagedResultPropertyModel_ | null>()
   const [err, _setErr] = useState<Error | null>(null)
-  const [isLoading, _setIsLoading] = useState<Boolean | null>(false)
+  const [isLoading, _setIsLoading] = useState<boolean | null>(false)
   const [searchKeyWord, setSearchKeyWord] = useState<string>('')
   const [searchType, setSearchType] = useState<SearchType>()
   const [propertyImages, setPropertyImages] = useState<

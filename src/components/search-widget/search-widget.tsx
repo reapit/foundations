@@ -225,7 +225,7 @@ const SearchWidget: React.FC<{
     }
 
     const imageMap: Record<string, PropertyImageModel> = {}
-    for (let propertyImage of parsedResponse.data) {
+    for (const propertyImage of parsedResponse.data) {
       const propertyId = (propertyImage && propertyImage.id) || 'invalid'
       imageMap[propertyId] = propertyImage
     }
@@ -239,7 +239,6 @@ const SearchWidget: React.FC<{
     }
     if (searchKeyword === '') {
       setError('*Please enter an area')
-      //@ts-ignore
       searchInputRef.current.focus()
       return
     }
@@ -295,7 +294,6 @@ const SearchWidget: React.FC<{
     }
     if (searchKeyword === '') {
       setError('*Please enter an area')
-      //@ts-ignore
       searchInputRef.current.focus()
       return
     }

@@ -24,7 +24,7 @@ describe('SearchResult', () => {
         ['priceReducedTo', '£500,000']
       ]
 
-      for (let testCase of testCases) {
+      for (const testCase of testCases) {
         expect(formatPriceAndQuantifier(500000, testCase[0])).toBe(testCase[1])
       }
     })
@@ -44,7 +44,7 @@ describe('SearchResult', () => {
       ['upperFloorWithLift', 'Upper floor with lift']
     ]
 
-    for (let testCase of testCases) {
+    for (const testCase of testCases) {
       expect(formatStyle(testCase[0])).toBe(testCase[1])
     }
   })
@@ -62,7 +62,7 @@ describe('SearchResult', () => {
       ['cottage', 'Cottage']
     ]
 
-    for (let testCase of testCases) {
+    for (const testCase of testCases) {
       expect(formatType(testCase[0])).toBe(testCase[1])
     }
   })
