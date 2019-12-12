@@ -17,6 +17,7 @@ const entries = files.reduce(( entries, file ) => {
 module.exports = merge(commonWebpackConfigs, {
   entry: entries,
   output: {
-    path: path.resolve(__dirname, '../dist-cdn')
+    path: path.resolve(__dirname, '../dist-cdn'),
+    libraryTarget: 'umd'
   }
 })

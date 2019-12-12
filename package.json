@@ -1,6 +1,6 @@
 {
   "name": "nghia-test-package",
-  "version": "0.0.5",
+  "version": "0.0.15",
   "files": [
     "dist-npm/**/*"
   ],
@@ -26,7 +26,9 @@
     "build:ts": "tsc",
     "fetch-definitions": "node ./fetch-definitions.js",
     "prettify": "prettier -c --write \"*/**\"",
-    "lint": "tslint --fix --project tsconfig.json --format stylish"
+    "lint": "tslint --fix --project tsconfig.json --format stylish",
+    "storybook": "start-storybook -p 8000",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,6 +52,11 @@
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
     "@babel/preset-typescript": "^7.7.4",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/preset-typescript": "^1.1.0",
+    "@storybook/react": "^5.2.8",
     "@testing-library/react-hooks": "^2.0.3",
     "@types/enzyme": "^3.10.3",
     "@types/googlemaps": "^3.38.0",

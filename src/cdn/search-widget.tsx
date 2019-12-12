@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import SearchWidget from '@searchWidget/index'
+import { SearchWidget } from '@searchWidget/index'
 ;(window as any).initReapitSearchWidget = ({
   theme = {},
-  containerID,
+  containerID = 'reapit-search-widget',
   searchResultContainerID
 }) => {
   if (!containerID) {

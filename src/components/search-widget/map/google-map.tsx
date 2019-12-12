@@ -349,7 +349,7 @@ export const MapContainer: React.FC<MapContainerProps> = ({
       restProps,
       property,
       properties,
-      theme: contextValue ? contextValue.theme : null
+      theme: contextValue ? contextValue.theme : {}
     }),
     [googleMap, center, zoom, property, properties]
   )
