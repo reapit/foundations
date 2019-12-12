@@ -15,5 +15,13 @@ module.exports = {
   snapshotSerializers: ['enzyme-to-json/serializer'],
   moduleNameMapper: {
     '\\.(css|less)$': '<rootDir>/src/scripts/style-mock.js'
+  },
+  coverageThreshold: {
+    global: {
+      branches: 74,
+      functions: 90,
+      lines: 90,
+      statements: 90
+    }
   }
 }
