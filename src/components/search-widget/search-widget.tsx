@@ -174,11 +174,16 @@ const TabContainer = styled.div`
 `
 
 const SearchWidget: React.FC<{
-  theme: Theme
+  theme?: Theme
   className?: string
-  searchResultContainerID
-}> = ({ theme = {}, className = '', searchResultContainerID }) => {
+  searchResultContainerID?: string
+}> = ({
+  theme = {},
+  className = '',
+  searchResultContainerID = 'reapit-search-widget-result'
+}) => {
   const mergedTheme: Theme = merge({}, defaultTheme, theme)
+  console.log(mergedTheme)
 
   const [searchKeyword, _setSearchKeyword] = useState('')
   const searchStore = useSearchStore()
@@ -310,7 +315,7 @@ const SearchWidget: React.FC<{
         true
       )
     }
-    const url = new URL('https://reapit.cloud.tyk.io/properties')
+    const url = new URL(API_URL)
     url.searchParams.append(
       'LettingStatuses',
       ['toLet', 'underOffer'].join(',')
@@ -346,7 +351,7 @@ const SearchWidget: React.FC<{
 
   return (
     <div className={className}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={mergedTheme}>
         <BaseStyle>
           <context.Provider value={{ ...searchStore, theme: mergedTheme }}>
             <WidgetContainer>

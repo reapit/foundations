@@ -6,10 +6,11 @@ module.exports = merge(commonWebpackConfigs, {
   entry: path.resolve(__dirname, '../src/index.ts'),
   output: {
     path: path.resolve(__dirname, '../dist-npm'),
-    filename: "index.js"
+    filename: "index.js",
+    libraryTarget: 'commonjs2'
   },
   externals: {
     react: ['react'],
-    'react-dom': ['react-dom'],
+    'react-dom': [ 'react-dom' ]
   }
 })
