@@ -405,8 +405,8 @@ const SearchWidget: React.FC<{
                           <GoogleMap
                             params={{ key: process.env.MAP_KEY }}
                             property={selectedProperty}
-                            // @ts-ignore
-                            properties={result.data || []}
+                            //
+                            properties={result._embedded || []}
                           />
                         </TabContent>
                         <TabContent isActive={activeTab === 'SEARCH_RESULT'}>
