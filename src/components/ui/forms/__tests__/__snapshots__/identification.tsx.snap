@@ -22,12 +22,14 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
       labelText="ID Reference"
       name="details"
       placeholder="ID Reference"
+      required={true}
       type="text"
     />
     <DatePicker
       id="expiry"
       labelText="Expiry Date"
       name="expiry"
+      required={true}
     />
     <CameraImageInput
       allowClear={true}
@@ -39,6 +41,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
       }
       labelText="Upload File"
       name="fileUrl"
+      required={true}
     />
     <div
       className="field pb-2"
@@ -93,6 +96,11 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
         </div>
       </div>
     </div>
+    <p
+      className="is-size-6"
+    >
+      * Indicates fields that are required in order to ‘Complete’ this section.
+    </p>
   </Form>
 </div>
 `;
@@ -115,12 +123,14 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
       labelText="ID Reference"
       name="details"
       placeholder="ID Reference"
+      required={true}
       type="text"
     />
     <DatePicker
       id="expiry"
       labelText="Expiry Date"
       name="expiry"
+      required={true}
     />
     <CameraImageInput
       allowClear={true}
@@ -132,6 +142,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
       }
       labelText="Upload File"
       name="fileUrl"
+      required={true}
     />
     <div
       className="field pb-2"
@@ -186,6 +197,11 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
         </div>
       </div>
     </div>
+    <p
+      className="is-size-6"
+    >
+      * Indicates fields that are required in order to ‘Complete’ this section.
+    </p>
   </Form>
 </div>
 `;

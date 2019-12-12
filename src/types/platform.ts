@@ -2097,6 +2097,64 @@ export interface CreateLandlordModel {
   }
 }
 /**
+ * Model to create a communication details (eg. an email address)
+ */
+export interface CreateNegotiatorCommunicationModel {
+  /**
+   * Sets the label representing the type of detail (eg E-mail)
+   */
+  label?: string
+  /**
+   * Sets the communication detail (eg the actual telephone number or email address)
+   */
+  detail?: string
+}
+/**
+ * Model to create an negotiator
+ */
+export interface CreateNegotiatorModel {
+  /**
+   * Sets the unique identifier of the negotiator
+   */
+  id?: string
+  /**
+   * Sets the unique identifier of the office related to the negotiator
+   */
+  officeId?: string
+  /**
+   * Sets the name of the negotiator
+   */
+  name?: string
+  /**
+   * Sets the job title of the negotiator
+   */
+  jobTitle?: string
+  /**
+   * Sets the active flag for a negotiator
+   */
+  active?: boolean
+  /**
+   * Sets a collection of the negotiator communication details
+   * Eg. Email address, mobile number, landline
+   */
+  communicationDetails?: {
+    /**
+     * Sets the label representing the type of detail (eg E-mail)
+     */
+    label?: string
+    /**
+     * Sets the communication detail (eg the actual telephone number or email address)
+     */
+    detail?: string
+  }[]
+  /**
+   * Sets a JSON fragment to attach to this negotiator as metadata
+   */
+  metadata?: {
+    [name: string]: {}
+  }
+}
+/**
  * Model to create an offer
  */
 export interface CreateOfferModel {
@@ -2138,6 +2196,138 @@ export interface CreateOfferModel {
   conditions?: string
   /**
    * Sets a JSON fragment to attach to this offer as metadata
+   */
+  metadata?: {
+    [name: string]: {}
+  }
+}
+/**
+ * Model to create an office address
+ */
+export interface CreateOfficeAddressModel {
+  /**
+   * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+   */
+  type?: string
+  /**
+   * Sets the building name
+   */
+  buildingName?: string
+  /**
+   * Sets the building number
+   */
+  buildingNumber?: string
+  /**
+   * Sets the first line of the address
+   */
+  line1?: string
+  /**
+   * Sets the second line of the address
+   */
+  line2?: string
+  /**
+   * Sets the third line of the address
+   */
+  line3?: string
+  /**
+   * Sets the fourth line of the address
+   */
+  line4?: string
+  /**
+   * Sets the postcode
+   */
+  postcode?: string
+  /**
+   * Sets the ISO-3166 country code associated with the address
+   */
+  countryId?: string
+}
+/**
+ * Model to create a communication details (eg. an email address)
+ */
+export interface CreateOfficeCommunicationModel {
+  /**
+   * Sets the label representing the type of detail (eg E-mail)
+   */
+  label?: string
+  /**
+   * Sets the communication detail (eg the actual telephone number or email address)
+   */
+  detail?: string
+}
+/**
+ * Model to create an office
+ */
+export interface CreateOfficeModel {
+  /**
+   * Sets the unique identifier of the office
+   */
+  id?: string
+  /**
+   * Sets the name of the office
+   */
+  name?: string
+  /**
+   * Sets the manager of the office
+   */
+  manager?: string
+  /**
+   * Sets the address of the office
+   */
+  address?: {
+    /**
+     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     */
+    type?: string
+    /**
+     * Sets the building name
+     */
+    buildingName?: string
+    /**
+     * Sets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Sets the first line of the address
+     */
+    line1?: string
+    /**
+     * Sets the second line of the address
+     */
+    line2?: string
+    /**
+     * Sets the third line of the address
+     */
+    line3?: string
+    /**
+     * Sets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Sets the postcode
+     */
+    postcode?: string
+    /**
+     * Sets the ISO-3166 country code associated with the address
+     */
+    countryId?: string
+  }
+  /**
+   * Sets a collection of the office communication details
+   * Eg. Email address, mobile number, landline
+   */
+  communicationDetails?: {
+    /**
+     * Sets the label representing the type of detail (eg E-mail)
+     */
+    label?: string
+    /**
+     * Sets the communication detail (eg the actual telephone number or email address)
+     */
+    detail?: string
+  }[]
+  /**
+   * Sets a JSON fragment to attach to this office as metadata
    */
   metadata?: {
     [name: string]: {}
@@ -3254,6 +3444,136 @@ export interface NegotiatorModel {
   }
 }
 /**
+ * Model representing the physical address of a building or premise
+ */
+export interface OfferContactAddressModel {
+  /**
+   * Gets the building name
+   */
+  buildingName?: string
+  /**
+   * Gets the building number
+   */
+  buildingNumber?: string
+  /**
+   * Gets the first line of the address
+   */
+  line1?: string
+  /**
+   * Gets the second line of the address
+   */
+  line2?: string
+  /**
+   * Gets the third line of the address
+   */
+  line3?: string
+  /**
+   * Gets the fourth line of the address
+   */
+  line4?: string
+  /**
+   * Gets the postcode
+   */
+  postcode?: string
+  /**
+   * Gets the ISO-3166 country code associated with the address
+   */
+  countryId?: string
+}
+/**
+ * Model representing a single contact detail (eg mobile telephone number)
+ */
+export interface OfferContactCommunicationModel {
+  /**
+   * Gets the label representing the type of detail (eg E-mail)
+   */
+  label?: string
+  /**
+   * Gets the contact detail (eg the actual telephone number or email address)
+   */
+  detail?: string
+}
+/**
+ * Model representing the details of a contact relationship associated with an offer entity
+ */
+export interface OfferContactRelationshipModel {
+  /**
+   * Gets the unique identifier of the contact
+   */
+  id?: string
+  /**
+   * Gets the title of this contact (eg. Mr, Mrs, Miss, Dr)
+   */
+  title?: string
+  /**
+   * Gets the forename of this contact
+   */
+  forename?: string
+  /**
+   * Gets the surname of this contact
+   */
+  surname?: string
+  /**
+   * Gets a collection of the contacts communication details
+   * Eg. Email address, mobile number, landline
+   */
+  communications?: {
+    /**
+     * Gets the label representing the type of detail (eg E-mail)
+     */
+    label?: string
+    /**
+     * Gets the contact detail (eg the actual telephone number or email address)
+     */
+    detail?: string
+  }[]
+  /**
+   * Gets the primary address of the contact
+   */
+  primaryAddress?: {
+    /**
+     * Gets the building name
+     */
+    buildingName?: string
+    /**
+     * Gets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Gets the first line of the address
+     */
+    line1?: string
+    /**
+     * Gets the second line of the address
+     */
+    line2?: string
+    /**
+     * Gets the third line of the address
+     */
+    line3?: string
+    /**
+     * Gets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Gets the postcode
+     */
+    postcode?: string
+    /**
+     * Gets the ISO-3166 country code associated with the address
+     */
+    countryId?: string
+  }
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: {}
+  }
+}
+/**
  * Model to retrieve offer details
  */
 export interface OfferModel {
@@ -3305,6 +3625,87 @@ export interface OfferModel {
    * Gets the conditions of the offer
    */
   conditions?: string
+  /**
+   * Gets a collection of contact entities attached to this offer
+   * The primary contact will always appear first in the collection
+   */
+  contacts?: {
+    /**
+     * Gets the unique identifier of the contact
+     */
+    id?: string
+    /**
+     * Gets the title of this contact (eg. Mr, Mrs, Miss, Dr)
+     */
+    title?: string
+    /**
+     * Gets the forename of this contact
+     */
+    forename?: string
+    /**
+     * Gets the surname of this contact
+     */
+    surname?: string
+    /**
+     * Gets a collection of the contacts communication details
+     * Eg. Email address, mobile number, landline
+     */
+    communications?: {
+      /**
+       * Gets the label representing the type of detail (eg E-mail)
+       */
+      label?: string
+      /**
+       * Gets the contact detail (eg the actual telephone number or email address)
+       */
+      detail?: string
+    }[]
+    /**
+     * Gets the primary address of the contact
+     */
+    primaryAddress?: {
+      /**
+       * Gets the building name
+       */
+      buildingName?: string
+      /**
+       * Gets the building number
+       */
+      buildingNumber?: string
+      /**
+       * Gets the first line of the address
+       */
+      line1?: string
+      /**
+       * Gets the second line of the address
+       */
+      line2?: string
+      /**
+       * Gets the third line of the address
+       */
+      line3?: string
+      /**
+       * Gets the fourth line of the address
+       */
+      line4?: string
+      /**
+       * Gets the postcode
+       */
+      postcode?: string
+      /**
+       * Gets the ISO-3166 country code associated with the address
+       */
+      countryId?: string
+    }
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: {}
+    }
+  }[]
   /**
    * Gets a listing of additional metadata that has been set against this offer
    */
@@ -4609,6 +5010,87 @@ export interface PagedResultOfferModel_ {
      */
     conditions?: string
     /**
+     * Gets a collection of contact entities attached to this offer
+     * The primary contact will always appear first in the collection
+     */
+    contacts?: {
+      /**
+       * Gets the unique identifier of the contact
+       */
+      id?: string
+      /**
+       * Gets the title of this contact (eg. Mr, Mrs, Miss, Dr)
+       */
+      title?: string
+      /**
+       * Gets the forename of this contact
+       */
+      forename?: string
+      /**
+       * Gets the surname of this contact
+       */
+      surname?: string
+      /**
+       * Gets a collection of the contacts communication details
+       * Eg. Email address, mobile number, landline
+       */
+      communications?: {
+        /**
+         * Gets the label representing the type of detail (eg E-mail)
+         */
+        label?: string
+        /**
+         * Gets the contact detail (eg the actual telephone number or email address)
+         */
+        detail?: string
+      }[]
+      /**
+       * Gets the primary address of the contact
+       */
+      primaryAddress?: {
+        /**
+         * Gets the building name
+         */
+        buildingName?: string
+        /**
+         * Gets the building number
+         */
+        buildingNumber?: string
+        /**
+         * Gets the first line of the address
+         */
+        line1?: string
+        /**
+         * Gets the second line of the address
+         */
+        line2?: string
+        /**
+         * Gets the third line of the address
+         */
+        line3?: string
+        /**
+         * Gets the fourth line of the address
+         */
+        line4?: string
+        /**
+         * Gets the postcode
+         */
+        postcode?: string
+        /**
+         * Gets the ISO-3166 country code associated with the address
+         */
+        countryId?: string
+      }
+      readonly _links?: {
+        [name: string]: {
+          href?: string
+        }
+      }
+      readonly _embedded?: {
+        [name: string]: {}
+      }
+    }[]
+    /**
      * Gets a listing of additional metadata that has been set against this offer
      */
     metadata?: {
@@ -5205,6 +5687,83 @@ export interface PagedResultVendorModel_ {
      * Gets the unique identifier of the vendors solicitor
      */
     solicitorId?: string
+    /**
+     * Gets a collection of contact entities attached to this vendor
+     * The primary contact will always appear first in the collection
+     */
+    contacts?: {
+      /**
+       * Gets the unique identifier of the contact
+       */
+      id?: string
+      /**
+       * Gets the name of this contact or company
+       */
+      name?: string
+      /**
+       * Gets the type of this contact (Contact/Company)
+       */
+      type?: string
+      /**
+       * Gets a collection of the contacts communication details
+       * Eg. Email address, mobile number, landline
+       */
+      communications?: {
+        /**
+         * Gets the label representing the type of detail (eg E-mail)
+         */
+        label?: string
+        /**
+         * Gets the contact detail (eg the actual telephone number or email address)
+         */
+        detail?: string
+      }[]
+      /**
+       * Gets the primary address of the contact
+       */
+      primaryAddress?: {
+        /**
+         * Gets the building name
+         */
+        buildingName?: string
+        /**
+         * Gets the building number
+         */
+        buildingNumber?: string
+        /**
+         * Gets the first line of the address
+         */
+        line1?: string
+        /**
+         * Gets the second line of the address
+         */
+        line2?: string
+        /**
+         * Gets the third line of the address
+         */
+        line3?: string
+        /**
+         * Gets the fourth line of the address
+         */
+        line4?: string
+        /**
+         * Gets the postcode
+         */
+        postcode?: string
+        /**
+         * Gets the ISO-3166 country code associated with the address
+         */
+        countryId?: string
+      }
+      readonly _links?: {
+        [name: string]: {
+          href?: string
+        }
+      }
+      readonly _embedded?: {
+        [name: string]: {}
+      }
+    }[]
     /**
      * Gets a listing of additional metadata that has been set against this vendor
      */
@@ -7723,6 +8282,132 @@ export interface UpdateWorksOrderModel {
   }
 }
 /**
+ * Model representing the physical address of a building or premise
+ */
+export interface VendorContactAddressModel {
+  /**
+   * Gets the building name
+   */
+  buildingName?: string
+  /**
+   * Gets the building number
+   */
+  buildingNumber?: string
+  /**
+   * Gets the first line of the address
+   */
+  line1?: string
+  /**
+   * Gets the second line of the address
+   */
+  line2?: string
+  /**
+   * Gets the third line of the address
+   */
+  line3?: string
+  /**
+   * Gets the fourth line of the address
+   */
+  line4?: string
+  /**
+   * Gets the postcode
+   */
+  postcode?: string
+  /**
+   * Gets the ISO-3166 country code associated with the address
+   */
+  countryId?: string
+}
+/**
+ * Model representing a single contact detail (eg mobile telephone number)
+ */
+export interface VendorContactCommunicationModel {
+  /**
+   * Gets the label representing the type of detail (eg E-mail)
+   */
+  label?: string
+  /**
+   * Gets the contact detail (eg the actual telephone number or email address)
+   */
+  detail?: string
+}
+/**
+ * Model representing the details of a contact relationship associated with a vendor entity
+ */
+export interface VendorContactRelationshipModel {
+  /**
+   * Gets the unique identifier of the contact
+   */
+  id?: string
+  /**
+   * Gets the name of this contact or company
+   */
+  name?: string
+  /**
+   * Gets the type of this contact (Contact/Company)
+   */
+  type?: string
+  /**
+   * Gets a collection of the contacts communication details
+   * Eg. Email address, mobile number, landline
+   */
+  communications?: {
+    /**
+     * Gets the label representing the type of detail (eg E-mail)
+     */
+    label?: string
+    /**
+     * Gets the contact detail (eg the actual telephone number or email address)
+     */
+    detail?: string
+  }[]
+  /**
+   * Gets the primary address of the contact
+   */
+  primaryAddress?: {
+    /**
+     * Gets the building name
+     */
+    buildingName?: string
+    /**
+     * Gets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Gets the first line of the address
+     */
+    line1?: string
+    /**
+     * Gets the second line of the address
+     */
+    line2?: string
+    /**
+     * Gets the third line of the address
+     */
+    line3?: string
+    /**
+     * Gets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Gets the postcode
+     */
+    postcode?: string
+    /**
+     * Gets the ISO-3166 country code associated with the address
+     */
+    countryId?: string
+  }
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: {}
+  }
+}
+/**
  * Model representing a vendor
  */
 export interface VendorModel {
@@ -7758,6 +8443,83 @@ export interface VendorModel {
    * Gets the unique identifier of the vendors solicitor
    */
   solicitorId?: string
+  /**
+   * Gets a collection of contact entities attached to this vendor
+   * The primary contact will always appear first in the collection
+   */
+  contacts?: {
+    /**
+     * Gets the unique identifier of the contact
+     */
+    id?: string
+    /**
+     * Gets the name of this contact or company
+     */
+    name?: string
+    /**
+     * Gets the type of this contact (Contact/Company)
+     */
+    type?: string
+    /**
+     * Gets a collection of the contacts communication details
+     * Eg. Email address, mobile number, landline
+     */
+    communications?: {
+      /**
+       * Gets the label representing the type of detail (eg E-mail)
+       */
+      label?: string
+      /**
+       * Gets the contact detail (eg the actual telephone number or email address)
+       */
+      detail?: string
+    }[]
+    /**
+     * Gets the primary address of the contact
+     */
+    primaryAddress?: {
+      /**
+       * Gets the building name
+       */
+      buildingName?: string
+      /**
+       * Gets the building number
+       */
+      buildingNumber?: string
+      /**
+       * Gets the first line of the address
+       */
+      line1?: string
+      /**
+       * Gets the second line of the address
+       */
+      line2?: string
+      /**
+       * Gets the third line of the address
+       */
+      line3?: string
+      /**
+       * Gets the fourth line of the address
+       */
+      line4?: string
+      /**
+       * Gets the postcode
+       */
+      postcode?: string
+      /**
+       * Gets the ISO-3166 country code associated with the address
+       */
+      countryId?: string
+    }
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: {}
+    }
+  }[]
   /**
    * Gets a listing of additional metadata that has been set against this vendor
    */

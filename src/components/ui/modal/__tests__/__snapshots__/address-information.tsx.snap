@@ -26,6 +26,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     id="addresses[0][line1]"
     labelText="Line 1"
     name="addresses[0][line1]"
+    required={true}
     type="text"
   />
   <Input
@@ -38,6 +39,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     id="addresses[0][line3]"
     labelText="Line 3"
     name="addresses[0][line3]"
+    required={true}
     type="text"
   />
   <Input
@@ -50,6 +52,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     id="addresses[0][postcode]"
     labelText="Post Code"
     name="addresses[0][postcode]"
+    required={true}
     type="text"
   />
   <SelectBox
@@ -460,6 +463,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
         },
       ]
     }
+    required={true}
   />
   <SelectBox
     id="metadata.addresses[0][month]"
@@ -517,6 +521,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
         },
       ]
     }
+    required={true}
   />
   <SelectBox
     id="metadata.addresses[0][documentType]"
@@ -586,12 +591,14 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
         },
       ]
     }
+    required={true}
   />
   <CameraImageInput
     allowClear={true}
     id="metadata.addresses.[0][documentImage]"
     labelText="Upload file"
     name="metadata.addresses.[0][documentImage]"
+    required={true}
   />
 </div>
 `;

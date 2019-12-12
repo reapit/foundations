@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Profile, renderForm, filterCommunication, mapStateToProps, mapDispatchToProps } from '../profile'
+import { Profile, renderForm, filterCommunication, mapStateToProps, mapDispatchToProps, validate } from '../profile'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
 
@@ -92,6 +92,36 @@ describe('profile', () => {
       const { onSubmitHandler } = mapDispatchToProps(mockDispatch)
       onSubmitHandler({})
       expect(mockDispatch).toBeCalled()
+    })
+  })
+
+  describe('validate', () => {
+    it('should return correct error message for phone number', () => {
+      const input = {
+        home: '',
+        mobile: '',
+        work: '',
+        email: 'client@gmail.com'
+      }
+      const output = {
+        home: 'At least one telephone number is required',
+        email: ''
+      }
+      expect(validate(input)).toEqual(output)
+    })
+
+    it('should return correct error message for email', () => {
+      const input = {
+        home: '0987654321',
+        mobile: '',
+        work: '',
+        email: 'client@'
+      }
+      const output = {
+        home: '',
+        email: 'Invalid email format'
+      }
+      expect(validate(input)).toEqual(output)
     })
   })
 })

@@ -57,7 +57,7 @@ describe('PrimaryIdentification', () => {
         contact: null,
         initFormValues: {
           details: '',
-          expiry: undefined,
+          expiry: '',
           fileUrl: undefined,
           typeId: ''
         }

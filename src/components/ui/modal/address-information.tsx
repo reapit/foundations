@@ -75,39 +75,56 @@ export const AddressInput = ({ index }) => {
         id={`addresses[${index}][buildingNumber]`}
         name={`addresses[${index}][buildingNumber]`}
       />
-      <Input type="text" labelText="Line 1" id={`addresses[${index}][line1]`} name={`addresses[${index}][line1]`} />
+      <Input
+        type="text"
+        labelText="Line 1"
+        required
+        id={`addresses[${index}][line1]`}
+        name={`addresses[${index}][line1]`}
+      />
       <Input type="text" labelText="Line 2" id={`addresses[${index}][line2]`} name={`addresses[${index}][line2]`} />
-      <Input type="text" labelText="Line 3" id={`addresses[${index}][line3]`} name={`addresses[${index}][line3]`} />
+      <Input
+        type="text"
+        labelText="Line 3"
+        required
+        id={`addresses[${index}][line3]`}
+        name={`addresses[${index}][line3]`}
+      />
       <Input type="text" labelText="Line 4" id={`addresses[${index}][line4]`} name={`addresses[${index}][line4]`} />
       <Input
         type="text"
         labelText="Post Code"
         id={`addresses[${index}][postcode]`}
         name={`addresses[${index}][postcode]`}
+        required
       />
       <SelectBox
         labelText="Number of Years at Address"
         options={renderYearOptions()}
         id={`metadata.addresses[${index}][year]`}
         name={`metadata.addresses[${index}][year]`}
+        required
       />
       <SelectBox
         labelText="Number of Months at Address"
         id={`metadata.addresses[${index}][month]`}
         name={`metadata.addresses[${index}][month]`}
         options={optionsMonth}
+        required
       />
       <SelectBox
         labelText="Document Type"
         id={`metadata.addresses[${index}][documentType]`}
         name={`metadata.addresses[${index}][documentType]`}
         options={optionsDocumentType}
+        required
       />
       <CameraImageInput
         labelText="Upload file"
         id={`metadata.addresses.[${index}][documentImage]`}
         name={`metadata.addresses.[${index}][documentImage]`}
         allowClear={true}
+        required
       />
     </div>
   )
@@ -155,6 +172,7 @@ export const renderForm = ({
         Next
       </Button>
     </div>
+    <p className="is-size-6">* Indicates fields that are required in order to ‘Complete’ this section.</p>
   </Form>
 )
 
@@ -168,12 +186,26 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
   isSubmitting
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
+  const addresses = contact.addresses || []
+  const metadata =
+    contact.metadata ||
+    addresses.reduce(
+      (accumulator, _, currentIndex) => {
+        accumulator.addresses[`${currentIndex}`] = {}
+        accumulator.addresses[`${currentIndex}`].year = ''
+        accumulator.addresses[`${currentIndex}`].month = ''
+        accumulator.addresses[`${currentIndex}`].documentType = ''
+        return accumulator
+      },
+      { addresses: {} } as any
+    )
+
   return (
     <div>
       <Formik
         initialValues={{
-          addresses: contact.addresses || [],
-          metadata: contact.metadata || {}
+          addresses,
+          metadata
         }}
         onSubmit={onHandleSubmit}
       >

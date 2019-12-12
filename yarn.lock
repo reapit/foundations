@@ -307,9 +307,9 @@
     "@types/yargs" "^13.0.0"
 
 "@reapit/cognito-auth@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@reapit/cognito-auth/-/cognito-auth-2.0.5.tgz#a49dbe206648de240e9a65cb239dd688bac28644"
-  integrity sha512-vr7Ml9RvkBHhO2hR0eCPbf2eZ2oi/D7TTnIv1p0plhDn6OI/8zeTz4A02LySpyWc8EUzfMyoqxRlaT6Fo/OA6Q==
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@reapit/cognito-auth/-/cognito-auth-2.0.9.tgz#95bcd1f8736c08ae4a93c402a5b6570120ff4ce0"
+  integrity sha512-swNNudILqKUmLA6t//+u7o6e2d8NMDUSZuGQKP61V+buojkCUrApY5Ipifb3c7O0VV+jjvtUryO4f/VFpmciXg==
   dependencies:
     "@types/jsonwebtoken" "^8.3.5"
     amazon-cognito-identity-js "~3.0.13"
@@ -321,10 +321,10 @@
     jsonwebtoken "^8.5.1"
     serverless-http "~2.0.2"
 
-"@reapit/elements@^0.5.2-beta":
-  version "0.5.2-beta"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.2-beta.tgz#c694ae67c6b1ad9cd18d162f683c2cc1e10195c9"
-  integrity sha512-XKdt3f1ACTIOReLMkWhWdWdV9UVX369pX3fjVzUrPwdkbWJ+XoApjYbOo64QQQDI7j5+Rakgzl7nfvY0S1L/wA==
+"@reapit/elements@^0.5.12":
+  version "0.5.12"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.12.tgz#d8acce1edc4dbcdec455e365da89828c9e59757a"
+  integrity sha512-aDmihnK5xfXo5KU9gTswdZuqyEnrQE021MXKAPS6Uwu7I+F0deC7lFFm3GR78iuB1RTzr26mtHVYGWVFw2Hr6A==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.17"

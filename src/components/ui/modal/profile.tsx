@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Input, DatePicker, Formik, Form } from '@reapit/elements'
+import { Button, Input, DatePicker, Formik, Form, FormikValues, FormikErrors, isEmail } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
@@ -8,14 +8,28 @@ import { updateContact } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 
+export const validate = (values: FormikValues): FormikErrors<FormikValues> => {
+  const errors = { home: '', email: '' }
+  if (!values.home && !values.mobile && !values.work) {
+    errors.home = 'At least one telephone number is required'
+  }
+
+  if (!isEmail(values.email)) {
+    errors.email = 'Invalid email format'
+  }
+
+  return errors
+}
+
 export const renderForm = ({ contact, onNextHandler, isSubmitting }) => ({ values }) => {
   const { id } = contact
   return (
     <Form>
-      <Input type="text" labelText="Title" id="title" name="title" />
-      <Input type="text" labelText="Forename" id="forename" name="forename" />
-      <Input type="text" labelText="Surname" id="surname" name="surname" />
-      <DatePicker labelText="Date Of Birth" id="dateOfBirth" name="dateOfBirth" />
+      <Input type="text" labelText="Title" id="title" name="title" required />
+      <Input type="text" labelText="Forename" id="forename" name="forename" required />
+      <Input type="text" labelText="Surname" id="surname" name="surname" required />
+      <DatePicker labelText="Date Of Birth" id="dateOfBirth" name="dateOfBirth" required />
+      <p className="is-size-6	">* At least one telephone number is required</p>
       <Input type="text" labelText="Home" id="home" name="home" />
       <Input type="text" labelText="Mobile" id="mobile" name="mobile" />
       <Input type="text" labelText="Work" id="work" name="work" />
@@ -44,6 +58,7 @@ export const renderForm = ({ contact, onNextHandler, isSubmitting }) => ({ value
           </div>
         </div>
       </div>
+      <p className="is-size-6">* Indicates fields that are required in order to ‘Complete’ this section.</p>
     </Form>
   )
 }
@@ -83,6 +98,7 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubm
           email: filterCommunication(contact.communications, 'E-Mail')
         }}
         onSubmit={onSubmitHandler}
+        validate={validate}
       >
         {renderForm({ contact, onNextHandler, isSubmitting })}
       </Formik>
