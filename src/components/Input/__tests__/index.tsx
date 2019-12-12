@@ -69,7 +69,7 @@ describe('Input', () => {
 
 describe('requiredValidate', () => {
   it('should run correctly', () => {
-    const value = '';
+    const value = ''
     expect(fieldValidateRequire(value)).toEqual('Required')
   })
 })
