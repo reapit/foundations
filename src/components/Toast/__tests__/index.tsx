@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { Toast, ToastProps } from '..'
+import { Toast, ToastProps, getVariant, ErrorDataType, ButtonVariant } from '..'
 
 const defaultProps = {
   serverError: {
@@ -82,5 +82,15 @@ describe('Toast', () => {
 
   afterEach(() => {
     jest.resetAllMocks()
+  })
+})
+
+describe('getVariant', () => {
+  it('should return correct variant', () => {
+    const types: ErrorDataType[] = ['COMPONENT', 'SERVER', 'INFO']
+    const variants: ButtonVariant[] = ['danger', 'danger', 'info']
+    types.forEach((type, index) => {
+      expect(getVariant(type)).toEqual(variants[index])
+    })
   })
 })
