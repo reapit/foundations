@@ -5,7 +5,7 @@ import { clientLoading, clientReceiveData, clientRequestDataFailure } from '@/ac
 import { categoriesReceiveData } from '@/actions/app-categories'
 import { featuredAppsDataStub, appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher } from '@reapit/elements'
+import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
@@ -31,7 +31,14 @@ describe('client fetch data', () => {
   expect(gen.next([]).value).toEqual(
     all([
       call(fetcher, {
-        url: `${URLS.apps}?clientId=1&PageNumber=${params.data.page}&PageSize=${APPS_PER_PAGE}&AppName=${params.data.search}&Category=${params.data.category}`,
+        url: `${URLS.apps}?${setQueryParams({
+          clientId: '1',
+          category: 'game',
+          appName: '1',
+          companyName: '1',
+          pageNumber: 5,
+          pageSize: APPS_PER_PAGE
+        })}`,
         api: REAPIT_API_BASE_URL,
         method: 'GET',
         headers: MARKETPLACE_HEADERS
