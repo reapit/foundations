@@ -1,10 +1,12 @@
 .env
 .cache/
 coverage/
-dist/
 !dist/index.html
 node_modules/
 *.log
+
+dist-npm/
+dist-cdn
 
 # OS generated files
 .DS_Store
