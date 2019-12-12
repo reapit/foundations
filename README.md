@@ -17,14 +17,15 @@ A collection of React components and utilities for building apps for Reapit Mark
 ### Styles
 
 - All components should use vanilla (S)CSS classes (no modules) - refactor where necessary.
-- Styles live in the styles folder in all cases. 
+- Styles live in the styles folder in all cases.
 - Styles export from `index.scss` at the root of the styles project, ensure any new files are `@import`ed here.
 
 ### Building and Publishing
+
 - NOTED: THIS PROCESS WON'T BUMP THE PACKAGE VERSION AUTOMATICALLY FOR YOU
 
 - When a PR is created, checks will run to make sure testcases have been passed, code have passes linter standard. If one of checks fail, the PR won't able to be merged, and require the sumbmitter to update his/her code again.
-- Create a PR to merge develop. When the PR merged to develop, there will be a tag published that have a version based on version field on package.json file. If there were a tag that has the same tag name created, the old tag would be overridden by the new tag. Install them on other by edit package.json as  `@reapit/elements:git+ssh:git@github.com:reapit/elements.git#{tag}`. eg `@reapit/elements: "git+ssh:git@github.com:reapit/elements.git#v0.5.4-beta"`, or commandline: `yarn add @reapit/elements@git+ssh:git@github.com:reapit/elements.git#v0.5.4-beta`
+- Create a PR to merge develop. When the PR merged to develop, there will be a tag published that have a version based on version field on package.json file. If there were a tag that has the same tag name created, the old tag would be overridden by the new tag. Install them on other by edit package.json as `@reapit/elements:git+ssh:git@github.com:reapit/elements.git#{tag}`. eg `@reapit/elements: "git+ssh:git@github.com:reapit/elements.git#v0.5.4-beta"`, or commandline: `yarn add @reapit/elements@git+ssh:git@github.com:reapit/elements.git#v0.5.4-beta`
 - To release a stable version of npm package, create a PR to merge master. When the PR was merged, npm package will be published to npm , a new release will be created automatically, and storybook assets will be deployed to GH-pages.
 
 ### To use the project
