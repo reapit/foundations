@@ -1,0 +1,102 @@
+{
+  "name": "@reapit/web-components",
+  "version": "0.0.1",
+  "private": true,
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/main.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "homepage": "https://demo-site.reapit.com",
+  "dependencies": {
+    "little-loader": "^0.2.0",
+    "lodash.merge": "^4.6.2",
+    "react-icons": "^3.7.0",
+    "styled-components": "^4.4.0"
+  },
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "scripts": {
+    "build": "rimraf dist && webpack --config ./scripts/webpack.config.js && yarn build:ts",
+    "build:ts": "tsc",
+    "build:analyze": "ANALYZE=true webpack --config ./scripts/webpack.config.js",
+    "fetch-definitions": "node ./fetch-definitions.js",
+    "prettify": "prettier -c --write \"*/**\"",
+    "lint": "tslint --fix --project tsconfig.json --format stylish"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
+    "@testing-library/react-hooks": "^2.0.3",
+    "@types/enzyme": "^3.10.3",
+    "@types/googlemaps": "^3.38.0",
+    "@types/jest": "^24.0.19",
+    "@types/little-loader": "^0.2.0",
+    "@types/lodash.merge": "^4.6.6",
+    "@types/node": "12.7.12",
+    "@types/react": "16.9.5",
+    "@types/react-dom": "16.9.1",
+    "@types/styled-components": "^4.1.19",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "dotenv": "^8.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.0",
+    "enzyme-to-json": "^3.4.2",
+    "fork-ts-checker-webpack-plugin": "^3.1.1",
+    "husky": "^3.0.9",
+    "isomorphic-fetch": "^2.2.1",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
+    "prettier": "^1.18.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "rimraf": "^3.0.0",
+    "sw2dts": "^2.6.2",
+    "ts-jest": "^24.1.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "typescript": "3.6.3",
+    "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.3.10"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "CI=true yarn test"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "alias": {
+    "@/*": "./src/*"
+  }
+}
