@@ -13,7 +13,7 @@ import {
 import { selectOnlineStatus } from '@/selectors/online'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
-import { REAPIT_API_BASE_URL, URLS } from '@/constants/api'
+import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 
 import { appointmentsDataStub } from '../__stubs__/appointments'
@@ -114,7 +114,7 @@ describe('appointments should fetch data', () => {
     call(fetcher, {
       url:
         '/appointments?Start=2019-10-10T00:00:00.000Z&End=2019-10-10T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: mockHeaders
     })
@@ -128,7 +128,7 @@ describe('appointments should fetch data', () => {
     expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
-        api: REAPIT_API_BASE_URL,
+        api: process.env.PLATFORM_API_BASE_URL as string,
         method: 'GET',
         headers: mockHeaders
       })
@@ -172,7 +172,7 @@ describe('appointments should fetch data tomowrrow', () => {
     call(fetcher, {
       url:
         '/appointments?Start=2019-10-11T00:00:00.000Z&End=2019-10-11T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: mockHeaders
     })
@@ -186,7 +186,7 @@ describe('appointments should fetch data tomowrrow', () => {
     expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
-        api: REAPIT_API_BASE_URL,
+        api: process.env.PLATFORM_API_BASE_URL as string,
         method: 'GET',
         headers: mockHeaders
       })
@@ -230,7 +230,7 @@ describe('appointments should fetch data week view', () => {
     call(fetcher, {
       url:
         '/appointments?Start=2019-10-10T00:00:00.000Z&End=2019-10-16T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: mockHeaders
     })
@@ -244,7 +244,7 @@ describe('appointments should fetch data week view', () => {
     expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
-        api: REAPIT_API_BASE_URL,
+        api: process.env.PLATFORM_API_BASE_URL as string,
         method: 'GET',
         headers: mockHeaders
       })
