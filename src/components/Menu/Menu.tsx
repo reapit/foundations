@@ -2,11 +2,10 @@ import * as React from 'react'
 import { RouteProps } from 'react-router'
 import { Link } from 'react-router-dom'
 import { Location } from 'history'
-import { LoginMode } from '../../utils/cognito/types'
 
 export interface MenuConfig extends RouteProps {
   defaultActiveKey: string
-  mode: LoginMode
+  mode: 'DESKTOP' | 'WEB'
   menu: MenuItem[]
 }
 

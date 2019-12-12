@@ -1,5 +1,3 @@
-import { LoginMode } from '../../utils/cognito'
-
 export enum DynamicAppConstants {
   DESKTOP_URL = 'agencycloud://'
 }
@@ -45,7 +43,7 @@ export interface DynamicLinkQueryParams {
 }
 
 export interface DynamicLinkParams {
-  appMode: LoginMode // Am I in desktop or web mode
+  appMode: 'DESKTOP' | 'WEB' // Am I in desktop or web mode
   entityType: EntityType // What base desktop entity am I querying
   queryParams?: Partial<DynamicLinkQueryParams> // An object that will be deconstructed into a query string and appened if needed
   webRoute?: string // Where to route to in web mode if needed
