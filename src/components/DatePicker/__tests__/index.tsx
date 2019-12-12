@@ -143,6 +143,7 @@ describe('Date-time picker', () => {
   it('simulate on blur', () => {
     const mockProps = {
       onChange: jest.fn(),
+      onBlur: jest.fn(),
       value: '',
       id: 'mockId',
       onClick: jest.fn(),

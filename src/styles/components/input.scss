@@ -1,0 +1,7 @@
+.required-label::after {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 14px;
+  line-height: 1;
+  content: '*';
+}
