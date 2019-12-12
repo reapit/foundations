@@ -27,7 +27,14 @@ export const clientDataFetch = function*({ data }) {
 
     const [apps, featuredApps, categories] = yield all([
       call(fetcher, {
-        url: `${URLS.apps}?clientId=${clientId}&PageNumber=${page}&PageSize=${APPS_PER_PAGE}&AppName=${search}&Category=${category}`,
+        url: `${URLS.apps}?${setQueryParams({
+          clientId,
+          category,
+          appName: search,
+          companyName: search,
+          pageNumber: page,
+          pageSize: APPS_PER_PAGE
+        })}`,
         api: REAPIT_API_BASE_URL,
         method: 'GET',
         headers: MARKETPLACE_HEADERS
