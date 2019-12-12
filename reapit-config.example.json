@@ -5,27 +5,34 @@
     "NODE_ENV": "",
     "NPM_TOKEN": "",
     "GOOGLE_MAPS_API_KEY": "",
-    "COGNITO_USERPOOL_ID": ""
+    "COGNITO_USERPOOL_ID": "",
+    "COGNITO_CLIENT_ID": ""
   },
   "DEV": {
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
-    "GOOGLE_MAPS_API_KEY": ""
+    "GOOGLE_MAPS_API_KEY": "",
+    "COGNITO_USERPOOL_ID": "",
+    "COGNITO_CLIENT_ID": ""
   },
   "PROD": {
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
-    "GOOGLE_MAPS_API_KEY": ""
+    "GOOGLE_MAPS_API_KEY": "",
+    "COGNITO_USERPOOL_ID": "",
+    "COGNITO_CLIENT_ID": ""
   },
   "DEMO": {
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
-    "GOOGLE_MAPS_API_KEY": ""
+    "GOOGLE_MAPS_API_KEY": "",
+    "COGNITO_USERPOOL_ID": "",
+    "COGNITO_CLIENT_ID": ""
   }
 }

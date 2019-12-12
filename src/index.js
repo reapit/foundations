@@ -1,6 +1,5 @@
 const AWS = require('aws-sdk')
 const fs = require('fs')
-const secret = require('./secret.json')
 
 AWS.config.update({ region: 'eu-west-2' })
 
@@ -10,7 +9,7 @@ const createSecret = secretName => {
   secretsManager.createSecret(
     {
       Name: secretName,
-      SecretString: JSON.stringify(secret)
+      SecretString: JSON.stringify(require(`${__dirname}/reapit-config.json`))
     },
     (err, data) => {
       if (err) {
@@ -23,7 +22,10 @@ const createSecret = secretName => {
 
 const updateSecret = secretName => {
   secretsManager.updateSecret(
-    { SecretId: secretName, SecretString: JSON.stringify(secret) },
+    {
+      SecretId: secretName,
+      SecretString: JSON.stringify(require(`${__dirname}/reapit-config.json`))
+    },
     (err, data) => {
       if (err) {
         return console.error(err, err.stack)
@@ -47,7 +49,7 @@ const getSecret = secretName => {
         'reapit-config.json',
         data.SecretString,
         'utf8',
-        function(err) {
+        err => {
           if (err) {
             console.error(
               'An error occured while writing JSON Object to File.',
