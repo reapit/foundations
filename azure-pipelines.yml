@@ -32,7 +32,7 @@ jobs:
         displayName: Install deps
         failOnStderr: true
         env:
-          NPM_TOKEN: $(NPM_TOKEN)
+          REAPIT_ENV: 'DEV'
 
       - bash: printenv > src/constants/.env
         displayName: Injects ENVs
@@ -46,7 +46,7 @@ jobs:
       - script: yarn test:ci
         displayName: Unit tests
         env:
-          NPM_TOKEN: $(NPM_TOKEN)
+          REAPIT_ENV: 'DEV'
 
       - task: PublishTestResults@2
         inputs:
@@ -61,7 +61,7 @@ jobs:
         displayName: Build static assets
         failOnStderr: true
         env:
-          NPM_TOKEN: $(NPM_TOKEN)
+          REAPIT_ENV: 'DEV'
 
       - task: PublishPipelineArtifact@1
         inputs:
