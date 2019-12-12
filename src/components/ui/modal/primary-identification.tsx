@@ -52,7 +52,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
 
     initFormValues = {
       typeId: typeId || DEFAULT_TYPE,
-      expiry: expiry ? new Date(expiry) : undefined,
+      expiry: expiry ? new Date(expiry) : '',
       details: details,
       fileUrl: primaryIdUrl
     } as ContactIdentityDocumentModel

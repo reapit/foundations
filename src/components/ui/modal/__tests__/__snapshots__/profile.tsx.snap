@@ -16,6 +16,7 @@ exports[` 1`] = `
       }
     }
     onSubmit={[MockFunction]}
+    validate={[Function]}
   >
     <Component />
   </Formik>
@@ -29,25 +30,34 @@ exports[`profile renderForm should match snapshot 1`] = `
       id="title"
       labelText="Title"
       name="title"
+      required={true}
       type="text"
     />
     <Input
       id="forename"
       labelText="Forename"
       name="forename"
+      required={true}
       type="text"
     />
     <Input
       id="surname"
       labelText="Surname"
       name="surname"
+      required={true}
       type="text"
     />
     <DatePicker
       id="dateOfBirth"
       labelText="Date Of Birth"
       name="dateOfBirth"
+      required={true}
     />
+    <p
+      className="is-size-6	"
+    >
+      * At least one telephone number is required
+    </p>
     <Input
       id="home"
       labelText="Home"
@@ -116,6 +126,11 @@ exports[`profile renderForm should match snapshot 1`] = `
         </div>
       </div>
     </div>
+    <p
+      className="is-size-6"
+    >
+      * Indicates fields that are required in order to ‘Complete’ this section.
+    </p>
   </Form>
 </div>
 `;
@@ -127,25 +142,34 @@ exports[`profile renderForm should match snapshot 2`] = `
       id="title"
       labelText="Title"
       name="title"
+      required={true}
       type="text"
     />
     <Input
       id="forename"
       labelText="Forename"
       name="forename"
+      required={true}
       type="text"
     />
     <Input
       id="surname"
       labelText="Surname"
       name="surname"
+      required={true}
       type="text"
     />
     <DatePicker
       id="dateOfBirth"
       labelText="Date Of Birth"
       name="dateOfBirth"
+      required={true}
     />
+    <p
+      className="is-size-6	"
+    >
+      * At least one telephone number is required
+    </p>
     <Input
       id="home"
       labelText="Home"
@@ -214,6 +238,11 @@ exports[`profile renderForm should match snapshot 2`] = `
         </div>
       </div>
     </div>
+    <p
+      className="is-size-6"
+    >
+      * Indicates fields that are required in order to ‘Complete’ this section.
+    </p>
   </Form>
 </div>
 `;

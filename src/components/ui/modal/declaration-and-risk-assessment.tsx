@@ -34,12 +34,14 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ({
           id="metadata.declarationRisk.type"
           name="metadata.declarationRisk.type"
           options={optionsRiskAssessmentType}
+          required
         />
         <Input
           type="text"
           labelText="Reason for Type"
           id="metadata.declarationRisk.reason"
           name="metadata.declarationRisk.reason"
+          required
         />
         <div>
           <label className="label">Risk Assessment Form</label>
@@ -48,6 +50,7 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ({
             id="metadata.declarationRisk.riskAssessmentForm"
             name="metadata.declarationRisk.riskAssessmentForm"
             allowClear={true}
+            required
           />
         </div>
       </div>
@@ -75,7 +78,12 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   onHandleSubmit,
   isSubmitting
 }) => {
-  const metadata = contact?.metadata || {}
+  const metadata = contact?.metadata || {
+    declarationRisk: {
+      type: '',
+      reason: ''
+    }
+  }
   const initialValues = React.useMemo(
     () => ({
       metadata

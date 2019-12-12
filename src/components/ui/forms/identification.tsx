@@ -7,7 +7,7 @@ import styles from '@/styles/pages/checklist-detail.scss?mod'
 export const IDENTIFICATION_FORM_DEFAULT_VALUES: ContactIdentityDocumentModel = {
   typeId: '',
   details: '',
-  expiry: undefined,
+  expiry: '',
   fileUrl: undefined
 }
 
@@ -32,14 +32,15 @@ export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandl
       )}
       <Form>
         <SelectIdentity id="typeId" name="typeId" labelText="ID Type" />
-        <Input id="details" name="details" type="text" placeholder="ID Reference" labelText="ID Reference" />
-        <DatePicker id="expiry" name="expiry" labelText="Expiry Date" />
+        <Input id="details" name="details" type="text" placeholder="ID Reference" required labelText="ID Reference" />
+        <DatePicker id="expiry" name="expiry" labelText="Expiry Date" required />
         <CameraImageInput
           id="fileUrl"
           name="fileUrl"
           labelText="Upload File"
           allowClear={true}
           inputProps={{ disabled: disabled }}
+          required
         />
 
         <div className="field pb-2">
@@ -63,6 +64,7 @@ export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandl
             </div>
           </div>
         </div>
+        <p className="is-size-6">* Indicates fields that are required in order to ‘Complete’ this section.</p>
       </Form>
     </>
   )

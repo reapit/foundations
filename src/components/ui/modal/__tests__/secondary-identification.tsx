@@ -59,7 +59,7 @@ describe('SecondaryIdentification', () => {
         idCheck: null,
         initFormValues: {
           details: '',
-          expiry: undefined,
+          expiry: '',
           fileUrl: undefined,
           typeId: ''
         }

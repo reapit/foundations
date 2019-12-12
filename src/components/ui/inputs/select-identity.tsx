@@ -24,7 +24,7 @@ export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, .
   const identityTypes = identityState?.identityTypes || []
 
   const listIdentity = React.useMemo(generateListIdentity(identityTypes), [identityTypes])
-  return <SelectBox {...props} options={listIdentity} />
+  return <SelectBox {...props} options={listIdentity} required />
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => ({

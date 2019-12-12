@@ -61,6 +61,7 @@ exports[`Select identity should match a snapshot when LOADING false 1`] = `
       },
     ]
   }
+  required={true}
 />
 `;
 
@@ -125,5 +126,6 @@ exports[`Select identity should match a snapshot when LOADING true 1`] = `
       },
     ]
   }
+  required={true}
 />
 `;
