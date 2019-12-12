@@ -1,6 +1,5 @@
 import { PagedResultPropertyModel_, PropertyModel } from '@/types/property'
 import { useState } from 'react'
-
 import { PropertyImageModel } from '@/types/propertyImage'
 
 export type SearchType = 'Sale' | 'Rent' | undefined
@@ -76,7 +75,7 @@ export function useSearchStore(): SearchStore {
 
   const getCountResult = () => {
     if (!result) {
-      return result
+      return 0
     }
 
     return result.pageCount

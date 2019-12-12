@@ -3,13 +3,14 @@ const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const dotEnv = require('dotenv')
 
+dotEnv.config()
 const analyzePlugins = process.env.ANALYZE ? [new BundleAnalyzerPlugin()] : []
 
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  entry: path.resolve(__dirname, '../src/index.ts'),
   module: {
     rules: [
       {
@@ -39,10 +40,7 @@ module.exports = {
     // new ForkTsCheckerWebpackPlugin({
     //   tsconfig: path.resolve(__dirname, "../tsconfig.json")
     // }),
+    new webpack.NodeEnvironmentPlugin(['MAP_KEY', 'API_KEY']),
     ...analyzePlugins
   ],
-  externals: {
-    react: ['react'],
-    'react-dom': ['react-dom'],
-  }
 }

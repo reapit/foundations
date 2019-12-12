@@ -1,13 +1,12 @@
 {
-  "name": "@reapit/web-components",
-  "version": "0.0.1",
-  "private": true,
+  "name": "nghia-test-package",
+  "version": "0.0.5",
   "files": [
-    "dist/**/*"
+    "dist-npm/**/*"
   ],
-  "main": "dist/main.js",
-  "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
+  "main": "dist-npm/index.js",
+  "types": "dist-npm/index.d.ts",
+  "typings": "dist-npm/index.d.ts",
   "homepage": "https://demo-site.reapit.com",
   "dependencies": {
     "little-loader": "^0.2.0",
@@ -20,9 +19,11 @@
     "react-dom": "^16.10.2"
   },
   "scripts": {
-    "build": "rimraf dist && webpack --config ./scripts/webpack.config.js && yarn build:ts",
+    "build:cdn-analyze": "ANALYZE=true webpack --config ./scripts/webpack.cdn.js",
+    "build:npm-analyze": "ANALYZE=true webpack --config ./scripts/webpack.npm.js",
+    "build:cdn": "rimraf dist-cdn && webpack --config ./scripts/webpack.cdn.js",
+    "build:npm": "rimraf dist-npm && webpack --config ./scripts/webpack.npm.js && yarn build:ts",
     "build:ts": "tsc",
-    "build:analyze": "ANALYZE=true webpack --config ./scripts/webpack.config.js",
     "fetch-definitions": "node ./fetch-definitions.js",
     "prettify": "prettier -c --write \"*/**\"",
     "lint": "tslint --fix --project tsconfig.json --format stylish"
@@ -82,7 +83,8 @@
     "typescript": "3.6.3",
     "webpack": "^4.41.2",
     "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
   },
   "husky": {
     "hooks": {

@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react'
+import merge from 'lodash.merge'
 import Loader from './loader'
 import styled, { ThemeProvider } from 'styled-components'
-import { Theme } from './theme'
+import { Theme, theme as defaultTheme } from './theme'
 import { API_URL, IMAGE_API_URL } from '@/constants'
 import { useSearchStore } from './hooks/search-store'
 import { SearchResult } from './search-result'
@@ -172,10 +173,13 @@ const TabContainer = styled.div`
   }
 `
 
-const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
-  API_KEY,
-  theme
-}) => {
+const SearchWidget: React.FC<{
+  theme: Theme
+  className?: string
+  searchResultContainerID
+}> = ({ theme = {}, className = '', searchResultContainerID }) => {
+  const mergedTheme: Theme = merge({}, defaultTheme, theme)
+
   const [searchKeyword, _setSearchKeyword] = useState('')
   const searchStore = useSearchStore()
   const {
@@ -206,7 +210,7 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
 
     const response = await fetch(url.toString(), {
       headers: {
-        Authorization: API_KEY
+        Authorization: process.env.API_KEY
       }
     })
 
@@ -266,7 +270,7 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
     try {
       const response = await fetch(url.toString(), {
         headers: {
-          Authorization: API_KEY
+          Authorization: process.env.API_KEY
         }
       })
       const result = await response.json()
@@ -322,7 +326,7 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
     try {
       const response = await fetch(url.toString(), {
         headers: {
-          Authorization: API_KEY
+          Authorization: process.env.API_KEY
         }
       })
       const result = await response.json()
@@ -335,83 +339,84 @@ const SearchWidget: React.FC<{ API_KEY: string; theme: Theme }> = ({
     }
   }
 
-  const searchResultContainer = document.getElementById(
-    'search-result-container'
-  )
+  const searchResultContainer = document.getElementById(searchResultContainerID)
+
   const onTabMapClick = () => setActiveTab('MAP')
   const onTabSearchResultClick = () => setActiveTab('SEARCH_RESULT')
 
   return (
-    <ThemeProvider theme={theme}>
-      <BaseStyle>
-        <context.Provider value={{ ...searchStore, theme }}>
-          <WidgetContainer>
-            <Title>Find your perfect home</Title>
-            <Subtitle>Search for a property from Agent and Sons</Subtitle>
-            <FormContainer>
-              <Input
-                ref={searchInputRef}
-                onChange={e => {
-                  const value = e.target.value
-                  _setSearchKeyword(value)
-                }}
-                name="search"
-                placeholder="e.g Town or Postcode"
-              />
-              <Button onClick={searchForSale} disabled={Boolean(isLoading)}>
-                FOR SALE
-              </Button>
-              <Button onClick={searchToRent} disabled={Boolean(isLoading)}>
-                TO RENT
-              </Button>
-            </FormContainer>
-            {error !== '' && <Error>{error}</Error>}
-          </WidgetContainer>
-          {searchResultContainer &&
-            createPortal(
-              <BaseStyle>
-                {isLoading && <Loader />}
-                {!isLoading && result && (
-                  <div>
-                    <TabContainer>
-                      <Tab
-                        onClick={onTabMapClick}
-                        isActive={activeTab === 'MAP'}
-                      >
-                        Map
-                      </Tab>
-                      <Tab
-                        onClick={onTabSearchResultClick}
-                        isActive={activeTab === 'SEARCH_RESULT'}
-                      >
-                        Results
-                      </Tab>
-                    </TabContainer>
-                    <SearchResultTextContainer>
-                      {getCountResult()} Results showing for {searchKeyWord},
-                      for {searchType}
-                    </SearchResultTextContainer>
-                    <SearchResultContainer>
-                      <TabContent isActive={activeTab === 'MAP'}>
-                        <GoogleMap
-                          params={{ key: process.env.REACT_APP_MAP_API_KEY }}
-                          property={selectedProperty}
-                          // @ts-ignore
-                          properties={result.data || []}
-                        />
-                      </TabContent>
-                      <TabContent isActive={activeTab === 'SEARCH_RESULT'}>
-                        <SearchResult />
-                      </TabContent>
-                    </SearchResultContainer>
-                  </div>
-                )}
-              </BaseStyle>,
-              searchResultContainer
-            )}
-        </context.Provider>
-      </BaseStyle>
-    </ThemeProvider>
+    <div className={className}>
+      <ThemeProvider theme={theme}>
+        <BaseStyle>
+          <context.Provider value={{ ...searchStore, theme: mergedTheme }}>
+            <WidgetContainer>
+              <Title>Find your perfect home</Title>
+              <Subtitle>Search for a property from Agent and Sons</Subtitle>
+              <FormContainer>
+                <Input
+                  ref={searchInputRef}
+                  onChange={e => {
+                    const value = e.target.value
+                    _setSearchKeyword(value)
+                  }}
+                  name="search"
+                  placeholder="e.g Town or Postcode"
+                />
+                <Button onClick={searchForSale} disabled={Boolean(isLoading)}>
+                  FOR SALE
+                </Button>
+                <Button onClick={searchToRent} disabled={Boolean(isLoading)}>
+                  TO RENT
+                </Button>
+              </FormContainer>
+              {error !== '' && <Error>{error}</Error>}
+            </WidgetContainer>
+            {searchResultContainer &&
+              createPortal(
+                <BaseStyle>
+                  {isLoading && <Loader />}
+                  {!isLoading && result && (
+                    <div>
+                      <TabContainer>
+                        <Tab
+                          onClick={onTabMapClick}
+                          isActive={activeTab === 'MAP'}
+                        >
+                          Map
+                        </Tab>
+                        <Tab
+                          onClick={onTabSearchResultClick}
+                          isActive={activeTab === 'SEARCH_RESULT'}
+                        >
+                          Results
+                        </Tab>
+                      </TabContainer>
+                      <SearchResultTextContainer>
+                        {getCountResult()} Results showing for {searchKeyWord},
+                        for {searchType}
+                      </SearchResultTextContainer>
+                      <SearchResultContainer>
+                        <TabContent isActive={activeTab === 'MAP'}>
+                          <GoogleMap
+                            params={{ key: process.env.MAP_KEY }}
+                            property={selectedProperty}
+                            // @ts-ignore
+                            properties={result.data || []}
+                          />
+                        </TabContent>
+                        <TabContent isActive={activeTab === 'SEARCH_RESULT'}>
+                          <SearchResult />
+                        </TabContent>
+                      </SearchResultContainer>
+                    </div>
+                  )}
+                </BaseStyle>,
+                searchResultContainer
+              )}
+          </context.Provider>
+        </BaseStyle>
+      </ThemeProvider>
+    </div>
   )
 }
 

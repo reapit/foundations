@@ -13,7 +13,7 @@
     "jsx": "react",
     "isolatedModules": false,
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "dist-npm",
     "emitDeclarationOnly": true,
     "rootDirs": ["src"],
     "baseUrl": "./",

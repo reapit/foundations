@@ -1,8 +1,8 @@
 export interface Theme {
-  base: Base
-  button: Button
-  colors: Colors
-  searchWidget: SearchWidget
+  base?: Base
+  button?: Button
+  colors?: Colors
+  searchWidget?: SearchWidget
 }
 
 export interface Base {
