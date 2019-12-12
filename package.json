@@ -1,0 +1,22 @@
+{
+  "name": "@reapit/config-manager",
+  "version": "0.0.1",
+  "description": "Node package for managing configuration and environment variables in AWS Secrets Manager",
+  "main": "src/index.js",
+  "bin": {
+    "config-manager": "./src/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/config-manager.git"
+  },
+  "author": "wmcvay@reapit.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reapit/config-manager/issues"
+  },
+  "homepage": "https://github.com/reapit/config-manager#readme",
+  "dependencies": {
+    "aws-sdk": "^2.582.0"
+  }
+}
