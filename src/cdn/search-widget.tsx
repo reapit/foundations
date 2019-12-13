@@ -1,19 +1,11 @@
-import React from 'react'
+import * as React from 'react'
 import ReactDOM from 'react-dom'
 import { SearchWidget } from '@searchWidget/index'
 ;(window as any).initReapitSearchWidget = ({
   theme = {},
   containerID = 'reapit-search-widget',
-  searchResultContainerID
+  searchResultContainerID = 'reapit-search-widget-result'
 }) => {
-  if (!containerID) {
-    throw new Error('containerID must not be empty')
-  }
-
-  if (!searchResultContainerID) {
-    throw new Error('searchResultContainerID must not be empty')
-  }
-
   const container = document.getElementById(containerID)
   if (!container) {
     throw new Error('container not existed')

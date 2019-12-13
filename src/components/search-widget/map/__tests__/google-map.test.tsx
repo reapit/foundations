@@ -1,6 +1,6 @@
-import React from 'react'
-import { property } from './mock-property'
-import createGoogleMapsMock from './mock-google-map'
+import * as React from 'react'
+import { property } from '../mock-property'
+import createGoogleMapsMock from '../mock-google-map'
 import {
   getContent,
   handleUseEffect,
@@ -13,10 +13,10 @@ import {
   MarkersRef,
   MapRef,
   getCurrentMarkerIndex
-} from './google-map'
+} from '../google-map'
 import { shallow } from 'enzyme'
-import { theme } from '../../../../../demo-site/src/theme'
-import { SearchStore } from '../../../../../demo-site/src/hooks/search-store'
+import { theme } from '@searchWidget/theme'
+import { SearchStore } from '@searchWidget/hooks/search-store'
 
 describe('google-map', () => {
   const latitude =
@@ -68,7 +68,7 @@ describe('google-map', () => {
   }
   const mockSearchStore: SearchStore = {
     result: {
-      data: [property]
+      _embedded: [property]
     },
     propertyImages: {
       AYL190002: {

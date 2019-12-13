@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[` 1`] = `
-<GoogleMapLoader
+<Component
   params={
     Object {
       "key": "mockKey",
@@ -81,7 +81,7 @@ exports[`google-map getContent should run correctly 2`] = `
 
 exports[`google-map renderMap should match snapshot 1`] = `
 <div>
-  <MapContainer
+  <Component
     center={
       Object {
         "lat": 0,
@@ -2215,16 +2215,6 @@ exports[`google-map renderMap should match snapshot 1`] = `
           "modified": "2019-09-17T12:06:06",
           "parking": Array [],
           "receptions": 0,
-          "relationships": Array [
-            Object {
-              "id": "LJW",
-              "type": "negotiator",
-            },
-            Object {
-              "id": "AYL",
-              "type": "office",
-            },
-          ],
           "rooms": Array [],
           "selling": Object {
             "instructed": "2019-09-17T00:00:00",
@@ -2280,16 +2270,6 @@ exports[`google-map renderMap should match snapshot 1`] = `
         "modified": "2019-09-17T12:06:06",
         "parking": Array [],
         "receptions": 0,
-        "relationships": Array [
-          Object {
-            "id": "LJW",
-            "type": "negotiator",
-          },
-          Object {
-            "id": "AYL",
-            "type": "office",
-          },
-        ],
         "rooms": Array [],
         "selling": Object {
           "instructed": "2019-09-17T00:00:00",

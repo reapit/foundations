@@ -1,16 +1,14 @@
-import React from 'react'
+import React, { useContext, useRef, useEffect } from 'react'
 import { INVALID_BACKGROUND_AS_BASE64 } from '@/constants'
 import { context } from '@searchWidget/context'
 import styled from 'styled-components'
 import GoogleMapLoader, { RenderProps } from './google-map-loader'
-import { PropertyModel } from '@/types/property'
+import { PropertyModel } from '@reapit/foundations-ts-definitions'
 import { Params } from '@/utils/query-params'
 import { Theme } from '@searchWidget/theme'
 import { getPrice } from '@searchWidget/search-result'
 import { mapStyles } from './map-style'
 import { SearchStore } from '@searchWidget/hooks/search-store'
-
-const { useContext } = React
 
 const MapDiv = styled.div`
   min-height: 500px;
@@ -334,11 +332,11 @@ export const MapContainer: React.FC<MapContainerProps> = ({
   properties,
   ...restProps
 }) => {
-  const mapRef = React.useRef() as MapRef
-  const markersRef = React.useRef() as MarkersRef
+  const mapRef = useRef() as MapRef
+  const markersRef = useRef() as MarkersRef
   const contextValue = useContext(context)
   const searchStore = useContext(context)
-  React.useEffect(
+  useEffect(
     handleUseEffect({
       searchStore,
       googleMap,
