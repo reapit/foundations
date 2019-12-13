@@ -1,0 +1,25 @@
+{
+  "name": "apollo-server",
+  "version": "0.0.0",
+  "description": "GraphQL Server",
+  "main": "dist/index.js",
+  "repository": "https://github.com/reapit/graphql-app.git",
+  "author": "reapit global",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "apollo-server": "^2.9.13",
+    "express": "^4.17.1",
+    "graphql": "^14.5.8",
+    "graphql-import": "^0.7.1",
+    "winston": "^3.2.1"
+  },
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "devDependencies": {
+    "graphql-import": "^0.7.1",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.5.4"
+  }
+}
