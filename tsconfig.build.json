@@ -3,7 +3,7 @@
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
@@ -19,9 +19,7 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
-      "@searchWidget/*": ["./src/components/search-widget/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@services/*": ["./src/services/*"],
+      "@searchWidget/*": ["./src/components/search-widget/*"]
     },
     "plugins": [
       {
@@ -31,5 +29,5 @@
     ]
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "types", "**/*.test.ts", "**/*.test.tsx"]
 }

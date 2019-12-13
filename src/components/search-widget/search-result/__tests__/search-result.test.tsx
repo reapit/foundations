@@ -6,7 +6,7 @@ import {
   formatPriceAndQuantifier,
   formatStyle,
   formatType
-} from './search-result'
+} from '../search-result'
 import { shallow } from 'enzyme'
 
 describe('SearchResult', () => {
@@ -65,11 +65,6 @@ describe('SearchResult', () => {
     for (const testCase of testCases) {
       expect(formatType(testCase[0])).toBe(testCase[1])
     }
-  })
-
-  it('should match snapshoot', () => {
-    const wrapper = shallow(<SearchResult />)
-    expect(wrapper).toMatchSnapshot()
   })
 
   it('handles combineAddress correctly', () => {

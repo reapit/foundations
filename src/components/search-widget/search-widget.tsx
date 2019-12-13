@@ -1,21 +1,16 @@
 import React, { useState, useRef } from 'react'
+import { getPropertiesForSale, getPropertiesToRent } from '@services/properties'
+import { getPropertyImages } from '@services/propertyImages'
 import merge from 'lodash.merge'
 import Loader from './loader'
 import styled, { ThemeProvider } from 'styled-components'
 import { Theme, theme as defaultTheme } from './theme'
-import { API_URL, IMAGE_API_URL } from '@/constants'
 import { useSearchStore } from './hooks/search-store'
 import { SearchResult } from './search-result'
 import { context } from './context'
-import { PropertyModel } from '@/types/property'
-import {
-  PagedResultPropertyImageModel_,
-  PropertyImageModel
-} from '@/types/propertyImage'
 import { GoogleMap } from './map/google-map'
 import { createPortal } from 'react-dom'
 import scrollIntoView from '@/utils/scroll-into-view'
-
 export type TabItem = 'SEARCH_RESULT' | 'MAP'
 
 const SearchResultTextContainer = styled.h1`
@@ -183,7 +178,6 @@ const SearchWidget: React.FC<{
   searchResultContainerID = 'reapit-search-widget-result'
 }) => {
   const mergedTheme: Theme = merge({}, defaultTheme, theme)
-  console.log(mergedTheme)
 
   const [searchKeyword, _setSearchKeyword] = useState('')
   const searchStore = useSearchStore()
@@ -204,34 +198,6 @@ const SearchWidget: React.FC<{
   const [activeTab, setActiveTab] = useState<TabItem>('MAP')
   const [error, setError] = useState<string>('')
   const searchInputRef = useRef(null)
-
-  const getPropertyImages = async (result: PropertyModel[]) => {
-    const propertyIds = result.map(
-      (property: PropertyModel) => property && property.id
-    )
-
-    const url = new URL(IMAGE_API_URL)
-    url.searchParams.append('propertyIds', propertyIds.join(','))
-
-    const response = await fetch(url.toString(), {
-      headers: {
-        Authorization: process.env.API_KEY
-      }
-    })
-
-    const parsedResponse: PagedResultPropertyImageModel_ = await response.json()
-    if (!parsedResponse.data) {
-      return {}
-    }
-
-    const imageMap: Record<string, PropertyImageModel> = {}
-    for (const propertyImage of parsedResponse.data) {
-      const propertyId = (propertyImage && propertyImage.id) || 'invalid'
-      imageMap[propertyId] = propertyImage
-    }
-
-    return imageMap
-  }
 
   const searchForSale = async () => {
     if (error) {
@@ -258,27 +224,9 @@ const SearchWidget: React.FC<{
         true
       )
     }
-    const url = new URL(API_URL)
-    url.searchParams.append(
-      'SellingStatuses',
-      ['forSale', 'underOffer'].join(',')
-    )
-    url.searchParams.append('InternetAdvertising', 'true')
-    url.searchParams.append('PageSize', '8')
-    url.searchParams.append(
-      'marketingMode',
-      ['selling', 'sellingAndLetting'].join(',')
-    )
-    url.searchParams.append('Address', searchKeyword)
 
     try {
-      const response = await fetch(url.toString(), {
-        headers: {
-          Authorization: process.env.API_KEY
-        }
-      })
-      const result = await response.json()
-
+      const result = await getPropertiesForSale(searchKeyword)
       const propertyImages = await getPropertyImages(result.data)
       setPropertyImages(propertyImages)
       setFetchResult(result, propertyImages, searchKeyword, 'Sale')
@@ -313,26 +261,9 @@ const SearchWidget: React.FC<{
         true
       )
     }
-    const url = new URL(API_URL)
-    url.searchParams.append(
-      'LettingStatuses',
-      ['toLet', 'underOffer'].join(',')
-    )
-    url.searchParams.append('internetAdvertising', 'true')
-    url.searchParams.append('PageSize', '8')
-    url.searchParams.append(
-      'marketingMode',
-      ['letting', 'sellingAndLetting'].join(',')
-    )
-    url.searchParams.append('Address', searchKeyword)
 
     try {
-      const response = await fetch(url.toString(), {
-        headers: {
-          Authorization: process.env.API_KEY
-        }
-      })
-      const result = await response.json()
+      const result = await getPropertiesToRent(searchKeyword)
       const propertyImages = await getPropertyImages(result.data)
       setPropertyImages(propertyImages)
       setFetchResult(result, propertyImages, searchKeyword, 'Rent')

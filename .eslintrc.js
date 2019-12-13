@@ -28,7 +28,9 @@ module.exports = {
     "react/prop-types": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/ban-ts-ignore": "off",
-    "@typescript-eslint/no-empty-function": "off"
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/class-name-casin": "off",
+    "@typescript-eslint/class-name-casing": "off"
   },
   "settings": {
     // eslint rule react require this settings

@@ -1,6 +1,9 @@
-import { PagedResultPropertyModel_, PropertyModel } from '@/types/property'
+import {
+  PagedResultPropertyModel_,
+  PropertyModel
+} from '@reapit/foundations-ts-definitions'
 import { useState } from 'react'
-import { PropertyImageModel } from '@/types/propertyImage'
+import { PropertyImageModel } from '@reapit/foundations-ts-definitions'
 
 export type SearchType = 'Sale' | 'Rent' | undefined
 

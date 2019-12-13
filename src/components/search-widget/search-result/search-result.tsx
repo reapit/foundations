@@ -1,6 +1,9 @@
 import * as React from 'react'
 import Loader from '../loader'
-import { PropertyAddressModel, PropertyModel } from '@/types/property'
+import {
+  PropertyAddressModel,
+  PropertyModel
+} from '@reapit/foundations-ts-definitions'
 import styled from 'styled-components'
 import { context } from '../context'
 
