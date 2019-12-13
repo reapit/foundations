@@ -104,7 +104,7 @@ describe('profile', () => {
         email: 'client@gmail.com'
       }
       const output = {
-        home: 'At least one telephone number is required',
+        home: 'At least one telephone number is required'
       }
       expect(validate(input)).toEqual(output)
     })
