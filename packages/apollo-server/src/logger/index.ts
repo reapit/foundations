@@ -7,8 +7,8 @@ export const levels = {
   http: 3,
   verbose: 4,
   debug: 5,
-  silly: 6
-};
+  silly: 6,
+}
 
 export const logger = winston.createLogger({
   format: winston.format.json(),
@@ -20,15 +20,16 @@ export const logger = winston.createLogger({
     // - Write all logs error (and below) to `error.log`.
     //
     new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'info.log' })
-  ]
-});
+    new winston.transports.File({ filename: 'info.log' }),
+  ],
+})
 
 if (process.env.NODE_ENV !== 'production') {
-  logger.add(new winston.transports.Console({
-    format: winston.format.json()
-  }));
+  logger.add(
+    new winston.transports.Console({
+      format: winston.format.json(),
+    }),
+  )
 }
-
 
 export default logger
