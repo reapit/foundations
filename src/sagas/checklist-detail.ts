@@ -48,7 +48,7 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
       method: 'GET',
       headers: headers
     })
-    return response?.data?.[0] || null
+    return response?._embedded?.[0] || null
   } catch (err) {
     console.error(err.message)
     return err
