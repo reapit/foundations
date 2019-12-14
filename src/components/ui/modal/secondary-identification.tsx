@@ -12,7 +12,7 @@ import {
   selectCheckListDetailSecondaryIdUrl,
   selectCheckListDetailIdCheck
 } from '@/selectors/checklist-detail'
-import { ContactIdentityDocumentModel, ContactModel, ContactIdentityCheckModel } from '@/types/platform'
+import { ContactIdentityDocumentModel, ContactModel, ContactIdentityCheckModel } from '@reapit/types'
 import { isCompletedPrimaryID } from '@reapit/elements'
 
 export const SecondaryIdentification = ({

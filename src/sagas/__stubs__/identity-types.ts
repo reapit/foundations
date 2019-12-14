@@ -1,4 +1,4 @@
-import { ListItemModel } from '@/types/platform'
+import { ListItemModel } from '@reapit/types'
 
 export const identityTypes: ListItemModel[] = [
   {

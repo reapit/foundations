@@ -3,7 +3,7 @@ import { Input, Button, SelectBoxOptions, SelectBox, CameraImageInput, Formik, F
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { DOCUMENT_TYPE } from '@/constants/appointment-detail'
-import { ContactModel } from '@/types/platform'
+import { ContactModel } from '@reapit/types'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { ReduxState } from '@/types/core'
 import { updateAddressHistory, checklistDetailShowModal } from '@/actions/checklist-detail'

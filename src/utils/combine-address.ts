@@ -1,4 +1,4 @@
-import { ContactAddressModel } from '@/types/platform'
+import { ContactAddressModel } from '@reapit/types'
 
 export const combineAdress = (addresses: ContactAddressModel[] | undefined): string => {
   let addressCombined = ''

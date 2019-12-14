@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { ListItemModel } from '@/types/platform'
+import { ListItemModel } from '@reapit/types'
 
 export const identityTypesRequestData = actionCreator<void>(ActionTypes.IDENTITY_TYPES_REQUEST_DATA)
 export const identityTypesReceiveData = actionCreator<ListItemModel[]>(ActionTypes.IDENTITY_TYPES_RECEIVE_DATA)
