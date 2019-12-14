@@ -18,7 +18,7 @@ import {
   UpdateIdentityCheckParams
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
-import { ContactModel, ContactAddressModel, ContactIdentityCheckModel } from '@/types/platform'
+import { ContactModel, ContactAddressModel, ContactIdentityCheckModel } from '@reapit/types'
 import { selectUserCode } from '../selectors/auth'
 import store from '@/core/store'
 import { handlePepSearchStatus } from '@/utils/pep-search'
@@ -278,7 +278,7 @@ export const onUpdateDeclarationAndRisk = function*({
   const headers = yield call(initAuthorizedRequestHeaders)
   const currentContact = yield select(selectCheckListDetailContact)
   try {
-    let { type, reason, declarationForm, riskAssessmentForm } = (metadata?.declarationRisk as any) || {}
+    let { type, reason, declarationForm, riskAssessmentForm } = (metadata?.declarationRisk) || {}
     const [declarationResponse, riskAssessmentResponse] = yield all([
       isBase64(declarationForm)
         ? call(uploadImage, { headers, name: `declaration-${type}-${reason}`, imageData: declarationForm })

@@ -1,6 +1,6 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { ListItemModel } from '@/types/platform'
+import { ListItemModel } from '@reapit/types'
 import {
   identityTypesRequestFailure,
   identityTypesRequestData,

@@ -10,7 +10,7 @@ import {
   selectCheckListDetailPrimaryId,
   selectCheckListDetailIsSubmitting
 } from '@/selectors/checklist-detail'
-import { ContactIdentityDocumentModel, ContactModel } from '@/types/platform'
+import { ContactIdentityDocumentModel, ContactModel } from '@reapit/types'
 import { selectCheckListDetailPrimaryIdUrl } from '../../../selectors/checklist-detail'
 
 export type PrimaryIdentiticationProps = DispatchProps & StateProps
