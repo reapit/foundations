@@ -18,9 +18,8 @@ import {
   ContactModel,
   ContactAddressModel,
   ContactIdentityDocumentModel,
-  ContactIdentityCheckModel,
-  PagedResultContactIdentityCheckModel_
-} from '@/types/contact-api-schema'
+  ContactIdentityCheckModel
+} from '@reapit/foundations-ts-definitions'
 import { ErrorData } from '@/reducers/error'
 import store from '@/core/store'
 import dayjs from 'dayjs'
@@ -42,12 +41,12 @@ export const fetchContact = async ({ contactId, headers }) => {
 
 export const fetchIdentityCheck = async ({ headers, contactId }) => {
   try {
-    const response = (await fetcher({
+    const response = await fetcher({
       url: `${URLS.contacts}/${contactId}${URLS.idChecks}`,
       api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers: headers
-    })) as PagedResultContactIdentityCheckModel_
+    })
     return response?._embedded?.[0] || null
   } catch (err) {
     console.error(err)
