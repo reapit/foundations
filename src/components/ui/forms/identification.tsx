@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 import { Button, Input, DatePicker, CameraImageInput, Formik, Form } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/identification.scss?mod'

@@ -7,7 +7,7 @@ import {
   SearchParams,
   resultSetSearchParams
 } from '../actions/results'
-import { PagedResultContactModel_ } from '@/types/contact-api-schema'
+import { PagedResultContactModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface ResultsState {
   loading: boolean

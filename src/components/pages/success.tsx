@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { submitComplete, submitCompleteSetFormState } from '@/actions/success'
 import { RouteComponentProps, withRouter } from 'react-router'
 import Routes from '@/constants/routes'
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 
 export interface SuccessMappedActions {
   submitComplete: (id: string, dynamicLinkParams: DynamicLinkParams) => void

@@ -6,7 +6,7 @@ import {
   identityCheckReceiveData,
   checkListDetailSubmitForm
 } from '../actions/checklist-detail'
-import { ContactModel, ContactIdentityCheckModel } from '@/types/contact-api-schema'
+import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import {
   isCompletedProfile,
   isCompletedPrimaryID,
