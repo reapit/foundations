@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
-import { fetcher, COGNITO_API_BASE_URL } from '@reapit/elements'
+import { fetcher } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { MARKETPLACE_HEADERS } from '@/constants/api'
 
@@ -8,7 +8,8 @@ export const callConfirmRegistration = async body => {
   const CHANGE_PASSWORD_URL = '/registration/confirm'
   const response = await fetcher({
     url: CHANGE_PASSWORD_URL,
-    api: COGNITO_API_BASE_URL,
+    // please refer to this ticket https://reapit.atlassian.net/browse/CLD-620
+    api: 'https://rbsbshnxvb.execute-api.eu-west-2.amazonaws.com/dev/api',
     method: 'POST',
     headers: MARKETPLACE_HEADERS,
     body: body

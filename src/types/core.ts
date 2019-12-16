@@ -19,6 +19,7 @@ import { SettingsState } from '@/reducers/settings'
 import { AdminAppsState } from '@/reducers/admin-apps'
 import { ResetPasswordState } from '@/reducers/reset-password'
 import { AppInstallationsState } from '@/reducers/app-installations'
+import { NotificationMessageState } from '@/reducers/notification-message'
 
 export interface Action<T> {
   readonly type: ActionType
@@ -77,4 +78,5 @@ export interface ReduxState {
   settings: SettingsState
   resetPassword: ResetPasswordState
   installations: AppInstallationsState
+  noticationMessage: NotificationMessageState
 }

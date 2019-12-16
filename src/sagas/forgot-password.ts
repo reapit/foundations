@@ -1,4 +1,4 @@
-import { fetcher, COGNITO_API_BASE_URL } from '@reapit/elements'
+import { fetcher } from '@reapit/elements'
 import { MARKETPLACE_HEADERS } from '../constants/api'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -11,7 +11,8 @@ export const callAPIForgotPassword = async email => {
   const FORGOT_PASSWORD_URL = '/password/reset'
   const response = await fetcher({
     url: FORGOT_PASSWORD_URL,
-    api: COGNITO_API_BASE_URL,
+    // please refer to this ticket https://reapit.atlassian.net/browse/CLD-620
+    api: 'https://rbsbshnxvb.execute-api.eu-west-2.amazonaws.com/dev/api',
     method: 'POST',
     headers: MARKETPLACE_HEADERS,
     body: {
