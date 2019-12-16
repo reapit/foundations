@@ -28,22 +28,22 @@ jobs:
         inputs:
           versionSpec: '10.x'
         displayName: 'Install Node.js'
-      - script: yarn install
+      - script: yarn fetch-config && yarn install
         displayName: Install deps
         failOnStderr: true
         env:
           REAPIT_ENV: 'DEV'
 
-      - bash: printenv > src/constants/.env
-        displayName: Injects ENVs
-        env:
-          COGNITO_CLIENT_ID: $(COGNITO_CLIENT_ID)
-          COGNITO_USERPOOL_ID: $(COGNITO_USERPOOL_ID)
-          MARKETPLACE_API_KEY: $(MARKETPLACE_API_KEY)
-          REAPIT_API_KEY: $(REAPIT_API_KEY)
-          MAP_API_KEY: $(MAP_API_KEY)
+      # - bash: printenv > src/constants/.env
+      #   displayName: Injects ENVs
+      #   env:
+      #     COGNITO_CLIENT_ID: $(COGNITO_CLIENT_ID)
+      #     COGNITO_USERPOOL_ID: $(COGNITO_USERPOOL_ID)
+      #     MARKETPLACE_API_KEY: $(MARKETPLACE_API_KEY)
+      #     REAPIT_API_KEY: $(REAPIT_API_KEY)
+      #     MAP_API_KEY: $(MAP_API_KEY)
 
-      - script: yarn test:ci
+      - script: yarn fetch-config && yarn test:ci
         displayName: Unit tests
         env:
           REAPIT_ENV: 'DEV'
@@ -57,7 +57,7 @@ jobs:
           failTaskOnFailedTests: true # Optional
           publishRunAttachments: true # Optional
 
-      - script: yarn build
+      - script: yarn fetch-config && yarn build
         displayName: Build static assets
         failOnStderr: true
         env:
