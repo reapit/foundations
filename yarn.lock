@@ -982,10 +982,10 @@
     jsonwebtoken "^8.5.1"
     serverless-http "~2.0.2"
 
-"@reapit/config-manager@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@reapit/config-manager/-/config-manager-1.0.1.tgz#28fe483270064b285d0437be55639781edde3e22"
-  integrity sha512-iiXm7mUujdzPT7FwF1X03wF677V49cAwUmBCm/pc4090aLM6uzQVSWdNaZEGL9JEqku0cKS5D/5H2kKO/1f2/A==
+"@reapit/config-manager@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@reapit/config-manager/-/config-manager-1.1.0.tgz#786e00a55dc2424bd8e1c00c52b975d6e05bb69d"
+  integrity sha512-ZtDhHNO3yS+52IFwsn8nIiQHBhXovogh7X/37/g3CEVQTo1oaZ+cFoTd5fSEY7LLTAN8rwMocMeI+/VfeUt02Q==
   dependencies:
     aws-sdk "^2.582.0"
 

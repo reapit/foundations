@@ -28,11 +28,12 @@ jobs:
         inputs:
           versionSpec: '10.x'
         displayName: 'Install Node.js'
-      - script: yarn fetch-config && yarn install
+      - script: yarn install
         displayName: Install deps
         failOnStderr: true
         env:
           REAPIT_ENV: 'DEV'
+          NPM_TOKEN: $(NPM_TOKEN)
 
       # - bash: printenv > src/constants/.env
       #   displayName: Injects ENVs
@@ -43,7 +44,7 @@ jobs:
       #     REAPIT_API_KEY: $(REAPIT_API_KEY)
       #     MAP_API_KEY: $(MAP_API_KEY)
 
-      - script: yarn fetch-config && yarn test:ci
+      - script: yarn set-env && yarn test:ci
         displayName: Unit tests
         env:
           REAPIT_ENV: 'DEV'
@@ -57,7 +58,7 @@ jobs:
           failTaskOnFailedTests: true # Optional
           publishRunAttachments: true # Optional
 
-      - script: yarn fetch-config && yarn build
+      - script: yarn build
         displayName: Build static assets
         failOnStderr: true
         env:
