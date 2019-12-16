@@ -3,31 +3,41 @@ import { connect } from 'react-redux'
 import { AppDetailModalState } from '@/reducers/app-detail-modal'
 import { ReduxState, FormState } from '@/types/core'
 import AppDetail from '@/components/ui/app-detail'
-import { AppDetailState } from '@/reducers/app-detail'
 import AppInstallConfirm from '@/components/ui/app-confirm-install'
 import AppUninstallConfirm from '@/components/ui/app-confirm-uninstall'
 import CallToAction from '../call-to-action'
-import { ModalBody } from '@reapit/elements'
-import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
+import { ModalBody, Button } from '@reapit/elements'
+import {
+  setAppDetailModalStateBrowse,
+  setAppDetailModalStateUninstall,
+  setAppDetailModalStateInstall
+} from '@/actions/app-detail-modal'
 import { appInstallationsSetFormState } from '@/actions/app-installations'
+import { AppDetailModel } from '@/types/marketplace-api-schema'
+import styles from '@/styles/blocks/app-detail.scss?mod'
+import { FaCheck } from 'react-icons/fa'
 
 export interface AppDetailInnerMappedProps {
   appDetailModalState: AppDetailModalState
-  appDetailState: AppDetailState
+  appDetailData: AppDetailModel
 }
 
 export interface AppDetailInnerMappedActions {
-  setAppDetailModalStateView: () => void
+  setStateViewBrowse: () => void
+  setStateViewInstall: () => void
+  setStateViewUninstall: () => void
   installationsSetFormState: (formState: FormState) => void
 }
 
 export const mapStateToProps = (state: ReduxState): AppDetailInnerMappedProps => ({
   appDetailModalState: state.appDetailModal,
-  appDetailState: state.appDetail
+  appDetailData: state.appDetail.appDetailData?.data!
 })
 
 export const mapDispatchToProps = (dispatch: any): AppDetailInnerMappedActions => ({
-  setAppDetailModalStateView: () => dispatch(setAppDetailModalStateView()),
+  setStateViewBrowse: () => dispatch(setAppDetailModalStateBrowse()),
+  setStateViewInstall: () => dispatch(setAppDetailModalStateInstall()),
+  setStateViewUninstall: () => dispatch(setAppDetailModalStateUninstall()),
   installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState))
 })
 
@@ -37,27 +47,63 @@ export type AppDetailInnerProps = AppDetailInnerMappedProps &
   }
 
 export const handleCloseModal = (
-  setAppDetailModalStateView: () => void,
+  setAppDetailModalStateBrowse: () => void,
   afterClose?: () => void,
   installationsSetFormState?: (formState: FormState) => void
 ) => () => {
   afterClose && afterClose()
   installationsSetFormState && installationsSetFormState('DONE')
-  setAppDetailModalStateView()
+  setAppDetailModalStateBrowse()
+}
+
+export const renderFooterAppDetailBrowse = ({ appDetailData, setStateViewInstall }) => {
+  return appDetailData.installedOn ? (
+    <div className={styles.installed}>
+      <FaCheck />
+      <span>Installed</span>
+    </div>
+  ) : (
+    <Button type="button" variant="primary" onClick={setStateViewInstall}>
+      Install App
+    </Button>
+  )
+}
+
+export const renderFooterAppDetailManage = ({ setStateViewUninstall }) => {
+  return (
+    <Button type="button" variant="primary" onClick={setStateViewUninstall}>
+      Uninstall App
+    </Button>
+  )
 }
 
 export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   appDetailModalState,
-  appDetailState,
+  appDetailData,
   afterClose,
-  setAppDetailModalStateView,
+  setStateViewBrowse,
+  setStateViewInstall,
+  setStateViewUninstall,
   installationsSetFormState
 }) => {
-  if (appDetailModalState === 'VIEW_DETAIL') {
-    if (!appDetailState.appDetailData || !appDetailState.appDetailData.data) {
-      return null
-    }
-    return <AppDetail data={appDetailState.appDetailData.data} afterClose={afterClose as () => void} />
+  if (appDetailModalState === 'VIEW_DETAIL_BROWSE') {
+    return (
+      <AppDetail
+        data={appDetailData}
+        afterClose={afterClose}
+        footerItems={renderFooterAppDetailBrowse({ appDetailData, setStateViewInstall })}
+      />
+    )
+  }
+
+  if (appDetailModalState === 'VIEW_DETAIL_MANAGE') {
+    return (
+      <AppDetail
+        data={appDetailData}
+        afterClose={afterClose}
+        footerItems={renderFooterAppDetailManage({ setStateViewUninstall })}
+      />
+    )
   }
 
   if (appDetailModalState === 'VIEW_CONFIRM_INSTALL') {
@@ -69,8 +115,8 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   }
 
   if (appDetailModalState === 'VIEW_DETAIL_ACTION_SUCCESS') {
-    const appName = appDetailState?.appDetailData?.data?.name || 'App'
-    const isInstalled = !!appDetailState?.appDetailData?.data?.installationId
+    const appName = appDetailData.name || 'App'
+    const isInstalled = !!appDetailData.installationId
     return (
       <ModalBody
         body={
@@ -78,7 +124,7 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
             title="Success!"
             buttonText="Back to List"
             dataTest="alertInstalledSuccess"
-            onButtonClick={handleCloseModal(setAppDetailModalStateView, afterClose, installationsSetFormState)}
+            onButtonClick={handleCloseModal(setStateViewBrowse, afterClose, installationsSetFormState)}
             isCenter
           >
             {appName} has been successfully {isInstalled ? 'uninstalled' : 'installed'}

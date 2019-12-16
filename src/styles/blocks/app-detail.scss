@@ -13,3 +13,31 @@
     max-height: unset;
   }
 }
+
+.installed {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-left: 0.75rem;
+  }
+  svg {
+    color: #a0c862;
+  }
+}
+
+.listed {
+  display: flex;
+  align-items: center;
+}
+
+.isListed {
+  color: #a0c862;
+}
+
+.notListed {
+  color: #d3033d;
+}

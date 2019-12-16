@@ -6,7 +6,7 @@ import { AppDetailModal, AppDetailModalProps, handleAfterClose } from '../app-de
 const props: AppDetailModalProps = {
   visible: true,
   afterClose: jest.fn(),
-  setAppDetailModalStateView: jest.fn()
+  setAppDetailModalStateBrowse: jest.fn()
 }
 
 describe('AppDetailModel', () => {
@@ -15,17 +15,17 @@ describe('AppDetailModel', () => {
   })
   describe('handleAfterClose have afterClose', () => {
     const afterClose = jest.fn()
-    const setAppDetailModalStateView = jest.fn()
-    const fn = handleAfterClose(setAppDetailModalStateView, afterClose)
+    const setAppDetailModalStateBrowse = jest.fn()
+    const fn = handleAfterClose(setAppDetailModalStateBrowse, afterClose)
     fn()
     expect(afterClose).toBeCalled()
-    expect(setAppDetailModalStateView).toBeCalled()
+    expect(setAppDetailModalStateBrowse).toBeCalled()
   })
   describe('handleAfterClose doesnt have afterClose', () => {
     const afterClose = undefined
-    const setAppDetailModalStateView = jest.fn()
-    const fn = handleAfterClose(setAppDetailModalStateView, afterClose)
+    const setAppDetailModalStateBrowse = jest.fn()
+    const fn = handleAfterClose(setAppDetailModalStateBrowse, afterClose)
     fn()
-    expect(setAppDetailModalStateView).toBeCalled()
+    expect(setAppDetailModalStateBrowse).toBeCalled()
   })
 })

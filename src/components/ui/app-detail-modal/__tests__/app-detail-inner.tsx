@@ -5,14 +5,21 @@ import { AppDetailInner, AppDetailInnerProps } from '../app-detail-inner'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 
 const mockProps: AppDetailInnerProps = {
-  appDetailModalState: 'VIEW_DETAIL',
-  appDetailState: { loading: false, error: false, appDetailData: appDetailDataStub },
-  setAppDetailModalStateView: jest.fn(),
+  appDetailModalState: 'VIEW_DETAIL_BROWSE',
+  appDetailData: appDetailDataStub.data,
+  setStateViewBrowse: jest.fn(),
+  setStateViewInstall: jest.fn(),
+  setStateViewUninstall: jest.fn(),
   installationsSetFormState: jest.fn()
 }
 
 describe('AppDetailInner', () => {
-  it('should match a snapshot when appDetailModalState = VIEW_DETAIL', () => {
+  it('should match a snapshot when appDetailModalState = VIEW_DETAIL_BROWSE', () => {
+    expect(shallow(<AppDetailInner {...mockProps} />)).toMatchSnapshot()
+  })
+
+  it('should match a snapshot when appDetailModalState = VIEW_DETAIL_MANAGE', () => {
+    const props: AppDetailInnerProps = { ...mockProps, appDetailModalState: 'VIEW_DETAIL_MANAGE' }
     expect(shallow(<AppDetailInner {...mockProps} />)).toMatchSnapshot()
   })
 
@@ -21,7 +28,7 @@ describe('AppDetailInner', () => {
     expect(shallow(<AppDetailInner {...props} />)).toMatchSnapshot()
   })
 
-  it('should render AppDetail when appDetailModalState = VIEW_DETAIL', () => {
+  it('should render AppDetail when appDetailModalState = VIEW_DETAIL_BROWSE', () => {
     const wrapper = shallow(<AppDetailInner {...mockProps} />)
     expect(wrapper.find('AppDetailWithConnect')).toHaveLength(1)
   })

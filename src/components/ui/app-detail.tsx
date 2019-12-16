@@ -5,7 +5,7 @@ import carouselStyles from '../../styles/elements/carousel.scss?mod'
 import ChevronLeftIcon from '@/components/svg/chevron-left'
 import '@/styles/vendor/slick.scss'
 import { connect } from 'react-redux'
-import { setAppDetailModalStateViewConfirm, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
+import { setAppDetailModalStateInstall, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { Button, Tile, ModalHeader, ModalBody, ModalFooter, H6 } from '@reapit/elements'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
@@ -14,7 +14,7 @@ import { FaCheck, FaTimes } from 'react-icons/fa'
 
 export interface AppDetailModalInnerProps {
   data: AppDetailModel
-  afterClose: () => void
+  afterClose?: () => void
   footerItems?: React.ReactNode
 }
 
@@ -24,20 +24,20 @@ export interface AppDetailModalMappedProps {
 }
 
 export interface AppDetailModalMappedActions {
-  setAppDetailModalStateViewConfirm: () => void
+  setAppDetailModalStateInstall: () => void
   setAppDetailModalStateUninstall: () => void
   setDeveloperAppModalStateDelete: () => void
 }
 
 export type AppDetailProps = AppDetailModalMappedActions & AppDetailModalMappedProps & AppDetailModalInnerProps
 
-export const SlickButtonNav = ({ currentSlide, setAppDetailModalStateViewConfirm, slideCount, children, ...props }) => (
+export const SlickButtonNav = ({ currentSlide, setAppDetailModalStateInstall, slideCount, children, ...props }) => (
   <button {...props}>{children}</button>
 )
 
 export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   data,
-  setAppDetailModalStateViewConfirm,
+  setAppDetailModalStateInstall,
   setAppDetailModalStateUninstall,
   isCurrentLoggedUserClient,
   isCurrentLoggedUserDeveloper,
@@ -72,7 +72,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
 
   return (
     <>
-      <ModalHeader title={name || ''} afterClose={afterClose} />
+      <ModalHeader title={name || ''} afterClose={afterClose as () => void} />
       <ModalBody
         body={
           <>
@@ -88,8 +88,8 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
               }
             >
               {isCurrentLoggedUserDeveloper && (
-                <div className="flex items-center">
-                  {isListed ? <FaCheck color="#a0c862" /> : <FaTimes color="#d3033d" />}
+                <div className={styles.listed}>
+                  {isListed ? <FaCheck className={styles.isListed} /> : <FaTimes className={styles.notListed} />}
                   <span className="ml-2">{isListed ? 'Is listed' : 'Not listed'}</span>
                 </div>
               )}
@@ -128,37 +128,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
           </>
         }
       />
-      <ModalFooter
-        footerItems={
-          footerItems
-            ? footerItems
-            : isCurrentLoggedUserClient &&
-              (installedOn ? (
-                <Button
-                  type="button"
-                  variant="primary"
-                  dataTest="btnAppDetailUninstallApp"
-                  onClick={setAppDetailModalStateUninstall}
-                >
-                  Uninstall App
-                </Button>
-              ) : (
-                <Button
-                  type="button"
-                  variant="primary"
-                  dataTest="btnAppDetailInstallApp"
-                  onClick={() => {
-                    if (!id) {
-                      return
-                    }
-                    setAppDetailModalStateViewConfirm()
-                  }}
-                >
-                  Install App
-                </Button>
-              ))
-        }
-      />
+      <ModalFooter footerItems={footerItems} />
     </>
   )
 }
@@ -171,7 +141,7 @@ export const mapStateToProps = (state: ReduxState): AppDetailModalMappedProps =>
 }
 
 export const mapDispatchToProps = (dispatch: any): AppDetailModalMappedActions => ({
-  setAppDetailModalStateViewConfirm: () => dispatch(setAppDetailModalStateViewConfirm()),
+  setAppDetailModalStateInstall: () => dispatch(setAppDetailModalStateInstall()),
   setAppDetailModalStateUninstall: () => dispatch(setAppDetailModalStateUninstall()),
   setDeveloperAppModalStateDelete: () => dispatch(setDeveloperAppModalStateDelete())
 })

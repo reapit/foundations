@@ -15,8 +15,10 @@ import { selectClientId } from '@/selector/client'
 import { AppSummaryModel } from '@/types/marketplace-api-schema'
 import { handleLaunchApp } from '../../utils/launch-app'
 import { appInstallationsSetFormState } from '@/actions/app-installations'
+import { setAppDetailModalStateManage } from '@/actions/app-detail-modal'
 
 export interface MyAppsMappedActions {
+  setStateViewManage: () => void
   fetchAppDetail: (id: string, clientId: string) => void
   fetchMyApp: (page: number) => void
   installationsSetFormState: (formState: FormState) => void
@@ -47,6 +49,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   fetchMyApp,
   fetchAppDetail,
   appDetail,
+  setStateViewManage,
   installationsFormState,
   installationsSetFormState,
   history
@@ -74,6 +77,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
         onCardClick={(app: AppSummaryModel) => handleLaunchApp(app)}
         onSettingsClick={(app: AppSummaryModel) => {
           setVisible(true)
+          setStateViewManage()
           if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
             fetchAppDetail(app.id, clientId)
           }
@@ -99,6 +103,7 @@ export const mapStateToProps = (state: ReduxState): MyAppsMappedProps => ({
 })
 
 export const mapDispatchToProps = (dispatch: any): MyAppsMappedActions => ({
+  setStateViewManage: () => dispatch(setAppDetailModalStateManage()),
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
   fetchMyApp: (page: number) => dispatch(myAppsRequestData(page)),
   installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState))

@@ -16,8 +16,10 @@ import styles from '@/styles/pages/client.scss?mod'
 import { appInstallationsSetFormState } from '@/actions/app-installations'
 
 import { addQuery, getParamValueFromPath, hasFilterParams } from '@/utils/client-url-params'
+import { setAppDetailModalStateBrowse } from '@/actions/app-detail-modal'
 
 export interface ClientMappedActions {
+  setStateViewBrowse: () => void
   fetchAppDetail: (id: string, clientId: string) => void
   installationsSetFormState: (formState: FormState) => void
 }
@@ -33,8 +35,11 @@ export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
   history.push(addQuery({ page }))
 }
-export const handleOnCardClick = ({ setVisible, appDetail, fetchAppDetail, clientId }) => (app: AppSummaryModel) => {
+export const handleOnCardClick = ({ setVisible, setStateViewBrowse, appDetail, fetchAppDetail, clientId }) => (
+  app: AppSummaryModel
+) => {
   setVisible(true)
+  setStateViewBrowse()
   if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
     fetchAppDetail(app.id, clientId)
   }
@@ -62,6 +67,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   fetchAppDetail,
   appDetail,
   clientId,
+  setStateViewBrowse,
   installationsFormState,
   installationsSetFormState
 }) => {
@@ -98,7 +104,13 @@ export const Client: React.FunctionComponent<ClientProps> = ({
                   list={featuredApps}
                   title="Featured Apps"
                   loading={loading}
-                  onCardClick={handleOnCardClick({ setVisible, appDetail, fetchAppDetail, clientId })}
+                  onCardClick={handleOnCardClick({
+                    setVisible,
+                    setStateViewBrowse,
+                    appDetail,
+                    fetchAppDetail,
+                    clientId
+                  })}
                   infoType="CLIENT_APPS_EMPTY"
                   numOfColumn={3}
                 />
@@ -108,7 +120,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
             <AppList
               list={apps}
               loading={loading}
-              onCardClick={handleOnCardClick({ setVisible, appDetail, fetchAppDetail, clientId })}
+              onCardClick={handleOnCardClick({ setVisible, setStateViewBrowse, appDetail, fetchAppDetail, clientId })}
               infoType={pageNumber > 1 || hasParams ? '' : 'CLIENT_APPS_EMPTY'}
               pagination={{
                 totalCount,
@@ -134,6 +146,7 @@ export const mapStateToProps = (state: ReduxState): ClientMappedProps => ({
 })
 
 export const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
+  setStateViewBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
   installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState))
 })

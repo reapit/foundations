@@ -10,7 +10,7 @@ const mockProps = {
   installationsFormState: 'PENDING' as FormState,
   afterClose: jest.fn(),
   uninstallApp: jest.fn(),
-  setAppDetailModalStateView: jest.fn(),
+  setAppDetailModalStateBrowse: jest.fn(),
   setAppDetailModalStateSuccess: jest.fn()
 }
 
@@ -49,11 +49,11 @@ describe('AppConfirmUninstall', () => {
   })
   it('handleCloseModal', () => {
     const afterClose = jest.fn()
-    const setAppDetailModalStateView = jest.fn()
-    const fn = handleCloseModal(afterClose, setAppDetailModalStateView)
+    const setAppDetailModalStateBrowse = jest.fn()
+    const fn = handleCloseModal(afterClose, setAppDetailModalStateBrowse)
     fn()
     expect(afterClose).toBeCalled()
-    expect(setAppDetailModalStateView).toBeCalled()
+    expect(setAppDetailModalStateBrowse).toBeCalled()
   })
 
   describe('mapDispatchToProps', () => {
@@ -63,8 +63,8 @@ describe('AppConfirmUninstall', () => {
       fn.uninstallApp({ appId: '1', installationId: '1' })()
       expect(dispatch).toBeCalled()
     })
-    it('should call dispatch when involke setAppDetailModalStateView', () => {
-      fn.setAppDetailModalStateView()
+    it('should call dispatch when involke setAppDetailModalStateBrowse', () => {
+      fn.setAppDetailModalStateBrowse()
       expect(dispatch).toBeCalled()
     })
     it('should call dispatch when involke setAppDetailModalStateSuccess', () => {
