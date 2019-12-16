@@ -1,0 +1,64 @@
+# Types
+type ContactAddress {
+  type: String
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type ContactCommunication {
+  label: String
+  detail: String
+}
+
+type Contact {
+  id: String
+  created: String
+  modified: String
+  title: String
+  forename: String
+  surname: String
+  dateOfBirth: String
+  active: Boolean
+  marketingConsent: String
+  identityCheck: String
+  communications: [ContactCommunication!]
+  addresses: [ContactAddress!]
+  officeIds: [String!]
+  negotiatorIds: [String!]
+  metadata: JSON
+  _links: JSON
+  _embedded: JSON
+}
+
+type Contacts {
+  contacts: [Contact!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+# Input Types
+input ContactCommunicationInput {
+  label: String
+  detail: String
+}
+
+input ContactAddressInput {
+  type: String
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}

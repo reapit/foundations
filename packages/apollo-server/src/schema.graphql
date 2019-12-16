@@ -1,14 +1,89 @@
-# Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+#import Contact, Contacts from "./resolvers/contact/types.graphql"
+#import ContactIdentityCheck,ContactIdentityChecks from "./resolvers/contact-identity-check/types.graphql"
 
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
-  }
+type Query {
+  # contact
+  contact(
+    id: String!,
+  ): Contact!
 
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    books: [Book]
-  }
+  contacts(
+    name: String,
+    address: String,
+    negotiatorId: [String!],
+    officeId: [String!],
+    active: Boolean,
+    pageNumber: Int,
+    pageSize: Int,
+    sortBy: String,
+    identityCheck: [String!],
+    marketingConsent: [String!],
+  ): Contacts!
+
+  # contact-identity-check
+  contactIdentityCheck(
+    id: String!,
+    checkId: String!,
+  ): ContactIdentityCheck!
+
+  contactIdentityChecks(
+    id: String!,
+    pageNumber: Int,
+    pageSize: Int,
+  ): ContactIdentityChecks!
+
+}
+
+type Mutation {
+  # contact
+  createContact(
+    title: String,
+    forename: String,
+    surname: String,
+    dateOfBirth: String,
+    active: Boolean,
+    marketingConsent: String,
+    communications: [ContactCommunicationInput!],
+    officeIds: [String!],
+    negotiatorIds: [String!],
+    addresses: [ContactAddressInput!],
+    metadata: JSON,
+  ): Contact!
+
+  updateContact(
+    id: String!,
+    title: String,
+    forename: String,
+    surname: String,
+    dateOfBirth: String,
+    active: Boolean,
+    marketingConsent: String,
+    communications: [ContactCommunicationInput!],
+    officeIds: [String!],
+    negotiatorIds: [String!],
+    addresses: [ContactAddressInput!],
+    metadata: JSON,
+  ): Contact!
+
+  # contact-identity-check
+  createContactIdentityCheck(
+    contactId: String!,
+    checkDate: String,
+    status: String,
+    negotiatorId: String,
+    documents: [ContactIdentityDocumentInput!],
+    metadata: JSON,
+  ): ContactIdentityCheck!
+
+  updateIdentityCheck(
+    id: String!,
+    contactId: String!,
+    checkDate: String,
+    status: String,
+    negotiatorId: String,
+    documents: [ContactIdentityDocumentInput!],
+    metadata: JSON,
+  ): ContactIdentityCheck!
+}
+
+scalar JSON
