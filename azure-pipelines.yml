@@ -23,6 +23,7 @@ jobs:
       vmImage: 'ubuntu-latest'
     variables:
       - group: aws
+      REAPIT_ENV: 'DEV'
     steps:
       - task: NodeTool@0
         inputs:
@@ -48,11 +49,20 @@ jobs:
           failTaskOnFailedTests: true # Optional
           publishRunAttachments: true # Optional
 
+      - bash: |
+          if [ 'refs/tags/GD-' ]; then
+            echo "##vso[task.setvariable variable=REAPIT_ENV]PROD";
+          fi
+          if [ 'refs/heads/demo' ]; then
+            echo "##vso[task.setvariable variable=REAPIT_ENV]DEMO";
+          fi
+    
       - script: yarn build
         displayName: Build static assets
         failOnStderr: true
+        bash: 
         env:
-          REAPIT_ENV: 'DEV'
+          REAPIT_ENV: $(REAPIT_ENV)
           NPM_TOKEN: $(NPM_TOKEN)
           AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
           AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
