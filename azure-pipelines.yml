@@ -23,7 +23,8 @@ jobs:
       vmImage: 'ubuntu-latest'
     variables:
       - group: aws
-      REAPIT_ENV: 'DEV'
+      - name: REAPIT_ENV
+        value: 'DEV'
     steps:
       - task: NodeTool@0
         inputs:
