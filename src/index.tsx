@@ -38,6 +38,7 @@ export * from './components/AcDynamicLinks/dynamic-link-gen'
 export * from './components/HtmlRender'
 export * from './components/Form'
 export * from './components/ProgressBar'
+export * from './components/ToastMessage'
 
 // Utils
 export * from './utils/validators'
