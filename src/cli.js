@@ -3,6 +3,7 @@ const createSecret = require('./index').createSecret
 const updateSecret = require('./index').updateSecret
 const getSecret = require('./index').getSecret
 const deleteSecret = require('./index').deleteSecret
+const setEnv = require('./index').setEnv
 
 return (() => {
   const [, , ...args] = process.argv
@@ -20,6 +21,8 @@ return (() => {
         return getSecret(secretName)
       case 'deleteSecret':
           return deleteSecret(secretName)
+      case 'setEnv':
+        return setEnv(secretName)
       default:
         console.error('Method Not Found')
         process.exit(1)

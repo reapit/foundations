@@ -82,4 +82,30 @@ const deleteSecret = secretName => {
   )
 }
 
-module.exports = { getSecret, createSecret, updateSecret, deleteSecret }
+const setEnv = secretName => {
+  secretsManager.getSecretValue(
+    {
+      SecretId: secretName
+    },
+    (err, data) => {
+      if (err) {
+        return console.log(err, err.stack)
+      }
+
+      const env = process.env.REAPIT_ENV
+      const secret = JSON.parse(data.SecretString)
+      const envObject = secret[env]
+
+      Object.keys(envObject).forEach(key => {
+        process.env[key] = envObject[key]
+      })
+
+      return console.log(
+        'Successfully saved env to process'
+      )
+    }
+  )
+}
+
+
+module.exports = { getSecret, createSecret, updateSecret, deleteSecret, setEnv }
