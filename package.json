@@ -1,6 +1,6 @@
 {
   "name": "@reapit/config-manager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node package for managing configuration and environment variables in AWS Secrets Manager",
   "main": "src/index.js",
   "bin": {
