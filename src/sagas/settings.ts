@@ -4,9 +4,11 @@ import { removeSession } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
+import messages from '@/constants/messages'
 import { MARKETPLACE_HEADERS, REAPIT_API_BASE_URL, URLS, COGNITO_API_BASE_URL } from '@/constants/api'
 import { settingShowLoading, requestDeveloperDataSuccess, ChangePasswordParams } from '@/actions/settings'
 import { errorThrownServer } from '@/actions/error'
+import { showNotificationMessage } from '@/actions/notification-message'
 import { DeveloperModel } from '@/types/marketplace-api-schema'
 import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
 import { authLogoutSuccess } from '@/actions/auth'
@@ -72,6 +74,12 @@ export const developerInfomationChange = function*({ data }: Action<DeveloperMod
     }
     const response = yield call(updateDeveloperInfo, { developerId, values: data })
     if (response) {
+      yield put(
+        showNotificationMessage({
+          variant: 'info',
+          message: messages.CHANGE_SAVE_SUCCESSFULLY
+        })
+      )
       const newResponse = yield call(fetchDeveloperInfo, developerId)
       yield put(requestDeveloperDataSuccess(newResponse))
     }
@@ -116,6 +124,12 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     const response = yield call(callChangePassword, { values: data, email })
     const isCallAPISuccess = response.message === 'SUCCESS'
     if (isCallAPISuccess) {
+      yield put(
+        showNotificationMessage({
+          variant: 'info',
+          message: messages.CHANGE_SAVE_SUCCESSFULLY
+        })
+      )
       const SUCCESS_ALERT_LOGIN_PAGE = `${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`
       yield call(removeSession)
       yield put(authLogoutSuccess())

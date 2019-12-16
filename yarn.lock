@@ -333,10 +333,10 @@
     jsonwebtoken "^8.5.1"
     serverless-http "~2.0.2"
 
-"@reapit/elements@0.5.10":
-  version "0.5.10"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.10.tgz#545b1386210f6f081196e8bf772d0089b9c4e6c8"
-  integrity sha512-igC4KfdU4phvbfoEn5/uBSDKjeE3p/tXxpl3xKJH2o7R/UF5hyPoTrNLU3Yoy27gswOEiM0Fu4oIEjaYbuD/JA==
+"@reapit/elements@^0.5.16":
+  version "0.5.16"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.16.tgz#75669449fc3c36fc905b030169a0dd806cd368d6"
+  integrity sha512-P7W3KLT58N/fgC6S30VAgQzymUsPNemuQJgd0REbqWY1jMUh49cEupirY/DVaFt0vLRd9XIV7XgdOmunY0VKLQ==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.17"

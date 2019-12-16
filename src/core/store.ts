@@ -41,6 +41,7 @@ import adminAppsSagas from '../sagas/admin-apps'
 import resetPasswordReducer from '../reducers/reset-password'
 import resetPasswordSagas from '../sagas/reset-password'
 import appInstallationsSagas from '../sagas/app-installations'
+import noticationMessage from '../reducers/notification-message'
 
 export class Store {
   static _instance: Store
@@ -78,7 +79,8 @@ export class Store {
     forgotPassword: forgotPasswordReducer,
     settings: settingsReducer,
     resetPassword: resetPasswordReducer,
-    installations: appInstallationsReducer
+    installations: appInstallationsReducer,
+    noticationMessage
   })
 
   static sagas = function*() {

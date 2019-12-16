@@ -18,11 +18,13 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+import messages from '@/constants/messages'
 import { developerStub } from '../__stubs__/developer'
 import { removeSession } from '@reapit/cognito-auth'
 import { history } from '../../core/router'
 import Routes from '@/constants/routes'
 import { authLogoutSuccess } from '@/actions/auth'
+import { showNotificationMessage } from '@/actions/notification-message'
 
 describe('settings', () => {
   describe('developerInformationFetch', () => {
@@ -68,6 +70,14 @@ describe('settings', () => {
       expect(clone.next('123').value).toEqual(
         call(updateDeveloperInfo, { developerId: '123', values: { company: '123' } })
       )
+      expect(clone.next({ message: 'SUCCESS' }).value).toEqual(
+        put(
+          showNotificationMessage({
+            variant: 'info',
+            message: messages.CHANGE_SAVE_SUCCESSFULLY
+          })
+        )
+      )
       expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(fetchDeveloperInfo, '123'))
       expect(clone.next(developerStub).value).toEqual(put(requestDeveloperDataSuccess(developerStub)))
     })
@@ -106,6 +116,14 @@ describe('settings', () => {
       const clone = gen.clone()
       expect(clone.next('abc@gmail.com').value).toEqual(
         call(callChangePassword, { values: data, email: 'abc@gmail.com' })
+      )
+      expect(clone.next({ message: 'SUCCESS' }).value).toEqual(
+        put(
+          showNotificationMessage({
+            variant: 'info',
+            message: messages.CHANGE_SAVE_SUCCESSFULLY
+          })
+        )
       )
       expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(removeSession))
       expect(clone.next().value).toEqual(put(authLogoutSuccess()))
