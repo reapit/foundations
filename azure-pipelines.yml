@@ -44,10 +44,11 @@ jobs:
       #     REAPIT_API_KEY: $(REAPIT_API_KEY)
       #     MAP_API_KEY: $(MAP_API_KEY)
 
-      - script: yarn set-env && yarn test:ci
+      - script: yarn test:ci
         displayName: Unit tests
         env:
           REAPIT_ENV: 'DEV'
+          NPM_TOKEN: $(NPM_TOKEN)
 
       - task: PublishTestResults@2
         inputs:
@@ -63,6 +64,7 @@ jobs:
         failOnStderr: true
         env:
           REAPIT_ENV: 'DEV'
+          NPM_TOKEN: $(NPM_TOKEN)
 
       - task: PublishPipelineArtifact@1
         inputs:
