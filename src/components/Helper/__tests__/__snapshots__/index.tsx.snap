@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Helper should default to variant info without close button 1`] = `
+<div
+  className="notification helper-wrap helper-info"
+/>
+`;
+
+exports[`Helper should match snapshot with button for variant info 1`] = `
+<div
+  className="notification helper-wrap helper-info"
+/>
+`;
+
+exports[`Helper should match snapshot with button for variant warning 1`] = `
+<div
+  className="notification helper-wrap helper-warning"
+/>
+`;
+
+exports[`Helper should match with/without closeButton 1`] = `
+<div
+  className="notification helper-wrap helper-info"
+>
+  <button
+    className="delete"
+  />
+</div>
+`;
+
+exports[`Helper should match with/without closeButton 2`] = `
+<div
+  className="notification helper-wrap helper-info"
+/>
+`;
