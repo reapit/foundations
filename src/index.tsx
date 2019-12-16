@@ -40,6 +40,7 @@ export * from './components/Form'
 export * from './components/ProgressBar'
 export * from './components/ToastMessage'
 export * from './components/Helper'
+export * from './components/Spreadsheet'
 
 // Utils
 export * from './utils/validators'
