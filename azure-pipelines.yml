@@ -32,22 +32,11 @@ jobs:
         displayName: Install deps
         failOnStderr: true
         env:
-          REAPIT_ENV: 'DEV'
           NPM_TOKEN: $(NPM_TOKEN)
-
-      # - bash: printenv > src/constants/.env
-      #   displayName: Injects ENVs
-      #   env:
-      #     COGNITO_CLIENT_ID: $(COGNITO_CLIENT_ID)
-      #     COGNITO_USERPOOL_ID: $(COGNITO_USERPOOL_ID)
-      #     MARKETPLACE_API_KEY: $(MARKETPLACE_API_KEY)
-      #     REAPIT_API_KEY: $(REAPIT_API_KEY)
-      #     MAP_API_KEY: $(MAP_API_KEY)
 
       - script: yarn test:ci
         displayName: Unit tests
         env:
-          REAPIT_ENV: 'DEV'
           NPM_TOKEN: $(NPM_TOKEN)
 
       - task: PublishTestResults@2
@@ -65,30 +54,14 @@ jobs:
         env:
           REAPIT_ENV: 'DEV'
           NPM_TOKEN: $(NPM_TOKEN)
+          AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+          AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
 
       - task: PublishPipelineArtifact@1
         inputs:
           path: $(System.DefaultWorkingDirectory)/public/dist
           artifact: AppBundle
 
-    # Skipping while we are on free-tier as tests not running
-    # - task: BrowserStackConfig@0
-    #   inputs:
-    #     BrowserStackServiceEndPoint: 'BrowserStack connection'
-    #     browserstackLocal: true
-    #     bsLocalOptions: '{"verbose": true, "forceLocal": true}'
-
-    # - script: yarn test-e2e:bstack:ci
-    #   displayName: Run E2E Tests on BrowserStack
-    #   continueOnError: true
-    #   env:
-    #     BROWSER_STACK_BUILD: $(Build.BuildNumber)
-    #     NPM_TOKEN: $(NPM_TOKEN)
-
-    # - task: BrowserStackStopLocal@0
-
-    # - task: BrowserStackResults@0
-    #   continueOnError: true
   - deployment: S3DeployWebDev
     displayName: 'Dev | S3 Deployment'
     dependsOn: buildWebApp
