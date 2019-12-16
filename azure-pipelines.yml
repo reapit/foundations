@@ -62,7 +62,6 @@ jobs:
       - script: yarn build
         displayName: Build static assets
         failOnStderr: true
-        bash: 
         env:
           REAPIT_ENV: $(REAPIT_ENV)
           NPM_TOKEN: $(NPM_TOKEN)
