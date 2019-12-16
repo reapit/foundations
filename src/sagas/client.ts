@@ -25,14 +25,20 @@ export const clientDataFetch = function*({ data }) {
     const currentCategories = yield select(selectCategories)
     const currentFeaturedApps = yield select(selectFeaturedApps)
 
+    // because the https://dev.platformmarketplace.reapit.net/categories endpoint does not return a filter for Direct API so
+    // we will have to manually check it here
+    // TODO: have the endpoint return a category id for Direct API apps as well
+    const isFilteringForDirectApiApps = category === 'DIRECT_API_APPS_FILTER'
+
     const [apps, featuredApps, categories] = yield all([
       call(fetcher, {
         url: `${URLS.apps}?${setQueryParams({
           clientId,
-          category,
+          category: isFilteringForDirectApiApps ? undefined : category,
           appName: search,
           pageNumber: page,
-          pageSize: APPS_PER_PAGE
+          pageSize: APPS_PER_PAGE,
+          IsDirectApi: isFilteringForDirectApiApps
         })}`,
         api: REAPIT_API_BASE_URL,
         method: 'GET',
@@ -46,7 +52,7 @@ export const clientDataFetch = function*({ data }) {
             method: 'GET',
             headers: MARKETPLACE_HEADERS
           }),
-      currentCategories.length > 0
+      currentCategories.length > 1
         ? currentCategories
         : call(fetcher, {
             url: `${URLS.categories}`,
