@@ -9,9 +9,12 @@
   "private": true,
   "dependencies": {
     "apollo-server": "^2.9.13",
+    "dataloader": "^2.0.0",
     "express": "^4.17.1",
     "graphql": "^14.5.8",
+    "graphql-depth-limit": "^1.1.0",
     "graphql-import": "^0.7.1",
+    "graphql-type-json": "^0.3.1",
     "winston": "^3.2.1"
   },
   "scripts": {
@@ -22,6 +25,8 @@
     "test:ci": "CI=true rm -rf ./public && yarn build && ./node_modules/.bin/concurrently --success=\"first\" \"yarn start\" \"yarn test\" -k"
   },
   "devDependencies": {
+    "@types/graphql-depth-limit": "^1.1.2",
+    "@types/graphql-type-json": "^0.3.2",
     "@types/node-fetch": "^2.5.4",
     "concurrently": "^5.0.1",
     "graphql-import": "^0.7.1",
