@@ -11,8 +11,8 @@ export const levels = {
 }
 
 export const logger = winston.createLogger({
-  format: winston.format.json(),
-  defaultMeta: { service: 'user-service' },
+  format: winston.format.combine(winston.format.json()),
+  defaultMeta: { service: 'apollo-server' },
   exitOnError: false,
   transports: [
     //
@@ -27,7 +27,7 @@ export const logger = winston.createLogger({
 if (process.env.NODE_ENV !== 'production') {
   logger.add(
     new winston.transports.Console({
-      format: winston.format.json(),
+      format: winston.format.combine(winston.format.json()),
     }),
   )
 }
