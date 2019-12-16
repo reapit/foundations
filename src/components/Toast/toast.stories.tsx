@@ -16,15 +16,15 @@ const DEFAULT_COMPONENT_ERROR = {
 const stories = storiesOf('Toast', module)
 
 const Usage = () => {
-  const [serverError, setErrorServer] = useState<any>()
-  const [componentError, setErrorComponent] = useState<any>()
+  const [serverError, setErrorServer] = useState()
+  const [componentError, setErrorComponent] = useState()
 
   const errorClearedComponent = () => {
-    setErrorComponent(undefined)
+    setErrorComponent(null)
   }
 
   const errorClearedServer = () => {
-    setErrorServer(undefined)
+    setErrorServer(null)
   }
 
   return (
@@ -47,20 +47,4 @@ const Usage = () => {
   )
 }
 
-stories
-  .add('Error', () => <Usage />)
-  .add('Info', () => (
-    <Toast
-      componentError={{
-        type: 'INFO',
-        message: 'success'
-      }}
-      serverError={null}
-      errorClearedComponent={() => {
-        // do some stuff
-      }}
-      errorClearedServer={() => {
-        // do some stuff
-      }}
-    />
-  ))
+stories.add('Error', () => <Usage />)
