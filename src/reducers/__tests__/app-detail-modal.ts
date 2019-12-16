@@ -9,18 +9,18 @@ describe('app-detail modal reducer', () => {
     expect(newState).toEqual(defaultState)
   })
 
-  it('should set loading to true when SET_APP_DETAIL_MODAL_STATE_VIEW action is called', () => {
+  it('should set loading to true when SET_APP_DETAIL_MODAL_STATE_BROWSE action is called', () => {
     const newState = appDetailModalReducer(undefined, {
-      type: ActionTypes.SET_APP_DETAIL_MODAL_STATE_VIEW as ActionType,
+      type: ActionTypes.SET_APP_DETAIL_MODAL_STATE_BROWSE as ActionType,
       data: true
     })
-    const expected = 'VIEW_DETAIL'
+    const expected = 'VIEW_DETAIL_BROWSE'
     expect(newState).toEqual(expected)
   })
 
-  it('should set app-detail item data when SET_APP_DETAIL_MODAL_STATE_CONFIRM action is called', () => {
+  it('should set app-detail item data when SET_APP_DETAIL_MODAL_STATE_INSTALL action is called', () => {
     const newState = appDetailModalReducer(undefined, {
-      type: ActionTypes.SET_APP_DETAIL_MODAL_STATE_CONFIRM as ActionType,
+      type: ActionTypes.SET_APP_DETAIL_MODAL_STATE_INSTALL as ActionType,
       data: appDetailDataStub
     })
     const expected = 'VIEW_CONFIRM_INSTALL'

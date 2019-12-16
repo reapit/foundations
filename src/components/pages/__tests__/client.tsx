@@ -44,6 +44,7 @@ const props = (loading: boolean): ClientProps => ({
     error: false
   },
   clientId: '1',
+  setStateViewBrowse: jest.fn(),
   installationsFormState: 'PENDING',
   installationsSetFormState: jest.fn(),
   fetchAppDetail: jest.fn(),
@@ -86,6 +87,7 @@ describe('Client', () => {
       },
       clientId: '1',
       installationsFormState: 'PENDING',
+      setStateViewBrowse: jest.fn(),
       installationsSetFormState: jest.fn(),
       fetchAppDetail: jest.fn(),
       ...routerProps
@@ -110,6 +112,7 @@ describe('Client', () => {
       },
       clientId: '1',
       installationsFormState: 'PENDING',
+      setStateViewBrowse: jest.fn(),
       installationsSetFormState: jest.fn(),
       fetchAppDetail: jest.fn(),
       ...routerProps
@@ -194,6 +197,7 @@ describe('Client', () => {
         appDetail: {
           appDetailData: appsDataStub.data
         },
+        setStateViewBrowse: jest.fn(),
         fetchAppDetail: jest.fn(),
         clientId: 'ABC'
       }

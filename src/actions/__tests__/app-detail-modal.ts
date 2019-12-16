@@ -1,18 +1,18 @@
 import {
-  setAppDetailModalStateView,
-  setAppDetailModalStateViewConfirm,
+  setAppDetailModalStateBrowse,
+  setAppDetailModalStateInstall,
   setAppDetailModalStateSuccess
 } from '../app-detail-modal'
 
 import ActionTypes from '../../constants/action-types'
 
 describe('app permission actions', () => {
-  it('should create a setAppDetailModalStateView action', () => {
-    expect(setAppDetailModalStateView.type).toEqual(ActionTypes.SET_APP_DETAIL_MODAL_STATE_VIEW)
+  it('should create a setAppDetailModalStateBrowse action', () => {
+    expect(setAppDetailModalStateBrowse.type).toEqual(ActionTypes.SET_APP_DETAIL_MODAL_STATE_BROWSE)
   })
 
-  it('should create a setAppDetailModalStateViewConfirm action', () => {
-    expect(setAppDetailModalStateViewConfirm.type).toEqual(ActionTypes.SET_APP_DETAIL_MODAL_STATE_CONFIRM)
+  it('should create a setAppDetailModalStateInstall action', () => {
+    expect(setAppDetailModalStateInstall.type).toEqual(ActionTypes.SET_APP_DETAIL_MODAL_STATE_INSTALL)
   })
 
   it('should create a setAppDetailModalStateSuccess action', () => {

@@ -1,34 +1,34 @@
 import * as React from 'react'
 import { Modal, ModalProps } from '@reapit/elements'
 import { connect } from 'react-redux'
-import { setAppDetailModalStateView } from '@/actions/app-detail-modal'
+import { setAppDetailModalStateBrowse } from '@/actions/app-detail-modal'
 import AppDetailInner from './app-detail-inner'
 import AppDetailAsyncContainer from './app-detail-async-container'
 
 export interface ActionDetailModalMappedAction {
-  setAppDetailModalStateView: () => void
+  setAppDetailModalStateBrowse: () => void
 }
 
 export type AppDetailModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & ActionDetailModalMappedAction
 
 const mapDispatchToProps = (dispatch: any): ActionDetailModalMappedAction => ({
-  setAppDetailModalStateView: () => dispatch(setAppDetailModalStateView())
+  setAppDetailModalStateBrowse: () => dispatch(setAppDetailModalStateBrowse())
 })
 
-export const handleAfterClose = (setAppDetailModalStateView: () => void, afterClose?: () => void) => () => {
+export const handleAfterClose = (setAppDetailModalStateBrowse: () => void, afterClose?: () => void) => () => {
   if (afterClose) {
     afterClose()
   }
-  setAppDetailModalStateView()
+  setAppDetailModalStateBrowse()
 }
 
 export const AppDetailModal: React.FunctionComponent<AppDetailModalProps> = ({
   visible = true,
   afterClose,
-  setAppDetailModalStateView
+  setAppDetailModalStateBrowse
 }) => {
   return (
-    <Modal visible={visible} afterClose={handleAfterClose(setAppDetailModalStateView, afterClose)} renderChildren>
+    <Modal visible={visible} afterClose={handleAfterClose(setAppDetailModalStateBrowse, afterClose)} renderChildren>
       <AppDetailAsyncContainer>
         <AppDetailInner afterClose={afterClose} />
       </AppDetailAsyncContainer>

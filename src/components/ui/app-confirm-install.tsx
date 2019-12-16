@@ -4,7 +4,7 @@ import { FormState, ReduxState } from '@/types/core'
 import { ScopeModel, AppDetailModel } from '@/types/marketplace-api-schema'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter } from '@reapit/elements'
-import { setAppDetailModalStateView, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
+import { setAppDetailModalStateBrowse, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
 import { InstallParams, appInstallationsRequestInstall } from '@/actions/app-installations'
 
 export type AppConfirmInstallContentMappedProps = {
@@ -13,7 +13,7 @@ export type AppConfirmInstallContentMappedProps = {
 }
 
 export interface AppConfirmInstallContentMappedActions {
-  setAppDetailModalStateView: () => void
+  setAppDetailModalStateBrowse: () => void
   setAppDetailModalStateSuccess: () => void
   installApp: (params: InstallParams) => () => void
 }
@@ -23,9 +23,9 @@ export type AppConfirmInstallContentInnerProps = AppConfirmInstallContentMappedP
     afterClose?: () => void
   }
 
-export const handleCloseModal = (setAppDetailModalStateView: () => void, afterClose?: () => void) => () => {
+export const handleCloseModal = (setAppDetailModalStateBrowse: () => void, afterClose?: () => void) => () => {
   if (afterClose) afterClose()
-  setAppDetailModalStateView()
+  setAppDetailModalStateBrowse()
 }
 
 export const handleInstallSuccess = ({ isSuccessed, setAppDetailModalStateSuccess }) => () => {
@@ -39,7 +39,7 @@ export const AppConfirmInstallContent = ({
   installationsFormState,
   appDetailData,
   afterClose,
-  setAppDetailModalStateView,
+  setAppDetailModalStateBrowse,
   setAppDetailModalStateSuccess
 }: AppConfirmInstallContentInnerProps) => {
   const isLoading = installationsFormState === 'SUBMITTING'
@@ -97,7 +97,7 @@ export const AppConfirmInstallContent = ({
               className={appPermissionContentStyles.installButton}
               type="button"
               variant="danger"
-              onClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
+              onClick={handleCloseModal(setAppDetailModalStateBrowse, afterClose)}
             >
               Cancel
             </Button>
@@ -114,7 +114,7 @@ export const mapStateToProps = (state: ReduxState): AppConfirmInstallContentMapp
 })
 
 export const mapDispatchToProps = (dispatch: any): AppConfirmInstallContentMappedActions => ({
-  setAppDetailModalStateView: () => dispatch(setAppDetailModalStateView()),
+  setAppDetailModalStateBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   setAppDetailModalStateSuccess: () => dispatch(setAppDetailModalStateSuccess()),
   installApp: (params: InstallParams) => () => dispatch(appInstallationsRequestInstall(params))
 })

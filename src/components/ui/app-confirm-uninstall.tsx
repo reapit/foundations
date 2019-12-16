@@ -2,7 +2,7 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { FormState, ReduxState } from '@/types/core'
 import { Button, SubTitleH6, ModalFooter, ModalBody, ModalHeader } from '@reapit/elements'
-import { setAppDetailModalStateView, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
+import { setAppDetailModalStateBrowse, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import { appInstallationsRequestUninstall, UninstallParams } from '@/actions/app-installations'
 
@@ -16,7 +16,7 @@ export interface AppConfirmUninstallMappedProps {
 }
 
 export interface AppConfirmUninstallMappedActions {
-  setAppDetailModalStateView: () => void
+  setAppDetailModalStateBrowse: () => void
   setAppDetailModalStateSuccess: () => void
   uninstallApp: (params: UninstallParams) => () => void
 }
@@ -25,9 +25,9 @@ export type AppConfirmUninstallProps = AppConfirmUninstallInnerProps &
   AppConfirmUninstallMappedProps &
   AppConfirmUninstallMappedActions
 
-export const handleCloseModal = (setAppDetailModalStateView: () => void, afterClose?: () => void) => () => {
+export const handleCloseModal = (setAppDetailModalStateBrowse: () => void, afterClose?: () => void) => () => {
   if (afterClose) afterClose()
-  setAppDetailModalStateView()
+  setAppDetailModalStateBrowse()
 }
 
 export const handleUninstallSuccess = ({ isSuccessed, setAppDetailModalStateSuccess }) => () => {
@@ -49,7 +49,7 @@ export const AppConfirmUninstall = ({
   uninstallApp,
   installationsFormState,
   afterClose,
-  setAppDetailModalStateView,
+  setAppDetailModalStateBrowse,
   setAppDetailModalStateSuccess
 }: AppConfirmUninstallProps) => {
   const isLoading = installationsFormState === 'SUBMITTING'
@@ -95,7 +95,7 @@ export const AppConfirmUninstall = ({
               fullWidth
               type="button"
               variant="danger"
-              onClick={handleCloseModal(setAppDetailModalStateView, afterClose)}
+              onClick={handleCloseModal(setAppDetailModalStateBrowse, afterClose)}
             >
               Disagree
             </Button>
@@ -112,7 +112,7 @@ export const mapStateToProps = (state: ReduxState): AppConfirmUninstallMappedPro
 })
 
 export const mapDispatchToProps = (dispatch: any): AppConfirmUninstallMappedActions => ({
-  setAppDetailModalStateView: () => dispatch(setAppDetailModalStateView()),
+  setAppDetailModalStateBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   setAppDetailModalStateSuccess: () => dispatch(setAppDetailModalStateSuccess()),
   uninstallApp: (params: UninstallParams) => () => dispatch(appInstallationsRequestUninstall(params))
 })
