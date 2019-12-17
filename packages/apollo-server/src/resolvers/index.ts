@@ -1,10 +1,11 @@
 import GraphQLJSON from 'graphql-type-json'
-import contactResolvers from './contact/resolvers'
-import contactIdentityCheckResolvers from './contact-identity-check/resolvers'
+import { queryContact } from './contact/resolvers'
 
 export const resolvers = {
-  ...contactResolvers,
-  ...contactIdentityCheckResolvers,
+  Query: {
+    contact: queryContact,
+  },
+  Mutation: {},
   JSON: GraphQLJSON,
 }
 
