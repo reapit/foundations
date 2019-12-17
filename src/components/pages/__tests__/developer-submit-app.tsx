@@ -228,7 +228,7 @@ describe('DeveloperSubmitApp', () => {
     }
 
     const wrapper = mount(<SubmitApp {...props} />)
-    expect(wrapper.find('Checkbox')).toHaveLength(1)
+    expect(wrapper.find('Checkbox')).toHaveLength(2)
   })
 })
 

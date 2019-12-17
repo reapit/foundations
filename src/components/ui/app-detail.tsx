@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ReduxState, FormState } from '@/types/core'
+import { ReduxState } from '@/types/core'
 import Slider, { Settings } from 'react-slick'
 import carouselStyles from '../../styles/elements/carousel.scss?mod'
 import ChevronLeftIcon from '@/components/svg/chevron-left'
@@ -7,9 +7,10 @@ import '@/styles/vendor/slick.scss'
 import { connect } from 'react-redux'
 import { setAppDetailModalStateInstall, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
-import { Button, Tile, ModalHeader, ModalBody, ModalFooter, H6 } from '@reapit/elements'
+import { Tile, ModalHeader, ModalBody, ModalFooter, H6 } from '@reapit/elements'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import styles from '@/styles/blocks/app-detail.scss?mod'
+import appCardStyles from '@/styles/blocks/app-card.scss?mod'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 
 export interface AppDetailModalInnerProps {
@@ -48,7 +49,18 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
     return null
   }
 
-  const { id, media = [], description, name, summary, developer, installedOn, scopes = [], isListed } = data
+  const {
+    id,
+    media = [],
+    description,
+    name,
+    summary,
+    developer,
+    installedOn,
+    scopes = [],
+    isListed,
+    isDirectApi
+  } = data
   const icon = media.filter(({ type }) => type === 'icon')[0]
   const carouselImages = media.filter(({ type }) => type === 'image')
 
@@ -78,7 +90,12 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
           <>
             <Tile
               heading={name || ''}
-              subHeading={summary || ''}
+              subHeading={
+                <>
+                  {summary}
+                  {isDirectApi ? <span className={appCardStyles.directAPI}>(Direct API)</span> : ''}
+                </>
+              }
               image={
                 <img
                   className="image"

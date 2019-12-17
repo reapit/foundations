@@ -73,6 +73,7 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
           "developerId": undefined,
           "homePage": "http://myawesomeproptechproduct.io",
           "iconImageUrl": "",
+          "isDirectApi": undefined,
           "isListed": undefined,
           "launchUri": undefined,
           "name": "Peter's Properties",

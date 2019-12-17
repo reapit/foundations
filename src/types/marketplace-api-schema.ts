@@ -1,4 +1,17 @@
 /**
+ * App secret representation
+ */
+export interface AppClientSecretModel {
+  /**
+   * Gets the GUID of the app
+   */
+  id?: string // uuid
+  /**
+   * Gets the apps client secret
+   */
+  clientSecret?: string
+}
+/**
  * App detailed representation
  */
 export interface AppDetailModel {
@@ -62,6 +75,10 @@ export interface AppDetailModel {
    * Gets a flag determining whether or not the app is currently listed on the marketplace
    */
   isListed?: boolean
+  /**
+   * Gets a flag determining whether or not the app will appear in the marketplace
+   */
+  isDirectApi?: boolean
   /**
    * Gets the sandbox status of this app
    */
@@ -144,6 +161,10 @@ export interface AppRevisionModel {
    */
   isListed?: boolean
   /**
+   * Gets a flag determining whether or not the app will appear in the marketplace
+   */
+  isDirectApi?: boolean
+  /**
    * Gets the app revisions category
    */
   category?: CategoryModel
@@ -204,6 +225,10 @@ export interface AppSummaryModel {
    * Gets a flag determining whether or not the app is featured
    */
   isFeatured?: boolean
+  /**
+   * Gets a flag determining whether or not the app will appear in the marketplace
+   */
+  isDirectApi?: boolean
   /**
    * Gets the public Url for accessing this app's icon
    */
@@ -333,6 +358,14 @@ export interface CreateAppModel {
    */
   isFeatured?: boolean
   /**
+   * Sets the flag determining whether or not the app will appear in the marketplace
+   */
+  isDirectApi?: boolean
+  /**
+   * Sets the application authorisation flow type (authorisationCode/clientCredentials)
+   */
+  authFlow?: string
+  /**
    * Sets the list of scope keys required for this app to run
    */
   scopes?: string[]
@@ -389,6 +422,10 @@ export interface CreateAppRevisionModel {
    * Sets the home page of the developer, or the application/product specific page on the developer's website
    */
   homePage?: string
+  /**
+   * Sets the flag determining whether or not the app will appear in the marketplace
+   */
+  isDirectApi?: boolean
   /**
    * Sets the unique identifier of the developer associated with this app revision
    */
@@ -580,6 +617,10 @@ export interface InstallationModel {
    */
   status?: string
   /**
+   * Gets the authorisation flow type of the associated app
+   */
+  authFlow?: string
+  /**
    * Gets the reason that access to associated app was removed
    */
   terminatedReason?: string
@@ -620,15 +661,15 @@ export interface MediaModel {
   /**
    * Gets the URI where this media is located
    */
-  readonly uri?: string
+  uri?: string
   /**
    * Gets the textual description of this media content
    */
-  readonly description?: string
+  description?: string
   /**
    * Gets type of media this entity relates to
    */
-  readonly type?: string
+  type?: string
   /**
    * Gets the order of this particular picture in the list of available media
    */
@@ -792,4 +833,8 @@ export interface UpdateDeveloperModel {
    * Sets the date the developer agreed to the terms
    */
   readonly agreedTerms?: string // date-time
+  /**
+   * Sets the flag specifying if the developer is inactive
+   */
+  isInactive?: boolean
 }

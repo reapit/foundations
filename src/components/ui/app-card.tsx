@@ -21,7 +21,12 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettin
       onClick={onClick as () => void}
       dataTest={dataTest.join('_')}
       heading={app.name || ''}
-      subHeading={app.developer || ''}
+      subHeading={
+        <>
+          {app.developer}
+          {app.isDirectApi ? <span className={appCardStyles.directAPI}>(Direct API)</span> : ''}
+        </>
+      }
       image={
         <img className="image" src={app.iconUri || 'https://bulma.io/images/placeholders/48x48.png'} alt={app.name} />
       }
