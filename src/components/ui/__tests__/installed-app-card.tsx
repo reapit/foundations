@@ -34,9 +34,4 @@ describe('InstalledAppCard', () => {
   it('should match a snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
-
-  it('should call onClick when card is clicked', () => {
-    wrapper.find('#installed-card-icon').simulate('click')
-    expect(props.onClick).toBeCalled()
-  })
 })

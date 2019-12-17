@@ -1,10 +1,15 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { InstalledAppList, InstalledAppListProps, onClickHandler } from '../installed-app-list'
+import {
+  InstalledAppList,
+  InstalledAppListProps,
+  onClickHandler,
+  ListMobileScreen,
+  ListDesktopScreen
+} from '../installed-app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { Loader, GridFourColItem, GridThreeColItem } from '@reapit/elements'
+import { Loader } from '@reapit/elements'
 import { AppSummaryModel } from '../../../types/marketplace-api-schema'
-import InstalledAppCard from '../installed-app-card'
 
 const app = (appsDataStub as { data: { data: AppSummaryModel[] } }).data.data[0]
 
@@ -26,6 +31,13 @@ const props: InstalledAppListProps = {
   }
 }
 
+const listProps = {
+  list: appsDataStub.data.data as AppSummaryModel[],
+  loading: false,
+  onCardClick: jest.fn(),
+  infoType: 'CLIENT_APPS_EMPTY'
+}
+
 describe('InstalledAppList', () => {
   it('should match a snapshot', () => {
     expect(shallow(<InstalledAppList {...props} />)).toMatchSnapshot()
@@ -35,19 +47,17 @@ describe('InstalledAppList', () => {
     expect(shallow(<InstalledAppList infoType={''} {...props} />)).toMatchSnapshot()
   })
 
+  it('should match a snappshot ListMobileScreen', () => {
+    expect(shallow(<ListMobileScreen {...listProps} />)).toMatchSnapshot()
+  })
+
+  it('should match a snappshot ListDesktopScreen', () => {
+    expect(shallow(<ListDesktopScreen {...listProps} />)).toMatchSnapshot()
+  })
+
   it('should show loading', () => {
     const wrapper = shallow(<InstalledAppList {...props} loading />)
     expect(wrapper.find(Loader)).toHaveLength(1)
-  })
-
-  it('should respond to a card click event', () => {
-    const wrapper = shallow(<InstalledAppList {...props} />)
-    wrapper
-      .find(InstalledAppCard)
-      .first()
-      .simulate('click', { stopPropagation: jest.fn() })
-    expect(props.onCardClick).toHaveBeenCalledTimes(1)
-    expect(props.onCardClick).toHaveBeenCalledWith(appsDataStub?.data?.data?.[0])
   })
 
   describe('onClickHandler', () => {

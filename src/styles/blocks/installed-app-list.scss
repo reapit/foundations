@@ -8,11 +8,17 @@ $margin-tb: calc(#{$gap-columns} - 1.5rem);
   opacity: 0.75;
 }
 .wrap-list {
-  margin: $margin-tb $margin-lr;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   justify-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, $icon-width);
-  grid-gap: $gap-columns;
+
+  & > * {
+    margin-bottom: 1rem;
+  }
+}
+
+.content-is-loading {
+  opacity: 0.75;
 }
