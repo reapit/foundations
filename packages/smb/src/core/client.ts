@@ -7,37 +7,39 @@ export const request = async (operation: Operation) => {
   const authorization = localStorage.getItem('token')
   operation.setContext({
     headers: {
-      authorization
-    }
+      authorization,
+    },
   })
 }
 
 export const onError: ErrorHandler = ({ graphQLErrors, networkError }: ErrorResponse) => {
   if (graphQLErrors) {
     graphQLErrors.map(({ message, locations, path }) =>
-      console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`)
+      console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`),
     )
   }
   if (networkError) console.log(`[Network error]: ${networkError}`)
 }
 
 export const dataIdFromObject = (object: IdGetterObj) => {
-  switch (object.__typename) {
-    // Custom keycache here!
-    default:
-      return defaultDataIdFromObject(object)
-  }
+  // Will open when custom object ID for caching
+  // switch (object.__typename) {
+  //   // Custom keycache here!
+  //   default:
+  //     return defaultDataIdFromObject(object)
+  // }
+  return defaultDataIdFromObject(object)
 }
 
 const cache: ApolloCache<any> = new InMemoryCache({
-  dataIdFromObject
+  dataIdFromObject,
 })
 
 const clientState = {
   cache,
   defaults: {},
   resolvers: {},
-  typeDefs: ''
+  typeDefs: '',
 }
 
 const client = new ApolloClient({
@@ -45,7 +47,7 @@ const client = new ApolloClient({
   onError,
   cache,
   request,
-  clientState
+  clientState,
 })
 
 export default client

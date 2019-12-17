@@ -8,7 +8,7 @@ import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
 export const generateMenuConfig = (
   logoutCallback: () => void,
   location: Location<any>,
-  mode: LoginMode
+  mode: LoginMode,
 ): MenuConfig => {
   return {
     defaultActiveKey: 'LOGO',
@@ -18,7 +18,7 @@ export const generateMenuConfig = (
       {
         key: 'LOGO',
         icon: <ReapitLogo className="nav-item-icon" />,
-        type: 'LOGO'
+        type: 'LOGO',
       },
       {
         title: 'Apps',
@@ -28,30 +28,30 @@ export const generateMenuConfig = (
           (window.location.href = !window.location.href.includes('dev')
             ? 'https://marketplace.reapit.com/client/installed'
             : 'https://dev.marketplace.reapit.com/client/installed'),
-        type: 'PRIMARY'
+        type: 'PRIMARY',
       },
       {
         title: 'Logout',
         key: 'LOGOUT',
         callback: logoutCallback,
         icon: <FaSignOutAlt className="nav-item-icon" />,
-        type: 'SECONDARY'
-      }
-    ]
+        type: 'SECONDARY',
+      },
+    ],
   }
 }
 
-export interface MenuMappedActions {
+export type DispatchProps = {
   logout: () => void
 }
 
-export interface MenuMappedState {
+export type StateProps = {
   mode: LoginMode
 }
 
-export type MenuProps = MenuMappedActions & MenuMappedState & RouteComponentProps & {}
+export type MenuProps = DispatchProps & StateProps & RouteComponentProps & {}
 
-export const Menu: React.FunctionComponent<MenuProps> = ({ logout, location, mode }) => {
+export const Menu: React.FC<MenuProps> = ({ logout, location, mode }: MenuProps) => {
   const logoutCallback = () => logout()
   const menuConfigs = generateMenuConfig(logoutCallback, location, mode)
   return <Sidebar {...menuConfigs} location={location} />

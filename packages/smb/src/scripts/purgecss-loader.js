@@ -10,6 +10,6 @@ module.exports = function purifyCssLoader(content) {
     whitelist,
     whitelistPatterns,
     whitelistPatternsChildren,
-    extractors
+    extractors,
   }).purge()[0].css
 }

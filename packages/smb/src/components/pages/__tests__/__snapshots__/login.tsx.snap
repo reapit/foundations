@@ -13,7 +13,7 @@ exports[`Login should match a snapshot 1`] = `
     <p
       className="pb-8"
     >
-      Welcome to apollo-client
+      Welcome to smb
     </p>
     <Formik
       initialValues={
