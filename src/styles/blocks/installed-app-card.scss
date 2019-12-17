@@ -2,7 +2,10 @@ $icon-width: 130px;
 $icon-height: 130px;
 
 .container {
-  width: $icon-width + 2px;
+  display: flex;
+  width: calc(50% - 1rem);
+  flex-direction: column;
+  align-items: center;
 }
 .wrap-icon {
   width: $icon-width;
@@ -30,4 +33,14 @@ $icon-height: 130px;
   overflow: hidden;
   font-size: 16px;
   font-weight: bold;
+}
+
+.content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 700px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 60px;
 }
