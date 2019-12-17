@@ -11,6 +11,7 @@
     "lint": "eslint --fix --ext=jsx,ts,tsx packages"
   },
   "devDependencies": {
+    "@reapit/config-manager": "^1.1.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -34,6 +35,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.17.0",
     "husky": "^3.1.0",
+    "isomorphic-fetch": "^2.2.1",
     "lerna": "^3.19.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
@@ -45,10 +47,12 @@
     "packages/*"
   ],
   "dependencies": {
+    "@reapit/cognito-auth": "^2.0.10",
     "@reapit/elements": "^0.5.16",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-router": "^5.1.2"
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
