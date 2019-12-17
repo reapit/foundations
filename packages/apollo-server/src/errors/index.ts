@@ -1,4 +1,4 @@
-import { AuthenticationError } from 'apollo-server'
+import { AuthenticationError, UserInputError } from 'apollo-server'
 import logger from '../logger'
 
 const errorMessages = {
@@ -9,6 +9,7 @@ const errorMessages = {
   requestTimeout: '[E4080] Request Timeout',
   internalServerError: '[E5000] Internal Server Error',
   gatewayTimeout: '[E5040] Gateway Timeout',
+  unprocessableEntity: '[E4220] Unprocessable Entity',
 }
 
 export const generateAuthenticationError = (traceId?: string) => {
@@ -17,8 +18,15 @@ export const generateAuthenticationError = (traceId?: string) => {
   return error
 }
 
+export const generateUserInputError = (traceId?: string) => {
+  const error = new UserInputError(`${traceId || ''} - ${errorMessages.unprocessableEntity}`)
+  logger.info('generateAuthenticationError', { traceId, error })
+  return error
+}
+
 const errors = {
   generateAuthenticationError,
+  generateUserInputError,
 }
 
 export default errors

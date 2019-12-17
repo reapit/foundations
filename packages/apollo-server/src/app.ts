@@ -1,6 +1,6 @@
 import express from 'express'
 import uuidv4 from 'uuid/v4'
-import { ApolloServer, Request, ServerInfo } from 'apollo-server'
+import { ApolloServer, ServerInfo } from 'apollo-server'
 import { ContextFunction, Context, GraphQLResponse, GraphQLRequestContext } from 'apollo-server-core'
 import { ExecutionParams } from 'subscriptions-transport-ws'
 import { GraphQLError, GraphQLFormattedError } from 'graphql'
@@ -17,25 +17,23 @@ export type ExpressContext = {
   connection?: ExecutionParams
 }
 
-// TODO: will replace any if defined user
-export type ServerContext = Context<{ traceId?: string; user?: any }>
+export type ServerContext = Context<{ traceId: string; authorization: string }>
 export type GraphQLContextFunction = ContextFunction<ExpressContext, ServerContext> | Context<ServerContext>
 
 export const formatError = (error: GraphQLError): GraphQLFormattedError => {
-  logger.error('formatError', error)
   return { message: error.message, extensions: { code: error.extensions?.code } }
 }
 
-export const handleContext = ({ req }: { req: Request }): GraphQLContextFunction => {
+export const handleContext = ({ req }: ExpressContext): GraphQLContextFunction => {
   const traceId = uuidv4()
   const isProductionEnv = process.env.NODE_ENV === 'production'
   if (isProductionEnv) {
     logger.info('handleContext', { traceId, req })
   }
-  // Pass context from request to apollo client
+  const authorization = req.headers.authorization || ''
   return {
     traceId: traceId,
-    user: {},
+    authorization: authorization,
   }
 }
 
@@ -47,9 +45,6 @@ export const formatResponse = (
   const isProductionEnv = process.env.NODE_ENV === 'production'
   if (isProductionEnv) {
     logger.info('formatResponse', { traceId, requestContext, response })
-  }
-  if (!isProductionEnv) {
-    logger.info('formatResponse', { traceId, response })
   }
   return response || {}
 }
@@ -68,6 +63,6 @@ const server = new ApolloServer({
 })
 
 // The `listen` method launches a web server.
-server.listen({ port: 4000 }).then(({ url }: ServerInfo) => {
+server.listen({ port: process.env.SERVER_PORT || 4000 }).then(({ url }: ServerInfo) => {
   logger.info(`🚀  Server ready at ${url}`)
 })

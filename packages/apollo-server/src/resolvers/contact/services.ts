@@ -1,12 +1,42 @@
+import 'isomorphic-fetch'
+import { fetcher } from '@reapit/elements'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
+import { GetContactByIdArgs, CreateContactArgs } from './contact'
+import errors from '../../errors'
+
+export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
+
+export const URLS = {
+  contacts: '/contacts',
+  identityChecks: '/identitychecks',
+}
 
 /*
  * API layer
  */
-// TODO: will replace by fetch from API or database
-const fetchContactById = async () => {
-  logger.info('fetchContactById')
+const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: ServerContext) => {
+  const traceId = context.traceId
+  logger.info('callGetContactByIdAPI', { traceId, args })
+  const getResponse = await fetcher({
+    url: `${URLS.contacts}/${args.id}`,
+    api: REAPIT_API_BASE_URL,
+    method: 'GET',
+    headers: {
+      Authorization: context.authorization,
+      'Content-Type': 'application/json',
+    },
+  })
+  if (getResponse.status !== 200) {
+    const error = getResponse.description
+    // logger.error('callGetContactByIdAPI', { traceId, error })
+    throw new Error(error)
+  }
+  return getResponse
+}
+
+const callCreateContactAPI = async (contact: CreateContactArgs) => {
+  logger.info('createContact', { contact })
   return {}
 }
 
@@ -14,11 +44,28 @@ const fetchContactById = async () => {
  * Services layer
  */
 
-// TODO: will replace any when defined type for args
-export const getContactById = async (args: any, context: ServerContext) => {
+export const getContactById = (args: GetContactByIdArgs, context: ServerContext) => {
   const traceId = context.traceId
-  const user = context.user
-  logger.info('getContactById', { traceId, user, args })
-  const contact = fetchContactById()
+  logger.info('getContactById', { traceId, args })
+  try {
+    const contact = callGetContactByIdAPI(args, context)
+    return contact
+  } catch (error) {
+    logger.error('getContactById', { traceId, error })
+    return errors.generateUserInputError(traceId)
+  }
+}
+
+export const createContact = (args: CreateContactArgs, context: ServerContext) => {
+  const traceId = context.traceId
+  logger.info('createContact', { traceId, args })
+  const contact = callCreateContactAPI(args)
   return contact
 }
+
+export const contactServices = {
+  getContactById,
+  createContact,
+}
+
+export default contactServices
