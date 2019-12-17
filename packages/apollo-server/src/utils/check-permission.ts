@@ -2,6 +2,8 @@ import logger from '../logger'
 import { ServerContext } from '../app'
 
 export const checkPermission = (context: ServerContext) => {
-  logger.info('checkPermission', { context })
-  return true
+  const traceId = context.traceId
+  const isPermit = !!context.authorization
+  logger.info('checkPermission', { traceId, isPermit })
+  return isPermit
 }
