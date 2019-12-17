@@ -7,9 +7,7 @@ module.exports = {
   setupFiles: ['<rootDir>/src/scripts/jest-setup.js'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coverageDirectory: './src/tests/coverage',
-  coveragePathIgnorePatterns: [
-    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
-  ],
+  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]'],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
   moduleNameMapper: {
     '^.+\.(?=.*scss|sass|css|jpg).*': '<rootDir>/src/scripts/css-stub.js',

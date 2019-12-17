@@ -45,6 +45,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "@reapit/elements": "^0.5.16",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2"

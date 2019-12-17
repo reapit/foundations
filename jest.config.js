@@ -13,15 +13,15 @@ module.exports = {
   moduleNameMapper: {
     '^.+.(?=.*scss|sass|css|jpg).*': '<rootDir>/src/scripts/css-stub.js',
     ...pathsToModuleNameMapper(compilerOptions.paths, {
-      prefix: '<rootDir>/'
-    })
+      prefix: '<rootDir>/',
+    }),
   },
   coverageThreshold: {
     global: {
       branches: 65,
       functions: 70,
       lines: 80,
-      statements: 80
-    }
-  }
+      statements: 80,
+    },
+  },
 }
