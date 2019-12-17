@@ -48,9 +48,9 @@ exports.config = {
       'goog:chromeOptions': {
         // to run chrome headless the following flags are required
         // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-        args: ['--headless', '--disable-gpu']
-      }
-    }
+        args: ['--headless', '--disable-gpu'],
+      },
+    },
   ],
   //
   // ===================
@@ -185,10 +185,11 @@ exports.config = {
    * @param {Array.<String>} specs List of spec file paths that are to be run
    */
   before: function(capabilities, specs) {
+    console.log(capabilities, specs)
     require('ts-node').register({
-      project: 'src/tests/webdriver/tsconfig.json'
+      project: 'src/tests/webdriver/tsconfig.json',
     })
-  }
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {String} commandName hook command name

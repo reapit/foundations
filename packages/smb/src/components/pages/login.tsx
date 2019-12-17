@@ -7,21 +7,21 @@ import { LoginParams } from '@reapit/cognito-auth'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 
-export interface LoginMappedActions {
+export type LoginMappedActions = {
   login: (params: LoginParams) => void
 }
 
-export interface LoginMappedProps {
+export type LoginMappedProps = {
   hasSession: boolean
   error: boolean
 }
 
-export interface LoginFormValues {
+export type LoginFormValues = {
   email: string
   password: string
 }
 
-export interface LoginFormError {
+export type LoginFormError = {
   email?: string
   password?: string
 }
@@ -70,7 +70,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
     <div className={container}>
       <div className={`${wrapper} ${isSubmitting && disabled}`}>
         <H1 isCentered>Sign in</H1>
-        <p className="pb-8">Welcome to apollo-client</p>
+        <p className="pb-8">Welcome to smb</p>
 
         <Formik
           validate={validate}
