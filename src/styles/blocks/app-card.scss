@@ -1,3 +1,5 @@
+@import '../base/colors.scss';
+
 // This solution is a bit shit and will only add an elipsis in webkit browsers
 // Sorry but other browsers no-supporty...
 .content {
@@ -8,4 +10,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   height: 60px;
+}
+
+.directAPI {
+  color: $black;
+  font-weight: 400;
+  margin-left: 5px;
+  white-space: nowrap;
 }

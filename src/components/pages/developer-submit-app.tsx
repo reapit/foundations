@@ -93,6 +93,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       media,
       name,
       isListed,
+      isDirectApi,
       scopes: appScopes
     } = appDetail
 
@@ -114,6 +115,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       launchUri,
       iconImageUrl,
       isListed,
+      isDirectApi,
       scopes: appScopes?.map(item => item.name),
       ...images
     }
@@ -249,7 +251,8 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                       <FormHeading>App Listing</FormHeading>
                       <FormSubHeading>
                         These fields refer to the name and icon of your application as they will appear to a user in the
-                        Marketplace and in their installed apps.
+                        Marketplace and in their installed apps. If your App is an external application, please select
+                        'Direct API'.
                       </FormSubHeading>
                       <Grid isMultiLine>
                         <GridItem>
@@ -268,13 +271,16 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                           </div>
                         </GridItem>
                       </Grid>
-                      {isSubmitRevision && (
-                        <Grid>
+                      <Grid>
+                        {isSubmitRevision && (
                           <GridItem>
                             <Checkbox name="isListed" labelText="Is Listed" id="isListed" />
                           </GridItem>
-                        </Grid>
-                      )}
+                        )}
+                        <GridItem>
+                          <Checkbox name="isDirectApi" labelText="Direct API" id="isDirectApi" />
+                        </GridItem>
+                      </Grid>
                     </FormSection>
                     <FormSection>
                       <FormHeading>APP CATEGORY</FormHeading>

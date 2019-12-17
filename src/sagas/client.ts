@@ -38,7 +38,8 @@ export const clientDataFetch = function*({ data }) {
           appName: search,
           pageNumber: page,
           pageSize: APPS_PER_PAGE,
-          IsFeatured: false
+          IsFeatured: isFilteringForDirectApiApps ? undefined : false,
+          IsDirectApi: isFilteringForDirectApiApps
         })}`,
         api: REAPIT_API_BASE_URL,
         method: 'GET',
