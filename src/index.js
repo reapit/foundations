@@ -9,7 +9,7 @@ const createSecret = secretName => {
   secretsManager.createSecret(
     {
       Name: secretName,
-      SecretString: JSON.stringify(require(`${__dirname}/reapit-config.json`))
+      SecretString: JSON.stringify(require(`${__dirname}/../reapit-config.json`))
     },
     (err, data) => {
       if (err) {
@@ -24,7 +24,7 @@ const updateSecret = secretName => {
   secretsManager.updateSecret(
     {
       SecretId: secretName,
-      SecretString: JSON.stringify(require(`${__dirname}/reapit-config.json`))
+      SecretString: JSON.stringify(require(`${__dirname}/../reapit-config.json`))
     },
     (err, data) => {
       if (err) {
