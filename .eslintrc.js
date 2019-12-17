@@ -37,7 +37,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'quotes': ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': false }],
     'semi': ['error', 'never'],
-    'no-unused-vars': ['error', { 'vars': 'all' }],
+    'no-unused-vars': ['error', { 'vars': 'all', 'args': 'after-used' }],
     '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
     'prettier/prettier': 'error',
     'max-len': ['error', {'code': 120, 'ignoreUrls': true}],
