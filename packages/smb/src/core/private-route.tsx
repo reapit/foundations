@@ -12,22 +12,15 @@ export interface PrivateRouteProps extends PrivateRouteConnectProps {
   allow: LoginType | LoginType[]
   component: React.FunctionComponent
   exact?: boolean
-  fetcher?: boolean
 }
 
-export const PrivateRoute = ({
-  component,
-  allow,
-  fetcher = false,
-  loginType = 'CLIENT',
-  ...rest
-}: PrivateRouteProps & RouteProps) => {
+export const PrivateRoute = ({ component, allow, loginType = 'CLIENT', ...rest }: PrivateRouteProps & RouteProps) => {
   const allowTypes = Array.isArray(allow) ? allow : [allow]
   allowTypes.includes(loginType)
   return (
     <Route
       {...rest}
-      render={props => {
+      render={() => {
         if (!allowTypes.includes(loginType)) {
           return <Redirect to="/404" />
         }

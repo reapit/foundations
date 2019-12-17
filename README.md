@@ -14,3 +14,12 @@ Install dependencies
 
 ## How to run particular project
 - `yarn workspace <packages_name> dev`
+
+## Read on:
+
+- [Getting Started](./docs/GETTING_STARTED.md)
+- [Api Platform](./docs/API_PLATFORM.md)
+- [Code Style](./docs/CODE_STYLE.md)
+- [Version Control](./VERSION_CONTROL.md)
+- [Definition of Done](./docs/DEFINITION_OF_DONE.md)
+- [Deployment](./docs/DEPLOYMENT.md)
