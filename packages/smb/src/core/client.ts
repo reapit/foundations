@@ -1,6 +1,8 @@
 import ApolloClient, { InMemoryCache, Operation, defaultDataIdFromObject, IdGetterObj } from 'apollo-boost'
 import { ErrorHandler, ErrorResponse } from 'apollo-link-error'
 import { ApolloCache } from 'apollo-cache'
+import typeDefs from '../types/schema.graphql'
+import resolvers from './__mocks__/queries'
 
 export const request = async (operation: Operation) => {
   // TODO implement later
@@ -34,12 +36,12 @@ export const dataIdFromObject = (object: IdGetterObj) => {
 const cache: ApolloCache<any> = new InMemoryCache({
   dataIdFromObject,
 })
-
+console.log('typedes', typeDefs)
 const clientState = {
   cache,
   defaults: {},
-  resolvers: {},
-  typeDefs: '',
+  resolvers,
+  typeDefs,
 }
 
 const client = new ApolloClient({

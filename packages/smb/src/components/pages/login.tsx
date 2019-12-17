@@ -6,6 +6,23 @@ import { Input, Button, H1, Level, Alert, isEmail, Formik, Form } from '@reapit/
 import { LoginParams } from '@reapit/cognito-auth'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
+import { ContactModel } from '@/types/platform'
+
+import { gql } from 'apollo-boost'
+import { useQuery } from '@apollo/react-hooks'
+
+export const MOCK_QUERY = gql`
+  query MockQuery {
+    GetContacts @client {
+      id
+      title
+    }
+  }
+`
+
+interface ContactQueryData {
+  GetContacts: ContactModel
+}
 
 export type LoginMappedActions = {
   login: (params: LoginParams) => void
@@ -42,7 +59,7 @@ export function validate(values: LoginFormValues) {
   return errors
 }
 
-export type LoginProps = LoginMappedActions & LoginMappedProps & RouteComponentProps
+export type LoginProps = RouteComponentProps
 
 export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginFormValues) => {
   const { email, password } = values
@@ -51,10 +68,16 @@ export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginF
   login({ userName: email, password, loginType: 'CLIENT' } as LoginParams)
 }
 
-export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
+export const Login: React.FunctionComponent<LoginProps> = () => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const { hasSession, error, login } = props
+  // const { hasSession, error, login } = props
+  const hasSession = false
+  const error = null
+  const login = () => {}
   const { disabled, wrapper, container, image } = loginStyles
+
+  const { data } = useQuery<ContactQueryData>(MOCK_QUERY)
+  console.log('data', data?.GetContacts.title)
 
   React.useEffect(() => {
     if (error) {
