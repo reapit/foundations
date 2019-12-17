@@ -3,9 +3,9 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import { Link } from 'react-router-dom'
 import { H3, FlexContainerBasic, FlexContainerResponsive, SubTitleH5 } from '@reapit/elements'
 
-export interface HomeMappedActions {}
+export type HomeMappedActions = {}
 
-export interface HomeMappedProps {
+export type HomeMappedProps = {
   homeState: any
 }
 

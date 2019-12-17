@@ -19,12 +19,12 @@ const mockStorage = (() => {
     },
     clear: () => {
       store = {}
-    }
+    },
   }
 })()
 
 Object.defineProperty(window, 'localStorage', {
-  value: mockStorage
+  value: mockStorage,
 })
 
 // https://github.com/akiran/react-slick/issues/742
@@ -34,6 +34,6 @@ window.matchMedia =
     return {
       matches: false,
       addListener: function() {},
-      removeListener: function() {}
+      removeListener: function() {},
     }
   }

@@ -7,8 +7,8 @@ const props: MenuProps = {
   logout: jest.fn(),
   // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
   location: {
-    pathname: '/client'
-  }
+    pathname: '/client',
+  },
 }
 
 describe('Menu', () => {

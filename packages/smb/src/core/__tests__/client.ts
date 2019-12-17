@@ -8,7 +8,7 @@ describe('client', () => {
     it('should run correctly', done => {
       // @ts-ignore
       const mockOperation = {
-        setContext: jest.fn()
+        setContext: jest.fn(),
       } as Operation
       request(mockOperation)
       setTimeout(() => {
@@ -21,7 +21,7 @@ describe('client', () => {
     it('should run correctly when have both', () => {
       const mockError = {
         graphQLErrors: [new GraphQLError('123')] as ReadonlyArray<GraphQLError>,
-        networkError: new Error('abc')
+        networkError: new Error('abc'),
       } as ErrorResponse
       onError(mockError)
     })
@@ -29,7 +29,7 @@ describe('client', () => {
     it('should run correctly when no graphQLErrors', () => {
       const mockError = {
         graphQLErrors: [] as ReadonlyArray<GraphQLError>,
-        networkError: new Error('abc')
+        networkError: new Error('abc'),
       } as ErrorResponse
       onError(mockError)
     })
@@ -37,7 +37,7 @@ describe('client', () => {
     it('should run correctly when no networkError', () => {
       const mockError = {
         graphQLErrors: [new GraphQLError('123')] as ReadonlyArray<GraphQLError>,
-        networkError: undefined
+        networkError: undefined,
       } as ErrorResponse
       onError(mockError)
     })
@@ -45,7 +45,7 @@ describe('client', () => {
     it('should run correctly when no error', () => {
       const mockError = {
         graphQLErrors: [] as ReadonlyArray<GraphQLError>,
-        networkError: undefined
+        networkError: undefined,
       } as ErrorResponse
       onError(mockError)
     })
@@ -55,7 +55,7 @@ describe('client', () => {
     it('should run correctly', () => {
       const mockObject = {
         __typename: 'mockType',
-        id: '1'
+        id: '1',
       } as IdGetterObj
       const result = dataIdFromObject(mockObject)
       const output = `${mockObject.__typename}:${mockObject.id}`

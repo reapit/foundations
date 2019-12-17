@@ -11,8 +11,8 @@ const props: LoginProps = {
   loginType: 'CLIENT',
   // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
   location: {
-    pathname: '/client'
-  }
+    pathname: '/client',
+  },
 }
 
 describe('Login', () => {
