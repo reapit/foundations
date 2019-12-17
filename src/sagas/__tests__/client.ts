@@ -36,7 +36,8 @@ describe('client fetch data', () => {
           category: params.data.category,
           appName: params.data.search,
           pageNumber: params.data.page,
-          pageSize: APPS_PER_PAGE
+          pageSize: APPS_PER_PAGE,
+          IsFeatured: false
         })}`,
         api: REAPIT_API_BASE_URL,
         method: 'GET',
