@@ -20,7 +20,6 @@ import { URLS } from '@/constants/api'
 import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { selectOnlineStatus } from '@/selectors/online'
-import { REAPIT_API_BASE_URL } from '../constants/api'
 import { AppointmentRequestParams } from '@/actions/appointments'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
@@ -84,7 +83,7 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
       url: `${
         URLS.appointments
       }?Start=${start.toISOString()}&End=${end.toISOString()}&IncludeCancelled=true&IncludeUnconfirmed=true`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers
     })
@@ -97,7 +96,7 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
 
     const appointmentTypes = yield call(fetcher, {
       url: URLS.appointmentTypes,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers
     })
