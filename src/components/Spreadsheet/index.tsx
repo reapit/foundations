@@ -1,38 +1,102 @@
 import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
 
-export type valueType = string
+export class MyReactDataSheet extends ReactDataSheet<Cell, string> {}
 
-export interface DataType {
-  value: valueType
-  component?: React.ReactNode
+/* CellProps type contain several type like row, col, Cell, ... */
+export interface Cell extends ReactDataSheet.Cell<Cell, string> {
+  /** The value of the cell, always a string */
+  value: string
+  /** The validate function, receive Cell as param, must return boolean */
+  validate?: (cell: Cell) => boolean
+  /* Additional className of cell */
+  className?: string
 }
 
-export interface GridElement extends ReactDataSheet.Cell<GridElement, valueType> {
-  value: valueType
+export type CellProps = ReactDataSheet.CellRendererProps<Cell>
+
+export interface DoubleClickPayLoad {
+  row: number
+  col: number
+  maxRowIndex: number
+  maxColIndex: number
+  isReadOnly?: boolean
 }
-export interface SpreadSheetProps {}
 
-const data = [
-  [{ value: '1', component: <button onClick={() => console.log('clicked')}>Rendered</button> }, { value: '3' }],
-  [{ value: '2' }, { value: '4' }]
-]
+export const onDoubleClickCell = (payload: DoubleClickPayLoad, setSelected, onDoubleClickDefault) => (
+  e: React.MouseEvent
+) => {
+  onDoubleClickDefault(e)
+  const { row, col, maxRowIndex, maxColIndex, isReadOnly } = payload
+  const isFirstRow = row === 0
+  const isFirstCol = col === 0
+  if (isFirstCol && isFirstRow) {
+    return
+  }
+  if (isFirstCol && isReadOnly) {
+    setSelected({
+      start: { i: row, j: 0 },
+      end: { i: row, j: maxColIndex }
+    })
+    return
+  }
+  if (isFirstRow && isReadOnly) {
+    setSelected({
+      start: { i: 0, j: col },
+      end: { i: maxRowIndex, j: col }
+    })
+    return
+  }
+}
 
-class MyReactDataSheet extends ReactDataSheet<GridElement, valueType> {}
+export interface SpreadSheetProps extends ReactDataSheet.DataSheetProps<Cell, string> {}
 
-export const Spreadsheet: React.FC<SpreadSheetProps> = () => {
+export const customCellRenderer = (data: Cell[][], setSelected) => (props: ReactDataSheet.CellRendererProps<Cell>) => {
+  const { style, cell, ...restProps } = props
+  const { validate = () => true, className = '', readOnly, ...restCell } = cell
+  /* const isValid = validate(cell) */
+  const payload = {
+    row: props.row,
+    col: props.col,
+    maxRowIndex: data.length,
+    maxColIndex: data[0].length,
+    isReadOnly: readOnly
+  }
+  return (
+    <td
+      {...restProps}
+      {...restCell}
+      className={`${props.className} ${className}`}
+      style={style as React.CSSProperties}
+      onDoubleClick={onDoubleClickCell(payload, setSelected, props.onDoubleClick)}
+    >
+      {props.children}
+    </td>
+  )
+}
+
+export const onSelect = setSelected => ({ start, end }) => {
+  setSelected({ start, end })
+}
+
+export const Spreadsheet: React.FC<SpreadSheetProps> = ({ data, valueRenderer, ...rest }) => {
+  const [selected, setSelected] = React.useState<{
+    start: ReactDataSheet.Location
+    end: ReactDataSheet.Location
+  } | null>(null)
+
+  const cellRenderer = React.useCallback(customCellRenderer(data, setSelected), [])
   return (
     <div className="spreadsheet">
       <MyReactDataSheet
         data={data}
-        valueRenderer={cell => cell.value}
-        cellRenderer={({ cell, children, className, style, ...rest }) => {
-          return (
-            <td className={className} style={style as React.CSSProperties} {...rest}>
-              {children}
-            </td>
-          )
+        valueRenderer={valueRenderer}
+        selected={selected}
+        onSelect={({ start, end }) => {
+          setSelected({ start, end })
         }}
+        {...rest}
+        cellRenderer={cellRenderer}
       />
     </div>
   )

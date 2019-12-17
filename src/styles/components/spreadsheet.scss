@@ -2,7 +2,13 @@
 @import '../base/colors.scss';
 
 .spreadsheet {
-  & .root-datasheet {
-    background-color: $white;
+  background-color: $white;
+  .data-grid-container .data-grid {
+    width: 100%;
+    margin: auto;
+  }
+  & input.data-editor {
+    width: 100% !important;
+    height: 100% !important;
   }
 }
