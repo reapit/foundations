@@ -1,4 +1,8 @@
+import express from 'express'
+import uuidv4 from 'uuid/v4'
 import { ApolloServer, Request, ServerInfo } from 'apollo-server'
+import { ContextFunction, Context, GraphQLResponse, GraphQLRequestContext } from 'apollo-server-core'
+import { ExecutionParams } from 'subscriptions-transport-ws'
 import { GraphQLError, GraphQLFormattedError } from 'graphql'
 import { importSchema } from 'graphql-import'
 import depthLimit from 'graphql-depth-limit'
@@ -7,33 +11,60 @@ import logger from './logger'
 
 const typeDefs = importSchema('./src/schema.graphql')
 
+export type ExpressContext = {
+  req: express.Request
+  res: express.Response
+  connection?: ExecutionParams
+}
+
+// TODO: will replace any if defined user
+export type ServerContext = Context<{ traceId?: string; user?: any }>
+export type GraphQLContextFunction = ContextFunction<ExpressContext, ServerContext> | Context<ServerContext>
+
 export const formatError = (error: GraphQLError): GraphQLFormattedError => {
   logger.error('formatError', error)
   return { message: error.message, extensions: { code: error.extensions?.code } }
 }
 
-export const context = ({ req }: { req: Request }) => {
-  logger.info('context', req)
+export const handleContext = ({ req }: { req: Request }): GraphQLContextFunction => {
+  const traceId = uuidv4()
+  const isProductionEnv = process.env.NODE_ENV === 'production'
+  if (isProductionEnv) {
+    logger.info('handleContext', { traceId, req })
+  }
   // Pass context from request to apollo client
   return {
+    traceId: traceId,
     user: {},
   }
+}
+
+export const formatResponse = (
+  response: GraphQLResponse | null,
+  requestContext: GraphQLRequestContext<{ traceId?: string }>,
+): GraphQLResponse => {
+  const traceId = requestContext?.context?.traceId
+  const isProductionEnv = process.env.NODE_ENV === 'production'
+  if (isProductionEnv) {
+    logger.info('formatResponse', { traceId, requestContext, response })
+  }
+  if (!isProductionEnv) {
+    logger.info('formatResponse', { traceId, response })
+  }
+  return response || {}
 }
 
 const server = new ApolloServer({
   typeDefs: typeDefs,
   resolvers,
   formatError,
-  context,
+  context: handleContext,
   validationRules: [depthLimit(10)],
   cors: {
     origin: [],
     methods: ['POST', 'OPTION', 'GET'],
   },
-  formatResponse: (response, requestContext) => {
-    logger.info('formatResponse', { response, requestContext })
-    return response || {}
-  },
+  formatResponse,
 })
 
 // The `listen` method launches a web server.
