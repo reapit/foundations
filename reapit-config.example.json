@@ -9,7 +9,8 @@
     "COGNITO_USERPOOL_ID": "",
     "COGNITO_CLIENT_ID": "",
     "COGNITO_API_BASE_URL": "",
-    "UPLOAD_FILE_BASE_URL": ""
+    "UPLOAD_FILE_BASE_URL": "",
+    "SWAGGER_BASE_URL": ""
   },
   "DEV": {
     "PLATFORM_BASE_URL": "",
@@ -21,7 +22,8 @@
     "COGNITO_USERPOOL_ID": "",
     "COGNITO_CLIENT_ID": "",
     "COGNITO_API_BASE_URL": "",
-    "UPLOAD_FILE_BASE_URL": ""
+    "UPLOAD_FILE_BASE_URL": "",
+    "SWAGGER_BASE_URL": ""
   },
   "PROD": {
     "PLATFORM_BASE_URL": "",
@@ -33,7 +35,8 @@
     "COGNITO_USERPOOL_ID": "",
     "COGNITO_CLIENT_ID": "",
     "COGNITO_API_BASE_URL": "",
-    "UPLOAD_FILE_BASE_URL": ""
+    "UPLOAD_FILE_BASE_URL": "",
+    "SWAGGER_BASE_URL": ""
   },
   "DEMO": {
     "PLATFORM_BASE_URL": "",
@@ -45,6 +48,7 @@
     "COGNITO_USERPOOL_ID": "",
     "COGNITO_CLIENT_ID": "",
     "COGNITO_API_BASE_URL": "",
-    "UPLOAD_FILE_BASE_URL": ""
+    "UPLOAD_FILE_BASE_URL": "",
+    "SWAGGER_BASE_URL": ""
   }
 }
