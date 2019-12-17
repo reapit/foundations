@@ -51,10 +51,11 @@ jobs:
           publishRunAttachments: true # Optional
 
       - bash: |
-          if [ 'refs/tags/GD-' ]; then
+          branch=$(Build.SourceBranch)
+          if [[ branch == *"refs/tags/GD-"* ]]; then
             echo "##vso[task.setvariable variable=REAPIT_ENV]PROD";
           fi
-          if [ 'refs/heads/demo' ]; then
+          if [[ branch == *"refs/heads/demo"* ]]; then
             echo "##vso[task.setvariable variable=REAPIT_ENV]DEMO";
           fi
         displayName: Set Reapit Env
