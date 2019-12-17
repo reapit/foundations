@@ -2,6 +2,7 @@
   "LOCAL": {
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
+    "MARKETPLACE_API_KEY": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
     "GOOGLE_MAPS_API_KEY": "",
@@ -13,6 +14,7 @@
   "DEV": {
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
+    "MARKETPLACE_API_KEY": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
     "GOOGLE_MAPS_API_KEY": "",
@@ -24,6 +26,7 @@
   "PROD": {
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
+    "MARKETPLACE_API_KEY": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
     "GOOGLE_MAPS_API_KEY": "",
@@ -35,6 +38,7 @@
   "DEMO": {
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
+    "MARKETPLACE_API_KEY": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
     "GOOGLE_MAPS_API_KEY": "",
