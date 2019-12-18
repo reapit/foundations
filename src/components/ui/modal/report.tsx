@@ -3,7 +3,7 @@ import ReactToPrint from 'react-to-print'
 import { connect } from 'react-redux'
 import { Button, Table } from '@reapit/elements'
 import styles from '@/styles/ui/report.scss?mod'
-import { ContactModel, ContactIdentityCheckModel, ListItemModel } from '@reapit/types'
+import { ContactModel, ContactIdentityCheckModel, ListItemModel } from '@reapit/foundations-ts-definitions'
 import { ReduxState } from '@/types/core'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import dayjs from 'dayjs'
@@ -129,8 +129,8 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Declaration and Risk Assessment',
         description: () => {
-          const reason = (contact?.metadata?.declarationRisk)?.reason
-          const type = (contact?.metadata?.declarationRisk)?.type
+          const reason = contact?.metadata?.declarationRisk?.reason
+          const type = contact?.metadata?.declarationRisk?.type
           return (
             <div>
               {type && <p>Type: {type}</p>}
