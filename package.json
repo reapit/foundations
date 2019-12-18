@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.17",
+  "version": "0.5.18",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
