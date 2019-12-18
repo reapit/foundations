@@ -200,6 +200,10 @@ export interface ApplicantModel {
    */
   marketingMode?: string
   /**
+   * Gets the currency that applies to monetary amounts exposed in the model
+   */
+  currency?: string
+  /**
    * Gets a flag determining whether or not the applicant is actively looking for property
    */
   active?: boolean
@@ -3590,6 +3594,10 @@ export interface OfferModel {
    */
   modified?: string // date-time
   /**
+   * Gets the currency that applies to monetary amounts exposed in the model
+   */
+  currency?: string
+  /**
    * Gets the id of the applicant associated to the offer
    */
   applicantId?: string
@@ -3884,6 +3892,10 @@ export interface PagedResultApplicantModel_ {
      * Gets the marketing mode relating to the buyer (buying / renting)
      */
     marketingMode?: string
+    /**
+     * Gets the currency that applies to monetary amounts exposed in the model
+     */
+    currency?: string
     /**
      * Gets a flag determining whether or not the applicant is actively looking for property
      */
@@ -4974,6 +4986,10 @@ export interface PagedResultOfferModel_ {
      */
     modified?: string // date-time
     /**
+     * Gets the currency that applies to monetary amounts exposed in the model
+     */
+    currency?: string
+    /**
      * Gets the id of the applicant associated to the offer
      */
     applicantId?: string
@@ -5275,6 +5291,10 @@ export interface PagedResultPropertyModel_ {
      * Gets the marketing mode of the property (selling/letting/sellingAndLetting)
      */
     marketingMode?: string
+    /**
+     * Gets the currency that applies to monetary amounts exposed in the model
+     */
+    currency?: string
     /**
      * Gets the address of the property
      */
@@ -5796,6 +5816,10 @@ export interface PagedResultWorksOrderItemModel_ {
      */
     id?: string
     /**
+     * Gets the unique identifier of the works order
+     */
+    worksOrderId?: string
+    /**
      * Gets the datetime when the works order item was created
      */
     created?: string // date-time
@@ -6148,6 +6172,10 @@ export interface PropertyModel {
    * Gets the marketing mode of the property (selling/letting/sellingAndLetting)
    */
   marketingMode?: string
+  /**
+   * Gets the currency that applies to monetary amounts exposed in the model
+   */
+  currency?: string
   /**
    * Gets the address of the property
    */
@@ -8543,6 +8571,10 @@ export interface WorksOrderItemModel {
    * Gets the unique identifier of the works order item
    */
   id?: string
+  /**
+   * Gets the unique identifier of the works order
+   */
+  worksOrderId?: string
   /**
    * Gets the datetime when the works order item was created
    */

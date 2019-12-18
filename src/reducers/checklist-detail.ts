@@ -10,7 +10,7 @@ import {
   checklistDetailHideModal,
   checklistDetailSubmitForm
 } from '../actions/checklist-detail'
-import { ContactModel, ContactIdentityCheckModel } from '@/types/platform'
+import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import {
   isCompletedProfile,
   isCompletedPrimaryID,

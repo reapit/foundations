@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { SelectBox } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { IdentityTypesState } from '@/reducers/identity-types'
-import { ListItemModel } from '@/types/platform'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
 
 export type StateProps = {
   identityState?: IdentityTypesState
