@@ -14,7 +14,7 @@ import {
   adminAppsSetFormState
 } from '@/actions/admin-apps'
 import { selectAdminAppsData } from '@/selector/admin'
-import { AppDetailModel } from '@/types/marketplace-api-schema'
+import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 
 export const adminAppsFetch = function*({ data }) {
   try {

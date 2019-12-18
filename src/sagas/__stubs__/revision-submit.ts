@@ -1,4 +1,4 @@
-import { CreateAppRevisionModel } from '../../types/marketplace-api-schema'
+import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 
 export const revisionSubmitStub: { data: CreateAppRevisionModel } = {
   data: {

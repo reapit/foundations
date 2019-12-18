@@ -22,7 +22,7 @@ import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectDeveloperId } from '@/selector/developer'
-import { CreateDeveloperModel } from '@/types/marketplace-api-schema'
+import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 
 jest.mock('@reapit/elements')
 

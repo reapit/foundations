@@ -7,7 +7,7 @@ import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
+import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { appDetailRequestData } from '@/actions/app-detail'
 
 export const submitRevision = function*({ data }: Action<CreateAppRevisionModel & { id: string }>) {

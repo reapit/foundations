@@ -6,7 +6,7 @@ import {
   adminApprovalsClearData,
   adminApprovalsRequestDataFailure
 } from '../actions/admin-approvals'
-import { PagedResultApprovalModel_ } from '../types/marketplace-api-schema'
+import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface AdminApprovalsList {
   data: PagedResultApprovalModel_

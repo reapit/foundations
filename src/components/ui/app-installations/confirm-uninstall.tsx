@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { compose, Dispatch } from 'redux'
 import { connect } from 'react-redux'
-import { InstallationModel } from '@/types/marketplace-api-schema'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import {
   ModalHeader,
   ModalBody,

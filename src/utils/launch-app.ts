@@ -1,4 +1,4 @@
-import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 export const handleLaunchApp = (app: AppSummaryModel) => {
   import('../core/store').then(store => {

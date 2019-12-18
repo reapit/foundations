@@ -6,7 +6,7 @@ import {
   adminAppsRequestFailure,
   adminAppsSetFormState
 } from '../actions/admin-apps'
-import { PagedResultAppSummaryModel_ } from '../types/marketplace-api-schema'
+import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface AdminAppsState {
   loading: boolean

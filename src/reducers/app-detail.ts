@@ -1,6 +1,6 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { AppDetailModel } from '@/types/marketplace-api-schema'
+import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { appDetailLoading, appDetailReceiveData, appDetailClearData, appDetailFailure } from '../actions/app-detail'
 
 export interface AppDetailItem {

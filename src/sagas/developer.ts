@@ -10,7 +10,7 @@ import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effec
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
-import { CreateDeveloperModel } from '../types/marketplace-api-schema'
+import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { Action, ReduxState } from '../types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { selectDeveloperId } from '@/selector/developer'

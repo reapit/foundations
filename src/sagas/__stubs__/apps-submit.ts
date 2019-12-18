@@ -1,4 +1,4 @@
-import { CreateAppModel } from '@/types/marketplace-api-schema'
+import { CreateAppModel } from '@reapit/foundations-ts-definitions'
 import { SubmitAppArgs } from '@/actions/submit-app'
 
 export const appSubmitStub: { data: CreateAppModel } = {

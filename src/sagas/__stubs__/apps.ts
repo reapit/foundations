@@ -1,4 +1,4 @@
-import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
+import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 
 export const appsDataStub: { data: PagedResultAppSummaryModel_ } = {
   data: {

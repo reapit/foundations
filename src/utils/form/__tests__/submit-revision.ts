@@ -1,5 +1,5 @@
 import { validate } from '../submit-revision'
-import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
+import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 
 import errorMessages from '@/constants/error-messages'
 

@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
+import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 
 export interface AdminAppsFilter {

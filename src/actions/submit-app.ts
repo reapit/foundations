@@ -1,7 +1,7 @@
 import { FormikHelpers } from '@reapit/elements'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { CreateAppModel, ScopeModel } from '@/types/marketplace-api-schema'
+import { CreateAppModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import { FormState } from '@/types/core'
 
 export type SubmitAppFormikActions = FormikHelpers<CreateAppModel>

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import dayjs from 'dayjs'
 import { connect } from 'react-redux'
-import { InstallationModel, PagedResultInstallationModel_ } from '@/types/marketplace-api-schema'
+import { InstallationModel, PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
 import { Button, Table, ModalHeader, ModalBody, Pagination, Alert, Loader } from '@reapit/elements'
 import { InstallationParams, appInstallationsRequestData } from '@/actions/app-installations'
 import { ReduxState } from '@/types/core'

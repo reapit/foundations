@@ -1,4 +1,4 @@
-import { ScopeModel } from '@/types/marketplace-api-schema'
+import { ScopeModel } from '@reapit/foundations-ts-definitions'
 
 export const appPermissionStub: ScopeModel[] = [
   {

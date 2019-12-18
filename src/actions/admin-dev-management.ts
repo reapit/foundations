@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { PagedResultDeveloperModel_ } from '../types/marketplace-api-schema'
+import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface AdminDevManagementRequestDataValues {
   page: number

@@ -5,7 +5,7 @@ import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { adminDevManagementLoading, adminDevManagementReceiveData } from '@/actions/admin-dev-management'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
-import { PagedResultDeveloperModel_ } from '@/types/marketplace-api-schema'
+import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
 
 const fakeResponse = {} as PagedResultDeveloperModel_
 const params = {

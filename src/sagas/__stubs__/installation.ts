@@ -1,4 +1,4 @@
-import { InstallationModel } from '../../types/marketplace-api-schema'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
 
 export const installationStub: InstallationModel = {
   id: 'b3c2f644-3241-4298-b320-b0398ff492f9',

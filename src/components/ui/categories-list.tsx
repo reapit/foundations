@@ -1,7 +1,7 @@
 import * as React from 'react'
 import CategoryItem from './category-item'
 import styles from '@/styles/blocks/categories-list.scss?mod'
-import { CategoryModel } from '@/types/marketplace-api-schema'
+import { CategoryModel } from '@reapit/foundations-ts-definitions'
 
 export interface CategoriesListProps {
   categories: CategoryModel[]

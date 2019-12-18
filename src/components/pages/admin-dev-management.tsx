@@ -21,7 +21,7 @@ import AdminDevManagementFilterForm, {
   AdminDevManagementFilterFormValues
 } from '@/components/ui/admin-dev-management-filter-form'
 import AdminDeleteDeveloperModal from '@/components/ui/developer-delete'
-import { DeveloperModel } from '@/types/marketplace-api-schema'
+import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 
 export interface AdminDevManagementProps {
   adminDevManagementState: AdminDevManamgenetState

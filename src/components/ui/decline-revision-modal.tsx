@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { RejectRevisionModel } from '@/types/marketplace-api-schema'
+import { RejectRevisionModel } from '@reapit/foundations-ts-definitions'
 import { Button, TextArea, Modal, ModalProps, ModalFooter, ModalBody, Form, Formik } from '@reapit/elements'
 import { validate } from '@/utils/form/reject-revision'
 import { declineRevision, RevisionDeclineRequestParams } from '@/actions/revision-detail'

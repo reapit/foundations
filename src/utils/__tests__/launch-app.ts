@@ -1,5 +1,5 @@
 import { handleLaunchApp } from '../launch-app'
-import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 jest.mock('../../core/store')
 

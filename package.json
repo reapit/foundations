@@ -8,12 +8,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "yarn fetch-config && yarn fetch-definitions && webpack --color --mode production --config ./src/scripts/webpack-prod.js",
+    "build": "yarn fetch-config && webpack --color --mode production --config ./src/scripts/webpack-prod.js",
     "start": "node ./public/index.js app-store",
     "stop": "killall -SIGINT app-store",
     "dev": "yarn fetch-config && REAPIT_ENV=LOCAL webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
     "bundle-analyse": "node ./src/scripts/bundle-phobia.js && yarn build && webpack-bundle-analyzer ./public/dist/stats.json",
-    "fetch-definitions": "node ./src/scripts/fetch-definitions.js",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
     "lint": "tslint --fix --project tsconfig.json --format stylish",
     "test": "jest --coverage --silent",
@@ -47,6 +46,7 @@
   },
   "devDependencies": {
     "@reapit/config-manager": "^1.1.0",
+    "@reapit/foundations-ts-definitions": "latest",
     "@redux-saga/testing-utils": "^1.0.5",
     "@types/diff": "^4.0.2",
     "@types/enzyme": "~3.9.3",

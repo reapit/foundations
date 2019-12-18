@@ -1,4 +1,4 @@
-import { PagedResultApprovalModel_ } from '@/types/marketplace-api-schema'
+import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
 
 export const approvalsStub: { data: PagedResultApprovalModel_ } = {
   data: {

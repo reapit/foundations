@@ -5,7 +5,7 @@ import {
   adminDevManagementReceiveData,
   adminDevManagementRequestDataFailure
 } from '../actions/admin-dev-management'
-import { PagedResultDeveloperModel_ } from '../types/marketplace-api-schema'
+import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface AdminDevManamgenetState {
   loading: boolean
