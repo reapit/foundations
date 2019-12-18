@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { Tile, getTime, closestTo, IconList } from '@reapit/elements'
-import { AppointmentModel, ListItemModel } from '@/types/platform'
+import { AppointmentModel, ListItemModel } from '@reapit/foundations-ts-definitions'
 import ViewDirectionButton from '@/components/container/view-direction-button'
 import ViewDetailButton from '../container/view-detail-button'
 import ETAButton from './eta-button'

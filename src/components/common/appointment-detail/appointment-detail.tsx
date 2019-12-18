@@ -26,7 +26,7 @@ import {
   ListItemModel,
   AppointmentPropertyAddressModel,
   AppointmentAttendeeModel
-} from '@/types/platform'
+} from '@reapit/foundations-ts-definitions'
 import { ReduxState } from '@/types/core'
 import { appointmentDetailHideModal, showHideConfirmModal } from '@/actions/appointment-detail'
 import styles from '@/styles/ui/appoinments-detail.scss?mod'

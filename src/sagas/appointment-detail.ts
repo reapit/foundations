@@ -16,7 +16,7 @@ import { Action } from '@/types/core'
 import { AppointmentDetailRequestParams } from '@/actions/appointment-detail'
 import { selectAppointmentDetail } from '@/selectors/appointment-detail'
 import { selectAppointmentsFilterTime } from '@/selectors/appointments'
-import { AppointmentModel } from '@/types/platform'
+import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 import { fetchAppointment, updateAppointment } from './api'
 
 export const appointmentDetailDataFetch = function*({ data: { id } }: Action<AppointmentDetailRequestParams>) {
@@ -45,7 +45,7 @@ export const appointmentDetailDataFetch = function*({ data: { id } }: Action<App
 export const cancelAppointmentRequest = function*() {
   try {
     yield put(showConfirmModalSubmitting(true))
-    const currentAppointment = yield select(selectAppointmentDetail) as AppointmentModel
+    const currentAppointment = yield select(selectAppointmentDetail)
     const newAppointment: AppointmentModel = {
       ...currentAppointment,
       cancelled: true

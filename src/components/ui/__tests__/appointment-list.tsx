@@ -3,7 +3,7 @@ import { AppointmentList, handleUseEffect } from '../appointment-list'
 import toJson from 'enzyme-to-json'
 import { shallow } from 'enzyme'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
-import { AppointmentModel } from '@/types/platform'
+import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 
 describe('AppointmentList', () => {
   it('Should match snapshot if having no data', () => {

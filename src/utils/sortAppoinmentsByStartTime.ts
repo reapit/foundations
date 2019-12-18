@@ -1,4 +1,4 @@
-import { AppointmentModel } from '@/types/platform'
+import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
 
 export const sortAppoinmentsByStartTime = (appointments: AppointmentModel[]) => {

@@ -9,7 +9,7 @@ import {
   showHideConfirmModal,
   showConfirmModalSubmitting
 } from '../actions/appointment-detail'
-import { AppointmentModel } from '@/types/platform'
+import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 
 export interface AppointmentDetailState {
   loading: boolean

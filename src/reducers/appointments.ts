@@ -10,7 +10,7 @@ import {
 } from './../actions/appointments'
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { PagedResultAppointmentModel_, AppointmentModel, ListItemModel } from '@/types/platform'
+import { PagedResultAppointmentModel_, AppointmentModel, ListItemModel } from '@reapit/foundations-ts-definitions'
 
 export type AppointmentsTime = 'Today' | 'Tomorrow' | 'Week View'
 

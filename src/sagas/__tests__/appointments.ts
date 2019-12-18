@@ -1,5 +1,5 @@
 import appointmentsSagas, { appointmentsDataFetch, appointmentsDataListen } from '@/sagas/appointments'
-import { AppointmentModel, ListItemModel } from '@/types/platform'
+import { AppointmentModel, ListItemModel } from '@reapit/foundations-ts-definitions'
 import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
@@ -121,11 +121,11 @@ describe('appointments should fetch data', () => {
   )
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
+    expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
       call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as AppointmentModel[])
     )
 
-    expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
+    expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
         api: process.env.PLATFORM_API_BASE_URL as string,
@@ -137,7 +137,7 @@ describe('appointments should fetch data', () => {
     expect(clone.next(appointmentsDataStub.appointmentTypes as any).value).toEqual(
       put(
         appointmentsReceiveTodayData({
-          appointments: appointmentsDataStub.appointments as any,
+          appointments: appointmentsDataStub.appointments,
           appointmentTypes: appointmentsDataStub.appointmentTypes
         })
       )
@@ -179,11 +179,11 @@ describe('appointments should fetch data tomowrrow', () => {
   )
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
+    expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
       call(sortAppoinmentsByStartTime, appointmentsDataStub.appointments?._embedded as AppointmentModel[])
     )
 
-    expect(clone.next(appointmentsDataStub.appointments as any).value).toEqual(
+    expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
         api: process.env.PLATFORM_API_BASE_URL as string,
@@ -195,7 +195,7 @@ describe('appointments should fetch data tomowrrow', () => {
     expect(clone.next(appointmentsDataStub.appointmentTypes as any).value).toEqual(
       put(
         appointmentsReceiveTomorrowData({
-          appointments: appointmentsDataStub.appointments as any,
+          appointments: appointmentsDataStub.appointments,
           appointmentTypes: appointmentsDataStub.appointmentTypes
         })
       )
