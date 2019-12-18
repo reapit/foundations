@@ -36,8 +36,7 @@ exports[`Router should match a snapshot 1`] = `
             "_status": -1,
           }
         }
-        exact={true}
-        path="/"
+        path="/mutation"
       />
       <Route
         component={
@@ -48,10 +47,10 @@ exports[`Router should match a snapshot 1`] = `
             "_status": -1,
           }
         }
-        path="/login"
+        path="/"
       />
       <Redirect
-        to="/login"
+        to="/"
       />
     </Switch>
   </Suspense>
