@@ -1,5 +1,5 @@
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
 import {
   revisionDetailLoading,
   revisionDetailReceiveData,
@@ -24,14 +24,14 @@ export const revisionDetailDataFetch = function*({
   try {
     const response = yield call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })
     const scopes = yield call(fetcher, {
       url: `${URLS.scopes}`,
       method: 'GET',
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       headers: MARKETPLACE_HEADERS
     })
 
@@ -69,7 +69,7 @@ export const approveRevision = function*({ data: params }: Action<RevisionApprov
   try {
     const response = yield call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/approve`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       headers: MARKETPLACE_HEADERS,
       body
@@ -103,7 +103,7 @@ export const declineRevision = function*({ data: params }: Action<RevisionDeclin
   try {
     const response = yield call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/reject`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       headers: MARKETPLACE_HEADERS,
       body

@@ -19,12 +19,9 @@ import { APPS_PER_PAGE } from '@/constants/paginator'
 import { appsDataStub } from '../__stubs__/apps'
 import { appPermissionStub } from '../__stubs__/app-permission'
 import { Action } from '@/types/core'
-import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectDeveloperId } from '@/selector/developer'
-import { DeveloperItem } from '@/reducers/developer'
-import { appDetailDataStub } from '../__stubs__/app-detail'
 import { CreateDeveloperModel } from '@/types/marketplace-api-schema'
 
 jest.mock('@reapit/elements')
@@ -42,13 +39,13 @@ describe('developer fetch data', () => {
       call(fetcher, {
         url: `${URLS.apps}?developerId=${developerId}&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
         method: 'GET',
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS
       }),
       call(fetcher, {
         url: `${URLS.scopes}`,
         method: 'GET',
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS
       })
     ])
@@ -100,7 +97,7 @@ describe('developer create', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: URLS.developers,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       body: params,
       headers: MARKETPLACE_HEADERS

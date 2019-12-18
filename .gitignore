@@ -12,3 +12,4 @@ browserstack-reports
 
 src/constants/.env
 src/tests/webdriver/screenshots
+reapit-config.json

@@ -10,7 +10,7 @@ import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
-import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '@/constants/api'
+import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 
 export const adminDevManagementRequestDataHandler = function*({ data: { page, queryString } }) {
@@ -23,7 +23,7 @@ export const adminDevManagementRequestDataHandler = function*({ data: { page, qu
 
     const response = yield call(fetcher, {
       url: `${URLS.developers}?PageNumber=${page}&PageSize=${REVISIONS_PER_PAGE}&Name=${name}&Company=${company}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })

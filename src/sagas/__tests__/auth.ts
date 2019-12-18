@@ -3,10 +3,9 @@ import ActionTypes from '../../constants/action-types'
 import { put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
 import { authLoginSuccess, authLogoutSuccess, authLoginFailure } from '../../actions/auth'
 import { Action } from '@/types/core'
-import { setUserSession, removeSession, LoginParams } from '@reapit/cognito-auth'
+import { setUserSession, removeSession, LoginParams, LoginSession } from '@reapit/cognito-auth'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
-import { mockLoginSession } from '@/utils/__mocks__/cognito'
 import { ActionType } from '../../types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 
@@ -18,6 +17,20 @@ jest.mock('../../core/router', () => ({
 }))
 jest.mock('../../core/store')
 jest.mock('@reapit/cognito-auth')
+
+export const mockLoginSession = {
+  userName: 'bob@acme.com',
+  accessTokenExpiry: 2,
+  loginType: 'CLIENT',
+  refreshToken: 'MOCK_REFRESH_TOKEN',
+  accessToken: 'MOCK_ACCESS_TOKEN',
+  idToken: 'MOCK_ID_TOKEN',
+  loginIdentity: {
+    developerId: 'SOME_DEV_ID',
+    clientId: 'SOME_CLIENT_ID',
+    adminId: 'SOME_ADMIN_ID'
+  }
+} as LoginSession
 
 describe('login submit', () => {
   const loginParams: LoginParams = { loginType: 'CLIENT', userName: 'bob@acme.com', password: 'xxxxxx', mode: 'WEB' }

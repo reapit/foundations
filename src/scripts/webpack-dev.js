@@ -3,9 +3,10 @@ const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-web
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
-
+const EnvironmentPlugin = require('webpack').EnvironmentPlugin
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
+
+const config = require(path.resolve(__dirname, '../..', 'reapit-config.json'))
 
 module.exports = {
   context: process.cwd(),
@@ -26,9 +27,7 @@ module.exports = {
       title: 'TypeScript',
       excludeWarnings: false
     }),
-    new Dotenv({
-      path: path.join(process.cwd(), 'src', 'constants', '.env')
-    }),
+    new EnvironmentPlugin(config[process.env.REAPIT_ENV]),
     new HtmlWebpackPlugin({
       inject: true,
       template: 'public/index.html',

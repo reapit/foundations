@@ -9,7 +9,6 @@ import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
 import { Action } from '@/types/core'
-import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectClientId, selectFeaturedApps } from '@/selector/client'
@@ -39,20 +38,20 @@ describe('client fetch data', () => {
           pageSize: APPS_PER_PAGE,
           IsFeatured: false
         })}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         method: 'GET',
         headers: MARKETPLACE_HEADERS
       }),
       call(fetcher, {
         url: `${URLS.apps}?clientId=1&PageNumber=${params.data.page}&PageSize=${FEATURED_APPS}&IsFeatured=true`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         method: 'GET',
         headers: MARKETPLACE_HEADERS
       }),
       call(fetcher, {
         url: `${URLS.categories}`,
         method: 'GET',
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS
       })
     ])

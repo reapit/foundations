@@ -8,7 +8,6 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE, FEATURED_APPS } from '@/constants/paginator'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { Action } from '@/types/core'
-import { REAPIT_API_BASE_URL } from '../constants/api'
 import { selectClientId, selectFeaturedApps } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import { ClientItem, ClientParams } from '@/reducers/client'
@@ -41,7 +40,7 @@ export const clientDataFetch = function*({ data }) {
           IsFeatured: isFilteringForDirectApiApps ? undefined : false,
           IsDirectApi: isFilteringForDirectApiApps ? true : undefined
         })}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         method: 'GET',
         headers: MARKETPLACE_HEADERS
       }),
@@ -49,7 +48,7 @@ export const clientDataFetch = function*({ data }) {
         ? currentFeaturedApps
         : call(fetcher, {
             url: `${URLS.apps}?clientId=${clientId}&PageNumber=1&PageSize=${FEATURED_APPS}&IsFeatured=true`,
-            api: REAPIT_API_BASE_URL,
+            api: process.env.MARKETPLACE_API_BASE_URL as string,
             method: 'GET',
             headers: MARKETPLACE_HEADERS
           }),
@@ -58,7 +57,7 @@ export const clientDataFetch = function*({ data }) {
         : call(fetcher, {
             url: `${URLS.categories}`,
             method: 'GET',
-            api: REAPIT_API_BASE_URL,
+            api: process.env.MARKETPLACE_API_BASE_URL as string,
             headers: MARKETPLACE_HEADERS
           })
     ])

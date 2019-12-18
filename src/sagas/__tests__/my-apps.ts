@@ -8,10 +8,9 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
-import { REAPIT_API_BASE_URL } from '../../constants/api'
-import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectClientId } from '@/selector/client'
+import { errorThrownServer } from '@/actions/error'
 
 jest.mock('@reapit/elements')
 const params = { data: 1 }
@@ -25,7 +24,7 @@ describe('my-apps fetch data', () => {
   expect(gen.next(clientId).value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })

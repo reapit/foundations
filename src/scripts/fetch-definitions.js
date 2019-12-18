@@ -1,19 +1,15 @@
-require('dotenv').config({
-  path: '../src/constants/.env'
-})
 require('isomorphic-fetch')
 
 const fs = require('fs')
 const sw2dts = require('sw2dts')
-
-const BASE_URL = 'https://dev.platformmarketplace.reapit.net'
+const config = require(`${__dirname}/../../reapit-config.json`)[process.env.REAPIT_ENV || 'DEV']
 
 const apiSchema = [
   {
     definitionFile: `${__dirname}/../types/marketplace-api-schema.ts`,
-    endpoint: `${BASE_URL}/swagger/v1/swagger.json`,
+    endpoint: `${config.MARKETPLACE_API_BASE_URL}/swagger/v1/swagger.json`,
     headers: {
-      'X-Api-Key': process.env.MARKETPLACE_API_KEY_DEV
+      'X-Api-Key': config.MARKETPLACE_API_KEY
     }
   }
 ]

@@ -4,12 +4,13 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const Dotenv = require('dotenv-webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssWhitelister = require('purgecss-whitelister')
+const EnvironmentPlugin = require('webpack').EnvironmentPlugin
 
+const config = require(path.resolve(__dirname, '../..', 'reapit-config.json'))
 const PATHS = {
   src: path.join(__dirname, '../..', 'src')
 }
@@ -86,9 +87,7 @@ module.exports = {
       analyzerMode: 'disabled',
       generateStatsFile: true
     }),
-    new Dotenv({
-      path: path.join(process.cwd(), 'src', 'constants', '.env')
-    }),
+    new EnvironmentPlugin(config[process.env.REAPIT_ENV]),
     new HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css'

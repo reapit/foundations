@@ -1,11 +1,9 @@
-import { fetcher } from '@reapit/elements'
-import { put, call, takeLatest } from '@redux-saga/core/effects'
+import { put, takeLatest } from '@redux-saga/core/effects'
 import {
   developerDeleteRequestSuccess,
   developerDeleteRequestLoading,
   developerDeleteRequestFailure
 } from '@/actions/developer-delete'
-import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '@/constants/api'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
@@ -23,7 +21,7 @@ export const developerDeleteRequestSaga = function*({ data: developerId }) {
 
     // yield call(fetcher, {
     //   url: `${URLS.apps}/${developerId}`,
-    //   api: REAPIT_API_BASE_URL,
+    //   api: process.env.MARKETPLACE_API_BASE_URL as string,
     //   method: 'DELETE',
     //   headers: MARKETPLACE_HEADERS
     // })

@@ -5,7 +5,7 @@ import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import messages from '@/constants/messages'
-import { MARKETPLACE_HEADERS, REAPIT_API_BASE_URL, URLS, COGNITO_API_BASE_URL } from '@/constants/api'
+import { MARKETPLACE_HEADERS, URLS } from '@/constants/api'
 import { settingShowLoading, requestDeveloperDataSuccess, ChangePasswordParams } from '@/actions/settings'
 import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
@@ -18,7 +18,7 @@ import { history } from '../core/router'
 export const fetchDeveloperInfo = async (developerId: string | null | undefined) => {
   const response = await fetcher({
     url: `${URLS.developers}/${developerId}`,
-    api: REAPIT_API_BASE_URL,
+    api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'GET',
     headers: MARKETPLACE_HEADERS
   })
@@ -57,7 +57,7 @@ export type UpdateDeveloperInfoParams = {
 export const updateDeveloperInfo = async ({ developerId, values }: UpdateDeveloperInfoParams) => {
   const response = await fetcher({
     url: `${URLS.developers}/${developerId}`,
-    api: REAPIT_API_BASE_URL,
+    api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'PUT',
     headers: MARKETPLACE_HEADERS,
     body: values
@@ -105,7 +105,7 @@ export const callChangePassword = async ({ values, email }: CallChangePasswordPa
   const CHANGE_PASSWORD_URL = '/password/change'
   const response = await fetcher({
     url: CHANGE_PASSWORD_URL,
-    api: COGNITO_API_BASE_URL,
+    api: process.env.COGNITO_API_BASE_URL as string,
     method: 'POST',
     headers: MARKETPLACE_HEADERS,
     body: {

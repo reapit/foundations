@@ -6,7 +6,6 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { Action } from '@/types/core'
-import { REAPIT_API_BASE_URL } from '../constants/api'
 import {
   adminAppsReceiveData,
   adminAppsRequestFailure,
@@ -24,7 +23,7 @@ export const adminAppsFetch = function*({ data }) {
         ...data,
         pageSize: APPS_PER_PAGE
       })}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })
@@ -61,7 +60,7 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
 
     yield call(fetcher, {
       url: `${URLS.apps}/${id}/feature`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       body: isFeatured ? { isFeatured } : undefined,
       method: isFeatured ? 'PUT' : 'DELETE',
       headers: MARKETPLACE_HEADERS
