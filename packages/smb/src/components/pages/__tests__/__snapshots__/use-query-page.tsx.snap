@@ -391,17 +391,11 @@ exports[`Login should match a snapshot 1`] = `
     }
   }
 >
-  <Component
-    location={
-      Object {
-        "pathname": "/client",
-      }
-    }
-  />
+  <Component />
 </ApolloProvider>
 `;
 
-exports[`Login should match a snapshot graphql 1`] = `
+exports[`UseQuery should match a snapshot 1`] = `
 <ApolloProvider
   client={
     ApolloClient {
@@ -792,17 +786,11 @@ exports[`Login should match a snapshot graphql 1`] = `
     }
   }
 >
-  <Component
-    location={
-      Object {
-        "pathname": "/client",
-      }
-    }
-  />
+  <Component />
 </ApolloProvider>
 `;
 
-exports[`Login useQuery should match a snapshot 1`] = `
+exports[`UseQueryPage should match a snapshot 1`] = `
 <ApolloProvider
   client={
     ApolloClient {
@@ -1193,12 +1181,6 @@ exports[`Login useQuery should match a snapshot 1`] = `
     }
   }
 >
-  <Component
-    location={
-      Object {
-        "pathname": "/client",
-      }
-    }
-  />
+  <Component />
 </ApolloProvider>
 `;
