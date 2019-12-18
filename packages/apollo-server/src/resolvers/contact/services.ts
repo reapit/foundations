@@ -17,22 +17,22 @@ export const URLS = {
  */
 const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: ServerContext) => {
   const traceId = context.traceId
-  logger.info('callGetContactByIdAPI', { traceId, args })
-  const getResponse = await fetcher({
-    url: `${URLS.contacts}/${args.id}`,
-    api: REAPIT_API_BASE_URL,
-    method: 'GET',
-    headers: {
-      Authorization: context.authorization,
-      'Content-Type': 'application/json',
-    },
-  })
-  if (getResponse.status !== 200) {
-    const error = getResponse.description
-    // logger.error('callGetContactByIdAPI', { traceId, error })
-    throw new Error(error)
+  try {
+    logger.info('callGetContactByIdAPI', { traceId, args })
+    const getResponse = await fetcher({
+      url: `${URLS.contacts}/${args.id}`,
+      api: REAPIT_API_BASE_URL,
+      method: 'GET',
+      headers: {
+        Authorization: context.authorization,
+        'Content-Type': 'application/json',
+      },
+    })
+    return getResponse
+  } catch (error) {
+    logger.error('callGetContactByIdAPI', error)
+    return errors.generateUserInputError(traceId)
   }
-  return getResponse
 }
 
 const callCreateContactAPI = async (contact: CreateContactArgs) => {
@@ -47,13 +47,8 @@ const callCreateContactAPI = async (contact: CreateContactArgs) => {
 export const getContactById = (args: GetContactByIdArgs, context: ServerContext) => {
   const traceId = context.traceId
   logger.info('getContactById', { traceId, args })
-  try {
-    const contact = callGetContactByIdAPI(args, context)
-    return contact
-  } catch (error) {
-    logger.error('getContactById', { traceId, error })
-    return errors.generateUserInputError(traceId)
-  }
+  const contact = callGetContactByIdAPI(args, context)
+  return contact
 }
 
 export const createContact = (args: CreateContactArgs, context: ServerContext) => {

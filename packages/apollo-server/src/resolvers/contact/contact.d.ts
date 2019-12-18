@@ -36,3 +36,16 @@ export type CreateContactArgs = {
 export type GetContactByIdArgs = {
   id: string
 }
+
+export type GetContactsArgs = {
+  name?: string
+  address?: string
+  negotiatorId: string[]
+  officeId: string[]
+  active: boolean
+  pageNumber: number
+  pageSize: number
+  sortBy: string
+  identityCheck: string[]
+  marketingConsent: string[]
+}
