@@ -1,7 +1,5 @@
 import * as React from 'react'
-import { Redirect } from 'react-router-dom'
 import { withRouter, RouteComponentProps } from 'react-router'
-import Routes from '@/constants/routes'
 import { Input, Button, H1, Level, Alert, isEmail, Formik, Form } from '@reapit/elements'
 import { LoginParams } from '@reapit/cognito-auth'
 import loginStyles from '@/styles/pages/login.scss?mod'
@@ -9,7 +7,7 @@ import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { ContactModel } from '@/types/platform'
 
 import { gql } from 'apollo-boost'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 
 export const MOCK_QUERY = gql`
   query MockQuery {
@@ -20,7 +18,15 @@ export const MOCK_QUERY = gql`
   }
 `
 
-interface ContactQueryData {
+export const LOGIN_MUTATION = gql`
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) @client {
+      token
+    }
+  }
+`
+
+export interface ContactQueryData {
   GetContacts: ContactModel
 }
 
@@ -36,6 +42,10 @@ export type LoginMappedProps = {
 export type LoginFormValues = {
   email: string
   password: string
+}
+
+export type LoginMutationResponse = {
+  login: any
 }
 
 export type LoginFormError = {
@@ -69,37 +79,33 @@ export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginF
 }
 
 export const Login: React.FunctionComponent<LoginProps> = () => {
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
-  // const { hasSession, error, login } = props
-  const hasSession = false
-  const error = null
-  const login = () => {}
-  const { disabled, wrapper, container, image } = loginStyles
+  const { wrapper, container, image } = loginStyles
 
-  const { data } = useQuery<ContactQueryData>(MOCK_QUERY)
-  console.log('data', data?.GetContacts.title)
+  const { loading, error, data } = useQuery<ContactQueryData>(MOCK_QUERY)
+  console.log('login: ', loading, error)
+  const [login, { data: loginData, loading: submitLoading, error: submitError }] = useMutation<
+    LoginMutationResponse,
+    LoginFormValues
+  >(LOGIN_MUTATION)
 
-  React.useEffect(() => {
-    if (error) {
-      setIsSubmitting(false)
-    }
-  }, [error])
+  if (loading) return <div>loading...</div>
 
-  if (hasSession) {
-    return <Redirect to={Routes.AUTHENTICATED} />
-  }
+  if (error) return <div>Error</div>
 
   return (
     <div className={container}>
-      <div className={`${wrapper} ${isSubmitting && disabled}`}>
+      <div className={`${wrapper}`}>
         <H1 isCentered>Sign in</H1>
         <p className="pb-8">Welcome to smb</p>
+        <p className="pb-8">graphql message: {data?.GetContacts.title}</p>
 
         <Formik
           validate={validate}
           initialValues={{ email: '', password: '' } as LoginFormValues}
-          onSubmit={values => onSubmitHandler(setIsSubmitting, login, values)}
-          render={() => (
+          onSubmit={values => {
+            login({ variables: { email: values.email, password: values.password } })
+          }}
+          render={({ isSubmitting }) => (
             <Form data-test="login-form">
               <Input
                 dataTest="login-email"
@@ -119,11 +125,16 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
               />
 
               <Level>
-                <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
+                <Button
+                  type="submit"
+                  loading={isSubmitting && submitLoading}
+                  variant="primary"
+                  disabled={isSubmitting && submitLoading}
+                >
                   Login
                 </Button>
               </Level>
-
+              {loginData && <Alert message={loginData.login.token} type="success" />}
               {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
             </Form>
           )}
