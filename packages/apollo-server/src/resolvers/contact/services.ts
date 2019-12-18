@@ -1,12 +1,12 @@
 import 'isomorphic-fetch'
-import { fetcher } from '@reapit/elements'
+import { fetcher, setQueryParams } from '@reapit/elements'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
-import { GetContactByIdArgs, CreateContactArgs } from './contact'
+import { GetContactByIdArgs, CreateContactArgs, GetContactsArgs } from './contact'
 import errors from '../../errors'
 
 export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
-
+export const CONTACTS_PER_PAGE = 10
 export const URLS = {
   contacts: '/contacts',
   identityChecks: '/identitychecks',
@@ -35,6 +35,27 @@ const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: ServerCo
   }
 }
 
+const callGetContactsAPI = async (args: GetContactsArgs, context: ServerContext) => {
+  const traceId = context.traceId
+  logger.info('callGetContactsAPI', { args, traceId })
+  try {
+    const response = fetcher({
+      url: `${URLS.contacts}/?${setQueryParams({ ...args, pageSize: CONTACTS_PER_PAGE })}`,
+      api: REAPIT_API_BASE_URL,
+      method: 'GET',
+      headers: {
+        Authorization: context.authorization,
+        'Content-Type': 'application/json',
+      },
+    })
+    return response
+  } catch (error) {
+    logger.error('callGetContactsAPI', error)
+    return errors.generateUserInputError(traceId)
+  }
+}
+
+// TODO: will call create contact API
 const callCreateContactAPI = async (contact: CreateContactArgs) => {
   logger.info('createContact', { contact })
   return {}
@@ -51,6 +72,13 @@ export const getContactById = (args: GetContactByIdArgs, context: ServerContext)
   return contact
 }
 
+export const getContacts = (args: GetContactsArgs, context: ServerContext) => {
+  const traceId = context.traceId
+  logger.info('getContacts', { traceId, args })
+  const contact = callGetContactsAPI(args, context)
+  return contact
+}
+
 export const createContact = (args: CreateContactArgs, context: ServerContext) => {
   const traceId = context.traceId
   logger.info('createContact', { traceId, args })
@@ -61,6 +89,7 @@ export const createContact = (args: CreateContactArgs, context: ServerContext) =
 export const contactServices = {
   getContactById,
   createContact,
+  getContacts,
 }
 
 export default contactServices
