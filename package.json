@@ -42,7 +42,7 @@
     "webpack-bundle-analyzer": "^3.4.1"
   },
   "devDependencies": {
-    "@reapit/types": "latest",
+    "@reapit/foundations-ts-definitions": "^0.0.4",
     "@redux-saga/testing-utils": "^1.0.5",
     "@types/enzyme": "^3.9.3",
     "@types/jest": "^24.0.13",

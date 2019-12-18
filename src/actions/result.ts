@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { PagedResultContactModel_ } from '@reapit/types'
+import { PagedResultContactModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface SearchParams {
   name?: string
