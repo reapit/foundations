@@ -1,7 +1,7 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import { nextAppointmentValidateSuccess, nextAppointmentClear } from '../actions/next-appointment'
-import { AppointmentAttendeeModel } from '@/types/platform'
+import { AppointmentAttendeeModel } from '@reapit/foundations-ts-definitions'
 
 export interface NextAppointment {
   id: string

@@ -16,7 +16,7 @@ import { homeTabChange } from '@/actions/home'
 import { setDestination } from '@/actions/direction'
 import { isMobile } from '../../utils/device-detection'
 import TravelMode from '../ui/travel-mode'
-import { AppointmentModel } from '@/types/platform'
+import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 import { selectOnlineStatus } from '@/selectors/online'
 
 export interface HomeMappedActions {

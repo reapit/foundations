@@ -1,4 +1,4 @@
-import { AppointmentModel } from '@/types/platform'
+import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 
 export const appoinmentsStub: AppointmentModel[] = [
   {

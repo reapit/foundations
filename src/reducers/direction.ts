@@ -1,6 +1,6 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { AppointmentModel } from '@/types/platform'
+import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 import { setDestination } from '@/actions/direction'
 
 export type DirectionState = {
