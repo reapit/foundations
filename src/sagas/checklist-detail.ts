@@ -4,7 +4,7 @@ import { fetcher, isBase64 } from '@reapit/elements'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { URLS, REAPIT_API_BASE_URL, UPLOAD_FILE_BASE_URL } from '@/constants/api'
+import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '../actions/error'
 import {
@@ -28,7 +28,7 @@ export const fetchContact = async ({ contactId, headers }) => {
   try {
     const response = await fetcher({
       url: `${URLS.contacts}/${contactId}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: headers
     })
@@ -43,7 +43,7 @@ export const fetchIdentityCheck = async ({ headers, contactId }) => {
   try {
     const response = await fetcher({
       url: `${URLS.contacts}/${contactId}${URLS.idChecks}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: headers
     })
@@ -58,7 +58,7 @@ export const uploadImage = async ({ name, imageData, headers }) => {
   try {
     const responseUploadImage = await fetcher({
       url: '/',
-      api: UPLOAD_FILE_BASE_URL,
+      api: process.env.UPLOAD_FILE_BASE_URL as string,
       method: 'POST',
       headers: headers,
       body: {
@@ -77,7 +77,7 @@ export const updateContact = async ({ contactId, headers, contact }) => {
   try {
     const response = await fetcher({
       url: `${URLS.contacts}/${contactId}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
       headers: headers,
       body: contact
@@ -93,7 +93,7 @@ export const updateIdentityCheck = async ({ contactId, identityChecks, headers }
   try {
     const response = await fetcher({
       url: `${URLS.contacts}/${contactId}${URLS.idChecks}/${identityChecks.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
       headers: headers,
       body: identityChecks
@@ -109,7 +109,7 @@ export const createIdentityCheck = async ({ contactId, identityChecks, headers }
   try {
     const response = await fetcher({
       url: `${URLS.contacts}/${contactId}${URLS.idChecks}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'POST',
       headers: headers,
       body: identityChecks
