@@ -5,7 +5,7 @@ import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/a
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
+import { URLS } from '@/constants/api'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { contacts } from '../__stubs__/contacts'
 import { errorThrownServer } from '@/actions/error'
@@ -32,7 +32,7 @@ describe('result fetch data', () => {
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
       url: `${URLS.contacts}/?${setQueryParams({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: mockHeaders
     })

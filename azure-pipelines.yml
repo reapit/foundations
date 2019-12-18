@@ -13,6 +13,8 @@ jobs:
       vmImage: 'ubuntu-latest'
     variables:
       - group: aws
+      - name: REAPIT_ENV
+        value: 'DEV'
     steps:
       - task: NodeTool@0
         inputs:
@@ -23,14 +25,6 @@ jobs:
         displayName: Install deps
         env:
           NPM_TOKEN: $(NPM_TOKEN)
-
-      - bash: printenv > src/constants/.env
-        displayName: Injects ENVs
-        env:
-          COGNITO_CLIENT_ID: $(COGNITO_CLIENT_ID)
-          COGNITO_USERPOOL_ID: $(COGNITO_USERPOOL_ID)
-          MARKETPLACE_API_KEY: $(MARKETPLACE_API_KEY)
-          REAPIT_API_KEY: $(REAPIT_API_KEY)
 
       - script: yarn test:ci
         displayName: Unit tests
@@ -46,11 +40,24 @@ jobs:
           failTaskOnFailedTests: true # Optional
           publishRunAttachments: true # Optional
 
+      - bash: |
+          branch=$(Build.SourceBranch)
+          if [[ branch == *"refs/tags/AC-"* ]]; then
+            echo "##vso[task.setvariable variable=REAPIT_ENV]PROD";
+          fi
+          if [[ branch == *"refs/heads/demo"* ]]; then
+            echo "##vso[task.setvariable variable=REAPIT_ENV]DEMO";
+          fi
+        displayName: Set Reapit Env
+
       - script: yarn build
         displayName: Build static assets
         failOnStderr: true
         env:
+          REAPIT_ENV: $(REAPIT_ENV
           NPM_TOKEN: $(NPM_TOKEN)
+          AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+          AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY) 
 
       - task: PublishPipelineArtifact@1
         inputs:

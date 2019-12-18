@@ -11,8 +11,9 @@
   "author": "Author",
   "main": "./src/index.ts",
   "scripts": {
-    "build": "webpack --color --mode production --config ./src/scripts/webpack-prod.js",
-    "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
+    "build": "yarn fetch-config && webpack --color --mode production --config ./src/scripts/webpack-prod.js",
+    "dev": "yarn fetch-config && REAPIT_ENV=LOCAL webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
+    "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
     "lint": "tslint --fix --project tsconfig.json --format stylish",
     "start": "node ./public/index.js lifetime-legal",
     "test": "jest --coverage --silent",
@@ -37,6 +38,7 @@
     "redux-saga": "^1.1.3"
   },
   "devDependencies": {
+    "@reapit/config-manager": "^1.1.0",
     "@reapit/foundations-ts-definitions": "^0.0.4",
     "@redux-saga/testing-utils": "^1.0.5",
     "@types/enzyme": "^3.9.3",
