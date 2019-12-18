@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "jsx": "react",
+    "types": ["jest", "node", "react"],
+    "typeRoots": ["./src/types/index.d.ts", "./node_modules/@types", "../../node_modules/@types"],
+    "rootDir": ".",
+    "baseUrl": "packages/*/",
+    "paths": {},
+    "lib": ["es2015", "es2017", "dom", "es5", "es6", "esnext"]
+  },
+  "include": ["packages/*/src"],
+  "exclude": [
+    "public",
+    "dist",
+    "webpack.config.js",
+    "node_modules",
+    "packages/*/src/tests/coverage"
+  ]
+}
