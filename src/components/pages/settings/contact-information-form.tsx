@@ -14,7 +14,7 @@ import {
   FormikProps,
   FormikBag
 } from '@reapit/elements'
-import { DeveloperModel } from '@/types/marketplace-api-schema'
+import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 
 export type ContactInformationFormProps = FormikProps<ContactInformationValues>
 

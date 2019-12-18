@@ -15,7 +15,7 @@ import {
   ClientMappedProps
 } from '../client'
 import { addQuery } from '@/utils/client-url-params'
-import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { RouteComponentProps, StaticContext } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 

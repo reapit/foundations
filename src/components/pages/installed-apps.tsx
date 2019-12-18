@@ -8,7 +8,7 @@ import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import routes from '@/constants/routes'
 import InstalledAppList from '@/components/ui/installed-app-list'
-import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { handleLaunchApp } from '../../utils/launch-app'
 
 export interface InstalledAppsMappedProps {

@@ -17,7 +17,7 @@ import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
 import { appCategorieStub } from '../__stubs__/app-categories'
-import { ScopeModel, PagedResultCategoryModel_ } from '@/types/marketplace-api-schema'
+import { ScopeModel, PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
 
 jest.mock('@reapit/elements')
 

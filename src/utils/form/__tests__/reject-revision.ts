@@ -1,5 +1,5 @@
 import { validate } from '../reject-revision'
-import { RejectRevisionModel } from '@/types/marketplace-api-schema'
+import { RejectRevisionModel } from '@reapit/foundations-ts-definitions'
 
 import errorMessages from '@/constants/error-messages'
 

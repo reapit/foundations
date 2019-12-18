@@ -4,7 +4,7 @@ import toJson from 'enzyme-to-json'
 import CategoriesList, { CategoriesListProps } from '@/components/ui/categories-list'
 import CategoryItem from '@/components/ui/category-item'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
-import { CategoryModel } from '@/types/marketplace-api-schema'
+import { CategoryModel } from '@reapit/foundations-ts-definitions'
 
 const props: CategoriesListProps = {
   categories: appCategorieStub.data as CategoryModel[],

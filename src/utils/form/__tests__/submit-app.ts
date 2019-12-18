@@ -1,5 +1,5 @@
 import errorMessages from '@/constants/error-messages'
-import { CreateAppModel } from '@/types/marketplace-api-schema'
+import { CreateAppModel } from '@reapit/foundations-ts-definitions'
 import { validate } from '../submit-app'
 
 describe('submitAppValidation', () => {

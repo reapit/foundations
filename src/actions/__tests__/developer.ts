@@ -8,7 +8,7 @@ import {
 } from '../developer'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
-import { CreateDeveloperModel } from '../../types/marketplace-api-schema'
+import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
 describe('developer actions', () => {

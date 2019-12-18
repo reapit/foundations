@@ -12,7 +12,7 @@ import { appDetailRequestData } from '@/actions/app-detail'
 import DeveloperAppModal from '../ui/developer-app-modal'
 import { setDeveloperAppModalStateViewDetail, developerAppShowModal } from '@/actions/developer-app-modal'
 import { appDeleteSetInitFormState } from '@/actions/app-delete'
-import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 export interface DeveloperMappedActions {
   fetchAppDetail: (id: string) => void

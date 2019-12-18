@@ -6,7 +6,7 @@ import { withRouter, RouteComponentProps } from 'react-router'
 import styles from '@/styles/blocks/app-sidebar.scss?mod'
 import CategoriesList from '@/components/ui/categories-list'
 import { FaSearch } from 'react-icons/fa'
-import { CategoryModel } from '@/types/marketplace-api-schema'
+import { CategoryModel } from '@reapit/foundations-ts-definitions'
 import { selectCategories } from '@/selector/app-categories'
 
 import { addQuery, removeQuery, getParamValueFromPath } from '@/utils/client-url-params'

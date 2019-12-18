@@ -5,7 +5,7 @@ import {
   PagedResultInstallationModel_,
   TerminateInstallationModel,
   CreateInstallationModel
-} from '@/types/marketplace-api-schema'
+} from '@reapit/foundations-ts-definitions'
 
 export interface InstallationParams {
   appId?: string[]

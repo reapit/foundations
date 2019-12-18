@@ -12,7 +12,7 @@ import settingsSagas, {
 } from '../settings'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { DeveloperModel } from '@/types/marketplace-api-schema'
+import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { ChangePasswordParams, settingShowLoading, requestDeveloperDataSuccess } from '@/actions/settings'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'

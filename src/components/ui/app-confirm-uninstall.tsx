@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { FormState, ReduxState } from '@/types/core'
 import { Button, SubTitleH6, ModalFooter, ModalBody, ModalHeader } from '@reapit/elements'
 import { setAppDetailModalStateBrowse, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
-import { AppDetailModel } from '@/types/marketplace-api-schema'
+import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { appInstallationsRequestUninstall, UninstallParams } from '@/actions/app-installations'
 
 export interface AppConfirmUninstallInnerProps {

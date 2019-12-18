@@ -6,7 +6,7 @@ import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
-import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
+import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { revisionSubmitStub } from '../__stubs__/revision-submit'
 import { appDetailRequestData } from '@/actions/app-detail'
 

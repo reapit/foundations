@@ -34,7 +34,7 @@ import { submitApp, submitAppSetFormState, SubmitAppFormikActions } from '@/acti
 import { SubmitAppState } from '@/reducers/submit-app'
 import { AppDetailState } from '@/reducers/app-detail'
 import { SubmitRevisionState } from '@/reducers/submit-revision'
-import { CreateAppModel, ScopeModel, AppDetailModel, CategoryModel } from '@/types/marketplace-api-schema'
+import { CreateAppModel, ScopeModel, AppDetailModel, CategoryModel } from '@reapit/foundations-ts-definitions'
 import Routes from '@/constants/routes'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
 import DeveloperSubmitAppSuccessfully from './developer-submit-app-successfully'

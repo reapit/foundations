@@ -1,5 +1,5 @@
 import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '../errors'
-import { CreateAppModel } from '@/types/marketplace-api-schema'
+import { CreateAppModel } from '@reapit/foundations-ts-definitions'
 
 type InputOutput = [ApiFormErrorsResponse, CreateAppModel | null]
 

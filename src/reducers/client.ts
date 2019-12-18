@@ -1,7 +1,7 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import { clientLoading, clientReceiveData, clientClearData, clientRequestDataFailure } from '../actions/client'
-import { PagedResultAppSummaryModel_, AppSummaryModel } from '@/types/marketplace-api-schema'
+import { PagedResultAppSummaryModel_, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 export interface ClientItem {
   apps: PagedResultAppSummaryModel_

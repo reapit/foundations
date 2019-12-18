@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ModalProps, Modal } from '@reapit/elements'
-import { InstallationModel } from '@/types/marketplace-api-schema'
+import { InstallationModel } from '@reapit/foundations-ts-definitions'
 import Installations from './installations'
 import ConfirmUninstall from './confirm-uninstall'
 

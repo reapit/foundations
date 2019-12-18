@@ -1,7 +1,7 @@
 import { Action, FormState } from '../types/core'
 import { isType } from '../utils/actions'
 import { developerLoading, developerReceiveData, developerClearData, developerSetFormState } from '../actions/developer'
-import { PagedResultAppSummaryModel_, ScopeModel } from '@/types/marketplace-api-schema'
+import { PagedResultAppSummaryModel_, ScopeModel } from '@reapit/foundations-ts-definitions'
 import { developerAppShowModal } from '@/actions/developer-app-modal'
 
 export interface DeveloperItem {

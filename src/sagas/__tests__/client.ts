@@ -13,7 +13,11 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { selectClientId, selectFeaturedApps } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
-import { PagedResultCategoryModel_, PagedResultAppSummaryModel_, AppSummaryModel } from '@/types/marketplace-api-schema'
+import {
+  PagedResultCategoryModel_,
+  PagedResultAppSummaryModel_,
+  AppSummaryModel
+} from '@reapit/foundations-ts-definitions'
 import { appCategorieStub } from '../__stubs__/app-categories'
 
 jest.mock('@reapit/elements')

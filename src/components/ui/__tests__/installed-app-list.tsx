@@ -9,7 +9,7 @@ import {
 } from '../installed-app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { Loader } from '@reapit/elements'
-import { AppSummaryModel } from '../../../types/marketplace-api-schema'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 
 const app = (appsDataStub as { data: { data: AppSummaryModel[] } }).data.data[0]
 

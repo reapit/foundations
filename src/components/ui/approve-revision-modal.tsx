@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { ApproveModel } from '@/types/marketplace-api-schema'
+import { ApproveModel } from '@reapit/foundations-ts-definitions'
 import { Button, Modal, ModalProps, ModalBody, SubTitleH6, ModalFooter, Form, Formik } from '@reapit/elements'
 import { approveRevision, RevisionApproveRequestParams } from '@/actions/revision-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'

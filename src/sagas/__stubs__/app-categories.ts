@@ -1,4 +1,4 @@
-import { PagedResultCategoryModel_ } from '../../types/marketplace-api-schema'
+import { PagedResultCategoryModel_ } from '@reapit/foundations-ts-definitions'
 
 export const appCategorieStub: PagedResultCategoryModel_ = {
   data: [

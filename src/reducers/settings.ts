@@ -1,6 +1,6 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { DeveloperModel } from '@/types/marketplace-api-schema'
+import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { requestDeveloperDataSuccess, settingShowLoading } from '@/actions/settings'
 
 export interface SettingsState {

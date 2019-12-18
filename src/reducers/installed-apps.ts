@@ -6,7 +6,7 @@ import {
   installedAppsClearData,
   installedAppsRequestDataFailure
 } from '../actions/installed-apps'
-import { PagedResultAppSummaryModel_ } from '@/types/marketplace-api-schema'
+import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 
 export interface InstalledAppsItem {
   data: PagedResultAppSummaryModel_

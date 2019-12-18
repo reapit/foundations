@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { FaEllipsisH } from 'react-icons/fa'
 import { Tile } from '@reapit/elements'
 import appCardStyles from '@/styles/blocks/app-card.scss?mod'

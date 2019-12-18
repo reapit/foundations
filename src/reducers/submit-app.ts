@@ -1,7 +1,7 @@
 import { Action, FormState } from '../types/core'
 import { isType } from '../utils/actions'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
-import { CreateAppModel, ScopeModel } from '@/types/marketplace-api-schema'
+import { CreateAppModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 
 export interface SubmitAppState {
   loading: boolean

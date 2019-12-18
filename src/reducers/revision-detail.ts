@@ -1,6 +1,6 @@
 import { Action, FormState } from '../types/core'
 import { isType } from '../utils/actions'
-import { AppRevisionModel, ScopeModel } from '@/types/marketplace-api-schema'
+import { AppRevisionModel, ScopeModel } from '@reapit/foundations-ts-definitions'
 import {
   revisionDetailLoading,
   revisionDetailReceiveData,

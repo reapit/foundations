@@ -1,4 +1,4 @@
-import { InstallationModel, PagedResultInstallationModel_ } from '../../types/marketplace-api-schema'
+import { InstallationModel, PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
 
 export const installationsStub: PagedResultInstallationModel_ = {
   data: [

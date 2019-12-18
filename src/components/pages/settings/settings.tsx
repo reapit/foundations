@@ -18,7 +18,7 @@ import { ReduxState } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { authClear } from '@/actions/auth'
-import { DeveloperModel } from '@/types/marketplace-api-schema'
+import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { updateDeveloperData, changePassword } from '@/actions/settings'
 
 export type SettingsPageProps = StateProps & DispatchProps

@@ -1,6 +1,6 @@
 import { Action, FormState } from '../types/core'
 import { isType } from '../utils/actions'
-import { PagedResultInstallationModel_ } from '../types/marketplace-api-schema'
+import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
 import {
   appInstallationsSetFormState,
   appInstallationsReceiveData,

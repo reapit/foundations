@@ -1,7 +1,7 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { DeveloperItem } from '../reducers/developer'
-import { CreateDeveloperModel } from '../types/marketplace-api-schema'
+import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { FormState } from '../types/core'
 
 export const developerRequestData = actionCreator<number>(ActionTypes.DEVELOPER_REQUEST_DATA)

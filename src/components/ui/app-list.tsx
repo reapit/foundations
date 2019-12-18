@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AppSummaryModel } from '@/types/marketplace-api-schema'
+import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from './app-card'
 import styles from '@/styles/blocks/app-list.scss?mod'
 import {

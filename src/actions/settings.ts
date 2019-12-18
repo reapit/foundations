@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { DeveloperModel } from '@/types/marketplace-api-schema'
+import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 
 export const requestDeveloperData = actionCreator<void>(ActionTypes.SETTING_FETCH_DEVELOPER_INFO)
 export const requestDeveloperDataSuccess = actionCreator<DeveloperModel>(

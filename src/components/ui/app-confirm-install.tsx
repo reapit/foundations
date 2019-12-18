@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { FormState, ReduxState } from '@/types/core'
-import { ScopeModel, AppDetailModel } from '@/types/marketplace-api-schema'
+import { ScopeModel, AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter } from '@reapit/elements'
 import { setAppDetailModalStateBrowse, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
