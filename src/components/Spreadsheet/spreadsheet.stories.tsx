@@ -1,35 +1,49 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Spreadsheet } from './index'
 
+const data = [
+  [
+    {
+      readOnly: true,
+      component: <div>adad</div>,
+      forceComponent: true,
+      value: 'Office Name'
+    },
+    { readOnly: true, value: 'Building Name' },
+    { readOnly: true, value: 'Building No.' },
+    { readOnly: true, value: 'Address 1' },
+    { readOnly: true, value: 'Address 2' },
+    { readOnly: true, value: 'Address 3' },
+    { readOnly: true, value: 'Address 4' },
+    { readOnly: true, value: 'Post Code' },
+    { readOnly: true, value: 'Telephone' },
+    { readOnly: true, value: 'Fax' },
+    { readOnly: true, value: 'Email' }
+  ],
+  [
+    {
+      value: '',
+      component: <div>adad</div>,
+      forceComponent: true
+    },
+    { value: 'Building Name' },
+    { value: 'Building No.' },
+    { value: 'Address 1' },
+    { value: 'Address 2' },
+    { value: 'Address 3' },
+    { value: 'Address 4' },
+    { value: 'Post Code' },
+    { value: 'Telephone' },
+    { value: 'Fax' },
+    { value: 'Email' }
+  ]
+]
 const SpreadSheetBasic = () => {
-  const [data, setData] = useState([
-    [
-      { readOnly: true, value: '' },
-      { value: 'A', readOnly: true },
-      { value: 'B', readOnly: true },
-      { value: 'C', readOnly: true },
-      { value: 'D', readOnly: true }
-    ],
-    [{ readOnly: true, value: '1' }, { value: '1' }, { value: '3' }, { value: '3' }, { value: '3' }],
-    [{ readOnly: true, value: '2' }, { value: '2' }, { value: '4' }, { value: '4' }, { value: '4' }],
-    [{ readOnly: true, value: '3' }, { value: '1' }, { value: '3' }, { value: '3' }, { value: '3' }],
-    [{ readOnly: true, value: '4' }, { value: '2' }, { value: '4' }, { value: '4' }, { value: '4' }]
-  ])
   return (
     <Spreadsheet
       data={data}
-      valueRenderer={cell => cell.value}
-      overflow="wrap"
-      onCellsChanged={changes => {
-        setData(prev => {
-          const newData = prev.map(row => [...row])
-          changes.forEach(({ row, col, value }) => {
-            newData[row][col] = { ...newData[row][col], value: value as string }
-          })
-          return newData
-        })
-      }}
+      description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
     />
   )
 }
