@@ -5,7 +5,7 @@ import { identityTypesReceiveData, identityTypesRequestFailure } from '@/actions
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
-import { URLS, REAPIT_API_BASE_URL } from '@/constants/api'
+import { URLS } from '@/constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -23,7 +23,7 @@ describe('identity fetch data', () => {
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
       url: `${URLS.configuration}/identityDocumentTypes`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: mockHeaders
     })
