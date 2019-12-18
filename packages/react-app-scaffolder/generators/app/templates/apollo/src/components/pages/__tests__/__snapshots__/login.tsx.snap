@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should match a snapshot 1`] = `
+<div>
+  <div
+    className="undefined false"
+  >
+    <H1
+      isCentered={true}
+    >
+      Sign in
+    </H1>
+    <p
+      className="pb-8"
+    >
+      Welcome to smb
+    </p>
+    <Formik
+      initialValues={
+        Object {
+          "email": "",
+          "password": "",
+        }
+      }
+      onSubmit={[Function]}
+      render={[Function]}
+      validate={[Function]}
+    />
+  </div>
+  <div>
+    <img
+      alt="Reapit Graphic"
+      src=""
+    />
+  </div>
+</div>
+`;
