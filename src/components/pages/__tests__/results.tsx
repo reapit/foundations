@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { PagedResultContactModel_ } from '@/types/contact-api-schema'
+import { PagedResultContactModel_ } from '@reapit/foundations-ts-definitions'
 import {
   Result,
   ResultProps,

@@ -1,5 +1,5 @@
 import { IdentificationFormValues } from '@/components/ui/forms/identification'
-import { ContactModel, ContactIdentityCheckModel } from '@/types/contact-api-schema'
+import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 

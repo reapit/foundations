@@ -32,7 +32,7 @@ import {
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { ContactModel } from '@/types/contact-api-schema'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import ActionTypes from '@/constants/action-types'
 import { selectUserCode } from '@/selectors/auth'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Input, DatePicker, Formik, Form } from '@reapit/elements'
-import { ContactCommunicationModel, ContactAddressModel, ContactModel } from '@/types/contact-api-schema'
+import { ContactCommunicationModel, ContactAddressModel, ContactModel } from '@reapit/foundations-ts-definitions'
 
 export const renderForm = () => () => {
   return (

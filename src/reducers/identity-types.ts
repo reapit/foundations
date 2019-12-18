@@ -5,11 +5,11 @@ import {
   identityTypesRequestData,
   identityTypesReceiveData
 } from '../actions/identity-types'
-import { IdentityDocumentTypesModel } from '@/types/configuration-api-schema'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
 
 export interface IdentityTypesState {
   loading: boolean
-  identityTypes: IdentityDocumentTypesModel[] | null
+  identityTypes: ListItemModel[] | null
 }
 
 export const defaultState: IdentityTypesState = {
