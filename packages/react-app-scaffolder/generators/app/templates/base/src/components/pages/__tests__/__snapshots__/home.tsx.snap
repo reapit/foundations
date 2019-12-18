@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerBasic
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <H3>
+        Welcome To Reapit Elements
+      </H3>
+      <SubTitleH5>
+        Click 
+        <Link
+          to="/login"
+        >
+          here
+        </Link>
+         to login
+      </SubTitleH5>
+    </FlexContainerResponsive>
+  </FlexContainerBasic>
+</Connect(ErrorBoundary)>
+`;
