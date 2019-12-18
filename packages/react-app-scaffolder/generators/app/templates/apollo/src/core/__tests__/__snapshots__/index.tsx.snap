@@ -1,0 +1,394 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match a snapshot 1`] = `
+<ApolloProvider
+  client={
+    DefaultClient {
+      "cache": InMemoryCache {
+        "addTypename": true,
+        "cacheKeyRoot": KeyTrie {
+          "weakness": true,
+        },
+        "config": Object {
+          "addTypename": true,
+          "dataIdFromObject": [Function],
+          "fragmentMatcher": HeuristicFragmentMatcher {},
+          "freezeResults": false,
+          "resultCaching": true,
+        },
+        "data": DepTrackingCache {
+          "data": Object {},
+          "depend": [Function],
+        },
+        "maybeBroadcastWatch": [Function],
+        "optimisticData": DepTrackingCache {
+          "data": Object {},
+          "depend": [Function],
+        },
+        "silenceBroadcast": false,
+        "storeReader": StoreReader {
+          "executeSelectionSet": [Function],
+          "executeStoreQuery": [Function],
+          "executeSubSelectedArray": [Function],
+          "freezeResults": false,
+        },
+        "storeWriter": StoreWriter {},
+        "typenameDocumentCache": Map {
+          Object {
+            "definitions": Array [
+              Object {
+                "kind": "OperationDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "GeneratedClientQuery",
+                },
+                "operation": "query",
+                "selectionSet": Object {
+                  "kind": "SelectionSet",
+                  "selections": Array [],
+                },
+              },
+            ],
+            "kind": "Document",
+          } => Object {
+            "definitions": Array [
+              Object {
+                "kind": "OperationDefinition",
+                "name": Object {
+                  "kind": "Name",
+                  "value": "GeneratedClientQuery",
+                },
+                "operation": "query",
+                "selectionSet": Object {
+                  "kind": "SelectionSet",
+                  "selections": Array [],
+                },
+              },
+            ],
+            "kind": "Document",
+          },
+        },
+        "watches": Set {},
+      },
+      "clearStoreCallbacks": Array [],
+      "defaultOptions": Object {},
+      "disableNetworkFetches": false,
+      "link": ApolloLink {
+        "request": [Function],
+      },
+      "localState": LocalState {
+        "cache": InMemoryCache {
+          "addTypename": true,
+          "cacheKeyRoot": KeyTrie {
+            "weakness": true,
+          },
+          "config": Object {
+            "addTypename": true,
+            "dataIdFromObject": [Function],
+            "fragmentMatcher": HeuristicFragmentMatcher {},
+            "freezeResults": false,
+            "resultCaching": true,
+          },
+          "data": DepTrackingCache {
+            "data": Object {},
+            "depend": [Function],
+          },
+          "maybeBroadcastWatch": [Function],
+          "optimisticData": DepTrackingCache {
+            "data": Object {},
+            "depend": [Function],
+          },
+          "silenceBroadcast": false,
+          "storeReader": StoreReader {
+            "executeSelectionSet": [Function],
+            "executeStoreQuery": [Function],
+            "executeSubSelectedArray": [Function],
+            "freezeResults": false,
+          },
+          "storeWriter": StoreWriter {},
+          "typenameDocumentCache": Map {
+            Object {
+              "definitions": Array [
+                Object {
+                  "kind": "OperationDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "GeneratedClientQuery",
+                  },
+                  "operation": "query",
+                  "selectionSet": Object {
+                    "kind": "SelectionSet",
+                    "selections": Array [],
+                  },
+                },
+              ],
+              "kind": "Document",
+            } => Object {
+              "definitions": Array [
+                Object {
+                  "kind": "OperationDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "GeneratedClientQuery",
+                  },
+                  "operation": "query",
+                  "selectionSet": Object {
+                    "kind": "SelectionSet",
+                    "selections": Array [],
+                  },
+                },
+              ],
+              "kind": "Document",
+            },
+          },
+          "watches": Set {},
+        },
+        "client": [Circular],
+        "resolvers": Object {},
+      },
+      "mutate": [Function],
+      "query": [Function],
+      "queryDeduplication": true,
+      "queryManager": QueryManager {
+        "assumeImmutableResults": false,
+        "clientAwareness": Object {
+          "name": undefined,
+          "version": undefined,
+        },
+        "dataStore": DataStore {
+          "cache": InMemoryCache {
+            "addTypename": true,
+            "cacheKeyRoot": KeyTrie {
+              "weakness": true,
+            },
+            "config": Object {
+              "addTypename": true,
+              "dataIdFromObject": [Function],
+              "fragmentMatcher": HeuristicFragmentMatcher {},
+              "freezeResults": false,
+              "resultCaching": true,
+            },
+            "data": DepTrackingCache {
+              "data": Object {},
+              "depend": [Function],
+            },
+            "maybeBroadcastWatch": [Function],
+            "optimisticData": DepTrackingCache {
+              "data": Object {},
+              "depend": [Function],
+            },
+            "silenceBroadcast": false,
+            "storeReader": StoreReader {
+              "executeSelectionSet": [Function],
+              "executeStoreQuery": [Function],
+              "executeSubSelectedArray": [Function],
+              "freezeResults": false,
+            },
+            "storeWriter": StoreWriter {},
+            "typenameDocumentCache": Map {
+              Object {
+                "definitions": Array [
+                  Object {
+                    "kind": "OperationDefinition",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "GeneratedClientQuery",
+                    },
+                    "operation": "query",
+                    "selectionSet": Object {
+                      "kind": "SelectionSet",
+                      "selections": Array [],
+                    },
+                  },
+                ],
+                "kind": "Document",
+              } => Object {
+                "definitions": Array [
+                  Object {
+                    "kind": "OperationDefinition",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "GeneratedClientQuery",
+                    },
+                    "operation": "query",
+                    "selectionSet": Object {
+                      "kind": "SelectionSet",
+                      "selections": Array [],
+                    },
+                  },
+                ],
+                "kind": "Document",
+              },
+            },
+            "watches": Set {},
+          },
+        },
+        "fetchQueryRejectFns": Map {},
+        "idCounter": 1,
+        "inFlightLinkObservables": Map {},
+        "link": ApolloLink {
+          "request": [Function],
+        },
+        "localState": LocalState {
+          "cache": InMemoryCache {
+            "addTypename": true,
+            "cacheKeyRoot": KeyTrie {
+              "weakness": true,
+            },
+            "config": Object {
+              "addTypename": true,
+              "dataIdFromObject": [Function],
+              "fragmentMatcher": HeuristicFragmentMatcher {},
+              "freezeResults": false,
+              "resultCaching": true,
+            },
+            "data": DepTrackingCache {
+              "data": Object {},
+              "depend": [Function],
+            },
+            "maybeBroadcastWatch": [Function],
+            "optimisticData": DepTrackingCache {
+              "data": Object {},
+              "depend": [Function],
+            },
+            "silenceBroadcast": false,
+            "storeReader": StoreReader {
+              "executeSelectionSet": [Function],
+              "executeStoreQuery": [Function],
+              "executeSubSelectedArray": [Function],
+              "freezeResults": false,
+            },
+            "storeWriter": StoreWriter {},
+            "typenameDocumentCache": Map {
+              Object {
+                "definitions": Array [
+                  Object {
+                    "kind": "OperationDefinition",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "GeneratedClientQuery",
+                    },
+                    "operation": "query",
+                    "selectionSet": Object {
+                      "kind": "SelectionSet",
+                      "selections": Array [],
+                    },
+                  },
+                ],
+                "kind": "Document",
+              } => Object {
+                "definitions": Array [
+                  Object {
+                    "kind": "OperationDefinition",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "GeneratedClientQuery",
+                    },
+                    "operation": "query",
+                    "selectionSet": Object {
+                      "kind": "SelectionSet",
+                      "selections": Array [],
+                    },
+                  },
+                ],
+                "kind": "Document",
+              },
+            },
+            "watches": Set {},
+          },
+          "client": [Circular],
+          "resolvers": Object {},
+        },
+        "mutationStore": MutationStore {
+          "store": Object {},
+        },
+        "onBroadcast": [Function],
+        "pollingInfoByQueryId": Map {},
+        "queries": Map {},
+        "queryDeduplication": true,
+        "queryStore": QueryStore {
+          "store": Object {},
+        },
+        "ssrMode": false,
+        "transformCache": WeakMap {},
+      },
+      "reFetchObservableQueries": [Function],
+      "resetStore": [Function],
+      "resetStoreCallbacks": Array [],
+      "store": DataStore {
+        "cache": InMemoryCache {
+          "addTypename": true,
+          "cacheKeyRoot": KeyTrie {
+            "weakness": true,
+          },
+          "config": Object {
+            "addTypename": true,
+            "dataIdFromObject": [Function],
+            "fragmentMatcher": HeuristicFragmentMatcher {},
+            "freezeResults": false,
+            "resultCaching": true,
+          },
+          "data": DepTrackingCache {
+            "data": Object {},
+            "depend": [Function],
+          },
+          "maybeBroadcastWatch": [Function],
+          "optimisticData": DepTrackingCache {
+            "data": Object {},
+            "depend": [Function],
+          },
+          "silenceBroadcast": false,
+          "storeReader": StoreReader {
+            "executeSelectionSet": [Function],
+            "executeStoreQuery": [Function],
+            "executeSubSelectedArray": [Function],
+            "freezeResults": false,
+          },
+          "storeWriter": StoreWriter {},
+          "typenameDocumentCache": Map {
+            Object {
+              "definitions": Array [
+                Object {
+                  "kind": "OperationDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "GeneratedClientQuery",
+                  },
+                  "operation": "query",
+                  "selectionSet": Object {
+                    "kind": "SelectionSet",
+                    "selections": Array [],
+                  },
+                },
+              ],
+              "kind": "Document",
+            } => Object {
+              "definitions": Array [
+                Object {
+                  "kind": "OperationDefinition",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "GeneratedClientQuery",
+                  },
+                  "operation": "query",
+                  "selectionSet": Object {
+                    "kind": "SelectionSet",
+                    "selections": Array [],
+                  },
+                },
+              ],
+              "kind": "Document",
+            },
+          },
+          "watches": Set {},
+        },
+      },
+      "typeDefs": "",
+      "version": "2.6.8",
+      "watchQuery": [Function],
+    }
+  }
+>
+  <Component />
+</ApolloProvider>
+`;
