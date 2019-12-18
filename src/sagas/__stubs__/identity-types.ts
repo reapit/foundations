@@ -1,6 +1,6 @@
-import { IdentityDocumentTypesModel } from '@/types/configuration-api-schema'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
 
-export const identityTypes: IdentityDocumentTypesModel[] = [
+export const identityTypes: ListItemModel[] = [
   {
     id: 'BB',
     value: 'BenefitBook'

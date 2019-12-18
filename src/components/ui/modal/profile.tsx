@@ -3,7 +3,7 @@ import { Button, Input, DatePicker, Formik, Form } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
-import { ContactCommunicationModel, ContactModel } from '@/types/contact-api-schema'
+import { ContactCommunicationModel, ContactModel } from '@reapit/foundations-ts-definitions'
 import { checkListDetailUpdateData } from '@/actions/checklist-detail'
 
 export const renderForm = ({ isSubmitting }) => () => {
