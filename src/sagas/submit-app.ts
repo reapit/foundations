@@ -1,5 +1,5 @@
 import { fetcher, FetchError, isBase64 } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL, UPLOAD_FILE_BASE_URL } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
 import { categoriesReceiveData } from '../actions/app-categories'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
@@ -28,7 +28,7 @@ export const imageUploaderHelper = async (object: ImageUploaderReq) => {
 
   return fetcher({
     url: '/',
-    api: UPLOAD_FILE_BASE_URL,
+    api: process.env.UPLOAD_FILE_BASE_URL as string,
     method: 'POST',
     headers: MARKETPLACE_HEADERS,
     body: object
@@ -64,7 +64,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
 
     yield call(fetcher, {
       url: URLS.apps,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       body: updatedValues,
       headers: MARKETPLACE_HEADERS
@@ -105,13 +105,13 @@ export const submitAppsDataFetch = function*() {
       call(fetcher, {
         url: `${URLS.scopes}`,
         method: 'GET',
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS
       }),
       call(fetcher, {
         url: `${URLS.categories}`,
         method: 'GET',
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS
       })
     ])

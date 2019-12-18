@@ -18,6 +18,8 @@ jobs:
       vmImage: 'ubuntu-latest'
     variables:
       - group: aws
+      - name: REAPIT_ENV
+        value: 'DEV'
     steps:
       - task: NodeTool@0
         inputs:
@@ -28,18 +30,6 @@ jobs:
         failOnStderr: true
         env:
           NPM_TOKEN: $(NPM_TOKEN)
-
-      - bash: printenv > src/constants/.env
-        displayName: Injects ENVs
-        env:
-          # Deprecated keys and ids - necessary to support demo env in short term
-          COGNITO_CLIENT_ID: $(COGNITO_CLIENT_ID)
-          COGNITO_USERPOOL_ID: $(COGNITO_USERPOOL_ID)
-          MARKETPLACE_API_KEY: $(MARKETPLACE_API_KEY)
-          # Keys for dev environment
-          COGNITO_CLIENT_ID_DEV: $(COGNITO_CLIENT_ID_DEV)
-          COGNITO_USERPOOL_ID_DEV: $(COGNITO_USERPOOL_ID_DEV)
-          MARKETPLACE_API_KEY_DEV: $(MARKETPLACE_API_KEY_DEV)
 
       - script: yarn test:ci
         displayName: Unit tests
@@ -54,12 +44,25 @@ jobs:
           mergeTestResults: false # Optional
           failTaskOnFailedTests: true # Optional
           publishRunAttachments: true # Optional
+    
+      - bash: |
+          branch=$(Build.SourceBranch)
+          if [[ branch == *"refs/tags/AS-"* ]]; then
+            echo "##vso[task.setvariable variable=REAPIT_ENV]PROD";
+          fi
+          if [[ branch == *"refs/heads/demo"* ]]; then
+            echo "##vso[task.setvariable variable=REAPIT_ENV]DEMO";
+          fi
+        displayName: Set Reapit Env
 
       - script: yarn build
         displayName: Build static assets
         failOnStderr: true
         env:
+          REAPIT_ENV: $(REAPIT_ENV)
           NPM_TOKEN: $(NPM_TOKEN)
+          AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+          AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY) 
 
         # Temporary fix while browserstack is on free-tier
       # Disabling e2e tests temporarily while testing new authentication mode

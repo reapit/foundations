@@ -12,7 +12,6 @@ import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
-import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 
@@ -26,7 +25,7 @@ describe('adminApprovals fetch data', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.approvals}?PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })

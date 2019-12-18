@@ -2,16 +2,12 @@ import { appDeleteRequestSaga, appDeleteRequestListen } from '../app-delete'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, call, select } from '@redux-saga/core/effects'
+import { put, takeLatest, call } from '@redux-saga/core/effects'
 import { appDeleteRequestSuccess, appDeleteRequestLoading, appDeleteRequestFailure } from '@/actions/app-delete'
-import { selectAppDetailId } from '@/selector/app-detail'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { REAPIT_API_BASE_URL } from '../../constants/api'
-import { developerRequestData } from '@/actions/developer'
-import { developerAppShowModal } from '@/actions/developer-app-modal'
 
 jest.mock('@reapit/elements')
 
@@ -28,7 +24,7 @@ describe('app-delete sagas', () => {
     expect(gen.next().value).toEqual(
       call(fetcher, {
         url: `${URLS.apps}/1`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         method: 'DELETE',
         headers: MARKETPLACE_HEADERS
       })

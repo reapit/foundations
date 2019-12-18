@@ -7,7 +7,6 @@ import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 
@@ -30,7 +29,7 @@ describe('app-detail fetch data with clientId', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${paramsClientId.data.id}?clientId=${paramsClientId.data.clientId}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })
@@ -74,7 +73,7 @@ describe('app-detail fetch data without clientId', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${params.data.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })

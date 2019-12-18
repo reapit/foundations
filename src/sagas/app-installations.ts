@@ -1,5 +1,5 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { Action } from '../types/core'
@@ -18,7 +18,7 @@ import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 export const fetchInstallations = async (data: InstallationParams) => {
   const response = await fetcher({
     url: `${URLS.installations}?${setQueryParams({ ...data })}`,
-    api: REAPIT_API_BASE_URL,
+    api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'GET',
     headers: MARKETPLACE_HEADERS
   })
@@ -29,7 +29,7 @@ export const fetchInstallApp = async ({ data, clientId, email }) => {
   const { appId } = data
   const response = await fetcher({
     url: `${URLS.installations}`,
-    api: REAPIT_API_BASE_URL,
+    api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'POST',
     headers: MARKETPLACE_HEADERS,
     body: { appId, clientId, approvedBy: email }
@@ -41,7 +41,7 @@ export const fetchUninstallApp = async ({ data, email }) => {
   const { installationId, ...body } = data
   const response = await fetcher({
     url: `${URLS.installations}/${installationId}/terminate`,
-    api: REAPIT_API_BASE_URL,
+    api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'POST',
     headers: MARKETPLACE_HEADERS,
     body: { ...body, terminatedBy: email }

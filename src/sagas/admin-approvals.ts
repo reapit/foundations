@@ -11,7 +11,6 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
-import { REAPIT_API_BASE_URL } from '../constants/api'
 
 export const adminApprovalsDataFetch = function*({ data: page }) {
   yield put(adminApprovalsLoading(true))
@@ -19,7 +18,7 @@ export const adminApprovalsDataFetch = function*({ data: page }) {
   try {
     const response = yield call(fetcher, {
       url: `${URLS.approvals}?PageNumber=${page}&PageSize=${REVISIONS_PER_PAGE}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })

@@ -24,7 +24,6 @@ import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { adminApprovalsDataFetch } from '../admin-approvals'
 
 jest.mock('@reapit/elements')
@@ -40,7 +39,7 @@ describe('revision-detail fetch data', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${params.data.appId}/revisions/${params.data.appRevisionId}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })
@@ -50,7 +49,7 @@ describe('revision-detail fetch data', () => {
     call(fetcher, {
       url: `${URLS.scopes}`,
       method: 'GET',
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       headers: MARKETPLACE_HEADERS
     })
   )
@@ -90,7 +89,7 @@ describe('revision approve submmit', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/approve`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       headers: MARKETPLACE_HEADERS,
       body
@@ -130,7 +129,7 @@ describe('revision decline submmit', () => {
   expect(gen.next().value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}/reject`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       headers: MARKETPLACE_HEADERS,
       body

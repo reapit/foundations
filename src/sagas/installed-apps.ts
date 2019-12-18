@@ -11,7 +11,6 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
-import { REAPIT_API_BASE_URL } from '../constants/api'
 import { selectClientId } from '@/selector/client'
 
 export const installedAppsDataFetch = function*({ data: page }) {
@@ -45,7 +44,7 @@ export const fetchInstalledApps = async ({ clientId, page }) => {
     const response = await fetcher({
       url: `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=${page}&PageSize=${INSTALLED_APPS_PERPAGE}&IsDirectApi=false`,
       method: 'GET',
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       headers: MARKETPLACE_HEADERS
     })
     return response

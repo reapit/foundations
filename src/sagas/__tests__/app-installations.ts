@@ -15,7 +15,6 @@ import { Action } from '@/types/core'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { REAPIT_API_BASE_URL } from '../../constants/api'
 import {
   InstallationParams,
   UninstallParams,

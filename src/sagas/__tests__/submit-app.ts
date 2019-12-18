@@ -17,7 +17,6 @@ import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { appSubmitStubWithActions, appSubmitStub } from '../__stubs__/apps-submit'
 import { appCategorieStub } from '../__stubs__/app-categories'
-import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { ScopeModel, PagedResultCategoryModel_ } from '@/types/marketplace-api-schema'
 
 jest.mock('@reapit/elements')
@@ -56,7 +55,7 @@ describe('submit-app post data', () => {
   expect(gen.next(imageUploaderResults).value).toEqual(
     call(fetcher, {
       url: URLS.apps,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       body: updatedData,
       headers: MARKETPLACE_HEADERS
@@ -94,13 +93,13 @@ describe('submit-app fetch data', () => {
       call(fetcher, {
         url: `${URLS.scopes}`,
         method: 'GET',
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS
       }),
       call(fetcher, {
         url: `${URLS.categories}`,
         method: 'GET',
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS
       })
     ])

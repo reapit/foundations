@@ -1,5 +1,5 @@
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
 import {
   developerLoading,
   developerReceiveData,
@@ -30,13 +30,13 @@ export const developerDataFetch = function*({ data: page }) {
       call(fetcher, {
         url: `${URLS.apps}?developerId=${developerId}&PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
         method: 'GET',
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS
       }),
       call(fetcher, {
         url: `${URLS.scopes}`,
         method: 'GET',
-        api: REAPIT_API_BASE_URL,
+        api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS
       })
     ])
@@ -67,7 +67,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
   try {
     const regResponse: true | undefined = yield call(fetcher, {
       url: URLS.developers,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       body: data,
       headers: MARKETPLACE_HEADERS

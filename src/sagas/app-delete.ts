@@ -1,5 +1,5 @@
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
 import { appDeleteRequestSuccess, appDeleteRequestLoading, appDeleteRequestFailure } from '@/actions/app-delete'
 import { put, call, takeLatest } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -13,7 +13,7 @@ export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {
 
     yield call(fetcher, {
       url: `${URLS.apps}/${appId}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'DELETE',
       headers: MARKETPLACE_HEADERS
     })

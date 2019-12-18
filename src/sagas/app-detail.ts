@@ -1,5 +1,5 @@
 import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS, REAPIT_API_BASE_URL } from '../constants/api'
+import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
 import { appDetailLoading, appDetailReceiveData, appDetailFailure, AppDetailParams } from '../actions/app-detail'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -13,7 +13,7 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
   try {
     const response = yield call(fetcher, {
       url: clientId ? `${URLS.apps}/${id}?clientId=${clientId}` : `${URLS.apps}/${id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
       headers: MARKETPLACE_HEADERS
     })

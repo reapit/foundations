@@ -8,7 +8,6 @@ import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { CreateAppRevisionModel } from '@/types/marketplace-api-schema'
 import { revisionSubmitStub } from '../__stubs__/revision-submit'
-import { REAPIT_API_BASE_URL } from '../../constants/api'
 import { appDetailRequestData } from '@/actions/app-detail'
 
 jest.mock('@reapit/elements')
@@ -52,7 +51,7 @@ describe('submit-revision post data', () => {
   expect(gen.next(imageUploaderResults).value).toEqual(
     call(fetcher, {
       url: `${URLS.apps}/${id}/revisions`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       body: updatedData,
       headers: MARKETPLACE_HEADERS

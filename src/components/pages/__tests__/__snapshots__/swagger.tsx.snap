@@ -12,7 +12,7 @@ exports[`Swagger should match a snapshot 1`] = `
       <SwaggerUI
         onComplete={[Function]}
         requestInterceptor={[Function]}
-        url="https://6qngr3ic46.execute-api.eu-west-2.amazonaws.com/prod/swaggerdocs"
+        url="undefined/prod/swaggerdocs"
       />
     </div>
   </div>

@@ -9,7 +9,7 @@ import {
   Loader,
   fetcher
 } from '@reapit/elements'
-import { URLS, REAPIT_API_BASE_URL, MARKETPLACE_HEADERS } from '@/constants/api'
+import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import EnhanceContactInformation, { ContactInformationValues } from './contact-information-form'
 import EnhanceChangePasswordForm, { ChangePasswordValues } from './change-password-form'
 import { compose, Dispatch } from 'redux'
