@@ -1,0 +1,31 @@
+import sleep from '@/utils/sleep'
+
+const resolvers = {
+  Query: {
+    client: () => {
+      return {
+        __typename: 'ClientType',
+        description: 'A boilerplate standard space rocket',
+      }
+    },
+    GetContacts: async () => {
+      await sleep(1000)
+      return {
+        __typename: 'ContactModel',
+        id: '123',
+        title: 'Levy',
+      }
+    },
+  },
+  Mutation: {
+    login: async () => {
+      await sleep(1000)
+      return {
+        __typename: 'token',
+        token: 'success',
+      }
+    },
+  },
+}
+
+export default resolvers

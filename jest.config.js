@@ -3,6 +3,9 @@ const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {
   preset: 'ts-jest',
+  transform: {
+    "^.+\\.graphql$": "jest-transform-graphql",
+  },
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   setupFiles: ['<rootDir>/src/scripts/jest-setup.js'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
