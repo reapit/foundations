@@ -100,8 +100,9 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
     const icon = (media || []).filter(({ order }) => order === 0)[0]
     const iconImageUrl = icon ? icon.uri : ''
     const images = (media || [])
-      .filter(({ order }) => order !== 0)
-      .reduce((a, c) => ({ ...a, [`screen${c.order}ImageUrl`]: c.uri }), {})
+      .filter(({ type }) => type !== 'icon')
+      .reduce((a, c, i) => ({ ...a, [`screen${i + 1}ImageUrl`]: c.uri }), {})
+    // ^reason of using index instead of `order` property is because all images in media have order of 0 (see ticket [CLD-623] to learn more)
 
     initialValues = {
       name,
