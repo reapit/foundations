@@ -1,5 +1,5 @@
 const { pathsToModuleNameMapper } = require('ts-jest/utils')
-const { compilerOptions } = require('./tsconfig')
+const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {
   preset: 'ts-jest',
@@ -18,8 +18,8 @@ module.exports = {
   },
   coverageThreshold: {
     global: {
-      branches: 65,
-      functions: 70,
+      branches: 80,
+      functions: 80,
       lines: 80,
       statements: 80,
     },
