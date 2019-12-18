@@ -11,7 +11,7 @@
   "author": "Author",
   "main": "./src/index.ts",
   "scripts": {
-    "build": "yarn fetch-definitions && webpack --color --mode production --config ./src/scripts/webpack-prod.js",
+    "build": "webpack --color --mode production --config ./src/scripts/webpack-prod.js",
     "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
     "fetch-definitions": "node ./src/scripts/fetch-definitions.js",
     "lint": "tslint --fix --project tsconfig.json --format stylish",
@@ -42,6 +42,7 @@
     "webpack-bundle-analyzer": "^3.4.1"
   },
   "devDependencies": {
+    "@reapit/foundations-ts-definitions": "^0.0.4",
     "@redux-saga/testing-utils": "^1.0.5",
     "@types/enzyme": "^3.9.3",
     "@types/jest": "^24.0.13",

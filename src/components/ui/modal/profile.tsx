@@ -3,7 +3,7 @@ import { Button, Input, DatePicker, Formik, Form, FormikValues, FormikErrors, is
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
-import { ContactCommunicationModel, ContactModel } from '@/types/platform'
+import { ContactCommunicationModel, ContactModel } from '@reapit/foundations-ts-definitions'
 import { updateContact } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
 import styles from '@/styles/pages/checklist-detail.scss?mod'

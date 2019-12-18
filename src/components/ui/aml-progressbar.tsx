@@ -15,7 +15,7 @@ import {
 } from '@reapit/elements'
 import styles from '@/styles/ui/aml-progressbar.scss?mod'
 import { SectionsStatus } from '@/reducers/checklist-detail'
-import { ContactIdentityCheckModel, ContactModel } from '@/types/platform'
+import { ContactIdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import { checklistDetailShowModal } from '@/actions/checklist-detail'
 import { ReduxState } from '@/types/core'

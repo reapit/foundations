@@ -1,4 +1,4 @@
-import { ContactModel } from '@/types/platform'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 import dayjs from 'dayjs'
 
 const REAPIT_PEP_SEARCH_STATUS = 'reapitPepSearchStatus'

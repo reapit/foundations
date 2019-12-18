@@ -1,4 +1,8 @@
-import { ContactModel, ContactIdentityCheckModel, ContactIdentityDocumentModel } from '@/types/platform'
+import {
+  ContactModel,
+  ContactIdentityCheckModel,
+  ContactIdentityDocumentModel
+} from '@reapit/foundations-ts-definitions'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { DynamicLinkParams } from '@reapit/elements'
