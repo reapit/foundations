@@ -19,7 +19,7 @@
     "winston": "^3.2.1"
   },
   "scripts": {
-    "dev": "nodemon",
+    "dev": "REAPIT_ENV=LOCAL nodemon",
     "build": "NODE_ENV=production tsc --p tsconfig.json",
     "start": "node ./dist/app.js",
     "test": "jest --coverage --silent",
