@@ -1,0 +1,15 @@
+enum LoginMode {
+  DESKTOP
+  WEB
+}
+
+enum LoginType {
+  DEVELOPER
+  CLIENT
+  ADMIN
+}
+
+type Token {
+  accessToken: String!,
+  refreshToken: String!,
+}
