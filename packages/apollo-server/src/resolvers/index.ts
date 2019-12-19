@@ -1,6 +1,7 @@
 import GraphQLJSON from 'graphql-type-json'
 import { queryContact, queryContacts, contactsResolvers } from './contact/resolvers'
 import { createContactIdentityCheck } from './contact-identity-check/resolvers'
+import { login } from './auth/resolvers'
 
 export const resolvers = {
   Query: {
@@ -8,6 +9,7 @@ export const resolvers = {
     contacts: queryContacts,
   },
   Mutation: {
+    login,
     createContactIdentityCheck,
   },
   Contacts: contactsResolvers,

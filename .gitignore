@@ -22,6 +22,7 @@
 .env.test.local
 .env.production.local
 .vscode
+reapit-config.json
 
 # log files
 npm-debug.log*

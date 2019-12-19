@@ -1,5 +1,6 @@
 #import Contact, Contacts from "./resolvers/contact/types.graphql"
 #import ContactIdentityCheck,ContactIdentityChecks from "./resolvers/contact-identity-check/types.graphql"
+#import LoginIdentity, LoginMode, LoginType, Token from './resolvers/auth/types.graphql'
 
 type Query {
   # contact
@@ -84,6 +85,13 @@ type Mutation {
     documents: [ContactIdentityDocumentInput!],
     metadata: JSON,
   ): ContactIdentityCheck!
+
+  login(
+    userName: String!,
+    password: String!,
+    loginType: LoginType!,
+    mode: LoginMode!,
+  ): Token
 }
 
 scalar JSON
