@@ -19,5 +19,13 @@ module.exports = {
     })
   },
   globalSetup: './jest-global-setup.js',
-  snapshotSerializers: ['enzyme-to-json/serializer']
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  coverageThreshold: {
+    global: {
+      branches: 66,
+      functions: 80,
+      lines: 91,
+      statements: 90
+    }
+  }
 }
