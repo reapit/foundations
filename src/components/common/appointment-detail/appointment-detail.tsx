@@ -133,10 +133,7 @@ export const renderAddress = (
   )
 }
 
-export const renderDateTime = (address: AppointmentPropertyAddressModel | undefined, appointment: AppointmentModel) => {
-  if (!address) {
-    return null
-  }
+export const renderDateTime = (appointment: AppointmentModel) => {
   return (
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
@@ -307,7 +304,7 @@ export const renderModalContent = ({
   const isCancelledAppointment = appointment?.cancelled
   return (
     <React.Fragment>
-      {renderDateTime(appointment?.property?.address, appointment)}
+      {renderDateTime(appointment)}
       {renderAdditionalAttendees(additionalAttendees, loginMode)}
       {renderApplicantAttendees(applicantAttendees, loginMode)}
       {renderAddress(loginMode, address, propertyId)}

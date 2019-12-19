@@ -189,3 +189,19 @@ exports[`AppointmentModal renderCommunicationType should match snapshot 1`] = `
   />
 </div>
 `;
+
+exports[`AppointmentModal renderTime should match snapshot 1`] = `
+<div>
+  <div>
+    <FaClock />
+    <H6>
+      Time:
+    </H6>
+  </div>
+  <div>
+    <p>
+      18 Dec 2016 04:30 PM - 05:30 PM
+    </p>
+  </div>
+</div>
+`;
