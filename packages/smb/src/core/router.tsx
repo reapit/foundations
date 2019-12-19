@@ -5,18 +5,16 @@ import Routes from '../constants/routes'
 
 export const history = createBrowserHistory()
 
-// const LoginPage = React.lazy(() => import('../components/pages/login'))
-// const HomePage = React.lazy(() => import('../components/pages/home'))
-const UseQueryPage = React.lazy(() => import('../components/pages/use-query-page'))
-const UseMutationPage = React.lazy(() => import('../components/pages/use-mutation-page'))
+const LoginPage = React.lazy(() => import('../components/pages/login/login'))
+const HomePage = React.lazy(() => import('../components/pages/home/home'))
 
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
-        <Route path={Routes.USE_MUTATION_PAGE} component={UseMutationPage} />
-        <Route path={Routes.USE_QUERY_PAGE} component={UseQueryPage} />
-        <Redirect to={Routes.USE_QUERY_PAGE} />
+        <Route path={Routes.LOGIN} component={LoginPage} />
+        <Route path={Routes.HOME} component={HomePage} />
+        {/* <Redirect to={Routes.LOGIN} /> */}
       </Switch>
     </React.Suspense>
   </BrowserRouter>
