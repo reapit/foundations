@@ -34,9 +34,3 @@ export const createContact = (_: any, args: CreateContactArgs, context: ServerCo
   }
   return contactServices.createContact(args, context)
 }
-
-export const contacts = (response: any) => response._embedded
-
-export const contactsResolvers = {
-  contacts,
-}
