@@ -4,6 +4,9 @@ const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {
   ...baseConfig,
+  transform: {
+    '^.+\\.graphql$': 'jest-transform-graphql',
+  },
   moduleNameMapper: {
     '^.+.(?=.*scss|sass|css|jpg).*': '<rootDir>/src/scripts/css-stub.js',
     ...pathsToModuleNameMapper(compilerOptions.paths, {
