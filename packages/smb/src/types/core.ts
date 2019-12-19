@@ -1,4 +1,5 @@
 import Routes from '../constants/routes'
+import { ContactModel } from './platform'
 
 export interface StringMap {
   [key: string]: string
@@ -18,3 +19,4 @@ export interface FetcherParams<T> {
   isPrivate?: boolean
   body?: T
 }
+
