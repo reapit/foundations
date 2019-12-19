@@ -67,7 +67,6 @@ const server = new ApolloServer({
   cors: {
     origin: [],
     methods: ['POST', 'OPTION', 'GET'],
-    credentials: true,
   },
   formatResponse,
 })
