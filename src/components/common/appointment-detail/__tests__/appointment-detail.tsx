@@ -13,7 +13,8 @@ import {
   filterLoggedInUser,
   getAdditionalAttendees,
   getApplicantAttendees,
-  getModalHeader
+  getModalHeader,
+  renderDateTime
 } from '../appointment-detail'
 
 import { attendees } from '../__stubs__/mockData'
@@ -118,6 +119,81 @@ describe('AppointmentModal', () => {
       }
       const dateData = renderStartAndEndDate(input.startDate, input.endDate)
       expect(dateData.indexOf('01 Jan 2019')).toBeGreaterThanOrEqual(0)
+    })
+  })
+
+  describe('renderTime', () => {
+    it('should match snapshot', () => {
+      const input = {
+        id: 'BED1600597',
+        created: '2019-05-12T17:58:40',
+        modified: '2016-12-18T16:03:45',
+        start: '2016-12-18T16:30:00',
+        end: '2016-12-18T17:30:00',
+        type: 'IA',
+        recurring: false,
+        cancelled: false,
+        property: {
+          id: 'SOME_ID',
+          address: {
+            buildingName: '',
+            buildingNumber: '65',
+            line1: 'Lindsey Close',
+            line2: 'Great Denham',
+            line3: 'Bedford',
+            line4: 'Bedfordshire',
+            postcode: 'MK40 4GT',
+            country: '',
+            geolocation: {
+              latitude: 52.1284,
+              longitude: -0.507145
+            }
+          }
+        },
+        attendees: []
+      }
+
+      const data = renderDateTime(input)
+      const wrapper = shallow(data)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should show recurring text if recurring true', () => {
+      const input = {
+        id: 'BED1600597',
+        created: '2019-05-12T17:58:40',
+        modified: '2016-12-18T16:03:45',
+        start: '2016-12-18T16:30:00',
+        end: '2016-12-18T17:30:00',
+        type: 'IA',
+        recurring: true,
+        cancelled: false,
+        property: {
+          id: 'SOME_ID',
+          address: {
+            buildingName: '',
+            buildingNumber: '65',
+            line1: 'Lindsey Close',
+            line2: 'Great Denham',
+            line3: 'Bedford',
+            line4: 'Bedfordshire',
+            postcode: 'MK40 4GT',
+            country: '',
+            geolocation: {
+              latitude: 52.1284,
+              longitude: -0.507145
+            }
+          }
+        },
+        attendees: []
+      }
+
+      const data = renderDateTime(input)
+      const wrapper = shallow(data)
+      const recurringText = 'This is a recurring appointment'
+      const renderedText = wrapper.find('p+p').text()
+
+      expect(renderedText).toBe(recurringText)
     })
   })
 
