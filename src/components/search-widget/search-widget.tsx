@@ -1,6 +1,4 @@
 import React, { useState, useRef } from 'react'
-import { getPropertiesForSale, getPropertiesToRent } from '@services/properties'
-import { getPropertyImages } from '@services/propertyImages'
 import merge from 'lodash.merge'
 import Loader from './loader'
 import styled, { ThemeProvider } from 'styled-components'
@@ -10,11 +8,16 @@ import { SearchResult } from './search-result'
 import { context } from './context'
 import { GoogleMap } from './map/google-map'
 import { createPortal } from 'react-dom'
-import scrollIntoView from '@/utils/scroll-into-view'
-export type TabItem = 'SEARCH_RESULT' | 'MAP'
+import scrollIntoView from '@utils/scroll-into-view'
+import { getPropertiesForSale, getPropertiesToRent } from '@services/properties'
+import { getPropertyImages } from '@services/propertyImages'
 
 const SearchResultTextContainer = styled.h1`
   color: ${props => props.theme.colors.searchResult};
+  font-size: 18px;
+  padding-bottom: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
 
   @media screen and (max-width: 1600px) {
     & {
@@ -22,10 +25,11 @@ const SearchResultTextContainer = styled.h1`
     }
   }
 
-  padding-bottom: 2rem;
-
-  margin-top: 0;
-  margin-bottom: 0;
+  @media (max-width: 565px) {
+    & {
+      padding: 1rem;
+    }
+  }
 `
 
 const BaseStyle = styled.div`
@@ -35,6 +39,12 @@ const BaseStyle = styled.div`
 
   & h1 {
     font-size: ${props => props.theme.base.font.sizes.headings.h1};
+
+    @media (max-width: 565px) {
+      & {
+        font-size: 1.5rem;
+      }
+    }
   }
 
   & h2 {
@@ -60,11 +70,18 @@ const BaseStyle = styled.div`
 
 const WidgetContainer = styled.div`
   background-color: ${props => props.theme.searchWidget.backgroundColor};
-  display: inline-block;
-  min-width: 40rem;
   padding: 1.5rem 0;
   text-align: center;
   margin: auto 0;
+  @media (max-width: 565px) {
+    max-width: 565px;
+  }
+  @media (min-width: 566px) {
+    min-width: 40rem;
+  }
+  @media (min-width: 1280px) {
+    padding: 2rem 2rem;
+  }
 `
 
 const Error = styled.div`
@@ -74,17 +91,31 @@ const Error = styled.div`
   margin-left: 1rem;
 `
 
-const Title = styled.h1`
+const Title = styled.div`
   color: ${props => props.theme.colors.widgetHeading};
   font-family: inherit;
   margin: 0rem;
+  font-size: 48px;
+
+  @media (max-width: 565px) {
+    font-size: 22px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 70px;
+  }
 `
 
 const Subtitle = styled.div`
-  color: ${props => props.theme.colors.widgetHeading}
+  color: ${props => props.theme.colors.widgetHeading};
   font-style: italic;
   font-size: 1rem;
   margin: 0.5rem 0rem 2rem 0rem;
+  @media (max-width: 565px) {
+    font-size: 16px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 20px;
+  }
 `
 
 const Button = styled.button`
@@ -102,9 +133,10 @@ const Button = styled.button`
 `
 
 const FormContainer = styled.div`
-  display: flex;
-  justify-content: center;
   color: ${props => props.theme.colors.base};
+  @media (max-width: 565px) {
+    max-width: 565px;
+  }
 `
 
 const Input = styled.input`
@@ -112,6 +144,7 @@ const Input = styled.input`
   box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
   width: 60%;
   font-size: 1rem;
+  height: 3rem;
   text-align: center;
   font-weight: 150;
   background: ${props => props.theme.colors.inputBackgroundColor};
@@ -130,6 +163,10 @@ const Input = styled.input`
     border-color: ${props => props.theme.button.background};
     outline-color: ${props => props.theme.button.background};
   }
+  @media (max-width: 565px) {
+    margin-bottom: 10px;
+    width: 90%;
+  }
 `
 
 const SearchResultContainer = styled.div`
@@ -142,7 +179,7 @@ const SearchResultContainer = styled.div`
   }
 `
 
-// export type TabItem = 'SEARCH_RESULT' | 'MAP'
+export type TabItem = 'SEARCH_RESULT' | 'MAP'
 
 const Tab = styled.div<{ isActive: boolean }>`
   padding: 1rem;
@@ -178,7 +215,6 @@ const SearchWidget: React.FC<{
   searchResultContainerID = 'reapit-search-widget-result'
 }) => {
   const mergedTheme: Theme = merge({}, defaultTheme, theme)
-
   const [searchKeyword, _setSearchKeyword] = useState('')
   const searchStore = useSearchStore()
   const {
@@ -205,6 +241,7 @@ const SearchWidget: React.FC<{
     }
     if (searchKeyword === '') {
       setError('*Please enter an area')
+      //@ts-ignore
       searchInputRef.current.focus()
       return
     }
@@ -242,12 +279,13 @@ const SearchWidget: React.FC<{
     }
     if (searchKeyword === '') {
       setError('*Please enter an area')
+      //@ts-ignore
       searchInputRef.current.focus()
       return
     }
     setSelectedProperty(null)
     setStartFetching()
-    const resultElement = document.getElementById('search-result-container')
+    const resultElement = document.getElementById(searchResultContainerID)
     if (resultElement) {
       const scrollingElement =
         document.scrollingElement || document.documentElement
@@ -273,13 +311,15 @@ const SearchWidget: React.FC<{
     }
   }
 
-  const searchResultContainer = document.getElementById(searchResultContainerID)
-
+  const searchResultContainer = document.getElementById(
+    'search-result-container'
+  )
   const onTabMapClick = () => setActiveTab('MAP')
   const onTabSearchResultClick = () => setActiveTab('SEARCH_RESULT')
 
   return (
     <div className={className}>
+      {' '}
       <ThemeProvider theme={mergedTheme}>
         <BaseStyle>
           <context.Provider value={{ ...searchStore, theme: mergedTheme }}>
@@ -332,9 +372,8 @@ const SearchWidget: React.FC<{
                       <SearchResultContainer>
                         <TabContent isActive={activeTab === 'MAP'}>
                           <GoogleMap
-                            params={{ key: process.env.MAP_KEY }}
+                            params={{ key: process.env.REACT_APP_MAP_API_KEY }}
                             property={selectedProperty}
-                            //
                             properties={result._embedded || []}
                           />
                         </TabContent>

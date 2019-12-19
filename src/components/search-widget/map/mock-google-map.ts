@@ -189,14 +189,14 @@ const createGoogleMapsMock = (libraries = []) => {
     },
     GroundOverlay: function() {},
     ImageMapType: function() {},
-    InfoWindow: function(opts: any) {
+    InfoWindow: jest.fn().mockImplementation(function(opts: any) {
       //@ts-ignore
       this.opts = opts
       //@ts-ignore
       createMVCObject(this)
       //@ts-ignore
       createMockFuncsFromArray(this, ['setContent', 'open'])
-    },
+    }),
     KmlLayer: function() {},
     KmlLayerStatus: {
       DOCUMENT_NOT_FOUND: 'DOCUMENT_NOT_FOUND',

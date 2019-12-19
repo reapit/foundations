@@ -1,14 +1,16 @@
-import React, { useContext, useRef, useEffect } from 'react'
-import { INVALID_BACKGROUND_AS_BASE64 } from '@/constants'
-import { context } from '@searchWidget/context'
+import React from 'react'
+import { INVALID_BACKGROUND_AS_BASE64 } from '../constants'
+import { context } from '../context'
 import styled from 'styled-components'
 import GoogleMapLoader, { RenderProps } from './google-map-loader'
-import { PropertyModel } from '@reapit/foundations-ts-definitions'
-import { Params } from '@/utils/query-params'
-import { Theme } from '@searchWidget/theme'
-import { getPrice } from '@searchWidget/search-result'
+import { PropertyModel } from '../types/property'
+import { Params } from '../utils/query-params'
+import { Theme } from '../theme'
+import { getPrice } from '../search-result'
 import { mapStyles } from './map-style'
-import { SearchStore } from '@searchWidget/hooks/search-store'
+import { SearchStore } from '../hooks/search-store'
+
+const { useContext } = React
 
 const MapDiv = styled.div`
   min-height: 500px;
@@ -108,6 +110,7 @@ export type CreateMarkerParams = {
   searchStore: SearchStore
   theme: Theme
   imageUrl?: string
+  infoWindows: google.maps.InfoWindow[]
 }
 
 export const getLatLng = (property: PropertyModel) => {
@@ -130,7 +133,8 @@ export const createMarker = ({
   googleMap,
   map,
   searchStore,
-  theme
+  theme,
+  infoWindows
 }: CreateMarkerParams) => {
   if (property) {
     let imageUrl = INVALID_BACKGROUND_AS_BASE64
@@ -189,6 +193,11 @@ export const createMarker = ({
       })
     })
     googleMap.event.addListener(marker, 'click', () => {
+      if (infoWindows && infoWindows.length > 0) {
+        infoWindows.forEach((item: google.maps.InfoWindow) => {
+          item.close()
+        })
+      }
       infoWindow.open(map, marker)
     })
     return { marker, infoWindow }
@@ -283,7 +292,8 @@ export const handleUseEffect = ({
           googleMap,
           map,
           theme,
-          searchStore
+          searchStore,
+          infoWindows
         })
         markers.push(newMarker && newMarker.marker)
         infoWindows.push(newMarker && newMarker.infoWindow)
@@ -308,7 +318,11 @@ export const handleUseEffect = ({
       }) as number
       map.setCenter(centerPoint)
       map.setZoom(DEFAULT_ZOOM)
-      if (currentMarkerIndex) {
+      const FIRST_INFO_WINDOW_INDEX = 0
+      if (
+        currentMarkerIndex ||
+        currentMarkerIndex === FIRST_INFO_WINDOW_INDEX
+      ) {
         infoWindows[currentMarkerIndex].open(map, markers[currentMarkerIndex])
       }
       return
@@ -332,11 +346,11 @@ export const MapContainer: React.FC<MapContainerProps> = ({
   properties,
   ...restProps
 }) => {
-  const mapRef = useRef() as MapRef
-  const markersRef = useRef() as MarkersRef
+  const mapRef = React.useRef() as MapRef
+  const markersRef = React.useRef() as MarkersRef
   const contextValue = useContext(context)
   const searchStore = useContext(context)
-  useEffect(
+  React.useEffect(
     handleUseEffect({
       searchStore,
       googleMap,
@@ -347,7 +361,7 @@ export const MapContainer: React.FC<MapContainerProps> = ({
       restProps,
       property,
       properties,
-      theme: contextValue ? contextValue.theme : {}
+      theme: contextValue ? contextValue.theme : null
     }),
     [googleMap, center, zoom, property, properties]
   )

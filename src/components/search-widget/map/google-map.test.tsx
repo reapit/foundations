@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { property } from '../mock-property'
-import createGoogleMapsMock from '../mock-google-map'
+import React from 'react'
+import { property } from '../map/mock-property'
+import createGoogleMapsMock from '../map/mock-google-map'
 import {
   getContent,
   handleUseEffect,
@@ -13,10 +13,10 @@ import {
   MarkersRef,
   MapRef,
   getCurrentMarkerIndex
-} from '../google-map'
+} from './google-map'
 import { shallow } from 'enzyme'
-import { theme } from '@searchWidget/theme'
-import { SearchStore } from '@searchWidget/hooks/search-store'
+import { theme } from '../theme'
+import { SearchStore } from '../hooks/search-store'
 
 describe('google-map', () => {
   const latitude =
@@ -92,6 +92,9 @@ describe('google-map', () => {
     getResultArr: jest.fn(),
     selectedProperty: property
   }
+  const mockInfoWindow = new mockGoogleMap.InfoWindow({
+    content: 'mockContent'
+  })
 
   const mockProperties = [property]
 
@@ -159,7 +162,8 @@ describe('google-map', () => {
         googleMap: mockGoogleMap,
         map: mockMapRef.current,
         searchStore: mockSearchStore,
-        theme
+        theme,
+        infoWindows: [mockInfoWindow]
       })
       expect(result).toBeDefined()
     })
