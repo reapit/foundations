@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelpGuide should match a snapshot 1`] = `
+<div
+  style={
+    Object {
+      "padding": 20,
+    }
+  }
+>
+  <Component>
+    <Component
+      component={[Function]}
+      id="step-1"
+    />
+    <Component
+      component={[Function]}
+      id="step-2"
+    />
+    <Component
+      component={[Function]}
+      id="step-3"
+    />
+    <Component
+      component={[Function]}
+      id="step-4"
+    />
+  </Component>
+</div>
+`;
+
+exports[`HelpGuide should match a snapshot 2`] = `
+<Component
+  className="items-center justify-between"
+>
+  <div
+    className="helpguide-content"
+  >
+    <Component />
+    <Component />
+    <component />
+  </div>
+  <div
+    className="helpguide-wrapper-graphic"
+  >
+    <div
+      className="helpguide-graphic"
+    />
+  </div>
+</Component>
+`;

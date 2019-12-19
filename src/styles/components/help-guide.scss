@@ -1,0 +1,102 @@
+@import '../base/colors.scss';
+
+.helpguide-wrapper {
+  opacity: 0;
+  transition: all 0.3s;
+  position: absolute;
+  transform: translateY(100%);
+  width: 100%;
+}
+
+.helpguide-content {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+  padding: 1rem;
+  max-width: 60%;
+}
+
+.helpguide-wrapper-graphic {
+  padding: 1rem;
+  flex: 1;
+}
+
+.helpguide-graphic {
+  width: 400px;
+  margin: auto;
+}
+
+.circle-active {
+  border: 1px solid blue;
+  transform: translateY(25px);
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background: white;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.line-active {
+  position: absolute;
+  height: 0;
+  width: 3px;
+  top: 30px;
+  background-color: $reapit-mid-blue;
+  transition: all 0.3s;
+  z-index: -2;
+}
+
+.numbers-timeline {
+  counter-reset: step;
+  width: 100px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+
+  & li {
+    list-style-type: none;
+    font-size: 0.85rem;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  li:before {
+    width: 30px;
+    height: 30px;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 27px;
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+    border-radius: 50%;
+    background-color: $grey;
+  }
+
+  li.active:before,
+  li.passed:before {
+    background-color: $reapit-mid-blue;
+  }
+
+  li:after {
+    width: 3px;
+    height: 100%;
+    content: '';
+    position: absolute;
+    background-color: #7d7d7d;
+    top: 50%;
+    transform: translateX(-50%);
+    z-index: -3;
+  }
+
+  li:last-child:after {
+    content: none;
+  }
+}
