@@ -4,39 +4,12 @@ import { Input, Button, H1, Level, Alert, isEmail, Formik, Form } from '@reapit/
 import { LoginParams } from '@reapit/cognito-auth'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
-import { ContactModel } from '@/types/platform'
-
-import { gql } from 'apollo-boost'
-import { useQuery, useMutation } from '@apollo/react-hooks'
-
-export const MOCK_QUERY = gql`
-  query MockQuery {
-    GetContacts @client {
-      id
-      title
-    }
-  }
-`
-
-export const LOGIN_MUTATION = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) @client {
-      token
-    }
-  }
-`
-
-export interface ContactQueryData {
-  GetContacts: ContactModel
-}
+import Routes from '@/constants/routes'
+import { useMutation } from '@apollo/react-hooks'
+import LOGIN_MUTATION from './login-mutation.graphql'
 
 export type LoginMappedActions = {
   login: (params: LoginParams) => void
-}
-
-export type LoginMappedProps = {
-  hasSession: boolean
-  error: boolean
 }
 
 export type LoginFormValues = {
@@ -45,7 +18,11 @@ export type LoginFormValues = {
 }
 
 export type LoginMutationResponse = {
-  login: any
+  login: LoginResponse
+}
+
+export type LoginResponse = {
+  token: string
 }
 
 export type LoginFormError = {
@@ -71,41 +48,27 @@ export function validate(values: LoginFormValues) {
 
 export type LoginProps = RouteComponentProps
 
-export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginFormValues) => {
-  const { email, password } = values
-
-  setIsSubmitting(true)
-  login({ userName: email, password, loginType: 'CLIENT' } as LoginParams)
-}
-
-export const Login: React.FunctionComponent<LoginProps> = () => {
+export const Login: React.FunctionComponent<LoginProps> = ({ history }) => {
   const { wrapper, container, image } = loginStyles
 
-  const { loading, error, data } = useQuery<ContactQueryData>(MOCK_QUERY)
-  console.log('login: ', loading, error)
-  const [login, { data: loginData, loading: submitLoading, error: submitError }] = useMutation<
-    LoginMutationResponse,
-    LoginFormValues
-  >(LOGIN_MUTATION)
-
-  if (loading) return <div>loading...</div>
-
-  if (error) return <div>Error</div>
+  const [login, { data, loading, error }] = useMutation<LoginMutationResponse, LoginFormValues>(LOGIN_MUTATION)
+  if (!loading && data) {
+    history.push(Routes.HOME)
+  }
 
   return (
     <div className={container}>
       <div className={`${wrapper}`}>
         <H1 isCentered>Sign in</H1>
         <p className="pb-8">Welcome to smb</p>
-        <p className="pb-8">graphql message: {data?.GetContacts.title}</p>
-
         <Formik
           validate={validate}
-          initialValues={{ email: '', password: '' } as LoginFormValues}
+          initialValues={{ email: 'admin@yahoo.com', password: '' } as LoginFormValues}
           onSubmit={values => {
             login({ variables: { email: values.email, password: values.password } })
           }}
-          render={({ isSubmitting }) => (
+        >
+          {() => (
             <Form data-test="login-form">
               <Input
                 dataTest="login-email"
@@ -123,22 +86,15 @@ export const Login: React.FunctionComponent<LoginProps> = () => {
                 name="password"
                 placeholder="Enter your password"
               />
-
               <Level>
-                <Button
-                  type="submit"
-                  loading={isSubmitting && submitLoading}
-                  variant="primary"
-                  disabled={isSubmitting && submitLoading}
-                >
+                <Button type="submit" loading={loading} variant="primary" disabled={loading}>
                   Login
                 </Button>
               </Level>
-              {loginData && <Alert message={loginData.login.token} type="success" />}
               {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
             </Form>
           )}
-        />
+        </Formik>
       </div>
 
       <div className={image}>

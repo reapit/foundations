@@ -65,7 +65,7 @@ const server = new ApolloServer({
   context: handleContext,
   validationRules: [depthLimit(10)],
   cors: {
-    origin: '*',
+    origin: [],
     methods: ['POST', 'OPTION', 'GET'],
     credentials: true,
   },

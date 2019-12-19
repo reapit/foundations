@@ -18,12 +18,16 @@ const resolvers = {
     },
   },
   Mutation: {
-    login: async () => {
+    login: async (_, variables) => {
+      const { email, password } = variables
       await sleep(1000)
-      return {
-        __typename: 'token',
-        token: 'success',
+      if (email === 'admin@yahoo.com' && password === '123') {
+        return {
+          __typename: 'token',
+          token: 'success',
+        }
       }
+      throw new Error('Invalid')
     },
   },
 }

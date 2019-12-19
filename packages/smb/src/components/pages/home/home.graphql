@@ -1,0 +1,11 @@
+#import "./paging.graphql"
+#import "./contact.graphql"
+
+query loadContacts($pageSize: Int!, $pageNumber: Int!) {
+  contacts(pageSize: $pageSize, pageNumber: $pageNumber) {
+    contacts {
+      ...ContactObj
+    }
+    ...Pagination
+  }
+}

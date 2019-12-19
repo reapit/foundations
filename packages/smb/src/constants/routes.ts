@@ -1,7 +1,6 @@
 const Routes = {
-  USE_QUERY_PAGE: '/',
-  USE_MUTATION_PAGE: '/mutation',
-  // LOGIN: '/login',
+  LOGIN: '/login',
+  HOME: '/',
 }
 
 export default Routes
