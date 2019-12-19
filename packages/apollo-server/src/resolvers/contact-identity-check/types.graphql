@@ -24,7 +24,7 @@ type ContactIdentityCheck {
 }
 
 type ContactIdentityChecks {
-  contactIdentityChecks: [ContactIdentityCheck!]
+  _embedded: [ContactIdentityCheck!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int

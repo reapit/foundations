@@ -37,7 +37,7 @@ type Contact {
 }
 
 type Contacts {
-  contacts: [Contact!]
+  _embedded: [Contact!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
