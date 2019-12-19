@@ -21,7 +21,7 @@
       "@/*": ["./src/*"],
       "@searchWidget/*": ["./src/components/search-widget/*"],
       "@utils/*": ["./src/utils/*"],
-      "@services/*": ["./src/services/*"],
+      "@services/*": ["./src/services/*"]
     },
     "plugins": [
       {

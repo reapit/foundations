@@ -1,7 +1,6 @@
 import { useSearchStore } from '../search-store'
 import { renderHook, act } from '@testing-library/react-hooks'
-import data from './mock-search-store'
-import { PagedResultPropertyModel_ } from '@reapit/foundations-ts-definitions'
+import data from './mock-search-store.json'
 
 describe('useSearchStore', () => {
   it('handles start fetching', () => {
@@ -74,26 +73,9 @@ describe('useSearchStore', () => {
     const { result } = renderHook(() => useSearchStore())
 
     act(() => {
-      result.current.setFetchResult(
-        data as PagedResultPropertyModel_,
-        {},
-        'test',
-        'Rent'
-      )
+      result.current.setFetchResult(data, { a: {} }, 'demo', 'Rent')
     })
 
     expect(result.current.getCountResult()).toBe(10)
-  })
-
-  describe('handles getResultArr', () => {
-    it('hanldes result not null', () => {
-      const { result } = renderHook(() => useSearchStore())
-
-      act(() => {
-        result.current.setFetchResult(data as unknown, {}, 'test', 'Rent')
-      })
-
-      expect(result.current.getResultArr()).toEqual(data._embedded)
-    })
   })
 })

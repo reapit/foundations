@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { loadedCallback, GoogleMapLoader } from '../google-map-loader'
+import React from 'react'
+import { loadedCallback, GoogleMapLoader } from './google-map-loader'
 import { shallow } from 'enzyme'
 
 describe('GoogleMapLoader', () => {
@@ -24,6 +24,17 @@ describe('GoogleMapLoader', () => {
       })
       fn(undefined)
       expect(mockSetGoogleMap).toBeCalled()
+    })
+  })
+
+  describe('GoogleMapLoader', () => {
+    it('should match snapshot', () => {
+      const mockProps = {
+        params: { key: '123' },
+        render: jest.fn()
+      }
+      const wrapper = shallow(<GoogleMapLoader {...mockProps} />)
+      expect(wrapper).toMatchSnapshot()
     })
   })
 })

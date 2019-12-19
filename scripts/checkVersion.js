@@ -7,7 +7,6 @@ if (!remotePackageVersion) {
   return
 }
 
-// currentPackageVersion < remotePackageVersion
 if (compareVersions(currentPackageVersion, remotePackageVersion) < 1) {
   console.log('Current version is smaller than remote version. Please bump your package version')
   process.exit(1)
