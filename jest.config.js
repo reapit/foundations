@@ -7,7 +7,10 @@ module.exports = {
   setupFiles: ['<rootDir>/src/scripts/jest-setup.js'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coverageDirectory: './src/tests/coverage',
-  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]', 'mock-router.ts'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
+    'mock-router.ts'
+  ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
   moduleNameMapper: {
     '^.+.(?=.*scss|sass|css|png|jpg).*': '<rootDir>/src/scripts/css-stub.js',
@@ -15,7 +18,13 @@ module.exports = {
       prefix: '<rootDir>/'
     })
   },
-  snapshotSerializers: [
-    "enzyme-to-json/serializer"
-  ]
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  coverageThreshold: {
+    global: {
+      branches: 66,
+      functions: 79,
+      lines: 90,
+      statements: 89
+    }
+  }
 }
