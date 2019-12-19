@@ -99,7 +99,7 @@
     "wdio-jasmine-framework": "^0.3.8",
     "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.14.4",
-    "webpack": "^4.32.2",
+    "webpack": "4.41.3",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
   },
