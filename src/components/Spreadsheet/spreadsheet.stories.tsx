@@ -226,7 +226,7 @@ storiesOf('Spreadsheet', module)
         data={dataCustomStyle}
         description={
           <p>
-            <strong>DataSheet with validate</strong>
+            <strong>DataSheet with custom styles</strong>
             <br />
             Add custom style to cell by using className property of cell
             <br />
