@@ -7,8 +7,11 @@ import { ErrorData } from '../../../reducers/error'
 
 jest.mock('../../../utils/route-dispatcher')
 
+const Component: React.FC = () => <div>I am a component!</div>
+Component.displayName = 'Component'
+
 const props = {
-  children: () => <div>I am a component!</div>,
+  children: Component,
   errorThrownComponent: jest.fn(),
   componentError: {
     type: 'COMPONENT',

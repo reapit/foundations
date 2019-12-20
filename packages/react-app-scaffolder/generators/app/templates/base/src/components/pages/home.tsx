@@ -34,6 +34,6 @@ const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   homeState: state.home,
 })
 
-const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({})
+const mapDispatchToProps = (): HomeMappedActions => ({})
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home))
