@@ -1,5 +1,5 @@
-import logger from '../../logger'
 import { LoginParams } from '@reapit/cognito-auth'
+import logger from '../../logger'
 import authServices from './services'
 import { ServerContext } from '../../app'
 
