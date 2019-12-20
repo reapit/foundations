@@ -29,7 +29,6 @@ const InstalledAppCard: React.FC<InstalledAppCardProps> = ({ app, onClick }: Ins
       image={
         <img className="image" src={app.iconUri || 'https://bulma.io/images/placeholders/48x48.png'} alt={app.name} />
       }
-      menu={<FaEllipsisH className="media-icon" onClick={onClick} data-test={`app-installed_${app.id}`} />}
     >
       <p className={installedAppCardStyles.content}>{app.summary}</p>
     </Tile>

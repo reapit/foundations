@@ -52,7 +52,6 @@ exports[`MyApps should match a snapshot when LOADING false 1`] = `
     }
     loading={false}
     onCardClick={[Function]}
-    onSettingsClick={[Function]}
     pagination={
       Object {
         "onChange": [Function],
