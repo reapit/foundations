@@ -1,0 +1,70 @@
+@import 'react-datasheet/lib/react-datasheet';
+@import '../base/colors.scss';
+
+.spreadsheet {
+  width: 100%;
+  background-color: $white;
+  color: $black;
+  /* custom style */
+  .wrap-top {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    .description {
+      flex: 7 1 70%;
+    }
+    .button-group {
+      flex: 3 0 30%;
+      display: flex;
+      justify-content: flex-end;
+      .download-button {
+        margin-left: 1rem;
+      }
+    }
+  }
+  .wrap-bottom {
+    margin-top: 1rem;
+    text-align: right;
+  }
+  /* lib style modify */
+  .data-grid-container .data-grid {
+    width: 100%;
+    margin: auto;
+  }
+  & input.data-editor {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .data-grid-container .data-grid .cell {
+    height: 2rem;
+    line-height: 2rem;
+    vertical-align: middle;
+    padding: 0 0.5rem 0 0.5rem;
+    text-align: left;
+    &.read-only {
+      color: $black;
+      font-weight: bold;
+      background-color: inherit;
+    }
+    &.error-cell {
+      background: $reapit-red !important;
+      color: $white !important;
+    }
+    & > input {
+      text-align: left;
+    }
+  }
+  tr:nth-child(odd) {
+    background-color: $white;
+  }
+  tr:nth-child(even) {
+    background-color: $grey-lighter;
+  }
+
+  /* custom style use for demo in storybook */
+
+  .custom-classname-style {
+    color: $reapit-light-blue;
+  }
+}
