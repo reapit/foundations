@@ -1,23 +1,19 @@
 import * as React from 'react'
 import { Cell } from './types'
 
-/** Get max row and col index */
-export const getMaxRowAndCol = (data: Cell[][]) =>
-  data.reduce(
-    (acc, rowData) => {
-      const lastMaxRow = acc[0]
-      const lastMaxCol = acc[1]
-      const newAcc = [lastMaxRow, lastMaxCol]
-      if (lastMaxRow < data.length) {
-        newAcc[0] = data.length
-      }
-      if (lastMaxCol < rowData.length) {
-        newAcc[1] = rowData.length
-      }
-      return newAcc
-    },
-    [0 /* row */, 0 /* col */]
-  )
+/** Get max row and col of data */
+export const getMaxRowAndCol = (data: Cell[][]) => {
+  const maxRow = data.length
+  /* default to 0 */
+  let maxCol = 0
+  /* check every row to find max length of column */
+  data.forEach(row => {
+    if (maxCol < row.length) {
+      maxCol = row.length
+    }
+  })
+  return [maxRow, maxCol]
+}
 
 export const setCurrentCellValue = (
   cellData: string,
