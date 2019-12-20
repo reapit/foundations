@@ -14,7 +14,13 @@ export interface Cell extends ReactDataSheet.Cell<Cell, string> {
   validate?: (cell: Cell) => boolean
   /** Additional className for styling cell */
   className?: string
-  selectComponent?: React.FC
+  style?: React.CSSProperties
+  CustomComponent?: React.FC<{
+    data: Cell[][]
+    cellRenderProps: ReactDataSheet.CellRendererProps<Cell>
+    setData: React.Dispatch<Cell[][]>
+    setSelected: React.Dispatch<SelectedMatrix>
+  }>
 }
 
 export interface DoubleClickPayLoad {

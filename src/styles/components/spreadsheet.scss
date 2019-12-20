@@ -37,8 +37,8 @@
     height: 100% !important;
   }
   .data-grid-container .data-grid .cell {
-    height: 30px;
-    line-height: 30px;
+    height: 2rem;
+    line-height: 2rem;
     vertical-align: middle;
     padding: 0 0.5rem 0 0.5rem;
     text-align: left;
@@ -46,6 +46,10 @@
       color: $black;
       font-weight: bold;
       background-color: inherit;
+    }
+    &.error-cell {
+      background: $reapit-red !important;
+      color: $white !important;
     }
     & > input {
       text-align: left;
@@ -56,5 +60,11 @@
   }
   tr:nth-child(even) {
     background-color: $grey-lighter;
+  }
+
+  /* custom style use for demo in storybook */
+
+  .custom-classname-style {
+    color: $reapit-light-blue;
   }
 }

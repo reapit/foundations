@@ -5,24 +5,18 @@ import { getMaxRowAndCol } from './utils'
 
 export const valueRenderer = (cell: Cell): string => cell.value
 
-export const onDoubleClickCell = (payload: DoubleClickPayLoad, setSelected, onDoubleClickDefault) => (
-  ...args
-): boolean => {
+/** Double click on first read-only cell */
+export const onDoubleClickCell = (
+  payload: DoubleClickPayLoad,
+  setSelected: React.Dispatch<SelectedMatrix>,
+  onDoubleClickDefault
+) => (...args): boolean => {
+  /* trigger default handler from lib */
   onDoubleClickDefault(...args)
-  const { row, col, maxRowIndex, maxColIndex, isReadOnly } = payload
+  const { row, col, maxRowIndex, isReadOnly } = payload
   const isFirstRow = row === 0
-  const isFirstCol = col === 0
-  if (isFirstCol && isFirstRow) {
-    return false
-  }
-  if (isFirstCol && isReadOnly) {
-    setSelected({
-      start: { i: row, j: 0 },
-      end: { i: row, j: maxColIndex }
-    })
-    return true
-  }
   if (isFirstRow && isReadOnly) {
+    /* select all row's cells */
     setSelected({
       start: { i: 0, j: col },
       end: { i: maxRowIndex, j: col }
@@ -32,7 +26,7 @@ export const onDoubleClickCell = (payload: DoubleClickPayLoad, setSelected, onDo
   return false
 }
 
-export const onSelectCells = setSelected => ({ start, end }: SelectedMatrix) => {
+export const onSelectCells = (setSelected: React.Dispatch<SelectedMatrix>) => ({ start, end }: SelectedMatrix) => {
   setSelected({ start, end })
 }
 
@@ -41,10 +35,21 @@ export const onSelectCells = setSelected => ({ start, end }: SelectedMatrix) => 
 } */
 
 /** all the customization of cell go here */
-export const customCellRenderer = (data: Cell[][], setSelected) => (props: ReactDataSheet.CellRendererProps<Cell>) => {
-  const { style, cell, onDoubleClick, ...restProps } = props
-  const { validate = () => true, className = '', readOnly, selectComponent, ...restCell } = cell
-  /* const isValid = validate(cell) */
+export const customCellRenderer = (
+  data: Cell[][],
+  setData: React.Dispatch<Cell[][]>,
+  setSelected: React.Dispatch<SelectedMatrix>
+) => (props: ReactDataSheet.CellRendererProps<Cell>) => {
+  const { style: defaultStyle, cell, onDoubleClick, ...restProps } = props
+  const {
+    CustomComponent = false,
+    validate = () => true,
+    className = '',
+    readOnly,
+    style: customStyle,
+    ...restCell
+  } = cell
+  const isValid = validate(cell)
   const [maxRowIndex, maxColIndex] = getMaxRowAndCol(data)
   const payload = {
     row: props.row,
@@ -53,20 +58,28 @@ export const customCellRenderer = (data: Cell[][], setSelected) => (props: React
     maxColIndex,
     isReadOnly: readOnly
   }
+  const style = {
+    ...defaultStyle,
+    ...customStyle
+  }
   return (
     <td
       {...restProps}
       {...restCell}
-      className={`${props.className} ${className}`}
-      style={style as React.CSSProperties}
+      className={`${props.className} ${!isValid ? 'error-cell' : ''} ${className}`}
+      style={style}
       onDoubleClick={onDoubleClickCell(payload, setSelected, onDoubleClick)}
     >
-      {props.children}
+      {CustomComponent ? (
+        <CustomComponent cellRenderProps={props} data={data} setData={setData} setSelected={setSelected} />
+      ) : (
+        props.children
+      )}
     </td>
   )
 }
 
-export const handleAddNewRow = (data: Cell[][], setData) => () => {
+export const handleAddNewRow = (data: Cell[][], setData: React.Dispatch<Cell[][]>) => () => {
   const [maxRow] = getMaxRowAndCol(data)
   const lastRow = data[maxRow - 1]
   /* [
@@ -82,7 +95,10 @@ export const handleAddNewRow = (data: Cell[][], setData) => () => {
   setData(newData)
 }
 
-export const handleCellsChanged = (prevData: Cell[][], setData /* setData from useState*/) => changes => {
+export const handleCellsChanged = (
+  prevData: Cell[][],
+  setData: React.Dispatch<Cell[][]> /* setData from useState*/
+) => changes => {
   const newData = prevData.map(row => [...row])
   changes.forEach(({ row, col, value }) => {
     newData[row][col] = { ...newData[row][col], value }

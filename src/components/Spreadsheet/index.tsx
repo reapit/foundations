@@ -21,7 +21,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
 
   const [data, setData] = React.useState<Cell[][]>(initialData)
 
-  const cellRenderer = React.useCallback(customCellRenderer(data, setSelected), [data])
+  const cellRenderer = React.useCallback(customCellRenderer(data, setData, setSelected), [data])
   const onSelect = React.useCallback(onSelectCells(setSelected), [])
   const onCellsChanged = React.useCallback(handleCellsChanged(data, setData), [data])
   const addNewRow = React.useCallback(handleAddNewRow(data, setData), [data])

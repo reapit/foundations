@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { Cell } from './types'
 
 /** Get max row and col index */
@@ -17,3 +18,15 @@ export const getMaxRowAndCol = (data: Cell[][]) =>
     },
     [0 /* row */, 0 /* col */]
   )
+
+export const setCurrentCellValue = (
+  cellData: string,
+  data: Cell[][],
+  row: number,
+  col: number,
+  setData: React.Dispatch<Cell[][]>
+): void => {
+  const newData = [...data]
+  newData[row][col].value = cellData
+  setData(newData)
+}
