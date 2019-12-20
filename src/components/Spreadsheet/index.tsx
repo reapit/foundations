@@ -7,10 +7,43 @@ import {
   handleAddNewRow,
   handleCellsChanged,
   handleClickUpload,
-  handleOnChangeInput
+  handleOnChangeInput,
+  handleDownload
   /* handleContextMenu */
 } from './handlers'
 import { Button } from '../Button'
+
+export const UploadButton = ({ onChangeInput }) => {
+  const uploadRef = React.useRef<HTMLInputElement>(null)
+  return (
+    <div className="upload-button">
+      <Button type="submit" variant="info" onClick={handleClickUpload(uploadRef)}>
+        Upload file
+      </Button>
+      <input hidden accept=".csv" ref={uploadRef} type="file" name="file-upload" onChange={onChangeInput} />
+    </div>
+  )
+}
+
+export const DownloadButton = ({ data }) => {
+  return (
+    <div className="download-button">
+      <Button type="submit" variant="info" onClick={handleDownload(data)}>
+        Download file
+      </Button>
+    </div>
+  )
+}
+
+export const AddRowButton = ({ addNewRow }) => {
+  return (
+    <div className="add-button">
+      <Button type="submit" variant="info" onClick={addNewRow}>
+        Add new
+      </Button>
+    </div>
+  )
+}
 
 export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   data: initialData,
@@ -29,28 +62,14 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   const onCellsChanged = React.useCallback(handleCellsChanged(data, setData), [data])
   const addNewRow = React.useCallback(handleAddNewRow(data, setData), [data])
   const onChangeInput = React.useCallback(handleOnChangeInput(validateUpload, setData), [])
-  const uploadRef = React.useRef<HTMLInputElement>(null)
 
   return (
     <div className="spreadsheet">
       <div className="wrap-top">
         <div className="description">{description}</div>
         <div className="button-group">
-          {hasUploadButton && (
-            <div className="upload-button">
-              <Button type="submit" variant="info" onClick={handleClickUpload(uploadRef)}>
-                Upload file
-              </Button>
-              <input hidden accept=".csv" ref={uploadRef} type="file" name="file-upload" onChange={onChangeInput} />
-            </div>
-          )}
-          {hasDownloadButton && (
-            <div className="download-button">
-              <Button type="submit" variant="info">
-                Download file
-              </Button>
-            </div>
-          )}
+          {hasUploadButton && <UploadButton onChangeInput={onChangeInput} />}
+          {hasDownloadButton && <DownloadButton data={data} />}
         </div>
       </div>
       <MyReactDataSheet
@@ -63,15 +82,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
         /* onContextMenu={handleContextMenu} */
         cellRenderer={cellRenderer}
       />
-      <div className="wrap-bottom">
-        {hasAddButton && (
-          <div className="add-button">
-            <Button type="submit" variant="info" onClick={addNewRow}>
-              Add new
-            </Button>
-          </div>
-        )}
-      </div>
+      <div className="wrap-bottom">{hasAddButton && <AddRowButton addNewRow={addNewRow} />}</div>
     </div>
   )
 }
