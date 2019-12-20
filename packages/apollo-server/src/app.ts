@@ -1,3 +1,4 @@
+import 'isomorphic-fetch'
 import path from 'path'
 import express from 'express'
 import uuidv4 from 'uuid/v4'

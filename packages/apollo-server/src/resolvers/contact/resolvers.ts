@@ -1,4 +1,4 @@
-import { contactServices } from './services'
+import contactServices from './services'
 import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
 import errors from '../../errors'
