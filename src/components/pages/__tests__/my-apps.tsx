@@ -54,14 +54,6 @@ describe('MyApps', () => {
   it('mapStateToProps', () => {
     const mockState = {
       myApps: {},
-      appDetail: {},
-      auth: {
-        loginSession: {
-          loginIdentity: {
-            clientId: ''
-          }
-        }
-      },
       installations: {
         formState: 'PENDING'
       }
@@ -69,21 +61,12 @@ describe('MyApps', () => {
     const result = mapStateToProps(mockState)
     const output = {
       myAppsState: {},
-      appDetail: {},
-      clientId: '',
       installationsFormState: 'PENDING'
     }
     expect(result).toEqual(output)
   })
 
   describe('mapDispatchToProps', () => {
-    it('fetchAppDetail', () => {
-      const mockDispatch = jest.fn()
-      const { fetchAppDetail } = mapDispatchToProps(mockDispatch)
-      fetchAppDetail('123', '')
-      expect(mockDispatch).toBeCalled()
-    })
-
     it('fetchMyApp', () => {
       const mockDispatch = jest.fn()
       const { fetchMyApp } = mapDispatchToProps(mockDispatch)
