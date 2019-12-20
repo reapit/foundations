@@ -41,7 +41,18 @@ export const parseCsvFile = (file: File): Promise<Papa.ParseResult> =>
     })
   })
 
+/** convert to string to download */
+export const unparseDataToCsvString = (parseResult: string[][]): string => Papa.unparse(parseResult)
+/**
+ * Convert from ParseResult to Cell[][]
+ * Convert from [['value1', 'value2'], ['value3', 'value4']]
+ * to [[{value: 'value1'}, {value: ''}], [{value: 'value3'}, {value: 'value4'}]]
+ * for compatible reason
+ */
 export const convertToCompatibleData = (parsedResult: Papa.ParseResult): Cell[][] =>
   parsedResult.data.map(rowArray => rowArray.map(value => ({ value })))
 
-/* export const convertDataToCsv = (data: Cell[][]) */
+/**
+ * Convert back from Cell[][] to string[][]
+ */
+export const convertDataToCsv = (data: Cell[][]): string[][] => data.map(rowArray => rowArray.map(({ value }) => value))

@@ -1,7 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Spreadsheet, setCurrentCellValue, Cell } from './index'
-import { testFile } from './__stubs__/test.csv'
 
 storiesOf('Spreadsheet', module)
   .add('Basic', () => {
