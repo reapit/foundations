@@ -8,8 +8,9 @@ export const getMaxRowAndCol = (data: Cell[][]) => {
   let maxCol = 0
   /* check every row to find max length of column */
   data.forEach(row => {
-    if (maxCol < row.length) {
-      maxCol = row.length
+    const numberOfCurrentRowColumn = row.length
+    if (maxCol < numberOfCurrentRowColumn) {
+      maxCol = numberOfCurrentRowColumn
     }
   })
   return [maxRow, maxCol]
