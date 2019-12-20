@@ -31,7 +31,7 @@ module.exports = {
     '@typescript-eslint',
     'prettier',
   ],
-  ignorePatterns: ['__mocks__/', 'node_modules/', 'setup-tests.ts', 'jest.config.js', '.prettierrc.js'],
+  ignorePatterns: ['__mocks__/', 'node_modules/', 'setup-tests.ts', 'jest.config.js', '.prettierrc.js', 'react-app-scaffolder/'],
   rules: {
     'indent': ['error', 2],
     'linebreak-style': ['error', 'unix'],

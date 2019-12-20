@@ -8,8 +8,11 @@ import routeDispatcher from '../../../utils/route-dispatcher'
 
 jest.mock('../../../utils/route-dispatcher')
 
+const Component: React.FC = () => <div>I am a component!</div>
+Component.displayName = 'Component'
+
 const props = {
-  Component: () => <div>I am a component!</div>,
+  Component,
   routerProps: {
     match: {
       path: Routes.HOME,
