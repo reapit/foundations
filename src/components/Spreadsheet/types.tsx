@@ -23,6 +23,10 @@ export interface Cell extends ReactDataSheet.Cell<Cell, string> {
   }>
 }
 
+export interface CellWithValidate extends Cell {
+  validate: (cell: Cell) => boolean
+}
+
 export interface DoubleClickPayLoad {
   row: number
   col: number
@@ -37,6 +41,8 @@ export interface SpreadsheetProps {
   hasUploadButton?: boolean
   hasDownloadButton?: boolean
   hasAddButton?: boolean
+  /** This will run before data is set to table, must return data with validate function */
+  validateUpload?: (data: Cell[][]) => CellWithValidate[][]
 }
 
 export interface SelectedMatrix {
