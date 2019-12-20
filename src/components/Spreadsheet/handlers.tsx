@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
-import { Cell, DoubleClickPayLoad, SelectedMatrix } from './types'
-import { getMaxRowAndCol } from './utils'
+import { Cell, DoubleClickPayLoad, SelectedMatrix, SpreadsheetProps } from './types'
+import { getMaxRowAndCol, parseCsvFile, convertToCompatibleData } from './utils'
 
 export const valueRenderer = (cell: Cell): string => cell.value
 
@@ -104,4 +104,38 @@ export const handleCellsChanged = (
     newData[row][col] = { ...newData[row][col], value }
   })
   setData(newData)
+}
+
+export const handleClickUpload = (ref: React.RefObject<HTMLInputElement>) => () => {
+  if (ref && ref.current && typeof ref.current.click === 'function') {
+    /* allow same file input */
+    ref.current.value = ''
+    ref.current.click()
+    return true
+  }
+  return false
+}
+
+export const handleOnChangeInput = (
+  validateUpload: SpreadsheetProps['validateUpload'],
+  setData: React.Dispatch<Cell[][]>
+) => async (event: { target: HTMLInputElement }) => {
+  try {
+    const { target } = event
+    if (target && target.files && target.files[0]) {
+      const file = target.files[0]
+      const result = await parseCsvFile(file)
+      const compatibleData = convertToCompatibleData(result)
+      if (validateUpload && typeof validateUpload === 'function') {
+        const dataValidated = validateUpload(compatibleData)
+        setData(dataValidated)
+        return dataValidated
+      }
+      /* if not set validate function */
+      setData(compatibleData)
+      return compatibleData
+    }
+  } catch (err) {
+    console.log(err)
+  }
 }

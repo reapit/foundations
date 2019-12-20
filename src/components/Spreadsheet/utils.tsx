@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Papa from 'papaparse'
 import { Cell } from './types'
 
 /** Get max row and col of data */
@@ -27,3 +28,20 @@ export const setCurrentCellValue = (
   newData[row][col].value = cellData
   setData(newData)
 }
+
+export const parseCsvFile = (file: File): Promise<Papa.ParseResult> =>
+  new Promise((resolve, rejects) => {
+    Papa.parse(file, {
+      complete: (results: Papa.ParseResult) => {
+        resolve(results)
+      },
+      error: (errors: Papa.ParseError) => {
+        rejects(errors)
+      }
+    })
+  })
+
+export const convertToCompatibleData = (parsedResult: Papa.ParseResult): Cell[][] =>
+  parsedResult.data.map(rowArray => rowArray.map(value => ({ value })))
+
+/* export const convertDataToCsv = (data: Cell[][]) */

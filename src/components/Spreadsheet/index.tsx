@@ -5,7 +5,9 @@ import {
   onSelectCells,
   customCellRenderer,
   handleAddNewRow,
-  handleCellsChanged
+  handleCellsChanged,
+  handleClickUpload,
+  handleOnChangeInput
   /* handleContextMenu */
 } from './handlers'
 import { Button } from '../Button'
@@ -15,7 +17,8 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   description = '',
   hasUploadButton = true,
   hasDownloadButton = true,
-  hasAddButton = true
+  hasAddButton = true,
+  validateUpload
 }) => {
   const [selected, setSelected] = React.useState<SelectedMatrix | null>(null)
 
@@ -25,6 +28,8 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   const onSelect = React.useCallback(onSelectCells(setSelected), [])
   const onCellsChanged = React.useCallback(handleCellsChanged(data, setData), [data])
   const addNewRow = React.useCallback(handleAddNewRow(data, setData), [data])
+  const onChangeInput = React.useCallback(handleOnChangeInput(validateUpload, setData), [])
+  const uploadRef = React.useRef<HTMLInputElement>(null)
 
   return (
     <div className="spreadsheet">
@@ -33,9 +38,10 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
         <div className="button-group">
           {hasUploadButton && (
             <div className="upload-button">
-              <Button type="submit" variant="info">
+              <Button type="submit" variant="info" onClick={handleClickUpload(uploadRef)}>
                 Upload file
               </Button>
+              <input hidden accept=".csv" ref={uploadRef} type="file" name="file-upload" onChange={onChangeInput} />
             </div>
           )}
           {hasDownloadButton && (
