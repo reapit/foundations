@@ -12,8 +12,16 @@ export type HelpGuideContextValues = {
   isLoading: boolean
 }
 
-// @ts-ignore: ignore fulfill default values
-export const HelpGuideContext = createContext<HelpGuideContextValues>({})
+export const HelpGuideContext = createContext<HelpGuideContextValues>({
+  current: '',
+  currentIndex: 0,
+  goNext: () => null,
+  goPrev: () => null,
+  isFirst: true,
+  isLast: false,
+  steps: [],
+  isLoading: false
+})
 
 export const useHelpGuideContext = (): HelpGuideContextValues => {
   return useContext(HelpGuideContext)

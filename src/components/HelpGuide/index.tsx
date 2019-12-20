@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { HelpGuideContext, HelpGuideContextValues } from './context'
 import { FlexContainerBasic } from '../Layout'
-import { NumberedTimeline } from './NumberedTimeline'
+import { NumberedTimeline } from './number-timeline'
 import { SubTitleH6, H3 } from '../Typography'
 
 export interface HelpGuideProps {
@@ -18,6 +18,34 @@ export interface HelpGuideStepProps {
   component: React.FC<any>
 }
 
+export const caculateCurrentStepRef = ({ currentStepRef }) => () => {
+  setTimeout(() => {
+    if (currentStepRef.current) {
+      currentStepRef.current.style.opacity = '1'
+      currentStepRef.current.style.zIndex = '2'
+      currentStepRef.current.style.transform = `translateY(0px)`
+    }
+  }, 300)
+}
+
+export const handleGoNext = ({ steps, currentIndex, isLast, setInternalCurrent, currentStepRef }) => () => {
+  if (!isLast && currentStepRef.current) {
+    currentStepRef.current.style.opacity = '0'
+    currentStepRef.current.style.zIndex = '0'
+    currentStepRef.current.style.transform = `translateY(-${currentStepRef.current.clientHeight}px)`
+    setInternalCurrent(steps[currentIndex + 1].id)
+  }
+}
+
+export const handleGoPrev = ({ steps, currentIndex, isFirst, setInternalCurrent, currentStepRef }) => () => {
+  if (!isFirst && currentStepRef.current) {
+    currentStepRef.current.style.opacity = '0'
+    currentStepRef.current.style.zIndex = '0'
+    currentStepRef.current.style.transform = `translateY(${currentStepRef.current.clientHeight}px)`
+    setInternalCurrent(steps[currentIndex - 1].id)
+  }
+}
+
 export const HelpGuide = ({ children, current, isLoading = false }: HelpGuideProps) => {
   const currentStepRef = useRef<HTMLDivElement>(null)
 
@@ -30,42 +58,12 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
   const isLast = steps[steps.length - 1].id === internalCurrent
   const currentIndex = steps.findIndex(({ id }) => id === internalCurrent)
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (currentStepRef.current) {
-        currentStepRef.current.style.opacity = '1'
-        currentStepRef.current.style.zIndex = '2'
-        currentStepRef.current.style.transform = `translateY(0px)`
-      }
-    }, 300)
-  }, [internalCurrent])
-
-  const goNext = () => {
-    if (!isLast) {
-      if (currentStepRef.current) {
-        currentStepRef.current.style.opacity = '0'
-        currentStepRef.current.style.zIndex = '0'
-        currentStepRef.current.style.transform = `translateY(-${currentStepRef.current.clientHeight}px)`
-      }
-      setInternalCurrent(steps[currentIndex + 1].id)
-    }
-  }
-
-  const goPrev = () => {
-    if (!isFirst) {
-      if (currentStepRef.current) {
-        currentStepRef.current.style.opacity = '0'
-        currentStepRef.current.style.zIndex = '0'
-        currentStepRef.current.style.transform = `translateY(${currentStepRef.current.clientHeight}px)`
-      }
-      setInternalCurrent(steps[currentIndex - 1].id)
-    }
-  }
+  useEffect(caculateCurrentStepRef({ currentStepRef }), [internalCurrent])
 
   const value: HelpGuideContextValues = {
     current: internalCurrent,
-    goNext,
-    goPrev,
+    goNext: handleGoNext({ steps, currentIndex, isLast, setInternalCurrent, currentStepRef }),
+    goPrev: handleGoPrev({ steps, currentIndex, isFirst, setInternalCurrent, currentStepRef }),
     currentIndex,
     steps,
     isFirst,
