@@ -225,7 +225,6 @@ const SearchWidget: React.FC<{
     setFetchResult,
     setFetchError,
     setStartFetching,
-    setPropertyImages,
     isLoading,
     selectedProperty,
     result

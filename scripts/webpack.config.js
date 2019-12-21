@@ -2,8 +2,9 @@ const webpack = require('webpack')
 const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const Dotenv = require('dotenv-webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
+const Dotenv = require('dotenv-webpack')
 
 const analyzePlugins = process.env.ANALYZE ? [new BundleAnalyzerPlugin()] : []
 
@@ -17,6 +18,16 @@ module.exports = {
         exclude: /(node_modules|bower_components|types)/,
         use: {
           loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.(svg|png|jpg|jpeg|gif)$/,
+        include: path.resolve(__dirname, 'src', 'assets'),
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          }
         }
       }
     ]
@@ -36,10 +47,10 @@ module.exports = {
     ]
   },
   plugins: [
-    // new ForkTsCheckerWebpackPlugin({
-    //   tsconfig: path.resolve(__dirname, "../tsconfig.json")
-    // }),
+    new ForkTsCheckerWebpackPlugin({
+      tsconfig: path.resolve(__dirname, '../tsconfig.json')
+    }),
     new Dotenv(),
     ...analyzePlugins
-  ],
+  ]
 }
