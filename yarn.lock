@@ -1351,6 +1351,16 @@
   resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-0.0.4.tgz#d469eda53eab4419b6a5e711afbfc0f4b976d22f"
   integrity sha512-FNy1wt5s10I1jWaUdeVzsakM59okGEMKimG+iXjfLuCWIs1sG7Pj5vTvkoGgq9nm5vyfcEQgN9M7i4Tw7ABmCQ==
 
+"@reapit/web-components-test@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@reapit/web-components-test/-/web-components-test-0.0.1.tgz#37789dd052dc4044538b979219a9f4ec80f90026"
+  integrity sha512-AqzJ1WMaWX+Yw/rOzQYaz7x3s7LOmVOWpazFe9jpcSBwg5FvqHf5GicHLbuxLE7Am4RPMEGRrsNCong0MmFGVQ==
+  dependencies:
+    little-loader "^0.2.0"
+    lodash.merge "^4.6.2"
+    react-icons "^3.7.0"
+    styled-components "^4.4.0"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
