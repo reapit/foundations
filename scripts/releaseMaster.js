@@ -9,16 +9,16 @@ const releaseMaster = async () => {
 
   try {
     await octokit.git.createRef({
-      owner: 'phmngocnghia',
-      repo: 'reapit-web-comp',
+      owner: 'reapit',
+      repo: 'web-components',
       ref: 'refs/tags/' + tagName,
       sha: process.env.GITHUB_SHA
     })
 
     // create new release based on tag
     await octokit.repos.createRelease({
-      owner: 'phmngocnghia',
-      repo: 'reapit-web-comp',
+      owner: 'reapit',
+      repo: 'web-components',
       tag_name: tagName
     })
   } catch (err) {

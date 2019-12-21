@@ -1,6 +1,6 @@
 {
-  "name": "@reapit/web-components-test",
-  "version": "0.0.9",
+  "name": "@reapit/web-components",
+  "version": "0.0.3",
   "files": [
     "dist-npm/**/*"
   ],
