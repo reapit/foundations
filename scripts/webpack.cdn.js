@@ -6,7 +6,7 @@ const fs = require('fs')
 const cdnPath = path.resolve(__dirname, '../src/cdn')
 const files = fs.readdirSync(cdnPath)
 
-// read all files in x folder
+// read all files in cdn folder folder
 const entries = files.reduce(( entries, file ) => {
   const extName = path.extname(file)
   const fileWithoutExtName = file.replace(extName, '')
