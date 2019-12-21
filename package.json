@@ -1,7 +1,6 @@
 {
   "name": "@reapit/web-components-test",
   "version": "0.0.1",
-  "private": true,
   "files": [
     "dist-npm/**/*"
   ],
@@ -10,6 +9,7 @@
   "typings": "dist-npm/index.d.ts",
   "homepage": "https://demo-site.reapit.com",
   "dependencies": {
+    "@reapit/web-components-test": "^0.0.1",
     "little-loader": "^0.2.0",
     "lodash.merge": "^4.6.2",
     "react-icons": "^3.7.0",
