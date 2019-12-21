@@ -6,6 +6,6 @@ export default { title: 'SearchWidget' }
 export const withSearchWidget = () => (
   <div>
     <SearchWidget />
-    <div id="reapit-widget-result" />
+    <div id="reapit-search-widget-result" />
   </div>
 )

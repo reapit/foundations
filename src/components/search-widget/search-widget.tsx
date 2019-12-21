@@ -264,8 +264,7 @@ const SearchWidget: React.FC<{
 
     try {
       const result = await getPropertiesForSale(searchKeyword)
-      const propertyImages = await getPropertyImages(result.data)
-      setPropertyImages(propertyImages)
+      const propertyImages = await getPropertyImages(result._embedded)
       setFetchResult(result, propertyImages, searchKeyword, 'Sale')
     } catch (err) {
       console.log(err)
@@ -302,8 +301,7 @@ const SearchWidget: React.FC<{
 
     try {
       const result = await getPropertiesToRent(searchKeyword)
-      const propertyImages = await getPropertyImages(result.data)
-      setPropertyImages(propertyImages)
+      const propertyImages = await getPropertyImages(result._embedded)
       setFetchResult(result, propertyImages, searchKeyword, 'Rent')
     } catch (err) {
       console.log(err)
@@ -311,9 +309,7 @@ const SearchWidget: React.FC<{
     }
   }
 
-  const searchResultContainer = document.getElementById(
-    'search-result-container'
-  )
+  const searchResultContainer = document.getElementById(searchResultContainerID)
   const onTabMapClick = () => setActiveTab('MAP')
   const onTabSearchResultClick = () => setActiveTab('SEARCH_RESULT')
 

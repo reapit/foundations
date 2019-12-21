@@ -1,33 +1,4 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noUnusedParameters": true,
-    "jsx": "react",
-    "isolatedModules": false,
-    "declaration": true,
-    "declarationDir": "dist-npm",
-    "emitDeclarationOnly": true,
-    "rootDirs": ["src"],
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@searchWidget/*": ["./src/components/search-widget/*"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin",
-        "validate": false
-      }
-    ]
-  },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "extends": "./tsconfig.json",
   "exclude": ["node_modules", "types", "**/*.test.ts", "**/*.test.tsx"]
 }
