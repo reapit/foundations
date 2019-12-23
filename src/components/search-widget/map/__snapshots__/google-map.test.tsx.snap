@@ -2343,16 +2343,6 @@ exports[`google-map renderMap should match snapshot 1`] = `
           "modified": "2019-09-17T12:06:06",
           "parking": Array [],
           "receptions": 0,
-          "relationships": Array [
-            Object {
-              "id": "LJW",
-              "type": "negotiator",
-            },
-            Object {
-              "id": "AYL",
-              "type": "office",
-            },
-          ],
           "rooms": Array [],
           "selling": Object {
             "instructed": "2019-09-17T00:00:00",
@@ -2408,16 +2398,6 @@ exports[`google-map renderMap should match snapshot 1`] = `
         "modified": "2019-09-17T12:06:06",
         "parking": Array [],
         "receptions": 0,
-        "relationships": Array [
-          Object {
-            "id": "LJW",
-            "type": "negotiator",
-          },
-          Object {
-            "id": "AYL",
-            "type": "office",
-          },
-        ],
         "rooms": Array [],
         "selling": Object {
           "instructed": "2019-09-17T00:00:00",

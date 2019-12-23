@@ -1,6 +1,9 @@
 import * as React from 'react'
 import Loader from '../loader'
-import { AddressModel, PropertyModel } from '../types/property'
+import {
+  ContactAddressModel,
+  PropertyModel
+} from '@reapit/foundations-ts-definitions'
 import styled from 'styled-components'
 import { context } from '../context'
 import { FaBed, FaToilet } from 'react-icons/fa'
@@ -176,7 +179,9 @@ const SearchResultImageContainer = styled.div<{ isSelectedProperty: boolean }>`
   overflow: hidden;
 `
 
-export const combineAdress = (address: AddressModel | undefined): string => {
+export const combineAdress = (
+  address: ContactAddressModel | undefined
+): string => {
   if (!address) {
     return ''
   }

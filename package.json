@@ -29,8 +29,8 @@
     "build:cdn-analyze": "ANALYZE=true webpack --config ./scripts/webpack.cdn.js",
     "build:npm-analyze": "ANALYZE=true webpack --config ./scripts/webpack.npm.js",
     "deploy:cdn": "aws s3 sync ./dist-cdn s3://reapit-web-components --delete --acl public-read",
-    "build:cdn": "rimraf dist-cdn && webpack --config ./scripts/webpack.cdn.js",
-    "build:npm": "rimraf dist-npm && webpack --config ./scripts/webpack.npm.js && yarn build:ts",
+    "build:cdn": "rimraf dist-cdn && rimraf dist-npm && webpack --config ./scripts/webpack.cdn.js",
+    "build:npm": "rimraf dist-npm webpack --config ./scripts/webpack.npm.js && yarn build:ts",
     "build:ts": "tsc -p './tsconfig.build.json'",
     "test": "jest --coverage --silent",
     "test-dev": "jest --watch",
@@ -125,12 +125,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn build:npm && yarn build:cdn"
+      "pre-push": "yarn lint && yarn build:cdn && yarn build:npm"
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "src/**/*.{json,css,scss,md}": [
       "prettier --write",
       "git add"
     ]

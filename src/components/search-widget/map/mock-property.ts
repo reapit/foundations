@@ -1,4 +1,4 @@
-import { PropertyModel } from '../types/property'
+import { PropertyModel } from '@reapit/foundations-ts-definitions'
 export const property: PropertyModel = {
   id: 'AYL190002',
   created: '2019-09-17T11:57:27',
@@ -49,15 +49,5 @@ export const property: PropertyModel = {
   age: [],
   locality: [],
   rooms: [],
-  relationships: [
-    {
-      id: 'LJW',
-      type: 'negotiator'
-    },
-    {
-      id: 'AYL',
-      type: 'office'
-    }
-  ],
   metadata: {}
 }
