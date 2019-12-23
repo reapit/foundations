@@ -1,7 +1,8 @@
-build/
+build-cdn/
+build-npm/
+node_modules/
 __snapshots__/
 coverage/
-node_modules/
 storybook-static/
 package-lock.json
 yarn.lock

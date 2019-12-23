@@ -234,7 +234,7 @@ export const getCurrentMarkerIndex = ({
   const longitude = centerPoint.lng()
   for (let i = 0; i < markers.length; i++) {
     const position: google.maps.LatLng =
-      markers && markers[i] && (markers[i].getPosition() as google.maps.LatLng)
+      markers && markers[i] && markers[i].getPosition()
     if (
       position &&
       position.lat() === latitude &&
@@ -315,7 +315,7 @@ export const handleUseEffect = ({
       const currentMarkerIndex = getCurrentMarkerIndex({
         markersRef,
         centerPoint
-      }) as number
+      })
       map.setCenter(centerPoint)
       map.setZoom(DEFAULT_ZOOM)
       const FIRST_INFO_WINDOW_INDEX = 0

@@ -1,0 +1,35 @@
+{
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "no-empty": false,
+    "prettier": [
+      true,
+      {
+        "singleQuote": true,
+        "printWidth": 120,
+        "semi": false
+      }
+    ],
+    "no-floating-promises": false,
+    "deprecation": false,
+    "class-name": false,
+    "no-unused-variable": [ true, "check-parameters" ]
+  },
+  "jsRules": {
+    "prettier": [
+      true,
+      {
+        "singleQuote": true,
+        "printWidth": 120,
+        "semi": false
+      }
+    ],
+    "no-floating-promises": false,
+    "deprecation": false,
+    "class-name": false
+  },
+  "extends": ["tslint-config-standard", "tslint-config-prettier"],
+  "cliOptions": {
+    "exclude": ["node_modules", "build_npm", "build_cdn"]
+  }
+}

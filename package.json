@@ -7,7 +7,14 @@
   "main": "dist-npm/index.js",
   "types": "dist-npm/index.d.ts",
   "typings": "dist-npm/index.d.ts",
-  "homepage": "https://demo-site.reapit.com",
+  "homepage": "https://github.com/reapit/web-components",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/web-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/reapit/web-components/issues"
+  },
   "dependencies": {
     "little-loader": "^0.2.0",
     "lodash.merge": "^4.6.2",
@@ -27,11 +34,8 @@
     "build:ts": "tsc -p './tsconfig.build.json'",
     "test": "jest --coverage --silent",
     "test-dev": "jest --watch",
-    "lint": "eslint './src/**/*.ts' './src/**/*.tsx'",
-    "lint:fix": "eslint --fix './src/**/*.ts' './src/**/*.tsx'",
-    "prettify": "prettier -c --write \"*/**\"",
+    "lint": "tslint --fix --project tsconfig.json --format stylish",
     "storybook": "start-storybook -p 8080",
-    "build-storybook": "build-storybook",
     "release:master": "node scripts/releaseMaster.js",
     "checkVersion": "node ./scripts/checkVersion.js"
   },
@@ -100,14 +104,19 @@
     "jest-fetch-mock": "^2.1.2",
     "lint-staged": "^9.4.2",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
-    "prettier": "^1.18.2",
+    "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
     "rimraf": "^3.0.0",
     "sw2dts": "^2.6.2",
     "ts-jest": "^24.1.0",
+    "ts-lint": "^4.5.1",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^9.0.0",
+    "tslint-plugin-prettier": "^2.1.0",
     "typescript": "3.6.3",
     "webpack": "^4.41.2",
     "webpack-bundle-analyzer": "^3.6.0",
@@ -116,7 +125,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn build:npm && yarn build:cdn"
     }
   },
   "lint-staged": {
