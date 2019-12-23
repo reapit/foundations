@@ -24,7 +24,13 @@ export const FormExample: React.SFC = () => (
               <FormSection>
                 <FormHeading>Section One</FormHeading>
                 <FormSubHeading>Information about this section to help the user</FormSubHeading>
-                <Input id="text" type="text" placeholder="Some text here" name="text" labelText="Text" />
+                <Input
+                  id="text-1-section-1"
+                  type="text"
+                  placeholder="Some text here"
+                  name="text-1-section-1"
+                  labelText="Text"
+                />
                 <Input id="email" type="email" placeholder="bob@acme.com" name="email" labelText="Email" />
                 <Input id="tel" type="tel" placeholder="0800 800 800" name="tel" labelText="Telephone" />
               </FormSection>
@@ -36,7 +42,7 @@ export const FormExample: React.SFC = () => (
                   id="passwordConfirm"
                   type="password"
                   placeholder="********"
-                  name="password"
+                  name="passwordConfirm"
                   labelText="Password Confirm"
                 />
               </FormSection>
@@ -46,7 +52,13 @@ export const FormExample: React.SFC = () => (
               <FormSection>
                 <FormHeading>Section Three</FormHeading>
                 <FormSubHeading>Information about this section to help the user</FormSubHeading>
-                <Input id="text" type="text" placeholder="Some text here" name="text" labelText="Text" />
+                <Input
+                  id="text-1-section-3"
+                  type="text"
+                  placeholder="Some text here"
+                  name="text-1-section-3"
+                  labelText="Text"
+                />
                 <div className="control">
                   <label className="label">Label for editor</label>
                   <Editor
@@ -58,14 +70,14 @@ export const FormExample: React.SFC = () => (
                 </div>
               </FormSection>
               <FormSection>
-                <FormHeading>Section Three</FormHeading>
+                <FormHeading>Section Four</FormHeading>
                 <FormSubHeading>Information about this section to help the user</FormSubHeading>
                 <TextArea id="text" placeholder="Some text here" name="primary" labelText="Details" />
               </FormSection>
             </GridItem>
           </Grid>
           <FormSection>
-            <FormHeading>Section Four</FormHeading>
+            <FormHeading>Section Five</FormHeading>
             <FormSubHeading>Information about this section to help the user</FormSubHeading>
             <Grid>
               <GridItem>

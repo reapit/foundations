@@ -112,7 +112,7 @@ export interface WizardStepProps<T> {
     type: WizardActionType
     context: WizardContextValues
   }) => Promise<boolean>
-  onSubmit?: (params: { values: T; context: WizardContextValues }) => void
+  onSubmit?: (params: { values: T; context: WizardContextValues; form: FormikProps<T> }) => void
 }
 
 Wizard.Step = function<T>({ Component, initialValue, onNavigate, validate, onSubmit }: WizardStepProps<T>) {
@@ -124,8 +124,8 @@ Wizard.Step = function<T>({ Component, initialValue, onNavigate, validate, onSub
     <Formik
       initialValues={initialValue || ({} as T)}
       validate={validate}
-      onSubmit={values => {
-        onSubmit && onSubmit({ values, context })
+      onSubmit={(values, form) => {
+        onSubmit && onSubmit({ values, context, form: form as FormikProps<T> })
       }}
     >
       {form => {
@@ -135,7 +135,14 @@ Wizard.Step = function<T>({ Component, initialValue, onNavigate, validate, onSub
           rightRender = (
             <>
               {!isLast && (
-                <Button type="submit" variant="primary" loading={isLoading} className="ml-2" dataTest="wizard-save-btn">
+                <Button
+                  type="button"
+                  onClick={() => onSubmit && onSubmit({ values: form.values, context, form })}
+                  variant="primary"
+                  loading={isLoading}
+                  className="ml-2"
+                  dataTest="wizard-save-btn"
+                >
                   Save
                 </Button>
               )}
@@ -178,7 +185,8 @@ Wizard.Step = function<T>({ Component, initialValue, onNavigate, validate, onSub
                 </Button>
               ) : (
                 <Button
-                  type="submit"
+                  onClick={() => onSubmit && onSubmit({ values: form.values, context, form })}
+                  type="button"
                   variant="primary"
                   loading={isLoading}
                   className="ml-2"

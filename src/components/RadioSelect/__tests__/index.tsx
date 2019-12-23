@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import RadioSelect from '../index'
-import { Formik, Form } from 'formik'
+import { Formik, Form, FormikValues } from 'formik'
 
 describe('RadioSelect', () => {
   it('should match snapshot', () => {
@@ -12,7 +12,7 @@ describe('RadioSelect', () => {
       dataTest: 'mockDatatest',
       options: [{ label: 'label', value: 'value' }, { label: 'label1', value: 'value1' }]
     }
-    const wrapper = shallow(<RadioSelect {...mockProps} />)
+    const wrapper = shallow(<RadioSelect setFieldValue={jest.fn()} state={'value'} {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -25,10 +25,10 @@ describe('RadioSelect', () => {
       options: [{ label: 'label', value: 'value' }, { label: 'label1', value: 'value1' }]
     }
     const wrapper = mount(
-      <Formik initialValues={{ username: '' }} onSubmit={jest.fn()}>
-        {() => (
+      <Formik initialValues={{ username: '' } as FormikValues} onSubmit={jest.fn()}>
+        {({ setFieldValue, values }) => (
           <Form>
-            <RadioSelect {...mockProps} />
+            <RadioSelect setFieldValue={setFieldValue} state={values[mockProps.name]} {...mockProps} />
           </Form>
         )}
       </Formik>

@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.17",
+  "version": "0.5.19",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -74,7 +74,7 @@
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "rimraf": "^2.7.0",
-    "rollup": "^1.27.9",
+    "rollup": "1.27.13",
     "rollup-plugin-scss": "^1.0.2",
     "sass-loader": "^7.2.0",
     "style-loader": "^1.0.0",
@@ -86,7 +86,8 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "3.7.2"
+    "typescript": "3.7.2",
+    "webpack": "4.41.3"
   },
   "dependencies": {
     "bulma": "^0.7.5",
@@ -97,6 +98,7 @@
     "jsonwebtoken": "^8.5.1",
     "pell": "^1.0.6",
     "prop-types": "^15.7.2",
+    "react-datasheet": "^1.4.0",
     "react-datepicker": "^2.9.6",
     "react-google-map": "^3.1.1",
     "react-google-maps-loader": "^4.2.5",

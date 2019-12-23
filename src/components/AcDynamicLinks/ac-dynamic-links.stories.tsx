@@ -144,7 +144,7 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
   }
 ]
 
-storiesOf('AcDynamicLinks', module).add('AcButtonsAndLinks', () => (
+storiesOf('DynamicLinks', module).add('DynamicButtonsAndLinks', () => (
   <Content>
     {dynamicLinkScenarios.map((scenario: DynamicLinkScenario, index: number) => (
       <Section key={index}>
