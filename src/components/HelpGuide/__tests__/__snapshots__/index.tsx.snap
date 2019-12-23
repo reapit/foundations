@@ -38,7 +38,11 @@ exports[`HelpGuide should match a snapshot 2`] = `
   >
     <Component />
     <Component />
-    <component />
+    <div
+      className="flex"
+    >
+      <component />
+    </div>
   </div>
   <div
     className="helpguide-wrapper-graphic"

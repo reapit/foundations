@@ -1,17 +1,16 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import {
-  NumberedTimeline,
+  HorizontalTimeline,
   generateNumbers,
   caculateCircleRef,
   caculateLineRef,
-  calculateElement,
-  LI_MARGIN
-} from '../number-timeline'
+  calculateElement
+} from '../horizontal-timeline'
 
 describe('NumberedTimeline', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<NumberedTimeline total={5} currentIndex={3} />)).toMatchSnapshot()
+    expect(shallow(<HorizontalTimeline total={5} currentIndex={3} />)).toMatchSnapshot()
   })
 
   it('generateNumbers should run correctly', () => {
@@ -24,21 +23,21 @@ describe('NumberedTimeline', () => {
     const mockProps = {
       activeRef: {
         current: {
-          offsetHeight: 10,
-          offsetTop: 20
+          offsetLeft: 40
         }
-      },
+      } as React.MutableRefObject<HTMLElement>,
       circleRef: {
         current: {
-          offsetHeight: 15
+          offsetWidth: 15
         }
       }
     }
 
-    const gap =
-      (mockProps.circleRef.current.offsetHeight - (mockProps.activeRef.current.offsetHeight - LI_MARGIN * 2)) / 2
+    const widthActiveItem = parseInt(window.getComputedStyle(mockProps.activeRef.current, ':before').width, 10)
+    const widthCircleWrapper = mockProps.circleRef.current.offsetWidth
+    const gap = (widthCircleWrapper - widthActiveItem) / 2
 
-    expect(caculateCircleRef(mockProps)).toEqual(mockProps.activeRef.current.offsetTop + LI_MARGIN - gap)
+    expect(caculateCircleRef(mockProps)).toEqual(mockProps.activeRef.current.offsetLeft - gap)
   })
 
   it('caculateLineRef should run correctly when nextElementSibling null', () => {
@@ -51,20 +50,27 @@ describe('NumberedTimeline', () => {
       } as React.MutableRefObject<HTMLElement>
     }
 
-    expect(caculateLineRef(mockProps)).toEqual(mockProps.activeRef.current.offsetTop + LI_MARGIN)
+    const widthActiveItem = parseInt(window.getComputedStyle(mockProps.activeRef.current, ':before').width, 10)
+
+    expect(caculateLineRef(mockProps)).toEqual(mockProps.activeRef.current.offsetLeft + widthActiveItem)
   })
 
   it('caculateLineRef should run correctly when have nextElementSibling', () => {
     const mockProps = {
       activeRef: {
         current: {
-          nextElementSibling: <li>Test</li>,
+          nextElementSibling: <li>Test</li> as any,
           offsetTop: 20
         }
-      }
+      } as React.MutableRefObject<HTMLElement>
     }
 
-    expect(caculateLineRef(mockProps)).toEqual(mockProps.activeRef.current.offsetTop + LI_MARGIN * 2)
+    const widthActiveItem = parseInt(window.getComputedStyle(mockProps.activeRef.current, ':before').width, 10)
+    const marginBetween = parseInt(window.getComputedStyle(mockProps.activeRef.current, ':before').marginRight, 10)
+
+    expect(caculateLineRef(mockProps)).toEqual(
+      mockProps.activeRef.current.offsetLeft + widthActiveItem + marginBetween / 2
+    )
   })
 
   it('calculateElement should run correctly', () => {
@@ -94,8 +100,8 @@ describe('NumberedTimeline', () => {
 
     calculateElement(mockProps)()
 
-    const circlePosY = caculateCircleRef(mockProps)
-    mockProps.circleRef.current.style.transform = `translateY(${circlePosY}px)`
-    expect(mockProps.circleRef.current.style.transform).toEqual(`translateY(${circlePosY}px)`)
+    const circlePosX = caculateCircleRef(mockProps)
+    mockProps.circleRef.current.style.transform = `translateX(${circlePosX}px)`
+    expect(mockProps.circleRef.current.style.transform).toEqual(`translateX(${circlePosX}px)`)
   })
 })
