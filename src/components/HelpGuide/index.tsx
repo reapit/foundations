@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { HelpGuideContext, HelpGuideContextValues } from './context'
 import { FlexContainerBasic } from '../Layout'
-import { NumberedTimeline } from './number-timeline'
+import { VerticalTimeline } from './vertical-timeline'
 import { SubTitleH6, H3 } from '../Typography'
+import { isMobile } from '../../utils/device-detection/device-detection'
+import { HorizontalTimeline } from './horizontal-timeline'
 
 export interface HelpGuideProps {
   children: React.ReactElement<HelpGuideStepProps> | React.ReactElement<HelpGuideStepProps>[]
@@ -23,31 +25,62 @@ export const caculateCurrentStepRef = ({ currentStepRef }) => () => {
     if (currentStepRef.current) {
       currentStepRef.current.style.opacity = '1'
       currentStepRef.current.style.zIndex = '2'
-      currentStepRef.current.style.transform = `translateY(0px)`
+      currentStepRef.current.style.transform = `translate(0px, 0px)`
     }
   }, 300)
 }
 
-export const handleGoNext = ({ steps, currentIndex, isLast, setInternalCurrent, currentStepRef }) => () => {
+export const handleGoNext = ({
+  steps,
+  currentIndex,
+  isLast,
+  setInternalCurrent,
+  currentStepRef,
+  isMobileScreen
+}) => () => {
   if (!isLast && currentStepRef.current) {
     currentStepRef.current.style.opacity = '0'
     currentStepRef.current.style.zIndex = '0'
-    currentStepRef.current.style.transform = `translateY(-${currentStepRef.current.clientHeight}px)`
+    if (isMobileScreen) {
+      currentStepRef.current.style.transform = `translateX(-${currentStepRef.current.clientWidth}px)`
+    } else {
+      currentStepRef.current.style.transform = `translateY(-${currentStepRef.current.clientHeight}px)`
+    }
     setInternalCurrent(steps[currentIndex + 1].id)
   }
 }
 
-export const handleGoPrev = ({ steps, currentIndex, isFirst, setInternalCurrent, currentStepRef }) => () => {
+export const handleGoPrev = ({
+  steps,
+  currentIndex,
+  isFirst,
+  setInternalCurrent,
+  currentStepRef,
+  isMobileScreen
+}) => () => {
   if (!isFirst && currentStepRef.current) {
     currentStepRef.current.style.opacity = '0'
     currentStepRef.current.style.zIndex = '0'
-    currentStepRef.current.style.transform = `translateY(${currentStepRef.current.clientHeight}px)`
+    if (isMobileScreen) {
+      currentStepRef.current.style.transform = `translateX(${currentStepRef.current.clientWidth}px)`
+    } else {
+      currentStepRef.current.style.transform = `translateY(${currentStepRef.current.clientHeight}px)`
+    }
     setInternalCurrent(steps[currentIndex - 1].id)
   }
 }
 
+export const renderTimeline = (total: number, currentIndex: number, isMobileScreen: boolean) => {
+  return isMobileScreen ? (
+    <HorizontalTimeline total={total} currentIndex={currentIndex} />
+  ) : (
+    <VerticalTimeline total={total} currentIndex={currentIndex} />
+  )
+}
+
 export const HelpGuide = ({ children, current, isLoading = false }: HelpGuideProps) => {
   const currentStepRef = useRef<HTMLDivElement>(null)
+  const isMobileScreen = isMobile()
 
   const steps = React.Children.toArray(children).map(({ props }) => ({ ...props }))
 
@@ -62,8 +95,8 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
 
   const value: HelpGuideContextValues = {
     current: internalCurrent,
-    goNext: handleGoNext({ steps, currentIndex, isLast, setInternalCurrent, currentStepRef }),
-    goPrev: handleGoPrev({ steps, currentIndex, isFirst, setInternalCurrent, currentStepRef }),
+    goNext: handleGoNext({ steps, currentIndex, isLast, setInternalCurrent, currentStepRef, isMobileScreen }),
+    goPrev: handleGoPrev({ steps, currentIndex, isFirst, setInternalCurrent, currentStepRef, isMobileScreen }),
     currentIndex,
     steps,
     isFirst,
@@ -73,8 +106,8 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
 
   return (
     <HelpGuideContext.Provider value={value}>
-      <FlexContainerBasic hasPadding>
-        <NumberedTimeline total={total} currentIndex={currentIndex} />
+      <FlexContainerBasic hasPadding flexColumn={isMobileScreen}>
+        {renderTimeline(total, currentIndex, isMobileScreen)}
         <FlexContainerBasic flexColumn className="justify-center relative">
           {React.Children.toArray(children).map((child, index) => (
             <div ref={currentIndex === index ? currentStepRef : null} className="helpguide-wrapper">
@@ -93,11 +126,15 @@ HelpGuide.Step = function({ component: Component, heading, subHeading, graphic }
       <div className="helpguide-content">
         <H3>{heading}</H3>
         <SubTitleH6>{subHeading}</SubTitleH6>
-        <Component />
+        <div className="flex">
+          <Component />
+        </div>
       </div>
-      <div className="helpguide-wrapper-graphic">
-        <div className="helpguide-graphic">{graphic}</div>
-      </div>
+      {!isMobile() && (
+        <div className="helpguide-wrapper-graphic">
+          <div className="helpguide-graphic">{graphic}</div>
+        </div>
+      )}
     </FlexContainerBasic>
   )
 }

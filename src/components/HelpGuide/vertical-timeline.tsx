@@ -37,7 +37,7 @@ export const calculateElement = ({ circleRef, activeRef, lineRef }) => () => {
   }
 }
 
-export const NumberedTimeline = ({ total, currentIndex }) => {
+export const VerticalTimeline = ({ total, currentIndex }) => {
   const circleRef = React.useRef<HTMLDivElement>(null)
   const lineRef = React.useRef<HTMLDivElement>(null)
   const activeRef = React.useRef<HTMLLIElement>(null)

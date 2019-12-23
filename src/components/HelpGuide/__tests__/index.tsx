@@ -49,17 +49,17 @@ describe('HelpGuide', () => {
     const caculateAfterSetTimeout = () => {
       mockProps.currentStepRef.current.style.opacity = '1'
       mockProps.currentStepRef.current.style.zIndex = '2'
-      mockProps.currentStepRef.current.style.transform = 'translateY(0px)'
+      mockProps.currentStepRef.current.style.transform = 'translate(0px, 0px)'
     }
 
     caculateCurrentStepRef(mockProps)()
     await sleep(caculateAfterSetTimeout)
     expect(mockProps.currentStepRef.current.style.opacity).toEqual('1')
     expect(mockProps.currentStepRef.current.style.zIndex).toEqual('2')
-    expect(mockProps.currentStepRef.current.style.transform).toEqual('translateY(0px)')
+    expect(mockProps.currentStepRef.current.style.transform).toEqual('translate(0px, 0px)')
   })
 
-  it('handleGoNext should run correctly', () => {
+  describe('handleGoNext', () => {
     const mockProps = {
       steps: [{ id: 'step-1' }, { id: 'step-2' }, { id: 'step-3' }],
       currentIndex: 0,
@@ -68,6 +68,7 @@ describe('HelpGuide', () => {
       currentStepRef: {
         current: {
           clientHeight: 50,
+          clientWidth: 30,
           style: {
             zIndex: '',
             opacity: '',
@@ -76,19 +77,34 @@ describe('HelpGuide', () => {
         }
       }
     }
-    handleGoNext(mockProps)()
-    mockProps.currentStepRef.current.style.opacity = '0'
-    expect(mockProps.currentStepRef.current.style.opacity).toEqual('0')
-    mockProps.currentStepRef.current.style.zIndex = '0'
-    expect(mockProps.currentStepRef.current.style.zIndex).toEqual('0')
-    mockProps.currentStepRef.current.style.transform = `translateY(-${mockProps.currentStepRef.current.clientHeight}px)`
-    expect(mockProps.currentStepRef.current.style.transform).toEqual(
-      `translateY(-${mockProps.currentStepRef.current.clientHeight}px)`
-    )
-    expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[mockProps.currentIndex + 1].id)
+    it('should run correctly when mobile screen', () => {
+      handleGoNext({ ...mockProps, isMobileScreen: true })()
+      mockProps.currentStepRef.current.style.opacity = '0'
+      expect(mockProps.currentStepRef.current.style.opacity).toEqual('0')
+      mockProps.currentStepRef.current.style.zIndex = '0'
+      expect(mockProps.currentStepRef.current.style.zIndex).toEqual('0')
+      mockProps.currentStepRef.current.style.transform = `translateX(-${mockProps.currentStepRef.current.clientWidth}px)`
+      expect(mockProps.currentStepRef.current.style.transform).toEqual(
+        `translateX(-${mockProps.currentStepRef.current.clientWidth}px)`
+      )
+      expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[mockProps.currentIndex + 1].id)
+    })
+
+    it('should run correctly when desktop screen', () => {
+      handleGoNext({ ...mockProps, isMobileScreen: false })()
+      mockProps.currentStepRef.current.style.opacity = '0'
+      expect(mockProps.currentStepRef.current.style.opacity).toEqual('0')
+      mockProps.currentStepRef.current.style.zIndex = '0'
+      expect(mockProps.currentStepRef.current.style.zIndex).toEqual('0')
+      mockProps.currentStepRef.current.style.transform = `translateY(-${mockProps.currentStepRef.current.clientHeight}px)`
+      expect(mockProps.currentStepRef.current.style.transform).toEqual(
+        `translateY(-${mockProps.currentStepRef.current.clientHeight}px)`
+      )
+      expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[mockProps.currentIndex + 1].id)
+    })
   })
 
-  it('handleGoPrev should run correctly', () => {
+  describe('handleGoPrev', () => {
     const mockProps = {
       steps: [{ id: 'step-1' }, { id: 'step-2' }, { id: 'step-3' }],
       currentIndex: 2,
@@ -97,6 +113,7 @@ describe('HelpGuide', () => {
       currentStepRef: {
         current: {
           clientHeight: 50,
+          clientWidth: 30,
           style: {
             zIndex: '',
             opacity: '',
@@ -105,16 +122,31 @@ describe('HelpGuide', () => {
         }
       }
     }
-    handleGoPrev(mockProps)()
-    mockProps.currentStepRef.current.style.opacity = '0'
-    expect(mockProps.currentStepRef.current.style.opacity).toEqual('0')
-    mockProps.currentStepRef.current.style.zIndex = '0'
-    expect(mockProps.currentStepRef.current.style.zIndex).toEqual('0')
-    mockProps.currentStepRef.current.style.transform = `translateY(${mockProps.currentStepRef.current.clientHeight}px)`
-    expect(mockProps.currentStepRef.current.style.transform).toEqual(
-      `translateY(${mockProps.currentStepRef.current.clientHeight}px)`
-    )
-    expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[mockProps.currentIndex - 1].id)
+    it('should run correctly when mobile screen', () => {
+      handleGoPrev({ ...mockProps, isMobileScreen: true })()
+      mockProps.currentStepRef.current.style.opacity = '0'
+      expect(mockProps.currentStepRef.current.style.opacity).toEqual('0')
+      mockProps.currentStepRef.current.style.zIndex = '0'
+      expect(mockProps.currentStepRef.current.style.zIndex).toEqual('0')
+      mockProps.currentStepRef.current.style.transform = `translateX(${mockProps.currentStepRef.current.clientWidth}px)`
+      expect(mockProps.currentStepRef.current.style.transform).toEqual(
+        `translateX(${mockProps.currentStepRef.current.clientWidth}px)`
+      )
+      expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[mockProps.currentIndex - 1].id)
+    })
+
+    it('should run correctly when desktop screen', () => {
+      handleGoPrev({ ...mockProps, isMobileScreen: false })()
+      mockProps.currentStepRef.current.style.opacity = '0'
+      expect(mockProps.currentStepRef.current.style.opacity).toEqual('0')
+      mockProps.currentStepRef.current.style.zIndex = '0'
+      expect(mockProps.currentStepRef.current.style.zIndex).toEqual('0')
+      mockProps.currentStepRef.current.style.transform = `translateY(${mockProps.currentStepRef.current.clientHeight}px)`
+      expect(mockProps.currentStepRef.current.style.transform).toEqual(
+        `translateY(${mockProps.currentStepRef.current.clientHeight}px)`
+      )
+      expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[mockProps.currentIndex - 1].id)
+    })
   })
 
   afterEach(() => {
