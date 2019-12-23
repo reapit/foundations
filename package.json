@@ -30,7 +30,7 @@
     "lint": "eslint './src/**/*.ts' './src/**/*.tsx'",
     "lint:fix": "eslint --fix './src/**/*.ts' './src/**/*.tsx'",
     "prettify": "prettier -c --write \"*/**\"",
-    "storybook": "start-storybook -p 8000",
+    "storybook": "start-storybook -p 8080",
     "build-storybook": "build-storybook",
     "release:master": "node scripts/releaseMaster.js",
     "checkVersion": "node ./scripts/checkVersion.js"
