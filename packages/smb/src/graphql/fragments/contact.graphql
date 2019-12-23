@@ -1,4 +1,4 @@
-fragment ContactObj on Contact {
+fragment Contact on Contact {
   id
   created
   modified
