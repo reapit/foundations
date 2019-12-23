@@ -13,13 +13,13 @@ export type LoginFormValues = {
   password: string
 }
 
-export type LoginResponse = {
+export type Token = {
   accessToken: string
   refreshToken: string
 }
 
-export type LoginMutationResponse = {
-  login: LoginResponse
+export type LoginResponse = {
+  login: Token
 }
 
 export const handleOnSubmit = ({ login }) => (values: LoginFormValues) => {
@@ -28,14 +28,15 @@ export const handleOnSubmit = ({ login }) => (values: LoginFormValues) => {
       userName: values.userName,
       password: values.password,
       loginType: 'CLIENT',
+      mode: 'WEB',
     } as LoginParams,
   })
 }
 
-export const handleOnCompleted = ({ history }) => (cache: any, response: LoginMutationResponse) => {
-  const { refreshToken, accessToken } = response?.login
+export const handleOnCompleted = ({ history }) => (data: LoginResponse) => {
+  const { refreshToken, accessToken } = data.login
   localStorage.setItem('refreshToken', refreshToken)
-  localStorage.set('accessToken', accessToken)
+  localStorage.setItem('accessToken', accessToken)
   history.push(Routes.HOME)
 }
 
@@ -44,10 +45,12 @@ export type LoginProps = RouteComponentProps
 export const Login: React.FC<LoginProps> = ({ history }: LoginProps) => {
   const { wrapper, container, image } = loginStyles
 
-  const [login, { loading, error }] = useMutation<LoginMutationResponse, LoginParams>(LOGIN, {
+  const [login, { loading, error }] = useMutation<LoginResponse, LoginParams>(LOGIN, {
     onCompleted: handleOnCompleted({ history }),
-  } as MutationHookOptions<LoginMutationResponse, LoginParams>)
-  console.log(loading)
+  } as MutationHookOptions<LoginResponse, LoginParams>)
+
+  console.log(error)
+
   return (
     <div className={container}>
       <div className={`${wrapper}`}>
