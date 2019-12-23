@@ -15,6 +15,7 @@ const typeDefs = importSchema('./src/schema.graphql')
 
 const envConfig = require(path.resolve(__dirname, '../../..', 'reapit-config.json'))
 const configs = envConfig[process.env.REAPIT_ENV || 'LOCAL']
+
 for (const k in configs) {
   process.env[k] = configs[k]
 }
@@ -70,7 +71,9 @@ const server = new ApolloServer({
   formatResponse,
 })
 
-// The `listen` method launches a web server.
-server.listen({ port: process.env.SERVER_PORT || 4000 }).then(({ url }: ServerInfo) => {
+export const listenCallback = ({ url }: ServerInfo) => {
   logger.info(`🚀  Server ready at ${url}`)
-})
+}
+
+// The `listen` method launches a web server.
+server.listen({ port: process.env.SERVER_PORT || 4000 }).then(listenCallback)
