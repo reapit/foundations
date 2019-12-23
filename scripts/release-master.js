@@ -17,16 +17,16 @@ module.exports = async () => {
 
   try {
     await octokit.git.createRef({
-      owner: "phmngocnghia",
-      repo: "foundation-types",
+      owner: "reapit",
+      repo: "foundations-ts-definitions",
       ref: "refs/tags/" + tagName,
       sha: process.env.GITHUB_SHA
     });
 
     // create new release based on tag
     await octokit.repos.createRelease({
-      owner: "phmngocnghia",
-      repo: "foundation-types",
+      owner: "reapit",
+      repo: "foundations-ts-definitions",
       tag_name: tagName
     });
   } catch (err) {
