@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react'
 import { HelpGuide } from '.'
 import { useHelpGuideContext } from './context'
 import { Button } from '../Button'
-import { HorizontalTimeline } from './horizontal-timeline'
 
 const imageUrl = 'https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png'
 
@@ -105,14 +104,6 @@ storiesOf('HelpGuide', module).add('Primary', () => {
           graphic={<img src={imageUrl} />}
         />
       </HelpGuide>
-    </section>
-  )
-})
-
-storiesOf('HelpGuide', module).add('Horizontal-Timeline', () => {
-  return (
-    <section className="section">
-      <HorizontalTimeline total={5} currentIndex={4} />
     </section>
   )
 })
