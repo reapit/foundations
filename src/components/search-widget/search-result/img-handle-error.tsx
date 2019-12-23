@@ -21,7 +21,7 @@ export const ImgHandleError = React.memo(
       const img = document.createElement('img')
       img.src = src
       img.onload = () => {
-        setImgSrc(src)
+        setImgSrc(src as any)
       }
     }, [src])
 
