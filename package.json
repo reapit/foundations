@@ -39,9 +39,6 @@
     "release:master": "node scripts/releaseMaster.js",
     "checkVersion": "node ./scripts/checkVersion.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -80,8 +77,6 @@
     "@types/react": "16.9.5",
     "@types/react-dom": "16.9.1",
     "@types/styled-components": "^4.1.19",
-    "@typescript-eslint/eslint-plugin": "^2.11.0",
-    "@typescript-eslint/parser": "^2.11.0",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "compare-versions": "^3.5.1",
@@ -90,13 +85,6 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.0",
     "enzyme-to-json": "^3.4.2",
-    "eslint": "^6.0.1",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-config-react": "^1.1.7",
-    "eslint-loader": "^2.2.1",
-    "eslint-plugin-emotion": "^10.0.14",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.14.2",
     "file-loader": "^5.0.2",
     "fork-ts-checker-webpack-plugin": "^3.1.1",
     "husky": "^3.0.9",

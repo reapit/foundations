@@ -30,9 +30,9 @@ jobs:
 
       - name: Lint
         run: yarn lint
-
-      - name: Build NPM
+        
+      - name: Build CDN
         run: yarn build:npm
 
-      - name: Build CDN
+      - name: Build NPM
         run: yarn build:npm

@@ -7,14 +7,7 @@
         "isTSX": true
       }
     ],
-    [
-      "@babel/preset-env",
-      {
-        "targets": {
-          "esmodules": true,
-        }
-      }
-    ],
+    "@babel/preset-env",
     "@babel/react",
   ],
 }

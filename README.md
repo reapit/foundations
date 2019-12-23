@@ -1,7 +1,7 @@
 # web-components
 
 ## Introduction
-- This project contains embeddable TypeScript widgets to enhance static sites. The library will be built into two different types: as npm package to use with npm project,  as a UMD script to embed into other static sites.
+- This project contains embeddable TypeScript widgets to enhance static sites. The library will be built into two different types: as npm package to use with npm project,  as UMD scripts to embed into other static sites.
 
 ## Build and publish NPM package
 This action should be done by CI after a PR merged into master
