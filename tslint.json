@@ -4,11 +4,7 @@
     "no-empty": false,
     "prettier": [
       true,
-      {
-        "singleQuote": true,
-        "printWidth": 120,
-        "semi": false
-      }
+      "./.prettierrc"
     ],
     "no-floating-promises": false,
     "deprecation": false,
