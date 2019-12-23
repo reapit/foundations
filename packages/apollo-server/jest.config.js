@@ -11,13 +11,13 @@ module.exports = {
       }),
     },
   },
-  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]', 'api.ts', '.d.ts', 'index.ts', 'app.ts'],
+  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]', 'api.ts', '.d.ts', 'index.ts'],
   coverageThreshold: {
     global: {
-      branches: 78,
-      functions: 90,
-      lines: 90,
-      statements: 90,
+      branches: 80,
+      functions: 95,
+      lines: 95,
+      statements: 95,
     },
   },
 }
