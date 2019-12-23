@@ -7,6 +7,8 @@ const Dotenv = require('dotenv-webpack')
 
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 
+path.resolve(__dirname, '../', 'src/')
+
 module.exports = {
   context: process.cwd(),
   entry: './src/core/index.tsx',
@@ -133,7 +135,7 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass'],
     alias: {
-      '@': path.resolve(__dirname, 'src/'),
+      '@': path.resolve(__dirname, '../', 'src/'),
     },
   },
   devtool: 'inline-source-map',

@@ -19,4 +19,3 @@ export interface FetcherParams<T> {
   isPrivate?: boolean
   body?: T
 }
-

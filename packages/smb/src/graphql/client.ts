@@ -2,7 +2,7 @@ import ApolloClient, { InMemoryCache, Operation, defaultDataIdFromObject, IdGett
 import { ErrorHandler, ErrorResponse } from 'apollo-link-error'
 import { ApolloCache } from 'apollo-cache'
 import typeDefs from '../types/schema.graphql'
-import resolvers from './__mocks__/resolvers'
+import resolvers from './resolvers'
 
 // hard-code token.
 const token =
