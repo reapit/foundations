@@ -1,5 +1,0 @@
-# this file will ignore file will be checked by eslint
-scripts
-*.d.ts
-*.test.ts
-*.test.tsx

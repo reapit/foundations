@@ -240,7 +240,7 @@ const SearchWidget: React.FC<{
     }
     if (searchKeyword === '') {
       setError('*Please enter an area')
-      //@ts-ignore
+      // @ts-ignore
       searchInputRef.current.focus()
       return
     }
@@ -277,7 +277,7 @@ const SearchWidget: React.FC<{
     }
     if (searchKeyword === '') {
       setError('*Please enter an area')
-      //@ts-ignore
+      // @ts-ignore
       searchInputRef.current.focus()
       return
     }
