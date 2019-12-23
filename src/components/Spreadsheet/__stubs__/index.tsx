@@ -2,6 +2,41 @@ import * as React from 'react'
 import { Cell, SelectedMatrix } from '../types'
 import ReactDataSheet from 'react-datasheet'
 
+export const parseResult = {
+  data: [
+    [
+      'Office name',
+      'Building Name',
+      'Building No.',
+      'Address 1',
+      'Address 2',
+      'Address 3',
+      'Address 4',
+      'Post Code',
+      'Telephone',
+      'Fax',
+      'Email'
+    ],
+    ['London', 'The White House', '15', 'London 1', '', 'Londom 3', '', 'EC12NH', '0845 0000', '', 'row1@gmail.com'],
+    [
+      'London2',
+      'The Black House',
+      '11',
+      'Test Addres',
+      '',
+      'Adress 3',
+      '',
+      'EC12NH',
+      '087 471 929',
+      '',
+      'row2@gmail.com'
+    ],
+    ['New York', 'Building A', '11', '', '', 'City Z', '', 'AL7187', '017 7162 9121', '', 'row3@gmail.com']
+  ],
+  errors: [],
+  meta: { delimiter: ',', linebreak: '\r\n', aborted: false, truncated: false, cursor: 345 }
+}
+
 export const data: Cell[][] = [
   [
     { readOnly: true, value: 'Office Name' },

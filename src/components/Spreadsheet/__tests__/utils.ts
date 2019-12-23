@@ -9,14 +9,14 @@ afterEach(() => {
 describe('getMaxRowAndCol', () => {
   it('should return correct value with same-length rows and columns', () => {
     const result = getMaxRowAndCol(data)
-    expect(result).toEqual([data.length, data[0].length])
+    expect(result).toEqual({ maxRow: data.length, maxCol: data[0].length })
   })
   it('should return correct value with different-length col', () => {
     const newData = [...data]
     newData.push([{ value: 'val' }])
 
     const result = getMaxRowAndCol(newData)
-    expect(result).toEqual([newData.length, data[0].length])
+    expect(result).toEqual({ maxRow: newData.length, maxCol: data[0].length })
   })
 })
 

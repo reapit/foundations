@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`onDoubleClickCell customCellRenderer should match snapshot with CustomComponent 1`] = `
+exports[`customCellRenderer should match snapshot with CustomComponent 1`] = `
 <td
   attributesRenderer={[MockFunction]}
   className="cell  "
@@ -207,7 +207,7 @@ exports[`onDoubleClickCell customCellRenderer should match snapshot with CustomC
 </td>
 `;
 
-exports[`onDoubleClickCell customCellRenderer should match snapshot with invalid cell 1`] = `
+exports[`customCellRenderer should match snapshot with invalid cell 1`] = `
 <td
   attributesRenderer={[MockFunction]}
   className="cell error-cell "
@@ -233,7 +233,7 @@ exports[`onDoubleClickCell customCellRenderer should match snapshot with invalid
 </td>
 `;
 
-exports[`onDoubleClickCell customCellRenderer should match snapshot without CustomComponent 1`] = `
+exports[`customCellRenderer should match snapshot without CustomComponent 1`] = `
 <td
   attributesRenderer={[MockFunction]}
   className="cell  "
