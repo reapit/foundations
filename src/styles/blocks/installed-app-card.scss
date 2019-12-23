@@ -3,9 +3,12 @@ $icon-height: 130px;
 
 .container {
   display: flex;
-  width: calc(50% - 1rem);
+  width: 50%;
   flex-direction: column;
   align-items: center;
+  @media (min-width: 668px) {
+    width: 33%;
+  }
 }
 .wrapIcon {
   width: $icon-width;
