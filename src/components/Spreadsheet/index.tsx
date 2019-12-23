@@ -28,7 +28,7 @@ export const UploadButton = ({ onChangeInput }) => {
 export const DownloadButton = ({ data }) => {
   return (
     <div className="download-button">
-      <Button type="submit" variant="info" onClick={handleDownload(data)}>
+      <Button type="submit" variant="info" onClick={handleDownload(data, window, document)}>
         Download file
       </Button>
     </div>

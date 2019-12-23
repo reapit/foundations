@@ -56,7 +56,7 @@ export const customCellRenderer = (
     ...restCell
   } = cell
   const isValid = validate(cell)
-  const [maxRowIndex, maxColIndex] = getMaxRowAndCol(data)
+  const { maxRow: maxRowIndex, maxCol: maxColIndex } = getMaxRowAndCol(data)
   const payload = {
     row: props.row,
     col: props.col,
@@ -86,7 +86,7 @@ export const customCellRenderer = (
 }
 
 export const handleAddNewRow = (data: Cell[][], setData: React.Dispatch<Cell[][]>) => () => {
-  const [maxRow, maxCol] = getMaxRowAndCol(data)
+  const { maxRow, maxCol } = getMaxRowAndCol(data)
   const lastRow = data[maxRow - 1]
   /* [
       { readOnly: true, value: '' },
@@ -138,33 +138,30 @@ export const handleOnChangeInput = (
   validateUpload: SpreadsheetProps['validateUpload'],
   setData: React.Dispatch<Cell[][]>
 ) => async (event: { target: HTMLInputElement }) => {
-  try {
-    const { target } = event
-    if (target && target.files && target.files[0]) {
-      const file = target.files[0]
-      const result = await parseCsvFile(file)
-      const compatibleData = convertToCompatibleData(result)
-      if (validateUpload) {
-        const dataValidated = validateUpload(compatibleData)
-        setData(dataValidated)
-        return dataValidated
-      }
-      /* if not set validate function */
-      setData(compatibleData)
-      return compatibleData
+  const { target } = event
+  if (target && target.files && target.files[0]) {
+    const file = target.files[0]
+    const result = await parseCsvFile(file)
+    const compatibleData = convertToCompatibleData(result)
+    if (validateUpload) {
+      const dataValidated = validateUpload(compatibleData)
+      setData(dataValidated)
+      return 'validated'
     }
-  } catch (err) {
-    console.log(err)
+    /* if not set validate function */
+    setData(compatibleData)
+    return true
   }
+  return false
 }
 
-export const handleDownload = (data: Cell[][]) => (): boolean => {
+export const handleDownload = (data: Cell[][], window, document) => (): boolean => {
   /* convert from Cell[][] to string[][] */
   const parseResult = convertDataToCsv(data)
   /* convert from string[][] to string */
   const csvData = unparseDataToCsvString(parseResult)
   const dataBlob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' })
-  if (window && document) {
+  if (typeof window === 'object' && typeof document === 'object') {
     const file = window.URL.createObjectURL(dataBlob)
     const link = document.createElement('a')
     link.download = `reapit-${new Date()}.csv`

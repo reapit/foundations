@@ -3,7 +3,7 @@ import Papa from 'papaparse'
 import { Cell } from './types'
 
 /** Get max row and col of data */
-export const getMaxRowAndCol = (data: Cell[][]) => {
+export const getMaxRowAndCol = (data: Cell[][]): { maxRow: number; maxCol: number } => {
   const maxRow = data.length
   /* default to 0 */
   let maxCol = 0
@@ -14,7 +14,7 @@ export const getMaxRowAndCol = (data: Cell[][]) => {
       maxCol = numberOfCurrentRowColumn
     }
   })
-  return [maxRow, maxCol]
+  return { maxRow, maxCol }
 }
 
 export const setCurrentCellValue = (
