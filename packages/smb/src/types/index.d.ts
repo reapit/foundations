@@ -1,3 +1,5 @@
+import { DocumentNode } from 'graphql'
+
 /**
  * Global override types to make the compiler happy
  */
@@ -11,5 +13,9 @@ declare module '*.scss'
 declare module '*.scss?mod'
 declare module '*.sass'
 declare module '*.jpg'
+declare module '*.graphql' {
+  const documentNode: DocumentNode
+  export default documentNode
+}
 
 declare module 'swagger-ui-react'

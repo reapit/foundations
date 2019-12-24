@@ -1,0 +1,7 @@
+fragment Pagination on Contacts {
+  pageNumber
+  pageSize
+  pageCount
+  totalCount
+  _links
+}
