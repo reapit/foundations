@@ -35,8 +35,8 @@ export const handleOnSubmit = ({ login }) => (values: LoginFormValues) => {
 
 export const handleOnCompleted = ({ history }) => (data: LoginResponse) => {
   const { refreshToken, accessToken } = data.login
-  localStorage.setItem('refreshToken', refreshToken)
-  localStorage.setItem('accessToken', accessToken)
+  localStorage.setItem('accessToken', `Bearer ${accessToken}`)
+  localStorage.setItem('refreshToken', `Bearer ${refreshToken}`)
   history.push(Routes.HOME)
 }
 
@@ -48,8 +48,6 @@ export const Login: React.FC<LoginProps> = ({ history }: LoginProps) => {
   const [login, { loading, error }] = useMutation<LoginResponse, LoginParams>(LOGIN, {
     onCompleted: handleOnCompleted({ history }),
   } as MutationHookOptions<LoginResponse, LoginParams>)
-
-  console.log(error)
 
   return (
     <div className={container}>
