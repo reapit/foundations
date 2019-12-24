@@ -20,7 +20,17 @@ export interface HelpGuideStepProps {
   component: React.FC<any>
 }
 
-export const caculateCurrentStepRef = ({ currentStepRef }) => () => {
+export interface NavigationProps {
+  steps: HelpGuideStepProps[]
+  currentIndex: number
+  isFirst?: boolean
+  isLast?: boolean
+  setInternalCurrent: (stepId: string) => void
+  currentStepRef: React.RefObject<HTMLElement>
+  isMobileScreen: boolean
+}
+
+export const caculateCurrentStepRef = ({ currentStepRef }: { currentStepRef: React.RefObject<HTMLElement> }) => () => {
   setTimeout(() => {
     if (currentStepRef.current) {
       currentStepRef.current.style.opacity = '1'
@@ -37,15 +47,13 @@ export const handleGoNext = ({
   setInternalCurrent,
   currentStepRef,
   isMobileScreen
-}) => () => {
+}: NavigationProps) => () => {
   if (!isLast && currentStepRef.current) {
     currentStepRef.current.style.opacity = '0'
     currentStepRef.current.style.zIndex = '0'
-    if (isMobileScreen) {
-      currentStepRef.current.style.transform = `translateX(-${currentStepRef.current.clientWidth}px)`
-    } else {
-      currentStepRef.current.style.transform = `translateY(-${currentStepRef.current.clientHeight}px)`
-    }
+    currentStepRef.current.style.transform = isMobileScreen
+      ? `translateX(-${currentStepRef.current.clientWidth}px)`
+      : `translateY(-${currentStepRef.current.clientHeight}px)`
     setInternalCurrent(steps[currentIndex + 1].id)
   }
 }
@@ -57,25 +65,22 @@ export const handleGoPrev = ({
   setInternalCurrent,
   currentStepRef,
   isMobileScreen
-}) => () => {
+}: NavigationProps) => () => {
   if (!isFirst && currentStepRef.current) {
     currentStepRef.current.style.opacity = '0'
     currentStepRef.current.style.zIndex = '0'
-    if (isMobileScreen) {
-      currentStepRef.current.style.transform = `translateX(${currentStepRef.current.clientWidth}px)`
-    } else {
-      currentStepRef.current.style.transform = `translateY(${currentStepRef.current.clientHeight}px)`
-    }
+    currentStepRef.current.style.transform = isMobileScreen
+      ? `translateX(${currentStepRef.current.clientWidth}px)`
+      : `translateY(${currentStepRef.current.clientHeight}px)`
     setInternalCurrent(steps[currentIndex - 1].id)
   }
 }
 
 export const renderTimeline = (total: number, currentIndex: number, isMobileScreen: boolean) => {
-  return isMobileScreen ? (
-    <HorizontalTimeline total={total} currentIndex={currentIndex} />
-  ) : (
-    <VerticalTimeline total={total} currentIndex={currentIndex} />
-  )
+  if (isMobileScreen) {
+    return <HorizontalTimeline total={total} currentIndex={currentIndex} />
+  }
+  return <VerticalTimeline total={total} currentIndex={currentIndex} />
 }
 
 export const HelpGuide = ({ children, current, isLoading = false }: HelpGuideProps) => {

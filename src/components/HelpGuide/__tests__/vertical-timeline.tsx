@@ -27,18 +27,20 @@ describe('NumberedTimeline', () => {
           offsetHeight: 10,
           offsetTop: 20
         }
-      },
+      } as React.RefObject<HTMLLIElement>,
       circleRef: {
         current: {
           offsetHeight: 15
         }
-      }
+      } as React.RefObject<HTMLDivElement>
     }
 
-    const gap =
-      (mockProps.circleRef.current.offsetHeight - (mockProps.activeRef.current.offsetHeight - LI_MARGIN * 2)) / 2
+    const { activeRef, circleRef } = mockProps
 
-    expect(caculateCircleRef(mockProps)).toEqual(mockProps.activeRef.current.offsetTop + LI_MARGIN - gap)
+    if (activeRef.current && circleRef.current) {
+      const gap = (circleRef.current.offsetHeight - (activeRef.current.offsetHeight - LI_MARGIN * 2)) / 2
+      expect(caculateCircleRef(mockProps)).toEqual(activeRef.current.offsetTop + LI_MARGIN - gap)
+    }
   })
 
   it('caculateLineRef should run correctly when nextElementSibling null', () => {
@@ -48,23 +50,31 @@ describe('NumberedTimeline', () => {
           nextElementSibling: null,
           offsetTop: 20
         }
-      } as React.MutableRefObject<HTMLElement>
+      } as React.RefObject<HTMLLIElement>
     }
 
-    expect(caculateLineRef(mockProps)).toEqual(mockProps.activeRef.current.offsetTop + LI_MARGIN)
+    const { activeRef } = mockProps
+
+    if (activeRef.current) {
+      expect(caculateLineRef(mockProps)).toEqual(activeRef.current.offsetTop + LI_MARGIN)
+    }
   })
 
   it('caculateLineRef should run correctly when have nextElementSibling', () => {
     const mockProps = {
       activeRef: {
         current: {
-          nextElementSibling: <li>Test</li>,
+          nextElementSibling: <li>Test</li> as any,
           offsetTop: 20
         }
-      }
+      } as React.RefObject<HTMLLIElement>
     }
 
-    expect(caculateLineRef(mockProps)).toEqual(mockProps.activeRef.current.offsetTop + LI_MARGIN * 2)
+    const { activeRef } = mockProps
+
+    if (activeRef.current) {
+      expect(caculateLineRef(mockProps)).toEqual(activeRef.current.offsetTop + LI_MARGIN * 2)
+    }
   })
 
   it('calculateElement should run correctly', () => {
@@ -74,7 +84,7 @@ describe('NumberedTimeline', () => {
           offsetHeight: 10,
           offsetTop: 20
         }
-      },
+      } as React.RefObject<HTMLLIElement>,
       circleRef: {
         current: {
           offsetHeight: 15,
@@ -82,20 +92,28 @@ describe('NumberedTimeline', () => {
             transform: ''
           }
         }
-      },
+      } as React.RefObject<HTMLDivElement>,
       lineRef: {
         current: {
           style: {
             height: ''
           }
         }
-      }
+      } as React.RefObject<HTMLDivElement>
     }
 
-    calculateElement(mockProps)()
+    const { activeRef, circleRef, lineRef } = mockProps
 
-    const circlePosY = caculateCircleRef(mockProps)
-    mockProps.circleRef.current.style.transform = `translateY(${circlePosY}px)`
-    expect(mockProps.circleRef.current.style.transform).toEqual(`translateY(${circlePosY}px)`)
+    calculateElement(mockProps)()
+    const circlePosY = caculateCircleRef({ activeRef, circleRef })
+    const lineHeight = caculateLineRef({ activeRef })
+
+    if (activeRef.current && circleRef.current && lineRef.current) {
+      circleRef.current.style.transform = `translateY(${circlePosY}px)`
+      lineRef.current.style.height = `${lineHeight}px`
+
+      expect(circleRef.current.style.transform).toEqual(`translateY(${circlePosY}px)`)
+      expect(lineRef.current.style.height).toEqual(`${lineHeight}px`)
+    }
   })
 })

@@ -6,7 +6,13 @@ export const generateNumbers = (total: number) => () => {
   return [...Array(total).keys()]
 }
 
-export const caculateCircleRef = ({ activeRef, circleRef }) => {
+export const caculateCircleRef = ({
+  activeRef,
+  circleRef
+}: {
+  activeRef: React.RefObject<HTMLLIElement>
+  circleRef: React.RefObject<HTMLDivElement>
+}) => {
   if (circleRef.current && activeRef.current) {
     // calculate the gap between outer for '.circle-active' element and inner for li elements
     // offsetHeight for li element include margin-top and margin-bottom so need minus first
@@ -16,18 +22,25 @@ export const caculateCircleRef = ({ activeRef, circleRef }) => {
   }
 }
 
-export const caculateLineRef = ({ activeRef }) => {
+export const caculateLineRef = ({ activeRef }: { activeRef: React.RefObject<HTMLLIElement> }) => {
   // calculate the height for '.line-active'
-  if (activeRef.current && activeRef.current.nextElementSibling) {
-    return activeRef.current.offsetTop + LI_MARGIN * 2
-  } else {
-    return activeRef.current.offsetTop + LI_MARGIN
-    // lineRef.current.style.height = `${lineHeight}px`
+  if (activeRef.current) {
+    return activeRef.current.nextElementSibling
+      ? activeRef.current.offsetTop + LI_MARGIN * 2
+      : activeRef.current.offsetTop + LI_MARGIN
   }
 }
 
 // Calculate style '.circle-active' and '.line-active' elements when current active change
-export const calculateElement = ({ circleRef, activeRef, lineRef }) => () => {
+export const calculateElement = ({
+  circleRef,
+  activeRef,
+  lineRef
+}: {
+  activeRef: React.RefObject<HTMLLIElement>
+  circleRef: React.RefObject<HTMLDivElement>
+  lineRef: React.RefObject<HTMLDivElement>
+}) => () => {
   if (circleRef.current && activeRef.current && lineRef.current) {
     const circlePosY = caculateCircleRef({ activeRef, circleRef })
     circleRef.current.style.transform = `translateY(${circlePosY}px)`
