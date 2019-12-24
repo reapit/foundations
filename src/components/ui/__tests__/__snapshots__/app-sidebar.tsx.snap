@@ -52,6 +52,10 @@ exports[`AppSidebar should match a snapshot 1`] = `
             "id": "1",
             "name": "education",
           },
+          Object {
+            "id": "DIRECT_API_APPS_FILTER",
+            "name": "Direct API",
+          },
         ]
       }
       onSelectCategory={[Function]}

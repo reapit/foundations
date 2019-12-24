@@ -39,6 +39,8 @@ export const handleSearchApp = (history: History) => (values: FormikValues) => {
 }
 
 export const AppSidebar: React.FC<AppSidebarProps> = ({ categories, location, history }: AppSidebarProps) => {
+  // currently, this will make the "Direct Api" option behave like a category, not a checkbox filter, so future ticket may refer back to this.
+  const categoriesWithDirectApiOption = [...categories, { id: 'DIRECT_API_APPS_FILTER', name: 'Direct API' }]
   return (
     <div className={styles.sidebar}>
       <FlexContainerBasic hasPadding flexColumn>
@@ -64,7 +66,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({ categories, location, hi
         </Formik>
         <CategoriesList
           selectedCategory={getParamValueFromPath(location.search, 'category')}
-          categories={categories}
+          categories={categoriesWithDirectApiOption}
           onSelectCategory={handleSelectCategory(history)}
         />
       </FlexContainerBasic>
