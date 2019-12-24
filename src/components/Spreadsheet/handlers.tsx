@@ -1,7 +1,13 @@
 import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
-import { Cell, DoubleClickPayLoad, SelectedMatrix } from './types'
-import { getMaxRowAndCol } from './utils'
+import { Cell, DoubleClickPayLoad, SelectedMatrix, SpreadsheetProps } from './types'
+import {
+  getMaxRowAndCol,
+  parseCsvFile,
+  unparseDataToCsvString,
+  convertToCompatibleData,
+  convertDataToCsv
+} from './utils'
 
 export const valueRenderer = (cell: Cell): string => cell.value
 
@@ -50,7 +56,7 @@ export const customCellRenderer = (
     ...restCell
   } = cell
   const isValid = validate(cell)
-  const [maxRowIndex, maxColIndex] = getMaxRowAndCol(data)
+  const { maxRow: maxRowIndex, maxCol: maxColIndex } = getMaxRowAndCol(data)
   const payload = {
     row: props.row,
     col: props.col,
@@ -80,7 +86,7 @@ export const customCellRenderer = (
 }
 
 export const handleAddNewRow = (data: Cell[][], setData: React.Dispatch<Cell[][]>) => () => {
-  const [maxRow] = getMaxRowAndCol(data)
+  const { maxRow, maxCol } = getMaxRowAndCol(data)
   const lastRow = data[maxRow - 1]
   /* [
       { readOnly: true, value: '' },
@@ -88,9 +94,21 @@ export const handleAddNewRow = (data: Cell[][], setData: React.Dispatch<Cell[][]
       { value: 'B', readOnly: true },
       { value: 'C', readOnly: true },
       { value: 'D', readOnly: true }
-    ] */
-  /* return new row with same type of last row */
-  const newEmptyRow = lastRow.map(e => ({ ...e, value: '' }))
+      ]
+  */
+  /* create array with maxCol length, copy data from lastRow, set value to '' */
+  const newEmptyRow = Array(maxCol)
+    .fill({ value: '' })
+    .map((e, i) => {
+      /* copy data of last row's cell, set value to '' */
+      if (lastRow[i]) {
+        return {
+          ...lastRow[i],
+          value: ''
+        }
+      }
+      return e
+    })
   const newData = [...data, newEmptyRow]
   setData(newData)
 }
@@ -104,4 +122,53 @@ export const handleCellsChanged = (
     newData[row][col] = { ...newData[row][col], value }
   })
   setData(newData)
+}
+
+export const handleClickUpload = (ref: React.RefObject<HTMLInputElement>) => () => {
+  if (ref.current) {
+    /* allow same file input */
+    ref.current.value = ''
+    ref.current.click()
+    return true
+  }
+  return false
+}
+
+export const handleOnChangeInput = (
+  validateUpload: SpreadsheetProps['validateUpload'],
+  setData: React.Dispatch<Cell[][]>
+) => async (event: { target: HTMLInputElement }) => {
+  const { target } = event
+  if (target && target.files && target.files[0]) {
+    const file = target.files[0]
+    const result = await parseCsvFile(file)
+    const compatibleData = convertToCompatibleData(result)
+    if (validateUpload) {
+      const dataValidated = validateUpload(compatibleData)
+      setData(dataValidated)
+      return 'validated'
+    }
+    /* if not set validate function */
+    setData(compatibleData)
+    return true
+  }
+  return false
+}
+
+export const handleDownload = (data: Cell[][], window, document) => (): boolean => {
+  /* convert from Cell[][] to string[][] */
+  const parseResult = convertDataToCsv(data)
+  /* convert from string[][] to string */
+  const csvData = unparseDataToCsvString(parseResult)
+  const dataBlob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' })
+  if (typeof window === 'object' && typeof document === 'object') {
+    const file = window.URL.createObjectURL(dataBlob)
+    const link = document.createElement('a')
+    link.download = `reapit-${new Date()}.csv`
+    link.href = file
+    document.body.appendChild(link)
+    link.click()
+    return true
+  }
+  return false
 }

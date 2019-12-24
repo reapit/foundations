@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`onDoubleClickCell customCellRenderer should match snapshot with CustomComponent 1`] = `
+exports[`customCellRenderer should match snapshot with CustomComponent 1`] = `
 <td
   attributesRenderer={[MockFunction]}
   className="cell  "
@@ -50,47 +50,36 @@ exports[`onDoubleClickCell customCellRenderer should match snapshot with CustomC
       Array [
         Array [
           Object {
-            "readOnly": true,
-            "value": "Office Name",
+            "value": "Office name",
           },
           Object {
-            "readOnly": true,
             "value": "Building Name",
           },
           Object {
-            "readOnly": true,
             "value": "Building No.",
           },
           Object {
-            "readOnly": true,
             "value": "Address 1",
           },
           Object {
-            "readOnly": true,
             "value": "Address 2",
           },
           Object {
-            "readOnly": true,
             "value": "Address 3",
           },
           Object {
-            "readOnly": true,
             "value": "Address 4",
           },
           Object {
-            "readOnly": true,
             "value": "Post Code",
           },
           Object {
-            "readOnly": true,
             "value": "Telephone",
           },
           Object {
-            "readOnly": true,
             "value": "Fax",
           },
           Object {
-            "readOnly": true,
             "value": "Email",
           },
         ],
@@ -140,7 +129,7 @@ exports[`onDoubleClickCell customCellRenderer should match snapshot with CustomC
             "value": "11",
           },
           Object {
-            "value": "",
+            "value": "Test Addres",
           },
           Object {
             "value": "",
@@ -207,7 +196,7 @@ exports[`onDoubleClickCell customCellRenderer should match snapshot with CustomC
 </td>
 `;
 
-exports[`onDoubleClickCell customCellRenderer should match snapshot with invalid cell 1`] = `
+exports[`customCellRenderer should match snapshot with invalid cell 1`] = `
 <td
   attributesRenderer={[MockFunction]}
   className="cell error-cell "
@@ -233,7 +222,7 @@ exports[`onDoubleClickCell customCellRenderer should match snapshot with invalid
 </td>
 `;
 
-exports[`onDoubleClickCell customCellRenderer should match snapshot without CustomComponent 1`] = `
+exports[`customCellRenderer should match snapshot without CustomComponent 1`] = `
 <td
   attributesRenderer={[MockFunction]}
   className="cell  "

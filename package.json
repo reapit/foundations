@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.19",
+  "version": "0.5.20",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -49,6 +49,7 @@
     "@types/jest": "^24.0.17",
     "@types/jsonwebtoken": "^8.3.4",
     "@types/node": "^12.7.1",
+    "@types/papaparse": "^5.0.3",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/react-router": "^5.0.3",
@@ -96,6 +97,7 @@
     "hardtack": "^4.1.0",
     "himalaya": "^1.1.0",
     "jsonwebtoken": "^8.5.1",
+    "papaparse": "^5.1.1",
     "pell": "^1.0.6",
     "prop-types": "^15.7.2",
     "react-datasheet": "^1.4.0",
