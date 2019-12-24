@@ -26,6 +26,7 @@ import {
   selectTomorrowAppointments,
   selectWeekAppointments
 } from '@/selectors/appointments'
+import { selectUserCode } from '@/selectors/auth'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 
 jest.mock('../../core/store')
@@ -49,6 +50,7 @@ const params2: Action<AppointmentRequestParams> = {
 
 const mockOnlineVal = true
 const mockOfflineVal = false
+const mockNegotiatorId = 'JWB'
 
 const mockHeaders = {
   Authorization: '123'
@@ -108,12 +110,12 @@ describe('appointments should fetch data', () => {
 
   expect(gen.next().value).toEqual(select(selectOnlineStatus))
   expect(gen.next(mockOnlineVal as any).value).toEqual(put(appointmentsLoading(true)))
-  expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+  expect(gen.next().value).toEqual(select(selectUserCode))
+  expect(gen.next(mockNegotiatorId).value).toEqual(call(initAuthorizedRequestHeaders))
 
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
-      url:
-        '/appointments?Start=2019-10-10T00:00:00.000Z&End=2019-10-10T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
+      url: `/appointments?NegotiatorId=${mockNegotiatorId}&Start=2019-10-10T00:00:00.000Z&End=2019-10-10T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: mockHeaders
@@ -166,12 +168,12 @@ describe('appointments should fetch data tomowrrow', () => {
 
   expect(gen.next().value).toEqual(select(selectOnlineStatus))
   expect(gen.next(mockOnlineVal as any).value).toEqual(put(appointmentsLoading(true)))
-  expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+  expect(gen.next().value).toEqual(select(selectUserCode))
+  expect(gen.next(mockNegotiatorId).value).toEqual(call(initAuthorizedRequestHeaders))
 
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
-      url:
-        '/appointments?Start=2019-10-11T00:00:00.000Z&End=2019-10-11T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
+      url: `/appointments?NegotiatorId=${mockNegotiatorId}&Start=2019-10-11T00:00:00.000Z&End=2019-10-11T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: mockHeaders
@@ -224,12 +226,12 @@ describe('appointments should fetch data week view', () => {
 
   expect(gen.next().value).toEqual(select(selectOnlineStatus))
   expect(gen.next(mockOnlineVal as any).value).toEqual(put(appointmentsLoading(true)))
-  expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
+  expect(gen.next().value).toEqual(select(selectUserCode))
+  expect(gen.next(mockNegotiatorId).value).toEqual(call(initAuthorizedRequestHeaders))
 
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
-      url:
-        '/appointments?Start=2019-10-10T00:00:00.000Z&End=2019-10-16T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
+      url: `/appointments?NegotiatorId=${mockNegotiatorId}&Start=2019-10-10T00:00:00.000Z&End=2019-10-16T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: mockHeaders

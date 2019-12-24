@@ -20,6 +20,7 @@ import { URLS } from '@/constants/api'
 import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { selectOnlineStatus } from '@/selectors/online'
+import { selectUserCode } from '@/selectors/auth'
 import { AppointmentRequestParams } from '@/actions/appointments'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
@@ -77,12 +78,13 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
   // Enable this to fetch past data if there is no data for current period
   // start = dayjs().subtract(150, 'day')
   // end = dayjs()
+  const userCode = yield select(selectUserCode)
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
     const appointments = yield call(fetcher, {
       url: `${
         URLS.appointments
-      }?Start=${start.toISOString()}&End=${end.toISOString()}&IncludeCancelled=true&IncludeUnconfirmed=true`,
+      }?NegotiatorId=${userCode}&Start=${start.toISOString()}&End=${end.toISOString()}&IncludeCancelled=true&IncludeUnconfirmed=true`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers
