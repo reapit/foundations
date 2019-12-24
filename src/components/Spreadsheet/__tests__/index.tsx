@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
 import { shallow } from 'enzyme'
-import { Spreadsheet } from '../index'
+import { Spreadsheet, UploadButton, DownloadButton, AddRowButton } from '../index'
 import { data } from '../__stubs__'
 
 describe('Spreadsheet', () => {
@@ -20,5 +20,25 @@ describe('Spreadsheet', () => {
         />
       )
     )
+  })
+})
+
+describe('UploadButton', () => {
+  it('should match snapshot', () => {
+    const onChangeInput = jest.fn()
+    expect(shallow(<UploadButton onChangeInput={onChangeInput} />))
+  })
+})
+
+describe('DownloadButton', () => {
+  it('should match snapshot', () => {
+    expect(shallow(<DownloadButton data={data} />))
+  })
+})
+
+describe('AddRowButton', () => {
+  it('should match snapshot', () => {
+    const addNewRow = jest.fn()
+    expect(shallow(<AddRowButton addNewRow={addNewRow} />))
   })
 })
