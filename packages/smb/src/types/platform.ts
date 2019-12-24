@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /**
  * The details specific to applicants with a marketingMode of buying
  */
