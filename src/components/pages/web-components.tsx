@@ -66,30 +66,30 @@ const WebComponentsPage: React.SFC = () => {
             ):
           </p>
           <pre>
-            <code>{`<script src="https://demo-site.reapit.com/scripts/search-widget.js"></script>`}</code>
+            <code>{`<script src="http://reapit-web-components.s3.amazonaws.com/search-widget.js"></script>`}</code>
           </pre>
           <p>
             The widget is themeable and any of the below default options can be overridden by editing the theme.js file
             and updating the theme object in the below example (
             <a
               id={`window.addEventListener("load", function() {
-                if (window.initReaptSearchWidget) {
-                  window.initReaptSearchWidget({
-                    API_KEY: "EXAMPLE_AP_KEY",
-                    theme: {
-                      base: {
-                        font: {
-                          family: "'Open Sans', sans-serif",
-                        }
-                      },
-                      colors: {
-                        primary: '#00a569',
-                        secondary: '#828085'
-                      }
-                    }
-                  });
-                }
-              });`}
+  if (window.initReapitSearchWidget) {
+    window.initReapitSearchWidget({
+      theme: {
+        base: {
+          font: {
+            family: "'Open Sans', sans-serif"
+          }
+        },
+        colors: {
+          primary: "#00a569",
+          secondary: "#828085"
+        }
+      }
+    });
+  }
+});
+`}
               href="#"
               onClick={handleCopiedClipboardTheme({ setCopiedClipboardTheme })}
             >

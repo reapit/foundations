@@ -39,7 +39,7 @@ exports[`WebComponents should match a snapshot 1`] = `
       </p>
       <pre>
         <code>
-          &lt;script src="https://demo-site.reapit.com/scripts/search-widget.js"&gt;&lt;/script&gt;
+          &lt;script src="http://reapit-web-components.s3.amazonaws.com/search-widget.js"&gt;&lt;/script&gt;
         </code>
       </pre>
       <p>
@@ -47,23 +47,23 @@ exports[`WebComponents should match a snapshot 1`] = `
         <a
           href="#"
           id="window.addEventListener(\\"load\\", function() {
-                if (window.initReaptSearchWidget) {
-                  window.initReaptSearchWidget({
-                    API_KEY: \\"EXAMPLE_AP_KEY\\",
-                    theme: {
-                      base: {
-                        font: {
-                          family: \\"'Open Sans', sans-serif\\",
-                        }
-                      },
-                      colors: {
-                        primary: '#00a569',
-                        secondary: '#828085'
-                      }
-                    }
-                  });
-                }
-              });"
+  if (window.initReapitSearchWidget) {
+    window.initReapitSearchWidget({
+      theme: {
+        base: {
+          font: {
+            family: \\"'Open Sans', sans-serif\\"
+          }
+        },
+        colors: {
+          primary: \\"#00a569\\",
+          secondary: \\"#828085\\"
+        }
+      }
+    });
+  }
+});
+"
           onClick={[Function]}
         >
           click here to copy to clipboard
