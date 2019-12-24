@@ -39,17 +39,17 @@ export const parseResult = {
 
 export const data: Cell[][] = [
   [
-    { readOnly: true, value: 'Office Name' },
-    { readOnly: true, value: 'Building Name' },
-    { readOnly: true, value: 'Building No.' },
-    { readOnly: true, value: 'Address 1' },
-    { readOnly: true, value: 'Address 2' },
-    { readOnly: true, value: 'Address 3' },
-    { readOnly: true, value: 'Address 4' },
-    { readOnly: true, value: 'Post Code' },
-    { readOnly: true, value: 'Telephone' },
-    { readOnly: true, value: 'Fax' },
-    { readOnly: true, value: 'Email' }
+    { value: 'Office name' },
+    { value: 'Building Name' },
+    { value: 'Building No.' },
+    { value: 'Address 1' },
+    { value: 'Address 2' },
+    { value: 'Address 3' },
+    { value: 'Address 4' },
+    { value: 'Post Code' },
+    { value: 'Telephone' },
+    { value: 'Fax' },
+    { value: 'Email' }
   ],
   [
     { value: 'London' },
@@ -68,7 +68,7 @@ export const data: Cell[][] = [
     { value: 'London2' },
     { value: 'The Black House' },
     { value: '11' },
-    { value: '' },
+    { value: 'Test Addres' },
     { value: '' },
     { value: 'Adress 3' },
     { value: '' },
