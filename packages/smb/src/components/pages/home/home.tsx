@@ -11,12 +11,13 @@ import {
 } from '@reapit/elements'
 import { ContactModel } from '@/types/platform'
 import { useQuery } from '@apollo/react-hooks'
-import HOME_QUERY from './home.graphql'
+import { QueryResult } from '@apollo/react-common'
+import CONTACTS from './contacts.graphql'
 
 export interface HomeProps {}
 
 export interface PagedResult {
-  contacts: ContactModel[]
+  _embedded: ContactModel[]
   pageNumber?: number
   pageSize?: number
   pageCount?: number
@@ -28,11 +29,16 @@ interface HomeQueryVars {
   pageSize: number
 }
 
-export interface HomeQueryResponse {
+export interface ContactQueryParams {
+  pageSize: number
+  pageNumber: number
+}
+
+export interface ContactQueryResponse {
   contacts: PagedResult
 }
 
-export const AddressRow: React.FC = ({ row }: any) => {
+export const renderAddress = ({ row }: any) => {
   const addresses = (({ buildingName, buildingNumber, line1, line2 }) => ({
     buildingName,
     buildingNumber,
@@ -51,9 +57,7 @@ export const AddressRow: React.FC = ({ row }: any) => {
   )
 }
 
-AddressRow.displayName = 'AddressRow'
-
-export const PostalCodeRow: React.FC = ({ row }: any) => {
+export const renderPostalCode = ({ row }: any) => {
   const postcode = row?.original?.addresses?.[0]?.postcode
   return (
     <div>
@@ -61,16 +65,14 @@ export const PostalCodeRow: React.FC = ({ row }: any) => {
     </div>
   )
 }
-PostalCodeRow.displayName = 'PostalCodeRow'
 
-export const StatusRow: React.FC = ({ row }: any) => {
+export const renderStatus = ({ row }: any) => {
   return (
     <div>
       <span>{row.original.identityCheck}</span>
     </div>
   )
 }
-StatusRow.displayName = 'StatusRow'
 
 export const generateColumns = () => () => [
   {
@@ -82,55 +84,62 @@ export const generateColumns = () => () => [
     Header: 'Address',
     id: 'address',
     accessor: d => d,
-    Cell: <AddressRow />,
+    Cell: renderAddress,
   },
   {
     Header: 'Postcode',
     id: 'postcode',
     accessor: d => d,
-    Cell: <PostalCodeRow />,
+    Cell: renderPostalCode,
   },
   {
     Header: 'Status',
     id: 'identityCheck',
     accessor: d => d,
-    Cell: <StatusRow />,
+    Cell: renderStatus,
   },
 ]
 
 export const Home: React.FunctionComponent<HomeProps> = () => {
   const [page, setPage] = React.useState(1)
-  const { loading, error, data } = useQuery<HomeQueryResponse>(HOME_QUERY, {
-    variables: { pageSize: 10, pageNumber: page },
-  })
+  const { loading, error, data = { contacts: { _embedded: [] } } } = useQuery<ContactQueryResponse, ContactQueryParams>(
+    CONTACTS,
+    {
+      variables: { pageSize: 10, pageNumber: page },
+    },
+  ) as QueryResult<ContactQueryResponse, ContactQueryParams>
 
-  const handleChangePage = pageNum => {
+  const handleChangePage = (pageNum: number) => {
     setPage(pageNum)
   }
 
-  const columns = React.useMemo(generateColumns(), [data?.contacts.contacts])
+  const columns = React.useMemo(generateColumns(), [data?.contacts._embedded])
+
+  const renderContent = () => {
+    return (
+      <>
+        <div>
+          <Table scrollable data={data.contacts._embedded} columns={columns} loading={loading} />
+        </div>
+        <Section>
+          <Pagination
+            pageNumber={data.contacts.pageNumber}
+            pageSize={data.contacts.pageSize}
+            totalCount={data.contacts.totalCount}
+            onChange={handleChangePage}
+          />
+        </Section>
+      </>
+    )
+  }
 
   return (
     <FlexContainerBasic hasPadding hasBackground>
       <FlexContainerResponsive flexColumn hasPadding hasBackground>
         <H3>Welcome To Reapit Elements</H3>
         {loading && <Loader />}
-        {!loading && data && (
-          <>
-            <div>
-              <Table scrollable data={data.contacts.contacts} columns={columns} loading={loading} />
-            </div>
-            <Section>
-              <Pagination
-                pageNumber={data.contacts.pageNumber}
-                pageSize={data.contacts.pageSize}
-                totalCount={data.contacts.totalCount}
-                onChange={handleChangePage}
-              />
-            </Section>
-          </>
-        )}
         {!loading && error && <Alert message={error.message} type="danger" />}
+        {!loading && data && renderContent()}
       </FlexContainerResponsive>
     </FlexContainerBasic>
   )

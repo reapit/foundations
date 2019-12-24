@@ -5,7 +5,7 @@ import typeDefs from '../types/schema.graphql'
 import resolvers from './resolvers'
 
 export const request = async (operation: Operation) => {
-  const authorization = localStorage.getItem('token')
+  const authorization = localStorage.getItem('accessToken')
   operation.setContext({
     headers: {
       authorization: authorization,
