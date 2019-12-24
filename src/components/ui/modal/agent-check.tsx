@@ -92,13 +92,15 @@ export const renderOptions = (minNumber, maxNumber, step): SelectBoxOptions[] =>
   return options
 }
 
-export const renderForm = ({ isSubmitting, isDisabledSubmit }) => () => {
+export const renderForm = ({ isSubmitting, isDisabledSubmit }) => ({ setFieldValue, values }) => {
   return (
     <Form>
       <SelectBox name="referralType" id="referralType" labelText="Referral Type" options={referralOptions} />
       <DatePicker name="dateCallClient" id="dateCallClient" labelText="Date to call client" />
       <Input type="time" labelText="Time" id="timeSelection" name="timeSelection" />
       <RadioSelect
+        state={values['clientType']}
+        setFieldValue={setFieldValue}
         id="clientType"
         dataTest="clientType"
         name="clientType"
@@ -109,6 +111,8 @@ export const renderForm = ({ isSubmitting, isDisabledSubmit }) => () => {
         ]}
       />
       <RadioSelect
+        state={values['isUKResident']}
+        setFieldValue={setFieldValue}
         id="isUKResident"
         dataTest="isUKResident"
         name="isUKResident"
@@ -119,6 +123,8 @@ export const renderForm = ({ isSubmitting, isDisabledSubmit }) => () => {
         ]}
       />
       <RadioSelect
+        state={values['placeMeet']}
+        setFieldValue={setFieldValue}
         id="placeMeet"
         dataTest="placeMeet"
         name="placeMeet"
