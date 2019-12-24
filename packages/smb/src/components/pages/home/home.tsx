@@ -32,6 +32,46 @@ export interface HomeQueryResponse {
   contacts: PagedResult
 }
 
+export const AddressRow: React.FC = ({ row }: any) => {
+  const addresses = (({ buildingName, buildingNumber, line1, line2 }) => ({
+    buildingName,
+    buildingNumber,
+    line1,
+    line2,
+  }))(row?.original?.addresses?.[0] || {})
+
+  return (
+    <div>
+      <span>
+        {Object.values(addresses)
+          .filter(value => value)
+          .join(', ')}
+      </span>
+    </div>
+  )
+}
+
+AddressRow.displayName = 'AddressRow'
+
+export const PostalCodeRow: React.FC = ({ row }: any) => {
+  const postcode = row?.original?.addresses?.[0]?.postcode
+  return (
+    <div>
+      <span>{postcode}</span>
+    </div>
+  )
+}
+PostalCodeRow.displayName = 'PostalCodeRow'
+
+export const StatusRow: React.FC = ({ row }: any) => {
+  return (
+    <div>
+      <span>{row.original.identityCheck}</span>
+    </div>
+  )
+}
+StatusRow.displayName = 'StatusRow'
+
 export const generateColumns = () => () => [
   {
     Header: 'Name',
@@ -42,49 +82,19 @@ export const generateColumns = () => () => [
     Header: 'Address',
     id: 'address',
     accessor: d => d,
-    Cell: ({ row }) => {
-      const addresses = (({ buildingName, buildingNumber, line1, line2 }) => ({
-        buildingName,
-        buildingNumber,
-        line1,
-        line2,
-      }))(row?.original?.addresses?.[0] || {})
-
-      return (
-        <div>
-          <span>
-            {Object.values(addresses)
-              .filter(value => value)
-              .join(', ')}
-          </span>
-        </div>
-      )
-    },
+    Cell: <AddressRow />,
   },
   {
     Header: 'Postcode',
     id: 'postcode',
     accessor: d => d,
-    Cell: ({ row }) => {
-      const postcode = row?.original?.addresses?.[0]?.postcode
-      return (
-        <div>
-          <span>{postcode}</span>
-        </div>
-      )
-    },
+    Cell: <PostalCodeRow />,
   },
   {
     Header: 'Status',
     id: 'identityCheck',
     accessor: d => d,
-    Cell: ({ row }) => {
-      return (
-        <div>
-          <span>{row.original.identityCheck}</span>
-        </div>
-      )
-    },
+    Cell: <StatusRow />,
   },
 ]
 

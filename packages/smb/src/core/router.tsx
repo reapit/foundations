@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Route, Router as BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import { Route, Router as BrowserRouter, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import Routes from '../constants/routes'
 
@@ -14,7 +14,6 @@ const Router = () => (
       <Switch>
         <Route path={Routes.LOGIN} component={LoginPage} />
         <Route path={Routes.HOME} component={HomePage} />
-        {/* <Redirect to={Routes.LOGIN} /> */}
       </Switch>
     </React.Suspense>
   </BrowserRouter>
