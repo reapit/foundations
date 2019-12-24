@@ -4,7 +4,13 @@ export const generateNumbers = (total: number) => () => {
   return [...Array(total).keys()]
 }
 
-export const caculateCircleRef = ({ activeRef, circleRef }) => {
+export const caculateCircleRef = ({
+  activeRef,
+  circleRef
+}: {
+  activeRef: React.RefObject<HTMLLIElement>
+  circleRef: React.RefObject<HTMLDivElement>
+}) => {
   if (circleRef.current && activeRef.current) {
     const widthActiveItem = parseInt(window.getComputedStyle(activeRef.current, ':before').width, 10)
     const widthCircleWrapper = circleRef.current.offsetWidth
@@ -15,19 +21,27 @@ export const caculateCircleRef = ({ activeRef, circleRef }) => {
   }
 }
 
-export const caculateLineRef = ({ activeRef }) => {
-  const widthActiveItem = parseInt(window.getComputedStyle(activeRef.current, ':before').width, 10)
-  const marginBetween = parseInt(window.getComputedStyle(activeRef.current, ':before').marginRight, 10)
+export const caculateLineRef = ({ activeRef }: { activeRef: React.RefObject<HTMLLIElement> }) => {
   // calculate the height for '.line-active'
-  if (activeRef.current && activeRef.current.nextElementSibling) {
-    return activeRef.current.offsetLeft + widthActiveItem + marginBetween / 2
-  } else {
-    return activeRef.current.offsetLeft + widthActiveItem
+  if (activeRef.current) {
+    const widthActiveItem = parseInt(window.getComputedStyle(activeRef.current, ':before').width, 10)
+    const marginBetween = parseInt(window.getComputedStyle(activeRef.current, ':before').marginRight, 10)
+    return activeRef.current.nextElementSibling
+      ? activeRef.current.offsetLeft + widthActiveItem + marginBetween / 2
+      : activeRef.current.offsetLeft + widthActiveItem
   }
 }
 
 // Calculate style '.circle-active' and '.line-active' elements when current active change
-export const calculateElement = ({ circleRef, activeRef, lineRef }) => () => {
+export const calculateElement = ({
+  circleRef,
+  activeRef,
+  lineRef
+}: {
+  activeRef: React.RefObject<HTMLLIElement>
+  circleRef: React.RefObject<HTMLDivElement>
+  lineRef: React.RefObject<HTMLDivElement>
+}) => () => {
   if (circleRef.current && activeRef.current && lineRef.current) {
     const circlePosX = caculateCircleRef({ activeRef, circleRef })
     circleRef.current.style.transform = `translateX(${circlePosX}px)`
@@ -52,8 +66,8 @@ export const HorizontalTimeline = ({ total, currentIndex }) => {
       <div ref={lineRef} className="line-active"></div>
       {numbers.map(item => (
         <li
-          ref={currentIndex === item ? activeRef : null}
           key={item}
+          ref={currentIndex === item ? activeRef : null}
           className={`${currentIndex === item ? 'active' : ''} ${currentIndex > item ? 'passed' : ''}`}
         ></li>
       ))}

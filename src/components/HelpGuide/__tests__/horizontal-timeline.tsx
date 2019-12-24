@@ -25,19 +25,22 @@ describe('NumberedTimeline', () => {
         current: {
           offsetLeft: 40
         }
-      } as React.MutableRefObject<HTMLElement>,
+      } as React.RefObject<HTMLLIElement>,
       circleRef: {
         current: {
           offsetWidth: 15
         }
-      }
+      } as React.RefObject<HTMLDivElement>
     }
 
-    const widthActiveItem = parseInt(window.getComputedStyle(mockProps.activeRef.current, ':before').width, 10)
-    const widthCircleWrapper = mockProps.circleRef.current.offsetWidth
-    const gap = (widthCircleWrapper - widthActiveItem) / 2
+    const { activeRef, circleRef } = mockProps
+    if (activeRef.current && circleRef.current) {
+      const widthActiveItem = parseInt(window.getComputedStyle(activeRef.current, ':before').width, 10)
+      const widthCircleWrapper = circleRef.current.offsetWidth
+      const gap = (widthCircleWrapper - widthActiveItem) / 2
 
-    expect(caculateCircleRef(mockProps)).toEqual(mockProps.activeRef.current.offsetLeft - gap)
+      expect(caculateCircleRef(mockProps)).toEqual(activeRef.current.offsetLeft - gap)
+    }
   })
 
   it('caculateLineRef should run correctly when nextElementSibling null', () => {
@@ -47,12 +50,15 @@ describe('NumberedTimeline', () => {
           nextElementSibling: null,
           offsetTop: 20
         }
-      } as React.MutableRefObject<HTMLElement>
+      } as React.RefObject<HTMLLIElement>
     }
 
-    const widthActiveItem = parseInt(window.getComputedStyle(mockProps.activeRef.current, ':before').width, 10)
+    const { activeRef } = mockProps
 
-    expect(caculateLineRef(mockProps)).toEqual(mockProps.activeRef.current.offsetLeft + widthActiveItem)
+    if (activeRef.current) {
+      const widthActiveItem = parseInt(window.getComputedStyle(activeRef.current, ':before').width, 10)
+      expect(caculateLineRef(mockProps)).toEqual(activeRef.current.offsetLeft + widthActiveItem)
+    }
   })
 
   it('caculateLineRef should run correctly when have nextElementSibling', () => {
@@ -62,46 +68,56 @@ describe('NumberedTimeline', () => {
           nextElementSibling: <li>Test</li> as any,
           offsetTop: 20
         }
-      } as React.MutableRefObject<HTMLElement>
+      } as React.RefObject<HTMLLIElement>
     }
 
-    const widthActiveItem = parseInt(window.getComputedStyle(mockProps.activeRef.current, ':before').width, 10)
-    const marginBetween = parseInt(window.getComputedStyle(mockProps.activeRef.current, ':before').marginRight, 10)
+    const { activeRef } = mockProps
 
-    expect(caculateLineRef(mockProps)).toEqual(
-      mockProps.activeRef.current.offsetLeft + widthActiveItem + marginBetween / 2
-    )
+    if (activeRef.current) {
+      const widthActiveItem = parseInt(window.getComputedStyle(activeRef.current, ':before').width, 10)
+      const marginBetween = parseInt(window.getComputedStyle(activeRef.current, ':before').marginRight, 10)
+
+      expect(caculateLineRef(mockProps)).toEqual(activeRef.current.offsetLeft + widthActiveItem + marginBetween / 2)
+    }
   })
 
   it('calculateElement should run correctly', () => {
     const mockProps = {
       activeRef: {
         current: {
-          offsetHeight: 10,
-          offsetTop: 20
+          offsetLeft: 10,
+          offsetWidth: 20
         }
-      },
+      } as React.RefObject<HTMLLIElement>,
       circleRef: {
         current: {
-          offsetHeight: 15,
+          offsetWidth: 15,
           style: {
             transform: ''
           }
         }
-      },
+      } as React.RefObject<HTMLDivElement>,
       lineRef: {
         current: {
           style: {
             height: ''
           }
         }
-      }
+      } as React.RefObject<HTMLDivElement>
     }
 
-    calculateElement(mockProps)()
+    const { activeRef, circleRef, lineRef } = mockProps
 
-    const circlePosX = caculateCircleRef(mockProps)
-    mockProps.circleRef.current.style.transform = `translateX(${circlePosX}px)`
-    expect(mockProps.circleRef.current.style.transform).toEqual(`translateX(${circlePosX}px)`)
+    calculateElement(mockProps)()
+    const circlePosX = caculateCircleRef({ activeRef, circleRef })
+    const lineWidth = caculateLineRef({ activeRef })
+
+    if (activeRef.current && circleRef.current && lineRef.current) {
+      circleRef.current.style.transform = `translateX(${circlePosX}px)`
+      lineRef.current.style.width = `${lineWidth}px`
+
+      expect(circleRef.current.style.transform).toEqual(`translateX(${circlePosX}px)`)
+      expect(lineRef.current.style.width).toEqual(`${lineWidth}px`)
+    }
   })
 })
