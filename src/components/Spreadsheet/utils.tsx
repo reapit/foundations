@@ -24,19 +24,16 @@ export const setCurrentCellValue = (
   col: number,
   setData: React.Dispatch<Cell[][]>
 ): void => {
-  const newData = [...data]
+  const newData = JSON.parse(JSON.stringify(data))
   newData[row][col].value = cellData
   setData(newData)
 }
 
 export const parseCsvFile = (file: File): Promise<Papa.ParseResult> =>
-  new Promise((resolve, rejects) => {
+  new Promise(resolve => {
     Papa.parse(file, {
       complete: (results: Papa.ParseResult) => {
         resolve(results)
-      },
-      error: (errors: Papa.ParseError) => {
-        rejects(errors)
       }
     })
   })
@@ -49,7 +46,7 @@ export const unparseDataToCsvString = (parseResult: string[][]): string => Papa.
  * to [[{value: 'value1'}, {value: ''}], [{value: 'value3'}, {value: 'value4'}]]
  * for compatible reason
  */
-export const convertToCompatibleData = (parsedResult: Papa.ParseResult): Cell[][] =>
+export const convertToCompatibleData = (parsedResult): Cell[][] =>
   parsedResult.data.map(rowArray => rowArray.map(value => ({ value })))
 
 /**

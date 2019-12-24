@@ -50,47 +50,36 @@ exports[`customCellRenderer should match snapshot with CustomComponent 1`] = `
       Array [
         Array [
           Object {
-            "readOnly": true,
-            "value": "Office Name",
+            "value": "Office name",
           },
           Object {
-            "readOnly": true,
             "value": "Building Name",
           },
           Object {
-            "readOnly": true,
             "value": "Building No.",
           },
           Object {
-            "readOnly": true,
             "value": "Address 1",
           },
           Object {
-            "readOnly": true,
             "value": "Address 2",
           },
           Object {
-            "readOnly": true,
             "value": "Address 3",
           },
           Object {
-            "readOnly": true,
             "value": "Address 4",
           },
           Object {
-            "readOnly": true,
             "value": "Post Code",
           },
           Object {
-            "readOnly": true,
             "value": "Telephone",
           },
           Object {
-            "readOnly": true,
             "value": "Fax",
           },
           Object {
-            "readOnly": true,
             "value": "Email",
           },
         ],
@@ -140,7 +129,7 @@ exports[`customCellRenderer should match snapshot with CustomComponent 1`] = `
             "value": "11",
           },
           Object {
-            "value": "",
+            "value": "Test Addres",
           },
           Object {
             "value": "",
