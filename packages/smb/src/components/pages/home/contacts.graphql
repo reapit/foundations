@@ -1,10 +1,10 @@
 #import "../../../graphql/fragments/paging.graphql"
 #import "../../../graphql/fragments/contact.graphql"
 
-query loadContacts($pageSize: Int!, $pageNumber: Int!) {
+query CONTACTS($pageSize: Int!, $pageNumber: Int!) {
   contacts(pageSize: $pageSize, pageNumber: $pageNumber) {
-    contacts {
-      ...ContactObj
+    _embedded {
+      ...Contact
     }
     ...Pagination
   }
