@@ -8,12 +8,12 @@ describe('selectCategories', () => {
       appCategories: appCategorieStub
     } as ReduxState
     const result = selectCategories(input)
-    expect(result).toEqual(appCategorieStub.data?.concat({ id: 'DIRECT_API_APPS_FILTER', name: 'Direct API' }))
+    expect(result).toEqual(appCategorieStub.data)
   })
 
-  it("should run correctly and return [{id: 'DIRECT_API_APPS_FILTER', name: 'Direct API'}]", () => {
+  it('should run correctly and return []', () => {
     const input = {} as ReduxState
-    const expected = [{ id: 'DIRECT_API_APPS_FILTER', name: 'Direct API' }]
+    const expected = []
     const result = selectCategories(input)
     expect(result).toEqual(expected)
   })
