@@ -27,6 +27,14 @@ Object.defineProperty(window, 'localStorage', {
   value: mockStorage
 })
 
+Object.defineProperty(window, 'getComputedStyle', {
+  value: () => ({
+    getPropertyValue: prop => {
+      return ''
+    }
+  })
+})
+
 // https://github.com/akiran/react-slick/issues/742
 window.matchMedia =
   window.matchMedia ||
@@ -41,9 +49,9 @@ window.matchMedia =
 const mockGeolocation = {
   getCurrentPosition: jest.fn(),
   watchPosition: jest.fn()
-};
+}
 
-global.navigator.geolocation = mockGeolocation;
+global.navigator.geolocation = mockGeolocation
 
 jest.mock('dayjs', () =>
   jest.fn((...args) => jest.requireActual('dayjs')(args.filter(arg => arg).length > 0 ? args : '2019-12-18T16:30:00'))
@@ -51,5 +59,5 @@ jest.mock('dayjs', () =>
 
 // browserMock.js
 Object.defineProperty(document, 'currentScript', {
-  value: document.createElement('div',).id='coordinate-0-0'
-});
+  value: (document.createElement('div').id = 'coordinate-0-0')
+})
