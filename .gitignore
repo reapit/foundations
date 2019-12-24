@@ -8,3 +8,4 @@ coverage
 env.yml
 .rts2_cache*
 dist
+*.log

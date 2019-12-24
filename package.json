@@ -1,6 +1,6 @@
 {
   "name": "@reapit/cognito-auth",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Simple wrapper around AWS Cognito for basic authentication flow",
   "main": "dist/index.js",
   "umd:main": "dist/cognito-auth.umd.production.js",
@@ -17,7 +17,7 @@
     "prepublish": "yarn test && yarn build",
     "prebuild": "rimraf dist && rimraf public",
     "build-npm": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
-    "build-serverless": "tsc --p tsconfig.legacy.json && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
+    "build-serverless": "tsc --p tsconfig.legacy.json",
     "build": "yarn build-serverless && yarn build-npm",
     "start-dev": "node ./public/app.dev.js",
     "serverless": "serverless deploy",
@@ -38,7 +38,6 @@
   },
   "homepage": "https://github.com/reapit/cognitio-auth#readme",
   "dependencies": {
-    "@types/jsonwebtoken": "^8.3.5",
     "amazon-cognito-identity-js": "~3.0.13",
     "cors": "^2.8.5",
     "ejs": "^3.0.1",
@@ -51,6 +50,7 @@
   "devDependencies": {
     "@octokit/rest": "^16.35.0",
     "@types/aws-serverless-express": "~3.3.1",
+    "@types/jsonwebtoken": "^8.3.5",
     "@types/cors": "^2.8.5",
     "@types/ejs": "^2.7.0",
     "@types/express": "~4.17.0",
