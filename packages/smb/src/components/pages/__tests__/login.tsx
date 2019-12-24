@@ -1,22 +1,21 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import { Login, LoginProps } from '../login'
+import { MockedProvider } from '@apollo/react-testing'
+import { Login, LoginProps } from '../login/login'
 
 const props: LoginProps = {
-  error: false,
-  isLogin: false,
-  login: jest.fn(),
-  authChangeLoginType: jest.fn(),
-  loginType: 'CLIENT',
-  // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
-  location: {
-    pathname: '/client',
-  },
+  // @ts-ignore: just pick the needed props for the test
+  history: {},
 }
 
 describe('Login', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Login {...props} />))).toMatchSnapshot()
+    expect(
+      shallow(
+        <MockedProvider mocks={[]} addTypename={false}>
+          <Login {...props} />
+        </MockedProvider>,
+      ),
+    ).toMatchSnapshot()
   })
 })

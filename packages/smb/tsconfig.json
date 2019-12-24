@@ -13,7 +13,7 @@
     "typeRoots": ["./src/types/index.d.ts", "./node_modules/@types", "../../node_modules/@types"],
     "baseUrl": "./",
     "paths": {
-      "src/*": ["src/*"]
+      "@/*": ["src/*"]
     },
     "lib": ["es2015", "es2017", "dom", "es5", "es6", "esnext"]
   },
