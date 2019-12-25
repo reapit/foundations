@@ -1,7 +1,7 @@
 import { history } from '../core/router'
 import { ClientParams } from '@/reducers/client'
 
-export const addQuery = (query: ClientParams): string => {
+export const addQuery = (query: Record<string, any>): string => {
   const currentParams = new URLSearchParams(history.location.search)
   for (let key in query) {
     if (query.hasOwnProperty(key)) {
@@ -28,19 +28,17 @@ export const removeQuery = (queries: Array<string>): string => {
   return path
 }
 
-export const getParamsFromPath = (search: string): ClientParams => {
-  const output = { page: 1, search: '', category: '' }
+export const getParamsFromPath = (search: string) => {
+  const output = {} as Record<string, any>
   const params = new URLSearchParams(search)
-  if (params.has('page')) {
-    const pageParam = Number(params.get('page'))
-    output.page = !isNaN(pageParam) && pageParam > 0 ? pageParam : 1
-  }
-  if (params.has('search')) {
-    output.search = params.get('search') || ''
-  }
-  if (params.has('category')) {
-    output.category = params.get('category') || ''
-  }
+
+  params.forEach((value, key) => {
+    if (key === 'page') {
+      const pageParam = Number(value)
+      return (output.page = !isNaN(pageParam) && pageParam > 0 ? pageParam : 1)
+    }
+    output[key] = value || ''
+  })
 
   return output
 }

@@ -16,6 +16,7 @@ export interface ClientState {
 export interface ClientParams {
   page?: number
   search?: string
+  searchBy?: string
   category?: string
 }
 
