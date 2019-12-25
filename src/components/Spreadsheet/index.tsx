@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { MyReactDataSheet, Cell, SpreadsheetProps, SelectedMatrix } from './types'
+import { MyReactDataSheet, Cell, SpreadsheetProps, SelectedMatrix, ContextMenuProp, SetContextMenuProp } from './types'
 import {
   valueRenderer,
   onSelectCells,
@@ -8,10 +8,12 @@ import {
   handleCellsChanged,
   handleClickUpload,
   handleOnChangeInput,
-  handleDownload
-  /* handleContextMenu */
+  handleDownload,
+  handleContextMenu
 } from './handlers'
 import { Button } from '../Button'
+import { ContextMenu } from './context-menu'
+import { hideContextMenu } from './utils'
 
 export const UploadButton = ({ onChangeInput }) => {
   const uploadRef = React.useRef<HTMLInputElement>(null)
@@ -45,6 +47,15 @@ export const AddRowButton = ({ addNewRow }) => {
   )
 }
 
+export const handleEffect = (setContextMenuProp: SetContextMenuProp) => () => {
+  /**
+   * To hide context menu when click outside.
+   * must use window instead of document for stopPropagation to work
+   * https://github.com/facebook/react/issues/4335
+   */
+  window.addEventListener('click', setContextMenuProp as any)
+}
+
 export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   data: initialData,
   description = '',
@@ -57,12 +68,20 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
 
   const [data, setData] = React.useState<Cell[][]>(initialData)
 
+  const [contextMenuProp, setContextMenuProp] = React.useState<ContextMenuProp>({
+    visible: false,
+    top: 0,
+    left: 0
+  })
+
   const cellRenderer = React.useCallback(customCellRenderer(data, setData, setSelected), [data])
   const onSelect = React.useCallback(onSelectCells(setSelected), [])
   const onCellsChanged = React.useCallback(handleCellsChanged(data, setData), [data])
   const addNewRow = React.useCallback(handleAddNewRow(data, setData), [data])
-  const onChangeInput = React.useCallback(handleOnChangeInput(validateUpload, setData), [])
-
+  const onChangeInput = React.useCallback(handleOnChangeInput(validateUpload, setData), [validateUpload])
+  const onContextMenu = React.useCallback(handleContextMenu(setContextMenuProp), [])
+  /* call setContextMenuProp will hide context menu by default */
+  React.useEffect(handleEffect(setContextMenuProp.bind(null, hideContextMenu)), [])
   return (
     <div className="spreadsheet">
       <div className="wrap-top">
@@ -79,10 +98,16 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
         valueRenderer={valueRenderer}
         onCellsChanged={onCellsChanged}
         onSelect={onSelect}
-        /* onContextMenu={handleContextMenu} */
+        onContextMenu={onContextMenu}
         cellRenderer={cellRenderer}
       />
       <div className="wrap-bottom">{hasAddButton && <AddRowButton addNewRow={addNewRow} />}</div>
+      <ContextMenu
+        selected={selected}
+        contextMenuProp={contextMenuProp}
+        setData={setData}
+        setContextMenuProp={setContextMenuProp}
+      />
     </div>
   )
 }
