@@ -41,6 +41,8 @@ export * from './components/ProgressBar'
 export * from './components/ToastMessage'
 export * from './components/Helper'
 export * from './components/Spreadsheet'
+export * from './components/HelpGuide'
+export * from './components/HelpGuide/context'
 
 // Utils
 export * from './utils/validators'

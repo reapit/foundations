@@ -1,0 +1,189 @@
+@import '../base/colors.scss';
+
+.helpguide-wrapper {
+  opacity: 0;
+  transition: all 0.3s;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transform: translate(100%, 0);
+  @media (min-width: 768px) {
+    top: unset;
+    transform: translate(0, 100%);
+  }
+}
+
+.helpguide-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  @media (min-width: 768px) {
+    padding: 1rem;
+    margin-right: 2rem;
+    margin-top: 0;
+    max-width: 60%;
+  }
+}
+
+.helpguide-wrapper-graphic {
+  padding: 1rem;
+  flex: 1;
+}
+
+.helpguide-graphic {
+  max-width: 400px;
+  margin: auto;
+}
+
+.numbers-timeline {
+  counter-reset: step;
+  width: 100px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+
+  & li {
+    list-style-type: none;
+    font-size: 0.85rem;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  li:before {
+    width: 30px;
+    height: 30px;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 27px;
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+    border-radius: 50%;
+    background-color: $grey;
+  }
+
+  li.active:before,
+  li.passed:before {
+    background-color: $reapit-mid-blue;
+  }
+
+  li:after {
+    width: 3px;
+    height: 100%;
+    content: '';
+    position: absolute;
+    background-color: $grey;
+    top: 50%;
+    transform: translateX(-50%);
+    z-index: -3;
+  }
+
+  li:last-child:after {
+    content: none;
+  }
+
+  & .circle-active {
+    border: 1px solid blue;
+    transform: translateY(25px);
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s;
+    text-align: center;
+  }
+
+  & .line-active {
+    position: absolute;
+    height: 0;
+    width: 3px;
+    top: 30px;
+    background-color: $reapit-mid-blue;
+    transition: all 0.3s;
+    z-index: -2;
+  }
+}
+
+.horizontal-timeline {
+  counter-reset: step;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  position: relative;
+  z-index: 1;
+
+  & li {
+    flex: 1;
+    list-style-type: none;
+    font-size: 0.85rem;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  & li:last-child {
+    flex: unset;
+  }
+
+  li:before {
+    width: 30px;
+    height: 30px;
+    content: counter(step);
+    counter-increment: step;
+    margin-right: auto;
+    line-height: 30px;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    background-color: $grey;
+  }
+
+  li.active:before,
+  li.passed:before {
+    background-color: $reapit-mid-blue;
+  }
+
+  li:after {
+    width: 100%;
+    height: 3px;
+    content: '';
+    position: absolute;
+    background-color: $grey;
+    top: 50%;
+    transform: translateX(-50%);
+    z-index: -3;
+  }
+
+  li:last-child:after {
+    content: none;
+  }
+
+  & .line-active {
+    position: absolute;
+    height: 3px;
+    top: 50%;
+    background-color: #0061a8;
+    transition: all 0.3s;
+    z-index: -2;
+  }
+
+  & .circle-active {
+    border: 1px solid blue;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s;
+    text-align: center;
+    transform: translateX(-5px);
+  }
+}
