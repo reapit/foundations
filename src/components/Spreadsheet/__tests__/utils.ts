@@ -5,7 +5,8 @@ import {
   parseCsvFile,
   unparseDataToCsvString,
   convertToCompatibleData,
-  convertDataToCsv
+  convertDataToCsv,
+  hideContextMenu
 } from '../utils'
 import { Cell } from '../types'
 import fs from 'fs'
@@ -32,7 +33,7 @@ describe('getMaxRowAndCol', () => {
 describe('setCurrentCellValue', () => {
   it('should call setData with correct arg', () => {
     setCurrentCellValue('cell value', data, 2, 3, setData)
-    const newData = JSON.parse(JSON.stringify(data))
+    const newData = data.map(row => row.map(cell => ({ ...cell })))
     newData[2][3].value = 'cell value'
     expect(setData).toHaveBeenCalledWith(newData)
   })
@@ -63,5 +64,26 @@ describe('convertToCompatibleData', () => {
 describe('convertDataToCsv', () => {
   it('should return correct result', () => {
     expect(convertDataToCsv(data)).toEqual(parseResult.data)
+  })
+})
+
+describe('hideContextMenu', () => {
+  it('should return ContextMenuProp with visible = false', () => {
+    const mockState = { visible: true, top: 0, left: 0 }
+    expect(hideContextMenu(mockState)).toEqual({
+      visible: false,
+      top: 0,
+      left: 0
+    })
+  })
+})
+describe('hideContextMenu', () => {
+  it('should return ContextMenuProp with visible = false', () => {
+    const mockState = { visible: true, top: 0, left: 0 }
+    expect(hideContextMenu(mockState)).toEqual({
+      visible: false,
+      top: 0,
+      left: 0
+    })
   })
 })

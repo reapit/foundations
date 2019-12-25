@@ -1,6 +1,14 @@
 import * as React from 'react'
 import ReactDataSheet from 'react-datasheet'
-import { Cell, DoubleClickPayLoad, SelectedMatrix, SpreadsheetProps } from './types'
+import {
+  Cell,
+  DoubleClickPayLoad,
+  SelectedMatrix,
+  SpreadsheetProps,
+  SetContextMenuProp,
+  SetData,
+  SetSelected
+} from './types'
 import {
   getMaxRowAndCol,
   parseCsvFile,
@@ -12,11 +20,9 @@ import {
 export const valueRenderer = (cell: Cell): string => cell.value
 
 /** Double click on first read-only cell */
-export const onDoubleClickCell = (
-  payload: DoubleClickPayLoad,
-  setSelected: React.Dispatch<SelectedMatrix>,
-  onDoubleClickDefault
-) => (...args): boolean => {
+export const onDoubleClickCell = (payload: DoubleClickPayLoad, setSelected: SetSelected, onDoubleClickDefault) => (
+  ...args
+): boolean => {
   /* trigger default handler from lib */
   onDoubleClickDefault(...args)
   const { row, col, maxRowIndex, isReadOnly } = payload
@@ -32,20 +38,20 @@ export const onDoubleClickCell = (
   return false
 }
 
-export const onSelectCells = (setSelected: React.Dispatch<SelectedMatrix>) => ({ start, end }: SelectedMatrix) => {
+export const onSelectCells = (setSelected: SetSelected) => ({ start, end }: SelectedMatrix) => {
   setSelected({ start, end })
 }
 
-/* export const handleContextMenu: ReactDataSheet.ContextMenuHandler<Cell, string> = (e, cell, i, j) => {
-  console.log('sad')
-} */
+export const handleContextMenu = (setContextMenuProp: SetContextMenuProp) => e => {
+  const { clientX, clientY } = e
+  e.preventDefault()
+  setContextMenuProp({ visible: true, top: clientY, left: clientX + 10 })
+}
 
 /** all the customization of cell go here */
-export const customCellRenderer = (
-  data: Cell[][],
-  setData: React.Dispatch<Cell[][]>,
-  setSelected: React.Dispatch<SelectedMatrix>
-) => (props: ReactDataSheet.CellRendererProps<Cell>) => {
+export const customCellRenderer = (data: Cell[][], setData: SetData, setSelected: SetSelected) => (
+  props: ReactDataSheet.CellRendererProps<Cell>
+) => {
   const { style: defaultStyle, cell, onDoubleClick, ...restProps } = props
   const {
     CustomComponent = false,
@@ -85,7 +91,7 @@ export const customCellRenderer = (
   )
 }
 
-export const handleAddNewRow = (data: Cell[][], setData: React.Dispatch<Cell[][]>) => () => {
+export const handleAddNewRow = (data: Cell[][], setData: SetData) => () => {
   const { maxRow, maxCol } = getMaxRowAndCol(data)
   const lastRow = data[maxRow - 1]
   /* [
@@ -113,10 +119,7 @@ export const handleAddNewRow = (data: Cell[][], setData: React.Dispatch<Cell[][]
   setData(newData)
 }
 
-export const handleCellsChanged = (
-  prevData: Cell[][],
-  setData: React.Dispatch<Cell[][]> /* setData from useState*/
-) => changes => {
+export const handleCellsChanged = (prevData: Cell[][], setData: SetData) => changes => {
   const newData = prevData.map(row => [...row])
   changes.forEach(({ row, col, value }) => {
     newData[row][col] = { ...newData[row][col], value }
@@ -136,7 +139,7 @@ export const handleClickUpload = (ref: React.RefObject<HTMLInputElement>) => () 
 
 export const handleOnChangeInput = (
   validateUpload: SpreadsheetProps['validateUpload'],
-  setData: React.Dispatch<Cell[][]>
+  setData: SetData
 ) => async (event: { target: HTMLInputElement }) => {
   const { target } = event
   if (target && target.files && target.files[0]) {
@@ -155,13 +158,13 @@ export const handleOnChangeInput = (
   return false
 }
 
-export const handleDownload = (data: Cell[][], window, document) => (): boolean => {
+export const handleDownload = (data: Cell[][], window, document: Document | undefined) => (): boolean => {
   /* convert from Cell[][] to string[][] */
   const parseResult = convertDataToCsv(data)
   /* convert from string[][] to string */
   const csvData = unparseDataToCsvString(parseResult)
   const dataBlob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' })
-  if (typeof window === 'object' && typeof document === 'object') {
+  if (window && document) {
     const file = window.URL.createObjectURL(dataBlob)
     const link = document.createElement('a')
     link.download = `reapit-${new Date()}.csv`

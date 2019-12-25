@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Cell, SelectedMatrix } from '../types'
+import { Cell, SetData, SetSelected, SetContextMenuProp } from '../types'
 import ReactDataSheet from 'react-datasheet'
 
 export const parseResult = {
@@ -109,9 +109,10 @@ export const cellRenderProps: ReactDataSheet.CellRendererProps<Cell> = {
   children: <div>hi</div>
 }
 
-export const setData: React.Dispatch<Cell[][]> = jest.fn()
+export const setData: SetData = jest.fn()
 
-export const setSelected: React.Dispatch<SelectedMatrix> = jest.fn()
+export const setSelected: SetSelected = jest.fn()
+export const setContextMenuProp: SetContextMenuProp = jest.fn()
 
 export const selectedMatrix = {
   start: { i: 0, j: 1 },

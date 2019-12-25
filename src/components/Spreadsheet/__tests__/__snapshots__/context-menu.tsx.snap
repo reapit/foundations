@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContextMenu should match snapshot with visible false 1`] = `
+<div
+  className="spreadsheet-context-menu spreadsheet-context-menu-hidden"
+  onClick={[Function]}
+  style={
+    Object {
+      "left": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    className="wrap-section"
+    key="Clear"
+  >
+    <p
+      className="menu-label"
+    >
+      Clear
+    </p>
+    <ul
+      className="menu-list"
+    >
+      <li
+        key="clear-row"
+      >
+        <a
+          id="clear-row"
+        >
+          Clear row
+        </a>
+      </li>
+      <li
+        key="clear-col"
+      >
+        <a
+          id="clear-col"
+        >
+          Clear column
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="wrap-section"
+    key="Remove"
+  >
+    <p
+      className="menu-label"
+    >
+      Remove
+    </p>
+    <ul
+      className="menu-list"
+    >
+      <li
+        key="remove-row"
+      >
+        <a
+          id="remove-row"
+        >
+          Remove row
+        </a>
+      </li>
+      <li
+        key="remove-col"
+      >
+        <a
+          id="remove-col"
+        >
+          Remove column
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`ContextMenu should match snapshot with visible true 1`] = `
+<div
+  className="spreadsheet-context-menu spreadsheet-context-menu-visible"
+  onClick={[Function]}
+  style={
+    Object {
+      "left": 0,
+      "top": 0,
+    }
+  }
+>
+  <div
+    className="wrap-section"
+    key="Clear"
+  >
+    <p
+      className="menu-label"
+    >
+      Clear
+    </p>
+    <ul
+      className="menu-list"
+    >
+      <li
+        key="clear-row"
+      >
+        <a
+          id="clear-row"
+        >
+          Clear row
+        </a>
+      </li>
+      <li
+        key="clear-col"
+      >
+        <a
+          id="clear-col"
+        >
+          Clear column
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="wrap-section"
+    key="Remove"
+  >
+    <p
+      className="menu-label"
+    >
+      Remove
+    </p>
+    <ul
+      className="menu-list"
+    >
+      <li
+        key="remove-row"
+      >
+        <a
+          id="remove-row"
+        >
+          Remove row
+        </a>
+      </li>
+      <li
+        key="remove-col"
+      >
+        <a
+          id="remove-col"
+        >
+          Remove column
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
