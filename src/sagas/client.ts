@@ -16,7 +16,7 @@ export const clientDataFetch = function*({ data }) {
   yield put(clientLoading(true))
 
   try {
-    const { page, search, category } = data
+    const { page, search, category, searchBy } = data
     const clientId = yield select(selectClientId)
     if (!clientId) {
       throw new Error('Client id does not exist in state')
@@ -34,7 +34,7 @@ export const clientDataFetch = function*({ data }) {
         url: `${URLS.apps}?${setQueryParams({
           clientId,
           category: isFilteringForDirectApiApps ? undefined : category,
-          appName: search,
+          [searchBy]: search,
           pageNumber: page,
           pageSize: APPS_PER_PAGE,
           IsFeatured: isFilteringForDirectApiApps ? undefined : false,

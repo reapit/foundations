@@ -1,11 +1,21 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { AppSidebar, AppSidebarProps, handleSelectCategory, handleSearchApp, mapStateToProps } from '../app-sidebar'
+import {
+  AppSidebar,
+  AppSidebarProps,
+  FilterForm,
+  handleSelectCategory,
+  handleSearchApp,
+  mapStateToProps,
+  FilterFormValues
+} from '../app-sidebar'
 import CategoriesList from '@/components/ui/categories-list'
 import { addQuery, removeQuery, getParamValueFromPath } from '@/utils/client-url-params'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
 import { selectCategories } from '@/selector/app-categories'
 import { ReduxState } from '@/types/core'
+import { FormikProps } from '@reapit/elements'
+import { mockWithFormik } from '@/utils/mock-formik'
 
 jest.mock('@/selector/app-categories')
 jest.mock('@/utils/client-url-params')
@@ -37,6 +47,18 @@ describe('AppSidebar', () => {
     expect(wrapper.find(CategoriesList)).toHaveLength(1)
   })
 
+  describe('FilterForm', () => {
+    const props = {
+      values: {
+        search: '1',
+        searchBy: '1'
+      }
+    } as FormikProps<FilterFormValues>
+    it('should match a snapshot', () => {
+      expect(shallow(<FilterForm {...props} />)).toMatchSnapshot()
+    })
+  })
+
   describe('handleSelectCategory', () => {
     it('should call history.push with addQuery({categoryId}) when passed categoryId', () => {
       const categoryId = '1'
@@ -49,7 +71,7 @@ describe('AppSidebar', () => {
     it('should call history.push with removeQuery when categoryId is undefined', () => {
       const fn = handleSelectCategory(history)
       fn()
-      expect(removeQuery).toHaveBeenCalledWith(['category', 'search'])
+      expect(removeQuery).toHaveBeenCalledWith(['category', 'search', 'searchBy'])
       expect(spy).toHaveBeenCalledTimes(1)
     })
   })
@@ -63,11 +85,11 @@ describe('AppSidebar', () => {
       expect(spy).toHaveBeenCalledTimes(1)
     })
 
-    it('should call history.push with removeQuery(["search"]) when categoryId is undefined', () => {
+    it('should call history.push with removeQuery when search is undefined', () => {
       const values = {}
       const fn = handleSearchApp(history)
       fn(values)
-      expect(removeQuery).toHaveBeenCalledWith(['search'])
+      expect(removeQuery).toHaveBeenCalledWith(['search', 'searchBy'])
       expect(spy).toHaveBeenCalledTimes(1)
     })
   })

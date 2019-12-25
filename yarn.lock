@@ -340,10 +340,10 @@
   dependencies:
     aws-sdk "^2.582.0"
 
-"@reapit/elements@^0.5.16":
-  version "0.5.16"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.16.tgz#75669449fc3c36fc905b030169a0dd806cd368d6"
-  integrity sha512-P7W3KLT58N/fgC6S30VAgQzymUsPNemuQJgd0REbqWY1jMUh49cEupirY/DVaFt0vLRd9XIV7XgdOmunY0VKLQ==
+"@reapit/elements@^0.5.19":
+  version "0.5.19"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.19.tgz#81a68154bb574f4d5fe22ae6981b447d7041f7ff"
+  integrity sha512-qL5+NKtImtOSgUbKsVPR9p5VgVYTvg4/VH5S1xLswGnJ6ygo3uwjrK1DJC+vDumZli43GtGvNL2qHB4QmJPW7w==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.17"
@@ -353,6 +353,7 @@
     jsonwebtoken "^8.5.1"
     pell "^1.0.6"
     prop-types "^15.7.2"
+    react-datasheet "^1.4.0"
     react-datepicker "^2.9.6"
     react-google-map "^3.1.1"
     react-google-maps-loader "^4.2.5"
@@ -8303,6 +8304,11 @@ rdf-canonize@^1.0.2:
   dependencies:
     node-forge "^0.8.1"
     semver "^5.6.0"
+
+react-datasheet@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-datasheet/-/react-datasheet-1.4.0.tgz#da251307137a12de3b113c0a1ef62baf114bc3fc"
+  integrity sha512-MiBYQtvZYAEWN/2gJS84SEL4jNAOIJjdFI5i7AZ7BIx06p2PbjUMN7wgT9QTlhrfgFHAfM5tfgBA6ibDLMyVvA==
 
 react-datepicker@^2.9.6:
   version "2.10.1"

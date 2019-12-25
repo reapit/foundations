@@ -1,5 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AppSidebar FilterForm should match a snapshot 1`] = `
+<Form>
+  <Input
+    id="search"
+    name="search"
+    placeholder="Search..."
+    rightIcon={
+      <button
+        type="submit"
+      >
+        <FaSearch />
+      </button>
+    }
+    type="text"
+  />
+  <RadioSelect
+    id="searchBy"
+    name="searchBy"
+    options={
+      Array [
+        Object {
+          "label": "By App Name",
+          "value": "appName",
+        },
+        Object {
+          "label": "By Company",
+          "value": "companyName",
+        },
+      ]
+    }
+    state="1"
+  />
+</Form>
+`;
+
 exports[`AppSidebar should match a snapshot 1`] = `
 <div>
   <FlexContainerBasic
@@ -10,30 +45,16 @@ exports[`AppSidebar should match a snapshot 1`] = `
       Browse Apps
     </H3>
     <Formik
+      component={[Function]}
       enableReinitialize={true}
       initialValues={
         Object {
           "search": undefined,
+          "searchBy": "appName",
         }
       }
       onSubmit={[Function]}
-    >
-      <Form>
-        <Input
-          id="search"
-          name="search"
-          placeholder="Search..."
-          rightIcon={
-            <button
-              type="submit"
-            >
-              <FaSearch />
-            </button>
-          }
-          type="text"
-        />
-      </Form>
-    </Formik>
+    />
     <CategoriesList
       categories={
         Array [

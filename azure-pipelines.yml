@@ -27,7 +27,6 @@ jobs:
         displayName: 'Install Node.js'
       - script: yarn install
         displayName: Install deps
-        failOnStderr: true
         env:
           NPM_TOKEN: $(NPM_TOKEN)
 
@@ -44,7 +43,7 @@ jobs:
           mergeTestResults: false # Optional
           failTaskOnFailedTests: true # Optional
           publishRunAttachments: true # Optional
-    
+
       - bash: |
           branch=$(Build.SourceBranch)
           if [[ branch == *"refs/tags/AS-"* ]]; then
@@ -62,7 +61,7 @@ jobs:
           REAPIT_ENV: $(REAPIT_ENV)
           NPM_TOKEN: $(NPM_TOKEN)
           AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
-          AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY) 
+          AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
 
         # Temporary fix while browserstack is on free-tier
       # Disabling e2e tests temporarily while testing new authentication mode
