@@ -15,6 +15,7 @@
     "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
     "fetch-definitions": "node ./src/scripts/fetch-definitions.js",
     "start": "node ./public/index.js smb",
+    "lint": "eslint --fix --ext=jsx,ts,tsx",
     "test": "jest --coverage --silent",
     "test-dev": "jest --watch --verbose",
     "test-dev-e2e": "wdio ./src/scripts/wdio.conf.js --watch",

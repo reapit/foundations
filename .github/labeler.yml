@@ -1,0 +1,9 @@
+smb:
+  - packages/smb/*
+  - packages/smb/**/*
+
+test:
+  - packages/smb/**/*.test.tsx
+  - packages/smb/**/*.test.ts
+  - packages/smb/**/__tests__/*
+  - packages/smb/**/__snapshots__/*
