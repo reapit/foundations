@@ -6,6 +6,9 @@ on:
     paths:
       - packages/smb/**
 
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
 jobs:
   test:
     runs-on: ubuntu-latest
