@@ -47,6 +47,8 @@ export const Login: React.FC<RouteComponentProps> = ({ history }: RouteComponent
     onCompleted: handleOnCompleted({ history }),
   } as MutationHookOptions<LoginResponse, LoginParams>)
 
+  console.log(login)
+
   return (
     <div className={container}>
       <div className={`${wrapper}`}>

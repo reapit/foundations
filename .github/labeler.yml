@@ -1,0 +1,17 @@
+smb:
+  - packages/smb/*
+  - packages/smb/**/*
+
+apollo-server:
+  - packages/apollo-server/*
+  - packages/apollo-server/**/*
+
+test:
+  - packages/smb/**/*.test.tsx
+  - packages/smb/**/*.test.ts
+  - packages/smb/**/__tests__/*
+  - packages/smb/**/__snapshots__/*
+  - packages/apollo-server/**/*.test.tsx
+  - packages/apollo-server/**/*.test.ts
+  - packages/apollo-server/**/__tests__/*
+  - packages/apollo-server/**/__snapshots__/*
