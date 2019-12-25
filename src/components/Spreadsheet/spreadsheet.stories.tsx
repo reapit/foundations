@@ -389,3 +389,48 @@ storiesOf('Spreadsheet', module)
 
     return <Spreadsheet data={dataBasic} hasAddButton={false} hasUploadButton={false} hasDownloadButton={false} />
   })
+  .add('Spreadsheet with validate upload', () => {
+    const dataBasic = [
+      [
+        { readOnly: true, value: 'Office Name' },
+        { readOnly: true, value: 'Building Name' },
+        { readOnly: true, value: 'Building No.' },
+        { readOnly: true, value: 'Address 1' },
+        { readOnly: true, value: 'Address 2' },
+        { readOnly: true, value: 'Address 3' },
+        { readOnly: true, value: 'Address 4' },
+        { readOnly: true, value: 'Post Code' },
+        { readOnly: true, value: 'Telephone' },
+        { readOnly: true, value: 'Fax' },
+        { readOnly: true, value: 'Email' }
+      ]
+    ]
+
+    return (
+      <Spreadsheet
+        data={dataBasic}
+        validateUpload={data =>
+          data.map(row =>
+            row.map(cell => {
+              return {
+                ...cell,
+                validate: cell => Number.isInteger(Number(cell.value))
+              }
+            })
+          )
+        }
+        description={
+          <p>
+            <strong>
+              DataSheet with <code>validateUpload</code>, try to upload a csv file
+            </strong>
+            <br />
+            <code>validateUpload</code> function will run before data is set to table, should return{' '}
+            <code>Cell[][]</code> with each cell contain <code>validate</code> property
+            <br />
+            Here, check if cell value is convertible to integer
+          </p>
+        }
+      />
+    )
+  })
