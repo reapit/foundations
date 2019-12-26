@@ -1965,10 +1965,10 @@
   dependencies:
     aws-sdk "^2.582.0"
 
-"@reapit/elements@^0.5.19":
-  version "0.5.20"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.20.tgz#360063567ed7e96b6221794a86561e00ab54cd58"
-  integrity sha512-EGyRNGSSIdrfqdGf7owtb39vWBaYJE5oDxK6M79JH7xgpDIOv74TpvEQQVz/X+uVGDmThof4T5qULBQ2Sb803Q==
+"@reapit/elements@^0.5.21":
+  version "0.5.21"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.21.tgz#c17ff9976dbe1b0fdab6cf3764d112e1e730bfdb"
+  integrity sha512-SprEnGWHlygg4ngUBL+9t7/kfosSFYl2VmswC4DtBVCGVc+n1YzhH/56lXoF08d2LcKIG81tBgI+zRPKJdvRBA==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.17"

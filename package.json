@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "bootstrap": "./node_modules/.bin/lerna bootstrap",
+    "build": "./node_modules/.bin/lerna run build",
     "test": "./node_modules/.bin/lerna run test:ci",
     "clean": "./node_modules/.bin/lerna clean",
     "clean:build": "./node_modules/.bin/lerna exec -- rimraf lib",
@@ -56,7 +57,7 @@
   ],
   "dependencies": {
     "@reapit/cognito-auth": "^2.0.10",
-    "@reapit/elements": "^0.5.19",
+    "@reapit/elements": "^0.5.21",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
