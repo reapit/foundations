@@ -9,33 +9,29 @@ import {
   Loader,
   Alert,
 } from '@reapit/elements'
+import { withRouter, RouteComponentProps } from 'react-router'
+import queryString from 'query-string'
+import { ApolloError } from 'apollo-boost'
 import { ContactModel } from '@/types/platform'
 import { useQuery } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
-import CONTACTS from './contacts.graphql'
+import { CONTACTS } from './contacts.graphql'
 
-export interface HomeProps {}
-
-export interface PagedResult {
-  _embedded: ContactModel[]
+export type PagedResult = {
+  _embedded?: ContactModel[]
   pageNumber?: number
   pageSize?: number
   pageCount?: number
   totalCount?: number
 }
 
-interface HomeQueryVars {
-  pageNumber: number
-  pageSize: number
-}
-
-export interface ContactQueryParams {
+export type ContactQueryParams = {
   pageSize: number
   pageNumber: number
 }
 
-export interface ContactQueryResponse {
-  contacts: PagedResult
+export type ContactQueryResponse = {
+  contacts?: PagedResult
 }
 
 export const renderAddress = ({ row }: any) => {
@@ -66,83 +62,93 @@ export const renderPostalCode = ({ row }: any) => {
   )
 }
 
-export const renderStatus = ({ row }: any) => {
-  return (
-    <div>
-      <span>{row.original.identityCheck}</span>
-    </div>
-  )
-}
-
-export const generateColumns = () => () => [
+export const columns = [
   {
-    Header: 'Name',
-    id: 'name',
-    accessor: d => `${d.forename} ${d.surname}`,
+    Header: 'Forename',
+    id: 'forename',
+    accessor: 'forename',
+  },
+  {
+    Header: 'Surname',
+    id: 'surname',
+    accessor: 'surname',
   },
   {
     Header: 'Address',
     id: 'address',
-    accessor: d => d,
     Cell: renderAddress,
   },
   {
     Header: 'Postcode',
     id: 'postcode',
-    accessor: d => d,
     Cell: renderPostalCode,
   },
   {
     Header: 'Status',
     id: 'identityCheck',
-    accessor: d => d,
-    Cell: renderStatus,
+    accessor: 'identityCheck',
   },
 ]
 
-export const Home: React.FunctionComponent<HomeProps> = () => {
-  const [page, setPage] = React.useState(1)
-  const { loading, error, data = { contacts: { _embedded: [] } } } = useQuery<ContactQueryResponse, ContactQueryParams>(
-    CONTACTS,
-    {
-      variables: { pageSize: 10, pageNumber: page },
-    },
-  ) as QueryResult<ContactQueryResponse, ContactQueryParams>
+export type RenderContentParams = ContactQueryResponse & {
+  handleChangePage: (page: number) => void
+  loading: boolean
+  error?: ApolloError
+}
 
-  const handleChangePage = (pageNum: number) => {
-    setPage(pageNum)
+export const renderContent = ({ loading, error, contacts, handleChangePage }: RenderContentParams) => {
+  if (loading) {
+    return <Loader />
   }
-
-  const columns = React.useMemo(generateColumns(), [data?.contacts._embedded])
-
-  const renderContent = () => {
-    return (
-      <>
-        <div>
-          <Table scrollable data={data.contacts._embedded} columns={columns} loading={loading} />
-        </div>
-        <Section>
-          <Pagination
-            pageNumber={data.contacts.pageNumber}
-            pageSize={data.contacts.pageSize}
-            totalCount={data.contacts.totalCount}
-            onChange={handleChangePage}
-          />
-        </Section>
-      </>
-    )
+  if (error) {
+    return <Alert message={error.message} type="danger" />
   }
+  return (
+    <React.Fragment>
+      <div>
+        <Table scrollable data={contacts?._embedded} columns={columns} loading={loading} />
+      </div>
+      <Section>
+        <Pagination
+          pageNumber={contacts?.pageNumber}
+          pageSize={contacts?.pageSize}
+          totalCount={contacts?.totalCount}
+          onChange={handleChangePage}
+        />
+      </Section>
+    </React.Fragment>
+  )
+}
+
+export const handleChangePage = ({ history }) => (pageNumber: number) => {
+  const searchParams = queryString.stringify({
+    page: pageNumber,
+  })
+  history.push({
+    search: searchParams,
+  })
+}
+
+export const Home: React.FC<RouteComponentProps> = ({ location, history }: RouteComponentProps) => {
+  const params = queryString.parse(location?.search)
+  const page = Number(params?.page) || 1
+  const { loading, error, data } = useQuery<ContactQueryResponse, ContactQueryParams>(CONTACTS, {
+    variables: { pageSize: 10, pageNumber: page },
+  }) as QueryResult<ContactQueryResponse, ContactQueryParams>
 
   return (
     <FlexContainerBasic hasPadding hasBackground>
       <FlexContainerResponsive flexColumn hasPadding hasBackground>
         <H3>Welcome To Reapit Elements</H3>
-        {loading && <Loader />}
-        {!loading && error && <Alert message={error.message} type="danger" />}
-        {!loading && data && renderContent()}
+        {renderContent({
+          loading,
+          error,
+          contacts: data?.contacts,
+          handleChangePage: handleChangePage({ history }),
+        })}
       </FlexContainerResponsive>
     </FlexContainerBasic>
   )
 }
 
-export default Home
+export default withRouter(Home)

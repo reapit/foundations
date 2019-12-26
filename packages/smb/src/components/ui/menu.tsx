@@ -51,9 +51,10 @@ export type StateProps = {
 
 export type MenuProps = DispatchProps & StateProps & RouteComponentProps & {}
 
+export const logoutCallback = logout => () => logout()
+
 export const Menu: React.FC<MenuProps> = ({ logout, location, mode }: MenuProps) => {
-  const logoutCallback = () => logout()
-  const menuConfigs = generateMenuConfig(logoutCallback, location, mode)
+  const menuConfigs = generateMenuConfig(logoutCallback(logout), location, mode)
   return <Sidebar {...menuConfigs} location={location} />
 }
 

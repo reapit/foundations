@@ -49,9 +49,6 @@ exports[`Router should match a snapshot 1`] = `
         }
         path="/"
       />
-      <Redirect
-        to="/login"
-      />
     </Switch>
   </Suspense>
 </Router>

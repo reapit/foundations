@@ -1,7 +1,7 @@
 import ApolloClient, { InMemoryCache, Operation, defaultDataIdFromObject, IdGetterObj } from 'apollo-boost'
 import { ErrorHandler, ErrorResponse } from 'apollo-link-error'
 import { ApolloCache } from 'apollo-cache'
-import typeDefs from '../types/schema.graphql'
+import typeDefs from './schema.graphql'
 import resolvers from './resolvers'
 
 export const request = async (operation: Operation) => {
