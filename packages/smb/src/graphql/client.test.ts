@@ -1,7 +1,7 @@
 import { Operation, IdGetterObj } from 'apollo-boost'
 import { ErrorResponse } from 'apollo-link-error'
 import { GraphQLError } from 'graphql'
-import { request, onError, dataIdFromObject } from '../client'
+import { request, onError, dataIdFromObject } from './client'
 
 describe('client', () => {
   describe('request', () => {

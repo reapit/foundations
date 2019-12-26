@@ -1826,10 +1826,10 @@
   dependencies:
     aws-sdk "^2.582.0"
 
-"@reapit/elements@^0.5.16":
-  version "0.5.16"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.16.tgz#75669449fc3c36fc905b030169a0dd806cd368d6"
-  integrity sha512-P7W3KLT58N/fgC6S30VAgQzymUsPNemuQJgd0REbqWY1jMUh49cEupirY/DVaFt0vLRd9XIV7XgdOmunY0VKLQ==
+"@reapit/elements@^0.5.19":
+  version "0.5.20"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.20.tgz#360063567ed7e96b6221794a86561e00ab54cd58"
+  integrity sha512-EGyRNGSSIdrfqdGf7owtb39vWBaYJE5oDxK6M79JH7xgpDIOv74TpvEQQVz/X+uVGDmThof4T5qULBQ2Sb803Q==
   dependencies:
     bulma "^0.7.5"
     dayjs "^1.8.17"
@@ -1837,8 +1837,10 @@
     hardtack "^4.1.0"
     himalaya "^1.1.0"
     jsonwebtoken "^8.5.1"
+    papaparse "^5.1.1"
     pell "^1.0.6"
     prop-types "^15.7.2"
+    react-datasheet "^1.4.0"
     react-datepicker "^2.9.6"
     react-google-map "^3.1.1"
     react-google-maps-loader "^4.2.5"
@@ -11850,6 +11852,11 @@ pako@~1.0.5:
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.10.tgz#4328badb5086a426aa90f541977d4955da5c9732"
   integrity sha512-0DTvPVU3ed8+HNXOu5Bs+o//Mbdj9VNQMUOe9oKCwh8l0GNwpTDMKCWbRjgtD291AWnkAgkqA/LOnQS8AmS1tw==
 
+papaparse@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/papaparse/-/papaparse-5.1.1.tgz#1da66a039f80e2db43a1226b0bf44106451e9a2d"
+  integrity sha512-KPkW4GNQxunmYTeJIjHFrvilcNuHBWrfgbyvmagEmfGOA4hnP1WIkPbv4yABhj1Nam3as4w+7MBiI27BntwqVg==
+
 parallel-transform@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/parallel-transform/-/parallel-transform-1.2.0.tgz#9049ca37d6cb2182c3b1d2c720be94d14a5814fc"
@@ -12622,6 +12629,15 @@ query-string@^5.0.1:
     object-assign "^4.1.0"
     strict-uri-encode "^1.0.0"
 
+query-string@^6.9.0:
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.9.0.tgz#1c3b727c370cf00f177c99f328fda2108f8fa3dd"
+  integrity sha512-KG4bhCFYapExLsUHrFt+kQVEegF2agm4cpF/VNc6pZVthIfCc/GK8t8VyNIE3nyXG9DK3Tf2EGkxjR6/uRdYsA==
+  dependencies:
+    decode-uri-component "^0.2.0"
+    split-on-first "^1.0.0"
+    strict-uri-encode "^2.0.0"
+
 querystring-es3@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/querystring-es3/-/querystring-es3-0.2.1.tgz#9ec61f79049875707d69414596fd907a4d711e73"
@@ -12709,6 +12725,11 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7, rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-datasheet@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-datasheet/-/react-datasheet-1.4.0.tgz#da251307137a12de3b113c0a1ef62baf114bc3fc"
+  integrity sha512-MiBYQtvZYAEWN/2gJS84SEL4jNAOIJjdFI5i7AZ7BIx06p2PbjUMN7wgT9QTlhrfgFHAfM5tfgBA6ibDLMyVvA==
 
 react-datepicker@^2.9.6:
   version "2.10.1"
@@ -14218,6 +14239,11 @@ spdy@^4.0.1:
     select-hose "^2.0.0"
     spdy-transport "^3.0.0"
 
+split-on-first@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/split-on-first/-/split-on-first-1.1.0.tgz#f610afeee3b12bce1d0c30425e76398b78249a5f"
+  integrity sha512-43ZssAJaMusuKWL8sKUBQXHWOpq8d6CfN/u1p4gUzfJkM05C8rxTmYrkIPTXapZpORA6LkkzcUulJ8FqA7Uudw==
+
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
@@ -14359,6 +14385,11 @@ strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
   integrity sha1-J5siXfHVgrH1TmWt3UNS4Y+qBxM=
+
+strict-uri-encode@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-2.0.0.tgz#b9c7330c7042862f6b142dc274bbcc5866ce3546"
+  integrity sha1-ucczDHBChi9rFC3CdLvMWGbONUY=
 
 string-argv@^0.3.0:
   version "0.3.1"
