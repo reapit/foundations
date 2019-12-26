@@ -7,7 +7,7 @@ import { Button } from '../Button'
 
 const stories = storiesOf('Modal', module)
 
-const BasicUsage = () => {
+const BasicUsage = ({ tapOutsideToDissmiss = true }) => {
   const [visible, setVisible] = useState(false)
 
   return (
@@ -16,7 +16,12 @@ const BasicUsage = () => {
         <Button variant="primary" type="button" onClick={() => setVisible(true)}>
           Open Modal
         </Button>
-        <Modal visible={visible} afterClose={() => setVisible(false)} title="Modal Title">
+        <Modal
+          tapOutsideToDissmiss={tapOutsideToDissmiss}
+          visible={visible}
+          afterClose={() => setVisible(false)}
+          title="Modal Title"
+        >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas purus nec risus ornare convallis.
             Vivamus risus orci, efficitur quis nisl nec, porta sollicitudin ante. Nulla facilisi.
@@ -96,5 +101,6 @@ const NestedModals = () => {
 }
 
 stories.add('Basic', () => <BasicUsage />)
+stories.add('Disabled tapOutsideToDissmiss', () => <BasicUsage tapOutsideToDissmiss={false} />)
 stories.add('HasFooter', () => <HasFooter />)
 stories.add('Nested', () => <NestedModals />)

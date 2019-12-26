@@ -94,6 +94,7 @@ span.data-grid-container:focus {
 
 /* custom style */
 .spreadsheet {
+  position: relative;
   width: 100%;
   background-color: $white;
   color: $black;
@@ -153,7 +154,29 @@ span.data-grid-container:focus {
   tr:nth-child(even) {
     background-color: $grey-lighter;
   }
+  /* context menu style */
 
+  .spreadsheet-context-menu {
+    background-color: $white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 1rem;
+    width: 250px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+    .wrap-section:not(:first-child) {
+      margin-top: 1rem;
+    }
+  }
+  .spreadsheet-context-menu-visible {
+    visibility: visible;
+  }
+  .spreadsheet-context-menu-hidden {
+    visibility: hidden;
+  }
   /* custom style use for demo in storybook */
 
   .custom-classname-style {

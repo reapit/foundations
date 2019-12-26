@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react'
+import * as React from 'react'
 import { HelpGuideStepProps } from '.'
 
 export type HelpGuideContextValues = {
@@ -12,7 +12,7 @@ export type HelpGuideContextValues = {
   isLoading: boolean
 }
 
-export const HelpGuideContext = createContext<HelpGuideContextValues>({
+export const HelpGuideContext = React.createContext<HelpGuideContextValues>({
   current: '',
   currentIndex: 0,
   goNext: () => null,
@@ -24,5 +24,5 @@ export const HelpGuideContext = createContext<HelpGuideContextValues>({
 })
 
 export const useHelpGuideContext = (): HelpGuideContextValues => {
-  return useContext(HelpGuideContext)
+  return React.useContext(HelpGuideContext)
 }

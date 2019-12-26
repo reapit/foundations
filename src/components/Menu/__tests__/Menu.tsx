@@ -80,11 +80,14 @@ describe('Menu', () => {
       mockMenuProps.location = currentLocation as Location<any>
 
       const Component = props => (
-        <MemoryRouter initialEntries={['/client']}>
+        <MemoryRouter initialEntries={['/']}>
           <Menu {...props} />
         </MemoryRouter>
       )
 
+      // jsdom does not implement scrollIntoView => have to mock it
+      // tslint:disable-next-line: no-empty
+      Element.prototype.scrollIntoView = () => {}
       const wrapper = mount(<Component {...mockMenuProps} />)
 
       expect(
@@ -120,6 +123,9 @@ describe('Menu', () => {
         </MemoryRouter>
       )
 
+      // jsdom does not implement scrollIntoView => have to mock it
+      // tslint:disable-next-line: no-empty
+      Element.prototype.scrollIntoView = () => {}
       const wrapper = mount(<Component {...mockMenuProps} />)
 
       expect(
