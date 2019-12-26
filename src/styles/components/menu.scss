@@ -13,14 +13,14 @@ $nav-dimensions: 66px;
   position: sticky;
   top: 0;
   z-index: 1;
-  
+
   @media screen and (min-width: 768px) {
     height: 100vh;
     width: $nav-dimensions;
-    overflow: hidden; 
+    overflow: hidden;
     position: static;
   }
-  
+
   ul {
     display: flex;
     justify-content: flex-start;
@@ -28,11 +28,12 @@ $nav-dimensions: 66px;
     overflow-x: scroll;
     overflow-y: hidden;
     height: $nav-dimensions;
-    
+
     @media screen and (min-width: 768px) {
       height: 100%;
-      flex-direction: column;    
+      flex-direction: column;
       overflow-x: hidden;
+      overflow-y: auto;
       height: 100vh;
     }
   }
@@ -51,7 +52,8 @@ $nav-dimensions: 66px;
     }
   }
 
-  li.is-active, :hover {
+  li.is-active,
+  :hover {
     color: $white;
     transition: color 0.1s ease-in-out;
   }
@@ -67,18 +69,18 @@ $nav-dimensions: 66px;
 
   .nav-item-link {
     cursor: pointer;
-  
+
     &.is-secondary {
       margin-left: auto;
-      
+
       @media screen and (min-width: 768px) {
-        margin-top: auto;  
-        margin-left: 0; 
+        margin-top: auto;
+        margin-left: 0;
       }
     }
   }
 
-  .nav-item-icon  {
+  .nav-item-icon {
     width: 50%;
     height: 100%;
   }
