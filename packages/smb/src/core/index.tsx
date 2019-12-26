@@ -14,7 +14,7 @@ const App = () => (
 )
 
 if (rootElement) {
-  render(<App />, rootElement)
+  render(<App />, document.querySelector('#root') as Element)
 }
 
 export default App

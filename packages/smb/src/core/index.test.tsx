@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import App from '../index'
+import App from './index'
 import { render, unmountComponentAtNode } from 'react-dom'
 
-jest.mock('../router')
+jest.mock('./router')
 
 describe('App', () => {
   it('should render without crashing', () => {

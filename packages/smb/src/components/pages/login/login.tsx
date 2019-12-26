@@ -37,12 +37,10 @@ export const handleOnCompleted = ({ history }) => (data: LoginResponse) => {
   const { refreshToken, accessToken } = data.login
   localStorage.setItem('accessToken', `Bearer ${accessToken}`)
   localStorage.setItem('refreshToken', `Bearer ${refreshToken}`)
-  history.push(Routes.HOME)
+  history.replace(Routes.HOME)
 }
 
-export type LoginProps = RouteComponentProps
-
-export const Login: React.FC<LoginProps> = ({ history }: LoginProps) => {
+export const Login: React.FC<RouteComponentProps> = ({ history }: RouteComponentProps) => {
   const { wrapper, container, image } = loginStyles
 
   const [login, { loading, error }] = useMutation<LoginResponse, LoginParams>(LOGIN, {

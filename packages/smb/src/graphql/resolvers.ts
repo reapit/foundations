@@ -1,33 +1,24 @@
 import sleep from '@/utils/sleep'
+import { contacts } from './__mocks__/contacts'
+import { token } from './__mocks__/token'
+import { LoginParams } from '@reapit/cognito-auth'
 
 const resolvers = {
   Query: {
-    client: () => {
-      return {
-        __typename: 'ClientType',
-        description: 'A boilerplate standard space rocket',
-      }
-    },
-    GetContacts: async () => {
+    contacts: async () => {
       await sleep(1000)
-      return {
-        __typename: 'ContactModel',
-        id: '123',
-        title: 'Levy',
-      }
+      return contacts
     },
   },
   Mutation: {
-    login: async (_, variables) => {
-      const { email, password } = variables
+    login: async (_, variables: LoginParams) => {
       await sleep(1000)
-      if (email === 'admin@yahoo.com' && password === '123') {
-        return {
-          __typename: 'token',
-          token: 'success',
-        }
+      const { userName, password, loginType, mode } = variables
+      const isValidParams = !!userName && !!password && !!loginType && !!mode
+      if (!isValidParams) {
+        return new Error('Invalid Params')
       }
-      throw new Error('Invalid')
+      return token
     },
   },
 }
