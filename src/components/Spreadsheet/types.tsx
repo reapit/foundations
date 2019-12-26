@@ -7,6 +7,8 @@ export class MyReactDataSheet extends ReactDataSheet<Cell, string> {}
  * https://github.com/nadbm/react-datasheet/blob/master/types/react-datasheet.d.ts
  * plus some properties below
  */
+export type SetData = React.Dispatch<React.SetStateAction<Cell[][]>>
+export type SetSelected = React.Dispatch<React.SetStateAction<SelectedMatrix | null>>
 export interface Cell extends ReactDataSheet.Cell<Cell, string> {
   /** The value of the cell, always a string */
   value: string
@@ -18,8 +20,8 @@ export interface Cell extends ReactDataSheet.Cell<Cell, string> {
   CustomComponent?: React.FC<{
     data: Cell[][]
     cellRenderProps: ReactDataSheet.CellRendererProps<Cell>
-    setData: React.Dispatch<Cell[][]>
-    setSelected: React.Dispatch<SelectedMatrix>
+    setData: SetData
+    setSelected: SetSelected
   }>
 }
 
@@ -45,7 +47,27 @@ export interface SpreadsheetProps {
   validateUpload?: (data: Cell[][]) => CellWithValidate[][]
 }
 
-export interface SelectedMatrix {
+export type SelectedMatrix = {
   start: ReactDataSheet.Location
   end: ReactDataSheet.Location
+}
+
+export interface ContextMenuProp {
+  visible: boolean
+  top: number
+  left: number
+}
+
+export type SetContextMenuProp = React.Dispatch<React.SetStateAction<ContextMenuProp>>
+
+export interface ContextMenuData {
+  label: string
+  items: { id: string; text: string }[]
+}
+
+export interface ContextMenuFCProps {
+  selected: SelectedMatrix | null
+  contextMenuProp: ContextMenuProp
+  setData: SetData
+  setContextMenuProp: SetContextMenuProp
 }

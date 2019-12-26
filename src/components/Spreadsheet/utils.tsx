@@ -1,6 +1,5 @@
-import * as React from 'react'
 import Papa from 'papaparse'
-import { Cell } from './types'
+import { Cell, SetData, ContextMenuProp } from './types'
 
 /** Get max row and col of data */
 export const getMaxRowAndCol = (data: Cell[][]): { maxRow: number; maxCol: number } => {
@@ -22,9 +21,9 @@ export const setCurrentCellValue = (
   data: Cell[][],
   row: number,
   col: number,
-  setData: React.Dispatch<Cell[][]>
+  setData: SetData
 ): void => {
-  const newData = JSON.parse(JSON.stringify(data))
+  const newData = data.map(row => row.map(cell => ({ ...cell })))
   newData[row][col].value = cellData
   setData(newData)
 }
@@ -53,3 +52,5 @@ export const convertToCompatibleData = (parsedResult): Cell[][] =>
  * Convert back from Cell[][] to string[][]
  */
 export const convertDataToCsv = (data: Cell[][]): string[][] => data.map(rowArray => rowArray.map(({ value }) => value))
+
+export const hideContextMenu = (prev: ContextMenuProp): ContextMenuProp => ({ ...prev, visible: false })

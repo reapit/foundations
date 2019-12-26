@@ -33,9 +33,14 @@ export const getActiveItemKey = (menu: MenuItem[], location?: Location<any>): st
   return null
 }
 
-export const LinkItem: React.SFC<{ item: MenuItem; children: React.ReactNode }> = ({ item, children }) =>
+export const LinkItem: React.SFC<{
+  item: MenuItem
+  children: React.ReactNode
+  activeItemRef?: React.RefObject<HTMLAnchorElement & Link>
+}> = ({ item, children, activeItemRef }) =>
   item.url ? (
     <Link
+      ref={activeItemRef}
       className={`nav-item-link ${
         item.type === 'LOGO' ? 'is-logo' : item.type === 'SECONDARY' ? 'is-secondary' : 'is-primary'
       }`}
@@ -45,6 +50,7 @@ export const LinkItem: React.SFC<{ item: MenuItem; children: React.ReactNode }> 
     </Link>
   ) : item.callback ? (
     <a
+      ref={activeItemRef}
       className={`nav-item-link ${
         item.type === 'LOGO' ? 'is-logo' : item.type === 'SECONDARY' ? 'is-secondary' : 'is-primary'
       }`}
@@ -65,16 +71,25 @@ export const LinkItem: React.SFC<{ item: MenuItem; children: React.ReactNode }> 
 export const Menu: React.FC<MenuConfig> = React.memo(({ menu, location, mode, defaultActiveKey }) => {
   const activeItem = getActiveItemKey(menu, location)
   const [activeKey, setIsActive] = React.useState(activeItem || defaultActiveKey)
+  const activeItemRef = React.createRef<HTMLAnchorElement & Link>()
 
   React.useEffect(() => {
     setIsActive(activeItem || defaultActiveKey)
   }, [activeItem])
 
+  // Auto scroll to the position of active item
+  React.useEffect(() => {
+    const element = activeItemRef.current
+    if (element) {
+      element.scrollIntoView()
+    }
+  }, [activeKey])
+
   return (
     <nav className={`nav-bar ${mode === 'DESKTOP' ? 'is-desktop' : ''}`}>
       <ul>
         {menu.map((item: MenuItem) => (
-          <LinkItem key={item.key} item={item}>
+          <LinkItem activeItemRef={activeKey === item.key ? activeItemRef : undefined} key={item.key} item={item}>
             <li
               className={`nav-item ${activeKey === item.key ? 'is-active' : ''}`}
               onClick={() => item.type !== 'LOGO' && setIsActive(item.key)}
