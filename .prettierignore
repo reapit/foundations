@@ -1,8 +1,0 @@
-build/
-__snapshots__/
-coverage/
-node_modules/
-storybook-static/
-package-lock.json
-yarn.lock
-package.json

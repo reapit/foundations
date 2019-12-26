@@ -6,12 +6,6 @@ Mockup agent site to demo web components and PAAS functionality
 
 **Prerequisites**: [Install](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) `aws-cli`
 
-Install dependencies:
-
-```sh
-yarn install
-```
-
 Build and deploy to S3 bucket:
 
 ```sh
