@@ -313,7 +313,6 @@ storiesOf('Spreadsheet', module)
         { value: 'row3@gmail.com' }
       ]
     ]
-
     return (
       <Spreadsheet
         data={dataCustomComponent}
