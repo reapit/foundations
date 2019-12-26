@@ -1,10 +1,8 @@
-name: SMB Pull Request
+name: Pull Request - Sync
 
 on:
   pull_request:
     types: ['opened', 'synchronize']
-    paths:
-      - packages/smb/**
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -36,7 +34,10 @@ jobs:
         run: yarn
 
       - name: Test
-        run: yarn workspace smb test
+        run: yarn test
+
+      - name: Lint
+        run: yarn lint
 
       - name: Build
-        run: yarn workspace smb build
+        run: yarn build
