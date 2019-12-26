@@ -15,6 +15,7 @@ export interface ModalProps {
   footerItems?: React.ReactNode
   className?: string
   HeaderComponent?: React.FC
+  tapOutsideToDissmiss?: boolean
 }
 
 export interface ModalHeaderProps {
@@ -55,7 +56,8 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   footerItems,
   renderChildren,
   className = '',
-  HeaderComponent
+  HeaderComponent,
+  tapOutsideToDissmiss = true
 }) => {
   // CLD-250: https://reapit.atlassian.net/secure/RapidBoard.jspa?rapidView=200&view=planning&selectedIssue=CLD-250
   // we can't access the showPortal in the component passed to usePortal
@@ -67,6 +69,10 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
       .substring(7)
   }, [])
 
+  const handleClickOutside = () => {
+    tapOutsideToDissmiss && afterClose && afterClose()
+  }
+
   const [showPortal, hidePortal] = usePortal(
     () => (
       <div className={`modal is-active ${className}`} data-test="modal">
@@ -74,7 +80,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
           className="modal-background"
           data-test="modal-background"
           id={generatedModalBackgroundId}
-          onClick={afterClose}
+          onClick={handleClickOutside}
         />
         <div
           className={'modal-content ' + (size === 'medium' ? 'modal-medium' : 'modal-small')}
@@ -111,8 +117,10 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
     if (visible) {
       let element: HTMLElement | null
       let handleHidePortal = () => {
-        hidePortal()
-        afterClose && afterClose()
+        if (tapOutsideToDissmiss) {
+          hidePortal()
+          afterClose && afterClose()
+        }
       }
 
       /**
@@ -138,7 +146,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   // CLD-250: handle key press useEffect
   useEffect(() => {
     const handleKeypressHidePortal = (e: KeyboardEvent) => {
-      if (e.keyCode === 27 || e.key === 'Esc') {
+      if ((e.keyCode === 27 || e.key === 'Esc') && tapOutsideToDissmiss) {
         hidePortal()
         afterClose && afterClose()
       }

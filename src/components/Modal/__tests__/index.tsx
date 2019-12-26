@@ -6,12 +6,23 @@ import { renderWithPortalProvider } from '../../../hooks/UsePortal/__tests__/por
 import toJson from 'enzyme-to-json'
 import { ModalFooter, ModalBody, ModalHeader } from '../index'
 
-const App: React.FunctionComponent<any> = ({ defaultVisible = false }: { defaultVisible: boolean }) => {
+const App: React.FunctionComponent<any> = ({
+  defaultVisible = false,
+  tapOutsideToDissmiss = true
+}: {
+  defaultVisible: boolean
+  tapOutsideToDissmiss: boolean
+}) => {
   const [visible, setVisible] = React.useState<boolean>(defaultVisible)
 
   return (
     <div>
-      <Modal visible={visible} afterClose={() => setVisible(false)} title="Some Modal Title">
+      <Modal
+        tapOutsideToDissmiss={tapOutsideToDissmiss}
+        visible={visible}
+        afterClose={() => setVisible(false)}
+        title="Some Modal Title"
+      >
         <div>
           <button data-test="custom-hide-modal-button" onClick={() => setVisible(false)}>
             Hide modal
@@ -177,6 +188,33 @@ describe('Modal', () => {
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(2)
     wrapper.find('[data-test="modal-one-close-button"]').simulate('click')
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(0)
+  })
+
+  it('should not hide Modal when tapOutsideToDissmiss prop is false', done => {
+    const wrapper = mount(renderWithPortalProvider(<App tapOutsideToDissmiss={false} />))
+    const showModalButton = wrapper.find('[data-test="show-modal-button"]')
+    showModalButton.simulate('click')
+    const modalOverlay = wrapper.find('[data-test="modal-background"]')
+
+    /**
+     * Bind event to the modal overlay happens in asynchronous manner
+     * Have to put this to the bottom of the Event loop queue
+     */
+    setTimeout(() => {
+      act(() => {
+        modalOverlay.getDOMNode().dispatchEvent(new Event('click'))
+
+        /**
+         * Put it after react dom render function
+         * In event loop queue
+         */
+        setTimeout(() => {
+          wrapper.update()
+          expect(wrapper.find('[data-test="modal"]')).toHaveLength(1)
+          done()
+        }, 1)
+      })
+    }, 1)
   })
 
   afterEach(() => {
