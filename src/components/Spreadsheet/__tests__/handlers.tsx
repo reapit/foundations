@@ -10,9 +10,18 @@ import {
   handleCellsChanged,
   handleOnChangeInput,
   handleClickUpload,
-  handleDownload
+  handleDownload,
+  handleContextMenu
 } from '../handlers'
-import { data, cellRenderProps, selectedMatrix, setData, setSelected, parseResult } from '../__stubs__'
+import {
+  data,
+  cellRenderProps,
+  selectedMatrix,
+  setData,
+  setSelected,
+  parseResult,
+  setContextMenuProp
+} from '../__stubs__'
 import {
   getMaxRowAndCol,
   parseCsvFile,
@@ -382,5 +391,16 @@ describe('handleDownload', () => {
     const fn = handleDownload(data, undefined, undefined)
     const result = fn()
     expect(result).toBe(false)
+  })
+})
+
+describe('handleContextMenu', () => {
+  it('should call setContextMenuProp with correct value', () => {
+    const mockEvent = { clientX: 10, clientY: 10, preventDefault: jest.fn() } as any
+    const spy = jest.spyOn(mockEvent, 'preventDefault')
+    const fn = handleContextMenu(setContextMenuProp)
+    const result = fn(mockEvent)
+    expect(spy).toHaveBeenCalled()
+    expect(setContextMenuProp).toHaveBeenCalledWith({ visible: true, left: 20, top: 10 })
   })
 })
