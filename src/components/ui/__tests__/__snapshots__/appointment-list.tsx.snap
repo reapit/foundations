@@ -449,12 +449,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
         items={
           Array [
             Object {
-              "icon": <FaAddressCard
-                className="icon-list-icon"
-              />,
-              "text": "   ",
-            },
-            Object {
               "icon": <FaStreetView
                 className="icon-list-icon"
               />,
@@ -493,12 +487,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       <IconList
         items={
           Array [
-            Object {
-              "icon": <FaAddressCard
-                className="icon-list-icon"
-              />,
-              "text": "   ",
-            },
             Object {
               "icon": <FaStreetView
                 className="icon-list-icon"
@@ -634,12 +622,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
         items={
           Array [
             Object {
-              "icon": <FaAddressCard
-                className="icon-list-icon"
-              />,
-              "text": "   ",
-            },
-            Object {
               "icon": <FaStreetView
                 className="icon-list-icon"
               />,
@@ -678,12 +660,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       <IconList
         items={
           Array [
-            Object {
-              "icon": <FaAddressCard
-                className="icon-list-icon"
-              />,
-              "text": "   ",
-            },
             Object {
               "icon": <FaStreetView
                 className="icon-list-icon"
@@ -835,12 +811,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       <IconList
         items={
           Array [
-            Object {
-              "icon": <FaAddressCard
-                className="icon-list-icon"
-              />,
-              "text": "   ",
-            },
             Object {
               "icon": <FaStreetView
                 className="icon-list-icon"
@@ -1613,12 +1583,6 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       <IconList
         items={
           Array [
-            Object {
-              "icon": <FaAddressCard
-                className="icon-list-icon"
-              />,
-              "text": "   ",
-            },
             Object {
               "icon": <FaStreetView
                 className="icon-list-icon"

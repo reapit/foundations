@@ -27,6 +27,8 @@ export const handleUseEffect = ({ refAppointment }) => () => {
   }
 }
 
+export const isBlank = (str: string) => /^\s*$/g.test(str)
+
 export const AppointmentList = memo(
   ({
     appointments,
@@ -71,12 +73,12 @@ export const AppointmentList = memo(
           const postcode = item?.property?.address?.postcode
           const buildingName = item?.property?.address?.buildingName
           const buildingNumber = item?.property?.address?.buildingNumber
-          const typeId = item?.typeId
+          const typeId = item?.typeId ?? ''
           const start = getTime(item?.start || '')
           const end = getTime(item?.end || '')
           const lat = item?.property?.address?.geolocation?.latitude
           const lng = item?.property?.address?.geolocation?.longitude
-          const type = typeId ? appointmentTypes.find(appointmentType => appointmentType.id === typeId) : null
+          const type = appointmentTypes.find(appointmentType => appointmentType.id === typeId)
           const cancelled = item?.cancelled
 
           const hightlight = selectedAppointment
@@ -115,6 +117,27 @@ export const AppointmentList = memo(
               </ETAButton>
             )
           }
+
+          const iconItems: Array<{ icon: React.ReactElement; text: string }> = []
+
+          if (!isBlank(address)) {
+            iconItems.push({
+              icon: <FaAddressCard className="icon-list-icon" />,
+              text: address
+            })
+          }
+
+          if (type && type.value) {
+            iconItems.push({
+              icon: <FaStreetView className="icon-list-icon" />,
+              text: type.value
+            })
+          }
+
+          iconItems.push({
+            icon: <FaClock className="icon-list-icon" />,
+            text: cancelled ? 'Appointment cancelled' : `${start} - ${end}`
+          })
           return (
             <div
               className="mb-4"
@@ -135,22 +158,7 @@ export const AppointmentList = memo(
                   </div>
                 ]}
               >
-                <IconList
-                  items={[
-                    {
-                      icon: <FaAddressCard className="icon-list-icon" />,
-                      text: address
-                    },
-                    {
-                      icon: <FaStreetView className="icon-list-icon" />,
-                      text: type && type.value ? type.value : ''
-                    },
-                    {
-                      icon: <FaClock className="icon-list-icon" />,
-                      text: cancelled ? 'Appointment cancelled' : `${start} - ${end}`
-                    }
-                  ]}
-                />
+                <IconList items={iconItems} />
               </Tile>
             </div>
           )
