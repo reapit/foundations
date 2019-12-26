@@ -1,0 +1,91 @@
+type Query {
+  # contact
+  contact(
+    id: String!,
+  ): Contact!
+
+  contacts(
+    name: String,
+    address: String,
+    negotiatorId: [String!],
+    officeId: [String!],
+    active: Boolean,
+    pageNumber: Int,
+    pageSize: Int,
+    sortBy: String,
+    identityCheck: [String!],
+    marketingConsent: [String!],
+  ): Contacts!
+
+  # contact-identity-check
+  contactIdentityCheck(
+    id: String!,
+    checkId: String!,
+  ): ContactIdentityCheck!
+
+  contactIdentityChecks(
+    id: String!,
+    pageNumber: Int,
+    pageSize: Int,
+  ): ContactIdentityChecks!
+
+}
+
+type Mutation {
+  # contact
+  createContact(
+    title: String,
+    forename: String,
+    surname: String,
+    dateOfBirth: String,
+    active: Boolean,
+    marketingConsent: String,
+    communications: [ContactCommunicationInput!],
+    officeIds: [String!],
+    negotiatorIds: [String!],
+    addresses: [ContactAddressInput!],
+    metadata: JSON,
+  ): Contact!
+
+  updateContact(
+    id: String!,
+    title: String,
+    forename: String,
+    surname: String,
+    dateOfBirth: String,
+    active: Boolean,
+    marketingConsent: String,
+    communications: [ContactCommunicationInput!],
+    officeIds: [String!],
+    negotiatorIds: [String!],
+    addresses: [ContactAddressInput!],
+    metadata: JSON,
+  ): Contact!
+
+  # contact-identity-check
+  createContactIdentityCheck(
+    contactId: String!,
+    checkDate: String,
+    status: String,
+    negotiatorId: String,
+    documents: [ContactIdentityDocumentInput!],
+    metadata: JSON,
+  ): ContactIdentityCheck!
+
+  updateIdentityCheck(
+    id: String!,
+    contactId: String!,
+    checkDate: String,
+    status: String,
+    negotiatorId: String,
+    documents: [ContactIdentityDocumentInput!],
+    metadata: JSON,
+  ): ContactIdentityCheck!
+
+  login(
+    userName: String!,
+    password: String!,
+    loginType: LoginType!,
+    mode: LoginMode!,
+  ): Token
+}
