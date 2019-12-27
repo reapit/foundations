@@ -1,5 +1,5 @@
 import { PROPERTIES_API_URL } from '@/constants'
-import { getAccessToken } from '@utils/get-access-token'
+import { getAccessToken } from '@/utils/get-access-token'
 
 export const getPropertiesForSale = async (keywords: string) => {
   const url = new URL(PROPERTIES_API_URL)

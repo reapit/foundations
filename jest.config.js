@@ -5,7 +5,7 @@ module.exports = {
   preset: 'ts-jest',
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
   setupFiles: ['<rootDir>/src/scripts/jest-setup.js'],
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx', 'properties.ts', 'propertyImages.ts'],
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/helpers|src/stylesq)[/\\\\]',
     '.stories.tsx',

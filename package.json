@@ -8,6 +8,7 @@
   "types": "dist-npm/index.d.ts",
   "typings": "dist-npm/index.d.ts",
   "homepage": "https://github.com/reapit/web-components",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reapit/web-components.git"
@@ -69,7 +70,6 @@
     "@storybook/react": "^5.2.8",
     "@testing-library/react-hooks": "^2.0.3",
     "@types/enzyme": "^3.10.3",
-    "@types/googlemaps": "^3.38.0",
     "@types/jest": "^24.0.19",
     "@types/little-loader": "^0.2.0",
     "@types/lodash.merge": "^4.6.6",

@@ -1,6 +1,6 @@
 import React from 'react'
 import load from 'little-loader'
-import { queryParams, Params } from '../utils/query-params'
+import { queryParams, Params } from '@/utils/query-params'
 
 const GOOGLE_MAP_PLACES_API = 'https://maps.googleapis.com/maps/api/js'
 
@@ -17,7 +17,7 @@ export const loadedCallback = ({
     setError(err)
   }
   if (!err) {
-    const googleMap = window.google ? window.google.maps : null
+    const googleMap = window?.google?.maps
     setGoogleMap(googleMap)
   }
 }

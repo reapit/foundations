@@ -114,14 +114,8 @@ export type CreateMarkerParams = {
 }
 
 export const getLatLng = (property: PropertyModel) => {
-  const latitude =
-    property.address &&
-    property.address.geolocation &&
-    property.address.geolocation.latitude
-  const longitude =
-    property.address &&
-    property.address.geolocation &&
-    property.address.geolocation.longitude
+  const latitude = property?.address?.geolocation?.latitude
+  const longitude = property?.address?.geolocation?.longitude
   return {
     latitude,
     longitude
@@ -139,16 +133,16 @@ export const createMarker = ({
   if (property) {
     let imageUrl = INVALID_BACKGROUND_AS_BASE64
     if (searchStore && property) {
-      const propertyId = property && property.id
+      const propertyId = property?.id
       const propertyImage = propertyId
-        ? searchStore.propertyImages[propertyId]
-        : ''
-      if (propertyImage && propertyImage.url) {
+        ? searchStore?.propertyImages[propertyId]
+        : {}
+      if (propertyImage?.url) {
         imageUrl = propertyImage.url
       }
     }
     let price = ''
-    if (searchStore && searchStore.searchType) {
+    if (searchStore?.searchType) {
       price = getPrice(property, searchStore.searchType)
     }
     const { latitude, longitude } = getLatLng(property)
@@ -162,18 +156,11 @@ export const createMarker = ({
       map
     })
     const address = {
-      line1:
-        property && property.address && property.address.line1
-          ? property.address.line1
-          : '',
-      line2:
-        property && property.address && property.address.line2
-          ? property.address.line2
-          : ''
+      line1: property?.address?.line1 || '',
+      line2: property?.address?.line2 || ''
     }
-    const lettingPrice = property && property.letting && property.letting.rent
-    const rentFrequency =
-      property && property.letting && property.letting.rentFrequency
+    const lettingPrice = property?.letting?.rent
+    const rentFrequency = property?.letting?.rentFrequency
 
     const bedrooms = property && property.bedrooms
     const bathrooms = property && property.bathrooms
@@ -193,7 +180,7 @@ export const createMarker = ({
       })
     })
     googleMap.event.addListener(marker, 'click', () => {
-      if (infoWindows && infoWindows.length > 0) {
+      if (infoWindows?.length > 0) {
         infoWindows.forEach((item: google.maps.InfoWindow) => {
           item.close()
         })
@@ -233,13 +220,8 @@ export const getCurrentMarkerIndex = ({
   const latitude = centerPoint.lat()
   const longitude = centerPoint.lng()
   for (let i = 0; i < markers.length; i++) {
-    const position: google.maps.LatLng =
-      markers && markers[i] && markers[i].getPosition()
-    if (
-      position &&
-      position.lat() === latitude &&
-      position.lng() === longitude
-    ) {
+    const position: google.maps.LatLng = markers?.[i]?.getPosition()
+    if (position && position.lat() === latitude && position.lng() === longitude) {
       return i
     }
   }
@@ -295,8 +277,8 @@ export const handleUseEffect = ({
           searchStore,
           infoWindows
         })
-        markers.push(newMarker && newMarker.marker)
-        infoWindows.push(newMarker && newMarker.infoWindow)
+        markers.push(newMarker?.marker)
+        infoWindows.push(newMarker?.infoWindow)
       })
       markersRef.current = markers
     }
@@ -323,7 +305,10 @@ export const handleUseEffect = ({
         currentMarkerIndex ||
         currentMarkerIndex === FIRST_INFO_WINDOW_INDEX
       ) {
-        infoWindows[currentMarkerIndex].open(map, markers[currentMarkerIndex])
+        infoWindows?.[currentMarkerIndex]?.open(
+          map,
+          markers[currentMarkerIndex]
+        )
       }
       return
     }
