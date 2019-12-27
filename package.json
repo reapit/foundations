@@ -102,6 +102,7 @@
     "sw2dts": "^2.6.2",
     "ts-jest": "^24.1.0",
     "ts-lint": "^4.5.1",
+    "ts-loader": "^6.2.1",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",

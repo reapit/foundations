@@ -221,7 +221,11 @@ export const getCurrentMarkerIndex = ({
   const longitude = centerPoint.lng()
   for (let i = 0; i < markers.length; i++) {
     const position: google.maps.LatLng = markers?.[i]?.getPosition()
-    if (position && position.lat() === latitude && position.lng() === longitude) {
+    if (
+      position &&
+      position.lat() === latitude &&
+      position.lng() === longitude
+    ) {
       return i
     }
   }
