@@ -2097,6 +2097,11 @@
     react-icons "^3.7.0"
     react-table "7.0.0-alpha.35"
 
+"@reapit/foundations-ts-definitions@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-0.0.4.tgz#d469eda53eab4419b6a5e711afbfc0f4b976d22f"
+  integrity sha512-FNy1wt5s10I1jWaUdeVzsakM59okGEMKimG+iXjfLuCWIs1sG7Pj5vTvkoGgq9nm5vyfcEQgN9M7i4Tw7ABmCQ==
+
 "@sailshq/lodash@^3.10.2":
   version "3.10.4"
   resolved "https://registry.yarnpkg.com/@sailshq/lodash/-/lodash-3.10.4.tgz#2299648a81a67f4c6ee222c6cf8e261bd9c3fa50"

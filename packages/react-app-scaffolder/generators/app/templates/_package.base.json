@@ -11,13 +11,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "yarn fetch-definitions && webpack --color --mode production --config ./src/scripts/webpack-prod.js",
-    "start": "node ./public/index.js <%= name %>",
+    "build": "webpack --color --mode production --config ./src/scripts/webpack-prod.js",
     "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
-    "lint": "tslint --fix --project tsconfig.json --format stylish",
-    "fetch-definitions": "node ./src/scripts/fetch-definitions.js",
+    "start": "node ./public/index.js smb",
     "test": "jest --coverage --silent",
-    "test-dev": "jest --watch --verbose"
+    "test:ci": "jest --coverage --silent --detectOpenHandles --forceExit"
   },
   "dependencies": {
     "@reapit/cognito-auth": "^2.0.5",
