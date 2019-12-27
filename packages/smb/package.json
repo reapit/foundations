@@ -11,11 +11,12 @@
   "author": "reapit global",
   "main": "./src/index.ts",
   "scripts": {
-    "build": "yarn fetch-definitions && webpack --color --mode production --config ./src/scripts/webpack-prod.js",
+    "build": "webpack --color --mode production --config ./src/scripts/webpack-prod.js",
     "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
     "fetch-definitions": "node ./src/scripts/fetch-definitions.js",
     "start": "node ./public/index.js smb",
     "test": "jest --coverage --silent",
+    "test:ci": "cross-env CI=true yarn test",
     "test-dev": "jest --watch --verbose",
     "test-dev-e2e": "wdio ./src/scripts/wdio.conf.js --watch",
     "test-e2e": "wdio ./src/scripts/wdio.conf.js",

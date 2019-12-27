@@ -2,13 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "bootstrap": "./node_modules/.bin/lerna bootstrap",
-    "build": "./node_modules/.bin/lerna run build",
-    "test": "./node_modules/.bin/lerna run test:ci",
-    "clean": "./node_modules/.bin/lerna clean",
-    "clean:build": "./node_modules/.bin/lerna exec -- rimraf dist",
-    "release": "./node_modules/.bin/lerna publish",
-    "ls": "./node_modules/.bin/lerna ls",
+    "test": "yarn workspaces run test:ci",
+    "build": "yarn workspace run build",
     "lint": "eslint --fix --ext=jsx,ts,tsx packages",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config"
   },
@@ -44,7 +39,6 @@
     "husky": "^3.1.0",
     "isomorphic-fetch": "^2.2.1",
     "jest-fetch-mock": "^2.1.2",
-    "lerna": "^3.19.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "query-string": "^6.9.0",

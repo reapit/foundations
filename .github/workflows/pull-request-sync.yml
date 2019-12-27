@@ -33,6 +33,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      - name: Config workspace
+        run: yarn config set workspaces-experimental true
+
       - name: Install dependencies
         run: yarn
 
