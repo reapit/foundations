@@ -25,7 +25,8 @@ import {
   Form,
   FormikHelpers,
   H6,
-  FormikValues
+  FormikValues,
+  RadioSelect
 } from '@reapit/elements'
 
 import { validate } from '@/utils/form/submit-app'
@@ -123,6 +124,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
   } else {
     initialValues = {
       categoryId: '',
+      authFlow: '',
       screen4ImageUrl: '',
       screen3ImageUrl: '',
       screen2ImageUrl: '',
@@ -243,7 +245,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
           initialValues={initialValues}
           onSubmit={handleSubmitApp({ appId, submitApp, submitRevision, setSubmitError })}
         >
-          {() => {
+          {({ setFieldValue, values }) => {
             return (
               <Form noValidate={true}>
                 <Grid data-test="submit-app-form">
@@ -282,6 +284,27 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                           <Checkbox name="isDirectApi" labelText="Direct API" id="isDirectApi" />
                         </GridItem>
                       </Grid>
+                    </FormSection>
+                    <FormSection>
+                      <FormHeading>AUTHENTICATION FLOW</FormHeading>
+                      <FormSubHeading>
+                        Please select an authentication flow for your application. If you select "User Session" your
+                        users will have to login and you will need to attach a Bearer token to your API Authorization
+                        headers. This will typically be the flow for client side web apps. If you select "Client Secret"
+                        we will provide you with a secret token to include in your API requests - this secret will be
+                        unique per app and would typically be the flow for machine-to-machine server side apps.
+                      </FormSubHeading>
+                      <RadioSelect
+                        setFieldValue={setFieldValue}
+                        state={values['authFlow']}
+                        disabled={!isSubmitApp}
+                        options={[
+                          { label: 'USER SESSION', value: 'authorisationCode' },
+                          { label: 'CLIENT SECRET', value: 'clientCredentials' }
+                        ]}
+                        name="authFlow"
+                        id="authFlow"
+                      />
                     </FormSection>
                     <FormSection>
                       <FormHeading>APP CATEGORY</FormHeading>
