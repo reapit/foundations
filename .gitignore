@@ -1,7 +1,9 @@
 node_modules
+cypress/screenshots
 public/dist
 src/tests/coverage
 src/constants/.env
+cypress/videos
 .vscode
 .DS_Store
 yarn-error.log

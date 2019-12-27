@@ -2,7 +2,9 @@
 
 exports[`Client should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
-  <div>
+  <div
+    id="page-client-apps-container"
+  >
     <withRouter(Connect(Component)) />
     <div>
       <Component
@@ -82,7 +84,9 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
 
 exports[`Client should match a snapshot when LOADING true 1`] = `
 <Connect(ErrorBoundary)>
-  <div>
+  <div
+    id="page-client-apps-container"
+  >
     <withRouter(Connect(Component)) />
     <Loader />
   </div>
@@ -95,7 +99,9 @@ exports[`Client should match a snapshot when LOADING true 1`] = `
 
 exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
 <Connect(ErrorBoundary)>
-  <div>
+  <div
+    id="page-client-apps-container"
+  >
     <withRouter(Connect(Component)) />
     <div>
       <Component
@@ -175,7 +181,9 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
 
 exports[`Client should match a snapshot when featured apps is undefined 1`] = `
 <Connect(ErrorBoundary)>
-  <div>
+  <div
+    id="page-client-apps-container"
+  >
     <withRouter(Connect(Component)) />
     <div>
       <Component

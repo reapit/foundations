@@ -71,26 +71,28 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
 
   return (
     <ErrorBoundary>
-      <AppList
-        list={list}
-        title="My Apps"
-        loading={loading}
-        onCardClick={handleOnCardClick({
-          setVisible,
-          appDetail,
-          fetchAppDetail,
-          setDeveloperAppModalStateViewDetail,
-          appDeleteSetInitFormState
-        })}
-        infoType="DEVELOPER_APPS_EMPTY"
-        pagination={{
-          totalCount,
-          pageSize,
-          pageNumber,
-          onChange: handleOnChange(history)
-        }}
-      />
-      <DeveloperAppModal visible={isVisible} afterClose={handleAfterClose({ setVisible })} />
+      <div id="page-developer-apps-container">
+        <AppList
+          list={list}
+          title="My Apps"
+          loading={loading}
+          onCardClick={handleOnCardClick({
+            setVisible,
+            appDetail,
+            fetchAppDetail,
+            setDeveloperAppModalStateViewDetail,
+            appDeleteSetInitFormState
+          })}
+          infoType="DEVELOPER_APPS_EMPTY"
+          pagination={{
+            totalCount,
+            pageSize,
+            pageNumber,
+            onChange: handleOnChange(history)
+          }}
+        />
+        <DeveloperAppModal visible={isVisible} afterClose={handleAfterClose({ setVisible })} />
+      </div>
     </ErrorBoundary>
   )
 }

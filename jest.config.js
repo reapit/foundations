@@ -3,7 +3,7 @@ const { compilerOptions } = require('./tsconfig')
 
 module.exports = {
   preset: 'ts-jest',
-  testPathIgnorePatterns: ['<rootDir>/src/tests/'],
+  testPathIgnorePatterns: ['<rootDir>/src/tests/', '<rootDir>/cypress'],
   setupFiles: ['<rootDir>/src/scripts/jest-setup.js'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coverageDirectory: './src/tests/coverage',
