@@ -1,6 +1,6 @@
 import React from 'react'
-import { property } from '../map/mock-property'
-import createGoogleMapsMock from '../map/mock-google-map'
+import { property } from './__mocks__/mock-property'
+import createGoogleMapsMock from './__mocks__/mock-google-map'
 import {
   getContent,
   handleUseEffect,
@@ -19,34 +19,19 @@ import { theme } from '../theme'
 import { SearchStore } from '../hooks/search-store'
 
 describe('google-map', () => {
-  const latitude =
-    property &&
-    property.address &&
-    property.address.geolocation &&
-    property.address.geolocation.latitude
-  const longitude =
-    property &&
-    property.address &&
-    property.address.geolocation &&
-    property.address.geolocation.longitude
-  const marketingMode = property && property.marketingMode
+  const latitude = property?.address?.geolocation?.latitude
+  const longitude = property?.address?.geolocation?.longitude
+  const marketingMode = property?.marketingMode
   const address = {
-    line1:
-      property && property.address && property.address.line1
-        ? property.address.line1
-        : '',
-    line2:
-      property && property.address && property.address.line2
-        ? property.address.line2
-        : ''
+    line1: property?.address?.line1 || '',
+    line2: property?.address?.line2 || ''
   }
 
-  const lettingPrice = property && property.letting && property.letting.rent
-  const rentFrequency =
-    property && property.letting && property.letting.rentFrequency
+  const lettingPrice = property?.letting?.rent
+  const rentFrequency = property?.letting?.rentFrequency
 
-  const bedrooms = property && property.bedrooms
-  const bathrooms = property && property.bathrooms
+  const bedrooms = property?.bedrooms
+  const bathrooms = property?.bathrooms
 
   const mockGoogleMap = createGoogleMapsMock()
   const mockMap = new mockGoogleMap.Map()
@@ -135,14 +120,8 @@ describe('google-map', () => {
     it('should run correctly', () => {
       const result = getLatLng(property)
       expect(result).toEqual({
-        latitude:
-          property.address &&
-          property.address.geolocation &&
-          property.address.geolocation.latitude,
-        longitude:
-          property.address &&
-          property.address.geolocation &&
-          property.address.geolocation.longitude
+        latitude: property?.address?.geolocation?.latitude,
+        longitude: property?.address?.geolocation?.longitude
       })
     })
     it('should return value when property address empty', () => {

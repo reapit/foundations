@@ -225,10 +225,9 @@ export const formatPriceAndQuantifier = (price: number, quantifier: string) => {
 
 export const getPrice = (result: PropertyModel, searchType: SearchType) => {
   if (searchType === 'Rent') {
-    const rent = (result && result.letting && result.letting.rent) || 0
+    const rent = result?.letting?.rent || 0
     const formattedPrice = currencyFormatter.format(rent)
-    let rentFrequency =
-      (result && result.letting && result.letting.rentFrequency) || ''
+    let rentFrequency = result?.letting?.rentFrequency || ''
     if (rentFrequency.length > 0) {
       rentFrequency =
         rentFrequency.charAt(0).toUpperCase() +
@@ -237,8 +236,8 @@ export const getPrice = (result: PropertyModel, searchType: SearchType) => {
     return `${formattedPrice} ${rentFrequency}`
   }
 
-  const price = (result && result.selling && result.selling.price) || 0
-  const qualifier = (result && result.selling && result.selling.qualifier) || ''
+  const price = result?.selling?.price || 0
+  const qualifier = result?.selling?.qualifier || ''
   return formatPriceAndQuantifier(price, qualifier)
 }
 
@@ -293,9 +292,9 @@ export const formatStyle = (style: string) => {
 }
 
 export const combineNumberBedTypeStyle = (result: PropertyModel) => {
-  const style = ((result && result.style) || []).map(formatStyle).join(' ')
-  const type = ((result && result.type) || []).map(formatType).join(' ')
-  const numberBedRoom = (result && result.bedrooms) || 0
+  const style = (result?.style || []).map(formatStyle).join(' ')
+  const type = (result?.type || []).map(formatType).join(' ')
+  const numberBedRoom = result?.bedrooms || 0
   return numberBedRoom + ' Bed ' + style + ' ' + type
 }
 
@@ -330,18 +329,15 @@ export const SearchResult = () => {
     <SearchResultContainer>
       <SearchResultItemContainer>
         {resultArr.map((property: PropertyModel) => {
-          const id = (property && property.id) || ''
+          const id = property?.id || ''
           const propertyImage = propertyImages[id]
           const imageUrl =
-            (propertyImage && propertyImage.url) ||
+            propertyImage?.url ||
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88xYAAssB20Ea4T8AAAAASUVORK5CYII='
 
-          const sellingStatus =
-            (property && property.selling && property.selling.status) || ''
-          const lettingStatus =
-            (property && property.letting && property.letting.status) || ''
-          const selectedPropertyId =
-            (selectedProperty && selectedProperty.id) || ''
+          const sellingStatus = property?.selling?.status || ''
+          const lettingStatus = property?.letting?.status || ''
+          const selectedPropertyId = selectedProperty?.id || ''
 
           const isSelectedProperty = property.id === selectedPropertyId
 
@@ -365,8 +361,7 @@ export const SearchResult = () => {
               <div>
                 <AddressSecondaryText>
                   <AddressPrimaryText>
-                    {(property && property.address && property.address.line1) ||
-                      ''}
+                    {property?.address?.line1 || ''}
                   </AddressPrimaryText>
                   {combineAdress(property.address)}
                 </AddressSecondaryText>
@@ -377,8 +372,8 @@ export const SearchResult = () => {
               </NumBedTypeStyleText>
               <DescriptionText>{property.description}</DescriptionText>
               <IconContainer>
-                <FaBed /> {(property && property.bedrooms) || 0}
-                <FaToilet /> {(property && property.bathrooms) || 0}
+                <FaBed /> {property?.bedrooms || 0}
+                <FaToilet /> {property?.bathrooms || 0}
               </IconContainer>
             </SearchResultItemDiv>
           )

@@ -1,4 +1,4 @@
-import { getAccessToken } from '@utils/get-access-token'
+import { getAccessToken } from '@/utils/get-access-token'
 import {
   PropertyModel,
   PropertyImageModel
@@ -6,9 +6,7 @@ import {
 import { IMAGE_API_URL } from '@/constants'
 
 export const getPropertyImages = async (result: PropertyModel[]) => {
-  const propertyIds = result.map(
-    (property: PropertyModel) => property && property.id
-  )
+  const propertyIds = result.map((property: PropertyModel) => property?.id)
 
   const url = new URL(IMAGE_API_URL)
   url.searchParams.append('propertyIds', propertyIds.join(','))
@@ -27,7 +25,7 @@ export const getPropertyImages = async (result: PropertyModel[]) => {
 
   const imageMap: Record<string, PropertyImageModel> = {}
   for (const propertyImage of parsedResponse._embedded) {
-    const propertyId = (propertyImage && propertyImage.propertyId) || 'invalid'
+    const propertyId = propertyImage?.propertyId || 'invalid'
     imageMap[propertyId] = propertyImage
   }
 
