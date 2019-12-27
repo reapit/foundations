@@ -1,0 +1,6 @@
+
+smb:
+  - packages/smb/*
+
+apollo-server:
+  - packages/apollo-server/*

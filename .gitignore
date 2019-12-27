@@ -13,6 +13,7 @@
 # production
 /packages/*/build
 /packages/*/dist
+/packages/*/public/dist
 
 # misc
 .DS_Store

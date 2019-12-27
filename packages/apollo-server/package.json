@@ -19,11 +19,11 @@
     "winston": "^3.2.1"
   },
   "scripts": {
-    "dev": "REAPIT_ENV=LOCAL nodemon",
-    "build": "NODE_ENV=production tsc --p tsconfig.json",
+    "dev": "cross-env REAPIT_ENV=LOCAL nodemon",
+    "build": "cross-env NODE_ENV=production rimraf dist && tsc --p tsconfig.json",
     "start": "node ./dist/app.js",
     "test": "jest --coverage --silent",
-    "test:ci": "CI=true rm -rf ./public && yarn build && ./node_modules/.bin/concurrently --success=\"first\" \"yarn start\" \"yarn test\" -k"
+    "test:ci": "jest --coverage --silent --detectOpenHandles --forceExit"
   },
   "devDependencies": {
     "@types/graphql-depth-limit": "^1.1.2",
