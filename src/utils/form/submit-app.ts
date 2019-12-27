@@ -11,6 +11,7 @@ export type SubmitAppFormErrorKeys =
   | 'description'
   | 'summary'
   | 'screen1ImageUrl'
+  | 'authFlow'
 
 export const validate = (values: CreateAppModel) => {
   let errors = validateRequire<CreateAppModel, SubmitAppFormErrorKeys>({
@@ -25,7 +26,8 @@ export const validate = (values: CreateAppModel) => {
       'homePage',
       'description',
       'summary',
-      'screen1ImageUrl'
+      'screen1ImageUrl',
+      'authFlow'
     ]
   })
 

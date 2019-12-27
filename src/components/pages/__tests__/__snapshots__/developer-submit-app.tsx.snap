@@ -18,6 +18,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
     <Formik
       initialValues={
         Object {
+          "authFlow": "",
           "categoryId": "",
           "description": "",
           "developerId": "",

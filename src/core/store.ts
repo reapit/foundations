@@ -58,7 +58,7 @@ export class Store {
 
   static sagaMiddleware = createSagaMiddleware()
 
-  static reducers = combineReducers({
+  static reducers = combineReducers<ReduxState>({
     client,
     installedApps,
     myApps,
