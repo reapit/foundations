@@ -11,7 +11,7 @@ module.exports = {
       }),
     },
   },
-  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]', 'api.ts', '.d.ts', 'index.ts'],
+  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|dist)[/\\\\]', 'api.ts', '.d.ts', 'index.ts'],
   coverageThreshold: {
     global: {
       branches: 80,
