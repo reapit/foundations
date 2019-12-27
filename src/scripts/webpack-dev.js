@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const EnvironmentPlugin = require('webpack').EnvironmentPlugin
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
-
 const config = require(path.resolve(__dirname, '../..', 'reapit-config.json'))
 
 module.exports = {

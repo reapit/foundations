@@ -12,6 +12,7 @@ import { revisionDetailRequestData, RevisionDetailRequestParams } from '@/action
 import AdminApprovalModal from '../ui/admin-approval-modal'
 import { appDetailRequestData } from '@/actions/app-detail'
 import { RevisionDetailState } from '@/reducers/revision-detail'
+import { ApprovalModel } from '@reapit/foundations-ts-definitions'
 
 export interface AdminApprovalsMappedActions {
   fetchRevisionDetail: (params: RevisionDetailRequestParams) => void
@@ -31,6 +32,34 @@ export type AdminApprovalsProps = AdminApprovalsMappedActions &
 export const handleAfterClose = ({ setIsModalOpen }) => () => setIsModalOpen(false)
 
 export const handleOnPageChange = history => page => history.push(`${routes.ADMIN_APPROVALS}/${page}`)
+
+export const RenderContent = ({
+  loading,
+  list,
+  tableColumns
+}: {
+  loading: Boolean
+  list: ApprovalModel[]
+  tableColumns: any
+}) => {
+  if (loading) {
+    return (
+      <div className="pin absolute flex items-center justify-center">
+        <Loader />
+      </div>
+    )
+  }
+
+  if (!loading && !list.length) {
+    return <Info infoType="ADMIN_APPROVALS_EMPTY" />
+  }
+
+  return (
+    <div>
+      <Table loading={false} data={list} columns={tableColumns} />
+    </div>
+  )
+}
 
 export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
   approvalsState,
@@ -106,28 +135,18 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
 
   return (
     <ErrorBoundary>
-      <FlexContainerResponsive data-test="revision-list-container">
-        {loading && (
-          <div className="pin absolute flex items-center justify-center">
-            <Loader />
-          </div>
-        )}
-        {!loading && !list.length ? (
-          <Info infoType="ADMIN_APPROVALS_EMPTY" />
-        ) : (
-          <div>
-            {' '}
-            <Table loading={false} data={list} columns={tableColumns} />
-          </div>
-        )}
-        <Pagination
-          onChange={handleOnPageChange(history)}
-          totalCount={totalCount}
-          pageSize={pageSize}
-          pageNumber={pageNumber}
-        />
-      </FlexContainerResponsive>
-      <AdminApprovalModal visible={isModalOpen} afterClose={handleAfterClose({ setIsModalOpen })} />
+      <div id="page-admin-approvals-container">
+        <FlexContainerResponsive data-test="revision-list-container">
+          <RenderContent loading={loading} list={list} tableColumns={tableColumns} />
+          <Pagination
+            onChange={handleOnPageChange(history)}
+            totalCount={totalCount}
+            pageSize={pageSize}
+            pageNumber={pageNumber}
+          />
+        </FlexContainerResponsive>
+        <AdminApprovalModal visible={isModalOpen} afterClose={handleAfterClose({ setIsModalOpen })} />
+      </div>
     </ErrorBoundary>
   )
 }

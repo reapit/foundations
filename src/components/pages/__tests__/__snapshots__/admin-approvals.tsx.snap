@@ -2,39 +2,14 @@
 
 exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerResponsive
-    data-test="revision-list-container"
+  <div
+    id="page-admin-approvals-container"
   >
-    <div>
-       
-      <Table
-        columns={
-          Array [
-            Object {
-              "Cell": [Function],
-              "Header": "#",
-              "id": "id",
-            },
-            Object {
-              "Header": "AppId",
-              "accessor": "appId",
-            },
-            Object {
-              "Header": "Type",
-              "accessor": "type",
-            },
-            Object {
-              "Header": "Description",
-              "accessor": "description",
-            },
-            Object {
-              "Cell": [Function],
-              "Header": "",
-              "id": "buttonColumn",
-            },
-          ]
-        }
-        data={
+    <FlexContainerResponsive
+      data-test="revision-list-container"
+    >
+      <Component
+        list={
           Array [
             Object {
               "appId": "ddc8b25e-42a2-468e-aa8f-4091eee6958f",
@@ -269,19 +244,45 @@ exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
           ]
         }
         loading={false}
+        tableColumns={
+          Array [
+            Object {
+              "Cell": [Function],
+              "Header": "#",
+              "id": "id",
+            },
+            Object {
+              "Header": "AppId",
+              "accessor": "appId",
+            },
+            Object {
+              "Header": "Type",
+              "accessor": "type",
+            },
+            Object {
+              "Header": "Description",
+              "accessor": "description",
+            },
+            Object {
+              "Cell": [Function],
+              "Header": "",
+              "id": "buttonColumn",
+            },
+          ]
+        }
       />
-    </div>
-    <Pagination
-      onChange={[Function]}
-      pageNumber={2}
-      pageSize={10}
-      totalCount={69}
+      <Pagination
+        onChange={[Function]}
+        pageNumber={2}
+        pageSize={10}
+        totalCount={69}
+      />
+    </FlexContainerResponsive>
+    <Component
+      afterClose={[Function]}
+      visible={false}
     />
-  </FlexContainerResponsive>
-  <Component
-    afterClose={[Function]}
-    visible={false}
-  />
+  </div>
 </Connect(ErrorBoundary)>
 `;
 

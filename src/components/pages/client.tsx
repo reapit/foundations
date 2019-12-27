@@ -92,7 +92,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
 
   return (
     <ErrorBoundary>
-      <div className={styles.clientContainer}>
+      <div id="page-client-apps-container" className={styles.clientContainer}>
         <AppSidebar />
         {unfetched || loading ? (
           <Loader />
