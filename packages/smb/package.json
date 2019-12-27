@@ -11,17 +11,11 @@
   "author": "reapit global",
   "main": "./src/index.ts",
   "scripts": {
-    "build": "yarn fetch-definitions && webpack --color --mode production --config ./src/scripts/webpack-prod.js",
+    "build": "webpack --color --mode production --config ./src/scripts/webpack-prod.js",
     "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
-    "fetch-definitions": "node ./src/scripts/fetch-definitions.js",
     "start": "node ./public/index.js smb",
     "test": "jest --coverage --silent",
-    "test-dev": "jest --watch --verbose",
-    "test-dev-e2e": "wdio ./src/scripts/wdio.conf.js --watch",
-    "test-e2e": "wdio ./src/scripts/wdio.conf.js",
-    "test-e2e:bstack": "wdio ./src/scripts/browserstack.conf.js",
-    "test-e2e:bstack:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e:bstack\" -k",
-    "test-e2e:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e\" -k"
+    "test:ci": "jest --coverage --silent --detectOpenHandles --forceExit"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",

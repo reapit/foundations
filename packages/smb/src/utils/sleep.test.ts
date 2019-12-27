@@ -5,11 +5,12 @@ describe('sleep', () => {
     expect(typeof sleep().then).toEqual('function')
   })
 
-  it('should wait', () => {
+  it('should wait', done => {
     const track: string[] = []
     sleep(10).then(() => {
       track.push('b')
       expect(track).toEqual(['a', 'b'])
+      done()
     })
     track.push('a')
   })

@@ -2,13 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "bootstrap": "./node_modules/.bin/lerna bootstrap",
-    "build": "./node_modules/.bin/lerna run build",
-    "test": "./node_modules/.bin/lerna run test:ci",
-    "clean": "./node_modules/.bin/lerna clean",
-    "clean:build": "./node_modules/.bin/lerna exec -- rimraf dist",
-    "release": "./node_modules/.bin/lerna publish",
-    "ls": "./node_modules/.bin/lerna ls",
+    "build": "lerna run build --parallel",
+    "test": "lerna run test:ci --parallel",
     "lint": "eslint --fix --ext=jsx,ts,tsx packages",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config"
   },
@@ -16,6 +11,7 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@reapit/config-manager": "^1.1.0",
+    "@reapit/foundations-ts-definitions": "^0.0.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",

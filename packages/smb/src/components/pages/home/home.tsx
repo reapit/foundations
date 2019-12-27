@@ -12,7 +12,7 @@ import {
 import { withRouter, RouteComponentProps } from 'react-router'
 import queryString from 'query-string'
 import { ApolloError } from 'apollo-boost'
-import { ContactModel } from '@/types/platform'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 import { useQuery } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import { CONTACTS } from './contacts.graphql'
