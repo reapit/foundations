@@ -2,8 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const Dotenv = require('dotenv-webpack')
 
 const analyzePlugins = process.env.ANALYZE ? [new BundleAnalyzerPlugin()] : []
@@ -14,10 +13,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components|types)/,
         use: {
           loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /(node_modules|bower_components|types|\.d\.ts)/,
+        use: {
+          loader: 'ts-loader'
         }
       },
       {
@@ -26,7 +32,7 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: '[path][name].[ext]',
+            name: '[path][name].[ext]'
           }
         }
       }
