@@ -93,8 +93,10 @@ describe('DeveloperHome', () => {
 
   describe('handleAfterClose', () => {
     const setVisible = jest.fn()
-    const fn = handleAfterClose({ setVisible })
+    const removeAuthenticationCode = jest.fn()
+    const fn = handleAfterClose({ setVisible, removeAuthenticationCode })
     fn()
+    expect(removeAuthenticationCode).toBeCalled()
     expect(setVisible).toBeCalledWith(false)
   })
 

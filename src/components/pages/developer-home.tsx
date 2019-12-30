@@ -8,7 +8,7 @@ import routes from '@/constants/routes'
 import AppList from '@/components/ui/app-list'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { AppDetailState } from '@/reducers/app-detail'
-import { appDetailRequestData } from '@/actions/app-detail'
+import { appDetailRequestData, removeAuthenticationCode } from '@/actions/app-detail'
 import DeveloperAppModal from '../ui/developer-app-modal'
 import { setDeveloperAppModalStateViewDetail, developerAppShowModal } from '@/actions/developer-app-modal'
 import { appDeleteSetInitFormState } from '@/actions/app-delete'
@@ -19,6 +19,7 @@ export interface DeveloperMappedActions {
   setDeveloperAppModalStateViewDetail: () => void
   appDeleteSetInitFormState: () => void
   setVisible: (isVisible: boolean) => void
+  removeAuthenticationCode: () => void
 }
 
 export interface DeveloperMappedProps {
@@ -42,7 +43,10 @@ export const handleOnCardClick = ({
   }
 }
 
-export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
+export const handleAfterClose = ({ setVisible, removeAuthenticationCode }) => () => {
+  removeAuthenticationCode()
+  setVisible(false)
+}
 
 export const handleOnChange = history => (page: number) => history.push(`${routes.DEVELOPER_MY_APPS}/${page}`)
 
@@ -57,7 +61,8 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   appDetail,
   history,
   isVisible,
-  setVisible
+  setVisible,
+  removeAuthenticationCode
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !developerState.developerData
@@ -91,7 +96,10 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
             onChange: handleOnChange(history)
           }}
         />
-        <DeveloperAppModal visible={isVisible} afterClose={handleAfterClose({ setVisible })} />
+        <DeveloperAppModal
+          visible={isVisible}
+          afterClose={handleAfterClose({ setVisible, removeAuthenticationCode })}
+        />
       </div>
     </ErrorBoundary>
   )
@@ -107,7 +115,8 @@ export const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
   fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id })),
   setDeveloperAppModalStateViewDetail: () => dispatch(setDeveloperAppModalStateViewDetail()),
   appDeleteSetInitFormState: () => dispatch(appDeleteSetInitFormState()),
-  setVisible: (isVisible: boolean) => dispatch(developerAppShowModal(isVisible))
+  setVisible: (isVisible: boolean) => dispatch(developerAppShowModal(isVisible)),
+  removeAuthenticationCode: () => dispatch(removeAuthenticationCode())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeveloperHome))

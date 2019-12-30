@@ -7,11 +7,12 @@ import '@/styles/vendor/slick.scss'
 import { connect } from 'react-redux'
 import { setAppDetailModalStateInstall, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { Tile, ModalHeader, ModalBody, ModalFooter, H6 } from '@reapit/elements'
+import { Tile, ModalHeader, ModalBody, ModalFooter, H6, SubTitleH6, SubTitleH5, Grid, GridItem } from '@reapit/elements'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import styles from '@/styles/blocks/app-detail.scss?mod'
 import appCardStyles from '@/styles/blocks/app-card.scss?mod'
 import { FaCheck, FaTimes } from 'react-icons/fa'
+import AppAuthenticationDetail from './app-authentication-detail'
 
 export interface AppDetailModalInnerProps {
   data: AppDetailModel
@@ -104,15 +105,24 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                 />
               }
             >
-              {isCurrentLoggedUserDeveloper && (
-                <div className={styles.listed}>
-                  {isListed ? <FaCheck className={styles.isListed} /> : <FaTimes className={styles.notListed} />}
-                  <span className="ml-2">{isListed ? 'Is listed' : 'Not listed'}</span>
-                </div>
-              )}
+              <div className={styles.listed}>
+                <H6>{developer}</H6>
+              </div>
             </Tile>
-            <H6>{developer}</H6>
-            {isCurrentLoggedUserDeveloper && <p>App ID: {id}</p>}
+            <p className={styles.appInfo}>App Information</p>
+            <div key="app-id" className={styles.appInfoRow}>
+              <p className={styles.appInfoProperty}>App ID:</p>
+              <p>{id}</p>
+            </div>
+            {isCurrentLoggedUserDeveloper && (
+              <div key="app-listed" className={styles.appInfoRow}>
+                <p className={styles.appInfoProperty}>Status:</p>
+                <p className={styles.appInfoSpace}>{isListed ? 'Listed' : 'Not listed'}</p>
+                {isListed ? <FaCheck className={styles.isListed} /> : <FaTimes className={styles.notListed} />}
+              </div>
+            )}
+            {id && <AppAuthenticationDetail appId={id} />}
+
             {carouselImages.length > 0 && (
               <div className={carouselStyles.container}>
                 <Slider {...settings}>

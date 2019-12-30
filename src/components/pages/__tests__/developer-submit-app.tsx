@@ -20,7 +20,15 @@ describe('DeveloperSubmitApp', () => {
   it('should match a snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
-      appDetailState: { loading: false, error: false, appDetailData: null },
+      appDetailState: {
+        loading: false,
+        error: false,
+        appDetailData: null,
+        authentication: {
+          loading: false,
+          code: ''
+        }
+      },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
@@ -42,7 +50,15 @@ describe('DeveloperSubmitApp', () => {
   it('should show when fetch data loading', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
-      appDetailState: { loading: true, error: false, appDetailData: null },
+      appDetailState: {
+        loading: true,
+        error: false,
+        appDetailData: null,
+        authentication: {
+          loading: false,
+          code: ''
+        }
+      },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: { loading: true, submitAppData: null, formState: 'PENDING' },
       developerId: null,
@@ -59,7 +75,15 @@ describe('DeveloperSubmitApp', () => {
   it('should match submit revision form snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
-      appDetailState: { loading: false, error: false, appDetailData: appDetailDataStub },
+      appDetailState: {
+        loading: false,
+        error: false,
+        appDetailData: appDetailDataStub,
+        authentication: {
+          loading: false,
+          code: ''
+        }
+      },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
@@ -85,7 +109,15 @@ describe('DeveloperSubmitApp', () => {
   it('should match snapshot when there are two app images', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
-      appDetailState: { loading: false, error: false, appDetailData: appDetailDataStub },
+      appDetailState: {
+        loading: false,
+        error: false,
+        appDetailData: appDetailDataStub,
+        authentication: {
+          loading: false,
+          code: ''
+        }
+      },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
@@ -116,7 +148,15 @@ describe('DeveloperSubmitApp', () => {
   it('should match submit revision form when appDetailState is loading snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
-      appDetailState: { loading: true, error: false, appDetailData: null },
+      appDetailState: {
+        loading: true,
+        error: false,
+        appDetailData: null,
+        authentication: {
+          loading: false,
+          code: ''
+        }
+      },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
@@ -142,7 +182,15 @@ describe('DeveloperSubmitApp', () => {
   it('should match submit revision form when appDetailState is having errors snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
-      appDetailState: { loading: false, error: true, appDetailData: null },
+      appDetailState: {
+        loading: false,
+        error: true,
+        appDetailData: null,
+        authentication: {
+          loading: false,
+          code: ''
+        }
+      },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
@@ -168,7 +216,15 @@ describe('DeveloperSubmitApp', () => {
   it('should match submit revision form when appDetailState is having null snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
-      appDetailState: { loading: false, error: false, appDetailData: null },
+      appDetailState: {
+        loading: false,
+        error: false,
+        appDetailData: null,
+        authentication: {
+          loading: false,
+          code: ''
+        }
+      },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
@@ -194,7 +250,15 @@ describe('DeveloperSubmitApp', () => {
   it('should match submit app successfully snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
-      appDetailState: { loading: false, error: false, appDetailData: null },
+      appDetailState: {
+        loading: false,
+        error: false,
+        appDetailData: null,
+        authentication: {
+          loading: false,
+          code: ''
+        }
+      },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
@@ -216,7 +280,15 @@ describe('DeveloperSubmitApp', () => {
   it('should match submit revision successfully snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
-      appDetailState: { loading: false, error: false, appDetailData: null },
+      appDetailState: {
+        loading: false,
+        error: false,
+        appDetailData: null,
+        authentication: {
+          loading: false,
+          code: ''
+        }
+      },
       submitRevisionState: { formState: 'SUCCESS' },
       submitAppState: {
         loading: false,
@@ -242,7 +314,15 @@ describe('DeveloperSubmitApp', () => {
   it('should show enough scope checkbox', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
-      appDetailState: { loading: true, error: false, appDetailData: null },
+      appDetailState: {
+        loading: true,
+        error: false,
+        appDetailData: null,
+        authentication: {
+          loading: false,
+          code: ''
+        }
+      },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,

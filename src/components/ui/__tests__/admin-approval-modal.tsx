@@ -16,7 +16,15 @@ import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
 const props = (loading: boolean, error: boolean): AdminApprovalInnerProps => ({
-  appDetailState: { loading, error, appDetailData: { data: appDetailDataStub.data } },
+  appDetailState: {
+    loading,
+    error,
+    appDetailData: { data: appDetailDataStub.data },
+    authentication: {
+      loading: false,
+      code: ''
+    }
+  },
   revisionDetailState: {
     loading,
     error,

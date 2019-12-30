@@ -41,3 +41,30 @@
 .notListed {
   color: #d3033d;
 }
+
+%appInfoTextBold {
+  font-size: 1rem;
+  color: #363636;
+  font-weight: 600;
+  line-height: 1.125;
+}
+
+.appInfo {
+  @extend %appInfoTextBold;
+  margin-bottom: 8px;
+}
+
+.appInfoRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.appInfoProperty {
+  @extend %appInfoTextBold;
+  margin-right: 6px;
+}
+
+.appInfoSpace {
+  margin-right: 8px;
+}

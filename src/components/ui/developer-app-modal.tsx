@@ -11,10 +11,12 @@ import { developerRequestData } from '@/actions/developer'
 import { Dispatch } from 'redux'
 import styles from '@/styles/blocks/developer-app-modal.scss?mod'
 import AppInstallations from './app-installations/app-installations-modal'
+import { removeAuthenticationCode } from '@/actions/app-detail'
 
 export interface DeveloperAppModalMappedProps {
   appDetailState: AppDetailState
   closeParentModal?: () => void
+  removeAuthenticationCode: () => void
 }
 
 export interface DeveloperAppModalMappedAction {
@@ -28,7 +30,8 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
   appDetailState,
   fetchDeveloperApps,
   closeParentModal,
-  history
+  history,
+  removeAuthenticationCode
 }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
@@ -78,7 +81,10 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
                 type="button"
                 variant="primary"
                 dataTest="detail-modal-edit-button"
-                onClick={() => history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)}
+                onClick={() => {
+                  removeAuthenticationCode()
+                  history.push(`${routes.DEVELOPER_MY_APPS}/${id}/edit`)
+                }}
                 disabled={pendingRevisions}
               >
                 {pendingRevisions ? 'Pending Revision' : 'Edit Detail'}
@@ -124,19 +130,26 @@ const mapStateToProps = (state: ReduxState, ownState) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchDeveloperApps: (page: number) => dispatch(developerRequestData(page))
+  fetchDeveloperApps: (page: number) => dispatch(developerRequestData(page)),
+  removeAuthenticationCode: () => dispatch(removeAuthenticationCode())
 })
 
 const DeveloperAppInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(DeveloperAppModalInner)
+
+export interface DeveloperAppModalMappedActions {
+  removeAuthenticationCode: () => void
+}
 
 export const DeveloperAppModal: React.FunctionComponent<DeveloperAppModalProps> = ({
   visible = true,
   afterClose,
   history
-}) => (
-  <Modal visible={visible} afterClose={afterClose} renderChildren>
-    <DeveloperAppInnerWithConnect closeParentModal={afterClose} history={history} />
-  </Modal>
-)
+}) => {
+  return (
+    <Modal visible={visible} afterClose={afterClose} renderChildren>
+      <DeveloperAppInnerWithConnect closeParentModal={afterClose} history={history} />
+    </Modal>
+  )
+}
 
 export default withRouter(DeveloperAppModal)

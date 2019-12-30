@@ -41,7 +41,11 @@ const props = (loading: boolean): ClientProps => ({
   appDetail: {
     appDetailData: appDetailDataStub,
     loading: false,
-    error: false
+    error: false,
+    authentication: {
+      loading: false,
+      code: ''
+    }
   },
   clientId: '1',
   setStateViewBrowse: jest.fn(),
@@ -83,7 +87,11 @@ describe('Client', () => {
       appDetail: {
         appDetailData: appDetailDataStub,
         loading: false,
-        error: false
+        error: false,
+        authentication: {
+          loading: false,
+          code: ''
+        }
       },
       clientId: '1',
       installationsFormState: 'PENDING',
@@ -108,7 +116,11 @@ describe('Client', () => {
       appDetail: {
         appDetailData: appDetailDataStub,
         loading: false,
-        error: false
+        error: false,
+        authentication: {
+          loading: false,
+          code: ''
+        }
       },
       clientId: '1',
       installationsFormState: 'PENDING',
