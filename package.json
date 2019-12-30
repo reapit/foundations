@@ -14,7 +14,7 @@
     "prebuild": "rimraf dist && rimraf public",
     "build": "tsc --p tsconfig.legacy.json && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
     "serverless": "serverless deploy",
-    "deploy": "yarn lint && yarn build && yarn test-ci && yarn serverless"
+    "deploy": "CI=true yarn lint && yarn build && yarn test && yarn serverless"
   },
   "repository": {
     "type": "git",
