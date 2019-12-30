@@ -3,7 +3,11 @@ import {
   appDetailReceiveData,
   appDetailRequestData,
   appDetailClearData,
-  appDetailFailure
+  appDetailFailure,
+  requestAuthenticationCode,
+  requestAuthenticationSuccess,
+  requestAuthenticationFailure,
+  removeAuthenticationCode
 } from '../app-detail'
 import ActionTypes from '../../constants/action-types'
 import { appDetailDataStub } from '../../sagas/__stubs__/app-detail'
@@ -31,5 +35,20 @@ describe('appDetail actions', () => {
 
   it('should create a appDetailFailure action', () => {
     expect(appDetailFailure.type).toEqual(ActionTypes.APP_DETAIL_REQUEST_DATA_FAILURE)
+  })
+
+  it('should create a requestAuthenticationCode action', () => {
+    expect(requestAuthenticationCode.type).toEqual(ActionTypes.REQUEST_AUTHENTICATION_CODE)
+  })
+
+  it('should create a requestAuthenticationSuccess action', () => {
+    expect(requestAuthenticationSuccess.type).toEqual(ActionTypes.REQUEST_AUTHENTICATION_CODE_SUCCESS)
+  })
+
+  it('should create a requestAuthenticationFailure action', () => {
+    expect(requestAuthenticationFailure.type).toEqual(ActionTypes.REQUEST_AUTHENTICATION_CODE_FAILURE)
+  })
+  it('should create a removeAuthenticationCode action', () => {
+    expect(removeAuthenticationCode.type).toEqual(ActionTypes.REMOVE_AUTHENTICATION_CODE)
   })
 })

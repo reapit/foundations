@@ -1,8 +1,21 @@
-import appDetailSagas, { appDetailDataFetch, appDetailDataListen } from '../app-detail'
+import appDetailSagas, {
+  appDetailDataFetch,
+  appDetailDataListen,
+  requestAuthenticationCodeListen,
+  requestAuthCode,
+  fetchAuthCode
+} from '../app-detail'
 import { appDetailDataStub } from '../__stubs__/app-detail'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
-import { appDetailLoading, appDetailReceiveData, appDetailFailure, AppDetailParams } from '@/actions/app-detail'
+import {
+  appDetailLoading,
+  appDetailReceiveData,
+  appDetailFailure,
+  AppDetailParams,
+  requestAuthenticationSuccess,
+  requestAuthenticationFailure
+} from '@/actions/app-detail'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
@@ -98,6 +111,40 @@ describe('app-detail fetch data without clientId', () => {
   })
 })
 
+describe('app-detail request auth code', () => {
+  const params = {
+    data: '45001c67-fd1d-467b-865f-360d5a189e6f',
+    type: ActionTypes.REQUEST_AUTHENTICATION_CODE
+  } as Action<string>
+  const response = {
+    clientSecret: '45001c67-fd1d-467b-865f-360d5a189e6f'
+  }
+  const gen = cloneableGenerator(requestAuthCode)(params)
+
+  expect(gen.next().value).toEqual(call(fetchAuthCode, params.data))
+
+  test('api call success', () => {
+    const clone = gen.clone()
+    expect(clone.next(response).value).toEqual(put(requestAuthenticationSuccess(response)))
+    expect(clone.next().done).toBe(true)
+  })
+
+  test('api call fail', () => {
+    const clone = gen.clone()
+
+    expect(clone.next().value).toEqual(put(requestAuthenticationFailure()))
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR
+        })
+      )
+    )
+    expect(clone.next().done).toBe(true)
+  })
+})
+
 describe('app-detail thunks', () => {
   describe('appDetailDataListen', () => {
     it('should trigger request data when called', () => {
@@ -107,13 +154,21 @@ describe('app-detail thunks', () => {
       )
       expect(gen.next().done).toBe(true)
     })
+
+    it('should trigger request auth code when called', () => {
+      const gen = requestAuthenticationCodeListen()
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<string>>(ActionTypes.REQUEST_AUTHENTICATION_CODE, requestAuthCode)
+      )
+      expect(gen.next().done).toBe(true)
+    })
   })
 
   describe('appDetailSagas', () => {
     it('should listen data request', () => {
       const gen = appDetailSagas()
 
-      expect(gen.next().value).toEqual(all([fork(appDetailDataListen)]))
+      expect(gen.next().value).toEqual(all([fork(appDetailDataListen), fork(requestAuthenticationCodeListen)]))
       expect(gen.next().done).toBe(true)
     })
   })

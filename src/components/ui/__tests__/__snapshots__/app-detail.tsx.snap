@@ -24,18 +24,27 @@ exports[`AppDetailModalInner should match a snapshot 1`] = `
           }
         >
           <div>
-            <FaTimes />
-            <span
-              className="ml-2"
-            >
-              Not listed
-            </span>
+            <H6 />
           </div>
         </Tile>
-        <H6 />
         <p>
-          App ID: 
+          App Information
         </p>
+        <div>
+          <p>
+            App ID:
+          </p>
+          <p />
+        </div>
+        <div>
+          <p>
+            Status:
+          </p>
+          <p>
+            Not listed
+          </p>
+          <FaTimes />
+        </div>
         <br />
         <p />
         <br />

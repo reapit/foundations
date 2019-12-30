@@ -11,7 +11,15 @@ import {
 
 // @ts-ignore: just need to pick relevant props to test
 const daiProps = (loading: boolean, error: boolean): DeveloperAppInnerProps => ({
-  appDetailState: { loading, error, appDetailData: { data: appDetailDataStub.data } },
+  appDetailState: {
+    loading,
+    error,
+    appDetailData: { data: appDetailDataStub.data },
+    authentication: {
+      loading: false,
+      code: ''
+    }
+  },
   closeParentModal: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
   history: {
