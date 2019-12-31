@@ -15,6 +15,9 @@ exports[`Swagger should match a snapshot 1`] = `
         url="undefined/prod/swaggerdocs"
       />
     </div>
+    <Component
+      loading={true}
+    />
   </div>
 </Connect(ErrorBoundary)>
 `;
