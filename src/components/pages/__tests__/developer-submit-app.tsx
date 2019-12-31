@@ -3,9 +3,20 @@ import { match } from 'react-router'
 import toJson from 'enzyme-to-json'
 import { shallow, mount, render } from 'enzyme'
 import { getMockRouterProps } from '@/utils/mock-helper'
-import { SubmitApp, SubmitAppProps, renderScopesCheckbox, SubmitAppMappedActions } from '../developer-submit-app'
+import {
+  SubmitApp,
+  SubmitAppProps,
+  renderScopesCheckbox,
+  SubmitAppMappedActions,
+  handleSubmitApp,
+  handleClickOpenModal,
+  handleCloseModal,
+  handleAcceptTerms,
+  handleDeclineTerms
+} from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
+import { FormikHelpers } from '@reapit/elements'
 
 const submitAppMappedActionsProps: SubmitAppMappedActions = {
   submitApp: jest.fn(),
@@ -375,5 +386,84 @@ describe('renderScopesCheckbox run correctly', () => {
     const scopes = []
     const checkboxes = renderScopesCheckbox(scopes)
     expect(checkboxes).toHaveLength(0)
+  })
+})
+
+describe('handleSubmitApp', () => {
+  const paramsBase = {
+    appId: 'appId',
+    submitApp: jest.fn(),
+    submitRevision: jest.fn(),
+    setSubmitError: jest.fn(),
+    isAgreedTerms: false,
+    setShouldShowError: jest.fn()
+  }
+  const appModel = {}
+  const actions = {} as any
+
+  afterEach(() => jest.clearAllMocks())
+
+  it('should call setShouldShowError when not agree', () => {
+    const params = { ...paramsBase }
+    const spy = jest.spyOn(params, 'setShouldShowError')
+    const fn = handleSubmitApp(params)
+    fn(appModel, actions)
+    expect(spy).toHaveBeenCalledWith(true)
+  })
+
+  it('should call submitApp when dont have appId', () => {
+    const params = { ...paramsBase, appId: null, isAgreedTerms: true }
+    const spy = jest.spyOn(params, 'submitApp')
+    const fn = handleSubmitApp(params)
+    fn(appModel, actions)
+    expect(spy).toHaveBeenCalledTimes(1)
+  })
+  it('should call submitRevision when have appId', () => {
+    const params = { ...paramsBase, appId: 'appid', isAgreedTerms: true }
+    const spy = jest.spyOn(params, 'submitRevision')
+    const fn = handleSubmitApp(params)
+    fn(appModel, actions)
+    expect(spy).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('handleClickOpenModal', () => {
+  it('should call preventDefault and setTermModalIsOpen', () => {
+    const eventMock = {
+      preventDefault: jest.fn()
+    }
+    const setTermModalIsOpen = jest.fn()
+    const spy = jest.spyOn(eventMock, 'preventDefault')
+    handleClickOpenModal(setTermModalIsOpen)(eventMock)
+    expect(spy).toHaveBeenCalledTimes(1)
+    expect(setTermModalIsOpen).toHaveBeenCalledWith(true)
+  })
+})
+
+describe('handleCloseModal', () => {
+  it('should call setTermModalIsOpen', () => {
+    const setTermModalIsOpen = jest.fn()
+    handleCloseModal(setTermModalIsOpen)()
+    expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
+  })
+})
+
+describe('handleAcceptTerms', () => {
+  it('should call setIsAgreedTerms and setTermModalIsOpen', () => {
+    const setTermModalIsOpen = jest.fn()
+    const setIsAgreedTerms = jest.fn()
+    handleAcceptTerms(setIsAgreedTerms, setTermModalIsOpen)()
+    expect(setIsAgreedTerms).toHaveBeenCalledWith(true)
+    expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
+  })
+})
+
+describe('handleDeclineTerms', () => {
+  it('should call preventDefault and setTermModalIsOpen', () => {
+    const setTermModalIsOpen = jest.fn()
+    const setIsAgreedTerms = jest.fn()
+    handleDeclineTerms(setIsAgreedTerms, setTermModalIsOpen)()
+    expect(setIsAgreedTerms).toHaveBeenCalledWith(false)
+    expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
   })
 })

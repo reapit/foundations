@@ -40,6 +40,8 @@ import Routes from '@/constants/routes'
 import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-revision'
 import DeveloperSubmitAppSuccessfully from './developer-submit-app-successfully'
 import { selectCategories } from '../../selector/app-categories'
+import styles from '@/styles/pages/developer-submit-app.scss?mod'
+import { TermsAndConditionsModal } from '../ui/terms-and-conditions-modal'
 
 export interface SubmitAppMappedActions {
   submitApp: (
@@ -145,15 +147,40 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
   return initialValues
 }
 
-export const handleSubmitApp = ({ appId, submitApp, submitRevision, setSubmitError }) => (
-  appModel: CreateAppModel,
-  actions: FormikHelpers<CreateAppModel>
-) => {
+export const handleSubmitApp = ({
+  appId,
+  submitApp,
+  submitRevision,
+  setSubmitError,
+  isAgreedTerms,
+  setShouldShowError
+}) => (appModel: CreateAppModel, actions: FormikHelpers<CreateAppModel>) => {
+  if (!isAgreedTerms) {
+    setShouldShowError(true)
+    return
+  }
   if (!appId) {
     submitApp(appModel, actions, setSubmitError)
   } else {
     submitRevision(appId, appModel)
   }
+}
+
+export const handleClickOpenModal = setTermModalIsOpen => event => {
+  event.preventDefault()
+  setTermModalIsOpen(true)
+}
+export const handleCloseModal = setTermModalIsOpen => () => {
+  setTermModalIsOpen(false)
+}
+
+export const handleAcceptTerms = (setIsAgreedTerms, setTermModalIsOpen) => () => {
+  setIsAgreedTerms(true)
+  setTermModalIsOpen(false)
+}
+export const handleDeclineTerms = (setIsAgreedTerms, setTermModalIsOpen) => () => {
+  setIsAgreedTerms(false)
+  setTermModalIsOpen(false)
 }
 
 export const SubmitApp: React.FC<SubmitAppProps> = ({
@@ -172,6 +199,12 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
   let initialValues
   let formState
   let appId
+  /* terms state */
+  const [termModalIsOpen, setTermModalIsOpen] = React.useState<boolean>(false)
+  const [isAgreedTerms, setIsAgreedTerms] = React.useState<boolean>(false)
+  const [shouldShowError, setShouldShowError] = React.useState<boolean>(false)
+  /* toggle checked input */
+  const handleOnChangeAgree = setIsAgreedTerms.bind(null, prev => !prev)
 
   const [submitError, setSubmitError] = React.useState<string>()
 
@@ -243,7 +276,14 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
         <Formik
           validate={validate}
           initialValues={initialValues}
-          onSubmit={handleSubmitApp({ appId, submitApp, submitRevision, setSubmitError })}
+          onSubmit={handleSubmitApp({
+            appId,
+            submitApp,
+            submitRevision,
+            setSubmitError,
+            isAgreedTerms,
+            setShouldShowError
+          })}
         >
           {({ setFieldValue, values }) => {
             return (
@@ -456,17 +496,59 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                 <FormSection>
                   <LevelRight>
                     {submitError && <H6 className="has-text-danger mr-5">{submitError}</H6>}
-                    <Button
-                      type="submit"
-                      dataTest="submit-app-button"
-                      variant="primary"
-                      loading={Boolean(isSubmitting)}
-                      disabled={Boolean(isSubmitting)}
-                    >
-                      Submit App
-                    </Button>
+                    <Grid>
+                      <GridItem>
+                        <FlexContainerBasic
+                          className={`${styles['terms-submit-app']}`}
+                          centerContent={false}
+                          hasPadding={false}
+                        >
+                          <div className="field field-checkbox">
+                            <input
+                              type="checkbox"
+                              checked={isAgreedTerms}
+                              onChange={handleOnChangeAgree}
+                              className="checkbox"
+                              id="terms-submit-app"
+                              name="terms-submit-app"
+                            />
+                            <label htmlFor="terms-submit-app" className={`pb-4 mb-4 ${styles['label-terms']}`}>
+                              I AGREE TO THE{' '}
+                              <span className={styles['terms-link']} onClick={handleClickOpenModal(setTermModalIsOpen)}>
+                                'TERMS AND CONDITIONS'
+                              </span>
+                            </label>
+                          </div>
+                        </FlexContainerBasic>
+                        <TermsAndConditionsModal
+                          visible={termModalIsOpen}
+                          onAccept={handleAcceptTerms(setIsAgreedTerms, setTermModalIsOpen)}
+                          onDecline={handleDeclineTerms(setIsAgreedTerms, setTermModalIsOpen)}
+                          afterClose={handleCloseModal(setTermModalIsOpen)}
+                        />
+                      </GridItem>
+
+                      <GridItem>
+                        <Button
+                          type="submit"
+                          dataTest="submit-app-button"
+                          variant="primary"
+                          loading={Boolean(isSubmitting)}
+                          disabled={Boolean(isSubmitting)}
+                        >
+                          Submit App
+                        </Button>
+                      </GridItem>
+                    </Grid>
                   </LevelRight>
                 </FormSection>
+
+                {shouldShowError && (
+                  <Alert
+                    message="Please indicate that you have read and agree to the terms and conditions"
+                    type="danger"
+                  />
+                )}
                 <Input
                   dataTest="submit-app-developer-id"
                   type="hidden"
