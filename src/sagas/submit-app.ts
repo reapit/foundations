@@ -41,7 +41,15 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
 
   yield put(submitAppSetFormState('SUBMITTING'))
   try {
-    const { name, iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl } = values
+    const {
+      name,
+      iconImageUrl,
+      screen1ImageUrl,
+      screen2ImageUrl,
+      screen3ImageUrl,
+      screen4ImageUrl,
+      categoryId
+    } = values
 
     const formatedName = name ? name.replace(/\s+/g, '-') : ''
     const imageUploaderReqs = [
@@ -62,11 +70,16 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
       screen4ImageUrl: imageUploaderResults[4] ? imageUploaderResults[4].Url : ''
     }
 
+    const stripOutCategoryIfNotChose = {
+      ...updatedValues,
+      categoryId: categoryId === '' ? undefined : categoryId
+    }
+
     yield call(fetcher, {
       url: URLS.apps,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
-      body: updatedValues,
+      body: stripOutCategoryIfNotChose,
       headers: MARKETPLACE_HEADERS
     })
 

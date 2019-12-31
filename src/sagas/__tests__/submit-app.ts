@@ -52,12 +52,13 @@ describe('submit-app post data', () => {
 
   expect(gen.next().value).toEqual(put(submitAppSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(all(imageUploaderRequests))
+
   expect(gen.next(imageUploaderResults).value).toEqual(
     call(fetcher, {
       url: URLS.apps,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
-      body: updatedData,
+      body: { ...updatedData, categoryId: undefined },
       headers: MARKETPLACE_HEADERS
     })
   )
