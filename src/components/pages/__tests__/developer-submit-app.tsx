@@ -17,6 +17,7 @@ import {
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
 import { FormikHelpers } from '@reapit/elements'
+import { DeveloperHome } from '../developer-home'
 
 const submitAppMappedActionsProps: SubmitAppMappedActions = {
   submitApp: jest.fn(),
@@ -351,6 +352,41 @@ describe('DeveloperSubmitApp', () => {
 
     const wrapper = mount(<SubmitApp {...props} />)
     expect(wrapper.find('Checkbox')).toHaveLength(2)
+  })
+
+  it('should go back to my apps page if click "Back To Apps" when editing an app', () => {
+    const mockHistory = mockRouterProps.history
+    const props: SubmitAppProps = {
+      ...submitAppMappedActionsProps,
+      appDetailState: {
+        loading: false,
+        error: false,
+        appDetailData: appDetailDataStub,
+        authentication: { loading: false, code: '' }
+      },
+      submitRevisionState: { formState: 'PENDING' },
+      submitAppState: {
+        loading: false,
+        submitAppData: {
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+        },
+        formState: 'PENDING'
+      },
+      developerId: '2',
+      match: {
+        params: {
+          appid: '1'
+        }
+      } as match<{ appid?: string }>,
+      history: mockHistory,
+      location: mockRouterProps.location,
+      categories: appCategorieStub?.data || []
+    }
+
+    const wrapper = mount(<SubmitApp {...props} />)
+    const goBackButton = wrapper.findWhere(n => n.type() === 'button' && n.text().toLowerCase() === 'back to apps')
+    goBackButton.simulate('click')
+    expect(props.history.push).toBeCalled()
   })
 })
 
