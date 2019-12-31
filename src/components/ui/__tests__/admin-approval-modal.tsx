@@ -14,6 +14,7 @@ import {
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
+import { ModalBody } from '@reapit/elements'
 
 const props = (loading: boolean, error: boolean): AdminApprovalInnerProps => ({
   appDetailState: {
@@ -81,6 +82,7 @@ describe('isAppearInScope', () => {
   })
 })
 
+// scopes checkboxes
 describe('renderCheckboxesDiff', () => {
   it('should render checkboxes', () => {
     const scopes = [
@@ -96,6 +98,28 @@ describe('renderCheckboxesDiff', () => {
       revisionScopes: scopes
     })
     expect(checkboxes).toHaveLength(3)
+  })
+})
+
+describe('renderAdditionalCheckboxes', () => {
+  it('should render Is Listed checkbox', () => {
+    const wrapper = shallow(<AdminApprovalModalInner {...props(false, false)}></AdminApprovalModalInner>)
+    expect(
+      wrapper
+        .find(ModalBody)
+        .dive()
+        .find('h4[data-test="chkIsListed"]')
+    ).toHaveLength(1)
+  })
+
+  it('should render Is Direct API checkbox', () => {
+    const wrapper = shallow(<AdminApprovalModalInner {...props(false, false)}></AdminApprovalModalInner>)
+    expect(
+      wrapper
+        .find(ModalBody)
+        .dive()
+        .find('h4[data-test="chkIsDirectApi"]')
+    ).toHaveLength(1)
   })
 })
 
