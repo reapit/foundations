@@ -193,6 +193,16 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
                 dataTest="revision-diff-isListed"
               />
             </div>
+            <div className="mb-3">
+              <h4 data-test="chkIsDirectApi" className="mb-2">
+                Is Direct API
+              </h4>
+              <DiffCheckbox
+                currentChecked={Boolean(app.isDirectApi)}
+                changedChecked={Boolean(revision.isDirectApi)}
+                dataTest="revision-diff-isDirectApi"
+              />
+            </div>
             {changedMediaList.map(media => (
               <div className="mb-3" key={media.order}>
                 <h4 className="mb-2 capitalize">

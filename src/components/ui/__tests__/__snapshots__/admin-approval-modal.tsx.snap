@@ -195,6 +195,21 @@ Get notifications when a new deal is available."
           className="mb-3"
         >
           <h4
+            className="mb-2"
+            data-test="chkIsDirectApi"
+          >
+            Is Direct API
+          </h4>
+          <DiffCheckbox
+            changedChecked={false}
+            currentChecked={false}
+            dataTest="revision-diff-isDirectApi"
+          />
+        </div>
+        <div
+          className="mb-3"
+        >
+          <h4
             className="mb-2 capitalize"
           >
             icon
