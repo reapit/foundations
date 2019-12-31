@@ -1,5 +1,7 @@
+import routes from '@/constants/routes'
+
 export default {
-  url: '/admin/approvals',
+  url: routes.ADMIN_APPROVALS,
   selectors: {
     container: '#page-admin-approvals-container'
   }

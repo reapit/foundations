@@ -3,7 +3,7 @@
 exports[`DeveloperHome should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
   <div
-    id="page-developer-apps-container"
+    id="page-developer-home-container"
   >
     <Component
       infoType="DEVELOPER_APPS_EMPTY"
@@ -80,7 +80,7 @@ exports[`DeveloperHome should match a snapshot 2`] = `<Loader />`;
 exports[`DeveloperHome should match a snapshot 3`] = `
 <Connect(ErrorBoundary)>
   <div
-    id="page-developer-apps-container"
+    id="page-developer-home-container"
   >
     <Component
       infoType="DEVELOPER_APPS_EMPTY"

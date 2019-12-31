@@ -1,5 +1,7 @@
-## Required ENV
+## Base URL
+Base url of the test application is defined by an ENV variable named `APPLICATION_URL`
 
+## Required ENV (ENVs is loaded from a file named .env located at src/contants)
 * DEVELOPER_ACCOUNT_EMAIL - email of the developer account that will be used to testing
 * DEVELOPER_ACCOUNT_PASSWORD - password of the developer account that will be used to testing
 

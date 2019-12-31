@@ -77,7 +77,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
 
   return (
     <ErrorBoundary>
-      <div id="page-developer-apps-container">
+      <div id="page-developer-home-container">
         <AppList
           list={list}
           title="My Apps"
