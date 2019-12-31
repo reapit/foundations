@@ -23,6 +23,14 @@ exports[`Menu should match a snapshot 1`] = `
   title="Terms and Conditions"
   visible={true}
 >
-  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam porro, id quidem maxime nesciunt facere voluptatem at provident. Iste fugit ut nesciunt minima? Non rem ut quod deserunt quibusdam, illo quos beatae perspiciatis, voluptate quas eligendi vel, autem similique. Autem illo rerum doloribus, quia eius corrupti sapiente aliquid ea pariatur enim? Earum itaque mollitia impedit commodi cum, ratione, suscipit sunt similique asperiores illo ducimus iusto in, eum eos dolor corrupti. Ad assumenda temporibus ullam reiciendis autem recusandae harum quod, non iste, eligendi nihil? Unde quasi quaerat eveniet illo consectetur asperiores nostrum alias nobis ratione! Dolorum repellendus aut iure blanditiis nostrum.
+  
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam porro, id quidem maxime nesciunt facere
+      voluptatem at provident. Iste fugit ut nesciunt minima? Non rem ut quod deserunt quibusdam, illo quos beatae
+      perspiciatis, voluptate quas eligendi vel, autem similique. Autem illo rerum doloribus, quia eius corrupti
+      sapiente aliquid ea pariatur enim? Earum itaque mollitia impedit commodi cum, ratione, suscipit sunt similique
+      asperiores illo ducimus iusto in, eum eos dolor corrupti. Ad assumenda temporibus ullam reiciendis autem
+      recusandae harum quod, non iste, eligendi nihil? Unde quasi quaerat eveniet illo consectetur asperiores nostrum
+      alias nobis ratione! Dolorum repellendus aut iure blanditiis nostrum.
+
 </Modal>
 `;
