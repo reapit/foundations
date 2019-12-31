@@ -183,6 +183,9 @@ export const handleDeclineTerms = (setIsAgreedTerms, setTermModalIsOpen) => () =
   setTermModalIsOpen(false)
 }
 
+const getGoBackToAppsFunc = ({ history }: Pick<RouteComponentProps, 'history'>) =>
+  React.useCallback(() => history.push(Routes.DEVELOPER_MY_APPS), [history])
+
 export const SubmitApp: React.FC<SubmitAppProps> = ({
   submitAppSetFormState,
   submitApp,
@@ -207,6 +210,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
   const handleOnChangeAgree = setIsAgreedTerms.bind(null, prev => !prev)
 
   const [submitError, setSubmitError] = React.useState<string>()
+  const goBackToApps = getGoBackToAppsFunc({ history })
 
   const isSubmitRevision = Boolean(match.params && match.params.appid)
   const isSubmitApp = !isSubmitRevision
@@ -529,6 +533,11 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                       </GridItem>
 
                       <GridItem>
+                        {!isSubmitApp && (
+                          <Button onClick={goBackToApps} variant="primary" type="button">
+                            Back To Apps
+                          </Button>
+                        )}
                         <Button
                           type="submit"
                           dataTest="submit-app-button"
