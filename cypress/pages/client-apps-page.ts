@@ -1,5 +1,7 @@
+import routes from '@/constants/routes'
+
 export default {
-  url: '/client/apps',
+  url: routes.CLIENT,
   selectors: {
     container: '#page-client-apps-container'
   }

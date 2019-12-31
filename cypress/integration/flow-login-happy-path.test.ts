@@ -1,10 +1,10 @@
-import loginPage from '../pages/loginPage'
-import clientAppsPage from '../pages/clientAppsPage'
-import developerAppsPage from '../pages/developerAppsPage'
-import adminApprovalsPage from '../pages/adminApprovalsPage'
+import loginPage from '../pages/login-page'
+import clientAppsPage from '../pages/client-apps-page'
+import developerPage from '../pages/developer-page'
+import adminApprovalsPage from '../pages/admin-approvals-page'
 
-describe('Login flow', () => {
-  describe('works when testing the happycase flow', () => {
+describe('Login happy path', () => {
+  describe('Should be able to login as client, developer and admin and navigate to correct landing pages', () => {
     const {
       selectors: { inputEmail, inputPassword, buttonLogin },
       loginAsAdminUrl,
@@ -20,7 +20,7 @@ describe('Login flow', () => {
     const {
       url: developerPageUrl,
       selectors: { container: developerPageContainer }
-    } = developerAppsPage
+    } = developerPage
 
     const {
       url: adminPageUrl,
@@ -29,7 +29,7 @@ describe('Login flow', () => {
 
     const testCases = [
       {
-        testCaseName: 'login successfully using DEVELOPER account',
+        testCaseName: 'Login successfully using DEVELOPER account',
         email: Cypress.env('DEVELOPER_ACCOUNT_EMAIL'),
         password: Cypress.env('DEVELOPER_ACCOUNT_PASSWORD'),
         container: developerPageContainer,
@@ -37,7 +37,7 @@ describe('Login flow', () => {
         loginUrl: loginAsDeveloperUrl
       },
       {
-        testCaseName: 'login successfully using CLIENT account',
+        testCaseName: 'Login successfully using CLIENT account',
         email: Cypress.env('CLIENT_ACCOUNT_EMAIL'),
         password: Cypress.env('CLIENT_ACCOUNT_PASSWORD'),
         container: clientAppsPageContainer,
@@ -45,7 +45,7 @@ describe('Login flow', () => {
         loginUrl: loginAsClientUrl
       },
       {
-        testCaseName: 'login successfully using ADMIN account',
+        testCaseName: 'Login successfully using ADMIN account',
         email: Cypress.env('ADMIN_ACCOUNT_EMAIL'),
         password: Cypress.env('ADMIN_ACCOUNT_PASSWORD'),
         container: adminPageContainer,

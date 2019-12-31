@@ -17,28 +17,30 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettin
   dataTest.push(app.name)
 
   return (
-    <Tile
-      onClick={onClick as () => void}
-      dataTest={dataTest.join('_')}
-      heading={app.name || ''}
-      subHeading={
-        <>
-          {app.developer}
-          {app.isDirectApi ? <span className={appCardStyles.directAPI}>(Direct API)</span> : ''}
-        </>
-      }
-      image={
-        <img className="image" src={app.iconUri || 'https://bulma.io/images/placeholders/48x48.png'} alt={app.name} />
-      }
-      menu={
-        app.installedOn &&
-        onSettingsClick && (
-          <FaEllipsisH className="media-icon" onClick={onSettingsClick} data-test={`app-settings_${app.id}`} />
-        )
-      }
-    >
-      <p className={appCardStyles.content}>{app.summary}</p>
-    </Tile>
+    <div data-test-app-id={app.id} data-test-app-name={app.name}>
+      <Tile
+        onClick={onClick as () => void}
+        dataTest={dataTest.join('_')}
+        heading={app.name || ''}
+        subHeading={
+          <>
+            {app.developer}
+            {app.isDirectApi ? <span className={appCardStyles.directAPI}>(Direct API)</span> : ''}
+          </>
+        }
+        image={
+          <img className="image" src={app.iconUri || 'https://bulma.io/images/placeholders/48x48.png'} alt={app.name} />
+        }
+        menu={
+          app.installedOn &&
+          onSettingsClick && (
+            <FaEllipsisH className="media-icon" onClick={onSettingsClick} data-test={`app-settings_${app.id}`} />
+          )
+        }
+      >
+        <p className={appCardStyles.content}>{app.summary}</p>
+      </Tile>
+    </div>
   )
 }
 

@@ -9,7 +9,13 @@ const config = require(path.resolve(__dirname, '../..', 'reapit-config.json'))
 
 module.exports = {
   context: process.cwd(),
-  entry: './src/core/index.tsx',
+  /**
+   * See https://github.com/cypress-io/cypress/issues/95
+   * Cypress doesn't support waiting for Fetch API atm
+   * Solution: delete window.fetch while developing -> whatwg-fetch will kick in
+   * whatwg-fetch is based on XMLHttpRequest and supported by Cypress
+   */
+  entry: ['whatwg-fetch', './src/core/index.tsx'],
   output: {
     path: path.join(process.cwd(), 'public', 'dist'),
     filename: '[name].[hash].js'
