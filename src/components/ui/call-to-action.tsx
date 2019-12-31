@@ -2,7 +2,7 @@ import * as React from 'react'
 import CheckIcon from '@/components/svg/check'
 import TimesIcon from '@/components/svg/times'
 import styles from '@/styles/elements/call-to-action.scss?mod'
-import { Button } from '@reapit/elements'
+import { Button, Alert } from '@reapit/elements'
 
 type CTAType = 'success' | 'danger'
 
@@ -38,14 +38,13 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
 
   return (
     <div className={containerClassNames.join(' ')} data-test={dataTest}>
-      <h3 className={styles.title}>
-        <span className={`${styles.icon} ${iconStyle}`}>{type === 'success' ? <CheckIcon /> : <TimesIcon />}</span>
-        <span>{title}</span>
-      </h3>
-      <p className={styles.message}>{children}</p>
-      <Button dataTest={buttonDataTest} variant="primary" type="button" onClick={onButtonClick as () => void}>
-        {buttonText}
-      </Button>
+      <Alert className="mb-0" type={type} message={title} />
+      <div className={styles.content}>
+        <p className={styles.message}>{children}</p>
+        <Button dataTest={buttonDataTest} variant="primary" type="button" onClick={onButtonClick as () => void}>
+          {buttonText}
+        </Button>
+      </div>
     </div>
   )
 }

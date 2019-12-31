@@ -59,19 +59,15 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
 
   if (isSuccessed) {
     return (
-      <ModalBody
-        body={
-          <CallToAction
-            title="Success!"
-            buttonText="Back to List"
-            dataTest="alertUninstallSuccess"
-            onButtonClick={handleSuccessUninstall({ onUninstallSuccess, setFormState })}
-            isCenter
-          >
-            {appName} has been successfully uninstall from {installationDetail?.client}
-          </CallToAction>
-        }
-      />
+      <CallToAction
+        title="Success"
+        buttonText="Back to List"
+        dataTest="alertUninstallSuccess"
+        onButtonClick={handleSuccessUninstall({ onUninstallSuccess, setFormState })}
+        isCenter
+      >
+        '{appName}' has been successfully uninstalled from '{installationDetail?.client}'
+      </CallToAction>
     )
   }
 

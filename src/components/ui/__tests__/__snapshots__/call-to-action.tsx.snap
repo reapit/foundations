@@ -5,23 +5,20 @@ exports[`CallToAction should match a snapshot 1`] = `
   className=""
   data-test=""
 >
-  <h3>
-    <span
-      className="undefined undefined"
+  <Alert
+    className="mb-0"
+    message="My title"
+    type="success"
+  />
+  <div>
+    <p />
+    <Button
+      dataTest=""
+      type="button"
+      variant="primary"
     >
-      <Check />
-    </span>
-    <span>
-      My title
-    </span>
-  </h3>
-  <p />
-  <Button
-    dataTest=""
-    type="button"
-    variant="primary"
-  >
-    My button
-  </Button>
+      My button
+    </Button>
+  </div>
 </div>
 `;

@@ -90,21 +90,18 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
         onSubmit={handleOnSubmit({ appId, appRevisionId, setRejectionReason, submitDeclineRevision })}
         render={() => {
           return isSuccessed ? (
-            <ModalBody
-              body={
-                <CallToAction
-                  title="Rejected!"
-                  buttonText="Back to List"
-                  dataTest="decline-revision-success-message"
-                  onButtonClick={() => {
-                    onDeclineSuccess()
-                  }}
-                  isCenter
-                >
-                  Revision has been declined successfully.
-                </CallToAction>
-              }
-            />
+            <CallToAction
+              title="Rejected!"
+              type="danger"
+              buttonText="Back to List"
+              dataTest="decline-revision-success-message"
+              onButtonClick={() => {
+                onDeclineSuccess()
+              }}
+              isCenter
+            >
+              Revision has been declined successfully.
+            </CallToAction>
           ) : (
             <Form>
               <ModalBody

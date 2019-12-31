@@ -13,14 +13,24 @@ export const DeveloperSubmitAppSuccessfully: React.FC<DeveloperSubmitAppSuccessf
       <CallToAction
         dataTest="submit-success-section"
         onButtonClick={onClickHandler}
-        title="Submit Success"
+        title="Success"
         buttonText="Submit Another App"
         buttonDataTest="submit-another-button"
         isCard
       >
-        You have successfully submitted your App. You will be notified via email once your app has been approved. Please
-        see <Link to={Routes.DEVELOPER_MY_APPS}>Manage Apps</Link> to edit and set status to be "listed" on the
-        marketplace.
+        <p>
+          Your App has been submitted successfully. For it to be available on the Marketplace, you will need to make it
+          ‘Listed’. To do this, click ‘Apps’ from the menu bar, open your submitted App and click ‘Edit Details’, simply
+          tick the ‘Is Listed’ checkbox.
+        </p>
+        <p>
+          You can also use this section to make any additional changes. Once you are ready to proceed, click ‘Submit
+          App’. Our Administration department will then review the details you have submitted. Whilst this review is
+          taking place, this App will be marked as ‘Pending Revision’ and you will not be able to make any further
+          changes.
+        </p>
+        <p>You can check the status of any submissions by accessing ‘Apps’ from the menu bar.</p>
+        <p>For any help or support, please visit the ‘Help’ page.</p>
       </CallToAction>
     </FlexContainerResponsive>
   </FlexContainerResponsive>

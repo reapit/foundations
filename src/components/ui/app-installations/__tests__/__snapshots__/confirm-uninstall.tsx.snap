@@ -101,19 +101,17 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUBMITTING 1
 `;
 
 exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUCCESS 1`] = `
-<ModalBody
-  body={
-    <CallToAction
-      buttonText="Back to List"
-      dataTest="alertUninstallSuccess"
-      isCenter={true}
-      onButtonClick={[Function]}
-      title="Success!"
-    >
-      1
-       has been successfully uninstall from 
-      DXX
-    </CallToAction>
-  }
-/>
+<CallToAction
+  buttonText="Back to List"
+  dataTest="alertUninstallSuccess"
+  isCenter={true}
+  onButtonClick={[Function]}
+  title="Success"
+>
+  '
+  1
+  ' has been successfully uninstalled from '
+  DXX
+  '
+</CallToAction>
 `;
