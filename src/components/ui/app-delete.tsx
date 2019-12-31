@@ -65,20 +65,16 @@ export const DeleteAppModal = ({
     >
       <>
         {isSuccedded ? (
-          <ModalBody
-            body={
-              <CallToAction
-                title="Removed!"
-                buttonText="Back to List"
-                dataTest="delete-app-success-message"
-                buttonDataTest="delete-app-success-button"
-                onButtonClick={onDeleteSuccess}
-                isCenter
-              >
-                App '{appName}' has been deleted successfully.
-              </CallToAction>
-            }
-          />
+          <CallToAction
+            title="Removed!"
+            buttonText="Back to List"
+            dataTest="delete-app-success-message"
+            buttonDataTest="delete-app-success-button"
+            onButtonClick={onDeleteSuccess}
+            isCenter
+          >
+            We have successfully deleted app '{appName}'.
+          </CallToAction>
         ) : (
           <>
             <ModalHeader

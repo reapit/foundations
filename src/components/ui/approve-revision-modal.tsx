@@ -83,22 +83,18 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
         data-test="revision-approve-form"
         render={() => {
           return isSuccessed ? (
-            <ModalBody
-              body={
-                <CallToAction
-                  title="Approved!"
-                  buttonText="Back to List"
-                  dataTest="approve-revision-success-message"
-                  buttonDataTest="approve-revision-success-button"
-                  onButtonClick={() => {
-                    onApproveSuccess()
-                  }}
-                  isCenter
-                >
-                  Revision has been approved successfully.
-                </CallToAction>
-              }
-            />
+            <CallToAction
+              title="Success"
+              buttonText="Back to List"
+              dataTest="approve-revision-success-message"
+              buttonDataTest="approve-revision-success-button"
+              onButtonClick={() => {
+                onApproveSuccess()
+              }}
+              isCenter
+            >
+              Revision has been approved successfully.
+            </CallToAction>
           ) : (
             <Form>
               <ModalBody body={<SubTitleH6 isCentered>Do you want to approve this revision?</SubTitleH6>} />

@@ -118,19 +118,15 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
     const appName = appDetailData.name || 'App'
     const isInstalled = !!appDetailData.installationId
     return (
-      <ModalBody
-        body={
-          <CallToAction
-            title="Success!"
-            buttonText="Back to List"
-            dataTest="alertInstalledSuccess"
-            onButtonClick={handleCloseModal(setStateViewBrowse, afterClose, installationsSetFormState)}
-            isCenter
-          >
-            {appName} has been successfully {isInstalled ? 'uninstalled' : 'installed'}
-          </CallToAction>
-        }
-      />
+      <CallToAction
+        title="Success"
+        buttonText="Back to List"
+        dataTest="alertInstalledSuccess"
+        onButtonClick={handleCloseModal(setStateViewBrowse, afterClose, installationsSetFormState)}
+        isCenter
+      >
+        {appName} has been successfully {isInstalled ? 'uninstalled' : 'installed'}
+      </CallToAction>
     )
   }
 

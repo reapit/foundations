@@ -42,18 +42,14 @@ export const DeleteDeveloperModal = ({
     <Modal visible={visible} afterClose={onAfterCloseHandler({ afterClose, isLoading })} renderChildren>
       <>
         {isSucceeded ? (
-          <ModalBody
-            body={
-              <CallToAction
-                title="Removed!"
-                buttonText="Back to List"
-                onButtonClick={onDeleteSuccessHandler({ onDeleteSuccess, resetDeveloperDeleteReducer })}
-                isCenter
-              >
-                Developer '{developerName}' has been deleted successfully.
-              </CallToAction>
-            }
-          />
+          <CallToAction
+            title="Success"
+            buttonText="Back to List"
+            onButtonClick={onDeleteSuccessHandler({ onDeleteSuccess, resetDeveloperDeleteReducer })}
+            isCenter
+          >
+            Developer '{developerName}' has been deleted successfully.
+          </CallToAction>
         ) : (
           <>
             <ModalHeader
