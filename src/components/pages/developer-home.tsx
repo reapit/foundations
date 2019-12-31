@@ -13,6 +13,7 @@ import DeveloperAppModal from '../ui/developer-app-modal'
 import { setDeveloperAppModalStateViewDetail, developerAppShowModal } from '@/actions/developer-app-modal'
 import { appDeleteSetInitFormState } from '@/actions/app-delete'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import { SandboxPopUp } from '../ui/sandbox-pop-up'
 
 export interface DeveloperMappedActions {
   fetchAppDetail: (id: string) => void
@@ -96,6 +97,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
             onChange: handleOnChange(history)
           }}
         />
+        <SandboxPopUp loading={loading} />
         <DeveloperAppModal
           visible={isVisible}
           afterClose={handleAfterClose({ setVisible, removeAuthenticationCode })}

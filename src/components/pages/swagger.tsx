@@ -6,6 +6,7 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { URLS, MARKETPLACE_HEADERS } from '../../constants/api'
 import { Loader } from '@reapit/elements'
 import { getAccessToken } from '@/utils/session'
+import { SandboxPopUp } from '../ui/sandbox-pop-up'
 
 export const fetchInterceptor = async (params: RequestInit) => {
   return {
@@ -33,6 +34,7 @@ export const SwaggerPage: React.SFC = () => {
             requestInterceptor={fetchInterceptor}
           />
         </div>
+        <SandboxPopUp loading={loading} />
       </div>
     </ErrorBoundary>
   )

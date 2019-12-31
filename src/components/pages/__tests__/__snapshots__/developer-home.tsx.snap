@@ -65,6 +65,9 @@ exports[`DeveloperHome should match a snapshot 1`] = `
       }
       title="My Apps"
     />
+    <Component
+      loading={false}
+    />
     <withRouter()
       afterClose={[Function]}
     />
@@ -138,6 +141,9 @@ exports[`DeveloperHome should match a snapshot 3`] = `
         }
       }
       title="My Apps"
+    />
+    <Component
+      loading={false}
     />
     <withRouter()
       afterClose={[Function]}
