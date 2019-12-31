@@ -1,4 +1,4 @@
-service: cognito-auth-api-dev
+service: cognito-auth-api-dev-dev-mailer
 custom: ${file(./env.yml)}
 provider:
   name: aws
