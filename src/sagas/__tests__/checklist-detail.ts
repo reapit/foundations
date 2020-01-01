@@ -405,7 +405,6 @@ describe('checklist-detail', () => {
       }
       expect(clone.next(contact as any).value).toEqual(
         call(updateIdentityCheck, {
-          contactId: contact.id,
           headers: mockHeaders,
           identityChecks: {
             ...idCheck,
@@ -462,7 +461,6 @@ describe('checklist-detail', () => {
       }
       expect(clone.next(contact as any).value).toEqual(
         call(updateIdentityCheck, {
-          contactId: contact.id,
           headers: mockHeaders,
           identityChecks: {
             ...idCheck,
@@ -501,8 +499,7 @@ describe('checklist-detail', () => {
       data: params
     })
     expect(gen.next().value).toEqual(select(selectCheckListDetailIdCheck))
-    expect(gen.next(idCheck as any).value).toEqual(select(selectCheckListDetailContact))
-    expect(gen.next(contact as any).value).toEqual(call(initAuthorizedRequestHeaders))
+    expect(gen.next(idCheck as any).value).toEqual(call(initAuthorizedRequestHeaders))
     expect(gen.next(mockHeaders as any).value).toEqual(put(checklistDetailSubmitForm(true)))
 
     test('api call success', () => {
@@ -510,7 +507,6 @@ describe('checklist-detail', () => {
 
       expect(clone.next(true as any).value).toEqual(
         call(updateIdentityCheck, {
-          contactId: contact.id,
           headers: mockHeaders,
           identityChecks: {
             ...idCheck,

@@ -10,11 +10,11 @@ import {
   H3,
   AcButton,
   EntityType,
-  LoginMode,
   AppParams,
   Form,
   Formik
 } from '@reapit/elements'
+import { LoginMode } from '@reapit/cognito-auth'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
 import { SearchParams, resultSetSearchParams } from '@/actions/result'

@@ -7,7 +7,6 @@ import {
   LevelLeft,
   Level,
   Button,
-  LoginMode,
   AcLink,
   EntityType,
   SubTitleH5,
@@ -16,6 +15,7 @@ import {
 import styles from '@/styles/ui/aml-progressbar.scss?mod'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import { ContactIdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
+import { LoginMode } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
 import { checklistDetailShowModal } from '@/actions/checklist-detail'
 import { ReduxState } from '@/types/core'
