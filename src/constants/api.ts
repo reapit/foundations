@@ -6,6 +6,6 @@ export const CONTACTS_HEADERS = {
 
 export const URLS = {
   contacts: '/contacts',
-  idChecks: '/identitychecks',
+  idChecks: '/identityChecks',
   configuration: '/configuration'
 }
