@@ -1,11 +1,14 @@
 import loginPage from '../pages/login-page'
 import developerSubmitAppPage from '../pages/developer-submit-app-page'
 import developerAppsPage from '../pages/developer-apps-page'
-import appRequests from '../requests/app'
 import routes from '../fixtures/routes'
 import nanoid from 'nanoid'
 
 const appName = `E2E Test App -${nanoid()}`
+
+const {
+  actions: { deleteAppWithName }
+} = developerAppsPage
 
 const {
   actions: { loginUsingDeveloperAccount }
@@ -88,18 +91,11 @@ describe('Submit app happy path', () => {
     })
 
     cy.get(buttonSubmit).click()
-    cy.wait(100)
     cy.wait('@postSubmitApp')
     cy.get(submitSuccessSection).should('have.length', 1)
+  })
 
-    // Cleanup
-    cy.visit(developerAppsPage.url)
-    cy.wait('@getAppsOfDeveloper')
-    cy.get(`div[data-test-app-name='${appName}']`)
-      .should('have.length', 1)
-      .invoke('attr', 'data-test-app-id')
-      .then(appId => {
-        appRequests.deleteApp(appId as any)
-      })
+  after(() => {
+    deleteAppWithName(appName)
   })
 })
