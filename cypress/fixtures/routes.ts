@@ -1,7 +1,11 @@
+const apiEndPoint = Cypress.env('MARKETPLACE_API_BASE_URL')
+
 export default {
-  categories: 'https://dev.platformmarketplace.reapit.net/categories',
-  scopes: 'https://dev.platformmarketplace.reapit.net/scopes',
-  appsOfDeveloper: 'https://dev.platformmarketplace.reapit.net/apps?developerId=**&PageNumber=**&PageSize=**',
-  apps: 'https://dev.platformmarketplace.reapit.net/apps',
-  developers: 'https://dev.platformmarketplace.reapit.net/developers'
+  categories: `${apiEndPoint}/categories`,
+  scopes: `${apiEndPoint}/scopes`,
+  appsOfDeveloper: `${apiEndPoint}/apps?developerId=**&PageNumber=**&PageSize=**`,
+  apps: `${apiEndPoint}/apps`,
+  developers: `${apiEndPoint}/developers`,
+  approveApp: `${apiEndPoint}/apps/**/revisions/**/approve`,
+  revision: `${apiEndPoint}/apps/**/revisions`
 }

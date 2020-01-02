@@ -1,8 +1,22 @@
 import routes from '@/constants/routes'
 
-export default {
+const adminApprovalsPageMetaData = {
   url: routes.ADMIN_APPROVALS,
   selectors: {
-    container: '#page-admin-approvals-container'
+    container: '#page-admin-approvals-container',
+    buttonApprove: 'button[data-test="revision-approve-button"]',
+    btnConfirmApproval: 'button[data-test="revision-approve-submit"]',
+    divApproveAppSuccessfully: 'div[data-test="approve-revision-success-message"]'
   }
 }
+
+const adminApprovalsPage = {
+  ...adminApprovalsPageMetaData,
+  actions: {
+    clickViewDetailsButtonWithAppId(id: string) {
+      cy.get(`button[data-test="view-details-button_${id}"]`).click()
+    }
+  }
+}
+
+export default adminApprovalsPage
