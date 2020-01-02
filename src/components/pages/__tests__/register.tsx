@@ -19,6 +19,7 @@ const props = {
   formState: 'PENDING' as FormState,
   developerCreate: jest.fn(),
   developerSetFormState: jest.fn(),
+  getFieldHelpers: jest.fn(),
   ...mockWithFormik({
     name: '123',
     companyName: '123',

@@ -79,6 +79,10 @@ exports[`Client should match a snapshot when LOADING false 1`] = `
     afterClose={[Function]}
     visible={false}
   />
+  <Component
+    onAccept={[Function]}
+    visible={false}
+  />
 </Connect(ErrorBoundary)>
 `;
 
@@ -92,6 +96,10 @@ exports[`Client should match a snapshot when LOADING true 1`] = `
   </div>
   <Connect(Component)
     afterClose={[Function]}
+    visible={false}
+  />
+  <Component
+    onAccept={[Function]}
     visible={false}
   />
 </Connect(ErrorBoundary)>
@@ -176,6 +184,10 @@ exports[`Client should match a snapshot when featured apps is empty [] 1`] = `
     afterClose={[Function]}
     visible={false}
   />
+  <Component
+    onAccept={[Function]}
+    visible={false}
+  />
 </Connect(ErrorBoundary)>
 `;
 
@@ -256,6 +268,10 @@ exports[`Client should match a snapshot when featured apps is undefined 1`] = `
   </div>
   <Connect(Component)
     afterClose={[Function]}
+    visible={false}
+  />
+  <Component
+    onAccept={[Function]}
     visible={false}
   />
 </Connect(ErrorBoundary)>

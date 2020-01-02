@@ -1,13 +1,14 @@
 import authSagas, { doLogin, doLogout, loginListen, logoutListen, clearAuthListen, clearAuth } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
-import { authLoginSuccess, authLogoutSuccess, authLoginFailure } from '../../actions/auth'
+import { authLoginSuccess, authLogoutSuccess, authLoginFailure, toggleFirstLogin } from '../../actions/auth'
 import { Action } from '@/types/core'
 import { setUserSession, removeSession, LoginParams, LoginSession } from '@reapit/cognito-auth'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
 import { ActionType } from '../../types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
+import { getCookieString, setCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({
@@ -43,6 +44,9 @@ describe('login submit', () => {
     const gen = doLogin(action)
     expect(gen.next(mockLoginSession).value).toEqual(call(setUserSession, loginParams))
     expect(gen.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))
+    expect(gen.next().value).toEqual(call(getCookieString, COOKIE_FIRST_TIME_LOGIN))
+    expect(gen.next().value).toEqual(put(toggleFirstLogin(true)))
+    expect(gen.next().value).toEqual(call(setCookieString, COOKIE_FIRST_TIME_LOGIN, COOKIE_FIRST_TIME_LOGIN))
     expect(gen.next().done).toBe(true)
   })
 

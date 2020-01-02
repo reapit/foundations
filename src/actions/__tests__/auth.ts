@@ -6,7 +6,8 @@ import {
   authLogoutSuccess,
   authChangeLoginType,
   authSetRefreshSession,
-  authClear
+  authClear,
+  toggleFirstLogin
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { LoginType, LoginSession, LoginMode } from '@reapit/cognito-auth'
@@ -59,5 +60,10 @@ describe('auth actions', () => {
   it('should create a authClear action', () => {
     expect(authClear.type).toEqual(ActionTypes.AUTH_CLEAR)
     expect(authClear().data).toEqual(undefined)
+  })
+
+  it('should create a toggleFirstLogin action', () => {
+    expect(toggleFirstLogin.type).toEqual(ActionTypes.TOGGLE_FIRST_LOGIN)
+    expect(toggleFirstLogin(true).data).toBeTruthy()
   })
 })

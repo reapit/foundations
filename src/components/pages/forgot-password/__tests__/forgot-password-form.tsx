@@ -15,7 +15,8 @@ describe('ForgotPasswordForm', () => {
   it('should match snapshot', () => {
     const mockProps = {
       ...mockWithFormik({ email: '1' }),
-      ...getMockRouterProps({})
+      ...getMockRouterProps({}),
+      getFieldHelpers: jest.fn()
     } as ForgotPasswordFormProps
     const wrapper = shallow(<ForgotPasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -32,7 +33,8 @@ describe('ForgotPasswordForm', () => {
         pathname: '',
         search: '?isError=1',
         state: {}
-      }
+      },
+      getFieldHelpers: jest.fn()
     } as ForgotPasswordFormProps
     const wrapper = shallow(<ForgotPasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -49,7 +51,8 @@ describe('ForgotPasswordForm', () => {
         pathname: '',
         search: '?isSuccess=1',
         state: {}
-      }
+      },
+      getFieldHelpers: jest.fn()
     } as ForgotPasswordFormProps
     const wrapper = shallow(<ForgotPasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
