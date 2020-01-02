@@ -5,8 +5,6 @@ import { LoginParams } from '../../../core/types'
 import { mockLoginSession, mockLoginParams } from '../../../__mocks__/cognito-session'
 
 jest.mock('../../../services/session/login-user-session')
-jest.mock('../../../utils/success-handler')
-jest.mock('../../../utils/error-handler')
 jest.mock('../../../utils/cognito')
 
 const mockedSessionService = loginUserSessionService as jest.Mock

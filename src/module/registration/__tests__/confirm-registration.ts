@@ -1,15 +1,9 @@
-import { Request } from 'express'
 import { confirmRegistration } from '../confirm-registration'
-import { mockReq, mockRes } from '../../../__mocks__/express'
 import { confirmRegistrationService } from '../../../services/registration/confirm-registration'
-import successHandler from '../../../utils/success-handler'
-import errorHandler from '../../../utils/error-handler'
 import errorStrings from '../../../constants/error-strings'
 import { ConfirmRegistrationParams } from '../../../core/types'
 
 jest.mock('../../../services/registration/confirm-registration')
-jest.mock('../../../utils/success-handler')
-jest.mock('../../../utils/error-handler')
 
 const mockedPasswordService = confirmRegistrationService as jest.Mock
 
