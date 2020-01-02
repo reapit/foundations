@@ -6,7 +6,9 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/helpers|src/stylesq)[/\\\\]',
     '.stories.tsx',
-    'src/index.tsx'
+    'src/index.tsx',
+    'index.ts',
+    'v2.ts'
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public)[/\\\\]'],
   transform: {
@@ -18,10 +20,10 @@ module.exports = {
   },
   coverageThreshold: {
     global: {
-      branches: 73,
-      functions: 90,
-      lines: 90,
-      statements: 90
+      branches: 85,
+      functions: 94,
+      lines: 95,
+      statements: 95
     }
   }
 }
