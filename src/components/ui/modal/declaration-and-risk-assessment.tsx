@@ -61,8 +61,8 @@ export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ({
         <Button disabled={isSubmitting} className="mr-2" variant="primary" type="button" onClick={onPrevHandler}>
           Previous
         </Button>
-        <Button disabled={isSubmitting} variant="primary" type="button" onClick={onNextHandler(values)}>
-          Next
+        <Button loading={isSubmitting} variant="primary" type="button" onClick={onNextHandler(values)}>
+          Finish
         </Button>
       </div>
     </Form>
@@ -128,8 +128,7 @@ export type OwnPropsProps = {
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onHandleSubmit: values => dispatch(updateDeclarationAndRisk({ contact: values })),
-    onNextHandler: (values: any) => () =>
-      dispatch(updateDeclarationAndRisk({ nextSection: STEPS.PEP_SEARCH, contact: values })),
+    onNextHandler: (values: any) => () => dispatch(updateDeclarationAndRisk({ contact: values })),
     onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.ADDRESS_INFORMATION))
   }
 }
