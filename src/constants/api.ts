@@ -9,7 +9,7 @@ export const COGNITO_HEADERS = {
 } as StringMap
 
 export const URLS = {
-  idChecks: '/identitychecks',
+  idChecks: '/identityChecks',
   contacts: '/contacts',
   configuration: '/configuration'
 }
