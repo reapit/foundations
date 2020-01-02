@@ -30,14 +30,14 @@ exports[`Info should match a snapshot for variant CLIENT_APPS_EMPTY 1`] = `
 
 exports[`Info should match a snapshot for variant DEVELOPER_APPS_EMPTY 1`] = `
 <Component
-  message="You currently have no apps listed. Go to the submit app page to submit an app. After submission, you will need to edit the app and set status to isListed to appear in the marketplace"
+  message="It looks like you haven’t submitted an App yet . When you’re ready, click on ‘Submit’ from the menu to get started."
   type="info"
 />
 `;
 
 exports[`Info should match a snapshot for variant INSTALLED_APPS_EMPTY 1`] = `
 <Component
-  message="You have no apps installed - try browsing the apps list for apps you might find useful"
+  message="It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu."
   type="info"
 />
 `;
