@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { shallow } from 'enzyme'
+import { Provider } from 'react-redux'
+import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { appsDataStub, featuredAppsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
@@ -12,12 +13,16 @@ import {
   handleAfterClose,
   handleOnChange,
   handleOnCardClick,
-  ClientMappedProps
+  ClientMappedProps,
+  userAcceptTerm
 } from '../client'
 import { addQuery } from '@/utils/client-url-params'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { RouteComponentProps, StaticContext } from 'react-router'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
+import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
+import store from '@/core/store'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const routerProps = {
   match: {
@@ -52,6 +57,8 @@ const props = (loading: boolean): ClientProps => ({
   installationsFormState: 'PENDING',
   installationsSetFormState: jest.fn(),
   fetchAppDetail: jest.fn(),
+  setFirstLogin: jest.fn(),
+  firstLogin: false,
   ...routerProps
 })
 
@@ -98,6 +105,8 @@ describe('Client', () => {
       setStateViewBrowse: jest.fn(),
       installationsSetFormState: jest.fn(),
       fetchAppDetail: jest.fn(),
+      setFirstLogin: jest.fn(),
+      firstLogin: false,
       ...routerProps
     }
 
@@ -127,6 +136,8 @@ describe('Client', () => {
       setStateViewBrowse: jest.fn(),
       installationsSetFormState: jest.fn(),
       fetchAppDetail: jest.fn(),
+      setFirstLogin: jest.fn(),
+      firstLogin: false,
       ...routerProps
     }
 
@@ -217,6 +228,31 @@ describe('Client', () => {
       fn({ id: '1' })
       expect(mockProps.setVisible).toBeCalled()
       expect(mockProps.fetchAppDetail).toBeCalled()
+    })
+  })
+
+  describe('handle userAcceptTerm', () => {
+    it('should run correctly', () => {
+      const mockProps = {
+        setFirstLogin: jest.fn()
+      }
+      userAcceptTerm(mockProps)
+      expect(mockProps.setFirstLogin).toBeCalled()
+    })
+  })
+
+  describe('show welcome modal when firstLogin', () => {
+    it('should run correctly', () => {
+      const wrapper = mount(
+        <Provider store={store.reduxStore}>
+          <Router>
+            <Client {...props(false)} firstLogin />
+          </Router>
+        </Provider>
+      )
+      setTimeout(() => {
+        expect(wrapper.find(<ClientWelcomeMessageModal visible={true} onAccept={jest.fn()} />)).toEqual(1)
+      }, 200)
     })
   })
 })

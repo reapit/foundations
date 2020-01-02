@@ -14,14 +14,16 @@ import { selectClientId } from '@/selector/client'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import styles from '@/styles/pages/client.scss?mod'
 import { appInstallationsSetFormState } from '@/actions/app-installations'
-
+import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
 import { addQuery, getParamValueFromPath, hasFilterParams } from '@/utils/client-url-params'
 import { setAppDetailModalStateBrowse } from '@/actions/app-detail-modal'
+import { toggleFirstLogin } from '@/actions/auth'
 
 export interface ClientMappedActions {
   setStateViewBrowse: () => void
   fetchAppDetail: (id: string, clientId: string) => void
   installationsSetFormState: (formState: FormState) => void
+  setFirstLogin: (firstLogin: boolean) => void
 }
 
 export interface ClientMappedProps {
@@ -29,6 +31,7 @@ export interface ClientMappedProps {
   appDetail: AppDetailState
   clientId: string
   installationsFormState: FormState
+  firstLogin?: boolean
 }
 
 export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
@@ -58,6 +61,10 @@ export const handleInstallationDone = ({
   }
 }
 
+export const userAcceptTerm = ({ setFirstLogin }) => {
+  setFirstLogin(false)
+}
+
 export type ClientProps = ClientMappedActions & ClientMappedProps & RouteComponentProps<{ page?: any }>
 
 export const Client: React.FunctionComponent<ClientProps> = ({
@@ -69,7 +76,9 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   clientId,
   setStateViewBrowse,
   installationsFormState,
-  installationsSetFormState
+  installationsSetFormState,
+  firstLogin = false,
+  setFirstLogin
 }) => {
   const pageNumber =
     !isNaN(Number(getParamValueFromPath(location.search, 'page'))) &&
@@ -134,6 +143,12 @@ export const Client: React.FunctionComponent<ClientProps> = ({
         )}
       </div>
       <AppDetailModal visible={visible} afterClose={handleAfterClose({ setVisible })} />
+      <ClientWelcomeMessageModal
+        visible={firstLogin}
+        onAccept={() => {
+          userAcceptTerm({ setFirstLogin })
+        }}
+      />
     </ErrorBoundary>
   )
 }
@@ -142,13 +157,15 @@ export const mapStateToProps = (state: ReduxState): ClientMappedProps => ({
   clientState: state.client,
   appDetail: state.appDetail,
   clientId: selectClientId(state),
-  installationsFormState: state.installations.formState
+  installationsFormState: state.installations.formState,
+  firstLogin: state.auth.firstLogin
 })
 
 export const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
   setStateViewBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
-  installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState))
+  installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState)),
+  setFirstLogin: (firstLogin: boolean) => dispatch(toggleFirstLogin(firstLogin))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Client))

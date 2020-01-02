@@ -6,12 +6,14 @@ import {
   authLoginSuccess,
   authLogoutSuccess,
   authSetRefreshSession,
-  authChangeLoginType
+  authChangeLoginType,
+  toggleFirstLogin
 } from '../actions/auth'
 import { LoginSession, RefreshParams, getSessionCookie, LoginType } from '@reapit/cognito-auth'
 
 export interface AuthState {
   error: boolean
+  firstLogin?: boolean
   loginType: LoginType
   loginSession: LoginSession | null
   refreshSession: RefreshParams | null
@@ -23,6 +25,7 @@ export const defaultState = (): AuthState => {
   return {
     error: false,
     loginSession: null,
+    firstLogin: false,
     loginType: refreshSession ? refreshSession.loginType : 'CLIENT',
     refreshSession
   }
@@ -41,6 +44,13 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
       ...state,
       error: false,
       loginSession: action.data
+    }
+  }
+
+  if (isType(action, toggleFirstLogin)) {
+    return {
+      ...state,
+      firstLogin: action.data
     }
   }
 

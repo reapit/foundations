@@ -62,4 +62,10 @@ describe('auth reducer', () => {
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_SET_REFRESH_SESSION as ActionType, data })
     expect(newState.refreshSession).toEqual(data)
   })
+
+  it('should set the firstLogin state when the TOGGLE_FIRST_LOGIN is called', () => {
+    const data = true
+    const newState = authReducer(undefined, { type: ActionTypes.TOGGLE_FIRST_LOGIN as ActionType, data })
+    expect(newState.firstLogin).toEqual(data)
+  })
 })

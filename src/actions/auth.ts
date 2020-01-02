@@ -10,3 +10,4 @@ export const authLogoutSuccess = actionCreator<void>(ActionTypes.AUTH_LOGOUT_SUC
 export const authSetRefreshSession = actionCreator<RefreshParams>(ActionTypes.AUTH_SET_REFRESH_SESSION)
 export const authChangeLoginType = actionCreator<LoginType>(ActionTypes.AUTH_CHANGE_LOGIN_TYPE)
 export const authClear = actionCreator<void>(ActionTypes.AUTH_CLEAR)
+export const toggleFirstLogin = actionCreator<boolean>(ActionTypes.TOGGLE_FIRST_LOGIN)

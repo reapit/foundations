@@ -26,6 +26,7 @@ const props = {
   installationDetail: installationStub,
   onUninstallSuccess: jest.fn(),
   uninstallApp: jest.fn(),
+  getFieldHelpers: jest.fn(),
   ...mockWithFormik({ terminatedReason: '' })
 } as ConfirmUninstallProps & FormikProps<TerminatedValues>
 
