@@ -42,7 +42,7 @@ export const fetchContact = async ({ contactId, headers }) => {
 export const fetchIdentityCheck = async ({ headers, contactId }) => {
   try {
     const response = await fetcher({
-      url: `${URLS.contacts}/${contactId}${URLS.idChecks}`,
+      url: `${URLS.idChecks}?ContactId=${contactId}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
       headers: headers
@@ -89,10 +89,10 @@ export const updateContact = async ({ contactId, headers, contact }) => {
   }
 }
 
-export const updateIdentityCheck = async ({ contactId, identityChecks, headers }) => {
+export const updateIdentityCheck = async ({ identityChecks, headers }) => {
   try {
     const response = await fetcher({
-      url: `${URLS.contacts}/${contactId}${URLS.idChecks}/${identityChecks.id}`,
+      url: `${URLS.idChecks}/${identityChecks.id}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
       headers: headers,
@@ -105,10 +105,10 @@ export const updateIdentityCheck = async ({ contactId, identityChecks, headers }
   }
 }
 
-export const createIdentityCheck = async ({ contactId, identityChecks, headers }) => {
+export const createIdentityCheck = async ({ identityChecks, headers }) => {
   try {
     const response = await fetcher({
-      url: `${URLS.contacts}/${contactId}${URLS.idChecks}`,
+      url: URLS.idChecks,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'POST',
       headers: headers,
@@ -303,7 +303,6 @@ export const updateSecondaryId = function*({ data }: Action<any>) {
 
     if (idCheck) {
       yield call(updateIdentityCheck, {
-        contactId: contact.id,
         headers,
         identityChecks: {
           ...idCheck,
@@ -313,8 +312,8 @@ export const updateSecondaryId = function*({ data }: Action<any>) {
     } else {
       yield call(createIdentityCheck, {
         headers,
-        contactId: contact.id,
         identityChecks: {
+          contactId: contact.id,
           ...baseValues,
           status: 'pending',
           checkDate: dayjs()
@@ -376,7 +375,6 @@ export const updatePrimaryId = function*({ data }: Action<any>) {
     } as ContactIdentityCheckModel
     if (idCheck) {
       yield call(updateIdentityCheck, {
-        contactId: contact.id,
         headers,
         identityChecks: {
           ...idCheck,
@@ -386,8 +384,8 @@ export const updatePrimaryId = function*({ data }: Action<any>) {
     } else {
       yield call(createIdentityCheck, {
         headers,
-        contactId: contact.id,
         identityChecks: {
+          contactId: contact.id,
           ...baseValues,
           status: 'pending',
           checkDate: dayjs()
@@ -430,9 +428,10 @@ export const updateAgentCheck = function*({ data }: any) {
           ...data
         }
       }
-      responseUpdate = yield call(updateIdentityCheck, { contactId: contact.id, identityChecks: newIdCheck, headers })
+      responseUpdate = yield call(updateIdentityCheck, { identityChecks: newIdCheck, headers })
     } else {
       const newIdCheck = {
+        contactId: contact.id,
         status: 'pending',
         checkDate: dayjs()
           .startOf('day')
@@ -442,7 +441,7 @@ export const updateAgentCheck = function*({ data }: any) {
           ...data
         }
       }
-      responseUpdate = yield call(createIdentityCheck, { contactId: contact.id, identityChecks: newIdCheck, headers })
+      responseUpdate = yield call(createIdentityCheck, { identityChecks: newIdCheck, headers })
     }
     if (responseUpdate) {
       yield put(checklistDetailLoading(true))

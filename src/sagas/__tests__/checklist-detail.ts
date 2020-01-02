@@ -227,9 +227,9 @@ describe('checklist-detail updatePrimaryId', () => {
     }
     expect(clone.next(contact as any).value).toEqual(
       call(updateIdentityCheck, {
-        contactId: contact.id,
         headers: mockHeaders,
         identityChecks: {
+          contactId: contact.id,
           ...idCheck,
           ...baseValues
         }
@@ -282,9 +282,9 @@ describe('checklist-detail updateSecondaryId', () => {
     }
     expect(clone.next(contact as any).value).toEqual(
       call(updateIdentityCheck, {
-        contactId: contact.id,
         headers: mockHeaders,
         identityChecks: {
+          contactId: contact.id,
           ...idCheck,
           ...baseValues
         }
@@ -333,6 +333,7 @@ describe('checklist-detail updateAgentCheck', () => {
   test('api call success', () => {
     const clone = gen.clone()
     const newIdCheck = {
+      contactId: contact.id,
       ...idCheck,
       metadata: {
         ...idCheck.metadata,
@@ -340,7 +341,7 @@ describe('checklist-detail updateAgentCheck', () => {
       }
     }
     expect(clone.next('mockCode' as any).value).toEqual(
-      call(updateIdentityCheck, { contactId: contact.id, identityChecks: newIdCheck, headers: mockHeaders })
+      call(updateIdentityCheck, { identityChecks: newIdCheck, headers: mockHeaders })
     )
     expect(clone.next(true as any).value).toEqual(put(checklistDetailLoading(true)))
     expect(clone.next().value).toEqual(call(fetchIdentityCheck, { contactId: contact.id, headers: mockHeaders }))
