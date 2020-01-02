@@ -5,8 +5,6 @@ import { RefreshParams } from '../../../core/types'
 import { mockRefreshParams, mockLoginSession } from '../../../__mocks__/cognito-session'
 
 jest.mock('../../../services/session/refresh-user-session')
-jest.mock('../../../utils/success-handler')
-jest.mock('../../../utils/error-handler')
 jest.mock('../../../utils/cognito')
 
 const mockedSessionService = refreshUserSessionService as jest.Mock

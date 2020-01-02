@@ -4,7 +4,6 @@ import errorStrings from '../../../constants/error-strings'
 import { ConfirmPasswordParams } from '../../../core/types'
 
 jest.mock('../../../services/password/confirm-password')
-jest.mock('../../../utils/error-handler')
 
 const mockedPasswordService = confirmPasswordService as jest.Mock
 

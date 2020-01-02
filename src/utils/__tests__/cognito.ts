@@ -7,7 +7,8 @@ import {
   getTokenFromQueryString,
   deserializeIdToken,
   tokenExpired,
-  checkHasIdentityId
+  checkHasIdentityId,
+  COOKIE_EXPIRY
 } from '../cognito'
 import { mockCognitoUserSession, mockLoginSession } from '../../__mocks__/cognito-session'
 import hardtack from 'hardtack'
@@ -69,7 +70,7 @@ describe('Session utils', () => {
         {
           path: '/',
           domain: '.reapit.com',
-          expires: new Date(Date.now() + 2629800000).toUTCString(),
+          expires: COOKIE_EXPIRY,
           samesite: 'lax'
         }
       )
