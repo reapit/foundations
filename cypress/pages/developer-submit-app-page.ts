@@ -19,6 +19,7 @@ export default {
     fileUploadScreenshot2: 'input#screenshot2',
     fileUploadScreenshot3: 'input#screenshot3',
     fileUploadScreenshot4: 'input#screenshot4',
-    submitSuccessSection: 'div[data-test="submit-success-section"]'
+    submitSuccessSection: 'div[data-test="submit-success-section"]',
+    checkboxAgreeTheTermsAndConditions: 'input#terms-submit-app'
   }
 }

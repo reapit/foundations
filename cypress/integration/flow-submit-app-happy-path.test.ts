@@ -12,7 +12,14 @@ const {
 } = loginPage
 
 const { selectors: developerSubmitAppPageSelectors } = developerSubmitAppPage
-const { checkBoxUserSession, buttonSubmit, selectCategory, submitSuccessSection } = developerSubmitAppPageSelectors
+
+const {
+  checkBoxUserSession,
+  buttonSubmit,
+  selectCategory,
+  submitSuccessSection,
+  checkboxAgreeTheTermsAndConditions
+} = developerSubmitAppPageSelectors
 
 describe('Submit app happy path', () => {
   it('Log into dev and Submit an app successfully', () => {
@@ -76,6 +83,10 @@ describe('Submit app happy path', () => {
     }
     cy.get(selectCategory).select('Game')
     cy.get(checkBoxUserSession).click({ force: true })
+    cy.get(checkboxAgreeTheTermsAndConditions).click({
+      force: true
+    })
+
     cy.get(buttonSubmit).click()
     cy.wait(100)
     cy.wait('@postSubmitApp')

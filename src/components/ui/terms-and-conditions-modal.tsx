@@ -34,7 +34,7 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
           <Button variant="secondary" type="button" onClick={onDecline}>
             Decline
           </Button>
-          <Button variant="primary" type="button" onClick={onAccept}>
+          <Button dataTest="buttonAcceptTermsAndConditions" variant="primary" type="button" onClick={onAccept}>
             Accept
           </Button>
         </>

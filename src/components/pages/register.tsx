@@ -181,7 +181,7 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
               <FormSection>
                 <Level>
                   <Button
-                    type="button"
+                    type="submit"
                     onClick={handleSubmit}
                     loading={isDisabled}
                     variant="primary"
