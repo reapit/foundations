@@ -5,14 +5,13 @@ import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import { ResetPasswordParams, resetPasswordLoading } from '@/actions/reset-password'
 import { history } from '@/core/router'
-import resetPasswordSagas, {
-  developerResetPassword,
-  developerResetPasswordListen,
-  callResetPassword
-} from '../reset-password'
+import resetPasswordSagas, { developerResetPassword, developerResetPasswordListen } from '../reset-password'
 import Routes from '@/constants/routes'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
+import { confirmPassword } from '@reapit/cognito-auth'
+
+jest.mock('@reapit/cognito-auth')
 
 describe('developerResetPassword', () => {
   const gen = cloneableGenerator(developerResetPassword)({
@@ -20,20 +19,30 @@ describe('developerResetPassword', () => {
     data: { password: '123', email: '123@gmail.com', verificationCode: '123', confirmPassword: '123' }
   })
   expect(gen.next().value).toEqual(put(resetPasswordLoading(true)))
+
   it('should call API success', () => {
     const clone = gen.clone()
     const body = { newPassword: '123', userName: '123@gmail.com', verificationCode: '123' }
-    expect(clone.next().value).toEqual(call(callResetPassword, body))
+    expect(clone.next().value).toEqual(call(confirmPassword, body))
     expect(clone.next({ message: 'SUCCESS' }).value).toEqual(
       history.push(`${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`)
     )
     expect(clone.next().value).toEqual(put(resetPasswordLoading(false)))
     expect(clone.next().done).toEqual(true)
   })
+
+  it('should do nothing and set loading to false when message is not SUCCESS', () => {
+    const clone = gen.clone()
+    const body = { newPassword: '123', userName: '123@gmail.com', verificationCode: '123' }
+    expect(clone.next().value).toEqual(call(confirmPassword, body))
+    expect(clone.next({ message: 'FAIL' }).value).toEqual(put(resetPasswordLoading(false)))
+    expect(clone.next().done).toEqual(true)
+  })
+
   it('should call API fail', () => {
     const clone = gen.clone()
     const body = { newPassword: '123', userName: '123@gmail.com', verificationCode: '123' }
-    expect(clone.next().value).toEqual(call(callResetPassword, body))
+    expect(clone.next().value).toEqual(call(confirmPassword, body))
     // @ts-ignore
     expect(clone.throw(new Error('123')).value).toEqual(
       put(

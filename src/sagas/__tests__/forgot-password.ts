@@ -1,8 +1,4 @@
-import forgotPasswordSagas, {
-  requestForgotPasswordListen,
-  requestForgotPassword,
-  callAPIForgotPassword
-} from '../forgot-password'
+import forgotPasswordSagas, { requestForgotPasswordListen, requestForgotPassword } from '../forgot-password'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
@@ -10,15 +6,25 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { forgotPasswordLoading } from '@/actions/forgot-password'
 import { history } from '@/core/router'
 import Routes from '@/constants/routes'
+import { resetPassword } from '@reapit/cognito-auth'
+
+jest.mock('@reapit/cognito-auth')
 
 describe('requestForgotPassword', () => {
   const gen = cloneableGenerator(requestForgotPassword)({ data: 'abc@gmail.com' })
   expect(gen.next().value).toEqual(put(forgotPasswordLoading(true)))
-  expect(gen.next().value).toEqual(call(callAPIForgotPassword, 'abc@gmail.com'))
+  expect(gen.next().value).toEqual(call(resetPassword, { userName: 'abc@gmail.com' }))
+
   it('should call API success', () => {
     const clone = gen.clone()
     expect(clone.next({ CodeDeliveryDetails: {} }).value).toEqual(history.push(`${Routes.FORGOT_PASSWORD}?isSuccess=1`))
     expect(clone.next().value).toEqual(put(forgotPasswordLoading(false)))
+    expect(clone.next().done).toEqual(true)
+  })
+
+  it('dont do anything, set loading to false if result not correct', () => {
+    const clone = gen.clone()
+    expect(clone.next({ CodeDeliveryDetails: undefined }).value).toEqual(put(forgotPasswordLoading(false)))
     expect(clone.next().done).toEqual(true)
   })
 

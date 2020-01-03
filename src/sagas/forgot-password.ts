@@ -6,26 +6,12 @@ import { history } from '../core/router'
 import Routes from '@/constants/routes'
 import { Action } from '@/types/core'
 import { forgotPasswordLoading } from '@/actions/forgot-password'
-
-export const callAPIForgotPassword = async email => {
-  const FORGOT_PASSWORD_URL = '/password/reset'
-  const response = await fetcher({
-    url: FORGOT_PASSWORD_URL,
-    // please refer to this ticket https://reapit.atlassian.net/browse/CLD-620
-    api: 'https://rbsbshnxvb.execute-api.eu-west-2.amazonaws.com/dev/api',
-    method: 'POST',
-    headers: MARKETPLACE_HEADERS,
-    body: {
-      userName: email
-    }
-  })
-  return response
-}
+import { resetPassword } from '@reapit/cognito-auth'
 
 export const requestForgotPassword = function*({ data: email }) {
   yield put(forgotPasswordLoading(true))
   try {
-    const response = yield call(callAPIForgotPassword, email)
+    const response = yield call(resetPassword, { userName: email })
     if (response.CodeDeliveryDetails) {
       yield history.push(`${Routes.FORGOT_PASSWORD}?isSuccess=1`)
     }
