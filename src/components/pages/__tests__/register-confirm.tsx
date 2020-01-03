@@ -1,6 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { RegisterConfirm, handleUseEffect } from '../register-confirm'
+import Routes from '@/constants/routes'
+import { confirmRegistration } from '@reapit/cognito-auth'
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
@@ -8,9 +10,8 @@ jest.mock('react-router-dom', () => ({
   useHistory: () => ({ replace: jest.fn() })
 }))
 
-jest.mock('../register-confirm', () => ({
-  ...jest.requireActual('../register-confirm'),
-  callConfirmRegistration: jest.fn().mockResolvedValue({})
+jest.mock('@reapit/cognito-auth', () => ({
+  confirmRegistration: jest.fn().mockResolvedValue('success')
 }))
 
 describe('register-confirm', () => {
@@ -20,18 +21,29 @@ describe('register-confirm', () => {
   })
 
   describe('handleUseEffect', () => {
-    it('should call replace', done => {
-      const mockParams = {
-        userName: 'mockUserName@gmail.com',
-        verificationCode: '123',
-        replace: jest.fn()
-      }
+    const mockParams = {
+      userName: 'mockUserName@gmail.com',
+      verificationCode: '123',
+      replace: jest.fn()
+    }
+    const replaceSpy = jest.spyOn(mockParams, 'replace')
+    afterEach(() => {
+      jest.clearAllMocks()
+    })
+    it('should call replace on success with correct params', async () => {
       const fn = handleUseEffect(mockParams)
       fn()
-      setTimeout(() => {
-        expect(mockParams.replace).toHaveBeenCalled()
-        done()
-      }, 500)
+      /* hack to flush promise https://github.com/facebook/jest/issues/2157 */
+      await new Promise(resolve => setImmediate(resolve))
+      expect(replaceSpy).toHaveBeenCalledWith(`${Routes.DEVELOPER_LOGIN}?isSuccess=1`)
+    })
+
+    it('should call replace on fail with correct params', async () => {
+      ;(confirmRegistration as jest.Mocked<any>).mockRejectedValue('error')
+      const fn = handleUseEffect(mockParams)
+      fn()
+      await new Promise(resolve => setImmediate(resolve))
+      expect(replaceSpy).toHaveBeenCalledWith(`${Routes.DEVELOPER_LOGIN}?confirmError=1`)
     })
   })
 })
