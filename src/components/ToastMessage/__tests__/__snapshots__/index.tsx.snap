@@ -1,8 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ToastMessage should match a snapshot 1`] = `
+exports[`ToastMessage should match a snapshot when pass different props 1`] = `
 <div
   className="toast visible"
+  data-test="toast-wrapper"
+  onClick={[MockFunction]}
+>
+  <Component
+    fullWidth={true}
+    type="reset"
+    variant="primary"
+  >
+    Toast message
+  </Component>
+</div>
+`;
+
+exports[`ToastMessage should match a snapshot with default baseProps 1`] = `
+<div
+  className="toast "
   data-test="toast-wrapper"
   onClick={[MockFunction]}
 >

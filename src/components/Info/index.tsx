@@ -13,16 +13,16 @@ export interface InfoProps {
   infoType: InfoType
 }
 
-const infoText = (infoType: InfoType) => {
+export const infoText = (infoType: InfoType) => {
   switch (infoType) {
     case '404':
       return 'Page not found'
     case 'CLIENT_APPS_EMPTY':
       return 'We are sorry, there are no apps listed compatible with your account'
     case 'INSTALLED_APPS_EMPTY':
-      return 'You have no apps installed - try browsing the apps list for apps you might find useful'
+      return 'It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.'
     case 'DEVELOPER_APPS_EMPTY':
-      return 'You currently have no apps listed. Go to the submit app page to submit an app. After submission, you will need to edit the app and set status to isListed to appear in the marketplace'
+      return 'It looks like you haven’t submitted an App yet . When you’re ready, click on ‘Submit’ from the menu to get started.'
     case 'ADMIN_APPROVALS_EMPTY':
       return 'There are no updates that require approval'
     default:
