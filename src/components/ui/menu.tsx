@@ -19,7 +19,8 @@ import {
   FaNetworkWired,
   FaClipboardList,
   FaPortrait,
-  FaTable
+  FaTable,
+  FaComments
 } from 'react-icons/fa'
 import { GoDatabase, GoCode } from 'react-icons/go'
 
@@ -140,6 +141,13 @@ export const generateMenuConfig = (
           key: 'SETTINGS',
           url: Routes.SETTINGS,
           icon: <FaCog className="nav-item-icon" />,
+          type: 'PRIMARY'
+        },
+        {
+          title: 'Forum',
+          key: 'FORUM',
+          url: Routes.FORUM,
+          icon: <FaComments className="nav-item-icon" />,
           type: 'PRIMARY'
         },
         {

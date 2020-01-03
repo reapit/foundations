@@ -30,7 +30,8 @@ const Routes = {
   CLIENT_LOGIN: '/client/login',
   DEVELOPER_LOGIN: '/developer/login',
   FOUR_O_FOUR: '/404',
-  FORGOT_PASSWORD: '/developer/forgot-password'
+  FORGOT_PASSWORD: '/developer/forgot-password',
+  FORUM: '/forum'
 }
 
 export default Routes

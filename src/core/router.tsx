@@ -29,6 +29,7 @@ const ForgotPassword = React.lazy(() => import('../components/pages/forgot-passw
 const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
 const RegisterConfirm = React.lazy(() => import('../components/pages/register-confirm'))
 const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
+const Forum = React.lazy(() => import('../components/pages/forum'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -80,6 +81,7 @@ const Router = () => (
               component={WebComponentsPage}
             />
             <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
+            <PrivateRoute allow="DEVELOPER" path={Routes.FORUM} exact component={Forum}></PrivateRoute>
 
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />
