@@ -34,6 +34,7 @@
     "@reapit/elements": "^0.5.23",
     "dayjs": "^1.8.17",
     "diff": "^4.0.1",
+    "gitter-sidecar": "^1.5.0",
     "hardtack": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
     "react": "^16.11.0",
