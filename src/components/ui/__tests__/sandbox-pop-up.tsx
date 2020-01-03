@@ -27,6 +27,6 @@ describe('SandboxPopUp', () => {
     expect(shallow(<SandboxPopUp />)).toMatchSnapshot()
   })
   it('should match snapshot with passed props', () => {
-    expect(shallow(<SandboxPopUp loading={true} message="mess" />)).toMatchSnapshot()
+    expect(shallow(<SandboxPopUp loading={true} message="mess" displayDuration={1000} />)).toMatchSnapshot()
   })
 })

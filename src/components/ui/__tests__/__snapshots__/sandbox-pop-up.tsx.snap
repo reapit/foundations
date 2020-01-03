@@ -3,6 +3,7 @@
 exports[`SandboxPopUp should match snapshot with default 1`] = `
 <div>
   <ToastMessage
+    displayDuration={10000}
     message="Data in the dev portal APIs is sandbox and is regularly refreshed. You should not use these feeds for production apps, they are for development purposes only."
     onCloseToast={[Function]}
     variant="info"
@@ -14,6 +15,7 @@ exports[`SandboxPopUp should match snapshot with default 1`] = `
 exports[`SandboxPopUp should match snapshot with passed props 1`] = `
 <div>
   <ToastMessage
+    displayDuration={1000}
     message="mess"
     onCloseToast={[Function]}
     variant="info"
