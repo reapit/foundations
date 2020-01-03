@@ -4,15 +4,22 @@ import { Button } from '../Button'
 export type ToastVariant = 'primary' | 'secondary' | 'danger' | 'info'
 
 export interface ToastMessageProps {
-  visible: boolean
+  visible?: boolean
+  displayDuration?: number
   message: string
   variant: ToastVariant
   onCloseToast: () => void
 }
 
-export const ToastMessage: React.FC<ToastMessageProps> = ({ visible = false, message, onCloseToast, variant }) => {
+export const ToastMessage: React.FC<ToastMessageProps> = ({
+  visible = false,
+  displayDuration = 3000,
+  message,
+  onCloseToast,
+  variant
+}) => {
   if (visible) {
-    setTimeout(onCloseToast, 3000)
+    setTimeout(onCloseToast, displayDuration)
   }
 
   return (
