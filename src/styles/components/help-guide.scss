@@ -2,13 +2,12 @@
 
 .helpguide-wrapper {
   opacity: 0;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
   position: absolute;
   width: 100%;
   top: 0;
   transform: translate(100%, 0);
   @media (min-width: 768px) {
-    top: unset;
     transform: translate(0, 100%);
   }
 }
@@ -33,6 +32,10 @@
 .helpguide-graphic {
   max-width: 400px;
   margin: auto;
+  > img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .numbers-timeline {
