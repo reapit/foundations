@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { AppList, AppListProps } from '../app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import { Loader, GridFourColItem, GridThreeColItem } from '@reapit/elements'
+import { Loader, GridFourColItem, GridThreeColItem, Info, Alert } from '@reapit/elements'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import AppCard from '../app-card'
 
@@ -54,5 +54,18 @@ describe('AppList', () => {
   it('should contain GridThreeColItem', () => {
     const wrapper = shallow(<AppList numOfColumn={3} {...props} />)
     expect(wrapper.find(GridThreeColItem).length).toBeGreaterThan(0)
+  })
+
+  it('should match the empty search message', () => {
+    const emptyListProps: AppListProps = { ...props, list: [], infoType: '' }
+    const wrapper = shallow(<AppList {...emptyListProps} />)
+    const EMPTY_SEARCH_MESSAGE = 'We are unable to find any Apps that match your search criteria. Please try again.'
+
+    const alert = wrapper
+      .find(Info)
+      .dive()
+      .find(Alert)
+      .dive()
+    expect(alert.text()).toBe(EMPTY_SEARCH_MESSAGE)
   })
 })

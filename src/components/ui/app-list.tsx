@@ -45,7 +45,9 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
       <div>
         <GridFiveCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
           {!list.length && !loading ? (
-            <Info infoType={infoType}>{!infoType && 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}</Info>
+            <Info infoType={infoType}>
+              {!infoType && 'We are unable to find any Apps that match your search criteria. Please try again.'}
+            </Info>
           ) : (
             list.map(app => (
               <WrapperContainer key={app.id}>
