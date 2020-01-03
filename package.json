@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@reapit/cognito-auth": "^2.0.5",
-    "@reapit/elements": "^0.5.23",
+    "@reapit/elements": "^0.5.24",
     "dayjs": "^1.8.17",
     "diff": "^4.0.1",
     "gitter-sidecar": "^1.5.0",

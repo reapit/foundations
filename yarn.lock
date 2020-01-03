@@ -990,10 +990,10 @@
   dependencies:
     aws-sdk "^2.582.0"
 
-"@reapit/elements@^0.5.23":
-  version "0.5.23"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.23.tgz#d48bad824347efcb8359fa394726168fc5a4f59a"
-  integrity sha512-LG8CrhvWhZDcwNk9dkYOiunx/REpJYT2MPg12Xcy6oD1LvZziyUfL57Kr67G2rbQQYcRCCXyCD8dV2iNuGGSMA==
+"@reapit/elements@^0.5.24":
+  version "0.5.24"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.24.tgz#4a5941fb51a7487702d9a229009a85fb48692a1f"
+  integrity sha512-5G8VG4yD1d8ZqxlSCePD98YIM7MryKOQ75kILqFl1xMTcvHdwh7EvIGO0s23teGxYHy3N9R+HW9ky26kqqhhXg==
   dependencies:
     "@storybook/theming" "^5.2.8"
     "@types/papaparse" "^5.0.3"
