@@ -13,8 +13,8 @@
     "prepublish": "yarn test && yarn build",
     "prebuild": "rimraf dist && rimraf public",
     "build": "tsc --p tsconfig.legacy.json && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
-    "serverless": "serverless deploy",
-    "deploy": "CI=true yarn lint && yarn build && yarn test && yarn serverless"
+    "deploy:dev": "cross-env CI=true && yarn lint && yarn build && yarn test && serverless deploy --stage dev",
+    "deploy:prod": "cross-env CI=true && yarn lint && yarn build && yarn test && serverless deploy --stage prod"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
     "@types/aws-lambda": "^8.10.39",
     "@types/ejs": "^2.7.0",
     "@types/jest": "~24.0.15",
+    "cross-env": "^6.0.3",
     "husky": "~3.0.0",
     "jest": "~24.8.0",
     "lint-staged": "~9.2.0",
