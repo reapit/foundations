@@ -18,10 +18,5 @@ if (!gitStatus) {
   return
 }
 
-const remoteRepo = `https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git`;
-execSync(`git remote add authOrigin ${remoteRepo}`);
-execSync(`git config --global user.email "GithubActions@email.com"`);
-execSync(`git config --global user.name "Github Actions"`);
-
 bumpVersion()
 releaseMaster()
