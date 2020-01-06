@@ -1,4 +1,15 @@
-import authSagas, { doLogin, doLogout, loginListen, logoutListen, clearAuthListen, clearAuth } from '../auth'
+import authSagas, {
+  doLogin,
+  doLogout,
+  loginListen,
+  logoutListen,
+  clearAuthListen,
+  clearAuth,
+  setFirstLoginListen,
+  setFirstTimeLogin,
+  checkFirstTimeLoginListen,
+  checkFirstTimeLogin
+} from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
 import { authLoginSuccess, authLogoutSuccess, authLoginFailure, toggleFirstLogin } from '../../actions/auth'
@@ -44,9 +55,6 @@ describe('login submit', () => {
     const gen = doLogin(action)
     expect(gen.next(mockLoginSession).value).toEqual(call(setUserSession, loginParams))
     expect(gen.next(mockLoginSession).value).toEqual(put(authLoginSuccess(mockLoginSession)))
-    expect(gen.next().value).toEqual(call(getCookieString, COOKIE_FIRST_TIME_LOGIN))
-    expect(gen.next().value).toEqual(put(toggleFirstLogin(true)))
-    expect(gen.next().value).toEqual(call(setCookieString, COOKIE_FIRST_TIME_LOGIN, COOKIE_FIRST_TIME_LOGIN))
     expect(gen.next().done).toBe(true)
   })
 
@@ -98,11 +106,35 @@ describe('auth thunks', () => {
     })
   })
 
+  describe('checkFirstTimeLoginListen', () => {
+    it('should trigger checkFirstTimeLogin action', () => {
+      const gen = checkFirstTimeLoginListen()
+      expect(gen.next().value).toEqual(takeLatest(ActionTypes.CHECK_FIRST_TIME_LOGIN, checkFirstTimeLogin))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('setFirstLoginListen', () => {
+    it('should trigger setFirstTimeLogin action', () => {
+      const gen = setFirstLoginListen()
+      expect(gen.next().value).toEqual(takeLatest(ActionTypes.USER_ACCEPT_TERM_AND_CONDITION, setFirstTimeLogin))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
   describe('itemSagas', () => {
     it('should wait for login and logout action get called', () => {
       const gen = authSagas()
 
-      expect(gen.next().value).toEqual(all([fork(loginListen), fork(logoutListen), fork(clearAuthListen)]))
+      expect(gen.next().value).toEqual(
+        all([
+          fork(loginListen),
+          fork(logoutListen),
+          fork(clearAuthListen),
+          fork(checkFirstTimeLoginListen),
+          fork(setFirstLoginListen)
+        ])
+      )
       expect(gen.next().done).toBe(true)
     })
   })
@@ -112,6 +144,24 @@ describe('auth thunks', () => {
       const gen = cloneableGenerator(clearAuth)()
       expect(gen.next().value).toEqual(call(removeSession))
       expect(gen.next().value).toEqual(put(authLogoutSuccess()))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('setFirstTimeLogin', () => {
+    it('should run correctly', () => {
+      const gen = cloneableGenerator(setFirstTimeLogin)()
+      expect(gen.next().value).toEqual(call(setCookieString, COOKIE_FIRST_TIME_LOGIN, COOKIE_FIRST_TIME_LOGIN))
+      expect(gen.next().value).toEqual(put(toggleFirstLogin(false)))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('checkFirstTimeLogin', () => {
+    it('should run correctly', () => {
+      const gen = cloneableGenerator(checkFirstTimeLogin)()
+      expect(gen.next().value).toEqual(call(getCookieString, COOKIE_FIRST_TIME_LOGIN))
+      expect(gen.next().value).toEqual(put(toggleFirstLogin(true)))
       expect(gen.next().done).toBe(true)
     })
   })

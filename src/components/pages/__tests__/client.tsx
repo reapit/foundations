@@ -12,9 +12,7 @@ import {
   mapDispatchToProps,
   handleAfterClose,
   handleOnChange,
-  handleOnCardClick,
-  ClientMappedProps,
-  userAcceptTerm
+  handleOnCardClick
 } from '../client'
 import { addQuery } from '@/utils/client-url-params'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
@@ -57,7 +55,7 @@ const props = (loading: boolean): ClientProps => ({
   installationsFormState: 'PENDING',
   installationsSetFormState: jest.fn(),
   fetchAppDetail: jest.fn(),
-  setFirstLogin: jest.fn(),
+  userAcceptTermAndCondition: jest.fn(),
   firstLogin: false,
   ...routerProps
 })
@@ -105,7 +103,7 @@ describe('Client', () => {
       setStateViewBrowse: jest.fn(),
       installationsSetFormState: jest.fn(),
       fetchAppDetail: jest.fn(),
-      setFirstLogin: jest.fn(),
+      userAcceptTermAndCondition: jest.fn(),
       firstLogin: false,
       ...routerProps
     }
@@ -136,7 +134,7 @@ describe('Client', () => {
       setStateViewBrowse: jest.fn(),
       installationsSetFormState: jest.fn(),
       fetchAppDetail: jest.fn(),
-      setFirstLogin: jest.fn(),
+      userAcceptTermAndCondition: jest.fn(),
       firstLogin: false,
       ...routerProps
     }
@@ -228,16 +226,6 @@ describe('Client', () => {
       fn({ id: '1' })
       expect(mockProps.setVisible).toBeCalled()
       expect(mockProps.fetchAppDetail).toBeCalled()
-    })
-  })
-
-  describe('handle userAcceptTerm', () => {
-    it('should run correctly', () => {
-      const mockProps = {
-        setFirstLogin: jest.fn()
-      }
-      userAcceptTerm(mockProps)
-      expect(mockProps.setFirstLogin).toBeCalled()
     })
   })
 

@@ -17,13 +17,13 @@ import { appInstallationsSetFormState } from '@/actions/app-installations'
 import ClientWelcomeMessageModal from '@/components/ui/client-welcome-message'
 import { addQuery, getParamValueFromPath, hasFilterParams } from '@/utils/client-url-params'
 import { setAppDetailModalStateBrowse } from '@/actions/app-detail-modal'
-import { toggleFirstLogin } from '@/actions/auth'
+import { userAcceptTermAndCondition } from '@/actions/auth'
 
 export interface ClientMappedActions {
   setStateViewBrowse: () => void
   fetchAppDetail: (id: string, clientId: string) => void
   installationsSetFormState: (formState: FormState) => void
-  setFirstLogin: (firstLogin: boolean) => void
+  userAcceptTermAndCondition: () => void
 }
 
 export interface ClientMappedProps {
@@ -61,10 +61,6 @@ export const handleInstallationDone = ({
   }
 }
 
-export const userAcceptTerm = ({ setFirstLogin }) => {
-  setFirstLogin(false)
-}
-
 export type ClientProps = ClientMappedActions & ClientMappedProps & RouteComponentProps<{ page?: any }>
 
 export const Client: React.FunctionComponent<ClientProps> = ({
@@ -78,7 +74,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   installationsFormState,
   installationsSetFormState,
   firstLogin = false,
-  setFirstLogin
+  userAcceptTermAndCondition
 }) => {
   const pageNumber =
     !isNaN(Number(getParamValueFromPath(location.search, 'page'))) &&
@@ -143,12 +139,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
         )}
       </div>
       <AppDetailModal visible={visible} afterClose={handleAfterClose({ setVisible })} />
-      <ClientWelcomeMessageModal
-        visible={firstLogin}
-        onAccept={() => {
-          userAcceptTerm({ setFirstLogin })
-        }}
-      />
+      <ClientWelcomeMessageModal visible={firstLogin} onAccept={() => userAcceptTermAndCondition()} />
     </ErrorBoundary>
   )
 }
@@ -165,7 +156,7 @@ export const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
   setStateViewBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
   installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState)),
-  setFirstLogin: (firstLogin: boolean) => dispatch(toggleFirstLogin(firstLogin))
+  userAcceptTermAndCondition: () => dispatch(userAcceptTermAndCondition())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Client))
