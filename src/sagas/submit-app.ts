@@ -70,7 +70,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
       screen4ImageUrl: imageUploaderResults[4] ? imageUploaderResults[4].Url : ''
     }
 
-    const stripOutCategoryIfNotChose = {
+    const updatedValuesAfterValidatingCategoryId = {
       ...updatedValues,
       categoryId: categoryId === '' ? undefined : categoryId
     }
@@ -79,7 +79,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
       url: URLS.apps,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
-      body: stripOutCategoryIfNotChose,
+      body: updatedValuesAfterValidatingCategoryId,
       headers: MARKETPLACE_HEADERS
     })
 

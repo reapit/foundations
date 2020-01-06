@@ -16,7 +16,17 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
   // TODO: for this situation we need check the value of imageData
   // upload and also update into imageUrl as new property from backend
   try {
-    const { id, name, iconImageUrl, screen1ImageUrl, screen2ImageUrl, screen3ImageUrl, screen4ImageUrl, ...body } = data
+    const {
+      id,
+      name,
+      iconImageUrl,
+      screen1ImageUrl,
+      screen2ImageUrl,
+      screen3ImageUrl,
+      screen4ImageUrl,
+      categoryId,
+      ...body
+    } = data
 
     const formatedName = name ? name.replace(/\s+/g, '-') : ''
     const imageUploaderReqs = [
@@ -38,11 +48,16 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
       name
     }
 
+    const updatedValuesAfterValidatingCategoryId = {
+      ...updatedValues,
+      categoryId: categoryId === '' ? undefined : categoryId
+    }
+
     const regResponse: true | undefined = yield call(fetcher, {
       url: `${URLS.apps}/${id}/revisions`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
-      body: updatedValues,
+      body: updatedValuesAfterValidatingCategoryId,
       headers: MARKETPLACE_HEADERS
     })
 
