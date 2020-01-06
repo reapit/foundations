@@ -18,7 +18,7 @@ export const developerResetPassword = function*({ data }: Action<ResetPasswordPa
       userName: data.email,
       verificationCode: data.verificationCode
     })
-    const isSuccess = response.message === 'SUCCESS'
+    const isSuccess = response === 'SUCCESS'
     if (isSuccess) {
       yield history.push(`${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`)
     }
