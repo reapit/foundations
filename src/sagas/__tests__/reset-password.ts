@@ -24,9 +24,7 @@ describe('developerResetPassword', () => {
     const clone = gen.clone()
     const body = { newPassword: '123', userName: '123@gmail.com', verificationCode: '123' }
     expect(clone.next().value).toEqual(call(confirmPassword, body))
-    expect(clone.next({ message: 'SUCCESS' }).value).toEqual(
-      history.push(`${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`)
-    )
+    expect(clone.next('SUCCESS').value).toEqual(history.push(`${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`))
     expect(clone.next().value).toEqual(put(resetPasswordLoading(false)))
     expect(clone.next().done).toEqual(true)
   })
@@ -35,7 +33,7 @@ describe('developerResetPassword', () => {
     const clone = gen.clone()
     const body = { newPassword: '123', userName: '123@gmail.com', verificationCode: '123' }
     expect(clone.next().value).toEqual(call(confirmPassword, body))
-    expect(clone.next({ message: 'FAIL' }).value).toEqual(put(resetPasswordLoading(false)))
+    expect(clone.next(undefined).value).toEqual(put(resetPasswordLoading(false)))
     expect(clone.next().done).toEqual(true)
   })
 
