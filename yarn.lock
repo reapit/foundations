@@ -1013,10 +1013,10 @@
     react-icons "^3.7.0"
     react-table "7.0.0-alpha.35"
 
-"@reapit/foundations-ts-definitions@latest":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-0.0.4.tgz#d469eda53eab4419b6a5e711afbfc0f4b976d22f"
-  integrity sha512-FNy1wt5s10I1jWaUdeVzsakM59okGEMKimG+iXjfLuCWIs1sG7Pj5vTvkoGgq9nm5vyfcEQgN9M7i4Tw7ABmCQ==
+"@reapit/foundations-ts-definitions@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-0.0.6.tgz#a3302ddda84d1ce0e2b253cf44f4dc19cb3c4118"
+  integrity sha512-lQXijcow6kwAJeCqLzvnl7Fyj6ZtlM1OBKGosfIaU2Nc0i6NNGHjOT1VT8f3SF///ChcG7hHHhOSNYgvO06bOQ==
 
 "@redux-saga/core@^1.1.3":
   version "1.1.3"
