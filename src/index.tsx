@@ -1,3 +1,4 @@
+import * as v2 from './v2'
 // Hooks
 export * from './hooks/UsePortal'
 
@@ -53,3 +54,9 @@ export * from './utils/completed-section/completed-sections'
 export * from './utils/combine-address/combine-address'
 export * from './utils/is-base64'
 export * from './utils/device-detection/device-detection'
+
+const elements = {
+  v2: v2
+}
+
+export default elements

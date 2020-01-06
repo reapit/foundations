@@ -15,13 +15,6 @@ exports[`HelpGuide HelpGuide.Step should match a snapshot 1`] = `
       <component />
     </div>
   </div>
-  <div
-    className="helpguide-wrapper-graphic"
-  >
-    <div
-      className="helpguide-graphic"
-    />
-  </div>
 </Component>
 `;
 

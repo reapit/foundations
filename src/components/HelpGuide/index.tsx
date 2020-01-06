@@ -135,7 +135,7 @@ HelpGuide.Step = function({ component: Component, heading, subHeading, graphic }
           <Component />
         </div>
       </div>
-      {!isMobile() && (
+      {!isMobile() && graphic && (
         <div className="helpguide-wrapper-graphic">
           <div className="helpguide-graphic">{graphic}</div>
         </div>
