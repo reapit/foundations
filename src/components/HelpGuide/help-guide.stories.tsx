@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { HelpGuide } from '.'
 import { useHelpGuideContext } from './context'
 import { Button } from '../Button'
+import { FlexContainerBasic, Content, FlexContainerResponsive } from '../Layout'
 
 const imageUrl = 'https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png'
 
@@ -66,44 +67,48 @@ const ComponentC = () => {
 
 storiesOf('HelpGuide', module).add('Primary', () => {
   return (
-    <section className="section">
-      <HelpGuide>
-        <HelpGuide.Step
-          id="step-1"
-          component={ComponentA}
-          heading="Heading-1"
-          subHeading="SubHeading-1"
-          graphic={<img src={imageUrl} />}
-        />
-        <HelpGuide.Step
-          id="step-2"
-          component={ComponentB}
-          heading="Heading-2"
-          subHeading="SubHeading-2"
-          graphic={<img src={imageUrl} />}
-        />
-        <HelpGuide.Step
-          id="step-3"
-          component={ComponentB}
-          heading="Heading-3"
-          subHeading="SubHeading-3"
-          graphic={<img src={imageUrl} />}
-        />
-        <HelpGuide.Step
-          id="step-4"
-          component={ComponentB}
-          heading="Heading-4"
-          subHeading="SubHeading-4"
-          graphic={<img src={imageUrl} />}
-        />
-        <HelpGuide.Step
-          id="step-5"
-          component={ComponentC}
-          heading="Heading-5"
-          subHeading="SubHeading-5"
-          graphic={<img src={imageUrl} />}
-        />
-      </HelpGuide>
-    </section>
+    <FlexContainerBasic flexColumn hasPadding>
+      <Content>
+        <FlexContainerResponsive flexColumn hasBackground hasPadding>
+          <HelpGuide>
+            <HelpGuide.Step
+              id="step-1"
+              component={ComponentA}
+              heading="Heading-1"
+              subHeading="SubHeading-1"
+              graphic={<img src={imageUrl} />}
+            />
+            <HelpGuide.Step
+              id="step-2"
+              component={ComponentB}
+              heading="Heading-2"
+              subHeading="SubHeading-2"
+              graphic={<img src={imageUrl} />}
+            />
+            <HelpGuide.Step
+              id="step-3"
+              component={ComponentB}
+              heading="Heading-3"
+              subHeading="SubHeading-3"
+              graphic={<img src={imageUrl} />}
+            />
+            <HelpGuide.Step
+              id="step-4"
+              component={ComponentB}
+              heading="Heading-4"
+              subHeading="SubHeading-4"
+              graphic={<img src={imageUrl} />}
+            />
+            <HelpGuide.Step
+              id="step-5"
+              component={ComponentC}
+              heading="Heading-5"
+              subHeading="SubHeading-5"
+              graphic={<img src={imageUrl} />}
+            />
+          </HelpGuide>
+        </FlexContainerResponsive>
+      </Content>
+    </FlexContainerBasic>
   )
 })
