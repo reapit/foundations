@@ -12,11 +12,20 @@ module.exports = () => {
   let remotePackageVersion = ''
   
   // Ex of remotePackageVersionStdOut: ['0.0.0']
-  if (!remotePackageVersionStdOut || !(typeof Array.isArray(remotePackageVersionStdOut)) || remotePackageVersionStdOut.length !== 1) {
-    return
+  const errrRemotePackageVersionStdOutInvalid =  new Error(`Response of command: "yarn info ${npm_package_name} version" is invalid`)
+  const isRemotePackageVersionStdOutValid = !remotePackageVersionStdOut || !(typeof Array.isArray(remotePackageVersionStdOut)) 
+  if (isRemotePackageVersionStdOutValid) {
+    throw errrRemotePackageVersionStdOutInvalid
   }
 
-  remotePackageVersion = remotePackageVersionStdOut[0]
+  remotePackageVersion = remotePackageVersionStdOut.find(remotePackageVersionStdOutPart => {
+    return semver.parse(remotePackageVersionStdOutPart)
+  })
+
+  if (!remotePackageVersion) {
+    throw errrRemotePackageVersionStdOutInvalid
+  }
+
   const bumpedVersion = semver.inc(remotePackageVersion, 'patch')
   
   const packageJsonContent = fs.readFileSync(packageJsonPath).toString()

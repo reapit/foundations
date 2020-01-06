@@ -20,3 +20,4 @@ if (!gitStatus) {
 
 bumpVersion()
 releaseMaster()
+
