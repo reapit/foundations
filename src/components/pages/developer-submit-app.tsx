@@ -86,6 +86,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
   if (appDetail) {
     const {
       category,
+      authFlow,
       description,
       developerId,
       homePage,
@@ -110,6 +111,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
     initialValues = {
       name,
       categoryId: category?.id || '',
+      authFlow,
       description,
       developerId,
       homePage,
@@ -162,6 +164,9 @@ export const handleSubmitApp = ({
   if (!appId) {
     submitApp(appModel, actions, setSubmitError)
   } else {
+    if (appModel.authFlow) {
+      delete appModel.authFlow
+    }
     submitRevision(appId, appModel)
   }
 }

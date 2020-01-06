@@ -53,7 +53,7 @@
     "@babel/preset-env": "^7.7.7",
     "@cypress/webpack-preprocessor": "^4.1.1",
     "@reapit/config-manager": "^1.1.0",
-    "@reapit/foundations-ts-definitions": "latest",
+    "@reapit/foundations-ts-definitions": "^0.0.6",
     "@redux-saga/testing-utils": "^1.0.5",
     "@types/diff": "^4.0.2",
     "@types/enzyme": "~3.9.3",

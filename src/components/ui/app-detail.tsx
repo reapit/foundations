@@ -13,6 +13,7 @@ import styles from '@/styles/blocks/app-detail.scss?mod'
 import appCardStyles from '@/styles/blocks/app-card.scss?mod'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import AppAuthenticationDetail from './app-authentication-detail'
+import AuthFlow from '@/constants/app-auth-flow'
 
 export interface AppDetailModalInnerProps {
   data: AppDetailModel
@@ -60,7 +61,8 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
     installedOn,
     scopes = [],
     isListed,
-    isDirectApi
+    isDirectApi,
+    authFlow
   } = data
   const icon = media.filter(({ type }) => type === 'icon')[0]
   const carouselImages = media.filter(({ type }) => type === 'image')
@@ -121,8 +123,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                 {isListed ? <FaCheck className={styles.isListed} /> : <FaTimes className={styles.notListed} />}
               </div>
             )}
-            {id && <AppAuthenticationDetail appId={id} />}
-
+            {authFlow === AuthFlow.CLIENT_SECRET && id && <AppAuthenticationDetail appId={id} />}
             {carouselImages.length > 0 && (
               <div className={carouselStyles.container}>
                 <Slider {...settings}>
