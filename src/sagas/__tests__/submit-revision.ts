@@ -53,7 +53,7 @@ describe('submit-revision post data', () => {
       url: `${URLS.apps}/${id}/revisions`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
-      body: updatedData,
+      body: { ...updatedData, categoryId: undefined },
       headers: MARKETPLACE_HEADERS
     })
   )

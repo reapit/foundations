@@ -2,6 +2,7 @@ import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 
 export const revisionSubmitStub: { data: CreateAppRevisionModel } = {
   data: {
+    categoryId: '',
     description: 'Lorem ipsum',
     homePage: 'https://reapit.com',
     iconImageUrl: 'https://some-s3-image-url.com',
