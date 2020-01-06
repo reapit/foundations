@@ -7,7 +7,9 @@ import {
   authChangeLoginType,
   authSetRefreshSession,
   authClear,
-  toggleFirstLogin
+  checkFirstTimeLogin,
+  toggleFirstLogin,
+  userAcceptTermAndCondition
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { LoginType, LoginSession, LoginMode } from '@reapit/cognito-auth'
@@ -62,8 +64,18 @@ describe('auth actions', () => {
     expect(authClear().data).toEqual(undefined)
   })
 
+  it('should create a checkFirstTimeLogin action', () => {
+    expect(checkFirstTimeLogin.type).toEqual(ActionTypes.CHECK_FIRST_TIME_LOGIN)
+    expect(checkFirstTimeLogin().data).toBeUndefined()
+  })
+
   it('should create a toggleFirstLogin action', () => {
     expect(toggleFirstLogin.type).toEqual(ActionTypes.TOGGLE_FIRST_LOGIN)
     expect(toggleFirstLogin(true).data).toBeTruthy()
+  })
+
+  it('should create a userAcceptTermAndCondition action', () => {
+    expect(userAcceptTermAndCondition.type).toEqual(ActionTypes.USER_ACCEPT_TERM_AND_CONDITION)
+    expect(userAcceptTermAndCondition().data).toBeUndefined()
   })
 })

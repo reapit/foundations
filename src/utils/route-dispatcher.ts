@@ -13,11 +13,13 @@ import { submitAppRequestData } from '../actions/submit-app'
 import { getAccessToken } from './session'
 import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
+import { checkFirstTimeLogin } from '@/actions/auth'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   await getAccessToken()
   switch (route) {
     case Routes.CLIENT:
+      store.dispatch(checkFirstTimeLogin())
       store.dispatch(clientRequestData(getParamsFromPath(search || '')))
       break
     case Routes.INSTALLED_APPS:
