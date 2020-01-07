@@ -27,24 +27,26 @@ exports[`AppDetailModalInner should match a snapshot 1`] = `
             <H6 />
           </div>
         </Tile>
-        <p>
-          App Information
-        </p>
-        <div>
+        <React.Fragment>
           <p>
-            App ID:
+            App Information
           </p>
-          <p />
-        </div>
-        <div>
-          <p>
-            Status:
-          </p>
-          <p>
-            Not listed
-          </p>
-          <FaTimes />
-        </div>
+          <div>
+            <p>
+              App ID:
+            </p>
+            <p />
+          </div>
+          <div>
+            <p>
+              Status:
+            </p>
+            <p>
+              Not listed
+            </p>
+            <FaTimes />
+          </div>
+        </React.Fragment>
         <br />
         <p />
         <br />
