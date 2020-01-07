@@ -60,7 +60,13 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({
           </GridItem>
         </Grid>
         <FlexContainerResponsive>
-          <Button disabled={!isEnable} loading={isSubmitting || isValidating} variant="primary" type="submit">
+          <Button
+            dataTest="button-change-password"
+            disabled={!isEnable}
+            loading={isSubmitting || isValidating}
+            variant="primary"
+            type="submit"
+          >
             Change Password
           </Button>
         </FlexContainerResponsive>
