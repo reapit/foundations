@@ -17,15 +17,15 @@ const loginPageMetadata = {
 const loginPage = {
   ...loginPageMetadata,
   actions: {
-    loginUsingDeveloperAccount() {
+    loginUsingDeveloperAccount(email?: string, password?: string) {
       const {
         loginAsDeveloperUrl,
         selectors: { buttonLogin, inputPassword, inputEmail }
       } = loginPageMetadata
 
       cy.visit(loginAsDeveloperUrl)
-      cy.get(inputEmail).type(Cypress.env('DEVELOPER_ACCOUNT_EMAIL'))
-      cy.get(inputPassword).type(Cypress.env('DEVELOPER_ACCOUNT_PASSWORD'))
+      cy.get(inputEmail).type(email || Cypress.env('DEVELOPER_ACCOUNT_EMAIL'))
+      cy.get(inputPassword).type(password || Cypress.env('DEVELOPER_ACCOUNT_PASSWORD'))
       cy.get(buttonLogin).click()
       cy.get(developerAppsPage.selectors.container).should('have.length', 1)
     },

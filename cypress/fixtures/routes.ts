@@ -7,5 +7,6 @@ export default {
   apps: `${apiEndPoint}/apps`,
   developers: `${apiEndPoint}/developers`,
   approveApp: `${apiEndPoint}/apps/**/revisions/**/approve`,
-  revision: `${apiEndPoint}/apps/**/revisions`
+  revision: `${apiEndPoint}/apps/**/revisions`,
+  changePassword: `${Cypress.env('COGNITO_API_BASE_URL')}/password/change`
 }
