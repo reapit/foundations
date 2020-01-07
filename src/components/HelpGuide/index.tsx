@@ -115,7 +115,11 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
         {renderTimeline(total, currentIndex, isMobileScreen)}
         <FlexContainerBasic flexColumn className="justify-center relative">
           {React.Children.toArray(children).map((child, index) => (
-            <div ref={currentIndex === index ? currentStepRef : null} className="helpguide-wrapper">
+            <div
+              key={`helper-guide-child-${index}`}
+              ref={currentIndex === index ? currentStepRef : null}
+              className="helpguide-wrapper"
+            >
               {child}
             </div>
           ))}
