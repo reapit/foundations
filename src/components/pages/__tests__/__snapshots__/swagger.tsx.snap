@@ -10,6 +10,7 @@ exports[`Swagger should match a snapshot 1`] = `
       className="swagger-loading"
     >
       <SwaggerUI
+        docExpansion="none"
         onComplete={[Function]}
         requestInterceptor={[Function]}
         url="undefined/prod/swaggerdocs"

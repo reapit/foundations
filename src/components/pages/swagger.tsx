@@ -32,6 +32,7 @@ export const SwaggerPage: React.SFC = () => {
             url={`${process.env.SWAGGER_BASE_URL}${URLS.swagger}`}
             onComplete={handleOnComplete(setLoading)}
             requestInterceptor={fetchInterceptor}
+            docExpansion="none"
           />
         </div>
         <SandboxPopUp loading={loading} />
