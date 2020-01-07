@@ -111,19 +111,21 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
                 <H6>{developer}</H6>
               </div>
             </Tile>
-            <p className={styles.appInfo}>App Information</p>
-            <div key="app-id" className={styles.appInfoRow}>
-              <p className={styles.appInfoProperty}>App ID:</p>
-              <p>{id}</p>
-            </div>
             {isCurrentLoggedUserDeveloper && (
-              <div key="app-listed" className={styles.appInfoRow}>
-                <p className={styles.appInfoProperty}>Status:</p>
-                <p className={styles.appInfoSpace}>{isListed ? 'Listed' : 'Not listed'}</p>
-                {isListed ? <FaCheck className={styles.isListed} /> : <FaTimes className={styles.notListed} />}
-              </div>
+              <>
+                <p className={styles.appInfo}>App Information</p>
+                <div key="app-id" className={styles.appInfoRow}>
+                  <p className={styles.appInfoProperty}>App ID:</p>
+                  <p>{id}</p>
+                </div>
+                <div key="app-listed" className={styles.appInfoRow}>
+                  <p className={styles.appInfoProperty}>Status:</p>
+                  <p className={styles.appInfoSpace}>{isListed ? 'Listed' : 'Not listed'}</p>
+                  {isListed ? <FaCheck className={styles.isListed} /> : <FaTimes className={styles.notListed} />}
+                </div>
+                {authFlow === AuthFlow.CLIENT_SECRET && id && <AppAuthenticationDetail appId={id} />}
+              </>
             )}
-            {authFlow === AuthFlow.CLIENT_SECRET && id && <AppAuthenticationDetail appId={id} />}
             {carouselImages.length > 0 && (
               <div className={carouselStyles.container}>
                 <Slider {...settings}>
