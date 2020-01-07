@@ -1,8 +1,5 @@
 import * as React from 'react'
-
-export const generateNumbers = (total: number) => () => {
-  return [...Array(total).keys()]
-}
+import { generateNumbers } from './utils'
 
 export const caculateCircleRef = ({
   activeRef,

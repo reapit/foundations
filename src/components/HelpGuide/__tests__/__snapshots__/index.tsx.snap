@@ -78,6 +78,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
     >
       <div
         className="helpguide-wrapper"
+        key="helper-guide-child-0"
       >
         <Component
           component={[Function]}
@@ -87,6 +88,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
       </div>
       <div
         className="helpguide-wrapper"
+        key="helper-guide-child-1"
       >
         <Component
           component={[Function]}
@@ -96,6 +98,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
       </div>
       <div
         className="helpguide-wrapper"
+        key="helper-guide-child-2"
       >
         <Component
           component={[Function]}
@@ -105,6 +108,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
       </div>
       <div
         className="helpguide-wrapper"
+        key="helper-guide-child-3"
       >
         <Component
           component={[Function]}
