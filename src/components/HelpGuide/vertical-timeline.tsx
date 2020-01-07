@@ -1,10 +1,7 @@
 import * as React from 'react'
+import { generateNumbers } from './utils'
 
 export const LI_MARGIN = 30
-
-export const generateNumbers = (total: number) => () => {
-  return [...Array(total).keys()]
-}
 
 export const caculateCircleRef = ({
   activeRef,
