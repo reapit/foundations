@@ -58,12 +58,12 @@ export const handleCloseModal = (
 
 export const renderFooterAppDetailBrowse = ({ appDetailData, setStateViewInstall }) => {
   return appDetailData.installedOn ? (
-    <div className={styles.installed}>
+    <div data-test="detail-modal-installed" className={styles.installed}>
       <FaCheck />
       <span>Installed</span>
     </div>
   ) : (
-    <Button type="button" variant="primary" onClick={setStateViewInstall}>
+    <Button dataTest="detail-modal-install-button" type="button" variant="primary" onClick={setStateViewInstall}>
       Install App
     </Button>
   )
@@ -71,7 +71,7 @@ export const renderFooterAppDetailBrowse = ({ appDetailData, setStateViewInstall
 
 export const renderFooterAppDetailManage = ({ setStateViewUninstall }) => {
   return (
-    <Button type="button" variant="primary" onClick={setStateViewUninstall}>
+    <Button dataTest="detail-modal-uninstall-button" type="button" variant="primary" onClick={setStateViewUninstall}>
       Uninstall App
     </Button>
   )
@@ -121,7 +121,8 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
       <CallToAction
         title="Success"
         buttonText="Back to List"
-        dataTest="alertInstalledSuccess"
+        dataTest="installations-success-message"
+        buttonDataTest="installations-success-button"
         onButtonClick={handleCloseModal(setStateViewBrowse, afterClose, installationsSetFormState)}
         isCenter
       >
