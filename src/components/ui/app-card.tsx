@@ -34,7 +34,9 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettin
         menu={
           app.installedOn &&
           onSettingsClick && (
-            <FaEllipsisH className="media-icon" onClick={onSettingsClick} data-test={`app-settings_${app.id}`} />
+            <div data-test={`app-settings_${app.id}`}>
+              <FaEllipsisH className="media-icon" onClick={onSettingsClick} />
+            </div>
           )
         }
       >

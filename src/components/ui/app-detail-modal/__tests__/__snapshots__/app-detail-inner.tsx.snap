@@ -45,6 +45,7 @@ exports[`AppDetailInner should match a snapshot when appDetailModalState = VIEW_
   }
   footerItems={
     <Button
+      dataTest="detail-modal-install-button"
       onClick={[MockFunction]}
       type="button"
       variant="primary"
@@ -98,6 +99,7 @@ exports[`AppDetailInner should match a snapshot when appDetailModalState = VIEW_
   }
   footerItems={
     <Button
+      dataTest="detail-modal-install-button"
       onClick={[MockFunction]}
       type="button"
       variant="primary"

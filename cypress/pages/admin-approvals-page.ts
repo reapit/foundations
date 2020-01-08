@@ -1,4 +1,5 @@
 import routes from '@/constants/routes'
+import apiRoutes from '../fixtures/routes'
 
 const adminApprovalsPageMetaData = {
   url: routes.ADMIN_APPROVALS,
@@ -16,6 +17,17 @@ const adminApprovalsPage = {
   actions: {
     clickViewDetailsButtonWithAppId(id: string) {
       cy.get(`button[data-test="view-details-button_${id}"]`).click()
+    },
+    approveAppWithId(id: string) {
+      const { buttonApprove, btnConfirmApproval, divApproveAppSuccessfully } = adminApprovalsPageMetaData.selectors
+      cy.get(`button[data-test="view-details-button_${id}"]`).click()
+      cy.get(buttonApprove).click()
+
+      cy.route('POST', apiRoutes.approveApp).as('requestApproveApp')
+      cy.get(btnConfirmApproval).click()
+      cy.wait('@requestApproveApp')
+
+      cy.get(divApproveAppSuccessfully).should('have.length', 1)
     }
   }
 }
