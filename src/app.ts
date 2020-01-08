@@ -1,5 +1,8 @@
 import { CognitoUserPoolTriggerHandler } from 'aws-lambda'
-import { customMailer } from './mailer/custom-mailer'
+import { sendForgotPasswordMail, sendConfirmRegistrationMail } from './mailer/custom-mailer'
 
-export const mailHandler: CognitoUserPoolTriggerHandler = (event, context, callback) =>
-  customMailer(event, context, callback)
+export const forgotPasswordHandler: CognitoUserPoolTriggerHandler = (event, context, callback) =>
+  sendForgotPasswordMail(event, context, callback)
+
+export const confirmRegistrationHandler: CognitoUserPoolTriggerHandler = (event, context, callback) =>
+  sendConfirmRegistrationMail(event, context, callback)
