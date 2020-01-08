@@ -13,10 +13,7 @@ const adminAppMetaData = {
 }
 
 const adminAppPage = {
-  ...adminAppMetaData,
-  actions: {
-    parseXHRBody: xhr => xhr.responseBody.text().then(res => JSON.parse(res))
-  }
+  ...adminAppMetaData
 }
 
 export default adminAppPage

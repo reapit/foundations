@@ -52,7 +52,13 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
           </GridItem>
         </Grid>
         <FlexContainerResponsive>
-          <Button disabled={!isEnable} loading={isSubmitting || isValidating} variant="primary" type="submit">
+          <Button
+            dataTest="save-changes"
+            disabled={!isEnable}
+            loading={isSubmitting || isValidating}
+            variant="primary"
+            type="submit"
+          >
             Save Changes
           </Button>
         </FlexContainerResponsive>
