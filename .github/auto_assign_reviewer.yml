@@ -1,0 +1,15 @@
+addReviewers: true
+addAssignees: author
+numberOfReviewers: 0
+numberOfAssignees: 1
+useReviewGroups: true
+reviewGroups:
+  reapitCloud:
+    - willmcvay
+    - tanphamhaiduong
+    - vuhuucuong
+    - phmngocnghia
+    - trankhacvy
+    - zlatanpham
+    - danndz
+useAssigneeGroups: false
