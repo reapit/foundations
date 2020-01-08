@@ -43,7 +43,7 @@ export const handleOnCardClick = ({ setVisible, setStateViewBrowse, appDetail, f
 ) => {
   setVisible(true)
   setStateViewBrowse()
-  if (app.id && (!appDetail.appDetailData || appDetail.appDetailData.data.id !== app.id)) {
+  if (app.id && (!appDetail.appDetailData || appDetail.isStale)) {
     fetchAppDetail(app.id, clientId)
   }
 }

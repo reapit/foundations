@@ -6,7 +6,8 @@ import {
   appDetailFailure,
   AppDetailParams,
   requestAuthenticationSuccess,
-  requestAuthenticationFailure
+  requestAuthenticationFailure,
+  setAppDetailStale
 } from '../actions/app-detail'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -26,6 +27,8 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
     })
     if (response) {
       yield put(appDetailReceiveData({ data: response }))
+
+      yield put(setAppDetailStale(false))
     } else {
       yield put(appDetailFailure())
     }

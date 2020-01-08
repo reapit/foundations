@@ -13,6 +13,7 @@ export const appDetailLoading = actionCreator<boolean>(ActionTypes.APP_DETAIL_LO
 export const appDetailReceiveData = actionCreator<AppDetailItem | undefined>(ActionTypes.APP_DETAIL_RECEIVE_DATA)
 export const appDetailFailure = actionCreator<void>(ActionTypes.APP_DETAIL_REQUEST_DATA_FAILURE)
 export const appDetailClearData = actionCreator<null>(ActionTypes.APP_DETAIL_CLEAR_DATA)
+export const setAppDetailStale = actionCreator<boolean>(ActionTypes.APP_DETAIL_IS_STALE)
 
 export const requestAuthenticationCode = actionCreator<string>(ActionTypes.REQUEST_AUTHENTICATION_CODE)
 export const requestAuthenticationSuccess = actionCreator<AppClientSecretModel>(

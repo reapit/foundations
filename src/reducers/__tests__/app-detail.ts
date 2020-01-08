@@ -37,6 +37,7 @@ describe('app-detail reducer', () => {
     })
     const expected = {
       ...defaultState,
+      isStale: false,
       appDetailData: appDetailDataStub
     }
     expect(newState).toEqual(expected)

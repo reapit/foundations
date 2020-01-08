@@ -13,6 +13,7 @@ import {
   InstallParams,
   appInstallationsRequestDataFailure
 } from '@/actions/app-installations'
+import { setAppDetailStale } from '@/actions/app-detail'
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 
 export const fetchInstallations = async (data: InstallationParams) => {
@@ -96,6 +97,8 @@ export const appUninstallSaga = function*({ data }) {
 
     yield call(fetchUninstallApp, { data, email })
     yield put(appInstallationsSetFormState('SUCCESS'))
+
+    yield put(setAppDetailStale(true))
   } catch (err) {
     yield put(appInstallationsSetFormState('ERROR'))
     yield put(

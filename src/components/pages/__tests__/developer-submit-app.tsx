@@ -39,7 +39,8 @@ describe('DeveloperSubmitApp', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
@@ -69,7 +70,8 @@ describe('DeveloperSubmitApp', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: { loading: true, submitAppData: null, formState: 'PENDING' },
@@ -94,7 +96,8 @@ describe('DeveloperSubmitApp', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
@@ -128,7 +131,8 @@ describe('DeveloperSubmitApp', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
@@ -167,7 +171,8 @@ describe('DeveloperSubmitApp', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
@@ -201,7 +206,8 @@ describe('DeveloperSubmitApp', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
@@ -235,7 +241,8 @@ describe('DeveloperSubmitApp', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
@@ -269,7 +276,8 @@ describe('DeveloperSubmitApp', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
@@ -299,7 +307,8 @@ describe('DeveloperSubmitApp', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       submitRevisionState: { formState: 'SUCCESS' },
       submitAppState: {
@@ -333,7 +342,8 @@ describe('DeveloperSubmitApp', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
@@ -362,7 +372,8 @@ describe('DeveloperSubmitApp', () => {
         loading: false,
         error: false,
         appDetailData: appDetailDataStub,
-        authentication: { loading: false, code: '' }
+        authentication: { loading: false, code: '' },
+        isStale: false
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {

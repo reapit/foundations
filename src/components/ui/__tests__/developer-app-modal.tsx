@@ -18,7 +18,8 @@ const daiProps = (loading: boolean, error: boolean): DeveloperAppInnerProps => (
     authentication: {
       loading: false,
       code: ''
-    }
+    },
+    isStale: false
   },
   closeParentModal: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
