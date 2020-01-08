@@ -25,6 +25,7 @@ import {
 } from '@/actions/app-installations'
 import { installationsStub } from '../__stubs__/installations'
 import { selectClientId, selectLoggedUserEmail } from '@/selector/client'
+import { setAppDetailStale } from '@/actions/app-detail'
 
 jest.mock('@reapit/elements')
 
@@ -113,6 +114,8 @@ describe('app-installations sagas', () => {
     test('api call success', () => {
       const clone = gen.clone()
       expect(clone.next().value).toEqual(put(appInstallationsSetFormState('SUCCESS')))
+      expect(clone.next().value).toEqual(put(setAppDetailStale(true)))
+      expect(clone.next().done).toBe(true)
     })
 
     test('api fail sagas', () => {

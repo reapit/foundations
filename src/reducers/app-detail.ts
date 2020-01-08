@@ -6,6 +6,7 @@ import {
   appDetailReceiveData,
   appDetailClearData,
   appDetailFailure,
+  setAppDetailStale,
   requestAuthenticationCode,
   requestAuthenticationSuccess,
   requestAuthenticationFailure,
@@ -26,6 +27,7 @@ export interface AppDetailState {
   error: boolean
   appDetailData: AppDetailItem | null
   authentication: AppAuthDetailState
+  isStale: boolean
 }
 
 export const defaultAppAuthState: AppAuthDetailState = {
@@ -37,10 +39,18 @@ export const defaultState: AppDetailState = {
   loading: false,
   error: false,
   appDetailData: null,
-  authentication: defaultAppAuthState
+  authentication: defaultAppAuthState,
+  isStale: true
 }
 
 const appDetailReducer = (state: AppDetailState = defaultState, action: Action<any>): AppDetailState => {
+  if (isType(action, setAppDetailStale)) {
+    return {
+      ...state,
+      isStale: action.data
+    }
+  }
+
   if (isType(action, appDetailLoading)) {
     return {
       ...state,
@@ -54,6 +64,7 @@ const appDetailReducer = (state: AppDetailState = defaultState, action: Action<a
       ...state,
       loading: false,
       error: false,
+      isStale: false,
       appDetailData: action.data || null
     }
   }

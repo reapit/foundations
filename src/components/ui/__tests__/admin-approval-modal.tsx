@@ -24,7 +24,8 @@ const props = (loading: boolean, error: boolean): AdminApprovalInnerProps => ({
     authentication: {
       loading: false,
       code: ''
-    }
+    },
+    isStale: false
   },
   revisionDetailState: {
     loading,

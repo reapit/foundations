@@ -48,7 +48,8 @@ const props = (loading: boolean): ClientProps => ({
     authentication: {
       loading: false,
       code: ''
-    }
+    },
+    isStale: false
   },
   clientId: '1',
   setStateViewBrowse: jest.fn(),
@@ -96,7 +97,8 @@ describe('Client', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       clientId: '1',
       installationsFormState: 'PENDING',
@@ -127,7 +129,8 @@ describe('Client', () => {
         authentication: {
           loading: false,
           code: ''
-        }
+        },
+        isStale: false
       },
       clientId: '1',
       installationsFormState: 'PENDING',
@@ -216,7 +219,8 @@ describe('Client', () => {
       const mockProps = {
         setVisible: jest.fn(),
         appDetail: {
-          appDetailData: appsDataStub.data
+          appDetailData: appsDataStub.data,
+          isStale: true
         },
         setStateViewBrowse: jest.fn(),
         fetchAppDetail: jest.fn(),

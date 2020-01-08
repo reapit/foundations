@@ -14,7 +14,8 @@ import {
   appDetailFailure,
   AppDetailParams,
   requestAuthenticationSuccess,
-  requestAuthenticationFailure
+  requestAuthenticationFailure,
+  setAppDetailStale
 } from '@/actions/app-detail'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
@@ -57,6 +58,7 @@ describe('app-detail fetch data with clientId', () => {
         })
       )
     )
+    expect(clone.next().value).toEqual(put(setAppDetailStale(false)))
     expect(clone.next().done).toBe(true)
   })
 
@@ -101,6 +103,7 @@ describe('app-detail fetch data without clientId', () => {
         })
       )
     )
+    expect(clone.next().value).toEqual(put(setAppDetailStale(false)))
     expect(clone.next().done).toBe(true)
   })
 
