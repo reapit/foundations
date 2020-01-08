@@ -15,7 +15,7 @@ export const ClientWelcomeMessageModal: React.FunctionComponent<ClientWelcomeMes
       size="medium"
       visible={visible}
       footerItems={
-        <Button variant="primary" type="button" onClick={onAccept}>
+        <Button variant="primary" type="button" onClick={onAccept} dataTest="button-accept-welcome-message-modal">
           Accept
         </Button>
       }

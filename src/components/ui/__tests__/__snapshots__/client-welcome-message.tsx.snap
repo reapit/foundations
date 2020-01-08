@@ -5,6 +5,7 @@ exports[`Menu should match a snapshot 1`] = `
   HeaderComponent={[Function]}
   footerItems={
     <Button
+      dataTest="button-accept-welcome-message-modal"
       onClick={[MockFunction]}
       type="button"
       variant="primary"

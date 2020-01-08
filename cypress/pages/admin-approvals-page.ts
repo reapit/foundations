@@ -6,6 +6,7 @@ const adminApprovalsPageMetaData = {
     container: '#page-admin-approvals-container',
     buttonApprove: 'button[data-test="revision-approve-button"]',
     btnConfirmApproval: 'button[data-test="revision-approve-submit"]',
+    btnApproveSuccess: 'button[data-test="approve-revision-success-button"]',
     divApproveAppSuccessfully: 'div[data-test="approve-revision-success-message"]'
   }
 }
