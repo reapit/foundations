@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelpPage should match a snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <H3>
+        Help
+      </H3>
+      <Grid>
+        <GridItem>
+          <Button
+            data-testid="btnReportBug"
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            Report Bug
+          </Button>
+          <Button
+            data-testid="btnRequestEndPoint"
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            Request Endpoint
+          </Button>
+          <Button
+            data-testid="btnGotoWelcomeGuide"
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            Welcome Guide
+          </Button>
+        </GridItem>
+      </Grid>
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;
