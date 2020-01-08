@@ -1,6 +1,7 @@
 import loginPage from '../pages/login-page'
 import adminAppPage from '../pages/admin-apps-page'
 import api from '../fixtures/routes'
+import parseXhrBodyToJson from '../utils/parse-xhr-body-to-json'
 
 const {
   actions: { loginUsingAdminAccount }
@@ -8,21 +9,20 @@ const {
 const {
   url,
   selectors: { listAppTr, buttonSubmit, buttonRefresh },
-  actions: { parseXHRBody },
   apiGetAppList
 } = adminAppPage
 
-describe('Search app happy path', () => {
-  before(() => {
-    loginUsingAdminAccount()
-  })
+before(() => {
+  loginUsingAdminAccount()
+})
 
+describe('Search app happy path', () => {
   it('should have at least 1 app with correct data', () => {
     cy.visit(url)
     cy.server()
     cy.route(apiGetAppList).as('getAppList')
     cy.wait('@getAppList')
-      .then(xhr => parseXHRBody(xhr))
+      .then(xhr => parseXhrBodyToJson(xhr))
       .then(({ data: appList }) => {
         expect(appList).to.have.length.gte(1)
         /* take random data and try to find that */

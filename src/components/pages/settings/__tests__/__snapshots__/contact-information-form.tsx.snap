@@ -53,6 +53,7 @@ exports[`ContactInformationForm should match snapshot 1`] = `
     </Grid>
     <FlexContainerResponsive>
       <Button
+        dataTest="save-changes"
         disabled={true}
         loading={false}
         type="submit"
@@ -118,6 +119,7 @@ exports[`ContactInformationForm should match snapshot 2`] = `
     </Grid>
     <FlexContainerResponsive>
       <Button
+        dataTest="save-changes"
         disabled={true}
         loading={true}
         type="submit"
