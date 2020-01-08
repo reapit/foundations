@@ -15,9 +15,11 @@ const typeDefs = importSchema('./src/schema.graphql')
 
 const envConfig = require(path.resolve(__dirname, '../../..', 'reapit-config.json'))
 const configs = envConfig[process.env.REAPIT_ENV || 'LOCAL']
-
-for (const k in configs) {
-  process.env[k] = configs[k]
+const isDevelopmentEnv = process.env.NODE_ENV === 'development'
+if (isDevelopmentEnv) {
+  for (const k in configs) {
+    process.env[k] = configs[k]
+  }
 }
 
 export type ExpressContext = {
@@ -58,7 +60,7 @@ export const formatResponse = (
   return response || {}
 }
 
-const server = new ApolloServer({
+export const server = new ApolloServer({
   typeDefs: typeDefs,
   resolvers,
   formatError,

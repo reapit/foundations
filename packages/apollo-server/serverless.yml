@@ -1,0 +1,36 @@
+service: apollo-server
+custom: ${file(./env.yml)}
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: apollo-server.${self:provider.stage}
+    blockPublicAccess: false
+  environment:
+    NODE_ENV: ${self:custom.${self:provider.stage}.NODE_ENV}
+
+package:
+  include:
+    - dist/**
+    - node_modules/**
+    - package.json
+  exclude:
+    - .git/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - nodemon.json
+    - serverless.yml
+    - src/**
+    - env.example.yml
+    - env.yml
+    - tsconfig.json
+
+functions:
+  graphqlHandler:
+    handler: dist/index.graphqlHandler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'

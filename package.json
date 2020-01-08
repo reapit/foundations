@@ -1,7 +1,17 @@
 {
   "name": "root",
   "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/apollo-server",
+      "**/apollo-server/**"
+    ]
+  },
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "build": "lerna run build --parallel",
     "test": "lerna run test:ci --parallel",
     "lint": "eslint --fix --ext=jsx,ts,tsx packages",
@@ -17,6 +27,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/isomorphic-fetch": "^0.0.35",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.17",
     "@types/react": "^16.9.0",
@@ -25,6 +36,7 @@
     "@types/react-router-dom": "^5.1.3",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
+    "babel-loader": "^8.0.6",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-styled-components": "^1.10.6",
     "babel-plugin-tailwind-components": "^0.5.10",
@@ -38,24 +50,24 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.17.0",
     "husky": "^3.1.0",
-    "isomorphic-fetch": "^2.2.1",
+    "jest": "^24.9.0",
     "jest-fetch-mock": "^2.1.2",
     "lerna": "^3.19.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
-    "query-string": "^6.9.0",
     "rimraf": "^3.0.0",
     "ts-jest": "^24.2.0",
     "ts-loader": "^6.2.1",
     "typescript": "~3.7.2",
-    "typescript-eslint": "^0.0.1-alpha.0"
+    "typescript-eslint": "^0.0.1-alpha.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "dependencies": {
     "@reapit/cognito-auth": "^2.0.10",
     "@reapit/elements": "^0.5.23",
+    "isomorphic-fetch": "^2.2.1",
+    "query-string": "^6.9.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
