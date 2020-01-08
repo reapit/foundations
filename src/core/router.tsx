@@ -23,6 +23,8 @@ const ElementsPage = React.lazy(() => import('../components/pages/elements'))
 const DesktopDocsPage = React.lazy(() => import('../components/pages/desktop-api-docs'))
 const WebComponentsPage = React.lazy(() => import('../components/pages/web-components'))
 const SettingsPage = React.lazy(() => import('../components/pages/settings'))
+const DeveloperWelcomePage = React.lazy(() => import('../components/pages/developer-welcome'))
+const HelpPage = React.lazy(() => import('../components/pages/help'))
 // const AnalyticsPage = React.lazy(() => import('../components/pages/analytics'))
 const ResetPassword = React.lazy(() => import('../components/pages/reset-password'))
 const ForgotPassword = React.lazy(() => import('../components/pages/forgot-password/forgot-password'))
@@ -82,6 +84,14 @@ const Router = () => (
             />
             <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
             <PrivateRoute allow="DEVELOPER" path={Routes.FORUM} exact component={Forum}></PrivateRoute>
+            <PrivateRoute
+              allow="DEVELOPER"
+              path={Routes.DEVELOPER_WELCOME}
+              fetcher
+              exact
+              component={DeveloperWelcomePage}
+            />
+            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_HELP} exact component={HelpPage} />
 
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />

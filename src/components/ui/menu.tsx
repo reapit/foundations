@@ -22,6 +22,7 @@ import {
   FaTable,
   FaComments
 } from 'react-icons/fa'
+import { MdHelp } from 'react-icons/md'
 import { GoDatabase, GoCode } from 'react-icons/go'
 
 export const generateMenuConfig = (
@@ -149,6 +150,13 @@ export const generateMenuConfig = (
           url: Routes.FORUM,
           icon: <FaComments className="nav-item-icon" />,
           type: 'PRIMARY'
+        },
+        {
+          title: 'Help',
+          key: 'HELP',
+          url: Routes.DEVELOPER_HELP,
+          type: 'PRIMARY',
+          icon: <MdHelp className="nav-item-icon" />
         },
         {
           title: 'Logout',

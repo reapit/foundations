@@ -296,6 +296,33 @@ exports[`Router should match a snapshot 1`] = `
             path="/forum"
           />
           <Connect(Component)
+            allow="DEVELOPER"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            fetcher={true}
+            path="/developer/welcome"
+          />
+          <Connect(Component)
+            allow="DEVELOPER"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            path="/developer/help"
+          />
+          <Connect(Component)
             allow="ADMIN"
             component={
               Object {

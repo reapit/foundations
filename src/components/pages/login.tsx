@@ -12,6 +12,7 @@ import loginStyles from '@/styles/pages/login.scss?mod'
 import { withRouter, RouteComponentProps } from 'react-router'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { getLoginTypeByPath } from '@/utils/auth-route'
+import { getCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 
 export interface LoginMappedActions {
   login: (params: LoginParams) => void
@@ -73,17 +74,14 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   authChangeLoginType(currentLoginType)
 
   if (hasSession) {
-    return (
-      <Redirect
-        to={
-          loginType === 'DEVELOPER'
-            ? Routes.DEVELOPER_MY_APPS
-            : loginType === 'CLIENT'
-            ? Routes.CLIENT
-            : Routes.ADMIN_APPROVALS
-        }
-      />
-    )
+    const firstLoginCookie = getCookieString(COOKIE_FIRST_TIME_LOGIN)
+    if (loginType === 'DEVELOPER' && !firstLoginCookie) {
+      return <Redirect to={Routes.DEVELOPER_WELCOME} />
+    }
+    if (loginType === 'DEVELOPER' && firstLoginCookie) {
+      return <Redirect to={Routes.DEVELOPER_MY_APPS} />
+    }
+    return <Redirect to={loginType === 'CLIENT' ? Routes.CLIENT : Routes.ADMIN_APPROVALS} />
   }
 
   const queryParams = new URLSearchParams(props.location.search)

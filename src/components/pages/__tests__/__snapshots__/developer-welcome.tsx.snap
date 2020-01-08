@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperWelcomeMessage should match a snapshot when LOADING false 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <HelpGuide>
+        <Component
+          component={[Function]}
+          graphic={
+            <img
+              src="https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png"
+              style={
+                Object {
+                  "height": "auto",
+                  "maxWidth": "100%",
+                }
+              }
+            />
+          }
+          heading="Heading-1"
+          id="step-1"
+          key="step-1"
+          subHeading="SubHeading-1"
+        />
+        <Component
+          component={[Function]}
+          heading="Heading-2"
+          id="step-2"
+          subHeading="SubHeading-2"
+        />
+        <Component
+          component={[Function]}
+          heading="Heading-3"
+          id="step-3"
+          subHeading="SubHeading-3"
+        />
+        <Component
+          component={[Function]}
+          heading="Heading-4"
+          id="step-4"
+          subHeading="SubHeading-4"
+        />
+        <Component
+          component={[Function]}
+          heading="Heading-5"
+          id="step-5"
+          subHeading="SubHeading-5"
+        />
+      </HelpGuide>
+      <Button
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Accept
+      </Button>
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;
