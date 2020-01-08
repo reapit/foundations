@@ -6,7 +6,8 @@ const developerAppsPageMetadata = {
   url: webRoutes.DEVELOPER_MY_APPS,
   selectors: {
     container: '#page-developer-apps-container',
-    buttonEditDetails: 'button[data-test="detail-modal-edit-button"]'
+    buttonEditDetails: 'button[data-test="detail-modal-edit-button"]',
+    btnCloseDetailModal: 'button[data-test="modal-close-button"]'
   }
 }
 

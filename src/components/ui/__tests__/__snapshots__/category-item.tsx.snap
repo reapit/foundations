@@ -5,6 +5,7 @@ exports[`CategoryItem should match a snapshot 1`] = `
   className="undefined false"
 >
   <a
+    data-test-category-id="3"
     href="#"
     onClick={[Function]}
   >

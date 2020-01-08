@@ -32,6 +32,7 @@ const CategoryItem: React.FunctionComponent<CategoryItemProps> = ({
   return (
     <li className={`${styles.categoryItem} ${selected && styles.categoryItemActive}`}>
       <a
+        data-test-category-id={category?.id}
         href="#"
         onClick={event => {
           event.preventDefault()
