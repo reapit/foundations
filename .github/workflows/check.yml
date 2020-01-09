@@ -25,6 +25,11 @@ jobs:
           key: build-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             build-${{ hashFiles('**/yarn.lock') }}
+        
+      - name: Integrate Git credential
+        uses: webfactory/ssh-agent@v0.1.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Install dependencies
         run: yarn install

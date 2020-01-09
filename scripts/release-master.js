@@ -16,17 +16,23 @@ module.exports = async () => {
   });
 
   try {
+    // https://stackoverflow.com/questions/9110478/how-to-find-the-hash-of-branch-in-git
+    const currentHeadSHA = execSync("git rev-parse HEAD")
+    const splittedGithubRepositoryParts = process.env.GITHUB_REPOSITORY.split('/')
+    const ownerName = splittedGithubRepositoryParts[0]
+    const repositoryName = splittedGithubRepositoryParts[1]
+
     await octokit.git.createRef({
-      owner: "reapit",
-      repo: "foundations-ts-definitions",
+      owner: ownerName,
+      repo: repositoryName,
       ref: "refs/tags/" + tagName,
-      sha: process.env.GITHUB_SHA
+      sha: currentHeadSHA.toString().trim()
     });
 
     // create new release based on tag
     await octokit.repos.createRelease({
-      owner: "reapit",
-      repo: "foundations-ts-definitions",
+      owner: ownerName,
+      repo: repositoryName,
       tag_name: tagName
     });
   } catch (err) {
