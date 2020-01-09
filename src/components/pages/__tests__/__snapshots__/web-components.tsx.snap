@@ -30,7 +30,7 @@ exports[`WebComponents should match a snapshot 1`] = `
         To embed the widget on your page, you need to add the script link to our CDN (
         <a
           href="#"
-          id="https://demo-site.reapit.com/scripts/search-widget.js"
+          id="https://web-components.reapit.com/search-widget.js"
           onClick={[Function]}
         >
           click here to copy to clipboard
@@ -39,7 +39,7 @@ exports[`WebComponents should match a snapshot 1`] = `
       </p>
       <pre>
         <code>
-          &lt;script src="http://reapit-web-components.s3.amazonaws.com/search-widget.js"&gt;&lt;/script&gt;
+          &lt;script src="https://web-components.reapit.com/search-widget.js"&gt;&lt;/script&gt;
         </code>
       </pre>
       <p>

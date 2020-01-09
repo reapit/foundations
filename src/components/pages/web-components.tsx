@@ -57,7 +57,7 @@ const WebComponentsPage: React.SFC = () => {
           <p>
             To embed the widget on your page, you need to add the script link to our CDN (
             <a
-              id="https://demo-site.reapit.com/scripts/search-widget.js"
+              id="https://web-components.reapit.com/search-widget.js"
               href="#"
               onClick={handleOnClickSearchWidget({ setCopiedClipboardWidget })}
             >
@@ -66,7 +66,7 @@ const WebComponentsPage: React.SFC = () => {
             ):
           </p>
           <pre>
-            <code>{`<script src="http://reapit-web-components.s3.amazonaws.com/search-widget.js"></script>`}</code>
+            <code>{`<script src="https://web-components.reapit.com/search-widget.js"></script>`}</code>
           </pre>
           <p>
             The widget is themeable and any of the below default options can be overridden by editing the theme.js file
