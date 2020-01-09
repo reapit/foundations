@@ -22,14 +22,15 @@ package:
     - node_modules/**
     - src/**
     - .gitignore
-    - .env.example.yml
-    - .env.yml
+    - env.example.yml
+    - env.yml
     - package.json
     - README.md
     - serverless.yml
     - tsconfig.json
     - tsconfig.legacy.json
     - tslint.json
+    - yarn.lock
 
 functions:
   forgotPasswordHandler:
