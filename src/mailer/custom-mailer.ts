@@ -1,7 +1,7 @@
 import { CognitoUserPoolTriggerHandler } from 'aws-lambda'
 import { forgotPasswordTemplate, confirmRegistrationTemplate } from './templates/index'
 
-export const sendForgotPasswordMail: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
+export const customMailer: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
   if (event.userPoolId === process.env.COGNITO_USERPOOL_ID && event.triggerSource === 'CustomMessage_ForgotPassword') {
     event.response.emailSubject = 'Reapit Foundations: Forgotten Password'
     const resetPasswordUrl = `${process.env.MARKET_PLACE_URL}/developer/reset-password`
@@ -11,10 +11,6 @@ export const sendForgotPasswordMail: CognitoUserPoolTriggerHandler = async (even
       url: resetPasswordUrl
     })
   }
-  callback(null, event)
-}
-
-export const sendConfirmRegistrationMail: CognitoUserPoolTriggerHandler = async (event, _context, callback) => {
   if (event.userPoolId === process.env.COGNITO_USERPOOL_ID && event.triggerSource === 'CustomMessage_SignUp') {
     event.response.emailSubject = 'Welcome to Reapit Foundations'
     const confirmRegistrationUrl = `${process.env.MARKET_PLACE_URL}/register/confirm`
