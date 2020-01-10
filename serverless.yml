@@ -22,25 +22,19 @@ package:
     - node_modules/**
     - src/**
     - .gitignore
-    - .env.example.yml
-    - .env.yml
+    - env.example.yml
+    - env.yml
     - package.json
     - README.md
     - serverless.yml
     - tsconfig.json
     - tsconfig.legacy.json
     - tslint.json
+    - yarn.lock
 
 functions:
-  forgotPasswordHandler:
-    handler: public/app.forgotPasswordHandler
-    events:
-      - cognitoUserPool:
-        pool: ${self:custom.${self:provider.stage}.COGNITO_USERPOOL_ID}
-        trigger: CustomMessage
-        existing: true
-  confirmRegistrationHandler:
-    handler: public/app.confirmRegistrationHandler
+  cognitoCustomMailerHandler:
+    handler: public/app.cognitoCustomMailerHandler
     events:
       - cognitoUserPool:
         pool: ${self:custom.${self:provider.stage}.COGNITO_USERPOOL_ID}
