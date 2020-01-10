@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { ReduxState, FormState } from '@/types/core'
 import {
   FlexContainerBasic,
   Content,
@@ -9,9 +11,14 @@ import {
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
+import { userAcceptTermAndCondition } from '@/actions/auth'
 import styles from '@/styles/pages/developer-welcome.scss?mod'
 
-export type DeveloperWelcomeMessageProps = {}
+export interface DevelopeWelcomeMappedActions {
+  userAcceptTermAndCondition: () => void
+}
+
+export type DeveloperWelcomeMessageProps = DevelopeWelcomeMappedActions
 
 const imageUrl = 'https://1001freedownloads.s3.amazonaws.com/vector/thumb/63319/Placeholder.png'
 
@@ -73,9 +80,12 @@ const ComponentC = () => {
   )
 }
 
-export const handleUserAccept = history => () => history.push(Routes.DEVELOPER_MY_APPS)
+export const handleUserAccept = (userAcceptTermAndCondition, history) => () => {
+  userAcceptTermAndCondition()
+  history.push(Routes.DEVELOPER_MY_APPS)
+}
 
-export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = () => {
+export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = ({ userAcceptTermAndCondition }) => {
   return (
     <FlexContainerBasic flexColumn hasPadding>
       <Content>
@@ -94,7 +104,7 @@ export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = (
             <HelpGuide.Step id="step-4" component={ComponentB} heading="Heading-4" subHeading="SubHeading-4" />
             <HelpGuide.Step id="step-5" component={ComponentC} heading="Heading-5" subHeading="SubHeading-5" />
           </HelpGuide>
-          <Button variant="primary" type="button" onClick={handleUserAccept(history)}>
+          <Button variant="primary" type="button" onClick={handleUserAccept(userAcceptTermAndCondition, history)}>
             Accept
           </Button>
         </FlexContainerResponsive>
@@ -103,4 +113,8 @@ export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = (
   )
 }
 
-export default DeveloperWelcomeMessage
+export const mapDispatchToProps = (dispatch: any): DevelopeWelcomeMappedActions => ({
+  userAcceptTermAndCondition: () => dispatch(userAcceptTermAndCondition())
+})
+
+export default connect(null, mapDispatchToProps)(DeveloperWelcomeMessage)
