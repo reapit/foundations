@@ -43,7 +43,11 @@ export const handleOnCardClick = ({ setVisible, setStateViewBrowse, appDetail, f
 ) => {
   setVisible(true)
   setStateViewBrowse()
-  if (app.id && (!appDetail.appDetailData || appDetail.isStale)) {
+  const isCacheEmpty = !appDetail.appDetailData
+  const isCacheStale = appDetail.isStale
+  const currentAppIdNotMatchWithCachedAppId = appDetail.appDetailData.data.id !== app.id
+
+  if (app.id && (isCacheEmpty || isCacheStale || currentAppIdNotMatchWithCachedAppId)) {
     fetchAppDetail(app.id, clientId)
   }
 }
