@@ -151,7 +151,7 @@ describe('auth thunks', () => {
   describe('setFirstTimeLogin', () => {
     it('should run correctly', () => {
       const gen = cloneableGenerator(setFirstTimeLogin)()
-      expect(gen.next().value).toEqual(call(setCookieString, COOKIE_FIRST_TIME_LOGIN, COOKIE_FIRST_TIME_LOGIN))
+      expect(gen.next().value).toEqual(call(setCookieString, COOKIE_FIRST_TIME_LOGIN, new Date()))
       expect(gen.next().value).toEqual(put(toggleFirstLogin(false)))
       expect(gen.next().done).toBe(true)
     })
