@@ -1,5 +1,12 @@
 service: apollo-server
-custom: ${file(./env.yml)}
+plugins:
+  - serverless-webpack
+custom: 
+  env: ${file(./env.yml)}
+  webpack:
+    includeModules: false
+    packager: 'yarn'
+    excludeFiles: src/**/*.test.*
 provider:
   name: aws
   runtime: nodejs10.x
@@ -9,8 +16,7 @@ provider:
     name: apollo-server.${self:provider.stage}
     blockPublicAccess: false
   environment:
-    NODE_ENV: ${self:custom.${self:provider.stage}.NODE_ENV}
-
+    NODE_ENV: ${self:custom.env.${self:provider.stage}.NODE_ENV}
 package:
   include:
     - dist/**
