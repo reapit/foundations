@@ -14,12 +14,12 @@ provider:
 package:
   include:
     - public/**
+    - node_modules/**
   exclude:
     - .git/**
     - .github/**
     - .serverless/**
     - coverage/**
-    - node_modules/**
     - src/**
     - .gitignore
     - env.example.yml
