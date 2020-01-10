@@ -4,7 +4,7 @@ plugins:
 custom: 
   env: ${file(./env.yml)}
   webpack:
-    includeModules: false
+    includeModules: true
     packager: 'yarn'
     excludeFiles: src/**/*.test.*
 provider:
