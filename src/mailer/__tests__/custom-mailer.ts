@@ -1,10 +1,10 @@
-import { sendForgotPasswordMail, sendConfirmRegistrationMail } from '../custom-mailer'
+import { customMailer } from '../custom-mailer'
 import { CognitoUserPoolTriggerEvent, Context } from 'aws-lambda'
 import { confirmRegistrationTemplate, forgotPasswordTemplate } from '../templates/index'
 
 const context = {} as Context
 
-describe('sendForgotPasswordMail', () => {
+describe('customMailer', () => {
   it('should just call the callback with the event if called when userPool does not match', async () => {
     process.env.COGNITO_USERPOOL_ID = 'SOME_ID'
     const callback = jest.fn()
@@ -15,7 +15,7 @@ describe('sendForgotPasswordMail', () => {
       request: {}
     } as CognitoUserPoolTriggerEvent
 
-    await sendForgotPasswordMail(event, context, callback)
+    await customMailer(event, context, callback)
     expect(event.response).toEqual({})
     expect(callback).toHaveBeenCalledWith(null, event)
   })
@@ -30,7 +30,7 @@ describe('sendForgotPasswordMail', () => {
       request: {}
     } as CognitoUserPoolTriggerEvent
 
-    await sendForgotPasswordMail(event, context, callback)
+    await customMailer(event, context, callback)
     expect(event.response).toEqual({})
     expect(callback).toHaveBeenCalledWith(null, event)
   })
@@ -51,7 +51,7 @@ describe('sendForgotPasswordMail', () => {
       }
     } as Partial<CognitoUserPoolTriggerEvent>
 
-    await sendForgotPasswordMail(event as CognitoUserPoolTriggerEvent, context, callback)
+    await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
     expect(event.response).toEqual({
       emailSubject: 'Reapit Foundations: Forgotten Password',
       emailMessage: await forgotPasswordTemplate({
@@ -60,42 +60,6 @@ describe('sendForgotPasswordMail', () => {
         url: 'SOME_URL/developer/reset-password'
       })
     })
-    expect(callback).toHaveBeenCalledWith(null, event)
-  })
-
-  afterEach(() => {
-    jest.resetAllMocks()
-  })
-})
-
-describe('sendConfirmRegistrationMail', () => {
-  it('should just call the callback with the event if called when userPool does not match', async () => {
-    process.env.COGNITO_USERPOOL_ID = 'SOME_ID'
-    const callback = jest.fn()
-    const event = {
-      triggerSource: 'CustomMessage_ForgotPassword',
-      userPoolId: 'SOME_OTHER_ID',
-      response: {},
-      request: {}
-    } as CognitoUserPoolTriggerEvent
-
-    await sendConfirmRegistrationMail(event, context, callback)
-    expect(event.response).toEqual({})
-    expect(callback).toHaveBeenCalledWith(null, event)
-  })
-
-  it('should just call the callback with the event if the userPool matches but no trigger source match', async () => {
-    process.env.COGNITO_USERPOOL_ID = 'SOME_ID'
-    const callback = jest.fn()
-    const event = {
-      triggerSource: 'CreateAuthChallenge_Authentication',
-      userPoolId: process.env.COGNITO_USERPOOL_ID,
-      response: {},
-      request: {}
-    } as CognitoUserPoolTriggerEvent
-
-    await sendConfirmRegistrationMail(event, context, callback)
-    expect(event.response).toEqual({})
     expect(callback).toHaveBeenCalledWith(null, event)
   })
 
@@ -115,7 +79,7 @@ describe('sendConfirmRegistrationMail', () => {
       }
     } as Partial<CognitoUserPoolTriggerEvent>
 
-    await sendConfirmRegistrationMail(event as CognitoUserPoolTriggerEvent, context, callback)
+    await customMailer(event as CognitoUserPoolTriggerEvent, context, callback)
     expect(event.response).toEqual({
       emailSubject: 'Welcome to Reapit Foundations',
       emailMessage: await confirmRegistrationTemplate({
