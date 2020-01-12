@@ -1,6 +1,6 @@
 {
   "name": "@reapit/foundations-ts-definitions",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "files": [
     "types/*"
   ],

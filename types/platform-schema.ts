@@ -335,6 +335,27 @@ export interface ApplicantModel {
     amount?: number // double
   }
   /**
+   * Gets the applicants source information
+   */
+  source?: {
+    /**
+     * Gets the unique identifier of the applicants source
+     */
+    id?: string
+    /**
+     * Gets the applicants source type
+     */
+    type?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }
+  /**
    * A collection of office unique identifiers that are associated to the applicant. The first identifier listed is considered to be the primary office
    */
   officeIds?: string[]
@@ -460,6 +481,27 @@ export interface ApplicantRentingModel {
    * A list of property furnishing requirements taken from the full listing of the associated department. Only applicable to applicants with a marketingMode of renting
    */
   furnishing?: string[]
+}
+/**
+ * Model representing the details of a applicants source
+ */
+export interface ApplicantSourceModel {
+  /**
+   * Gets the unique identifier of the applicants source
+   */
+  id?: string
+  /**
+   * Gets the applicants source type
+   */
+  type?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
 }
 /**
  * Model representing a single contact detail (eg mobile telephone number)
@@ -1231,6 +1273,27 @@ export interface ContactModel {
    */
   marketingConsent?: string
   /**
+   * Gets the contacts source information
+   */
+  source?: {
+    /**
+     * Gets the unique identifier of the contacts source
+     */
+    id?: string
+    /**
+     * Gets the contacts source type
+     */
+    type?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }
+  /**
    * Gets a collection of the contacts communication details
    */
   communications?: {
@@ -1298,6 +1361,27 @@ export interface ContactModel {
   metadata?: {
     [name: string]: any
   }
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * Model representing the details of a contacts source
+ */
+export interface ContactSourceModel {
+  /**
+   * Gets the unique identifier of the contacts source
+   */
+  id?: string
+  /**
+   * Gets the contacts source type
+   */
+  type?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -1516,6 +1600,19 @@ export interface CreateApplicantModel {
     amount?: number // double
   }
   /**
+   * Sets the applicants source
+   */
+  source?: {
+    /**
+     * Sets the unique identifier of the applicants source
+     */
+    id?: string
+    /**
+     * Sets the applicants source type
+     */
+    type?: string
+  }
+  /**
    * Sets a collection of office ids that are related to this applicant
    */
   officeIds?: string[]
@@ -1572,6 +1669,19 @@ export interface CreateApplicantRentingModel {
    * Sets the applicants furnishing requirements
    */
   furnishing?: string[]
+}
+/**
+ * Model used for creating a applicants source
+ */
+export interface CreateApplicantSourceModel {
+  /**
+   * Sets the unique identifier of the applicants source
+   */
+  id?: string
+  /**
+   * Sets the applicants source type
+   */
+  type?: string
 }
 /**
  * Model to associate an attendee to a new appointment
@@ -1935,6 +2045,19 @@ export interface CreateContactModel {
    */
   marketingConsent?: string
   /**
+   * Sets the contacts source
+   */
+  source?: {
+    /**
+     * Sets the unique identifier of the contacts source
+     */
+    id?: string
+    /**
+     * Sets the contacts source type
+     */
+    type?: string
+  }
+  /**
    * Sets a collection of the contacts communication details
    * Eg. Email address, mobile number, landline
    */
@@ -2004,6 +2127,19 @@ export interface CreateContactModel {
   metadata?: {
     [name: string]: any
   }
+}
+/**
+ * Model used for creating a contacts source
+ */
+export interface CreateContactSourceModel {
+  /**
+   * Sets the unique identifier of the contacts source
+   */
+  id?: string
+  /**
+   * Sets the contacts source type
+   */
+  type?: string
 }
 /**
  * Model used for creating a new document
@@ -2108,11 +2244,11 @@ export interface CreateLandlordContactRelationshipModel {
   /**
    * Sets the entity id to create a relationship with. (Contact or Company)
    */
-  id?: string
+  associatedId?: string
   /**
    * Sets the entity type to create a relationship with. (Contact or Company)
    */
-  type?: string
+  associatedType?: string
 }
 /**
  * Request body to create a landlord
@@ -2147,15 +2283,15 @@ export interface CreateLandlordModel {
    * Sets the collection of new or existing contact entities the
    * should be attached to the new landlord
    */
-  contacts?: {
+  related?: {
     /**
      * Sets the entity id to create a relationship with. (Contact or Company)
      */
-    id?: string
+    associatedId?: string
     /**
      * Sets the entity type to create a relationship with. (Contact or Company)
      */
-    type?: string
+    associatedType?: string
   }[]
   /**
    * Sets a JSON fragment to attach to this landlord as metadata
@@ -2963,19 +3099,6 @@ export interface CreateTaskModel {
   }
 }
 /**
- * A model used to create a new relationship between a vendor and an existing contact
- */
-export interface CreateVendorContactRelationshipModel {
-  /**
-   * Sets the entity id to create a relationship with. (Contact or Company)
-   */
-  id?: string
-  /**
-   * Sets the entity type to create a relationship with. (Contact or Company)
-   */
-  type?: string
-}
-/**
  * Request body to create a works order item
  */
 export interface CreateWorksOrderItemModel {
@@ -3325,6 +3448,40 @@ export interface InsertApplicantContactRelationshipModel {
   isMain?: boolean
 }
 /**
+ * Create (OR update) a relationship between the landlord and a contact
+ */
+export interface InsertLandlordContactRelationshipModel {
+  /**
+   * The unique identifier of the contact to create a relationship with
+   */
+  associatedId?: string
+  /**
+   * The type of relationship to create (contact/company)
+   */
+  associatedType?: string
+  /**
+   * Flag denoting whether or not this relationship should be considered to be the main/primary relationship. Setting to true will automatically demote the existing primary relationship
+   */
+  isMain?: boolean
+}
+/**
+ * Create (OR update) a relationship between the vendor and a contact
+ */
+export interface InsertVendorContactRelationshipModel {
+  /**
+   * The unique identifier of the contact to create a relationship with
+   */
+  associatedId?: string
+  /**
+   * The type of relationship to create (contact/company)
+   */
+  associatedType?: string
+  /**
+   * Flag denoting whether or not this relationship should be considered to be the main/primary relationship. Setting to true will automatically demote the existing primary relationship
+   */
+  isMain?: boolean
+}
+/**
  * Model representing the physical address of a building or premise
  */
 export interface LandlordContactAddressModel {
@@ -3377,7 +3534,7 @@ export interface LandlordContactCommunicationModel {
 /**
  * Model representing the details of a contact relationship associated with a landlord entity
  */
-export interface LandlordContactRelationshipModel {
+export interface LandlordContactModel {
   /**
    * Gets the unique identifier of the contact
    */
@@ -3497,7 +3654,7 @@ export interface LandlordModel {
    * Gets a collection of contact entities attached to this landlord
    * The primary contact will always appear first in the collection
    */
-  contacts?: {
+  related?: {
     /**
      * Gets the unique identifier of the contact
      */
@@ -3743,23 +3900,19 @@ export interface OfferContactCommunicationModel {
 /**
  * Model representing the details of a contact relationship associated with an offer entity
  */
-export interface OfferContactRelationshipModel {
+export interface OfferContactModel {
   /**
    * Gets the unique identifier of the contact
    */
   id?: string
   /**
-   * Gets the title of this contact (eg. Mr, Mrs, Miss, Dr)
+   * Gets the name of this contact or company
    */
-  title?: string
+  name?: string
   /**
-   * Gets the forename of this contact
+   * Gets the type of this contact (Contact/Company)
    */
-  forename?: string
-  /**
-   * Gets the surname of this contact
-   */
-  surname?: string
+  type?: string
   /**
    * Gets a collection of the contacts communication details
    * Eg. Email address, mobile number, landline
@@ -3880,23 +4033,19 @@ export interface OfferModel {
    * Gets a collection of contact entities attached to this offer
    * The primary contact will always appear first in the collection
    */
-  contacts?: {
+  related?: {
     /**
      * Gets the unique identifier of the contact
      */
     id?: string
     /**
-     * Gets the title of this contact (eg. Mr, Mrs, Miss, Dr)
+     * Gets the name of this contact or company
      */
-    title?: string
+    name?: string
     /**
-     * Gets the forename of this contact
+     * Gets the type of this contact (Contact/Company)
      */
-    forename?: string
-    /**
-     * Gets the surname of this contact
-     */
-    surname?: string
+    type?: string
     /**
      * Gets a collection of the contacts communication details
      * Eg. Email address, mobile number, landline
@@ -4282,6 +4431,27 @@ export interface PagedResultApplicantModel_ {
        * The unit value of inside space that the applicant is looking for
        */
       amount?: number // double
+    }
+    /**
+     * Gets the applicants source information
+     */
+    source?: {
+      /**
+       * Gets the unique identifier of the applicants source
+       */
+      id?: string
+      /**
+       * Gets the applicants source type
+       */
+      type?: string
+      readonly _links?: {
+        [name: string]: {
+          href?: string
+        }
+      }
+      readonly _embedded?: {
+        [name: string]: any
+      }
     }
     /**
      * A collection of office unique identifiers that are associated to the applicant. The first identifier listed is considered to be the primary office
@@ -4822,6 +4992,27 @@ export interface PagedResultContactModel_ {
      */
     marketingConsent?: string
     /**
+     * Gets the contacts source information
+     */
+    source?: {
+      /**
+       * Gets the unique identifier of the contacts source
+       */
+      id?: string
+      /**
+       * Gets the contacts source type
+       */
+      type?: string
+      readonly _links?: {
+        [name: string]: {
+          href?: string
+        }
+      }
+      readonly _embedded?: {
+        [name: string]: any
+      }
+    }
+    /**
      * Gets a collection of the contacts communication details
      */
     communications?: {
@@ -5152,7 +5343,7 @@ export interface PagedResultLandlordModel_ {
      * Gets a collection of contact entities attached to this landlord
      * The primary contact will always appear first in the collection
      */
-    contacts?: {
+    related?: {
       /**
        * Gets the unique identifier of the contact
        */
@@ -5377,23 +5568,19 @@ export interface PagedResultOfferModel_ {
      * Gets a collection of contact entities attached to this offer
      * The primary contact will always appear first in the collection
      */
-    contacts?: {
+    related?: {
       /**
        * Gets the unique identifier of the contact
        */
       id?: string
       /**
-       * Gets the title of this contact (eg. Mr, Mrs, Miss, Dr)
+       * Gets the name of this contact or company
        */
-      title?: string
+      name?: string
       /**
-       * Gets the forename of this contact
+       * Gets the type of this contact (Contact/Company)
        */
-      forename?: string
-      /**
-       * Gets the surname of this contact
-       */
-      surname?: string
+      type?: string
       /**
        * Gets a collection of the contacts communication details
        * Eg. Email address, mobile number, landline
@@ -6150,7 +6337,7 @@ export interface PagedResultVendorModel_ {
      * Gets a collection of contact entities attached to this vendor
      * The primary contact will always appear first in the collection
      */
-    contacts?: {
+    related?: {
       /**
        * Gets the unique identifier of the contact
        */
@@ -7374,6 +7561,19 @@ export interface UpdateApplicantModel {
     amount?: number // double
   }
   /**
+   * Sets the applicants source
+   */
+  source?: {
+    /**
+     * Sets the unique identifier of the applicants source
+     */
+    id?: string
+    /**
+     * Sets the applicants source type
+     */
+    type?: string
+  }
+  /**
    * Sets a collection of office ids that are related to this applicant
    */
   officeIds?: string[]
@@ -7416,6 +7616,19 @@ export interface UpdateApplicantRentingModel {
    * Sets the applicants furnishing requirements
    */
   furnishing?: string[]
+}
+/**
+ * Model used for creating a applicants source
+ */
+export interface UpdateApplicantSourceModel {
+  /**
+   * Sets the unique identifier of the applicants source
+   */
+  id?: string
+  /**
+   * Sets the applicants source type
+   */
+  type?: string
 }
 /**
  * Model to update an attendee on an appointment
@@ -7817,6 +8030,19 @@ export interface UpdateContactModel {
    */
   marketingConsent?: string
   /**
+   * Sets the contacts source
+   */
+  source?: {
+    /**
+     * Sets the unique identifier of the contacts source
+     */
+    id?: string
+    /**
+     * Sets the contacts source type
+     */
+    type?: string
+  }
+  /**
    * Sets a collection of the contacts communication details
    * Eg. Email address, mobile number, landline
    */
@@ -7883,6 +8109,19 @@ export interface UpdateContactModel {
   metadata?: {
     [name: string]: any
   }
+}
+/**
+ * Model used for creating a contacts source
+ */
+export interface UpdateContactSourceModel {
+  /**
+   * Sets the unique identifier of the contacts source
+   */
+  id?: string
+  /**
+   * Sets the contacts source type
+   */
+  type?: string
 }
 export interface UpdateDocumentModel {
   /**
@@ -7990,20 +8229,6 @@ export interface UpdateLandlordModel {
      */
     type?: string
   }
-  /**
-   * Sets the collection of new or existing contact entities the
-   * should be attached to the new landlord
-   */
-  contacts?: {
-    /**
-     * Sets the entity id to create a relationship with. (Contact or Company)
-     */
-    id?: string
-    /**
-     * Sets the entity type to create a relationship with. (Contact or Company)
-     */
-    type?: string
-  }[]
   /**
    * Sets a JSON fragment to attach to this landlord as metadata
    */
@@ -8859,19 +9084,6 @@ export interface UpdateVendorModel {
     type?: string
   }
   /**
-   * Sets the collection of contact entities to attach to the vendor
-   */
-  contacts?: {
-    /**
-     * Sets the entity id to create a relationship with. (Contact or Company)
-     */
-    id?: string
-    /**
-     * Sets the entity type to create a relationship with. (Contact or Company)
-     */
-    type?: string
-  }[]
-  /**
    * Sets a JSON fragment to attach to this vendor as metadata
    */
   metadata?: {
@@ -9011,7 +9223,7 @@ export interface VendorContactCommunicationModel {
 /**
  * Model representing the details of a contact relationship associated with a vendor entity
  */
-export interface VendorContactRelationshipModel {
+export interface VendorContactModel {
   /**
    * Gets the unique identifier of the contact
    */
@@ -9145,7 +9357,7 @@ export interface VendorModel {
    * Gets a collection of contact entities attached to this vendor
    * The primary contact will always appear first in the collection
    */
-  contacts?: {
+  related?: {
     /**
      * Gets the unique identifier of the contact
      */
