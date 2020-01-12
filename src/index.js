@@ -1,5 +1,8 @@
 const AWS = require('aws-sdk')
 const fs = require('fs')
+const path = require('path')
+
+const reapitConfigInCWDPath = path.resolve(process.cwd(), './reapit-config.json')
 
 AWS.config.update({ region: 'eu-west-2' })
 
@@ -9,7 +12,7 @@ const createSecret = secretName => {
   secretsManager.createSecret(
     {
       Name: secretName,
-      SecretString: JSON.stringify(require(`${__dirname}/../reapit-config.json`))
+      SecretString: JSON.stringify(require(reapitConfigInCWDPath))
     },
     (err, data) => {
       if (err) {
@@ -24,7 +27,7 @@ const updateSecret = secretName => {
   secretsManager.updateSecret(
     {
       SecretId: secretName,
-      SecretString: JSON.stringify(require(`${__dirname}/../reapit-config.json`))
+      SecretString: JSON.stringify(require(reapitConfigInCWDPath))
     },
     (err, data) => {
       if (err) {
@@ -46,7 +49,7 @@ const getSecret = secretName => {
       }
 
       return fs.writeFile(
-        'reapit-config.json',
+        reapitConfigInCWDPath,
         data.SecretString,
         'utf8',
         err => {
