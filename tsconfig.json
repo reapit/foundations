@@ -9,7 +9,7 @@
     "noEmit": true,
     "strict": true,
     "jsx": "react",
-    "types": ["jest", "node", "react", "@types/webdriverio"],
+    "types": ["jest", "node", "react"],
     "typeRoots": ["./src/types/index.d.ts", "./node_modules/@types"],
     "baseUrl": "./",
     "paths": {
