@@ -1,12 +1,19 @@
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
 
-export const DATE_FORMAT = 'DD MMM YYYY'
+dayjs.extend(utc)
+
+export const DATE_TIME_FORMAT = {
+  RFC3339: 'YYYY-MM-DDTHH:mm:ssZ',
+  DATE_FORMAT: 'DD MMM YYYY',
+  DATE_TIME_FORMAT: 'DD MMM YYYY HH:mm'
+}
 
 export function getTime(date: dayjs.ConfigType, is24HourTime: boolean = false) {
   return dayjs(date).format(is24HourTime ? 'HH:mm' : 'hh:mm A')
 }
 
-export function getDate(date: dayjs.ConfigType, format: string | undefined = DATE_FORMAT) {
+export function getDate(date: dayjs.ConfigType, format: string | undefined = DATE_TIME_FORMAT.DATE_FORMAT) {
   return dayjs(date).format(format)
 }
 
@@ -41,4 +48,17 @@ export function closestTo(dateCompare: dayjs.ConfigType, datesArray: Array<dayjs
   })
 
   return result
+}
+
+export function toUTCTime(value: dayjs.ConfigType, format: string | undefined = DATE_TIME_FORMAT.RFC3339): string {
+  const date = dayjs(value)
+  return date.utc().format(format)
+}
+
+export function toLocalTime(
+  value: dayjs.ConfigType,
+  format: string | undefined = DATE_TIME_FORMAT.DATE_TIME_FORMAT
+): string {
+  const date = dayjs(value)
+  return date.local().format(format)
 }
