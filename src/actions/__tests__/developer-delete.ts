@@ -1,30 +1,30 @@
 import {
-  developerDeleteRequest,
-  developerDeleteRequestLoading,
-  developerDeleteRequestFailure,
-  developerDeleteRequestSuccess,
-  developerDeleteSetInitFormState
-} from '../developer-delete'
+  developerSetStatusRequest,
+  developerSetStatusRequestLoading,
+  developerSetStatusRequestFailure,
+  developerSetStatusRequestSuccess,
+  developerSetStatusSetInitFormState
+} from '../developer-set-status'
 import ActionTypes from '../../constants/action-types'
 
 describe('developer delete actions', () => {
   it('should create a appDetailLoading action', () => {
-    expect(developerDeleteRequestLoading.type).toEqual(ActionTypes.DEVELOPER_DELETE_REQUEST_LOADING)
+    expect(developerSetStatusRequestLoading.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_LOADING)
   })
 
   it('should create a developerDeleteRequest action', () => {
-    expect(developerDeleteRequest.type).toEqual(ActionTypes.DEVELOPER_DELETE_REQUEST)
+    expect(developerSetStatusRequest.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_REQUEST)
   })
 
   it('should create a developerDeleteRequestFailure action', () => {
-    expect(developerDeleteRequestFailure.type).toEqual(ActionTypes.DEVELOPER_DELETE_REQUEST_FAILURE)
+    expect(developerSetStatusRequestFailure.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_FAILURE)
   })
 
   it('should create a developerDeleteRequestSuccess action', () => {
-    expect(developerDeleteRequestSuccess.type).toEqual(ActionTypes.DEVELOPER_DELETE_REQUEST_SUCCESS)
+    expect(developerSetStatusRequestSuccess.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_SUCCESS)
   })
 
   it('should create a developerDeleteSetInitFormState action', () => {
-    expect(developerDeleteSetInitFormState.type).toEqual(ActionTypes.DEVELOPER_DELETE_SET_INIT_FORM_STATE)
+    expect(developerSetStatusSetInitFormState.type).toEqual(ActionTypes.DEVELOPER_SET_STATUS_SET_INIT_FORM_STATE)
   })
 })

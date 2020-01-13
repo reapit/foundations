@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeveloperDeleteModal should match snapshot 1`] = `
+exports[`SetDeveloperStatusModal should match snapshot 1`] = `
 <Modal
   afterClose={[Function]}
   renderChildren={true}
@@ -8,15 +8,16 @@ exports[`DeveloperDeleteModal should match snapshot 1`] = `
 >
   <ModalHeader
     afterClose={[Function]}
-    title="Confirm  deletion"
+    title="Confirm undefined Deactivation"
   />
   <ModalBody
     body={
       <SubTitleH6
         isCentered={true}
       >
-        Are you sure you want to delete '
-        
+        Are you sure you want to 
+        deactivate
+         '
         '?
       </SubTitleH6>
     }

@@ -17,6 +17,7 @@ import { ReduxState } from '@/types/core'
 describe('AdminDevManagement', () => {
   it('should match a snapshot when LOADING false', () => {
     const props: AdminDevManagementProps = {
+      fetchData: jest.fn(),
       adminDevManagementState: { loading: false, data: undefined } as AdminDevManamgenetState,
       filterValues: {} as AdminDevManagementFilterFormValues,
       onPageChange: jest.fn(),
@@ -28,6 +29,7 @@ describe('AdminDevManagement', () => {
 
   it('should show loader when LOADING true', () => {
     const props: AdminDevManagementProps = {
+      fetchData: jest.fn(),
       adminDevManagementState: { loading: true, data: undefined } as AdminDevManamgenetState,
       filterValues: {} as AdminDevManagementFilterFormValues,
       onPageChange: jest.fn(),
@@ -39,6 +41,7 @@ describe('AdminDevManagement', () => {
 
   it('should render blank Info when data is empty', () => {
     const props: AdminDevManagementProps = {
+      fetchData: jest.fn(),
       adminDevManagementState: { loading: false, data: [] } as AdminDevManamgenetState,
       filterValues: {} as AdminDevManagementFilterFormValues,
       onPageChange: jest.fn(),

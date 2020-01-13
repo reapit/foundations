@@ -20,34 +20,44 @@ import Routes from '@/constants/routes'
 import AdminDevManagementFilterForm, {
   AdminDevManagementFilterFormValues
 } from '@/components/ui/admin-dev-management-filter-form'
-import AdminDeleteDeveloperModal from '@/components/ui/developer-delete'
+import AdminSetDeveloperStatusModal from '@/components/ui/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { adminDevManagementRequestData, AdminDevManagementRequestDataValues } from '@/actions/admin-dev-management'
+import qs from 'querystring'
 
-export interface AdminDevManagementProps {
+export interface AdminDevManagementMappedActions {
+  fetchData: (requestdata: AdminDevManagementRequestDataValues) => void
+}
+
+export interface AdminDevManagementMappedProps {
   adminDevManagementState: AdminDevManamgenetState
   filterValues: AdminDevManagementFilterFormValues
   onPageChange: any
   onSearch: any
 }
 
+export type AdminDevManagementProps = AdminDevManagementMappedActions & AdminDevManagementMappedProps
+
 export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
   adminDevManagementState,
   filterValues,
   onPageChange,
-  onSearch
+  onSearch,
+  fetchData
 }) => {
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
-  const [developerId, setDeveloperId] = React.useState('')
-  const [developerName, setDeveloperName] = React.useState('')
-
-  const resetModal = () => {
-    setIsDeleteModalOpen(false)
-    setDeveloperId('')
-    setDeveloperName('')
-  }
+  const [isSetStatusModalOpen, setIsSetStatusModalOpen] = React.useState(false)
+  const [developer, setDeveloper] = React.useState({} as DeveloperModel)
 
   const { loading, data } = adminDevManagementState
   const pageNumber = data?.pageNumber || 1
+
+  const resetModal = succeed => () => {
+    setIsSetStatusModalOpen(false)
+    setDeveloper({})
+    if (succeed) {
+      fetchData({ page: pageNumber, queryString: qs.stringify(filterValues as { name: string; company: string }) })
+    }
+  }
 
   const columns = [
     {
@@ -64,21 +74,20 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
       Header: '',
       id: 'buttonColumn',
       Cell: ({ row: { original } }) => {
-        const { id, name } = original as DeveloperModel
+        const { id, isInactive } = original as DeveloperModel
 
         return (
           <Button
             type="button"
             variant="primary"
             onClick={() => {
-              if (id && name) {
-                setDeveloperId(id)
-                setDeveloperName(name)
-                setIsDeleteModalOpen(true)
+              if (id) {
+                setDeveloper({ ...original, isInactive: isInactive! })
+                setIsSetStatusModalOpen(true)
               }
             }}
           >
-            Delete
+            {isInactive ? 'Enable' : 'Deactive'}
           </Button>
         )
       }
@@ -108,12 +117,11 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
         </Section>
       </FlexContainerResponsive>
 
-      <AdminDeleteDeveloperModal
-        visible={isDeleteModalOpen}
-        afterClose={resetModal}
-        onDeleteSuccess={resetModal}
-        developerId={developerId}
-        developerName={developerName}
+      <AdminSetDeveloperStatusModal
+        visible={isSetStatusModalOpen}
+        afterClose={resetModal(false)}
+        onSuccess={resetModal(true)}
+        developer={developer}
       />
     </ErrorBoundary>
   )
@@ -151,6 +159,8 @@ export const mapStateToProps = (state: ReduxState, ownState: RouteComponentProps
   }
 }
 
-export const mapDispatchToProps = () => ({})
+export const mapDispatchToProps = (dispatch: any) => ({
+  fetchData: (requestData: AdminDevManagementRequestDataValues) => dispatch(adminDevManagementRequestData(requestData))
+})
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AdminDevManagement))

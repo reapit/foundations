@@ -6,5 +6,6 @@ export const developerStub = {
   jobTitle: 'Software Engineer',
   email: 'tanphamhaiduong@gmail.com',
   telephone: '0978100461',
-  created: '2019-11-21T08:46:41'
+  created: '2019-11-21T08:46:41',
+  isInactive: false
 }
