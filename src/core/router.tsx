@@ -83,7 +83,7 @@ const Router = () => (
               component={WebComponentsPage}
             />
             <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
-            <PrivateRoute allow="DEVELOPER" path={Routes.FORUM} exact component={Forum}></PrivateRoute>
+            {/* <PrivateRoute allow="DEVELOPER" path={Routes.FORUM} exact component={Forum}></PrivateRoute> */}
             <PrivateRoute
               allow="DEVELOPER"
               path={Routes.DEVELOPER_WELCOME}
