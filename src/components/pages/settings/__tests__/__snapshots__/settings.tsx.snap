@@ -26,6 +26,7 @@ exports[`SettingsPage should match snapshot 2`] = `
                 "email": "tanphamhaiduong@gmail.com",
                 "externalId": "6447271a-0268-4546-b628-878308d091eb",
                 "id": "7a96e6b2-3778-4118-9c9b-6450851e5608",
+                "isInactive": false,
                 "jobTitle": "Software Engineer",
                 "name": "Duong Pham",
                 "telephone": "0978100461",

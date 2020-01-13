@@ -54,9 +54,8 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
   </FlexContainerResponsive>
   <Connect(Component)
     afterClose={[Function]}
-    developerId=""
-    developerName=""
-    onDeleteSuccess={[Function]}
+    developer={Object {}}
+    onSuccess={[Function]}
     visible={false}
   />
 </Connect(ErrorBoundary)>

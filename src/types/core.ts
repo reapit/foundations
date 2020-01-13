@@ -69,7 +69,7 @@ export interface ReduxState {
   adminApps: AdminAppsState
   adminApprovals: AdminApprovalsState
   adminDevManagement: AdminDevManamgenetState
-  developerDelete: RequestState
+  developerSetStatus: RequestState
   revisionDetail: RevisionDetailState
   appDetailModal: AppDetailModalState
   appDelete: RequestState

@@ -10,7 +10,7 @@ import submitApp from '../reducers/submit-app'
 import submitRevision from '../reducers/submit-revision'
 import adminApprovals from '../reducers/admin-approvals'
 import adminDevManagement from '../reducers/admin-dev-management'
-import developerDelete from '../reducers/developer-delete'
+import developerSetStatus from '../reducers/developer-set-status'
 import revisionDetail from '../reducers/revision-detail'
 import appDetailModal from '../reducers/app-detail-modal'
 import appDeleteReducer from '../reducers/app-delete'
@@ -31,7 +31,7 @@ import submitAppSagas from '../sagas/submit-app'
 import submitRevisionSagas from '../sagas/submit-revision'
 import adminApprovalSagas from '../sagas/admin-approvals'
 import adminDevManagementSagas from '../sagas/admin-dev-management'
-import developerDeleteSagas from '../sagas/developer-delete'
+import developerSetStatusSagas from '../sagas/developer-set-status'
 import revisionDetailSagas from '../sagas/revision-detail'
 import appDeleteSagas from '../sagas/app-delete'
 import forgotPasswordSagas from '../sagas/forgot-password'
@@ -71,7 +71,7 @@ export class Store {
     adminApps,
     adminApprovals,
     adminDevManagement,
-    developerDelete,
+    developerSetStatus,
     revisionDetail,
     appDetailModal,
     appDelete: appDeleteReducer,
@@ -95,7 +95,7 @@ export class Store {
       fork(submitRevisionSagas),
       fork(adminApprovalSagas),
       fork(adminDevManagementSagas),
-      fork(developerDeleteSagas),
+      fork(developerSetStatusSagas),
       fork(revisionDetailSagas),
       fork(appDeleteSagas),
       fork(forgotPasswordSagas),
