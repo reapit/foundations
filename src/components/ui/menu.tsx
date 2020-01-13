@@ -144,13 +144,13 @@ export const generateMenuConfig = (
           icon: <FaCog className="nav-item-icon" />,
           type: 'PRIMARY'
         },
-        {
-          title: 'Forum',
-          key: 'FORUM',
-          url: Routes.FORUM,
-          icon: <FaComments className="nav-item-icon" />,
-          type: 'PRIMARY'
-        },
+        // {
+        //   title: 'Forum',
+        //   key: 'FORUM',
+        //   url: Routes.FORUM,
+        //   icon: <FaComments className="nav-item-icon" />,
+        //   type: 'PRIMARY'
+        // },
         {
           title: 'Help',
           key: 'HELP',
