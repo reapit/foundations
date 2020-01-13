@@ -1,5 +1,8 @@
 import dayjs from 'dayjs'
-import { getTime, getDate, isSameDay, closestTo } from '../datetime'
+import utc from 'dayjs/plugin/utc'
+import { getTime, getDate, isSameDay, closestTo, toUTCTime, toLocalTime, DATE_TIME_FORMAT } from '../datetime'
+import MockDate from 'mockdate'
+dayjs.extend(utc)
 
 describe('datetime', () => {
   it('getTime', () => {
@@ -23,10 +26,13 @@ describe('datetime', () => {
   })
 
   it('isSameDay', () => {
+    const TIME_OFFSET = 0
+    MockDate.set('2019-12-18T16:30:00', TIME_OFFSET)
     ;[['2019-12-18T10:30:00', true], ['Fri, 30 Aug 2019 17:44:20', false]].forEach(([input, expected]) => {
       const result = isSameDay(input as dayjs.ConfigType)
       expect(result).toBe(expected)
     })
+    MockDate.reset()
   })
   it('closestToNow', () => {
     const dateCompare = '2019-09-06T19:00:00'
@@ -34,5 +40,44 @@ describe('datetime', () => {
     const expected = '2019-09-06T21:00:00'
     const result = closestTo(dateCompare, datesArray)
     expect(result).toBe(expected)
+  })
+
+  describe('toUTCTime', () => {
+    it('should run correctly with Dayjs', () => {
+      const date = dayjs('2019-09-06T19:00:00+07:00')
+      const result = toUTCTime(date)
+      expect(result).toEqual('2019-09-06T12:00:00+00:00')
+    })
+
+    it('should run correctly with string', () => {
+      const date = '2019-09-06T19:00:00+07:00'
+      const result = toUTCTime(date)
+      expect(result).toEqual('2019-09-06T12:00:00+00:00')
+    })
+    it('should run correctly with string and format', () => {
+      const date = '2019-09-06T12:00:00+00:00'
+      const result = toUTCTime(date, DATE_TIME_FORMAT.DATE_TIME_FORMAT)
+      expect(result).toEqual('06 Sep 2019 12:00')
+    })
+  })
+
+  describe('toLocal', () => {
+    it('should run correctly with Dayjs', () => {
+      const date = dayjs('2019-09-06T12:00:00+00:00')
+      const result = toLocalTime(date)
+      expect(result).toEqual('06 Sep 2019 19:00')
+    })
+
+    it('should run correctly with string', () => {
+      const date = '2019-09-06T12:00:00+00:00'
+      const result = toLocalTime(date)
+      expect(result).toEqual('06 Sep 2019 19:00')
+    })
+
+    it('should run correctly with string and format', () => {
+      const date = '2019-09-06T12:00:00+00:00'
+      const result = toLocalTime(date, DATE_TIME_FORMAT.RFC3339)
+      expect(result).toEqual('2019-09-06T19:00:00+07:00')
+    })
   })
 })

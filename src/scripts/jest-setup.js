@@ -53,11 +53,7 @@ const mockGeolocation = {
 
 global.navigator.geolocation = mockGeolocation
 
-jest.mock('dayjs', () =>
-  jest.fn((...args) => jest.requireActual('dayjs')(args.filter(arg => arg).length > 0 ? args : '2019-12-18T16:30:00'))
-)
-
 // browserMock.js
 Object.defineProperty(document, 'currentScript', {
-  value: (document.createElement('div').id = 'coordinate-0-0')
+  value: document.createElement('div').id = 'coordinate-0-0'
 })
