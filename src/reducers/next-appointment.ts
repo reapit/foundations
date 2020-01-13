@@ -1,12 +1,12 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
 import { nextAppointmentValidateSuccess, nextAppointmentClear } from '../actions/next-appointment'
-import { AppointmentAttendeeModel } from '@reapit/foundations-ts-definitions'
+import { AppointmentContactModel, NegotiatorModel } from '@reapit/foundations-ts-definitions'
 
 export interface NextAppointment {
   id: string
-  attendeeWithMobile: AppointmentAttendeeModel | undefined
-  currentNegotiator: AppointmentAttendeeModel | undefined
+  attendeeWithMobile: AppointmentContactModel | undefined
+  currentNegotiator: NegotiatorModel | undefined
   durationValue: number
   durationText: string
   distanceValue: number

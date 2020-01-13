@@ -53,10 +53,10 @@ describe('Map', () => {
       const expected = {
         appointments: appointmentsDataStub?.appointments?._embedded || [],
         destinationLatLng: {
-          lat: 52.1284,
-          lng: -0.507145
+          lat: 52.223253,
+          lng: -0.532454
         },
-        destinationAddress: '65 Lindsey Close Great Denham Bedford Bedfordshire MK40 4GT',
+        destinationAddress: '42 Mill Road Sharnbrook Bedford Bedfordshire MK44 1NX',
         desktopMode: true
       }
       expect(result).toEqual(expected)

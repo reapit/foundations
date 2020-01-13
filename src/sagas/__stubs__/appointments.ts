@@ -28,39 +28,35 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'AWM',
-            type: 'negotiator',
-            name: 'Lukas Lang',
-            confirmed: false,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'lukas.lang@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'NEP110356',
-            type: 'applicant',
-            confirmed: false,
+            id: 'RPT',
+            name: 'Reapit',
             communicationDetails: [
               {
-                label: 'Home',
-                detail: '01632 968977'
-              },
-              {
-                label: 'Mobile',
-                detail: '07700 908977'
-              },
-              {
                 label: 'Work',
-                detail: '020 7946 8977'
+                detail: 'test'
               },
               {
                 label: 'E-Mail',
-                detail: 'rrooney129@rpsfiction.net'
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -91,24 +87,37 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'JWB',
-            type: 'negotiator',
-            name: 'Enzo Buchanan',
-            confirmed: true,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'enzo.buchanan@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'BED130221',
-            type: 'applicant',
-            name: 'Mr and Mrs S Eggleton',
-            confirmed: true
+            id: 'RPT',
+            name: 'Reapit',
+            communicationDetails: [
+              {
+                label: 'Work',
+                detail: 'test'
+              },
+              {
+                label: 'E-Mail',
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
+              }
+            ]
           }
         ]
       },
@@ -137,39 +146,35 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'PAE',
-            type: 'negotiator',
-            name: 'Danny Findlay',
-            confirmed: false,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'danny.findlay@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'BUC160036',
-            type: 'applicant',
-            confirmed: false,
+            id: 'RPT',
+            name: 'Reapit',
             communicationDetails: [
               {
-                label: 'Home',
-                detail: '01632 966173'
-              },
-              {
-                label: 'Mobile',
-                detail: '07700 906173'
-              },
-              {
                 label: 'Work',
-                detail: '020 7946 6173'
+                detail: 'test'
               },
               {
                 label: 'E-Mail',
-                detail: 'gmcallister696@rpsfiction.net'
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -200,24 +205,37 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'FHA',
-            type: 'negotiator',
-            name: 'Poppy McDonald',
-            confirmed: true,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'poppy.mcdonald@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'OLY150161',
-            type: 'applicant',
-            name: 'Mr C Looker',
-            confirmed: true
+            id: 'RPT',
+            name: 'Reapit',
+            communicationDetails: [
+              {
+                label: 'Work',
+                detail: 'test'
+              },
+              {
+                label: 'E-Mail',
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
+              }
+            ]
           }
         ]
       },
@@ -230,39 +248,35 @@ export const appointmentsDataStub: AppointmentsData = {
         typeId: 'VW',
         recurring: false,
         cancelled: false,
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'AG',
-            type: 'negotiator',
-            name: 'Nikola Kay',
-            confirmed: false,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'nikola.kay@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'NEP150790',
-            type: 'applicant',
-            confirmed: false,
+            id: 'RPT',
+            name: 'Reapit',
             communicationDetails: [
               {
-                label: 'Home',
-                detail: '01632 970116'
-              },
-              {
-                label: 'Mobile',
-                detail: '07700 910116'
-              },
-              {
                 label: 'Work',
-                detail: '020 7946 1011'
+                detail: 'test'
               },
               {
                 label: 'E-Mail',
-                detail: 'jtennent271@rpsfiction.net'
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -277,39 +291,35 @@ export const appointmentsDataStub: AppointmentsData = {
         typeId: 'VW',
         recurring: false,
         cancelled: false,
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'AEN',
-            type: 'negotiator',
-            name: 'Zac McColl',
-            confirmed: false,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'zac.mccoll@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'NEP160059',
-            type: 'applicant',
-            confirmed: false,
+            id: 'RPT',
+            name: 'Reapit',
             communicationDetails: [
               {
-                label: 'Home',
-                detail: '01632 963008'
-              },
-              {
-                label: 'Mobile',
-                detail: '07700 903008'
-              },
-              {
                 label: 'Work',
-                detail: '020 7946 3008'
+                detail: 'test'
               },
               {
                 label: 'E-Mail',
-                detail: 'hfield6@rpsfiction.net'
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -340,24 +350,37 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'AWM',
-            type: 'negotiator',
-            name: 'Lukas Lang',
-            confirmed: true,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'lukas.lang@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'TOW160002',
-            type: 'applicant',
-            name: 'Mrs J Faid',
-            confirmed: true
+            id: 'RPT',
+            name: 'Reapit',
+            communicationDetails: [
+              {
+                label: 'Work',
+                detail: 'test'
+              },
+              {
+                label: 'E-Mail',
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
+              }
+            ]
           }
         ]
       },
@@ -370,24 +393,37 @@ export const appointmentsDataStub: AppointmentsData = {
         typeId: 'VW',
         recurring: false,
         cancelled: false,
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'AEN',
-            type: 'negotiator',
-            name: 'Zac McColl',
-            confirmed: true,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'zac.mccoll@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'NEP150646',
-            type: 'applicant',
-            name: 'Mr L Balogun',
-            confirmed: true
+            id: 'RPT',
+            name: 'Reapit',
+            communicationDetails: [
+              {
+                label: 'Work',
+                detail: 'test'
+              },
+              {
+                label: 'E-Mail',
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
+              }
+            ]
           }
         ]
       },
@@ -400,16 +436,35 @@ export const appointmentsDataStub: AppointmentsData = {
         typeId: 'VW',
         recurring: false,
         cancelled: true,
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'AWM',
-            type: 'negotiator',
-            name: 'Lukas Lang',
-            confirmed: true,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'lukas.lang@reapitestates.net'
+                detail: 'hphillips@reapit.com'
+              }
+            ]
+          }
+        ],
+        offices: [
+          {
+            id: 'RPT',
+            name: 'Reapit',
+            communicationDetails: [
+              {
+                label: 'Work',
+                detail: 'test'
+              },
+              {
+                label: 'E-Mail',
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -440,39 +495,35 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'JWB',
-            type: 'negotiator',
-            name: 'Enzo Buchanan',
-            confirmed: false,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'enzo.buchanan@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'BED160144',
-            type: 'applicant',
-            confirmed: false,
+            id: 'RPT',
+            name: 'Reapit',
             communicationDetails: [
               {
-                label: 'Home',
-                detail: '01632 970904'
-              },
-              {
-                label: 'Mobile',
-                detail: '07700 910904'
-              },
-              {
                 label: 'Work',
-                detail: '020 7946 1090'
+                detail: 'test'
               },
               {
                 label: 'E-Mail',
-                detail: 'jwilson602@rpsfiction.net'
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -487,39 +538,35 @@ export const appointmentsDataStub: AppointmentsData = {
         typeId: 'VW',
         recurring: false,
         cancelled: false,
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'AEN',
-            type: 'negotiator',
-            name: 'Zac McColl',
-            confirmed: false,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'zac.mccoll@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'MKC150681',
-            type: 'applicant',
-            confirmed: false,
+            id: 'RPT',
+            name: 'Reapit',
             communicationDetails: [
               {
-                label: 'Home',
-                detail: '01632 968195'
-              },
-              {
-                label: 'Mobile',
-                detail: '07700 908195'
-              },
-              {
                 label: 'Work',
-                detail: '020 7946 8195'
+                detail: 'test'
               },
               {
                 label: 'E-Mail',
-                detail: 'bpaterson905@rpsfiction.net'
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -550,16 +597,35 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'JJS',
-            type: 'negotiator',
-            name: 'Chase MacLean',
-            confirmed: true,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'chase.maclean@reapitestates.net'
+                detail: 'hphillips@reapit.com'
+              }
+            ]
+          }
+        ],
+        offices: [
+          {
+            id: 'RPT',
+            name: 'Reapit',
+            communicationDetails: [
+              {
+                label: 'Work',
+                detail: 'test'
+              },
+              {
+                label: 'E-Mail',
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -590,39 +656,35 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'CLD',
-            type: 'negotiator',
-            name: 'Amelie Thompson',
-            confirmed: false,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'amelie.thompson@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'MKC160072',
-            type: 'applicant',
-            confirmed: false,
+            id: 'RPT',
+            name: 'Reapit',
             communicationDetails: [
               {
-                label: 'Home',
-                detail: '01632 967539'
-              },
-              {
-                label: 'Mobile',
-                detail: '07700 907539'
-              },
-              {
                 label: 'Work',
-                detail: '020 7946 7539'
+                detail: 'test'
               },
               {
                 label: 'E-Mail',
-                detail: 'mmorgan974@rpsfiction.net'
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -653,39 +715,35 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'JWB',
-            type: 'negotiator',
-            name: 'Enzo Buchanan',
-            confirmed: false,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'enzo.buchanan@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'BED160144',
-            type: 'applicant',
-            confirmed: false,
+            id: 'RPT',
+            name: 'Reapit',
             communicationDetails: [
               {
-                label: 'Home',
-                detail: '01632 970904'
-              },
-              {
-                label: 'Mobile',
-                detail: '07700 910904'
-              },
-              {
                 label: 'Work',
-                detail: '020 7946 1090'
+                detail: 'test'
               },
               {
                 label: 'E-Mail',
-                detail: 'jwilson602@rpsfiction.net'
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -716,51 +774,35 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'PAE',
-            type: 'negotiator',
-            name: 'Danny Findlay',
-            confirmed: false,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'danny.findlay@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'FHA',
-            type: 'negotiator',
-            name: 'Poppy McDonald',
-            confirmed: false,
+            id: 'RPT',
+            name: 'Reapit',
             communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'poppy.mcdonald@reapitestates.net'
-              }
-            ]
-          },
-          {
-            id: 'BUC140468',
-            type: 'applicant',
-            confirmed: false,
-            communicationDetails: [
-              {
-                label: 'Home',
-                detail: '01632 964515'
-              },
-              {
-                label: 'Mobile',
-                detail: '07700 904515'
-              },
               {
                 label: 'Work',
-                detail: '020 7946 4515'
+                detail: 'test'
               },
               {
                 label: 'E-Mail',
-                detail: 'shussain691@rpsfiction.net'
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -791,24 +833,37 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'JWB',
-            type: 'negotiator',
-            name: 'Enzo Buchanan',
-            confirmed: true,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'enzo.buchanan@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'BED130221',
-            type: 'applicant',
-            name: 'Mr and Mrs S Eggleton',
-            confirmed: true
+            id: 'RPT',
+            name: 'Reapit',
+            communicationDetails: [
+              {
+                label: 'Work',
+                detail: 'test'
+              },
+              {
+                label: 'E-Mail',
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
+              }
+            ]
           }
         ]
       },
@@ -837,39 +892,35 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'JWB',
-            type: 'negotiator',
-            name: 'Enzo Buchanan',
-            confirmed: false,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'enzo.buchanan@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'BED160039',
-            type: 'applicant',
-            confirmed: false,
+            id: 'RPT',
+            name: 'Reapit',
             communicationDetails: [
               {
-                label: 'Home',
-                detail: '01632 966819'
-              },
-              {
-                label: 'Mobile',
-                detail: '07700 906819'
-              },
-              {
                 label: 'Work',
-                detail: '020 7946 6819'
+                detail: 'test'
               },
               {
                 label: 'E-Mail',
-                detail: 'smckenna707@rpsfiction.net'
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -900,16 +951,35 @@ export const appointmentsDataStub: AppointmentsData = {
             }
           }
         },
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'CLD',
-            type: 'negotiator',
-            name: 'Amelie Thompson',
-            confirmed: true,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'amelie.thompson@reapitestates.net'
+                detail: 'hphillips@reapit.com'
+              }
+            ]
+          }
+        ],
+        offices: [
+          {
+            id: 'RPT',
+            name: 'Reapit',
+            communicationDetails: [
+              {
+                label: 'Work',
+                detail: 'test'
+              },
+              {
+                label: 'E-Mail',
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
               }
             ]
           }
@@ -924,24 +994,37 @@ export const appointmentsDataStub: AppointmentsData = {
         typeId: 'VW',
         recurring: false,
         cancelled: true,
-        attendees: [
+        organiserId: 'BED160186',
+        negotiators: [
           {
-            id: 'AG',
-            type: 'negotiator',
-            name: 'Nikola Kay',
-            confirmed: true,
+            id: 'LJW',
+            name: 'Liam Jowett',
             communicationDetails: [
               {
                 label: 'E-Mail',
-                detail: 'nikola.kay@reapitestates.net'
+                detail: 'hphillips@reapit.com'
               }
             ]
-          },
+          }
+        ],
+        offices: [
           {
-            id: 'MKC100651',
-            type: 'applicant',
-            name: 'Mr M Siddall',
-            confirmed: true
+            id: 'RPT',
+            name: 'Reapit',
+            communicationDetails: [
+              {
+                label: 'Work',
+                detail: 'test'
+              },
+              {
+                label: 'E-Mail',
+                detail: 'teste'
+              },
+              {
+                label: 'Business',
+                detail: 'testb'
+              }
+            ]
           }
         ]
       }

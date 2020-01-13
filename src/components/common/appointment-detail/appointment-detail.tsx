@@ -2,7 +2,7 @@ import React from 'react'
 import dayjs from 'dayjs'
 import { connect } from 'react-redux'
 import { TiTimes, TiTick, TiMail, TiHome, TiPhoneOutline, TiDevicePhone } from 'react-icons/ti'
-import { FaClock, FaMale, FaHome, FaStickyNote, FaHandshake } from 'react-icons/fa'
+import { FaClock, FaMale, FaHome, FaStickyNote, FaHandshake, FaBuilding } from 'react-icons/fa'
 import { Dispatch } from 'redux'
 import {
   Modal,
@@ -25,7 +25,9 @@ import {
   AppointmentAttendeeCommunicationModel,
   ListItemModel,
   AppointmentPropertyAddressModel,
-  AppointmentAttendeeModel
+  AppointmentAttendeeModel,
+  NegotiatorModel,
+  AppointmentContactModel
 } from '@reapit/foundations-ts-definitions'
 import { ReduxState } from '@/types/core'
 import { appointmentDetailHideModal, showHideConfirmModal } from '@/actions/appointment-detail'
@@ -33,15 +35,14 @@ import styles from '@/styles/ui/appoinments-detail.scss?mod'
 import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
 import { getAttendeeEntityType } from '@/utils/get-attendee-entity-type'
 import ConfirmContent from './confirm-content'
+import { OfficeModel } from '@/types/platform'
 
 const { appointmentDetailTextContainer } = styles
 
-export type AppointmentModalProps = {
+export type AppointmentModalProps = StateProps & DispatchProps & {
   appointment: AppointmentModel
   visible: boolean
   isLoading: boolean
-  afterClose: () => void
-  handleCancelAppointment: () => void
 }
 
 interface GetHeaderParams {
@@ -148,8 +149,8 @@ export const renderDateTime = (appointment: AppointmentModel) => {
   )
 }
 
-export const renderAdditionalAttendees = (attendees: AppointmentAttendeeModel[], loginMode: LoginMode) => {
-  if (attendees.length === 0) {
+export const renderNegotiators = (negotiators: NegotiatorModel[], loginMode: LoginMode) => {
+  if (negotiators.length === 0) {
     return null
   }
 
@@ -157,19 +158,19 @@ export const renderAdditionalAttendees = (attendees: AppointmentAttendeeModel[],
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
         <FaMale />
-        <H6>Attendees:</H6>
+        <H6>Negotiators:</H6>
       </div>
       <div>
-        {attendees.map(attendee => (
+        {negotiators.map((negotiator: NegotiatorModel) => (
           <div>
             <AcLink
               dynamicLinkParams={{
                 appMode: loginMode,
                 entityType: EntityType.CONTACT,
-                entityCode: attendee.id
+                entityCode: negotiator.id
               }}
             >
-              <p>{attendee.name}</p>
+              <p>{negotiator.name}</p>
             </AcLink>
           </div>
         ))}
@@ -178,14 +179,44 @@ export const renderAdditionalAttendees = (attendees: AppointmentAttendeeModel[],
   )
 }
 
-export const renderApplicantAttendees = (attendees: AppointmentAttendeeModel[], loginMode: LoginMode) => {
-  if (attendees.length === 0) {
+export const renderOffices = (offices: OfficeModel[], loginMode: LoginMode) => {
+  if (offices.length === 0) {
     return null
   }
 
   return (
-    <>
-      {attendees.map(attendee => {
+    <div className={appointmentDetailTextContainer}>
+      <div className={styles.appointmentDetailIconContainer}>
+        <FaBuilding />
+        <H6>Offices:</H6>
+      </div>
+      <div>
+        {offices.map((office: OfficeModel) => (
+          <div>
+            <AcLink
+              dynamicLinkParams={{
+                appMode: loginMode,
+                entityType: EntityType.CONTACT,
+                entityCode: office.id
+              }}
+            >
+              <p>{office.name}</p>
+            </AcLink>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: LoginMode) => {
+  if (attendee?.contacts?.length === 0) {
+    return null
+  }
+
+  return (
+    <React.Fragment>
+      {attendee?.contacts?.map((contact: AppointmentContactModel) => {
         return (
           <div className={appointmentDetailTextContainer}>
             <div className={styles.appointmentDetailIconContainer}>
@@ -201,15 +232,15 @@ export const renderApplicantAttendees = (attendees: AppointmentAttendeeModel[], 
                     entityCode: attendee.id
                   }}
                 >
-                  <p>{attendee.name}</p>
+                  <p>{contact?.name}</p>
                 </AcLink>
               </div>
-              {renderCommunicationDetail(attendee?.communicationDetails || [])}
+              {renderCommunicationDetail(contact?.communicationDetails || [])}
             </p>
           </div>
         )
       })}
-    </>
+    </React.Fragment>
   )
 }
 
@@ -279,8 +310,9 @@ export type RenderModalContentParams = {
   isConfirmContentVisible: boolean
   appointment: AppointmentModel
   loginMode: LoginMode
-  applicantAttendees: AppointmentAttendeeModel[]
-  additionalAttendees: AppointmentAttendeeModel[]
+  attendee: AppointmentAttendeeModel
+  negotiators: NegotiatorModel[]
+  offices: OfficeModel[]
   handleCancelAppointment: () => void
 }
 
@@ -288,9 +320,10 @@ export const renderModalContent = ({
   isLoading,
   isConfirmContentVisible,
   appointment,
-  additionalAttendees,
+  negotiators,
+  offices,
   loginMode,
-  applicantAttendees,
+  attendee,
   handleCancelAppointment
 }: RenderModalContentParams) => {
   if (isLoading) {
@@ -305,8 +338,9 @@ export const renderModalContent = ({
   return (
     <React.Fragment>
       {renderDateTime(appointment)}
-      {renderAdditionalAttendees(additionalAttendees, loginMode)}
-      {renderApplicantAttendees(applicantAttendees, loginMode)}
+      {renderNegotiators(negotiators, loginMode)}
+      {renderOffices(offices, loginMode)}
+      {renderAttendee(attendee, loginMode)}
       {renderAddress(loginMode, address, propertyId)}
       {renderNotes(appointment.description)}
       {renderArrangements(appointment?.property?.arrangements || '')}
@@ -319,15 +353,16 @@ export const renderModalContent = ({
   )
 }
 
-export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetailMappedProps> = ({
+export const AppointmentModal: React.FC<AppointmentModalProps> = ({
   appointment,
   visible,
   afterClose,
   isLoading,
   appointmentTypes,
   loginMode,
-  additionalAttendees,
-  applicantAttendees,
+  negotiators,
+  offices,
+  attendee,
   handleCancelAppointment,
   isConfirmContentVisible
 }) => {
@@ -351,23 +386,25 @@ export const AppointmentModal: React.FC<AppointmentModalProps & AppointmentDetai
           isConfirmContentVisible,
           appointment,
           handleCancelAppointment,
-          additionalAttendees,
+          negotiators,
+          offices,
           loginMode,
-          applicantAttendees
+          attendee,
         })}
       </Modal>
     </React.Fragment>
   )
 }
 
-export type AppointmentDetailMappedProps = {
+export type StateProps = {
   appointment: AppointmentModel
   visible: boolean
   isLoading: boolean
   appointmentTypes: ListItemModel[] | null
   loginMode: LoginMode
-  additionalAttendees: AppointmentAttendeeModel[]
-  applicantAttendees: AppointmentAttendeeModel[]
+  negotiators: NegotiatorModel[]
+  offices: OfficeModel[]
+  attendee: AppointmentAttendeeModel
   isConfirmContentVisible: boolean
 }
 
@@ -414,9 +451,8 @@ export const getApplicantAttendees = (attendees: AppointmentAttendeeModel[]) => 
   })
 }
 
-export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps => {
+export const mapStateToProps = (state: ReduxState): StateProps => {
   const appointment = state?.appointmentDetail?.appointmentDetail || {}
-  const userCode = state?.auth?.loginSession?.loginIdentity?.userCode || ''
   return {
     isConfirmContentVisible: state?.appointmentDetail?.confirmModal?.isConfirmContentVisible,
     appointment: appointment,
@@ -424,17 +460,18 @@ export const mapStateToProps = (state: ReduxState): AppointmentDetailMappedProps
     isLoading: state.appointmentDetail.loading,
     appointmentTypes: state.appointments.appointmentTypes,
     loginMode: state?.auth?.refreshSession?.mode || 'WEB',
-    additionalAttendees: filterLoggedInUser(getAdditionalAttendees(appointment?.attendees || []), userCode),
-    applicantAttendees: getApplicantAttendees(appointment?.attendees || [])
+    negotiators: appointment?.negotiators || [],
+    offices: appointment?.offices || [],
+    attendee: appointment?.attendee || {}
   }
 }
 
-export type AppointmentDetailMappedAction = {
+export type DispatchProps = {
   afterClose: () => void
   handleCancelAppointment: () => void
 }
 
-export const mapDispatchToProps = (dispatch: Dispatch): AppointmentDetailMappedAction => ({
+export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   afterClose: () => dispatch(appointmentDetailHideModal()),
   handleCancelAppointment: () => dispatch(showHideConfirmModal(true))
 })

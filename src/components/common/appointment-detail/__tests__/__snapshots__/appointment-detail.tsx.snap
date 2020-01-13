@@ -39,12 +39,7 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
       </div>
       <div>
         <p>
-          18 Dec 2016 04:30 PM - 05:30 PM
-        </p>
-        <p
-          className="is-size-7 is-italic"
-        >
-          This is a recurring appointment
+          10 Jan 2020 10:27 AM - 10:40 AM
         </p>
       </div>
     </div>
@@ -59,13 +54,13 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
         dynamicLinkParams={
           Object {
             "appMode": "DESKTOP",
-            "entityCode": undefined,
+            "entityCode": "BED140946",
             "entityType": "properties",
           }
         }
       >
         <p>
-          65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
+          42, Mill Road, Sharnbrook, Bedford, Bedfordshire, MK44 1NX, GB
         </p>
       </AcLink>
     </div>
@@ -77,7 +72,7 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
         </H6>
       </div>
       <p>
-        hello world
+        It has windows, a roof and doors - it's basically a house.
       </p>
     </div>
     <div>
@@ -88,7 +83,7 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
         </H6>
       </div>
       <p>
-        Switch lights on in living room
+        Don't let the cat in
       </p>
     </div>
     <FlexContainerResponsive>
