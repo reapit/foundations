@@ -1,69 +1,114 @@
 import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 
 export const appointmentDataStub: AppointmentModel = {
-  id: 'BED1600597',
-  description: 'hello world',
-
-  created: '2019-05-12T17:58:40',
-  modified: '2016-12-18T16:03:45',
-  start: '2016-12-18T16:30:00',
-  end: '2016-12-18T17:30:00',
-  typeId: 'IA',
-  recurring: true,
+  id: 'RPT2000028',
+  created: '2020-01-10T02:45:50',
+  modified: '2020-01-10T02:45:50',
+  start: '2020-01-10T10:27:01',
+  end: '2020-01-10T10:40:01',
+  typeId: 'VW',
+  description: "It has windows, a roof and doors - it's basically a house.",
+  directions: 'SW',
+  recurring: false,
   cancelled: false,
+  followUp: {
+    due: '2020-01-10T10:20:01',
+    responseId: '',
+    notes: 'It has windows, a roof and doors'
+  },
   property: {
-    arrangements: 'Switch lights on in living room',
+    id: 'BED140946',
+    arrangements: "Don't let the cat in",
     address: {
       buildingName: '',
-      buildingNumber: '65',
-      line1: 'Lindsey Close',
-      line2: 'Great Denham',
+      buildingNumber: '42',
+      line1: 'Mill Road',
+      line2: 'Sharnbrook',
       line3: 'Bedford',
       line4: 'Bedfordshire',
-      postcode: 'MK40 4GT',
-      country: '',
+      postcode: 'MK44 1NX',
+      country: 'GB',
       geolocation: {
-        latitude: 52.1284,
-        longitude: -0.507145
+        latitude: 52.223253,
+        longitude: -0.532454
       }
     }
   },
-  attendees: [
+  organiserId: 'BED160186',
+  negotiators: [
     {
-      id: 'JJS',
-      type: 'negotiator',
-      name: 'Chase MacLean',
-      confirmed: true,
+      id: 'LJW',
+      name: 'Liam Jowett',
       communicationDetails: [
         {
           label: 'E-Mail',
-          detail: 'chase.maclean@reapitestates.net'
-        }
-      ]
-    },
-    {
-      id: 'cbryan@reapit.com',
-      type: 'negotiator',
-      name: 'nghia',
-      confirmed: true,
-      communicationDetails: [
-        {
-          label: 'E-Mail',
-          detail: 'chase.maclean@reapitestates.net'
-        }
-      ]
-    },
-    {
-      id: 'JJS',
-      type: 'seller',
-      name: 'Chase MacLean',
-      confirmed: true,
-      communicationDetails: [
-        {
-          label: 'E-Mail',
-          detail: 'chase.maclean@reapitestates.net'
+          detail: 'hphillips@reapit.com'
         }
       ]
     }
-  ]
+  ],
+  offices: [
+    {
+      id: 'RPT',
+      name: 'Reapit',
+      communicationDetails: [
+        {
+          label: 'Work',
+          detail: 'test'
+        },
+        {
+          label: 'E-Mail',
+          detail: 'teste'
+        },
+        {
+          label: 'Business',
+          detail: 'testb'
+        }
+      ]
+    }
+  ],
+  attendee: {
+    id: 'BED160186',
+    type: 'applicant',
+    contacts: [
+      {
+        id: 'BED16000217',
+        name: 'Ms Kali Geddes',
+        communicationDetails: [
+          {
+            label: 'Home',
+            detail: '01632 963403'
+          },
+          {
+            label: 'Mobile',
+            detail: '07700 903403'
+          },
+          {
+            label: 'Work',
+            detail: '020 7946 3403'
+          },
+          {
+            label: 'E-Mail',
+            detail: 'kgeddes225@rpsfiction.net'
+          }
+        ]
+      }
+    ]
+  },
+  accompanied: false,
+  negotiatorConfirmed: false,
+  attendeeConfirmed: false,
+  propertyConfirmed: false,
+  metadata: {},
+  _links: {
+    self: {
+      href: '/appointments/RPT2000028'
+    },
+    type: {
+      href: '/configuration/appointmentTypes/VW'
+    },
+    organiser: {
+      href: '/negotiators/BED160186'
+    }
+  }
 }

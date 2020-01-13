@@ -88,13 +88,7 @@ export const AppointmentList = memo(
           const address = `${line2 || ''} ${line3 || ''} ${line4 || ''} ${postcode || ''}`
 
           const nextAppointmentId = nextAppointment?.id
-          const nextAppointmentType = (nextAppointment?.attendeeWithMobile?.type || '').toLowerCase()
-
-          const displayETAButton =
-            nextAppointmentId === item.id &&
-            nextAppointmentType &&
-            nextAppointmentType !== 'negotiator' &&
-            nextAppointmentType !== 'office'
+          const displayETAButton = nextAppointmentId === item.id
 
           let renderETAButton: React.ReactNode = null
           if (displayETAButton) {

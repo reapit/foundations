@@ -14,7 +14,8 @@ import {
   getAdditionalAttendees,
   getApplicantAttendees,
   getModalHeader,
-  renderDateTime
+  renderDateTime,
+  AppointmentModalProps
 } from '../appointment-detail'
 
 import { attendees } from '../__stubs__/mockData'
@@ -44,11 +45,12 @@ describe('AppointmentModal', () => {
         userCode: 'mockUserCode',
         appointmentTypes: [],
         loginMode: 'DESKTOP' as LoginMode,
-        additionalAttendees: [],
-        applicantAttendees: [],
+        negotiators: [],
+        attendee: {},
+        offices: [],
         handleCancelAppointment: jest.fn(),
         isConfirmContentVisible: false
-      }
+      } as AppointmentModalProps
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
       expect(wrapper).toMatchSnapshot()
@@ -63,11 +65,12 @@ describe('AppointmentModal', () => {
         userCode: 'mockUserCode',
         appointmentTypes: [],
         loginMode: 'DESKTOP' as LoginMode,
-        additionalAttendees: [],
-        applicantAttendees: [],
+        negotiators: [],
+        attendee: {},
+        offices: [],
         handleCancelAppointment: jest.fn(),
         isConfirmContentVisible: true
-      }
+      } as AppointmentModalProps
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
       expect(wrapper).toMatchSnapshot()
@@ -92,11 +95,12 @@ describe('AppointmentModal', () => {
         userCode: 'mockUserCode',
         appointmentTypes: [],
         loginMode: 'DESKTOP' as LoginMode,
-        additionalAttendees: [],
-        applicantAttendees: [],
+        negotiators: [],
+        attendee: {},
+        offices: [],
         handleCancelAppointment: jest.fn(),
         isConfirmContentVisible: false
-      }
+      } as AppointmentModalProps
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Loader')).toHaveLength(1)
       expect(wrapper).toMatchSnapshot()
@@ -387,19 +391,64 @@ describe('AppointmentModal', () => {
         isLoading: true,
         appointmentTypes: [],
         loginMode: 'DESKTOP',
-        applicantAttendees: [],
-        additionalAttendees: [
+        attendee: {
+          contacts: [
+            {
+              communicationDetails: [
+                {
+                  detail: '01632 963403',
+                  label: 'Home'
+                },
+                {
+                  detail: '07700 903403',
+                  label: 'Mobile'
+                },
+                {
+                  detail: '020 7946 3403',
+                  label: 'Work'
+                },
+                {
+                  detail: 'kgeddes225@rpsfiction.net',
+                  label: 'E-Mail'
+                }
+              ],
+              id: 'BED16000217',
+              name: 'Ms Kali Geddes'
+            }
+          ],
+          id: 'BED160186',
+          type: 'applicant'
+        },
+        negotiators: [
           {
-            id: 'JJS',
-            type: 'negotiator',
-            name: 'Chase MacLean',
-            confirmed: true,
             communicationDetails: [
               {
-                label: 'E-Mail',
-                detail: 'chase.maclean@reapitestates.net'
+                detail: 'hphillips@reapit.com',
+                label: 'E-Mail'
               }
-            ]
+            ],
+            id: 'LJW',
+            name: 'Liam Jowett'
+          }
+        ],
+        offices: [
+          {
+            communicationDetails: [
+              {
+                detail: 'test',
+                label: 'Work'
+              },
+              {
+                detail: 'teste',
+                label: 'E-Mail'
+              },
+              {
+                detail: 'testb',
+                label: 'Business'
+              }
+            ],
+            id: 'RPT',
+            name: 'Reapit'
           }
         ]
       }
@@ -428,8 +477,10 @@ describe('AppointmentModal', () => {
         appointment: {},
         appointmentTypes: [],
         loginMode: 'WEB',
-        additionalAttendees: [],
-        applicantAttendees: []
+        attendee: {},
+        negotiators: [],
+        offices: [],
+        isConfirmContentVisible: undefined
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)

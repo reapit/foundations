@@ -47,48 +47,44 @@ exports[`Home should match a snapshot 1`] = `
       appointments={
         Array [
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "lukas.lang@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "AWM",
-                "name": "Lukas Lang",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "01632 968977",
-                    "label": "Home",
-                  },
-                  Object {
-                    "detail": "07700 908977",
-                    "label": "Mobile",
-                  },
-                  Object {
-                    "detail": "020 7946 8977",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "rrooney129@rpsfiction.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "NEP110356",
-                "type": "applicant",
-              },
-            ],
             "cancelled": true,
             "created": "2019-05-08T17:07:39",
             "end": "2019-05-11T18:00:00",
             "id": "NEP1600290",
             "modified": "2019-05-09T09:18:06",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "",
@@ -110,31 +106,44 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "enzo.buchanan@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": true,
-                "id": "JWB",
-                "name": "Enzo Buchanan",
-                "type": "negotiator",
-              },
-              Object {
-                "confirmed": true,
-                "id": "BED130221",
-                "name": "Mr and Mrs S Eggleton",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T17:00:15",
             "end": "2019-05-09T14:00:00",
             "id": "BED1600537",
             "modified": "2016-12-14T17:25:22",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "Cornerways",
@@ -156,48 +165,44 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "danny.findlay@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "PAE",
-                "name": "Danny Findlay",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "01632 966173",
-                    "label": "Home",
-                  },
-                  Object {
-                    "detail": "07700 906173",
-                    "label": "Mobile",
-                  },
-                  Object {
-                    "detail": "020 7946 6173",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "gmcallister696@rpsfiction.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "BUC160036",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T16:56:37",
             "end": "2019-05-09T14:45:00",
             "id": "BUC1600211",
             "modified": "2019-05-12T08:19:24",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "The Pines",
@@ -219,31 +224,44 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "poppy.mcdonald@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": true,
-                "id": "FHA",
-                "name": "Poppy McDonald",
-                "type": "negotiator",
-              },
-              Object {
-                "confirmed": true,
-                "id": "OLY150161",
-                "name": "Mr C Looker",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T16:44:46",
             "end": "2019-05-09T14:15:00",
             "id": "BUC1600210",
             "modified": "2019-05-11T14:45:40",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "Wayside",
@@ -265,125 +283,130 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "nikola.kay@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "AG",
-                "name": "Nikola Kay",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "01632 970116",
-                    "label": "Home",
-                  },
-                  Object {
-                    "detail": "07700 910116",
-                    "label": "Mobile",
-                  },
-                  Object {
-                    "detail": "020 7946 1011",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "jtennent271@rpsfiction.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "NEP150790",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T16:18:09",
             "end": "2019-05-09T11:45:00",
             "id": "STS1600403",
             "modified": "2019-05-11T10:05:34",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "recurring": false,
             "start": "2019-05-09T11:15:00",
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "zac.mccoll@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "AEN",
-                "name": "Zac McColl",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "01632 963008",
-                    "label": "Home",
-                  },
-                  Object {
-                    "detail": "07700 903008",
-                    "label": "Mobile",
-                  },
-                  Object {
-                    "detail": "020 7946 3008",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "hfield6@rpsfiction.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "NEP160059",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T15:39:57",
             "end": "2019-05-10T16:00:00",
             "id": "STS1600401",
             "modified": "2019-05-12T16:39:53",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "recurring": false,
             "start": "2019-05-10T15:15:00",
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "lukas.lang@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": true,
-                "id": "AWM",
-                "name": "Lukas Lang",
-                "type": "negotiator",
-              },
-              Object {
-                "confirmed": true,
-                "id": "TOW160002",
-                "name": "Mrs J Faid",
-                "type": "applicant",
-              },
-            ],
             "cancelled": true,
             "created": "2019-05-08T14:56:47",
             "end": "2019-05-09T17:00:00",
             "id": "NEP1600288",
             "modified": "2019-05-08T19:11:22",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "",
@@ -405,102 +428,130 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "zac.mccoll@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": true,
-                "id": "AEN",
-                "name": "Zac McColl",
-                "type": "negotiator",
-              },
-              Object {
-                "confirmed": true,
-                "id": "NEP150646",
-                "name": "Mr L Balogun",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T14:46:37",
             "end": "2019-05-08T18:30:00",
             "id": "STS1600396",
             "modified": "2019-05-12T12:32:01",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "recurring": false,
             "start": "2019-05-08T18:00:00",
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "lukas.lang@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": true,
-                "id": "AWM",
-                "name": "Lukas Lang",
-                "type": "negotiator",
-              },
-            ],
             "cancelled": true,
             "created": "2019-05-08T14:39:24",
             "end": "2019-05-12T18:00:00",
             "id": "NEP1600287",
             "modified": "2019-05-12T13:23:36",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "recurring": false,
             "start": "2019-05-12T17:30:00",
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "enzo.buchanan@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "JWB",
-                "name": "Enzo Buchanan",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "01632 970904",
-                    "label": "Home",
-                  },
-                  Object {
-                    "detail": "07700 910904",
-                    "label": "Mobile",
-                  },
-                  Object {
-                    "detail": "020 7946 1090",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "jwilson602@rpsfiction.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "BED160144",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T14:31:27",
             "end": "2019-05-09T16:15:00",
             "id": "BED1600534",
             "modified": "2016-12-18T08:24:24",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "The Cottage",
@@ -522,72 +573,87 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "zac.mccoll@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "AEN",
-                "name": "Zac McColl",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "01632 968195",
-                    "label": "Home",
-                  },
-                  Object {
-                    "detail": "07700 908195",
-                    "label": "Mobile",
-                  },
-                  Object {
-                    "detail": "020 7946 8195",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "bpaterson905@rpsfiction.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "MKC150681",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T14:31:25",
             "end": "2019-05-10T14:30:00",
             "id": "STS1600394",
             "modified": "2019-05-12T16:18:48",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "recurring": false,
             "start": "2019-05-10T14:00:00",
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "chase.maclean@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": true,
-                "id": "JJS",
-                "name": "Chase MacLean",
-                "type": "negotiator",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T14:05:42",
             "end": "2019-05-11T16:30:00",
             "id": "BED1600532",
             "modified": "2019-05-12T17:59:02",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "",
@@ -609,48 +675,44 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VL",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "amelie.thompson@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "CLD",
-                "name": "Amelie Thompson",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "01632 967539",
-                    "label": "Home",
-                  },
-                  Object {
-                    "detail": "07700 907539",
-                    "label": "Mobile",
-                  },
-                  Object {
-                    "detail": "020 7946 7539",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "mmorgan974@rpsfiction.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "MKC160072",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T13:33:25",
             "end": "2019-05-09T17:00:00",
             "id": "MKC1600312",
             "modified": "2019-05-08T13:33:25",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "",
@@ -672,48 +734,44 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "enzo.buchanan@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "JWB",
-                "name": "Enzo Buchanan",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "01632 970904",
-                    "label": "Home",
-                  },
-                  Object {
-                    "detail": "07700 910904",
-                    "label": "Mobile",
-                  },
-                  Object {
-                    "detail": "020 7946 1090",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "jwilson602@rpsfiction.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "BED160144",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T13:18:59",
             "end": "2019-05-11T17:00:00",
             "id": "BED1600530",
             "modified": "2019-05-12T08:33:02",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "The Firs",
@@ -735,60 +793,44 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "danny.findlay@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "PAE",
-                "name": "Danny Findlay",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "poppy.mcdonald@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "FHA",
-                "name": "Poppy McDonald",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "01632 964515",
-                    "label": "Home",
-                  },
-                  Object {
-                    "detail": "07700 904515",
-                    "label": "Mobile",
-                  },
-                  Object {
-                    "detail": "020 7946 4515",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "shussain691@rpsfiction.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "BUC140468",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T13:08:53",
             "end": "2019-05-09T13:30:00",
             "id": "BUC1600209",
             "modified": "2019-05-11T14:45:35",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "Wayside",
@@ -810,31 +852,44 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "enzo.buchanan@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": true,
-                "id": "JWB",
-                "name": "Enzo Buchanan",
-                "type": "negotiator",
-              },
-              Object {
-                "confirmed": true,
-                "id": "BED130221",
-                "name": "Mr and Mrs S Eggleton",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T13:02:58",
             "end": "2019-05-09T14:00:00",
             "id": "BED1600525",
             "modified": "2016-12-14T16:30:47",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "The Homestead",
@@ -856,48 +911,44 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "enzo.buchanan@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "JWB",
-                "name": "Enzo Buchanan",
-                "type": "negotiator",
-              },
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "01632 966819",
-                    "label": "Home",
-                  },
-                  Object {
-                    "detail": "07700 906819",
-                    "label": "Mobile",
-                  },
-                  Object {
-                    "detail": "020 7946 6819",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "smckenna707@rpsfiction.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": false,
-                "id": "BED160039",
-                "type": "applicant",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T12:40:52",
             "end": "2019-05-09T12:00:00",
             "id": "BED1600523",
             "modified": "2016-12-13T17:12:40",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "",
@@ -919,25 +970,44 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "amelie.thompson@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": true,
-                "id": "CLD",
-                "name": "Amelie Thompson",
-                "type": "negotiator",
-              },
-            ],
             "cancelled": false,
             "created": "2019-05-08T12:36:02",
             "end": "2019-05-11T11:30:00",
             "id": "MKC1600311",
             "modified": "2019-05-11T16:40:10",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "property": Object {
               "address": Object {
                 "buildingName": "",
@@ -959,31 +1029,44 @@ exports[`Home should match a snapshot 1`] = `
             "typeId": "VW",
           },
           Object {
-            "attendees": Array [
-              Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "nikola.kay@reapitestates.net",
-                    "label": "E-Mail",
-                  },
-                ],
-                "confirmed": true,
-                "id": "AG",
-                "name": "Nikola Kay",
-                "type": "negotiator",
-              },
-              Object {
-                "confirmed": true,
-                "id": "MKC100651",
-                "name": "Mr M Siddall",
-                "type": "applicant",
-              },
-            ],
             "cancelled": true,
             "created": "2019-05-08T11:48:40",
             "end": "2019-05-09T14:30:00",
             "id": "STS1600389",
             "modified": "2019-05-09T14:38:50",
+            "negotiators": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "hphillips@reapit.com",
+                    "label": "E-Mail",
+                  },
+                ],
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "communicationDetails": Array [
+                  Object {
+                    "detail": "test",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "teste",
+                    "label": "E-Mail",
+                  },
+                  Object {
+                    "detail": "testb",
+                    "label": "Business",
+                  },
+                ],
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
             "recurring": false,
             "start": "2019-05-09T14:00:00",
             "typeId": "VW",
@@ -993,48 +1076,44 @@ exports[`Home should match a snapshot 1`] = `
       nextAppointment={null}
       selectedAppointment={
         Object {
-          "attendees": Array [
-            Object {
-              "communicationDetails": Array [
-                Object {
-                  "detail": "lukas.lang@reapitestates.net",
-                  "label": "E-Mail",
-                },
-              ],
-              "confirmed": false,
-              "id": "AWM",
-              "name": "Lukas Lang",
-              "type": "negotiator",
-            },
-            Object {
-              "communicationDetails": Array [
-                Object {
-                  "detail": "01632 968977",
-                  "label": "Home",
-                },
-                Object {
-                  "detail": "07700 908977",
-                  "label": "Mobile",
-                },
-                Object {
-                  "detail": "020 7946 8977",
-                  "label": "Work",
-                },
-                Object {
-                  "detail": "rrooney129@rpsfiction.net",
-                  "label": "E-Mail",
-                },
-              ],
-              "confirmed": false,
-              "id": "NEP110356",
-              "type": "applicant",
-            },
-          ],
           "cancelled": true,
           "created": "2019-05-08T17:07:39",
           "end": "2019-05-11T18:00:00",
           "id": "NEP1600290",
           "modified": "2019-05-09T09:18:06",
+          "negotiators": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "hphillips@reapit.com",
+                  "label": "E-Mail",
+                },
+              ],
+              "id": "LJW",
+              "name": "Liam Jowett",
+            },
+          ],
+          "offices": Array [
+            Object {
+              "communicationDetails": Array [
+                Object {
+                  "detail": "test",
+                  "label": "Work",
+                },
+                Object {
+                  "detail": "teste",
+                  "label": "E-Mail",
+                },
+                Object {
+                  "detail": "testb",
+                  "label": "Business",
+                },
+              ],
+              "id": "RPT",
+              "name": "Reapit",
+            },
+          ],
+          "organiserId": "BED160186",
           "property": Object {
             "address": Object {
               "buildingName": "",

@@ -4,7 +4,6 @@ import { selectAppointments } from '@/selectors/appointments'
 import { getTodayNextAppointment } from '@/utils/get-today-next-appointment'
 import { nextAppointmentValidateSuccess, nextAppointmentClear } from '@/actions/next-appointment'
 import { selectUserCode } from '@/selectors/auth'
-import { filterLoggedInUser } from '@/components/common/appointment-detail/appointment-detail'
 import { Action } from '@/types/core'
 import { getLoggedInUser } from '../components/common/appointment-detail/appointment-detail'
 
@@ -77,19 +76,14 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
       ) {
         const userCode = yield select(selectUserCode)
 
-        const noOfficeOrNegotiatorAttendees = filterLoggedInUser(appointment.attendees, userCode).filter(attendee => {
-          const type = (attendee?.type || '').toLowerCase()
-          return type !== 'negotiator' && type !== 'office'
-        })
-
-        const attendeeWithMobile = noOfficeOrNegotiatorAttendees.filter(attendee => {
+        const attendeeWithMobile = appointment.attendee?.contacts?.filter(attendee => {
           if (!attendee.communicationDetails) {
             return false
           }
           return attendee.communicationDetails.findIndex(({ label }) => label === 'Mobile') > -1
         })[0]
 
-        const currentNegotiator = getLoggedInUser(appointment.attendees, userCode)
+        const currentNegotiator = getLoggedInUser(appointment.negotiators, userCode)
         const durationValue = response.rows?.[0]?.elements?.[0]?.duration?.value || 0
         const durationText = response.rows?.[0]?.elements?.[0]?.duration?.text || ''
         const distanceValue = response.rows?.[0]?.elements?.[0]?.distance?.value || 0

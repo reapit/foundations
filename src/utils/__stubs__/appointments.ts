@@ -25,8 +25,7 @@ export const appoinmentsStub: AppointmentModel[] = [
           longitude: -0.790871
         }
       }
-    },
-    attendees: []
+    }
   },
   {
     id: '2019-05-09T09:17:06',
@@ -52,8 +51,7 @@ export const appoinmentsStub: AppointmentModel[] = [
           longitude: -0.790871
         }
       }
-    },
-    attendees: []
+    }
   },
   {
     id: '2019-05-09T09:17:06',
@@ -79,7 +77,6 @@ export const appoinmentsStub: AppointmentModel[] = [
           longitude: -0.790871
         }
       }
-    },
-    attendees: []
+    }
   }
 ]
