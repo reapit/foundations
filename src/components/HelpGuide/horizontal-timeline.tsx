@@ -48,7 +48,7 @@ export const calculateElement = ({
   }
 }
 
-export const HorizontalTimeline = ({ total, currentIndex }) => {
+export const HorizontalTimeline = ({ total, currentIndex, onSelect }) => {
   const circleRef = React.useRef<HTMLDivElement>(null)
   const lineRef = React.useRef<HTMLDivElement>(null)
   const activeRef = React.useRef<HTMLLIElement>(null)
@@ -65,6 +65,7 @@ export const HorizontalTimeline = ({ total, currentIndex }) => {
         <li
           key={item}
           ref={currentIndex === item ? activeRef : null}
+          onClick={() => onSelect(item)}
           className={`${currentIndex === item ? 'active' : ''} ${currentIndex > item ? 'passed' : ''}`}
         ></li>
       ))}
