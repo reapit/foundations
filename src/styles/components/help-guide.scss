@@ -103,7 +103,7 @@
   }
 
   & .circle-active {
-    border: 1px solid #0061a8;
+    border: 1px solid $reapit-mid-blue;
     transform: translateY(25px);
     width: 40px;
     height: 40px;
@@ -187,13 +187,13 @@
     position: absolute;
     height: 3px;
     top: 50%;
-    background-color: #0061a8;
+    background-color: $reapit-mid-blue;
     transition: all 0.3s;
     z-index: -2;
   }
 
   & .circle-active {
-    border: 1px solid #0061a8;
+    border: 1px solid $reapit-mid-blue;
     width: 40px;
     height: 40px;
     position: absolute;
