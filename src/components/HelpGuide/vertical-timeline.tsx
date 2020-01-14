@@ -47,23 +47,23 @@ export const calculateElement = ({
   }
 }
 
-export const VerticalTimeline = ({ total, currentIndex }) => {
+export const VerticalTimeline = ({ total, currentIndex, onSelect }) => {
   const circleRef = React.useRef<HTMLDivElement>(null)
   const lineRef = React.useRef<HTMLDivElement>(null)
   const activeRef = React.useRef<HTMLLIElement>(null)
-
   const numbers = React.useMemo(generateNumbers(total), [total])
 
   React.useEffect(calculateElement({ circleRef, lineRef, activeRef }), [currentIndex])
 
   return (
-    <ul className="numbers-timeline">
+    <ul className="vertical-timeline">
       <div ref={circleRef} className="circle-active"></div>
       <div ref={lineRef} className="line-active"></div>
       {numbers.map(item => (
         <li
           ref={currentIndex === item ? activeRef : null}
           key={item}
+          onClick={() => onSelect(item)}
           className={`${currentIndex === item ? 'active' : ''} ${currentIndex > item ? 'passed' : ''}`}
         ></li>
       ))}
