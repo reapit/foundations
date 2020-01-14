@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import { mount, shallow } from 'enzyme'
+import React from 'react'
+import { shallow } from 'enzyme'
 import {
   HelpGuide,
-  caculateCurrentStepRef,
+  caculateStepChange,
   handleGoNext,
   handleGoPrev,
+  handleGoTo,
   renderTimeline,
   NavigationProps,
   HelpGuideStepProps
@@ -33,15 +34,21 @@ describe('HelpGuide', () => {
   })
 
   describe('renderTimeline', () => {
+    const mockProps = {
+      total: 5,
+      currentIndex: 3,
+      isMobileScreen: true,
+      goTo: jest.fn()
+    }
     it('should match a snapshot when isMobileScreen TRUE', () => {
-      expect(renderTimeline(5, 3, true)).toMatchSnapshot()
+      expect(renderTimeline(mockProps)).toMatchSnapshot()
     })
     it('should match a snapshot when isMobileScreen FALSE', () => {
-      expect(renderTimeline(5, 3, false)).toMatchSnapshot()
+      expect(renderTimeline({ ...mockProps, isMobileScreen: false })).toMatchSnapshot()
     })
   })
 
-  it('handleCurrentStepRef should run correctly', async () => {
+  describe('caculateStepChange', async () => {
     const mockProps = {
       currentStepRef: {
         current: {
@@ -51,31 +58,65 @@ describe('HelpGuide', () => {
             transform: ''
           }
         }
-      } as React.RefObject<HTMLDivElement>
+      } as React.RefObject<HTMLDivElement>,
+      wrapperStepRef: {
+        current: {
+          style: {
+            zIndex: '',
+            opacity: '',
+            transform: ''
+          }
+        }
+      } as React.RefObject<HTMLDivElement>,
+      helpguideRef: {
+        current: {
+          style: {
+            zIndex: '',
+            opacity: '',
+            transform: ''
+          }
+        }
+      } as React.RefObject<HTMLDivElement>,
+      isMobileScreen: false
     }
 
-    function sleep(fn) {
-      return new Promise(resolve => {
-        // wait 3s before calling fn(par)
-        setTimeout(() => resolve(fn), 300)
-      })
-    }
+    const { currentStepRef, helpguideRef, wrapperStepRef } = mockProps
 
-    const caculateAfterSetTimeout = () => {
-      if (mockProps.currentStepRef.current) {
-        mockProps.currentStepRef.current.style.opacity = '1'
-        mockProps.currentStepRef.current.style.zIndex = '2'
-        mockProps.currentStepRef.current.style.transform = 'translate(0px, 0px)'
+    it('should run correctly when isMobileScreen true', () => {
+      caculateStepChange({ ...mockProps, isMobileScreen: true })()
+
+      if (currentStepRef.current && helpguideRef.current && wrapperStepRef.current) {
+        const transform = `translate3d(-${currentStepRef.current.offsetLeft}px, 0, 0)`
+        wrapperStepRef.current.style.transform = transform
+        expect(wrapperStepRef.current.style.transform).toEqual(transform)
       }
-    }
+    })
 
-    caculateCurrentStepRef(mockProps)()
-    await sleep(caculateAfterSetTimeout)
-    if (mockProps.currentStepRef.current) {
-      expect(mockProps.currentStepRef.current.style.opacity).toEqual('1')
-      expect(mockProps.currentStepRef.current.style.zIndex).toEqual('2')
-      expect(mockProps.currentStepRef.current.style.transform).toEqual('translate(0px, 0px)')
-    }
+    it('should run correctly when isMobileScreen false', () => {
+      caculateStepChange(mockProps)()
+
+      if (currentStepRef.current && helpguideRef.current && wrapperStepRef.current) {
+        const height = `${currentStepRef.current.offsetHeight}px`
+        const transform = `translate3d(0, -${currentStepRef.current.offsetTop}px, 0)`
+        helpguideRef.current.style.height = height
+        wrapperStepRef.current.style.transform = transform
+        expect(helpguideRef.current.style.height).toEqual(height)
+        expect(wrapperStepRef.current.style.transform).toEqual(transform)
+      }
+    })
+  })
+
+  describe('handleGoTo', () => {
+    const mockProps = {
+      steps: [{ id: 'step-1' }, { id: 'step-2' }, { id: 'step-3' }] as HelpGuideStepProps[],
+      currentIndex: 0,
+      setInternalCurrent: jest.fn()
+    } as NavigationProps
+
+    it('should run correctly', () => {
+      handleGoTo({ ...mockProps })(2)
+      expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[2].id)
+    })
   })
 
   describe('handleGoNext', () => {
@@ -83,59 +124,17 @@ describe('HelpGuide', () => {
       steps: [{ id: 'step-1' }, { id: 'step-2' }, { id: 'step-3' }] as HelpGuideStepProps[],
       currentIndex: 0,
       setInternalCurrent: jest.fn(),
-      isLast: false,
-      isMobileScreen: true,
-      currentStepRef: {
-        current: {
-          clientHeight: 50,
-          clientWidth: 30,
-          style: {
-            zIndex: '',
-            opacity: '',
-            transform: ''
-          }
-        }
-      } as React.RefObject<HTMLDivElement>
+      isLast: false
     } as NavigationProps
 
-    it('should run correctly when isLast TRUE', () => {
-      handleGoNext({ ...mockProps, isLast: true })()
-      if (mockProps.currentStepRef.current) {
-        expect(mockProps.currentStepRef.current.style.opacity).toEqual('')
-        expect(mockProps.currentStepRef.current.style.zIndex).toEqual('')
-        expect(mockProps.currentStepRef.current.style.transform).toEqual('')
-      }
-      expect(mockProps.setInternalCurrent).toBeCalledTimes(0)
-    })
-
-    it('should run correctly when isMobileScreen TRUE', () => {
+    it('should run correctly when isLast false', () => {
       handleGoNext({ ...mockProps })()
-      if (mockProps.currentStepRef.current) {
-        mockProps.currentStepRef.current.style.opacity = '0'
-        expect(mockProps.currentStepRef.current.style.opacity).toEqual('0')
-        mockProps.currentStepRef.current.style.zIndex = '0'
-        expect(mockProps.currentStepRef.current.style.zIndex).toEqual('0')
-        mockProps.currentStepRef.current.style.transform = `translateX(-${mockProps.currentStepRef.current.clientWidth}px)`
-        expect(mockProps.currentStepRef.current.style.transform).toEqual(
-          `translateX(-${mockProps.currentStepRef.current.clientWidth}px)`
-        )
-      }
       expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[mockProps.currentIndex + 1].id)
     })
 
-    it('should run correctly when isMobileScreen FALSE', () => {
-      handleGoNext({ ...mockProps, isMobileScreen: false })()
-      if (mockProps.currentStepRef.current) {
-        mockProps.currentStepRef.current.style.opacity = '0'
-        expect(mockProps.currentStepRef.current.style.opacity).toEqual('0')
-        mockProps.currentStepRef.current.style.zIndex = '0'
-        expect(mockProps.currentStepRef.current.style.zIndex).toEqual('0')
-        mockProps.currentStepRef.current.style.transform = `translateY(-${mockProps.currentStepRef.current.clientHeight}px)`
-        expect(mockProps.currentStepRef.current.style.transform).toEqual(
-          `translateY(-${mockProps.currentStepRef.current.clientHeight}px)`
-        )
-      }
-      expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[mockProps.currentIndex + 1].id)
+    it('should run correctly when isLast true', () => {
+      handleGoNext({ ...mockProps, isLast: true })()
+      expect(mockProps.setInternalCurrent).toBeCalledTimes(0)
     })
   })
 
@@ -144,59 +143,17 @@ describe('HelpGuide', () => {
       steps: [{ id: 'step-1' }, { id: 'step-2' }, { id: 'step-3' }] as HelpGuideStepProps[],
       currentIndex: 3,
       setInternalCurrent: jest.fn(),
-      isFirst: false,
-      isMobileScreen: true,
-      currentStepRef: {
-        current: {
-          clientHeight: 50,
-          clientWidth: 30,
-          style: {
-            zIndex: '',
-            opacity: '',
-            transform: ''
-          }
-        }
-      } as React.RefObject<HTMLDivElement>
+      isFirst: false
     } as NavigationProps
 
-    it('should run correctly when isFirst TRUE', () => {
-      handleGoPrev({ ...mockProps, isFirst: true })()
-      if (mockProps.currentStepRef.current) {
-        expect(mockProps.currentStepRef.current.style.opacity).toEqual('')
-        expect(mockProps.currentStepRef.current.style.zIndex).toEqual('')
-        expect(mockProps.currentStepRef.current.style.transform).toEqual('')
-      }
-      expect(mockProps.setInternalCurrent).toBeCalledTimes(0)
-    })
-
-    it('should run correctly when isMobileScreen TRUE', () => {
+    it('should run correctly when isFirst false', () => {
       handleGoPrev({ ...mockProps })()
-      if (mockProps.currentStepRef.current) {
-        mockProps.currentStepRef.current.style.opacity = '0'
-        expect(mockProps.currentStepRef.current.style.opacity).toEqual('0')
-        mockProps.currentStepRef.current.style.zIndex = '0'
-        expect(mockProps.currentStepRef.current.style.zIndex).toEqual('0')
-        mockProps.currentStepRef.current.style.transform = `translateX(${mockProps.currentStepRef.current.clientWidth}px)`
-        expect(mockProps.currentStepRef.current.style.transform).toEqual(
-          `translateX(${mockProps.currentStepRef.current.clientWidth}px)`
-        )
-      }
       expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[mockProps.currentIndex - 1].id)
     })
 
-    it('should run correctly when isMobileScreen FALSE', () => {
-      handleGoPrev({ ...mockProps, isMobileScreen: false })()
-      if (mockProps.currentStepRef.current) {
-        mockProps.currentStepRef.current.style.opacity = '0'
-        expect(mockProps.currentStepRef.current.style.opacity).toEqual('0')
-        mockProps.currentStepRef.current.style.zIndex = '0'
-        expect(mockProps.currentStepRef.current.style.zIndex).toEqual('0')
-        mockProps.currentStepRef.current.style.transform = `translateY(${mockProps.currentStepRef.current.clientHeight}px)`
-        expect(mockProps.currentStepRef.current.style.transform).toEqual(
-          `translateY(${mockProps.currentStepRef.current.clientHeight}px)`
-        )
-      }
-      expect(mockProps.setInternalCurrent).toBeCalledWith(mockProps.steps[mockProps.currentIndex - 1].id)
+    it('should run correctly when isFirst true', () => {
+      handleGoPrev({ ...mockProps, isFirst: true })()
+      expect(mockProps.setInternalCurrent).toBeCalledTimes(0)
     })
   })
 
