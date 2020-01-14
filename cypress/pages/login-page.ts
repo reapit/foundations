@@ -2,6 +2,7 @@ import routes from '@/constants/routes'
 import clientAppsPage from '../pages/client-apps-page'
 import developerAppsPage from './developer-page'
 import adminApprovalsPage from '../pages/admin-approvals-page'
+import { COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 
 const loginPageMetadata = {
   loginAsClientUrl: routes.CLIENT_LOGIN,
@@ -18,6 +19,11 @@ const loginPage = {
   ...loginPageMetadata,
   actions: {
     loginUsingDeveloperAccount(email?: string, password?: string) {
+      // This cookie prevents redirecting to routes.DEVELOPER_WELCOME page when login as a developer
+      // Redirecting to routes.DEVELOPER_WELCOME will be tested in the different e2e test case
+      const now = new Date()
+      cy.setCookie(COOKIE_FIRST_TIME_LOGIN, now.toString())
+
       const {
         loginAsDeveloperUrl,
         selectors: { buttonLogin, inputPassword, inputEmail }

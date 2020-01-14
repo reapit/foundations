@@ -1,4 +1,5 @@
 import loginPage from '../pages/login-page'
+import { COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 import clientAppsPage from '../pages/client-apps-page'
 import developerPage from '../pages/developer-page'
 import adminApprovalsPage from '../pages/admin-approvals-page'
@@ -55,6 +56,13 @@ describe('Login happy path', () => {
     ]
     for (const { container, email, password, testCaseName, loginUrl } of testCases) {
       it(testCaseName, done => {
+        if (testCaseName === 'Login successfully using DEVELOPER account') {
+          // This cookie prevents redirecting to routes.DEVELOPER_WELCOME page
+          // Redirecting to routes.DEVELOPER_WELCOME will be tested in the different e2e test case
+          const now = new Date()
+          cy.setCookie(COOKIE_FIRST_TIME_LOGIN, now.toString())
+        }
+
         cy.visit(loginUrl)
         cy.get(inputEmail).type(email)
         cy.get(inputPassword).type(password)
