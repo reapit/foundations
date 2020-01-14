@@ -38,14 +38,27 @@ export const handleAfterClose = ({ setVisible }) => () => setVisible(false)
 export const handleOnChange = history => (page: number) => {
   history.push(addQuery({ page }))
 }
-export const handleOnCardClick = ({ setVisible, setStateViewBrowse, appDetail, fetchAppDetail, clientId }) => (
-  app: AppSummaryModel
-) => {
+
+export interface onCardClickParams {
+  setVisible: (isVisible: boolean) => void
+  setStateViewBrowse: () => void
+  appDetail: AppDetailState
+  fetchAppDetail: (id: string, client: string) => void
+  clientId: string
+}
+
+export const handleOnCardClick = ({
+  setVisible,
+  setStateViewBrowse,
+  appDetail,
+  fetchAppDetail,
+  clientId
+}: onCardClickParams) => (app: AppSummaryModel) => {
   setVisible(true)
   setStateViewBrowse()
   const isCacheEmpty = !appDetail.appDetailData
   const isCacheStale = appDetail.isStale
-  const currentAppIdNotMatchWithCachedAppId = appDetail.appDetailData.data.id !== app.id
+  const currentAppIdNotMatchWithCachedAppId = appDetail.appDetailData?.data?.id !== app.id
 
   if (app.id && (isCacheEmpty || isCacheStale || currentAppIdNotMatchWithCachedAppId)) {
     fetchAppDetail(app.id, clientId)

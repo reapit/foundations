@@ -12,7 +12,8 @@ import {
   mapDispatchToProps,
   handleAfterClose,
   handleOnChange,
-  handleOnCardClick
+  handleOnCardClick,
+  onCardClickParams
 } from '../client'
 import { addQuery } from '@/utils/client-url-params'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
@@ -216,10 +217,18 @@ describe('Client', () => {
 
   describe('handleOnCardClick', () => {
     it('should run correctly', () => {
-      const mockProps = {
+      const mockProps: onCardClickParams = {
         setVisible: jest.fn(),
         appDetail: {
-          appDetailData: appsDataStub.data,
+          authentication: {
+            loading: false,
+            code: '200'
+          },
+          error: false,
+          loading: false,
+          appDetailData: {
+            data: appsDataStub.data.data![0]
+          },
           isStale: true
         },
         setStateViewBrowse: jest.fn(),
