@@ -2,13 +2,6 @@
 # yarn lockfile v1
 
 
-"@reapit/config-manager@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@reapit/config-manager/-/config-manager-1.0.0.tgz#c4f8f2a9d6a9929aceecddf3a7c1456ee437f6b5"
-  integrity sha512-b0+V3XA6Ifjy6lR4TejVrynlMu7vYcpnpNhXsrp8ZLfFiNX9dDDfokf8W869oYaYATU6EAJ0RCTenkzeTKzvlA==
-  dependencies:
-    aws-sdk "^2.582.0"
-
 aws-sdk@^2.582.0:
   version "2.582.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.582.0.tgz#89dfef8f0d7a0d9beaf1dae1068dbc9f95910c46"
