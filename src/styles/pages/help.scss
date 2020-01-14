@@ -1,0 +1,34 @@
+@import '../base/colors.scss';
+
+.wrapHelp {
+  background-color: $white;
+  padding: 1rem;
+}
+.wrapListItems {
+  padding: 1rem;
+}
+.item {
+  padding: 1.5rem;
+}
+.wrapBoxContent {
+  height: 100%;
+  border: 1px solid transparentize(#95aac9, 0.7);
+}
+.wrapImage {
+  width: 100%;
+  height: 45%;
+}
+.image {
+  width: 100%;
+  height: 100%;
+}
+.text {
+  flex-grow: 1;
+}
+.wrapButton {
+  width: 100%;
+  text-align: right;
+}
+.button {
+  width: 35%;
+}

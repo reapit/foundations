@@ -1,48 +1,304 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HelpPage should match a snapshot 1`] = `
-<FlexContainerBasic
-  flexColumn={true}
-  hasPadding={true}
->
-  <Content>
-    <FlexContainerResponsive
+<div>
+  <H3>
+    Help
+  </H3>
+  <GridFiveCol>
+    <GridFourColItem
+      key="Welcome Guide."
+    >
+      <FlexContainerBasic
+        centerContent={true}
+        flexColumn={true}
+        hasPadding={true}
+      >
+        <div>
+          <img
+            alt="Welcome Guide."
+            src=""
+          />
+        </div>
+        <H4
+          isCentered={true}
+        >
+          Welcome Guide.
+        </H4>
+        <p>
+          Need a little help? Have a look through the Welcome Guide, which we’ve put together to help you navigate through your Developer portal.
+        </p>
+        <br />
+        <p>
+          <Button
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            VIEW
+          </Button>
+        </p>
+      </FlexContainerBasic>
+    </GridFourColItem>
+    <GridFourColItem
+      key="Request an Endpoint. "
+    >
+      <FlexContainerBasic
+        centerContent={true}
+        flexColumn={true}
+        hasPadding={true}
+      >
+        <div>
+          <img
+            alt="Request an Endpoint. "
+            src=""
+          />
+        </div>
+        <H4
+          isCentered={true}
+        >
+          Request an Endpoint. 
+        </H4>
+        <p>
+          Use this form to request an API endpoint from the Foundations Platform team. Please note, we will look at all requests carefully however, we cannot guarantee all will be implemented.
+        </p>
+        <br />
+        <p>
+          <Button
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            REQUEST
+          </Button>
+        </p>
+      </FlexContainerBasic>
+    </GridFourColItem>
+    <GridFourColItem
+      key="Report a Bug."
+    >
+      <FlexContainerBasic
+        centerContent={true}
+        flexColumn={true}
+        hasPadding={true}
+      >
+        <div>
+          <img
+            alt="Report a Bug."
+            src=""
+          />
+        </div>
+        <H4
+          isCentered={true}
+        >
+          Report a Bug.
+        </H4>
+        <p>
+          Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
+        </p>
+        <br />
+        <p>
+          <Button
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            REPORT
+          </Button>
+        </p>
+      </FlexContainerBasic>
+    </GridFourColItem>
+    <GridFourColItem
+      key="FAQ’s"
+    >
+      <FlexContainerBasic
+        centerContent={true}
+        flexColumn={true}
+        hasPadding={true}
+      >
+        <div>
+          <img
+            alt="FAQ’s"
+            src=""
+          />
+        </div>
+        <H4
+          isCentered={true}
+        >
+          FAQ’s
+        </H4>
+        <p>
+          Here you'll find the most frequently asked questions and details about Reapit Foundations.
+        </p>
+        <br />
+        <p>
+          <Button
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            VIEW
+          </Button>
+        </p>
+      </FlexContainerBasic>
+    </GridFourColItem>
+  </GridFiveCol>
+</div>
+`;
+
+exports[`renderHelpItems should match snapshot 1`] = `
+<GridFiveCol>
+  <GridFourColItem>
+    <FlexContainerBasic
+      centerContent={true}
       flexColumn={true}
-      hasBackground={true}
       hasPadding={true}
     >
-      <H3>
-        Help
-      </H3>
-      <Grid>
-        <GridItem>
-          <Button
-            data-testid="btnReportBug"
-            onClick={[Function]}
-            type="button"
-            variant="primary"
-          >
-            Report Bug
-          </Button>
-          <Button
-            data-testid="btnRequestEndPoint"
-            onClick={[Function]}
-            type="button"
-            variant="primary"
-          >
-            Request Endpoint
-          </Button>
-          <Button
-            data-testid="btnGotoWelcomeGuide"
-            onClick={[Function]}
-            type="button"
-            variant="primary"
-          >
-            Welcome Guide
-          </Button>
-        </GridItem>
-      </Grid>
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+      <div>
+        <img
+          alt="Welcome Guide."
+          src=""
+        />
+      </div>
+      <H4
+        isCentered={true}
+      >
+        Welcome Guide.
+      </H4>
+      <p>
+        Need a little help? Have a look through the Welcome Guide, which we’ve put together to help you navigate through your Developer portal.
+      </p>
+      <br />
+      <p>
+        <Button
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          VIEW
+        </Button>
+      </p>
+    </FlexContainerBasic>
+  </GridFourColItem>
+  <GridFourColItem>
+    <FlexContainerBasic
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="Request an Endpoint. "
+          src=""
+        />
+      </div>
+      <H4
+        isCentered={true}
+      >
+        Request an Endpoint. 
+      </H4>
+      <p>
+        Use this form to request an API endpoint from the Foundations Platform team. Please note, we will look at all requests carefully however, we cannot guarantee all will be implemented.
+      </p>
+      <br />
+      <p>
+        <Button
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          REQUEST
+        </Button>
+      </p>
+    </FlexContainerBasic>
+  </GridFourColItem>
+  <GridFourColItem>
+    <FlexContainerBasic
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="Report a Bug."
+          src=""
+        />
+      </div>
+      <H4
+        isCentered={true}
+      >
+        Report a Bug.
+      </H4>
+      <p>
+        Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
+      </p>
+      <br />
+      <p>
+        <Button
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          REPORT
+        </Button>
+      </p>
+    </FlexContainerBasic>
+  </GridFourColItem>
+  <GridFourColItem>
+    <FlexContainerBasic
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="FAQ’s"
+          src=""
+        />
+      </div>
+      <H4
+        isCentered={true}
+      >
+        FAQ’s
+      </H4>
+      <p>
+        Here you'll find the most frequently asked questions and details about Reapit Foundations.
+      </p>
+      <br />
+      <p>
+        <Button
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          VIEW
+        </Button>
+      </p>
+    </FlexContainerBasic>
+  </GridFourColItem>
+</GridFiveCol>
 `;
