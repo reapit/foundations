@@ -1,6 +1,6 @@
 import { put, fork, all, call, takeLatest, select } from '@redux-saga/core/effects'
 import { fetcher } from '@reapit/elements'
-import { removeSession } from '@reapit/cognito-auth'
+import { removeSession, changePassword } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
@@ -101,40 +101,27 @@ export type CallChangePasswordParams = {
   email: string
 }
 
-export const callChangePassword = async ({ values, email }: CallChangePasswordParams) => {
-  const CHANGE_PASSWORD_URL = '/password/change'
-  const response = await fetcher({
-    url: CHANGE_PASSWORD_URL,
-    api: process.env.COGNITO_API_BASE_URL as string,
-    method: 'POST',
-    headers: MARKETPLACE_HEADERS,
-    body: {
-      password: values.currentPassword,
-      newPassword: values.password,
-      userName: email
-    }
-  })
-  return response
-}
-
 export const developerPasswordChange = function*({ data }: Action<ChangePasswordParams>) {
   yield put(settingShowLoading(true))
   try {
     const email = yield select(selectDeveloperEmail)
-    const response = yield call(callChangePassword, { values: data, email })
-    const isCallAPISuccess = response.message === 'SUCCESS'
-    if (isCallAPISuccess) {
-      yield put(
-        showNotificationMessage({
-          variant: 'info',
-          message: messages.CHANGE_SAVE_SUCCESSFULLY
-        })
-      )
-      const SUCCESS_ALERT_LOGIN_PAGE = `${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`
-      yield call(removeSession)
-      yield put(authLogoutSuccess())
-      yield history.replace(SUCCESS_ALERT_LOGIN_PAGE)
+    /* rename for compatible reason */
+    const { currentPassword: password, password: newPassword, confirmPassword: newPasswordConfirm } = data
+    const response = yield call(changePassword, { userName: email, password, newPassword })
+    const isCallAPISuccess = response === 'SUCCESS'
+    if (!isCallAPISuccess) {
+      throw new Error('Server error')
     }
+    yield put(
+      showNotificationMessage({
+        variant: 'info',
+        message: messages.CHANGE_SAVE_SUCCESSFULLY
+      })
+    )
+    const SUCCESS_ALERT_LOGIN_PAGE = `${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`
+    yield call(removeSession)
+    yield put(authLogoutSuccess())
+    yield history.replace(SUCCESS_ALERT_LOGIN_PAGE)
   } catch (error) {
     yield put(
       errorThrownServer({

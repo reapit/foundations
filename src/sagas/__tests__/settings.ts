@@ -7,8 +7,7 @@ import settingsSagas, {
   developerPasswordChange,
   developerPasswordChangeListen,
   fetchDeveloperInfo,
-  updateDeveloperInfo,
-  callChangePassword
+  updateDeveloperInfo
 } from '../settings'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
@@ -20,7 +19,7 @@ import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import messages from '@/constants/messages'
 import { developerStub } from '../__stubs__/developer'
-import { removeSession } from '@reapit/cognito-auth'
+import { removeSession, changePassword } from '@reapit/cognito-auth'
 import { history } from '../../core/router'
 import Routes from '@/constants/routes'
 import { authLogoutSuccess } from '@/actions/auth'
@@ -112,12 +111,13 @@ describe('settings', () => {
     })
     expect(gen.next().value).toEqual(put(settingShowLoading(true)))
     expect(gen.next().value).toEqual(select(selectDeveloperEmail))
+
     it('should call API success', () => {
       const clone = gen.clone()
       expect(clone.next('abc@gmail.com').value).toEqual(
-        call(callChangePassword, { values: data, email: 'abc@gmail.com' })
+        call(changePassword, { password: '123', newPassword: '456', userName: 'abc@gmail.com' })
       )
-      expect(clone.next({ message: 'SUCCESS' }).value).toEqual(
+      expect(clone.next('SUCCESS').value).toEqual(
         put(
           showNotificationMessage({
             variant: 'info',
@@ -125,11 +125,30 @@ describe('settings', () => {
           })
         )
       )
-      expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(removeSession))
+      expect(clone.next().value).toEqual(call(removeSession))
       expect(clone.next().value).toEqual(put(authLogoutSuccess()))
       expect(clone.next().value).toEqual(history.replace(`${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`))
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
+      expect(clone.next().done).toEqual(true)
     })
+
+    it('should fail if API response !== "SUCCESS" ', () => {
+      const clone = gen.clone()
+      expect(clone.next('abc@gmail.com').value).toEqual(
+        call(changePassword, { password: '123', newPassword: '456', userName: 'abc@gmail.com' })
+      )
+      expect(clone.next('FAIL').value).toEqual(
+        put(
+          errorThrownServer({
+            type: 'SERVER',
+            message: errorMessages.DEFAULT_SERVER_ERROR
+          })
+        )
+      )
+      expect(clone.next().value).toEqual(put(settingShowLoading(false)))
+      expect(clone.next().done).toEqual(true)
+    })
+
     it('should call API fail', () => {
       const clone = gen.clone()
       // @ts-ignore
