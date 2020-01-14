@@ -1,46 +1,68 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
-import { HelpPage, HelpPageProps } from '../help'
-import routes from '@/constants/routes'
+import { shallow } from 'enzyme'
+import {
+  HelpPage,
+  handleGotoWelcomeGuide,
+  handleReportBug,
+  handleRequestEndpoint,
+  handleFaq,
+  helpItems,
+  renderHelpItems
+} from '../help'
+import Routes from '@/constants/routes'
 import { history } from '@/core/router'
+import { HelpLinks } from '@/constants/help-links'
 
-const mockProps: HelpPageProps = {}
+jest.mock('../../../core/router', () => ({
+  history: {
+    push: jest.fn()
+  }
+}))
+
+afterEach(() => {
+  jest.clearAllMocks()
+})
 
 describe('HelpPage', () => {
-  const { open } = window
-
-  beforeAll(() => {
-    delete window.open
-    window.open = jest.fn()
-  })
-
-  afterAll(() => {
-    window.open = open
-  })
-
   it('should match a snapshot', () => {
-    expect(shallow(<HelpPage {...mockProps} />)).toMatchSnapshot()
+    expect(shallow(<HelpPage />)).toMatchSnapshot()
   })
+})
 
-  it('handleReportBug', () => {
-    const wrapper = mount(<HelpPage {...mockProps} />)
-    const btnReportBug = wrapper.find('[data-testid="btnReportBug"]')
-    btnReportBug.props().onClick!({} as any)
-    expect(window.open).toBeCalled()
+describe('handleGotoWelcomeGuide', () => {
+  it('should called with correct props', () => {
+    const spy = jest.spyOn(history, 'push')
+    handleGotoWelcomeGuide()
+    expect(spy).toHaveBeenCalledWith(Routes.DEVELOPER_WELCOME)
   })
+})
 
-  it('handleRequestEndpoint', () => {
-    const wrapper = mount(<HelpPage {...mockProps} />)
-    const btnRequestEndPoint = wrapper.find('[data-testid="btnRequestEndPoint"]')
-    btnRequestEndPoint.props().onClick!({} as any)
-    expect(window.open).toBeCalled()
+describe('handleReportBug', () => {
+  it('should called with correct props', () => {
+    const spy = jest.spyOn(window, 'open')
+    handleReportBug()
+    expect(spy).toHaveBeenCalledWith(HelpLinks.BUG_REPORT, '_blank')
   })
+})
 
-  it('handleGotoWelcomeGuide', () => {
-    const wrapper = mount(<HelpPage {...mockProps} />)
-    const btnGotoWelcomeGuide = wrapper.find('[data-testid="btnGotoWelcomeGuide"]')
-    jest.spyOn(history, 'push')
-    btnGotoWelcomeGuide.props().onClick!({} as any)
-    expect(history.push).toBeCalledWith(routes.DEVELOPER_WELCOME)
+describe('handleRequestEndpoint', () => {
+  it('should called with correct props', () => {
+    const spy = jest.spyOn(window, 'open')
+    handleRequestEndpoint()
+    expect(spy).toHaveBeenCalledWith(HelpLinks.API_REQUEST, '_blank')
+  })
+})
+
+describe('handleFaq', () => {
+  it('should called with correct props', () => {
+    const spy = jest.spyOn(window, 'open')
+    handleFaq()
+    expect(spy).toHaveBeenCalledWith(HelpLinks.FAQ, '_blank')
+  })
+})
+
+describe('renderHelpItems', () => {
+  it('should match snapshot', () => {
+    expect(renderHelpItems(helpItems)).toMatchSnapshot()
   })
 })
