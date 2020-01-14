@@ -1,16 +1,15 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import {
-  VerticalTimeline,
-  caculateCircleRef,
-  caculateLineRef,
-  calculateElement,
-  LI_MARGIN
-} from '../vertical-timeline'
+import { VerticalTimeline, caculateCircleRef, caculateLineRef, calculateElement, LI_MARGIN } from '../vertical-timeline'
 
 describe('NumberedTimeline', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<VerticalTimeline total={5} currentIndex={3} />)).toMatchSnapshot()
+    const mockProps = {
+      total: 5,
+      currentIndex: 3,
+      onSelect: jest.fn()
+    }
+    expect(shallow(<VerticalTimeline {...mockProps} />)).toMatchSnapshot()
   })
 
   it('caculateCircleRef should run correctly', () => {

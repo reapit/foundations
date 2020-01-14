@@ -2,7 +2,7 @@
 
 exports[`NumberedTimeline should match a snapshot 1`] = `
 <ul
-  className="numbers-timeline"
+  className="vertical-timeline"
 >
   <div
     className="circle-active"
@@ -13,22 +13,27 @@ exports[`NumberedTimeline should match a snapshot 1`] = `
   <li
     className=" passed"
     key="0"
+    onClick={[Function]}
   />
   <li
     className=" passed"
     key="1"
+    onClick={[Function]}
   />
   <li
     className=" passed"
     key="2"
+    onClick={[Function]}
   />
   <li
     className="active "
     key="3"
+    onClick={[Function]}
   />
   <li
     className=" "
     key="4"
+    onClick={[Function]}
   />
 </ul>
 `;

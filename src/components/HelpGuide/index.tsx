@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { HelpGuideContext, HelpGuideContextValues } from './context'
+import { HelpGuideContextValues, HelpGuideContextProvider } from './context'
 import { FlexContainerBasic } from '../Layout'
 import { VerticalTimeline } from './vertical-timeline'
 import { SubTitleH6, H3 } from '../Typography'
@@ -26,65 +26,74 @@ export interface NavigationProps {
   isFirst?: boolean
   isLast?: boolean
   setInternalCurrent: (stepId: string) => void
-  currentStepRef: React.RefObject<HTMLElement>
-  isMobileScreen: boolean
 }
 
-export const caculateCurrentStepRef = ({ currentStepRef }: { currentStepRef: React.RefObject<HTMLElement> }) => () => {
-  setTimeout(() => {
-    if (currentStepRef.current) {
-      currentStepRef.current.style.opacity = '1'
-      currentStepRef.current.style.zIndex = '2'
-      currentStepRef.current.style.transform = `translate(0px, 0px)`
-    }
-  }, 300)
-}
-
-export const handleGoNext = ({
-  steps,
-  currentIndex,
-  isLast,
-  setInternalCurrent,
+export const caculateStepChange = ({
   currentStepRef,
+  wrapperStepRef,
+  helpguideRef,
   isMobileScreen
-}: NavigationProps) => () => {
-  if (!isLast && currentStepRef.current) {
-    currentStepRef.current.style.opacity = '0'
-    currentStepRef.current.style.zIndex = '0'
-    currentStepRef.current.style.transform = isMobileScreen
-      ? `translateX(-${currentStepRef.current.clientWidth}px)`
-      : `translateY(-${currentStepRef.current.clientHeight}px)`
+}: {
+  currentStepRef: React.RefObject<HTMLElement>
+  wrapperStepRef: React.RefObject<HTMLElement>
+  helpguideRef: React.RefObject<HTMLElement>
+  isMobileScreen: boolean
+}) => () => {
+  if (currentStepRef.current && wrapperStepRef.current && helpguideRef.current) {
+    if (isMobileScreen) {
+      wrapperStepRef.current.style.transform = `translate3d(-${currentStepRef.current.offsetLeft}px, 0, 0)`
+    } else {
+      helpguideRef.current.style.height = `${currentStepRef.current.offsetHeight}px`
+      wrapperStepRef.current.style.transform = `translate3d(0, -${currentStepRef.current.offsetTop}px, 0)`
+    }
+  }
+}
+
+export const caculateWrapperWith = ({
+  isMobileScreen,
+  total,
+  helpguideRef,
+  wrapperStepRef
+}: {
+  wrapperStepRef: React.RefObject<HTMLElement>
+  helpguideRef: React.RefObject<HTMLElement>
+  total: number
+  isMobileScreen: boolean
+}) => () => {
+  if (isMobileScreen && helpguideRef.current && wrapperStepRef.current) {
+    const wrapperWidth = helpguideRef.current.clientWidth * total
+    wrapperStepRef.current.style.width = `${wrapperWidth}px`
+  }
+}
+
+export const handleGoNext = ({ steps, currentIndex, isLast, setInternalCurrent }: NavigationProps) => () => {
+  if (!isLast) {
     setInternalCurrent(steps[currentIndex + 1].id)
   }
 }
 
-export const handleGoPrev = ({
-  steps,
-  currentIndex,
-  isFirst,
-  setInternalCurrent,
-  currentStepRef,
-  isMobileScreen
-}: NavigationProps) => () => {
-  if (!isFirst && currentStepRef.current) {
-    currentStepRef.current.style.opacity = '0'
-    currentStepRef.current.style.zIndex = '0'
-    currentStepRef.current.style.transform = isMobileScreen
-      ? `translateX(${currentStepRef.current.clientWidth}px)`
-      : `translateY(${currentStepRef.current.clientHeight}px)`
+export const handleGoPrev = ({ steps, currentIndex, isFirst, setInternalCurrent }: NavigationProps) => () => {
+  if (!isFirst) {
     setInternalCurrent(steps[currentIndex - 1].id)
   }
 }
 
-export const renderTimeline = (total: number, currentIndex: number, isMobileScreen: boolean) => {
+export const handleGoTo = ({ steps, currentIndex, setInternalCurrent }: NavigationProps) => (stepIndex: number) => {
+  setInternalCurrent(steps[stepIndex].id)
+}
+
+export const renderTimeline = ({ total, currentIndex, isMobileScreen, goTo }) => {
   if (isMobileScreen) {
-    return <HorizontalTimeline total={total} currentIndex={currentIndex} />
+    return <HorizontalTimeline total={total} currentIndex={currentIndex} onSelect={goTo} />
   }
-  return <VerticalTimeline total={total} currentIndex={currentIndex} />
+  return <VerticalTimeline total={total} currentIndex={currentIndex} onSelect={goTo} />
 }
 
 export const HelpGuide = ({ children, current, isLoading = false }: HelpGuideProps) => {
   const currentStepRef = useRef<HTMLDivElement>(null)
+  const wrapperStepRef = useRef<HTMLDivElement>(null)
+  const helpguideRef = useRef<HTMLDivElement>(null)
+
   const isMobileScreen = isMobile()
 
   const steps = React.Children.toArray(children).map(({ props }) => ({ ...props }))
@@ -96,12 +105,17 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
   const isLast = steps[steps.length - 1].id === internalCurrent
   const currentIndex = steps.findIndex(({ id }) => id === internalCurrent)
 
-  useEffect(caculateCurrentStepRef({ currentStepRef }), [internalCurrent])
+  useEffect(caculateWrapperWith({ isMobileScreen, total, helpguideRef, wrapperStepRef }), [])
+
+  useEffect(caculateStepChange({ currentStepRef, wrapperStepRef, helpguideRef, isMobileScreen }), [internalCurrent])
+
+  const goTo = handleGoTo({ steps, currentIndex, setInternalCurrent })
 
   const value: HelpGuideContextValues = {
     current: internalCurrent,
-    goNext: handleGoNext({ steps, currentIndex, isLast, setInternalCurrent, currentStepRef, isMobileScreen }),
-    goPrev: handleGoPrev({ steps, currentIndex, isFirst, setInternalCurrent, currentStepRef, isMobileScreen }),
+    goNext: handleGoNext({ steps, currentIndex, isLast, setInternalCurrent }),
+    goPrev: handleGoPrev({ steps, currentIndex, isFirst, setInternalCurrent }),
+    goTo,
     currentIndex,
     steps,
     isFirst,
@@ -110,22 +124,24 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
   }
 
   return (
-    <HelpGuideContext.Provider value={value}>
-      <FlexContainerBasic hasPadding flexColumn={isMobileScreen}>
-        {renderTimeline(total, currentIndex, isMobileScreen)}
-        <FlexContainerBasic flexColumn className="justify-center relative">
-          {React.Children.toArray(children).map((child, index) => (
-            <div
-              key={`helper-guide-child-${index}`}
-              ref={currentIndex === index ? currentStepRef : null}
-              className="helpguide-wrapper"
-            >
-              {child}
-            </div>
-          ))}
-        </FlexContainerBasic>
+    <HelpGuideContextProvider value={value}>
+      <FlexContainerBasic hasPadding centerContent flexColumn={isMobileScreen}>
+        {renderTimeline({ total, currentIndex, isMobileScreen, goTo })}
+        <div ref={helpguideRef} className="helpguide">
+          <div ref={wrapperStepRef} className="helpguide-wrapper">
+            {React.Children.toArray(children).map((child, index) => (
+              <div
+                key={`helper-guide-child-${index}`}
+                ref={currentIndex === index ? currentStepRef : null}
+                className="helpguide-steps"
+              >
+                {child}
+              </div>
+            ))}
+          </div>
+        </div>
       </FlexContainerBasic>
-    </HelpGuideContext.Provider>
+    </HelpGuideContextProvider>
   )
 }
 

@@ -21,6 +21,7 @@ exports[`HelpGuide HelpGuide.Step should match a snapshot 1`] = `
 exports[`HelpGuide renderTimeline should match a snapshot when isMobileScreen FALSE 1`] = `
 <Unknown
   currentIndex={3}
+  onSelect={[MockFunction]}
   total={5}
 />
 `;
@@ -28,6 +29,7 @@ exports[`HelpGuide renderTimeline should match a snapshot when isMobileScreen FA
 exports[`HelpGuide renderTimeline should match a snapshot when isMobileScreen TRUE 1`] = `
 <Unknown
   currentIndex={3}
+  onSelect={[MockFunction]}
   total={5}
 />
 `;
@@ -40,6 +42,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
       "currentIndex": 0,
       "goNext": [Function],
       "goPrev": [Function],
+      "goTo": [Function],
       "isFirst": true,
       "isLast": false,
       "isLoading": false,
@@ -65,58 +68,63 @@ exports[`HelpGuide should match a snapshot 1`] = `
   }
 >
   <Component
+    centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
     <Component
       currentIndex={0}
+      onSelect={[Function]}
       total={4}
     />
-    <Component
-      className="justify-center relative"
-      flexColumn={true}
+    <div
+      className="helpguide"
     >
       <div
         className="helpguide-wrapper"
-        key="helper-guide-child-0"
       >
-        <Component
-          component={[Function]}
-          id="step-1"
-          key=".0"
-        />
+        <div
+          className="helpguide-steps"
+          key="helper-guide-child-0"
+        >
+          <Component
+            component={[Function]}
+            id="step-1"
+            key=".0"
+          />
+        </div>
+        <div
+          className="helpguide-steps"
+          key="helper-guide-child-1"
+        >
+          <Component
+            component={[Function]}
+            id="step-2"
+            key=".1"
+          />
+        </div>
+        <div
+          className="helpguide-steps"
+          key="helper-guide-child-2"
+        >
+          <Component
+            component={[Function]}
+            id="step-3"
+            key=".2"
+          />
+        </div>
+        <div
+          className="helpguide-steps"
+          key="helper-guide-child-3"
+        >
+          <Component
+            component={[Function]}
+            id="step-4"
+            key=".3"
+          />
+        </div>
       </div>
-      <div
-        className="helpguide-wrapper"
-        key="helper-guide-child-1"
-      >
-        <Component
-          component={[Function]}
-          id="step-2"
-          key=".1"
-        />
-      </div>
-      <div
-        className="helpguide-wrapper"
-        key="helper-guide-child-2"
-      >
-        <Component
-          component={[Function]}
-          id="step-3"
-          key=".2"
-        />
-      </div>
-      <div
-        className="helpguide-wrapper"
-        key="helper-guide-child-3"
-      >
-        <Component
-          component={[Function]}
-          id="step-4"
-          key=".3"
-        />
-      </div>
-    </Component>
+    </div>
   </Component>
 </ContextProvider>
 `;
