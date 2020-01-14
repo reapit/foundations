@@ -55,7 +55,7 @@ describe('datetime', () => {
       expect(result).toEqual('2019-09-06T12:00:00+00:00')
     })
     it('should run correctly with string and format', () => {
-      const date = '2019-09-06T12:00:00+00:00'
+      const date = '2019-09-06T19:00:00+07:00'
       const result = toUTCTime(date, DATE_TIME_FORMAT.DATE_TIME_FORMAT)
       expect(result).toEqual('06 Sep 2019 12:00')
     })
@@ -63,21 +63,21 @@ describe('datetime', () => {
 
   describe('toLocal', () => {
     it('should run correctly with Dayjs', () => {
-      const date = dayjs('2019-09-06T12:00:00+00:00')
+      const date = dayjs('2019-09-06T19:00:00+07:00')
       const result = toLocalTime(date)
-      expect(result).toEqual('06 Sep 2019 19:00')
+      expect(result).toEqual('06 Sep 2019 12:00')
     })
 
     it('should run correctly with string', () => {
-      const date = '2019-09-06T12:00:00+00:00'
+      const date = '2019-09-06T19:00:00+07:00'
       const result = toLocalTime(date)
-      expect(result).toEqual('06 Sep 2019 19:00')
+      expect(result).toEqual('06 Sep 2019 12:00')
     })
 
     it('should run correctly with string and format', () => {
-      const date = '2019-09-06T12:00:00+00:00'
+      const date = '2019-09-06T19:00:00+07:00'
       const result = toLocalTime(date, DATE_TIME_FORMAT.RFC3339)
-      expect(result).toEqual('2019-09-06T19:00:00+07:00')
+      expect(result).toEqual('2019-09-06T12:00:00+00:00')
     })
   })
 })
