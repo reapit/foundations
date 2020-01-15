@@ -172,7 +172,11 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass'],
     alias: {
-      '@': path.resolve(__dirname, 'src/')
+      '@': path.resolve(__dirname, 'src/'),
+      react: require.resolve('react'),
+      'react-dom': require.resolve('react-dom'),
+      'react-router': require.resolve('react-router'),
+      'react-router-dom': require.resolve('react-router-dom')
     }
   },
   optimization: {

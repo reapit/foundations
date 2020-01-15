@@ -990,15 +990,14 @@
   dependencies:
     aws-sdk "^2.582.0"
 
-"@reapit/elements@^0.5.26":
-  version "0.5.26"
-  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.26.tgz#cc0e0ef7115458af7136a21fc37cbbc1c16e1ea1"
-  integrity sha512-iL1koFAuwbWD/uqdPKhHBQNxWu6ioHyT2SwRVpIKoZDQ546KXOGMZIogorgA1fDZPnRbdSaWTEBMvxsAhSD/Og==
+"@reapit/elements@^0.5.30":
+  version "0.5.30"
+  resolved "https://registry.yarnpkg.com/@reapit/elements/-/elements-0.5.30.tgz#d1a35cb714233b9cd0e654d2dd018d76b38c0560"
+  integrity sha512-d93cGaQMzCykL3E0CkIBJnJArCxLEUwrPDlMQ/F2EN7uAIpBu6fxU5waysxPUj5+tmd/PXWuExF7acH4eKGmDQ==
   dependencies:
     "@storybook/theming" "^5.2.8"
     "@types/papaparse" "^5.0.3"
     bulma "^0.7.5"
-    dayjs "^1.8.17"
     formik "^2.0.4"
     hardtack "^4.1.0"
     himalaya "^1.1.0"
