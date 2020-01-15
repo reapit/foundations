@@ -7,6 +7,7 @@ export type InfoType =
   | 'INSTALLED_APPS_EMPTY'
   | 'DEVELOPER_APPS_EMPTY'
   | 'ADMIN_APPROVALS_EMPTY'
+  | 'DEVELOPER_EMPTY'
   | ''
 
 export interface InfoProps {
@@ -25,6 +26,8 @@ export const infoText = (infoType: InfoType) => {
       return 'It looks like you haven’t submitted an App yet . When you’re ready, click on ‘Submit’ from the menu to get started.'
     case 'ADMIN_APPROVALS_EMPTY':
       return 'There are no updates that require approval'
+    case 'DEVELOPER_EMPTY':
+      return 'There is no developer as your search criteria'
     default:
       return ''
   }
