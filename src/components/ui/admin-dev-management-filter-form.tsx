@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Formik, Form } from 'formik'
 import {
   Input,
   Button,
@@ -10,7 +9,9 @@ import {
   FormHeading,
   FormSubHeading,
   LevelRight,
-  FlexContainerResponsive
+  FlexContainerResponsive,
+  Formik,
+  Form
 } from '@reapit/elements'
 import styles from '@/styles/pages/admin-dev-management.scss?mod'
 
@@ -30,36 +31,30 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
 }) => (
   <FlexContainerBasic flexColumn className="pb-4">
     <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.mx0}>
-      <Formik
-        initialValues={filterValues}
-        onSubmit={formValues => onSearch(formValues)}
-        render={() => {
-          return (
-            <Form noValidate={true}>
-              <FormSection>
-                <FormHeading>Developer Management Filter Form</FormHeading>
-                <FormSubHeading>Filter the result by Name and Company</FormSubHeading>
-                <Grid>
-                  <GridItem>
-                    <Input type="text" labelText="Name" id="name" name="name" />
-                  </GridItem>
-                  <GridItem>
-                    <Input type="text" labelText="Company" id="company" name="company" />
-                  </GridItem>
-                </Grid>
-              </FormSection>
+      <Formik initialValues={filterValues} onSubmit={formValues => onSearch(formValues)}>
+        <Form noValidate={true}>
+          <FormSection>
+            <FormHeading>Developer Management Filter Form</FormHeading>
+            <FormSubHeading>Filter the result by Name and Company</FormSubHeading>
+            <Grid>
+              <GridItem>
+                <Input type="text" labelText="Name" id="name" name="name" />
+              </GridItem>
+              <GridItem>
+                <Input type="text" labelText="Company" id="company" name="company" />
+              </GridItem>
+            </Grid>
+          </FormSection>
 
-              <FormSection>
-                <LevelRight>
-                  <Button type="submit" variant="primary">
-                    Search
-                  </Button>
-                </LevelRight>
-              </FormSection>
-            </Form>
-          )
-        }}
-      />
+          <FormSection>
+            <LevelRight>
+              <Button type="submit" variant="primary">
+                Search
+              </Button>
+            </LevelRight>
+          </FormSection>
+        </Form>
+      </Formik>
     </FlexContainerResponsive>
   </FlexContainerBasic>
 )

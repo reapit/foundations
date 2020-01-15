@@ -18,8 +18,48 @@ exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
         }
       }
       onSubmit={[Function]}
-      render={[Function]}
-    />
+    >
+      <Form
+        noValidate={true}
+      >
+        <FormSection>
+          <FormHeading>
+            Developer Management Filter Form
+          </FormHeading>
+          <FormSubHeading>
+            Filter the result by Name and Company
+          </FormSubHeading>
+          <Grid>
+            <GridItem>
+              <Input
+                id="name"
+                labelText="Name"
+                name="name"
+                type="text"
+              />
+            </GridItem>
+            <GridItem>
+              <Input
+                id="company"
+                labelText="Company"
+                name="company"
+                type="text"
+              />
+            </GridItem>
+          </Grid>
+        </FormSection>
+        <FormSection>
+          <LevelRight>
+            <Button
+              type="submit"
+              variant="primary"
+            >
+              Search
+            </Button>
+          </LevelRight>
+        </FormSection>
+      </Form>
+    </Formik>
   </FlexContainerResponsive>
 </FlexContainerBasic>
 `;

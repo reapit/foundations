@@ -99,7 +99,7 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
   }
 
   if (!loading && data?.data?.length === 0) {
-    return <Info infoType="" />
+    return <Info infoType="DEVELOPER_EMPTY" />
   }
 
   return (
