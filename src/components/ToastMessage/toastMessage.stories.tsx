@@ -6,6 +6,9 @@ import { Button } from '../Button'
 
 const stories = storiesOf('ToastMessage', module)
 
+const longText =
+  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non sint voluptas qui amet architecto, maxime laudantium voluptatibus, laborum beatae explicabo minima voluptatum, doloremque blanditiis ipsum reiciendis quasi fugit eveniet perferendis!'
+
 const Usage = () => {
   const [visible, setVisible] = useState<boolean>(false)
   const [variant, setVariant] = useState<ToastVariant>('primary')
@@ -62,7 +65,7 @@ const Usage = () => {
       >
         Info
       </Button>
-      <ToastMessage visible={visible} message={'My message'} variant={variant} onCloseToast={closeToast} />
+      <ToastMessage visible={visible} message={longText} variant={variant} onCloseToast={closeToast} />
     </section>
   )
 }
