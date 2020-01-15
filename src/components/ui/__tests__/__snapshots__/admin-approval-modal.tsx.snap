@@ -17,16 +17,6 @@ exports[`AdminRevisionModalInner should match a snapshot when LOADING false 1`] 
     data-test="revision-detail-modal"
     title="Confirm Peter's Properties revision"
   />
-  <Connect(Component)
-    afterClose={[Function]}
-    onApproveSuccess={[Function]}
-    visible={false}
-  />
-  <Connect(Component)
-    afterClose={[Function]}
-    onDeclineSuccess={[Function]}
-    visible={false}
-  />
   <ModalBody
     body={
       <React.Fragment>
@@ -260,7 +250,7 @@ Get notifications when a new deal is available."
         <Button
           className="mr-2"
           dataTest="revision-approve-button"
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
           variant="primary"
         >
@@ -268,7 +258,7 @@ Get notifications when a new deal is available."
         </Button>
         <Button
           data-test="revision-decline-button"
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
           variant="danger"
         >

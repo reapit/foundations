@@ -23,23 +23,12 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   description: 'Description'
 }
 
-export interface AdminApprovalModalMappedProps {
-  revisionDetailState: RevisionDetailState
-  appDetailState: AppDetailState
-  closeParentModal?: () => void
-}
-
-interface DiffMediaModel {
+type DiffMediaModel = {
   currentMedia?: string
   changedMedia?: string
   order: number
   type: string
 }
-
-export interface AdminApprovalModalMappedActions {}
-
-export type AdminApprovalInnerProps = AdminApprovalModalMappedProps & AdminApprovalModalMappedActions
-export type AdminApprovalModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & AdminApprovalModalOwnProps
 
 export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: ScopeModel[] = []): boolean => {
   if (!nameNeedToFind || scopes.length === 0) {
@@ -50,20 +39,6 @@ export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: Scop
   })
   return !!result
 }
-
-export const handleOnApproveSuccess = ({ closeParentModal, setIsApproveModalOpen }) => () => {
-  closeParentModal && closeParentModal()
-  setIsApproveModalOpen(false)
-}
-
-export const handleOnDeclineSuccess = ({ closeParentModal, setIsDeclineModalOpen }) => () => {
-  closeParentModal && closeParentModal()
-  setIsDeclineModalOpen(false)
-}
-
-export const handleSetIsApproveModal = (setIsApproveModalOpen, value) => () => setIsApproveModalOpen(value)
-
-export const handleSetIsDeclineModal = (setIsDeclineModalOpen, value) => () => setIsDeclineModalOpen(value)
 
 export const renderCheckboxesDiff = ({
   scopes,
@@ -86,15 +61,14 @@ export const renderCheckboxesDiff = ({
   })
 }
 
-export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInnerProps> = ({
+export type AdminApprovalModalInnerProps = StateProps
+export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModalInnerProps> = ({
   revisionDetailState,
   appDetailState,
-  closeParentModal
+  closeParentModal,
+  onApprovalClick,
+  onDeclineClick
 }) => {
-  const isShowApproveModal = revisionDetailState.approveFormState === 'SUCCESS'
-  const isShowDeclineModal = revisionDetailState.declineFormState === 'SUCCESS'
-  const [isApproveModalOpen, setIsApproveModalOpen] = React.useState(isShowApproveModal || false)
-  const [isDeclineModalOpen, setIsDeclineModalOpen] = React.useState(isShowDeclineModal || false)
   if (revisionDetailState.loading || appDetailState.loading) {
     return <ModalBody body={<Loader />} />
   }
@@ -141,23 +115,12 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
   changedMediaList.sort((a, b) => a.order - b.order)
 
   return (
-    <>
+    <React.Fragment>
       <ModalHeader
         title={`Confirm ${app.name} revision`}
         afterClose={closeParentModal as () => void}
         data-test="revision-detail-modal"
       />
-      <ApproveRevisionModal
-        visible={isApproveModalOpen}
-        afterClose={handleSetIsApproveModal(setIsApproveModalOpen, false)}
-        onApproveSuccess={handleOnApproveSuccess({ closeParentModal, setIsApproveModalOpen })}
-      />
-      <DeclineRevisionModal
-        visible={isDeclineModalOpen}
-        afterClose={handleSetIsDeclineModal(setIsDeclineModalOpen, false)}
-        onDeclineSuccess={handleOnDeclineSuccess({ closeParentModal, setIsDeclineModalOpen })}
-      />
-
       <ModalBody
         body={
           <>
@@ -217,52 +180,123 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalInner
 
       <ModalFooter
         footerItems={
-          <>
+          <React.Fragment>
             <Button
               className="mr-2"
               variant="primary"
               type="button"
-              onClick={handleSetIsApproveModal(setIsApproveModalOpen, true)}
+              onClick={onApprovalClick}
               dataTest="revision-approve-button"
             >
               Approve
             </Button>
-            <Button
-              variant="danger"
-              type="button"
-              onClick={handleSetIsDeclineModal(setIsDeclineModalOpen, true)}
-              data-test="revision-decline-button"
-            >
+            <Button variant="danger" type="button" onClick={onDeclineClick} data-test="revision-decline-button">
               Decline
             </Button>
-          </>
+          </React.Fragment>
         }
       />
-    </>
+    </React.Fragment>
   )
 }
 
-interface AdminApprovalModalOwnProps {
+export type StateProps = {
+  revisionDetailState: RevisionDetailState
+  appDetailState: AppDetailState
   closeParentModal?: () => void
+  onApprovalClick: () => void
+  onDeclineClick: () => void
 }
-const mapStateToProps = (state: ReduxState, ownState: AdminApprovalModalOwnProps): AdminApprovalModalMappedProps => ({
+
+export const mapStateToProps = (state: ReduxState, ownProps: AdminApprovalInnerWithConnectProps): StateProps => ({
   revisionDetailState: state.revisionDetail,
   appDetailState: state.appDetail,
-  closeParentModal: ownState.closeParentModal
+  closeParentModal: ownProps.closeParentModal,
+  onApprovalClick: ownProps.onApprovalClick,
+  onDeclineClick: ownProps.onDeclineClick
 })
 
 export const withRedux = connect(mapStateToProps, null)
 
-const AdminApprovalInnerWithConnect = compose<React.FC<AdminApprovalModalOwnProps>>(withRedux)(AdminApprovalModalInner)
+export type AdminApprovalInnerWithConnectProps = {
+  onApprovalClick: () => void
+  onDeclineClick: () => void
+  closeParentModal?: () => void
+}
+
+const AdminApprovalInnerWithConnect = compose<React.FC<AdminApprovalInnerWithConnectProps>>(withRedux)(
+  AdminApprovalModalInner
+)
+
+export const handleOnApproveSuccess = (setIsApproveModalOpen: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+  setIsApproveModalOpen(false)
+}
+
+export const handleOnDeclineSuccess = (setIsDeclineModalOpen: React.Dispatch<React.SetStateAction<boolean>>) => () => {
+  setIsDeclineModalOpen(false)
+}
+
+export type HandleSetIsApproveModalParams = {
+  setIsApproveModalOpen: React.Dispatch<React.SetStateAction<boolean>>
+  isApproveModalOpen: boolean
+  afterClose?: () => void
+}
+
+export const handleSetIsApproveModal = ({
+  setIsApproveModalOpen,
+  isApproveModalOpen,
+  afterClose
+}: HandleSetIsApproveModalParams) => () => {
+  afterClose && afterClose()
+  setIsApproveModalOpen(isApproveModalOpen)
+}
+
+export type HandleSetIsDeclineModalParams = {
+  setIsDeclineModalOpen: React.Dispatch<React.SetStateAction<boolean>>
+  isDeclineModalOpen: boolean
+  afterClose?: () => void
+}
+
+export const handleSetIsDeclineModal = ({
+  setIsDeclineModalOpen,
+  isDeclineModalOpen,
+  afterClose
+}: HandleSetIsDeclineModalParams) => () => {
+  afterClose && afterClose()
+  setIsDeclineModalOpen(isDeclineModalOpen)
+}
+
+export type AdminApprovalModalProps = Pick<ModalProps, 'visible' | 'afterClose'>
 
 export const AdminApprovalModal: React.FunctionComponent<AdminApprovalModalProps> = ({
   visible = true,
   afterClose
 }) => {
+  const [isApproveModalOpen, setIsApproveModalOpen] = React.useState(false)
+  const [isDeclineModalOpen, setIsDeclineModalOpen] = React.useState(false)
   return (
-    <Modal visible={visible} afterClose={afterClose} deps={[]}>
-      <AdminApprovalInnerWithConnect closeParentModal={afterClose} />
-    </Modal>
+    <React.Fragment>
+      <Modal visible={visible} afterClose={afterClose} deps={[]}>
+        <AdminApprovalInnerWithConnect
+          onApprovalClick={handleSetIsApproveModal({ setIsApproveModalOpen, isApproveModalOpen: true, afterClose })}
+          onDeclineClick={handleSetIsDeclineModal({ setIsDeclineModalOpen, isDeclineModalOpen: true, afterClose })}
+          closeParentModal={afterClose}
+        />
+      </Modal>
+      <ApproveRevisionModal
+        visible={isApproveModalOpen}
+        afterClose={handleSetIsApproveModal({
+          setIsApproveModalOpen,
+          isApproveModalOpen: false
+        })}
+        onApproveSuccess={handleOnApproveSuccess(setIsApproveModalOpen)}
+      />
+      <DeclineRevisionModal
+        visible={isDeclineModalOpen}
+        afterClose={handleSetIsDeclineModal({ setIsDeclineModalOpen, isDeclineModalOpen: false })}
+        onDeclineSuccess={handleOnDeclineSuccess(setIsDeclineModalOpen)}
+      />
+    </React.Fragment>
   )
 }
 

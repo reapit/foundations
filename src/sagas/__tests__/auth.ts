@@ -1,3 +1,9 @@
+import MockDate from 'mockdate'
+import { put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
+import { setUserSession, removeSession, LoginParams, LoginSession } from '@reapit/cognito-auth'
+import { Action } from '@/types/core'
+import { cloneableGenerator } from '@redux-saga/testing-utils'
+import { getCookieString, setCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 import authSagas, {
   doLogin,
   doLogout,
@@ -11,15 +17,10 @@ import authSagas, {
   checkFirstTimeLogin
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
 import { authLoginSuccess, authLogoutSuccess, authLoginFailure, toggleFirstLogin } from '../../actions/auth'
-import { Action } from '@/types/core'
-import { setUserSession, removeSession, LoginParams, LoginSession } from '@reapit/cognito-auth'
 import { history } from '../../core/router'
 import Routes from '../../constants/routes'
 import { ActionType } from '../../types/core'
-import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { getCookieString, setCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({
@@ -150,10 +151,13 @@ describe('auth thunks', () => {
 
   describe('setFirstTimeLogin', () => {
     it('should run correctly', () => {
+      const TIME_OFFSET = 0
+      MockDate.set('2019-12-18T16:30:00', TIME_OFFSET)
       const gen = cloneableGenerator(setFirstTimeLogin)()
       expect(gen.next().value).toEqual(call(setCookieString, COOKIE_FIRST_TIME_LOGIN, new Date()))
       expect(gen.next().value).toEqual(put(toggleFirstLogin(false)))
       expect(gen.next().done).toBe(true)
+      MockDate.reset()
     })
   })
 

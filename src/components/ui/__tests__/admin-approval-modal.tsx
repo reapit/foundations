@@ -1,22 +1,24 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import {
   AdminApprovalModalInner,
-  AdminApprovalInnerProps,
+  AdminApprovalModalInnerProps,
   isAppearInScope,
   renderCheckboxesDiff,
   handleOnApproveSuccess,
   handleOnDeclineSuccess,
   handleSetIsDeclineModal,
-  handleSetIsApproveModal
+  handleSetIsApproveModal,
+  mapStateToProps
 } from '../admin-approval-modal'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { revisionDetailDataStub } from '@/sagas/__stubs__/revision-detail'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import { ModalBody } from '@reapit/elements'
+import { ReduxState } from '@/types/core'
 
-const props = (loading: boolean, error: boolean): AdminApprovalInnerProps => ({
+const props = (loading: boolean, error: boolean): AdminApprovalModalInnerProps => ({
   appDetailState: {
     loading,
     error,
@@ -33,7 +35,9 @@ const props = (loading: boolean, error: boolean): AdminApprovalInnerProps => ({
     revisionDetailData: { data: revisionDetailDataStub.data, scopes: appPermissionStub },
     approveFormState: 'PENDING',
     declineFormState: 'PENDING'
-  }
+  },
+  onApprovalClick: jest.fn(),
+  onDeclineClick: jest.fn()
 })
 
 describe('AdminRevisionModalInner', () => {
@@ -126,22 +130,18 @@ describe('renderAdditionalCheckboxes', () => {
 
 describe('handleOnApproveSuccess', () => {
   it('should call function correctly', () => {
-    const closeParentModal = jest.fn()
     const setIsApproveModalOpen = jest.fn()
-    const fn = handleOnApproveSuccess({ closeParentModal, setIsApproveModalOpen })
+    const fn = handleOnApproveSuccess(setIsApproveModalOpen)
     fn()
-    expect(closeParentModal).toBeCalled()
     expect(setIsApproveModalOpen).toBeCalled()
   })
 })
 
 describe('handleOnDeclineSuccess', () => {
   it('should call function correctly', () => {
-    const closeParentModal = jest.fn()
     const setIsDeclineModalOpen = jest.fn()
-    const fn = handleOnDeclineSuccess({ closeParentModal, setIsDeclineModalOpen })
+    const fn = handleOnDeclineSuccess(setIsDeclineModalOpen)
     fn()
-    expect(closeParentModal).toBeCalled()
     expect(setIsDeclineModalOpen).toBeCalled()
   })
 })
@@ -149,7 +149,16 @@ describe('handleOnDeclineSuccess', () => {
 describe('handleSetIsDeclineModal', () => {
   it('should call function correctly', () => {
     const setIsDeclineModalOpen = jest.fn()
-    const fn = handleSetIsDeclineModal(setIsDeclineModalOpen, true)
+    const afterClose = jest.fn()
+    const fn = handleSetIsDeclineModal({ setIsDeclineModalOpen, isDeclineModalOpen: true, afterClose })
+    fn()
+    expect(setIsDeclineModalOpen).toBeCalled()
+    expect(afterClose).toBeCalled()
+  })
+
+  it('should call function correctly', () => {
+    const setIsDeclineModalOpen = jest.fn()
+    const fn = handleSetIsDeclineModal({ setIsDeclineModalOpen, isDeclineModalOpen: true })
     fn()
     expect(setIsDeclineModalOpen).toBeCalled()
   })
@@ -158,7 +167,16 @@ describe('handleSetIsDeclineModal', () => {
 describe('handleSetIsApproveModal', () => {
   it('should call function correctly', () => {
     const setIsApproveModalOpen = jest.fn()
-    const fn = handleSetIsApproveModal(setIsApproveModalOpen, true)
+    const afterClose = jest.fn()
+    const fn = handleSetIsApproveModal({ setIsApproveModalOpen, isApproveModalOpen: true, afterClose })
+    fn()
+    expect(setIsApproveModalOpen).toBeCalled()
+    expect(afterClose).toBeCalled()
+  })
+
+  it('should call function correctly', () => {
+    const setIsApproveModalOpen = jest.fn()
+    const fn = handleSetIsApproveModal({ setIsApproveModalOpen, isApproveModalOpen: true })
     fn()
     expect(setIsApproveModalOpen).toBeCalled()
   })
