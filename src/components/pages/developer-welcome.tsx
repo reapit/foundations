@@ -1,18 +1,17 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { ReduxState, FormState } from '@/types/core'
 import {
   FlexContainerBasic,
   Content,
   FlexContainerResponsive,
   useHelpGuideContext,
   HelpGuide,
-  Button
+  Button,
+  LevelRight
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 import { userAcceptTermAndCondition } from '@/actions/auth'
-import styles from '@/styles/pages/developer-welcome.scss?mod'
 
 export interface DevelopeWelcomeMappedActions {
   userAcceptTermAndCondition: () => void
@@ -89,7 +88,7 @@ export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = (
   return (
     <FlexContainerBasic flexColumn hasPadding>
       <Content>
-        <FlexContainerResponsive className={styles.content} flexColumn hasBackground hasPadding>
+        <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <HelpGuide>
             <HelpGuide.Step
               key="step-1"
@@ -104,9 +103,11 @@ export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = (
             <HelpGuide.Step id="step-4" component={ComponentB} heading="Heading-4" subHeading="SubHeading-4" />
             <HelpGuide.Step id="step-5" component={ComponentC} heading="Heading-5" subHeading="SubHeading-5" />
           </HelpGuide>
-          <Button variant="primary" type="button" onClick={handleUserAccept(userAcceptTermAndCondition, history)}>
-            Accept
-          </Button>
+          <LevelRight>
+            <Button variant="primary" type="button" onClick={handleUserAccept(userAcceptTermAndCondition, history)}>
+              Get Started
+            </Button>
+          </LevelRight>
         </FlexContainerResponsive>
       </Content>
     </FlexContainerBasic>

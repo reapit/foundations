@@ -55,13 +55,15 @@ exports[`DeveloperWelcomeMessage should match a snapshot when LOADING false 1`] 
           subHeading="SubHeading-5"
         />
       </HelpGuide>
-      <Button
-        onClick={[Function]}
-        type="button"
-        variant="primary"
-      >
-        Accept
-      </Button>
+      <LevelRight>
+        <Button
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Get Started
+        </Button>
+      </LevelRight>
     </FlexContainerResponsive>
   </Content>
 </FlexContainerBasic>
