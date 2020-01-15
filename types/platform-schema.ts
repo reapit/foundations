@@ -2164,7 +2164,7 @@ export interface CreateDocumentModel {
   /**
    * Sets the base64 binary content of the file
    */
-  data?: string
+  fileData?: string
 }
 /**
  * Model to create an identity check
@@ -3033,6 +3033,27 @@ export interface CreateRecipientModel {
    * Entity type of the recipient (office/negotiator)
    */
   type?: string
+}
+/**
+ * Model to create a source
+ */
+export interface CreateSourceModel {
+  /**
+   * Sets the sources name
+   */
+  name?: string
+  /**
+   * Sets the sources type
+   */
+  type?: string
+  /**
+   * Sets a list of departments related to this source
+   */
+  departmentIds?: string[]
+  /**
+   * Sets a list of offices related to this source
+   */
+  officeIds?: string[]
 }
 /**
  * Model used to create a new task
@@ -8871,14 +8892,6 @@ export interface UpdatePropertyModel {
    */
   locality?: string[]
   /**
-   * Sets the listing of room details
-   */
-  rooms?: {
-    name?: string
-    dimensions?: string
-    description?: string
-  }[]
-  /**
    * Sets the properties negotiatior id
    */
   negotiatorId?: string
@@ -8892,14 +8905,6 @@ export interface UpdatePropertyModel {
   metadata?: {
     [name: string]: any
   }
-}
-/**
- * A model used to update or add a room attached to a property
- */
-export interface UpdatePropertyRoomModel {
-  name?: string
-  dimensions?: string
-  description?: string
 }
 /**
  * A model used to update the selling information associated to a property
