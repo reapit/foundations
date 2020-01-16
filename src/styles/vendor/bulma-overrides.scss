@@ -220,6 +220,7 @@
 
 .container {
   display: flex;
+  max-width: 100%;
 
   &.is-column {
     flex-direction: column;
