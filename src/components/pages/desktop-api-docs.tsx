@@ -59,6 +59,7 @@ const DesktopApiDocsPage: React.SFC = () => {
             <code>{`agencycloud://properties?address=MK43&mode=s`}</code>
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {
@@ -144,6 +145,7 @@ const DesktopApiDocsPage: React.SFC = () => {
             <code>{`agencycloud://applicants?name=smith&mode=lettings`}</code>
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {
@@ -215,6 +217,7 @@ const DesktopApiDocsPage: React.SFC = () => {
             <code>{`agencycloud://appointments?dateFrom=2019/12/25&dateTo=2019/12/26`}</code>
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {
@@ -259,6 +262,7 @@ const DesktopApiDocsPage: React.SFC = () => {
             <code>{`agencycloud://contacts?name=smith`}</code>
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {
@@ -373,6 +377,7 @@ const DesktopApiDocsPage: React.SFC = () => {
             <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&CntCode={PrimaryKey}`}</code>
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {
@@ -426,6 +431,7 @@ const DesktopApiDocsPage: React.SFC = () => {
             <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&PrpCode={PrimaryKey}`}</code>
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {
@@ -478,6 +484,7 @@ const DesktopApiDocsPage: React.SFC = () => {
             <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true &PrpCodes={List of PrimaryKeys}`}</code>
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {

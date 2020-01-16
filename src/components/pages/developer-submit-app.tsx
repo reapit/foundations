@@ -277,7 +277,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
     <FlexContainerBasic
       hasPadding
       flexColumn
-      className={`${isSubmitting ? 'disabled' : ''}`}
+      className={`${isSubmitting ? 'disabled' : ''} ${styles.container}`}
       data-test="app-input-form"
     >
       <FlexContainerBasic flexColumn hasBackground hasPadding>

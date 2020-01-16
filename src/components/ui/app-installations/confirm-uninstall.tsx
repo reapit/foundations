@@ -19,6 +19,7 @@ import {
 } from '@/actions/app-installations'
 import { FormState, ReduxState } from '@/types/core'
 import CallToAction from '../call-to-action'
+import { setAppDetailStale } from '@/actions/app-detail'
 
 export interface ConfirmUninstallInnerProps {
   appName: string
@@ -33,6 +34,7 @@ export interface ConfirmUninstallMappedProps {
 export interface ConfirmUninstallMappedActions {
   setFormState: (formState: FormState) => void
   uninstallApp: (params: UninstallParams) => void
+  setAppDetailStale: (stale: boolean) => void
 }
 
 export type ConfirmUninstallProps = ConfirmUninstallInnerProps &
@@ -40,9 +42,10 @@ export type ConfirmUninstallProps = ConfirmUninstallInnerProps &
   ConfirmUninstallMappedActions &
   FormikProps<TerminatedValues>
 
-export const handleSuccessUninstall = ({ onUninstallSuccess, setFormState }) => () => {
+export const handleSuccessUninstall = ({ onUninstallSuccess, setFormState, setAppDetailStale }) => () => {
   onUninstallSuccess()
   setFormState('PENDING')
+  setAppDetailStale(true)
 }
 
 export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
@@ -52,7 +55,8 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
   setFormState,
   installationDetail,
   onUninstallSuccess,
-  handleSubmit
+  handleSubmit,
+  setAppDetailStale
 }) => {
   const isSuccessed = formState === 'SUCCESS'
   const isSubmitting = formState === 'SUBMITTING'
@@ -63,7 +67,7 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
         title="Success"
         buttonText="Back to List"
         dataTest="alertUninstallSuccess"
-        onButtonClick={handleSuccessUninstall({ onUninstallSuccess, setFormState })}
+        onButtonClick={handleSuccessUninstall({ onUninstallSuccess, setFormState, setAppDetailStale })}
         isCenter
       >
         '{appName}' has been successfully uninstalled from '{installationDetail?.client}'
@@ -118,7 +122,8 @@ export const mapStateToProps = (state: ReduxState): ConfirmUninstallMappedProps 
 
 export const mapDispatchToProps = (dispatch: Dispatch): ConfirmUninstallMappedActions => ({
   setFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState)),
-  uninstallApp: (params: UninstallParams) => dispatch(appInstallationsRequestUninstall(params))
+  uninstallApp: (params: UninstallParams) => dispatch(appInstallationsRequestUninstall(params)),
+  setAppDetailStale: (stale: boolean) => dispatch(setAppDetailStale(stale))
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps)

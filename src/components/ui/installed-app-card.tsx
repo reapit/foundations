@@ -16,7 +16,9 @@ const InstalledAppCard: React.FC<InstalledAppCardProps> = ({ app, onClick }: Ins
         <div data-test={`app-installed_${app.id}`} onClick={onClick} className={installedAppCardStyles.wrapIcon}>
           <img className={installedAppCardStyles.icon} src={app.iconUri} alt="iconUri" />
         </div>
-        <p className={installedAppCardStyles.appTitle}>{app.name}</p>
+        <p title={app.name} className={installedAppCardStyles.appTitle}>
+          {app.name}
+        </p>
       </div>
     )
   }

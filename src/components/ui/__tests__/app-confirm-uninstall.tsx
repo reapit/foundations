@@ -11,7 +11,8 @@ const mockProps = {
   afterClose: jest.fn(),
   uninstallApp: jest.fn(),
   setAppDetailModalStateBrowse: jest.fn(),
-  setAppDetailModalStateSuccess: jest.fn()
+  setAppDetailModalStateSuccess: jest.fn(),
+  setAppDetailStale: jest.fn()
 }
 
 describe('AppConfirmUninstall', () => {
@@ -60,7 +61,7 @@ describe('AppConfirmUninstall', () => {
     const dispatch = jest.fn()
     const fn = mapDispatchToProps(dispatch)
     it('should call dispatch when involke request install', () => {
-      fn.uninstallApp({ appId: '1', installationId: '1' })()
+      fn.uninstallApp({ appId: '1', installationId: '1' })
       expect(dispatch).toBeCalled()
     })
     it('should call dispatch when involke setAppDetailModalStateBrowse', () => {
