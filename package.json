@@ -56,6 +56,7 @@
   "dependencies": {
     "@reapit/cognito-auth": "^2.0.10",
     "@reapit/elements": "^0.5.30",
+    "dayjs": "^1.8.19",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
