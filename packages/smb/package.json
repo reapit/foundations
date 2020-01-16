@@ -47,7 +47,6 @@
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
-    "sw2dts": "^2.6.2",
     "ts-node": "^8.3.0",
     "ts-paths-to-webpack-alias": "^0.3.1",
     "webpack": "^4.32.2",
