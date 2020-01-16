@@ -5,9 +5,9 @@ import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, call } from '@redux-saga/core/effects'
 import { appDeleteRequestSuccess, appDeleteRequestLoading, appDeleteRequestFailure } from '@/actions/app-delete'
 import { Action } from '@/types/core'
-import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
+import api from '../api'
+import { adminAppsReceiveData } from '@/actions/admin-apps'
 
 jest.mock('@reapit/elements')
 
@@ -21,17 +21,12 @@ describe('app-delete sagas', () => {
     const gen = cloneableGenerator(appDeleteRequestSaga)(params)
 
     expect(gen.next().value).toEqual(put(appDeleteRequestLoading()))
-    expect(gen.next().value).toEqual(
-      call(fetcher, {
-        url: `${URLS.apps}/1`,
-        api: process.env.MARKETPLACE_API_BASE_URL as string,
-        method: 'DELETE',
-        headers: MARKETPLACE_HEADERS
-      })
-    )
+    expect(gen.next().value).toEqual(call(api.deleteApp, { appId: '1' }))
 
     test('api call success', () => {
       const clone = gen.clone()
+      expect(clone.next(true).value).toEqual(call(api.fetchAdminApps, { params: {} }))
+      expect(clone.next({}).value).toEqual(put(adminAppsReceiveData({})))
       expect(clone.next().value).toEqual(put(appDeleteRequestSuccess()))
       expect(clone.next().done).toEqual(true)
     })

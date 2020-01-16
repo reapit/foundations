@@ -9,9 +9,10 @@ import {
   mapStateToProps,
   mapDispatchToProps,
   renderForm,
-  handleDeleteSuccess
+  handleCloseAppDeleteModal
 } from '../admin-apps'
 import { RouteComponentProps, StaticContext } from 'react-router'
+import { getMockRouterProps } from '@/utils/mock-helper'
 
 const routerProps = {
   match: {
@@ -26,11 +27,10 @@ const routerProps = {
 
 const props = (loading: boolean): AdminAppsProps => ({
   adminAppsState: {
-    loading: false,
+    loading: loading,
     formState: 'PENDING',
     adminAppsData: appsDataStub.data
   },
-  fetchApps: jest.fn(),
   onChangeFeatured: jest.fn(),
   ...routerProps
 })
@@ -50,9 +50,10 @@ describe('AdminApps', () => {
         adminApps: appsDataStub.data
       } as ReduxState
       const output = {
-        adminAppsState: mockState.adminApps
+        adminAppsState: mockState.adminApps,
+        ...routerProps
       }
-      const result = mapStateToProps(mockState)
+      const result = mapStateToProps(mockState, routerProps)
       expect(result).toEqual(output)
     })
   })
@@ -60,13 +61,7 @@ describe('AdminApps', () => {
   describe('mapDispatchToProps', () => {
     it('should call dispatch correctly', () => {
       const mockDispatch = jest.fn()
-      const { fetchApps } = mapDispatchToProps(mockDispatch)
-      fetchApps({ pageNumber: 1, appName: '1', companyName: 'a', developerName: '1' })()
-      expect(mockDispatch).toBeCalled()
-    })
-
-    it('should call dispatch correctly', () => {
-      const mockDispatch = jest.fn()
+      const mockOwnProps = getMockRouterProps({})
       const { onChangeFeatured } = mapDispatchToProps(mockDispatch)
       onChangeFeatured({ id: '1', isFeatured: true })
       expect(mockDispatch).toBeCalled()
@@ -81,19 +76,13 @@ describe('AdminApps', () => {
     })
   })
 
-  describe('handleDeleteSuccess', () => {
+  describe('handleCloseAppDeleteModal', () => {
     it('should return correctly', () => {
       const mockProps = {
-        setDeleteModal: jest.fn(),
-        fetchApps: jest.fn(),
-        filter: {
-          appName: '1'
-        },
-        pageNumber: 1
+        setDeleteModal: jest.fn()
       }
-      handleDeleteSuccess(mockProps)()
+      handleCloseAppDeleteModal(mockProps)()
       expect(mockProps.setDeleteModal).toBeCalled()
-      expect(mockProps.fetchApps).toBeCalled()
     })
   })
 })
