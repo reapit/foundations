@@ -129,22 +129,20 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
     }
   ]
 
-  if (unfetched || loading) {
-    return <Loader />
-  }
-
   return (
     <ErrorBoundary>
       <div id="page-admin-approvals-container">
-        <FlexContainerResponsive data-test="revision-list-container">
-          <RenderContent loading={loading} list={list} tableColumns={tableColumns} />
-          <Pagination
-            onChange={handleOnPageChange(history)}
-            totalCount={totalCount}
-            pageSize={pageSize}
-            pageNumber={pageNumber}
-          />
-        </FlexContainerResponsive>
+        {!unfetched && !loading && (
+          <FlexContainerResponsive data-test="revision-list-container">
+            <RenderContent loading={loading} list={list} tableColumns={tableColumns} />
+            <Pagination
+              onChange={handleOnPageChange(history)}
+              totalCount={totalCount}
+              pageSize={pageSize}
+              pageNumber={pageNumber}
+            />
+          </FlexContainerResponsive>
+        )}
         <AdminApprovalModal visible={isModalOpen} afterClose={handleAfterClose({ setIsModalOpen })} />
       </div>
     </ErrorBoundary>
