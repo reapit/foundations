@@ -70,9 +70,7 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
       <Formik
         initialValues={
           Object {
-            "appName": "",
-            "companyName": "",
-            "developerName": "",
+            "page": "1",
           }
         }
         onSubmit={[Function]}
@@ -198,6 +196,11 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
     flexColumn={true}
   >
     <div
+      className="pin absolute flex items-center justify-center"
+    >
+      <Loader />
+    </div>
+    <div
       className="mb-5"
     >
       <H3>
@@ -206,9 +209,7 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
       <Formik
         initialValues={
           Object {
-            "appName": "",
-            "companyName": "",
-            "developerName": "",
+            "page": "1",
           }
         }
         onSubmit={[Function]}

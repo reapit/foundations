@@ -1,5 +1,7 @@
-import * as React from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
+import qs from 'query-string'
+import { withRouter, RouterProps, RouteComponentProps } from 'react-router'
 import { ReduxState } from '@/types/core'
 import {
   Loader,
@@ -22,46 +24,9 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AdminAppsState } from '@/reducers/admin-apps'
 import styles from '@/styles/pages/admin-apps.scss?mod'
 import { selectAdminAppsState } from '@/selector/admin'
-import { Dispatch } from 'redux'
-import {
-  adminAppsRequestData,
-  AdminAppsFilter,
-  AdminAppsParams,
-  adminAppsRequestFeatured,
-  AdminAppsFeaturedParams
-} from '@/actions/admin-apps'
+import { Dispatch, compose } from 'redux'
+import { adminAppsRequestFeatured, AdminAppsFeaturedParams } from '@/actions/admin-apps'
 import AppDeleteModal from '../ui/app-delete'
-
-export interface AdminAppsMappedActions {
-  fetchApps: (filter: AdminAppsParams) => () => void
-  onChangeFeatured: (params: AdminAppsFeaturedParams) => void
-}
-
-export interface AdminAppsMappedProps {
-  adminAppsState: AdminAppsState
-}
-
-export type AdminAppsProps = AdminAppsMappedActions & AdminAppsMappedProps
-
-export const refreshForm = (setFilter, resetForm) => () => {
-  setFilter({ appName: '', companyName: '', developerName: '' })
-  resetForm()
-}
-
-export const handleDeleteSuccess = ({ setDeleteModal, fetchApps, filter, pageNumber }) => () => {
-  setDeleteModal({ visible: false, appId: '', appName: '' })
-  fetchApps({ ...filter, pageNumber })
-}
-
-export const handleAfterClose = ({ setDeleteModal }) => () => {
-  setDeleteModal({ visible: false, appId: '', appName: '' })
-}
-
-export const handleFormStateSuccess = ({ formState, fetchApps, filter, pageNumber }) => () => {
-  if (formState === 'SUCCESS') {
-    fetchApps({ ...filter, pageNumber })
-  }
-}
 
 export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal }) => () => {
   return [
@@ -131,7 +96,12 @@ export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal 
   ]
 }
 
-export const renderForm = (setFilter: (filter: AdminAppsFilter) => void) => ({ values, resetForm }) => {
+export const refreshForm = (onSubmit, resetForm) => () => {
+  onSubmit({ appName: '', companyName: '', developerName: '' })
+  resetForm()
+}
+
+export const renderForm = onSubmit => ({ values, resetForm }) => {
   const disabled = !values.appName && !values.companyName && !values.developerName
   return (
     <Form>
@@ -152,7 +122,7 @@ export const renderForm = (setFilter: (filter: AdminAppsFilter) => void) => ({ v
             <Button type="submit" variant="primary" disabled={disabled}>
               Search
             </Button>
-            <Button type="button" variant="primary" onClick={refreshForm(setFilter, resetForm)}>
+            <Button type="button" variant="primary" onClick={refreshForm(onSubmit, resetForm)}>
               Refresh
             </Button>
           </GridItem>
@@ -162,19 +132,35 @@ export const renderForm = (setFilter: (filter: AdminAppsFilter) => void) => ({ v
   )
 }
 
-export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({ adminAppsState, fetchApps, onChangeFeatured }) => {
+export const handleCloseAppDeleteModal = ({ setDeleteModal }) => () => {
+  setDeleteModal({ visible: false, appId: '', appName: '' })
+}
+
+export type FormValues = {
+  appName: string
+  companyName: string
+  developerName: string
+}
+
+export const handleOnSubmit = (history, pageNumber: number) => (formValues: FormValues) => {
+  const queryString = qs.stringify({ ...formValues, pageNumber })
+  history.push(`apps?${queryString}`)
+}
+
+export type AdminAppsProps = DispatchProps & StateProps
+
+export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
+  adminAppsState,
+  onChangeFeatured,
+  history,
+  location
+}) => {
   const unfetched = !adminAppsState.adminAppsData
-  const { loading, formState } = adminAppsState
+  const { loading } = adminAppsState
   const { data = [], totalCount, pageSize } = adminAppsState.adminAppsData || {}
-
-  const [filter, setFilter] = React.useState<AdminAppsFilter>({ appName: '', companyName: '', developerName: '' })
-  const [pageNumber, setPageNumber] = React.useState<number>(1)
+  const queryParams = qs.parse(location.search) as any
+  const [pageNumber, setPageNumber] = React.useState<number>(queryParams.pageNumber || 1)
   const [deleteModal, setDeleteModal] = React.useState({ visible: false, appId: '', appName: '', developerName: '' })
-
-  React.useEffect(fetchApps({ ...filter, pageNumber }), [pageNumber, filter])
-
-  React.useEffect(handleFormStateSuccess({ formState, fetchApps, filter, pageNumber }), [formState])
-
   const columns = React.useMemo(generateColumns({ onChangeFeatured, setDeleteModal, deleteModal }), [data])
 
   if (unfetched) {
@@ -191,8 +177,8 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({ adminAppsSt
         )}
         <div className="mb-5">
           <H3>Admin Apps</H3>
-          <Formik initialValues={{ appName: '', companyName: '', developerName: '' }} onSubmit={setFilter}>
-            {renderForm(setFilter)}
+          <Formik initialValues={queryParams} onSubmit={handleOnSubmit(history, pageNumber)}>
+            {renderForm(handleOnSubmit(history, pageNumber))}
           </Formik>
         </div>
         {!loading && !data.length ? (
@@ -207,23 +193,31 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({ adminAppsSt
       <AppDeleteModal
         appId={deleteModal.appId}
         appName={deleteModal.appName}
-        afterClose={handleAfterClose({ setDeleteModal })}
+        afterClose={handleCloseAppDeleteModal({ setDeleteModal })}
         visible={deleteModal.visible}
-        onDeleteSuccess={handleDeleteSuccess({ setDeleteModal, fetchApps, filter, pageNumber })}
+        onDeleteSuccess={handleCloseAppDeleteModal({ setDeleteModal })}
       />
     </ErrorBoundary>
   )
 }
 
-export const mapStateToProps = (state: ReduxState): AdminAppsMappedProps => ({
-  adminAppsState: selectAdminAppsState(state)
+export type StateProps = RouteComponentProps & {
+  adminAppsState: AdminAppsState
+}
+
+export const mapStateToProps = (state: ReduxState, ownProps: RouteComponentProps): StateProps => ({
+  adminAppsState: selectAdminAppsState(state),
+  ...ownProps
 })
 
-export const mapDispatchToProps = (dispatch: Dispatch): AdminAppsMappedActions => ({
-  fetchApps: (params: AdminAppsParams) => () => {
-    dispatch(adminAppsRequestData(params))
-  },
+export type DispatchProps = {
+  onChangeFeatured: (params: AdminAppsFeaturedParams) => void
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   onChangeFeatured: (params: AdminAppsFeaturedParams) => dispatch(adminAppsRequestFeatured(params))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminApps)
+export const withRedux = connect(mapStateToProps, mapDispatchToProps)
+
+export default compose(withRouter, withRedux)(AdminApps) as React.LazyExoticComponent<any>

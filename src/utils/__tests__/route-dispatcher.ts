@@ -10,6 +10,9 @@ import { adminApprovalsRequestData } from '../../actions/admin-approvals'
 import { getAccessToken } from '../../utils/session'
 import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
+import { adminDevManagementRequestData } from '@/actions/admin-dev-management'
+import { submitAppRequestData } from '@/actions/submit-app'
+import { adminAppsRequestData } from '@/actions/admin-apps'
 
 jest.mock('@reapit/elements')
 jest.mock('../../utils/session')

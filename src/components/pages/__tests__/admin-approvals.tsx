@@ -7,7 +7,8 @@ import {
   mapStateToProps,
   mapDispatchToProps,
   handleAfterClose,
-  handleOnPageChange
+  handleOnPageChange,
+  RenderContent
 } from '../admin-approvals'
 import { approvalsStub } from '@/sagas/__stubs__/approvals'
 import { AdminApprovalsList } from '@/reducers/admin-approvals'
@@ -87,5 +88,39 @@ describe('AdminApproval', () => {
       fn('1')
       expect(mockHistory.push).toBeCalledWith(`${routes.ADMIN_APPROVALS}/${1}`)
     })
+  })
+
+  describe('RenderContent', () => {
+    it('should match snapshot', () => {
+      const wrapper = shallow(
+        <RenderContent
+          loading={false}
+          list={[]}
+          tableColumns={[
+            {
+              Header: 'AppId',
+              accessor: 'appId'
+            }
+          ]}
+        />
+      )
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  it('should match snapshot', () => {
+    const wrapper = shallow(
+      <RenderContent
+        loading={true}
+        list={[]}
+        tableColumns={[
+          {
+            Header: 'AppId',
+            accessor: 'appId'
+          }
+        ]}
+      />
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 })

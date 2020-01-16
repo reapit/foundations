@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AdminApproval RenderContent should match snapshot 1`] = `
+<Info
+  infoType="ADMIN_APPROVALS_EMPTY"
+/>
+`;
+
 exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
   <div
@@ -297,4 +303,12 @@ exports[`AdminApproval should match a snapshot when LOADING true 1`] = `
     />
   </div>
 </Connect(ErrorBoundary)>
+`;
+
+exports[`AdminApproval should match snapshot 1`] = `
+<div
+  className="pin absolute flex items-center justify-center"
+>
+  <Loader />
+</div>
 `;

@@ -1,3 +1,4 @@
+import qs from 'query-string'
 import { AdminDevManagementRequestDataValues } from './../actions/admin-dev-management'
 import { appDetailRequestData } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
@@ -14,6 +15,7 @@ import { getAccessToken } from './session'
 import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { checkFirstTimeLogin } from '@/actions/auth'
+import { adminAppsRequestData } from '@/actions/admin-apps'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   await getAccessToken()
@@ -66,6 +68,9 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.SUBMIT_APP:
       store.dispatch(submitAppRequestData())
+      break
+    case Routes.ADMIN_APPS:
+      store.dispatch(adminAppsRequestData())
       break
     case Routes.SETTINGS:
       store.dispatch(requestDeveloperData())

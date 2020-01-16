@@ -3,42 +3,27 @@ import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import { appsDataStub, featuredAppsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
-import { APPS_PER_PAGE } from '@/constants/paginator'
 import { Action } from '@/types/core'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import {
   adminAppsReceiveData,
   adminAppsRequestFailure,
-  AdminAppsParams,
   AdminAppsFeaturedParams,
   adminAppsSetFormState
 } from '@/actions/admin-apps'
 import { selectAdminAppsData } from '@/selector/admin'
+import api from '../api'
 
 jest.mock('@reapit/elements')
-const params = {
-  data: {
-    pageNumber: 1,
-    appName: '1',
-    companyName: 'a',
-    developerName: '1'
-  }
-}
 
 describe('adminAppsFetch', () => {
-  const gen = cloneableGenerator(adminAppsFetch)(params)
+  const gen = cloneableGenerator(adminAppsFetch)()
   expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}?${setQueryParams({
-        ...params.data,
-        pageSize: APPS_PER_PAGE
-      })}`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
-      method: 'GET',
-      headers: MARKETPLACE_HEADERS
+    call(api.fetchAdminApps, {
+      params: {}
     })
   )
 
@@ -124,9 +109,7 @@ describe('adminAppsSagas thunks', () => {
     it('should request data when called', () => {
       const gen = adminAppsListen()
 
-      expect(gen.next().value).toEqual(
-        takeLatest<Action<AdminAppsParams>>(ActionTypes.ADMIN_APPS_REQUEST_DATA, adminAppsFetch)
-      )
+      expect(gen.next().value).toEqual(takeLatest<Action<void>>(ActionTypes.ADMIN_APPS_REQUEST_DATA, adminAppsFetch))
       expect(gen.next().value).toEqual(
         takeLatest<Action<AdminAppsFeaturedParams>>(ActionTypes.ADMIN_APPS_REQUEST_FEATURED, adminAppsFeatured)
       )
