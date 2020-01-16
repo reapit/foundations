@@ -286,4 +286,15 @@ exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
 </Connect(ErrorBoundary)>
 `;
 
-exports[`AdminApproval should match a snapshot when LOADING true 1`] = `<Loader />`;
+exports[`AdminApproval should match a snapshot when LOADING true 1`] = `
+<Connect(ErrorBoundary)>
+  <div
+    id="page-admin-approvals-container"
+  >
+    <Component
+      afterClose={[Function]}
+      visible={false}
+    />
+  </div>
+</Connect(ErrorBoundary)>
+`;
