@@ -1,6 +1,12 @@
 .wrap-pop-up {
-  transform: translateX(-2rem);
-  width: 100vw;
   position: fixed;
   bottom: 0;
+  left: 0;
+  width: 100vw;
+  transform: unset;
+
+  @media screen and (min-width: 768px) {
+    transform: translateX(66px); // 66px being the width of the sidebar
+    width: calc(100vw - 66px);
+  }
 }

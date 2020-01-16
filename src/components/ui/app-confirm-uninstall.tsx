@@ -5,6 +5,7 @@ import { Button, SubTitleH6, ModalFooter, ModalBody, ModalHeader } from '@reapit
 import { setAppDetailModalStateBrowse, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import { appInstallationsRequestUninstall, UninstallParams } from '@/actions/app-installations'
+import { setAppDetailStale } from '@/actions/app-detail'
 
 export interface AppConfirmUninstallInnerProps {
   afterClose?: () => void
@@ -19,6 +20,7 @@ export interface AppConfirmUninstallMappedActions {
   setAppDetailModalStateBrowse: () => void
   setAppDetailModalStateSuccess: () => void
   uninstallApp: (params: UninstallParams) => () => void
+  setAppDetailStale: (stale: boolean) => void
 }
 
 export type AppConfirmUninstallProps = AppConfirmUninstallInnerProps &
@@ -50,7 +52,8 @@ export const AppConfirmUninstall = ({
   installationsFormState,
   afterClose,
   setAppDetailModalStateBrowse,
-  setAppDetailModalStateSuccess
+  setAppDetailModalStateSuccess,
+  setAppDetailStale
 }: AppConfirmUninstallProps) => {
   const isLoading = installationsFormState === 'SUBMITTING'
   const isSuccessed = installationsFormState === 'SUCCESS'
@@ -84,7 +87,10 @@ export const AppConfirmUninstall = ({
               fullWidth
               type="button"
               variant="primary"
-              onClick={uninstallApp(uninstallParams)}
+              onClick={() => {
+                uninstallApp(uninstallParams)
+                setAppDetailStale(true)
+              }}
             >
               Agree
             </Button>
@@ -114,7 +120,8 @@ export const mapStateToProps = (state: ReduxState): AppConfirmUninstallMappedPro
 export const mapDispatchToProps = (dispatch: any): AppConfirmUninstallMappedActions => ({
   setAppDetailModalStateBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   setAppDetailModalStateSuccess: () => dispatch(setAppDetailModalStateSuccess()),
-  uninstallApp: (params: UninstallParams) => () => dispatch(appInstallationsRequestUninstall(params))
+  uninstallApp: (params: UninstallParams) => dispatch(appInstallationsRequestUninstall(params)),
+  setAppDetailStale: (stale: boolean) => dispatch(setAppDetailStale(stale))
 })
 
 const AppConfirmUninstallInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppConfirmUninstall)

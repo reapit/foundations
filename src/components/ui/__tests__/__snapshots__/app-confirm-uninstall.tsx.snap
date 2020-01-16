@@ -26,6 +26,7 @@ exports[`AppConfirmUninstall render correctly 1`] = `
           dataTest="agree-btn"
           fullWidth={true}
           loading={false}
+          onClick={[Function]}
           type="button"
           variant="primary"
         >
@@ -74,6 +75,7 @@ exports[`AppConfirmUninstall render correctly 2`] = `
           dataTest="agree-btn"
           fullWidth={true}
           loading={false}
+          onClick={[Function]}
           type="button"
           variant="primary"
         >
@@ -122,6 +124,7 @@ exports[`AppConfirmUninstall render correctly 3`] = `
           dataTest="agree-btn"
           fullWidth={true}
           loading={true}
+          onClick={[Function]}
           type="button"
           variant="primary"
         >
@@ -170,6 +173,7 @@ exports[`AppConfirmUninstall render correctly 4`] = `
           dataTest="agree-btn"
           fullWidth={true}
           loading={false}
+          onClick={[Function]}
           type="button"
           variant="primary"
         >
@@ -218,6 +222,7 @@ exports[`AppConfirmUninstall render correctly 5`] = `
           dataTest="agree-btn"
           fullWidth={true}
           loading={false}
+          onClick={[Function]}
           type="button"
           variant="primary"
         >

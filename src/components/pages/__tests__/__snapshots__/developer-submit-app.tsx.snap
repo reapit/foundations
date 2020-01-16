@@ -2,7 +2,7 @@
 
 exports[`DeveloperSubmitApp should match a snapshot 1`] = `
 <FlexContainerBasic
-  className=""
+  className=" undefined"
   data-test="app-input-form"
   flexColumn={true}
   hasPadding={true}
@@ -53,7 +53,7 @@ exports[`DeveloperSubmitApp should match submit app successfully snapshot 1`] = 
 
 exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
 <FlexContainerBasic
-  className=""
+  className=" undefined"
   data-test="app-input-form"
   flexColumn={true}
   hasPadding={true}

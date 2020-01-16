@@ -23,6 +23,7 @@ const props = {
   afterClose: jest.fn(),
   formState: 'PENDING',
   setFormState: jest.fn(),
+  setAppDetailStale: jest.fn(),
   installationDetail: installationStub,
   onUninstallSuccess: jest.fn(),
   uninstallApp: jest.fn(),
@@ -49,7 +50,8 @@ describe('ConfirmUninstall', () => {
     it('should run correctly', () => {
       const onUninstallSuccess = jest.fn()
       const setFormState = jest.fn()
-      handleSuccessUninstall({ onUninstallSuccess, setFormState })()
+      const setAppDetailStale = jest.fn()
+      handleSuccessUninstall({ onUninstallSuccess, setFormState, setAppDetailStale })()
       expect(onUninstallSuccess).toBeCalled()
     })
   })

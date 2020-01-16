@@ -97,8 +97,6 @@ export const appUninstallSaga = function*({ data }) {
 
     yield call(fetchUninstallApp, { data, email })
     yield put(appInstallationsSetFormState('SUCCESS'))
-
-    yield put(setAppDetailStale(true))
   } catch (err) {
     yield put(appInstallationsSetFormState('ERROR'))
     yield put(
