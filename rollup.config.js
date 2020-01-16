@@ -35,7 +35,8 @@ export default [
               '*pin*',
               '*absolute*',
               '*relative*',
-              '*capitalize*'
+              '*capitalize*',
+              'mw-100'
             ]
             // Uncomment this line if you want to see the CSS purified from the package
             // rejected: true
