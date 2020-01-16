@@ -57,14 +57,15 @@ export const helpItems: HelpItem[] = [
       'Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. ',
     buttonText: 'REPORT',
     buttonOnClick: handleReportBug
-  },
-  {
+  }
+  // temporary hide
+  /* {
     imgSrc: faqImg,
     header: 'FAQ’s',
     text: "Here you'll find the most frequently asked questions and details about Reapit Foundations.",
     buttonText: 'VIEW',
     buttonOnClick: handleFaq
-  }
+  } */
 ]
 
 export const renderHelpItems = (items: HelpItem[]): React.ReactNode => (
@@ -77,7 +78,6 @@ export const renderHelpItems = (items: HelpItem[]): React.ReactNode => (
           </div>
           <H4 isCentered>{header}</H4>
           <p className={styles.text}>{text}</p>
-          <br />
           <p className={styles.wrapButton}>
             <Button
               className={styles.button}
