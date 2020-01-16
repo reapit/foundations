@@ -2,6 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import CallToAction, { CallToActionCardProps } from '../call-to-action'
 import toJson from 'enzyme-to-json'
+import { AcButton } from '@reapit/elements'
 
 const props: CallToActionCardProps = {
   buttonText: 'My button',
@@ -21,7 +22,11 @@ describe('CallToAction', () => {
   it('simulates onButtonClick event', () => {
     const mockButtonClick = jest.fn()
     const wrapper = shallow(<CallToAction {...props} onButtonClick={mockButtonClick} />)
-    wrapper.find('Button').simulate('click')
+    wrapper
+      .find(AcButton)
+      .dive()
+      .find('Button')
+      .simulate('click')
     expect(mockButtonClick).toBeCalledTimes(1)
   })
 

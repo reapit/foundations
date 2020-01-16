@@ -6,7 +6,7 @@ import AppDetail from '@/components/ui/app-detail'
 import AppInstallConfirm from '@/components/ui/app-confirm-install'
 import AppUninstallConfirm from '@/components/ui/app-confirm-uninstall'
 import CallToAction from '../call-to-action'
-import { ModalBody, Button } from '@reapit/elements'
+import { ModalBody, Button, EntityType } from '@reapit/elements'
 import {
   setAppDetailModalStateBrowse,
   setAppDetailModalStateUninstall,
@@ -16,10 +16,12 @@ import { appInstallationsSetFormState } from '@/actions/app-installations'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
 import styles from '@/styles/blocks/app-detail.scss?mod'
 import { FaCheck } from 'react-icons/fa'
+import { LoginMode } from '@reapit/cognito-auth'
 
 export interface AppDetailInnerMappedProps {
   appDetailModalState: AppDetailModalState
   appDetailData: AppDetailModel
+  loginMode: LoginMode
 }
 
 export interface AppDetailInnerMappedActions {
@@ -31,7 +33,8 @@ export interface AppDetailInnerMappedActions {
 
 export const mapStateToProps = (state: ReduxState): AppDetailInnerMappedProps => ({
   appDetailModalState: state.appDetailModal,
-  appDetailData: state.appDetail.appDetailData?.data!
+  appDetailData: state.appDetail.appDetailData?.data!,
+  loginMode: state.auth.refreshSession?.mode || 'WEB'
 })
 
 export const mapDispatchToProps = (dispatch: any): AppDetailInnerMappedActions => ({
@@ -84,7 +87,8 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   setStateViewBrowse,
   setStateViewInstall,
   setStateViewUninstall,
-  installationsSetFormState
+  installationsSetFormState,
+  loginMode
 }) => {
   if (appDetailModalState === 'VIEW_DETAIL_BROWSE') {
     return (
@@ -124,6 +128,11 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
         dataTest="installations-success-message"
         buttonDataTest="installations-success-button"
         onButtonClick={handleCloseModal(setStateViewBrowse, afterClose, installationsSetFormState)}
+        dynamicLinkParams={{
+          appMode: loginMode,
+          entityType: EntityType.APPS,
+          entityCode: 'refresh'
+        }}
         isCenter
       >
         {appName} has been successfully {isInstalled ? 'uninstalled' : 'installed'}
