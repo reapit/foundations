@@ -14905,15 +14905,6 @@ svg2png@~3.0.1:
     pn "^1.0.0"
     yargs "^3.31.0"
 
-sw2dts@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/sw2dts/-/sw2dts-2.6.2.tgz#2ce98b599b39f5f27ab06d7bdf4349b710950500"
-  integrity sha512-4XprnasqvfDg+GKj9jOk6qnZvrxlCGMlmkvwReYSyIIE+7Ny+90hVAPBBLFfdfmrfi61VFjE/KkJECuCQLjKkg==
-  dependencies:
-    commandpost "^1.4.0"
-    dtsgenerator "^1.2.0"
-    js-yaml "^3.13.1"
-
 symbol-observable@^1.0.2, symbol-observable@^1.0.4, symbol-observable@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
