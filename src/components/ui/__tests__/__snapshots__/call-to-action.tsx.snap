@@ -12,13 +12,18 @@ exports[`CallToAction should match a snapshot 1`] = `
   />
   <div>
     <p />
-    <Button
-      dataTest=""
-      type="button"
-      variant="primary"
+    <AcButton
+      buttonProps={
+        Object {
+          "dataTest": "",
+          "onClick": undefined,
+          "type": "button",
+          "variant": "primary",
+        }
+      }
     >
       My button
-    </Button>
+    </AcButton>
   </div>
 </div>
 `;

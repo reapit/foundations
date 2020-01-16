@@ -1,8 +1,6 @@
 import * as React from 'react'
-import CheckIcon from '@/components/svg/check'
-import TimesIcon from '@/components/svg/times'
 import styles from '@/styles/elements/call-to-action.scss?mod'
-import { Button, Alert } from '@reapit/elements'
+import { Alert, AcButton, DynamicLinkParams } from '@reapit/elements'
 
 type CTAType = 'success' | 'danger'
 
@@ -15,6 +13,7 @@ export interface CallToActionCardProps {
   isCenter?: boolean
   onButtonClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   dataTest?: string
+  dynamicLinkParams?: DynamicLinkParams
   buttonDataTest?: string
 }
 
@@ -23,6 +22,7 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
   children,
   type = 'success',
   onButtonClick,
+  dynamicLinkParams,
   className,
   buttonText,
   isCard = false,
@@ -30,7 +30,6 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
   dataTest = '',
   buttonDataTest = ''
 }) => {
-  const iconStyle = type === 'success' ? styles.iconSuccess : styles.iconDanger
   const containerClassNames = [styles.container]
   isCard && containerClassNames.push(styles.isCard)
   isCenter && containerClassNames.push(styles.isCenter)
@@ -41,9 +40,17 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
       <Alert className="mb-0" type={type} message={title} />
       <div className={styles.content}>
         <p className={styles.message}>{children}</p>
-        <Button dataTest={buttonDataTest} variant="primary" type="button" onClick={onButtonClick as () => void}>
+        <AcButton
+          dynamicLinkParams={dynamicLinkParams as DynamicLinkParams}
+          buttonProps={{
+            type: 'button',
+            variant: 'primary',
+            dataTest: buttonDataTest,
+            onClick: onButtonClick as () => void
+          }}
+        >
           {buttonText}
-        </Button>
+        </AcButton>
       </div>
     </div>
   )

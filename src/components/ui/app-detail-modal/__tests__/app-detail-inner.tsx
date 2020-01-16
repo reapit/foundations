@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { AppDetailInner, AppDetailInnerProps } from '../app-detail-inner'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 
 const mockProps: AppDetailInnerProps = {
   appDetailModalState: 'VIEW_DETAIL_BROWSE',
+  loginMode: 'WEB',
   appDetailData: appDetailDataStub.data,
   setStateViewBrowse: jest.fn(),
   setStateViewInstall: jest.fn(),
