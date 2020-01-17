@@ -1010,6 +1010,52 @@ export interface AppointmentRelationshipModel {
     detail?: string
   }[]
 }
+export interface AreaModel {
+  /**
+   * Gets the unique identifier
+   */
+  id?: string
+  /**
+   * Gets the date and time that the contact was created
+   */
+  created?: string // date-time
+  /**
+   * Gets the date and time that the contact was last modified
+   */
+  modified?: string // date-time
+  /**
+   * Gets the areas name
+   */
+  name?: string
+  /**
+   * Gets the areas active flag
+   */
+  active?: boolean
+  /**
+   * Gets the areas type (postcodes/polygon/group)
+   */
+  type?: string
+  /**
+   * Gets the areas location details (Postcodes, Group names or Lat Longs)
+   */
+  area?: string[]
+  /**
+   * Gets the departments linked to this area
+   */
+  departmentIds?: string[]
+  /**
+   * Gets the offices linked to this area
+   */
+  officeIds?: string[]
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
 /**
  * Model representing the physical address of a building or premise
  */
@@ -1805,6 +1851,32 @@ export interface CreateAppointmentRecurrenceModel {
    * Sets the date this appointment will continue to recur until
    */
   until?: string // date-time
+}
+export interface CreateAreaModel {
+  /**
+   * Sets the areas name
+   */
+  name?: string
+  /**
+   * Sets the areas type
+   */
+  type?: string
+  /**
+   * Sets the areas area information
+   */
+  area?: string[]
+  /**
+   * Sets the areas related deparments
+   */
+  departmentIds?: string[]
+  /**
+   * Sets the areas related offices
+   */
+  officeIds?: string[]
+  /**
+   * Sets the areas parent id
+   */
+  parentId?: string
 }
 /**
  * Model to create a company address
@@ -2968,6 +3040,10 @@ export interface CreatePropertyModel {
    * Sets the properties office ids
    */
   officeIds?: string[]
+  /**
+   * Sets the identifier of the area that the property resides in
+   */
+  areaId?: string
   /**
    * Sets a JSON fragment to attach to this property as metadata
    */
@@ -5915,6 +5991,10 @@ export interface PagedResultPropertyModel_ {
       }
     }
     /**
+     * The unique identifier of the area that the property resides in
+     */
+    areaId?: string
+    /**
      * Gets the strapline description
      */
     strapline?: string
@@ -6942,6 +7022,10 @@ export interface PropertyModel {
       longitude?: number // double
     }
   }
+  /**
+   * The unique identifier of the area that the property resides in
+   */
+  areaId?: string
   /**
    * Gets the strapline description
    */
@@ -8899,6 +8983,10 @@ export interface UpdatePropertyModel {
    * Sets the properties office ids
    */
   officeIds?: string[]
+  /**
+   * Sets the identifier of the area that the property resides in
+   */
+  areaId?: string
   /**
    * Sets a JSON fragment to attach to this property as metadata
    */
