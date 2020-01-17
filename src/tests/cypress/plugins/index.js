@@ -63,6 +63,14 @@ module.exports = (on, config) => {
     throw new Error(`Value of config key '${reapitEnv}'.'APPLICATION_URL' is invaid. Its type should be string`)
   }
 
+  // key env of the returned object in this func doesn't support nested object
+  // reapit-config.json contains nest object. eg: SENTRY_PROJECT_URL
+  Object.keys(reapitConfigMatchedEnv).forEach(key => {
+    if (typeof reapitConfigMatchedEnv[key] === 'object') {
+      delete reapitConfigMatchedEnv[key]
+    }
+  })
+
   const baseUrl = reapitConfigMatchedEnv.APPLICATION_URL
-  return { ...config, baseUrl, env: {...reapitConfigMatchedEnv} }
+  return { ...config, baseUrl, env: reapitConfigMatchedEnv }
 }
