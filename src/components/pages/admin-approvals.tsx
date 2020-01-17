@@ -56,7 +56,7 @@ export const RenderContent = ({
 
   return (
     <div>
-      <Table loading={false} data={list} columns={tableColumns} />
+      <Table scrollable={true} loading={false} data={list} columns={tableColumns} />
     </div>
   )
 }

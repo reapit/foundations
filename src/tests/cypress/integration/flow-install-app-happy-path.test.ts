@@ -39,7 +39,7 @@ const {
   actions: { clickAppCardSettingWithId }
 } = appCard
 
-const appName = `E2E Test App - ${nanoid()}`
+const appName = `Install App - ${nanoid()}`
 let appId = ''
 
 describe('Install app happy path', () => {
@@ -78,6 +78,7 @@ describe('Install app happy path', () => {
 
     loginUsingClientAccount()
 
+    cy.wait(500)
     cy.get(buttonAceptWelcome).click()
 
     cy.get(`div[data-test-app-name="${appName}"]`).click()

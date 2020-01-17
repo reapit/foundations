@@ -105,9 +105,9 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
   return (
     <ErrorBoundary>
       <FlexContainerResponsive>
-        <Section>
+        <Section className="mw-100">
           <AdminDevManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
-          <Table loading={false} data={data.data} columns={columns} />
+          <Table scrollable={true} loading={false} data={data.data} columns={columns} />
           <Pagination
             onChange={onPageChange}
             totalCount={data.totalCount}

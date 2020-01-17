@@ -15,14 +15,15 @@
     "bundle-analyse": "node ./src/scripts/bundle-phobia.js && yarn build && webpack-bundle-analyzer ./public/dist/stats.json",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
     "lint:src": "tslint --fix --project tsconfig.json --format stylish",
-    "lint:cypress": "tslint --fix --project './cypress/tsconfig.json' --format stylish",
+    "lint:cypress": "tslint --fix --project './src/tests/tsconfig.json' --format stylish",
     "lint": "yarn lint:src && yarn lint:cypress",
     "test": "cross-env TZ=UTC jest --coverage --silent",
     "test-dev": "cross-env TZ=UTC jest --watch --verbose",
     "test:ci": "cross-env TZ=UTC jest --ci --reporters=default --reporters=jest-junit",
-    "test-e2e:dev": "cypress open",
-    "test-e2e": "cypress run --headless",
-    "test-e2e:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-e2e\" -k",
+    "test-e2e:dev": "cypress open --project './src/tests'",
+    "test-e2e": "cypress run --project './src/tests'",
+    "test-e2e:ci": "yarn dev:ci && yarn test-e2e",
+    "dev:ci": "yarn dev & wait-on http://localhost:8080",
     "test-perf": "cross-env TZ=UTC npx jest --config='src/tests/lighthouse/jest.config.js'",
     "test-perf:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-perf\" -k"
   },
@@ -49,7 +50,7 @@
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@cypress/webpack-preprocessor": "^4.1.1",
-    "@reapit/config-manager": "^1.1.0",
+    "@reapit/config-manager": "^1.1.1",
     "@reapit/foundations-ts-definitions": "^0.0.13",
     "@redux-saga/testing-utils": "^1.0.5",
     "@types/diff": "^4.0.2",
@@ -112,6 +113,7 @@
     "tslint-config-standard": "~8.0.1",
     "tslint-plugin-prettier": "~2.0.1",
     "typescript": "3.7.2",
+    "wait-on": "^3.3.0",
     "webpack": "^4.41.4",
     "webpack-bundle-analyzer": "~3.3.2",
     "webpack-cli": "~3.3.2",
@@ -125,11 +127,11 @@
     }
   },
   "lint-staged": {
-    "./src/**/*.{ts,tsx}": [
+    "!(**/cypress/**/*.{ts,tsx})/**/src/**/*.{ts,tsx}": [
       "yarn lint:src",
       "git add"
     ],
-    "./cypress/*.{ts,tsx}": [
+    "**/cypress/**/*.{ts,tsx}": [
       "yarn lint:cypress",
       "git add"
     ]

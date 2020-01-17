@@ -5,7 +5,9 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `<L
 exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
 <Connect(ErrorBoundary)>
   <FlexContainerResponsive>
-    <Section>
+    <Section
+      className="mw-100"
+    >
       <Component
         filterValues={Object {}}
         onSearch={[MockFunction]}
@@ -46,6 +48,7 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
       <Pagination
         onChange={[MockFunction]}

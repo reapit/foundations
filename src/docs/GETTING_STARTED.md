@@ -38,10 +38,16 @@ yarn test-dev
 ``` 
 yarn test-perf
 ```
-### To run the E2E Tests (Webdriver)
+### To run the E2E Dash board allowing you to choose specific test case (Cypress)
+``` 
+yarn test-e2e:dev
+```
+
+### To run the E2E Tests in headless mode (Cypress)
 ``` 
 yarn test-e2e
 ```
+
 ### To run an analysis of bundles and packages
 ```
 yarn bundle-analyse

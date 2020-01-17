@@ -29,7 +29,7 @@ const {
   selectors: { textBoxName, checkBoxIsListed, buttonSubmit, checkboxAgreeTheTermsAndConditions }
 } = developerSubmitAppPage
 
-const appName = `E2E Test App - ${nanoid()}`
+const appName = `Update App And Delist App - ${nanoid()}`
 const appNameAfterChanged = `${appName} - changed`
 let appId = ''
 

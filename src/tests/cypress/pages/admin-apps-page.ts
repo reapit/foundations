@@ -1,6 +1,5 @@
 import routes from '@/constants/routes'
 import api from '../fixtures/routes'
-import { APPS_PER_PAGE } from '@/constants/paginator'
 
 const adminAppMetaData = {
   url: routes.ADMIN_APPS,

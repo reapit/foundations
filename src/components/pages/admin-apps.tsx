@@ -185,7 +185,7 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
           <Alert message="You currently have no apps listed " type="info" />
         ) : (
           <div className="mb-5">
-            <Table loading={false} data={data} columns={columns} />
+            <Table scrollable={true} loading={false} data={data} columns={columns} />
           </div>
         )}
         <Pagination onChange={setPageNumber} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />

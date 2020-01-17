@@ -23,6 +23,7 @@
     "dist",
     "./webpack.config.js",
     "node_modules",
-    "src/tests/coverage"
+    "src/tests/coverage",
+    "src/tests/cypress"
   ]
 }

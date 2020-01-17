@@ -34,6 +34,15 @@ jobs:
         displayName: Unit tests
         env:
           NPM_TOKEN: $(NPM_TOKEN)
+        
+      - script: yarn test-e2e:ci
+        displayName: E2E Tests
+        condition: eq(variables['Build.SourceBranch'], 'refs/heads/develop')
+        env:
+          NPM_TOKEN: $(NPM_TOKEN)
+          REAPIT_ENV: $(REAPIT_ENV)
+          AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+          AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
 
       - task: PublishTestResults@2
         inputs:

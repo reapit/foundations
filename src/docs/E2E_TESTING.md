@@ -1,7 +1,5 @@
-## Base URL
-Base url of the test application is defined by an ENV variable named `APPLICATION_URL`
-
-## Required ENV (ENVs is loaded from a file named .env located at src/contants)
+## Required ENV
+All ENVs are loaded in reapit-config.json. No .env file required to setup e2e test.
 * DEVELOPER_ACCOUNT_EMAIL - email of the developer account that will be used to testing
 * DEVELOPER_ACCOUNT_PASSWORD - password of the developer account that will be used to testing
 
@@ -14,7 +12,7 @@ Base url of the test application is defined by an ENV variable named `APPLICATIO
 * APPLICATION_URL - URL of the web application to test against
 
 ## Structure
-- Files involved e2e testing will reside in `cypress`.
+- Files involved e2e testing will be placed in `src/tests/cypress`.
 - Pages: Use `Page Object Model` pattern: store anything related to a specific page: selectors, reusable actions.
 - Commands: Any utility actions that not involve specific page
 
