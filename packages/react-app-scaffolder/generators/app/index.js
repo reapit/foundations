@@ -131,26 +131,6 @@ module.exports = class extends Generator {
     }
   }
 
-  _addWebdriver() {
-    const { webdriver, name } = this.answers
-    if (webdriver) {
-      this._mergePackageJson('webdriver/_package.webdriver.json')
-      this.fs.copy(
-        this.templatePath('webdriver/_wdio.conf.js'),
-        this.destinationPath(`${name}/src/scripts/wdio.conf.js`),
-      )
-
-      this.fs.copy(this.templatePath('webdriver/tests'), this.destinationPath(`${name}/src/tests`))
-
-      this.fs.commit([], () => {
-        this.fs.copy(
-          this.templatePath('webdriver/_tsconfig.webdriver.json'),
-          this.destinationPath(`${name}/src/tests/webdriver/tsconfig.json`),
-        )
-      })
-    }
-  }
-
   _addAzure() {
     const { name, azure } = this.answers
     if (azure) {
@@ -201,7 +181,6 @@ module.exports = class extends Generator {
       this._addWebpack()
       this._addStyledComponents()
       this._addSass()
-      this._addWebdriver()
       this._addAzure()
       this._installAndExport()
     })
@@ -248,11 +227,6 @@ module.exports = class extends Generator {
         type: 'confirm',
         name: 'sass',
         message: 'Would you like Sass/CSS?',
-      },
-      {
-        type: 'confirm',
-        name: 'webdriver',
-        message: 'Would you like WebDriver Selenium Tests?',
       },
       {
         type: 'confirm',
