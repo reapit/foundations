@@ -1,5 +1,10 @@
-## Required ENV
-All ENVs are loaded in reapit-config.json. No .env file required to setup e2e test.
+## Notes
+
+## ENV
+All ENVs are loaded in reapit-config.json. No .env file required to setup e2e test. Key with value type is an object won't be loaded. E.g. {load: 'load', notLoad: {key: 'value}} -> key notLoad will not be loaded to Cypress as an ENV
+
+Required ENVs are:
+
 * DEVELOPER_ACCOUNT_EMAIL - email of the developer account that will be used to testing
 * DEVELOPER_ACCOUNT_PASSWORD - password of the developer account that will be used to testing
 

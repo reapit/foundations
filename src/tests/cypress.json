@@ -1,6 +1,6 @@
 {
   "supportFile": "./cypress/support/index.ts",
-  "requestTimeout": 20000,
+  "requestTimeout": 30000,
   "defaultCommandTimeout": 20000,
   "video": false
 }
