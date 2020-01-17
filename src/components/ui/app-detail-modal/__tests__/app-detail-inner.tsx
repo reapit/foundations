@@ -20,7 +20,7 @@ describe('AppDetailInner', () => {
 
   it('should match a snapshot when appDetailModalState = VIEW_DETAIL_MANAGE', () => {
     const props: AppDetailInnerProps = { ...mockProps, appDetailModalState: 'VIEW_DETAIL_MANAGE' }
-    expect(shallow(<AppDetailInner {...mockProps} />)).toMatchSnapshot()
+    expect(shallow(<AppDetailInner {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when appDetailModalState = VIEW_CONFIRM_INSTALL', () => {

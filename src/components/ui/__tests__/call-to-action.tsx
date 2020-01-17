@@ -22,11 +22,7 @@ describe('CallToAction', () => {
   it('simulates onButtonClick event', () => {
     const mockButtonClick = jest.fn()
     const wrapper = shallow(<CallToAction {...props} onButtonClick={mockButtonClick} />)
-    wrapper
-      .find(AcButton)
-      .dive()
-      .find('Button')
-      .simulate('click')
+    wrapper.find('Button').simulate('click')
     expect(mockButtonClick).toBeCalledTimes(1)
   })
 
