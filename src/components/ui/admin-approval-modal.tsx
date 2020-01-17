@@ -61,6 +61,26 @@ export const renderCheckboxesDiff = ({
   })
 }
 
+export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
+  // Check the longest array to compare
+  const isNewMediaMoreItemThanOldOne = revision?.media?.length >= app?.media?.length
+  if (isNewMediaMoreItemThanOldOne) {
+    return revision.media.map((revisionMedia: MediaModel, index: number) => ({
+      changedMedia: revisionMedia?.uri,
+      currentMedia: app.media?.[index]?.uri,
+      order: revisionMedia?.order || 0,
+      type: revisionMedia?.type || ''
+    }))
+  }
+
+  return app.media.map((currentMedia: MediaModel, index: number) => ({
+    changedMedia: revision.media?.[index]?.uri,
+    currentMedia: currentMedia?.uri,
+    order: currentMedia?.order || 0,
+    type: currentMedia?.type || 'media'
+  }))
+}
+
 export type AdminApprovalModalInnerProps = StateProps
 export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModalInnerProps> = ({
   revisionDetailState,
@@ -83,36 +103,6 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModal
 
   const { data: revision, scopes } = revisionDetailState.revisionDetailData
   const app = appDetailState.appDetailData.data
-
-  const changedMediaList: DiffMediaModel[] = (revision.media || [])
-      .map((media: MediaModel) => {
-        const currentMedia = (app.media || []).filter(({ order }) => order === media.order)[0]
-        return {
-          changedMedia: media.uri,
-          currentMedia: currentMedia ? currentMedia.uri : undefined,
-          order: media.order || 0,
-          type: media.type || 'media'
-        }
-      })
-      .filter(({ changedMedia, currentMedia }) => changedMedia !== currentMedia)
-
-    // verify which image has been removed
-  ;(app.media || []).forEach((media: MediaModel) => {
-    const nonExist =
-      (revision.media || []).findIndex(({ order }: MediaModel) => {
-        return order === media.order
-      }) === -1
-    if (nonExist) {
-      changedMediaList.push({
-        changedMedia: '',
-        currentMedia: media.uri,
-        order: media.order || 0,
-        type: media.type || 'media'
-      })
-    }
-  })
-
-  changedMediaList.sort((a, b) => a.order - b.order)
 
   return (
     <React.Fragment>
@@ -166,7 +156,7 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModal
                 dataTest="revision-diff-isDirectApi"
               />
             </div>
-            {changedMediaList.map(media => (
+            {getChangedMediaList({ app, revision }).map(media => (
               <div className="mb-3" key={media.order}>
                 <h4 className="mb-2 capitalize">
                   {media.type} {media.order > 0 && <span>{media.order}</span>}
