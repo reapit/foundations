@@ -68,7 +68,7 @@ export const Installations: React.FC<InstallationsProps> = ({
   const { data = [], pageSize, totalCount } = installationsData || {}
   const columns = React.useMemo(generateColumns(onUninstall), [installationsData])
 
-  React.useEffect(fetchInstallationsApp({ appId: [appId], pageNumber, pageSize }), [appId])
+  React.useEffect(fetchInstallationsApp({ appId: [appId], isInstalled: true, pageNumber, pageSize }), [appId])
 
   return (
     <>

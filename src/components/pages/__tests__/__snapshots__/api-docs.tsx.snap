@@ -127,6 +127,7 @@ exports[`ApiDocs should match a snapshot 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
       <H5
         id="statuscodes"
@@ -208,6 +209,7 @@ exports[`ApiDocs should match a snapshot 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
       <H4
         id="authorization"
@@ -270,17 +272,21 @@ exports[`ApiDocs should match a snapshot 1`] = `
         , direct users to the URL documented below where they'll be prompted to enter their credentials. The clientId parameter is required and provided during the Marketplace app registration process.
       </p>
       <p>
-        <code>
-          GET https://foundations.reapit.com/oauth/authorize?clientId=xxxxxxxxxxxxxxxx
-        </code>
+        <pre>
+          <code>
+            GET https://foundations.reapit.com/oauth/authorize?clientId=xxxxxxxxxxxxxxxx
+          </code>
+        </pre>
       </p>
       <p>
         Upon success, the service will direct back to your application with an authorization code provided as a query string.
       </p>
       <p>
-        <code>
-          https://application.company.com/?code=xxxxxxxxxxxxxxxx
-        </code>
+        <pre>
+          <code>
+            https://application.company.com/?code=xxxxxxxxxxxxxxxx
+          </code>
+        </pre>
       </p>
       <H5>
         Exchange code for tokens
@@ -299,7 +305,6 @@ exports[`ApiDocs should match a snapshot 1`] = `
     "clientId" : "xxxxxxxxxxxxxxxx",
     "code" : "xxxxxxxxxxxxxxx"
   }
-              
           </code>
         </pre>
       </p>
@@ -319,7 +324,6 @@ exports[`ApiDocs should match a snapshot 1`] = `
   "access_token" : "xxxxxxxxxxxxxx",
   "expires_in" : 3600,
 }
-              
           </code>
         </pre>
       </p>
@@ -357,6 +361,7 @@ exports[`ApiDocs should match a snapshot 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
       <H5>
         Create a request
@@ -365,9 +370,11 @@ exports[`ApiDocs should match a snapshot 1`] = `
         The access token must then be sent in the Authorization header to be able to access protected Foundation APIs.
       </p>
       <p>
-        <code>
-          Authorization : Bearer &lt;access token&gt;
-        </code>
+        <pre>
+          <code>
+            Authorization : Bearer &lt;access token&gt;
+          </code>
+        </pre>
       </p>
       <p>
         Upon recieving an access token, the Foundation will validate the token to ensure:
@@ -421,7 +428,6 @@ exports[`ApiDocs should match a snapshot 1`] = `
   "dateTime": "2019-04-23T18:25:43.511Z",
   "description": "Contact RPT19000001 was not found."
 }
-              
           </code>
         </pre>
       </p>
@@ -447,7 +453,6 @@ exports[`ApiDocs should match a snapshot 1`] = `
     }
   ]
 }
-              
           </code>
         </pre>
       </p>
@@ -491,6 +496,7 @@ exports[`ApiDocs should match a snapshot 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
       <p>
         <br />
@@ -512,7 +518,6 @@ exports[`ApiDocs should match a snapshot 1`] = `
                   Your limit is 1000 requests per minute.
                   This limit will be reset in 30 seconds."
 }
-              
           </code>
         </pre>
       </p>
@@ -529,11 +534,11 @@ exports[`ApiDocs should match a snapshot 1`] = `
         Unless documented, the default page size is 25 and the maximum is 50.
       </p>
       <p>
-        <code>
+        <pre>
           <code>
             http://foundations.reapit.com/contacts?pageSize=10&pageNumber=2
           </code>
-        </code>
+        </pre>
       </p>
       <H5>
         Response
@@ -554,7 +559,6 @@ exports[`ApiDocs should match a snapshot 1`] = `
     ...
   ]
 }
-              
           </code>
         </pre>
       </p>
@@ -577,19 +581,21 @@ exports[`ApiDocs should match a snapshot 1`] = `
         The example request below will fetch a list of contacts with resource expansion enabled for the identity checks nested collection:
       </p>
       <p>
-        <code>
-          http://foundations.reapit.com/contacts?embed=identityChecks
-        </code>
+        <pre>
+          <code>
+            http://foundations.reapit.com/contacts?embed=identityChecks
+          </code>
+        </pre>
       </p>
       <H5>
         Response
       </H5>
       <p>
-        A paged response from the 
+        A paged response from the
         <code>
           /contacts
         </code>
-         request example above:
+        request example above:
       </p>
       <p
         className="mb-4"
@@ -625,7 +631,6 @@ exports[`ApiDocs should match a snapshot 1`] = `
   "pageCount": 25,
   "totalCount" : 142,
 }
-              
           </code>
         </pre>
       </p>
@@ -633,11 +638,11 @@ exports[`ApiDocs should match a snapshot 1`] = `
         Metadata
       </H4>
       <p>
-        Resources that support editing have a 
+        Resources that support editing have a
         <code>
           metadata
         </code>
-         attribute available in their payload. This attribute can be used to set a JSON data fragment against a specific resource by including the metadata attribute in POST and PATCH requests. This will subsequently be included in future fetches of that resource.
+        attribute available in their payload. This attribute can be used to set a JSON data fragment against a specific resource by including the metadata attribute in POST and PATCH requests. This will subsequently be included in future fetches of that resource.
       </p>
       <p>
         Metadata should be used to store additional, structured information against an object. This allows our clients to build upon the resource returned by the API and create a point of integration between our platform and third party applications. A common use case would be to store a unique identifier from an external system.
@@ -780,6 +785,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
       <H5
         id="statuscodes"
@@ -861,6 +867,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
       <H4
         id="authorization"
@@ -923,17 +930,21 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
         , direct users to the URL documented below where they'll be prompted to enter their credentials. The clientId parameter is required and provided during the Marketplace app registration process.
       </p>
       <p>
-        <code>
-          GET https://foundations.reapit.com/oauth/authorize?clientId=xxxxxxxxxxxxxxxx
-        </code>
+        <pre>
+          <code>
+            GET https://foundations.reapit.com/oauth/authorize?clientId=xxxxxxxxxxxxxxxx
+          </code>
+        </pre>
       </p>
       <p>
         Upon success, the service will direct back to your application with an authorization code provided as a query string.
       </p>
       <p>
-        <code>
-          https://application.company.com/?code=xxxxxxxxxxxxxxxx
-        </code>
+        <pre>
+          <code>
+            https://application.company.com/?code=xxxxxxxxxxxxxxxx
+          </code>
+        </pre>
       </p>
       <H5>
         Exchange code for tokens
@@ -952,7 +963,6 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
     "clientId" : "xxxxxxxxxxxxxxxx",
     "code" : "xxxxxxxxxxxxxxx"
   }
-              
           </code>
         </pre>
       </p>
@@ -972,7 +982,6 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
   "access_token" : "xxxxxxxxxxxxxx",
   "expires_in" : 3600,
 }
-              
           </code>
         </pre>
       </p>
@@ -1010,6 +1019,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
       <H5>
         Create a request
@@ -1018,9 +1028,11 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
         The access token must then be sent in the Authorization header to be able to access protected Foundation APIs.
       </p>
       <p>
-        <code>
-          Authorization : Bearer &lt;access token&gt;
-        </code>
+        <pre>
+          <code>
+            Authorization : Bearer &lt;access token&gt;
+          </code>
+        </pre>
       </p>
       <p>
         Upon recieving an access token, the Foundation will validate the token to ensure:
@@ -1074,7 +1086,6 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
   "dateTime": "2019-04-23T18:25:43.511Z",
   "description": "Contact RPT19000001 was not found."
 }
-              
           </code>
         </pre>
       </p>
@@ -1100,7 +1111,6 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
     }
   ]
 }
-              
           </code>
         </pre>
       </p>
@@ -1144,6 +1154,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
       <p>
         <br />
@@ -1165,7 +1176,6 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
                   Your limit is 1000 requests per minute.
                   This limit will be reset in 30 seconds."
 }
-              
           </code>
         </pre>
       </p>
@@ -1182,11 +1192,11 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
         Unless documented, the default page size is 25 and the maximum is 50.
       </p>
       <p>
-        <code>
+        <pre>
           <code>
             http://foundations.reapit.com/contacts?pageSize=10&pageNumber=2
           </code>
-        </code>
+        </pre>
       </p>
       <H5>
         Response
@@ -1207,7 +1217,6 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
     ...
   ]
 }
-              
           </code>
         </pre>
       </p>
@@ -1230,19 +1239,21 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
         The example request below will fetch a list of contacts with resource expansion enabled for the identity checks nested collection:
       </p>
       <p>
-        <code>
-          http://foundations.reapit.com/contacts?embed=identityChecks
-        </code>
+        <pre>
+          <code>
+            http://foundations.reapit.com/contacts?embed=identityChecks
+          </code>
+        </pre>
       </p>
       <H5>
         Response
       </H5>
       <p>
-        A paged response from the 
+        A paged response from the
         <code>
           /contacts
         </code>
-         request example above:
+        request example above:
       </p>
       <p
         className="mb-4"
@@ -1278,7 +1289,6 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
   "pageCount": 25,
   "totalCount" : 142,
 }
-              
           </code>
         </pre>
       </p>
@@ -1286,11 +1296,11 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
         Metadata
       </H4>
       <p>
-        Resources that support editing have a 
+        Resources that support editing have a
         <code>
           metadata
         </code>
-         attribute available in their payload. This attribute can be used to set a JSON data fragment against a specific resource by including the metadata attribute in POST and PATCH requests. This will subsequently be included in future fetches of that resource.
+        attribute available in their payload. This attribute can be used to set a JSON data fragment against a specific resource by including the metadata attribute in POST and PATCH requests. This will subsequently be included in future fetches of that resource.
       </p>
       <p>
         Metadata should be used to store additional, structured information against an object. This allows our clients to build upon the resource returned by the API and create a point of integration between our platform and third party applications. A common use case would be to store a unique identifier from an external system.
