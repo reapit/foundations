@@ -19,7 +19,13 @@
     "ADMIN_ACCOUNT_PASSWORD": "",
     "APPLICATION_URL": "",
     "RETRIES": 0,
-    "CHATBOT_APP_ID": ""
+    "CHATBOT_APP_ID": "",
+    "SENTRY_PROJECT_URL": {
+      "MARKETPLACE": "",
+      "GEO_DIARY": "",
+      "AML_APP": "",
+      "LTL_APP": ""
+    }
   },
   "DEV": {
     "PLATFORM_BASE_URL": "",
@@ -41,7 +47,13 @@
     "ADMIN_ACCOUNT_PASSWORD": "",
     "APPLICATION_URL": "",
     "RETRIES": 0,
-    "CHATBOT_APP_ID": ""
+    "CHATBOT_APP_ID": "",
+    "SENTRY_PROJECT_URL": {
+      "MARKETPLACE": "",
+      "GEO_DIARY": "",
+      "AML_APP": "",
+      "LTL_APP": ""
+    }
   },
   "PROD": {
     "PLATFORM_BASE_URL": "",
@@ -63,7 +75,13 @@
     "ADMIN_ACCOUNT_PASSWORD": "",
     "APPLICATION_URL": "",
     "RETRIES": 0,
-    "CHATBOT_APP_ID": ""
+    "CHATBOT_APP_ID": "",
+    "SENTRY_PROJECT_URL": {
+      "MARKETPLACE": "",
+      "GEO_DIARY": "",
+      "AML_APP": "",
+      "LTL_APP": ""
+    }
   },
   "DEMO": {
     "PLATFORM_BASE_URL": "",
@@ -85,6 +103,12 @@
     "ADMIN_ACCOUNT_PASSWORD": "",
     "APPLICATION_URL": "",
     "RETRIES": 0,
-    "CHATBOT_APP_ID": ""
+    "CHATBOT_APP_ID": "",
+    "SENTRY_PROJECT_URL": {
+      "MARKETPLACE": "",
+      "GEO_DIARY": "",
+      "AML_APP": "",
+      "LTL_APP": ""
+    }
   }
 }
