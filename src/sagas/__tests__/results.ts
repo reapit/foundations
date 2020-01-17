@@ -8,11 +8,17 @@ import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from '@/constants/api'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { contacts } from '../__stubs__/contacts'
+import { identities } from '../__stubs__/identities'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
+import { mapIdentitiesToContacts } from '../../utils/map-identities-to-contacts'
 
 jest.mock('../../core/store')
+
+jest.mock('../../utils/map-identities-to-contacts', () => ({
+  mapIdentitiesToContacts: jest.fn().mockReturnValue('mappedData')
+}))
 
 const mockHeaders = {
   Authorization: '123'
@@ -40,7 +46,17 @@ describe('result fetch data', () => {
 
   it('api call sucessfully', () => {
     const clone = gen.clone()
-    expect(clone.next(contacts as any).value).toEqual(put(resultReceiveData(contacts)))
+    const listContactId = contacts._embedded.map(({ id }) => id)
+    expect(clone.next(contacts as any).value).toEqual(
+      call(fetcher, {
+        url: `${URLS.idChecks}/?${setQueryParams({ ContactId: [...listContactId] })}`,
+        api: process.env.PLATFORM_API_BASE_URL as string,
+        method: 'GET',
+        headers: mockHeaders
+      })
+    )
+    expect(clone.next(identities).value).toEqual(put(resultReceiveData('mappedData' as any)))
+    expect(mapIdentitiesToContacts).toHaveBeenCalledWith(contacts, identities)
     expect(clone.next().done).toEqual(true)
   })
 
