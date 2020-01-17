@@ -6,7 +6,7 @@ import AppDetail from '@/components/ui/app-detail'
 import AppInstallConfirm from '@/components/ui/app-confirm-install'
 import AppUninstallConfirm from '@/components/ui/app-confirm-uninstall'
 import CallToAction from '../call-to-action'
-import { ModalBody, Button, EntityType } from '@reapit/elements'
+import { Button, EntityType, navigateDynamicApp, DynamicLinkParams } from '@reapit/elements'
 import {
   setAppDetailModalStateBrowse,
   setAppDetailModalStateUninstall,
@@ -51,11 +51,20 @@ export type AppDetailInnerProps = AppDetailInnerMappedProps &
 
 export const handleCloseModal = (
   setAppDetailModalStateBrowse: () => void,
-  afterClose?: () => void,
-  installationsSetFormState?: (formState: FormState) => void
+  loginMode: LoginMode,
+  installationsSetFormState: (formState: FormState) => void,
+  afterClose?: () => void
 ) => () => {
+  const dynamicLinkParams = {
+    appMode: loginMode,
+    entityType: EntityType.APPS,
+    entityCode: 'refresh'
+  } as DynamicLinkParams
+
+  navigateDynamicApp(dynamicLinkParams, window)
+
   afterClose && afterClose()
-  installationsSetFormState && installationsSetFormState('DONE')
+  installationsSetFormState('DONE')
   setAppDetailModalStateBrowse()
 }
 
@@ -127,12 +136,7 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
         buttonText="Back to List"
         dataTest="installations-success-message"
         buttonDataTest="installations-success-button"
-        onButtonClick={handleCloseModal(setStateViewBrowse, afterClose, installationsSetFormState)}
-        dynamicLinkParams={{
-          appMode: loginMode,
-          entityType: EntityType.APPS,
-          entityCode: 'refresh'
-        }}
+        onButtonClick={handleCloseModal(setStateViewBrowse, loginMode, installationsSetFormState, afterClose)}
         isCenter
       >
         {appName} has been successfully {isInstalled ? 'uninstalled' : 'installed'}
