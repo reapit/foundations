@@ -38,7 +38,7 @@
     "redux-saga": "^1.1.3"
   },
   "devDependencies": {
-    "@reapit/config-manager": "^1.1.0",
+    "@reapit/config-manager": "^1.1.1",
     "@reapit/foundations-ts-definitions": "^0.0.4",
     "@redux-saga/testing-utils": "^1.0.5",
     "@types/enzyme": "^3.9.3",
