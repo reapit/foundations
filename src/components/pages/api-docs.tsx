@@ -52,6 +52,7 @@ const ApiDocsPage: React.FC = () => {
             performed. Our APIs support the following HTTP methods:
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {
@@ -88,6 +89,7 @@ const ApiDocsPage: React.FC = () => {
             resulted in an error. Below is a listing of the codes our APIs may return and their meaning:
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {
@@ -210,14 +212,18 @@ const ApiDocsPage: React.FC = () => {
             parameter is required and provided during the Marketplace app registration process.
           </p>
           <p>
-            <code>GET https://foundations.reapit.com/oauth/authorize?clientId=xxxxxxxxxxxxxxxx</code>
+            <pre>
+              <code>GET https://foundations.reapit.com/oauth/authorize?clientId=xxxxxxxxxxxxxxxx</code>
+            </pre>
           </p>
           <p>
             Upon success, the service will direct back to your application with an authorization code provided as a
             query string.
           </p>
           <p>
-            <code>https://application.company.com/?code=xxxxxxxxxxxxxxxx</code>
+            <pre>
+              <code>https://application.company.com/?code=xxxxxxxxxxxxxxxx</code>
+            </pre>
           </p>
           <H5>Exchange code for tokens</H5>
           <p>
@@ -233,8 +239,7 @@ const ApiDocsPage: React.FC = () => {
   {
     "clientId" : "xxxxxxxxxxxxxxxx",
     "code" : "xxxxxxxxxxxxxxx"
-  }
-              `}
+  }`}
               </code>
             </pre>
           </p>
@@ -252,12 +257,12 @@ const ApiDocsPage: React.FC = () => {
   "refresh_token" : "xxxxxxxxxxxxxx",
   "access_token" : "xxxxxxxxxxxxxx",
   "expires_in" : 3600,
-}
-              `}
+}`}
               </code>
             </pre>
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {
@@ -294,7 +299,9 @@ const ApiDocsPage: React.FC = () => {
             APIs.
           </p>
           <p>
-            <code>Authorization : Bearer &lt;access token&gt;</code>
+            <pre>
+              <code>Authorization : Bearer &lt;access token&gt;</code>
+            </pre>
           </p>
           <p>Upon recieving an access token, the Foundation will validate the token to ensure:</p>
           <ul>
@@ -338,8 +345,7 @@ const ApiDocsPage: React.FC = () => {
   "statusCode": 404,
   "dateTime": "2019-04-23T18:25:43.511Z",
   "description": "Contact RPT19000001 was not found."
-}
-              `}
+}`}
               </code>
             </pre>
           </p>
@@ -360,8 +366,7 @@ const ApiDocsPage: React.FC = () => {
       "message" : "Must be less than 50 characters in length."
     }
   ]
-}
-              `}
+}`}
               </code>
             </pre>
           </p>
@@ -371,6 +376,7 @@ const ApiDocsPage: React.FC = () => {
             information on the current rate limit statistics.
           </p>
           <Table
+            scrollable
             loading={false}
             columns={[
               {
@@ -421,8 +427,7 @@ const ApiDocsPage: React.FC = () => {
   "description": "Rate limit for API requests has been hit.
                   Your limit is 1000 requests per minute.
                   This limit will be reset in 30 seconds."
-}
-              `}
+}`}
               </code>
             </pre>
           </p>
@@ -434,9 +439,9 @@ const ApiDocsPage: React.FC = () => {
           <H5>Request</H5>
           <p>Unless documented, the default page size is 25 and the maximum is 50.</p>
           <p>
-            <code>
+            <pre>
               <code>http://foundations.reapit.com/contacts?pageSize=10&amp;pageNumber=2</code>
-            </code>
+            </pre>
           </p>
           <H5>Response</H5>
           <p className="mb-4">
@@ -452,8 +457,7 @@ const ApiDocsPage: React.FC = () => {
   "data" : [
     ...
   ]
-}
-              `}
+}`}
               </code>
             </pre>
           </p>
@@ -477,11 +481,15 @@ const ApiDocsPage: React.FC = () => {
             checks nested collection:
           </p>
           <p>
-            <code>http://foundations.reapit.com/contacts?embed=identityChecks</code>
+            <pre>
+              <code>http://foundations.reapit.com/contacts?embed=identityChecks</code>
+            </pre>
           </p>
           <H5>Response</H5>
           <p>
-            A paged response from the <code>/contacts</code> request example above:
+            A paged response from the
+            <code>/contacts</code>
+            request example above:
           </p>
           <p className="mb-4">
             <pre>
@@ -514,16 +522,16 @@ const ApiDocsPage: React.FC = () => {
   "pageSize": 25,
   "pageCount": 25,
   "totalCount" : 142,
-}
-              `}
+}`}
               </code>
             </pre>
           </p>
           <H4>Metadata</H4>
           <p>
-            Resources that support editing have a <code>metadata</code> attribute available in their payload. This
-            attribute can be used to set a JSON data fragment against a specific resource by including the metadata
-            attribute in POST and PATCH requests. This will subsequently be included in future fetches of that resource.
+            Resources that support editing have a<code>metadata</code>
+            attribute available in their payload. This attribute can be used to set a JSON data fragment against a
+            specific resource by including the metadata attribute in POST and PATCH requests. This will subsequently be
+            included in future fetches of that resource.
           </p>
           <p>
             Metadata should be used to store additional, structured information against an object. This allows our

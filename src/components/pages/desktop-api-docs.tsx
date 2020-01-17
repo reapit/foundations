@@ -1,11 +1,12 @@
 import * as React from 'react'
+import styles from '@/styles/pages/desktop-api-docs.scss?mod'
 
 import { FlexContainerResponsive, Content, H3, H4, H5, Table, FlexContainerBasic } from '@reapit/elements'
 
 const DesktopApiDocsPage: React.SFC = () => {
   return (
     <FlexContainerBasic flexColumn hasPadding>
-      <Content>
+      <Content className={styles['desktop-api-docs']}>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H3>Desktop API</H3>
           <H4>Introduction</H4>
@@ -33,22 +34,30 @@ const DesktopApiDocsPage: React.SFC = () => {
           <H5>Load Property</H5>
           <p>Opens the property edit screen for the property with specified id</p>
           <p className="mb-4">
-            <code>{`agencycloud://properties/{id}`}</code>
+            <pre>
+              <code>{`agencycloud://properties/{id}`}</code>
+            </pre>
           </p>
           <H5>Perform Matching</H5>
           <p>Performs a property to applicant match for the applicant with specified id</p>
           <p className="mb-4">
-            <code>{`agencycloud://properties/{id}/match`}</code>
+            <pre>
+              <code>{`agencycloud://properties/{id}/match`}</code>
+            </pre>
           </p>
           <H5>Load Journal</H5>
           <p>Opens the journal screen for the specified property</p>
           <p className="mb-4">
-            <code>{`agencycloud://properties/{id}/journal`}</code>
+            <pre>
+              <code>{`agencycloud://properties/{id}/journal`}</code>
+            </pre>
           </p>
           <H5>Load Offers</H5>
           <p>Opens the offers screen for the specified property</p>
           <p className="mb-4">
-            <code>{`agencycloud://properties/{id}/offers`}</code>
+            <pre>
+              <code>{`agencycloud://properties/{id}/offers`}</code>
+            </pre>
           </p>
           <H5>Property Search</H5>
           <p>
@@ -56,7 +65,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             parameter is required.
           </p>
           <p className="mb-4">
-            <code>{`agencycloud://properties?address=MK43&mode=s`}</code>
+            <pre>
+              <code>{`agencycloud://properties?address=MK43&mode=s`}</code>
+            </pre>
           </p>
           <Table
             scrollable
@@ -124,17 +135,23 @@ const DesktopApiDocsPage: React.SFC = () => {
           <H5>Load Applicant</H5>
           <p>Opens the applicant edit screen for the applicant with specified id</p>
           <p className="mb-4">
-            <code>{`agencycloud://applicants/{id}`}</code>
+            <pre>
+              <code>{`agencycloud://applicants/{id}`}</code>
+            </pre>
           </p>
           <H5>Perform Matching</H5>
           <p>Performs a applicant to applicant match for the applicant with specified id</p>
           <p className="mb-4">
-            <code>{`agencycloud://applicants/{id}/match`}</code>
+            <pre>
+              <code>{`agencycloud://applicants/{id}/match`}</code>
+            </pre>
           </p>
           <H5>Load Journal</H5>
           <p>Opens the journal screen for the specified applicant</p>
           <p className="mb-4">
-            <code>{`agencycloud://applicants/{id}/journal`}</code>
+            <pre>
+              <code>{`agencycloud://applicants/{id}/journal`}</code>
+            </pre>
           </p>
           <H5>Applicant Search</H5>
           <p>
@@ -142,7 +159,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             parameter is required.
           </p>
           <p className="mb-4">
-            <code>{`agencycloud://applicants?name=smith&mode=lettings`}</code>
+            <pre>
+              <code>{`agencycloud://applicants?name=smith&mode=lettings`}</code>
+            </pre>
           </p>
           <Table
             scrollable
@@ -214,7 +233,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             default dates for the negotiator will be used.
           </p>
           <p className="mb-4">
-            <code>{`agencycloud://appointments?dateFrom=2019/12/25&dateTo=2019/12/26`}</code>
+            <pre>
+              <code>{`agencycloud://appointments?dateFrom=2019/12/25&dateTo=2019/12/26`}</code>
+            </pre>
           </p>
           <Table
             scrollable
@@ -259,7 +280,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             parameter is required.
           </p>
           <p className="mb-4">
-            <code>{`agencycloud://contacts?name=smith`}</code>
+            <pre>
+              <code>{`agencycloud://contacts?name=smith`}</code>
+            </pre>
           </p>
           <Table
             scrollable
@@ -320,12 +343,16 @@ const DesktopApiDocsPage: React.SFC = () => {
           <H5>Load Contact</H5>
           <p>Opens the contact edit screen for the contact with specified id</p>
           <p className="mb-4">
-            <code>{`agencycloud://contacts/{id}`}</code>
+            <pre>
+              <code>{`agencycloud://contacts/{id}`}</code>
+            </pre>
           </p>
           <H5>Load Journal</H5>
           <p>Opens the journal screen for the specified contact</p>
           <p className="mb-4">
-            <code>{`agencycloud://contacts/{id}/journal`}</code>
+            <pre>
+              <code>{`agencycloud://contacts/{id}/journal`}</code>
+            </pre>
           </p>
           <H4>Agency Cloud Interaction API</H4>
           <H5>Overview</H5>
@@ -374,7 +401,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             Agency Cloud. The url that an application with this category would look like would be:
           </p>
           <p className="mb-4">
-            <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&CntCode={PrimaryKey}`}</code>
+            <pre>
+              <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&CntCode={PrimaryKey}`}</code>
+            </pre>
           </p>
           <Table
             scrollable
@@ -428,7 +457,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             brochures on etc The url that this application would use would be like:
           </p>
           <p className="mb-4">
-            <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&PrpCode={PrimaryKey}`}</code>
+            <pre>
+              <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&PrpCode={PrimaryKey}`}</code>
+            </pre>
           </p>
           <Table
             scrollable
@@ -481,7 +512,9 @@ const DesktopApiDocsPage: React.SFC = () => {
             display. The url that this application would use would be like:
           </p>
           <p className="mb-4">
-            <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true &PrpCodes={List of PrimaryKeys}`}</code>
+            <pre>
+              <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true &PrpCodes={List of PrimaryKeys}`}</code>
+            </pre>
           </p>
           <Table
             scrollable
