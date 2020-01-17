@@ -38,7 +38,7 @@ In addition to the lint rules, please also where possible, stick to the contribu
   - Do we use a similar but different library for the same task elsewhere in the company? If so, use this library for developer familiarity and consistency.
   - Will this library impact significantly performance or bundle size eg Lodash or Moment? If so, consider carefully if it is necessary or if there is a better alternative.
 
-- We have two kinds of tests; Unit tests with Jest and e2e tests with Webdriver. For all new features an approprate level of test coverage is an implicit part of the feature definition. 
+- We have two kinds of tests; Unit tests with Jest and e2e tests with Cypress. For all new features an approprate level of test coverage is an implicit part of the feature definition. 
   - For unit tests, the expectation is;
     - All functions / methods, especially utilities have i.o. tests, with internal conditional logic and edge cases tested.
     - All React templates have at least a snapshot, and any calls to action are tested to call their handlers with correct params.

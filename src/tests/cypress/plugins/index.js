@@ -1,7 +1,9 @@
 const path = require('path')
 const wp = require('@cypress/webpack-preprocessor')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
-const reapitConfig = require('../../reapit-config.json')
+const tsConfigPath = path.resolve(__dirname, '../../tsconfig.json')
+
+const reapitConfig = require('../../../../reapit-config.json')
 
 module.exports = (on, config) => {
   // https://basarat.gitbooks.io/typescript/docs/testing/cypress.html
@@ -13,7 +15,7 @@ module.exports = (on, config) => {
             /* assuming that one up is where your node_modules sit,
               relative to the currently executing script
             */
-            path.join(__dirname, '../../node_modules')
+            path.join(__dirname, '../../../../node_modules')
           ]
       },
       module: {
@@ -21,7 +23,7 @@ module.exports = (on, config) => {
           {
             test: /\.tsx?$/,
             loader: 'ts-loader',
-            options: { transpileOnly: true }
+            options: { transpileOnly: true, configFile: tsConfigPath }
           }
         ]
       },
@@ -30,7 +32,7 @@ module.exports = (on, config) => {
          * This plugin mapped all data in the field named "paths" of tsconfig.json to webpack alias
          */
         new ResolveTSPathsToWebpackAlias({
-          tsconfig: path.resolve(__dirname, '../tsconfig.json')
+          tsconfig: tsConfigPath
         }),
       ]
     }
@@ -40,19 +42,27 @@ module.exports = (on, config) => {
 
   // Retries plugin
   require('cypress-plugin-retries/lib/plugin')(on)
-  
-  // Config ENV
-  require('dotenv').config({ path: path.resolve(__dirname, '../../src/constants/.env') })
 
-    // Load ENV from config manager
-  let mergedEnv = process.env
+  // Load ENV from config manager
   const reapitEnv = process.env.REAPIT_ENV || 'LOCAL'
-  const reapitConfigMatchedEnv = reapitConfig[reapitEnv]
-  
-  if (config && typeof config === 'object') {
-    mergedEnv = {...mergedEnv, ...reapitConfigMatchedEnv}
+
+
+  if (typeof reapitConfig !== 'object') {
+    throw new Error('reapit-config.json\'s content is invalid. Its type should be an object')
   }
 
-  const baseUrl = process.env.APPLICATION_URL
-  return { ...config, baseUrl, env: {...mergedEnv} }
+  const reapitConfigMatchedEnv = reapitConfig[reapitEnv]
+  const isReaptConfigMatchedEnvInvalid = !reapitConfigMatchedEnv && typeof reapitConfigMatchedEnv !== 'object' 
+  
+  if (isReaptConfigMatchedEnvInvalid) {
+    throw new Error(`Config of key '${reapitEnv}' is invalid. Its type should be object`)
+  }
+
+  const isApplicationUrlInvalid = !reapitConfigMatchedEnv.APPLICATION_URL && typeof reapitConfigMatchedEnv.APPLICATION_URL !== 'string'
+  if (isApplicationUrlInvalid)  {
+    throw new Error(`Value of config key '${reapitEnv}'.'APPLICATION_URL' is invaid. Its type should be string`)
+  }
+
+  const baseUrl = reapitConfigMatchedEnv.APPLICATION_URL
+  return { ...config, baseUrl, env: {...reapitConfigMatchedEnv} }
 }

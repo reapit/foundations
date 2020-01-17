@@ -8,6 +8,7 @@ App store for Reapit PAAS platform. Initial scaffold from [React App Boilerplate
 ## Read on:
 
 - [Getting Started](./src/docs/GETTING_STARTED.md)
+- [E2E testing](./src/docs/E2E_TESTING.md)
 - [Api Platform](./src/docs/API_PLATFORM.md)
 - [Code Style](./src/docs/CODE_STYLE.md)
 - [Version Control](./VERSION_CONTROL.md)

@@ -4,7 +4,7 @@ import developerAppsPage from '../pages/developer-apps-page'
 import routes from '../fixtures/routes'
 import nanoid from 'nanoid'
 
-const appName = `E2E Test App -${nanoid()}`
+const appName = `Submit App -${nanoid()}`
 
 const {
   actions: { deleteAppWithName }
@@ -26,10 +26,9 @@ const {
 
 describe('Submit app happy path', () => {
   it('Log into dev and Submit an app successfully', () => {
-    loginUsingDeveloperAccount()
-
-    cy.visit(developerSubmitAppPage.url)
     cy.server()
+    loginUsingDeveloperAccount()
+    cy.visit(developerSubmitAppPage.url)
 
     cy.route(routes.appsOfDeveloper).as('getAppsOfDeveloper')
     cy.route(routes.categories).as('getCategories')

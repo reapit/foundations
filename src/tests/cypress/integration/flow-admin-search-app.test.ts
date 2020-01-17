@@ -1,11 +1,11 @@
 import loginPage from '../pages/login-page'
 import adminAppPage from '../pages/admin-apps-page'
-import api from '../fixtures/routes'
 import parseXhrBodyToJson from '../utils/parse-xhr-body-to-json'
 
 const {
   actions: { loginUsingAdminAccount }
 } = loginPage
+
 const {
   url,
   selectors: { listAppTr, buttonSubmit, buttonRefresh },
@@ -13,6 +13,7 @@ const {
 } = adminAppPage
 
 before(() => {
+  cy.server()
   loginUsingAdminAccount()
 })
 

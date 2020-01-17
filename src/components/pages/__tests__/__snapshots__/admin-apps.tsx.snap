@@ -170,6 +170,7 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
     </div>
     <Pagination
@@ -309,6 +310,7 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
           ]
         }
         loading={false}
+        scrollable={true}
       />
     </div>
     <Pagination

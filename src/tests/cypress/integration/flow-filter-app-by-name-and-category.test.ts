@@ -6,7 +6,7 @@ import developerAppsPage from '../pages/developer-apps-page'
 import clientAppsPage from '../pages/client-apps-page'
 import adminApprovalsPage from '../pages/admin-approvals-page'
 
-const appName = `E2E Test App - ${nanoid()}`
+const appName = `Filter App By Name And Category - ${nanoid()}`
 const { categoryId } = sampleApp
 
 const {
@@ -30,7 +30,6 @@ describe('Created app should appear in client search result happy path', () => {
   let appId = ''
   before(() => {
     cy.server()
-
     appRequest.createApp(appName)
     const appIdRes = appRequest.getAppIdByAppName(appName)
     appIdRes.then(res => {
@@ -39,6 +38,7 @@ describe('Created app should appear in client search result happy path', () => {
       appRes.then(app => {
         appRequest.createAppRevision(appId, app.body, { isListed: true })
         loginUsingAdminAccount()
+
         clickViewDetailsButtonWithAppId(appId)
         cy.get(buttonApprove).click()
         cy.route('POST', routes.approveApp).as('approveAppRequest')
@@ -54,7 +54,6 @@ describe('Created app should appear in client search result happy path', () => {
     cy.clearCookies()
     loginUsingClientAccount()
     cy.get(btnAcceptWelcomeMessageModal).click()
-
     cy.get(searchInput).type(`${appName}{enter}`)
     cy.get(`div[data-test-app-id="${appId}"]`).should('have.length', 1)
     cy.get(searchInput).clear()

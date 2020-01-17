@@ -10,9 +10,10 @@ const { selectors, url, apiRoute } = developerSetting
 
 describe('Success update developer contact info', () => {
   beforeEach(() => {
+    cy.server()
     loginUsingDeveloperAccount()
   })
-  let initialData
+  let initialData: any
   it('should successfully pass data from xhr into correct input', () => {
     cy.server()
     cy.route({ method: 'GET', url: apiRoute }).as('getDeveloperInfo')

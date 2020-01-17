@@ -1,8 +1,9 @@
 import routes from '@/constants/routes'
-import clientAppsPage from '../pages/client-apps-page'
+import clientAppsPage from './client-apps-page'
 import developerAppsPage from './developer-page'
-import adminApprovalsPage from '../pages/admin-approvals-page'
+import adminApprovalsPage from './admin-approvals-page'
 import { COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
+import api from '../fixtures/routes'
 
 const loginPageMetadata = {
   loginAsClientUrl: routes.CLIENT_LOGIN,
@@ -33,6 +34,10 @@ const loginPage = {
       cy.get(inputEmail).type(email || Cypress.env('DEVELOPER_ACCOUNT_EMAIL'))
       cy.get(inputPassword).type(password || Cypress.env('DEVELOPER_ACCOUNT_PASSWORD'))
       cy.get(buttonLogin).click()
+
+      cy.route(`${api.developerApps}`).as('getDeveloperApps')
+      cy.wait('@getDeveloperApps')
+
       cy.get(developerAppsPage.selectors.container).should('have.length', 1)
     },
 
@@ -46,6 +51,10 @@ const loginPage = {
       cy.get(inputEmail).type(Cypress.env('ADMIN_ACCOUNT_EMAIL'))
       cy.get(inputPassword).type(Cypress.env('ADMIN_ACCOUNT_PASSWORD'))
       cy.get(buttonLogin).click()
+
+      cy.route(`${api.approvals}**`).as('getApprovals')
+      cy.wait('@getApprovals')
+
       cy.get(adminApprovalsPage.selectors.container).should('have.length', 1)
     },
 
@@ -59,6 +68,10 @@ const loginPage = {
       cy.get(inputEmail).type(Cypress.env('CLIENT_ACCOUNT_EMAIL'))
       cy.get(inputPassword).type(Cypress.env('CLIENT_ACCOUNT_PASSWORD'))
       cy.get(buttonLogin).click()
+
+      cy.route(api.clientApps).as('getClientApps')
+      cy.wait('@getClientApps')
+
       cy.get(clientAppsPage.selectors.container).should('have.length', 1)
     }
   }
