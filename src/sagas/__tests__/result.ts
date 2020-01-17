@@ -9,9 +9,15 @@ import { URLS } from '@/constants/api'
 import { queryParams } from '@/utils/query-params'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { contacts } from '../__stubs__/contacts'
+import { identities } from '../__stubs__/identities'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
+import { mapIdentitiesToContacts } from '@/utils/map-identities-to-contacts'
+
+jest.mock('../../utils/map-identities-to-contacts', () => ({
+  mapIdentitiesToContacts: jest.fn().mockReturnValue('mappedData')
+}))
 
 jest.mock('../../core/store.ts')
 
@@ -41,14 +47,25 @@ describe('result fetch data', () => {
 
   it('api call sucessfully', () => {
     const clone = gen.clone()
-    expect(clone.next(contacts as any).value).toEqual(put(resultReceiveData(contacts)))
+    const listContactId = contacts._embedded.map(({ id }) => id)
+    expect(clone.next(contacts as any).value).toEqual(
+      call(fetcher, {
+        url: `${URLS.idChecks}/?${queryParams({ ContactId: [...listContactId] })}`,
+        api: process.env.PLATFORM_API_BASE_URL as string,
+        method: 'GET',
+        headers: mockHeaders
+      })
+    )
+    expect(clone.next(identities as any).value).toEqual(put(resultReceiveData('mappedData' as any)))
+    expect(mapIdentitiesToContacts).toHaveBeenCalled()
     expect(clone.next().done).toEqual(true)
   })
 
   it('api fail sagas', () => {
     const clone = gen.clone()
-    // @ts-ignore
-    expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(put(resultRequestDataFailure()))
+    expect((clone as any).throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
+      put(resultRequestDataFailure())
+    )
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({
