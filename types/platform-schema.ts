@@ -49,19 +49,6 @@ export interface ApplicantContactAddressModel {
   countryId?: string
 }
 /**
- * Represents a single means of contact
- */
-export interface ApplicantContactCommunicationModel {
-  /**
-   * The type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * The telephone number, email address or other contact detail
-   */
-  detail?: string
-}
-/**
  * A summarised view of the details of a contact associated to an applicant
  */
 export interface ApplicantContactModel {
@@ -78,18 +65,21 @@ export interface ApplicantContactModel {
    */
   type?: string
   /**
-   * A collection of the contact's communication details
+   * The home phone number of the contact
    */
-  communications?: {
-    /**
-     * The type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * The telephone number, email address or other contact detail
-     */
-    detail?: string
-  }[]
+  homePhone?: string
+  /**
+   * The work phone number of the contact
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact
+   */
+  email?: string
   /**
    * The primary address of the contact
    */
@@ -380,18 +370,21 @@ export interface ApplicantModel {
      */
     type?: string
     /**
-     * A collection of the contact's communication details
+     * The home phone number of the contact
      */
-    communications?: {
-      /**
-       * The type of detail (eg E-mail)
-       */
-      label?: string
-      /**
-       * The telephone number, email address or other contact detail
-       */
-      detail?: string
-    }[]
+    homePhone?: string
+    /**
+     * The work phone number of the contact
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
     /**
      * The primary address of the contact
      */
@@ -665,68 +658,9 @@ export interface AppointmentModel {
     notes?: string
   }
   /**
-   * Gets the property the appointment is associated to
+   * Gets the unique identifier of the property related to the appointment
    */
-  property?: {
-    /**
-     * Gets the unique property identifier
-     */
-    id?: string
-    /**
-     * Gets any arrangements in place for viewing this property
-     */
-    arrangements?: string
-    /**
-     * Gets the address of the property where the appointment is due to take place
-     */
-    address?: {
-      /**
-       * Gets the building name
-       */
-      buildingName?: string
-      /**
-       * Gets the building number
-       */
-      buildingNumber?: string
-      /**
-       * Gets the first line of the address
-       */
-      line1?: string
-      /**
-       * Gets the second line of the address
-       */
-      line2?: string
-      /**
-       * Gets the third line of the address
-       */
-      line3?: string
-      /**
-       * Gets the fourth line of the address
-       */
-      line4?: string
-      /**
-       * Gets the postcode
-       */
-      postcode?: string
-      /**
-       * Gets the ISO-3166 country code associated with the address
-       */
-      country?: string
-      /**
-       * Gets the geolocation of the address
-       */
-      geolocation?: {
-        /**
-         * The latitude coordinate of the coordinate pair
-         */
-        latitude?: number // double
-        /**
-         * The longitude coordinate of the coordinate pair
-         */
-        longitude?: number // double
-      }
-    }
-  }
+  propertyId?: string
   /**
    * Gets the id of the person that organised the appointment
    */
@@ -734,55 +668,11 @@ export interface AppointmentModel {
   /**
    * Gets a collection of negotiators related to the appointment
    */
-  negotiators?: {
-    /**
-     * Gets the identifier of the entity
-     */
-    id?: string
-    /**
-     * Gets the name of the entity
-     */
-    name?: string
-    /**
-     * Gets a collection of the entities contact details
-     */
-    communicationDetails?: {
-      /**
-       * Gets the label representing the type of detail (eg E-mail)
-       */
-      label?: string
-      /**
-       * Gets the contact detail (eg the actual telephone number or email address)
-       */
-      detail?: string
-    }[]
-  }[]
+  negotiatorIds?: string[]
   /**
    * Gets a collection of offices related to the appointment
    */
-  offices?: {
-    /**
-     * Gets the identifier of the entity
-     */
-    id?: string
-    /**
-     * Gets the name of the entity
-     */
-    name?: string
-    /**
-     * Gets a collection of the entities contact details
-     */
-    communicationDetails?: {
-      /**
-       * Gets the label representing the type of detail (eg E-mail)
-       */
-      label?: string
-      /**
-       * Gets the contact detail (eg the actual telephone number or email address)
-       */
-      detail?: string
-    }[]
-  }[]
+  officeIds?: string[]
   /**
    * Gets a collection of attendees who are requested to attend the appointment
    */
@@ -860,155 +750,6 @@ export interface AppointmentModel {
   readonly _embedded?: {
     [name: string]: any
   }
-}
-/**
- * Model representing the physical address of a building or premise
- */
-export interface AppointmentPropertyAddressModel {
-  /**
-   * Gets the building name
-   */
-  buildingName?: string
-  /**
-   * Gets the building number
-   */
-  buildingNumber?: string
-  /**
-   * Gets the first line of the address
-   */
-  line1?: string
-  /**
-   * Gets the second line of the address
-   */
-  line2?: string
-  /**
-   * Gets the third line of the address
-   */
-  line3?: string
-  /**
-   * Gets the fourth line of the address
-   */
-  line4?: string
-  /**
-   * Gets the postcode
-   */
-  postcode?: string
-  /**
-   * Gets the ISO-3166 country code associated with the address
-   */
-  country?: string
-  /**
-   * Gets the geolocation of the address
-   */
-  geolocation?: {
-    /**
-     * The latitude coordinate of the coordinate pair
-     */
-    latitude?: number // double
-    /**
-     * The longitude coordinate of the coordinate pair
-     */
-    longitude?: number // double
-  }
-}
-/**
- * Model representing the geographical location of an address using coordinates
- */
-export interface AppointmentPropertyGeolocationModel {
-  /**
-   * The latitude coordinate of the coordinate pair
-   */
-  latitude?: number // double
-  /**
-   * The longitude coordinate of the coordinate pair
-   */
-  longitude?: number // double
-}
-/**
- * Model representing an appointment property
- */
-export interface AppointmentPropertyModel {
-  /**
-   * Gets the unique property identifier
-   */
-  id?: string
-  /**
-   * Gets any arrangements in place for viewing this property
-   */
-  arrangements?: string
-  /**
-   * Gets the address of the property where the appointment is due to take place
-   */
-  address?: {
-    /**
-     * Gets the building name
-     */
-    buildingName?: string
-    /**
-     * Gets the building number
-     */
-    buildingNumber?: string
-    /**
-     * Gets the first line of the address
-     */
-    line1?: string
-    /**
-     * Gets the second line of the address
-     */
-    line2?: string
-    /**
-     * Gets the third line of the address
-     */
-    line3?: string
-    /**
-     * Gets the fourth line of the address
-     */
-    line4?: string
-    /**
-     * Gets the postcode
-     */
-    postcode?: string
-    /**
-     * Gets the ISO-3166 country code associated with the address
-     */
-    country?: string
-    /**
-     * Gets the geolocation of the address
-     */
-    geolocation?: {
-      /**
-       * The latitude coordinate of the coordinate pair
-       */
-      latitude?: number // double
-      /**
-       * The longitude coordinate of the coordinate pair
-       */
-      longitude?: number // double
-    }
-  }
-}
-export interface AppointmentRelationshipModel {
-  /**
-   * Gets the identifier of the entity
-   */
-  id?: string
-  /**
-   * Gets the name of the entity
-   */
-  name?: string
-  /**
-   * Gets a collection of the entities contact details
-   */
-  communicationDetails?: {
-    /**
-     * Gets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Gets the contact detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
 }
 export interface AreaModel {
   /**
@@ -1266,19 +1007,6 @@ export interface ContactAddressModel {
   countryId?: string
 }
 /**
- * Model representing a single contact detail (eg mobile telephone number)
- */
-export interface ContactCommunicationModel {
-  /**
-   * Gets the label representing the type of detail (eg. mobile, email address)
-   */
-  label?: string
-  /**
-   * Gets the communication detail (eg. 07999 876543, developers@reapit.com)
-   */
-  detail?: string
-}
-/**
  * Model representing the details of a person
  */
 export interface ContactModel {
@@ -1340,22 +1068,25 @@ export interface ContactModel {
     }
   }
   /**
-   * Gets a collection of the contacts communication details
+   * The home phone number of the contact
    */
-  communications?: {
-    /**
-     * Gets the label representing the type of detail (eg. mobile, email address)
-     */
-    label?: string
-    /**
-     * Gets the communication detail (eg. 07999 876543, developers@reapit.com)
-     */
-    detail?: string
-  }[]
+  homePhone?: string
   /**
-   * Gets a collection of addresses (maximum 3) that this contact has been associated to
+   * The work phone number of the contact
    */
-  addresses?: {
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact
+   */
+  email?: string
+  /**
+   * Gets the contacts primary address
+   */
+  primaryAddress?: {
     /**
      * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
      */
@@ -1392,7 +1123,89 @@ export interface ContactModel {
      * Gets the ISO-3166 country code associated with the address
      */
     countryId?: string
-  }[]
+  }
+  /**
+   * Gets the contacts secondary address
+   */
+  secondaryAddress?: {
+    /**
+     * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     */
+    type?: string
+    /**
+     * Gets the building name
+     */
+    buildingName?: string
+    /**
+     * Gets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Gets the first line of the address
+     */
+    line1?: string
+    /**
+     * Gets the second line of the address
+     */
+    line2?: string
+    /**
+     * Gets the third line of the address
+     */
+    line3?: string
+    /**
+     * Gets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Gets the postcode
+     */
+    postcode?: string
+    /**
+     * Gets the ISO-3166 country code associated with the address
+     */
+    countryId?: string
+  }
+  /**
+   * Gets the contacts work address
+   */
+  workAddress?: {
+    /**
+     * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     */
+    type?: string
+    /**
+     * Gets the building name
+     */
+    buildingName?: string
+    /**
+     * Gets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Gets the first line of the address
+     */
+    line1?: string
+    /**
+     * Gets the second line of the address
+     */
+    line2?: string
+    /**
+     * Gets the third line of the address
+     */
+    line3?: string
+    /**
+     * Gets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Gets the postcode
+     */
+    postcode?: string
+    /**
+     * Gets the ISO-3166 country code associated with the address
+     */
+    countryId?: string
+  }
   /**
    * Gets a collection of office ids that are related to this contact
    */
@@ -2076,19 +1889,6 @@ export interface CreateContactAddressModel {
   countryId?: string
 }
 /**
- * Model to create a communication detail for a contact (eg. an email address)
- */
-export interface CreateContactCommunicationModel {
-  /**
-   * Sets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Sets the contact detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model to create a new contact record
  */
 export interface CreateContactModel {
@@ -2130,19 +1930,21 @@ export interface CreateContactModel {
     type?: string
   }
   /**
-   * Sets a collection of the contacts communication details
-   * Eg. Email address, mobile number, landline
+   * The home phone number of the contact
    */
-  communications?: {
-    /**
-     * Sets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Sets the contact detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  homePhone?: string
+  /**
+   * The work phone number of the contact
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact
+   */
+  email?: string
   /**
    * Sets a collection of office ids that are related to this contact
    */
@@ -2152,10 +1954,9 @@ export interface CreateContactModel {
    */
   negotiatorIds?: string[]
   /**
-   * Sets a collection of addresses that this contact has been associated to
-   * A maximum of three addresses can be associated to a contact
+   * Sets the contacts primary address
    */
-  addresses?: {
+  primaryAddress?: {
     /**
      * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
      */
@@ -2192,7 +1993,89 @@ export interface CreateContactModel {
      * Sets the ISO-3166 country code associated with the address
      */
     countryId?: string
-  }[]
+  }
+  /**
+   * Sets the contacts secondary address
+   */
+  secondaryAddress?: {
+    /**
+     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     */
+    type?: string
+    /**
+     * Sets the building name
+     */
+    buildingName?: string
+    /**
+     * Sets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Sets the first line of the address
+     */
+    line1?: string
+    /**
+     * Sets the second line of the address
+     */
+    line2?: string
+    /**
+     * Sets the third line of the address
+     */
+    line3?: string
+    /**
+     * Sets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Sets the postcode
+     */
+    postcode?: string
+    /**
+     * Sets the ISO-3166 country code associated with the address
+     */
+    countryId?: string
+  }
+  /**
+   * Sets the contacts work address
+   */
+  workAddress?: {
+    /**
+     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     */
+    type?: string
+    /**
+     * Sets the building name
+     */
+    buildingName?: string
+    /**
+     * Sets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Sets the first line of the address
+     */
+    line1?: string
+    /**
+     * Sets the second line of the address
+     */
+    line2?: string
+    /**
+     * Sets the third line of the address
+     */
+    line3?: string
+    /**
+     * Sets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Sets the postcode
+     */
+    postcode?: string
+    /**
+     * Sets the ISO-3166 country code associated with the address
+     */
+    countryId?: string
+  }
   /**
    * Sets a JSON fragment to attach to this contact as metadata
    */
@@ -2261,9 +2144,9 @@ export interface CreateIdentityCheckModel {
    */
   negotiatorId?: string
   /**
-   * Sets the details of the documents that have been provided for this identity check
+   * Sets the details of document one that have been provided for this identity check
    */
-  documents?: {
+  document1?: {
     /**
      * Sets the id of the document type that describes this document
      */
@@ -2276,11 +2159,24 @@ export interface CreateIdentityCheckModel {
      * Sets the textual details of the identity document (eg. passport number)
      */
     details?: string
+  }
+  /**
+   * Sets the details of document two that have been provided for this identity check
+   */
+  document2?: {
     /**
-     * Sets the location of the physical file that relates to this document (eg. scan of driving license)
+     * Sets the id of the document type that describes this document
      */
-    fileUrl?: string
-  }[]
+    typeId?: string
+    /**
+     * Sets the date that this document expires
+     */
+    expiry?: string // date-time
+    /**
+     * Sets the textual details of the identity document (eg. passport number)
+     */
+    details?: string
+  }
   /**
    * Sets a JSON fragment to attach to this identity check as metadata
    */
@@ -2304,10 +2200,6 @@ export interface CreateIdentityDocumentModel {
    * Sets the textual details of the identity document (eg. passport number)
    */
   details?: string
-  /**
-   * Sets the location of the physical file that relates to this document (eg. scan of driving license)
-   */
-  fileUrl?: string
 }
 /**
  * A model used to create a new relationship between a landlord and an existing contact
@@ -3455,9 +3347,13 @@ export interface IdentityCheckModel {
    */
   negotiatorId?: string
   /**
-   * Gets the details of the documents that have been provided for this identity check
+   * Gets the details of document one that has been provided for this identity check
    */
-  documents?: {
+  document1?: {
+    /**
+     * Gets the unique identifier of the document
+     */
+    id?: string
     /**
      * Gets the id of the document type that describes this document
      */
@@ -3470,19 +3366,28 @@ export interface IdentityCheckModel {
      * Gets the textual details of the identity document (eg. passport number)
      */
     details?: string
+  }
+  /**
+   * Gets the details of document two that has been provided for this identity check
+   */
+  document2?: {
     /**
-     * Gets the location of the physical file that relates to this document (eg. scan of driving license)
+     * Gets the unique identifier of the document
      */
-    fileUrl?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
+    id?: string
+    /**
+     * Gets the id of the document type that describes this document
+     */
+    typeId?: string
+    /**
+     * Gets the date that this document expires
+     */
+    expiry?: string // date-time
+    /**
+     * Gets the textual details of the identity document (eg. passport number)
+     */
+    details?: string
+  }
   /**
    * Gets a listing of additional metadata that has been set against this identity check
    */
@@ -3503,6 +3408,10 @@ export interface IdentityCheckModel {
  */
 export interface IdentityDocumentModel {
   /**
+   * Gets the unique identifier of the document
+   */
+  id?: string
+  /**
    * Gets the id of the document type that describes this document
    */
   typeId?: string
@@ -3514,18 +3423,6 @@ export interface IdentityDocumentModel {
    * Gets the textual details of the identity document (eg. passport number)
    */
   details?: string
-  /**
-   * Gets the location of the physical file that relates to this document (eg. scan of driving license)
-   */
-  fileUrl?: string
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
 }
 /**
  * Create (OR update) a relationship between the applicant and a contact
@@ -3616,19 +3513,6 @@ export interface LandlordContactAddressModel {
   countryId?: string
 }
 /**
- * Model representing a single contact detail (eg mobile telephone number)
- */
-export interface LandlordContactCommunicationModel {
-  /**
-   * Gets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Gets the contact detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model representing the details of a contact relationship associated with a landlord entity
  */
 export interface LandlordContactModel {
@@ -3645,19 +3529,21 @@ export interface LandlordContactModel {
    */
   type?: string
   /**
-   * Gets a collection of the contacts communication details
-   * Eg. Email address, mobile number, landline
+   * The home phone number of the contact
    */
-  communications?: {
-    /**
-     * Gets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Gets the contact detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  homePhone?: string
+  /**
+   * The work phone number of the contact
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact
+   */
+  email?: string
   /**
    * Gets the primary address of the contact
    */
@@ -3765,19 +3651,21 @@ export interface LandlordModel {
      */
     type?: string
     /**
-     * Gets a collection of the contacts communication details
-     * Eg. Email address, mobile number, landline
+     * The home phone number of the contact
      */
-    communications?: {
-      /**
-       * Gets the label representing the type of detail (eg E-mail)
-       */
-      label?: string
-      /**
-       * Gets the contact detail (eg the actual telephone number or email address)
-       */
-      detail?: string
-    }[]
+    homePhone?: string
+    /**
+     * The work phone number of the contact
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
     /**
      * Gets the primary address of the contact
      */
@@ -3982,19 +3870,6 @@ export interface OfferContactAddressModel {
   countryId?: string
 }
 /**
- * Model representing a single contact detail (eg mobile telephone number)
- */
-export interface OfferContactCommunicationModel {
-  /**
-   * Gets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Gets the contact detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model representing the details of a contact relationship associated with an offer entity
  */
 export interface OfferContactModel {
@@ -4007,23 +3882,25 @@ export interface OfferContactModel {
    */
   name?: string
   /**
-   * Gets the type of this contact (Contact/Company)
+   * Gets the type of this contact (contact/company)
    */
   type?: string
   /**
-   * Gets a collection of the contacts communication details
-   * Eg. Email address, mobile number, landline
+   * The home phone number of the contact
    */
-  communications?: {
-    /**
-     * Gets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Gets the contact detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  homePhone?: string
+  /**
+   * The work phone number of the contact
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact
+   */
+  email?: string
   /**
    * Gets the primary address of the contact
    */
@@ -4140,23 +4017,25 @@ export interface OfferModel {
      */
     name?: string
     /**
-     * Gets the type of this contact (Contact/Company)
+     * Gets the type of this contact (contact/company)
      */
     type?: string
     /**
-     * Gets a collection of the contacts communication details
-     * Eg. Email address, mobile number, landline
+     * The home phone number of the contact
      */
-    communications?: {
-      /**
-       * Gets the label representing the type of detail (eg E-mail)
-       */
-      label?: string
-      /**
-       * Gets the contact detail (eg the actual telephone number or email address)
-       */
-      detail?: string
-    }[]
+    homePhone?: string
+    /**
+     * The work phone number of the contact
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
     /**
      * Gets the primary address of the contact
      */
@@ -4575,18 +4454,21 @@ export interface PagedResultApplicantModel_ {
        */
       type?: string
       /**
-       * A collection of the contact's communication details
+       * The home phone number of the contact
        */
-      communications?: {
-        /**
-         * The type of detail (eg E-mail)
-         */
-        label?: string
-        /**
-         * The telephone number, email address or other contact detail
-         */
-        detail?: string
-      }[]
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
       /**
        * The primary address of the contact
        */
@@ -4718,68 +4600,9 @@ export interface PagedResultAppointmentModel_ {
       notes?: string
     }
     /**
-     * Gets the property the appointment is associated to
+     * Gets the unique identifier of the property related to the appointment
      */
-    property?: {
-      /**
-       * Gets the unique property identifier
-       */
-      id?: string
-      /**
-       * Gets any arrangements in place for viewing this property
-       */
-      arrangements?: string
-      /**
-       * Gets the address of the property where the appointment is due to take place
-       */
-      address?: {
-        /**
-         * Gets the building name
-         */
-        buildingName?: string
-        /**
-         * Gets the building number
-         */
-        buildingNumber?: string
-        /**
-         * Gets the first line of the address
-         */
-        line1?: string
-        /**
-         * Gets the second line of the address
-         */
-        line2?: string
-        /**
-         * Gets the third line of the address
-         */
-        line3?: string
-        /**
-         * Gets the fourth line of the address
-         */
-        line4?: string
-        /**
-         * Gets the postcode
-         */
-        postcode?: string
-        /**
-         * Gets the ISO-3166 country code associated with the address
-         */
-        country?: string
-        /**
-         * Gets the geolocation of the address
-         */
-        geolocation?: {
-          /**
-           * The latitude coordinate of the coordinate pair
-           */
-          latitude?: number // double
-          /**
-           * The longitude coordinate of the coordinate pair
-           */
-          longitude?: number // double
-        }
-      }
-    }
+    propertyId?: string
     /**
      * Gets the id of the person that organised the appointment
      */
@@ -4787,55 +4610,11 @@ export interface PagedResultAppointmentModel_ {
     /**
      * Gets a collection of negotiators related to the appointment
      */
-    negotiators?: {
-      /**
-       * Gets the identifier of the entity
-       */
-      id?: string
-      /**
-       * Gets the name of the entity
-       */
-      name?: string
-      /**
-       * Gets a collection of the entities contact details
-       */
-      communicationDetails?: {
-        /**
-         * Gets the label representing the type of detail (eg E-mail)
-         */
-        label?: string
-        /**
-         * Gets the contact detail (eg the actual telephone number or email address)
-         */
-        detail?: string
-      }[]
-    }[]
+    negotiatorIds?: string[]
     /**
      * Gets a collection of offices related to the appointment
      */
-    offices?: {
-      /**
-       * Gets the identifier of the entity
-       */
-      id?: string
-      /**
-       * Gets the name of the entity
-       */
-      name?: string
-      /**
-       * Gets a collection of the entities contact details
-       */
-      communicationDetails?: {
-        /**
-         * Gets the label representing the type of detail (eg E-mail)
-         */
-        label?: string
-        /**
-         * Gets the contact detail (eg the actual telephone number or email address)
-         */
-        detail?: string
-      }[]
-    }[]
+    officeIds?: string[]
     /**
      * Gets a collection of attendees who are requested to attend the appointment
      */
@@ -5110,22 +4889,25 @@ export interface PagedResultContactModel_ {
       }
     }
     /**
-     * Gets a collection of the contacts communication details
+     * The home phone number of the contact
      */
-    communications?: {
-      /**
-       * Gets the label representing the type of detail (eg. mobile, email address)
-       */
-      label?: string
-      /**
-       * Gets the communication detail (eg. 07999 876543, developers@reapit.com)
-       */
-      detail?: string
-    }[]
+    homePhone?: string
     /**
-     * Gets a collection of addresses (maximum 3) that this contact has been associated to
+     * The work phone number of the contact
      */
-    addresses?: {
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
+    /**
+     * Gets the contacts primary address
+     */
+    primaryAddress?: {
       /**
        * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
        */
@@ -5162,7 +4944,89 @@ export interface PagedResultContactModel_ {
        * Gets the ISO-3166 country code associated with the address
        */
       countryId?: string
-    }[]
+    }
+    /**
+     * Gets the contacts secondary address
+     */
+    secondaryAddress?: {
+      /**
+       * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
+       */
+      type?: string
+      /**
+       * Gets the building name
+       */
+      buildingName?: string
+      /**
+       * Gets the building number
+       */
+      buildingNumber?: string
+      /**
+       * Gets the first line of the address
+       */
+      line1?: string
+      /**
+       * Gets the second line of the address
+       */
+      line2?: string
+      /**
+       * Gets the third line of the address
+       */
+      line3?: string
+      /**
+       * Gets the fourth line of the address
+       */
+      line4?: string
+      /**
+       * Gets the postcode
+       */
+      postcode?: string
+      /**
+       * Gets the ISO-3166 country code associated with the address
+       */
+      countryId?: string
+    }
+    /**
+     * Gets the contacts work address
+     */
+    workAddress?: {
+      /**
+       * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
+       */
+      type?: string
+      /**
+       * Gets the building name
+       */
+      buildingName?: string
+      /**
+       * Gets the building number
+       */
+      buildingNumber?: string
+      /**
+       * Gets the first line of the address
+       */
+      line1?: string
+      /**
+       * Gets the second line of the address
+       */
+      line2?: string
+      /**
+       * Gets the third line of the address
+       */
+      line3?: string
+      /**
+       * Gets the fourth line of the address
+       */
+      line4?: string
+      /**
+       * Gets the postcode
+       */
+      postcode?: string
+      /**
+       * Gets the ISO-3166 country code associated with the address
+       */
+      countryId?: string
+    }
     /**
      * Gets a collection of office ids that are related to this contact
      */
@@ -5339,9 +5203,13 @@ export interface PagedResultIdentityCheckModel_ {
      */
     negotiatorId?: string
     /**
-     * Gets the details of the documents that have been provided for this identity check
+     * Gets the details of document one that has been provided for this identity check
      */
-    documents?: {
+    document1?: {
+      /**
+       * Gets the unique identifier of the document
+       */
+      id?: string
       /**
        * Gets the id of the document type that describes this document
        */
@@ -5354,19 +5222,28 @@ export interface PagedResultIdentityCheckModel_ {
        * Gets the textual details of the identity document (eg. passport number)
        */
       details?: string
+    }
+    /**
+     * Gets the details of document two that has been provided for this identity check
+     */
+    document2?: {
       /**
-       * Gets the location of the physical file that relates to this document (eg. scan of driving license)
+       * Gets the unique identifier of the document
        */
-      fileUrl?: string
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
-    }[]
+      id?: string
+      /**
+       * Gets the id of the document type that describes this document
+       */
+      typeId?: string
+      /**
+       * Gets the date that this document expires
+       */
+      expiry?: string // date-time
+      /**
+       * Gets the textual details of the identity document (eg. passport number)
+       */
+      details?: string
+    }
     /**
      * Gets a listing of additional metadata that has been set against this identity check
      */
@@ -5454,19 +5331,21 @@ export interface PagedResultLandlordModel_ {
        */
       type?: string
       /**
-       * Gets a collection of the contacts communication details
-       * Eg. Email address, mobile number, landline
+       * The home phone number of the contact
        */
-      communications?: {
-        /**
-         * Gets the label representing the type of detail (eg E-mail)
-         */
-        label?: string
-        /**
-         * Gets the contact detail (eg the actual telephone number or email address)
-         */
-        detail?: string
-      }[]
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
       /**
        * Gets the primary address of the contact
        */
@@ -5675,23 +5554,25 @@ export interface PagedResultOfferModel_ {
        */
       name?: string
       /**
-       * Gets the type of this contact (Contact/Company)
+       * Gets the type of this contact (contact/company)
        */
       type?: string
       /**
-       * Gets a collection of the contacts communication details
-       * Eg. Email address, mobile number, landline
+       * The home phone number of the contact
        */
-      communications?: {
-        /**
-         * Gets the label representing the type of detail (eg E-mail)
-         */
-        label?: string
-        /**
-         * Gets the contact detail (eg the actual telephone number or email address)
-         */
-        detail?: string
-      }[]
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
       /**
        * Gets the primary address of the contact
        */
@@ -6452,19 +6333,21 @@ export interface PagedResultVendorModel_ {
        */
       type?: string
       /**
-       * Gets a collection of the contacts communication details
-       * Eg. Email address, mobile number, landline
+       * The home phone number of the contact
        */
-      communications?: {
-        /**
-         * Gets the label representing the type of detail (eg E-mail)
-         */
-        label?: string
-        /**
-         * Gets the contact detail (eg the actual telephone number or email address)
-         */
-        detail?: string
-      }[]
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
       /**
        * Gets the primary address of the contact
        */
@@ -7897,6 +7780,27 @@ export interface UpdateAppointmentRecurrenceModel {
   until?: string // date-time
 }
 /**
+ * Model to update an area
+ */
+export interface UpdateAreaModel {
+  /**
+   * Sets the areas name
+   */
+  name?: string
+  /**
+   * Sets the areas area information
+   */
+  area?: string[]
+  /**
+   * Sets the areas related deparments
+   */
+  departmentIds?: string[]
+  /**
+   * Sets the areas related offices
+   */
+  officeIds?: string[]
+}
+/**
  * Model to update a company address
  */
 export interface UpdateCompanyAddressModel {
@@ -8094,19 +7998,6 @@ export interface UpdateContactAddressModel {
   countryId?: string
 }
 /**
- * Model to update a communication detail for a contact (eg. an email address)
- */
-export interface UpdateContactCommunicationModel {
-  /**
-   * Sets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Sets the contact detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model to update a contact record
  */
 export interface UpdateContactModel {
@@ -8148,29 +8039,33 @@ export interface UpdateContactModel {
     type?: string
   }
   /**
-   * Sets a collection of the contacts communication details
-   * Eg. Email address, mobile number, landline
+   * The home phone number of the contact
    */
-  communications?: {
-    /**
-     * Sets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Sets the contact detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  homePhone?: string
+  /**
+   * The work phone number of the contact
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact
+   */
+  email?: string
+  /**
+   * Gets a collection of office ids that are related to this contact
+   */
   officeIds?: string[]
   /**
    * Sets a collection of negotiator ids that are related to this contact
    */
   negotiatorIds?: string[]
   /**
-   * Sets a collection of addresses that this contact has been associated to
-   * A maximum of three addresses can be associated to a contact
+   * Sets the contacts primary address
    */
-  addresses?: {
+  primaryAddress?: {
     /**
      * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
      */
@@ -8207,7 +8102,89 @@ export interface UpdateContactModel {
      * Sets the ISO-3166 country code associated with the address
      */
     countryId?: string
-  }[]
+  }
+  /**
+   * Sets the contacts secondary address
+   */
+  secondaryAddress?: {
+    /**
+     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     */
+    type?: string
+    /**
+     * Sets the building name
+     */
+    buildingName?: string
+    /**
+     * Sets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Sets the first line of the address
+     */
+    line1?: string
+    /**
+     * Sets the second line of the address
+     */
+    line2?: string
+    /**
+     * Sets the third line of the address
+     */
+    line3?: string
+    /**
+     * Sets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Sets the postcode
+     */
+    postcode?: string
+    /**
+     * Sets the ISO-3166 country code associated with the address
+     */
+    countryId?: string
+  }
+  /**
+   * Sets the contacts work address
+   */
+  workAddress?: {
+    /**
+     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     */
+    type?: string
+    /**
+     * Sets the building name
+     */
+    buildingName?: string
+    /**
+     * Sets the building number
+     */
+    buildingNumber?: string
+    /**
+     * Sets the first line of the address
+     */
+    line1?: string
+    /**
+     * Sets the second line of the address
+     */
+    line2?: string
+    /**
+     * Sets the third line of the address
+     */
+    line3?: string
+    /**
+     * Sets the fourth line of the address
+     */
+    line4?: string
+    /**
+     * Sets the postcode
+     */
+    postcode?: string
+    /**
+     * Sets the ISO-3166 country code associated with the address
+     */
+    countryId?: string
+  }
   /**
    * Sets a JSON fragment to attach to this contact as metadata
    */
@@ -8257,9 +8234,9 @@ export interface UpdateIdentityCheckModel {
    */
   negotiatorId?: string
   /**
-   * Sets the details of the documents that have been provided for this identity check
+   * Sets the details of document one that have been provided for this identity check
    */
-  documents?: {
+  document1?: {
     /**
      * Sets the id of the document type that describes this document
      */
@@ -8272,11 +8249,24 @@ export interface UpdateIdentityCheckModel {
      * Sets the textual details of the identity document (eg. passport number)
      */
     details?: string
+  }
+  /**
+   * Sets the details of document two that have been provided for this identity check
+   */
+  document2?: {
     /**
-     * Sets the location of the physical file that relates to this document (eg. scan of driving license)
+     * Sets the id of the document type that describes this document
      */
-    fileUrl?: string
-  }[]
+    typeId?: string
+    /**
+     * Sets the date that this document expires
+     */
+    expiry?: string // date-time
+    /**
+     * Sets the textual details of the identity document (eg. passport number)
+     */
+    details?: string
+  }
   /**
    * Sets a JSON fragment to attach to this identity check as metadata
    */
@@ -8300,10 +8290,6 @@ export interface UpdateIdentityDocumentModel {
    * Sets the textual details of the identity document (eg. passport number)
    */
   details?: string
-  /**
-   * Sets the location of the physical file that relates to this document (eg. scan of driving license)
-   */
-  fileUrl?: string
 }
 /**
  * Request body to update a landlord
@@ -9301,19 +9287,6 @@ export interface VendorContactAddressModel {
   countryId?: string
 }
 /**
- * Model representing a single contact detail (eg mobile telephone number)
- */
-export interface VendorContactCommunicationModel {
-  /**
-   * Gets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Gets the contact detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model representing the details of a contact relationship associated with a vendor entity
  */
 export interface VendorContactModel {
@@ -9330,19 +9303,21 @@ export interface VendorContactModel {
    */
   type?: string
   /**
-   * Gets a collection of the contacts communication details
-   * Eg. Email address, mobile number, landline
+   * The home phone number of the contact
    */
-  communications?: {
-    /**
-     * Gets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Gets the contact detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  homePhone?: string
+  /**
+   * The work phone number of the contact
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact
+   */
+  email?: string
   /**
    * Gets the primary address of the contact
    */
@@ -9464,19 +9439,21 @@ export interface VendorModel {
      */
     type?: string
     /**
-     * Gets a collection of the contacts communication details
-     * Eg. Email address, mobile number, landline
+     * The home phone number of the contact
      */
-    communications?: {
-      /**
-       * Gets the label representing the type of detail (eg E-mail)
-       */
-      label?: string
-      /**
-       * Gets the contact detail (eg the actual telephone number or email address)
-       */
-      detail?: string
-    }[]
+    homePhone?: string
+    /**
+     * The work phone number of the contact
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
     /**
      * Gets the primary address of the contact
      */
