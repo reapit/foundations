@@ -1,21 +1,25 @@
-jest.mock('../checklist-detail', () => ({
+import { contact, idCheck } from '../__stubs__/contact'
+import { identityTypes } from '../__stubs__/identity-types'
+
+jest.mock('../api', () => ({
   fetchContact: jest.fn().mockResolvedValue(contact),
   fetchIdentityCheck: jest.fn().mockResolvedValue(idCheck),
   uploadImage: jest.fn().mockResolvedValue({ Url: 'mockUrl' }),
   updateContact: jest.fn().mockResolvedValue(contact),
   updateIdentityCheck: jest.fn().mockResolvedValue(idCheck),
-  createIdentityCheck: jest.fn().mockResolvedValue(idCheck)
+  createIdentityCheck: jest.fn().mockResolvedValue(idCheck),
+  fetchIdentityDocumentTypes: jest.fn().mockResolvedValue(identityTypes)
 }))
 
-import { contact, idCheck } from '../__stubs__/contact'
 import {
   fetchContact,
   fetchIdentityCheck,
   uploadImage,
   updateContact,
   updateIdentityCheck,
-  createIdentityCheck
-} from '../checklist-detail'
+  createIdentityCheck,
+  fetchIdentityDocumentTypes
+} from '../api'
 
 const mockHeaders = {
   Authorization: '123'
@@ -89,6 +93,16 @@ describe('checklist-detail', () => {
       }
       const result = await createIdentityCheck(mockParams)
       expect(result).toEqual(idCheck)
+    })
+  })
+
+  describe('fetchIdentityDocumentTypes', () => {
+    it('should return resolve', async () => {
+      const mockParams = {
+        headers: mockHeaders
+      }
+      const result = await fetchIdentityDocumentTypes(mockParams)
+      expect(result).toEqual(identityTypes)
     })
   })
 })

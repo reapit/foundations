@@ -1,10 +1,9 @@
 import { selectUserCode } from '@/selectors/auth'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
-import { fetcher, isBase64 } from '@reapit/elements'
+import { isBase64, toUTCTime } from '@reapit/elements'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
-import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '../actions/error'
 import {
@@ -23,103 +22,14 @@ import {
 import { ErrorData } from '@/reducers/error'
 import store from '@/core/store'
 import dayjs from 'dayjs'
-
-export const fetchContact = async ({ contactId, headers }) => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.contacts}/${contactId}`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
-      method: 'GET',
-      headers: headers
-    })
-    return response
-  } catch (err) {
-    console.error(err)
-    return err
-  }
-}
-
-export const fetchIdentityCheck = async ({ headers, contactId }) => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.idChecks}?ContactId=${contactId}`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
-      method: 'GET',
-      headers: headers
-    })
-    return response?._embedded?.[0] || null
-  } catch (err) {
-    console.error(err)
-    return err
-  }
-}
-
-export const uploadImage = async ({ name, imageData, headers }) => {
-  try {
-    const responseUploadImage = await fetcher({
-      url: '/',
-      api: process.env.UPLOAD_FILE_BASE_URL as string,
-      method: 'POST',
-      headers: headers,
-      body: {
-        name,
-        imageData
-      }
-    })
-    return responseUploadImage
-  } catch (err) {
-    console.error(err.message)
-    return err
-  }
-}
-
-export const updateContact = async ({ contactId, headers, contact }) => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.contacts}/${contactId}`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
-      method: 'PATCH',
-      headers: headers,
-      body: contact
-    })
-    return response
-  } catch (err) {
-    console.error(err)
-    return err
-  }
-}
-
-export const updateIdentityCheck = async ({ identityChecks, headers }) => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.idChecks}/${identityChecks.id}`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
-      method: 'PATCH',
-      headers: headers,
-      body: identityChecks
-    })
-    return response
-  } catch (err) {
-    console.error(err)
-    return err
-  }
-}
-
-export const createIdentityCheck = async ({ identityChecks, headers }) => {
-  try {
-    const response = await fetcher({
-      url: URLS.idChecks,
-      api: process.env.PLATFORM_API_BASE_URL as string,
-      method: 'POST',
-      headers: headers,
-      body: identityChecks
-    })
-    return response
-  } catch (err) {
-    console.error(err)
-    return err
-  }
-}
+import {
+  uploadImage,
+  fetchContact,
+  fetchIdentityCheck,
+  updateContact,
+  updateIdentityCheck,
+  createIdentityCheck
+} from './api'
 
 export const mapArrAddressToUploadImageFunc = ({ addresses, headers, addressesMeta }): Promise<any>[] => {
   if (!addresses || !addressesMeta) {
@@ -316,9 +226,7 @@ export const updateSecondaryId = function*({ data }: Action<any>) {
           contactId: contact.id,
           ...baseValues,
           status: 'pending',
-          checkDate: dayjs()
-            .startOf('day')
-            .format('YYYY-MM-DDTHH:mm:ss'),
+          checkDate: toUTCTime(dayjs().startOf('day')),
           negotiatorId: selectUserCode(store.state)
         }
       })
@@ -388,9 +296,7 @@ export const updatePrimaryId = function*({ data }: Action<any>) {
           contactId: contact.id,
           ...baseValues,
           status: 'pending',
-          checkDate: dayjs()
-            .startOf('day')
-            .format('YYYY-MM-DDTHH:mm:ss'),
+          checkDate: toUTCTime(dayjs().startOf('day')),
           negotiatorId: selectUserCode(store.state)
         }
       })
@@ -433,9 +339,7 @@ export const updateAgentCheck = function*({ data }: any) {
       const newIdCheck = {
         contactId: contact.id,
         status: 'pending',
-        checkDate: dayjs()
-          .startOf('day')
-          .format('YYYY-MM-DDTHH:mm:ss'),
+        checkDate: toUTCTime(dayjs().startOf('day')),
         negotiatorId: negotiatorId,
         metadata: {
           ...data

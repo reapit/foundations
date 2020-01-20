@@ -23,10 +23,6 @@ import {
   updatePrimaryId,
   updateAgentCheckListen,
   updateAgentCheck,
-  fetchContact,
-  fetchIdentityCheck,
-  updateContact,
-  updateIdentityCheck,
   mapArrAddressToUploadImageFunc
 } from '../checklist-detail'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -36,6 +32,7 @@ import { ContactModel } from '@reapit/foundations-ts-definitions'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import ActionTypes from '@/constants/action-types'
 import { selectUserCode } from '@/selectors/auth'
+import { fetchContact, fetchIdentityCheck, updateContact, updateIdentityCheck } from '../api'
 
 const mockHeaders = {
   Authorization: '123'
