@@ -9,7 +9,8 @@ module.exports = {
   coverageDirectory: './src/tests/coverage',
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
-    'mock-router.ts'
+    'mock-router.ts',
+    'api.ts'
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
   moduleNameMapper: {

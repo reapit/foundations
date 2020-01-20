@@ -4,12 +4,11 @@ import { put, call, takeLatest, all, fork } from '@redux-saga/core/effects'
 import { identityTypesReceiveData, identityTypesRequestFailure } from '@/actions/identity-types'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
-import { fetcher } from '@reapit/elements'
-import { URLS } from '@/constants/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { identityTypes } from '../__stubs__/identity-types'
+import { fetchIdentityDocumentTypes } from '../api'
 
 jest.mock('../../core/store')
 
@@ -20,14 +19,7 @@ const mockHeaders = {
 describe('identity fetch data', () => {
   const gen = cloneableGenerator(identityTypesDataFetch)()
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
-  expect(gen.next(mockHeaders as any).value).toEqual(
-    call(fetcher, {
-      url: `${URLS.configuration}/identityDocumentTypes`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
-      method: 'GET',
-      headers: mockHeaders
-    })
-  )
+  expect(gen.next(mockHeaders as any).value).toEqual(call(fetchIdentityDocumentTypes, { headers: mockHeaders }))
 
   it('api call sucessfully', () => {
     const clone = gen.clone()
