@@ -1,5 +1,6 @@
 import '../styles/index.scss'
 import * as React from 'react'
+import * as Sentry from '@sentry/browser'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -7,6 +8,10 @@ import Router from './router'
 import { PortalProvider } from '@reapit/elements'
 import store from './store'
 import { register } from './service-worker'
+
+if (process.env.NODE_ENV === 'production') {
+  Sentry.init({ dsn: (process.env.SENTRY_PROJECT_URL as any).GEO_DIARY })
+}
 
 const rootElement = document.querySelector('#root') as Element
 
