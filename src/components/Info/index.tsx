@@ -27,7 +27,7 @@ export const infoText = (infoType: InfoType) => {
     case 'ADMIN_APPROVALS_EMPTY':
       return 'There are no updates that require approval'
     case 'DEVELOPER_EMPTY':
-      return 'There is no developer as your search criteria'
+      return 'Unfortunately, there are no results that match your search criteria, please try again'
     default:
       return ''
   }
