@@ -1,4 +1,5 @@
 import * as React from 'react'
+import * as Sentry from '@sentry/browser'
 import { connect } from 'react-redux'
 import { errorThrownComponent } from '../../actions/error'
 import { Dispatch } from 'redux'
@@ -38,6 +39,10 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
     this.props.errorThrownComponent({
       type: 'COMPONENT',
       message: errorMessages.DEFAULT_COMPONENT_ERROR
+    })
+    Sentry.withScope(scope => {
+      scope.setExtras(info)
+      Sentry.captureException(error)
     })
     console.error('ERROR BOUNDARY CAUGHT', error.message, info)
   }
