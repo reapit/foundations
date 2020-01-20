@@ -32,7 +32,6 @@ jobs:
         displayName: 'Install Node.js'
       - script: yarn install
         displayName: Install deps
-        failOnStderr: true
         env:
           NPM_TOKEN: $(NPM_TOKEN)
 
@@ -62,7 +61,6 @@ jobs:
 
       - script: yarn build
         displayName: Build static assets
-        # failOnStderr: true
         env:
           REAPIT_ENV: $(REAPIT_ENV)
           NPM_TOKEN: $(NPM_TOKEN)
