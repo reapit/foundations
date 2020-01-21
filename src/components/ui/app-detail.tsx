@@ -7,7 +7,7 @@ import '@/styles/vendor/slick.scss'
 import { connect } from 'react-redux'
 import { setAppDetailModalStateInstall, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { Tile, ModalHeader, ModalBody, ModalFooter, H6, SubTitleH6, SubTitleH5, Grid, GridItem } from '@reapit/elements'
+import { Tile, ModalHeader, ModalBody, ModalFooter, H6, GridFiveCol, GridFourColItem } from '@reapit/elements'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import styles from '@/styles/blocks/app-detail.scss?mod'
 import appCardStyles from '@/styles/blocks/app-card.scss?mod'
@@ -140,21 +140,18 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
             <br />
             <p>{description}</p>
             <br />
-            <p className={styles.permission}>Permissions</p>
-            <small>
-              {isCurrentLoggedUserDeveloper && <i>You have requested the following permissions for this App:</i>}
-              {isCurrentLoggedUserClient &&
-                (installedOn ? (
-                  <i>This app has been granted the following permissions to your data: </i>
-                ) : (
-                  <i>This App requires the following permissions in order to access your data:</i>
-                ))}
-            </small>
-            <ul className={styles.permissionList}>
+
+            <H6>
+              {isCurrentLoggedUserDeveloper && 'Permissions requested'}
+              {isCurrentLoggedUserClient && (installedOn ? 'Permissions granted' : 'Permissions required')}
+            </H6>
+            <GridFiveCol>
               {scopes.map(item => (
-                <li>{item.description}</li>
+                <GridFourColItem key={item.name}>
+                  <li>{item.description}</li>
+                </GridFourColItem>
               ))}
-            </ul>
+            </GridFiveCol>
           </>
         }
       />

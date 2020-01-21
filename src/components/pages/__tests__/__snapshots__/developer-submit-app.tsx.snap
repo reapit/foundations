@@ -7,7 +7,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
   flexColumn={true}
   hasPadding={true}
 >
-  <FlexContainerBasic
+  <FlexContainerResponsive
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
@@ -31,6 +31,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
           "screen2ImageUrl": "",
           "screen3ImageUrl": "",
           "screen4ImageUrl": "",
+          "screen5ImageUrl": "",
           "summary": "",
           "supportEmail": "",
           "telephone": "",
@@ -41,7 +42,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </FlexContainerResponsive>
 </FlexContainerBasic>
 `;
 
@@ -58,7 +59,7 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
   flexColumn={true}
   hasPadding={true}
 >
-  <FlexContainerBasic
+  <FlexContainerResponsive
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
@@ -95,7 +96,7 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </FlexContainerResponsive>
 </FlexContainerBasic>
 `;
 

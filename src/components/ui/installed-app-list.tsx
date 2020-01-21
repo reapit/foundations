@@ -13,7 +13,9 @@ import {
   FlexContainerBasic,
   isMobile,
   GridFiveCol,
-  GridFourColItem
+  GridFourColItem,
+  Helper,
+  infoText
 } from '@reapit/elements'
 
 export type InstalledAppListProps = {
@@ -34,44 +36,31 @@ export const onClickHandler = (onCardClick: ((app: AppSummaryModel) => void) | u
   }
 }
 
-export const ListMobileScreen = ({ list, loading, onCardClick, infoType }) => {
-  const isNoResult = !list.length && !loading
+export const ListMobileScreen = ({
+  list,
+  loading,
+  onCardClick
+}: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
+  <div className={`${installedAppListStyles.wrapList} ${loading ? installedAppListStyles.isLoading : ''}`}>
+    {list.map(app => (
+      <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />
+    ))}
+  </div>
+)
 
-  return (
-    <div
-      className={`${installedAppListStyles['wrap-list']} ${
-        loading ? installedAppListStyles['content-is-loading'] : ''
-      }`}
-    >
-      {isNoResult ? (
-        <Info infoType={infoType}>{!infoType && 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}</Info>
-      ) : (
-        list.map(app => <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />)
-      )}
-    </div>
-  )
-}
-
-export const ListDesktopScreen = ({ list, loading, infoType, onCardClick }) => {
-  const isNoResult = !list.length && !loading
-
-  return (
-    <GridFiveCol
-      className={` ${loading ? installedAppListStyles.contentIsLoading : ''}`}
-      data-test="app-list-container"
-    >
-      {isNoResult ? (
-        <Info infoType={infoType}>{!infoType && 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}</Info>
-      ) : (
-        list.map(app => (
-          <GridFourColItem key={app.id}>
-            <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />
-          </GridFourColItem>
-        ))
-      )}
-    </GridFiveCol>
-  )
-}
+export const ListDesktopScreen = ({
+  list,
+  loading,
+  onCardClick
+}: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
+  <GridFiveCol className={` ${loading ? installedAppListStyles.contentIsLoading : ''}`} data-test="app-list-container">
+    {list.map(app => (
+      <GridFourColItem key={app.id}>
+        <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />
+      </GridFourColItem>
+    ))}
+  </GridFiveCol>
+)
 
 export const InstalledAppList: React.FC<InstalledAppListProps> = ({
   list,
@@ -84,10 +73,14 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
   return (
     <FlexContainerBasic hasPadding flexColumn>
       {title && <H3>{title}</H3>}
-      {isMobile() ? (
-        <ListMobileScreen list={list} loading={loading} infoType={infoType} onCardClick={onCardClick} />
+      {!list.length && !loading ? (
+        <Helper variant="info">
+          {infoType ? infoText(infoType) : 'UNFORTUNATELY, YOUR SEARCH RETURNED NO RESULTS'}
+        </Helper>
+      ) : isMobile() ? (
+        <ListMobileScreen list={list} loading={loading} onCardClick={onCardClick} />
       ) : (
-        <ListDesktopScreen list={list} loading={loading} infoType={infoType} onCardClick={onCardClick} />
+        <ListDesktopScreen list={list} loading={loading} onCardClick={onCardClick} />
       )}
       {loading && <Loader body />}
       {pagination && (

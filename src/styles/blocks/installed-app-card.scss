@@ -1,13 +1,18 @@
-$icon-width: 130px;
-$icon-height: 130px;
+$icon-width: 80px;
+$icon-height: 80px;
 
 .container {
   display: flex;
   width: 50%;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 668px) {
+
+  @media (min-width: 400px) {
     width: 33%;
+  }
+
+  @media (min-width: 600px) {
+    width: 25%;
   }
 }
 .wrapIcon {
@@ -15,7 +20,6 @@ $icon-height: 130px;
   height: $icon-height;
   cursor: pointer;
   border-radius: 15px;
-  border: 1px solid #95aac9;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
@@ -25,11 +29,11 @@ $icon-height: 130px;
 
 .icon {
   width: $icon-width - 30px;
-  height: $icon-height - 30px;
+  max-height: $icon-height - 30px;
 }
 
 .appTitle {
-  width: 100%;
+  width: $icon-width * 1.5;
   white-space: nowrap;
   margin-top: 1rem;
   text-align: center;

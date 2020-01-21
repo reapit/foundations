@@ -66,7 +66,7 @@ export const onSubmitHandler = ({ setIsSubmitting, loginType, mode, login }) => 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { hasSession, error, login, loginType, location, authChangeLoginType, mode } = props
-  const { disabled, wrapper, container, image, register } = loginStyles
+  const { disabled, wrapper, container, image /* , register */ } = loginStyles
 
   React.useEffect(handleUseEffect({ setIsSubmitting, error }), [error])
 
@@ -111,7 +111,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
               />
               {loginType === 'DEVELOPER' && (
                 <div className={loginStyles.forgotPasswordContainer}>
-                  <Link to={Routes.FORGOT_PASSWORD}>Forgotten Password</Link>
+                  <Link to={Routes.FORGOT_PASSWORD}>Forgot Password?</Link>
                 </div>
               )}
               <Input

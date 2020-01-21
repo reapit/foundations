@@ -16,11 +16,13 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettin
   !app.pendingRevisions && dataTest.push('isNoPending')
   dataTest.push(app.name)
 
+  const clickAction = (app.installedOn && onSettingsClick ? onSettingsClick : onClick) as () => void
+
   return (
     <div data-test-app-id={app.id} data-test-app-name={app.name}>
       <Tile
-        onClick={onClick as () => void}
-        dataTest={dataTest.join('_')}
+        onClick={clickAction}
+        dataTest={app.installedOn ? `app-settings_${app.id}` : dataTest.join('_')}
         heading={app.name || ''}
         subHeading={
           <>
@@ -30,14 +32,6 @@ const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettin
         }
         image={
           <img className="image" src={app.iconUri || 'https://bulma.io/images/placeholders/48x48.png'} alt={app.name} />
-        }
-        menu={
-          app.installedOn &&
-          onSettingsClick && (
-            <div data-test={`app-settings_${app.id}`}>
-              <FaEllipsisH className="media-icon" onClick={onSettingsClick} />
-            </div>
-          )
         }
       >
         <p className={appCardStyles.content}>{app.summary}</p>

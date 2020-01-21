@@ -1,5 +1,6 @@
 export const HelpLinks = {
-  BUG_REPORT: 'https://docs.google.com/forms/d/e/1FAIpQLSfNgZcHsqZo1d3J1QRPUmzh4Og7m4JNeqws4rv17msRsudBlQ/viewform',
-  API_REQUEST: 'https://docs.google.com/forms/d/e/1FAIpQLSfYeQVgwsgj1A6ZE0k4cjEQ0hkPgpYrxHawvLGoWlQLd_b41A/viewform',
-  FAQ: 'https://www.reapit.com/foundations/faq'
+  BUG_REPORT:
+    'https://github.com/reapit/foundations/issues/new?labels=bug&projects=reapit/foundations/2&body=Summary:%0d%0dSteps%20to%20reproduce:%0d%0dExpected%20Results:%0d%0dActual%20Results',
+  API_REQUEST:
+    'https://github.com/reapit/foundations/issues/new?labels=feature-request&projects=reapit/foundations/3&body=Summary%20of%20Request:%0d%0dExpected%20Behaviour'
 }

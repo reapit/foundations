@@ -1,5 +1,19 @@
+@import "../base/colors.scss";
+
 .sidebar {
   width: 100%;
+}
+
+.sidebarWrap {
+  background-color: white;
+  padding: 1rem;
+
+  .subHeading {
+    border-bottom: 1px $grey solid;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: $grey-dark;
+  }
 }
 
 .btnSearch {
@@ -10,6 +24,8 @@
   cursor: pointer;
   pointer-events: initial;
 }
+
+
 
 @media screen and (min-width: 769px) {
   .sidebar {

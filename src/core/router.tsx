@@ -32,6 +32,7 @@ const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
 const RegisterConfirm = React.lazy(() => import('../components/pages/register-confirm'))
 const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
 const Forum = React.lazy(() => import('../components/pages/forum'))
+const PackageDocsPage = React.lazy(() => import('../components/pages/package-docs'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -76,6 +77,7 @@ const Router = () => (
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ELEMENTS} exact component={ElementsPage} />
             {/* <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ANALYTICS} exact component={AnalyticsPage} /> */}
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_DESKTOP_DOCS} exact component={DesktopDocsPage} />
+            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_PACKAGE_DOCS} exact component={PackageDocsPage} />
             <PrivateRoute
               allow="DEVELOPER"
               path={Routes.DEVELOPER_WEB_COMPONENTS}
@@ -83,7 +85,7 @@ const Router = () => (
               component={WebComponentsPage}
             />
             <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
-            {/* <PrivateRoute allow="DEVELOPER" path={Routes.FORUM} exact component={Forum}></PrivateRoute> */}
+            <PrivateRoute allow="DEVELOPER" path={Routes.FORUM} exact component={Forum}></PrivateRoute>
             <PrivateRoute
               allow="DEVELOPER"
               path={Routes.DEVELOPER_WELCOME}

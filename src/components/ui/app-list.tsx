@@ -6,14 +6,15 @@ import {
   Loader,
   H3,
   InfoType,
-  Info,
   GridFiveCol,
   PaginationProps,
   Section,
   Pagination,
   GridThreeColItem,
   FlexContainerBasic,
-  GridFourColItem
+  GridFourColItem,
+  Helper,
+  infoText
 } from '@reapit/elements'
 
 export type AppListProps = {
@@ -42,39 +43,40 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   return (
     <FlexContainerBasic hasPadding flexColumn>
       {title && <H3>{title}</H3>}
-      <div>
+      {!list.length && !loading ? (
+        <Helper variant="info">
+          {infoType
+            ? infoText(infoType)
+            : 'We are unable to find any Apps that match your search criteria. Please try again.'}
+        </Helper>
+      ) : (
         <GridFiveCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
-          {!list.length && !loading ? (
-            <Info infoType={infoType}>
-              {!infoType && 'We are unable to find any Apps that match your search criteria. Please try again.'}
-            </Info>
-          ) : (
-            list.map(app => (
-              <WrapperContainer key={app.id}>
-                <AppCard
-                  app={app}
-                  onClick={
-                    onCardClick
-                      ? (event: React.MouseEvent) => {
-                          event.stopPropagation()
-                          onCardClick(app)
-                        }
-                      : undefined
-                  }
-                  onSettingsClick={
-                    onSettingsClick
-                      ? (event: React.MouseEvent) => {
-                          event.stopPropagation()
-                          onSettingsClick(app)
-                        }
-                      : undefined
-                  }
-                />
-              </WrapperContainer>
-            ))
-          )}
+          {list.map(app => (
+            <WrapperContainer key={app.id}>
+              <AppCard
+                app={app}
+                onClick={
+                  onCardClick
+                    ? (event: React.MouseEvent) => {
+                        event.stopPropagation()
+                        onCardClick(app)
+                      }
+                    : undefined
+                }
+                onSettingsClick={
+                  onSettingsClick
+                    ? (event: React.MouseEvent) => {
+                        event.stopPropagation()
+                        onSettingsClick(app)
+                      }
+                    : undefined
+                }
+              />
+            </WrapperContainer>
+          ))}
         </GridFiveCol>
-      </div>
+      )}
+
       {loading && <Loader body />}
       {pagination && (
         <Section>

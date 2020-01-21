@@ -1,9 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminApproval RenderContent should match snapshot 1`] = `
-<Info
-  infoType="ADMIN_APPROVALS_EMPTY"
-/>
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Helper
+    variant="info"
+  >
+    There are no updates that require approval
+  </Helper>
+</FlexContainerBasic>
 `;
 
 exports[`AdminApproval should match a snapshot when LOADING false 1`] = `

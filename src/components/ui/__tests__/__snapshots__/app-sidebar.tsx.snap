@@ -41,46 +41,56 @@ exports[`AppSidebar should match a snapshot 1`] = `
     flexColumn={true}
     hasPadding={true}
   >
-    <H3>
-      Browse Apps
-    </H3>
-    <Formik
-      component={[Function]}
-      enableReinitialize={true}
-      initialValues={
-        Object {
-          "search": undefined,
-          "searchBy": "appName",
+    <div>
+      <H3>
+        Browse Apps
+      </H3>
+      <H6>
+        Search
+      </H6>
+      <Formik
+        component={[Function]}
+        enableReinitialize={true}
+        initialValues={
+          Object {
+            "search": undefined,
+            "searchBy": "appName",
+          }
         }
-      }
-      onSubmit={[Function]}
-    />
-    <CategoriesList
-      categories={
-        Array [
-          Object {
-            "description": "apps for game",
-            "id": "3",
-            "name": "Game",
-          },
-          Object {
-            "description": "apps for entertainment",
-            "id": "2",
-            "name": "entertainment",
-          },
-          Object {
-            "description": "apps for education",
-            "id": "1",
-            "name": "education",
-          },
-          Object {
-            "id": "DIRECT_API_APPS_FILTER",
-            "name": "Direct API",
-          },
-        ]
-      }
-      onSelectCategory={[Function]}
-    />
+        onSubmit={[Function]}
+      />
+    </div>
+    <div>
+      <H6>
+        Filter
+      </H6>
+      <CategoriesList
+        categories={
+          Array [
+            Object {
+              "description": "apps for game",
+              "id": "3",
+              "name": "Game",
+            },
+            Object {
+              "description": "apps for entertainment",
+              "id": "2",
+              "name": "entertainment",
+            },
+            Object {
+              "description": "apps for education",
+              "id": "1",
+              "name": "education",
+            },
+            Object {
+              "id": "DIRECT_API_APPS_FILTER",
+              "name": "Direct API",
+            },
+          ]
+        }
+        onSelectCategory={[Function]}
+      />
+    </div>
   </FlexContainerBasic>
 </div>
 `;

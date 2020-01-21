@@ -1,14 +1,13 @@
 import * as React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import apiDocStyles from '@/styles/pages/api-docs.scss?mod'
 import { FlexContainerResponsive, Content, H3, H4, H5, Table, FlexContainerBasic } from '@reapit/elements'
 
-export const handleUseLayoutEffect = hash => () => {
-  if (document) {
-    const element = hash ? document.getElementById(hash.slice(1)) : document.getElementById('api')
-    if (element) {
-      element.scrollIntoView()
-    }
+export const handleUseLayoutEffect = (hash?: string) => () => {
+  if (!document || !hash) return
+
+  const element = document.getElementById(hash.slice(1))
+  if (element) {
+    element.scrollIntoView()
   }
 }
 
@@ -19,7 +18,7 @@ const ApiDocsPage: React.FC = () => {
 
   return (
     <FlexContainerBasic flexColumn hasPadding>
-      <Content className={apiDocStyles.apiDocs}>
+      <Content>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <H3 id="api">Foundations API </H3>
           <H4>Overview</H4>
@@ -51,119 +50,123 @@ const ApiDocsPage: React.FC = () => {
             operations. Each endpoint adheres to REST guidelines to map the correct verb to the operation being
             performed. Our APIs support the following HTTP methods:
           </p>
-          <Table
-            scrollable
-            loading={false}
-            columns={[
-              {
-                Header: 'Method',
-                accessor: 'method'
-              },
-              {
-                Header: 'Action',
-                accessor: 'action'
-              }
-            ]}
-            data={[
-              {
-                method: 'GET',
-                action: 'Retrieve a resource or collection of resources'
-              },
-              {
-                method: 'POST',
-                action: 'Create a new resource'
-              },
-              {
-                method: 'PATCH',
-                action: 'Partially update an existing resource by only including the fields to replace in payload'
-              },
-              {
-                method: 'DELETE',
-                action: 'Soft delete an existing resource'
-              }
-            ]}
-          />
+          <div className="mb-4">
+            <Table
+              scrollable
+              loading={false}
+              columns={[
+                {
+                  Header: 'Method',
+                  accessor: 'method'
+                },
+                {
+                  Header: 'Action',
+                  accessor: 'action'
+                }
+              ]}
+              data={[
+                {
+                  method: 'GET',
+                  action: 'Retrieve a resource or collection of resources'
+                },
+                {
+                  method: 'POST',
+                  action: 'Create a new resource'
+                },
+                {
+                  method: 'PATCH',
+                  action: 'Partially update an existing resource by only including the fields to replace in payload'
+                },
+                {
+                  method: 'DELETE',
+                  action: 'Soft delete an existing resource'
+                }
+              ]}
+            />
+          </div>
           <H5 id="statuscodes">Response status codes</H5>
           <p>
             Foundation APIs use standardised HTTP status codes to indicate whether a request has been successful or has
             resulted in an error. Below is a listing of the codes our APIs may return and their meaning:
           </p>
-          <Table
-            scrollable
-            loading={false}
-            columns={[
-              {
-                Header: 'Code',
-                accessor: 'code'
-              },
-              {
-                Header: 'Title',
-                accessor: 'title'
-              },
-              {
-                Header: 'Description',
-                accessor: 'description'
-              }
-            ]}
-            data={[
-              {
-                code: '200',
-                title: 'OK',
-                description: 'The request has been fulfilled.'
-              },
-              {
-                code: '201',
-                title: 'Created',
-                description: 'The request has been fulfilled and a new resource has been created.'
-              },
-              {
-                code: '202',
-                title: 'Async created',
-                description: 'The request has been accepted will be fulfilled asynchronously'
-              },
-              {
-                code: '400',
-                title: 'Bad request',
-                description:
-                  'The request was not understood by the server, generally due to bad syntax or because the "Content-Type" header was not correctly set to <code>application/json</code>.'
-              },
-              {
-                code: '401',
-                title: 'Unauthorized',
-                description:
-                  'The provided authentication credentials are incorrect or not present. Generally, this is due to the lack of an "Authorization" header'
-              },
-              {
-                code: '403',
-                title: 'Forbidden',
-                description:
-                  'The provided authentication credentials do not provide the request with sufficient scope to fulfill the request.'
-              },
-              {
-                code: '404',
-                title: 'Not found',
-                description: 'The requested resource was not found'
-              },
-              {
-                code: '422',
-                title: 'Unprocessable entity',
-                description:
-                  'A validation error has occured. The error response body will provide additional information on the failure(s).'
-              },
-              {
-                code: '429',
-                title: 'Too many requests',
-                description:
-                  'The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism'
-              },
-              {
-                code: '500',
-                title: 'Too many requests',
-                description:
-                  'The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism'
-              }
-            ]}
-          />
+          <div className="mb-4">
+            <Table
+              scrollable
+              loading={false}
+              columns={[
+                {
+                  Header: 'Code',
+                  accessor: 'code'
+                },
+                {
+                  Header: 'Title',
+                  accessor: 'title'
+                },
+                {
+                  Header: 'Description',
+                  accessor: 'description'
+                }
+              ]}
+              data={[
+                {
+                  code: '200',
+                  title: 'OK',
+                  description: 'The request has been fulfilled.'
+                },
+                {
+                  code: '201',
+                  title: 'Created',
+                  description: 'The request has been fulfilled and a new resource has been created.'
+                },
+                {
+                  code: '202',
+                  title: 'Async created',
+                  description: 'The request has been accepted will be fulfilled asynchronously'
+                },
+                {
+                  code: '400',
+                  title: 'Bad request',
+                  description:
+                    'The request was not understood by the server, generally due to bad syntax or because the "Content-Type" header was not correctly set to <code>application/json</code>.'
+                },
+                {
+                  code: '401',
+                  title: 'Unauthorized',
+                  description:
+                    'The provided authentication credentials are incorrect or not present. Generally, this is due to the lack of an "Authorization" header'
+                },
+                {
+                  code: '403',
+                  title: 'Forbidden',
+                  description:
+                    'The provided authentication credentials do not provide the request with sufficient scope to fulfill the request.'
+                },
+                {
+                  code: '404',
+                  title: 'Not found',
+                  description: 'The requested resource was not found'
+                },
+                {
+                  code: '422',
+                  title: 'Unprocessable entity',
+                  description:
+                    'A validation error has occured. The error response body will provide additional information on the failure(s).'
+                },
+                {
+                  code: '429',
+                  title: 'Too many requests',
+                  description:
+                    'The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism'
+                },
+                {
+                  code: '500',
+                  title: 'Too many requests',
+                  description:
+                    'The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism'
+                }
+              ]}
+            />
+          </div>
           <H4 id="authorization">Authorization</H4>
           <p>
             The Foundation platform uses <a href="https://openid.net/connect/faq/">OpenID Connect</a> (OIDC) as it's
@@ -257,42 +260,45 @@ const ApiDocsPage: React.FC = () => {
   "refresh_token" : "xxxxxxxxxxxxxx",
   "access_token" : "xxxxxxxxxxxxxx",
   "expires_in" : 3600,
-}`}
+}
+              `}
               </code>
             </pre>
           </p>
-          <Table
-            scrollable
-            loading={false}
-            columns={[
-              {
-                Header: 'Attribute',
-                accessor: 'attribute'
-              },
-              {
-                Header: 'Description',
-                accessor: 'description'
-              }
-            ]}
-            data={[
-              {
-                attribute: 'id_token',
-                description: 'A JWT containing claims about the users identity.'
-              },
-              {
-                attribute: 'refresh_token',
-                description: 'A refresh token that can be issued to get a new id and access token.'
-              },
-              {
-                attribute: 'access_token',
-                description: 'A JWT to grant access to secured API resources for given set of scopes'
-              },
-              {
-                attribute: 'expires_in',
-                description: 'A JWT to grant access to secured API resources for given set of scopes'
-              }
-            ]}
-          />
+          <div className="mb-4">
+            <Table
+              scrollable
+              loading={false}
+              columns={[
+                {
+                  Header: 'Attribute',
+                  accessor: 'attribute'
+                },
+                {
+                  Header: 'Description',
+                  accessor: 'description'
+                }
+              ]}
+              data={[
+                {
+                  attribute: 'id_token',
+                  description: 'A JWT containing claims about the users identity.'
+                },
+                {
+                  attribute: 'refresh_token',
+                  description: 'A refresh token that can be issued to get a new id and access token.'
+                },
+                {
+                  attribute: 'access_token',
+                  description: 'A JWT to grant access to secured API resources for given set of scopes'
+                },
+                {
+                  attribute: 'expires_in',
+                  description: 'A JWT to grant access to secured API resources for given set of scopes'
+                }
+              ]}
+            />
+          </div>
           <H5>Create a request</H5>
           <p>
             The access token must then be sent in the Authorization header to be able to access protected Foundation
@@ -345,7 +351,8 @@ const ApiDocsPage: React.FC = () => {
   "statusCode": 404,
   "dateTime": "2019-04-23T18:25:43.511Z",
   "description": "Contact RPT19000001 was not found."
-}`}
+}
+              `}
               </code>
             </pre>
           </p>
@@ -366,7 +373,8 @@ const ApiDocsPage: React.FC = () => {
       "message" : "Must be less than 50 characters in length."
     }
   ]
-}`}
+}
+              `}
               </code>
             </pre>
           </p>
@@ -375,44 +383,43 @@ const ApiDocsPage: React.FC = () => {
             You can make 1000 requests per minute to our APIs. Each response will include HTTP headers to provide
             information on the current rate limit statistics.
           </p>
-          <Table
-            scrollable
-            loading={false}
-            columns={[
-              {
-                Header: 'Header',
-                accessor: 'header'
-              },
-              {
-                Header: 'Attribute',
-                accessor: 'attribute'
-              }
-            ]}
-            data={[
-              {
-                header: 'X-RateLimit-Limit',
-                attribute: 'The number of requests that a client is allowed to issue per minute'
-              },
-              {
-                header: 'X-RateLimit-Remaining',
-                attribute:
-                  'The number of requests that a client is allowed to issue in the current rate limit window before hitting the limit'
-              },
-              {
-                header: 'X-RateLimit-Reset',
-                attribute: 'The unix timestamp at which the current rate limit window resets'
-              },
-              {
-                header: 'Retry-After',
-                attribute:
-                  'When the rate limit is hit, this header presents the number of seconds to wait before attempting another request'
-              }
-            ]}
-          />
-          <p>
-            <br />
-            If the rate limit is hit, a response similar to below will be issued:
-          </p>
+          <div className="mb-4">
+            <Table
+              scrollable
+              loading={false}
+              columns={[
+                {
+                  Header: 'Header',
+                  accessor: 'header'
+                },
+                {
+                  Header: 'Attribute',
+                  accessor: 'attribute'
+                }
+              ]}
+              data={[
+                {
+                  header: 'X-RateLimit-Limit',
+                  attribute: 'The number of requests that a client is allowed to issue per minute'
+                },
+                {
+                  header: 'X-RateLimit-Remaining',
+                  attribute:
+                    'The number of requests that a client is allowed to issue in the current rate limit window before hitting the limit'
+                },
+                {
+                  header: 'X-RateLimit-Reset',
+                  attribute: 'The unix timestamp at which the current rate limit window resets'
+                },
+                {
+                  header: 'Retry-After',
+                  attribute:
+                    'When the rate limit is hit, this header presents the number of seconds to wait before attempting another request'
+                }
+              ]}
+            />
+          </div>
+          <p>If the rate limit is hit, a response similar to below will be issued:</p>
           <p className="mb-4">
             <pre>
               <code>
@@ -427,7 +434,8 @@ const ApiDocsPage: React.FC = () => {
   "description": "Rate limit for API requests has been hit.
                   Your limit is 1000 requests per minute.
                   This limit will be reset in 30 seconds."
-}`}
+}
+              `}
               </code>
             </pre>
           </p>
@@ -457,7 +465,8 @@ const ApiDocsPage: React.FC = () => {
   "data" : [
     ...
   ]
-}`}
+}
+              `}
               </code>
             </pre>
           </p>
@@ -522,7 +531,8 @@ const ApiDocsPage: React.FC = () => {
   "pageSize": 25,
   "pageCount": 25,
   "totalCount" : 142,
-}`}
+}
+              `}
               </code>
             </pre>
           </p>

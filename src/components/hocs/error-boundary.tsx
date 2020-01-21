@@ -1,6 +1,7 @@
 import * as React from 'react'
+import * as Sentry from '@sentry/browser'
 import { connect } from 'react-redux'
-import { ReduxState, Action } from '../../types/core'
+import { ReduxState } from '../../types/core'
 import { ErrorData } from '../../reducers/error'
 import { errorThrownComponent } from '../../actions/error'
 import { Dispatch } from 'redux'
@@ -39,7 +40,10 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
       type: 'COMPONENT',
       message: errorMessages.DEFAULT_COMPONENT_ERROR
     })
-    console.error('ERROR BOUNDARY CAUGHT', error.message, info)
+    Sentry.withScope(scope => {
+      scope.setExtras(info)
+      Sentry.captureException(error)
+    })
   }
 
   render() {

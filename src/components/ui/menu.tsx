@@ -19,11 +19,11 @@ import {
   FaNetworkWired,
   FaClipboardList,
   FaPortrait,
-  FaTable,
-  FaComments
+  FaTable
+  // FaComments
 } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
-import { GoDatabase, GoCode } from 'react-icons/go'
+import { GoDatabase, GoCode, GoPackage } from 'react-icons/go'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -129,6 +129,13 @@ export const generateMenuConfig = (
           url: Routes.DEVELOPER_ELEMENTS,
           type: 'PRIMARY',
           icon: <GoCode className="nav-item-icon" />
+        },
+        {
+          title: 'Packages',
+          key: 'PACKAGES',
+          url: Routes.DEVELOPER_PACKAGE_DOCS,
+          type: 'PRIMARY',
+          icon: <GoPackage className="nav-item-icon" />
         },
         {
           title: 'Web',
