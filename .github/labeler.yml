@@ -1,6 +1,8 @@
-
 smb:
   - packages/smb/**
 
 apollo-server:
   - packages/apollo-server/**
+
+cognitio-auth:
+  - packages/cognito-auth/**

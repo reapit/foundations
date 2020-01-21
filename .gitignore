@@ -8,6 +8,7 @@
 
 # testing
 /coverage
+/packages/*/coverage
 /packages/*/src/tests/coverage
 
 # production
@@ -34,3 +35,4 @@ yarn-error.log*
 /packages/*/*.log*
 /packages/*/src/*.log*
 *.log
+.rts2_cache*
