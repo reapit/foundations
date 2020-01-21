@@ -49,7 +49,8 @@ const WebComponentsPage: React.SFC = () => {
           </p>
 
           <H4>Search Widget</H4>
-          <p>
+          <p>Coming soon...</p>
+          {/* <p>
             The search widget is an embeddable React Widget, that renders a search box, fetching data from the
             Properties service. On search, the widget will render a list of matching properties and plot them on a
             Google Map.
@@ -128,39 +129,7 @@ const WebComponentsPage: React.SFC = () => {
             >
               Download Search Widget
             </a>
-          </p>
-          <H4>Elements</H4>
-          <p>
-            The Elements UI toolkit you can browse <Link to={Routes.DEVELOPER_ELEMENTS}>here</Link> is available as an
-            NPM package. We also support an AMD (require.js), version that may suit your needs better, especially when
-            serving content from a CDN or CMS.
-          </p>
-          <p>
-            <a
-              href="https://reapit-app-store-webcomponents.s3.eu-west-2.amazonaws.com/elements-v0.4.53.zip"
-              download
-              className="button is-info"
-            >
-              Download Elements
-            </a>
-          </p>
-          <H4>Type Definitions</H4>
-          <p>
-            If you are using TypeScript (and we recommend you do!), for your front end project, we provide full type
-            definitions for the API documented in the <Link to={Routes.DEVELOPER_SWAGGER}>API explorer</Link>. We
-            generate these types from the Swagger contracts direct so you can be sure that when the API changes, your
-            types will be updated also. This allows for a much closer alignment between front and back end development
-            and ultimately more robust applications.
-          </p>
-          <p>
-            <a
-              href="https://reapit-app-store-webcomponents.s3.eu-west-2.amazonaws.com/foundations-type-definitions.zip"
-              download
-              className="button is-info"
-            >
-              Download foundations.d.ts
-            </a>
-          </p>
+          </p> */}
         </FlexContainerResponsive>
       </Content>
     </FlexContainerBasic>

@@ -93,42 +93,46 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <p>
         Foundation APIs present a uniform interface for performing CRUD (create, retrieve, update, delete) operations. Each endpoint adheres to REST guidelines to map the correct verb to the operation being performed. Our APIs support the following HTTP methods:
       </p>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Method",
-              "accessor": "method",
-            },
-            Object {
-              "Header": "Action",
-              "accessor": "action",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "action": "Retrieve a resource or collection of resources",
-              "method": "GET",
-            },
-            Object {
-              "action": "Create a new resource",
-              "method": "POST",
-            },
-            Object {
-              "action": "Partially update an existing resource by only including the fields to replace in payload",
-              "method": "PATCH",
-            },
-            Object {
-              "action": "Soft delete an existing resource",
-              "method": "DELETE",
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
-      />
+      <div
+        className="mb-4"
+      >
+        <Table
+          columns={
+            Array [
+              Object {
+                "Header": "Method",
+                "accessor": "method",
+              },
+              Object {
+                "Header": "Action",
+                "accessor": "action",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "action": "Retrieve a resource or collection of resources",
+                "method": "GET",
+              },
+              Object {
+                "action": "Create a new resource",
+                "method": "POST",
+              },
+              Object {
+                "action": "Partially update an existing resource by only including the fields to replace in payload",
+                "method": "PATCH",
+              },
+              Object {
+                "action": "Soft delete an existing resource",
+                "method": "DELETE",
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+      </div>
       <H5
         id="statuscodes"
       >
@@ -137,80 +141,84 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <p>
         Foundation APIs use standardised HTTP status codes to indicate whether a request has been successful or has resulted in an error. Below is a listing of the codes our APIs may return and their meaning:
       </p>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Code",
-              "accessor": "code",
-            },
-            Object {
-              "Header": "Title",
-              "accessor": "title",
-            },
-            Object {
-              "Header": "Description",
-              "accessor": "description",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "code": "200",
-              "description": "The request has been fulfilled.",
-              "title": "OK",
-            },
-            Object {
-              "code": "201",
-              "description": "The request has been fulfilled and a new resource has been created.",
-              "title": "Created",
-            },
-            Object {
-              "code": "202",
-              "description": "The request has been accepted will be fulfilled asynchronously",
-              "title": "Async created",
-            },
-            Object {
-              "code": "400",
-              "description": "The request was not understood by the server, generally due to bad syntax or because the \\"Content-Type\\" header was not correctly set to <code>application/json</code>.",
-              "title": "Bad request",
-            },
-            Object {
-              "code": "401",
-              "description": "The provided authentication credentials are incorrect or not present. Generally, this is due to the lack of an \\"Authorization\\" header",
-              "title": "Unauthorized",
-            },
-            Object {
-              "code": "403",
-              "description": "The provided authentication credentials do not provide the request with sufficient scope to fulfill the request.",
-              "title": "Forbidden",
-            },
-            Object {
-              "code": "404",
-              "description": "The requested resource was not found",
-              "title": "Not found",
-            },
-            Object {
-              "code": "422",
-              "description": "A validation error has occured. The error response body will provide additional information on the failure(s).",
-              "title": "Unprocessable entity",
-            },
-            Object {
-              "code": "429",
-              "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
-              "title": "Too many requests",
-            },
-            Object {
-              "code": "500",
-              "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
-              "title": "Too many requests",
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
-      />
+      <div
+        className="mb-4"
+      >
+        <Table
+          columns={
+            Array [
+              Object {
+                "Header": "Code",
+                "accessor": "code",
+              },
+              Object {
+                "Header": "Title",
+                "accessor": "title",
+              },
+              Object {
+                "Header": "Description",
+                "accessor": "description",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "code": "200",
+                "description": "The request has been fulfilled.",
+                "title": "OK",
+              },
+              Object {
+                "code": "201",
+                "description": "The request has been fulfilled and a new resource has been created.",
+                "title": "Created",
+              },
+              Object {
+                "code": "202",
+                "description": "The request has been accepted will be fulfilled asynchronously",
+                "title": "Async created",
+              },
+              Object {
+                "code": "400",
+                "description": "The request was not understood by the server, generally due to bad syntax or because the \\"Content-Type\\" header was not correctly set to <code>application/json</code>.",
+                "title": "Bad request",
+              },
+              Object {
+                "code": "401",
+                "description": "The provided authentication credentials are incorrect or not present. Generally, this is due to the lack of an \\"Authorization\\" header",
+                "title": "Unauthorized",
+              },
+              Object {
+                "code": "403",
+                "description": "The provided authentication credentials do not provide the request with sufficient scope to fulfill the request.",
+                "title": "Forbidden",
+              },
+              Object {
+                "code": "404",
+                "description": "The requested resource was not found",
+                "title": "Not found",
+              },
+              Object {
+                "code": "422",
+                "description": "A validation error has occured. The error response body will provide additional information on the failure(s).",
+                "title": "Unprocessable entity",
+              },
+              Object {
+                "code": "429",
+                "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
+                "title": "Too many requests",
+              },
+              Object {
+                "code": "500",
+                "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
+                "title": "Too many requests",
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+      </div>
       <H4
         id="authorization"
       >
@@ -324,45 +332,50 @@ exports[`ApiDocs should match a snapshot 1`] = `
   "access_token" : "xxxxxxxxxxxxxx",
   "expires_in" : 3600,
 }
+              
           </code>
         </pre>
       </p>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Attribute",
-              "accessor": "attribute",
-            },
-            Object {
-              "Header": "Description",
-              "accessor": "description",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "attribute": "id_token",
-              "description": "A JWT containing claims about the users identity.",
-            },
-            Object {
-              "attribute": "refresh_token",
-              "description": "A refresh token that can be issued to get a new id and access token.",
-            },
-            Object {
-              "attribute": "access_token",
-              "description": "A JWT to grant access to secured API resources for given set of scopes",
-            },
-            Object {
-              "attribute": "expires_in",
-              "description": "A JWT to grant access to secured API resources for given set of scopes",
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
-      />
+      <div
+        className="mb-4"
+      >
+        <Table
+          columns={
+            Array [
+              Object {
+                "Header": "Attribute",
+                "accessor": "attribute",
+              },
+              Object {
+                "Header": "Description",
+                "accessor": "description",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "attribute": "id_token",
+                "description": "A JWT containing claims about the users identity.",
+              },
+              Object {
+                "attribute": "refresh_token",
+                "description": "A refresh token that can be issued to get a new id and access token.",
+              },
+              Object {
+                "attribute": "access_token",
+                "description": "A JWT to grant access to secured API resources for given set of scopes",
+              },
+              Object {
+                "attribute": "expires_in",
+                "description": "A JWT to grant access to secured API resources for given set of scopes",
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+      </div>
       <H5>
         Create a request
       </H5>
@@ -428,6 +441,7 @@ exports[`ApiDocs should match a snapshot 1`] = `
   "dateTime": "2019-04-23T18:25:43.511Z",
   "description": "Contact RPT19000001 was not found."
 }
+              
           </code>
         </pre>
       </p>
@@ -453,6 +467,7 @@ exports[`ApiDocs should match a snapshot 1`] = `
     }
   ]
 }
+              
           </code>
         </pre>
       </p>
@@ -462,44 +477,47 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <p>
         You can make 1000 requests per minute to our APIs. Each response will include HTTP headers to provide information on the current rate limit statistics.
       </p>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Header",
-              "accessor": "header",
-            },
-            Object {
-              "Header": "Attribute",
-              "accessor": "attribute",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "attribute": "The number of requests that a client is allowed to issue per minute",
-              "header": "X-RateLimit-Limit",
-            },
-            Object {
-              "attribute": "The number of requests that a client is allowed to issue in the current rate limit window before hitting the limit",
-              "header": "X-RateLimit-Remaining",
-            },
-            Object {
-              "attribute": "The unix timestamp at which the current rate limit window resets",
-              "header": "X-RateLimit-Reset",
-            },
-            Object {
-              "attribute": "When the rate limit is hit, this header presents the number of seconds to wait before attempting another request",
-              "header": "Retry-After",
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
-      />
+      <div
+        className="mb-4"
+      >
+        <Table
+          columns={
+            Array [
+              Object {
+                "Header": "Header",
+                "accessor": "header",
+              },
+              Object {
+                "Header": "Attribute",
+                "accessor": "attribute",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "attribute": "The number of requests that a client is allowed to issue per minute",
+                "header": "X-RateLimit-Limit",
+              },
+              Object {
+                "attribute": "The number of requests that a client is allowed to issue in the current rate limit window before hitting the limit",
+                "header": "X-RateLimit-Remaining",
+              },
+              Object {
+                "attribute": "The unix timestamp at which the current rate limit window resets",
+                "header": "X-RateLimit-Reset",
+              },
+              Object {
+                "attribute": "When the rate limit is hit, this header presents the number of seconds to wait before attempting another request",
+                "header": "Retry-After",
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+      </div>
       <p>
-        <br />
         If the rate limit is hit, a response similar to below will be issued:
       </p>
       <p
@@ -518,6 +536,7 @@ exports[`ApiDocs should match a snapshot 1`] = `
                   Your limit is 1000 requests per minute.
                   This limit will be reset in 30 seconds."
 }
+              
           </code>
         </pre>
       </p>
@@ -559,6 +578,7 @@ exports[`ApiDocs should match a snapshot 1`] = `
     ...
   ]
 }
+              
           </code>
         </pre>
       </p>
@@ -631,6 +651,7 @@ exports[`ApiDocs should match a snapshot 1`] = `
   "pageCount": 25,
   "totalCount" : 142,
 }
+              
           </code>
         </pre>
       </p>
@@ -751,42 +772,46 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <p>
         Foundation APIs present a uniform interface for performing CRUD (create, retrieve, update, delete) operations. Each endpoint adheres to REST guidelines to map the correct verb to the operation being performed. Our APIs support the following HTTP methods:
       </p>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Method",
-              "accessor": "method",
-            },
-            Object {
-              "Header": "Action",
-              "accessor": "action",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "action": "Retrieve a resource or collection of resources",
-              "method": "GET",
-            },
-            Object {
-              "action": "Create a new resource",
-              "method": "POST",
-            },
-            Object {
-              "action": "Partially update an existing resource by only including the fields to replace in payload",
-              "method": "PATCH",
-            },
-            Object {
-              "action": "Soft delete an existing resource",
-              "method": "DELETE",
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
-      />
+      <div
+        className="mb-4"
+      >
+        <Table
+          columns={
+            Array [
+              Object {
+                "Header": "Method",
+                "accessor": "method",
+              },
+              Object {
+                "Header": "Action",
+                "accessor": "action",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "action": "Retrieve a resource or collection of resources",
+                "method": "GET",
+              },
+              Object {
+                "action": "Create a new resource",
+                "method": "POST",
+              },
+              Object {
+                "action": "Partially update an existing resource by only including the fields to replace in payload",
+                "method": "PATCH",
+              },
+              Object {
+                "action": "Soft delete an existing resource",
+                "method": "DELETE",
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+      </div>
       <H5
         id="statuscodes"
       >
@@ -795,80 +820,84 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <p>
         Foundation APIs use standardised HTTP status codes to indicate whether a request has been successful or has resulted in an error. Below is a listing of the codes our APIs may return and their meaning:
       </p>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Code",
-              "accessor": "code",
-            },
-            Object {
-              "Header": "Title",
-              "accessor": "title",
-            },
-            Object {
-              "Header": "Description",
-              "accessor": "description",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "code": "200",
-              "description": "The request has been fulfilled.",
-              "title": "OK",
-            },
-            Object {
-              "code": "201",
-              "description": "The request has been fulfilled and a new resource has been created.",
-              "title": "Created",
-            },
-            Object {
-              "code": "202",
-              "description": "The request has been accepted will be fulfilled asynchronously",
-              "title": "Async created",
-            },
-            Object {
-              "code": "400",
-              "description": "The request was not understood by the server, generally due to bad syntax or because the \\"Content-Type\\" header was not correctly set to <code>application/json</code>.",
-              "title": "Bad request",
-            },
-            Object {
-              "code": "401",
-              "description": "The provided authentication credentials are incorrect or not present. Generally, this is due to the lack of an \\"Authorization\\" header",
-              "title": "Unauthorized",
-            },
-            Object {
-              "code": "403",
-              "description": "The provided authentication credentials do not provide the request with sufficient scope to fulfill the request.",
-              "title": "Forbidden",
-            },
-            Object {
-              "code": "404",
-              "description": "The requested resource was not found",
-              "title": "Not found",
-            },
-            Object {
-              "code": "422",
-              "description": "A validation error has occured. The error response body will provide additional information on the failure(s).",
-              "title": "Unprocessable entity",
-            },
-            Object {
-              "code": "429",
-              "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
-              "title": "Too many requests",
-            },
-            Object {
-              "code": "500",
-              "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
-              "title": "Too many requests",
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
-      />
+      <div
+        className="mb-4"
+      >
+        <Table
+          columns={
+            Array [
+              Object {
+                "Header": "Code",
+                "accessor": "code",
+              },
+              Object {
+                "Header": "Title",
+                "accessor": "title",
+              },
+              Object {
+                "Header": "Description",
+                "accessor": "description",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "code": "200",
+                "description": "The request has been fulfilled.",
+                "title": "OK",
+              },
+              Object {
+                "code": "201",
+                "description": "The request has been fulfilled and a new resource has been created.",
+                "title": "Created",
+              },
+              Object {
+                "code": "202",
+                "description": "The request has been accepted will be fulfilled asynchronously",
+                "title": "Async created",
+              },
+              Object {
+                "code": "400",
+                "description": "The request was not understood by the server, generally due to bad syntax or because the \\"Content-Type\\" header was not correctly set to <code>application/json</code>.",
+                "title": "Bad request",
+              },
+              Object {
+                "code": "401",
+                "description": "The provided authentication credentials are incorrect or not present. Generally, this is due to the lack of an \\"Authorization\\" header",
+                "title": "Unauthorized",
+              },
+              Object {
+                "code": "403",
+                "description": "The provided authentication credentials do not provide the request with sufficient scope to fulfill the request.",
+                "title": "Forbidden",
+              },
+              Object {
+                "code": "404",
+                "description": "The requested resource was not found",
+                "title": "Not found",
+              },
+              Object {
+                "code": "422",
+                "description": "A validation error has occured. The error response body will provide additional information on the failure(s).",
+                "title": "Unprocessable entity",
+              },
+              Object {
+                "code": "429",
+                "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
+                "title": "Too many requests",
+              },
+              Object {
+                "code": "500",
+                "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
+                "title": "Too many requests",
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+      </div>
       <H4
         id="authorization"
       >
@@ -982,45 +1011,50 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
   "access_token" : "xxxxxxxxxxxxxx",
   "expires_in" : 3600,
 }
+              
           </code>
         </pre>
       </p>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Attribute",
-              "accessor": "attribute",
-            },
-            Object {
-              "Header": "Description",
-              "accessor": "description",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "attribute": "id_token",
-              "description": "A JWT containing claims about the users identity.",
-            },
-            Object {
-              "attribute": "refresh_token",
-              "description": "A refresh token that can be issued to get a new id and access token.",
-            },
-            Object {
-              "attribute": "access_token",
-              "description": "A JWT to grant access to secured API resources for given set of scopes",
-            },
-            Object {
-              "attribute": "expires_in",
-              "description": "A JWT to grant access to secured API resources for given set of scopes",
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
-      />
+      <div
+        className="mb-4"
+      >
+        <Table
+          columns={
+            Array [
+              Object {
+                "Header": "Attribute",
+                "accessor": "attribute",
+              },
+              Object {
+                "Header": "Description",
+                "accessor": "description",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "attribute": "id_token",
+                "description": "A JWT containing claims about the users identity.",
+              },
+              Object {
+                "attribute": "refresh_token",
+                "description": "A refresh token that can be issued to get a new id and access token.",
+              },
+              Object {
+                "attribute": "access_token",
+                "description": "A JWT to grant access to secured API resources for given set of scopes",
+              },
+              Object {
+                "attribute": "expires_in",
+                "description": "A JWT to grant access to secured API resources for given set of scopes",
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+      </div>
       <H5>
         Create a request
       </H5>
@@ -1086,6 +1120,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
   "dateTime": "2019-04-23T18:25:43.511Z",
   "description": "Contact RPT19000001 was not found."
 }
+              
           </code>
         </pre>
       </p>
@@ -1111,6 +1146,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
     }
   ]
 }
+              
           </code>
         </pre>
       </p>
@@ -1120,44 +1156,47 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <p>
         You can make 1000 requests per minute to our APIs. Each response will include HTTP headers to provide information on the current rate limit statistics.
       </p>
-      <Table
-        columns={
-          Array [
-            Object {
-              "Header": "Header",
-              "accessor": "header",
-            },
-            Object {
-              "Header": "Attribute",
-              "accessor": "attribute",
-            },
-          ]
-        }
-        data={
-          Array [
-            Object {
-              "attribute": "The number of requests that a client is allowed to issue per minute",
-              "header": "X-RateLimit-Limit",
-            },
-            Object {
-              "attribute": "The number of requests that a client is allowed to issue in the current rate limit window before hitting the limit",
-              "header": "X-RateLimit-Remaining",
-            },
-            Object {
-              "attribute": "The unix timestamp at which the current rate limit window resets",
-              "header": "X-RateLimit-Reset",
-            },
-            Object {
-              "attribute": "When the rate limit is hit, this header presents the number of seconds to wait before attempting another request",
-              "header": "Retry-After",
-            },
-          ]
-        }
-        loading={false}
-        scrollable={true}
-      />
+      <div
+        className="mb-4"
+      >
+        <Table
+          columns={
+            Array [
+              Object {
+                "Header": "Header",
+                "accessor": "header",
+              },
+              Object {
+                "Header": "Attribute",
+                "accessor": "attribute",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "attribute": "The number of requests that a client is allowed to issue per minute",
+                "header": "X-RateLimit-Limit",
+              },
+              Object {
+                "attribute": "The number of requests that a client is allowed to issue in the current rate limit window before hitting the limit",
+                "header": "X-RateLimit-Remaining",
+              },
+              Object {
+                "attribute": "The unix timestamp at which the current rate limit window resets",
+                "header": "X-RateLimit-Reset",
+              },
+              Object {
+                "attribute": "When the rate limit is hit, this header presents the number of seconds to wait before attempting another request",
+                "header": "Retry-After",
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+      </div>
       <p>
-        <br />
         If the rate limit is hit, a response similar to below will be issued:
       </p>
       <p
@@ -1176,6 +1215,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
                   Your limit is 1000 requests per minute.
                   This limit will be reset in 30 seconds."
 }
+              
           </code>
         </pre>
       </p>
@@ -1217,6 +1257,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
     ...
   ]
 }
+              
           </code>
         </pre>
       </p>
@@ -1289,6 +1330,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
   "pageCount": 25,
   "totalCount" : 142,
 }
+              
           </code>
         </pre>
       </p>

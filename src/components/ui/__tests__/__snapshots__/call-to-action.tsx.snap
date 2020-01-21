@@ -10,15 +10,21 @@ exports[`CallToAction should match a snapshot 1`] = `
     message="My title"
     type="success"
   />
-  <div>
+  <FlexContainerBasic
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
     <p />
-    <Button
-      dataTest=""
-      type="button"
-      variant="primary"
-    >
-      My button
-    </Button>
-  </div>
+    <LevelRight>
+      <Button
+        dataTest=""
+        type="button"
+        variant="primary"
+      >
+        My button
+      </Button>
+    </LevelRight>
+  </FlexContainerBasic>
 </div>
 `;

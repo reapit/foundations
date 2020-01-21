@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 import { FormState } from '../../types/core'
 import { appDeleteRequest } from '@/actions/app-delete'
 import { ReduxState } from '@/types/core'
-import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter, SubTitleH6 } from '@reapit/elements'
+import { Button, ModalProps, Modal, ModalBody, ModalHeader, ModalFooter } from '@reapit/elements'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
 import CallToAction from './call-to-action'
+import { connect } from 'react-redux'
 
 interface AppDeleteModalWithConnectOwnProps {
   appId: string
@@ -63,10 +63,10 @@ export const DeleteAppModal = ({
       afterClose={handleAfterClose({ isSuccedded, onDeleteSuccess, isLoading, afterClose })}
       renderChildren
     >
-      <>
+      <React.Fragment>
         {isSuccedded ? (
           <CallToAction
-            title="Removed!"
+            title="Deleted"
             buttonText="Back to List"
             dataTest="delete-app-success-message"
             buttonDataTest="delete-app-success-button"
@@ -76,7 +76,7 @@ export const DeleteAppModal = ({
             We have successfully deleted app '{appName}'.
           </CallToAction>
         ) : (
-          <>
+          <React.Fragment>
             <ModalHeader
               title={`Confirm ${appName} deletion`}
               afterClose={afterClose as () => void}
@@ -84,15 +84,15 @@ export const DeleteAppModal = ({
             />
             <ModalBody
               body={
-                <SubTitleH6 isCentered>
-                  Are you sure you want to remove this App '{appName}'. By clicking 'Confirm' it will remove the App and
-                  all its data, including all revisions and listings. Please click 'Confirm' to continue with deletion.
-                </SubTitleH6>
+                <React.Fragment>
+                  Are you sure you want to remove this App '{appName}'. By clicking 'Delete' it will remove the App and
+                  all its data, including all revisions and listings. Please click 'Delete' to continue with deletion.
+                </React.Fragment>
               }
             />
             <ModalFooter
               footerItems={
-                <>
+                <React.Fragment>
                   <Button
                     dataTest="agree-btn"
                     loading={Boolean(isLoading)}
@@ -101,7 +101,7 @@ export const DeleteAppModal = ({
                     variant="danger"
                     onClick={() => appDeleteRequest(appId)}
                   >
-                    Confirm
+                    Delete
                   </Button>
                   <Button
                     dataTest="disagree-btn"
@@ -113,12 +113,12 @@ export const DeleteAppModal = ({
                   >
                     Cancel
                   </Button>
-                </>
+                </React.Fragment>
               }
             />
-          </>
+          </React.Fragment>
         )}
-      </>
+      </React.Fragment>
     </Modal>
   )
 }

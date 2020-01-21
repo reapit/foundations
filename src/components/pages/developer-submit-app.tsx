@@ -26,7 +26,8 @@ import {
   FormikHelpers,
   H6,
   FormikValues,
-  RadioSelect
+  RadioSelect,
+  FlexContainerResponsive
 } from '@reapit/elements'
 
 import { validate } from '@/utils/form/submit-app'
@@ -129,6 +130,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
     initialValues = {
       categoryId: '',
       authFlow: '',
+      screen5ImageUrl: '',
       screen4ImageUrl: '',
       screen3ImageUrl: '',
       screen2ImageUrl: '',
@@ -280,7 +282,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
       className={`${isSubmitting ? 'disabled' : ''} ${styles.container}`}
       data-test="app-input-form"
     >
-      <FlexContainerBasic flexColumn hasBackground hasPadding>
+      <FlexContainerResponsive flexColumn hasBackground hasPadding>
         {isSubmitApp ? <H3>Submit App</H3> : <H3>Edit App</H3>}
         <Formik
           validate={validate}
@@ -297,52 +299,220 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
           {({ setFieldValue, values }) => {
             return (
               <Form noValidate={true}>
-                <Grid data-test="submit-app-form">
-                  <GridItem>
-                    <FormSection>
-                      <FormHeading>App Listing</FormHeading>
-                      <FormSubHeading>
-                        These fields refer to the name and icon of your application as they will appear to a user in the
-                        Marketplace and in their installed apps. If your App is an external application, please select
-                        'Direct API'.
-                      </FormSubHeading>
-                      <Grid isMultiLine>
-                        <GridItem>
-                          <Input dataTest="submit-app-name" type="text" labelText="Name" id="name" name="name" />
-                        </GridItem>
-                        <GridItem>
-                          <div className="control">
-                            <label className="label">Icon</label>
-                            <ImageInput
-                              id="iconImage"
-                              dataTest="submit-app-icon"
-                              labelText="Upload Image"
-                              name="iconImageUrl"
-                              allowClear
-                            />
-                          </div>
-                        </GridItem>
-                      </Grid>
-                      <Grid>
-                        {isSubmitRevision && (
-                          <GridItem>
-                            <Checkbox name="isListed" labelText="Is Listed" id="isListed" />
-                          </GridItem>
-                        )}
-                        <GridItem>
-                          <Checkbox name="isDirectApi" labelText="Direct API" id="isDirectApi" />
-                        </GridItem>
-                      </Grid>
-                    </FormSection>
-                    <FormSection>
-                      <FormHeading>AUTHENTICATION FLOW</FormHeading>
-                      <FormSubHeading>
-                        Please select an authentication flow for your application. If you select "User Session" your
-                        users will have to login and you will need to attach a Bearer token to your API Authorization
-                        headers. This will typically be the flow for client side web apps. If you select "Client Secret"
-                        we will provide you with a secret token to include in your API requests - this secret will be
-                        unique per app and would typically be the flow for machine-to-machine server side apps.
-                      </FormSubHeading>
+                <FormSection data-test="submit-app-form">
+                  <FormHeading>App Listing</FormHeading>
+                  <FormSubHeading>
+                    The section below relates to the fields that comprise the listing of your application as it will
+                    appear to a user in the Marketplace. It also includes details we will use to enable us to contact
+                    you about your submitted application, how best to make your app discoverable to users and to
+                    determine where to launch it from the marketplace.
+                  </FormSubHeading>
+                  <Grid isMultiLine>
+                    <GridItem>
+                      <Input
+                        dataTest="submit-app-name"
+                        type="text"
+                        labelText="Name"
+                        id="name"
+                        name="name"
+                        placeholder="The name of your app as it will appear to users"
+                      />
+                    </GridItem>
+                    <GridItem>
+                      <SelectBox id="categoryId" name="categoryId" options={categoryOptions} labelText="Category" />
+                    </GridItem>
+                  </Grid>
+                  <Grid>
+                    <GridItem>
+                      <Input
+                        dataTest="submit-app-support-email"
+                        type="email"
+                        labelText="Support email"
+                        id="supportEmail"
+                        name="supportEmail"
+                        placeholder="The contact to your support team if your users have a problem"
+                      />
+                    </GridItem>
+                    <GridItem>
+                      <Input
+                        dataTest="submit-app-phone"
+                        type="tel"
+                        labelText="Telephone"
+                        id="phone"
+                        name="telephone"
+                        placeholder="Should one of our developers need to contact you about your app"
+                      />
+                    </GridItem>
+                  </Grid>
+                  <Grid>
+                    <GridItem>
+                      <Input
+                        dataTest="submit-app-home-page"
+                        type="text"
+                        labelText="Home page"
+                        id="homePage"
+                        name="homePage"
+                        placeholder="Your company homepage"
+                      />
+                    </GridItem>
+                    <GridItem>
+                      <Input
+                        dataTest="submit-app-launch-uri"
+                        type="text"
+                        labelText="Launch URI"
+                        id="launch Url"
+                        name="launchUri"
+                        placeholder="The launch page for your app"
+                      />
+                    </GridItem>
+                  </Grid>
+                  <Grid>
+                    <GridItem>
+                      <TextArea
+                        id="summary"
+                        dataTest="submit-app-summary"
+                        labelText="Summary"
+                        name="summary"
+                        placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+                      />
+                    </GridItem>
+                    <GridItem>
+                      <TextArea
+                        id="description"
+                        dataTest="submit-app-description"
+                        labelText="Description"
+                        name="description"
+                        placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters"
+                      />
+                    </GridItem>
+                  </Grid>
+                </FormSection>
+                <FormSection>
+                  <FormHeading>Images</FormHeading>
+                  <FormSubHeading>
+                    The icon field will appear as the main brand representation of your app in marketplace listings and
+                    installed apps pages. You can also select a minimum of one and up to five screenshots of your
+                    application, that will appear in a carousel in the details view of your app listing.
+                  </FormSubHeading>
+                  <GridFiveCol>
+                    <GridFourColItem>
+                      <div className="control">
+                        <label className="label">Icon</label>
+                        <ImageInput
+                          id="iconImage"
+                          dataTest="submit-app-icon"
+                          labelText="Upload Image"
+                          name="iconImageUrl"
+                          allowClear
+                        />
+                      </div>
+                    </GridFourColItem>
+                    <GridFourColItem>
+                      <div className="control mb-4">
+                        <label className="label">Screenshot 1</label>
+                        <ImageInput
+                          id="screenshot1"
+                          dataTest="submit-app-screenshot1"
+                          labelText="Upload Image"
+                          name="screen1ImageUrl"
+                          allowClear
+                        />
+                      </div>
+                    </GridFourColItem>
+                    <GridFourColItem>
+                      <div className="control mb-4">
+                        <label className="label">Screenshot 2</label>
+                        <ImageInput
+                          id="screenshot2"
+                          dataTest="submit-app-screenshot2"
+                          labelText="Upload Image"
+                          name="screen2ImageUrl"
+                          allowClear
+                        />
+                      </div>
+                    </GridFourColItem>
+                    <GridFourColItem>
+                      <div className="control mb-4">
+                        <label className="label">Screenshot 3</label>
+                        <ImageInput
+                          id="screenshot3"
+                          dataTest="submit-app-screenshot3"
+                          labelText="Upload Image"
+                          name="screen3ImageUrl"
+                          allowClear
+                        />
+                      </div>
+                    </GridFourColItem>
+                    <GridFourColItem>
+                      <div className="control mb-4">
+                        <label className="label">Screenshot 4</label>
+                        <ImageInput
+                          id="screenshot4"
+                          dataTest="submit-app-screenshot4"
+                          labelText="Upload Image"
+                          name="screen4ImageUrl"
+                          allowClear
+                        />
+                      </div>
+                    </GridFourColItem>
+                    <GridFourColItem>
+                      <div className="control mb-4">
+                        <label className="label">Screenshot 5</label>
+                        <ImageInput
+                          id="screenshot5"
+                          dataTest="submit-app-screenshot5"
+                          labelText="Upload Image"
+                          name="screen5ImageUrl"
+                          allowClear
+                        />
+                      </div>
+                    </GridFourColItem>
+                  </GridFiveCol>
+                </FormSection>
+                <FormSection>
+                  <FormHeading>Marketplace Status</FormHeading>
+                  <FormSubHeading>
+                    This section refers to the listing status in the Marketplace. If your App is an external application
+                    i.e. it is just an API feed app or is a web application that exists out of the Marketplace
+                    ecosystem, please select, 'Direct API'. Your app will still need to be listed in the Marketplace and
+                    installed by clients so they can grant permissions however, it will not appear as a launchable app
+                    for users from the Marketplace. It is a hard requirement that launchable apps conform closely to our
+                    "Elements", brand guidelines so if your app does not, please also select "Direct API". When you have
+                    done your initial app submit, please return here to set the "Is Listed" status to make the app
+                    installable for users.
+                  </FormSubHeading>
+                  <Grid>
+                    <GridItem>
+                      <Checkbox name="isDirectApi" labelText="Direct API" id="isDirectApi" />
+                    </GridItem>
+                    {isSubmitRevision && (
+                      <GridItem>
+                        <Checkbox name="isListed" labelText="Is Listed" id="isListed" />
+                      </GridItem>
+                    )}
+                  </Grid>
+                </FormSection>
+                <FormSection>
+                  <FormHeading>AUTHENTICATION FLOW</FormHeading>
+                  <FormSubHeading>
+                    Please select an authentication flow for your application.{' '}
+                    <strong>You can only do this once when you submit your app.</strong> You should always select "User
+                    Session" for client side authenticated apps. In this case, your users will have to login and you
+                    will need to attach a Bearer token to your API Authorization headers. If you select "Client Secret"
+                    we will provide you with a secret token to include in your API requests. This secret will be unique
+                    per app and would typically be the flow for machine-to-machine server side apps.{' '}
+                    <strong>
+                      It is fundementally insecure to expose this secret on the client side and doing so will result in
+                      your app being rejected.
+                    </strong>
+                    For more on authentication please read the docs{' '}
+                    <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank">
+                      here
+                    </a>{' '}
+                    before progressing.
+                  </FormSubHeading>
+                  <Grid>
+                    <GridItem>
                       <RadioSelect
                         setFieldValue={setFieldValue}
                         state={values['authFlow']}
@@ -354,151 +524,21 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         name="authFlow"
                         id="authFlow"
                       />
-                    </FormSection>
-                    <FormSection>
-                      <FormHeading>APP CATEGORY</FormHeading>
-                      <FormSubHeading>
-                        To ensure your App is searchable on the Marketplace, please choose the most relevant category
-                        from the list below.
-                      </FormSubHeading>
-                      <Grid>
-                        <GridItem>
-                          <SelectBox id="categoryId" name="categoryId" options={categoryOptions} labelText="CATEGORY" />
-                        </GridItem>
-                      </Grid>
-                    </FormSection>
-                    <FormSection>
-                      <FormHeading>App Details</FormHeading>
-                      <FormSubHeading>
-                        Information that will be the user facing listing for your app. "Summary" will be the short app
-                        strapline whereas "description", will be more detailed. These fields have a min/max charset of
-                        50/150 and 150/1000 respectively.
-                      </FormSubHeading>
-                      <TextArea id="summary" dataTest="submit-app-summary" labelText="Summary" name="summary" />
-                      <TextArea
-                        id="description"
-                        dataTest="submit-app-description"
-                        labelText="Description"
-                        name="description"
-                      />
-                    </FormSection>
-                  </GridItem>
-                  <GridItem>
-                    <FormSection>
-                      <FormHeading>Contact Details</FormHeading>
-                      <FormSubHeading>
-                        Should one of our developers need to get in touch about your app listing.
-                      </FormSubHeading>
-                      <Grid>
-                        <GridItem>
-                          <Input
-                            dataTest="submit-app-support-email"
-                            type="email"
-                            labelText="Support email"
-                            id="supportEmail"
-                            name="supportEmail"
-                          />
-                        </GridItem>
-                        <GridItem>
-                          <Input
-                            dataTest="submit-app-phone"
-                            type="tel"
-                            labelText="Telephone"
-                            id="phone"
-                            name="telephone"
-                          />
-                        </GridItem>
-                      </Grid>
-                    </FormSection>
-                    <FormSection>
-                      <FormHeading>Websites</FormHeading>
-                      <FormSubHeading>
-                        Homepage refers to your company's corporate site. The launch URI is default homepage for your
-                        listed application.
-                      </FormSubHeading>
-                      <Grid>
-                        <GridItem>
-                          <Input
-                            dataTest="submit-app-home-page"
-                            type="text"
-                            labelText="Home page"
-                            id="homePage"
-                            name="homePage"
-                          />
-                        </GridItem>
-                        <GridItem>
-                          <Input
-                            dataTest="submit-app-launch-uri"
-                            type="text"
-                            labelText="Launch Url"
-                            id="launch Url"
-                            name="launchUri"
-                          />
-                        </GridItem>
-                      </Grid>
-                    </FormSection>
-                    <FormSection>
-                      <FormHeading>Screenshots</FormHeading>
-                      <FormSubHeading>
-                        You can select a minimum of one and up to four screenshots of your application, that will appear
-                        in a carousel in the details view of your app listing.
-                      </FormSubHeading>
-                      <Grid isMultiLine>
-                        <GridItem>
-                          <div className="control mb-4">
-                            <label className="label">Screenshot 1</label>
-                            <ImageInput
-                              id="screenshot1"
-                              dataTest="submit-app-screenshot1"
-                              labelText="Upload Image"
-                              name="screen1ImageUrl"
-                              allowClear
-                            />
-                          </div>
-                          <div className="control mb-4">
-                            <label className="label">Screenshot 2</label>
-                            <ImageInput
-                              id="screenshot2"
-                              dataTest="submit-app-screenshot2"
-                              labelText="Upload Image"
-                              name="screen2ImageUrl"
-                              allowClear
-                            />
-                          </div>
-                        </GridItem>
-                        <GridItem>
-                          <div className="control mb-4">
-                            <label className="label">Screenshot 3</label>
-                            <ImageInput
-                              id="screenshot3"
-                              dataTest="submit-app-screenshot3"
-                              labelText="Upload Image"
-                              name="screen3ImageUrl"
-                              allowClear
-                            />
-                          </div>
-                          <div className="control mb-4">
-                            <label className="label">Screenshot 4</label>
-                            <ImageInput
-                              id="screenshot4"
-                              dataTest="submit-app-screenshot4"
-                              labelText="Upload Image"
-                              name="screen4ImageUrl"
-                              allowClear
-                            />
-                          </div>
-                        </GridItem>
-                      </Grid>
-                    </FormSection>
-                  </GridItem>
-                </Grid>
+                    </GridItem>
+                  </Grid>
+                </FormSection>
                 <FormSection>
                   <FormHeading>Permissions</FormHeading>
                   <FormSubHeading>
                     To access a client's data, you will need to specify the entities you need access to on a read or
                     write basis. You should be familar with these entities from the sandbox. When the user installs your
                     application, they will have to consent to your usage based on these permissions. If you do not have
-                    the correct permissions on an entity basis, your app will receive a 403 error.
+                    the correct permissions on an entity basis, your app will receive a 403 error. For more on scopes
+                    please read the docs{' '}
+                    <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank">
+                      here
+                    </a>{' '}
+                    before progressing.
                   </FormSubHeading>
                   <GridFiveCol>{renderScopesCheckbox(scopes)}</GridFiveCol>
                 </FormSection>
@@ -574,7 +614,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
             )
           }}
         </Formik>
-      </FlexContainerBasic>
+      </FlexContainerResponsive>
     </FlexContainerBasic>
   )
 }

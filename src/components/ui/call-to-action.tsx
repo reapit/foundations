@@ -1,6 +1,5 @@
 import * as React from 'react'
-import styles from '@/styles/elements/call-to-action.scss?mod'
-import { Alert, Button } from '@reapit/elements'
+import { Button, Alert, FlexContainerBasic, LevelRight } from '@reapit/elements'
 
 type CTAType = 'success' | 'danger'
 
@@ -21,29 +20,22 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
   children,
   type = 'success',
   onButtonClick,
-  className,
   buttonText,
-  isCard = false,
-  isCenter = false,
   dataTest = '',
-  buttonDataTest = ''
-}) => {
-  const containerClassNames = [styles.container]
-  isCard && containerClassNames.push(styles.isCard)
-  isCenter && containerClassNames.push(styles.isCenter)
-  className && containerClassNames.push(className)
-
-  return (
-    <div className={containerClassNames.join(' ')} data-test={dataTest}>
-      <Alert className="mb-0" type={type} message={title} />
-      <div className={styles.content}>
-        <p className={styles.message}>{children}</p>
+  buttonDataTest = '',
+  className = ''
+}) => (
+  <div className={className} data-test={dataTest}>
+    <Alert className="mb-0" type={type} message={title} />
+    <FlexContainerBasic hasPadding hasBackground flexColumn>
+      <p>{children}</p>
+      <LevelRight>
         <Button dataTest={buttonDataTest} variant="primary" type="button" onClick={onButtonClick as () => void}>
           {buttonText}
         </Button>
-      </div>
-    </div>
-  )
-}
+      </LevelRight>
+    </FlexContainerBasic>
+  </div>
+)
 
 export default CallToAction

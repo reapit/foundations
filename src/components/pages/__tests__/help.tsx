@@ -1,4 +1,5 @@
 import * as React from 'react'
+import initChatBot from '../../../scripts/chat-bot'
 import { shallow } from 'enzyme'
 import {
   HelpPage,
@@ -12,6 +13,8 @@ import {
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 import { HelpLinks } from '@/constants/help-links'
+
+jest.mock('../../../scripts/chat-bot')
 
 jest.mock('../../../core/router', () => ({
   history: {
@@ -55,9 +58,8 @@ describe('handleRequestEndpoint', () => {
 
 describe('handleFaq', () => {
   it('should called with correct props', () => {
-    const spy = jest.spyOn(window, 'open')
     handleFaq()
-    expect(spy).toHaveBeenCalledWith(HelpLinks.FAQ, '_blank')
+    expect(initChatBot).toHaveBeenCalledTimes(1)
   })
 })
 

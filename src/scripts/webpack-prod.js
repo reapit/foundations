@@ -19,7 +19,7 @@ const PurgecssLoader = {
   loader: path.resolve('./src/scripts/purgecss-loader.js'),
   options: {
     // https://github.com/FullHuman/purgecss-webpack-plugin/issues/39
-    paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`, {nodir: true}),
+    paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`, { nodir: true }),
     whitelistPatterns: [/^(slick)/, /^(modal)/],
     whitelist: PurgecssWhitelister([
       'src/styles/utilities.scss',

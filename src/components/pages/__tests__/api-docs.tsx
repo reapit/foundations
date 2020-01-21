@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { shallow } from 'enzyme'
 import ApiDocs, { handleUseLayoutEffect } from '../api-docs'
 
 jest.mock('../../../core/store')
@@ -46,9 +45,9 @@ describe('ApiDocs', () => {
     expect(scrollIntoViewMock).toHaveBeenCalledTimes(0)
   })
 
-  it('should call scrollIntoView to id="api" when there no hash', () => {
+  it('should not call scrollIntoView when there no hash', () => {
     const fn = handleUseLayoutEffect('')
     fn()
-    expect(scrollIntoViewMock).toBeCalled()
+    expect(scrollIntoViewMock).not.toBeCalled()
   })
 })

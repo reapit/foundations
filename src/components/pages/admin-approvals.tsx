@@ -2,7 +2,17 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { AdminApprovalsState } from '@/reducers/admin-approvals'
-import { Loader, Pagination, Table, Button, Info, FlexContainerResponsive } from '@reapit/elements'
+import {
+  Loader,
+  Pagination,
+  Table,
+  Button,
+  Info,
+  FlexContainerResponsive,
+  Helper,
+  infoText,
+  FlexContainerBasic
+} from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
 import routes from '@/constants/routes'
@@ -51,7 +61,11 @@ export const RenderContent = ({
   }
 
   if (!loading && !list.length) {
-    return <Info infoType="ADMIN_APPROVALS_EMPTY" />
+    return (
+      <FlexContainerBasic hasPadding flexColumn>
+        <Helper variant="info">{infoText('ADMIN_APPROVALS_EMPTY')}</Helper>
+      </FlexContainerBasic>
+    )
   }
 
   return (

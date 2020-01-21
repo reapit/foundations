@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { FlexContainerBasic, H3, Input, Formik, Form, FormikValues, RadioSelect, FormikProps } from '@reapit/elements'
+import { FlexContainerBasic, H3, Input, Formik, Form, RadioSelect, FormikProps, H6 } from '@reapit/elements'
 import { ReduxState } from '@/types/core'
 import { withRouter, RouteComponentProps } from 'react-router'
 import styles from '@/styles/blocks/app-sidebar.scss?mod'
@@ -78,25 +78,30 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({ categories, location, hi
   const categoriesWithDirectApiOption = [...categories, { id: 'DIRECT_API_APPS_FILTER', name: 'Direct API' }]
   return (
     <div className={styles.sidebar}>
-      <FlexContainerBasic hasPadding flexColumn>
-        <H3>Browse Apps</H3>
-        <Formik
-          enableReinitialize={true}
-          initialValues={
-            {
-              search: getParamValueFromPath(location.search, 'search'),
-              searchBy: getParamValueFromPath(location.search, 'searchBy') || 'appName'
-            } as FilterFormValues
-          }
-          onSubmit={handleSearchApp(history)}
-          component={FilterForm}
-        />
-
-        <CategoriesList
-          selectedCategory={getParamValueFromPath(location.search, 'category')}
-          categories={categoriesWithDirectApiOption}
-          onSelectCategory={handleSelectCategory(history)}
-        />
+      <FlexContainerBasic flexColumn hasPadding>
+        <div className={styles.sidebarWrap}>
+          <H3>Browse Apps</H3>
+          <H6 className={styles.subHeading}>Search</H6>
+          <Formik
+            enableReinitialize={true}
+            initialValues={
+              {
+                search: getParamValueFromPath(location.search, 'search'),
+                searchBy: getParamValueFromPath(location.search, 'searchBy') || 'appName'
+              } as FilterFormValues
+            }
+            onSubmit={handleSearchApp(history)}
+            component={FilterForm}
+          />
+        </div>
+        <div className={styles.sidebarWrap}>
+          <H6 className={styles.subHeading}>Filter</H6>
+          <CategoriesList
+            selectedCategory={getParamValueFromPath(location.search, 'category')}
+            categories={categoriesWithDirectApiOption}
+            onSelectCategory={handleSelectCategory(history)}
+          />
+        </div>
       </FlexContainerBasic>
     </div>
   )

@@ -13,13 +13,11 @@ exports[`app-delete should match snapshot 1`] = `
   />
   <ModalBody
     body={
-      <SubTitleH6
-        isCentered={true}
-      >
+      <React.Fragment>
         Are you sure you want to remove this App '
         test
-        '. By clicking 'Confirm' it will remove the App and all its data, including all revisions and listings. Please click 'Confirm' to continue with deletion.
-      </SubTitleH6>
+        '. By clicking 'Delete' it will remove the App and all its data, including all revisions and listings. Please click 'Delete' to continue with deletion.
+      </React.Fragment>
     }
   />
   <ModalFooter
@@ -32,7 +30,7 @@ exports[`app-delete should match snapshot 1`] = `
           type="button"
           variant="danger"
         >
-          Confirm
+          Delete
         </Button>
         <Button
           dataTest="disagree-btn"

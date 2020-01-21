@@ -50,15 +50,10 @@ exports[`AppDetailModalInner should match a snapshot 1`] = `
         <br />
         <p />
         <br />
-        <p>
-          Permissions
-        </p>
-        <small>
-          <i>
-            You have requested the following permissions for this App:
-          </i>
-        </small>
-        <ul />
+        <H6>
+          Permissions requested
+        </H6>
+        <GridFiveCol />
       </React.Fragment>
     }
   />

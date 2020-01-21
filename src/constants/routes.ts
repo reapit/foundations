@@ -14,6 +14,7 @@ const Routes = {
   DEVELOPER_API_DOCS: '/developer/api-docs',
   DEVELOPER_DESKTOP_DOCS: '/developer/desktop-docs',
   DEVELOPER_WEB_COMPONENTS: '/developer/web-components',
+  DEVELOPER_PACKAGE_DOCS: '/developer/packages',
   DEVELOPER_ANALYTICS: '/developer/analytics',
   DEVELOPER_RESET_PASSWORD: '/developer/reset-password',
   SETTINGS: '/developer/settings',
