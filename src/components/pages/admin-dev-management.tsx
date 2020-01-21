@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { History } from 'history'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { withRouter, RouteComponentProps, match } from 'react-router'
 import { ReduxState } from '@/types/core'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
@@ -14,7 +15,8 @@ import {
   Button,
   Loader,
   Section,
-  setQueryParams
+  setQueryParams,
+  Helper
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import AdminDevManagementFilterForm, {
@@ -24,6 +26,7 @@ import AdminSetDeveloperStatusModal from '@/components/ui/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { adminDevManagementRequestData, AdminDevManagementRequestDataValues } from '@/actions/admin-dev-management'
 import qs from 'querystring'
+import styles from '@/styles/pages/admin-dev-management.scss?mod'
 
 export interface AdminDevManagementMappedActions {
   fetchData: (requestdata: AdminDevManagementRequestDataValues) => void
@@ -99,7 +102,18 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
   }
 
   if (!loading && data?.data?.length === 0) {
-    return <Info infoType="DEVELOPER_EMPTY" />
+    return (
+      <React.Fragment>
+        <Helper variant="info">
+          Unfortunately, there are no results that match your search criteria, please try again
+        </Helper>
+        <Link className={styles.textCenter} to="/admin/dev-management">
+          <Button variant="primary" type="button">
+            New Search
+          </Button>
+        </Link>
+      </React.Fragment>
+    )
   }
 
   return (
