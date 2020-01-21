@@ -13,7 +13,6 @@ import {
   IconList,
   AcLink,
   EntityType,
-  LoginMode,
   SubTitleH5,
   H6,
   H4,
@@ -36,14 +35,16 @@ import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
 import { getAttendeeEntityType } from '@/utils/get-attendee-entity-type'
 import ConfirmContent from './confirm-content'
 import { OfficeModel } from '@/types/platform'
+import { LoginMode } from '@reapit/cognito-auth'
 
 const { appointmentDetailTextContainer } = styles
 
-export type AppointmentModalProps = StateProps & DispatchProps & {
-  appointment: AppointmentModel
-  visible: boolean
-  isLoading: boolean
-}
+export type AppointmentModalProps = StateProps &
+  DispatchProps & {
+    appointment: AppointmentModel
+    visible: boolean
+    isLoading: boolean
+  }
 
 interface GetHeaderParams {
   basicAddress: string
@@ -161,8 +162,8 @@ export const renderNegotiators = (negotiators: NegotiatorModel[], loginMode: Log
         <H6>Negotiators:</H6>
       </div>
       <div>
-        {negotiators.map((negotiator: NegotiatorModel) => (
-          <div>
+        {negotiators.map((negotiator: NegotiatorModel, index: number) => (
+          <div key={index}>
             <AcLink
               dynamicLinkParams={{
                 appMode: loginMode,
@@ -191,8 +192,8 @@ export const renderOffices = (offices: OfficeModel[], loginMode: LoginMode) => {
         <H6>Offices:</H6>
       </div>
       <div>
-        {offices.map((office: OfficeModel) => (
-          <div>
+        {offices.map((office: OfficeModel, index: number) => (
+          <div key={index}>
             <AcLink
               dynamicLinkParams={{
                 appMode: loginMode,
@@ -216,9 +217,9 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
 
   return (
     <React.Fragment>
-      {attendee?.contacts?.map((contact: AppointmentContactModel) => {
+      {attendee?.contacts?.map((contact: AppointmentContactModel, index: number) => {
         return (
-          <div className={appointmentDetailTextContainer}>
+          <div key={index} className={appointmentDetailTextContainer}>
             <div className={styles.appointmentDetailIconContainer}>
               <FaMale />
               <H6>{capitalizeFirstLetter(attendee?.type || '')}:</H6>
@@ -389,7 +390,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
           negotiators,
           offices,
           loginMode,
-          attendee,
+          attendee
         })}
       </Modal>
     </React.Fragment>

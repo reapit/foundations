@@ -24,6 +24,39 @@ import { selectUserCode } from '@/selectors/auth'
 import { AppointmentRequestParams } from '@/actions/appointments'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
+import utc from 'dayjs/plugin/utc'
+
+dayjs.extend(utc)
+
+export const getStartAndEndDate = (time: 'Today' | 'Tomorrow' | 'Week View') => {
+  if (time === 'Today') {
+    const start = dayjs()
+      .startOf('day')
+      .utc()
+    const end = dayjs()
+      .endOf('day')
+      .utc()
+    return { start, end }
+  }
+  if (time === 'Tomorrow') {
+    const start = dayjs()
+      .add(1, 'day')
+      .startOf('day')
+      .utc()
+    const end = dayjs()
+      .add(1, 'day')
+      .endOf('day')
+      .utc()
+    return { start, end }
+  }
+  const start = dayjs().startOf('day')
+  const end = dayjs()
+    .add(1, 'week')
+    .subtract(1, 'day')
+    .endOf('day')
+    .utc()
+  return { start, end }
+}
 
 export const appointmentsDataFetch = function*({ data: { time } }: Action<AppointmentRequestParams>) {
   const online = yield select(selectOnlineStatus)
@@ -53,31 +86,7 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
   }
 
   yield put(appointmentsLoading(true))
-
-  let start: dayjs.ConfigType
-  let end: dayjs.ConfigType
-
-  if (time === 'Today') {
-    start = dayjs().startOf('day')
-    end = dayjs().endOf('day')
-  } else if (time === 'Tomorrow') {
-    start = dayjs()
-      .add(1, 'day')
-      .startOf('day')
-    end = dayjs()
-      .add(1, 'day')
-      .endOf('day')
-  } else {
-    start = dayjs().startOf('day')
-    end = dayjs()
-      .add(1, 'week')
-      .subtract(1, 'day')
-      .endOf('day')
-  }
-
-  // Enable this to fetch past data if there is no data for current period
-  // start = dayjs().subtract(150, 'day')
-  // end = dayjs()
+  const { start, end } = getStartAndEndDate(time)
   const userCode = yield select(selectUserCode)
   try {
     const headers = yield call(initAuthorizedRequestHeaders)

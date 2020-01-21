@@ -1,4 +1,4 @@
-import appointmentsSagas, { appointmentsDataFetch, appointmentsDataListen } from '@/sagas/appointments'
+import appointmentsSagas, { appointmentsDataFetch, appointmentsDataListen, getStartAndEndDate } from '@/sagas/appointments'
 import { AppointmentModel, ListItemModel } from '@reapit/foundations-ts-definitions'
 import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
 import ActionTypes from '@/constants/action-types'
@@ -295,6 +295,26 @@ describe('appointments thunks', () => {
       const gen = appointmentsSagas()
       expect(gen.next().value).toEqual(all([fork(appointmentsDataListen)]))
       expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('getStartAndEndDate', () => {
+    it('should return by time===Today', () => {
+      const result = getStartAndEndDate('Today')
+      expect(result.start.toISOString()).toEqual('2019-10-10T00:00:00.000Z')
+      expect(result.end.toISOString()).toEqual('2019-10-10T23:59:59.999Z')
+    })
+
+    it('should return by time===Tomorrow', () => {
+      const result = getStartAndEndDate('Tomorrow')
+      expect(result.start.toISOString()).toEqual('2019-10-11T00:00:00.000Z')
+      expect(result.end.toISOString()).toEqual('2019-10-11T23:59:59.999Z')
+    })
+
+    it('should return by time===Week View', () => {
+      const result = getStartAndEndDate('Week View')
+      expect(result.start.toISOString()).toEqual('2019-10-10T00:00:00.000Z')
+      expect(result.end.toISOString()).toEqual('2019-10-16T23:59:59.999Z')
     })
   })
 })
