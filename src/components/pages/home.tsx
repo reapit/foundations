@@ -81,7 +81,6 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   desktopMode,
   setSelectedAppointment
 }) => {
-  console.log({ nextAppointmentState })
   const unfetched = !appointmentsState.appointments
   const loading = appointmentsState.loading
   const selectedAppointment = appointmentsState.selectedAppointment
