@@ -8,6 +8,10 @@
     "outDir": "public",
     "strict": true,
     "lib": ["dom", "es2015", "es2017", "es2018", "es2019", "es2020", "es5", "es6", "es7", "esnext"],
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["src/*"]
+    },
     "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types"]
   },
   "include": ["src"],

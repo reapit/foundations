@@ -12,7 +12,6 @@
   "scripts": {
     "test": "jest --coverage --silent",
     "test-dev": "jest --watch --verbose",
-    "lint": "tslint --fix --project tsconfig.json --format stylish",
     "prepublish": "yarn test && yarn build",
     "prebuild": "rimraf dist && rimraf public",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
@@ -55,33 +54,5 @@
     "tslint-config-standard": "~9.0.0",
     "tslint-plugin-prettier": "~2.0.1",
     "typescript": "~3.7.2"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "collectCoverageFrom": [
-      "<rootDir>/src/**/*.ts"
-    ],
-    "coverageDirectory": "./coverage",
-    "coveragePathIgnorePatterns": [
-      "<rootDir>[/\\\\](node_modules|src/core)[/\\\\]",
-      "<rootDir>/src/app.ts",
-      "<rootDir>/src/app.dev.ts",
-      "<rootDir>/src/index.ts"
-    ],
-    "modulePathIgnorePatterns": [
-      "<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
-    }
-  },
-  "lint-staged": {
-    "*.{ts}": [
-      "yarn lint",
-      "git add"
-    ]
   }
 }
