@@ -253,6 +253,14 @@ export interface ApplicantModel {
    */
   bathroomsMax?: number // int32
   /**
+   * The applicants location type (areas/addresses/none)
+   */
+  locationType?: string
+  /**
+   * The applicants location options
+   */
+  locationOptions?: string[]
+  /**
    * The details specific to applicants with a marketingMode of buying
    */
   buying?: {
@@ -835,19 +843,6 @@ export interface CompanyAddressModel {
   country?: string
 }
 /**
- * Model representing a single contact detail (eg mobile telephone number)
- */
-export interface CompanyCommunicationModel {
-  /**
-   * Gets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Gets the contact detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model representing the details of a company
  */
 export interface CompanyModel {
@@ -892,19 +887,17 @@ export interface CompanyModel {
    */
   supplierTypeId?: string
   /**
-   * Gets a collection of the company communication details
-   * Eg. Email address, mobile number, landline
+   * The work phone number of the company
    */
-  communications?: {
-    /**
-     * Gets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Gets the contact detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  workPhone?: string
+  /**
+   * The mobile phone number of the company
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the company
+   */
+  email?: string
   /**
    * Gets the address for this company
    */
@@ -1387,6 +1380,14 @@ export interface CreateApplicantModel {
    */
   bathroomsMax?: number // int32
   /**
+   * Sets the applicants location type (areas/addresses/none)
+   */
+  locationType?: string
+  /**
+   * Sets the applicants location options
+   */
+  locationOptions?: string[]
+  /**
    * Sets the sales specific requirements, if the applicant is looking to buy
    */
   selling?: {
@@ -1733,19 +1734,6 @@ export interface CreateCompanyAddressModel {
   countryId?: string
 }
 /**
- * Model to create a communication detail for a company (eg. an email address)
- */
-export interface CreateCompanyCommunicationModel {
-  /**
-   * Sets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Sets the contact detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model to create a company
  */
 export interface CreateCompanyModel {
@@ -1778,19 +1766,17 @@ export interface CreateCompanyModel {
    */
   supplierTypeId?: string
   /**
-   * Sets a collection of the companies communication details
-   * Eg. Email address, mobile number, landline
+   * The work phone number of the company
    */
-  communications?: {
-    /**
-     * Sets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Sets the contact detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  workPhone?: string
+  /**
+   * The mobile phone number of the company
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the company
+   */
+  email?: string
   /**
    * Sets the address of the company
    */
@@ -2278,19 +2264,6 @@ export interface CreateLandlordSourceModel {
   type?: string
 }
 /**
- * Model to create a communication details (eg. an email address)
- */
-export interface CreateNegotiatorCommunicationModel {
-  /**
-   * Sets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Sets the communication detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model to create an negotiator
  */
 export interface CreateNegotiatorModel {
@@ -2315,19 +2288,17 @@ export interface CreateNegotiatorModel {
    */
   active?: boolean
   /**
-   * Sets a collection of the negotiator communication details
-   * Eg. Email address, mobile number, landline
+   * The work phone number of the negotiator
    */
-  communicationDetails?: {
-    /**
-     * Sets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Sets the communication detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  workPhone?: string
+  /**
+   * The mobile phone number of the negotiator
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the negotiator
+   */
+  email?: string
   /**
    * Sets a JSON fragment to attach to this negotiator as metadata
    */
@@ -2424,19 +2395,6 @@ export interface CreateOfficeAddressModel {
   countryId?: string
 }
 /**
- * Model to create a communication details (eg. an email address)
- */
-export interface CreateOfficeCommunicationModel {
-  /**
-   * Sets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Sets the communication detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model to create an office
  */
 export interface CreateOfficeModel {
@@ -2494,19 +2452,13 @@ export interface CreateOfficeModel {
     countryId?: string
   }
   /**
-   * Sets a collection of the office communication details
-   * Eg. Email address, mobile number, landline
+   * The work phone number of the office
    */
-  communicationDetails?: {
-    /**
-     * Sets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Sets the communication detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  workPhone?: string
+  /**
+   * The email address of the office
+   */
+  email?: string
   /**
    * Sets a JSON fragment to attach to this office as metadata
    */
@@ -2766,6 +2718,10 @@ export interface CreatePropertyModel {
    * Sets a value indicating whether this property can be advertised on the internet
    */
   internetAdvertising?: boolean
+  /**
+   * The arrangements regarding viewing the property
+   */
+  viewingArrangements?: string
   /**
    * Sets details of the EPC statistics
    */
@@ -3761,19 +3717,6 @@ export interface ListItemModel {
    */
   value?: string
 }
-/**
- * Model representing communication details (eg mobile telephone number)
- */
-export interface NegotiatorCommunicationModel {
-  /**
-   * Gets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Gets the communication detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
 export interface NegotiatorModel {
   /**
    * Gets the unique identifier
@@ -3804,19 +3747,17 @@ export interface NegotiatorModel {
    */
   officeId?: string
   /**
-   * Gets a collection of the negotiator communication details
-   * Eg. Email address, mobile number, landline
+   * The work phone number of the negotiator
    */
-  communicationDetails?: {
-    /**
-     * Gets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Gets the communication detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  workPhone?: string
+  /**
+   * The mobile phone number of the negotiator
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the negotiator
+   */
+  email?: string
   /**
    * Gets a listing of additional metadata that has been set against this negotiator
    */
@@ -4138,19 +4079,6 @@ export interface OfficeAddressModel {
    */
   countryId?: string
 }
-/**
- * Model representing communication details (eg mobile telephone number)
- */
-export interface OfficeCommunicationModel {
-  /**
-   * Gets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Gets the communication detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
 export interface OfficeModel {
   /**
    * Gets the unique identifier
@@ -4214,19 +4142,13 @@ export interface OfficeModel {
     countryId?: string
   }
   /**
-   * Gets a collection of the office communication details
-   * Eg. Email address, mobile number, landline
+   * The work phone number of the office
    */
-  communications?: {
-    /**
-     * Gets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Gets the communication detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  workPhone?: string
+  /**
+   * The email address of the office
+   */
+  email?: string
   /**
    * Gets a listing of additional metadata that has been set against this office
    */
@@ -4336,6 +4258,14 @@ export interface PagedResultApplicantModel_ {
      * The maximum number of bathrooms the applicant requires
      */
     bathroomsMax?: number // int32
+    /**
+     * The applicants location type (areas/addresses/none)
+     */
+    locationType?: string
+    /**
+     * The applicants location options
+     */
+    locationOptions?: string[]
     /**
      * The details specific to applicants with a marketingMode of buying
      */
@@ -4746,19 +4676,17 @@ export interface PagedResultCompanyModel_ {
      */
     supplierTypeId?: string
     /**
-     * Gets a collection of the company communication details
-     * Eg. Email address, mobile number, landline
+     * The work phone number of the company
      */
-    communications?: {
-      /**
-       * Gets the label representing the type of detail (eg E-mail)
-       */
-      label?: string
-      /**
-       * Gets the contact detail (eg the actual telephone number or email address)
-       */
-      detail?: string
-    }[]
+    workPhone?: string
+    /**
+     * The mobile phone number of the company
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the company
+     */
+    email?: string
     /**
      * Gets the address for this company
      */
@@ -5448,19 +5376,17 @@ export interface PagedResultNegotiatorModel_ {
      */
     officeId?: string
     /**
-     * Gets a collection of the negotiator communication details
-     * Eg. Email address, mobile number, landline
+     * The work phone number of the negotiator
      */
-    communicationDetails?: {
-      /**
-       * Gets the label representing the type of detail (eg E-mail)
-       */
-      label?: string
-      /**
-       * Gets the communication detail (eg the actual telephone number or email address)
-       */
-      detail?: string
-    }[]
+    workPhone?: string
+    /**
+     * The mobile phone number of the negotiator
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the negotiator
+     */
+    email?: string
     /**
      * Gets a listing of additional metadata that has been set against this negotiator
      */
@@ -5708,19 +5634,13 @@ export interface PagedResultOfficeModel_ {
       countryId?: string
     }
     /**
-     * Gets a collection of the office communication details
-     * Eg. Email address, mobile number, landline
+     * The work phone number of the office
      */
-    communications?: {
-      /**
-       * Gets the label representing the type of detail (eg E-mail)
-       */
-      label?: string
-      /**
-       * Gets the communication detail (eg the actual telephone number or email address)
-       */
-      detail?: string
-    }[]
+    workPhone?: string
+    /**
+     * The email address of the office
+     */
+    email?: string
     /**
      * Gets a listing of additional metadata that has been set against this office
      */
@@ -5915,6 +5835,10 @@ export interface PagedResultPropertyModel_ {
      * Gets a value indicating whether this property can be advertised on the internet
      */
     internetAdvertising?: boolean
+    /**
+     * The arrangements regarding viewing the property
+     */
+    viewingArrangements?: string
     /**
      * Gets details of the external land area associated to this property
      */
@@ -6950,6 +6874,10 @@ export interface PropertyModel {
    */
   internetAdvertising?: boolean
   /**
+   * The arrangements regarding viewing the property
+   */
+  viewingArrangements?: string
+  /**
    * Gets details of the external land area associated to this property
    */
   externalArea?: {
@@ -7477,6 +7405,14 @@ export interface UpdateApplicantModel {
    */
   bathroomsMax?: number // int32
   /**
+   * Sets the applicants location type (areas/addresses/none)
+   */
+  locationType?: string
+  /**
+   * Sets the applicants location options
+   */
+  locationOptions?: string[]
+  /**
    * Sets the sales specific requirements, if the applicant is looking to buy
    */
   selling?: {
@@ -7842,19 +7778,6 @@ export interface UpdateCompanyAddressModel {
   countryId?: string
 }
 /**
- * Model to update a communication detail for a company (eg. an email address)
- */
-export interface UpdateCompanyCommunicationModel {
-  /**
-   * Sets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Sets the contact detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model to update a company
  */
 export interface UpdateCompanyModel {
@@ -7887,19 +7810,17 @@ export interface UpdateCompanyModel {
    */
   supplierTypeId?: string
   /**
-   * Sets a collection of the companies communication details
-   * Eg. Email address, mobile number, landline
+   * The work phone number of the company
    */
-  communications?: {
-    /**
-     * Sets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Sets the contact detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  workPhone?: string
+  /**
+   * The mobile phone number of the company
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the company
+   */
+  email?: string
   /**
    * Sets the address of the company
    */
@@ -8341,19 +8262,6 @@ export interface UpdateLandlordSourceModel {
   type?: string
 }
 /**
- * Model to update a communication details (eg. an email address)
- */
-export interface UpdateNegotiatorCommunicationModel {
-  /**
-   * Sets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Sets the communications detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model to update a negotiator
  */
 export interface UpdateNegotiatorModel {
@@ -8370,19 +8278,17 @@ export interface UpdateNegotiatorModel {
    */
   active?: boolean
   /**
-   * Sets a collection of the negotiator communication details
-   * Eg. Email address, mobile number, landline
+   * The work phone number of the negotiator
    */
-  communicationDetails?: {
-    /**
-     * Sets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Sets the communications detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  workPhone?: string
+  /**
+   * The mobile phone number of the negotiator
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the negotiator
+   */
+  email?: string
   /**
    * Sets a JSON fragment to attach to this negotiator as metadata
    */
@@ -8471,19 +8377,6 @@ export interface UpdateOfficeAddressModel {
   countryId?: string
 }
 /**
- * Model to update a communication details (eg. an email address)
- */
-export interface UpdateOfficeCommunicationModel {
-  /**
-   * Sets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Sets the communications detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
  * Model to update an office
  */
 export interface UpdateOfficeModel {
@@ -8537,19 +8430,13 @@ export interface UpdateOfficeModel {
     countryId?: string
   }
   /**
-   * Sets a collection of the office communication details
-   * Eg. Email address, mobile number, landline
+   * The work phone number of the office
    */
-  communicationDetails?: {
-    /**
-     * Sets the label representing the type of detail (eg E-mail)
-     */
-    label?: string
-    /**
-     * Sets the communications detail (eg the actual telephone number or email address)
-     */
-    detail?: string
-  }[]
+  workPhone?: string
+  /**
+   * The email address of the office
+   */
+  email?: string
   /**
    * Sets a JSON fragment to attach to this office as metadata
    */
@@ -8811,6 +8698,10 @@ export interface UpdatePropertyModel {
    * Sets a value indicating whether this property can be advertised on the internet
    */
   internetAdvertising?: boolean
+  /**
+   * The arrangements regarding viewing the property
+   */
+  viewingArrangements?: string
   /**
    * Sets details of the EPC statistics
    */
