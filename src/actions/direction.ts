@@ -1,5 +1,5 @@
 import { actionCreator } from '@/utils/actions'
 import ActionTypes from '@/constants/action-types'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 
-export const setDestination = actionCreator<AppointmentModel | null>(ActionTypes.SET_DESTINATION)
+export const setDestination = actionCreator<ExtendedAppointmentModel | null>(ActionTypes.SET_DESTINATION)

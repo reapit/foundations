@@ -1,4 +1,5 @@
 import { AppointmentsData } from '@/reducers/appointments'
+import { ExtendedAppointmentModel } from '@/types/core'
 
 export const appointmentsDataStub: AppointmentsData = {
   appointments: {
@@ -32,33 +33,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -91,33 +72,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -150,33 +111,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -209,33 +150,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -252,33 +173,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -295,33 +196,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -354,33 +235,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -397,33 +258,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -440,33 +281,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -499,33 +320,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -542,33 +343,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -601,33 +382,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowet'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -660,33 +421,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -719,33 +460,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -778,33 +499,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -837,33 +538,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -896,33 +577,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -955,33 +616,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       },
@@ -998,33 +639,13 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett',
-            communicationDetails: [
-              {
-                label: 'E-Mail',
-                detail: 'hphillips@reapit.com'
-              }
-            ]
+            name: 'Liam Jowett'
           }
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit',
-            communicationDetails: [
-              {
-                label: 'Work',
-                detail: 'test'
-              },
-              {
-                label: 'E-Mail',
-                detail: 'teste'
-              },
-              {
-                label: 'Business',
-                detail: 'testb'
-              }
-            ]
+            name: 'Reapit'
           }
         ]
       }

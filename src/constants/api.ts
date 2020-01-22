@@ -6,5 +6,8 @@ export const APPOINTMENTS_HEADERS = {
 
 export const URLS = {
   appointments: '/appointments',
+  offices: '/offices',
+  negotiators: '/negotiators',
+  properties: '/properties',
   appointmentTypes: '/configuration/appointmentTypes'
 }

@@ -1,6 +1,9 @@
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
+import { propertyStub } from '@/sagas/__stubs__/properties'
+import { officeStub } from '@/sagas/__stubs__/offices'
+import { negotiatorStub } from '@/sagas/__stubs__/negotiators'
 
-export const appointmentDataStub: AppointmentModel = {
+export const appointmentDataStub: ExtendedAppointmentModel = {
   id: 'RPT2000028',
   created: '2020-01-10T02:45:50',
   modified: '2020-01-10T02:45:50',
@@ -18,7 +21,7 @@ export const appointmentDataStub: AppointmentModel = {
   },
   property: {
     id: 'BED140946',
-    arrangements: "Don't let the cat in",
+    viewingArrangements: "Don't let the cat in",
     address: {
       buildingName: '',
       buildingNumber: '42',
@@ -38,33 +41,13 @@ export const appointmentDataStub: AppointmentModel = {
   negotiators: [
     {
       id: 'LJW',
-      name: 'Liam Jowett',
-      communicationDetails: [
-        {
-          label: 'E-Mail',
-          detail: 'hphillips@reapit.com'
-        }
-      ]
+      name: 'Liam Jowett'
     }
   ],
   offices: [
     {
       id: 'RPT',
-      name: 'Reapit',
-      communicationDetails: [
-        {
-          label: 'Work',
-          detail: 'test'
-        },
-        {
-          label: 'E-Mail',
-          detail: 'teste'
-        },
-        {
-          label: 'Business',
-          detail: 'testb'
-        }
-      ]
+      name: 'Reapit'
     }
   ],
   attendee: {
@@ -111,4 +94,11 @@ export const appointmentDataStub: AppointmentModel = {
       href: '/negotiators/BED160186'
     }
   }
+}
+
+export const appointmentDataStubWithNegotiatorsOfficesProperty: ExtendedAppointmentModel = {
+  property: propertyStub,
+  offices: [officeStub],
+  negotiators: [negotiatorStub],
+  ...appointmentDataStub
 }

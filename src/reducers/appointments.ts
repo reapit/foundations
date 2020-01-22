@@ -10,23 +10,25 @@ import {
 } from './../actions/appointments'
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { PagedResultAppointmentModel_, AppointmentModel, ListItemModel } from '@reapit/foundations-ts-definitions'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
+
+import { ExtendedPagedResultAppointmentModel_, ExtendedAppointmentModel } from '@/types/core'
 
 export type AppointmentsTime = 'Today' | 'Tomorrow' | 'Week View'
 
 export interface AppointmentsData {
-  appointments: PagedResultAppointmentModel_ | null
+  appointments: ExtendedPagedResultAppointmentModel_ | null
   appointmentTypes: ListItemModel[] | null
 }
 
 export interface AppointmentsState {
   loading: boolean
-  appointments: PagedResultAppointmentModel_ | null
-  today: PagedResultAppointmentModel_ | null
-  tomorrow: PagedResultAppointmentModel_ | null
-  weekView: PagedResultAppointmentModel_ | null
+  appointments: ExtendedPagedResultAppointmentModel_ | null
+  today: ExtendedPagedResultAppointmentModel_ | null
+  tomorrow: ExtendedPagedResultAppointmentModel_ | null
+  weekView: ExtendedPagedResultAppointmentModel_ | null
   time: AppointmentsTime
-  selectedAppointment: AppointmentModel | null
+  selectedAppointment: ExtendedAppointmentModel | null
   appointmentTypes: ListItemModel[] | null
 }
 

@@ -20,28 +20,26 @@ import {
   FlexContainerResponsive
 } from '@reapit/elements'
 import {
-  AppointmentModel,
   AppointmentAttendeeCommunicationModel,
   ListItemModel,
-  AppointmentPropertyAddressModel,
   AppointmentAttendeeModel,
   NegotiatorModel,
-  AppointmentContactModel
+  AppointmentContactModel,
+  OfficeModel
 } from '@reapit/foundations-ts-definitions'
-import { ReduxState } from '@/types/core'
+import { ReduxState, ExtendedAppointmentModel } from '@/types/core'
 import { appointmentDetailHideModal, showHideConfirmModal } from '@/actions/appointment-detail'
 import styles from '@/styles/ui/appoinments-detail.scss?mod'
 import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
 import { getAttendeeEntityType } from '@/utils/get-attendee-entity-type'
 import ConfirmContent from './confirm-content'
-import { OfficeModel } from '@/types/platform'
 import { LoginMode } from '@reapit/cognito-auth'
 
 const { appointmentDetailTextContainer } = styles
 
 export type AppointmentModalProps = StateProps &
   DispatchProps & {
-    appointment: AppointmentModel
+    appointment: ExtendedAppointmentModel
     visible: boolean
     isLoading: boolean
   }
@@ -107,7 +105,8 @@ export const renderCheckMark = (isConfirmed: boolean | undefined) => {
 
 export const renderAddress = (
   loginMode: LoginMode,
-  address: AppointmentPropertyAddressModel | undefined,
+  // AppointmentPropertyAddressModel have been deprecated
+  address: any | undefined,
   propertyId: string | undefined
 ) => {
   if (!address) {
@@ -135,7 +134,7 @@ export const renderAddress = (
   )
 }
 
-export const renderDateTime = (appointment: AppointmentModel) => {
+export const renderDateTime = (appointment: ExtendedAppointmentModel) => {
   return (
     <div className={appointmentDetailTextContainer}>
       <div className={styles.appointmentDetailIconContainer}>
@@ -309,7 +308,7 @@ export const renderStartAndEndDate = (startTime: string, endTime: string) => {
 export type RenderModalContentParams = {
   isLoading: boolean
   isConfirmContentVisible: boolean
-  appointment: AppointmentModel
+  appointment: ExtendedAppointmentModel
   loginMode: LoginMode
   attendee: AppointmentAttendeeModel
   negotiators: NegotiatorModel[]
@@ -334,6 +333,7 @@ export const renderModalContent = ({
     return <ConfirmContent />
   }
   const address = appointment?.property?.address
+
   const propertyId = appointment?.property?.id
   const isCancelledAppointment = appointment?.cancelled
   return (
@@ -344,7 +344,7 @@ export const renderModalContent = ({
       {renderAttendee(attendee, loginMode)}
       {renderAddress(loginMode, address, propertyId)}
       {renderNotes(appointment.description)}
-      {renderArrangements(appointment?.property?.arrangements || '')}
+      {renderArrangements(appointment?.property?.viewingArrangements || '')}
       <FlexContainerResponsive>
         <Button disabled={isCancelledAppointment} onClick={handleCancelAppointment} type="button" variant="primary">
           {isCancelledAppointment ? 'Cancelled' : 'Cancel Appointment'}
@@ -398,7 +398,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
 }
 
 export type StateProps = {
-  appointment: AppointmentModel
+  appointment: ExtendedAppointmentModel
   visible: boolean
   isLoading: boolean
   appointmentTypes: ListItemModel[] | null

@@ -5,11 +5,23 @@ import {
   selectTodayAppointments,
   selectTomorrowAppointments,
   selectWeekAppointments,
-  selectAppointmentsFilterTime
+  selectAppointmentsFilterTime,
+  selectAppointmentWithId
 } from '../appointments'
-import { ReduxState } from '@/types/core'
+import { ReduxState, ExtendedAppointmentModel } from '@/types/core'
 
 describe('appointments selector', () => {
+  describe('selectAppointmentWithId', () => {
+    it('should run correctly', () => {
+      const input = {
+        appointments: appointmentsDataStub
+      } as ReduxState
+
+      const testedAppointment = (appointmentsDataStub?.appointments?._embedded as ExtendedAppointmentModel[])[0]
+      const result = selectAppointmentWithId(input, testedAppointment.id as string)
+      expect(result).toEqual(testedAppointment)
+    })
+  })
   describe('selectAppointments', () => {
     it('should run correctly', () => {
       const input = {

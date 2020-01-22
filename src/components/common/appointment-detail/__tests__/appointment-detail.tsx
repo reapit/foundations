@@ -421,32 +421,12 @@ describe('AppointmentModal', () => {
         },
         negotiators: [
           {
-            communicationDetails: [
-              {
-                detail: 'hphillips@reapit.com',
-                label: 'E-Mail'
-              }
-            ],
             id: 'LJW',
             name: 'Liam Jowett'
           }
         ],
         offices: [
           {
-            communicationDetails: [
-              {
-                detail: 'test',
-                label: 'Work'
-              },
-              {
-                detail: 'teste',
-                label: 'E-Mail'
-              },
-              {
-                detail: 'testb',
-                label: 'Business'
-              }
-            ],
             id: 'RPT',
             name: 'Reapit'
           }

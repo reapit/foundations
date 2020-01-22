@@ -1,5 +1,9 @@
 import { ReduxState } from '@/types/core'
 
+export const selectAppointmentWithId = (state: ReduxState, id: string) => {
+  return state?.appointments?.appointments?._embedded?.find(appointment => appointment?.id === id)
+}
+
 export const selectAppointments = (state: ReduxState) => {
   return state?.appointments?.appointments?._embedded || []
 }

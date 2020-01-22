@@ -1,7 +1,7 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { AppointmentsData, AppointmentsTime } from '../reducers/appointments'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 
 export interface AppointmentRequestParams {
   time: AppointmentsTime
@@ -12,7 +12,9 @@ export const appointmentsRequestDataFailure = actionCreator<void>(ActionTypes.AP
 export const appointmentsLoading = actionCreator<boolean>(ActionTypes.APPOINTMENTS_LOADING)
 export const appointmentsReceiveData = actionCreator<AppointmentsData>(ActionTypes.APPOINTMENTS_RECEIVE_DATA)
 export const appointmentsClearData = actionCreator<null>(ActionTypes.APPOINTMENTS_CLEAR_DATA)
-export const setSelectedAppointment = actionCreator<AppointmentModel | null>(ActionTypes.SET_SELECTED_APPOINTMENT)
+export const setSelectedAppointment = actionCreator<ExtendedAppointmentModel | null>(
+  ActionTypes.SET_SELECTED_APPOINTMENT
+)
 
 export const appointmentsReceiveTodayData = actionCreator<AppointmentsData>(ActionTypes.APPOINTMENTS_RECEIVE_TODAY_DATA)
 export const appointmentsReceiveTomorrowData = actionCreator<AppointmentsData>(

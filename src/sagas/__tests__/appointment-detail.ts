@@ -20,10 +20,10 @@ import appointmentDetailSagas, {
   cancelAppointmentListen,
   cancelAppointmentRequest
 } from '../appointment-detail'
-import { appointmentDataStub } from '@/sagas/__stubs__/appointment'
+import { appointmentDataStub, appointmentDataStubWithNegotiatorsOfficesProperty } from '@/sagas/__stubs__/appointment'
 import ActionTypes from '@/constants/action-types'
 import { selectAppointmentDetail } from '@/selectors/appointment-detail'
-import { selectAppointmentsFilterTime } from '@/selectors/appointments'
+import { selectAppointmentsFilterTime, selectAppointmentWithId } from '@/selectors/appointments'
 import { fetchAppointment, updateAppointment } from '../api'
 
 jest.mock('../../core/store')
@@ -43,8 +43,14 @@ describe('appointment-detail', () => {
     expect(gen.next().value).toEqual(call(fetchAppointment, { id }))
     it('api call sucessfully', () => {
       const clone = gen.clone()
+
       expect(clone.next(appointmentDataStub as any).value).toEqual(
-        put(appointmentDetailReceiveData(appointmentDataStub))
+        select(selectAppointmentWithId, appointmentDataStub.id || '')
+      )
+
+      const { property, offices, negotiators } = appointmentDataStubWithNegotiatorsOfficesProperty
+      expect(clone.next(appointmentDataStubWithNegotiatorsOfficesProperty).value).toEqual(
+        put(appointmentDetailReceiveData({ ...appointmentDataStub, property, offices, negotiators }))
       )
       expect(clone.next().value).toEqual(put(appointmentDetailLoading(false)))
       expect(clone.next().done).toEqual(true)

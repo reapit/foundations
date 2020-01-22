@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { ReduxState } from '@/types/core'
+import { ReduxState, ExtendedAppointmentModel } from '@/types/core'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AppointmentsState, AppointmentsTime } from '@/reducers/appointments'
 import { Loader, Tabs, TabConfig, ButtonGroup, Button } from '@reapit/elements'
@@ -16,13 +16,12 @@ import { homeTabChange } from '@/actions/home'
 import { setDestination } from '@/actions/direction'
 import { isMobile } from '../../utils/device-detection'
 import TravelMode from '../ui/travel-mode'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
 import { selectOnlineStatus } from '@/selectors/online'
 
 export interface HomeMappedActions {
   requestAppointments: (time: AppointmentsTime) => void
   requestNextAppointment: (travelMode: string) => void
-  setSelectedAppointment: (appointment: AppointmentModel | null) => void
+  setSelectedAppointment: (appointment: ExtendedAppointmentModel | null) => void
 }
 
 export interface HomeMappedProps {
@@ -171,7 +170,7 @@ export interface HomeMappedActions {
 export const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({
   requestAppointments: (time: AppointmentsTime) => dispatch(appointmentsRequestData({ time })),
   requestNextAppointment: (travelMode: string) => dispatch(nextAppointmentValidate(travelMode)),
-  setSelectedAppointment: (appointment: AppointmentModel | null) => {
+  setSelectedAppointment: (appointment: ExtendedAppointmentModel | null) => {
     dispatch(setSelectedAppointment(appointment))
     dispatch(setDestination(appointment))
     dispatch(homeTabChange('MAP'))

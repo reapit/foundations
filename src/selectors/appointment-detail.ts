@@ -1,6 +1,5 @@
-import { ReduxState } from '@/types/core'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ReduxState, ExtendedAppointmentModel } from '@/types/core'
 
-export const selectAppointmentDetail = (state: ReduxState): AppointmentModel | {} => {
+export const selectAppointmentDetail = (state: ReduxState): ExtendedAppointmentModel | {} => {
   return state?.appointmentDetail?.appointmentDetail || {}
 }

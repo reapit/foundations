@@ -12,11 +12,10 @@ import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effec
 import ActionTypes from '@/constants/action-types'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { Action } from '@/types/core'
+import { Action, ExtendedAppointmentModel } from '@/types/core'
 import { AppointmentDetailRequestParams } from '@/actions/appointment-detail'
 import { selectAppointmentDetail } from '@/selectors/appointment-detail'
-import { selectAppointmentsFilterTime } from '@/selectors/appointments'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { selectAppointmentsFilterTime, selectAppointmentWithId } from '@/selectors/appointments'
 import { fetchAppointment, updateAppointment } from './api'
 
 export const appointmentDetailDataFetch = function*({ data: { id } }: Action<AppointmentDetailRequestParams>) {
@@ -25,7 +24,25 @@ export const appointmentDetailDataFetch = function*({ data: { id } }: Action<App
   try {
     const response = yield call(fetchAppointment, { id })
     if (response) {
+      /**
+       * negotiators
+       * properties
+       * offices
+       * have been fetched
+       * when appointments are fetched
+       *
+       * Instead of use those fields from appointments
+       * We will sync that data to the appointmentDetailResponse to make it consistent
+       */
+      const appointmentFromAppointments = yield select(selectAppointmentWithId, response.id)
+      if (appointmentFromAppointments) {
+        response.property = appointmentFromAppointments.property
+        response.negotiators = appointmentFromAppointments.negotiators
+        response.offices = appointmentFromAppointments.offices
+      }
+
       yield put(appointmentDetailReceiveData(response))
+
       yield put(appointmentDetailLoading(false))
     } else {
       yield put(appointmentDetailRequestDataFailure())
@@ -46,7 +63,7 @@ export const cancelAppointmentRequest = function*() {
   try {
     yield put(showConfirmModalSubmitting(true))
     const currentAppointment = yield select(selectAppointmentDetail)
-    const newAppointment: AppointmentModel = {
+    const newAppointment: ExtendedAppointmentModel = {
       ...currentAppointment,
       cancelled: true
     }

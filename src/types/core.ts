@@ -8,6 +8,23 @@ import { AppointmentDetailState } from '@/reducers/appointment-detail'
 import { AuthState } from '@/reducers/auth'
 import { NextAppointmentState } from '@/reducers/next-appointment'
 import { DirectionState } from '@/reducers/direction'
+import {
+  PagedResultAppointmentModel_,
+  AppointmentModel,
+  OfficeModel,
+  PropertyModel,
+  NegotiatorModel
+} from '@reapit/foundations-ts-definitions'
+
+export type ExtendedPagedResultAppointmentModel_ = Omit<PagedResultAppointmentModel_, '_embedded'> & {
+  _embedded?: ExtendedAppointmentModel[]
+}
+
+export type ExtendedAppointmentModel = AppointmentModel & {
+  offices?: OfficeModel[]
+  property?: PropertyModel
+  negotiators?: NegotiatorModel[]
+}
 
 export interface Action<T> {
   readonly type: ActionType

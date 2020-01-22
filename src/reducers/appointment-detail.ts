@@ -9,11 +9,11 @@ import {
   showHideConfirmModal,
   showConfirmModalSubmitting
 } from '../actions/appointment-detail'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 
 export interface AppointmentDetailState {
   loading: boolean
-  appointmentDetail: AppointmentModel | null | undefined
+  appointmentDetail: ExtendedAppointmentModel | null | undefined
   isModalVisible: boolean
   confirmModal: {
     isConfirmContentVisible: boolean
