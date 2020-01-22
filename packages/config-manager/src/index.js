@@ -12,14 +12,14 @@ const createSecret = secretName => {
   secretsManager.createSecret(
     {
       Name: secretName,
-      SecretString: JSON.stringify(require(reapitConfigInCWDPath))
+      SecretString: JSON.stringify(require(reapitConfigInCWDPath)),
     },
     (err, data) => {
       if (err) {
         return console.error(err, err.stack)
       }
       return console.log('Successfully created secret', data)
-    }
+    },
   )
 }
 
@@ -27,46 +27,36 @@ const updateSecret = secretName => {
   secretsManager.updateSecret(
     {
       SecretId: secretName,
-      SecretString: JSON.stringify(require(reapitConfigInCWDPath))
+      SecretString: JSON.stringify(require(reapitConfigInCWDPath)),
     },
     (err, data) => {
       if (err) {
         return console.error(err, err.stack)
       }
       return console.log('Successfully updated secret', data)
-    }
+    },
   )
 }
 
 const getSecret = secretName => {
   secretsManager.getSecretValue(
     {
-      SecretId: secretName
+      SecretId: secretName,
     },
     (err, data) => {
       if (err) {
         return console.log(err, err.stack)
       }
 
-      return fs.writeFile(
-        reapitConfigInCWDPath,
-        data.SecretString,
-        'utf8',
-        err => {
-          if (err) {
-            console.error(
-              'An error occured while writing JSON Object to File.',
-              err
-            )
-            return console.error(err)
-          }
-
-          console.log(
-            'reapit-config.json has been saved - be sure to add to your .gitignore file'
-          )
+      return fs.writeFile(reapitConfigInCWDPath, data.SecretString, 'utf8', err => {
+        if (err) {
+          console.error('An error occured while writing JSON Object to File.', err)
+          return console.error(err)
         }
-      )
-    }
+
+        console.log('reapit-config.json has been saved - be sure to add to your .gitignore file')
+      })
+    },
   )
 }
 
@@ -74,21 +64,21 @@ const deleteSecret = secretName => {
   secretsManager.deleteSecret(
     {
       RecoveryWindowInDays: 7,
-      SecretId: secretName
+      SecretId: secretName,
     },
     (err, data) => {
       if (err) {
         return console.error(err, err.stack)
       }
       return console.log('Successfully deleted secret', data)
-    }
+    },
   )
 }
 
 const setEnv = secretName => {
   secretsManager.getSecretValue(
     {
-      SecretId: secretName
+      SecretId: secretName,
     },
     (err, data) => {
       if (err) {
@@ -103,12 +93,9 @@ const setEnv = secretName => {
         process.env[key] = envObject[key]
       })
 
-      return console.log(
-        'Successfully saved env to process'
-      )
-    }
+      return console.log('Successfully saved env to process')
+    },
   )
 }
-
 
 module.exports = { getSecret, createSecret, updateSecret, deleteSecret, setEnv }

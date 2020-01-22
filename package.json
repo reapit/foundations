@@ -4,7 +4,7 @@
   "scripts": {
     "build": "lerna run build --parallel",
     "test": "lerna run test:ci --parallel",
-    "lint": "eslint --fix --ext=jsx,ts,tsx packages",
+    "lint": "eslint --fix --ext=jsx,ts,tsx,js packages",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config"
   },
   "devDependencies": {

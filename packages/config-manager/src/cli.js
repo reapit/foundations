@@ -20,7 +20,7 @@ return (() => {
       case 'getSecret':
         return getSecret(secretName)
       case 'deleteSecret':
-          return deleteSecret(secretName)
+        return deleteSecret(secretName)
       case 'setEnv':
         return setEnv(secretName)
       default:
@@ -29,8 +29,6 @@ return (() => {
     }
   }
 
-  console.error(
-    'Two arguments need to be suppled <<methodName>> and <<secretName>>'
-  )
+  console.error('Two arguments need to be suppled <<methodName>> and <<secretName>>')
   process.exit(1)
 })()
