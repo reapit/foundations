@@ -2,56 +2,56 @@
 
 exports[`AddressInformation AddressInput should render correctly 1`] = `
 <div
-  key="0"
+  key="primaryAddress"
 >
   <Input
-    id="addresses[0][type]"
+    id="primaryAddress[type]"
     labelText="Type"
-    name="addresses[0][type]"
+    name="primaryAddress[type]"
     type="hidden"
   />
   <Input
-    id="addresses[0][buildingName]"
+    id="primaryAddress[buildingName]"
     labelText="Building Name"
-    name="addresses[0][buildingName]"
+    name="primaryAddress[buildingName]"
     type="text"
   />
   <Input
-    id="addresses[0][buildingNumber]"
+    id="primaryAddress[buildingNumber]"
     labelText="Building Number"
-    name="addresses[0][buildingNumber]"
+    name="primaryAddress[buildingNumber]"
     type="text"
   />
   <Input
-    id="addresses[0][line1]"
+    id="primaryAddress[line1]"
     labelText="Line 1"
-    name="addresses[0][line1]"
+    name="primaryAddress[line1]"
     required={true}
     type="text"
   />
   <Input
-    id="addresses[0][line2]"
+    id="primaryAddress[line2]"
     labelText="Line 2"
-    name="addresses[0][line2]"
+    name="primaryAddress[line2]"
     type="text"
   />
   <Input
-    id="addresses[0][line3]"
+    id="primaryAddress[line3]"
     labelText="Line 3"
-    name="addresses[0][line3]"
+    name="primaryAddress[line3]"
     required={true}
     type="text"
   />
   <Input
-    id="addresses[0][line4]"
+    id="primaryAddress[line4]"
     labelText="Line 4"
-    name="addresses[0][line4]"
+    name="primaryAddress[line4]"
     type="text"
   />
   <Input
-    id="addresses[0][postcode]"
+    id="primaryAddress[postcode]"
     labelText="Post Code"
-    name="addresses[0][postcode]"
+    name="primaryAddress[postcode]"
     required={true}
     type="text"
   />
@@ -595,20 +595,10 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
   />
   <CameraImageInput
     allowClear={true}
-    id="metadata.addresses.[0][documentImage]"
+    id="metadata.addresses[0][documentImage]"
     labelText="Upload file"
-    name="metadata.addresses.[0][documentImage]"
+    name="metadata.addresses[0][documentImage]"
     required={true}
-  />
-</div>
-`;
-
-exports[`AddressInformation renderExtraForm should match Snapshot 1`] = `
-<div>
-  <Component
-    data-test="address-input"
-    index={0}
-    key="0"
   />
 </div>
 `;
@@ -618,58 +608,48 @@ exports[`AddressInformation should match snapshot 1`] = `
   <Formik
     initialValues={
       Object {
-        "addresses": Array [
-          Object {
-            "buildingName": "Tilbrook Farm",
-            "buildingNumber": "",
-            "countryId": "",
-            "line1": "Station Road",
-            "line2": "Bow Brickhill",
-            "line3": "Milton Keynes",
-            "line4": "Buckinghamshire",
-            "postcode": "MK17 9JU",
-            "type": "primary",
-          },
-        ],
         "metadata": Object {
           "addresses": Array [
             Object {
-              "documentImage": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg",
-              "documentType": "Current Benefits Agency letter",
-              "month": "6",
-              "year": "1911",
+              "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png",
+              "documentType": "Bank / Building Society / Statement",
+              "month": "2",
+              "year": "2",
+            },
+            Object {
+              "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/previous-7-Larch Cottage-LU7 0PX(1).jpg",
+              "documentType": "Credit Card Statements from main provider",
+              "month": "1",
+              "year": "3",
             },
           ],
           "declarationRisk": Object {
-            "declarationForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
-            "reason": "reason",
-            "riskAssessmentForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
-            "type": "Normal",
+            "reason": "Test",
+            "riskAssessmentForm": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png",
+            "type": "Simplified",
           },
-          "primaryId": Array [
-            Object {
-              "documents": Array [
-                Object {
-                  "details": "1123",
-                  "expiry": "2019-10-15T10:00:00Z",
-                  "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg",
-                  "typeId": "CR",
-                },
-              ],
-            },
-          ],
-          "secondaryId": Array [
-            Object {
-              "documents": Array [
-                Object {
-                  "details": "123",
-                  "expiry": "2019-10-10T00:00:00Z",
-                  "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg",
-                  "typeId": "PP",
-                },
-              ],
-            },
-          ],
+        },
+        "primaryAddress": Object {
+          "buildingName": "Larch Cottage",
+          "buildingNumber": "12",
+          "countryId": "GB",
+          "line1": "High Street North",
+          "line2": "Stewkley",
+          "line3": "Leighton Buzzard",
+          "line4": "Buckinghamshire",
+          "postcode": "LU7 0EP",
+          "type": "home",
+        },
+        "secondaryAddress": Object {
+          "buildingName": "Larch Cottage",
+          "buildingNumber": "7",
+          "countryId": "",
+          "line1": "Ledburn",
+          "line2": "Leighton Buzzard",
+          "line3": "Buckinghamshire",
+          "line4": "",
+          "postcode": "LU7 0PX",
+          "type": "previous",
         },
       }
     }

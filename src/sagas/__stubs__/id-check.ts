@@ -1,47 +1,36 @@
 export const idCheck = {
-  id: 'AYL19000004',
-  contactId: 'AYL19000002',
-  created: '2019-10-14T15:23:21',
-  modified: '2019-10-22T09:46:24',
-  checkDate: '2019-10-14T15:23:17',
+  id: 'RPT19000104',
+  contactId: 'AYL19000001',
+  created: '0001-01-01T00:00:00',
+  modified: '2019-12-13T05:41:45',
+  checkDate: '0001-01-01T00:00:00',
   status: 'pass',
   negotiatorId: 'LJW',
-  documents: [
-    {
-      typeId: 'PP',
-      expiry: '2019-12-05T16:44:00',
-      details: 'This is a test'
-    },
-    {
-      typeId: 'ER',
-      expiry: '2019-12-05T16:44:00',
-      details: 'This is a test'
-    }
-  ],
-  metadata: {
-    primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000002-This is a test.jpg',
-    secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000002-secondary test.jpg'
+  document1: {
+    typeId: 'TX',
+    expiry: '2020-02-07T00:00:00',
+    details: 'Hshs'
   },
-  links: [
-    {
-      rel: 'self',
-      href: 'http://reapit.cloud.tyk.io/AYL19000002/identityChecks/AYL19000004',
-      action: 'GET'
+  document2: {
+    typeId: 'CI',
+    expiry: '2019-12-21T00:00:00',
+    details: 'a'
+  },
+  metadata: {
+    primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png'
+  },
+  _links: {
+    self: {
+      href: '/identityChecks/RPT19000104'
     },
-    {
-      rel: 'contact',
-      href: 'http://reapit.cloud.tyk.io/AYL19000002',
-      action: 'GET'
+    contact: {
+      href: '/contacts/AYL19000001'
     },
-    {
-      rel: 'idDocumentType',
-      href: 'https://reapit.cloud.tyk.io/configuration/identityDocumentTypes/PP',
-      action: 'GET'
+    identityDocument1Type: {
+      href: '/configuration/identityDocumentTypes/TX'
     },
-    {
-      rel: 'idDocumentType',
-      href: 'https://reapit.cloud.tyk.io/configuration/identityDocumentTypes/ER',
-      action: 'GET'
+    identityDocument2Type: {
+      href: '/configuration/identityDocumentTypes/CI'
     }
-  ]
+  }
 }

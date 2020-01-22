@@ -18,16 +18,13 @@ import {
   UpdateIdentityCheckParams
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
-import { ContactModel, ContactAddressModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { ContactModel, ContactAddressModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { selectUserCode } from '../selectors/auth'
 import store from '@/core/store'
 import { handlePepSearchStatus } from '@/utils/pep-search'
 import dayjs from 'dayjs'
 import { ID_STATUS } from '@/components/ui/modal/modal'
-import {
-  changeTimeZoneLocalForIdentityCheck,
-  changeTimeZoneUTCForIdentityCheck
-} from '@/utils/datetime'
+import { changeTimeZoneLocalForIdentityCheck, changeTimeZoneUTCForIdentityCheck } from '@/utils/datetime'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {
@@ -134,11 +131,11 @@ export const createIdentityCheck = async ({ identityChecks, headers }) => {
   }
 }
 
-export const mapArrAddressToUploadImageFunc = ({ addresses, headers, addressesMeta }): Promise<any>[] => {
-  if (!addresses || !addressesMeta) {
+export const mapArrAddressToUploadImageFunc = ({ primaryAddress, secondaryAddress, headers, addressesMeta }) => {
+  if (!primaryAddress || !secondaryAddress || !addressesMeta) {
     return []
   }
-  return addresses.map((address: ContactAddressModel, index) => {
+  return [primaryAddress, secondaryAddress].map((address: ContactAddressModel, index) => {
     if (!isBase64(addressesMeta && addressesMeta[index] && addressesMeta[index].documentImage)) {
       return null
     }
@@ -234,7 +231,7 @@ export type OnUpdateAddressHistoryParams = {
 export const onUpdateAddressHistory = function*({
   data: {
     nextSection,
-    contact: { addresses, metadata }
+    contact: { primaryAddress, secondaryAddress, metadata }
   }
 }: OnUpdateAddressHistoryParams) {
   yield put(checklistDetailSubmitForm(true))
@@ -242,12 +239,13 @@ export const onUpdateAddressHistory = function*({
   try {
     const currentContact = yield select(selectCheckListDetailContact)
     const addressesMeta = metadata && metadata.addresses
-    const uploadImageFunc = mapArrAddressToUploadImageFunc({ headers, addresses, addressesMeta })
+    const uploadImageFunc = mapArrAddressToUploadImageFunc({ headers, primaryAddress, secondaryAddress, addressesMeta })
     const responseUpload = yield all(uploadImageFunc)
     const addressMeta = mapAddressToMetaData({ addressesMeta, responseUpload })
     const newContact = {
       ...currentContact,
-      addresses,
+      primaryAddress,
+      secondaryAddress,
       metadata: {
         ...currentContact.metadata,
         addresses: addressMeta
@@ -389,34 +387,29 @@ export const updateSecondaryId = function*({
 
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
-    const idCheck: ContactIdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
+    const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
-    const secondaryIdUrl = identityChecks.fileUrl
-    const uploaderDocument: FileUploaderResponse = isBase64(identityChecks && identityChecks.fileUrl)
+    const secondaryIdUrl = idCheck?.metadata?.secondaryIdUrl
+    const uploaderDocument: FileUploaderResponse = isBase64(identityChecks && secondaryIdUrl)
       ? yield call(uploadImage, {
           headers,
           name: `${contact.id}-${identityChecks.details}`,
-          imageData: identityChecks.fileUrl
+          imageData: secondaryIdUrl
         })
       : null
 
     const currentPrimaryIdUrl = idCheck?.metadata?.primaryIdUrl
-    const documents = idCheck?.documents || []
-    delete identityChecks.fileUrl
-    if (documents.length <= 1) {
-      documents.push(identityChecks)
-    }
-    if (documents.length > 1) {
-      documents[1] = identityChecks
-    }
+    const { document1, document2 } = idCheck || {}
+    delete idCheck?.metadata?.secondaryIdUrl
 
     const baseValues = {
       metadata: {
         primaryIdUrl: currentPrimaryIdUrl,
         secondaryIdUrl: uploaderDocument ? uploaderDocument.Url : secondaryIdUrl
       },
-      documents
-    } as ContactIdentityCheckModel
+      document1,
+      document2
+    } as IdentityCheckModel
 
     if (idCheck) {
       yield call(updateIdentityCheck, {
@@ -465,34 +458,29 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
 
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
-    const idCheck: ContactIdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
+    const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
-    const primaryIdUrl = identityChecks.fileUrl
-    const uploaderDocument: FileUploaderResponse = isBase64(identityChecks && identityChecks.fileUrl)
+    const primaryIdUrl = idCheck?.metadata?.primaryIdUrl
+    const uploaderDocument: FileUploaderResponse = isBase64(identityChecks && primaryIdUrl)
       ? yield call(uploadImage, {
           headers,
           name: `${contact.id}-${identityChecks.details}`,
-          imageData: identityChecks.fileUrl
+          imageData: primaryIdUrl
         })
       : null
 
     const currentSecondaryIdUrl = idCheck?.metadata?.secondaryIdUrl
-    const documents = idCheck?.documents || []
-    delete identityChecks.fileUrl
-    if (documents.length === 0) {
-      documents.push(identityChecks)
-    }
-    if (documents.length > 0) {
-      documents[0] = identityChecks
-    }
+    const { document1, document2 } = idCheck || {}
+    delete idCheck?.metadata?.primaryIdUrl
 
     const baseValues = {
       metadata: {
         primaryIdUrl: uploaderDocument ? uploaderDocument.Url : primaryIdUrl,
         secondaryIdUrl: currentSecondaryIdUrl
       },
-      documents
-    } as ContactIdentityCheckModel
+      document1,
+      document2
+    } as IdentityCheckModel
 
     if (idCheck) {
       yield call(updateIdentityCheck, {
@@ -547,10 +535,10 @@ export const updateChecklistListen = function*() {
 export const updateIdentityCheckStatus = function*({
   data: { idCheck, dynamicLinkParams }
 }: Action<{
-  idCheck: ContactIdentityCheckModel
+  idCheck: IdentityCheckModel
   dynamicLinkParams: DynamicLinkParams
 }>) {
-  const existingIdCheck: ContactIdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
+  const existingIdCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
   const headers = yield call(initAuthorizedRequestHeaders)
   yield put(checklistDetailSubmitForm(true))
 
@@ -609,7 +597,7 @@ export const updateSecondaryIdListen = function*() {
 export const updateIdentityCheckStatusListen = function*() {
   yield takeLatest<
     Action<{
-      idCheck: ContactIdentityCheckModel
+      idCheck: IdentityCheckModel
       dynamicLinkParams: DynamicLinkParams
     }>
   >(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA, updateIdentityCheckStatus)

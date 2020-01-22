@@ -43,7 +43,7 @@ import { contact, idCheck } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
-import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { selectCheckListDetailContact, selectCheckListDetailIdCheck } from '@/selectors/checklist-detail'
 import { handlePepSearchStatus } from '@/utils/pep-search'
 import { EntityType, DynamicLinkParams } from '@reapit/elements'
@@ -58,29 +58,23 @@ describe('checklist-detail', () => {
   describe('mapArrAddressToUploadImageFunc', () => {
     it('should run correctly', () => {
       const mockParams = {
-        addresses: contact.addresses,
+        primaryAddress: contact.primaryAddress,
+        secondaryAddress: contact.secondaryAddress,
+        headers: mockHeaders,
+        addressesMeta: contact.metadata.addresses
+      } as any
+      const result = mapArrAddressToUploadImageFunc(mockParams)
+      expect(result).toEqual([null, null])
+    })
+    it('should run correctly', () => {
+      const mockParams = {
+        primaryAddress: undefined,
+        secondaryAddress: contact.secondaryAddress,
         headers: mockHeaders,
         addressesMeta: contact.metadata.addresses
       }
       const result = mapArrAddressToUploadImageFunc(mockParams)
-      expect(result).toEqual([null])
-    })
-    it('should run correctly', () => {
-      const mockParams = {
-        addresses: contact.addresses,
-        headers: mockHeaders,
-        addressesMeta: [
-          {
-            ...contact.metadata.addresses[0],
-            documentFileInput: '123'
-          },
-          {
-            ...contact.metadata.addresses[0]
-          }
-        ]
-      }
-      const result = mapArrAddressToUploadImageFunc(mockParams)
-      expect(result).toHaveLength(1)
+      expect(result).toEqual([])
     })
   })
 
@@ -89,7 +83,7 @@ describe('checklist-detail', () => {
       const mockParams = {
         addressesMeta: contact.metadata.addresses,
         responseUpload: [
-          { Url: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg' }
+          { Url: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png' }
         ]
       }
       const result = mapAddressToMetaData(mockParams)
@@ -99,7 +93,7 @@ describe('checklist-detail', () => {
       const mockParams = {
         addressesMeta: undefined,
         responseUpload: [
-          { Url: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg' }
+          { Url: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png' }
         ]
       }
       const result = mapAddressToMetaData(mockParams)
@@ -205,12 +199,19 @@ describe('checklist-detail', () => {
   describe('checklist-detail updateAddressHistory', () => {
     describe('onHideModal', () => {
       const gen = cloneableGenerator(onUpdateAddressHistory as any)({
-        data: { contact: { addresses: contact.addresses, metadata: contact.metadata } } as ContactModel
+        data: {
+          contact: {
+            primaryAddress: contact.primaryAddress,
+            secondaryAddress: contact.secondaryAddress,
+            metadata: contact.metadata
+          }
+        } as ContactModel
       })
-      expect(gen.next(contact as any).value).toEqual(put(checklistDetailSubmitForm(true)))
+      expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
       expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
-      expect(gen.next(contact as any).value).toEqual(all([null]))
+      expect(gen.next(contact as any).value).toEqual(all([null, null]))
+
       test('api call success', () => {
         const clone = gen.clone()
         expect(clone.next().value).toEqual(call(updateChecklist, { contact, headers: mockHeaders }))
@@ -240,13 +241,17 @@ describe('checklist-detail', () => {
       const gen = cloneableGenerator(onUpdateAddressHistory as any)({
         data: {
           nextSection: 'nextSection',
-          contact: { addresses: contact.addresses, metadata: contact.metadata }
+          contact: {
+            primaryAddress: contact.primaryAddress,
+            secondaryAddress: contact.secondaryAddress,
+            metadata: contact.metadata
+          }
         } as ContactModel
       })
       expect(gen.next(contact as any).value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
       expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
-      expect(gen.next(contact as any).value).toEqual(all([null]))
+      expect(gen.next(contact as any).value).toEqual(all([null, null]))
       test('api call success', () => {
         const clone = gen.clone()
         expect(clone.next().value).toEqual(call(updateChecklist, { contact: contact, headers: mockHeaders }))
@@ -398,10 +403,11 @@ describe('checklist-detail', () => {
       const clone = gen.clone()
       const baseValues = {
         metadata: {
-          primaryIdUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
-          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
+          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
+          secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png'
         },
-        documents: idCheck.documents
+        document1: idCheck.document1,
+        document2: idCheck.document2
       }
       expect(clone.next(contact as any).value).toEqual(
         call(updateIdentityCheck, {
@@ -454,10 +460,11 @@ describe('checklist-detail', () => {
       const clone = gen.clone()
       const baseValues = {
         metadata: {
-          primaryIdUrl: undefined,
-          secondaryIdUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA'
+          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
+          secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png'
         },
-        documents: idCheck.documents
+        document1: idCheck.document1,
+        document2: idCheck.document2
       }
       expect(clone.next(contact as any).value).toEqual(
         call(updateIdentityCheck, {
@@ -609,7 +616,7 @@ describe('checklist-detail', () => {
         expect(gen.next().value).toEqual(
           takeLatest<
             Action<{
-              idCheck: ContactIdentityCheckModel
+              idCheck: IdentityCheckModel
               dynamicLinkParams: DynamicLinkParams
             }>
           >(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA, updateIdentityCheckStatus)

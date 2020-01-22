@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@reapit/config-manager": "^1.1.0",
-    "@reapit/foundations-ts-definitions": "^0.0.4",
+    "@reapit/foundations-ts-definitions": "^0.0.18",
     "@redux-saga/testing-utils": "^1.0.5",
     "@types/enzyme": "^3.9.3",
     "@types/jest": "^24.0.13",

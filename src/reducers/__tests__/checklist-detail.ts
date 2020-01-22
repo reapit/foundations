@@ -150,7 +150,8 @@ describe('home reducer', () => {
       },
       status: {
         ...updateCheckListDetailFormStatus({ contact, idCheck: null }),
-        profile: true
+        // need to update isCompletedProfile in elementstrue
+        profile: false
       }
     }
 

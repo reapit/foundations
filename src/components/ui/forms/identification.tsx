@@ -1,19 +1,18 @@
 import React from 'react'
-import { ContactModel, ContactIdentityDocumentModel } from '@reapit/foundations-ts-definitions'
+import { ContactModel, IdentityDocumentModel } from '@reapit/foundations-ts-definitions'
 import { Button, Input, DatePicker, CameraImageInput, Formik, Form } from '@reapit/elements'
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 
-export const IDENTIFICATION_FORM_DEFAULT_VALUES: ContactIdentityDocumentModel = {
+export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentModel = {
   typeId: '',
   details: '',
-  expiry: '',
-  fileUrl: undefined
+  expiry: ''
 }
 
 export type IdentificationProps = {
   contact: ContactModel | null
-  initFormValues: ContactIdentityDocumentModel
+  initFormValues: IdentityDocumentModel
   loading: boolean
   disabled?: boolean
   onSaveHandler: (values: any) => void
@@ -70,8 +69,8 @@ export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandl
   )
 }
 
-export const onSubmitHandler = (onSaveHandler: (formValues: ContactIdentityDocumentModel) => void) => (
-  formValues: ContactIdentityDocumentModel
+export const onSubmitHandler = (onSaveHandler: (formValues: IdentityDocumentModel) => void) => (
+  formValues: IdentityDocumentModel
 ) => onSaveHandler(formValues)
 
 export const Identification: React.FC<IdentificationProps> = ({

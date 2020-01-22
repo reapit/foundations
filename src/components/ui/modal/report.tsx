@@ -3,7 +3,7 @@ import ReactToPrint from 'react-to-print'
 import { connect } from 'react-redux'
 import { Button, Table } from '@reapit/elements'
 import styles from '@/styles/ui/report.scss?mod'
-import { ContactModel, ContactIdentityCheckModel, ListItemModel } from '@reapit/foundations-ts-definitions'
+import { ContactModel, IdentityCheckModel, ListItemModel } from '@reapit/foundations-ts-definitions'
 import { ReduxState } from '@/types/core'
 import { SectionsStatus } from '@/reducers/checklist-detail'
 import dayjs from 'dayjs'
@@ -37,7 +37,7 @@ export const mappedIdTypes = (idTypes: ListItemModel[]) => {
 
 export type ReportContainerProps = {
   contact: ContactModel | null
-  idCheck: ContactIdentityCheckModel | null
+  idCheck: IdentityCheckModel | null
   status: SectionsStatus
   identityTypes: ListItemModel[]
 }
@@ -45,8 +45,9 @@ export type ReportContainerProps = {
 export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idCheck, status, identityTypes }) => {
   const printRef = React.useRef<HTMLDivElement>(null)
 
-  const { identityCheck, title, forename, surname, dateOfBirth, communications } = contact || {}
+  const { title, forename, surname, dateOfBirth, homePhone, workPhone, mobilePhone, email } = contact || {}
   const name = `${title || ''} ${forename || ''} ${surname || ''}`.trim()
+  console.log()
 
   const data = React.useMemo(() => {
     const idTypes = mappedIdTypes(identityTypes)
@@ -59,12 +60,10 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
             <div>
               {name && <p>Name: {name}</p>}
               {dateOfBirth && <p>Date of Birth: {dayjs(dateOfBirth).format('DD/MM/YYYY')}</p>}
-              {communications &&
-                communications.map(item => (
-                  <p>
-                    {item.label}: {item.detail}
-                  </p>
-                ))}
+              <p>Home: {homePhone}</p>
+              <p>Work: {workPhone}</p>
+              <p>Mobile: {mobilePhone}</p>
+              <p>E-Mail: {email}</p>
             </div>
           )
         },
@@ -73,7 +72,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Primary ID',
         description: () => {
-          const { typeId, details, expiry } = idCheck?.documents?.[0] || {}
+          const { typeId, details, expiry } = idCheck?.document1 || {}
           return (
             <div>
               {typeId && <p>Type: {idTypes[typeId] || typeId}</p>}
@@ -87,7 +86,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Secondary ID',
         description: () => {
-          const { typeId, details, expiry } = idCheck?.documents?.[1] || {}
+          const { typeId, details, expiry } = idCheck?.document2 || {}
           return (
             <div>
               {typeId && <p>Type: {idTypes[typeId] || typeId}</p>}
@@ -101,15 +100,15 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Address History',
         description: () => {
-          const addresses = contact?.addresses || []
+          const { primaryAddress = {}, secondaryAddress = {} } = contact || {}
           const metaAddress = contact?.metadata?.addresses || []
-          const mAddress = addresses.map((item, index) => ({ ...item, ...metaAddress[index] }))
+          const mAddress = [primaryAddress, secondaryAddress].map((item, index) => ({ ...item, ...metaAddress[index] }))
           return (
             mAddress &&
-            mAddress.map(item => {
+            mAddress.map((item, index) => {
               const { buildingName, buildingNumber, line1, line2, line3, postcode, year, month, documentType } = item
               return (
-                <div>
+                <div key={index}>
                   <p>
                     {buildingNumber} {buildingName} {line1} {line2}
                   </p>
@@ -189,7 +188,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
     <>
       <div ref={printRef} className={styles.reportPrint}>
         <p className={styles.title}>{name}</p>
-        <p className={styles.status}>Status: {identityCheck}</p>
+        <p className={styles.status}>Status: {idCheck?.status}</p>
         <div className={styles.reportContainer}>
           <Table data={data} columns={columns} loading={false} bordered striped />
         </div>

@@ -28,23 +28,18 @@ export const generateColumns = history => () => [
   },
   {
     Header: 'Address',
-    id: 'address',
+    id: 'primaryAddress',
     accessor: d => d,
     Cell: ({ row }) => {
-      const addresses = (({ buildingName, buildingNumber, line1, line2 }) => ({
-        buildingName,
-        buildingNumber,
-        line1,
-        line2
-      }))(row?.original?.addresses?.[0] || {})
-
+      const primaryAddress = row.original.primaryAddress || {}
+      const addressKeys = ['buildingName', 'buildingNumber', 'line1', 'line2']
+      const filteredAddressEntries = Object.entries(primaryAddress)
+        .filter(([key, value]) => addressKeys.includes(key) && value)
+        .map(([_, value]) => value)
+        .join(', ')
       return (
         <div>
-          <span>
-            {Object.values(addresses)
-              .filter(value => value)
-              .join(', ')}
-          </span>
+          <span>{filteredAddressEntries}</span>
         </div>
       )
     }
@@ -54,7 +49,7 @@ export const generateColumns = history => () => [
     id: 'postcode',
     accessor: d => d,
     Cell: ({ row }) => {
-      const postcode = row?.original?.addresses?.[0]?.postcode
+      const postcode = row.original.primaryAddress?.postcode
       return (
         <div>
           <span>{postcode}</span>

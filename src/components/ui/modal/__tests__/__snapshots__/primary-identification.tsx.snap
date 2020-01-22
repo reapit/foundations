@@ -4,95 +4,83 @@ exports[`PrimaryIdentification PrimaryIdentification should match snapshot 1`] =
 <Component
   contact={
     Object {
+      "_links": Object {
+        "documents": Object {
+          "href": "/documents/?OwnerType=contact&OwnerId=MKC13000122",
+        },
+        "identityChecks": Object {
+          "href": "/identityChecks/?ContactId=MKC13000122",
+        },
+        "self": Object {
+          "href": "/contacts/MKC13000122",
+        },
+      },
       "active": true,
-      "addresses": Array [
-        Object {
-          "buildingName": "Tilbrook Farm",
-          "buildingNumber": "",
-          "countryId": "",
-          "line1": "Station Road",
-          "line2": "Bow Brickhill",
-          "line3": "Milton Keynes",
-          "line4": "Buckinghamshire",
-          "postcode": "MK17 9JU",
-          "type": "primary",
-        },
-      ],
-      "communications": Array [
-        Object {
-          "detail": "01632 961556",
-          "label": "Home",
-        },
-        Object {
-          "detail": "07700 901556",
-          "label": "Mobile",
-        },
-        Object {
-          "detail": "020 7946 1556",
-          "label": "Work",
-        },
-        Object {
-          "detail": "schadwick512@rpsfiction.net",
-          "label": "E-Mail",
-        },
-      ],
-      "created": "2019-05-12T17:05:19",
-      "forename": "Saoirse",
-      "id": "MKC16000098",
-      "identityCheck": "unchecked",
+      "created": "2017-01-10T11:33:37.0000000Z",
+      "dateOfBirth": "1986-06-30",
+      "email": "hrees927@rpsfiction.net",
+      "forename": "Holly",
+      "homePhone": "01632 968608",
+      "id": "MKC13000122",
       "marketingConsent": "notAsked",
       "metadata": Object {
         "addresses": Array [
           Object {
-            "documentImage": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg",
-            "documentType": "Current Benefits Agency letter",
-            "month": "6",
-            "year": "1911",
+            "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png",
+            "documentType": "Bank / Building Society / Statement",
+            "month": "2",
+            "year": "2",
+          },
+          Object {
+            "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/previous-7-Larch Cottage-LU7 0PX(1).jpg",
+            "documentType": "Credit Card Statements from main provider",
+            "month": "1",
+            "year": "3",
           },
         ],
         "declarationRisk": Object {
-          "declarationForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
-          "reason": "reason",
-          "riskAssessmentForm": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png",
-          "type": "Normal",
+          "reason": "Test",
+          "riskAssessmentForm": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png",
+          "type": "Simplified",
         },
-        "primaryId": Array [
-          Object {
-            "documents": Array [
-              Object {
-                "details": "1123",
-                "expiry": "2019-10-15T10:00:00Z",
-                "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg",
-                "typeId": "CR",
-              },
-            ],
-          },
-        ],
-        "secondaryId": Array [
-          Object {
-            "documents": Array [
-              Object {
-                "details": "123",
-                "expiry": "2019-10-10T00:00:00Z",
-                "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg",
-                "typeId": "PP",
-              },
-            ],
-          },
-        ],
       },
-      "relationships": Array [
-        Object {
-          "id": "RMK",
-          "type": "negotiator",
-        },
-        Object {
-          "id": "MKC",
-          "type": "office",
-        },
+      "mobilePhone": "07700 908608",
+      "modified": "2020-01-21T14:04:50.0000000Z",
+      "negotiatorIds": Array [
+        "JPB",
       ],
-      "surname": "Chadwick",
-      "title": "Ms",
+      "officeIds": Array [
+        "MKC",
+      ],
+      "primaryAddress": Object {
+        "buildingName": "Larch Cottage",
+        "buildingNumber": "12",
+        "countryId": "GB",
+        "line1": "High Street North",
+        "line2": "Stewkley",
+        "line3": "Leighton Buzzard",
+        "line4": "Buckinghamshire",
+        "postcode": "LU7 0EP",
+        "type": "home",
+      },
+      "secondaryAddress": Object {
+        "buildingName": "Larch Cottage",
+        "buildingNumber": "7",
+        "countryId": "",
+        "line1": "Ledburn",
+        "line2": "Leighton Buzzard",
+        "line3": "Buckinghamshire",
+        "line4": "",
+        "postcode": "LU7 0PX",
+        "type": "previous",
+      },
+      "source": Object {
+        "id": "",
+        "type": "",
+      },
+      "surname": "Rees",
+      "title": "Msss",
+      "workPhone": "020 7946 8608",
     }
   }
   initFormValues={Object {}}
