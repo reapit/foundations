@@ -15,16 +15,20 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 
+export const fetchAppDetail = async ({ clientId, id }) => {
+  const response = await fetcher({
+    url: clientId ? `${URLS.apps}/${id}?clientId=${clientId}` : `${URLS.apps}/${id}`,
+    api: process.env.MARKETPLACE_API_BASE_URL as string,
+    method: 'GET',
+    headers: MARKETPLACE_HEADERS
+  })
+  return response
+}
+
 export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
-  const { id, clientId } = data
   yield put(appDetailLoading(true))
   try {
-    const response = yield call(fetcher, {
-      url: clientId ? `${URLS.apps}/${id}?clientId=${clientId}` : `${URLS.apps}/${id}`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
-      method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
+    const response = yield call(fetchAppDetail, { clientId: data.clientId, id: data.id })
     if (response) {
       yield put(appDetailReceiveData({ data: response }))
 

@@ -27,7 +27,7 @@ describe('developer actions', () => {
 
   it('should create a developerRequestData action', () => {
     expect(developerRequestData.type).toEqual(ActionTypes.DEVELOPER_REQUEST_DATA)
-    expect(developerRequestData(1).data).toEqual(1)
+    expect(developerRequestData({ page: 1 }).data).toEqual({ page: 1 })
   })
 
   it('should create a developerClearData action', () => {

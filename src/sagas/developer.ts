@@ -14,9 +14,9 @@ import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 import { Action, ReduxState } from '../types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { selectDeveloperId } from '@/selector/developer'
-import { DeveloperItem } from '@/reducers/developer'
+import { DeveloperItem, DeveloperRequestParams } from '@/reducers/developer'
 
-export const developerDataFetch = function*({ data: page }) {
+export const developerDataFetch = function*({ data }) {
   yield put(developerLoading(true))
 
   try {
@@ -26,9 +26,10 @@ export const developerDataFetch = function*({ data: page }) {
       throw new Error('Developer id does not exist in state')
     }
 
+    const { page, appsPerPage = APPS_PER_PAGE } = data
     const [appsData, scopes] = yield all([
       call(fetcher, {
-        url: `${URLS.apps}?developerId=${developerId}&PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
+        url: `${URLS.apps}?developerId=${developerId}&PageNumber=${page}&PageSize=${appsPerPage}`,
         method: 'GET',
         api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS
@@ -87,7 +88,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
 }
 
 export const developerRequestDataListen = function*() {
-  yield takeLatest<Action<number>>(ActionTypes.DEVELOPER_REQUEST_DATA, developerDataFetch)
+  yield takeLatest<Action<DeveloperRequestParams>>(ActionTypes.DEVELOPER_REQUEST_DATA, developerDataFetch)
 }
 
 export const developerCreateListen = function*() {

@@ -39,6 +39,12 @@ describe('getParamValueFromPath', () => {
     const param = 'category'
     expect(getParamValueFromPath(search, param)).toEqual('1')
   })
+
+  it('should return empty', () => {
+    const search = 'page=1&search=google&category=1'
+    const param = 'asd'
+    expect(getParamValueFromPath(search, param)).toEqual('')
+  })
 })
 
 describe('hasFilterParams', () => {

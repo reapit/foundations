@@ -16,6 +16,7 @@ const Routes = {
   DEVELOPER_WEB_COMPONENTS: '/developer/web-components',
   DEVELOPER_PACKAGE_DOCS: '/developer/packages',
   DEVELOPER_ANALYTICS: '/developer/analytics',
+  DEVELOPER_ANALYTICS_PAGINATE: '/developer/analytics/:page',
   DEVELOPER_RESET_PASSWORD: '/developer/reset-password',
   SETTINGS: '/developer/settings',
   SUBMIT_APP: '/developer/submit-app',

@@ -19,8 +19,8 @@ import {
   FaNetworkWired,
   FaClipboardList,
   FaPortrait,
-  FaTable
-  // FaComments
+  FaTable,
+  FaChartBar
 } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
 import { GoDatabase, GoCode, GoPackage } from 'react-icons/go'
@@ -101,6 +101,13 @@ export const generateMenuConfig = (
           url: Routes.SUBMIT_APP,
           type: 'PRIMARY',
           icon: <FaCloudUploadAlt className="nav-item-icon" />
+        },
+        {
+          title: 'Analytics',
+          key: 'DEVELOPER_ANALYTICS',
+          url: Routes.DEVELOPER_ANALYTICS,
+          type: 'PRIMARY',
+          icon: <FaChartBar className="nav-item-icon" />
         },
         {
           title: 'API',

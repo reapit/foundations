@@ -3,7 +3,8 @@ import appDetailSagas, {
   appDetailDataListen,
   requestAuthenticationCodeListen,
   requestAuthCode,
-  fetchAuthCode
+  fetchAuthCode,
+  fetchAppDetail
 } from '../app-detail'
 import { appDetailDataStub } from '../__stubs__/app-detail'
 import ActionTypes from '@/constants/action-types'
@@ -41,12 +42,7 @@ describe('app-detail fetch data with clientId', () => {
   expect(gen.next().value).toEqual(put(appDetailLoading(true)))
 
   expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}/${paramsClientId.data.id}?clientId=${paramsClientId.data.clientId}`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
-      method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
+    call(fetchAppDetail, { id: paramsClientId.data.id, clientId: paramsClientId.data.clientId })
   )
 
   test('api call success', () => {
@@ -85,14 +81,7 @@ describe('app-detail fetch data with clientId', () => {
 describe('app-detail fetch data without clientId', () => {
   const gen = cloneableGenerator(appDetailDataFetch)(params)
   expect(gen.next().value).toEqual(put(appDetailLoading(true)))
-  expect(gen.next().value).toEqual(
-    call(fetcher, {
-      url: `${URLS.apps}/${params.data.id}`,
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
-      method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
-  )
+  expect(gen.next().value).toEqual(call(fetchAppDetail, { id: params.data.id, clientId: undefined }))
 
   test('api call success', () => {
     const clone = gen.clone()
