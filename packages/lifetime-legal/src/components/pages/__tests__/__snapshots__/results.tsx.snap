@@ -1,0 +1,474 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Result should match a snapshot when LOADING false 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerBasic
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <div>
+      <FlexContainerResponsive
+        flexColumn={true}
+        hasBackground={true}
+        hasPadding={true}
+      >
+        <H3>
+          Showing Results for '
+          1
+          '
+        </H3>
+        <Table
+          columns={
+            Array [
+              Object {
+                "Header": "Name",
+                "accessor": [Function],
+                "id": "name",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Address",
+                "id": "address",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Postcode",
+                "id": "postcode",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Status",
+                "id": "identityCheck",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "",
+                "id": "action",
+              },
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "_links": Object {
+                  "documents": Object {
+                    "href": "/documents/?OwnerType=contact&OwnerId=MKC13000122",
+                  },
+                  "identityChecks": Object {
+                    "href": "/identityChecks/?ContactId=MKC13000122",
+                  },
+                  "self": Object {
+                    "href": "/contacts/MKC13000122",
+                  },
+                },
+                "active": true,
+                "addresses": Array [
+                  Object {
+                    "buildingName": "Larch Cottage",
+                    "buildingNumber": "12",
+                    "countryId": "GB",
+                    "line1": "High Street North",
+                    "line2": "Stewkley",
+                    "line3": "Leighton Buzzard",
+                    "line4": "Buckinghamshire",
+                    "postcode": "LU7 0EP",
+                    "type": "home",
+                  },
+                  Object {
+                    "buildingName": "Larch Cottage",
+                    "buildingNumber": "7",
+                    "countryId": "",
+                    "line1": "Ledburn",
+                    "line2": "Leighton Buzzard",
+                    "line3": "Buckinghamshire",
+                    "line4": "",
+                    "postcode": "LU7 0PX",
+                    "type": "previous",
+                  },
+                ],
+                "communications": Array [
+                  Object {
+                    "detail": "01632 968608",
+                    "label": "Home",
+                  },
+                  Object {
+                    "detail": "07700 908608",
+                    "label": "Mobile",
+                  },
+                  Object {
+                    "detail": "020 7946 8608",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "hrees927@rpsfiction.net",
+                    "label": "E-Mail",
+                  },
+                ],
+                "created": "2017-01-10T11:33:37.0000000Z",
+                "dateOfBirth": "1986-06-30",
+                "forename": "Holly",
+                "id": "MKC13000122",
+                "marketingConsent": "notAsked",
+                "metadata": Object {
+                  "addresses": Array [
+                    Object {
+                      "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png",
+                      "documentType": "Bank / Building Society / Statement",
+                      "month": "2",
+                      "year": "2",
+                    },
+                    Object {
+                      "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/previous-7-Larch Cottage-LU7 0PX.png",
+                      "documentType": "Credit Card Statements from main provider",
+                      "month": "1",
+                      "year": "3",
+                    },
+                  ],
+                  "declarationRisk": Object {
+                    "reason": "Test",
+                    "riskAssessmentForm": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png",
+                    "type": "Simplified",
+                  },
+                },
+                "modified": "2020-01-02T09:28:53.0000000Z",
+                "negotiatorIds": Array [
+                  "JPB",
+                ],
+                "officeIds": Array [
+                  "MKC",
+                ],
+                "source": Object {
+                  "id": "",
+                  "type": "",
+                },
+                "surname": "Rees",
+                "title": "Mss",
+              },
+              Object {
+                "_links": Object {
+                  "documents": Object {
+                    "href": "/documents/?OwnerType=contact&OwnerId=BED12001604",
+                  },
+                  "identityChecks": Object {
+                    "href": "/identityChecks/?ContactId=BED12001604",
+                  },
+                  "self": Object {
+                    "href": "/contacts/BED12001604",
+                  },
+                },
+                "active": true,
+                "addresses": Array [
+                  Object {
+                    "buildingName": "Mountain Ash",
+                    "buildingNumber": "",
+                    "countryId": "",
+                    "line1": "Station Road",
+                    "line2": "Ampthill",
+                    "line3": "Bedfordshire",
+                    "line4": "",
+                    "postcode": "MK45 2RE",
+                    "type": "primary",
+                  },
+                ],
+                "communications": Array [
+                  Object {
+                    "detail": "01632 966030",
+                    "label": "Home",
+                  },
+                  Object {
+                    "detail": "07700 906030",
+                    "label": "Mobile",
+                  },
+                  Object {
+                    "detail": "020 7946 6030",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "hmarshall98@rpsfiction.net",
+                    "label": "E-Mail",
+                  },
+                ],
+                "created": "2015-08-04T08:06:44.0000000Z",
+                "dateOfBirth": "1986-06-30",
+                "forename": "Holly",
+                "id": "BED12001604",
+                "marketingConsent": "notAsked",
+                "metadata": Object {
+                  "addresses": Array [
+                    Object {
+                      "documentImage": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary--Mountain Ash-MK45 2RE(1).jpg",
+                      "documentType": "Current Council Tax Bill",
+                      "month": "3",
+                      "year": "8",
+                    },
+                  ],
+                },
+                "modified": "2019-10-31T09:56:28.0000000Z",
+                "negotiatorIds": Array [
+                  "MM",
+                ],
+                "officeIds": Array [
+                  "BED",
+                ],
+                "source": Object {
+                  "id": "",
+                  "type": "",
+                },
+                "surname": "Marshall",
+                "title": "Ms",
+              },
+              Object {
+                "_links": Object {
+                  "documents": Object {
+                    "href": "/documents/?OwnerType=contact&OwnerId=MKC12000004",
+                  },
+                  "identityChecks": Object {
+                    "href": "/identityChecks/?ContactId=MKC12000004",
+                  },
+                  "self": Object {
+                    "href": "/contacts/MKC12000004",
+                  },
+                },
+                "active": true,
+                "addresses": Array [
+                  Object {
+                    "buildingName": "Larch Cottage",
+                    "buildingNumber": "21",
+                    "countryId": "",
+                    "line1": "Salisbury Grove",
+                    "line2": "Giffard Park",
+                    "line3": "Milton Keynes",
+                    "line4": "Buckinghamshire",
+                    "postcode": "MK14 5QA",
+                    "type": "primary",
+                  },
+                ],
+                "communications": Array [
+                  Object {
+                    "detail": "01632 960917",
+                    "label": "Home",
+                  },
+                  Object {
+                    "detail": "07700 900917",
+                    "label": "Mobile",
+                  },
+                  Object {
+                    "detail": "020 7946 0917",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "hbremner859@rpsfiction.net",
+                    "label": "E-Mail",
+                  },
+                ],
+                "created": "2015-04-15T14:16:48.0000000Z",
+                "dateOfBirth": "1986-06-30",
+                "forename": "Holly",
+                "id": "MKC12000004",
+                "marketingConsent": "notAsked",
+                "metadata": Object {
+                  "addresses": Array [
+                    Object {
+                      "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/primary-21-Larch Cottage-MK14 5QA.webp",
+                      "documentType": "Current Full UK Driving Licence",
+                      "month": "3",
+                      "year": "5",
+                    },
+                  ],
+                },
+                "modified": "2020-01-02T09:30:05.0000000Z",
+                "negotiatorIds": Array [
+                  "MLD",
+                ],
+                "officeIds": Array [
+                  "MKC",
+                ],
+                "source": Object {
+                  "id": "",
+                  "type": "",
+                },
+                "surname": "Bremner",
+                "title": "Msssss",
+              },
+              Object {
+                "_links": Object {
+                  "documents": Object {
+                    "href": "/documents/?OwnerType=contact&OwnerId=MKC07001329",
+                  },
+                  "identityChecks": Object {
+                    "href": "/identityChecks/?ContactId=MKC07001329",
+                  },
+                  "self": Object {
+                    "href": "/contacts/MKC07001329",
+                  },
+                },
+                "active": true,
+                "addresses": Array [
+                  Object {
+                    "buildingName": "",
+                    "buildingNumber": "91",
+                    "countryId": "",
+                    "line1": "Crowborough Lane",
+                    "line2": "Kents Hill",
+                    "line3": "Milton Keynes",
+                    "line4": "Buckinghamshire",
+                    "postcode": "MK7 6JN",
+                    "type": "primary",
+                  },
+                ],
+                "communications": Array [
+                  Object {
+                    "detail": "01632 960745",
+                    "label": "Home",
+                  },
+                  Object {
+                    "detail": "07700 900745",
+                    "label": "Mobile",
+                  },
+                  Object {
+                    "detail": "020 7946 0745",
+                    "label": "Work",
+                  },
+                  Object {
+                    "detail": "hblades625@rpsfiction.net",
+                    "label": "E-Mail",
+                  },
+                ],
+                "created": "2010-10-05",
+                "forename": "Holly",
+                "id": "MKC07001329",
+                "marketingConsent": "notAsked",
+                "metadata": Object {},
+                "modified": "2019-11-01T09:08:50.0000000Z",
+                "negotiatorIds": Array [
+                  "AZB",
+                ],
+                "officeIds": Array [
+                  "MKC",
+                ],
+                "source": Object {
+                  "id": "",
+                  "type": "",
+                },
+                "surname": "Blades",
+                "title": "Mss",
+              },
+            ]
+          }
+          loading={false}
+          scrollable={true}
+        />
+        <Pagination
+          onChange={[Function]}
+          pageNumber={1}
+          pageSize={10}
+          totalCount={4}
+        />
+      </FlexContainerResponsive>
+    </div>
+  </FlexContainerBasic>
+</Connect(ErrorBoundary)>
+`;
+
+exports[`Result should match a snapshot when LOADING true 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerBasic
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <div>
+      <FlexContainerResponsive
+        flexColumn={true}
+        hasBackground={true}
+        hasPadding={true}
+      >
+        <H3>
+          Showing Results for '
+          1
+          '
+        </H3>
+        <Table
+          columns={
+            Array [
+              Object {
+                "Header": "Name",
+                "accessor": [Function],
+                "id": "name",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Address",
+                "id": "address",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Postcode",
+                "id": "postcode",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "Status",
+                "id": "identityCheck",
+              },
+              Object {
+                "Cell": [Function],
+                "Header": "",
+                "id": "action",
+              },
+            ]
+          }
+          data={Array []}
+          loading={true}
+          scrollable={true}
+        />
+        <Pagination
+          onChange={[Function]}
+          pageNumber={1}
+        />
+      </FlexContainerResponsive>
+    </div>
+  </FlexContainerBasic>
+</Connect(ErrorBoundary)>
+`;
+
+exports[`Result should match a snapshot when no results found 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerBasic
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <div>
+      <FlexContainerResponsive
+        flexColumn={true}
+        hasBackground={true}
+        hasPadding={true}
+      >
+        <div>
+          <div>
+            <Info
+              infoType=""
+            >
+              <H6>
+                No Results found
+              </H6>
+            </Info>
+          </div>
+          <div>
+            <Button
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              New Search
+            </Button>
+          </div>
+        </div>
+        <Pagination
+          onChange={[Function]}
+          pageNumber={1}
+        />
+      </FlexContainerResponsive>
+    </div>
+  </FlexContainerBasic>
+</Connect(ErrorBoundary)>
+`;

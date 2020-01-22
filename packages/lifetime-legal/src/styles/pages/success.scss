@@ -1,0 +1,26 @@
+@import '../base/colors.scss';
+
+.successButton {
+  display: flex;
+  justify-content: end;
+  margin-top: 1.5rem;
+}
+
+.successWrapper {
+  padding: 25px;
+  border: 2px solid $grey-light;
+  margin-top: 3.5rem;
+}
+
+.successIcon {
+  color: $green;
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.successContent {
+  width: 80%;
+  font-size: 16px;
+  margin-top: 1rem;
+}

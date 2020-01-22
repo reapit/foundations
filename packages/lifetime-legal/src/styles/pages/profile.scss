@@ -1,0 +1,13 @@
+@import '../base/colors.scss';
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 40px 0 20px 0;
+}

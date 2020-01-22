@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Identification Identification should match snapshot when DISABLED true 1`] = `
+<Formik
+  initialValues={Object {}}
+  onSubmit={[Function]}
+>
+  <Component />
+</Formik>
+`;
+
+exports[`Identification renderFormHandler should match snapshot 1`] = `
+<div>
+  <Component />
+</div>
+`;
+
+exports[`Identification should match snapshot when DISABLED false 1`] = `
+<Formik
+  initialValues={Object {}}
+  onSubmit={[Function]}
+>
+  <Component />
+</Formik>
+`;

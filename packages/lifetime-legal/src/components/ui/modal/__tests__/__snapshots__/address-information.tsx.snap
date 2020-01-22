@@ -1,0 +1,728 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddressInformation AddressInput should render correctly 1`] = `
+<div
+  key="0"
+>
+  <Input
+    id="addresses[0][type]"
+    labelText="Type"
+    name="addresses[0][type]"
+    type="hidden"
+  />
+  <Input
+    id="addresses[0][buildingName]"
+    labelText="Building Name"
+    name="addresses[0][buildingName]"
+    type="text"
+  />
+  <Input
+    id="addresses[0][buildingNumber]"
+    labelText="Building Number"
+    name="addresses[0][buildingNumber]"
+    type="text"
+  />
+  <Input
+    id="addresses[0][line1]"
+    labelText="Line 1"
+    name="addresses[0][line1]"
+    type="text"
+  />
+  <Input
+    id="addresses[0][line2]"
+    labelText="Line 2"
+    name="addresses[0][line2]"
+    type="text"
+  />
+  <Input
+    id="addresses[0][line3]"
+    labelText="Line 3"
+    name="addresses[0][line3]"
+    type="text"
+  />
+  <Input
+    id="addresses[0][line4]"
+    labelText="Line 4"
+    name="addresses[0][line4]"
+    type="text"
+  />
+  <Input
+    id="addresses[0][postcode]"
+    labelText="Post Code"
+    name="addresses[0][postcode]"
+    type="text"
+  />
+  <SelectBox
+    id="metadata.addresses[0][year]"
+    labelText="Number of Years at Address"
+    name="metadata.addresses[0][year]"
+    options={
+      Array [
+        Object {
+          "label": "1",
+          "value": "1",
+        },
+        Object {
+          "label": "2",
+          "value": "2",
+        },
+        Object {
+          "label": "3",
+          "value": "3",
+        },
+        Object {
+          "label": "4",
+          "value": "4",
+        },
+        Object {
+          "label": "5",
+          "value": "5",
+        },
+        Object {
+          "label": "6",
+          "value": "6",
+        },
+        Object {
+          "label": "7",
+          "value": "7",
+        },
+        Object {
+          "label": "8",
+          "value": "8",
+        },
+        Object {
+          "label": "9",
+          "value": "9",
+        },
+        Object {
+          "label": "10",
+          "value": "10",
+        },
+        Object {
+          "label": "11",
+          "value": "11",
+        },
+        Object {
+          "label": "12",
+          "value": "12",
+        },
+        Object {
+          "label": "13",
+          "value": "13",
+        },
+        Object {
+          "label": "14",
+          "value": "14",
+        },
+        Object {
+          "label": "15",
+          "value": "15",
+        },
+        Object {
+          "label": "16",
+          "value": "16",
+        },
+        Object {
+          "label": "17",
+          "value": "17",
+        },
+        Object {
+          "label": "18",
+          "value": "18",
+        },
+        Object {
+          "label": "19",
+          "value": "19",
+        },
+        Object {
+          "label": "20",
+          "value": "20",
+        },
+        Object {
+          "label": "21",
+          "value": "21",
+        },
+        Object {
+          "label": "22",
+          "value": "22",
+        },
+        Object {
+          "label": "23",
+          "value": "23",
+        },
+        Object {
+          "label": "24",
+          "value": "24",
+        },
+        Object {
+          "label": "25",
+          "value": "25",
+        },
+        Object {
+          "label": "26",
+          "value": "26",
+        },
+        Object {
+          "label": "27",
+          "value": "27",
+        },
+        Object {
+          "label": "28",
+          "value": "28",
+        },
+        Object {
+          "label": "29",
+          "value": "29",
+        },
+        Object {
+          "label": "30",
+          "value": "30",
+        },
+        Object {
+          "label": "31",
+          "value": "31",
+        },
+        Object {
+          "label": "32",
+          "value": "32",
+        },
+        Object {
+          "label": "33",
+          "value": "33",
+        },
+        Object {
+          "label": "34",
+          "value": "34",
+        },
+        Object {
+          "label": "35",
+          "value": "35",
+        },
+        Object {
+          "label": "36",
+          "value": "36",
+        },
+        Object {
+          "label": "37",
+          "value": "37",
+        },
+        Object {
+          "label": "38",
+          "value": "38",
+        },
+        Object {
+          "label": "39",
+          "value": "39",
+        },
+        Object {
+          "label": "40",
+          "value": "40",
+        },
+        Object {
+          "label": "41",
+          "value": "41",
+        },
+        Object {
+          "label": "42",
+          "value": "42",
+        },
+        Object {
+          "label": "43",
+          "value": "43",
+        },
+        Object {
+          "label": "44",
+          "value": "44",
+        },
+        Object {
+          "label": "45",
+          "value": "45",
+        },
+        Object {
+          "label": "46",
+          "value": "46",
+        },
+        Object {
+          "label": "47",
+          "value": "47",
+        },
+        Object {
+          "label": "48",
+          "value": "48",
+        },
+        Object {
+          "label": "49",
+          "value": "49",
+        },
+        Object {
+          "label": "50",
+          "value": "50",
+        },
+        Object {
+          "label": "51",
+          "value": "51",
+        },
+        Object {
+          "label": "52",
+          "value": "52",
+        },
+        Object {
+          "label": "53",
+          "value": "53",
+        },
+        Object {
+          "label": "54",
+          "value": "54",
+        },
+        Object {
+          "label": "55",
+          "value": "55",
+        },
+        Object {
+          "label": "56",
+          "value": "56",
+        },
+        Object {
+          "label": "57",
+          "value": "57",
+        },
+        Object {
+          "label": "58",
+          "value": "58",
+        },
+        Object {
+          "label": "59",
+          "value": "59",
+        },
+        Object {
+          "label": "60",
+          "value": "60",
+        },
+        Object {
+          "label": "61",
+          "value": "61",
+        },
+        Object {
+          "label": "62",
+          "value": "62",
+        },
+        Object {
+          "label": "63",
+          "value": "63",
+        },
+        Object {
+          "label": "64",
+          "value": "64",
+        },
+        Object {
+          "label": "65",
+          "value": "65",
+        },
+        Object {
+          "label": "66",
+          "value": "66",
+        },
+        Object {
+          "label": "67",
+          "value": "67",
+        },
+        Object {
+          "label": "68",
+          "value": "68",
+        },
+        Object {
+          "label": "69",
+          "value": "69",
+        },
+        Object {
+          "label": "70",
+          "value": "70",
+        },
+        Object {
+          "label": "71",
+          "value": "71",
+        },
+        Object {
+          "label": "72",
+          "value": "72",
+        },
+        Object {
+          "label": "73",
+          "value": "73",
+        },
+        Object {
+          "label": "74",
+          "value": "74",
+        },
+        Object {
+          "label": "75",
+          "value": "75",
+        },
+        Object {
+          "label": "76",
+          "value": "76",
+        },
+        Object {
+          "label": "77",
+          "value": "77",
+        },
+        Object {
+          "label": "78",
+          "value": "78",
+        },
+        Object {
+          "label": "79",
+          "value": "79",
+        },
+        Object {
+          "label": "80",
+          "value": "80",
+        },
+        Object {
+          "label": "81",
+          "value": "81",
+        },
+        Object {
+          "label": "82",
+          "value": "82",
+        },
+        Object {
+          "label": "83",
+          "value": "83",
+        },
+        Object {
+          "label": "84",
+          "value": "84",
+        },
+        Object {
+          "label": "85",
+          "value": "85",
+        },
+        Object {
+          "label": "86",
+          "value": "86",
+        },
+        Object {
+          "label": "87",
+          "value": "87",
+        },
+        Object {
+          "label": "88",
+          "value": "88",
+        },
+        Object {
+          "label": "89",
+          "value": "89",
+        },
+        Object {
+          "label": "90",
+          "value": "90",
+        },
+        Object {
+          "label": "91",
+          "value": "91",
+        },
+        Object {
+          "label": "92",
+          "value": "92",
+        },
+        Object {
+          "label": "93",
+          "value": "93",
+        },
+        Object {
+          "label": "94",
+          "value": "94",
+        },
+        Object {
+          "label": "95",
+          "value": "95",
+        },
+        Object {
+          "label": "96",
+          "value": "96",
+        },
+        Object {
+          "label": "97",
+          "value": "97",
+        },
+        Object {
+          "label": "98",
+          "value": "98",
+        },
+        Object {
+          "label": "99",
+          "value": "99",
+        },
+        Object {
+          "label": "100",
+          "value": "100",
+        },
+      ]
+    }
+  />
+  <SelectBox
+    id="metadata.addresses[0][month]"
+    labelText="Number of Months at Address"
+    name="metadata.addresses[0][month]"
+    options={
+      Array [
+        Object {
+          "label": "1",
+          "value": "1",
+        },
+        Object {
+          "label": "2",
+          "value": "2",
+        },
+        Object {
+          "label": "3",
+          "value": "3",
+        },
+        Object {
+          "label": "4",
+          "value": "4",
+        },
+        Object {
+          "label": "5",
+          "value": "5",
+        },
+        Object {
+          "label": "6",
+          "value": "6",
+        },
+        Object {
+          "label": "7",
+          "value": "7",
+        },
+        Object {
+          "label": "8",
+          "value": "8",
+        },
+        Object {
+          "label": "9",
+          "value": "9",
+        },
+        Object {
+          "label": "10",
+          "value": "10",
+        },
+        Object {
+          "label": "11",
+          "value": "11",
+        },
+        Object {
+          "label": "12",
+          "value": "12",
+        },
+      ]
+    }
+  />
+  <SelectBox
+    id="metadata.addresses[0][documentType]"
+    labelText="Document Type"
+    name="metadata.addresses[0][documentType]"
+    options={
+      Array [
+        Object {
+          "label": "Please select",
+          "value": "",
+        },
+        Object {
+          "label": "Mortgage Statement or Mortgage Redemption Statement",
+          "value": "Mortgage Statement or Mortgage Redemption Statement",
+        },
+        Object {
+          "label": "Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)",
+          "value": "Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)",
+        },
+        Object {
+          "label": "Current Council Tax Bill",
+          "value": "Current Council Tax Bill",
+        },
+        Object {
+          "label": "Current Full UK Driving Licence",
+          "value": "Current Full UK Driving Licence",
+        },
+        Object {
+          "label": "Current UK / EU Photocard Driving Licence with Counterpart",
+          "value": "Current UK / EU Photocard Driving Licence with Counterpart",
+        },
+        Object {
+          "label": "House or motor insurance certificate",
+          "value": "House or motor insurance certificate",
+        },
+        Object {
+          "label": "Current State Pension notification letter",
+          "value": "Current State Pension notification letter",
+        },
+        Object {
+          "label": "Current Benefits Agency letter",
+          "value": "Current Benefits Agency letter",
+        },
+        Object {
+          "label": "Bank / Building Society / Statement",
+          "value": "Bank / Building Society / Statement",
+        },
+        Object {
+          "label": "Solicitor letter confirming completion of house purchase",
+          "value": "Solicitor letter confirming completion of house purchase",
+        },
+        Object {
+          "label": "Credit Card Statements from main provider",
+          "value": "Credit Card Statements from main provider",
+        },
+        Object {
+          "label": "HMRC Tax notification documentation (this does not include P60’s)",
+          "value": "HMRC Tax notification documentation (this does not include P60’s)",
+        },
+        Object {
+          "label": "Account, investment or insurance documents",
+          "value": "Account, investment or insurance documents",
+        },
+        Object {
+          "label": "Letter from Council Confirming Electoral Roll Listing",
+          "value": "Letter from Council Confirming Electoral Roll Listing",
+        },
+      ]
+    }
+  />
+  <CameraImageInput
+    id="metadata.addresses.[0][documentImage]"
+    labelText="Upload file"
+    name="metadata.addresses.[0][documentImage]"
+  />
+</div>
+`;
+
+exports[`AddressInformation renderExtraForm should match Snapshot 1`] = `
+<div>
+  <Component
+    data-test="address-input"
+    index={0}
+    key="0"
+  />
+</div>
+`;
+
+exports[`AddressInformation should match snapshot 1`] = `
+<div>
+  <Formik
+    initialValues={
+      Object {
+        "addresses": Array [
+          Object {
+            "buildingName": "Tilbrook Farm",
+            "buildingNumber": "",
+            "countryId": "",
+            "line1": "Station Road",
+            "line2": "Bow Brickhill",
+            "line3": "Milton Keynes",
+            "line4": "Buckinghamshire",
+            "postcode": "MK17 9JU",
+            "type": "primary",
+          },
+        ],
+        "metadata": Object {
+          "addresses": Array [
+            Object {
+              "documentImage": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg",
+              "documentType": "Current Benefits Agency letter",
+              "month": "6",
+              "year": "1911",
+            },
+          ],
+          "primaryId": Array [
+            Object {
+              "documents": Array [
+                Object {
+                  "details": "1123",
+                  "expiry": "2019-10-15T10:00:00Z",
+                  "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg",
+                  "typeId": "CR",
+                },
+              ],
+            },
+          ],
+          "secondaryId": Array [
+            Object {
+              "documents": Array [
+                Object {
+                  "details": "123",
+                  "expiry": "2019-10-10T00:00:00Z",
+                  "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg",
+                  "typeId": "PP",
+                },
+              ],
+            },
+          ],
+        },
+      }
+    }
+    onSubmit={[MockFunction]}
+  >
+    <Component />
+  </Formik>
+</div>
+`;
+
+exports[`AddressInformation should match snapshot when desktop mode 1`] = `
+<div>
+  <Formik
+    initialValues={
+      Object {
+        "addresses": Array [
+          Object {
+            "buildingName": "Tilbrook Farm",
+            "buildingNumber": "",
+            "countryId": "",
+            "line1": "Station Road",
+            "line2": "Bow Brickhill",
+            "line3": "Milton Keynes",
+            "line4": "Buckinghamshire",
+            "postcode": "MK17 9JU",
+            "type": "primary",
+          },
+        ],
+        "metadata": Object {
+          "addresses": Array [
+            Object {
+              "documentImage": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg",
+              "documentType": "Current Benefits Agency letter",
+              "month": "6",
+              "year": "1911",
+            },
+          ],
+          "primaryId": Array [
+            Object {
+              "documents": Array [
+                Object {
+                  "details": "1123",
+                  "expiry": "2019-10-15T10:00:00Z",
+                  "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg",
+                  "typeId": "CR",
+                },
+              ],
+            },
+          ],
+          "secondaryId": Array [
+            Object {
+              "documents": Array [
+                Object {
+                  "details": "123",
+                  "expiry": "2019-10-10T00:00:00Z",
+                  "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg",
+                  "typeId": "PP",
+                },
+              ],
+            },
+          ],
+        },
+      }
+    }
+    onSubmit={[MockFunction]}
+  >
+    <Component />
+  </Formik>
+</div>
+`;

@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <div>
+      <H3>
+        Ms Saoirse Chadwick
+      </H3>
+      <div>
+        RPS Reference: 
+        MKC16000098
+      </div>
+    </div>
+    <div>
+      <ProfileToggle
+        complete={true}
+        isOpen={false}
+        key="Personal Details"
+        onToggle={[Function]}
+        title="Personal Details"
+      >
+        <ProfileInformationWithRedux />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={false}
+        isOpen={false}
+        key="Primary Identification"
+        onToggle={[Function]}
+        title="Primary Identification"
+      >
+        <Connect(Component) />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        isOpen={false}
+        key="Secondary Identification"
+        onToggle={[Function]}
+        title="Secondary Identification"
+      >
+        <Connect(Component) />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        isOpen={false}
+        key="Address Information"
+        onToggle={[Function]}
+        title="Address Information"
+      >
+        <AddressInformationWithRedux />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={false}
+        isOpen={false}
+        key="Agent Checks"
+        onToggle={[Function]}
+        title="Agent Checks"
+      >
+        <AgentCheckWithRedux />
+      </ProfileToggle>
+    </div>
+    <div
+      className="flex justify-end mt-10"
+    >
+      <Button
+        loading={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Submit Record for Checks
+      </Button>
+    </div>
+  </FlexContainerResponsive>
+</Connect(ErrorBoundary)>
+`;
+
+exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTING 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <div>
+      <H3>
+        Ms Saoirse Chadwick
+      </H3>
+      <div>
+        RPS Reference: 
+        MKC16000098
+      </div>
+    </div>
+    <div>
+      <ProfileToggle
+        complete={true}
+        isOpen={false}
+        key="Personal Details"
+        onToggle={[Function]}
+        title="Personal Details"
+      >
+        <ProfileInformationWithRedux />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={false}
+        isOpen={false}
+        key="Primary Identification"
+        onToggle={[Function]}
+        title="Primary Identification"
+      >
+        <Connect(Component) />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        isOpen={false}
+        key="Secondary Identification"
+        onToggle={[Function]}
+        title="Secondary Identification"
+      >
+        <Connect(Component) />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={true}
+        isOpen={false}
+        key="Address Information"
+        onToggle={[Function]}
+        title="Address Information"
+      >
+        <AddressInformationWithRedux />
+      </ProfileToggle>
+      <ProfileToggle
+        complete={false}
+        isOpen={false}
+        key="Agent Checks"
+        onToggle={[Function]}
+        title="Agent Checks"
+      >
+        <AgentCheckWithRedux />
+      </ProfileToggle>
+    </div>
+    <div
+      className="flex justify-end mt-10"
+    >
+      <Button
+        loading={true}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Submit Record for Checks
+      </Button>
+    </div>
+  </FlexContainerResponsive>
+</Connect(ErrorBoundary)>
+`;
+
+exports[`Profile should match a snapshot when submitChecksFormState is SUCCESS 1`] = `
+<Redirect
+  to="/profile/:id/success"
+/>
+`;
