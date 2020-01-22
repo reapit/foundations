@@ -115,6 +115,42 @@ exports[`HelpPage should match a snapshot 1`] = `
       </FlexContainerBasic>
     </GridFourColItem>
     <GridFourColItem
+      key="Roadmap"
+    >
+      <FlexContainerBasic
+        centerContent={true}
+        flexColumn={true}
+        hasPadding={true}
+      >
+        <div>
+          <img
+            alt="Roadmap"
+            src=""
+          />
+        </div>
+        <H4
+          isCentered={true}
+        >
+          Roadmap
+        </H4>
+        <p>
+          Want to see what we are building or check on the progress of your feature requests? You can see our product roadmap milestones here. 
+        </p>
+        <p>
+          <Button
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            VIEW
+          </Button>
+        </p>
+      </FlexContainerBasic>
+    </GridFourColItem>
+    <GridFourColItem
       key="Need Help?"
     >
       <FlexContainerBasic
@@ -254,6 +290,40 @@ exports[`renderHelpItems should match snapshot 1`] = `
           variant="primary"
         >
           REPORT
+        </Button>
+      </p>
+    </FlexContainerBasic>
+  </GridFourColItem>
+  <GridFourColItem>
+    <FlexContainerBasic
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="Roadmap"
+          src=""
+        />
+      </div>
+      <H4
+        isCentered={true}
+      >
+        Roadmap
+      </H4>
+      <p>
+        Want to see what we are building or check on the progress of your feature requests? You can see our product roadmap milestones here. 
+      </p>
+      <p>
+        <Button
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          VIEW
         </Button>
       </p>
     </FlexContainerBasic>

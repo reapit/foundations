@@ -32,7 +32,6 @@ const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
 const RegisterConfirm = React.lazy(() => import('../components/pages/register-confirm'))
 const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
 const Forum = React.lazy(() => import('../components/pages/forum'))
-const PackageDocsPage = React.lazy(() => import('../components/pages/package-docs'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -84,7 +83,6 @@ const Router = () => (
               component={AnalyticsPage}
             />
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_DESKTOP_DOCS} exact component={DesktopDocsPage} />
-            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_PACKAGE_DOCS} exact component={PackageDocsPage} />
             <PrivateRoute
               allow="DEVELOPER"
               path={Routes.DEVELOPER_WEB_COMPONENTS}

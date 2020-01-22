@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { FlexContainerResponsive, Content, H3, H4, H5, Table, FlexContainerBasic } from '@reapit/elements'
+import Routes from '@/constants/routes'
 
 export const handleUseLayoutEffect = (hash?: string) => () => {
-  if (!document || !hash) return
+  if (!document) return
 
-  const element = document.getElementById(hash.slice(1))
+  const element = document.getElementById(hash ? hash.slice(1) : 'root')
   if (element) {
     element.scrollIntoView()
   }
@@ -20,8 +21,47 @@ const ApiDocsPage: React.FC = () => {
     <FlexContainerBasic flexColumn hasPadding>
       <Content>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <H3 id="api">Foundations API </H3>
-          <H4>Overview</H4>
+          <H3>Foundations Documentation</H3>
+          <H4>Contents</H4>
+          <ul className="mb-6">
+            <li>
+              <Link to="#api">API Overview</Link>
+            </li>
+            <li>
+              <Link to="#authorization">Authorization</Link>
+            </li>
+            <li>
+              <Link to="#developersandbox">Developer Sandbox</Link>
+            </li>
+            <li>
+              <Link to="#errors">Errors</Link>
+            </li>
+            <li>
+              <Link to="#rate-limits">Rate Limits</Link>
+            </li>
+            <li>
+              <Link to="#pagingation">Pagination</Link>
+            </li>
+            <li>
+              <Link to="#resource-expansion">Resource expansion</Link>
+            </li>
+            <li>
+              <Link to="#versioning">Versioning</Link>
+            </li>
+            <li>
+              <Link to="#elements">Elements</Link>
+            </li>
+            <li>
+              <Link to="#app-scaffolder">React App Scaffolder</Link>
+            </li>
+            <li>
+              <Link to="#cognito-auth">Cognito Auth</Link>
+            </li>
+            <li>
+              <Link to="#ts-definitions">Foundations TS Definitions</Link>
+            </li>
+          </ul>
+          <H4 id="api">API Overview</H4>
           <p>
             The Foundations API is organised around{' '}
             <a title="REST" href="http://en.wikipedia.org/wiki/Representational_State_Transfer">
@@ -43,7 +83,7 @@ const ApiDocsPage: React.FC = () => {
             Alternatively, our <Link to="#developersandbox">Developer Sandbox</Link> provides a quick start experience
             to quickly get to grips with the platform and start developing.
           </p>
-          <H4>REST</H4>
+          <H4 id="rest">REST</H4>
           <H5 id="httpmethods">HTTP Methods</H5>
           <p>
             Foundation APIs present a uniform interface for performing CRUD (create, retrieve, update, delete)
@@ -337,7 +377,7 @@ const ApiDocsPage: React.FC = () => {
             Alternatively, our Interactive API Explorer will automatically grant access to sandbox data when you're
             logged into the Developer Portal.
           </p>
-          <H4>Errors</H4>
+          <H4 id="errors">Errors</H4>
           <p>
             Unsuccessful requests return an error response in JSON format. This includes a status code, a time stamp and
             textual description of the error:
@@ -378,7 +418,7 @@ const ApiDocsPage: React.FC = () => {
               </code>
             </pre>
           </p>
-          <H4>Rate limits</H4>
+          <H4 id="rate-limits">Rate limits</H4>
           <p>
             You can make 1000 requests per minute to our APIs. Each response will include HTTP headers to provide
             information on the current rate limit statistics.
@@ -439,7 +479,7 @@ const ApiDocsPage: React.FC = () => {
               </code>
             </pre>
           </p>
-          <H4>Pagination</H4>
+          <H4 id="pagingation">Pagination</H4>
           <p>
             All collection API resources can be paged and share a common structure in their responses. Page size and
             offset is controlled by use of standardised query strings.
@@ -470,7 +510,7 @@ const ApiDocsPage: React.FC = () => {
               </code>
             </pre>
           </p>
-          <H4>Resource expansion</H4>
+          <H4 id="resource-expansion">Resource expansion</H4>
           <p>
             Some of the top level resources made available by the platform include resource expansion functionality.
             When fetching data from a resource expansion enabled endpoint, clients can optionally request that a
@@ -558,7 +598,25 @@ const ApiDocsPage: React.FC = () => {
             party applications. Do not store any sensitive information (personally identifiable information, bank
             details, etc.) as metadata.
           </p>
-          {/* <H4>Versioning</H4> */}
+          <H4 id="versioning">Versioning</H4>
+          <H4 id="elements">Elements</H4>
+          <p>
+            The Elements UI toolkit you can browse <Link to={Routes.DEVELOPER_ELEMENTS}>here</Link> is available as an
+            NPM package. We also support an AMD (require.js), version that may suit your needs better, especially when
+            serving content from a CDN or CMS.
+          </p>
+          <H4 id="app-scaffolder">React App Scaffolder</H4>
+          <p>Content</p>
+          <H4 id="cognito-auth">Cognito Auth</H4>
+          <p>Content</p>
+          <H4 id="ts-definitions">Foundations TS Definitions</H4>
+          <p>
+            If you are using TypeScript (and we recommend you do!), for your front end project, we provide full type
+            definitions for the API documented in the <Link to={Routes.DEVELOPER_SWAGGER}>API explorer</Link>. We
+            generate these types from the Swagger contracts direct so you can be sure that when the API changes, your
+            types will be updated also. This allows for a much closer alignment between front and back end development
+            and ultimately more robust applications.
+          </p>
         </FlexContainerResponsive>
       </Content>
     </FlexContainerBasic>

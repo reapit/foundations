@@ -294,19 +294,6 @@ exports[`Router should match a snapshot 1`] = `
               }
             }
             exact={true}
-            path="/developer/packages"
-          />
-          <Connect(Component)
-            allow="DEVELOPER"
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
-              }
-            }
-            exact={true}
             path="/developer/web-components"
           />
           <Connect(Component)
