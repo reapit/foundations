@@ -109,8 +109,8 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
               "accessor": "pendingRevisions",
             },
             Object {
-              "Header": "External App",
-              "accessor": [Function],
+              "Header": "Direct API",
+              "accessor": "isDirectApi",
             },
             Object {
               "Cell": [Function],
@@ -249,8 +249,8 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
               "accessor": "pendingRevisions",
             },
             Object {
-              "Header": "External App",
-              "accessor": [Function],
+              "Header": "Direct API",
+              "accessor": "isDirectApi",
             },
             Object {
               "Cell": [Function],
