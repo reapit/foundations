@@ -8,7 +8,8 @@ import {
   handleRequestEndpoint,
   handleFaq,
   helpItems,
-  renderHelpItems
+  renderHelpItems,
+  handleViewRoadmap
 } from '../help'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
@@ -53,6 +54,14 @@ describe('handleRequestEndpoint', () => {
     const spy = jest.spyOn(window, 'open')
     handleRequestEndpoint()
     expect(spy).toHaveBeenCalledWith(HelpLinks.API_REQUEST, '_blank')
+  })
+})
+
+describe('handleViewRoadmap', () => {
+  it('should called with correct props', () => {
+    const spy = jest.spyOn(window, 'open')
+    handleViewRoadmap()
+    expect(spy).toHaveBeenCalledWith(HelpLinks.ROADMAP, '_blank')
   })
 })
 

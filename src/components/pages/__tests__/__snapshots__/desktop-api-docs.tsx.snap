@@ -12,10 +12,61 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       hasPadding={true}
     >
       <H3>
-        Desktop API
+        Desktop Documentation
       </H3>
       <H4>
-        Introduction
+        Contents
+      </H4>
+      <ul
+        className="mb-6"
+      >
+        <li>
+          <Link
+            to="#api"
+          >
+            API Introduction
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#property"
+          >
+            Property
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#applicants"
+          >
+            Applicants
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#appointments"
+          >
+            Appointments
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#contacts"
+          >
+            Contacts
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#agency-cloud"
+          >
+            Agency Cloud Interaction API
+          </Link>
+        </li>
+      </ul>
+      <H4
+        id="api"
+      >
+        API Introduction
       </H4>
       <H5>
         Overview
@@ -35,7 +86,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         Links are structured in a REST style to provide a well-defined and descriptive mechanism for interacting with the screens and functionality that Agency Cloud offers. The primary and secondary screens that exist in the Agency Cloud user interface broadly map to the REST notion of resources and sub-resources. Some actions also accept parameters which can be applied to the URI in the usual manner. Full documentation of the available interactions is listed below, grouped by primary screen.
       </p>
-      <H4>
+      <H4
+        id="property"
+      >
         Property
       </H4>
       <H5>
@@ -177,7 +230,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
         loading={false}
         scrollable={true}
       />
-      <H4>
+      <H4
+        id="applicants"
+      >
         Applicants
       </H4>
       <H5>
@@ -304,7 +359,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
         loading={false}
         scrollable={true}
       />
-      <H4>
+      <H4
+        id="appointments"
+      >
         Appointments
       </H4>
       <H5>
@@ -362,7 +419,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
         loading={false}
         scrollable={true}
       />
-      <H4>
+      <H4
+        id="contacts"
+      >
         Contacts
       </H4>
       <H5>
@@ -468,7 +527,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H4>
+      <H4
+        id="agency-cloud"
+      >
         Agency Cloud Interaction API
       </H4>
       <H5>

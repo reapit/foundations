@@ -1,14 +1,15 @@
 import * as React from 'react'
 import initChatBot from '../../scripts/chat-bot'
 import { history } from '@/core/router'
-import { H3, Button, GridFiveCol, GridFourColItem, H4, Content, FlexContainerBasic } from '@reapit/elements'
+import { H3, Button, GridFiveCol, GridFourColItem, H4, FlexContainerBasic } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { HelpLinks } from '@/constants/help-links'
 import styles from '@/styles/pages/help.scss?mod'
 import welcomeImg from '@/assets/images/help/welcome-guide.jpg'
 import requestEndpointImg from '@/assets/images/help/request-endpoint.jpg'
 import reportBugImg from '@/assets/images/help/report-bugs.jpg'
-import liveChat from '@/assets/images/help/live-chat.jpg'
+import liveChatImg from '@/assets/images/help/live-chat.jpg'
+import roadmapImg from '@/assets/images/help/time-line.jpg'
 
 export const handleGotoWelcomeGuide = () => {
   history.push(Routes.DEVELOPER_WELCOME)
@@ -20,6 +21,10 @@ export const handleReportBug = () => {
 
 export const handleRequestEndpoint = () => {
   window.open(HelpLinks.API_REQUEST, '_blank')
+}
+
+export const handleViewRoadmap = () => {
+  window.open(HelpLinks.ROADMAP, '_blank')
 }
 
 export const handleFaq = () => {
@@ -60,7 +65,15 @@ export const helpItems: HelpItem[] = [
     buttonOnClick: handleReportBug
   },
   {
-    imgSrc: liveChat,
+    imgSrc: roadmapImg,
+    header: 'Roadmap',
+    text:
+      'Want to see what we are building or check on the progress of your feature requests? You can see our product roadmap milestones here. ',
+    buttonText: 'VIEW',
+    buttonOnClick: handleViewRoadmap
+  },
+  {
+    imgSrc: liveChatImg,
     header: 'Need Help?',
     text:
       'If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.',

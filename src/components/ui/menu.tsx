@@ -23,7 +23,7 @@ import {
   FaChartBar
 } from 'react-icons/fa'
 import { MdHelp } from 'react-icons/md'
-import { GoDatabase, GoCode, GoPackage } from 'react-icons/go'
+import { GoDatabase, GoCode } from 'react-icons/go'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,
@@ -138,25 +138,11 @@ export const generateMenuConfig = (
           icon: <GoCode className="nav-item-icon" />
         },
         {
-          title: 'Packages',
-          key: 'PACKAGES',
-          url: Routes.DEVELOPER_PACKAGE_DOCS,
-          type: 'PRIMARY',
-          icon: <GoPackage className="nav-item-icon" />
-        },
-        {
           title: 'Web',
           key: 'WEB_COMPONENTS',
           url: Routes.DEVELOPER_WEB_COMPONENTS,
           type: 'PRIMARY',
           icon: <FaNetworkWired className="nav-item-icon" />
-        },
-        {
-          title: 'Settings',
-          key: 'SETTINGS',
-          url: Routes.SETTINGS,
-          icon: <FaCog className="nav-item-icon" />,
-          type: 'PRIMARY'
         },
         // {
         //   title: 'Forum',
@@ -173,10 +159,10 @@ export const generateMenuConfig = (
           icon: <MdHelp className="nav-item-icon" />
         },
         {
-          title: 'Logout',
-          key: 'LOGOUT',
-          callback: logoutCallback,
-          icon: <FaSignOutAlt className="nav-item-icon" />,
+          title: 'Settings',
+          key: 'SETTINGS',
+          url: Routes.SETTINGS,
+          icon: <FaCog className="nav-item-icon" />,
           type: 'SECONDARY'
         }
       ]

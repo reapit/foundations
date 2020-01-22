@@ -42,6 +42,17 @@ exports[`SettingsPage should match snapshot 2`] = `
           />
         </GridItem>
       </Grid>
+      <FormSection>
+        <LevelRight>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Logout
+          </Button>
+        </LevelRight>
+      </FormSection>
     </FlexContainerResponsive>
   </Content>
 </FlexContainerBasic>

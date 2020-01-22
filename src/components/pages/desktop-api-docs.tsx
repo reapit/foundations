@@ -1,15 +1,41 @@
 import * as React from 'react'
 import styles from '@/styles/pages/desktop-api-docs.scss?mod'
-
 import { FlexContainerResponsive, Content, H3, H4, H5, Table, FlexContainerBasic } from '@reapit/elements'
+import { useLocation, Link } from 'react-router-dom'
+import { handleUseLayoutEffect } from './api-docs'
 
 const DesktopApiDocsPage: React.SFC = () => {
+  const { hash } = useLocation()
+
+  React.useLayoutEffect(handleUseLayoutEffect(hash), [hash])
+
   return (
     <FlexContainerBasic flexColumn hasPadding>
       <Content className={styles['desktop-api-docs']}>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <H3>Desktop API</H3>
-          <H4>Introduction</H4>
+          <H3>Desktop Documentation</H3>
+          <H4>Contents</H4>
+          <ul className="mb-6">
+            <li>
+              <Link to="#api">API Introduction</Link>
+            </li>
+            <li>
+              <Link to="#property">Property</Link>
+            </li>
+            <li>
+              <Link to="#applicants">Applicants</Link>
+            </li>
+            <li>
+              <Link to="#appointments">Appointments</Link>
+            </li>
+            <li>
+              <Link to="#contacts">Contacts</Link>
+            </li>
+            <li>
+              <Link to="#agency-cloud">Agency Cloud Interaction API</Link>
+            </li>
+          </ul>
+          <H4 id="api">API Introduction</H4>
           <H5>Overview</H5>
           <p>
             Applications that are built on our Foundations Platform are able to communicate with Reapit's Agency Cloud
@@ -30,7 +56,7 @@ const DesktopApiDocsPage: React.SFC = () => {
             also accept parameters which can be applied to the URI in the usual manner. Full documentation of the
             available interactions is listed below, grouped by primary screen.
           </p>
-          <H4>Property</H4>
+          <H4 id="property">Property</H4>
           <H5>Load Property</H5>
           <p>Opens the property edit screen for the property with specified id</p>
           <p className="mb-4">
@@ -131,7 +157,7 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H4>Applicants</H4>
+          <H4 id="applicants">Applicants</H4>
           <H5>Load Applicant</H5>
           <p>Opens the applicant edit screen for the applicant with specified id</p>
           <p className="mb-4">
@@ -225,7 +251,7 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H4>Appointments</H4>
+          <H4 id="appointments">Appointments</H4>
           <H5>Load Diary</H5>
           <p>
             Opens the diary screen to provide a calendar view of appointments for the given date range. The dates don’t
@@ -273,7 +299,7 @@ const DesktopApiDocsPage: React.SFC = () => {
               }
             ]}
           />
-          <H4>Contacts</H4>
+          <H4 id="contacts">Contacts</H4>
           <H5>Contact Search</H5>
           <p>
             Opens advanced search screen in contact mode and runs a search with provided parameters. At least one
@@ -354,7 +380,7 @@ const DesktopApiDocsPage: React.SFC = () => {
               <code>{`agencycloud://contacts/{id}/journal`}</code>
             </pre>
           </p>
-          <H4>Agency Cloud Interaction API</H4>
+          <H4 id="agency-cloud">Agency Cloud Interaction API</H4>
           <H5>Overview</H5>
           <p>
             Not only can Applications built on the Foundations Platform trigger events in the Agency Cloud CRM system,

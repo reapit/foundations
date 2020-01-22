@@ -11,13 +11,104 @@ exports[`ApiDocs should match a snapshot 1`] = `
       hasBackground={true}
       hasPadding={true}
     >
-      <H3
-        id="api"
-      >
-        Foundations API 
+      <H3>
+        Foundations Documentation
       </H3>
       <H4>
-        Overview
+        Contents
+      </H4>
+      <ul
+        className="mb-6"
+      >
+        <li>
+          <Link
+            to="#api"
+          >
+            API Overview
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#authorization"
+          >
+            Authorization
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#developersandbox"
+          >
+            Developer Sandbox
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#errors"
+          >
+            Errors
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#rate-limits"
+          >
+            Rate Limits
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#pagingation"
+          >
+            Pagination
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#resource-expansion"
+          >
+            Resource expansion
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#versioning"
+          >
+            Versioning
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#elements"
+          >
+            Elements
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#app-scaffolder"
+          >
+            React App Scaffolder
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#cognito-auth"
+          >
+            Cognito Auth
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#ts-definitions"
+          >
+            Foundations TS Definitions
+          </Link>
+        </li>
+      </ul>
+      <H4
+        id="api"
+      >
+        API Overview
       </H4>
       <p>
         The Foundations API is organised around
@@ -82,7 +173,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
         </Link>
          provides a quick start experience to quickly get to grips with the platform and start developing.
       </p>
-      <H4>
+      <H4
+        id="rest"
+      >
         REST
       </H4>
       <H5
@@ -423,7 +516,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <p>
         Alternatively, our Interactive API Explorer will automatically grant access to sandbox data when you're logged into the Developer Portal.
       </p>
-      <H4>
+      <H4
+        id="errors"
+      >
         Errors
       </H4>
       <p>
@@ -471,7 +566,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H4>
+      <H4
+        id="rate-limits"
+      >
         Rate limits
       </H4>
       <p>
@@ -540,7 +637,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H4>
+      <H4
+        id="pagingation"
+      >
         Pagination
       </H4>
       <p>
@@ -582,7 +681,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H4>
+      <H4
+        id="resource-expansion"
+      >
         Resource expansion
       </H4>
       <p>
@@ -673,6 +774,55 @@ exports[`ApiDocs should match a snapshot 1`] = `
       </p>
       <p>
         Information stored in metadata is specific to your application and is not available to other Reapit or third party applications. Do not store any sensitive information (personally identifiable information, bank details, etc.) as metadata.
+      </p>
+      <H4
+        id="versioning"
+      >
+        Versioning
+      </H4>
+      <H4
+        id="elements"
+      >
+        Elements
+      </H4>
+      <p>
+        The Elements UI toolkit you can browse 
+        <Link
+          to="/developer/elements"
+        >
+          here
+        </Link>
+         is available as an NPM package. We also support an AMD (require.js), version that may suit your needs better, especially when serving content from a CDN or CMS.
+      </p>
+      <H4
+        id="app-scaffolder"
+      >
+        React App Scaffolder
+      </H4>
+      <p>
+        Content
+      </p>
+      <H4
+        id="cognito-auth"
+      >
+        Cognito Auth
+      </H4>
+      <p>
+        Content
+      </p>
+      <H4
+        id="ts-definitions"
+      >
+        Foundations TS Definitions
+      </H4>
+      <p>
+        If you are using TypeScript (and we recommend you do!), for your front end project, we provide full type definitions for the API documented in the 
+        <Link
+          to="/developer/swagger"
+        >
+          API explorer
+        </Link>
+        . We generate these types from the Swagger contracts direct so you can be sure that when the API changes, your types will be updated also. This allows for a much closer alignment between front and back end development and ultimately more robust applications.
       </p>
     </FlexContainerResponsive>
   </Content>
@@ -690,13 +840,104 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       hasBackground={true}
       hasPadding={true}
     >
-      <H3
-        id="api"
-      >
-        Foundations API 
+      <H3>
+        Foundations Documentation
       </H3>
       <H4>
-        Overview
+        Contents
+      </H4>
+      <ul
+        className="mb-6"
+      >
+        <li>
+          <Link
+            to="#api"
+          >
+            API Overview
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#authorization"
+          >
+            Authorization
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#developersandbox"
+          >
+            Developer Sandbox
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#errors"
+          >
+            Errors
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#rate-limits"
+          >
+            Rate Limits
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#pagingation"
+          >
+            Pagination
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#resource-expansion"
+          >
+            Resource expansion
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#versioning"
+          >
+            Versioning
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#elements"
+          >
+            Elements
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#app-scaffolder"
+          >
+            React App Scaffolder
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#cognito-auth"
+          >
+            Cognito Auth
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="#ts-definitions"
+          >
+            Foundations TS Definitions
+          </Link>
+        </li>
+      </ul>
+      <H4
+        id="api"
+      >
+        API Overview
       </H4>
       <p>
         The Foundations API is organised around
@@ -761,7 +1002,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
         </Link>
          provides a quick start experience to quickly get to grips with the platform and start developing.
       </p>
-      <H4>
+      <H4
+        id="rest"
+      >
         REST
       </H4>
       <H5
@@ -1102,7 +1345,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <p>
         Alternatively, our Interactive API Explorer will automatically grant access to sandbox data when you're logged into the Developer Portal.
       </p>
-      <H4>
+      <H4
+        id="errors"
+      >
         Errors
       </H4>
       <p>
@@ -1150,7 +1395,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </code>
         </pre>
       </p>
-      <H4>
+      <H4
+        id="rate-limits"
+      >
         Rate limits
       </H4>
       <p>
@@ -1219,7 +1466,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </code>
         </pre>
       </p>
-      <H4>
+      <H4
+        id="pagingation"
+      >
         Pagination
       </H4>
       <p>
@@ -1261,7 +1510,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </code>
         </pre>
       </p>
-      <H4>
+      <H4
+        id="resource-expansion"
+      >
         Resource expansion
       </H4>
       <p>
@@ -1352,6 +1603,55 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       </p>
       <p>
         Information stored in metadata is specific to your application and is not available to other Reapit or third party applications. Do not store any sensitive information (personally identifiable information, bank details, etc.) as metadata.
+      </p>
+      <H4
+        id="versioning"
+      >
+        Versioning
+      </H4>
+      <H4
+        id="elements"
+      >
+        Elements
+      </H4>
+      <p>
+        The Elements UI toolkit you can browse 
+        <Link
+          to="/developer/elements"
+        >
+          here
+        </Link>
+         is available as an NPM package. We also support an AMD (require.js), version that may suit your needs better, especially when serving content from a CDN or CMS.
+      </p>
+      <H4
+        id="app-scaffolder"
+      >
+        React App Scaffolder
+      </H4>
+      <p>
+        Content
+      </p>
+      <H4
+        id="cognito-auth"
+      >
+        Cognito Auth
+      </H4>
+      <p>
+        Content
+      </p>
+      <H4
+        id="ts-definitions"
+      >
+        Foundations TS Definitions
+      </H4>
+      <p>
+        If you are using TypeScript (and we recommend you do!), for your front end project, we provide full type definitions for the API documented in the 
+        <Link
+          to="/developer/swagger"
+        >
+          API explorer
+        </Link>
+        . We generate these types from the Swagger contracts direct so you can be sure that when the API changes, your types will be updated also. This allows for a much closer alignment between front and back end development and ultimately more robust applications.
       </p>
     </FlexContainerResponsive>
   </Content>

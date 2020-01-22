@@ -11,7 +11,8 @@ describe('SettingsPage', () => {
       developerInfo: developerStub,
       loading: true,
       updateDeveloperInformation: jest.fn(),
-      changePassword: jest.fn()
+      changePassword: jest.fn(),
+      logout: jest.fn()
     }
     const wrapper = shallow(<SettingsPage {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -22,10 +23,28 @@ describe('SettingsPage', () => {
       developerInfo: developerStub,
       loading: false,
       updateDeveloperInformation: jest.fn(),
-      changePassword: jest.fn()
+      changePassword: jest.fn(),
+      logout: jest.fn()
     }
     const wrapper = shallow(<SettingsPage {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
+  })
+
+  it('should respond to logout request', () => {
+    const mockProps: SettingsPageProps = {
+      email: 'test@gmail.com',
+      developerInfo: developerStub,
+      loading: false,
+      updateDeveloperInformation: jest.fn(),
+      changePassword: jest.fn(),
+      logout: jest.fn()
+    }
+    const wrapper = shallow(<SettingsPage {...mockProps} />)
+    wrapper
+      .find('Button')
+      .first()
+      .simulate('click')
+    expect(mockProps.logout).toHaveBeenCalledTimes(1)
   })
 
   describe('mapStateToProps', () => {
@@ -67,10 +86,17 @@ describe('SettingsPage', () => {
     })
   })
   describe('mapDispatchToProps', () => {
-    it('should call dispatch when logout', () => {
+    it('should call dispatch when updateDeveloperInformation', () => {
       const mockDispatch = jest.fn()
       const { updateDeveloperInformation } = mapDispatchToProps(mockDispatch)
       updateDeveloperInformation({ name: '123', companyName: '123', jobTitle: '123', telephone: '1234567890' })
+      expect(mockDispatch).toBeCalled()
+    })
+
+    it('should call dispatch when logout', () => {
+      const mockDispatch = jest.fn()
+      const { logout } = mapDispatchToProps(mockDispatch)
+      logout()
       expect(mockDispatch).toBeCalled()
     })
 
