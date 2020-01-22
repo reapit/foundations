@@ -55,8 +55,8 @@ export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal 
       accessor: 'pendingRevisions'
     },
     {
-      Header: 'External App',
-      accessor: () => 'TBC'
+      Header: 'Direct API',
+      accessor: 'isDirectApi'
     },
     {
       Header: 'Featured',
