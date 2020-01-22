@@ -43,6 +43,7 @@
     "husky": "^4.2.0",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^25.1.0",
+    "jest-config": "^25.1.0",
     "jest-fetch-mock": "^2.1.2",
     "lerna": "^3.19.0",
     "lint-staged": "^9.5.0",
@@ -59,7 +60,6 @@
     "packages/*"
   ],
   "dependencies": {
-    "@reapit/cognito-auth": "^2.0.10",
     "@reapit/elements": "^0.5.30",
     "@sentry/browser": "^5.11.1",
     "dayjs": "^1.8.19",
