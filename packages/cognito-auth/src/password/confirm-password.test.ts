@@ -12,7 +12,7 @@ describe('confirmPassword', () => {
     const params = {
       userName: 'will@mail.com',
       newPassword: 'password',
-      verificationCode: 'verificationCode'
+      verificationCode: 'verificationCode',
     } as ConfirmPasswordParams
     mockedPasswordService.mockImplementation(() => 'SUCCESS')
     expect(await confirmPassword(params)).toEqual('SUCCESS')
@@ -33,7 +33,7 @@ describe('confirmPassword', () => {
     const params = {
       userName: 'will@mail.com',
       newPassword: 'password',
-      verificationCode: 'verificationCode'
+      verificationCode: 'verificationCode',
     } as ConfirmPasswordParams
     const error = new Error('API FAILED')
     mockedPasswordService.mockImplementation(() => {

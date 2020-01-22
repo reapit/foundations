@@ -5,7 +5,7 @@ import errorStrings from '../../constants/error-strings'
 export const confirmPasswordService = async ({
   verificationCode,
   userName,
-  newPassword
+  newPassword,
 }: ConfirmPasswordParams): Promise<string> => {
   return new Promise((resolve, reject) => {
     const cognitoUser = getNewUser(userName)
@@ -16,7 +16,7 @@ export const confirmPasswordService = async ({
       },
       onFailure: err => {
         reject(`${errorStrings.CONFIRM_PASSWORD_SERVICE_ERROR} ${JSON.stringify(err)}`)
-      }
+      },
     })
   })
 }

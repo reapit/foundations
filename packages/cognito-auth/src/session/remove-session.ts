@@ -7,7 +7,7 @@ export const removeSession = (href = window.location.href): void => {
   if (whitelistedHost) {
     hardtack.remove(COOKIE_SESSION_KEY, {
       path: '/',
-      domain: whitelistedHost
+      domain: whitelistedHost,
     })
   }
 }

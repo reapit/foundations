@@ -8,7 +8,7 @@ import {
   deserializeIdToken,
   tokenExpired,
   checkHasIdentityId,
-  COOKIE_EXPIRY
+  COOKIE_EXPIRY,
 } from './cognito'
 import { mockCognitoUserSession, mockLoginSession } from '../__mocks__/cognito-session'
 import hardtack from 'hardtack'
@@ -25,9 +25,9 @@ jest.mock('jsonwebtoken', () => ({
       'custom:reapit:marketAdmin': 'SOME_ADMIN_ID',
       'custom:reapit:userCode': 'SOME_USER_CODE',
       name: 'SOME_NAME',
-      email: 'SOME_EMAIL'
-    })
-  }
+      email: 'SOME_EMAIL',
+    }),
+  },
 }))
 
 describe('Session utils', () => {
@@ -38,7 +38,7 @@ describe('Session utils', () => {
         accessTokenExpiry: 1,
         idToken: 'MOCK_ID_TOKEN',
         idTokenExpiry: 1,
-        refreshToken: 'MOCK_REFRESH_TOKEN'
+        refreshToken: 'MOCK_REFRESH_TOKEN',
       }
       expect(getLoginSession(mockCognitoUserSession)).toEqual(expected)
     })
@@ -65,14 +65,14 @@ describe('Session utils', () => {
           refreshToken: mockLoginSession.refreshToken,
           loginType: mockLoginSession.loginType,
           userName: mockLoginSession.userName,
-          mode: 'WEB'
+          mode: 'WEB',
         }),
         {
           path: '/',
           domain: '.reapit.com',
           expires: COOKIE_EXPIRY,
-          samesite: 'lax'
-        }
+          samesite: 'lax',
+        },
       )
     })
 
@@ -91,7 +91,7 @@ describe('Session utils', () => {
       const stringifiedSession = JSON.stringify({
         refreshToken: mockLoginSession.refreshToken,
         loginType: mockLoginSession.loginType,
-        userName: mockLoginSession.userName
+        userName: mockLoginSession.userName,
       })
 
       document.cookie = `${COOKIE_SESSION_KEY}=${stringifiedSession}`
@@ -113,7 +113,7 @@ describe('Session utils', () => {
         refreshToken: 'TOKEN',
         userName: 'wmcvay@reapit.com',
         loginType: 'CLIENT',
-        mode: 'DESKTOP'
+        mode: 'DESKTOP',
       })
     })
 
@@ -131,7 +131,7 @@ describe('Session utils', () => {
         adminId: 'SOME_ADMIN_ID',
         email: 'SOME_EMAIL',
         name: 'SOME_NAME',
-        userCode: 'SOME_USER_CODE'
+        userCode: 'SOME_USER_CODE',
       })
     })
 
@@ -142,7 +142,7 @@ describe('Session utils', () => {
         adminId: null,
         email: undefined,
         name: undefined,
-        userCode: null
+        userCode: null,
       })
     })
   })
@@ -163,7 +163,7 @@ describe('Session utils', () => {
     it('should return true if loginType CLIENT and has CLIENT_ID', () => {
       const loginType = 'CLIENT'
       const loginIdentity = {
-        clientId: 'SOME_CLIENT_ID'
+        clientId: 'SOME_CLIENT_ID',
       } as LoginIdentity
       expect(checkHasIdentityId(loginType, loginIdentity)).toBe(true)
     })
@@ -171,7 +171,7 @@ describe('Session utils', () => {
     it('should return true if loginType DEVELOPER and has DEVELOPER_ID', () => {
       const loginType = 'DEVELOPER'
       const loginIdentity = {
-        developerId: 'SOME_DEVELOPER_ID'
+        developerId: 'SOME_DEVELOPER_ID',
       } as LoginIdentity
       expect(checkHasIdentityId(loginType, loginIdentity)).toBe(true)
     })
@@ -179,7 +179,7 @@ describe('Session utils', () => {
     it('should return true if loginType ADMIN and has ADMIN_ID', () => {
       const loginType = 'ADMIN'
       const loginIdentity = {
-        adminId: 'SOME_ADMIN_ID'
+        adminId: 'SOME_ADMIN_ID',
       } as LoginIdentity
       expect(checkHasIdentityId(loginType, loginIdentity)).toBe(true)
     })
@@ -187,7 +187,7 @@ describe('Session utils', () => {
     it('should return false if loginType CLIENT or any and has no clientId', () => {
       const loginType = 'CLIENT'
       const loginIdentity = {
-        clientId: null
+        clientId: null,
       } as LoginIdentity
       expect(checkHasIdentityId(loginType, loginIdentity)).toBe(false)
     })

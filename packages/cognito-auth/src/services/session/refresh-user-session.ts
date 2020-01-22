@@ -4,11 +4,11 @@ import errorStrings from '../../constants/error-strings'
 
 export const refreshUserSessionService = async ({
   userName,
-  refreshToken
+  refreshToken,
 }: RefreshParams): Promise<Partial<LoginSession>> => {
   return new Promise((resolve, reject) => {
     const refreshTokenObject = {
-      getToken: () => refreshToken
+      getToken: () => refreshToken,
     }
     const cognitoUser = getNewUser(userName)
 

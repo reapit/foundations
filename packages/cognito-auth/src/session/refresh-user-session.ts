@@ -27,7 +27,7 @@ export const setRefreshSession = async (params: RefreshParams): Promise<LoginSes
       loginType,
       userName,
       mode,
-      loginIdentity
+      loginIdentity,
     } as LoginSession
 
     setSessionCookie(loginSession)

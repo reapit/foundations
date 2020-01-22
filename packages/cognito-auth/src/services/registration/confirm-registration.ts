@@ -4,7 +4,7 @@ import errorStrings from '../../constants/error-strings'
 
 export const confirmRegistrationService = async ({
   verificationCode,
-  userName
+  userName,
 }: ConfirmRegistrationParams): Promise<string> => {
   return new Promise((resolve, reject) => {
     const cognitoUser = getNewUser(userName)

@@ -12,7 +12,7 @@ describe('changePassword', () => {
     const params = {
       userName: 'will@mail.com',
       password: 'password',
-      newPassword: 'newPassword'
+      newPassword: 'newPassword',
     } as ChangePasswordParams
 
     mockedPasswordService.mockImplementation(() => 'SUCCESS')
@@ -35,7 +35,7 @@ describe('changePassword', () => {
     const params = {
       userName: 'will@mail.com',
       password: 'password',
-      newPassword: 'newPassword'
+      newPassword: 'newPassword',
     } as ChangePasswordParams
 
     const error = new Error('API FAILED')
