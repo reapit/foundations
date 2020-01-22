@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`agent-check AgentCheck should match snapshot 1`] = `
+<Formik
+  initialValues={
+    Object {
+      "clientType": "Individual",
+      "isUKResident": "Yes",
+      "placeMeet": "Home Address",
+      "referralType": "Vendor Compliance",
+      "secondaryIdUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg",
+      "timeSelection": "10:00",
+    }
+  }
+  onSubmit={[MockFunction]}
+>
+  <Component />
+</Formik>
+`;
+
+exports[`agent-check renderForm should match snapshot 1`] = `
+<div>
+  <Component />
+</div>
+`;
