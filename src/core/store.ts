@@ -42,6 +42,8 @@ import resetPasswordReducer from '../reducers/reset-password'
 import resetPasswordSagas from '../sagas/reset-password'
 import appInstallationsSagas from '../sagas/app-installations'
 import noticationMessage from '../reducers/notification-message'
+import adminStatsSaga from '../sagas/admin-stats'
+import adminStatsReducer from '../reducers/admin-stats'
 
 export class Store {
   static _instance: Store
@@ -80,7 +82,8 @@ export class Store {
     settings: settingsReducer,
     resetPassword: resetPasswordReducer,
     installations: appInstallationsReducer,
-    noticationMessage
+    noticationMessage,
+    adminStats: adminStatsReducer
   })
 
   static sagas = function*() {
@@ -102,7 +105,8 @@ export class Store {
       fork(settingSagas),
       fork(adminAppsSagas),
       fork(resetPasswordSagas),
-      fork(appInstallationsSagas)
+      fork(appInstallationsSagas),
+      fork(adminStatsSaga)
     ])
   }
 
