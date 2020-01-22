@@ -6,7 +6,7 @@ import { LoginMode } from '@reapit/cognito-auth'
 import { ReduxState } from '@/types/core'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 import { checkListDetailIdentityCheckUpdateData } from '@/actions/checklist-detail'
-import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { selectCheckListDetailContact, selectCheckListDetailStatus } from '@/selectors/checklist-detail'
 import { selectLoginMode } from '@/selectors/auth'
 import Routes from '@/constants/routes'
@@ -90,12 +90,12 @@ export const mapStateToProps = (state: ReduxState) => {
 }
 
 export type DispatchProps = {
-  updateIdentityCheckStatus: (idCheck: ContactIdentityCheckModel, dynamicLinkParams: DynamicLinkParams) => void
+  updateIdentityCheckStatus: (idCheck: IdentityCheckModel, dynamicLinkParams: DynamicLinkParams) => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    updateIdentityCheckStatus: (idCheck: ContactIdentityCheckModel, dynamicLinkParams: DynamicLinkParams) =>
+    updateIdentityCheckStatus: (idCheck: IdentityCheckModel, dynamicLinkParams: DynamicLinkParams) =>
       dispatch(checkListDetailIdentityCheckUpdateData({ idCheck, dynamicLinkParams }))
   }
 }

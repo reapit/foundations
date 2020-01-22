@@ -16,11 +16,11 @@ exports[`ReportContainer should match snapshot 1`] = `
 <Fragment>
   <div>
     <p>
-      Ms Saoirse Chadwick
+      Msss Holly Rees
     </p>
     <p>
       Status: 
-      unchecked
+      pass
     </p>
     <div>
       <Table

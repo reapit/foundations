@@ -26,11 +26,11 @@ export const selectCheckListDetailSecondaryIdUrl = (state: ReduxState) => {
 }
 
 export const selectCheckListDetailPrimaryId = (state: ReduxState) => {
-  return state?.checklistDetail?.checklistDetailData?.idCheck?.documents?.[0]
+  return state?.checklistDetail?.checklistDetailData?.idCheck?.document1
 }
 
 export const selectCheckListDetailSecondaryId = (state: ReduxState) => {
-  return state?.checklistDetail?.checklistDetailData?.idCheck?.documents?.[1]
+  return state?.checklistDetail?.checklistDetailData?.idCheck?.document2
 }
 
 export const selectDeclarationRisk = (state: ReduxState) => {

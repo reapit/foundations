@@ -82,7 +82,7 @@ describe('pep-search', () => {
         onPrevHandler: jest.fn(),
         onNextHandler: jest.fn(),
         isSubmitting: false,
-        pepSearchStatus: { MKC16000098: { param: 'a', result: [], time: '1' } },
+        pepSearchStatus: { MKC13000122: { param: 'a', result: [], time: '1' } },
         contact: contact
       }
       const component = renderForm(mockProps)()

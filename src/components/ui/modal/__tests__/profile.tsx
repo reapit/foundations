@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Profile, renderForm, filterCommunication, mapStateToProps, mapDispatchToProps, validate } from '../profile'
+import { Profile, renderForm, mapStateToProps, mapDispatchToProps, validate } from '../profile'
 import { contact } from '@/sagas/__stubs__/contact'
 import { ReduxState } from '@/types/core'
 
@@ -25,23 +25,6 @@ describe('profile', () => {
       })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
-    })
-  })
-  describe('filterCommunication', () => {
-    it('should run correctly', () => {
-      const expected = '01632 961556'
-      const result = filterCommunication(contact.communications, 'Home')
-      expect(result).toEqual(expected)
-    })
-    it('should return null', () => {
-      const expected = null
-      const result = filterCommunication(undefined, 'Home')
-      expect(result).toEqual(expected)
-    })
-    it('should return null', () => {
-      const expected = null
-      const result = filterCommunication(undefined, 'test' as any)
-      expect(result).toEqual(expected)
     })
   })
   describe('Profile', () => {
@@ -98,9 +81,9 @@ describe('profile', () => {
   describe('validate', () => {
     it('should return correct error message for phone number', () => {
       const input = {
-        home: '',
-        mobile: '',
-        work: '',
+        homePhone: '',
+        mobilePhone: '',
+        workPhone: '',
         email: 'client@gmail.com'
       }
       const output = {
@@ -111,9 +94,9 @@ describe('profile', () => {
 
     it('should return correct error message for email', () => {
       const input = {
-        home: '0987654321',
-        mobile: '',
-        work: '',
+        homePhone: '0987654321',
+        mobilePhone: '',
+        workPhone: '',
         email: 'client@'
       }
       const output = {

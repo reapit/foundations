@@ -10,7 +10,7 @@ import {
   checklistDetailHideModal,
   checklistDetailSubmitForm
 } from '../actions/checklist-detail'
-import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import {
   isCompletedProfile,
   isCompletedPrimaryID,
@@ -37,7 +37,7 @@ export interface ChecklistDetailState {
   modalContentType: string
   checklistDetailData: {
     contact: ContactModel | null
-    idCheck: ContactIdentityCheckModel | null
+    idCheck: IdentityCheckModel | null
   } | null
   pepSearchParam: string
   // TODO will replace any when integrate API with pepSearchData
@@ -134,7 +134,7 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
 
 export type UpdateCheckListDetailFormStatusParams = {
   contact: ContactModel | null
-  idCheck: ContactIdentityCheckModel | null
+  idCheck: IdentityCheckModel | null
 }
 
 /**

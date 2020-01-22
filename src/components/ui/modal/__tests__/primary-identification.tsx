@@ -34,7 +34,7 @@ describe('PrimaryIdentification', () => {
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
-      const { typeId, expiry, details } = idCheck.documents[0]
+      const { typeId, expiry, details } = idCheck.document1
       const expected = {
         loading: false,
         contact: contact,

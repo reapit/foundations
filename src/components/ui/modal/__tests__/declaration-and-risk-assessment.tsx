@@ -24,7 +24,8 @@ describe('DeclarationAndRiskAssessment', () => {
 
   it('renderForm', () => {
     const mockProps = {
-      address: contact.addresses,
+      primaryAddress: contact.primaryAddress,
+      secondaryAddress: contact.secondaryAddress,
       isShowMoreThreeYearInput: true,
       setShowMoreThreeYearInput: jest.fn(),
       loading: false,

@@ -1,8 +1,8 @@
-import { PagedResultContactIdentityCheckModel_, PagedResultContactModel_ } from '@reapit/foundations-ts-definitions'
+import { PagedResultIdentityCheckModel_, PagedResultContactModel_ } from '@reapit/foundations-ts-definitions'
 
 export const mapIdentitiesToContacts = (
   responseContacts: PagedResultContactModel_,
-  responseIdentities: PagedResultContactIdentityCheckModel_
+  responseIdentities: PagedResultIdentityCheckModel_
 ) => {
   // For each contact, find the first identity in the list, take status and set as identityCheck
   const responseContactsEmbeddedWithStatus = responseContacts._embedded?.map(({ id, ...rest }) => {

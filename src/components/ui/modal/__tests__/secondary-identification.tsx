@@ -34,7 +34,7 @@ describe('SecondaryIdentification', () => {
         }
       } as ReduxState
       const result = mapStateToProps(mockState)
-      const { typeId, expiry, details } = idCheck.documents[1]
+      const { typeId, expiry, details } = idCheck.document2
       const expected = {
         loading: false,
         contact: contact,
@@ -42,8 +42,7 @@ describe('SecondaryIdentification', () => {
         initFormValues: {
           typeId,
           details,
-          expiry: new Date(expiry),
-          fileUrl: idCheck.metadata.secondaryIdUrl
+          expiry: new Date(expiry)
         }
       }
       expect(result).toEqual(expected)

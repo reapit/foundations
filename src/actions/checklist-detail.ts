@@ -1,8 +1,4 @@
-import {
-  ContactModel,
-  ContactIdentityCheckModel,
-  ContactIdentityDocumentModel
-} from '@reapit/foundations-ts-definitions'
+import { ContactModel, IdentityCheckModel, IdentityDocumentModel } from '@reapit/foundations-ts-definitions'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 import { DynamicLinkParams } from '@reapit/elements'
@@ -23,7 +19,7 @@ export const updateDeclarationAndRisk = actionCreator<UpdateContactParams>(
 export const checkListDetailUpdateDataLoading = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_MODAL_LOADING)
 export const checklistDetailLoading = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_LOADING)
 export const checklistDetailReceiveContact = actionCreator<ContactModel>(ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT)
-export const checklistDetailReceiveIdentityCheck = actionCreator<ContactIdentityCheckModel | null>(
+export const checklistDetailReceiveIdentityCheck = actionCreator<IdentityCheckModel | null>(
   ActionTypes.CHECKLIST_DETAIL_RECEIVE_IDENTITY_CHECKS
 )
 export const checklistDetailShowModal = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_SHOW_MODAL)
@@ -35,7 +31,7 @@ export const pepSearchResult = actionCreator<any>(ActionTypes.CHECKLIST_DETAIL_S
 
 export type UpdateIdentityCheckParams = {
   nextSection?: string
-  identityChecks: ContactIdentityDocumentModel
+  identityChecks: IdentityDocumentModel
 }
 
 export const checklistDetailPrimaryIdUpdateData = actionCreator<UpdateIdentityCheckParams>(
@@ -46,6 +42,6 @@ export const checklistDetailSecondaryIdUpdateData = actionCreator<UpdateIdentity
 )
 
 export const checkListDetailIdentityCheckUpdateData = actionCreator<{
-  idCheck: ContactIdentityCheckModel
+  idCheck: IdentityCheckModel
   dynamicLinkParams: DynamicLinkParams
 }>(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA)

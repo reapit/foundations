@@ -10,7 +10,7 @@ import {
   selectCheckListDetailPrimaryId,
   selectCheckListDetailIsSubmitting
 } from '@/selectors/checklist-detail'
-import { ContactIdentityDocumentModel, ContactModel } from '@reapit/foundations-ts-definitions'
+import { IdentityDocumentModel, ContactModel } from '@reapit/foundations-ts-definitions'
 import { selectCheckListDetailPrimaryIdUrl } from '../../../selectors/checklist-detail'
 
 export type PrimaryIdentiticationProps = DispatchProps & StateProps
@@ -36,7 +36,7 @@ export const PrimaryIdentification: React.FC<PrimaryIdentiticationProps> = ({
 export type StateProps = {
   loading: boolean
   contact: ContactModel | null
-  initFormValues: ContactIdentityDocumentModel
+  initFormValues: IdentityDocumentModel
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
@@ -55,7 +55,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
       expiry: expiry ? new Date(expiry) : '',
       details: details,
       fileUrl: primaryIdUrl
-    } as ContactIdentityDocumentModel
+    } as IdentityDocumentModel
   }
 
   return {
@@ -66,13 +66,13 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
 }
 
 export type DispatchProps = {
-  updateIdentification: (formValues: ContactIdentityDocumentModel) => void
+  updateIdentification: (formValues: IdentityDocumentModel) => void
   onPrevHandler: () => void
   onNextHandler: (values: any) => () => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  updateIdentification: (values: ContactIdentityDocumentModel) =>
+  updateIdentification: (values: IdentityDocumentModel) =>
     dispatch(checklistDetailPrimaryIdUpdateData({ identityChecks: values })),
   onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.PROFILE)),
   onNextHandler: (values: any) => () =>

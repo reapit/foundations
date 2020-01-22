@@ -59,70 +59,60 @@ export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThree
   setShowMoreThreeYearInput(!isShowMoreThreeYearInput)
 }
 
-export const AddressInput = ({ index }) => {
+export const AddressInput = ({ addressType }) => {
+  // To get/set from metadata
+  const addressMetadataIndex = addressType === 'primaryAddress' ? 0 : 1
   return (
-    <div key={index}>
-      <Input type="hidden" labelText="Type" id={`addresses[${index}][type]`} name={`addresses[${index}][type]`} />
+    <div key={addressType}>
+      <Input type="hidden" labelText="Type" id={`${addressType}[type]`} name={`${addressType}[type]`} />
       <Input
         type="text"
         labelText="Building Name"
-        id={`addresses[${index}][buildingName]`}
-        name={`addresses[${index}][buildingName]`}
+        id={`${addressType}[buildingName]`}
+        name={`${addressType}[buildingName]`}
       />
       <Input
         type="text"
         labelText="Building Number"
-        id={`addresses[${index}][buildingNumber]`}
-        name={`addresses[${index}][buildingNumber]`}
+        id={`${addressType}[buildingNumber]`}
+        name={`${addressType}[buildingNumber]`}
       />
-      <Input
-        type="text"
-        labelText="Line 1"
-        required
-        id={`addresses[${index}][line1]`}
-        name={`addresses[${index}][line1]`}
-      />
-      <Input type="text" labelText="Line 2" id={`addresses[${index}][line2]`} name={`addresses[${index}][line2]`} />
-      <Input
-        type="text"
-        labelText="Line 3"
-        required
-        id={`addresses[${index}][line3]`}
-        name={`addresses[${index}][line3]`}
-      />
-      <Input type="text" labelText="Line 4" id={`addresses[${index}][line4]`} name={`addresses[${index}][line4]`} />
+      <Input type="text" labelText="Line 1" required id={`${addressType}[line1]`} name={`${addressType}[line1]`} />
+      <Input type="text" labelText="Line 2" id={`${addressType}[line2]`} name={`${addressType}[line2]`} />
+      <Input type="text" labelText="Line 3" required id={`${addressType}[line3]`} name={`${addressType}[line3]`} />
+      <Input type="text" labelText="Line 4" id={`${addressType}[line4]`} name={`${addressType}[line4]`} />
       <Input
         type="text"
         labelText="Post Code"
-        id={`addresses[${index}][postcode]`}
-        name={`addresses[${index}][postcode]`}
+        id={`${addressType}[postcode]`}
+        name={`${addressType}[postcode]`}
         required
       />
       <SelectBox
         labelText="Number of Years at Address"
         options={renderYearOptions()}
-        id={`metadata.addresses[${index}][year]`}
-        name={`metadata.addresses[${index}][year]`}
+        id={`metadata.addresses[${addressMetadataIndex}][year]`}
+        name={`metadata.addresses[${addressMetadataIndex}][year]`}
         required
       />
       <SelectBox
         labelText="Number of Months at Address"
-        id={`metadata.addresses[${index}][month]`}
-        name={`metadata.addresses[${index}][month]`}
+        id={`metadata.addresses[${addressMetadataIndex}][month]`}
+        name={`metadata.addresses[${addressMetadataIndex}][month]`}
         options={optionsMonth}
         required
       />
       <SelectBox
         labelText="Document Type"
-        id={`metadata.addresses[${index}][documentType]`}
-        name={`metadata.addresses[${index}][documentType]`}
+        id={`metadata.addresses[${addressMetadataIndex}][documentType]`}
+        name={`metadata.addresses[${addressMetadataIndex}][documentType]`}
         options={optionsDocumentType}
         required
       />
       <CameraImageInput
         labelText="Upload file"
-        id={`metadata.addresses.[${index}][documentImage]`}
-        name={`metadata.addresses.[${index}][documentImage]`}
+        id={`metadata.addresses[${addressMetadataIndex}][documentImage]`}
+        name={`metadata.addresses[${addressMetadataIndex}][documentImage]`}
         allowClear={true}
         required
       />
@@ -130,16 +120,39 @@ export const AddressInput = ({ index }) => {
   )
 }
 
-export const renderExtraForm = ({ isShowMoreThreeYearInput, index }) => {
-  if (isShowMoreThreeYearInput) {
-    return <AddressInput data-test="address-input" key={index} index={index} />
+export const renderSencondaryAddress = (secondaryAddress, isShowMoreThreeYearInput, setShowMoreThreeYearInput) => {
+  if (secondaryAddress) {
+    return <AddressInput addressType="secondaryAddress" />
   }
+  if (isShowMoreThreeYearInput) {
+    return (
+      <>
+        <AddressInput addressType="secondaryAddress" />
+        <div className={styles.moreThreeYearLink}>
+          <a
+            data-test="more-three-year"
+            onClick={handleMoreThreeYear({ setShowMoreThreeYearInput, isShowMoreThreeYearInput })}
+          >
+            Less than 3 years?
+          </a>
+        </div>
+      </>
+    )
+  }
+  return (
+    <div className={styles.moreThreeYearLink}>
+      <a
+        data-test="more-three-year"
+        onClick={handleMoreThreeYear({ setShowMoreThreeYearInput, isShowMoreThreeYearInput })}
+      >
+        Less than 3 years?
+      </a>
+    </div>
+  )
 }
 
-const MAX_COUNT_ADDRESSES = 2
-
 export const renderForm = ({
-  addresses,
+  secondaryAddress,
   isSubmitting,
   isShowMoreThreeYearInput,
   setShowMoreThreeYearInput,
@@ -147,20 +160,8 @@ export const renderForm = ({
   onPrevHandler
 }) => ({ values }) => (
   <Form>
-    {addresses.map((_, index) => {
-      return <AddressInput key={index} index={index} />
-    })}
-    {addresses && addresses.length < MAX_COUNT_ADDRESSES && (
-      <div className={styles.moreThreeYearLink}>
-        <a
-          data-test="more-three-year"
-          onClick={handleMoreThreeYear({ setShowMoreThreeYearInput, isShowMoreThreeYearInput })}
-        >
-          Less than 3 years?
-        </a>
-      </div>
-    )}
-    {renderExtraForm({ isShowMoreThreeYearInput, index: addresses.length })}
+    <AddressInput addressType="primaryAddress" />
+    {renderSencondaryAddress(secondaryAddress, isShowMoreThreeYearInput, setShowMoreThreeYearInput)}
     <div className={styles.footerBtn}>
       <Button loading={isSubmitting} className="mr-2" variant="primary" type="submit">
         Save
@@ -178,6 +179,19 @@ export const renderForm = ({
 
 export type AddressInformationProps = DispatchProps & StateProps
 
+export const generateMetadata = secondaryAddress => {
+  const baseAddressMetadata = {
+    year: '',
+    month: '',
+    documentType: ''
+  }
+
+  if (secondaryAddress) {
+    return Array(2).fill(baseAddressMetadata)
+  }
+  return [baseAddressMetadata]
+}
+
 export const AddressInformation: React.FC<AddressInformationProps> = ({
   contact,
   onNextHandler,
@@ -186,31 +200,23 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
   isSubmitting
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
-  const addresses = contact.addresses || []
-  const metadata =
-    contact.metadata ||
-    addresses.reduce(
-      (accumulator, _, currentIndex) => {
-        accumulator.addresses[`${currentIndex}`] = {}
-        accumulator.addresses[`${currentIndex}`].year = ''
-        accumulator.addresses[`${currentIndex}`].month = ''
-        accumulator.addresses[`${currentIndex}`].documentType = ''
-        return accumulator
-      },
-      { addresses: {} } as any
-    )
+  const { primaryAddress, secondaryAddress } = contact
+  const metadata = contact.metadata || {
+    addresses: generateMetadata(secondaryAddress)
+  }
 
   return (
     <div>
       <Formik
         initialValues={{
-          addresses,
+          primaryAddress,
+          secondaryAddress,
           metadata
         }}
         onSubmit={onHandleSubmit}
       >
         {renderForm({
-          addresses: contact.addresses,
+          secondaryAddress,
           isShowMoreThreeYearInput,
           setShowMoreThreeYearInput,
           onNextHandler,

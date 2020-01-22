@@ -5,14 +5,14 @@ exports[` 1`] = `
   <Formik
     initialValues={
       Object {
-        "dateOfBirth": null,
-        "email": "schadwick512@rpsfiction.net",
-        "forename": "Saoirse",
-        "home": "01632 961556",
-        "mobile": "07700 901556",
-        "surname": "Chadwick",
-        "title": "Ms",
-        "work": "020 7946 1556",
+        "dateOfBirth": 1986-06-30T00:00:00.000Z,
+        "email": "hrees927@rpsfiction.net",
+        "forename": "Holly",
+        "homePhone": "01632 968608",
+        "mobilePhone": "07700 908608",
+        "surname": "Rees",
+        "title": "Msss",
+        "workPhone": "020 7946 8608",
       }
     }
     onSubmit={[MockFunction]}
@@ -59,21 +59,21 @@ exports[`profile renderForm should match snapshot 1`] = `
       * At least one telephone number is required
     </p>
     <Input
-      id="home"
+      id="homePhone"
       labelText="Home"
-      name="home"
+      name="homePhone"
       type="text"
     />
     <Input
-      id="mobile"
+      id="mobilePhone"
       labelText="Mobile"
-      name="mobile"
+      name="mobilePhone"
       type="text"
     />
     <Input
-      id="work"
+      id="workPhone"
       labelText="Work"
-      name="work"
+      name="workPhone"
       type="text"
     />
     <Input
@@ -100,7 +100,7 @@ exports[`profile renderForm should match snapshot 1`] = `
             <span
               className="ml-1"
             >
-              MKC16000098
+              MKC13000122
             </span>
           </div>
         </div>
@@ -171,21 +171,21 @@ exports[`profile renderForm should match snapshot 2`] = `
       * At least one telephone number is required
     </p>
     <Input
-      id="home"
+      id="homePhone"
       labelText="Home"
-      name="home"
+      name="homePhone"
       type="text"
     />
     <Input
-      id="mobile"
+      id="mobilePhone"
       labelText="Mobile"
-      name="mobile"
+      name="mobilePhone"
       type="text"
     />
     <Input
-      id="work"
+      id="workPhone"
       labelText="Work"
-      name="work"
+      name="workPhone"
       type="text"
     />
     <Input
@@ -212,7 +212,7 @@ exports[`profile renderForm should match snapshot 2`] = `
             <span
               className="ml-1"
             >
-              MKC16000098
+              MKC13000122
             </span>
           </div>
         </div>

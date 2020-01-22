@@ -5,7 +5,7 @@ exports[`pep-search PepSearch should match snapshot 1`] = `
   <Formik
     initialValues={
       Object {
-        "name": "Saoirse Chadwick",
+        "name": "Holly Rees",
       }
     }
     onSubmit={[MockFunction]}
