@@ -11,7 +11,7 @@ describe('PrimaryIdentification', () => {
         contactModel: contact,
         initFormValues: {},
         loading: false,
-        updateIdentification: jest.fn()
+        updateIdentification: jest.fn(),
       }
       const wrapper = shallow(<PrimaryIdentification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -26,20 +26,20 @@ describe('PrimaryIdentification', () => {
           isSubmitting: false,
           checklistDetailData: {
             contact,
-            idCheck: null
-          }
+            idCheck: null,
+          },
         },
         auth: {
           refreshSession: {
-            desktopMode: 'DESKTOP'
-          }
-        }
+            desktopMode: 'DESKTOP',
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       const expected = {
         loading: false,
         contactModel: contact,
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES
+        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
       }
       expect(result).toEqual(expected)
     })
@@ -51,7 +51,7 @@ describe('PrimaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: {},
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES
+        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
       }
       expect(result).toEqual(expected)
     })

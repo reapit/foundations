@@ -11,7 +11,7 @@ const props: ProfileProps = {
   status: checklistStatus,
   submitChecks: jest.fn(),
   submitChecksFormState: 'PENDING',
-  loginMode: 'DESKTOP'
+  loginMode: 'DESKTOP',
 }
 
 describe('Profile', () => {

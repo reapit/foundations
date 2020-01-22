@@ -10,7 +10,7 @@ export type StateProps = {
 
 export type SelectIdentityProps = { labelText: string; name: string; id: string } & StateProps
 
-export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, ...props }) => {
+export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, ...props }: SelectIdentityProps) => {
   const identityTypes = identityState?.identityTypes || []
 
   const listIdentity = React.useMemo(() => {
@@ -19,7 +19,7 @@ export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, .
         .filter(item => item.id)
         .map(item => ({
           label: item.value || '',
-          value: item.id || ''
+          value: item.id || '',
         }))
     }
     return []
@@ -29,7 +29,7 @@ export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, .
 }
 
 const mapStateToProps = (state: ReduxState): StateProps => ({
-  identityState: state.identityTypes
+  identityState: state.identityTypes,
 })
 
 export default connect(mapStateToProps, null)(SelectIdentity)

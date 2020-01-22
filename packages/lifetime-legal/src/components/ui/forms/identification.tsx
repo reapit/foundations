@@ -15,7 +15,7 @@ export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentificationFormValues = {
   typeId: '',
   details: '',
   expiry: null,
-  fileUrl: ''
+  fileUrl: '',
 }
 
 export type IdentificationProps = {
@@ -23,7 +23,7 @@ export type IdentificationProps = {
   initFormValues: IdentificationFormValues
   loading: boolean
   disabled?: boolean
-  onSaveHandler: () => void
+  onSaveHandler: (values: IdentificationFormValues) => void
 }
 
 export const renderFormHandler = ({ contactModel, loading, disabled = false }) => () => {
@@ -69,8 +69,8 @@ export const Identification: React.FC<IdentificationProps> = ({
   contactModel,
   initFormValues,
   onSaveHandler,
-  disabled = false
-}) => (
+  disabled = false,
+}: IdentificationProps) => (
   <Formik
     initialValues={initFormValues}
     onSubmit={(formValues: IdentificationFormValues) => onSubmitHandler(formValues, onSaveHandler)}

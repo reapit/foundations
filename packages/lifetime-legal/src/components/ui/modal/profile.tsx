@@ -28,7 +28,7 @@ export const renderForm = ({ isSubmitting }) => () => {
 
 export const filterCommunication = (
   communications: ContactCommunicationModel[] | undefined,
-  type: 'Home' | 'Mobile' | 'Work' | 'E-Mail'
+  type: 'Home' | 'Mobile' | 'Work' | 'E-Mail',
 ) => {
   if (!communications) {
     return null
@@ -36,7 +36,7 @@ export const filterCommunication = (
   const newCommunication: ContactCommunicationModel | undefined = communications.find(
     (communication: ContactCommunicationModel) => {
       return communication.label === type
-    }
+    },
   )
   if (newCommunication) {
     return newCommunication.detail
@@ -46,7 +46,7 @@ export const filterCommunication = (
 
 export type ProfileProps = StateProps & DispatchProps
 
-export const Profile: React.FC<ProfileProps> = ({ contact, onSubmitHandler, isSubmitting }) => {
+export const Profile: React.FC<ProfileProps> = ({ contact, onSubmitHandler, isSubmitting }: ProfileProps) => {
   return (
     <div>
       <Formik
@@ -58,7 +58,7 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onSubmitHandler, isSu
           home: filterCommunication(contact.communications, 'Home'),
           work: filterCommunication(contact.communications, 'Work'),
           mobile: filterCommunication(contact.communications, 'Mobile'),
-          email: filterCommunication(contact.communications, 'E-Mail')
+          email: filterCommunication(contact.communications, 'E-Mail'),
         }}
         onSubmit={onSubmitHandler}
       >
@@ -76,7 +76,7 @@ export type StateProps = {
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: state?.checklistDetail?.isSubmitting || false,
-    contact: state?.checklistDetail?.checklistDetailData?.contact || {}
+    contact: state?.checklistDetail?.checklistDetailData?.contact || {},
   }
 }
 
@@ -93,11 +93,11 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
           { label: 'Home', detail: values.home },
           { label: 'Mobile', detail: values.mobile },
           { label: 'Work', detail: values.work },
-          { label: 'E-Mail', detail: values.email }
-        ]
+          { label: 'E-Mail', detail: values.email },
+        ],
       }
       dispatch(checkListDetailUpdateData(newValues))
-    }
+    },
   }
 }
 

@@ -13,7 +13,7 @@ describe('auth actions', () => {
       userName: 'bob@acme.com',
       accessTokenExpiry: 1,
       accessToken: '',
-      refreshToken: ''
+      refreshToken: '',
     } as LoginSession
     expect(authLoginSuccess.type).toEqual(ActionTypes.AUTH_LOGIN_SUCCESS)
     expect(authLoginSuccess(loginSession).data).toEqual(loginSession)

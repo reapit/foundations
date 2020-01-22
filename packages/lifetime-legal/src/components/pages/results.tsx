@@ -8,6 +8,7 @@ import { Pagination, Table, Button, H3, Info, H6, FlexContainerResponsive, FlexC
 import { resultRequestData, ContactsParams } from '@/actions/results'
 import Routes from '@/constants/routes'
 import styles from '@/styles/pages/results.scss?mod'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
@@ -31,75 +32,89 @@ export const backToHome = history => () => {
 
 export const handleRedirectToRow = (history, row) => () => history.push(`${Routes.PROFILE}/${row.original.id}`)
 
-export const generateColumn = history => () => [
+export type RowProps = {
+  row: {
+    original: ContactModel
+  }
+}
+
+export const renderAddress = ({ row }: RowProps) => {
+  const addresses = (({ buildingName, buildingNumber, line1, line2 }) => ({
+    buildingName,
+    buildingNumber,
+    line1,
+    line2,
+  }))(row?.original?.addresses?.[0] || {})
+
+  return (
+    <div>
+      <span>
+        {Object.values(addresses)
+          .filter(value => value)
+          .join(', ')}
+      </span>
+    </div>
+  )
+}
+
+export const renderPostCode = ({ row }: RowProps) => {
+  const postcode = row?.original?.addresses?.[0]?.postcode
+  return (
+    <div>
+      <span>{postcode}</span>
+    </div>
+  )
+}
+
+export const renderStatus = ({ row }: RowProps) => {
+  return (
+    <div>
+      <span className="capitalize">{row.original.identityCheck}</span>
+    </div>
+  )
+}
+
+export const renderActions = (history: History) => ({ row }) => {
+  return (
+    <Button type="button" variant="primary" onClick={handleRedirectToRow(history, row)}>
+      Edit
+    </Button>
+  )
+}
+
+export const generateColumn = (history: any) => () => [
   {
     Header: 'Name',
     id: 'name',
-    accessor: value => `${value.forename} ${value.surname}`
+    accessor: value => `${value.forename} ${value.surname}`,
   },
   {
     Header: 'Address',
     id: 'address',
-    Cell: ({ row }) => {
-      const addresses = (({ buildingName, buildingNumber, line1, line2 }) => ({
-        buildingName,
-        buildingNumber,
-        line1,
-        line2
-      }))(row?.original?.addresses?.[0] || {})
-
-      return (
-        <div>
-          <span>
-            {Object.values(addresses)
-              .filter(value => value)
-              .join(', ')}
-          </span>
-        </div>
-      )
-    }
+    Cell: renderAddress,
   },
   {
     Header: 'Postcode',
     id: 'postcode',
-    Cell: ({ row }) => {
-      const postcode = row?.original?.addresses?.[0]?.postcode
-      return (
-        <div>
-          <span>{postcode}</span>
-        </div>
-      )
-    }
+    Cell: renderPostCode,
   },
   {
     Header: 'Status',
     id: 'identityCheck',
-    Cell: ({ row }) => {
-      return (
-        <div>
-          <span className="capitalize">{row.original.identityCheck}</span>
-        </div>
-      )
-    }
+    Cell: renderStatus,
   },
   {
     Header: '',
     id: 'action',
-    Cell: ({ row }) => {
-      return (
-        <Button type="button" variant="primary" onClick={handleRedirectToRow(history, row)}>
-          Edit
-        </Button>
-      )
-    }
-  }
+    Cell: renderActions(history),
+  },
 ]
 
 export const handleUseCallback = setPageNumber => page => {
   setPageNumber(page)
 }
 
-export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fetchContacts, history }) => {
+export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fetchContacts, history }: ResultProps) => {
   const { search, loading } = resultsState
   const { totalCount, pageSize, _embedded = [] } = resultsState?.contacts || {}
   const columns = React.useMemo(generateColumn(history), [])
@@ -137,7 +152,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
       <FlexContainerBasic hasPadding flexColumn>
         <div>
           <FlexContainerResponsive hasBackground flexColumn hasPadding>
-            {search && <H3>Showing Results for '{searchTitle}'</H3>}
+            {search && <H3>Showing Results for &#39;{searchTitle}&#39;</H3>}
             {!search || Number(totalCount) === 0 ? (
               renderEmptyResult()
             ) : (
@@ -157,11 +172,11 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultsState, fet
 }
 
 export const mapStateToProps = (state: ReduxState): ResultMappedProps => ({
-  resultsState: state.results
+  resultsState: state.results,
 })
 
 export const mapDispatchToProps = (dispatch: any): ResultMappedActions => ({
-  fetchContacts: (params: ContactsParams) => dispatch(resultRequestData(params))
+  fetchContacts: (params: ContactsParams) => dispatch(resultRequestData(params)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Result))

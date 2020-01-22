@@ -9,7 +9,7 @@ import {
   renderExtraForm,
   mapStateToProps,
   mapDispatchToProps,
-  AddressInput
+  AddressInput,
 } from '../address-information'
 
 describe('AddressInformation', () => {
@@ -17,7 +17,7 @@ describe('AddressInformation', () => {
     const mockProps = {
       contact,
       isSubmitting: false,
-      onHandleSubmit: jest.fn()
+      onHandleSubmit: jest.fn(),
     }
     const wrapper = shallow(<AddressInformation {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -27,7 +27,7 @@ describe('AddressInformation', () => {
     const mockProps = {
       contact,
       isSubmitting: false,
-      onHandleSubmit: jest.fn()
+      onHandleSubmit: jest.fn(),
     }
     const wrapper = shallow(<AddressInformation {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -38,7 +38,7 @@ describe('AddressInformation', () => {
       addresses: contact.addresses,
       isShowMoreThreeYearInput: true,
       setShowMoreThreeYearInput: jest.fn(),
-      isSubmitting: false
+      isSubmitting: false,
     }
     const fn = renderForm(mockProps)
     const component = fn()
@@ -48,7 +48,7 @@ describe('AddressInformation', () => {
   it('handleMoreThreeYear', () => {
     const mockProps = {
       setShowMoreThreeYearInput: jest.fn(),
-      isShowMoreThreeYearInput: true
+      isShowMoreThreeYearInput: true,
     }
     const fn = handleMoreThreeYear(mockProps)
     fn()
@@ -60,7 +60,7 @@ describe('AddressInformation', () => {
         isShowMoreThreeYearInput: true,
         values: contact.addresses[0],
         index: 0,
-        setFieldValue: jest.fn()
+        setFieldValue: jest.fn(),
       }
       const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -71,7 +71,7 @@ describe('AddressInformation', () => {
         isShowMoreThreeYearInput: true,
         values: contact.addresses[0],
         index: 0,
-        setFieldValue: jest.fn()
+        setFieldValue: jest.fn(),
       }
       const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -82,7 +82,7 @@ describe('AddressInformation', () => {
         isShowMoreThreeYearInput: false,
         values: contact.addresses[0],
         index: 0,
-        setFieldValue: jest.fn()
+        setFieldValue: jest.fn(),
       }
       const component = renderExtraForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -97,19 +97,19 @@ describe('AddressInformation', () => {
         checklistDetail: {
           isSubmitting: false,
           checklistDetailData: {
-            contact
-          }
+            contact,
+          },
         },
         auth: {
           refreshSession: {
-            mode: 'DESKTOP'
-          }
-        }
+            mode: 'DESKTOP',
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact,
-        isSubmitting: false
+        isSubmitting: false,
       })
     })
     it('should run correctly', () => {
@@ -117,7 +117,7 @@ describe('AddressInformation', () => {
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact: {},
-        isSubmitting: false
+        isSubmitting: false,
       })
     })
   })
@@ -134,7 +134,7 @@ describe('AddressInformation', () => {
   describe('AddressInput', () => {
     it('should render correctly', () => {
       const mockProps = {
-        index: 0
+        index: 0,
       }
       const wrapper = shallow(<AddressInput {...mockProps} />)
       expect(wrapper).toMatchSnapshot()

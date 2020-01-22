@@ -26,32 +26,32 @@ const generateSection = (status: ChecklistStatus, onClick: (sectionType: string)
       title: STEPS.PROFILE,
       complete: status?.profile || false,
       children: <ProfileDetail />,
-      onToggle: onClick(STEPS.PROFILE)
+      onToggle: onClick(STEPS.PROFILE),
     },
     {
       title: STEPS.PRIMARY_IDENTIFICATION,
       complete: status?.primaryId || false,
       children: <PrimaryIdentification />,
-      onToggle: onClick(STEPS.PRIMARY_IDENTIFICATION)
+      onToggle: onClick(STEPS.PRIMARY_IDENTIFICATION),
     },
     {
       title: STEPS.SECONDARY_IDENTIFICATION,
       complete: status?.secondaryId || false,
       children: <SecondaryIdentification />,
-      onToggle: onClick(STEPS.SECONDARY_IDENTIFICATION)
+      onToggle: onClick(STEPS.SECONDARY_IDENTIFICATION),
     },
     {
       title: STEPS.ADDRESS_INFORMATION,
       complete: status?.addresses || false,
       children: <AddressInformation />,
-      onToggle: onClick(STEPS.ADDRESS_INFORMATION)
+      onToggle: onClick(STEPS.ADDRESS_INFORMATION),
     },
     {
       title: STEPS.AGENT_CHECKS,
       complete: status?.agentChecks || false,
       children: <AgentCheck />,
-      onToggle: onClick(STEPS.AGENT_CHECKS)
-    }
+      onToggle: onClick(STEPS.AGENT_CHECKS),
+    },
   ]
 }
 
@@ -80,7 +80,7 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
         setToggle(sectionType)
       }
     },
-    [toggle]
+    [toggle],
   )
 
   const section = React.useMemo(() => generateSection(status, handleToggle), [status, toggle])
@@ -136,11 +136,11 @@ const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
   loading: !!state?.checklistDetail?.loading,
   contact: selectCheckListDetailContact(state),
   status: selectCheckListDetailStatus(state),
-  loginMode: state?.auth?.refreshSession?.mode || 'WEB'
+  loginMode: state?.auth?.refreshSession?.mode || 'WEB',
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): ProfileMappedActions => ({
-  submitChecks: (id: string) => dispatch(submitChecks(id))
+  submitChecks: (id: string) => dispatch(submitChecks(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

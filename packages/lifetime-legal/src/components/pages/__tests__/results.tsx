@@ -11,7 +11,7 @@ import {
   backToHome,
   handleRedirectToRow,
   generateColumn,
-  handleUseCallback
+  handleUseCallback,
 } from '../results'
 import { contacts } from '@/sagas/__stubs__/contacts'
 import { ReduxState } from '@/types/core'
@@ -23,18 +23,18 @@ const defaultSearch = { name: '1' }
 const props = (
   loading: boolean,
   contacts: PagedResultContactModel_ | null,
-  search: any = defaultSearch
+  search: any = defaultSearch,
 ): ResultProps => ({
   resultsState: {
     loading: loading,
     search,
-    contacts: contacts
+    contacts: contacts,
   },
   fetchContacts: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
   location: {
-    state: {}
-  }
+    state: {},
+  },
 })
 
 describe('Result', () => {
@@ -56,11 +56,11 @@ describe('Result', () => {
         results: {
           loading: true,
           search: {},
-          contacts: contacts
-        }
+          contacts: contacts,
+        },
       } as Pick<ReduxState, 'results'>
       const output = {
-        resultsState: mockState.results
+        resultsState: mockState.results,
       }
       const result = mapStateToProps(mockState as ReduxState)
       expect(result).toEqual(output)
@@ -71,7 +71,7 @@ describe('Result', () => {
     it('should run correctly', () => {
       const mockDispatch = jest.fn()
       const mockParams = {
-        pageNumber: 1
+        pageNumber: 1,
       } as ContactsParams
       const { fetchContacts } = mapDispatchToProps(mockDispatch)
       fetchContacts(mockParams)
@@ -93,7 +93,7 @@ describe('Result', () => {
   describe('backToHome', () => {
     it('should run correctly', () => {
       const mockHistory = {
-        push: jest.fn()
+        push: jest.fn(),
       }
       const fn = backToHome(mockHistory)
       fn()
@@ -104,12 +104,12 @@ describe('Result', () => {
   describe('handleRedirectToRow', () => {
     it('should run correctly', () => {
       const mockHistory = {
-        push: jest.fn()
+        push: jest.fn(),
       }
       const mockRow = {
         original: {
-          id: 1
-        }
+          id: 1,
+        },
       }
       const fn = handleRedirectToRow(mockHistory, mockRow)
       fn()
@@ -120,7 +120,7 @@ describe('Result', () => {
   describe('generateColumn', () => {
     it('should run correctly', () => {
       const mockHistory = {
-        push: jest.fn()
+        push: jest.fn(),
       }
       const fn = generateColumn(mockHistory)
       const result = fn()

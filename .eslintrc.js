@@ -41,11 +41,12 @@ module.exports = {
     'no-unused-vars': ['error', { 'vars': 'all', 'args': 'after-used' }],
     '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
     'prettier/prettier': 'error',
-    'max-len': ['error', {'code': 120, 'ignoreUrls': true}],
+    'max-len': ['error', { 'code': 120, 'ignoreUrls': true }],
     'no-confusing-arrow': ['error', { 'allowParens': false }],
     'no-mixed-operators': 'error',
-    'no-tabs': ['error', {'allowIndentationTabs': true}],
+    'no-tabs': ['error', {'allowIndentationTabs': true }],
     'no-unexpected-multiline': 'error',
+    'indent': [2, 2, {'SwitchCase': 1}]
   },
   settings: {
     react: {

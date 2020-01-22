@@ -12,11 +12,11 @@ describe('result reducer', () => {
   it('should set loading to true when RESULT_REQUEST_DATA action is called', () => {
     const newState = resultReducer(undefined, {
       type: ActionTypes.RESULT_REQUEST_DATA as ActionType,
-      data: {}
+      data: {},
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -24,12 +24,12 @@ describe('result reducer', () => {
   it('should set contacts list data when RESULT_RECEIVE_DATA action is called', () => {
     const newState = resultReducer(undefined, {
       type: ActionTypes.RESULT_RECEIVE_DATA as ActionType,
-      data: contacts
+      data: contacts,
     })
     const expected = {
       ...defaultState,
       loading: false,
-      contacts: contacts
+      contacts: contacts,
     }
     expect(newState).toEqual(expected)
   })
@@ -37,11 +37,11 @@ describe('result reducer', () => {
   it('should set loading to false when RESULT_REQUEST_FAILURE action is called', () => {
     const newState = resultReducer(undefined, {
       type: ActionTypes.RESULT_REQUEST_FAILURE as ActionType,
-      data: {}
+      data: {},
     })
     const expected = {
       ...defaultState,
-      loading: false
+      loading: false,
     }
     expect(newState).toEqual(expected)
   })

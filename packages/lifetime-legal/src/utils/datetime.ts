@@ -7,18 +7,18 @@ import { ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
  * @param identityChecks is ContactIdentityCheckModel
  */
 export const changeTimeZoneLocalForIdentityCheck = (
-  identityChecks: ContactIdentityCheckModel
+  identityChecks: ContactIdentityCheckModel,
 ): ContactIdentityCheckModel => {
   const documents = identityChecks.documents?.map(document => {
     return {
       ...document,
-      expiry: toLocalTime(document.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339)
+      expiry: toLocalTime(document.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
     }
   })
   const newIdentityChecks = {
     ...identityChecks,
     documents,
-    checkDate: toLocalTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339)
+    checkDate: toLocalTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
   }
   return newIdentityChecks
 }
@@ -28,18 +28,18 @@ export const changeTimeZoneLocalForIdentityCheck = (
  * @param identityChecks is ContactIdentityCheckModel
  */
 export const changeTimeZoneUTCForIdentityCheck = (
-  identityChecks: ContactIdentityCheckModel
+  identityChecks: ContactIdentityCheckModel,
 ): ContactIdentityCheckModel => {
   const documents = identityChecks.documents?.map(document => {
     return {
       ...document,
-      expiry: toUTCTime(document.expiry as dayjs.ConfigType)
+      expiry: toUTCTime(document.expiry as dayjs.ConfigType),
     }
   })
   const newIdentityChecks = {
     ...identityChecks,
     documents,
-    checkDate: toUTCTime(identityChecks.checkDate as dayjs.ConfigType)
+    checkDate: toUTCTime(identityChecks.checkDate as dayjs.ConfigType),
   }
   return newIdentityChecks
 }

@@ -4,7 +4,7 @@ import {
   checklistDetailLoading,
   checkListDetailSubmitForm,
   contactReceiveData,
-  identityCheckReceiveData
+  identityCheckReceiveData,
 } from '@/actions/checklist-detail'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
@@ -23,7 +23,7 @@ import {
   updatePrimaryId,
   updateAgentCheckListen,
   updateAgentCheck,
-  mapArrAddressToUploadImageFunc
+  mapArrAddressToUploadImageFunc,
 } from '../checklist-detail'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '@/actions/error'
@@ -35,7 +35,7 @@ import { selectUserCode } from '@/selectors/auth'
 import { fetchContact, fetchIdentityCheck, updateContact, updateIdentityCheck } from '../api'
 
 const mockHeaders = {
-  Authorization: '123'
+  Authorization: '123',
 }
 
 describe('check-list detail', () => {
@@ -44,7 +44,7 @@ describe('check-list detail', () => {
       const mockParams = {
         addresses: contact.addresses,
         headers: mockHeaders,
-        addressesMeta: contact.metadata.addresses
+        addressesMeta: contact.metadata.addresses,
       }
       const result = mapArrAddressToUploadImageFunc(mockParams)
       expect(result).toEqual([null])
@@ -56,12 +56,12 @@ describe('check-list detail', () => {
         addressesMeta: [
           {
             ...contact.metadata.addresses[0],
-            documentFileInput: '123'
+            documentFileInput: '123',
           },
           {
-            ...contact.metadata.addresses[0]
-          }
-        ]
+            ...contact.metadata.addresses[0],
+          },
+        ],
       }
       const result = mapArrAddressToUploadImageFunc(mockParams)
       expect(result).toHaveLength(1)
@@ -73,8 +73,8 @@ describe('check-list detail', () => {
       const mockParams = {
         addressesMeta: contact.metadata.addresses,
         responseUploadImages: [
-          { Url: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg' }
-        ]
+          { Url: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg' },
+        ],
       }
       const result = mapAddressToMetaData(mockParams)
       expect(result).toEqual(contact.metadata.addresses)
@@ -83,8 +83,8 @@ describe('check-list detail', () => {
       const mockParams = {
         addressesMeta: undefined,
         responseUploadImages: [
-          { Url: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg' }
-        ]
+          { Url: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg' },
+        ],
       }
       const result = mapAddressToMetaData(mockParams)
       expect(result).toEqual([])
@@ -98,8 +98,8 @@ describe('check-list detail', () => {
     expect(gen.next(mockHeaders as any).value).toEqual(
       all([
         call(fetchContact, { contactId: contact.id, headers: mockHeaders }),
-        call(fetchIdentityCheck, { contactId: contact.id, headers: mockHeaders })
-      ])
+        call(fetchIdentityCheck, { contactId: contact.id, headers: mockHeaders }),
+      ]),
     )
     test('api call success', () => {
       const clone = gen.clone()
@@ -115,9 +115,9 @@ describe('check-list detail', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(checklistDetailLoading(false)))
       expect(clone.next().done).toBe(true)
@@ -130,7 +130,7 @@ describe('check-list detail', () => {
     expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
     expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
     expect(gen.next(contact as any).value).toEqual(
-      call(updateContact, { contactId: contact.id, headers: mockHeaders, contact: contact })
+      call(updateContact, { contactId: contact.id, headers: mockHeaders, contact: contact }),
     )
     test('api call success', () => {
       const clone = gen.clone()
@@ -148,9 +148,9 @@ describe('check-list detail', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
       expect(clone.next().done).toBe(true)
@@ -159,7 +159,7 @@ describe('check-list detail', () => {
 
   describe('checklist-detail updateAddressHistory', () => {
     const gen = cloneableGenerator(updateAddressHistory as any)({
-      data: { addresses: contact.addresses, metadata: contact.metadata } as ContactModel
+      data: { addresses: contact.addresses, metadata: contact.metadata } as ContactModel,
     })
     expect(gen.next(contact as any).value).toEqual(put(checkListDetailSubmitForm(true)))
     expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -170,10 +170,10 @@ describe('check-list detail', () => {
       const newContact = {
         id: contact.id,
         addresses: contact.addresses,
-        metadata: { addresses: contact.metadata.addresses }
+        metadata: { addresses: contact.metadata.addresses },
       }
       expect(clone.next().value).toEqual(
-        call(updateContact, { contactId: contact.id, contact: newContact, headers: mockHeaders })
+        call(updateContact, { contactId: contact.id, contact: newContact, headers: mockHeaders }),
       )
       expect(clone.next(true as any).value).toEqual(put(checklistDetailLoading(true)))
       expect(clone.next().value).toEqual(call(fetchContact, { contactId: contact.id, headers: mockHeaders }))
@@ -189,9 +189,9 @@ describe('check-list detail', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
       expect(clone.next().done).toBe(true)
@@ -205,8 +205,8 @@ describe('checklist-detail updatePrimaryId', () => {
       typeId: '123',
       details: '123',
       expiry: new Date('2019-10-15T10:00:00Z'),
-      fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA'
-    }
+      fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
+    },
   })
   expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -218,9 +218,9 @@ describe('checklist-detail updatePrimaryId', () => {
     const baseValues = {
       metadata: {
         primaryIdUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
-        secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
+        secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
       },
-      documents: idCheck.documents
+      documents: idCheck.documents,
     }
     expect(clone.next(contact as any).value).toEqual(
       call(updateIdentityCheck, {
@@ -228,9 +228,9 @@ describe('checklist-detail updatePrimaryId', () => {
         identityChecks: {
           contactId: contact.id,
           ...idCheck,
-          ...baseValues
-        }
-      })
+          ...baseValues,
+        },
+      }),
     )
     expect(clone.next().value).toEqual(put(checklistDetailLoading(true)))
     expect(clone.next().value).toEqual(call(fetchIdentityCheck, { contactId: contact.id, headers: mockHeaders }))
@@ -246,9 +246,9 @@ describe('checklist-detail updatePrimaryId', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
     expect(clone.next().done).toBe(true)
@@ -260,8 +260,8 @@ describe('checklist-detail updateSecondaryId', () => {
       typeId: '123',
       details: '123',
       expiry: new Date('2019-10-15T10:00:00Z'),
-      fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA'
-    }
+      fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
+    },
   })
   expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -273,9 +273,9 @@ describe('checklist-detail updateSecondaryId', () => {
     const baseValues = {
       metadata: {
         primaryIdUrl: undefined,
-        secondaryIdUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA'
+        secondaryIdUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
       },
-      documents: idCheck.documents
+      documents: idCheck.documents,
     }
     expect(clone.next(contact as any).value).toEqual(
       call(updateIdentityCheck, {
@@ -283,9 +283,9 @@ describe('checklist-detail updateSecondaryId', () => {
         identityChecks: {
           contactId: contact.id,
           ...idCheck,
-          ...baseValues
-        }
-      })
+          ...baseValues,
+        },
+      }),
     )
     expect(clone.next().value).toEqual(put(checklistDetailLoading(true)))
     expect(clone.next().value).toEqual(call(fetchIdentityCheck, { contactId: contact.id, headers: mockHeaders }))
@@ -301,9 +301,9 @@ describe('checklist-detail updateSecondaryId', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
     expect(clone.next().done).toBe(true)
@@ -316,10 +316,10 @@ describe('checklist-detail updateAgentCheck', () => {
     timeSelection: '10:00',
     clientType: 'Individual',
     placeMeet: 'Home Address',
-    isUKResident: 'Yes'
+    isUKResident: 'Yes',
   }
   const gen = cloneableGenerator(updateAgentCheck)({
-    data
+    data,
   })
   expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
   expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -334,11 +334,11 @@ describe('checklist-detail updateAgentCheck', () => {
       ...idCheck,
       metadata: {
         ...idCheck.metadata,
-        ...data
-      }
+        ...data,
+      },
     }
     expect(clone.next('mockCode' as any).value).toEqual(
-      call(updateIdentityCheck, { identityChecks: newIdCheck, headers: mockHeaders })
+      call(updateIdentityCheck, { identityChecks: newIdCheck, headers: mockHeaders }),
     )
     expect(clone.next(true as any).value).toEqual(put(checklistDetailLoading(true)))
     expect(clone.next().value).toEqual(call(fetchIdentityCheck, { contactId: contact.id, headers: mockHeaders }))
@@ -355,9 +355,9 @@ describe('checklist-detail updateAgentCheck', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
     expect(clone.next().done).toBe(true)
@@ -369,7 +369,7 @@ describe('check-list sagas', () => {
     it('should request data when called', () => {
       const gen = checklistDetailDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<number>>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA, checklistDetailDataFetch)
+        takeLatest<Action<number>>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA, checklistDetailDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -378,7 +378,7 @@ describe('check-list sagas', () => {
     it('should request data when called', () => {
       const gen = checkListDetailUpdateListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_UPDATE_DATA, updateChecklistDetail)
+        takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_UPDATE_DATA, updateChecklistDetail),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -387,7 +387,7 @@ describe('check-list sagas', () => {
     it('should request data when called', () => {
       const gen = checkListDetailAddressUpdateListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_ADDRESS_UPDATE_DATA, updateAddressHistory)
+        takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_ADDRESS_UPDATE_DATA, updateAddressHistory),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -397,7 +397,7 @@ describe('check-list sagas', () => {
     it('should request data when called', () => {
       const gen = updateAgentCheckListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_AGENT_CHECK_UPDATE_DATA, updateAgentCheck)
+        takeLatest<Action<ContactModel>>(ActionTypes.CHECKLIST_DETAIL_AGENT_CHECK_UPDATE_DATA, updateAgentCheck),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -413,8 +413,8 @@ describe('check-list sagas', () => {
           fork(checkListDetailAddressUpdateListen),
           fork(updatePrimaryIdListen),
           fork(updateSecondaryIdListen),
-          fork(updateAgentCheckListen)
-        ])
+          fork(updateAgentCheckListen),
+        ]),
       )
       expect(gen.next().done).toBe(true)
     })

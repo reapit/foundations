@@ -40,7 +40,7 @@ export class Store {
     results,
     submitChecks,
     checklistDetail,
-    identityTypes
+    identityTypes,
   })
 
   static sagas = function*() {
@@ -50,7 +50,7 @@ export class Store {
       fork(successSagas),
       fork(submitChecksSagas),
       fork(checklistDetailSagas),
-      fork(identityTypesSagas)
+      fork(identityTypesSagas),
     ])
   }
 

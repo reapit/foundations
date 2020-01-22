@@ -9,7 +9,7 @@ import {
   H3,
   FlexContainerResponsive,
   Formik,
-  Form
+  Form,
 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import Routes from '@/constants/routes'
@@ -28,7 +28,7 @@ const identityCheckList = [
   { label: 'Pending', value: 'Pending' },
   { label: 'Cancelled', value: 'Cancelled' },
   { label: 'Warnings', value: 'Warnings' },
-  { label: 'Unchecked', value: 'Unchecked' }
+  { label: 'Unchecked', value: 'Unchecked' },
 ]
 
 export const searchContacts = ({ setSearchParams, history }) => values => {
@@ -66,7 +66,10 @@ export const renderForm = () => ({ values }) => {
   )
 }
 
-export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSearchParams, history }) => {
+export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({
+  setSearchParams,
+  history,
+}: ClientSearchProps) => {
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn>
@@ -82,7 +85,7 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
 }
 
 export const mapDispatchToProps = (dispatch: any): ClientSearchMappedActions => ({
-  setSearchParams: (params: SearchParams) => dispatch(resultSetSearchParams(params))
+  setSearchParams: (params: SearchParams) => dispatch(resultSetSearchParams(params)),
 })
 
 export default withRouter(connect(null, mapDispatchToProps)(ClientSearch))

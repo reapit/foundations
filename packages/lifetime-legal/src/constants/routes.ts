@@ -5,7 +5,7 @@ const Routes = {
   PROFILE_ID: '/profile/:id',
   PROFILE_SUCCESS: '/profile/:id/success',
   SEARCH: '/search',
-  RESULTS: '/results'
+  RESULTS: '/results',
 }
 
 export default Routes

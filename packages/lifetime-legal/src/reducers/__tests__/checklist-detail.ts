@@ -13,11 +13,11 @@ describe('home reducer', () => {
   it('should set loading to true when CHECKLIST_DETAIL_LOADING action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -25,16 +25,16 @@ describe('home reducer', () => {
   it('should set approvals list data when CHECKLIST_DETAIL_RECEIVE_CONTACT_DATA action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT_DATA as ActionType,
-      data: contact
+      data: contact,
     })
     const expected = {
       ...defaultState,
       loading: false,
       checklistDetailData: {
         contact: contact,
-        idCheck: null
+        idCheck: null,
       },
-      status: updateCheckListDetailFormStatus({ contact, idCheck: null })
+      status: updateCheckListDetailFormStatus({ contact, idCheck: null }),
     }
     expect(newState).toEqual(expected)
   })
@@ -42,16 +42,16 @@ describe('home reducer', () => {
   it('should set approvals list data when CHECKLIST_DETAIL_RECEIVE_ID_CHECK_DATA action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_ID_CHECK_DATA as ActionType,
-      data: idCheck
+      data: idCheck,
     })
     const expected = {
       ...defaultState,
       loading: false,
       checklistDetailData: {
         contact: null,
-        idCheck: idCheck
+        idCheck: idCheck,
       },
-      status: updateCheckListDetailFormStatus({ contact: null, idCheck: idCheck })
+      status: updateCheckListDetailFormStatus({ contact: null, idCheck: idCheck }),
     }
     expect(newState).toEqual(expected)
   })
@@ -59,11 +59,11 @@ describe('home reducer', () => {
   it('should clear approvals list data when CHECKLIST_DETAIL_SUBMIT_FORM action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      isSubmitting: true
+      isSubmitting: true,
     }
     expect(newState).toEqual(expected)
   })

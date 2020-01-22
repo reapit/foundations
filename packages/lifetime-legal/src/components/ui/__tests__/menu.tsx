@@ -9,7 +9,7 @@ describe('Menu', () => {
     const mockProps = {
       ...getMockRouterProps({} as any),
       logout: jest.fn(),
-      mode: 'WEB' as LoginMode
+      mode: 'WEB' as LoginMode,
     }
     const wrapper = shallow(<Menu {...mockProps} />)
     expect(wrapper).toMatchSnapshot()

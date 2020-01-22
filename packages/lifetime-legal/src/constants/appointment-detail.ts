@@ -12,11 +12,11 @@ export const DOCUMENT_TYPE = {
   CREDIT_STATEMENT: 'Credit Card Statements from main provider',
   TAX_NOTIFICATION: 'HMRC Tax notification documentation (this does not include P60’s)',
   ACCOUNT_DOCUMENT: 'Account, investment or insurance documents',
-  LETTER_FROM_COUNCIL: 'Letter from Council Confirming Electoral Roll Listing'
+  LETTER_FROM_COUNCIL: 'Letter from Council Confirming Electoral Roll Listing',
 }
 
 export const RISK_ASSESSMENT_TYPE = {
   SIMPLIFIED: 'Simplified',
   NORMAL: 'Normal',
-  ENHANCED: 'Enhanced'
+  ENHANCED: 'Enhanced',
 }

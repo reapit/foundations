@@ -7,14 +7,14 @@ export interface SuccessState {
 }
 
 export const defaultState: SuccessState = {
-  submitCompleteFormState: 'PENDING'
+  submitCompleteFormState: 'PENDING',
 }
 
 const successReducer = (state: SuccessState | undefined = defaultState, action: Action<any>): SuccessState => {
   if (isType(action, submitCompleteSetFormState)) {
     return {
       ...state,
-      submitCompleteFormState: action.data || null
+      submitCompleteFormState: action.data || null,
     }
   }
   return state

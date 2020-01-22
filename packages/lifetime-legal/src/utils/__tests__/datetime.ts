@@ -10,13 +10,13 @@ describe('daytime', () => {
       const documents = idCheck.documents?.map(document => {
         return {
           ...document,
-          expiry: toLocalTime(document.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339)
+          expiry: toLocalTime(document.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
         }
       })
       expect(result).toEqual({
         ...idCheck,
         checkDate: '2019-10-19T02:52:10+00:00',
-        documents
+        documents,
       })
     })
   })
@@ -26,14 +26,14 @@ describe('daytime', () => {
       const documents = idCheck.documents?.map(document => {
         return {
           ...document,
-          expiry: toUTCTime(document.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339)
+          expiry: toUTCTime(document.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
         }
       })
       const result = changeTimeZoneUTCForIdentityCheck(idCheck)
       expect(result).toEqual({
         ...idCheck,
         checkDate: '2019-10-19T02:52:10+00:00',
-        documents
+        documents,
       })
     })
   })

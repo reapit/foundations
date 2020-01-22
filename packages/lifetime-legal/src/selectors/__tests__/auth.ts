@@ -8,10 +8,10 @@ describe('auth selector', () => {
         auth: {
           loginSession: {
             loginIdentity: {
-              userCode: 'mockUserCode'
-            }
-          }
-        }
+              userCode: 'mockUserCode',
+            },
+          },
+        },
       } as ReduxState
       const output = 'mockUserCode'
       const result = selectUserCode(input)
@@ -30,8 +30,8 @@ describe('auth selector', () => {
     it('should run correctly', () => {
       const input = {
         auth: {
-          loginSession: {}
-        }
+          loginSession: {},
+        },
       } as ReduxState
       const output = true
       const result = selectUserLoginStatus(input)
@@ -40,7 +40,7 @@ describe('auth selector', () => {
 
     it('should run correctly', () => {
       const input = {
-        auth: {}
+        auth: {},
       } as ReduxState
       const output = false
       const result = selectUserLoginStatus(input)
@@ -53,9 +53,9 @@ describe('auth selector', () => {
       const input = {
         auth: {
           refreshSession: {
-            mode: 'DESKTOP'
-          }
-        }
+            mode: 'DESKTOP',
+          },
+        },
       } as ReduxState
       const output = true
       const result = checkIsDesktopMode(input)
@@ -64,7 +64,7 @@ describe('auth selector', () => {
 
     it('should run correctly', () => {
       const input = {
-        auth: {}
+        auth: {},
       } as ReduxState
       const output = false
       const result = checkIsDesktopMode(input)
@@ -77,9 +77,9 @@ describe('auth selector', () => {
       const input = {
         auth: {
           refreshSession: {
-            mode: 'WEB'
-          }
-        }
+            mode: 'WEB',
+          },
+        },
       } as ReduxState
       const output = true
       const result = checkIsWebMode(input)
@@ -88,7 +88,7 @@ describe('auth selector', () => {
 
     it('should run correctly', () => {
       const input = {
-        auth: {}
+        auth: {},
       } as ReduxState
       const output = false
       const result = checkIsWebMode(input)

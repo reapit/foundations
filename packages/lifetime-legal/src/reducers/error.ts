@@ -15,21 +15,21 @@ export interface ErrorState {
 
 export const defaultState: ErrorState = {
   componentError: null,
-  serverError: null
+  serverError: null,
 }
 
 const errorReducer = (state: ErrorState = defaultState, action: Action<any>): ErrorState => {
   if (isType(action, errorClearedServer) || isType(action, errorThrownServer)) {
     return {
       ...state,
-      serverError: action.data
+      serverError: action.data,
     }
   }
 
   if (isType(action, errorClearedComponent) || isType(action, errorThrownComponent)) {
     return {
       ...state,
-      componentError: action.data
+      componentError: action.data,
     }
   }
 

@@ -15,7 +15,7 @@ export const defaultState = (): AuthState => {
   return {
     error: false,
     loginSession: null,
-    refreshSession: refreshSession && refreshSession.loginType === 'CLIENT' ? refreshSession : null
+    refreshSession: refreshSession && refreshSession.loginType === 'CLIENT' ? refreshSession : null,
   }
 }
 
@@ -23,7 +23,7 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
   if (isType(action, authLogin)) {
     return {
       ...state,
-      error: false
+      error: false,
     }
   }
 
@@ -31,14 +31,14 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
     return {
       ...state,
       error: false,
-      loginSession: action.data
+      loginSession: action.data,
     }
   }
 
   if (isType(action, authLoginFailure)) {
     return {
       ...state,
-      error: true
+      error: true,
     }
   }
 
@@ -49,7 +49,7 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
   if (isType(action, authSetRefreshSession)) {
     return {
       ...state,
-      refreshSession: action.data
+      refreshSession: action.data,
     }
   }
 

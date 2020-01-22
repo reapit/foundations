@@ -1,16 +1,17 @@
 import { ReduxState } from '@/types/core'
 import { defaultStatus } from '@/reducers/checklist-detail'
+import { ContactIdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
 
 export const selectCheckListDetailStatus = (state: ReduxState) => {
   return state?.checklistDetail?.status || defaultStatus
 }
 
-export const selectCheckListDetailContact = (state: ReduxState) => {
+export const selectCheckListDetailContact = (state: ReduxState): ContactModel => {
   return state?.checklistDetail?.checklistDetailData?.contact || {}
 }
 
-export const selectCheckListDetailIdCheck = (state: ReduxState) => {
-  return state?.checklistDetail?.checklistDetailData?.idCheck
+export const selectCheckListDetailIdCheck = (state: ReduxState): ContactIdentityCheckModel => {
+  return state?.checklistDetail?.checklistDetailData?.idCheck || {}
 }
 
 export const selectCheckListDetailPrimaryIdUrl = (state: ReduxState) => {

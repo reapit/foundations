@@ -1,31 +1,27 @@
 const { pathsToModuleNameMapper } = require('ts-jest/utils')
-const { compilerOptions } = require('./tsconfig')
+const baseConfig = require('../../jest.config')
+const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {
-  preset: 'ts-jest',
-  testPathIgnorePatterns: ['<rootDir>/src/tests/'],
-  setupFiles: ['<rootDir>/src/scripts/jest-setup.js'],
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
-  coverageDirectory: './src/tests/coverage',
+  ...baseConfig,
+  moduleNameMapper: {
+    '^.+.(?=.*scss|sass|css|jpg).*': '<rootDir>/src/scripts/css-stub.js',
+    ...pathsToModuleNameMapper(compilerOptions.paths, {
+      prefix: '<rootDir>/',
+    }),
+  },
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
     'mock-router.ts',
     'api.ts'
   ],
-  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
-  moduleNameMapper: {
-    '^.+.(?=.*scss|sass|css|png|jpg).*': '<rootDir>/src/scripts/css-stub.js',
-    ...pathsToModuleNameMapper(compilerOptions.paths, {
-      prefix: '<rootDir>/'
-    })
-  },
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   coverageThreshold: {
     global: {
-      branches: 66,
-      functions: 79,
+      branches: 75,
+      functions: 80,
       lines: 90,
-      statements: 89
-    }
-  }
+      statements: 90,
+    },
+  },
 }
+

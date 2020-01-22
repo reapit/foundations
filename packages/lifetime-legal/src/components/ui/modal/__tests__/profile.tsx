@@ -42,7 +42,7 @@ describe('profile', () => {
     const mockProps = {
       contact: contact,
       onSubmitHandler: jest.fn(),
-      isSubmitting: false
+      isSubmitting: false,
     }
     const wrapper = shallow(<Profile {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -54,14 +54,14 @@ describe('profile', () => {
       const mockState = {
         checklistDetail: {
           checklistDetailData: {
-            contact
-          }
-        }
+            contact,
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact,
-        isSubmitting: false
+        isSubmitting: false,
       })
     })
     it('should run correctly', () => {
@@ -69,7 +69,7 @@ describe('profile', () => {
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact: {},
-        isSubmitting: false
+        isSubmitting: false,
       })
     })
   })

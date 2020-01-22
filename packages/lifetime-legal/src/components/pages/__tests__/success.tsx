@@ -7,7 +7,7 @@ import {
   handleUseEffect,
   handleSubmit,
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 } from '../success'
 import { contact as contactStub, contact } from '@/sagas/__stubs__/contact'
 import { EntityType } from '@reapit/elements'
@@ -22,9 +22,9 @@ const props: SuccessProps = {
   // @ts-ignore only pick needed props
   match: {
     params: {
-      id: contactStub.id
-    }
-  }
+      id: contactStub.id,
+    },
+  },
 }
 
 describe('SuccessPage', () => {
@@ -65,18 +65,18 @@ describe('SuccessPage', () => {
       // @ts-ignore: only pick neccessary props
       const mockState = {
         success: {
-          submitCompleteFormState: 'DONE'
+          submitCompleteFormState: 'DONE',
         },
         checklistDetail: {
           checklistDetailData: {
-            contact: contact
-          }
-        }
+            contact: contact,
+          },
+        },
       } as ReduxState
       const output = {
         submitCompleteFormState: 'DONE',
         contact: contact,
-        loginMode: 'WEB'
+        loginMode: 'WEB',
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(output)

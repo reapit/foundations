@@ -8,7 +8,7 @@ import Routes from '@/constants/routes'
 const props: ClientSearchProps = {
   setSearchParams: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
-  history: {}
+  history: {},
 }
 
 describe('ClientSearch', () => {
@@ -22,7 +22,7 @@ describe('ClientSearch', () => {
       const mockParams = {
         name: 'mockName',
         address: 'mockAddress',
-        identityCheck: 'PASS'
+        identityCheck: 'PASS',
       } as SearchParams
       const { setSearchParams } = mapDispatchToProps(mockDispatch)
       setSearchParams(mockParams)
@@ -34,7 +34,7 @@ describe('ClientSearch', () => {
     it('should run correctly', () => {
       const mockSetSearchParams = jest.fn()
       const mockHistory = {
-        push: jest.fn()
+        push: jest.fn(),
       }
       const mockValues = {}
       const fn = searchContacts({ setSearchParams: mockSetSearchParams, history: mockHistory })

@@ -6,7 +6,7 @@ import {
   identityCheckReceiveData,
   checkListDetailSubmitForm,
   checkListDetailPrimaryIdUpdateData,
-  checkListDetailSecondaryIdUpdateData
+  checkListDetailSecondaryIdUpdateData,
 } from '../checklist-detail'
 
 describe('checklist-detail actions', () => {

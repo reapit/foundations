@@ -6,5 +6,5 @@ import { DynamicLinkParams } from '@reapit/elements'
 export const submitCompleteSetFormState = actionCreator<FormState>(ActionTypes.SUBMIT_COMPLETE_SET_FORM_STATE)
 
 export const submitComplete = actionCreator<{ id: string; dynamicLinkParams: DynamicLinkParams }>(
-  ActionTypes.SUBMIT_COMPLETE
+  ActionTypes.SUBMIT_COMPLETE,
 )

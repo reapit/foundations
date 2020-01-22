@@ -10,7 +10,7 @@ describe('agent-check', () => {
       const result = renderOptions(1, 2, 1)
       const expected = [
         { label: '1', value: '1' },
-        { label: '2', value: '2' }
+        { label: '2', value: '2' },
       ]
       expect(result).toEqual(expected)
     })
@@ -24,7 +24,7 @@ describe('agent-check', () => {
         onPrevHandler: jest.fn(),
         onHandleSubmit: jest.fn(),
         idCheck,
-        isDisabledSubmit: false
+        isDisabledSubmit: false,
       }
       const wrapper = shallow(<AgentCheck {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -36,7 +36,7 @@ describe('agent-check', () => {
         id: '1',
         isSubmitting: true,
         onPrevHandler: jest.fn(),
-        isDisabledSubmit: true
+        isDisabledSubmit: true,
       }
       const component = renderForm(mockProps)
       const wrapper = shallow(<div>{component}</div>)
@@ -50,14 +50,14 @@ describe('agent-check', () => {
         checklistDetail: {
           isSubmitting: true,
           checklistDetailData: {
-            idCheck
-          }
-        }
+            idCheck,
+          },
+        },
       } as ReduxState
       const expected = {
         isSubmitting: true,
         isDisabledSubmit: false,
-        idCheck
+        idCheck,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -70,14 +70,14 @@ describe('agent-check', () => {
         checklistDetail: {
           isSubmitting: true,
           checklistDetailData: {
-            idCheck
-          }
-        }
+            idCheck,
+          },
+        },
       } as any
       const expected = {
         isSubmitting: true,
         isDisabledSubmit: false,
-        idCheck
+        idCheck,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)

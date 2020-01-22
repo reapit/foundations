@@ -15,9 +15,9 @@ export const identities = {
           details: '123123',
           _links: {
             idDocumentType: {
-              href: '/configuration/identityDocumentTypes/PP'
-            }
-          }
+              href: '/configuration/identityDocumentTypes/PP',
+            },
+          },
         },
         {
           typeId: 'BB',
@@ -25,10 +25,10 @@ export const identities = {
           details: 'ID Reference',
           _links: {
             idDocumentType: {
-              href: '/configuration/identityDocumentTypes/BB'
-            }
-          }
-        }
+              href: '/configuration/identityDocumentTypes/BB',
+            },
+          },
+        },
       ],
       metadata: {
         primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC13000122-123123(4).jpg',
@@ -38,8 +38,8 @@ export const identities = {
         timeSelection: '01:00',
         clientType: 'Individual',
         isUKResident: 'No',
-        placeMeet: 'Home Address'
-      }
+        placeMeet: 'Home Address',
+      },
     },
     {
       id: 'RPT19000105',
@@ -56,10 +56,10 @@ export const identities = {
           details: 'test',
           _links: {
             idDocumentType: {
-              href: '/configuration/identityDocumentTypes/CI'
-            }
-          }
-        }
+              href: '/configuration/identityDocumentTypes/CI',
+            },
+          },
+        },
       ],
       metadata: {
         primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/BED12001604-test.png',
@@ -68,22 +68,12 @@ export const identities = {
         timeSelection: '14:22',
         clientType: 'Individual',
         isUKResident: 'Yes',
-        placeMeet: 'Home Address'
-      }
-    }
+        placeMeet: 'Home Address',
+      },
+    },
   ],
   pageNumber: 1,
   pageSize: 50,
   pageCount: 2,
   totalCount: 2,
-  _links: {
-    self: {
-      href:
-        '/identityChecks/?PageNumber=1&PageSize=50&ContactId=MKC13000122&ContactId=BED12001604&ContactId=MKC12000004&ContactId=MKC07001329'
-    },
-    first: {
-      href:
-        '/identityChecks/?PageNumber=1&PageSize=50&ContactId=MKC13000122&ContactId=BED12001604&ContactId=MKC12000004&ContactId=MKC07001329'
-    }
-  }
 }

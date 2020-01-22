@@ -17,7 +17,7 @@ export const renderForm = () => () => {
 
 export const filterCommunication = (
   communications: ContactCommunicationModel[] | undefined,
-  type: 'Home' | 'Mobile' | 'Work' | 'E-Mail'
+  type: 'Home' | 'Mobile' | 'Work' | 'E-Mail',
 ) => {
   if (!communications) {
     return null
@@ -25,7 +25,7 @@ export const filterCommunication = (
   const newCommunication: ContactCommunicationModel | undefined = communications.find(
     (communication: ContactCommunicationModel) => {
       return communication.label === type
-    }
+    },
   )
   if (newCommunication) {
     return newCommunication.detail
@@ -80,7 +80,11 @@ export const combineName = (contact: ContactModel) => {
   return nameCombined
 }
 
-export const PersonalDetails = ({ contact }) => {
+export type PersonalDetailsProps = {
+  contact: ContactModel
+}
+
+export const PersonalDetails = ({ contact }: PersonalDetailsProps) => {
   return (
     <div>
       <Formik
@@ -90,7 +94,7 @@ export const PersonalDetails = ({ contact }) => {
           address: combineAdress(contact.addresses),
           home: filterCommunication(contact.communications, 'Home'),
           mobile: filterCommunication(contact.communications, 'Mobile'),
-          email: filterCommunication(contact.communications, 'E-Mail')
+          email: filterCommunication(contact.communications, 'E-Mail'),
         }}
         onSubmit={values => {
           console.log(values)

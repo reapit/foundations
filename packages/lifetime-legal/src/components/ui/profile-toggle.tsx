@@ -7,9 +7,16 @@ export interface ProfileToggleProps {
   title: string
   complete: boolean
   onToggle: () => void
+  children: NodeList
 }
 
-const ProfileToggle: React.FC<ProfileToggleProps> = ({ isOpen = false, title, complete, children, onToggle }) => {
+const ProfileToggle: React.FC<ProfileToggleProps> = ({
+  isOpen = false,
+  title,
+  complete,
+  children,
+  onToggle,
+}: ProfileToggleProps) => {
   return (
     <div className={styles.container} data-test="profile-toggle">
       <div

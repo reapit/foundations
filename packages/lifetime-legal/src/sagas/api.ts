@@ -9,7 +9,7 @@ export const fetchContact = async ({ contactId, headers }) => {
       url: `${URLS.contacts}/${contactId}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers
+      headers: headers,
     })
     return response
   } catch (err) {
@@ -24,7 +24,7 @@ export const fetchContacts = async ({ headers, params }) => {
       url: `${URLS.contacts}/?${setQueryParams({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers
+      headers: headers,
     })
     return response
   } catch (error) {
@@ -40,7 +40,7 @@ export const updateContact = async ({ contactId, headers, contact }) => {
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
       headers: headers,
-      body: contact
+      body: contact,
     })
     return response
   } catch (err) {
@@ -58,8 +58,8 @@ export const uploadImage = async ({ name, imageData, headers }) => {
       headers: headers,
       body: {
         name,
-        imageData
-      }
+        imageData,
+      },
     })
     return responseUploadImage
   } catch (err) {
@@ -74,13 +74,13 @@ export const fetchIdentityCheck = async ({ headers, contactId }) => {
       url: `${URLS.idChecks}?ContactId=${contactId}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers
+      headers: headers,
     })
     const newResponse = {
       ...response,
       _embedded: response?._embedded.map(identityCheck => {
         return changeTimeZoneLocalForIdentityCheck(identityCheck)
-      })
+      }),
     }
     return newResponse?._embedded?.[0] || null
   } catch (err) {
@@ -97,7 +97,7 @@ export const updateIdentityCheck = async ({ identityChecks, headers }) => {
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
       headers: headers,
-      body: newIdentityChecks
+      body: newIdentityChecks,
     })
     return response
   } catch (err) {
@@ -114,7 +114,7 @@ export const createIdentityCheck = async ({ identityChecks, headers }) => {
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'POST',
       headers: headers,
-      body: newIdentityChecks
+      body: newIdentityChecks,
     })
     return response
   } catch (err) {
@@ -129,7 +129,7 @@ export const fetchIdentityDocumentTypes = async ({ headers }) => {
       url: `${URLS.configuration}/identityDocumentTypes`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers
+      headers: headers,
     })
     return response
   } catch (err) {
@@ -144,7 +144,7 @@ export const fetchIdentitiesCheck = async ({ headers, listContactId }) => {
       url: `${URLS.idChecks}/?${setQueryParams({ ContactId: [...listContactId] })}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers
+      headers,
     })
     return response
   } catch (err) {

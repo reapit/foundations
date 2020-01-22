@@ -7,17 +7,17 @@ export interface SubmitChecksState {
 }
 
 export const defaultState: SubmitChecksState = {
-  formState: 'PENDING'
+  formState: 'PENDING',
 }
 
 const submitRelevantChecks = (
   state: SubmitChecksState | undefined = defaultState,
-  action: Action<any>
+  action: Action<any>,
 ): SubmitChecksState => {
   if (isType(action, submitChecksSetFormState)) {
     return {
       ...state,
-      formState: action.data || null
+      formState: action.data || null,
     }
   }
   return state
