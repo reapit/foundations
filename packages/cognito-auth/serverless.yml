@@ -1,0 +1,23 @@
+service: cognito-auth-api-dev
+custom: ${file(./env.yml)}
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: eu-west-2
+  environment:
+    COGNITO_USERPOOL_ID: ${self:custom.${self:provider.stage}.COGNITO_USERPOOL_ID}
+    COGNITO_CLIENT_ID: ${self:custom.${self:provider.stage}.COGNITO_CLIENT_ID}
+functions:
+  api:
+    handler: public/app.apiHandler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+  mailer:
+    handler: public/app.mailHandler
+    events:
+      - cognitoUserPool:
+        pool: ${self:custom.${self:provider.stage}.COGNITO_USERPOOL_ID}
+        trigger: CustomMessage
+        existing: true

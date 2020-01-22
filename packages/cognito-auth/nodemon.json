@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": "ts,ejs",
+  "ignore": ["src/**/*.spec.ts"],
+  "exec": "ts-node -P tsconfig.legacy.json ./src/app.dev.ts"
+}
