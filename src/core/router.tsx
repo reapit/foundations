@@ -98,7 +98,7 @@ const Router = () => (
               exact
               component={DeveloperWelcomePage}
             />
-            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_HELP} exact component={HelpPage} />
+            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_HELP} exact fetcher component={HelpPage} />
 
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
             <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />

@@ -10,6 +10,9 @@ import requestEndpointImg from '@/assets/images/help/request-endpoint.jpg'
 import reportBugImg from '@/assets/images/help/report-bugs.jpg'
 import liveChatImg from '@/assets/images/help/live-chat.jpg'
 import roadmapImg from '@/assets/images/help/time-line.jpg'
+import { LoginIdentity } from '@reapit/cognito-auth'
+import { ReduxState } from '../../types/core'
+import { connect } from 'react-redux'
 
 export const handleGotoWelcomeGuide = () => {
   history.push(Routes.DEVELOPER_WELCOME)
@@ -27,8 +30,8 @@ export const handleViewRoadmap = () => {
   window.open(HelpLinks.ROADMAP, '_blank')
 }
 
-export const handleFaq = () => {
-  initChatBot()
+export const handleFaq = (loginIdentity?: LoginIdentity) => {
+  initChatBot(loginIdentity)
 }
 
 export interface HelpItem {
@@ -39,7 +42,7 @@ export interface HelpItem {
   buttonOnClick: () => void
 }
 
-export const helpItems: HelpItem[] = [
+export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
   {
     imgSrc: welcomeImg,
     header: 'Welcome Guide',
@@ -78,7 +81,7 @@ export const helpItems: HelpItem[] = [
     text:
       'If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.',
     buttonText: 'START CHAT',
-    buttonOnClick: handleFaq
+    buttonOnClick: () => handleFaq(loginIdentity)
   }
 ]
 
@@ -111,13 +114,21 @@ export const renderHelpItems = (items: HelpItem[]): React.ReactNode => (
   </GridFiveCol>
 )
 
-export const HelpPage: React.FC = () => {
+export interface HelpMappedProps {
+  loginIdentity?: LoginIdentity
+}
+
+export const mapStateToProps = (state: ReduxState): HelpMappedProps => ({
+  loginIdentity: state.auth.loginSession?.loginIdentity
+})
+
+export const HelpPage: React.FC<HelpMappedProps> = ({ loginIdentity }) => {
   return (
     <div className={styles.wrapHelp}>
       <H3>Help</H3>
-      {renderHelpItems(helpItems)}
+      {renderHelpItems(helpItems(loginIdentity))}
     </div>
   )
 }
 
-export default HelpPage
+export default connect(mapStateToProps, {})(HelpPage)

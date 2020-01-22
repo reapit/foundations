@@ -1,6 +1,6 @@
 import { AdminDevManagementRequestDataValues } from './../actions/admin-dev-management'
 import { appDetailRequestData } from './../actions/app-detail'
-import { RouteValue, StringMap, ReduxState } from '../types/core'
+import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
 import store from '../core/store'
 import { clientRequestData } from '../actions/client'
@@ -86,6 +86,9 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.SETTINGS:
       store.dispatch(requestDeveloperData())
+      break
+    case Routes.DEVELOPER_HELP:
+      // Need the fetcher to have retrieved the login session only.
       break
     default:
       console.error('Route not found, nothing to fetch')

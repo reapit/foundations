@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = loginIdentity => {
   window._chatlio = window._chatlio || []
 
   !(function() {
@@ -24,5 +24,19 @@ module.exports = () => {
       n.setAttribute('data-embed-version', '2.3')
     n.setAttribute('data-widget-id', process.env.CHATBOT_APP_ID)
     c.parentNode.insertBefore(n, c)
+
+    if (loginIdentity) {
+      document.addEventListener(
+        'chatlio.ready',
+        function(e) {
+          _chatlio.identify(loginIdentity.developerId || '', {
+            name: loginIdentity.name || '',
+            email: loginIdentity.email || ''
+          })
+          _chatlio.show({ expanded: true })
+        },
+        false
+      )
+    }
   })()
 }
