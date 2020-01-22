@@ -14,6 +14,7 @@ import {
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 import { HelpLinks } from '@/constants/help-links'
+import { mockLoginSession } from '../../../sagas/__tests__/auth'
 
 jest.mock('../../../scripts/chat-bot')
 
@@ -29,7 +30,7 @@ afterEach(() => {
 
 describe('HelpPage', () => {
   it('should match a snapshot', () => {
-    expect(shallow(<HelpPage />)).toMatchSnapshot()
+    expect(shallow(<HelpPage loginIdentity={mockLoginSession.loginIdentity} />)).toMatchSnapshot()
   })
 })
 
@@ -67,13 +68,14 @@ describe('handleViewRoadmap', () => {
 
 describe('handleFaq', () => {
   it('should called with correct props', () => {
-    handleFaq()
+    handleFaq(mockLoginSession.loginIdentity)
     expect(initChatBot).toHaveBeenCalledTimes(1)
+    expect(initChatBot).toHaveBeenCalledWith(mockLoginSession.loginIdentity)
   })
 })
 
 describe('renderHelpItems', () => {
   it('should match snapshot', () => {
-    expect(renderHelpItems(helpItems)).toMatchSnapshot()
+    expect(renderHelpItems(helpItems(mockLoginSession.loginIdentity))).toMatchSnapshot()
   })
 })
