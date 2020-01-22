@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { getMockRouterProps } from '@/helper/mock-router'
+import { getMockRouterProps } from '@/core/__mocks__/mock-router'
 import { Menu } from '../menu'
 import { LoginMode } from '@reapit/cognito-auth'
 

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
+import { Dispatch, compose } from 'redux'
 import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import Identification, {
   IdentificationFormValues,
@@ -80,4 +80,6 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
     dispatch(checkListDetailSecondaryIdUpdateData(formValues)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SecondaryIdentification)
+export const withRedux = connect(mapStateToProps, mapDispatchToProps)
+
+export default compose(withRedux)(SecondaryIdentification)
