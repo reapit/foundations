@@ -7,7 +7,7 @@ const props: ProfileToggleProps = {
   complete: false,
   isOpen: false,
   title: 'Title',
-  onToggle: jest.fn()
+  onToggle: jest.fn(),
 }
 
 describe('ProfileToggle', () => {
@@ -15,7 +15,7 @@ describe('ProfileToggle', () => {
     const wrapper = shallow(
       <ProfileToggle {...props} isOpen>
         <div>Children</div>
-      </ProfileToggle>
+      </ProfileToggle>,
     )
     expect(toJson(wrapper)).toMatchSnapshot()
   })
@@ -24,21 +24,21 @@ describe('ProfileToggle', () => {
     const wrapper = shallow(
       <ProfileToggle {...props} complete>
         <div id="inner-component">Children</div>
-      </ProfileToggle>
+      </ProfileToggle>,
     )
 
     expect(
       wrapper
         .find('[data-test="profile-toggle-status"]')
         .childAt(1)
-        .text()
+        .text(),
     ).toBe('Complete')
     wrapper.setProps({ complete: false })
     expect(
       wrapper
         .find('[data-test="profile-toggle-status"]')
         .childAt(1)
-        .text()
+        .text(),
     ).toBe('Incomplete')
   })
 })

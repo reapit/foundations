@@ -12,25 +12,25 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       communications: [
         {
           label: 'Home',
-          detail: '01632 968608'
+          detail: '01632 968608',
         },
         {
           label: 'Mobile',
-          detail: '07700 908608'
+          detail: '07700 908608',
         },
         {
           label: 'Work',
-          detail: '020 7946 8608'
+          detail: '020 7946 8608',
         },
         {
           label: 'E-Mail',
-          detail: 'hrees927@rpsfiction.net'
-        }
+          detail: 'hrees927@rpsfiction.net',
+        },
       ],
       addresses: [
         {
@@ -42,7 +42,7 @@ export const contacts = {
           line3: 'Leighton Buzzard',
           line4: 'Buckinghamshire',
           postcode: 'LU7 0EP',
-          countryId: 'GB'
+          countryId: 'GB',
         },
         {
           type: 'previous',
@@ -53,8 +53,8 @@ export const contacts = {
           line3: 'Buckinghamshire',
           line4: '',
           postcode: 'LU7 0PX',
-          countryId: ''
-        }
+          countryId: '',
+        },
       ],
       officeIds: ['MKC'],
       negotiatorIds: ['JPB'],
@@ -65,34 +65,34 @@ export const contacts = {
               'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png',
             year: '2',
             month: '2',
-            documentType: 'Bank / Building Society / Statement'
+            documentType: 'Bank / Building Society / Statement',
           },
           {
             documentImage:
               'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/previous-7-Larch Cottage-LU7 0PX.png',
             year: '3',
             month: '1',
-            documentType: 'Credit Card Statements from main provider'
-          }
+            documentType: 'Credit Card Statements from main provider',
+          },
         ],
         declarationRisk: {
           reason: 'Test',
           type: 'Simplified',
           riskAssessmentForm:
-            'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png'
-        }
+            'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png',
+        },
       },
       _links: {
         self: {
-          href: '/contacts/MKC13000122'
+          href: '/contacts/MKC13000122',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC13000122'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC13000122',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC13000122'
-        }
-      }
+          href: '/identityChecks/?ContactId=MKC13000122',
+        },
+      },
     },
     {
       id: 'BED12001604',
@@ -106,25 +106,25 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       communications: [
         {
           label: 'Home',
-          detail: '01632 966030'
+          detail: '01632 966030',
         },
         {
           label: 'Mobile',
-          detail: '07700 906030'
+          detail: '07700 906030',
         },
         {
           label: 'Work',
-          detail: '020 7946 6030'
+          detail: '020 7946 6030',
         },
         {
           label: 'E-Mail',
-          detail: 'hmarshall98@rpsfiction.net'
-        }
+          detail: 'hmarshall98@rpsfiction.net',
+        },
       ],
       addresses: [
         {
@@ -136,8 +136,8 @@ export const contacts = {
           line3: 'Bedfordshire',
           line4: '',
           postcode: 'MK45 2RE',
-          countryId: ''
-        }
+          countryId: '',
+        },
       ],
       officeIds: ['BED'],
       negotiatorIds: ['MM'],
@@ -148,21 +148,21 @@ export const contacts = {
               'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary--Mountain Ash-MK45 2RE(1).jpg',
             year: '8',
             month: '3',
-            documentType: 'Current Council Tax Bill'
-          }
-        ]
+            documentType: 'Current Council Tax Bill',
+          },
+        ],
       },
       _links: {
         self: {
-          href: '/contacts/BED12001604'
+          href: '/contacts/BED12001604',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED12001604'
+          href: '/documents/?OwnerType=contact&OwnerId=BED12001604',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED12001604'
-        }
-      }
+          href: '/identityChecks/?ContactId=BED12001604',
+        },
+      },
     },
     {
       id: 'MKC12000004',
@@ -176,25 +176,25 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       communications: [
         {
           label: 'Home',
-          detail: '01632 960917'
+          detail: '01632 960917',
         },
         {
           label: 'Mobile',
-          detail: '07700 900917'
+          detail: '07700 900917',
         },
         {
           label: 'Work',
-          detail: '020 7946 0917'
+          detail: '020 7946 0917',
         },
         {
           label: 'E-Mail',
-          detail: 'hbremner859@rpsfiction.net'
-        }
+          detail: 'hbremner859@rpsfiction.net',
+        },
       ],
       addresses: [
         {
@@ -206,8 +206,8 @@ export const contacts = {
           line3: 'Milton Keynes',
           line4: 'Buckinghamshire',
           postcode: 'MK14 5QA',
-          countryId: ''
-        }
+          countryId: '',
+        },
       ],
       officeIds: ['MKC'],
       negotiatorIds: ['MLD'],
@@ -218,21 +218,21 @@ export const contacts = {
               'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/primary-21-Larch Cottage-MK14 5QA.webp',
             year: '5',
             month: '3',
-            documentType: 'Current Full UK Driving Licence'
-          }
-        ]
+            documentType: 'Current Full UK Driving Licence',
+          },
+        ],
       },
       _links: {
         self: {
-          href: '/contacts/MKC12000004'
+          href: '/contacts/MKC12000004',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC12000004'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC12000004',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC12000004'
-        }
-      }
+          href: '/identityChecks/?ContactId=MKC12000004',
+        },
+      },
     },
     {
       id: 'MKC07001329',
@@ -245,25 +245,25 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       communications: [
         {
           label: 'Home',
-          detail: '01632 960745'
+          detail: '01632 960745',
         },
         {
           label: 'Mobile',
-          detail: '07700 900745'
+          detail: '07700 900745',
         },
         {
           label: 'Work',
-          detail: '020 7946 0745'
+          detail: '020 7946 0745',
         },
         {
           label: 'E-Mail',
-          detail: 'hblades625@rpsfiction.net'
-        }
+          detail: 'hblades625@rpsfiction.net',
+        },
       ],
       addresses: [
         {
@@ -275,24 +275,24 @@ export const contacts = {
           line3: 'Milton Keynes',
           line4: 'Buckinghamshire',
           postcode: 'MK7 6JN',
-          countryId: ''
-        }
+          countryId: '',
+        },
       ],
       officeIds: ['MKC'],
       negotiatorIds: ['AZB'],
       metadata: {},
       _links: {
         self: {
-          href: '/contacts/MKC07001329'
+          href: '/contacts/MKC07001329',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC07001329'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC07001329',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC07001329'
-        }
-      }
-    }
+          href: '/identityChecks/?ContactId=MKC07001329',
+        },
+      },
+    },
   ],
   pageNumber: 1,
   pageSize: 10,
@@ -300,12 +300,12 @@ export const contacts = {
   totalCount: 4,
   _links: {
     self: {
-      href: '/contacts/?PageNumber=1&PageSize=10&name=Holly'
+      href: '/contacts/?PageNumber=1&PageSize=10&name=Holly',
     },
     first: {
-      href: '/contacts/?PageNumber=1&PageSize=10&name=Holly'
-    }
-  }
+      href: '/contacts/?PageNumber=1&PageSize=10&name=Holly',
+    },
+  },
 }
 
 export const responseContactsWithStatus = {
@@ -321,25 +321,25 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       communications: [
         {
           label: 'Home',
-          detail: '01632 968608'
+          detail: '01632 968608',
         },
         {
           label: 'Mobile',
-          detail: '07700 908608'
+          detail: '07700 908608',
         },
         {
           label: 'Work',
-          detail: '020 7946 8608'
+          detail: '020 7946 8608',
         },
         {
           label: 'E-Mail',
-          detail: 'hrees927@rpsfiction.net'
-        }
+          detail: 'hrees927@rpsfiction.net',
+        },
       ],
       addresses: [
         {
@@ -351,7 +351,7 @@ export const responseContactsWithStatus = {
           line3: 'Leighton Buzzard',
           line4: 'Buckinghamshire',
           postcode: 'LU7 0EP',
-          countryId: 'GB'
+          countryId: 'GB',
         },
         {
           type: 'previous',
@@ -362,8 +362,8 @@ export const responseContactsWithStatus = {
           line3: 'Buckinghamshire',
           line4: '',
           postcode: 'LU7 0PX',
-          countryId: ''
-        }
+          countryId: '',
+        },
       ],
       officeIds: ['MKC'],
       negotiatorIds: ['JPB'],
@@ -374,36 +374,36 @@ export const responseContactsWithStatus = {
               'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png',
             year: '2',
             month: '2',
-            documentType: 'Bank / Building Society / Statement'
+            documentType: 'Bank / Building Society / Statement',
           },
           {
             documentImage:
               'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/previous-7-Larch Cottage-LU7 0PX.png',
             year: '3',
             month: '1',
-            documentType: 'Credit Card Statements from main provider'
-          }
+            documentType: 'Credit Card Statements from main provider',
+          },
         ],
         declarationRisk: {
           reason: 'Test',
           type: 'Simplified',
           riskAssessmentForm:
-            'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png'
-        }
+            'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png',
+        },
       },
       _links: {
         self: {
-          href: '/contacts/MKC13000122'
+          href: '/contacts/MKC13000122',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC13000122'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC13000122',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC13000122'
-        }
+          href: '/identityChecks/?ContactId=MKC13000122',
+        },
       },
       id: 'MKC13000122',
-      identityCheck: 'pass'
+      identityCheck: 'pass',
     },
     {
       created: '2015-08-04T08:06:44.0000000Z',
@@ -416,25 +416,25 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       communications: [
         {
           label: 'Home',
-          detail: '01632 966030'
+          detail: '01632 966030',
         },
         {
           label: 'Mobile',
-          detail: '07700 906030'
+          detail: '07700 906030',
         },
         {
           label: 'Work',
-          detail: '020 7946 6030'
+          detail: '020 7946 6030',
         },
         {
           label: 'E-Mail',
-          detail: 'hmarshall98@rpsfiction.net'
-        }
+          detail: 'hmarshall98@rpsfiction.net',
+        },
       ],
       addresses: [
         {
@@ -446,8 +446,8 @@ export const responseContactsWithStatus = {
           line3: 'Bedfordshire',
           line4: '',
           postcode: 'MK45 2RE',
-          countryId: ''
-        }
+          countryId: '',
+        },
       ],
       officeIds: ['BED'],
       negotiatorIds: ['MM'],
@@ -458,23 +458,23 @@ export const responseContactsWithStatus = {
               'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary--Mountain Ash-MK45 2RE(1).jpg',
             year: '8',
             month: '3',
-            documentType: 'Current Council Tax Bill'
-          }
-        ]
+            documentType: 'Current Council Tax Bill',
+          },
+        ],
       },
       _links: {
         self: {
-          href: '/contacts/BED12001604'
+          href: '/contacts/BED12001604',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED12001604'
+          href: '/documents/?OwnerType=contact&OwnerId=BED12001604',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED12001604'
-        }
+          href: '/identityChecks/?ContactId=BED12001604',
+        },
       },
       id: 'BED12001604',
-      identityCheck: 'pass'
+      identityCheck: 'pass',
     },
     {
       created: '2015-04-15T14:16:48.0000000Z',
@@ -487,25 +487,25 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       communications: [
         {
           label: 'Home',
-          detail: '01632 960917'
+          detail: '01632 960917',
         },
         {
           label: 'Mobile',
-          detail: '07700 900917'
+          detail: '07700 900917',
         },
         {
           label: 'Work',
-          detail: '020 7946 0917'
+          detail: '020 7946 0917',
         },
         {
           label: 'E-Mail',
-          detail: 'hbremner859@rpsfiction.net'
-        }
+          detail: 'hbremner859@rpsfiction.net',
+        },
       ],
       addresses: [
         {
@@ -517,8 +517,8 @@ export const responseContactsWithStatus = {
           line3: 'Milton Keynes',
           line4: 'Buckinghamshire',
           postcode: 'MK14 5QA',
-          countryId: ''
-        }
+          countryId: '',
+        },
       ],
       officeIds: ['MKC'],
       negotiatorIds: ['MLD'],
@@ -529,22 +529,22 @@ export const responseContactsWithStatus = {
               'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/primary-21-Larch Cottage-MK14 5QA.webp',
             year: '5',
             month: '3',
-            documentType: 'Current Full UK Driving Licence'
-          }
-        ]
+            documentType: 'Current Full UK Driving Licence',
+          },
+        ],
       },
       _links: {
         self: {
-          href: '/contacts/MKC12000004'
+          href: '/contacts/MKC12000004',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC12000004'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC12000004',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC12000004'
-        }
+          href: '/identityChecks/?ContactId=MKC12000004',
+        },
       },
-      id: 'MKC12000004'
+      id: 'MKC12000004',
     },
     {
       created: '2010-10-05',
@@ -556,25 +556,25 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       communications: [
         {
           label: 'Home',
-          detail: '01632 960745'
+          detail: '01632 960745',
         },
         {
           label: 'Mobile',
-          detail: '07700 900745'
+          detail: '07700 900745',
         },
         {
           label: 'Work',
-          detail: '020 7946 0745'
+          detail: '020 7946 0745',
         },
         {
           label: 'E-Mail',
-          detail: 'hblades625@rpsfiction.net'
-        }
+          detail: 'hblades625@rpsfiction.net',
+        },
       ],
       addresses: [
         {
@@ -586,25 +586,25 @@ export const responseContactsWithStatus = {
           line3: 'Milton Keynes',
           line4: 'Buckinghamshire',
           postcode: 'MK7 6JN',
-          countryId: ''
-        }
+          countryId: '',
+        },
       ],
       officeIds: ['MKC'],
       negotiatorIds: ['AZB'],
       metadata: {},
       _links: {
         self: {
-          href: '/contacts/MKC07001329'
+          href: '/contacts/MKC07001329',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC07001329'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC07001329',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC07001329'
-        }
+          href: '/identityChecks/?ContactId=MKC07001329',
+        },
       },
-      id: 'MKC07001329'
-    }
+      id: 'MKC07001329',
+    },
   ],
   pageNumber: 1,
   pageSize: 10,
@@ -612,10 +612,10 @@ export const responseContactsWithStatus = {
   totalCount: 4,
   _links: {
     self: {
-      href: '/contacts/?PageNumber=1&PageSize=10&name=Holly'
+      href: '/contacts/?PageNumber=1&PageSize=10&name=Holly',
     },
     first: {
-      href: '/contacts/?PageNumber=1&PageSize=10&name=Holly'
-    }
-  }
+      href: '/contacts/?PageNumber=1&PageSize=10&name=Holly',
+    },
+  },
 }

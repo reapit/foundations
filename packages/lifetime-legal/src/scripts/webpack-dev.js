@@ -20,7 +20,6 @@ module.exports = {
       tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json')
     }),
     new ForkTsCheckerWebpackPlugin({
-      tslint: true,
       useTypescriptIncrementalApi: true
     }),
     new ForkTsCheckerNotifierWebpackPlugin({

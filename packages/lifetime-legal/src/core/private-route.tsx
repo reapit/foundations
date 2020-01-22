@@ -66,6 +66,6 @@ export const PrivateRoute = ({
 
 const mapStateToProps = (state: ReduxState): PrivateRouteConnectProps => ({
   loginType: 'CLIENT',
-  loginMode: state?.auth?.refreshSession?.mode || 'WEB'
+  loginMode: state?.auth?.refreshSession?.mode || 'WEB',
 })
 export default connect(mapStateToProps)(PrivateRoute)

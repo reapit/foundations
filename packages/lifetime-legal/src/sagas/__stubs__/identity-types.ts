@@ -3,58 +3,58 @@ import { ListItemModel } from '@reapit/foundations-ts-definitions'
 export const identityTypes: ListItemModel[] = [
   {
     id: 'BB',
-    value: 'BenefitBook'
+    value: 'BenefitBook',
   },
   {
     id: 'BC',
-    value: 'BirthCertificate'
+    value: 'BirthCertificate',
   },
   {
     id: 'CI',
-    value: 'Certificate of Incorporation'
+    value: 'Certificate of Incorporation',
   },
   {
     id: 'CR',
-    value: 'Correspondence'
+    value: 'Correspondence',
   },
   {
     id: 'TX',
-    value: 'Current tax bill'
+    value: 'Current tax bill',
   },
   {
     id: 'DL',
-    value: 'DrivingLicense'
+    value: 'DrivingLicense',
   },
   {
     id: 'ER',
-    value: 'ElectoralRoll'
+    value: 'ElectoralRoll',
   },
   {
     id: 'FC',
-    value: 'Firearms Certificate'
+    value: 'Firearms Certificate',
   },
   {
     id: 'NI',
-    value: 'NationalInsuranceCard'
+    value: 'NationalInsuranceCard',
   },
   {
     id: 'NC',
-    value: 'Naturalisation Certificate'
+    value: 'Naturalisation Certificate',
   },
   {
     id: 'PP',
-    value: 'Passport'
+    value: 'Passport',
   },
   {
     id: 'RF',
-    value: 'Reference'
+    value: 'Reference',
   },
   {
     id: '',
-    value: 'Unmapped'
+    value: 'Unmapped',
   },
   {
     id: 'UT',
-    value: 'Utility Bill'
-  }
+    value: 'Utility Bill',
+  },
 ]

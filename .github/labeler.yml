@@ -4,3 +4,6 @@ smb:
 
 apollo-server:
   - packages/apollo-server/**
+
+lifetime-legal:
+  - packages/lifetime-legal/**

@@ -37,8 +37,8 @@ export const SuccessPage = ({
   contact,
   loginMode,
   match: {
-    params: { id }
-  }
+    params: { id },
+  },
 }: SuccessProps) => {
   React.useEffect(handleUseEffect(resetSubmitCompleteFormState), [])
 
@@ -46,7 +46,7 @@ export const SuccessPage = ({
     entityType: EntityType.CONTACT,
     entityCode: contact.id,
     appMode: loginMode,
-    webRoute: Routes.HOME
+    webRoute: Routes.HOME,
   }
 
   return (
@@ -73,7 +73,7 @@ export const SuccessPage = ({
               type: 'button',
               loading: submitCompleteFormState === 'SUBMITTING',
               disabled: submitCompleteFormState === 'SUBMITTING',
-              onClick: handleSubmit({ submitComplete, id, dynamicLinkParams })
+              onClick: handleSubmit({ submitComplete, id, dynamicLinkParams }),
             }}
             dynamicLinkParams={dynamicLinkParams}
           >
@@ -88,13 +88,13 @@ export const SuccessPage = ({
 export const mapStateToProps = (state: ReduxState): SuccessMappedProps => ({
   submitCompleteFormState: state.success.submitCompleteFormState,
   contact: state?.checklistDetail?.checklistDetailData?.contact || {},
-  loginMode: state?.auth?.refreshSession?.mode || 'WEB'
+  loginMode: state?.auth?.refreshSession?.mode || 'WEB',
 })
 
 export const mapDispatchToProps = (dispatch: any): SuccessMappedActions => ({
   submitComplete: (id: string, dynamicLinkParams: DynamicLinkParams) =>
     dispatch(submitComplete({ id, dynamicLinkParams })),
-  resetSubmitCompleteFormState: () => dispatch(submitCompleteSetFormState('PENDING'))
+  resetSubmitCompleteFormState: () => dispatch(submitCompleteSetFormState('PENDING')),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SuccessPage))

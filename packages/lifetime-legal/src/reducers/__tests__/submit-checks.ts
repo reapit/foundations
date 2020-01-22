@@ -11,11 +11,11 @@ describe('submitCheck reducer', () => {
   it('should set formState to submitting when SUB.SUBMIT_CHECK_SET_FORM_STATE action is called with submitting', () => {
     const newState = submitReducer(undefined, {
       type: ActionTypes.SUBMIT_CHECKS_SET_FORM_STATE as ActionType,
-      data: 'submitting'
+      data: 'submitting',
     })
     const expected = {
       ...defaultState,
-      formState: 'submitting'
+      formState: 'submitting',
     }
     expect(newState).toEqual(expected)
   })

@@ -20,7 +20,7 @@ const optionsMonth = [
   { label: '9', value: '9' },
   { label: '10', value: '10' },
   { label: '11', value: '11' },
-  { label: '12', value: '12' }
+  { label: '12', value: '12' },
 ] as SelectBoxOptions[]
 
 const MIN_NUMBER_OF_YEARS = 1
@@ -51,14 +51,18 @@ const optionsDocumentType = [
   { label: DOCUMENT_TYPE.CREDIT_STATEMENT, value: DOCUMENT_TYPE.CREDIT_STATEMENT },
   { label: DOCUMENT_TYPE.TAX_NOTIFICATION, value: DOCUMENT_TYPE.TAX_NOTIFICATION },
   { label: DOCUMENT_TYPE.ACCOUNT_DOCUMENT, value: DOCUMENT_TYPE.ACCOUNT_DOCUMENT },
-  { label: DOCUMENT_TYPE.LETTER_FROM_COUNCIL, value: DOCUMENT_TYPE.LETTER_FROM_COUNCIL }
+  { label: DOCUMENT_TYPE.LETTER_FROM_COUNCIL, value: DOCUMENT_TYPE.LETTER_FROM_COUNCIL },
 ]
 
 export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThreeYearInput }) => () => {
   setShowMoreThreeYearInput(!isShowMoreThreeYearInput)
 }
 
-export const AddressInput = ({ index }) => {
+export type AddressInputProps = {
+  index: number
+}
+
+export const AddressInput: React.FC<AddressInputProps> = ({ index }: AddressInputProps) => {
   return (
     <div key={index}>
       <Input type="hidden" labelText="Type" id={`addresses[${index}][type]`} name={`addresses[${index}][type]`} />
@@ -152,14 +156,18 @@ export type AddressInformationProps = {
   onHandleSubmit: (values: any) => void
 }
 
-export const AddressInformation: React.FC<AddressInformationProps> = ({ contact, onHandleSubmit, isSubmitting }) => {
+export const AddressInformation: React.FC<AddressInformationProps> = ({
+  contact,
+  onHandleSubmit,
+  isSubmitting,
+}: AddressInformationProps) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
   return (
     <div>
       <Formik
         initialValues={{
           addresses: contact.addresses || [],
-          metadata: contact.metadata || {}
+          metadata: contact.metadata || {},
         }}
         onSubmit={onHandleSubmit}
       >
@@ -167,7 +175,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({ contact,
           addresses: contact.addresses,
           isShowMoreThreeYearInput,
           setShowMoreThreeYearInput,
-          isSubmitting
+          isSubmitting,
         })}
       </Formik>
     </div>
@@ -182,7 +190,7 @@ export type MappedProps = {
 export const mapStateToProps = (state: ReduxState): MappedProps => {
   return {
     isSubmitting: state?.checklistDetail?.isSubmitting || false,
-    contact: state?.checklistDetail?.checklistDetailData?.contact || {}
+    contact: state?.checklistDetail?.checklistDetailData?.contact || {},
   }
 }
 
@@ -194,7 +202,7 @@ export const mapDispatchToProps = (dispatch: Dispatch): MappedActions => {
   return {
     onHandleSubmit: (values: any) => {
       dispatch(checkListDetailAddressUpdateData(values))
-    }
+    },
   }
 }
 

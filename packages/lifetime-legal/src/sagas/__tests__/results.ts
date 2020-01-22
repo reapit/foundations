@@ -15,19 +15,19 @@ import { fetchContacts, fetchIdentitiesCheck } from '../api'
 jest.mock('../../core/store')
 
 jest.mock('../../utils/map-identities-to-contacts', () => ({
-  mapIdentitiesToContacts: jest.fn().mockReturnValue('mappedData')
+  mapIdentitiesToContacts: jest.fn().mockReturnValue('mappedData'),
 }))
 
 const mockHeaders = {
-  Authorization: '123'
+  Authorization: '123',
 }
 
 const params: Action<ContactsParams> = {
   data: {
     pageNumber: 1,
-    name: '1'
+    name: '1',
   },
-  type: 'RESULT_REQUEST_DATA'
+  type: 'RESULT_REQUEST_DATA',
 }
 
 describe('result fetch data', () => {
@@ -39,7 +39,7 @@ describe('result fetch data', () => {
     const clone = gen.clone()
     const listContactId = contacts._embedded.map(({ id }) => id)
     expect(clone.next(contacts as any).value).toEqual(
-      call(fetchIdentitiesCheck, { headers: mockHeaders, listContactId })
+      call(fetchIdentitiesCheck, { headers: mockHeaders, listContactId }),
     )
     expect(clone.next(identities).value).toEqual(put(resultReceiveData('mappedData' as any)))
     expect(mapIdentitiesToContacts).toHaveBeenCalledWith(contacts, identities)
@@ -54,9 +54,9 @@ describe('result fetch data', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().done).toBe(true)
   })

@@ -12,7 +12,7 @@ describe('SecondaryIdentification', () => {
         initFormValues: {},
         loading: false,
         idCheck: idCheck,
-        updateIdentification: jest.fn()
+        updateIdentification: jest.fn(),
       }
       const wrapper = shallow(<SecondaryIdentification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -27,21 +27,21 @@ describe('SecondaryIdentification', () => {
           isSubmitting: false,
           checklistDetailData: {
             contact,
-            idCheck: null
-          }
+            idCheck: null,
+          },
         },
         auth: {
           refreshSession: {
-            desktopMode: 'DESKTOP'
-          }
-        }
+            desktopMode: 'DESKTOP',
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       const expected = {
         loading: false,
         contactModel: contact,
         initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
-        idCheck: null
+        idCheck: null,
       }
       expect(result).toEqual(expected)
     })
@@ -53,7 +53,7 @@ describe('SecondaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: {},
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES
+        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
       }
       expect(result).toEqual(expected)
     })

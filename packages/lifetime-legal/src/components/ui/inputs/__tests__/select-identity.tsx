@@ -10,8 +10,8 @@ const props = (loading: boolean): SelectIdentityProps => ({
   name: 'idType',
   identityState: {
     loading: loading,
-    identityTypes: identityTypes
-  }
+    identityTypes: identityTypes,
+  },
 })
 
 describe('Select identity', () => {

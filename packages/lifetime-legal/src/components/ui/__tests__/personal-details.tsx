@@ -52,7 +52,7 @@ describe('profile', () => {
   describe('Profile', () => {
     const mockProps = {
       contact: contact,
-      isSubmitting: false
+      isSubmitting: false,
     }
     const wrapper = shallow(<Profile {...mockProps} />)
     expect(wrapper).toMatchSnapshot()

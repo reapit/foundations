@@ -5,5 +5,5 @@ export const checklistStatus: ChecklistStatus = {
   primaryId: false,
   secondaryId: true,
   addresses: true,
-  agentChecks: false
+  agentChecks: false,
 }

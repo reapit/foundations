@@ -11,7 +11,7 @@ describe('submit-check post data', () => {
   const id = 'MKC16000098"'
   const action: Action<string> = {
     type: ActionTypes.SUBMIT_CHECKS as ActionType,
-    data: id
+    data: id,
   }
   const gen = cloneableGenerator(submitCheck)(action)
   expect(gen.next().value).toEqual(put(submitChecksSetFormState('SUBMITTING')))

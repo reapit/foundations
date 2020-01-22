@@ -5,7 +5,7 @@ describe('login form', () => {
     it('should run correctly', () => {
       const mockLoginFormValues = {
         email: 'mockEmail@gmail.com',
-        password: 'mockPassword'
+        password: 'mockPassword',
       }
       const output = {}
       const result = validate(mockLoginFormValues)
@@ -15,10 +15,10 @@ describe('login form', () => {
     it('should return error output', () => {
       const mockLoginFormValues = {
         email: '',
-        password: 'mockPassword'
+        password: 'mockPassword',
       }
       const output = {
-        email: 'Required'
+        email: 'Required',
       }
       const result = validate(mockLoginFormValues)
       expect(result).toEqual(output)
@@ -27,23 +27,23 @@ describe('login form', () => {
     it('should return error output', () => {
       const mockLoginFormValues = {
         email: 'mockEmail',
-        password: 'mockPassword'
-      }
-      const output = {
-        email: 'Invalid email address'
-      }
-      const result = validate(mockLoginFormValues)
-      expect(result).toEqual(output)
-    })
-
-    it('should return error output', () => {
-      const mockLoginFormValues = {
-        email: 'mockEmail',
-        password: ''
+        password: 'mockPassword',
       }
       const output = {
         email: 'Invalid email address',
-        password: 'Required'
+      }
+      const result = validate(mockLoginFormValues)
+      expect(result).toEqual(output)
+    })
+
+    it('should return error output', () => {
+      const mockLoginFormValues = {
+        email: 'mockEmail',
+        password: '',
+      }
+      const output = {
+        email: 'Invalid email address',
+        password: 'Required',
       }
       const result = validate(mockLoginFormValues)
       expect(result).toEqual(output)

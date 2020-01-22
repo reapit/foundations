@@ -19,66 +19,66 @@ export const referralOptionsValues = {
   VENDOR_NEW_ON_MARKET: 'Vendor: New on market',
   VENDOR_PROPERTY_SOLD: 'Vendor: Property sold',
   DATE_TO_CALL_CLIENT: 'Date to call client (calendar for date)',
-  TIME_SELECTION: 'Time selection – Hours and Minutes'
+  TIME_SELECTION: 'Time selection – Hours and Minutes',
 }
 
 const referralOptions = [
   {
     label: 'Please select',
-    value: ''
+    value: '',
   },
   {
     label: referralOptionsValues.APPLICANT,
-    value: referralOptionsValues.APPLICANT
+    value: referralOptionsValues.APPLICANT,
   },
   {
     label: referralOptionsValues.ESTATE_PLANNING,
-    value: referralOptionsValues.ESTATE_PLANNING
+    value: referralOptionsValues.ESTATE_PLANNING,
   },
   {
     label: referralOptionsValues.MEMBER_SHIP,
-    value: referralOptionsValues.MEMBER_SHIP
+    value: referralOptionsValues.MEMBER_SHIP,
   },
   {
     label: referralOptionsValues.PURCHASER_COMPLIANCE,
-    value: referralOptionsValues.PURCHASER_COMPLIANCE
+    value: referralOptionsValues.PURCHASER_COMPLIANCE,
   },
   {
     label: referralOptionsValues.PURCHASER_OFFER_ACCEPTED,
-    value: referralOptionsValues.PURCHASER_OFFER_ACCEPTED
+    value: referralOptionsValues.PURCHASER_OFFER_ACCEPTED,
   },
   {
     label: referralOptionsValues.PURCHASER_OFFER_ACCEPTED_Q_OUT,
-    value: referralOptionsValues.PURCHASER_OFFER_ACCEPTED_Q_OUT
+    value: referralOptionsValues.PURCHASER_OFFER_ACCEPTED_Q_OUT,
   },
   {
     label: referralOptionsValues.PURCHASER_OFFER_MADE,
-    value: referralOptionsValues.PURCHASER_OFFER_MADE
+    value: referralOptionsValues.PURCHASER_OFFER_MADE,
   },
   {
     label: referralOptionsValues.PURCHASER_OFFER_MADE_Q_OUT,
-    value: referralOptionsValues.PURCHASER_OFFER_MADE_Q_OUT
+    value: referralOptionsValues.PURCHASER_OFFER_MADE_Q_OUT,
   },
   {
     label: referralOptionsValues.VENDOR_COMPLIANCE,
-    value: referralOptionsValues.VENDOR_COMPLIANCE
+    value: referralOptionsValues.VENDOR_COMPLIANCE,
   },
   {
     label: referralOptionsValues.VENDOR_NEW_ON_MARKET,
-    value: referralOptionsValues.VENDOR_NEW_ON_MARKET
+    value: referralOptionsValues.VENDOR_NEW_ON_MARKET,
   },
   {
     label: referralOptionsValues.VENDOR_PROPERTY_SOLD,
-    value: referralOptionsValues.VENDOR_PROPERTY_SOLD
+    value: referralOptionsValues.VENDOR_PROPERTY_SOLD,
   },
   {
     label: referralOptionsValues.DATE_TO_CALL_CLIENT,
-    value: referralOptionsValues.DATE_TO_CALL_CLIENT
+    value: referralOptionsValues.DATE_TO_CALL_CLIENT,
   },
   {
     label: referralOptionsValues.TIME_SELECTION,
-    value: referralOptionsValues.TIME_SELECTION
-  }
+    value: referralOptionsValues.TIME_SELECTION,
+  },
 ] as SelectBoxOptions[]
 
 export const renderOptions = (minNumber, maxNumber, step): SelectBoxOptions[] => {
@@ -86,7 +86,7 @@ export const renderOptions = (minNumber, maxNumber, step): SelectBoxOptions[] =>
   for (let i = minNumber; i <= maxNumber; i += step) {
     options.push({
       label: `${i}`,
-      value: `${i}`
+      value: `${i}`,
     })
   }
   return options
@@ -107,7 +107,7 @@ export const renderForm = ({ isSubmitting, isDisabledSubmit }) => ({ setFieldVal
         labelText="Is the client acting on their own behalf or on behalf of a Company?"
         options={[
           { label: 'Individual', value: 'Individual' },
-          { label: 'Company', value: 'Company' }
+          { label: 'Company', value: 'Company' },
         ]}
       />
       <RadioSelect
@@ -119,7 +119,7 @@ export const renderForm = ({ isSubmitting, isDisabledSubmit }) => ({ setFieldVal
         labelText="Is the client a UK resident?"
         options={[
           { label: 'Yes', value: 'Yes' },
-          { label: 'No', value: 'No' }
+          { label: 'No', value: 'No' },
         ]}
       />
       <RadioSelect
@@ -132,7 +132,7 @@ export const renderForm = ({ isSubmitting, isDisabledSubmit }) => ({ setFieldVal
         options={[
           { label: 'Home Address', value: 'Home Address' },
           { label: 'Other Location', value: 'Other Location' },
-          { label: 'Did Not Meet', value: 'Did Not Meet' }
+          { label: 'Did Not Meet', value: 'Did Not Meet' },
         ]}
       />
       <div className="flex justify-end">
@@ -146,12 +146,17 @@ export const renderForm = ({ isSubmitting, isDisabledSubmit }) => ({ setFieldVal
 
 export type AgentCheckProps = DispatchProps & StateProps
 
-export const AgentCheck: React.FC<AgentCheckProps> = ({ isSubmitting, onHandleSubmit, idCheck, isDisabledSubmit }) => {
+export const AgentCheck: React.FC<AgentCheckProps> = ({
+  isSubmitting,
+  onHandleSubmit,
+  idCheck,
+  isDisabledSubmit,
+}: AgentCheckProps) => {
   const agentCheck = idCheck?.metadata || {}
   return (
     <Formik
       initialValues={{
-        ...agentCheck
+        ...agentCheck,
       }}
       onSubmit={onHandleSubmit}
     >
@@ -171,7 +176,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: state?.checklistDetail?.isSubmitting || false,
     idCheck: state?.checklistDetail?.checklistDetailData?.idCheck || {},
-    isDisabledSubmit: (state?.checklistDetail?.checklistDetailData?.idCheck?.documents || []).length < MINIMUM_DOCUMENT
+    isDisabledSubmit: (state?.checklistDetail?.checklistDetailData?.idCheck?.documents || []).length < MINIMUM_DOCUMENT,
   }
 }
 
@@ -183,13 +188,13 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onHandleSubmit: (values: any) => {
       dispatch(checkListDetailAgentCheckUpdateData(values))
-    }
+    },
   }
 }
 
 export const AgentCheckWithRedux = connect<StateProps, DispatchProps, {}, ReduxState>(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(AgentCheck)
 
 AgentCheckWithRedux.displayName = 'AgentCheckWithRedux'

@@ -7,7 +7,7 @@ import errorMessages from '../constants/error-messages'
 import { DynamicLinkParams, navigateDynamicApp } from '@reapit/elements'
 
 export const submitComplete = function*({
-  data: { dynamicLinkParams }
+  data: { dynamicLinkParams },
 }: Action<{ id: string; dynamicLinkParams: DynamicLinkParams }>) {
   yield put(submitCompleteSetFormState('SUBMITTING'))
   try {
@@ -20,8 +20,8 @@ export const submitComplete = function*({
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -29,7 +29,7 @@ export const submitComplete = function*({
 export const submitCompleteListen = function*() {
   yield takeLatest<Action<{ id: string; dynamicLinkParams: DynamicLinkParams }>>(
     ActionTypes.SUBMIT_COMPLETE,
-    submitComplete
+    submitComplete,
   )
 }
 

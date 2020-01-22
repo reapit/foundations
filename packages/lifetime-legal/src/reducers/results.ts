@@ -5,7 +5,7 @@ import {
   resultRequestData,
   resultRequestDataFailure,
   SearchParams,
-  resultSetSearchParams
+  resultSetSearchParams,
 } from '../actions/results'
 import { PagedResultContactModel_ } from '@reapit/foundations-ts-definitions'
 
@@ -18,21 +18,21 @@ export interface ResultsState {
 export const defaultState: ResultsState = {
   loading: false,
   search: null,
-  contacts: null
+  contacts: null,
 }
 
 const resultReducer = (state: ResultsState = defaultState, action: Action<any>): ResultsState => {
   if (isType(action, resultSetSearchParams)) {
     return {
       ...state,
-      search: action.data
+      search: action.data,
     }
   }
 
   if (isType(action, resultRequestData)) {
     return {
       ...state,
-      loading: true
+      loading: true,
     }
   }
 
@@ -40,14 +40,14 @@ const resultReducer = (state: ResultsState = defaultState, action: Action<any>):
     return {
       ...state,
       loading: false,
-      contacts: action.data || null
+      contacts: action.data || null,
     }
   }
 
   if (isType(action, resultRequestDataFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 

@@ -4,7 +4,7 @@ import {
   checklistDetailLoading,
   contactReceiveData,
   identityCheckReceiveData,
-  checkListDetailSubmitForm
+  checkListDetailSubmitForm,
 } from '../actions/checklist-detail'
 import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import {
@@ -12,7 +12,7 @@ import {
   isCompletedPrimaryID,
   isCompletedSecondaryID,
   isCompletedAddress,
-  isCompletedAgentCheck
+  isCompletedAgentCheck,
 } from '@reapit/elements'
 
 export interface ChecklistStatus {
@@ -28,7 +28,7 @@ export const defaultStatus = {
   primaryId: false,
   secondaryId: false,
   addresses: false,
-  agentChecks: false
+  agentChecks: false,
 }
 
 export interface ChecklistDetailState {
@@ -45,14 +45,14 @@ export const defaultState: ChecklistDetailState = {
   loading: true,
   checklistDetailData: null,
   isSubmitting: false,
-  status: defaultStatus
+  status: defaultStatus,
 }
 
 const checklistReducer = (state: ChecklistDetailState = defaultState, action: Action<any>): ChecklistDetailState => {
   if (isType(action, checklistDetailLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -62,12 +62,12 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
       loading: false,
       checklistDetailData: {
         idCheck: state.checklistDetailData && state.checklistDetailData.idCheck,
-        contact: action.data
+        contact: action.data,
       },
       status: updateCheckListDetailFormStatus({
         contact: action.data,
-        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck
-      })
+        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck,
+      }),
     }
   }
 
@@ -77,19 +77,19 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
       loading: false,
       checklistDetailData: {
         contact: state.checklistDetailData && state.checklistDetailData.contact,
-        idCheck: action.data
+        idCheck: action.data,
       },
       status: updateCheckListDetailFormStatus({
         contact: state.checklistDetailData && state.checklistDetailData.contact,
-        idCheck: action.data
-      })
+        idCheck: action.data,
+      }),
     }
   }
 
   if (isType(action, checkListDetailSubmitForm)) {
     return {
       ...state,
-      isSubmitting: action.data
+      isSubmitting: action.data,
     }
   }
 
@@ -114,7 +114,7 @@ export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateChec
     primaryId: isCompletedPrimaryID(idCheck),
     secondaryId: isCompletedSecondaryID(idCheck),
     addresses: metadata ? isCompletedAddress(contact) : false,
-    agentChecks: isCompletedAgentCheck(idCheck)
+    agentChecks: isCompletedAgentCheck(idCheck),
   }
 }
 

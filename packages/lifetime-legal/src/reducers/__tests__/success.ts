@@ -11,11 +11,11 @@ describe('success reducer', () => {
   it('should set formState to submitting when SUBMIT_COMPLETE_SET_FORM_STATE action is called with submitting', () => {
     const newState = submitReducer(undefined, {
       type: ActionTypes.SUBMIT_COMPLETE_SET_FORM_STATE as ActionType,
-      data: 'submitting'
+      data: 'submitting',
     })
     const expected = {
       ...defaultState,
-      submitCompleteFormState: 'submitting'
+      submitCompleteFormState: 'submitting',
     }
     expect(newState).toEqual(expected)
   })
