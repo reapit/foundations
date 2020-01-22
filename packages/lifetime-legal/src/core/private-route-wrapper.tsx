@@ -28,7 +28,7 @@ export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
   RouteComponentProps & {
     path: string
   } & {
-    children: NodeList
+    children: React.ReactNode | React.ReactNodeArray
   }
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({

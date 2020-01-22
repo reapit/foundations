@@ -7,7 +7,7 @@ export interface ProfileToggleProps {
   title: string
   complete: boolean
   onToggle: () => void
-  children: NodeList
+  children?: any
 }
 
 const ProfileToggle: React.FC<ProfileToggleProps> = ({

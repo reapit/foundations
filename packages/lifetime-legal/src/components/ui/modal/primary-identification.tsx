@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
-import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { Dispatch, compose } from 'redux'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 import { ReduxState } from '@/types/core'
 import Identification, {
   IdentificationFormValues,
@@ -17,7 +17,6 @@ import {
 
 export type PrimaryIdentificationProps = DispatchProps & {
   contactModel: ContactModel
-  idCheck: ContactIdentityCheckModel
   initFormValues: any
   loading: boolean
 }
@@ -71,4 +70,6 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
     dispatch(checkListDetailPrimaryIdUpdateData(formValues)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(PrimaryIdentification)
+export const withRedux = connect(mapStateToProps, mapDispatchToProps)
+
+export default compose(withRedux)(PrimaryIdentification)

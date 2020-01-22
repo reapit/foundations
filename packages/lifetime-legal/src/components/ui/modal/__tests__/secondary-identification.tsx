@@ -41,7 +41,7 @@ describe('SecondaryIdentification', () => {
         loading: false,
         contactModel: contact,
         initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
-        idCheck: null,
+        idCheck: {},
       }
       expect(result).toEqual(expected)
     })
@@ -53,6 +53,7 @@ describe('SecondaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: {},
+        idCheck: {},
         initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
       }
       expect(result).toEqual(expected)

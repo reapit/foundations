@@ -77,7 +77,7 @@ export class Store {
     if (hotModule) {
       // Enable Webpack hot module replacement for reducers
       hotModule.accept('../reducers', () => {
-        this.reduxStore.replaceReducer(Store.reducers)
+        this.reduxStore.replaceReducer(Store.reducers as any)
       })
     }
   }

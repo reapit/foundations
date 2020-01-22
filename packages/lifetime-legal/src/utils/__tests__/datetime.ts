@@ -1,10 +1,13 @@
 import dayjs from 'dayjs'
-import { idCheck } from '@/sagas/__stubs__/contact'
 import { DATE_TIME_FORMAT, toLocalTime, toUTCTime } from '@reapit/elements'
+import MockDate from 'mockdate'
+import { idCheck } from '@/sagas/__stubs__/contact'
 import { changeTimeZoneLocalForIdentityCheck, changeTimeZoneUTCForIdentityCheck } from '../datetime'
 
 describe('daytime', () => {
   describe('changeTimeZoneLocalForIdentityCheck', () => {
+    const TIME_OFFSET = 0
+    MockDate.set(1570747191389, TIME_OFFSET)
     it('should run correctly', () => {
       const result = changeTimeZoneLocalForIdentityCheck(idCheck)
       const documents = idCheck.documents?.map(document => {
@@ -19,9 +22,13 @@ describe('daytime', () => {
         documents,
       })
     })
+    MockDate.reset()
   })
 
   describe('changeTimeZoneUTCForIdentityCheck', () => {
+    const TIME_OFFSET = 0
+    MockDate.set(1570747191389, TIME_OFFSET)
+
     it('should run correctly', () => {
       const documents = idCheck.documents?.map(document => {
         return {
@@ -36,5 +43,6 @@ describe('daytime', () => {
         documents,
       })
     })
+    MockDate.reset()
   })
 })
