@@ -1,0 +1,49 @@
+@import '../base/colors.scss';
+
+.container {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.wrapper {
+  background-color: $white;
+  width: 33.33%;
+  padding: 1rem;
+  pointer-events: auto;
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  h1,
+  p {
+    text-align: center;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 0 3rem;
+  }
+}
+
+.image-logo {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.wrapper-border {
+  padding: 1.5rem;
+  border: 2px solid #23a4de;
+}

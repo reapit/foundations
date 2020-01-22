@@ -1,0 +1,46 @@
+@charset "utf-8";
+@import './base/colors.scss';
+@import './utilities.scss';
+@import '~@reapit/elements/dist/index.css';
+
+* {
+  box-sizing: border-box !important;
+}
+
+html,
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  color: $grey-darkest;
+  background-color: $white;
+}
+
+.container {
+  max-width: 72.25rem;
+  margin: auto;
+  padding-right: 0.9375rem;
+  padding-left: 0.9375rem;
+}
+
+.button.is-primary,
+.button.is-primary[disabled] {
+  background-color: $blue;
+}
+
+.navbar {
+  @media screen and (min-width: 768px) {
+    position: fixed;
+  }
+}
+
+$nav-dimensions: 66px;
+
+.contentContainer {
+  @media screen and (min-width: 768px) {
+    margin-left: $nav-dimensions;
+    width: 100%;
+  }
+}
+
+.contentContainer.isDesktop {
+  margin-left: 0;
+}
