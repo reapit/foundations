@@ -24,6 +24,10 @@ import store from '@/core/store'
 import { handlePepSearchStatus } from '@/utils/pep-search'
 import dayjs from 'dayjs'
 import { ID_STATUS } from '@/components/ui/modal/modal'
+import {
+  changeTimeZoneLocalForIdentityCheck,
+  changeTimeZoneUTCForIdentityCheck
+} from '@/utils/datetime'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {
@@ -48,7 +52,13 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
       method: 'GET',
       headers: headers
     })
-    return response?._embedded?.[0] || null
+    const newResponse = {
+      ...response,
+      _embedded: response?._embedded.map(identityCheck => {
+        return changeTimeZoneLocalForIdentityCheck(identityCheck)
+      })
+    }
+    return newResponse?._embedded?.[0] || null
   } catch (err) {
     console.error(err.message)
     return err
@@ -92,12 +102,13 @@ export const uploadImage = async ({ name, imageData, headers }) => {
 
 export const updateIdentityCheck = async ({ identityChecks, headers }) => {
   try {
+    const formatedIdentityChecks = changeTimeZoneUTCForIdentityCheck(identityChecks)
     const response = await fetcher({
       url: `${URLS.idChecks}/${identityChecks.id}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
       headers: headers,
-      body: identityChecks
+      body: formatedIdentityChecks
     })
     return response
   } catch (err) {
@@ -108,12 +119,13 @@ export const updateIdentityCheck = async ({ identityChecks, headers }) => {
 
 export const createIdentityCheck = async ({ identityChecks, headers }) => {
   try {
+    const formatedIdentityChecks = changeTimeZoneUTCForIdentityCheck(identityChecks)
     const response = await fetcher({
       url: URLS.idChecks,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'POST',
       headers: headers,
-      body: identityChecks
+      body: formatedIdentityChecks
     })
     return response
   } catch (err) {
