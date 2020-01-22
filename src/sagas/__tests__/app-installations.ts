@@ -23,6 +23,7 @@ import {
 } from '@/actions/app-installations'
 import { installationsStub } from '../__stubs__/installations'
 import { selectClientId, selectLoggedUserEmail } from '@/selector/client'
+import { selectDeveloperId } from '@/selector/developer'
 
 jest.mock('@reapit/elements')
 
@@ -48,6 +49,7 @@ const uninstallParams = {
 describe('app-installations sagas', () => {
   describe('installationsFetchData', () => {
     const gen = cloneableGenerator(installationsSaga)(installationsParams)
+    expect(gen.next().value).toEqual(select(selectDeveloperId))
     expect(gen.next().value).toEqual(call(fetchInstallations, installationsParams.data))
 
     test('api call success', () => {

@@ -130,7 +130,7 @@ const mapStateToProps = (state: ReduxState, ownState) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchDeveloperApps: (page: number) => dispatch(developerRequestData(page)),
+  fetchDeveloperApps: (page: number) => dispatch(developerRequestData({ page })),
   removeAuthenticationCode: () => dispatch(removeAuthenticationCode())
 })
 

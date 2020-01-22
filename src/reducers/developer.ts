@@ -4,6 +4,11 @@ import { developerLoading, developerReceiveData, developerClearData, developerSe
 import { PagedResultAppSummaryModel_, ScopeModel } from '@reapit/foundations-ts-definitions'
 import { developerAppShowModal } from '@/actions/developer-app-modal'
 
+export interface DeveloperRequestParams {
+  page: number
+  appsPerPage?: number
+}
+
 export interface DeveloperItem {
   data: PagedResultAppSummaryModel_
   scopes: ScopeModel[]

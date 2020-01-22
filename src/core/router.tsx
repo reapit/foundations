@@ -25,7 +25,7 @@ const WebComponentsPage = React.lazy(() => import('../components/pages/web-compo
 const SettingsPage = React.lazy(() => import('../components/pages/settings'))
 const DeveloperWelcomePage = React.lazy(() => import('../components/pages/developer-welcome'))
 const HelpPage = React.lazy(() => import('../components/pages/help'))
-// const AnalyticsPage = React.lazy(() => import('../components/pages/analytics'))
+const AnalyticsPage = React.lazy(() => import('../components/pages/analytics'))
 const ResetPassword = React.lazy(() => import('../components/pages/reset-password'))
 const ForgotPassword = React.lazy(() => import('../components/pages/forgot-password/forgot-password'))
 const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
@@ -75,7 +75,14 @@ const Router = () => (
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} exact component={ApiDocsPage} />
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_SWAGGER} exact component={SwaggerPage} />
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ELEMENTS} exact component={ElementsPage} />
-            {/* <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ANALYTICS} exact component={AnalyticsPage} /> */}
+            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ANALYTICS} fetcher exact component={AnalyticsPage} />
+            <PrivateRoute
+              allow="DEVELOPER"
+              path={Routes.DEVELOPER_ANALYTICS_PAGINATE}
+              fetcher
+              exact
+              component={AnalyticsPage}
+            />
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_DESKTOP_DOCS} exact component={DesktopDocsPage} />
             <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_PACKAGE_DOCS} exact component={PackageDocsPage} />
             <PrivateRoute

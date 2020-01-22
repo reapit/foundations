@@ -13,6 +13,8 @@ import { getParamsFromPath } from '@/utils/client-url-params'
 import { adminDevManagementRequestData } from '@/actions/admin-dev-management'
 import { submitAppRequestData } from '@/actions/submit-app'
 import { adminAppsRequestData } from '@/actions/admin-apps'
+import { appInstallationsRequestData } from '@/actions/app-installations'
+import { appDetailRequestData } from '@/actions/app-detail'
 
 jest.mock('@reapit/elements')
 jest.mock('../../utils/session')
@@ -53,12 +55,12 @@ describe('routeDispatcher', () => {
 
   it('should dispatch to developerRequestData for the developer route', async () => {
     await routeDispatcher(Routes.DEVELOPER_MY_APPS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData(1))
+    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ page: 1 }))
   })
 
   it('should dispatch to developerRequestData for the developer paginate route', async () => {
     await routeDispatcher(Routes.DEVELOPER_MY_APPS_PAGINATE as RouteValue, { page: '2' })
-    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData(2))
+    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ page: 2 }))
   })
 
   it('should dispatch to adminApprovalsRequestData for the admin approvals data route', async () => {
@@ -74,5 +76,15 @@ describe('routeDispatcher', () => {
   it('should dispatch to requestDeveloperData for the admin approvals paginate route', async () => {
     await routeDispatcher(Routes.SETTINGS as RouteValue, { page: '2' })
     expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
+  })
+
+  it('should dispatch to appInstallationsRequestData for the analytics route', async () => {
+    await routeDispatcher(Routes.DEVELOPER_ANALYTICS as RouteValue)
+    expect(store.dispatch).toHaveBeenCalledWith(appInstallationsRequestData({}))
+  })
+
+  it('should dispatch to appInstallationsRequestData for the analytics paginate route', async () => {
+    await routeDispatcher(Routes.DEVELOPER_ANALYTICS as RouteValue)
+    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ page: 1 }))
   })
 })

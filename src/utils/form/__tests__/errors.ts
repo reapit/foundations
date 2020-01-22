@@ -18,4 +18,12 @@ describe('getApiErrorsFromResponse', () => {
       expect(getApiErrorsFromResponse(input)).toEqual(output)
     })
   })
+
+  it('should return null', () => {
+    expect(getApiErrorsFromResponse(null)).toEqual(null)
+  })
+
+  it('should return null', () => {
+    expect(getApiErrorsFromResponse(undefined)).toEqual(null)
+  })
 })

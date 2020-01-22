@@ -15,6 +15,7 @@ import {
 } from '@/actions/app-installations'
 import { setAppDetailStale } from '@/actions/app-detail'
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
+import { selectDeveloperId } from '@/selector/developer'
 
 export const fetchInstallations = async (data: InstallationParams) => {
   const response = await fetcher({
@@ -52,7 +53,8 @@ export const fetchUninstallApp = async ({ data, email }) => {
 
 export const installationsSaga = function*({ data }) {
   try {
-    const response = yield call(fetchInstallations, data)
+    const developerId = yield select(selectDeveloperId)
+    const response = yield call(fetchInstallations, { ...data, developerId })
     yield put(appInstallationsReceiveData(response))
   } catch (err) {
     yield put(appInstallationsRequestDataFailure())

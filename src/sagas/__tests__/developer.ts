@@ -26,7 +26,7 @@ import { CreateDeveloperModel } from '@reapit/foundations-ts-definitions'
 
 jest.mock('@reapit/elements')
 
-const params = { data: 1 }
+const params = { data: { page: 1 } }
 
 describe('developer fetch data', () => {
   const gen = cloneableGenerator(developerDataFetch as any)(params)
@@ -37,7 +37,7 @@ describe('developer fetch data', () => {
   expect(gen.next(developerId).value).toEqual(
     all([
       call(fetcher, {
-        url: `${URLS.apps}?developerId=${developerId}&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
+        url: `${URLS.apps}?developerId=${developerId}&PageNumber=${params.data.page}&PageSize=${APPS_PER_PAGE}`,
         method: 'GET',
         api: process.env.MARKETPLACE_API_BASE_URL as string,
         headers: MARKETPLACE_HEADERS

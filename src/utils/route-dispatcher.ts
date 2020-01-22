@@ -1,7 +1,6 @@
-import qs from 'query-string'
 import { AdminDevManagementRequestDataValues } from './../actions/admin-dev-management'
 import { appDetailRequestData } from './../actions/app-detail'
-import { RouteValue, StringMap } from '../types/core'
+import { RouteValue, StringMap, ReduxState } from '../types/core'
 import Routes from '../constants/routes'
 import store from '../core/store'
 import { clientRequestData } from '../actions/client'
@@ -16,6 +15,8 @@ import { requestDeveloperData } from '@/actions/settings'
 import { getParamsFromPath } from '@/utils/client-url-params'
 import { checkFirstTimeLogin } from '@/actions/auth'
 import { adminAppsRequestData } from '@/actions/admin-apps'
+import { appInstallationsRequestData } from '@/actions/app-installations'
+import { selectClientId } from '@/selector/client'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   await getAccessToken()
@@ -37,7 +38,18 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(myAppsRequestData(params && params.page ? Number(params.page) : 1))
       break
     case Routes.DEVELOPER_MY_APPS:
-      store.dispatch(developerRequestData(1))
+      store.dispatch(developerRequestData({ page: 1 }))
+      break
+    case Routes.DEVELOPER_ANALYTICS_PAGINATE:
+    case Routes.DEVELOPER_ANALYTICS:
+      const queryParams = new URLSearchParams(search)
+      const appId = queryParams.get('appId')
+      store.dispatch(appInstallationsRequestData({}))
+      store.dispatch(developerRequestData({ page: 1, appsPerPage: 9999 }))
+      if (appId) {
+        const clientId = selectClientId(store.state)
+        store.dispatch(appDetailRequestData({ id: appId, clientId }))
+      }
       break
     case Routes.DEVELOPER_MY_APPS_EDIT:
       const id = params && params.appid ? params.appid : ''
@@ -45,7 +57,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(appDetailRequestData({ id }))
       break
     case Routes.DEVELOPER_MY_APPS_PAGINATE:
-      store.dispatch(developerRequestData(params && params.page ? Number(params.page) : 1))
+      store.dispatch(developerRequestData({ page: params && params.page ? Number(params.page) : 1 }))
       break
     case Routes.ADMIN_APPROVALS:
       store.dispatch(adminApprovalsRequestData(1))
