@@ -5,10 +5,14 @@
     "moduleResolution": "node",
     "allowJs": true,
     "esModuleInterop": true,
-    "outDir": "public",
+    "outDir": "dist",
     "strict": true,
     "lib": ["dom", "es2015", "es2017", "es2018", "es2019", "es2020", "es5", "es6", "es7", "esnext"],
-    "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types"]
+    "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "public", "dist"]

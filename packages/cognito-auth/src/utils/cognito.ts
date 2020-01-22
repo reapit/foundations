@@ -16,7 +16,7 @@ export const getLoginSession = (session: CognitoUserSession): Partial<LoginSessi
   accessTokenExpiry: session.getAccessToken().getExpiration(),
   idToken: session.getIdToken().getJwtToken(),
   idTokenExpiry: session.getIdToken().getExpiration(),
-  refreshToken: session.getRefreshToken().getToken()
+  refreshToken: session.getRefreshToken().getToken(),
 })
 
 /**
@@ -27,12 +27,12 @@ export const getLoginSession = (session: CognitoUserSession): Partial<LoginSessi
 export const getNewUser = (userName: string) => {
   const poolData = {
     UserPoolId: process.env.COGNITO_USERPOOL_ID as string,
-    ClientId: process.env.COGNITO_CLIENT_ID as string
+    ClientId: process.env.COGNITO_CLIENT_ID as string,
   }
   const userPool = new CognitoUserPool(poolData)
   const userData = {
     Username: userName,
-    Pool: userPool
+    Pool: userPool,
   }
   return new CognitoUser(userData)
 }
@@ -48,14 +48,14 @@ export const setSessionCookie = (session: LoginSession, href = window.location.h
         refreshToken,
         loginType,
         userName,
-        mode
+        mode,
       }),
       {
         path: '/',
         domain: whitelistedHost,
         expires: COOKIE_EXPIRY,
-        samesite: 'lax'
-      }
+        samesite: 'lax',
+      },
     )
   }
 }
@@ -82,7 +82,7 @@ export const getTokenFromQueryString = (queryString: string, loginType: LoginTyp
       refreshToken,
       userName,
       loginType,
-      mode: 'DESKTOP'
+      mode: 'DESKTOP',
     }
   }
 
@@ -101,7 +101,7 @@ export const deserializeIdToken = (loginSession: Partial<LoginSession> | undefin
     developerId: decoded['custom:reapit:developerId'] || null,
     clientId: decoded['custom:reapit:clientCode'] || null,
     adminId: decoded['custom:reapit:marketAdmin'] || null,
-    userCode: decoded['custom:reapit:userCode'] || null
+    userCode: decoded['custom:reapit:userCode'] || null,
   }
 }
 

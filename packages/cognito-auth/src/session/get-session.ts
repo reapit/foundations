@@ -4,7 +4,7 @@ import { setRefreshSession } from './refresh-user-session'
 
 export const getSession = async (
   loginSession: LoginSession | null,
-  refreshSession: RefreshParams | null
+  refreshSession: RefreshParams | null,
 ): Promise<LoginSession | null> => {
   const sessionExpired = loginSession && tokenExpired(loginSession.accessTokenExpiry)
 

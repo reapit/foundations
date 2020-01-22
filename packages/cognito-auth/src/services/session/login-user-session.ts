@@ -7,7 +7,7 @@ export const loginUserSessionService = async ({ userName, password }: LoginParam
   return new Promise((resolve, reject) => {
     const authenticationData = {
       Username: userName,
-      Password: password
+      Password: password,
     }
     const authenticationDetails = new AuthenticationDetails(authenticationData)
     const cognitoUser = getNewUser(userName)
@@ -17,7 +17,7 @@ export const loginUserSessionService = async ({ userName, password }: LoginParam
       },
       onFailure: err => {
         reject(`${errorStrings.LOGIN_SESSION_SERVICE_ERROR} ${JSON.stringify(err)}`)
-      }
+      },
     })
   })
 }

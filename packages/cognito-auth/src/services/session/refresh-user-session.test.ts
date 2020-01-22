@@ -8,7 +8,10 @@ jest.mock('amazon-cognito-identity-js', () => require('../../__mocks__/cognito-s
 describe('cognitoRefreshSession', () => {
   it('should return a CognitoUserSession', async () => {
     expect(
-      await refreshUserSessionService({ userName: 'bob@acme.com', refreshToken: 'MOCK_REFRESH_TOKEN' } as RefreshParams)
+      await refreshUserSessionService({
+        userName: 'bob@acme.com',
+        refreshToken: 'MOCK_REFRESH_TOKEN',
+      } as RefreshParams),
     ).toEqual(getLoginSession(mockCognitoUserSession))
   })
 })

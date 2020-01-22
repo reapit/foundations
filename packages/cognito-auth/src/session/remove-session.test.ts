@@ -11,7 +11,7 @@ describe('removeSession', () => {
 
     expect(hardtack.remove).toHaveBeenCalledWith(COOKIE_SESSION_KEY, {
       path: '/',
-      domain: '.reapit.com'
+      domain: '.reapit.com',
     })
   })
 

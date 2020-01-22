@@ -6,12 +6,12 @@ import errorStrings from '../../constants/error-strings'
 export const changePasswordService = async ({
   password,
   userName,
-  newPassword
+  newPassword,
 }: ChangePasswordParams): Promise<string> => {
   return new Promise((resolve, reject) => {
     const authenticationData = {
       Username: userName,
-      Password: password
+      Password: password,
     }
     const authenticationDetails = new AuthenticationDetails(authenticationData)
     const cognitoUser = getNewUser(userName)
@@ -26,7 +26,7 @@ export const changePasswordService = async ({
       },
       onFailure: err => {
         reject(`${errorStrings.CHANGE_PASSWORD_SERVICE_ERROR} ${JSON.stringify(err)}`)
-      }
+      },
     })
   })
 }

@@ -10,14 +10,13 @@
     "dist"
   ],
   "scripts": {
-    "test": "jest --coverage --silent",
-    "test-dev": "jest --watch --verbose",
-    "lint": "tslint --fix --project tsconfig.json --format stylish",
+    "test": "cross-env TZ=UTC jest --coverage --silent",
+    "test:ci": "cross-env TZ=UTC jest --coverage --silent --detectOpenHandles --forceExit",
     "prepublish": "yarn test && yarn build",
     "prebuild": "rimraf dist && rimraf public",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
-    "release:master": "node scripts/releaseMaster.js",
-    "checkVersion": "node ./scripts/checkVersion.js"
+    "release:master": "node ./src/scripts/releaseMaster.js",
+    "checkVersion": "node ./src/scripts/checkVersion.js"
   },
   "repository": {
     "type": "git",
@@ -42,46 +41,8 @@
     "@types/jest": "~24.0.15",
     "@types/yaml": "^1.2.0",
     "compare-versions": "^3.5.1",
-    "husky": "~3.0.0",
-    "jest": "~24.8.0",
     "lint-staged": "~9.2.0",
     "prettier": "~1.19.1",
-    "rimraf": "^3.0.0",
-    "ts-jest": "~24.0.2",
-    "ts-node": "~8.3.0",
-    "tsdx": "^0.11.0",
-    "tslint": "~5.20.1",
-    "tslint-config-prettier": "~1.18.0",
-    "tslint-config-standard": "~9.0.0",
-    "tslint-plugin-prettier": "~2.0.1",
-    "typescript": "~3.7.2"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "collectCoverageFrom": [
-      "<rootDir>/src/**/*.ts"
-    ],
-    "coverageDirectory": "./coverage",
-    "coveragePathIgnorePatterns": [
-      "<rootDir>[/\\\\](node_modules|src/core)[/\\\\]",
-      "<rootDir>/src/app.ts",
-      "<rootDir>/src/app.dev.ts",
-      "<rootDir>/src/index.ts"
-    ],
-    "modulePathIgnorePatterns": [
-      "<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
-    }
-  },
-  "lint-staged": {
-    "*.{ts}": [
-      "yarn lint",
-      "git add"
-    ]
+    "tsdx": "^0.11.0"
   }
 }

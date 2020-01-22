@@ -14,7 +14,7 @@ describe('getSession', () => {
     const accessToken = 'MOCK_ACCESS_TOKEN'
     const loginSession = {
       accessToken,
-      accessTokenExpiry: expiresInTwoMins
+      accessTokenExpiry: expiresInTwoMins,
     } as LoginSession
 
     expect(await getSession(loginSession, null)).toEqual(loginSession)
@@ -24,7 +24,7 @@ describe('getSession', () => {
     const refreshToken = 'MOCK_REFRESH_TOKEN'
 
     const refreshSession = {
-      refreshToken
+      refreshToken,
     } as RefreshParams
 
     expect(await getSession(null, refreshSession)).toEqual(mockLoginSession)

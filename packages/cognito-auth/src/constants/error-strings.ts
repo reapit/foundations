@@ -17,7 +17,7 @@ enum errorStrings {
   CONFIRM_PASSWORD_SERVICE_ERROR = 'Bad request, confirm password service failed',
   CONFIRM_REGISTRATION_SERVICE_ERROR = 'Bad request, confirm registration service failed',
   CONFIRM_REGISTRATION_FAILED = 'Bad request, failed to confirm registration',
-  USERNAME_CODE_REQUIRED = 'Bad request, verification code and username are required'
+  USERNAME_CODE_REQUIRED = 'Bad request, verification code and username are required',
 }
 
 export default errorStrings
