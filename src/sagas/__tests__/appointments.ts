@@ -1,5 +1,9 @@
-import appointmentsSagas, { appointmentsDataFetch, appointmentsDataListen, getStartAndEndDate } from '@/sagas/appointments'
-import { AppointmentModel, ListItemModel } from '@reapit/foundations-ts-definitions'
+import appointmentsSagas, {
+  appointmentsDataFetch,
+  appointmentsDataListen,
+  getStartAndEndDate
+} from '@/sagas/appointments'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
@@ -11,7 +15,7 @@ import {
   appointmentsReceiveWeekData
 } from '@/actions/appointments'
 import { selectOnlineStatus } from '@/selectors/online'
-import { Action } from '@/types/core'
+import { Action, ExtendedAppointmentModel } from '@/types/core'
 import { fetcher } from '@reapit/elements'
 import { URLS } from '@/constants/api'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -28,6 +32,7 @@ import {
 } from '@/selectors/appointments'
 import { selectUserCode } from '@/selectors/auth'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
+import { fetchAppointmentMetadata } from '../api'
 
 jest.mock('../../core/store')
 jest.mock('@reapit/elements')
@@ -121,13 +126,22 @@ describe('appointments should fetch data', () => {
       headers: mockHeaders
     })
   )
+
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
-      call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as AppointmentModel[])
+      call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as ExtendedAppointmentModel[])
     )
 
-    expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
+    expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
+      all(
+        (appointmentsDataStub.appointments?._embedded || [])?.map(appointment =>
+          call(fetchAppointmentMetadata, appointment)
+        )
+      )
+    )
+
+    expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
         api: process.env.PLATFORM_API_BASE_URL as string,
@@ -182,10 +196,18 @@ describe('appointments should fetch data tomowrrow', () => {
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
-      call(sortAppoinmentsByStartTime, appointmentsDataStub.appointments?._embedded as AppointmentModel[])
+      call(sortAppoinmentsByStartTime, appointmentsDataStub.appointments?._embedded as ExtendedAppointmentModel[])
     )
 
-    expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
+    expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
+      all(
+        (appointmentsDataStub.appointments?._embedded || []).map(appointment =>
+          call(fetchAppointmentMetadata, appointment)
+        )
+      )
+    )
+
+    expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
         api: process.env.PLATFORM_API_BASE_URL as string,
@@ -240,10 +262,18 @@ describe('appointments should fetch data week view', () => {
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
-      call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as AppointmentModel[])
+      call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as ExtendedAppointmentModel[])
     )
 
-    expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
+    expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
+      all(
+        (appointmentsDataStub.appointments?._embedded as any[]).map(appointment =>
+          call(fetchAppointmentMetadata, appointment)
+        )
+      )
+    )
+
+    expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
       call(fetcher, {
         url: URLS.appointmentTypes,
         api: process.env.PLATFORM_API_BASE_URL as string,

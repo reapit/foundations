@@ -25,6 +25,7 @@ import { AppointmentRequestParams } from '@/actions/appointments'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
 import utc from 'dayjs/plugin/utc'
+import { fetchAppointmentMetadata } from './api'
 
 dayjs.extend(utc)
 
@@ -103,6 +104,9 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
     if (appointments && appointments._embedded) {
       const sortedAppoinments = yield call(sortAppoinmentsByStartTime, appointments._embedded)
       appointments.data = sortedAppoinments
+      appointments._embedded = yield all(
+        appointments._embedded.map(appointment => call(fetchAppointmentMetadata, appointment))
+      )
     }
 
     const appointmentTypes = yield call(fetcher, {

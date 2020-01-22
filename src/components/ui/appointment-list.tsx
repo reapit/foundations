@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { Tile, getTime, closestTo, IconList } from '@reapit/elements'
-import { AppointmentModel, ListItemModel } from '@reapit/foundations-ts-definitions'
+import { ListItemModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 import ViewDirectionButton from '@/components/container/view-direction-button'
 import ViewDetailButton from '../container/view-detail-button'
 import ETAButton from './eta-button'
@@ -10,12 +11,12 @@ import appointmentListStyles from '@/styles/ui/appointment-list.scss?mod'
 import { FaClock, FaStreetView, FaAddressCard } from 'react-icons/fa'
 
 export interface AppointmentListProps {
-  appointments: AppointmentModel[]
+  appointments: ExtendedAppointmentModel[]
   appointmentTypes: ListItemModel[]
   nextAppointment?: NextAppointment | null
-  selectedAppointment: AppointmentModel | null
+  selectedAppointment: ExtendedAppointmentModel | null | undefined
   isOnline: boolean
-  setSelectedAppointment: (appointment: AppointmentModel | null, type?: string) => void
+  setSelectedAppointment: (appointment: ExtendedAppointmentModel | null, type?: string) => void
 }
 
 export const handleUseEffect = ({ refAppointment }) => () => {

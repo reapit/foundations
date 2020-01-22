@@ -1,6 +1,6 @@
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 
-export const appoinmentsStub: AppointmentModel[] = [
+export const appoinmentsStub: ExtendedAppointmentModel[] = [
   {
     id: '2019-05-09T09:18:06',
     created: '2019-05-08T17:07:39',
@@ -11,20 +11,7 @@ export const appoinmentsStub: AppointmentModel[] = [
     recurring: false,
     cancelled: true,
     property: {
-      address: {
-        buildingName: '',
-        buildingNumber: '56',
-        line1: 'High Street',
-        line2: 'The Stables',
-        line3: 'Old Haversham',
-        line4: 'Milton Keynes',
-        postcode: 'MK19 7DZ',
-        country: 'GB',
-        geolocation: {
-          latitude: 52.079532,
-          longitude: -0.790871
-        }
-      }
+      address: {}
     }
   },
   {

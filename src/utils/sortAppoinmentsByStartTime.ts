@@ -1,7 +1,7 @@
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 import dayjs from 'dayjs'
 
-export const sortAppoinmentsByStartTime = (appointments: AppointmentModel[]) => {
+export const sortAppoinmentsByStartTime = (appointments: ExtendedAppointmentModel[]) => {
   const sortedAppoinments = appointments.sort((a, b) => {
     const aStart = dayjs(a.start)
     const bStart = dayjs(b.start)

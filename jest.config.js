@@ -9,6 +9,7 @@ module.exports = {
   coverageDirectory: './src/tests/coverage',
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]',
+    '<rootDir>/src/sagas/api.ts',
     'service-worker.ts'
   ],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],

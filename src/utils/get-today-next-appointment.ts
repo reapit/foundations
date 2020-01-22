@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 
-export function getTodayNextAppointment(appointments: AppointmentModel[]) {
+export function getTodayNextAppointment(appointments: ExtendedAppointmentModel[]) {
   return appointments
     .filter(
       appointment =>

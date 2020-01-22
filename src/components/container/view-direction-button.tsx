@@ -4,7 +4,7 @@ import { Dispatch } from 'redux'
 import { setDestination } from '@/actions/direction'
 import { setSelectedAppointment } from '@/actions/appointments'
 import { Button } from '@reapit/elements'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 import { homeTabChange } from '@/actions/home'
 
 export type ViewDirectionButtonProps = {
@@ -24,7 +24,7 @@ export type ViewDirectionButtonMappedActions = {
 }
 
 export type ViewDirectionButtonOwnProps = {
-  appointment: AppointmentModel
+  appointment: ExtendedAppointmentModel
 }
 
 export const mapDispatchToProps = (

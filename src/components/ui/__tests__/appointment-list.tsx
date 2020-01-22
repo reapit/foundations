@@ -3,7 +3,7 @@ import { AppointmentList, handleUseEffect, isBlank } from '../appointment-list'
 import toJson from 'enzyme-to-json'
 import { shallow } from 'enzyme'
 import { appointmentsDataStub } from '@/sagas/__stubs__/appointments'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 import { AppointmentsData } from '@/reducers/appointments'
 import { FaAddressCard, FaStreetView, FaClock } from 'react-icons/fa'
 import { IconList } from '@reapit/elements'
@@ -32,7 +32,7 @@ describe('AppointmentList', () => {
           <AppointmentList
             appointments={appointmentsDataStub?.appointments?._embedded || []}
             appointmentTypes={appointmentsDataStub?.appointmentTypes || []}
-            selectedAppointment={appointmentsDataStub?.appointments?._embedded?.[0] as AppointmentModel}
+            selectedAppointment={appointmentsDataStub?.appointments?._embedded?.[0] as ExtendedAppointmentModel}
             setSelectedAppointment={jest.fn()}
             isOnline={false}
           />
@@ -50,14 +50,16 @@ describe('AppointmentList', () => {
   it('should render all 3 icons', () => {
     const smallerAppointmentDataStub: AppointmentsData = {
       ...appointmentsDataStub,
-      appointments: { _embedded: appointmentsDataStub?.appointments?._embedded?.slice(0, 1) }
+      appointments: {
+        _embedded: appointmentsDataStub?.appointments?._embedded?.slice(0, 1)
+      }
     }
 
     const wrapper = shallow(
       <AppointmentList
         appointments={smallerAppointmentDataStub.appointments?._embedded || []}
         appointmentTypes={appointmentsDataStub.appointmentTypes || []}
-        selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as AppointmentModel}
+        selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as ExtendedAppointmentModel}
         setSelectedAppointment={jest.fn()}
         isOnline={false}
       ></AppointmentList>
@@ -92,7 +94,7 @@ describe('AppointmentList', () => {
       <AppointmentList
         appointments={defectData.appointments?._embedded || []}
         appointmentTypes={appointmentsDataStub.appointmentTypes || []}
-        selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as AppointmentModel}
+        selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as ExtendedAppointmentModel}
         setSelectedAppointment={jest.fn()}
         isOnline={false}
       ></AppointmentList>
@@ -134,7 +136,7 @@ describe('AppointmentList', () => {
       <AppointmentList
         appointments={defectData.appointments?._embedded || []}
         appointmentTypes={appointmentsDataStub.appointmentTypes || []}
-        selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as AppointmentModel}
+        selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as ExtendedAppointmentModel}
         setSelectedAppointment={jest.fn()}
         isOnline={false}
       ></AppointmentList>
@@ -149,7 +151,7 @@ describe('AppointmentList', () => {
 
   it('should hide address and type icon if both not found', () => {
     const notExistTypeId = 'clearlyNotExistTypeId'
-    const anAppointmentStub = appointmentsDataStub.appointments?._embedded?.[0]
+    const anAppointmentStub = appointmentsDataStub.appointments?._embedded?.[0] as ExtendedAppointmentModel
 
     const defectData: AppointmentsData = {
       ...appointmentsDataStub,
@@ -162,7 +164,7 @@ describe('AppointmentList', () => {
             property: {
               ...anAppointmentStub?.property,
               address: {
-                ...anAppointmentStub?.property?.address,
+                // ...anAppointmentStub?.property?.address,
                 line2: '',
                 line3: '',
                 line4: '',
@@ -178,7 +180,7 @@ describe('AppointmentList', () => {
       <AppointmentList
         appointments={defectData.appointments?._embedded || []}
         appointmentTypes={appointmentsDataStub.appointmentTypes || []}
-        selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as AppointmentModel}
+        selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as ExtendedAppointmentModel}
         setSelectedAppointment={jest.fn()}
         isOnline={false}
       ></AppointmentList>

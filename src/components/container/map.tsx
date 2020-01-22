@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { CoordinateProps, Coords, Map, combineAddress } from '@reapit/elements'
 import { connect } from 'react-redux'
-import { ReduxState } from '@/types/core'
-import { AppointmentModel, AppointmentPropertyAddressModel } from '@reapit/foundations-ts-definitions'
+import { ReduxState, ExtendedAppointmentModel } from '@/types/core'
 import invalidValues from '@/constants/invalid-values'
 import styles from '@/styles/pages/map.scss?mod'
 import MapPanel from '../ui/map-panel'
@@ -14,7 +13,7 @@ import { Dispatch } from 'redux'
 const { UNDEFINED_LATLNG_NUMBER, UNDEFINED_NULL_STRING } = invalidValues
 
 export interface MapContainerMappedState {
-  appointments: AppointmentModel[] | undefined
+  appointments: ExtendedAppointmentModel[] | undefined
   destinationLatLng: {
     lat: number | undefined
     lng: number | undefined
@@ -28,7 +27,8 @@ export interface Coordinate {
     lat: number
     lng: number
   }
-  address: AppointmentPropertyAddressModel
+  // type AppointmentPropertyAddressModel have been deprecated: https://dev.platform.reapit.net/appointments/swagger/index.html
+  address: any
   id: string
 }
 
@@ -68,7 +68,7 @@ export const MapContainer = ({
 
   const coordinates: CoordinateProps<any> = filterInvalidMarker(
     appointments.map(
-      (appointment: AppointmentModel): Coordinate => {
+      (appointment: ExtendedAppointmentModel): Coordinate => {
         const lat = appointment?.property?.address?.geolocation?.latitude || UNDEFINED_LATLNG_NUMBER
         const lng = appointment?.property?.address?.geolocation?.longitude || UNDEFINED_LATLNG_NUMBER
         const id = appointment?.id || UNDEFINED_NULL_STRING

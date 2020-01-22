@@ -1,6 +1,6 @@
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 
 export interface AppointmentDetailRequestParams {
   id: string
@@ -11,7 +11,7 @@ export const appointmentDetailRequestData = actionCreator<AppointmentDetailReque
 )
 export const appointmentDetailRequestDataFailure = actionCreator<void>(ActionTypes.APPOINTMENT_DETAIL_REQUEST_FAILURE)
 export const appointmentDetailLoading = actionCreator<boolean>(ActionTypes.APPOINTMENT_DETAIL_LOADING)
-export const appointmentDetailReceiveData = actionCreator<AppointmentModel | undefined>(
+export const appointmentDetailReceiveData = actionCreator<ExtendedAppointmentModel | undefined>(
   ActionTypes.APPOINTMENT_DETAIL_RECEIVE_DATA
 )
 export const appointmentDetailShowModal = actionCreator<void>(ActionTypes.APPOINTMENT_DETAIL_SHOW_MODAL)

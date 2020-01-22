@@ -1,10 +1,10 @@
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
-import { AppointmentModel } from '@reapit/foundations-ts-definitions'
+import { ExtendedAppointmentModel } from '@/types/core'
 import { setDestination } from '@/actions/direction'
 
 export type DirectionState = {
-  destination: AppointmentModel | null
+  destination: ExtendedAppointmentModel | null
 }
 
 export const defaultState: DirectionState = {
@@ -13,7 +13,7 @@ export const defaultState: DirectionState = {
 
 export const directionReducer = (
   state: DirectionState = defaultState,
-  action: Action<AppointmentModel | null>
+  action: Action<ExtendedAppointmentModel | null>
 ): DirectionState => {
   if (isType(action, setDestination)) {
     return {

@@ -54,32 +54,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-09T09:18:06",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -113,32 +93,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2016-12-14T17:25:22",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -172,32 +132,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-12T08:19:24",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -231,32 +171,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-11T14:45:40",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -290,32 +210,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-11T10:05:34",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -333,32 +233,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-12T16:39:53",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -376,32 +256,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-08T19:11:22",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -435,32 +295,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-12T12:32:01",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -478,32 +318,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-12T13:23:36",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -521,32 +341,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2016-12-18T08:24:24",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -580,32 +380,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-12T16:18:48",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -623,32 +403,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-12T17:59:02",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
-                "name": "Liam Jowett",
+                "name": "Liam Jowet",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -682,32 +442,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-08T13:33:25",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -741,32 +481,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-12T08:33:02",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -800,32 +520,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-11T14:45:35",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -859,32 +559,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2016-12-14T16:30:47",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -918,32 +598,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2016-12-13T17:12:40",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -977,32 +637,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-11T16:40:10",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -1036,32 +676,12 @@ exports[`Home should match a snapshot 1`] = `
             "modified": "2019-05-09T14:38:50",
             "negotiators": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "hphillips@reapit.com",
-                    "label": "E-Mail",
-                  },
-                ],
                 "id": "LJW",
                 "name": "Liam Jowett",
               },
             ],
             "offices": Array [
               Object {
-                "communicationDetails": Array [
-                  Object {
-                    "detail": "test",
-                    "label": "Work",
-                  },
-                  Object {
-                    "detail": "teste",
-                    "label": "E-Mail",
-                  },
-                  Object {
-                    "detail": "testb",
-                    "label": "Business",
-                  },
-                ],
                 "id": "RPT",
                 "name": "Reapit",
               },
@@ -1083,32 +703,12 @@ exports[`Home should match a snapshot 1`] = `
           "modified": "2019-05-09T09:18:06",
           "negotiators": Array [
             Object {
-              "communicationDetails": Array [
-                Object {
-                  "detail": "hphillips@reapit.com",
-                  "label": "E-Mail",
-                },
-              ],
               "id": "LJW",
               "name": "Liam Jowett",
             },
           ],
           "offices": Array [
             Object {
-              "communicationDetails": Array [
-                Object {
-                  "detail": "test",
-                  "label": "Work",
-                },
-                Object {
-                  "detail": "teste",
-                  "label": "E-Mail",
-                },
-                Object {
-                  "detail": "testb",
-                  "label": "Business",
-                },
-              ],
               "id": "RPT",
               "name": "Reapit",
             },
