@@ -1,0 +1,15 @@
+node_modules
+public/dist
+src/tests/coverage
+src/constants/.env
+.vscode
+.DS_Store
+yarn-error.log
+
+# test reports
+.jest-junit-reports
+browserstack-reports
+
+src/constants/.env
+src/tests/webdriver/screenshots
+reapit-config.json 
