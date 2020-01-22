@@ -7,3 +7,6 @@ apollo-server:
 
 lifetime-legal:
   - packages/lifetime-legal/**
+
+config-manager:
+  - packages/config-manager/**
