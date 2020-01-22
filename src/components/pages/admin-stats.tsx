@@ -1,13 +1,53 @@
-import React from 'react'
-import { FlexContainerResponsive, FlexContainerBasic, Content, H3, ButtonGroup, Button, H4, H5 } from '@reapit/elements'
+import React, { useEffect, useMemo } from 'react'
+import { connect } from 'react-redux'
+import { ReduxState } from '@/types/core'
+import { Dispatch } from 'redux'
+import {
+  FlexContainerResponsive,
+  FlexContainerBasic,
+  Content,
+  H3,
+  ButtonGroup,
+  Button,
+  H4,
+  H5,
+  Loader
+} from '@reapit/elements'
 import styles from '@/styles/pages/admin-stats.scss?mod'
+import { AdminStatsRequestParams, adminStatsRequestData } from '@/actions/admin-stats'
+import { Line } from 'react-chartjs-2'
+import { getChartData, getChartConfig } from '@/utils/admin-stats'
 
 export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS'
 export type Range = 'WEEK' | 'MONTH' | 'ALL'
 
-export const AdminStats: React.FC = () => {
+export type AdminStatsProps = DispatchProps & StateProps
+
+export const AdminStats: React.FC<AdminStatsProps> = (props: AdminStatsProps) => {
+  const { loading, data, totalCount, loadStats } = props
   const [area, setArea] = React.useState<Area>('APPS')
   const [range, setRange] = React.useState<Range>('WEEK')
+
+  useEffect(() => {
+    loadStats({ area, range })
+  }, [area, range, loadStats])
+
+  const chartConfig = useMemo(() => {
+    let chartData = { labels: [] as Array<string>, data: [] as Array<any> }
+    if (range !== 'ALL') {
+      chartData = getChartData(data, range)
+    }
+    return getChartConfig(chartData.labels, chartData.data, area)
+  }, [range, area, data, getChartConfig, getChartData])
+
+  const renderResult = () => {
+    if (loading) return <Loader />
+    if (range === 'ALL') {
+      return <H4>Total: {totalCount}</H4>
+    }
+    return <Line data={chartConfig} />
+  }
+
   return (
     <FlexContainerBasic flexColumn hasPadding>
       <Content>
@@ -71,11 +111,34 @@ export const AdminStats: React.FC = () => {
               All time
             </Button>
           </ButtonGroup>
-          <H4>Showing results for ‘insert area selection’ and ‘insert time range selection’</H4>
+          <H4>
+            Showing results for ‘{area}’ and ‘{range}’
+          </H4>
+          {renderResult()}
         </FlexContainerResponsive>
       </Content>
     </FlexContainerBasic>
   )
 }
 
-export default AdminStats
+export type StateProps = {
+  loading: boolean
+  data: Array<any>
+  totalCount: number
+}
+
+export const mapStateToProps = (state: ReduxState): StateProps => ({
+  loading: state.adminStats.loading,
+  data: state.adminStats.result.data || [],
+  totalCount: state.adminStats.result.totalCount || 0
+})
+
+export type DispatchProps = {
+  loadStats: (params: AdminStatsRequestParams) => void
+}
+
+export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  loadStats: (params: AdminStatsRequestParams) => dispatch(adminStatsRequestData(params))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminStats)
