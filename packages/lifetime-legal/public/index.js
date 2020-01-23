@@ -8,7 +8,8 @@ http
   .createServer((request, response) => {
     try {
       const requestUrl = url.parse(request.url)
-      const fsPath = `${__dirname}/dist${path.normalize(requestUrl.pathname)}` // need to use path.normalize so people can't access directories underneath baseDirectory
+      // need to use path.normalize so people can't access directories underneath baseDirectory
+      const fsPath = `${__dirname}/dist${path.normalize(requestUrl.pathname)}`
       const fileStream = /\.(js|css|woff|gif|jpg|jpeg|tiff|png)$/i.test(fsPath)
         ? fs.createReadStream(fsPath)
         : fs.createReadStream(`${__dirname}/dist/index.html`)
@@ -17,7 +18,7 @@ http
       fileStream.on('open', () => {
         response.writeHead(200)
       })
-      fileStream.on('error', e => {
+      fileStream.on('error', () => {
         response.writeHead(404) // assume the file doesn't exist
         response.end()
       })
