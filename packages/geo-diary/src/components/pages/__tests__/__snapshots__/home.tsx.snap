@@ -1,0 +1,812 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <div
+    className="undefined  "
+  >
+    <div
+      className="undefined "
+    >
+      <ButtonGroup>
+        <Button
+          className="is-selected is-info"
+          key="Today"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Today
+        </Button>
+        <Button
+          className=""
+          key="Tomorrow"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Tomorrow
+        </Button>
+        <Button
+          className=""
+          key="Week View"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Week View
+        </Button>
+      </ButtonGroup>
+      <Memo()
+        onChangeTravelMode={[Function]}
+        travelMode="DRIVING"
+      />
+    </div>
+    <Memo()
+      appointmentTypes={Array []}
+      appointments={
+        Array [
+          Object {
+            "cancelled": true,
+            "created": "2019-05-08T17:07:39",
+            "end": "2019-05-11T18:00:00",
+            "id": "NEP1600290",
+            "modified": "2019-05-09T09:18:06",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "",
+                "buildingNumber": "56",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 52.079532,
+                  "longitude": -0.790871,
+                },
+                "line1": "High Street",
+                "line2": "The Stables",
+                "line3": "Old Haversham",
+                "line4": "Milton Keynes",
+                "postcode": "MK19 7DZ",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-11T17:30:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T17:00:15",
+            "end": "2019-05-09T14:00:00",
+            "id": "BED1600537",
+            "modified": "2016-12-14T17:25:22",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "Cornerways",
+                "buildingNumber": "68",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 52.135071,
+                  "longitude": -0.45936,
+                },
+                "line1": "The Embankment",
+                "line2": "Bedford",
+                "line3": "Bedfordshire",
+                "line4": "",
+                "postcode": "MK40 3PD",
+              },
+            },
+            "recurring": false,
+            "start": "2019-10-10T22:45:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T16:56:37",
+            "end": "2019-05-09T14:45:00",
+            "id": "BUC1600211",
+            "modified": "2019-05-12T08:19:24",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "The Pines",
+                "buildingNumber": "34",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 51.924759,
+                  "longitude": -0.929362,
+                },
+                "line1": "Sandhill Road",
+                "line2": "East Claydon",
+                "line3": "Buckingham",
+                "line4": "Buckinghamshire",
+                "postcode": "MK18 2LZ",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-09T14:15:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T16:44:46",
+            "end": "2019-05-09T14:15:00",
+            "id": "BUC1600210",
+            "modified": "2019-05-11T14:45:40",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "Wayside",
+                "buildingNumber": "",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 51.989592,
+                  "longitude": -1.06774,
+                },
+                "line1": "Little Tingewick",
+                "line2": "Buckingham",
+                "line3": "Buckinghamshire",
+                "line4": "",
+                "postcode": "MK18 4AG",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-09T13:30:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T16:18:09",
+            "end": "2019-05-09T11:45:00",
+            "id": "STS1600403",
+            "modified": "2019-05-11T10:05:34",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "recurring": false,
+            "start": "2019-05-09T11:15:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T15:39:57",
+            "end": "2019-05-10T16:00:00",
+            "id": "STS1600401",
+            "modified": "2019-05-12T16:39:53",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "recurring": false,
+            "start": "2019-05-10T15:15:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": true,
+            "created": "2019-05-08T14:56:47",
+            "end": "2019-05-09T17:00:00",
+            "id": "NEP1600288",
+            "modified": "2019-05-08T19:11:22",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "",
+                "buildingNumber": "56",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 52.079532,
+                  "longitude": -0.790871,
+                },
+                "line1": "High Street",
+                "line2": "The Stables",
+                "line3": "Old Haversham",
+                "line4": "Milton Keynes",
+                "postcode": "MK19 7DZ",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-09T16:30:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T14:46:37",
+            "end": "2019-05-08T18:30:00",
+            "id": "STS1600396",
+            "modified": "2019-05-12T12:32:01",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "recurring": false,
+            "start": "2019-05-08T18:00:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": true,
+            "created": "2019-05-08T14:39:24",
+            "end": "2019-05-12T18:00:00",
+            "id": "NEP1600287",
+            "modified": "2019-05-12T13:23:36",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "recurring": false,
+            "start": "2019-05-12T17:30:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T14:31:27",
+            "end": "2019-05-09T16:15:00",
+            "id": "BED1600534",
+            "modified": "2016-12-18T08:24:24",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "The Cottage",
+                "buildingNumber": "",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 52.29491,
+                  "longitude": -0.512901,
+                },
+                "line1": "Shelton Road",
+                "line2": "Yielden",
+                "line3": "Bedfordshire",
+                "line4": "",
+                "postcode": "MK44 1AQ",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-09T15:15:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T14:31:25",
+            "end": "2019-05-10T14:30:00",
+            "id": "STS1600394",
+            "modified": "2019-05-12T16:18:48",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "recurring": false,
+            "start": "2019-05-10T14:00:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T14:05:42",
+            "end": "2019-05-11T16:30:00",
+            "id": "BED1600532",
+            "modified": "2019-05-12T17:59:02",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowet",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "",
+                "buildingNumber": "49",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 52.188155,
+                  "longitude": -0.604618,
+                },
+                "line1": "The Causeway",
+                "line2": "Carlton",
+                "line3": "Bedford",
+                "line4": "Bedfordshire",
+                "postcode": "MK43 7LU",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-11T15:30:00",
+            "typeId": "VL",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T13:33:25",
+            "end": "2019-05-09T17:00:00",
+            "id": "MKC1600312",
+            "modified": "2019-05-08T13:33:25",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "",
+                "buildingNumber": "39",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 52.044516,
+                  "longitude": -0.689953,
+                },
+                "line1": "Foxfield",
+                "line2": "Broughton Gate",
+                "line3": "Milton Keynes",
+                "line4": "Buckinghamshire",
+                "postcode": "MK10 7BP",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-09T16:30:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T13:18:59",
+            "end": "2019-05-11T17:00:00",
+            "id": "BED1600530",
+            "modified": "2019-05-12T08:33:02",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "The Firs",
+                "buildingNumber": "",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 52.105969,
+                  "longitude": -0.353784,
+                },
+                "line1": "Bedford Road",
+                "line2": "Northill",
+                "line3": "Bedfordshire",
+                "line4": "",
+                "postcode": "SG18 9AW",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-11T15:00:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T13:08:53",
+            "end": "2019-05-09T13:30:00",
+            "id": "BUC1600209",
+            "modified": "2019-05-11T14:45:35",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "Wayside",
+                "buildingNumber": "",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 51.989592,
+                  "longitude": -1.06774,
+                },
+                "line1": "Little Tingewick",
+                "line2": "Buckingham",
+                "line3": "Buckinghamshire",
+                "line4": "",
+                "postcode": "MK18 4AG",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-09T13:00:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T13:02:58",
+            "end": "2019-05-09T14:00:00",
+            "id": "BED1600525",
+            "modified": "2016-12-14T16:30:47",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "The Homestead",
+                "buildingNumber": "57",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 52.135071,
+                  "longitude": -0.45936,
+                },
+                "line1": "The Embankment",
+                "line2": "Bedford",
+                "line3": "Bedfordshire",
+                "line4": "",
+                "postcode": "MK40 3PD",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-09T13:30:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T12:40:52",
+            "end": "2019-05-09T12:00:00",
+            "id": "BED1600523",
+            "modified": "2016-12-13T17:12:40",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "",
+                "buildingNumber": "54",
+                "country": "GB",
+                "geolocation": Object {
+                  "latitude": 52.161384,
+                  "longitude": -0.461113,
+                },
+                "line1": "Tyne Crescent",
+                "line2": "Bedford",
+                "line3": "Bedfordshire",
+                "line4": "",
+                "postcode": "MK41 7UJ",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-09T11:00:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": false,
+            "created": "2019-05-08T12:36:02",
+            "end": "2019-05-11T11:30:00",
+            "id": "MKC1600311",
+            "modified": "2019-05-11T16:40:10",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "property": Object {
+              "address": Object {
+                "buildingName": "",
+                "buildingNumber": "8",
+                "country": "",
+                "geolocation": Object {
+                  "latitude": 52.04681,
+                  "longitude": -0.710721,
+                },
+                "line1": "Deacon Place",
+                "line2": "Middleton",
+                "line3": "Milton Keynes",
+                "line4": "",
+                "postcode": "MK10 9FS",
+              },
+            },
+            "recurring": false,
+            "start": "2019-05-11T11:15:00",
+            "typeId": "VW",
+          },
+          Object {
+            "cancelled": true,
+            "created": "2019-05-08T11:48:40",
+            "end": "2019-05-09T14:30:00",
+            "id": "STS1600389",
+            "modified": "2019-05-09T14:38:50",
+            "negotiators": Array [
+              Object {
+                "id": "LJW",
+                "name": "Liam Jowett",
+              },
+            ],
+            "offices": Array [
+              Object {
+                "id": "RPT",
+                "name": "Reapit",
+              },
+            ],
+            "organiserId": "BED160186",
+            "recurring": false,
+            "start": "2019-05-09T14:00:00",
+            "typeId": "VW",
+          },
+        ]
+      }
+      nextAppointment={null}
+      selectedAppointment={
+        Object {
+          "cancelled": true,
+          "created": "2019-05-08T17:07:39",
+          "end": "2019-05-11T18:00:00",
+          "id": "NEP1600290",
+          "modified": "2019-05-09T09:18:06",
+          "negotiators": Array [
+            Object {
+              "id": "LJW",
+              "name": "Liam Jowett",
+            },
+          ],
+          "offices": Array [
+            Object {
+              "id": "RPT",
+              "name": "Reapit",
+            },
+          ],
+          "organiserId": "BED160186",
+          "property": Object {
+            "address": Object {
+              "buildingName": "",
+              "buildingNumber": "56",
+              "country": "GB",
+              "geolocation": Object {
+                "latitude": 52.079532,
+                "longitude": -0.790871,
+              },
+              "line1": "High Street",
+              "line2": "The Stables",
+              "line3": "Old Haversham",
+              "line4": "Milton Keynes",
+              "postcode": "MK19 7DZ",
+            },
+          },
+          "recurring": false,
+          "start": "2019-05-11T17:30:00",
+          "typeId": "VW",
+        }
+      }
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
+    <CurrentLocButtonWithConnect
+      travelMode="DRIVING"
+    />
+  </div>
+  <Memo(AppointmentDetailWithRedux) />
+</Connect(ErrorBoundary)>
+`;
+
+exports[`Home should match a snapshot when loading 1`] = `
+<Connect(ErrorBoundary)>
+  <div
+    className="undefined undefined "
+  >
+    <div
+      className="undefined undefined"
+    >
+      <ButtonGroup>
+        <Button
+          className="is-selected is-info"
+          key="Today"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Today
+        </Button>
+        <Button
+          className=""
+          key="Tomorrow"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Tomorrow
+        </Button>
+        <Button
+          className=""
+          key="Week View"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Week View
+        </Button>
+      </ButtonGroup>
+      <Memo()
+        onChangeTravelMode={[Function]}
+        travelMode="DRIVING"
+      />
+    </div>
+    <Loader />
+  </div>
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
+    <CurrentLocButtonWithConnect
+      travelMode="DRIVING"
+    />
+  </div>
+  <Memo(AppointmentDetailWithRedux) />
+</Connect(ErrorBoundary)>
+`;
