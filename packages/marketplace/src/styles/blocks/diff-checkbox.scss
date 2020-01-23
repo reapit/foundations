@@ -1,0 +1,34 @@
+@import '../base/colors';
+
+.container {
+  background-color: $grey-lightest;
+  border: 1px solid $grey-lighter;
+  border-radius: 3px;
+  padding: 10px;
+  color: $black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkbox {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.green {
+  background-color: $green-lighter;
+}
+
+.red {
+  background-color: $red-lighter;
+}
+
+.arrow {
+  font-size: 18px;
+  color: $grey;
+}

@@ -1,0 +1,137 @@
+/* purgecss start ignore */
+@import '../base/fonts.scss';
+@import '../base/colors.scss';
+
+/*
+  Overrides file to make Swagger UI look more like the rest of the site.
+  Some pretty horrible Sass in here however, need to be very specific to override defaults.
+*/
+.swagger {
+  .swagger-loading {
+    display: none;
+  }
+
+
+  .swagger-ui {
+    p,
+    a,
+    .info,
+    .markdown {
+      font-family: $font-family-museo-bold;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .title,
+    .model-title {
+      font-family: $font-family-roboto;
+    }
+
+    .info a {
+      color: $reapit-mid-blue;
+    }
+
+    .loading, .scheme-container {
+      display: none;
+    }
+
+    hgroup.main {
+      pre.base-url, a {
+        display: none;
+      }
+    }
+
+    h2, .info h2 {
+      font-family: $font-family-museo-bold;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .info h2 {
+      margin-bottom: 1rem;
+    }
+
+    code, .prop-format {
+      font-family: $font-family-monospace;
+      color: $grey-dark;
+    }
+
+    .auth-wrapper {
+      padding-right: 1.5rem;
+    }
+
+    .wrapper {
+      padding: 0;
+    }
+
+    .wrapper .block {
+      background: #fff;
+      padding: 2rem;
+    }
+
+    .information-container {
+      .info {
+        margin: 0;
+
+        .title .version, small {
+          display: none;
+        }
+
+        .url {
+          font-size: 14px;
+        }
+      }
+
+      .block {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    section.models {
+      border: none;
+      border-radius: none;
+
+      .model-container {
+        background: $grey-lightest;
+        margin: 1rem 0;
+      }
+    }
+
+    .model {
+      td, .prop-type {
+        font-family: $font-family-monospace;
+      }
+
+      .prop-type {
+        color: $grey-dark;
+      }
+    }
+
+    .opblock-tag,
+    .opblock-summary-path {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .opblock-tag {
+      padding: 0.5rem 1rem;
+
+      .markdown p {
+        margin: 0;
+      }
+    }
+
+    p,
+    .markdown,
+    .opblock-summary-description {
+      font-family: $font-family-roboto;
+      color: $grey-dark;
+    }
+  }
+}
+/* purgecss end ignore */

@@ -1,0 +1,70 @@
+.permission {
+  font-weight: 600;
+}
+
+.permissionList {
+  padding-left: 1rem;
+  list-style-type: disc;
+  display: flex;
+  flex-flow: wrap column;
+  max-height: 170px;
+
+  @media screen and (max-width: 768px) {
+    max-height: unset;
+  }
+}
+
+.installed {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-left: 0.75rem;
+  }
+  svg {
+    color: #a0c862;
+  }
+}
+
+.listed {
+  display: flex;
+  align-items: center;
+}
+
+.isListed {
+  color: #a0c862;
+}
+
+.notListed {
+  color: #d3033d;
+}
+
+%appInfoTextBold {
+  font-size: 1rem;
+  color: #363636;
+  font-weight: 600;
+  line-height: 1.125;
+}
+
+.appInfo {
+  @extend %appInfoTextBold;
+  margin-bottom: 8px;
+}
+
+.appInfoRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.appInfoProperty {
+  @extend %appInfoTextBold;
+  margin-right: 6px;
+}
+
+.appInfoSpace {
+  margin-right: 8px;
+}

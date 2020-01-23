@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should match a snapshot 1`] = `
+<div>
+  <div
+    className="undefined false"
+  >
+    <H1
+      isCentered={true}
+    >
+      Sign in
+    </H1>
+    <p
+      className="pb-8"
+    >
+      Welcome to Reapit 
+      Marketplace
+    </p>
+    <Tabs
+      tabConfigs={
+        Array [
+          Object {
+            "active": true,
+            "displayText": "Client",
+            "onTabClick": [Function],
+            "tabIdentifier": "CLIENT",
+          },
+          Object {
+            "active": false,
+            "displayText": "Developer",
+            "onTabClick": [Function],
+            "tabIdentifier": "DEVELOPER",
+          },
+        ]
+      }
+    />
+    <Formik
+      initialValues={
+        Object {
+          "password": "",
+          "userName": "",
+        }
+      }
+      onSubmit={[Function]}
+      validate={[Function]}
+    >
+      <Component />
+    </Formik>
+  </div>
+  <div>
+    <img
+      alt="Reapit Graphic"
+      src=""
+    />
+  </div>
+</div>
+`;

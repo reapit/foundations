@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should match a snapshot 1`] = `
+<Memo()
+  defaultActiveKey="BROWSE_APPS"
+  location={
+    Object {
+      "pathname": "/client",
+    }
+  }
+  menu={
+    Array [
+      Object {
+        "icon": <ReapitLogo
+          className="nav-item-icon"
+        />,
+        "key": "LOGO",
+        "type": "LOGO",
+      },
+      Object {
+        "icon": <FaCloud
+          className="nav-item-icon"
+        />,
+        "key": "BROWSE_APPS",
+        "title": "Browse",
+        "type": "PRIMARY",
+        "url": "/client/apps",
+      },
+      Object {
+        "icon": <FaCloudDownloadAlt
+          className="nav-item-icon"
+        />,
+        "key": "INSTALLED",
+        "title": "Installed",
+        "type": "PRIMARY",
+        "url": "/client/installed",
+      },
+      Object {
+        "icon": <FaClipboardList
+          className="nav-item-icon"
+        />,
+        "key": "MY_APPS",
+        "title": "Manage",
+        "type": "PRIMARY",
+        "url": "/client/manage",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaSignOutAlt
+          className="nav-item-icon"
+        />,
+        "key": "LOGOUT",
+        "title": "Logout",
+        "type": "SECONDARY",
+      },
+    ]
+  }
+/>
+`;

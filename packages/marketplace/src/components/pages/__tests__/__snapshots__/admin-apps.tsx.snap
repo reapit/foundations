@@ -1,0 +1,331 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminApps renderForm should return correctly 1`] = `
+<Form>
+  <FormSection>
+    <FormHeading>
+      Admin Apps Filter Form
+    </FormHeading>
+    <FormSubHeading>
+      Filter the result by App, Developer and Company
+    </FormSubHeading>
+    <Grid>
+      <GridItem>
+        <Input
+          id="appName"
+          labelText="App Name"
+          name="appName"
+          type="text"
+        />
+      </GridItem>
+      <GridItem>
+        <Input
+          id="developerName"
+          labelText="Developer Name"
+          name="developerName"
+          type="text"
+        />
+      </GridItem>
+      <GridItem>
+        <Input
+          id="companyName"
+          labelText="Company Name"
+          name="companyName"
+          type="text"
+        />
+      </GridItem>
+      <GridItem>
+        <Button
+          disabled={true}
+          type="submit"
+          variant="primary"
+        >
+          Search
+        </Button>
+        <Button
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Refresh
+        </Button>
+      </GridItem>
+    </Grid>
+  </FormSection>
+</Form>
+`;
+
+exports[`AdminApps should match a snapshot when LOADING false 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerResponsive
+    data-test="revision-list-container"
+    flexColumn={true}
+  >
+    <div
+      className="mb-5"
+    >
+      <H3>
+        Admin Apps
+      </H3>
+      <Formik
+        initialValues={
+          Object {
+            "page": "1",
+          }
+        }
+        onSubmit={[Function]}
+      >
+        <Component />
+      </Formik>
+    </div>
+    <div
+      className="mb-5"
+    >
+      <Table
+        columns={
+          Array [
+            Object {
+              "Header": "AppID",
+              "accessor": "id",
+            },
+            Object {
+              "Header": "App Name",
+              "accessor": "name",
+            },
+            Object {
+              "Header": "App Summary",
+              "accessor": "summary",
+            },
+            Object {
+              "Header": "Developer Name",
+              "accessor": "developer",
+            },
+            Object {
+              "Header": "Is Listed",
+              "accessor": "isListed",
+            },
+            Object {
+              "Header": "Pending Revisions",
+              "accessor": "pendingRevisions",
+            },
+            Object {
+              "Header": "Direct API",
+              "accessor": "isDirectApi",
+            },
+            Object {
+              "Cell": [Function],
+              "Header": "Featured",
+              "accessor": "isFeatured",
+            },
+            Object {
+              "Cell": [Function],
+              "id": "Delete",
+            },
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "developer": "Pete's Proptech World Ltd",
+              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+              "homePage": "http://google.com/abc",
+              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
+              "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
+              "links": Array [
+                Object {
+                  "action": "GET",
+                  "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
+                  "rel": "self",
+                },
+                Object {
+                  "action": "GET",
+                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                  "rel": "developer",
+                },
+              ],
+              "name": "test",
+              "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
+            },
+            Object {
+              "developer": "Pete's Proptech World Ltd",
+              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+              "homePage": "http://www.contoso.com/path",
+              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
+              "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
+              "links": Array [
+                Object {
+                  "action": "GET",
+                  "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
+                  "rel": "self",
+                },
+                Object {
+                  "action": "GET",
+                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                  "rel": "developer",
+                },
+              ],
+              "name": "asd",
+              "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
+            },
+          ]
+        }
+        loading={false}
+        scrollable={true}
+      />
+    </div>
+    <Pagination
+      onChange={[Function]}
+      pageNumber={1}
+      pageSize={2}
+      totalCount={6}
+    />
+  </FlexContainerResponsive>
+  <AppDeleteModalWithRedux
+    afterClose={[Function]}
+    appId=""
+    appName=""
+    onDeleteSuccess={[Function]}
+    visible={false}
+  />
+</Connect(ErrorBoundary)>
+`;
+
+exports[`AdminApps should match a snapshot when LOADING true 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerResponsive
+    data-test="revision-list-container"
+    flexColumn={true}
+  >
+    <div
+      className="pin absolute flex items-center justify-center"
+    >
+      <Loader />
+    </div>
+    <div
+      className="mb-5"
+    >
+      <H3>
+        Admin Apps
+      </H3>
+      <Formik
+        initialValues={
+          Object {
+            "page": "1",
+          }
+        }
+        onSubmit={[Function]}
+      >
+        <Component />
+      </Formik>
+    </div>
+    <div
+      className="mb-5"
+    >
+      <Table
+        columns={
+          Array [
+            Object {
+              "Header": "AppID",
+              "accessor": "id",
+            },
+            Object {
+              "Header": "App Name",
+              "accessor": "name",
+            },
+            Object {
+              "Header": "App Summary",
+              "accessor": "summary",
+            },
+            Object {
+              "Header": "Developer Name",
+              "accessor": "developer",
+            },
+            Object {
+              "Header": "Is Listed",
+              "accessor": "isListed",
+            },
+            Object {
+              "Header": "Pending Revisions",
+              "accessor": "pendingRevisions",
+            },
+            Object {
+              "Header": "Direct API",
+              "accessor": "isDirectApi",
+            },
+            Object {
+              "Cell": [Function],
+              "Header": "Featured",
+              "accessor": "isFeatured",
+            },
+            Object {
+              "Cell": [Function],
+              "id": "Delete",
+            },
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "developer": "Pete's Proptech World Ltd",
+              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+              "homePage": "http://google.com/abc",
+              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
+              "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
+              "links": Array [
+                Object {
+                  "action": "GET",
+                  "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
+                  "rel": "self",
+                },
+                Object {
+                  "action": "GET",
+                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                  "rel": "developer",
+                },
+              ],
+              "name": "test",
+              "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
+            },
+            Object {
+              "developer": "Pete's Proptech World Ltd",
+              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+              "homePage": "http://www.contoso.com/path",
+              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
+              "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
+              "links": Array [
+                Object {
+                  "action": "GET",
+                  "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
+                  "rel": "self",
+                },
+                Object {
+                  "action": "GET",
+                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                  "rel": "developer",
+                },
+              ],
+              "name": "asd",
+              "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
+            },
+          ]
+        }
+        loading={false}
+        scrollable={true}
+      />
+    </div>
+    <Pagination
+      onChange={[Function]}
+      pageNumber={1}
+      pageSize={2}
+      totalCount={6}
+    />
+  </FlexContainerResponsive>
+  <AppDeleteModalWithRedux
+    afterClose={[Function]}
+    appId=""
+    appName=""
+    onDeleteSuccess={[Function]}
+    visible={false}
+  />
+</Connect(ErrorBoundary)>
+`;

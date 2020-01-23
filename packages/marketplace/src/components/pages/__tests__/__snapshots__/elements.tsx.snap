@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerBasic
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <Content>
+      <FlexContainerResponsive
+        flexColumn={true}
+        hasBackground={true}
+        hasPadding={true}
+      >
+        <H3>
+          Elements 
+        </H3>
+        <p>
+          Elements is a React UI Component and utility library we have developed internally and open sourced. The Developer Portal and Marketplace itself uses Elements extensively and if you are building a React app to be installed by clients, we recommend you do too.
+        </p>
+        <p>
+          When using this page, you can toggle between code examples and rendered output of components by using the ‘Canvas’ and ‘Docs’ tabs. For general usage and other NPM packagages, visit
+           
+          <Link
+            to="/developer/packages"
+          >
+            the package documentation.
+          </Link>
+        </p>
+      </FlexContainerResponsive>
+    </Content>
+    <FlexContainerBasic
+      className="container"
+    >
+      <iframe
+        height="100%"
+        src="https://reapit.github.io/elements/"
+        style={
+          Object {
+            "border": "none",
+          }
+        }
+        width="100%"
+      />
+    </FlexContainerBasic>
+  </FlexContainerBasic>
+</Connect(ErrorBoundary)>
+`;

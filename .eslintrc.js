@@ -34,7 +34,7 @@ module.exports = {
   ],
   ignorePatterns: ['__mocks__/', 'node_modules/', 'setup-tests.ts', 'jest.config.js', '.prettierrc.js', 'react-app-scaffolder/'],
   rules: {
-    'indent': ['error', 2],
+    
     'linebreak-style': ['error', 'unix'],
     'quotes': ['error', 'single', { 'avoidEscape': true, 'allowTemplateLiterals': false }],
     'semi': ['error', 'never'],
@@ -46,7 +46,10 @@ module.exports = {
     'no-mixed-operators': 'error',
     'no-tabs': ['error', {'allowIndentationTabs': true }],
     'no-unexpected-multiline': 'error',
-    'indent': [2, 2, {'SwitchCase': 1}]
+    // Disabling as conflicts with Prettier
+    'indent': 0,
+    // Disabling as we are validating types with TypeScript not PropTypes
+    'react/prop-types': 0 
   },
   settings: {
     react: {

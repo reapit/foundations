@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register should match a snapshot for PENDING state 1`] = `
+<div>
+  <div
+    className="undefined "
+  >
+    <H1
+      isCentered={true}
+    >
+      Register
+    </H1>
+    <p
+      className="pb-8"
+    >
+      Reapit Foundations developers
+    </p>
+    <Form
+      data-test="register-form"
+      noValidate={true}
+    >
+      <FormSection>
+        <FormHeading>
+          Register for Foundations
+        </FormHeading>
+        <FormSubHeading>
+          By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
+        </FormSubHeading>
+        <Input
+          dataTest="register-name"
+          id="name"
+          labelText="Full name"
+          name="name"
+          placeholder="Joe Developer"
+          type="text"
+        />
+        <Input
+          dataTest="register-company-name"
+          id="companyName"
+          labelText="Company name"
+          name="companyName"
+          placeholder="Acme Industries Ltd"
+          type="text"
+        />
+        <Input
+          dataTest="register-email"
+          id="email"
+          labelText="Email"
+          name="email"
+          placeholder="name@address.com"
+          type="email"
+        />
+        <Input
+          dataTest="register-telephone"
+          id="telephone"
+          labelText="Telephone"
+          name="telephone"
+          placeholder="0800 800 800"
+          type="tel"
+        />
+        <Input
+          dataTest="register-password"
+          id="password"
+          labelText="Password"
+          name="password"
+          type="password"
+        />
+        <Input
+          dataTest="register-confirm-password"
+          id="confirmPassword"
+          labelText="Confirm password"
+          name="confirmPassword"
+          type="password"
+        />
+        <div
+          className="field field-checkbox flex justify-end"
+        >
+          <input
+            checked={false}
+            className="checkbox"
+            id="terms"
+            name="terms"
+            onClick={[Function]}
+            type="checkbox"
+          />
+          <label
+            className="label undefined"
+            htmlFor="terms"
+          >
+            I agree to the Terms and Conditions
+          </label>
+        </div>
+      </FormSection>
+      <FormSection>
+        <Level>
+          <Button
+            disabled={false}
+            fullWidth={true}
+            loading={false}
+            onClick={[MockFunction]}
+            type="submit"
+            variant="primary"
+          >
+            Register
+          </Button>
+        </Level>
+        <Level>
+          Already have an account?
+          <Link
+            to="/developer/login"
+          >
+            Login
+          </Link>
+        </Level>
+      </FormSection>
+    </Form>
+  </div>
+  <div>
+    <img
+      alt="Reapit graphic"
+      src=""
+    />
+  </div>
+  <Component
+    afterClose={[Function]}
+    onAccept={[Function]}
+    onDecline={[Function]}
+    visible={false}
+  />
+</div>
+`;
+
+exports[`Register should match a snapshot for SUCCESS state 1`] = `
+<div>
+  <div
+    className="undefined "
+  >
+    <H1
+      isCentered={true}
+    >
+      Register
+    </H1>
+    <p
+      className="pb-8"
+    >
+      Reapit Foundations developers
+    </p>
+    <CallToAction
+      buttonText="Login"
+      dataTest="register-success-message"
+      isCenter={true}
+      onButtonClick={[Function]}
+      title="Success!"
+    >
+      Check you email to confirm your account
+    </CallToAction>
+  </div>
+  <div>
+    <img
+      alt="Reapit graphic"
+      src=""
+    />
+  </div>
+  <Component
+    afterClose={[Function]}
+    onAccept={[Function]}
+    onDecline={[Function]}
+    visible={false}
+  />
+</div>
+`;
