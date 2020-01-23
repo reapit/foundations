@@ -26,7 +26,8 @@ exports[`HelpPage should match a snapshot 1`] = `
           Welcome Guide
         </H4>
         <p>
-          Need a little help? Have a look through the Welcome Guide, which we’ve put together to help you navigate through your Developer portal.
+          Need a little help? Have a look through the Welcome Guide, which we’ve put 
+      together to help you navigate through your Developer portal.
         </p>
         <p>
           <Button
@@ -62,7 +63,8 @@ exports[`HelpPage should match a snapshot 1`] = `
           Request a Feature
         </H4>
         <p>
-          Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will look at all requests carefully however, we cannot guarantee all will be implemented.
+          Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will 
+      look at all requests carefully however, we cannot guarantee all will be implemented.
         </p>
         <p>
           <Button
@@ -134,7 +136,8 @@ exports[`HelpPage should match a snapshot 1`] = `
           Roadmap
         </H4>
         <p>
-          Want to see what we are building or check on the progress of your feature requests? You can see our product roadmap milestones here. 
+          Want to see what we are building or check on the progress of your feature requests? 
+      You can see our product roadmap milestones here. 
         </p>
         <p>
           <Button
@@ -210,7 +213,8 @@ exports[`renderHelpItems should match snapshot 1`] = `
         Welcome Guide
       </H4>
       <p>
-        Need a little help? Have a look through the Welcome Guide, which we’ve put together to help you navigate through your Developer portal.
+        Need a little help? Have a look through the Welcome Guide, which we’ve put 
+      together to help you navigate through your Developer portal.
       </p>
       <p>
         <Button
@@ -244,7 +248,8 @@ exports[`renderHelpItems should match snapshot 1`] = `
         Request a Feature
       </H4>
       <p>
-        Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will look at all requests carefully however, we cannot guarantee all will be implemented.
+        Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will 
+      look at all requests carefully however, we cannot guarantee all will be implemented.
       </p>
       <p>
         <Button
@@ -312,7 +317,8 @@ exports[`renderHelpItems should match snapshot 1`] = `
         Roadmap
       </H4>
       <p>
-        Want to see what we are building or check on the progress of your feature requests? You can see our product roadmap milestones here. 
+        Want to see what we are building or check on the progress of your feature requests? 
+      You can see our product roadmap milestones here. 
       </p>
       <p>
         <Button

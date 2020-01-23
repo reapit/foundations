@@ -34,14 +34,10 @@ export interface AppDetailModalMappedActions {
 
 export type AppDetailProps = AppDetailModalMappedActions & AppDetailModalMappedProps & AppDetailModalInnerProps
 
-export const SlickButtonNav = ({ currentSlide, setAppDetailModalStateInstall, slideCount, children, ...props }) => (
-  <button {...props}>{children}</button>
-)
+export const SlickButtonNav = ({ children, ...props }) => <button {...props}>{children}</button>
 
 export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   data,
-  setAppDetailModalStateInstall,
-  setAppDetailModalStateUninstall,
   isCurrentLoggedUserClient,
   isCurrentLoggedUserDeveloper,
   afterClose,

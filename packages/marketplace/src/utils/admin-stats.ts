@@ -53,10 +53,10 @@ export const getChartData = (data: any[], range: Range): ChartDataType => {
 }
 
 /**
- * 
+ *
  * get number of objects in data which created at date
- * @param data 
- * @param date 
+ * @param data
+ * @param date
  */
 export const numOfObjectCreatedInDate = (data: any[], date: Date): number =>
   data.reduce((accumulator, currentValue) => {
@@ -78,7 +78,7 @@ export const getDataLabel = (area: Area): string => {
   }
 }
 
-export const getChartConfig = (labels : string[], data: number[], area: Area) => ({
+export const getChartConfig = (labels: string[], data: number[], area: Area) => ({
   labels,
   datasets: [
     {

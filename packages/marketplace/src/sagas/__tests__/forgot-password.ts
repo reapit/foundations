@@ -1,6 +1,6 @@
 import forgotPasswordSagas, { requestForgotPasswordListen, requestForgotPassword } from '../forgot-password'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
+import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { forgotPasswordLoading } from '@/actions/forgot-password'

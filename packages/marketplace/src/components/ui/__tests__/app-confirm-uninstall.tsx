@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import { FormState, ReduxState } from '@/types/core'
 import { AppConfirmUninstall, handleCloseModal, mapDispatchToProps, mapStateToProps } from '../app-confirm-uninstall'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
@@ -18,15 +18,15 @@ const mockProps = {
 describe('AppConfirmUninstall', () => {
   it('render correctly', () => {
     const wrapper = shallow(<AppConfirmUninstall {...mockProps} />)
-    expect(toJson(wrapper)).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
     const wrapper1 = shallow(<AppConfirmUninstall {...mockProps} installationsFormState="DONE" />)
-    expect(toJson(wrapper1)).toMatchSnapshot()
+    expect(wrapper1).toMatchSnapshot()
     const wrapper2 = shallow(<AppConfirmUninstall {...mockProps} installationsFormState="SUBMITTING" />)
-    expect(toJson(wrapper2)).toMatchSnapshot()
+    expect(wrapper2).toMatchSnapshot()
     const wrapper3 = shallow(<AppConfirmUninstall {...mockProps} installationsFormState="ERROR" />)
-    expect(toJson(wrapper3)).toMatchSnapshot()
+    expect(wrapper3).toMatchSnapshot()
     const wrapper4 = shallow(<AppConfirmUninstall {...mockProps} installationsFormState="SUCCESS" />)
-    expect(toJson(wrapper4)).toMatchSnapshot()
+    expect(wrapper4).toMatchSnapshot()
   })
 
   it('should return null when appUninstallFormState SUCCESS', () => {

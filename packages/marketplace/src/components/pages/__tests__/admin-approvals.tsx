@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import {
   AdminApprovals,
   AdminApprovalsProps,
@@ -30,11 +29,11 @@ const mockProps = (loading: boolean, approvals: AdminApprovalsList | null): Admi
 
 describe('AdminApproval', () => {
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<AdminApprovals {...mockProps(false, approvalsStub)} />))).toMatchSnapshot()
+    expect(shallow(<AdminApprovals {...mockProps(false, approvalsStub)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING true', () => {
-    expect(toJson(shallow(<AdminApprovals {...mockProps(true, null)} />))).toMatchSnapshot()
+    expect(shallow(<AdminApprovals {...mockProps(true, null)} />)).toMatchSnapshot()
   })
 
   describe('mapStateToProps', () => {
@@ -92,9 +91,28 @@ describe('AdminApproval', () => {
 
   describe('RenderContent', () => {
     it('should match snapshot', () => {
-      const wrapper = shallow(
+      expect(
+        shallow(
+          <RenderContent
+            loading={false}
+            list={[]}
+            tableColumns={[
+              {
+                Header: 'AppId',
+                accessor: 'appId'
+              }
+            ]}
+          />
+        )
+      ).toMatchSnapshot()
+    })
+  })
+
+  it('should match snapshot', () => {
+    expect(
+      shallow(
         <RenderContent
-          loading={false}
+          loading={true}
           list={[]}
           tableColumns={[
             {
@@ -104,23 +122,6 @@ describe('AdminApproval', () => {
           ]}
         />
       )
-      expect(wrapper).toMatchSnapshot()
-    })
-  })
-
-  it('should match snapshot', () => {
-    const wrapper = shallow(
-      <RenderContent
-        loading={true}
-        list={[]}
-        tableColumns={[
-          {
-            Header: 'AppId',
-            accessor: 'appId'
-          }
-        ]}
-      />
-    )
-    expect(wrapper).toMatchSnapshot()
+    ).toMatchSnapshot()
   })
 })

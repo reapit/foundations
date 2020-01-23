@@ -44,7 +44,7 @@ describe('submit-revision post data', () => {
   }
 
   const gen = cloneableGenerator(submitRevisionSaga)(params)
-  const { id, ...body } = params.data
+  const { id } = params.data
 
   expect(gen.next().value).toEqual(put(submitRevisionSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(all(imageUploaderRequests))

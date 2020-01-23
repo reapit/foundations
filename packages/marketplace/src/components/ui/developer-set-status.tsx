@@ -47,7 +47,7 @@ export const SetDeveloperStatusModal = ({
             onButtonClick={onSuccessHandler({ onSuccess, resetDeveloperSetStatusReducer })}
             isCenter
           >
-            Developer '{name}' has been {isInactive ? 'activated' : 'deactivated'} successfully.
+            Developer &lsquo;{name}&rsquo; has been {isInactive ? 'activated' : 'deactivated'} successfully.
           </CallToAction>
         ) : (
           <>
@@ -58,7 +58,7 @@ export const SetDeveloperStatusModal = ({
             <ModalBody
               body={
                 <SubTitleH6 isCentered>
-                  Are you sure you want to {isInactive ? 'activate' : 'deactivate'} '{name}'?
+                  Are you sure you want to {isInactive ? 'activate' : 'deactivate'} &lsquo;{name}&rsquo;?
                 </SubTitleH6>
               }
             />

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 import routes from '@/constants/routes'
@@ -34,7 +33,7 @@ describe('DeveloperHome', () => {
         }
       }
     }
-    expect(toJson(shallow(<DeveloperHome {...mockProps} />))).toMatchSnapshot()
+    expect(shallow(<DeveloperHome {...mockProps} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
@@ -48,7 +47,7 @@ describe('DeveloperHome', () => {
         }
       }
     }
-    expect(toJson(shallow(<DeveloperHome {...mockProps} />))).toMatchSnapshot()
+    expect(shallow(<DeveloperHome {...mockProps} />)).toMatchSnapshot()
   })
   it('should match a snapshot', () => {
     const mockProps: DeveloperProps = {
@@ -68,7 +67,7 @@ describe('DeveloperHome', () => {
         }
       }
     }
-    expect(toJson(shallow(<DeveloperHome {...mockProps} />))).toMatchSnapshot()
+    expect(shallow(<DeveloperHome {...mockProps} />)).toMatchSnapshot()
   })
 
   describe('handleOnCardClick', () => {

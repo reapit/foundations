@@ -12,7 +12,8 @@ const invalidValues: InputOutput[] = [
       email: 'Required',
       telephone: 'Required',
       password:
-        'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number',
+        'Your Password should be a minimum of 8 characters; must contain at least ' +
+        'one lowercase letter, one uppercase letter and one number',
       agreedTerms: 'Required'
     }
   ],
@@ -30,7 +31,8 @@ const invalidValues: InputOutput[] = [
       email: 'Required',
       telephone: 'Required',
       password:
-        'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number',
+        'Your Password should be a minimum of 8 characters; must contain at least ' +
+        'one lowercase letter, one uppercase letter and one number',
       agreedTerms: 'Required'
     }
   ],
@@ -48,7 +50,8 @@ const invalidValues: InputOutput[] = [
       name: 'Required',
       email: 'Invalid email address',
       password:
-        'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number',
+        'Your Password should be a minimum of 8 characters; must contain at least ' +
+        'one lowercase letter, one uppercase letter and one number',
       agreedTerms: 'Required'
     }
   ],
@@ -66,7 +69,8 @@ const invalidValues: InputOutput[] = [
       name: 'Required',
       email: 'Invalid email address',
       password:
-        'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number'
+        'Your Password should be a minimum of 8 characters; must contain at least ' +
+        'one lowercase letter, one uppercase letter and one number'
     }
   ],
   [

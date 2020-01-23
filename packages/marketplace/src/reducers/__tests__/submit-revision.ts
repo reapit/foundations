@@ -8,15 +8,19 @@ describe('submitRevision reducer', () => {
     expect(newState).toEqual(defaultState)
   })
 
-  it('should set formState to SUBMITTING when DEVELOPER_SUBMIT_REVISION_SET_FORM_STATE action is called with SUBMITTING', () => {
-    const newState = submitRevisionReducer(undefined, {
-      type: ActionTypes.DEVELOPER_SUBMIT_REVISION_SET_FORM_STATE as ActionType,
-      data: 'SUBMITTING'
-    })
-    const expected = {
-      ...defaultState,
-      formState: 'SUBMITTING'
+  it(
+    'should set formState to SUBMITTING when DEVELOPER_SUBMIT_REVISION_SET_FORM_STATE' +
+      'action is called with SUBMITTING',
+    () => {
+      const newState = submitRevisionReducer(undefined, {
+        type: ActionTypes.DEVELOPER_SUBMIT_REVISION_SET_FORM_STATE as ActionType,
+        data: 'SUBMITTING'
+      })
+      const expected = {
+        ...defaultState,
+        formState: 'SUBMITTING'
+      }
+      expect(newState).toEqual(expected)
     }
-    expect(newState).toEqual(expected)
-  })
+  )
 })

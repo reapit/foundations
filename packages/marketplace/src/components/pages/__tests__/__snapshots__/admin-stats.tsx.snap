@@ -118,7 +118,6 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
               },
             ],
             "labels": Array [
-              "15/01/2020",
               "16/01/2020",
               "17/01/2020",
               "18/01/2020",
@@ -126,6 +125,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
+              "23/01/2020",
             ],
           }
         }
@@ -253,7 +253,6 @@ exports[`Admin Stats setArea DEVELOPRES should match snapshot 1`] = `
               },
             ],
             "labels": Array [
-              "15/01/2020",
               "16/01/2020",
               "17/01/2020",
               "18/01/2020",
@@ -261,6 +260,7 @@ exports[`Admin Stats setArea DEVELOPRES should match snapshot 1`] = `
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
+              "23/01/2020",
             ],
           }
         }
@@ -388,7 +388,6 @@ exports[`Admin Stats setArea INSTALLATIONS should match snapshot 1`] = `
               },
             ],
             "labels": Array [
-              "15/01/2020",
               "16/01/2020",
               "17/01/2020",
               "18/01/2020",
@@ -396,6 +395,7 @@ exports[`Admin Stats setArea INSTALLATIONS should match snapshot 1`] = `
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
+              "23/01/2020",
             ],
           }
         }
@@ -612,6 +612,7 @@ exports[`Admin Stats setRange MONTH should match snapshot 1`] = `
                   0,
                   0,
                   0,
+                  0,
                 ],
                 "fill": false,
                 "label": "Apps",
@@ -650,6 +651,7 @@ exports[`Admin Stats setRange MONTH should match snapshot 1`] = `
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
+              "23/01/2020",
             ],
           }
         }
@@ -777,7 +779,6 @@ exports[`Admin Stats setRange WEEK should match snapshot 1`] = `
               },
             ],
             "labels": Array [
-              "15/01/2020",
               "16/01/2020",
               "17/01/2020",
               "18/01/2020",
@@ -785,6 +786,7 @@ exports[`Admin Stats setRange WEEK should match snapshot 1`] = `
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
+              "23/01/2020",
             ],
           }
         }
@@ -912,7 +914,6 @@ exports[`Admin Stats should match snapshot 1`] = `
               },
             ],
             "labels": Array [
-              "15/01/2020",
               "16/01/2020",
               "17/01/2020",
               "18/01/2020",
@@ -920,6 +921,7 @@ exports[`Admin Stats should match snapshot 1`] = `
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
+              "23/01/2020",
             ],
           }
         }

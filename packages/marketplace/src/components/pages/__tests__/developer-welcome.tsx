@@ -5,7 +5,6 @@ import {
   DeveloperWelcomeMessageProps,
   handleUserAccept,
   mapDispatchToProps,
-  Documentation,
   Submitting,
   Managing,
   Support,

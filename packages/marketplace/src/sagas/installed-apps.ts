@@ -40,17 +40,14 @@ export const installedAppsDataFetch = function*({ data: page }) {
 }
 
 export const fetchInstalledApps = async ({ clientId, page }) => {
-  try {
-    const response = await fetcher({
-      url: `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=${page}&PageSize=${INSTALLED_APPS_PERPAGE}&IsDirectApi=false`,
-      method: 'GET',
-      api: process.env.MARKETPLACE_API_BASE_URL as string,
-      headers: MARKETPLACE_HEADERS
-    })
-    return response
-  } catch (err) {
-    throw err
-  }
+  return fetcher({
+    url:
+      `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=` +
+      `${page}&PageSize=${INSTALLED_APPS_PERPAGE}&IsDirectApi=false`,
+    method: 'GET',
+    api: process.env.MARKETPLACE_API_BASE_URL as string,
+    headers: MARKETPLACE_HEADERS
+  })
 }
 
 export const installedAppsDataListen = function*() {

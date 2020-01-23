@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 import { FlexContainerResponsive, Content, H3, H4, FlexContainerBasic } from '@reapit/elements'
-import { Link } from 'react-router-dom'
-import Routes from '../../constants/routes'
+// import { Link } from 'react-router-dom'
+// import Routes from '../../constants/routes'
 import apiDocStyles from '@/styles/pages/api-docs.scss?mod'
 
 export const handleOnClickSearchWidget = ({ setCopiedClipboardWidget }) => (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -32,8 +32,8 @@ export const handleCopiedClipboardTheme = ({ setCopiedClipboardTheme }) => (e: R
 }
 
 const WebComponentsPage: React.SFC = () => {
-  const [copiedClipboardWidgetText, setCopiedClipboardWidget] = React.useState('click here to copy to clipboard')
-  const [copiedClipboardThemeText, setCopiedClipboardTheme] = React.useState('click here to copy to clipboard')
+  // const [copiedClipboardWidgetText, setCopiedClipboardWidget] = React.useState('click here to copy to clipboard')
+  // const [copiedClipboardThemeText, setCopiedClipboardTheme] = React.useState('click here to copy to clipboard')
   return (
     <FlexContainerBasic flexColumn hasPadding>
       <Content className={apiDocStyles.apiDocs}>

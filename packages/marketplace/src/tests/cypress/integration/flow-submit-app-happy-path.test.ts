@@ -48,10 +48,13 @@ describe('Submit app happy path', () => {
       textBoxTelephone: '01234567890',
       textBoxHomePage: 'https://google.com',
       textBoxLaunchUrl: 'https://google.com',
-      textAreaDescription:
-        'Lorem ipsum dolor amet organic fashion axe man bun cray kitsch hashtag post-ironic normcore copper mug keytar fam actually street art air plant. Copper mug put a bird on it kombucha pop-up. Man bun kickstarter fam pour-over plaid, franzen blog. Activated charcoal letterpress mlkshk kickstarter master cleanse. Paleo austin actually blue bottle mixtape mustache bicycle rights gochujang humblebrag. Direct trade affogato cliche, asymmetrical sartorial pinterest chambray coloring book.',
-      textAreaSummary:
-        'Lorem ipsum dolor amet messenger bag pinterest af umami. Master cleanse photo booth cardigan, jean shorts dreamcatcher butcher ethical YOLO.'
+      textAreaDescription: `Lorem ipsum dolor amet organic fashion axe man bun cray kitsch hashtag post-ironic normcore 
+        copper mug keytar fam actually street art air plant. Copper mug put a bird on it kombucha pop-up. Man bun 
+        kickstarter fam pour-over plaid, franzen blog. Activated charcoal letterpress mlkshk kickstarter 
+        master cleanse. Paleo austin actually blue bottle mixtape mustache bicycle rights gochujang 
+        humblebrag. Direct trade affogato cliche, asymmetrical sartorial pinterest chambray coloring book.`,
+      textAreaSummary: `Lorem ipsum dolor amet messenger bag pinterest af umami. Master cleanse photo booth cardigan, 
+        jean shorts dreamcatcher butcher ethical YOLO.`
     }
     for (let inputTestDataSelector in inputTestData) {
       const data = inputTestData[inputTestDataSelector]

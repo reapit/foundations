@@ -214,13 +214,15 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
               "type": "string",
             },
             Object {
-              "description": "The GUID of the app to return the code of the selected property to (if not present then search will not return to an app)",
+              "description": "The GUID of the app to return the code of the selected property to 
+                  (if not present then search will not return to an app)",
               "parameter": "appId",
               "required": "No",
               "type": "string",
             },
             Object {
-              "description": "The key to use in the query string when returning the property primary key to an app (required if appId is set) ",
+              "description": "The key to use in the query string when returning the property 
+                  primary key to an app (required if appId is set) ",
               "parameter": "appParam",
               "required": "No?",
               "type": "string",
@@ -343,13 +345,15 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
               "type": "string",
             },
             Object {
-              "description": "The GUID of the app to return the code of the selected property to (if not present then search will not return to an app)",
+              "description": "The GUID of the app to return the code of the selected property to 
+                  (if not present then search will not return to an app)",
               "parameter": "appId",
               "required": "No",
               "type": "string",
             },
             Object {
-              "description": "The key to use in the query string when returning the property primary key to an app (required if appId is set) ",
+              "description": "The key to use in the query string when returning the property 
+                  primary key to an app (required if appId is set) ",
               "parameter": "appParam",
               "required": "No?",
               "type": "string",
@@ -481,13 +485,15 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
               "type": "string",
             },
             Object {
-              "description": "The GUID of the app to return the code of the selected contact to (if not present then search will not return to an app)",
+              "description": "The GUID of the app to return the code of the selected contact to 
+                  (if not present then search will not return to an app)",
               "parameter": "appId",
               "required": "No",
               "type": "string",
             },
             Object {
-              "description": "The key to use in the query string when returning the contact primary key to an app (required if appId is set) ",
+              "description": "The key to use in the query string when returning the contact 
+                  primary key to an app (required if appId is set) ",
               "parameter": "appParam",
               "required": "No?",
               "type": "string",
@@ -624,7 +630,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
               "type": "boolean",
             },
             Object {
-              "description": "The primary key of the contact to load the ID checks for (note that this won’t be present when the app loads from the marketplace, but the app needs to be able to accept this parameter when it is launched via the app association route).",
+              "description": "The primary key of the contact to load the ID checks for (note that this won’t be 
+                    present when the app loads from the marketplace, but the app needs to be able to accept 
+                    this parameter when it is launched via the app association route).",
               "parameter": "cntCode",
               "required": "Yes",
               "type": "string",
@@ -685,7 +693,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
               "type": "boolean",
             },
             Object {
-              "description": "The primary key of the property to load generate the brochures for (note that this won’t be present when the app loads from the marketplace, but the app needs to be able to accept this parameter when it is launched via the app association route).",
+              "description": "The primary key of the property to load generate the brochures for (note that this 
+                    won’t be present when the app loads from the marketplace, but the app needs to be 
+                    able to accept this parameter when it is launched via the app association route).",
               "parameter": "prpCode",
               "required": "Yes",
               "type": "string",
@@ -746,7 +756,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
               "type": "boolean",
             },
             Object {
-              "description": "The primary key of the property to load generate the brochures for (note that this won’t be present when the app loads from the marketplace, but the app needs to be able to accept this parameter when it is launched via the app association route).",
+              "description": "The primary key of the property to load generate the brochures for (note that this 
+                    won’t be present when the app loads from the marketplace, but the app needs to be 
+                    able to accept this parameter when it is launched via the app association route).",
               "parameter": "prpCodes",
               "required": "Yes",
               "type": "string",

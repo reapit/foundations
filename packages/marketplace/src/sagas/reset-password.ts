@@ -1,6 +1,4 @@
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
-import { fetcher } from '@reapit/elements'
-import { MARKETPLACE_HEADERS } from '@/constants/api'
 import { resetPasswordLoading, ResetPasswordParams } from '@/actions/reset-password'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'

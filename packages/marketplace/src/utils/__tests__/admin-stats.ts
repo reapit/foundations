@@ -48,6 +48,4 @@ describe('admin stats utils', () => {
       expect(chartConfig.datasets[0].data.length).toBe(2)
     })
   })
-
 })
-

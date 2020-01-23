@@ -23,7 +23,7 @@ describe('Search app happy path', () => {
     cy.server()
     cy.route(apiGetAppList).as('getAppList')
     cy.wait('@getAppList')
-      .then(xhr => parseXhrBodyToJson(xhr))
+      .then(xhr => (parseXhrBodyToJson as any)(xhr))
       .then(({ data: appList }) => {
         expect(appList).to.have.length.gte(1)
         /* take random data and try to find that */

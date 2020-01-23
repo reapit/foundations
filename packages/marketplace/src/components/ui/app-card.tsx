@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
-import { FaEllipsisH } from 'react-icons/fa'
 import { Tile } from '@reapit/elements'
 import appCardStyles from '@/styles/blocks/app-card.scss?mod'
 
@@ -11,7 +10,7 @@ export interface AppCardProps {
   onSettingsClick?: (event: React.MouseEvent) => void
 }
 
-const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettingsClick, className }: AppCardProps) => {
+const AppCard: React.FunctionComponent<AppCardProps> = ({ app, onClick, onSettingsClick }: AppCardProps) => {
   const dataTest = ['app-card', app.id]
   !app.pendingRevisions && dataTest.push('isNoPending')
   dataTest.push(app.name)

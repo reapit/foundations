@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { shallow } from 'enzyme'
+
 import {
   ApproveRevisionModal,
   ApproveRevisionModalProps,
@@ -30,7 +30,7 @@ const props: ApproveRevisionModalProps = {
 
 describe('ApproveRevisionModal', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<ApproveRevisionModal {...props} />))).toMatchSnapshot()
+    expect(shallow(<ApproveRevisionModal {...props} />)).toMatchSnapshot()
   })
 
   describe('handleAfterClose', () => {

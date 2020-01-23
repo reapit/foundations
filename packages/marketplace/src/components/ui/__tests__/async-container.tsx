@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import AsyncContainer, { AsyncContainerProps } from '../async-container'
 
 describe('AsyncContainer', () => {
@@ -11,7 +11,7 @@ describe('AsyncContainer', () => {
       data: []
     }
 
-    expect(toJson(shallow(<AsyncContainer {...props} />))).toMatchSnapshot()
+    expect(shallow(<AsyncContainer {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when error = true', () => {
@@ -21,15 +21,16 @@ describe('AsyncContainer', () => {
       data: []
     }
 
-    expect(toJson(shallow(<AsyncContainer {...props} />))).toMatchSnapshot()
-  }),
-    it('should match a snapshot when data = null', () => {
-      const props: AsyncContainerProps = {
-        loading: false,
-        error: false,
-        data: null
-      }
+    expect(shallow(<AsyncContainer {...props} />)).toMatchSnapshot()
+  })
 
-      expect(toJson(shallow(<AsyncContainer {...props} />))).toMatchSnapshot()
-    })
+  it('should match a snapshot when data = null', () => {
+    const props: AsyncContainerProps = {
+      loading: false,
+      error: false,
+      data: null
+    }
+
+    expect(shallow(<AsyncContainer {...props} />)).toMatchSnapshot()
+  })
 })

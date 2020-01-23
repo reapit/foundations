@@ -20,6 +20,10 @@ import { selectClientId } from '@/selector/client'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   await getAccessToken()
+  const id = params && params.appid ? params.appid : ''
+  const queryParams = new URLSearchParams(search)
+  const appId = queryParams.get('appId')
+
   switch (route) {
     case Routes.CLIENT:
       store.dispatch(checkFirstTimeLogin())
@@ -42,8 +46,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.DEVELOPER_ANALYTICS_PAGINATE:
     case Routes.DEVELOPER_ANALYTICS:
-      const queryParams = new URLSearchParams(search)
-      const appId = queryParams.get('appId')
       store.dispatch(appInstallationsRequestData({}))
       store.dispatch(developerRequestData({ page: 1, appsPerPage: 9999 }))
       if (appId) {
@@ -52,7 +54,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       }
       break
     case Routes.DEVELOPER_MY_APPS_EDIT:
-      const id = params && params.appid ? params.appid : ''
       store.dispatch(submitAppRequestData())
       store.dispatch(appDetailRequestData({ id }))
       break

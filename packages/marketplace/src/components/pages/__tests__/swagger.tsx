@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import Swagger, { handleOnComplete, fetchInterceptor } from '../swagger'
 import { MARKETPLACE_HEADERS } from '@/constants/api'
 
@@ -8,7 +8,7 @@ jest.mock('../../../core/store')
 
 describe('Swagger', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Swagger />))).toMatchSnapshot()
+    expect(shallow(<Swagger />)).toMatchSnapshot()
   })
   it('handleOnComplete', () => {
     const setLoading = jest.fn()
@@ -21,7 +21,7 @@ describe('Swagger', () => {
     const output = {
       headers: {
         ...MARKETPLACE_HEADERS,
-        Authorization: `Bearer null`
+        Authorization: 'Bearer null'
       }
     }
     expect(result).toEqual(output)

@@ -39,7 +39,9 @@ const COLUMNS = [
   },
   {
     Header: 'Date of Uninstallation',
-    accessor: row => (row.terminatesOn ? toLocalTime(row.terminatesOn) : '')
+    accessor: row => {
+      return row.terminatesOn ? toLocalTime(row.terminatesOn) : ''
+    }
   }
 ]
 

@@ -1,9 +1,9 @@
 import { history } from '../core/router'
-import { ClientParams } from '@/reducers/client'
 
 export const addQuery = (query: Record<string, any>): string => {
   const currentParams = new URLSearchParams(history.location.search)
   for (let key in query) {
+    // eslint-disable-next-line no-prototype-builtins
     if (query.hasOwnProperty(key)) {
       if (currentParams.has(key)) {
         currentParams.set(key, query[key])

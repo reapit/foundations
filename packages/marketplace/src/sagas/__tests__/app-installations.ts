@@ -103,7 +103,6 @@ describe('app-installations sagas', () => {
   })
 
   describe('appUninstallSaga', () => {
-    const { installationId, ...body } = uninstallParams.data
     const gen = cloneableGenerator(appUninstallSaga)(uninstallParams)
     expect(gen.next().value).toEqual(put(appInstallationsSetFormState('SUBMITTING')))
     expect(gen.next().value).toEqual(select(selectLoggedUserEmail))

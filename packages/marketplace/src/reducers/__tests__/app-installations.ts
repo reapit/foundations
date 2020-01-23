@@ -1,4 +1,4 @@
-import appInstallationsReducer, { defaultState, AppInstallationsState } from '../app-installations'
+import appInstallationsReducer, { defaultState } from '../app-installations'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
 import { installationStub } from '@/sagas/__stubs__/installation'

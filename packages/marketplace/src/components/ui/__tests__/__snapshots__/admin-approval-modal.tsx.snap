@@ -113,7 +113,8 @@ exports[`AdminRevisionModalInner should match a snapshot when LOADING false 1`] 
             Summary
           </h4>
           <DiffViewer
-            changedString="Shop millions of products, never miss amazing deals, compare prices and reviews and track your orders easily with the Amazon Shopping App!"
+            changedString="Shop millions of products, never miss amazing deals, compare prices and reviews 
+      and track your orders easily with the Amazon Shopping App!"
             currentString="vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!"
             type="words"
           />
@@ -127,16 +128,26 @@ exports[`AdminRevisionModalInner should match a snapshot when LOADING false 1`] 
             Description
           </h4>
           <DiffViewer
-            changedString="Download the app now and start shopping our selection of fashion, books, toys, home appliances, sport accessories and much more.
+            changedString="Download the app now and start shopping our selection of fashion, books, toys, home 
+      appliances, sport accessories and much more.
 
 -Easy
-Compare prices and check availability instantly by using your voice, scanning a 
-Once you complete your order, track it easily and get notifications about your shipment.
+Compare prices and check 
+      availability instantly by using your voice, scanning a 
+Once you complete your order, 
+      track it easily and get notifications about your shipment.
 
 - Convenient
-Never miss a deal or a discount with easy access to Lighting Deals and Deal of the Day.
-Get notifications when a new deal is available."
-            currentString="enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co"
+Never 
+      miss a deal or a discount with easy access to Lighting Deals and Deal of the Day.
+Get 
+      notifications when a new deal is available."
+            currentString="enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+      pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
+      sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
+      elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
+      at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
+      proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co"
             type="words"
           />
         </div>

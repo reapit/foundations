@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import TermsAndConditionsModal, { TermsAndConditionsModalProps } from '../terms-and-conditions-modal'
-import toJson from 'enzyme-to-json'
 
 const props: TermsAndConditionsModalProps = {
   visible: true,
@@ -11,6 +10,6 @@ const props: TermsAndConditionsModalProps = {
 
 describe('Menu', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<TermsAndConditionsModal {...props} />))).toMatchSnapshot()
+    expect(shallow(<TermsAndConditionsModal {...props} />)).toMatchSnapshot()
   })
 })

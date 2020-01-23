@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import AppCard, { AppCardProps } from '../app-card'
 
 const props: AppCardProps = {
@@ -9,7 +9,8 @@ const props: AppCardProps = {
     developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
     name: 'test',
     summary:
-      'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
+      'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3D' +
+      'G0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
     developer: "Pete's Proptech World Ltd",
     homePage: 'http://google.com/abc',
     isDirectApi: true,
@@ -31,6 +32,6 @@ const props: AppCardProps = {
 
 describe('AppCard', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<AppCard {...props} />))).toMatchSnapshot()
+    expect(shallow(<AppCard {...props} />)).toMatchSnapshot()
   })
 })

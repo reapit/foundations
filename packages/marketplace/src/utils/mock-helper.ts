@@ -1,5 +1,4 @@
 import { RouteComponentProps } from 'react-router'
-import { Href } from 'history'
 
 export function getMockRouterProps<P>(data: P) {
   const location = {

@@ -1,7 +1,5 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom'
 import { FlexContainerResponsive } from '@reapit/elements'
-import Routes from '@/constants/routes'
 import CallToAction from '../ui/call-to-action'
 
 export interface DeveloperSubmitAppSuccessfullyProps {
