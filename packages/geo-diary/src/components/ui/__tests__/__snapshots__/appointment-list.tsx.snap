@@ -1,0 +1,1394 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppointmentList Should match snapshot if having no data 1`] = `
+<div
+  className="py-8 px-3 text-center"
+>
+  No appointments
+</div>
+`;
+
+exports[`AppointmentList Should match snapshot if having no data 2`] = `
+<div
+  className="px-4 undefined"
+>
+  <div
+    className="mb-4"
+    key="NEP1600290"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="NEP1600290"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": true,
+                  "created": "2019-05-08T17:07:39",
+                  "end": "2019-05-11T18:00:00",
+                  "id": "NEP1600290",
+                  "modified": "2019-05-09T09:18:06",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "",
+                      "buildingNumber": "56",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 52.079532,
+                        "longitude": -0.790871,
+                      },
+                      "line1": "High Street",
+                      "line2": "The Stables",
+                      "line3": "Old Haversham",
+                      "line4": "Milton Keynes",
+                      "postcode": "MK19 7DZ",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-11T17:30:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="56 High Street"
+      hightlight={true}
+      key="NEP1600290"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "The Stables Old Haversham Milton Keynes MK19 7DZ",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "Appointment cancelled",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="BED1600537"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="BED1600537"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T17:00:15",
+                  "end": "2019-05-09T14:00:00",
+                  "id": "BED1600537",
+                  "modified": "2016-12-14T17:25:22",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "Cornerways",
+                      "buildingNumber": "68",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 52.135071,
+                        "longitude": -0.45936,
+                      },
+                      "line1": "The Embankment",
+                      "line2": "Bedford",
+                      "line3": "Bedfordshire",
+                      "line4": "",
+                      "postcode": "MK40 3PD",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-10-10T22:45:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="68 The Embankment"
+      hightlight={false}
+      key="BED1600537"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "Bedford Bedfordshire  MK40 3PD",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "10:45 PM - 02:00 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="BUC1600211"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="BUC1600211"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T16:56:37",
+                  "end": "2019-05-09T14:45:00",
+                  "id": "BUC1600211",
+                  "modified": "2019-05-12T08:19:24",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "The Pines",
+                      "buildingNumber": "34",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 51.924759,
+                        "longitude": -0.929362,
+                      },
+                      "line1": "Sandhill Road",
+                      "line2": "East Claydon",
+                      "line3": "Buckingham",
+                      "line4": "Buckinghamshire",
+                      "postcode": "MK18 2LZ",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-09T14:15:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="34 Sandhill Road"
+      hightlight={false}
+      key="BUC1600211"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "East Claydon Buckingham Buckinghamshire MK18 2LZ",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "02:15 PM - 02:45 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="BUC1600210"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="BUC1600210"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T16:44:46",
+                  "end": "2019-05-09T14:15:00",
+                  "id": "BUC1600210",
+                  "modified": "2019-05-11T14:45:40",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "Wayside",
+                      "buildingNumber": "",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 51.989592,
+                        "longitude": -1.06774,
+                      },
+                      "line1": "Little Tingewick",
+                      "line2": "Buckingham",
+                      "line3": "Buckinghamshire",
+                      "line4": "",
+                      "postcode": "MK18 4AG",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-09T13:30:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="Wayside Little Tingewick"
+      hightlight={false}
+      key="BUC1600210"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "Buckingham Buckinghamshire  MK18 4AG",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "01:30 PM - 02:15 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="STS1600403"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="STS1600403"
+            />
+          </div>,
+        ]
+      }
+      heading=" "
+      hightlight={false}
+      key="STS1600403"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "11:15 AM - 11:45 AM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="STS1600401"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="STS1600401"
+            />
+          </div>,
+        ]
+      }
+      heading=" "
+      hightlight={false}
+      key="STS1600401"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "03:15 PM - 04:00 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="NEP1600288"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="NEP1600288"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": true,
+                  "created": "2019-05-08T14:56:47",
+                  "end": "2019-05-09T17:00:00",
+                  "id": "NEP1600288",
+                  "modified": "2019-05-08T19:11:22",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "",
+                      "buildingNumber": "56",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 52.079532,
+                        "longitude": -0.790871,
+                      },
+                      "line1": "High Street",
+                      "line2": "The Stables",
+                      "line3": "Old Haversham",
+                      "line4": "Milton Keynes",
+                      "postcode": "MK19 7DZ",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-09T16:30:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="56 High Street"
+      hightlight={false}
+      key="NEP1600288"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "The Stables Old Haversham Milton Keynes MK19 7DZ",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "Appointment cancelled",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="STS1600396"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="STS1600396"
+            />
+          </div>,
+        ]
+      }
+      heading=" "
+      hightlight={false}
+      key="STS1600396"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "06:00 PM - 06:30 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="NEP1600287"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="NEP1600287"
+            />
+          </div>,
+        ]
+      }
+      heading=" "
+      hightlight={false}
+      key="NEP1600287"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "Appointment cancelled",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="BED1600534"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="BED1600534"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T14:31:27",
+                  "end": "2019-05-09T16:15:00",
+                  "id": "BED1600534",
+                  "modified": "2016-12-18T08:24:24",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "The Cottage",
+                      "buildingNumber": "",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 52.29491,
+                        "longitude": -0.512901,
+                      },
+                      "line1": "Shelton Road",
+                      "line2": "Yielden",
+                      "line3": "Bedfordshire",
+                      "line4": "",
+                      "postcode": "MK44 1AQ",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-09T15:15:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="The Cottage Shelton Road"
+      hightlight={false}
+      key="BED1600534"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "Yielden Bedfordshire  MK44 1AQ",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "03:15 PM - 04:15 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="STS1600394"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="STS1600394"
+            />
+          </div>,
+        ]
+      }
+      heading=" "
+      hightlight={false}
+      key="STS1600394"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "02:00 PM - 02:30 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="BED1600532"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="BED1600532"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T14:05:42",
+                  "end": "2019-05-11T16:30:00",
+                  "id": "BED1600532",
+                  "modified": "2019-05-12T17:59:02",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowet",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "",
+                      "buildingNumber": "49",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 52.188155,
+                        "longitude": -0.604618,
+                      },
+                      "line1": "The Causeway",
+                      "line2": "Carlton",
+                      "line3": "Bedford",
+                      "line4": "Bedfordshire",
+                      "postcode": "MK43 7LU",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-11T15:30:00",
+                  "typeId": "VL",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="49 The Causeway"
+      hightlight={false}
+      key="BED1600532"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "Carlton Bedford Bedfordshire MK43 7LU",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Market Appraisal",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "03:30 PM - 04:30 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="MKC1600312"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="MKC1600312"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T13:33:25",
+                  "end": "2019-05-09T17:00:00",
+                  "id": "MKC1600312",
+                  "modified": "2019-05-08T13:33:25",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "",
+                      "buildingNumber": "39",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 52.044516,
+                        "longitude": -0.689953,
+                      },
+                      "line1": "Foxfield",
+                      "line2": "Broughton Gate",
+                      "line3": "Milton Keynes",
+                      "line4": "Buckinghamshire",
+                      "postcode": "MK10 7BP",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-09T16:30:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="39 Foxfield"
+      hightlight={false}
+      key="MKC1600312"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "Broughton Gate Milton Keynes Buckinghamshire MK10 7BP",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "04:30 PM - 05:00 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="BED1600530"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="BED1600530"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T13:18:59",
+                  "end": "2019-05-11T17:00:00",
+                  "id": "BED1600530",
+                  "modified": "2019-05-12T08:33:02",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "The Firs",
+                      "buildingNumber": "",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 52.105969,
+                        "longitude": -0.353784,
+                      },
+                      "line1": "Bedford Road",
+                      "line2": "Northill",
+                      "line3": "Bedfordshire",
+                      "line4": "",
+                      "postcode": "SG18 9AW",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-11T15:00:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="The Firs Bedford Road"
+      hightlight={false}
+      key="BED1600530"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "Northill Bedfordshire  SG18 9AW",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "03:00 PM - 05:00 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="BUC1600209"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="BUC1600209"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T13:08:53",
+                  "end": "2019-05-09T13:30:00",
+                  "id": "BUC1600209",
+                  "modified": "2019-05-11T14:45:35",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "Wayside",
+                      "buildingNumber": "",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 51.989592,
+                        "longitude": -1.06774,
+                      },
+                      "line1": "Little Tingewick",
+                      "line2": "Buckingham",
+                      "line3": "Buckinghamshire",
+                      "line4": "",
+                      "postcode": "MK18 4AG",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-09T13:00:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="Wayside Little Tingewick"
+      hightlight={false}
+      key="BUC1600209"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "Buckingham Buckinghamshire  MK18 4AG",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "01:00 PM - 01:30 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="BED1600525"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="BED1600525"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T13:02:58",
+                  "end": "2019-05-09T14:00:00",
+                  "id": "BED1600525",
+                  "modified": "2016-12-14T16:30:47",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "The Homestead",
+                      "buildingNumber": "57",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 52.135071,
+                        "longitude": -0.45936,
+                      },
+                      "line1": "The Embankment",
+                      "line2": "Bedford",
+                      "line3": "Bedfordshire",
+                      "line4": "",
+                      "postcode": "MK40 3PD",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-09T13:30:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="57 The Embankment"
+      hightlight={false}
+      key="BED1600525"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "Bedford Bedfordshire  MK40 3PD",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "01:30 PM - 02:00 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="BED1600523"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="BED1600523"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T12:40:52",
+                  "end": "2019-05-09T12:00:00",
+                  "id": "BED1600523",
+                  "modified": "2016-12-13T17:12:40",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "",
+                      "buildingNumber": "54",
+                      "country": "GB",
+                      "geolocation": Object {
+                        "latitude": 52.161384,
+                        "longitude": -0.461113,
+                      },
+                      "line1": "Tyne Crescent",
+                      "line2": "Bedford",
+                      "line3": "Bedfordshire",
+                      "line4": "",
+                      "postcode": "MK41 7UJ",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-09T11:00:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="54 Tyne Crescent"
+      hightlight={false}
+      key="BED1600523"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "Bedford Bedfordshire  MK41 7UJ",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "11:00 AM - 12:00 PM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="MKC1600311"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="MKC1600311"
+            />
+            <Memo(ViewDirectionWithRedux)
+              appointment={
+                Object {
+                  "cancelled": false,
+                  "created": "2019-05-08T12:36:02",
+                  "end": "2019-05-11T11:30:00",
+                  "id": "MKC1600311",
+                  "modified": "2019-05-11T16:40:10",
+                  "negotiators": Array [
+                    Object {
+                      "id": "LJW",
+                      "name": "Liam Jowett",
+                    },
+                  ],
+                  "offices": Array [
+                    Object {
+                      "id": "RPT",
+                      "name": "Reapit",
+                    },
+                  ],
+                  "organiserId": "BED160186",
+                  "property": Object {
+                    "address": Object {
+                      "buildingName": "",
+                      "buildingNumber": "8",
+                      "country": "",
+                      "geolocation": Object {
+                        "latitude": 52.04681,
+                        "longitude": -0.710721,
+                      },
+                      "line1": "Deacon Place",
+                      "line2": "Middleton",
+                      "line3": "Milton Keynes",
+                      "line4": "",
+                      "postcode": "MK10 9FS",
+                    },
+                  },
+                  "recurring": false,
+                  "start": "2019-05-11T11:15:00",
+                  "typeId": "VW",
+                }
+              }
+            />
+          </div>,
+        ]
+      }
+      heading="8 Deacon Place"
+      hightlight={false}
+      key="MKC1600311"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaAddressCard
+                className="icon-list-icon"
+              />,
+              "text": "Middleton Milton Keynes  MK10 9FS",
+            },
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "11:15 AM - 11:30 AM",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+  <div
+    className="mb-4"
+    key="STS1600389"
+    onClick={[Function]}
+  >
+    <Tile
+      footerItems={
+        Array [
+          <div>
+            <Memo(CurrentLocButtonWithRedux)
+              id="STS1600389"
+            />
+          </div>,
+        ]
+      }
+      heading=" "
+      hightlight={false}
+      key="STS1600389"
+    >
+      <IconList
+        items={
+          Array [
+            Object {
+              "icon": <FaStreetView
+                className="icon-list-icon"
+              />,
+              "text": "Viewing",
+            },
+            Object {
+              "icon": <FaClock
+                className="icon-list-icon"
+              />,
+              "text": "Appointment cancelled",
+            },
+          ]
+        }
+      />
+    </Tile>
+  </div>
+</div>
+`;
