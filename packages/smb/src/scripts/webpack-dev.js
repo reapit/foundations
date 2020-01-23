@@ -3,17 +3,16 @@ const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-web
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
-
+const { EnvironmentPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 
-path.resolve(__dirname, '../', 'src/')
+const config = require(path.resolve(__dirname, '../../../..', 'reapit-config.json'))
 
 module.exports = {
   context: process.cwd(),
   entry: './src/core/index.tsx',
   output: {
-    path: path.join(process.cwd(), 'public', 'dist'),
+    path: path.join(process.cwd(), 'dist'),
     filename: '[name].[hash].js',
   },
   plugins: [
@@ -27,9 +26,7 @@ module.exports = {
       title: 'TypeScript',
       excludeWarnings: false,
     }),
-    new Dotenv({
-      path: path.join(process.cwd(), 'src', 'constants', '.env'),
-    }),
+    new EnvironmentPlugin(config[process.env.REAPIT_ENV]),
     new HtmlWebpackPlugin({
       inject: true,
       template: 'public/index.html',
@@ -125,23 +122,16 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        use: 'graphql-tag/loader',
-      },
     ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass'],
     alias: {
-      '@': path.resolve(__dirname, '../', 'src/'),
+      '@': path.resolve(__dirname, 'src/'),
     },
   },
   devtool: 'inline-source-map',
   devServer: {
-    open: true,
-    openPage: 'login',
     clientLogLevel: 'warning',
     historyApiFallback: true,
     stats: 'errors-only',

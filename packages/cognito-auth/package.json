@@ -1,0 +1,48 @@
+{
+  "name": "@reapit/cognito-auth",
+  "version": "2.0.14",
+  "description": "Simple wrapper around AWS Cognito for basic authentication flow",
+  "main": "dist/index.js",
+  "umd:main": "dist/cognito-auth.umd.production.js",
+  "module": "dist/cognito-auth.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "cross-env TZ=UTC jest --coverage --silent",
+    "test:ci": "cross-env TZ=UTC jest --coverage --silent --detectOpenHandles --forceExit",
+    "prepublish": "yarn test && yarn build",
+    "prebuild": "rimraf dist && rimraf public",
+    "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
+    "release:master": "node ./src/scripts/releaseMaster.js",
+    "checkVersion": "node ./src/scripts/checkVersion.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/cognitio-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reapit/cognitio-auth/issues"
+  },
+  "homepage": "https://github.com/reapit/cognitio-auth#readme",
+  "dependencies": {
+    "amazon-cognito-identity-js": "~3.0.13",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^8.5.1",
+    "hardtack": "^4.1.2"
+  },
+  "devDependencies": {
+    "@octokit/rest": "^16.35.0",
+    "@types/jsonwebtoken": "^8.3.5",
+    "@types/jest": "~24.0.15",
+    "@types/yaml": "^1.2.0",
+    "compare-versions": "^3.5.1",
+    "lint-staged": "~9.2.0",
+    "prettier": "~1.19.1",
+    "tsdx": "^0.11.0"
+  }
+}
