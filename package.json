@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
+
     "build": "lerna run build --parallel",
     "test": "lerna run test:ci --parallel",
     "lint": "eslint --ext=jsx,ts,tsx packages --fix",
@@ -11,6 +12,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@octokit/rest": "^16.38.1",
     "@reapit/config-manager": "^1.1.0",
     "@reapit/foundations-ts-definitions": "^0.0.4",
     "@redux-saga/testing-utils": "^1.0.5",
@@ -31,6 +33,7 @@
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-styled-components": "^1.10.6",
     "babel-plugin-tailwind-components": "^0.5.10",
+    "compare-versions": "^3.5.1",
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
@@ -51,6 +54,8 @@
     "prettier": "^1.19.1",
     "query-string": "^6.9.0",
     "rimraf": "^3.0.0",
+    "semver": "^7.1.1",
+    "sw2dts": "^2.6.2",
     "ts-jest": "^24.2.0",
     "ts-loader": "^6.2.1",
     "typescript": "~3.7.2",

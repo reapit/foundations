@@ -13,3 +13,9 @@ config-manager:
 
 cognito-auth:
   - packages/cognito-auth/**
+
+marketplace:
+  - packages/marketplace/**
+
+foundations-ts-definitons:
+  - packages/foundations-ts-definitons/**

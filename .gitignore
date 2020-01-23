@@ -35,3 +35,16 @@ yarn-error.log*
 /packages/*/*.log*
 /packages/*/src/*.log*
 *.log
+
+.cache/
+coverage/
+!dist/index.html
+dist-npm/
+dist-cdn/
+
+# os files
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
