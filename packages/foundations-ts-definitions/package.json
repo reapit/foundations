@@ -1,0 +1,43 @@
+{
+  "name": "@reapit/foundations-ts-definitions",
+  "version": "0.0.18",
+  "files": [
+    "types/*"
+  ],
+  "main": "./types/index.ts",
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
+  "license": "MIT",
+  "scripts": {
+    "fetch:platform": "node './scripts/fetch-platform-definition.js'",
+    "fetch:marketPlace": "node './scripts/fetch-marketplace-definition.js'",
+    "fetch:definition": "rimraf types && mkdir types && yarn fetch:platform && yarn fetch:marketPlace && yarn createIndexFile",
+    "createIndexFile": "node './scripts/create-index-file.js'",
+    "handleCronjob": "node ./scripts/handle-cronjob.js"
+  },
+  "devDependencies": {
+    "@octokit/rest": "^16.35.0",
+    "compare-versions": "^3.5.1",
+    "dotenv": "^8.2.0",
+    "husky": "^3.0.9",
+    "isomorphic-fetch": "^2.2.1",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "semver": "^6.3.0",
+    "sw2dts": "^2.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
