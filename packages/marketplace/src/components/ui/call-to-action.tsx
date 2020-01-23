@@ -23,7 +23,7 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
   buttonText,
   dataTest = '',
   buttonDataTest = '',
-  className = ''
+  className = '',
 }) => (
   <div className={className} data-test={dataTest}>
     <Alert className="mb-0" type={type} message={title} />

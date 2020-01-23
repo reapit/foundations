@@ -13,11 +13,11 @@ describe('appointments reducer', () => {
     const nextAppointmentPayload = nextAppointmentDataStub.data
     const newState = nextAppointmentReducer(undefined, {
       type: ActionTypes.NEXT_APPOINTMENT_VALIDATE_SUCCESS as ActionType,
-      data: nextAppointmentPayload
+      data: nextAppointmentPayload,
     })
     const expected = {
       ...defaultState,
-      data: nextAppointmentPayload
+      data: nextAppointmentPayload,
     }
     expect(newState).toEqual(expected)
   })
@@ -25,11 +25,11 @@ describe('appointments reducer', () => {
   it('should set reset the state when NEXT_APPOINTMENT_CLEAR action is called', () => {
     const newState = nextAppointmentReducer(undefined, {
       type: ActionTypes.NEXT_APPOINTMENT_CLEAR as ActionType,
-      data: null
+      data: null,
     })
     const expected = {
       ...defaultState,
-      data: null
+      data: null,
     }
     expect(newState).toEqual(expected)
   })

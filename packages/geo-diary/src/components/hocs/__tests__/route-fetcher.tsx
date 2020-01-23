@@ -7,14 +7,15 @@ import routeDispatcher from '../../../utils/route-dispatcher'
 
 jest.mock('../../../utils/route-dispatcher')
 
+const Component = () => <div>I am a component!</div>
 const props = {
-  Component: () => <div>I am a component!</div>,
+  Component: Component,
   routerProps: {
     match: {
       path: Routes.HOME,
-      params: { page: 1 }
-    }
-  } as RouteComponentProps<any, StaticContext, any>
+      params: { page: 1 },
+    },
+  } as RouteComponentProps<any, StaticContext, any>,
 }
 
 describe('RouteFetcher', () => {

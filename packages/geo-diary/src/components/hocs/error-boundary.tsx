@@ -24,21 +24,21 @@ export type ErrorProps = ErrorMappedActions & ErrorMappedProps
 export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
   static getDerivedStateFromError() {
     return {
-      hasFailed: true
+      hasFailed: true,
     }
   }
 
   constructor(props: ErrorProps) {
     super(props)
     this.state = {
-      hasFailed: false
+      hasFailed: false,
     }
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
     this.props.errorThrownComponent({
       type: 'COMPONENT',
-      message: errorMessages.DEFAULT_COMPONENT_ERROR
+      message: errorMessages.DEFAULT_COMPONENT_ERROR,
     })
     Sentry.withScope(scope => {
       scope.setExtras(info)
@@ -57,11 +57,11 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
 }
 
 export const mapStateToProps = (state: ReduxState): ErrorMappedProps => ({
-  componentError: state.error.componentError
+  componentError: state.error.componentError,
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): ErrorMappedActions => ({
-  errorThrownComponent: (error: ErrorData) => dispatch(errorThrownComponent(error))
+  errorThrownComponent: (error: ErrorData) => dispatch(errorThrownComponent(error)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ErrorBoundary)

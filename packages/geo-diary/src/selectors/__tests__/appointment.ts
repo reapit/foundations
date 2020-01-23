@@ -6,7 +6,7 @@ import {
   selectTomorrowAppointments,
   selectWeekAppointments,
   selectAppointmentsFilterTime,
-  selectAppointmentWithId
+  selectAppointmentWithId,
 } from '../appointments'
 import { ReduxState, ExtendedAppointmentModel } from '@/types/core'
 
@@ -14,7 +14,7 @@ describe('appointments selector', () => {
   describe('selectAppointmentWithId', () => {
     it('should run correctly', () => {
       const input = {
-        appointments: appointmentsDataStub
+        appointments: appointmentsDataStub,
       } as ReduxState
 
       const testedAppointment = (appointmentsDataStub?.appointments?._embedded as ExtendedAppointmentModel[])[0]
@@ -25,7 +25,7 @@ describe('appointments selector', () => {
   describe('selectAppointments', () => {
     it('should run correctly', () => {
       const input = {
-        appointments: appointmentsDataStub
+        appointments: appointmentsDataStub,
       } as ReduxState
       const output =
         appointmentsDataStub && appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
@@ -44,7 +44,7 @@ describe('appointments selector', () => {
   describe('selectAppointmentTypes', () => {
     it('should run correctly', () => {
       const input = {
-        appointments: appointmentsDataStub
+        appointments: appointmentsDataStub,
       } as ReduxState
       const output = appointmentsDataStub && appointmentsDataStub.appointments && appointmentsDataStub.appointmentTypes
       const result = selectAppointmentTypes(input)
@@ -63,8 +63,8 @@ describe('appointments selector', () => {
     it('should run correctly', () => {
       const input = {
         appointments: {
-          today: appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
-        }
+          today: appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded,
+        },
       } as ReduxState
       const output = appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
       const result = selectTodayAppointments(input)
@@ -83,8 +83,8 @@ describe('appointments selector', () => {
     it('should run correctly', () => {
       const input = {
         appointments: {
-          tomorrow: appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
-        }
+          tomorrow: appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded,
+        },
       } as ReduxState
       const output = appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
       const result = selectTomorrowAppointments(input)
@@ -103,8 +103,8 @@ describe('appointments selector', () => {
     it('should run correctly', () => {
       const input = {
         appointments: {
-          weekView: appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
-        }
+          weekView: appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded,
+        },
       } as ReduxState
       const output = appointmentsDataStub.appointments && appointmentsDataStub.appointments._embedded
       const result = selectWeekAppointments(input)
@@ -123,8 +123,8 @@ describe('appointments selector', () => {
     it('should run correctly', () => {
       const input = {
         appointments: {
-          time: 'Today'
-        }
+          time: 'Today',
+        },
       } as ReduxState
       const output = 'Today'
       const result = selectAppointmentsFilterTime(input)

@@ -15,7 +15,7 @@ import {
   getApplicantAttendees,
   getModalHeader,
   renderDateTime,
-  AppointmentModalProps
+  AppointmentModalProps,
 } from '../appointment-detail'
 
 import { attendees } from '../__stubs__/mockData'
@@ -49,7 +49,7 @@ describe('AppointmentModal', () => {
         attendee: {},
         offices: [],
         handleCancelAppointment: jest.fn(),
-        isConfirmContentVisible: false
+        isConfirmContentVisible: false,
       } as AppointmentModalProps
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
@@ -69,7 +69,7 @@ describe('AppointmentModal', () => {
         attendee: {},
         offices: [],
         handleCancelAppointment: jest.fn(),
-        isConfirmContentVisible: true
+        isConfirmContentVisible: true,
       } as AppointmentModalProps
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Modal')).toHaveLength(1)
@@ -80,7 +80,7 @@ describe('AppointmentModal', () => {
       const Header = getModalHeader({
         basicAddress: 'Some address',
         afterClose: jest.fn(),
-        type: { value: 'Some type' }
+        type: { value: 'Some type' },
       })
       const wrapper = shallow(<Header />)
       expect(wrapper).toMatchSnapshot()
@@ -99,7 +99,7 @@ describe('AppointmentModal', () => {
         attendee: {},
         offices: [],
         handleCancelAppointment: jest.fn(),
-        isConfirmContentVisible: false
+        isConfirmContentVisible: false,
       } as AppointmentModalProps
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
       expect(wrapper.find('Loader')).toHaveLength(1)
@@ -111,7 +111,7 @@ describe('AppointmentModal', () => {
     it('should run correctly and show Today', () => {
       const input = {
         startDate: '2016-12-18T16:30:00',
-        endDate: '2016-12-18T17:30:00'
+        endDate: '2016-12-18T17:30:00',
       }
       const dateData = renderStartAndEndDate(input.startDate, input.endDate)
       expect(dateData.indexOf('Today')).toEqual(-1)
@@ -119,7 +119,7 @@ describe('AppointmentModal', () => {
     it('should run correctly and not show Today', () => {
       const input = {
         startDate: '2019-01-01T16:30:00',
-        endDate: '2019-01-01T17:30:00'
+        endDate: '2019-01-01T17:30:00',
       }
       const dateData = renderStartAndEndDate(input.startDate, input.endDate)
       expect(dateData.indexOf('01 Jan 2019')).toBeGreaterThanOrEqual(0)
@@ -150,11 +150,11 @@ describe('AppointmentModal', () => {
             country: '',
             geolocation: {
               latitude: 52.1284,
-              longitude: -0.507145
-            }
-          }
+              longitude: -0.507145,
+            },
+          },
         },
-        attendees: []
+        attendees: [],
       }
 
       const data = renderDateTime(input)
@@ -185,11 +185,11 @@ describe('AppointmentModal', () => {
             country: '',
             geolocation: {
               latitude: 52.1284,
-              longitude: -0.507145
-            }
-          }
+              longitude: -0.507145,
+            },
+          },
         },
-        attendees: []
+        attendees: [],
       }
 
       const data = renderDateTime(input)
@@ -225,11 +225,11 @@ describe('AppointmentModal', () => {
             country: '',
             geolocation: {
               latitude: 52.1284,
-              longitude: -0.507145
-            }
-          }
+              longitude: -0.507145,
+            },
+          },
         },
-        attendees: []
+        attendees: [],
       }
       const data = renderAddress('DESKTOP' as LoginMode, input.property.address, input.property.id)
       const wrapper = shallow(<div>{data}</div>)
@@ -258,11 +258,11 @@ describe('AppointmentModal', () => {
             country: '',
             geolocation: {
               latitude: 52.1284,
-              longitude: -0.507145
-            }
-          }
+              longitude: -0.507145,
+            },
+          },
         },
-        attendees: []
+        attendees: [],
       }
       const data = renderAddress('DESKTOP' as LoginMode, input.property.address, input.property.id)
       expect(data).not.toBeNull()
@@ -299,8 +299,8 @@ describe('AppointmentModal', () => {
       const input = [
         {
           label: 'E-Mail',
-          detail: 'chase.maclean@reapitestates.net'
-        }
+          detail: 'chase.maclean@reapitestates.net',
+        },
       ]
       const data = renderCommunicationDetail(input)
       const wrapper = shallow(<div>{data}</div>)
@@ -310,8 +310,8 @@ describe('AppointmentModal', () => {
       const input = [
         {
           label: 'E-Mail',
-          detail: 'chase.maclean@reapitestates.net'
-        }
+          detail: 'chase.maclean@reapitestates.net',
+        },
       ]
       const data = renderCommunicationDetail(input)
       expect(data).not.toBeNull()
@@ -366,23 +366,23 @@ describe('AppointmentModal', () => {
       const mockState = {
         appointmentDetail: {
           confirmModal: {
-            isConfirmContentVisible: true
+            isConfirmContentVisible: true,
           },
           appointmentDetail: appointmentDataStub,
           isModalVisible: true,
-          loading: true
+          loading: true,
         },
         auth: {
           loginSession: {
-            loginIdentity: { userCode: 'cbryan@reapit.com' }
+            loginIdentity: { userCode: 'cbryan@reapit.com' },
           },
           refreshSession: {
-            mode: 'DESKTOP'
-          }
+            mode: 'DESKTOP',
+          },
         },
         appointments: {
-          appointmentTypes: []
-        }
+          appointmentTypes: [],
+        },
       } as ReduxState
       const expected = {
         isConfirmContentVisible: true,
@@ -397,40 +397,40 @@ describe('AppointmentModal', () => {
               communicationDetails: [
                 {
                   detail: '01632 963403',
-                  label: 'Home'
+                  label: 'Home',
                 },
                 {
                   detail: '07700 903403',
-                  label: 'Mobile'
+                  label: 'Mobile',
                 },
                 {
                   detail: '020 7946 3403',
-                  label: 'Work'
+                  label: 'Work',
                 },
                 {
                   detail: 'kgeddes225@rpsfiction.net',
-                  label: 'E-Mail'
-                }
+                  label: 'E-Mail',
+                },
               ],
               id: 'BED16000217',
-              name: 'Ms Kali Geddes'
-            }
+              name: 'Ms Kali Geddes',
+            },
           ],
           id: 'BED160186',
-          type: 'applicant'
+          type: 'applicant',
         },
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -440,16 +440,16 @@ describe('AppointmentModal', () => {
       const mockState = {
         appointmentDetail: {
           isModalVisible: true,
-          loading: true
+          loading: true,
         },
         auth: {
           loginSession: {
-            loginIdentity: { userCode: 'cbryan@reapit.com' }
-          }
+            loginIdentity: { userCode: 'cbryan@reapit.com' },
+          },
         },
         appointments: {
-          appointmentTypes: []
-        }
+          appointmentTypes: [],
+        },
       } as any
       const expected = {
         visible: true,
@@ -460,7 +460,7 @@ describe('AppointmentModal', () => {
         attendee: {},
         negotiators: [],
         offices: [],
-        isConfirmContentVisible: undefined
+        isConfirmContentVisible: undefined,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -506,9 +506,9 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'E-Mail',
-              detail: 'chase.maclean@reapitestates.net'
-            }
-          ]
+              detail: 'chase.maclean@reapitestates.net',
+            },
+          ],
         },
         {
           id: 'JJS1',
@@ -518,10 +518,10 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'E-Mail',
-              detail: 'cbryan@reapit.com'
-            }
-          ]
-        }
+              detail: 'cbryan@reapit.com',
+            },
+          ],
+        },
       ]
       const output = [
         {
@@ -532,10 +532,10 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'E-Mail',
-              detail: 'chase.maclean@reapitestates.net'
-            }
-          ]
-        }
+              detail: 'chase.maclean@reapitestates.net',
+            },
+          ],
+        },
       ]
       const result = filterLoggedInUser(input, 'JJS1')
       expect(result).toEqual(output)
@@ -551,9 +551,9 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'E-Mail',
-              detail: 'chase.maclean@reapitestates.net'
-            }
-          ]
+              detail: 'chase.maclean@reapitestates.net',
+            },
+          ],
         },
         {
           id: 'JJS2',
@@ -563,10 +563,10 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'E-Mail',
-              detail: 'chase.maclean@reapitestates.net'
-            }
-          ]
-        }
+              detail: 'chase.maclean@reapitestates.net',
+            },
+          ],
+        },
       ]
       const output = [
         {
@@ -577,9 +577,9 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'E-Mail',
-              detail: 'chase.maclean@reapitestates.net'
-            }
-          ]
+              detail: 'chase.maclean@reapitestates.net',
+            },
+          ],
         },
         {
           id: 'JJS2',
@@ -589,10 +589,10 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'E-Mail',
-              detail: 'chase.maclean@reapitestates.net'
-            }
-          ]
-        }
+              detail: 'chase.maclean@reapitestates.net',
+            },
+          ],
+        },
       ]
       const result = filterLoggedInUser(input, 'JSS')
       expect(result).toEqual(output)
@@ -608,9 +608,9 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'Home',
-              detail: '123456789'
-            }
-          ]
+              detail: '123456789',
+            },
+          ],
         },
         {
           id: 'JJS',
@@ -620,10 +620,10 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'Home',
-              detail: '123456789'
-            }
-          ]
-        }
+              detail: '123456789',
+            },
+          ],
+        },
       ]
       const output = [
         {
@@ -634,9 +634,9 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'Home',
-              detail: '123456789'
-            }
-          ]
+              detail: '123456789',
+            },
+          ],
         },
         {
           id: 'JJS',
@@ -646,10 +646,10 @@ describe('AppointmentModal', () => {
           communicationDetails: [
             {
               label: 'Home',
-              detail: '123456789'
-            }
-          ]
-        }
+              detail: '123456789',
+            },
+          ],
+        },
       ]
       const result = filterLoggedInUser(input, 'cbryan@reapit.com')
       expect(result).toEqual(output)

@@ -12,7 +12,7 @@ export interface ActionDetailModalMappedAction {
 export type AppDetailModalProps = Pick<ModalProps, 'visible' | 'afterClose'> & ActionDetailModalMappedAction
 
 const mapDispatchToProps = (dispatch: any): ActionDetailModalMappedAction => ({
-  setAppDetailModalStateBrowse: () => dispatch(setAppDetailModalStateBrowse())
+  setAppDetailModalStateBrowse: () => dispatch(setAppDetailModalStateBrowse()),
 })
 
 export const handleAfterClose = (setAppDetailModalStateBrowse: () => void, afterClose?: () => void) => () => {
@@ -25,7 +25,7 @@ export const handleAfterClose = (setAppDetailModalStateBrowse: () => void, after
 export const AppDetailModal: React.FunctionComponent<AppDetailModalProps> = ({
   visible = true,
   afterClose,
-  setAppDetailModalStateBrowse
+  setAppDetailModalStateBrowse,
 }) => {
   return (
     <Modal visible={visible} afterClose={handleAfterClose(setAppDetailModalStateBrowse, afterClose)} renderChildren>

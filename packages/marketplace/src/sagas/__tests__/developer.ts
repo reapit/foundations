@@ -2,7 +2,7 @@ import developerSagas, {
   developerDataFetch,
   developerRequestDataListen,
   developerCreate,
-  developerCreateListen
+  developerCreateListen,
 } from '../developer'
 import ActionTypes from '@/constants/action-types'
 import { call, put, takeLatest, all, fork, select } from '@redux-saga/core/effects'
@@ -10,7 +10,7 @@ import {
   developerLoading,
   developerReceiveData,
   developerRequestDataFailure,
-  developerSetFormState
+  developerSetFormState,
 } from '@/actions/developer'
 import { MARKETPLACE_HEADERS, URLS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -40,21 +40,21 @@ describe('developer fetch data', () => {
         url: `${URLS.apps}?developerId=${developerId}&PageNumber=${params.data.page}&PageSize=${APPS_PER_PAGE}`,
         method: 'GET',
         api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS
+        headers: MARKETPLACE_HEADERS,
       }),
       call(fetcher, {
         url: `${URLS.scopes}`,
         method: 'GET',
         api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS
-      })
-    ])
+        headers: MARKETPLACE_HEADERS,
+      }),
+    ]),
   )
 
   it('api call success', () => {
     const clone = gen.clone()
     expect(clone.next([appsDataStub.data, appPermissionStub]).value).toEqual(
-      put(developerReceiveData({ ...appsDataStub, scopes: appPermissionStub }))
+      put(developerReceiveData({ ...appsDataStub, scopes: appPermissionStub })),
     )
     expect(clone.next().done).toBe(true)
   })
@@ -83,9 +83,9 @@ describe('developer fetch data', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
   })
 })
@@ -100,8 +100,8 @@ describe('developer create', () => {
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       body: params,
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
   it('api call success', () => {
     const clone = gen.clone()
@@ -116,9 +116,9 @@ describe('developer create', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().done).toEqual(true)
   })
@@ -130,7 +130,7 @@ describe('developer thunks', () => {
       const gen = developerRequestDataListen()
 
       expect(gen.next().value).toEqual(
-        takeLatest<Action<number>>(ActionTypes.DEVELOPER_REQUEST_DATA, developerDataFetch)
+        takeLatest<Action<number>>(ActionTypes.DEVELOPER_REQUEST_DATA, developerDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

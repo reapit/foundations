@@ -52,7 +52,7 @@ export const handleOnCardClick = ({
   setStateViewBrowse,
   appDetail,
   fetchAppDetail,
-  clientId
+  clientId,
 }: onCardClickParams) => (app: AppSummaryModel) => {
   setVisible(true)
   setStateViewBrowse()
@@ -70,7 +70,7 @@ export const handleInstallationDone = ({
   installationsSetFormState,
   fetchAppDetail,
   appDetail,
-  clientId
+  clientId,
 }) => () => {
   if (isDone) {
     installationsSetFormState('PENDING')
@@ -91,7 +91,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   installationsFormState,
   installationsSetFormState,
   firstLogin = false,
-  userAcceptTermAndCondition
+  userAcceptTermAndCondition,
 }) => {
   const pageNumber =
     !isNaN(Number(getParamValueFromPath(location.search, 'page'))) &&
@@ -109,7 +109,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
   const isDone = installationsFormState === 'DONE'
 
   React.useEffect(handleInstallationDone({ isDone, installationsSetFormState, fetchAppDetail, appDetail, clientId }), [
-    isDone
+    isDone,
   ])
 
   return (
@@ -131,7 +131,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
                     setStateViewBrowse,
                     appDetail,
                     fetchAppDetail,
-                    clientId
+                    clientId,
                   })}
                   infoType="CLIENT_APPS_EMPTY"
                   numOfColumn={3}
@@ -148,7 +148,7 @@ export const Client: React.FunctionComponent<ClientProps> = ({
                 totalCount,
                 pageSize,
                 pageNumber,
-                onChange: handleOnChange(history)
+                onChange: handleOnChange(history),
               }}
               numOfColumn={3}
             />
@@ -166,14 +166,14 @@ export const mapStateToProps = (state: ReduxState): ClientMappedProps => ({
   appDetail: state.appDetail,
   clientId: selectClientId(state),
   installationsFormState: state.installations.formState,
-  firstLogin: state.auth.firstLogin
+  firstLogin: state.auth.firstLogin,
 })
 
 export const mapDispatchToProps = (dispatch: any): ClientMappedActions => ({
   setStateViewBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
   installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState)),
-  userAcceptTermAndCondition: () => dispatch(userAcceptTermAndCondition())
+  userAcceptTermAndCondition: () => dispatch(userAcceptTermAndCondition()),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Client))

@@ -22,14 +22,14 @@ export interface ClientParams {
 
 export const defaultState: ClientState = {
   loading: false,
-  clientData: null
+  clientData: null,
 }
 
 const clientReducer = (state: ClientState = defaultState, action: Action<any>): ClientState => {
   if (isType(action, clientLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -37,7 +37,7 @@ const clientReducer = (state: ClientState = defaultState, action: Action<any>): 
     return {
       ...state,
       loading: false,
-      clientData: action.data || null
+      clientData: action.data || null,
     }
   }
 
@@ -45,14 +45,14 @@ const clientReducer = (state: ClientState = defaultState, action: Action<any>): 
     return {
       ...state,
       loading: false,
-      clientData: action.data
+      clientData: action.data,
     }
   }
 
   if (isType(action, clientRequestDataFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 

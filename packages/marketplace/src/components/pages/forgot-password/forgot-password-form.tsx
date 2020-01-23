@@ -13,7 +13,7 @@ import {
   FormikProps,
   FormikBag,
   H5,
-  FlexContainerBasic
+  FlexContainerBasic,
 } from '@reapit/elements'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { Link } from 'react-router-dom'
@@ -37,7 +37,7 @@ export const ForgotPasswordForm: React.FC<ForgotPasswordFormProps> = ({
   isSubmitting,
   isValidating,
   isValid,
-  location
+  location,
 }) => {
   const isError = location.search === '?isError=1'
   const isSuccess = location.search === '?isSuccess=1'
@@ -72,12 +72,12 @@ export type ForgotPasswordValues = {
 }
 
 export const mapPropsToValues = (): ForgotPasswordValues => ({
-  email: ''
+  email: '',
 })
 
 export const handleSubmitForgotPassword = async (
   values: ForgotPasswordValues,
-  { props }: FormikBag<EnhanceForgotPasswordFormProps & RouteComponentProps, ForgotPasswordValues>
+  { props }: FormikBag<EnhanceForgotPasswordFormProps & RouteComponentProps, ForgotPasswordValues>,
 ) => {
   props.submitEmail(values.email)
 }
@@ -85,7 +85,7 @@ export const handleSubmitForgotPassword = async (
 export const withForgotPasswordForm = withFormik({
   displayName: 'WithForgotPasswordForm',
   mapPropsToValues,
-  handleSubmit: handleSubmitForgotPassword
+  handleSubmit: handleSubmitForgotPassword,
 })
 
 export type EnhanceForgotPasswordFormProps = {
@@ -94,7 +94,7 @@ export type EnhanceForgotPasswordFormProps = {
 
 const EnhanceForgotPasswordForm = compose<React.FC<EnhanceForgotPasswordFormProps>>(
   withRouter,
-  withForgotPasswordForm
+  withForgotPasswordForm,
 )(ForgotPasswordForm)
 EnhanceForgotPasswordForm.displayName = 'EnhanceForgotPasswordForm'
 

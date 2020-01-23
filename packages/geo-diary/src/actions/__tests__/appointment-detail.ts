@@ -7,7 +7,7 @@ import {
   appointmentDetailHideModal,
   showHideConfirmModal,
   cancelAppointment,
-  showConfirmModalSubmitting
+  showConfirmModalSubmitting,
 } from '../appointment-detail'
 import ActionTypes from '../../constants/action-types'
 import { appointmentDataStub } from '../../sagas/__stubs__/appointment'

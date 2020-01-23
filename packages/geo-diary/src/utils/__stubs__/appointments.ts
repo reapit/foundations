@@ -11,8 +11,8 @@ export const appoinmentsStub: ExtendedAppointmentModel[] = [
     recurring: false,
     cancelled: true,
     property: {
-      address: {}
-    }
+      address: {},
+    },
   },
   {
     id: '2019-05-09T09:17:06',
@@ -35,10 +35,10 @@ export const appoinmentsStub: ExtendedAppointmentModel[] = [
         country: 'GB',
         geolocation: {
           latitude: 52.079532,
-          longitude: -0.790871
-        }
-      }
-    }
+          longitude: -0.790871,
+        },
+      },
+    },
   },
   {
     id: '2019-05-09T09:17:06',
@@ -61,9 +61,9 @@ export const appoinmentsStub: ExtendedAppointmentModel[] = [
         country: 'GB',
         geolocation: {
           latitude: 52.079532,
-          longitude: -0.790871
-        }
-      }
-    }
-  }
+          longitude: -0.790871,
+        },
+      },
+    },
+  },
 ]

@@ -2,7 +2,7 @@ import { put, takeLatest, call } from '@redux-saga/core/effects'
 import {
   developerSetStatusRequestSuccess,
   developerSetStatusRequestLoading,
-  developerSetStatusRequestFailure
+  developerSetStatusRequestFailure,
 } from '@/actions/developer-set-status'
 import ActionTypes from '@/constants/action-types'
 import { Action } from '@/types/core'
@@ -25,7 +25,7 @@ export const developerSetStatusRequestSaga = function*({ data: dev }) {
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       body: { ...dev, companyName: dev.company },
       method: 'PUT',
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
 
     yield put(developerSetStatusRequestSuccess())
@@ -34,8 +34,8 @@ export const developerSetStatusRequestSaga = function*({ data: dev }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

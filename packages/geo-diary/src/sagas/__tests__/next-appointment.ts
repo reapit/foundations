@@ -1,7 +1,7 @@
 import nextAppointmentSagas, {
   nextAppointmentDataListen,
   validateNextAppointment,
-  getCurrentPosition
+  getCurrentPosition,
 } from '@/sagas/next-appointment'
 import ActionTypes from '@/constants/action-types'
 import { takeLatest, all, fork, select, call, put } from '@redux-saga/core/effects'

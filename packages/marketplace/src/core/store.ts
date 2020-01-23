@@ -83,7 +83,7 @@ export class Store {
     resetPassword: resetPasswordReducer,
     installations: appInstallationsReducer,
     noticationMessage,
-    adminStats: adminStatsReducer
+    adminStats: adminStatsReducer,
   })
 
   static sagas = function*() {
@@ -106,7 +106,7 @@ export class Store {
       fork(adminAppsSagas),
       fork(resetPasswordSagas),
       fork(appInstallationsSagas),
-      fork(adminStatsSaga)
+      fork(adminStatsSaga),
     ])
   }
 

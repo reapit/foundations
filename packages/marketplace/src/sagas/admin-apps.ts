@@ -10,7 +10,7 @@ import {
   adminAppsReceiveData,
   adminAppsRequestFailure,
   AdminAppsFeaturedParams,
-  adminAppsSetFormState
+  adminAppsSetFormState,
 } from '@/actions/admin-apps'
 import { selectAdminAppsData } from '@/selector/admin'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
@@ -26,8 +26,8 @@ export const adminAppsFetch = function*() {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -41,8 +41,8 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
       yield put(
         errorThrownServer({
           type: 'SERVER',
-          message: 'Max 3 featured apps only'
-        })
+          message: 'Max 3 featured apps only',
+        }),
       )
       return
     }
@@ -56,7 +56,7 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       body: isFeatured ? { isFeatured } : undefined,
       method: isFeatured ? 'PUT' : 'DELETE',
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
 
     yield put(adminAppsSetFormState('SUCCESS'))
@@ -65,8 +65,8 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
     // if error revert back the old store
     yield put(adminAppsReceiveData({ ...rest, data }))

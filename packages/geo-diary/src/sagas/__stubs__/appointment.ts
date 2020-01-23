@@ -17,7 +17,7 @@ export const appointmentDataStub: ExtendedAppointmentModel = {
   followUp: {
     due: '2020-01-10T10:20:01',
     responseId: '',
-    notes: 'It has windows, a roof and doors'
+    notes: 'It has windows, a roof and doors',
   },
   property: {
     id: 'BED140946',
@@ -33,22 +33,22 @@ export const appointmentDataStub: ExtendedAppointmentModel = {
       country: 'GB',
       geolocation: {
         latitude: 52.223253,
-        longitude: -0.532454
-      }
-    }
+        longitude: -0.532454,
+      },
+    },
   },
   organiserId: 'BED160186',
   negotiators: [
     {
       id: 'LJW',
-      name: 'Liam Jowett'
-    }
+      name: 'Liam Jowett',
+    },
   ],
   offices: [
     {
       id: 'RPT',
-      name: 'Reapit'
-    }
+      name: 'Reapit',
+    },
   ],
   attendee: {
     id: 'BED160186',
@@ -60,23 +60,23 @@ export const appointmentDataStub: ExtendedAppointmentModel = {
         communicationDetails: [
           {
             label: 'Home',
-            detail: '01632 963403'
+            detail: '01632 963403',
           },
           {
             label: 'Mobile',
-            detail: '07700 903403'
+            detail: '07700 903403',
           },
           {
             label: 'Work',
-            detail: '020 7946 3403'
+            detail: '020 7946 3403',
           },
           {
             label: 'E-Mail',
-            detail: 'kgeddes225@rpsfiction.net'
-          }
-        ]
-      }
-    ]
+            detail: 'kgeddes225@rpsfiction.net',
+          },
+        ],
+      },
+    ],
   },
   accompanied: false,
   negotiatorConfirmed: false,
@@ -85,20 +85,20 @@ export const appointmentDataStub: ExtendedAppointmentModel = {
   metadata: {},
   _links: {
     self: {
-      href: '/appointments/RPT2000028'
+      href: '/appointments/RPT2000028',
     },
     type: {
-      href: '/configuration/appointmentTypes/VW'
+      href: '/configuration/appointmentTypes/VW',
     },
     organiser: {
-      href: '/negotiators/BED160186'
-    }
-  }
+      href: '/negotiators/BED160186',
+    },
+  },
 }
 
 export const appointmentDataStubWithNegotiatorsOfficesProperty: ExtendedAppointmentModel = {
   property: propertyStub,
   offices: [officeStub],
   negotiators: [negotiatorStub],
-  ...appointmentDataStub
+  ...appointmentDataStub,
 }

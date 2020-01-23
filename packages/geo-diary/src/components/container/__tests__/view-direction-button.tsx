@@ -6,7 +6,7 @@ import { appointmentDataStub } from '@/sagas/__stubs__/appointment'
 describe('ViewDirectionButton', () => {
   it('Should match snapshot', () => {
     const mockProps = {
-      handleOnClick: jest.fn()
+      handleOnClick: jest.fn(),
     }
     const wrapper = shallow(<ViewDirectionButton {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -14,7 +14,7 @@ describe('ViewDirectionButton', () => {
 
   it('Should call handleOnClick when clicked', () => {
     const mockProps = {
-      handleOnClick: jest.fn()
+      handleOnClick: jest.fn(),
     }
     const wrapper = shallow(<ViewDirectionButton {...mockProps} />)
     wrapper.simulate('click')
@@ -24,7 +24,7 @@ describe('ViewDirectionButton', () => {
   describe('mapDispatchToProps', () => {
     const mockedDispatch = jest.fn()
     const mockedOwnProps = {
-      appointment: appointmentDataStub
+      appointment: appointmentDataStub,
     }
 
     const { handleOnClick } = mapDispatchToProps(mockedDispatch, mockedOwnProps)

@@ -10,20 +10,20 @@ const appName = `Filter App By Name And Category - ${nanoid()}`
 const { categoryId } = sampleApp
 
 const {
-  actions: { deleteAppWithName }
+  actions: { deleteAppWithName },
 } = developerAppsPage
 
 const {
-  actions: { loginUsingClientAccount, loginUsingDeveloperAccount, loginUsingAdminAccount }
+  actions: { loginUsingClientAccount, loginUsingDeveloperAccount, loginUsingAdminAccount },
 } = loginPage
 
 const {
   actions: { clickViewDetailsButtonWithAppId },
-  selectors: { buttonApprove, btnConfirmApproval, btnApproveSuccess }
+  selectors: { buttonApprove, btnConfirmApproval, btnApproveSuccess },
 } = adminApprovalsPage
 
 const {
-  selectors: { searchInput, getCategoryWithId, btnAcceptWelcomeMessageModal }
+  selectors: { searchInput, getCategoryWithId, btnAcceptWelcomeMessageModal },
 } = clientAppsPage
 
 describe('Created app should appear in client search result happy path', () => {

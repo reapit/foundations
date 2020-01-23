@@ -8,7 +8,7 @@ describe('confirm-content', () => {
     const mockProps = {
       handleCancel: jest.fn(),
       handleConfirm: jest.fn(),
-      isSubmitting: false
+      isSubmitting: false,
     }
     const wrapper = shallow(<ConfirmContent {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -18,7 +18,7 @@ describe('confirm-content', () => {
     const mockProps = {
       handleCancel: jest.fn(),
       handleConfirm: jest.fn(),
-      isSubmitting: true
+      isSubmitting: true,
     }
     const wrapper = shallow(<ConfirmContent {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -29,12 +29,12 @@ describe('confirm-content', () => {
       const input = {
         appointmentDetail: {
           confirmModal: {
-            isSubmitting: true
-          }
-        }
+            isSubmitting: true,
+          },
+        },
       } as ReduxState
       const output = {
-        isSubmitting: true
+        isSubmitting: true,
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(output)
@@ -42,10 +42,10 @@ describe('confirm-content', () => {
 
     it('should run correctly when there is no appointmentDetail', () => {
       const input = {
-        appointmentDetail: {}
+        appointmentDetail: {},
       } as ReduxState
       const output = {
-        isSubmitting: false
+        isSubmitting: false,
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(output)

@@ -12,7 +12,7 @@ describe('appointmentDetail reducer', () => {
   it('should return appointmentDetail if action APPOINTMENT_DETAIL_RECEIVE_DATA called', () => {
     const newState = appointmentDetailReducer(undefined, {
       type: ActionTypes.APPOINTMENT_DETAIL_RECEIVE_DATA as ActionType,
-      data: appointmentDataStub
+      data: appointmentDataStub,
     })
     const expected = {
       appointmentDetail: appointmentDataStub,
@@ -20,8 +20,8 @@ describe('appointmentDetail reducer', () => {
       loading: false,
       confirmModal: {
         isConfirmContentVisible: false,
-        isSubmitting: false
-      }
+        isSubmitting: false,
+      },
     }
     expect(newState).toEqual(expected)
   })
@@ -29,7 +29,7 @@ describe('appointmentDetail reducer', () => {
   it('should return loading false if action APPOINTMENT_DETAIL_REQUEST_FAILURE called', () => {
     const newState = appointmentDetailReducer(undefined, {
       type: ActionTypes.APPOINTMENT_DETAIL_REQUEST_FAILURE as ActionType,
-      data: undefined
+      data: undefined,
     })
     const expected = {
       appointmentDetail: null,
@@ -37,8 +37,8 @@ describe('appointmentDetail reducer', () => {
       loading: false,
       confirmModal: {
         isConfirmContentVisible: false,
-        isSubmitting: false
-      }
+        isSubmitting: false,
+      },
     }
     expect(newState).toEqual(expected)
   })
@@ -46,7 +46,7 @@ describe('appointmentDetail reducer', () => {
   it('should return loading true if action APPOINTMENT_DETAIL_LOADING called', () => {
     const newState = appointmentDetailReducer(undefined, {
       type: ActionTypes.APPOINTMENT_DETAIL_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       appointmentDetail: null,
@@ -54,15 +54,15 @@ describe('appointmentDetail reducer', () => {
       loading: true,
       confirmModal: {
         isConfirmContentVisible: false,
-        isSubmitting: false
-      }
+        isSubmitting: false,
+      },
     }
     expect(newState).toEqual(expected)
   })
   it('should return isModalVisible true if action APPOINTMENT_DETAIL_SHOW_MODAL called', () => {
     const newState = appointmentDetailReducer(undefined, {
       type: ActionTypes.APPOINTMENT_DETAIL_SHOW_MODAL as ActionType,
-      data: undefined
+      data: undefined,
     })
     const expected = {
       appointmentDetail: null,
@@ -70,15 +70,15 @@ describe('appointmentDetail reducer', () => {
       isModalVisible: true,
       confirmModal: {
         isConfirmContentVisible: false,
-        isSubmitting: false
-      }
+        isSubmitting: false,
+      },
     }
     expect(newState).toEqual(expected)
   })
   it('should return isModalVisible false if action APPOINTMENT_DETAIL_HIDE_MODAL called', () => {
     const newState = appointmentDetailReducer(undefined, {
       type: ActionTypes.APPOINTMENT_DETAIL_HIDE_MODAL as ActionType,
-      data: undefined
+      data: undefined,
     })
     const expected = {
       appointmentDetail: null,
@@ -86,15 +86,15 @@ describe('appointmentDetail reducer', () => {
       isModalVisible: false,
       confirmModal: {
         isConfirmContentVisible: false,
-        isSubmitting: false
-      }
+        isSubmitting: false,
+      },
     }
     expect(newState).toEqual(expected)
   })
   it('should return isModalVisible false if action APPOINTMENT_DETAIL_HIDE_MODAL called', () => {
     const newState = appointmentDetailReducer(undefined, {
       type: ActionTypes.SHOW_HIDE_CONFIRM_MODAL as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       appointmentDetail: null,
@@ -102,8 +102,8 @@ describe('appointmentDetail reducer', () => {
       isModalVisible: false,
       confirmModal: {
         isSubmitting: false,
-        isConfirmContentVisible: true
-      }
+        isConfirmContentVisible: true,
+      },
     } as AppointmentDetailState
     expect(newState).toEqual(expected)
   })
@@ -111,7 +111,7 @@ describe('appointmentDetail reducer', () => {
   it('should return isModalVisible false if action SHOW_CONFIRM_MODAL_SUBMITTING called', () => {
     const newState = appointmentDetailReducer(undefined, {
       type: ActionTypes.SHOW_CONFIRM_MODAL_SUBMITTING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       appointmentDetail: null,
@@ -119,8 +119,8 @@ describe('appointmentDetail reducer', () => {
       isModalVisible: false,
       confirmModal: {
         isConfirmContentVisible: false,
-        isSubmitting: true
-      }
+        isSubmitting: true,
+      },
     } as AppointmentDetailState
     expect(newState).toEqual(expected)
   })

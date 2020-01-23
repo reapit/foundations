@@ -106,11 +106,11 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
 
 export const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
-  error: state.auth.error
+  error: state.auth.error,
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
-  login: (params: LoginParams) => dispatch(authLogin(params))
+  login: (params: LoginParams) => dispatch(authLogin(params)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))

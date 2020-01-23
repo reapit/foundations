@@ -7,7 +7,7 @@ import {
   handleSelectCategory,
   handleSearchApp,
   mapStateToProps,
-  FilterFormValues
+  FilterFormValues,
 } from '../app-sidebar'
 import CategoriesList from '@/components/ui/categories-list'
 import { addQuery, removeQuery } from '@/utils/client-url-params'
@@ -20,7 +20,7 @@ jest.mock('@/selector/app-categories')
 jest.mock('@/utils/client-url-params')
 
 const history = {
-  push: jest.fn()
+  push: jest.fn(),
 }
 
 const spy = jest.spyOn(history, 'push')
@@ -32,8 +32,8 @@ afterEach(() => {
 const props = {
   categories: appCategorieStub.data || [],
   location: {
-    search: 'page=1'
-  }
+    search: 'page=1',
+  },
 } as AppSidebarProps
 
 describe('AppSidebar', () => {
@@ -50,8 +50,8 @@ describe('AppSidebar', () => {
     const props = {
       values: {
         search: '1',
-        searchBy: '1'
-      }
+        searchBy: '1',
+      },
     } as FormikProps<FilterFormValues>
     it('should match a snapshot', () => {
       expect(shallow(<FilterForm {...props} />)).toMatchSnapshot()

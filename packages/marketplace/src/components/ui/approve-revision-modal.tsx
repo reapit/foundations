@@ -24,17 +24,17 @@ export interface ApproveRevisionModalMappedActions {
 
 const mapStateToProps = (
   state: ReduxState,
-  ownProps: ApproveRevisionModalWithConnectOwnProps
+  ownProps: ApproveRevisionModalWithConnectOwnProps,
 ): ApproveRevisionModalMappedProps => ({
   revisionDetail: state.revisionDetail,
   email: state?.auth?.loginSession?.loginIdentity?.email || '',
   name: state?.auth?.loginSession?.loginIdentity?.name || '',
   closeModal: ownProps.closeModal,
-  onApproveSuccess: ownProps.onApproveSuccess
+  onApproveSuccess: ownProps.onApproveSuccess,
 })
 
 const mapDispatchToProps = (dispatch: any): ApproveRevisionModalMappedActions => ({
-  submitApproveRevision: params => dispatch(approveRevision(params))
+  submitApproveRevision: params => dispatch(approveRevision(params)),
 })
 
 export type ApproveRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> &
@@ -62,7 +62,7 @@ export const ApproveRevisionModal: React.FunctionComponent<ApproveRevisionModalP
   submitApproveRevision,
   onApproveSuccess,
   name,
-  email
+  email,
 }) => {
   const { approveFormState } = revisionDetail
 

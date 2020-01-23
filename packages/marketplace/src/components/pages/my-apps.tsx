@@ -52,7 +52,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
   setStateViewManage,
   installationsFormState,
   installationsSetFormState,
-  history
+  history,
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !myAppsState.myAppsData
@@ -87,7 +87,7 @@ export const MyApps: React.FunctionComponent<MyAppsProps> = ({
           totalCount,
           pageSize,
           pageNumber,
-          onChange: handleOnChange(history)
+          onChange: handleOnChange(history),
         }}
       />
       <AppDetailModal visible={visible} afterClose={() => setVisible(false)} />
@@ -99,14 +99,14 @@ export const mapStateToProps = (state: ReduxState): MyAppsMappedProps => ({
   myAppsState: state.myApps,
   appDetail: state.appDetail,
   clientId: selectClientId(state),
-  installationsFormState: state.installations.formState
+  installationsFormState: state.installations.formState,
 })
 
 export const mapDispatchToProps = (dispatch: any): MyAppsMappedActions => ({
   setStateViewManage: () => dispatch(setAppDetailModalStateManage()),
   fetchAppDetail: (id: string, clientId: string) => dispatch(appDetailRequestData({ id, clientId })),
   fetchMyApp: (page: number) => dispatch(myAppsRequestData(page)),
-  installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState))
+  installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MyApps))

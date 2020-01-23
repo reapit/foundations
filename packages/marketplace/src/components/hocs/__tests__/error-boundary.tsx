@@ -12,8 +12,8 @@ const props = {
   errorThrownComponent: jest.fn(),
   componentError: {
     type: 'COMPONENT',
-    message: errorMessages.DEFAULT_COMPONENT_ERROR
-  } as ErrorData
+    message: errorMessages.DEFAULT_COMPONENT_ERROR,
+  } as ErrorData,
 }
 
 describe('ErrorBoundary', () => {
@@ -24,7 +24,7 @@ describe('ErrorBoundary', () => {
   it('should match a snapshot when has an error', () => {
     const component = shallow(<ErrorBoundary {...props} />)
     component.setState({
-      hasFailed: true
+      hasFailed: true,
     })
     expect(component).toMatchSnapshot()
   })
@@ -44,7 +44,7 @@ describe('ErrorBoundary', () => {
     expect(newPops.errorThrownComponent).toHaveBeenCalledTimes(1)
     expect(newPops.errorThrownComponent).toHaveBeenCalledWith({
       type: 'COMPONENT',
-      message: errorMessages.DEFAULT_COMPONENT_ERROR
+      message: errorMessages.DEFAULT_COMPONENT_ERROR,
     })
     expect((component.state() as ErrorState).hasFailed).toBe(true)
   })
@@ -56,12 +56,12 @@ describe('ErrorBoundary', () => {
           componentError: {
             status: 403,
             message: 'mockError',
-            type: 'SERVER'
-          }
-        }
+            type: 'SERVER',
+          },
+        },
       } as ReduxState
       const output = {
-        componentError: mockState.error.componentError
+        componentError: mockState.error.componentError,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(output)
@@ -70,11 +70,11 @@ describe('ErrorBoundary', () => {
     it('should run correctly', () => {
       const mockState = {
         error: {
-          componentError: null
-        }
+          componentError: null,
+        },
       } as ReduxState
       const output = {
-        componentError: null
+        componentError: null,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(output)
@@ -87,7 +87,7 @@ describe('ErrorBoundary', () => {
       const mockErrorData = {
         status: 403,
         message: 'mockError',
-        type: 'SERVER'
+        type: 'SERVER',
       } as ErrorData
       const { errorThrownComponent } = mapDispatchToProps(mockDispatch)
       errorThrownComponent(mockErrorData)

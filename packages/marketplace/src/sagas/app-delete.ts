@@ -23,8 +23,8 @@ export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

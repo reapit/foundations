@@ -12,11 +12,11 @@ describe('admin dev management reducer', () => {
   it('should set loading to true when ADMIN_DEV_MANAGEMENT_LOADING action is called', () => {
     const newState = adminDevManagementReducer(undefined, {
       type: ActionTypes.ADMIN_DEV_MANAGEMENT_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -29,8 +29,8 @@ describe('admin dev management reducer', () => {
         pageNumber: 1,
         pageSize: 10,
         pageCount: 10,
-        totalCount: 69
-      }
+        totalCount: 69,
+      },
     })
     const expected = {
       ...defaultState,
@@ -39,8 +39,8 @@ describe('admin dev management reducer', () => {
         pageNumber: 1,
         pageSize: 10,
         pageCount: 10,
-        totalCount: 69
-      }
+        totalCount: 69,
+      },
     }
     expect(newState).toEqual(expected)
   })
@@ -48,11 +48,11 @@ describe('admin dev management reducer', () => {
   it('should set loading to false when ADMIN_DEV_MANAGEMENT_REQUEST_FAILURE action is called', () => {
     const newState = adminDevManagementReducer(undefined, {
       type: ActionTypes.ADMIN_DEV_MANAGEMENT_REQUEST_FAILURE as ActionType,
-      data: null
+      data: null,
     })
     const expected = {
       ...defaultState,
-      loading: false
+      loading: false,
     }
     expect(newState).toEqual(expected)
   })

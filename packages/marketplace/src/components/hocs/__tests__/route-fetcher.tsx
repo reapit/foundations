@@ -13,12 +13,12 @@ const props = {
   routerProps: {
     match: {
       path: Routes.CLIENT,
-      params: { page: 1 }
+      params: { page: 1 },
     },
     location: {
-      search: 'page=1'
-    }
-  } as RouteComponentProps<any, StaticContext, any>
+      search: 'page=1',
+    },
+  } as RouteComponentProps<any, StaticContext, any>,
 }
 
 describe('RouteFetcher', () => {
@@ -32,7 +32,7 @@ describe('RouteFetcher', () => {
     expect(routeDispatcher).toHaveBeenCalledWith(
       props.routerProps.match.path,
       props.routerProps.match.params,
-      props.routerProps.location.search
+      props.routerProps.location.search,
     )
   })
 

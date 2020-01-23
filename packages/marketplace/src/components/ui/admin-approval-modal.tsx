@@ -20,7 +20,7 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   supportEmail: 'Support Email',
   telephone: 'Telephone',
   summary: 'Summary',
-  description: 'Description'
+  description: 'Description',
 }
 
 type DiffMediaModel = {
@@ -43,7 +43,7 @@ export const isAppearInScope = (nameNeedToFind: string | undefined, scopes: Scop
 export const renderCheckboxesDiff = ({
   scopes,
   appScopes,
-  revisionScopes
+  revisionScopes,
 }: {
   scopes: ScopeModel[]
   appScopes: ScopeModel[] | undefined
@@ -69,7 +69,7 @@ export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
       changedMedia: revisionMedia?.uri,
       currentMedia: app.media?.[index]?.uri,
       order: revisionMedia?.order || 0,
-      type: revisionMedia?.type || ''
+      type: revisionMedia?.type || '',
     }))
   }
 
@@ -77,7 +77,7 @@ export const getChangedMediaList = ({ app, revision }): DiffMediaModel[] => {
     changedMedia: revision.media?.[index]?.uri,
     currentMedia: currentMedia?.uri,
     order: currentMedia?.order || 0,
-    type: currentMedia?.type || 'media'
+    type: currentMedia?.type || 'media',
   }))
 }
 
@@ -87,7 +87,7 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModal
   appDetailState,
   closeParentModal,
   onApprovalClick,
-  onDeclineClick
+  onDeclineClick,
 }) => {
   if (revisionDetailState.loading || appDetailState.loading) {
     return <ModalBody body={<Loader />} />
@@ -203,7 +203,7 @@ export const mapStateToProps = (state: ReduxState, ownProps: AdminApprovalInnerW
   appDetailState: state.appDetail,
   closeParentModal: ownProps.closeParentModal,
   onApprovalClick: ownProps.onApprovalClick,
-  onDeclineClick: ownProps.onDeclineClick
+  onDeclineClick: ownProps.onDeclineClick,
 })
 
 export const withRedux = connect(mapStateToProps, null)
@@ -215,7 +215,7 @@ export type AdminApprovalInnerWithConnectProps = {
 }
 
 const AdminApprovalInnerWithConnect = compose<React.FC<AdminApprovalInnerWithConnectProps>>(withRedux)(
-  AdminApprovalModalInner
+  AdminApprovalModalInner,
 )
 
 export const handleOnApproveSuccess = (setIsApproveModalOpen: React.Dispatch<React.SetStateAction<boolean>>) => () => {
@@ -235,7 +235,7 @@ export type HandleSetIsApproveModalParams = {
 export const handleSetIsApproveModal = ({
   setIsApproveModalOpen,
   isApproveModalOpen,
-  afterClose
+  afterClose,
 }: HandleSetIsApproveModalParams) => () => {
   afterClose && afterClose()
   setIsApproveModalOpen(isApproveModalOpen)
@@ -250,7 +250,7 @@ export type HandleSetIsDeclineModalParams = {
 export const handleSetIsDeclineModal = ({
   setIsDeclineModalOpen,
   isDeclineModalOpen,
-  afterClose
+  afterClose,
 }: HandleSetIsDeclineModalParams) => () => {
   afterClose && afterClose()
   setIsDeclineModalOpen(isDeclineModalOpen)
@@ -260,7 +260,7 @@ export type AdminApprovalModalProps = Pick<ModalProps, 'visible' | 'afterClose'>
 
 export const AdminApprovalModal: React.FunctionComponent<AdminApprovalModalProps> = ({
   visible = true,
-  afterClose
+  afterClose,
 }) => {
   const [isApproveModalOpen, setIsApproveModalOpen] = React.useState(false)
   const [isDeclineModalOpen, setIsDeclineModalOpen] = React.useState(false)
@@ -277,7 +277,7 @@ export const AdminApprovalModal: React.FunctionComponent<AdminApprovalModalProps
         visible={isApproveModalOpen}
         afterClose={handleSetIsApproveModal({
           setIsApproveModalOpen,
-          isApproveModalOpen: false
+          isApproveModalOpen: false,
         })}
         onApproveSuccess={handleOnApproveSuccess(setIsApproveModalOpen)}
       />

@@ -12,11 +12,11 @@ describe('app-installations reducer', () => {
   it('should return loading true when APP_INSTALLATIONS_REQUEST_DATA action is called', () => {
     const newState = appInstallationsReducer(defaultState, {
       type: ActionTypes.APP_INSTALLATIONS_REQUEST_DATA as ActionType,
-      data: null
+      data: null,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -24,11 +24,11 @@ describe('app-installations reducer', () => {
   it('should return installationsAppData when APP_INSTALLATIONS_RECEIVE_DATA action is called', () => {
     const newState = appInstallationsReducer(defaultState, {
       type: ActionTypes.APP_INSTALLATIONS_RECEIVE_DATA as ActionType,
-      data: installationStub
+      data: installationStub,
     })
     const expected = {
       ...defaultState,
-      installationsAppData: installationStub
+      installationsAppData: installationStub,
     }
     expect(newState).toEqual(expected)
   })
@@ -36,11 +36,11 @@ describe('app-installations reducer', () => {
   it('should return loading false when APP_INSTALLATIONS_REQUEST_DATA_FAILURE action is called', () => {
     const newState = appInstallationsReducer(defaultState, {
       type: ActionTypes.APP_INSTALLATIONS_REQUEST_DATA_FAILURE as ActionType,
-      data: null
+      data: null,
     })
     const expected = {
       ...defaultState,
-      loading: false
+      loading: false,
     }
     expect(newState).toEqual(expected)
   })
@@ -48,11 +48,11 @@ describe('app-installations reducer', () => {
   it('should return formState when APP_INSTALLATIONS_SET_FORM_STATEL action is called', () => {
     const newState = appInstallationsReducer(defaultState, {
       type: ActionTypes.APP_INSTALLATIONS_SET_FORM_STATE as ActionType,
-      data: 'SUCCESS'
+      data: 'SUCCESS',
     })
     const expected = {
       ...defaultState,
-      formState: 'SUCCESS'
+      formState: 'SUCCESS',
     }
     expect(newState).toEqual(expected)
   })

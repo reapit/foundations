@@ -4,7 +4,7 @@ import {
   developerLoading,
   developerReceiveData,
   developerSetFormState,
-  developerRequestDataFailure
+  developerRequestDataFailure,
 } from '../actions/developer'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -32,19 +32,19 @@ export const developerDataFetch = function*({ data }) {
         url: `${URLS.apps}?developerId=${developerId}&PageNumber=${page}&PageSize=${appsPerPage}`,
         method: 'GET',
         api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS
+        headers: MARKETPLACE_HEADERS,
       }),
       call(fetcher, {
         url: `${URLS.scopes}`,
         method: 'GET',
         api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS
-      })
+        headers: MARKETPLACE_HEADERS,
+      }),
     ])
 
     const developerData: DeveloperItem = {
       data: appsData,
-      scopes
+      scopes,
     }
     if (developerData.data && developerData.scopes) {
       yield put(developerReceiveData(developerData))
@@ -56,8 +56,8 @@ export const developerDataFetch = function*({ data }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -71,7 +71,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       body: data,
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
     const status = regResponse ? 'SUCCESS' : 'ERROR'
     yield put(developerSetFormState(status))
@@ -81,8 +81,8 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

@@ -15,7 +15,7 @@ jest.mock('@reapit/cognito-auth')
 describe('developerResetPassword', () => {
   const gen = cloneableGenerator(developerResetPassword)({
     type: 'RESET_PASSWORD',
-    data: { password: '123', email: '123@gmail.com', verificationCode: '123', confirmPassword: '123' }
+    data: { password: '123', email: '123@gmail.com', verificationCode: '123', confirmPassword: '123' },
   })
   expect(gen.next().value).toEqual(put(resetPasswordLoading(true)))
 
@@ -45,9 +45,9 @@ describe('developerResetPassword', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().value).toEqual(put(resetPasswordLoading(false)))
     expect(clone.next().done).toEqual(true)
@@ -59,7 +59,7 @@ describe('reset-password thunks', () => {
     it('should submit data when called', () => {
       const gen = developerResetPasswordListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<ResetPasswordParams>>(ActionTypes.RESET_PASSWORD, developerResetPassword)
+        takeLatest<Action<ResetPasswordParams>>(ActionTypes.RESET_PASSWORD, developerResetPassword),
       )
       expect(gen.next().done).toBe(true)
     })

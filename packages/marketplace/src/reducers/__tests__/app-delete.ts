@@ -3,7 +3,7 @@ import {
   appDeleteSetInitFormState,
   appDeleteRequestSuccess,
   appDeleteRequestLoading,
-  appDeleteRequestFailure
+  appDeleteRequestFailure,
 } from '@/actions/app-delete'
 import { ActionType } from '../../types/core'
 import { RequestState } from '@/types/core'
@@ -12,7 +12,7 @@ const testData: Record<string, RequestState> = {
   pending: { formState: 'PENDING' },
   loading: { formState: 'SUBMITTING' },
   success: { formState: 'SUCCESS' },
-  error: { formState: 'ERROR' }
+  error: { formState: 'ERROR' },
 }
 
 describe('app-delete reducers', () => {

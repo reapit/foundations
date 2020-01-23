@@ -12,7 +12,7 @@ export interface CategoriesListProps {
 const CategoriesList: React.FunctionComponent<CategoriesListProps> = ({
   categories,
   selectedCategory,
-  onSelectCategory
+  onSelectCategory,
 }: CategoriesListProps) => {
   return (
     <ul className={styles.listCategories}>

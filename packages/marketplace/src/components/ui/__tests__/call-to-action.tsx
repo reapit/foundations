@@ -4,7 +4,7 @@ import CallToAction, { CallToActionCardProps } from '../call-to-action'
 
 const props: CallToActionCardProps = {
   buttonText: 'My button',
-  title: 'My title'
+  title: 'My title',
 }
 
 describe('CallToAction', () => {

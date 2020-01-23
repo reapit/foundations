@@ -12,7 +12,7 @@ describe('isEmail', () => {
       '"foobar"@example.com',
       '"foo\\@bar"@example.com',
       'test@gmail.com',
-      'test.1@gmail.com'
+      'test.1@gmail.com',
     ].forEach(email => expect(isEmail(email)).toBeTruthy())
   })
 
@@ -27,7 +27,7 @@ describe('isEmail', () => {
       'ends.with.dot.@gmail.com',
       'multiple..dots@gmail.com',
       'wrong()[]",:;<>@@gmail.com',
-      '"wrong()[]",:;<>@@gmail.com'
+      '"wrong()[]",:;<>@@gmail.com',
     ].forEach(email => expect(isEmail(email)).toBeFalsy())
   })
 })

@@ -7,7 +7,7 @@ import {
   useHelpGuideContext,
   HelpGuide,
   Button,
-  LevelRight
+  LevelRight,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
@@ -212,7 +212,7 @@ export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = (
 }
 
 export const mapDispatchToProps = (dispatch: any): DevelopeWelcomeMappedActions => ({
-  userAcceptTermAndCondition: () => dispatch(userAcceptTermAndCondition())
+  userAcceptTermAndCondition: () => dispatch(userAcceptTermAndCondition()),
 })
 
 export default connect(null, mapDispatchToProps)(DeveloperWelcomeMessage)

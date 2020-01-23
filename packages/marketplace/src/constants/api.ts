@@ -2,11 +2,11 @@ import { StringMap } from '../types/core'
 
 export const MARKETPLACE_HEADERS = {
   'Content-Type': 'application/json',
-  'X-Api-Key': process.env.MARKETPLACE_API_KEY as string
+  'X-Api-Key': process.env.MARKETPLACE_API_KEY as string,
 } as StringMap
 
 export const COGNITO_HEADERS = {
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
 } as StringMap
 
 export const URLS = {
@@ -17,5 +17,5 @@ export const URLS = {
   installations: '/installations',
   scopes: '/scopes',
   categories: '/categories',
-  docs: '/docs'
+  docs: '/docs',
 }

@@ -13,7 +13,7 @@ import { addQuery, removeQuery, getParamValueFromPath } from '@/utils/client-url
 
 export const filterOptions = [
   { label: 'By App Name', value: 'appName' },
-  { label: 'By Company', value: 'companyName' }
+  { label: 'By Company', value: 'companyName' },
 ]
 
 export interface AppSidebarMappedProps {
@@ -88,7 +88,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({ categories, location, hi
             initialValues={
               {
                 search: getParamValueFromPath(location.search, 'search'),
-                searchBy: getParamValueFromPath(location.search, 'searchBy') || 'appName'
+                searchBy: getParamValueFromPath(location.search, 'searchBy') || 'appName',
               } as FilterFormValues
             }
             onSubmit={handleSearchApp(history)}
@@ -109,7 +109,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({ categories, location, hi
 }
 
 export const mapStateToProps = (state: ReduxState): AppSidebarMappedProps => ({
-  categories: selectCategories(state)
+  categories: selectCategories(state),
 })
 
 export default withRouter(connect(mapStateToProps)(AppSidebar))

@@ -17,8 +17,8 @@ export const propertyStub: PropertyModel = {
     country: 'string',
     geolocation: {
       latitude: 0,
-      longitude: 0
-    }
+      longitude: 0,
+    },
   },
   areaId: 'string',
   strapline: 'string',
@@ -35,19 +35,19 @@ export const propertyStub: PropertyModel = {
   externalArea: {
     type: 'string',
     min: 0,
-    max: 0
+    max: 0,
   },
   internalArea: {
     type: 'string',
     min: 0,
-    max: 0
+    max: 0,
   },
   epc: {
     exempt: true,
     eer: 0,
     eerPotential: 0,
     eir: 0,
-    eirPotential: 0
+    eirPotential: 0,
   },
   selling: {
     instructed: '2020-01-21T07:51:06.766Z',
@@ -56,9 +56,9 @@ export const propertyStub: PropertyModel = {
     status: 'string',
     tenure: {
       type: 'string',
-      expiry: '2020-01-21T07:51:06.766Z'
+      expiry: '2020-01-21T07:51:06.766Z',
     },
-    vendorId: 'string'
+    vendorId: 'string',
   },
   letting: {
     instructed: '2020-01-21T07:51:06.766Z',
@@ -68,7 +68,7 @@ export const propertyStub: PropertyModel = {
     rentFrequency: 'string',
     term: 'string',
     status: 'string',
-    landlordId: 'string'
+    landlordId: 'string',
   },
   type: ['string'],
   style: ['string'],
@@ -80,29 +80,29 @@ export const propertyStub: PropertyModel = {
     {
       name: 'string',
       dimensions: 'string',
-      description: 'string'
-    }
+      description: 'string',
+    },
   ],
   officeIds: ['string'],
   metadata: {
     additionalProp1: {},
     additionalProp2: {},
-    additionalProp3: {}
+    additionalProp3: {},
   },
   _links: {
     additionalProp1: {
-      href: 'string'
+      href: 'string',
     },
     additionalProp2: {
-      href: 'string'
+      href: 'string',
     },
     additionalProp3: {
-      href: 'string'
-    }
+      href: 'string',
+    },
   },
   _embedded: {
     additionalProp1: {},
     additionalProp2: {},
-    additionalProp3: {}
-  }
+    additionalProp3: {},
+  },
 }

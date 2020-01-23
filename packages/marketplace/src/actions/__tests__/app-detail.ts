@@ -7,7 +7,7 @@ import {
   requestAuthenticationCode,
   requestAuthenticationSuccess,
   requestAuthenticationFailure,
-  removeAuthenticationCode
+  removeAuthenticationCode,
 } from '../app-detail'
 import ActionTypes from '../../constants/action-types'
 import { appDetailDataStub } from '../../sagas/__stubs__/app-detail'

@@ -9,7 +9,7 @@ import {
   renderForm,
   handleUseEffect,
   mapDispatchToProps,
-  mapStateToProps
+  mapStateToProps,
 } from '../login'
 import { ReduxState } from '@/types/core'
 import { LoginParams } from '@reapit/cognito-auth'
@@ -24,7 +24,7 @@ describe('Login', () => {
       location: mock,
       history: mock,
       match: mock,
-      hasSession: false
+      hasSession: false,
     }
 
     expect(shallow(<Login {...props} />)).toMatchSnapshot()
@@ -39,7 +39,7 @@ describe('Login', () => {
       location: mock,
       history: mock,
       match: mock,
-      hasSession: true
+      hasSession: true,
     }
 
     expect(shallow(<Login {...props} />)).toMatchSnapshot()
@@ -52,14 +52,14 @@ describe('Login', () => {
       const fn = onSubmitHandler(mockSetIsSubmitting, mockLogin)
       const mockValues = {
         email: '',
-        password: ''
+        password: '',
       }
       fn(mockValues)
       expect(mockSetIsSubmitting).toHaveBeenCalledWith(true)
       expect(mockLogin).toHaveBeenCalledWith({
         userName: mockValues.email,
         password: mockValues.password,
-        loginType: LOGIN_TYPE.CLIENT
+        loginType: LOGIN_TYPE.CLIENT,
       })
     })
 
@@ -73,7 +73,7 @@ describe('Login', () => {
       expect(mockLogin).toHaveBeenCalledWith({
         userName: mockValues.email,
         password: mockValues.password,
-        loginType: LOGIN_TYPE.CLIENT
+        loginType: LOGIN_TYPE.CLIENT,
       })
     })
   })
@@ -107,12 +107,12 @@ describe('Login', () => {
       const mockState = {
         auth: {
           loginSession: {},
-          error: false
-        }
+          error: false,
+        },
       } as ReduxState
       const expected = {
         hasSession: true,
-        error: false
+        error: false,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -121,12 +121,12 @@ describe('Login', () => {
     it('should run correctly', () => {
       const mockState = {
         auth: {
-          error: true
-        }
+          error: true,
+        },
       } as ReduxState
       const expected = {
         hasSession: false,
-        error: true
+        error: true,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)

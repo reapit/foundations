@@ -40,7 +40,7 @@ export const AppConfirmInstallContent = ({
   appDetailData,
   afterClose,
   setAppDetailModalStateBrowse,
-  setAppDetailModalStateSuccess
+  setAppDetailModalStateSuccess,
 }: AppConfirmInstallContentInnerProps) => {
   const isLoading = installationsFormState === 'SUBMITTING'
   const isSuccessed = installationsFormState === 'SUCCESS'
@@ -110,13 +110,13 @@ export const AppConfirmInstallContent = ({
 
 export const mapStateToProps = (state: ReduxState): AppConfirmInstallContentMappedProps => ({
   appDetailData: state?.appDetail?.appDetailData?.data,
-  installationsFormState: state.installations.formState
+  installationsFormState: state.installations.formState,
 })
 
 export const mapDispatchToProps = (dispatch: any): AppConfirmInstallContentMappedActions => ({
   setAppDetailModalStateBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   setAppDetailModalStateSuccess: () => dispatch(setAppDetailModalStateSuccess()),
-  installApp: (params: InstallParams) => () => dispatch(appInstallationsRequestInstall(params))
+  installApp: (params: InstallParams) => () => dispatch(appInstallationsRequestInstall(params)),
 })
 
 const AppConfirmInstallContentInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppConfirmInstallContent)

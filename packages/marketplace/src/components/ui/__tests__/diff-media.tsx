@@ -4,7 +4,7 @@ import DiffMedia, { DiffMediaProps } from '../diff-media'
 
 const props: DiffMediaProps = {
   changedMedia: 'image-1',
-  currentMedia: 'image-2'
+  currentMedia: 'image-2',
 }
 
 describe('DiffMedia', () => {

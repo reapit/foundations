@@ -17,7 +17,7 @@ describe('next-appointments actions', () => {
   it('should create a appointmentsRequestData action', () => {
     expect(nextAppointmentValidateSuccess.type).toEqual(ActionTypes.NEXT_APPOINTMENT_VALIDATE_SUCCESS)
     expect(nextAppointmentValidateSuccess(nextAppointmentDataStub.data as NextAppointment).data).toEqual(
-      nextAppointmentDataStub.data
+      nextAppointmentDataStub.data,
     )
   })
 })

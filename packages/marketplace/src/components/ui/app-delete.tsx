@@ -25,16 +25,16 @@ export type AppDeleteProps = Pick<ModalProps, 'visible' | 'afterClose'> & AppDel
 
 export const mapStateToProps = (
   state: ReduxState,
-  ownProps: AppDeleteModalWithConnectOwnProps
+  ownProps: AppDeleteModalWithConnectOwnProps,
 ): AppDeleteMappedProps => ({
   formState: state.appDelete.formState,
   appId: ownProps.appId,
   appName: ownProps.appName,
-  onDeleteSuccess: ownProps.onDeleteSuccess
+  onDeleteSuccess: ownProps.onDeleteSuccess,
 })
 
 export const mapDispatchToProps = (dispatch: any): AppDeleteMappedActions => ({
-  appDeleteRequest: (appId: string) => dispatch(appDeleteRequest(appId))
+  appDeleteRequest: (appId: string) => dispatch(appDeleteRequest(appId)),
 })
 
 export const handleAfterClose = ({ isSuccedded, onDeleteSuccess, isLoading, afterClose }) => () => {
@@ -52,7 +52,7 @@ export const DeleteAppModal = ({
   afterClose,
   visible,
   appDeleteRequest,
-  onDeleteSuccess
+  onDeleteSuccess,
 }: AppDeleteProps) => {
   const isLoading = formState === 'SUBMITTING'
   const isSuccedded = formState === 'SUCCESS'

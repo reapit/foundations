@@ -13,7 +13,7 @@ jest.mock('@reapit/elements')
 
 const params: Action<string> = {
   data: '1',
-  type: 'APP_DELETE_REQUEST'
+  type: 'APP_DELETE_REQUEST',
 }
 
 describe('app-delete sagas', () => {
@@ -39,9 +39,9 @@ describe('app-delete sagas', () => {
           put(
             errorThrownServer({
               type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR
-            })
-          )
+              message: errorMessages.DEFAULT_SERVER_ERROR,
+            }),
+          ),
         )
         expect(clone.next().done).toBe(true)
       }
@@ -53,7 +53,7 @@ describe('app-delete sagas', () => {
       it('should trigger app delete when called', () => {
         const gen = appDeleteRequestListen()
         expect(gen.next().value).toEqual(
-          takeLatest<Action<string>>(ActionTypes.APP_DELETE_REQUEST, appDeleteRequestSaga)
+          takeLatest<Action<string>>(ActionTypes.APP_DELETE_REQUEST, appDeleteRequestSaga),
         )
         expect(gen.next().done).toBe(true)
       })

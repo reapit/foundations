@@ -5,7 +5,7 @@ import {
   AdminDevManagementProps,
   onPageChangeHandler,
   onSearchHandler,
-  mapStateToProps
+  mapStateToProps,
 } from '../admin-dev-management'
 import { AdminDevManamgenetState } from '@/reducers/admin-dev-management'
 import { AdminDevManagementFilterFormValues } from '@/components/ui/admin-dev-management-filter-form'
@@ -20,7 +20,7 @@ describe('AdminDevManagement', () => {
       adminDevManagementState: { loading: false, data: undefined } as AdminDevManamgenetState,
       filterValues: {} as AdminDevManagementFilterFormValues,
       onPageChange: jest.fn(),
-      onSearch: jest.fn()
+      onSearch: jest.fn(),
     }
 
     expect(shallow(<AdminDevManagement {...props} />)).toMatchSnapshot()
@@ -32,7 +32,7 @@ describe('AdminDevManagement', () => {
       adminDevManagementState: { loading: true, data: undefined } as AdminDevManamgenetState,
       filterValues: {} as AdminDevManagementFilterFormValues,
       onPageChange: jest.fn(),
-      onSearch: jest.fn()
+      onSearch: jest.fn(),
     }
 
     expect(shallow(<AdminDevManagement {...props} />)).toMatchSnapshot()
@@ -44,7 +44,7 @@ describe('AdminDevManagement', () => {
       adminDevManagementState: { loading: false, data: [] } as AdminDevManamgenetState,
       filterValues: {} as AdminDevManagementFilterFormValues,
       onPageChange: jest.fn(),
-      onSearch: jest.fn()
+      onSearch: jest.fn(),
     }
 
     expect(shallow(<AdminDevManagement {...props} />)).toMatchSnapshot()
@@ -57,7 +57,7 @@ describe('onPageChangeHandler', () => {
   it('should return a function when executing', () => {
     const onPageChangeHandlerFn = onPageChangeHandler(mockRouterProps.history, {
       name: '',
-      company: ''
+      company: '',
     } as AdminDevManagementFilterFormValues)
     expect(onPageChangeHandlerFn).toBeDefined()
 
@@ -73,7 +73,7 @@ describe('onSearchHandler', () => {
 
     onSearchHandlerFn({
       name: '',
-      company: ''
+      company: '',
     } as AdminDevManagementFilterFormValues)
     expect(mockRouterProps.history.push).toBeCalled()
   })
@@ -84,8 +84,8 @@ describe('mapStateToProps', () => {
     const mockState = {
       adminDevManagement: {
         loading: true,
-        data: undefined
-      }
+        data: undefined,
+      },
     } as ReduxState
 
     const ownState: RouteComponentProps = mockRouterProps
@@ -96,7 +96,7 @@ describe('mapStateToProps', () => {
       adminDevManagementState: mockState.adminDevManagement,
       filterValues,
       onPageChange: expect.any(Function),
-      onSearch: expect.any(Function)
+      onSearch: expect.any(Function),
     }
 
     expect(result).toEqual(output)

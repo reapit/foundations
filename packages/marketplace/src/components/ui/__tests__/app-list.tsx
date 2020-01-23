@@ -18,8 +18,8 @@ const props: AppListProps = {
     pageNumber: 2,
     pageSize: 20,
     totalCount: 200,
-    onChange: jest.fn()
-  }
+    onChange: jest.fn(),
+  },
 }
 
 describe('AppList', () => {

@@ -27,14 +27,14 @@ export const validate = (values: CreateAppModel) => {
       'description',
       'summary',
       'screen1ImageUrl',
-      'authFlow'
-    ]
+      'authFlow',
+    ],
   })
 
   errors = validateEmail({
     values,
     currentErrors: errors,
-    keys: ['supportEmail']
+    keys: ['supportEmail'],
   })
 
   return errors

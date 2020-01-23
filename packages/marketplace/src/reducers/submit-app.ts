@@ -14,21 +14,21 @@ export interface SubmitAppState {
 export const defaultState: SubmitAppState = {
   loading: false,
   formState: 'PENDING',
-  submitAppData: null
+  submitAppData: null,
 }
 
 const submitAppReducer = (state: SubmitAppState | undefined = defaultState, action: Action<any>): SubmitAppState => {
   if (isType(action, submitAppSetFormState)) {
     return {
       ...state,
-      formState: action.data || null
+      formState: action.data || null,
     }
   }
 
   if (isType(action, submitAppLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -36,8 +36,8 @@ const submitAppReducer = (state: SubmitAppState | undefined = defaultState, acti
     return {
       ...state,
       submitAppData: {
-        scopes: action.data
-      }
+        scopes: action.data,
+      },
     }
   }
 

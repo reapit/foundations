@@ -9,7 +9,7 @@ import {
   InstalledAppsProps,
   handleOnChange,
   mapStateToProps,
-  handleOnCardClick
+  handleOnCardClick,
 } from '../installed-apps'
 import { ReduxState } from '@/types/core'
 import { handleLaunchApp } from '../../../utils/launch-app'
@@ -19,14 +19,14 @@ jest.mock('../../../utils/launch-app')
 const mockProps = (loading: boolean, installedAppsData: InstalledAppsItem | null): InstalledAppsProps => ({
   installedAppsState: {
     loading,
-    installedAppsData
+    installedAppsData,
   },
   // @ts-ignore: just pick the needed props for the test
   match: {
     params: {
-      page: '2'
-    }
-  }
+      page: '2',
+    },
+  },
 })
 
 describe('InstalledApps', () => {
@@ -40,7 +40,7 @@ describe('InstalledApps', () => {
 
   it('handleOnChange', () => {
     const mockHistory = {
-      push: jest.fn()
+      push: jest.fn(),
     }
     const fn = handleOnChange(mockHistory)
     fn(1)
@@ -49,11 +49,11 @@ describe('InstalledApps', () => {
 
   it('mapStateToProps', () => {
     const mockState = {
-      installedApps: {}
+      installedApps: {},
     } as ReduxState
     const result = mapStateToProps(mockState)
     const output = {
-      installedAppsState: {}
+      installedAppsState: {},
     }
     expect(result).toEqual(output)
   })

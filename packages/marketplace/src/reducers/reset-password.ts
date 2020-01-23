@@ -7,17 +7,17 @@ export interface ResetPasswordState {
 }
 
 export const defaultState: ResetPasswordState = {
-  loading: false
+  loading: false,
 }
 
 const resetPasswordReducer = (
   state: ResetPasswordState | undefined = defaultState,
-  action: Action<any>
+  action: Action<any>,
 ): ResetPasswordState => {
   if (isType(action, resetPasswordLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 

@@ -14,22 +14,22 @@ export const negotiatorStub: NegotiatorModel = {
   metadata: {
     additionalProp1: {},
     additionalProp2: {},
-    additionalProp3: {}
+    additionalProp3: {},
   },
   _links: {
     additionalProp1: {
-      href: 'string'
+      href: 'string',
     },
     additionalProp2: {
-      href: 'string'
+      href: 'string',
     },
     additionalProp3: {
-      href: 'string'
-    }
+      href: 'string',
+    },
   },
   _embedded: {
     additionalProp1: {},
     additionalProp2: {},
-    additionalProp3: {}
-  }
+    additionalProp3: {},
+  },
 }

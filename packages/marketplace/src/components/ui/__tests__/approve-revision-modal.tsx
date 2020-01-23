@@ -5,7 +5,7 @@ import {
   ApproveRevisionModal,
   ApproveRevisionModalProps,
   handleAfterClose,
-  handleOnSubmit
+  handleOnSubmit,
 } from '../approve-revision-modal'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
@@ -20,12 +20,12 @@ const props: ApproveRevisionModalProps = {
     revisionDetailData: {
       data: {
         appId: 'appIDd',
-        id: 'revisionID'
+        id: 'revisionID',
       },
-      scopes: appPermissionStub
+      scopes: appPermissionStub,
     },
-    approveFormState: 'PENDING'
-  }
+    approveFormState: 'PENDING',
+  },
 }
 
 describe('ApproveRevisionModal', () => {
@@ -39,7 +39,7 @@ describe('ApproveRevisionModal', () => {
         isSuccessed: true,
         onApproveSuccess: jest.fn(),
         isLoading: true,
-        afterClose: jest.fn()
+        afterClose: jest.fn(),
       }
       const fn = handleAfterClose(mockProps)
       fn()
@@ -50,7 +50,7 @@ describe('ApproveRevisionModal', () => {
         isSuccessed: false,
         onApproveSuccess: jest.fn(),
         isLoading: false,
-        afterClose: jest.fn()
+        afterClose: jest.fn(),
       }
       const fn = handleAfterClose(mockProps)
       fn()
@@ -63,7 +63,7 @@ describe('ApproveRevisionModal', () => {
       const mockProps = {
         appId: '123',
         appRevisionId: '123',
-        submitApproveRevision: jest.fn()
+        submitApproveRevision: jest.fn(),
       }
       const fn = handleOnSubmit(mockProps)
       fn({})

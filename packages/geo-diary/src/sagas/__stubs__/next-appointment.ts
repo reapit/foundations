@@ -8,6 +8,6 @@ export const nextAppointmentDataStub: NextAppointmentState = {
     durationValue: 900,
     durationText: '1h 30 mins',
     distanceValue: 100,
-    distanceText: '1 mile'
-  }
+    distanceText: '1 mile',
+  },
 }

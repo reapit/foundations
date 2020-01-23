@@ -22,13 +22,13 @@ export interface InstallationsMappedActions {
 
 export const mapStateToProps = (state: ReduxState): InstallationsMappedProps => ({
   installationsData: state.installations.installationsAppData,
-  loading: state.installations.loading
+  loading: state.installations.loading,
 })
 
 export const mapDispatchToProps = (dispatch: any): InstallationsMappedActions => ({
   fetchInstallationsApp: (params: InstallationParams) => () => {
     dispatch(appInstallationsRequestData(params))
-  }
+  },
 })
 
 export type InstallationsProps = InstallationsInnerProps & InstallationsMappedProps & InstallationsMappedActions
@@ -44,16 +44,16 @@ const generateColumns = (onUninstall: (app: InstallationModel) => () => void) =>
   return [
     {
       Header: 'Client',
-      accessor: 'client'
+      accessor: 'client',
     },
     {
       Header: 'Date Installed',
-      accessor: d => dayjs(d.created).format('DD/MM/YYYY')
+      accessor: d => dayjs(d.created).format('DD/MM/YYYY'),
     },
     {
       Header: 'Uninstall',
-      Cell: UninstallCell
-    }
+      Cell: UninstallCell,
+    },
   ]
 }
 
@@ -63,7 +63,7 @@ export const Installations: React.FC<InstallationsProps> = ({
   installationsData,
   onUninstall,
   afterClose,
-  fetchInstallationsApp
+  fetchInstallationsApp,
 }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)
   const { data = [], pageSize, totalCount } = installationsData || {}

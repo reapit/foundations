@@ -11,6 +11,6 @@ export default {
     },
     getCategoryWithId(id: number) {
       return cy.get(`a[data-test-category-id="${id}"]`)
-    }
-  }
+    },
+  },
 }

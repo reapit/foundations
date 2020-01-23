@@ -12,11 +12,11 @@ describe('admin approvals reducer', () => {
   it('should set loading to true when ADMIN_APPROVALS_LOADING action is called', () => {
     const newState = adminApprovalsReducer(undefined, {
       type: ActionTypes.ADMIN_APPROVALS_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -24,11 +24,11 @@ describe('admin approvals reducer', () => {
   it('should set approvals list data when ADMIN_APPROVALS_RECEIVE_DATA action is called', () => {
     const newState = adminApprovalsReducer(undefined, {
       type: ActionTypes.ADMIN_APPROVALS_RECEIVE_DATA as ActionType,
-      data: approvalsStub
+      data: approvalsStub,
     })
     const expected = {
       ...defaultState,
-      adminApprovalsData: approvalsStub
+      adminApprovalsData: approvalsStub,
     }
     expect(newState).toEqual(expected)
   })
@@ -36,11 +36,11 @@ describe('admin approvals reducer', () => {
   it('should clear approvals list data when ADMIN_APPROVALS_CLEAR_DATA action is called', () => {
     const newState = adminApprovalsReducer(undefined, {
       type: ActionTypes.ADMIN_APPROVALS_CLEAR_DATA as ActionType,
-      data: null
+      data: null,
     })
     const expected = {
       ...defaultState,
-      adminApprovalsData: null
+      adminApprovalsData: null,
     }
     expect(newState).toEqual(expected)
   })

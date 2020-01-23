@@ -8,10 +8,10 @@ describe('auth selector', () => {
         auth: {
           loginSession: {
             loginIdentity: {
-              userCode: 'mockUserCode'
-            }
-          }
-        }
+              userCode: 'mockUserCode',
+            },
+          },
+        },
       } as ReduxState
       const output = 'mockUserCode'
       const result = selectUserCode(input)

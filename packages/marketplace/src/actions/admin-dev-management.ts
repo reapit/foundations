@@ -8,12 +8,12 @@ export interface AdminDevManagementRequestDataValues {
 }
 
 export const adminDevManagementRequestData = actionCreator<AdminDevManagementRequestDataValues>(
-  ActionTypes.ADMIN_DEV_MANAGEMENT_REQUEST_DATA
+  ActionTypes.ADMIN_DEV_MANAGEMENT_REQUEST_DATA,
 )
 export const adminDevManagementRequestDataFailure = actionCreator<void>(
-  ActionTypes.ADMIN_DEV_MANAGEMENT_REQUEST_FAILURE
+  ActionTypes.ADMIN_DEV_MANAGEMENT_REQUEST_FAILURE,
 )
 export const adminDevManagementLoading = actionCreator<boolean>(ActionTypes.ADMIN_DEV_MANAGEMENT_LOADING)
 export const adminDevManagementReceiveData = actionCreator<PagedResultDeveloperModel_ | undefined>(
-  ActionTypes.ADMIN_DEV_MANAGEMENT_RECEIVE_DATA
+  ActionTypes.ADMIN_DEV_MANAGEMENT_RECEIVE_DATA,
 )

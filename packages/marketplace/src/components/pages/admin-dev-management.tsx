@@ -15,11 +15,11 @@ import {
   Loader,
   Section,
   setQueryParams,
-  Helper
+  Helper,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import AdminDevManagementFilterForm, {
-  AdminDevManagementFilterFormValues
+  AdminDevManagementFilterFormValues,
 } from '@/components/ui/admin-dev-management-filter-form'
 import AdminSetDeveloperStatusModal from '@/components/ui/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
@@ -45,7 +45,7 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
   filterValues,
   onPageChange,
   onSearch,
-  fetchData
+  fetchData,
 }) => {
   const [isSetStatusModalOpen, setIsSetStatusModalOpen] = React.useState(false)
   const [developer, setDeveloper] = React.useState({} as DeveloperModel)
@@ -86,7 +86,7 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
     {
       Header: '#',
       id: 'id',
-      Cell: HeaderCell
+      Cell: HeaderCell,
     },
     { Header: 'Name', accessor: 'name' },
     { Header: 'Company', accessor: 'company' },
@@ -96,8 +96,8 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
     {
       Header: '',
       id: 'buttonColumn',
-      Cell: ButtonCell
-    }
+      Cell: ButtonCell,
+    },
   ]
 
   if (loading || !data) {
@@ -145,7 +145,7 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
 }
 
 export const onPageChangeHandler = (history: History<any>, queryParams: AdminDevManagementFilterFormValues) => (
-  page: number
+  page: number,
 ) => {
   const query = setQueryParams(queryParams) ? `?${setQueryParams(queryParams)}` : ''
 
@@ -153,7 +153,7 @@ export const onPageChangeHandler = (history: History<any>, queryParams: AdminDev
 }
 
 export const onSearchHandler = (history: History<any>, match: { params: { page?: number } }) => (
-  queryParams: AdminDevManagementFilterFormValues
+  queryParams: AdminDevManagementFilterFormValues,
 ) => {
   const page = match.params.page || 1
   const query = setQueryParams(queryParams) ? `?${setQueryParams(queryParams)}` : ''
@@ -172,12 +172,12 @@ export const mapStateToProps = (state: ReduxState, ownState: RouteComponentProps
     adminDevManagementState: state.adminDevManagement,
     filterValues,
     onPageChange: onPageChangeHandler(history, filterValues),
-    onSearch: onSearchHandler(history, match)
+    onSearch: onSearchHandler(history, match),
   }
 }
 
 export const mapDispatchToProps = (dispatch: any) => ({
-  fetchData: (requestData: AdminDevManagementRequestDataValues) => dispatch(adminDevManagementRequestData(requestData))
+  fetchData: (requestData: AdminDevManagementRequestDataValues) => dispatch(adminDevManagementRequestData(requestData)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AdminDevManagement))

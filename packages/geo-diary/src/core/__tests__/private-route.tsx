@@ -13,7 +13,7 @@ describe('PrivateRouter', () => {
       <MemoryRouter initialEntries={['/my-path']}>
         <PrivateRoute allow="CLIENT" loginType="DEVELOPER" component={() => null} path="/my-path" />
         <Route path="/404" render={() => <div className="not-found" />} />
-      </MemoryRouter>
+      </MemoryRouter>,
     )
     expect(wrapper.find('.not-found')).toHaveLength(1)
   })
@@ -27,7 +27,7 @@ describe('PrivateRouter', () => {
           component={() => <div className="render-class" />}
           path="/client"
         />
-      </MemoryRouter>
+      </MemoryRouter>,
     )
     expect(wrapper.find('.render-class')).toHaveLength(1)
   })
@@ -41,7 +41,7 @@ describe('PrivateRouter', () => {
           component={() => <div className="render-class" />}
           path="/developer/my-apps"
         />
-      </MemoryRouter>
+      </MemoryRouter>,
     )
     expect(wrapper.find('.render-class')).toHaveLength(1)
   })

@@ -26,7 +26,7 @@ import {
   FormikHelpers,
   H6,
   RadioSelect,
-  FlexContainerResponsive
+  FlexContainerResponsive,
 } from '@reapit/elements'
 
 import { validate } from '@/utils/form/submit-app'
@@ -47,7 +47,7 @@ export interface SubmitAppMappedActions {
   submitApp: (
     appModel: CreateAppModel,
     actions: SubmitAppFormikActions,
-    setSubmitError: (error: string) => void
+    setSubmitError: (error: string) => void,
   ) => void
   submitAppSetFormState: (formState: FormState) => void
   submitRevision: (id: string, revision: CreateAppModel) => void
@@ -98,7 +98,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       name,
       isListed,
       isDirectApi,
-      scopes: appScopes
+      scopes: appScopes,
     } = appDetail
 
     const icon = (media || []).filter(({ order }) => order === 0)[0]
@@ -124,7 +124,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       isListed,
       isDirectApi,
       scopes: appScopes?.map(item => item.name),
-      ...images
+      ...images,
     }
   } else {
     initialValues = {
@@ -144,7 +144,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       description: '',
       summary: '',
       developerId,
-      scopes: []
+      scopes: [],
     }
   }
 
@@ -157,7 +157,7 @@ export const handleSubmitApp = ({
   submitRevision,
   setSubmitError,
   isAgreedTerms,
-  setShouldShowError
+  setShouldShowError,
 }) => (appModel: CreateAppModel, actions: FormikHelpers<CreateAppModel>) => {
   if (!isAgreedTerms) {
     setShouldShowError(true)
@@ -204,7 +204,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
   developerId,
   match,
   history,
-  categories
+  categories,
 }) => {
   let initialValues
   let formState
@@ -272,7 +272,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
 
   const categoryOptions: SelectBoxOptions[] = categories.map(category => ({
     value: category.id as string,
-    label: category.name as string
+    label: category.name as string,
   }))
 
   return (
@@ -293,7 +293,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
             submitRevision,
             setSubmitError,
             isAgreedTerms,
-            setShouldShowError
+            setShouldShowError,
           })}
         >
           {({ setFieldValue, values }) => {
@@ -522,7 +522,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         disabled={!isSubmitApp}
                         options={[
                           { label: 'USER SESSION', value: 'authorisationCode' },
-                          { label: 'CLIENT SECRET', value: 'clientCredentials' }
+                          { label: 'CLIENT SECRET', value: 'clientCredentials' },
                         ]}
                         name="authFlow"
                         id="authFlow"
@@ -627,7 +627,7 @@ const mapStateToProps = (state: ReduxState): SubmitAppMappedProps => ({
   appDetailState: state.appDetail,
   submitRevisionState: state.submitRevision,
   developerId: state.auth.loginSession ? state.auth.loginSession.loginIdentity.developerId : null,
-  categories: selectCategories(state)
+  categories: selectCategories(state),
 })
 
 const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
@@ -638,7 +638,7 @@ const mapDispatchToProps = (dispatch: any): SubmitAppMappedActions => ({
     dispatch(submitRevision({ ...revision, id }))
   },
   submitRevisionSetFormState: formState => dispatch(submitRevisionSetFormState(formState)),
-  submitAppSetFormState: formState => dispatch(submitAppSetFormState(formState))
+  submitAppSetFormState: formState => dispatch(submitAppSetFormState(formState)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SubmitApp))

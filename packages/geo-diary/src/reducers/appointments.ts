@@ -6,7 +6,7 @@ import {
   appointmentsLoading,
   appointmentsClearData,
   appointmentsRequestDataFailure,
-  setSelectedAppointment
+  setSelectedAppointment,
 } from './../actions/appointments'
 import { Action } from '../types/core'
 import { isType } from '../utils/actions'
@@ -40,21 +40,21 @@ export const defaultState: AppointmentsState = {
   weekView: null,
   time: 'Today',
   selectedAppointment: null,
-  appointmentTypes: null
+  appointmentTypes: null,
 }
 
 const appointmentsReducer = (state: AppointmentsState = defaultState, action: Action<any>): AppointmentsState => {
   if (isType(action, appointmentsRequestData)) {
     return {
       ...state,
-      time: action.data.time
+      time: action.data.time,
     }
   }
 
   if (isType(action, appointmentsLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -64,7 +64,7 @@ const appointmentsReducer = (state: AppointmentsState = defaultState, action: Ac
       loading: false,
       appointments: action.data.appointments,
       today: action.data.appointments,
-      appointmentTypes: action.data.appointmentTypes
+      appointmentTypes: action.data.appointmentTypes,
     }
   }
 
@@ -74,7 +74,7 @@ const appointmentsReducer = (state: AppointmentsState = defaultState, action: Ac
       loading: false,
       appointments: action.data.appointments,
       tomorrow: action.data.appointments,
-      appointmentTypes: action.data.appointmentTypes
+      appointmentTypes: action.data.appointmentTypes,
     }
   }
 
@@ -84,7 +84,7 @@ const appointmentsReducer = (state: AppointmentsState = defaultState, action: Ac
       loading: false,
       appointments: action.data.appointments,
       weekView: action.data.appointments,
-      appointmentTypes: action.data.appointmentTypes
+      appointmentTypes: action.data.appointmentTypes,
     }
   }
 
@@ -92,21 +92,21 @@ const appointmentsReducer = (state: AppointmentsState = defaultState, action: Ac
     return {
       ...state,
       loading: false,
-      appointments: null
+      appointments: null,
     }
   }
 
   if (isType(action, appointmentsRequestDataFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 
   if (isType(action, setSelectedAppointment)) {
     return {
       ...state,
-      selectedAppointment: action.data
+      selectedAppointment: action.data,
     }
   }
 

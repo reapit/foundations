@@ -9,10 +9,10 @@ describe('selectDeveloperId', () => {
           loginIdentity: {
             clientId: '',
             email: 'abc@gmail.com',
-            developerId: '123'
-          }
-        }
-      }
+            developerId: '123',
+          },
+        },
+      },
     } as ReduxState
     const result = selectDeveloperId(input)
     expect(result).toEqual('123')
@@ -30,9 +30,9 @@ describe('selectDeveloperEmail', () => {
     const input = {
       settings: {
         developerInfomation: {
-          email: 'abc@gmail.com'
-        }
-      }
+          email: 'abc@gmail.com',
+        },
+      },
     } as ReduxState
     const result = selectDeveloperEmail(input)
     expect(result).toEqual('abc@gmail.com')

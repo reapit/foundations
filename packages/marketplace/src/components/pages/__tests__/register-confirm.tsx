@@ -7,11 +7,11 @@ import { confirmRegistration } from '@reapit/cognito-auth'
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'), // use actual for all non-hook parts
   useLocation: () => ({ location: { search: '?userName=mockUserName@gmail.com&verificationCode=123' } }),
-  useHistory: () => ({ replace: jest.fn() })
+  useHistory: () => ({ replace: jest.fn() }),
 }))
 
 jest.mock('@reapit/cognito-auth', () => ({
-  confirmRegistration: jest.fn().mockResolvedValue('success')
+  confirmRegistration: jest.fn().mockResolvedValue('success'),
 }))
 
 describe('register-confirm', () => {
@@ -24,7 +24,7 @@ describe('register-confirm', () => {
     const mockParams = {
       userName: 'mockUserName@gmail.com',
       verificationCode: '123',
-      replace: jest.fn()
+      replace: jest.fn(),
     }
     const replaceSpy = jest.spyOn(mockParams, 'replace')
     afterEach(() => {

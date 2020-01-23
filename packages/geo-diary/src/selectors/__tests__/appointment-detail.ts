@@ -8,8 +8,8 @@ describe('appointment-detail selector', () => {
       // @ts-ignore: only pick property need for test
       const input = {
         appointmentDetail: {
-          appointmentDetail: appointmentDataStub
-        }
+          appointmentDetail: appointmentDataStub,
+        },
       } as ReduxState
       const output = appointmentDataStub
       const result = selectAppointmentDetail(input)

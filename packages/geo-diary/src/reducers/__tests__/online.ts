@@ -11,11 +11,11 @@ describe('online reducer', () => {
   it('should set online to true when ONLINE action is called', () => {
     const newState = onlineReducer(undefined, {
       type: ActionTypes.ONLINE as ActionType,
-      data: undefined
+      data: undefined,
     })
     const expected = {
       ...defaultState,
-      value: true
+      value: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -23,11 +23,11 @@ describe('online reducer', () => {
   it('should set online to false when OFFLINE action is called', () => {
     const newState = onlineReducer(undefined, {
       type: ActionTypes.OFFLINE as ActionType,
-      data: undefined
+      data: undefined,
     })
     const expected = {
       ...defaultState,
-      value: false
+      value: false,
     }
     expect(newState).toEqual(expected)
   })

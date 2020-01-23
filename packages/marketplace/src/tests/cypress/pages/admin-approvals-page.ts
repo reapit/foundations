@@ -8,8 +8,8 @@ const adminApprovalsPageMetaData = {
     buttonApprove: 'button[data-test="revision-approve-button"]',
     btnConfirmApproval: 'button[data-test="revision-approve-submit"]',
     btnApproveSuccess: 'button[data-test="approve-revision-success-button"]',
-    divApproveAppSuccessfully: 'div[data-test="approve-revision-success-message"]'
-  }
+    divApproveAppSuccessfully: 'div[data-test="approve-revision-success-message"]',
+  },
 }
 
 const adminApprovalsPage = {
@@ -28,8 +28,8 @@ const adminApprovalsPage = {
       cy.wait('@requestApproveApp')
 
       cy.get(divApproveAppSuccessfully).should('have.length', 1)
-    }
-  }
+    },
+  },
 }
 
 export default adminApprovalsPage

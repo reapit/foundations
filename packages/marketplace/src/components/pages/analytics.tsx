@@ -13,7 +13,7 @@ import {
   Loader,
   toLocalTime,
   Pagination,
-  setQueryParams
+  setQueryParams,
 } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
@@ -31,18 +31,18 @@ import { appDetailRequestData } from '@/actions/app-detail'
 const COLUMNS = [
   {
     Header: 'Client',
-    accessor: 'client'
+    accessor: 'client',
   },
   {
     Header: 'Date of installation',
-    accessor: row => toLocalTime(row.created)
+    accessor: row => toLocalTime(row.created),
   },
   {
     Header: 'Date of Uninstallation',
     accessor: row => {
       return row.terminatesOn ? toLocalTime(row.terminatesOn) : ''
-    }
-  }
+    },
+  },
 ]
 
 export interface AnalyticsPageMappedProps {
@@ -64,7 +64,7 @@ export const transformListAppToSelectBoxOptions = (app: AppSummaryModel) => {
 }
 
 export const transformAppInstalationsToTableColumsCompatible = (appName?: string) => (
-  appInstalls: InstallationModel
+  appInstalls: InstallationModel,
 ) => {
   return { ...appInstalls, appName }
 }
@@ -78,7 +78,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({
   appInstallations,
   appsOfDeveloper,
   appDetail,
-  requestAppDetailData
+  requestAppDetailData,
 }) => {
   // const pageNumber = match.params.page ? Number(match.params.page) : 1
   const [appId, setAppId] = React.useState<string>('')
@@ -131,7 +131,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({
                     name="appId"
                     options={
                       appsOfDeveloper?.developerData?.data?.data?.map<SelectBoxOptions>(
-                        transformListAppToSelectBoxOptions
+                        transformListAppToSelectBoxOptions,
                       ) ?? []
                     }
                   />
@@ -147,7 +147,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({
                         columns={COLUMNS}
                         data={
                           installations?.data?.map(
-                            transformAppInstalationsToTableColumsCompatible(appDetail?.appDetailData?.data?.name)
+                            transformAppInstalationsToTableColumsCompatible(appDetail?.appDetailData?.data?.name),
                           ) ?? []
                         }
                         loading={false}
@@ -180,11 +180,11 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({
 export const mapStateToProps: (state: ReduxState) => AnalyticsPageMappedProps = state => ({
   appInstallations: state.installations,
   appsOfDeveloper: state.developer,
-  appDetail: state.appDetail
+  appDetail: state.appDetail,
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch) => ({
-  requestAppDetailData: data => dispatch(appDetailRequestData(data))
+  requestAppDetailData: data => dispatch(appDetailRequestData(data)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AnalyticsPage))

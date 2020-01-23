@@ -21,8 +21,8 @@ describe('Swagger', () => {
     const output = {
       headers: {
         ...MARKETPLACE_HEADERS,
-        Authorization: 'Bearer null'
-      }
+        Authorization: 'Bearer null',
+      },
     }
     expect(result).toEqual(output)
   })

@@ -5,7 +5,7 @@ import revisionDetailSagas, {
   declineRevisionListen,
   approveRevision,
   declineRevision,
-  getApprovalPageNumber
+  getApprovalPageNumber,
 } from '../revision-detail'
 import { revisionDetailDataStub } from '../__stubs__/revision-detail'
 import ActionTypes from '@/constants/action-types'
@@ -18,7 +18,7 @@ import {
   approveRevisionSetFormState,
   RevisionApproveRequestParams,
   RevisionDeclineRequestParams,
-  declineRevisionSetFormState
+  declineRevisionSetFormState,
 } from '@/actions/revision-detail'
 import { Action } from '@/types/core'
 import { fetcher } from '@reapit/elements'
@@ -30,7 +30,7 @@ jest.mock('@reapit/elements')
 
 const params: Action<RevisionDetailRequestParams> = {
   type: 'REVISION_DETAIL_RECEIVE_DATA',
-  data: { appId: '9b6fd5f7-2c15-483d-b925-01b650538e52', appRevisionId: '9b6fd5f7-2c15-483d-b925-01b650538e52' }
+  data: { appId: '9b6fd5f7-2c15-483d-b925-01b650538e52', appRevisionId: '9b6fd5f7-2c15-483d-b925-01b650538e52' },
 }
 
 describe('revision-detail fetch data', () => {
@@ -41,8 +41,8 @@ describe('revision-detail fetch data', () => {
       url: `${URLS.apps}/${params.data.appId}/revisions/${params.data.appRevisionId}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
 
   expect(gen.next(revisionDetailDataStub.data).value).toEqual(
@@ -50,14 +50,14 @@ describe('revision-detail fetch data', () => {
       url: `${URLS.scopes}`,
       method: 'GET',
       api: process.env.MARKETPLACE_API_BASE_URL as string,
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
 
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(revisionDetailDataStub.scopes).value).toEqual(
-      put(revisionDetailReceiveData(revisionDetailDataStub))
+      put(revisionDetailReceiveData(revisionDetailDataStub)),
     )
     expect(clone.next().done).toBe(true)
   })
@@ -76,9 +76,9 @@ const approveSubmitParams: Action<RevisionApproveRequestParams> = {
     appId: '9b6fd5f7-2c15-483d-b925-01b650538e52',
     appRevisionId: '9b6fd5f7-2c15-483d-b925-01b650538e52',
     email: 'willmcvay@reapit.com',
-    name: 'Will McVay'
+    name: 'Will McVay',
   },
-  type: 'REVISION_SUBMIT_APPROVE'
+  type: 'REVISION_SUBMIT_APPROVE',
 }
 
 describe('revision approve submmit', () => {
@@ -92,8 +92,8 @@ describe('revision approve submmit', () => {
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       headers: MARKETPLACE_HEADERS,
-      body
-    })
+      body,
+    }),
   )
 
   test('api call success', () => {
@@ -116,9 +116,9 @@ const declineSubmitParams: Action<RevisionDeclineRequestParams> = {
     appRevisionId: '9b6fd5f7-2c15-483d-b925-01b650538e52',
     email: 'willmcvay@reapit.com',
     name: 'Will McVay',
-    rejectionReason: 'Typo mistake'
+    rejectionReason: 'Typo mistake',
   },
-  type: 'REVISION_SUBMIT_DECLINE'
+  type: 'REVISION_SUBMIT_DECLINE',
 }
 
 describe('revision decline submmit', () => {
@@ -132,8 +132,8 @@ describe('revision decline submmit', () => {
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       headers: MARKETPLACE_HEADERS,
-      body
-    })
+      body,
+    }),
   )
 
   test('api call success', () => {
@@ -157,8 +157,8 @@ describe('revision-detail thunks', () => {
       expect(gen.next().value).toEqual(
         takeLatest<Action<RevisionDetailRequestParams>>(
           ActionTypes.REVISION_DETAIL_REQUEST_DATA,
-          revisionDetailDataFetch
-        )
+          revisionDetailDataFetch,
+        ),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -169,7 +169,7 @@ describe('revision-detail thunks', () => {
       const gen = revisionDetailSagas()
 
       expect(gen.next().value).toEqual(
-        all([fork(revisionDetailDataListen), fork(approveRevisionListen), fork(declineRevisionListen)])
+        all([fork(revisionDetailDataListen), fork(approveRevisionListen), fork(declineRevisionListen)]),
       )
       expect(gen.next().done).toBe(true)
     })

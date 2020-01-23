@@ -30,9 +30,9 @@ export const handleOnClick = (dispatch, ownProps) => () => {
 
 export const mapDispatchToProps = (
   dispatch: Dispatch,
-  ownProps: { id: string | undefined }
+  ownProps: { id: string | undefined },
 ): ViewDetailButtonProps => ({
-  onClick: handleOnClick(dispatch, ownProps)
+  onClick: handleOnClick(dispatch, ownProps),
 })
 
 const CurrentLocButtonWithRedux = connect(null, mapDispatchToProps)(ViewDetailButton)

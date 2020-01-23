@@ -9,7 +9,7 @@ import {
   authClear,
   checkFirstTimeLogin,
   toggleFirstLogin,
-  userAcceptTermAndCondition
+  userAcceptTermAndCondition,
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { LoginType, LoginSession, LoginMode } from '@reapit/cognito-auth'
@@ -25,7 +25,7 @@ describe('auth actions', () => {
       userName: 'bob@acme.com',
       accessTokenExpiry: 1,
       accessToken: '',
-      refreshToken: ''
+      refreshToken: '',
     } as LoginSession
     expect(authLoginSuccess.type).toEqual(ActionTypes.AUTH_LOGIN_SUCCESS)
     expect(authLoginSuccess(loginSession).data).toEqual(loginSession)
@@ -53,7 +53,7 @@ describe('auth actions', () => {
       loginType: 'CLIENT' as LoginType,
       refreshToken: 'REFRESH_TOKEN',
       userName: 'bob@acme.com',
-      mode: 'DESKTOP' as LoginMode
+      mode: 'DESKTOP' as LoginMode,
     }
     expect(authSetRefreshSession.type).toEqual(ActionTypes.AUTH_SET_REFRESH_SESSION)
     expect(authSetRefreshSession(refreshParams).data).toEqual(refreshParams)

@@ -15,13 +15,13 @@ export const officeStub: OfficeModel = {
     line3: 'string',
     line4: 'string',
     postcode: 'string',
-    countryId: 'string'
+    countryId: 'string',
   },
   workPhone: 'string',
   email: 'string',
   metadata: {
     additionalProp1: {},
     additionalProp2: {},
-    additionalProp3: {}
-  }
+    additionalProp3: {},
+  },
 }

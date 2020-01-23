@@ -7,7 +7,7 @@ describe('notification message actions', () => {
     expect(showNotificationMessage.type).toEqual(ActionTypes.SHOW_NOTIFICATION_MESSAGE)
     const notificationMessageData: Partial<NotificationMessageState> = {
       variant: 'info',
-      message: 'Create successfully'
+      message: 'Create successfully',
     }
     expect(showNotificationMessage(notificationMessageData).data).toEqual(notificationMessageData)
   })

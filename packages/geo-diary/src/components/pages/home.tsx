@@ -43,14 +43,14 @@ export const tabConfigs = ({ currentTab, changeHomeTab }): TabConfig[] => [
     tabIdentifier: 'LIST',
     displayText: 'List',
     onTabClick: changeHomeTabHandler(changeHomeTab, 'LIST'),
-    active: currentTab === 'LIST'
+    active: currentTab === 'LIST',
   },
   {
     tabIdentifier: 'MAP',
     displayText: 'Map',
     onTabClick: changeHomeTabHandler(changeHomeTab, 'MAP'),
-    active: currentTab === 'MAP'
-  }
+    active: currentTab === 'MAP',
+  },
 ]
 
 const filterTimes: AppointmentsTime[] = ['Today', 'Tomorrow', 'Week View']
@@ -78,7 +78,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
   changeHomeTab,
   isOnline,
   desktopMode,
-  setSelectedAppointment
+  setSelectedAppointment,
 }) => {
   const unfetched = !appointmentsState.appointments
   const loading = appointmentsState.loading
@@ -92,7 +92,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
     appointmentsState.appointments,
     appointmentsState.time,
     appointmentsState.loading,
-    travelMode
+    travelMode,
   ])
 
   const handleTravelMode = React.useCallback(handleUseCallback({ setTravelMode }), [travelMode])
@@ -120,7 +120,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({
                   <Button
                     type="button"
                     variant="secondary"
-                    className={filter === time ? `is-selected is-info` : ''}
+                    className={filter === time ? 'is-selected is-info' : ''}
                     key={filter}
                     onClick={handleOnClickFilterTime({ filter, requestAppointments, time, setSelectedAppointment })}
                   >
@@ -159,7 +159,7 @@ export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   nextAppointmentState: state.nextAppointment,
   currentTab: state.home.homeTab,
   desktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
-  isOnline: selectOnlineStatus(state)
+  isOnline: selectOnlineStatus(state),
 })
 
 export interface HomeMappedActions {
@@ -178,7 +178,7 @@ export const mapDispatchToProps = (dispatch: any): HomeMappedActions => ({
   changeHomeTab: (tab: 'LIST' | 'MAP') => {
     dispatch(homeTabChange(tab))
     dispatch(setDestination(null))
-  }
+  },
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home))

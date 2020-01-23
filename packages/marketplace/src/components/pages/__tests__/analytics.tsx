@@ -4,7 +4,7 @@ import {
   AnalyticsPage,
   transformListAppToSelectBoxOptions,
   transformAppInstalationsToTableColumsCompatible,
-  handleSubmit
+  handleSubmit,
 } from '../analytics'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { mockLoginSession, mockRefreshParams } from '@/core/__mocks__/store'
@@ -22,12 +22,12 @@ const routerProps = appId =>
   ({
     match: {
       params: {
-        page: '2'
-      }
+        page: '2',
+      },
     },
     location: {
-      search: `page=1${appId ? `&appId=${appId}` : ''}`
-    }
+      search: `page=1${appId ? `&appId=${appId}` : ''}`,
+    },
   } as RouteComponentProps<any, StaticContext, any>)
 
 const mockProps = (
@@ -37,32 +37,32 @@ const mockProps = (
   appsOfDeveloper,
   appsOfDeveloperLoading,
   appDetail,
-  appDetailLoading
+  appDetailLoading,
 ) =>
   ({
     appInstallations: {
       installationsAppData: appInstallations,
       formState: 'SUCCESS',
-      loading: appInstallationsLoading
+      loading: appInstallationsLoading,
     },
     appsOfDeveloper: {
       developerData: {
         data: appsOfDeveloper,
-        scopes: []
+        scopes: [],
       },
       formState: 'SUCCESS',
       isVisible: true,
-      loading: appsOfDeveloperLoading
+      loading: appsOfDeveloperLoading,
     },
     appDetail: {
       appDetailData: appDetail,
       authentication: defaultAppAuthState,
       error: false,
       isStale: false,
-      loading: appDetailLoading
+      loading: appDetailLoading,
     },
     requestAppDetailData: jest.fn(),
-    ...routerProps(appId)
+    ...routerProps(appId),
   } as AnalyticsPageProps)
 
 describe('Analytics', () => {
@@ -77,10 +77,10 @@ describe('Analytics', () => {
             appsDataStub.data,
             false,
             appDetailDataStub,
-            false
+            false,
           )}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -95,10 +95,10 @@ describe('Analytics', () => {
             appsDataStub.data,
             false,
             appDetailDataStub,
-            false
+            false,
           )}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -107,8 +107,8 @@ describe('Analytics', () => {
       mount(
         <AnalyticsPage
           {...mockProps(appDetailDataStub.data.id, null, false, appsDataStub.data, false, appDetailDataStub, false)}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -123,10 +123,10 @@ describe('Analytics', () => {
             appsDataStub.data,
             true,
             appDetailDataStub,
-            false
+            false,
           )}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -141,10 +141,10 @@ describe('Analytics', () => {
             appsDataStub.data,
             false,
             appDetailDataStub,
-            false
+            false,
           )}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -159,10 +159,10 @@ describe('Analytics', () => {
             appsDataStub.data,
             false,
             appDetailDataStub,
-            false
+            false,
           )}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -177,10 +177,10 @@ describe('Analytics', () => {
             appsDataStub.data,
             false,
             appDetailDataStub,
-            true
+            true,
           )}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -195,10 +195,10 @@ describe('Analytics', () => {
             appsDataStub.data,
             false,
             appDetailDataStub,
-            false
+            false,
           )}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -207,8 +207,8 @@ describe('Analytics', () => {
       shallow(
         <AnalyticsPage
           {...mockProps(appDetailDataStub.data.id, installationsStub, false, appsDataStub.data, false, undefined, true)}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -217,8 +217,8 @@ describe('Analytics', () => {
       shallow(
         <AnalyticsPage
           {...mockProps(undefined, installationsStub, false, appsDataStub.data, false, appDetailDataStub, false)}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 })
@@ -229,60 +229,60 @@ describe('mapStateToProps', () => {
       installations: {
         installationsAppData: {
           ...installationsStub,
-          data: []
+          data: [],
         },
         formState: 'SUCCESS',
-        loading: true
+        loading: true,
       },
       developer: {
         developerData: {
           data: appsDataStub.data,
-          scopes: []
+          scopes: [],
         },
         formState: 'SUCCESS',
         isVisible: true,
-        loading: false
+        loading: false,
       },
       auth: {
         error: false,
         loginType: 'DEVELOPER',
         refreshSession: mockRefreshParams,
-        loginSession: mockLoginSession
+        loginSession: mockLoginSession,
       },
       appDetail: {
         appDetailData: appDetailDataStub,
         authentication: defaultAppAuthState,
         error: false,
         isStale: false,
-        loading: false
-      }
+        loading: false,
+      },
     } as Partial<ReduxState>
 
     const output = {
       appInstallations: {
         installationsAppData: {
           ...installationsStub,
-          data: []
+          data: [],
         },
         formState: 'SUCCESS',
-        loading: true
+        loading: true,
       },
       appsOfDeveloper: {
         developerData: {
           data: appsDataStub.data,
-          scopes: []
+          scopes: [],
         },
         formState: 'SUCCESS',
         isVisible: true,
-        loading: false
+        loading: false,
       },
       appDetail: {
         appDetailData: appDetailDataStub,
         authentication: defaultAppAuthState,
         error: false,
         isStale: false,
-        loading: false
-      }
+        loading: false,
+      },
     }
     const result = mapStateToProps(mockState as ReduxState)
     expect(result).toEqual(output)
@@ -334,7 +334,7 @@ describe('transformAppInstalationsToTableColumsCompatible', () => {
 describe('handleSubmit', () => {
   it('should run correctly', () => {
     const mockHistory = {
-      push: jest.fn(str => str)
+      push: jest.fn(str => str),
     }
 
     handleSubmit(mockHistory, 'appId', 1)
@@ -343,7 +343,7 @@ describe('handleSubmit', () => {
 
   it('should run correctly', () => {
     const mockHistory = {
-      push: jest.fn(str => str)
+      push: jest.fn(str => str),
     }
 
     handleSubmit(mockHistory, '', 1)
@@ -352,7 +352,7 @@ describe('handleSubmit', () => {
 
   it('should run correctly', () => {
     const mockHistory = {
-      push: jest.fn(str => str)
+      push: jest.fn(str => str),
     }
 
     handleSubmit(mockHistory, '')

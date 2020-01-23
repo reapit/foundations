@@ -8,17 +8,17 @@ export type DirectionState = {
 }
 
 export const defaultState: DirectionState = {
-  destination: null
+  destination: null,
 }
 
 export const directionReducer = (
   state: DirectionState = defaultState,
-  action: Action<ExtendedAppointmentModel | null>
+  action: Action<ExtendedAppointmentModel | null>,
 ): DirectionState => {
   if (isType(action, setDestination)) {
     return {
       ...state,
-      destination: action.data
+      destination: action.data,
     }
   }
 

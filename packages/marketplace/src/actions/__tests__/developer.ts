@@ -4,7 +4,7 @@ import {
   developerRequestData,
   developerClearData,
   developerCreate,
-  developerSetFormState
+  developerSetFormState,
 } from '../developer'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'
@@ -21,7 +21,7 @@ describe('developer actions', () => {
     expect(developerReceiveData.type).toEqual(ActionTypes.DEVELOPER_RECEIVE_DATA)
     expect(developerReceiveData({ ...appsDataStub, scopes: appPermissionStub }).data).toEqual({
       ...appsDataStub,
-      scopes: appPermissionStub
+      scopes: appPermissionStub,
     })
   })
 
@@ -40,7 +40,7 @@ describe('developer actions', () => {
       name: 'Bob',
       companyName: 'Acme',
       email: 'bob@acme.com',
-      telephone: '0123456789'
+      telephone: '0123456789',
     }
     expect(developerCreate.type).toEqual(ActionTypes.DEVELOPER_CREATE)
     expect(developerCreate(newDeveloper).data).toEqual(newDeveloper)

@@ -9,7 +9,7 @@ const props: AppAuthenticationDetailProps = {
   loading: false,
   code: '',
   requestAuthenticationCode: jest.fn(),
-  showError: jest.fn()
+  showError: jest.fn(),
 }
 
 describe('AppAuthenticationDetail', () => {

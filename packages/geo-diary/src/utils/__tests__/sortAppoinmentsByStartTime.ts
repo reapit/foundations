@@ -8,7 +8,7 @@ describe('sortAppoinmentsByStartTime', () => {
 
     const resultSortAppoinmentsByStartTime = sortAppoinmentsByStartTime(inputs)
     const startDatesOfResultSortAppoinmentsByStartTime = resultSortAppoinmentsByStartTime.map(
-      appoinment => appoinment.start
+      appoinment => appoinment.start,
     )
     expect(startDatesOfResultSortAppoinmentsByStartTime).toEqual(outputStartDates)
   })

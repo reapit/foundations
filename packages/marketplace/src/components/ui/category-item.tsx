@@ -11,7 +11,7 @@ export interface CategoryItemProps {
 const CategoryItem: React.FunctionComponent<CategoryItemProps> = ({
   category,
   selected,
-  onSelectCategory
+  onSelectCategory,
 }: CategoryItemProps) => {
   if (!category) {
     return (

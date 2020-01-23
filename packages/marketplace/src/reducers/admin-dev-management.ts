@@ -3,7 +3,7 @@ import { isType } from '../utils/actions'
 import {
   adminDevManagementLoading,
   adminDevManagementReceiveData,
-  adminDevManagementRequestDataFailure
+  adminDevManagementRequestDataFailure,
 } from '../actions/admin-dev-management'
 import { PagedResultDeveloperModel_ } from '@reapit/foundations-ts-definitions'
 
@@ -14,12 +14,12 @@ export interface AdminDevManamgenetState {
 
 export const defaultState: AdminDevManamgenetState = {
   loading: false,
-  data: undefined
+  data: undefined,
 }
 
 const adminDevManagementReducer = (
   state: AdminDevManamgenetState = defaultState,
-  action: Action<any>
+  action: Action<any>,
 ): AdminDevManamgenetState => {
   if (isType(action, adminDevManagementLoading)) {
     return { ...state, loading: action.data }
@@ -31,8 +31,8 @@ const adminDevManagementReducer = (
       loading: false,
       data: {
         ...action.data,
-        data: action.data?.data ? action.data?.data : []
-      }
+        data: action.data?.data ? action.data?.data : [],
+      },
     }
   }
 

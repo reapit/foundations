@@ -7,17 +7,17 @@ export interface SubmitRevisionState {
 }
 
 export const defaultState: SubmitRevisionState = {
-  formState: 'PENDING'
+  formState: 'PENDING',
 }
 
 const submitRevisionReducer = (
   state: SubmitRevisionState | undefined = defaultState,
-  action: Action<any>
+  action: Action<any>,
 ): SubmitRevisionState => {
   if (isType(action, submitRevisionSetFormState)) {
     return {
       ...state,
-      formState: (action.data as FormState) || null
+      formState: (action.data as FormState) || null,
     }
   }
 

@@ -12,11 +12,11 @@ describe('submitApp reducer', () => {
   it('should set formState to test when SETTING_SHOW_HIDE_LOADING action is called with test', () => {
     const newState = settingReducer(undefined, {
       type: ActionTypes.SETTING_SHOW_HIDE_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -24,11 +24,11 @@ describe('submitApp reducer', () => {
   it('should set loading to test when SETTING_FETCH_DEVELOPER_INFO_SUCCESS action is called with true', () => {
     const newState = settingReducer(undefined, {
       type: ActionTypes.SETTING_FETCH_DEVELOPER_INFO_SUCCESS as ActionType,
-      data: developerStub
+      data: developerStub,
     })
     const expected = {
       ...defaultState,
-      developerInfomation: developerStub
+      developerInfomation: developerStub,
     }
     expect(newState).toEqual(expected)
   })
