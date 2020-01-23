@@ -10,12 +10,12 @@ import {
   FormikProps,
   ModalFooter,
   Button,
-  H6
+  H6,
 } from '@reapit/elements'
 import {
   UninstallParams,
   appInstallationsRequestUninstall,
-  appInstallationsSetFormState
+  appInstallationsSetFormState,
 } from '@/actions/app-installations'
 import { FormState, ReduxState } from '@/types/core'
 import CallToAction from '../call-to-action'
@@ -56,7 +56,7 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
   installationDetail,
   onUninstallSuccess,
   handleSubmit,
-  setAppDetailStale
+  setAppDetailStale,
 }) => {
   const isSuccessed = formState === 'SUCCESS'
   const isSubmitting = formState === 'SUBMITTING'
@@ -117,13 +117,13 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
 // Redux
 
 export const mapStateToProps = (state: ReduxState): ConfirmUninstallMappedProps => ({
-  formState: state.installations.formState
+  formState: state.installations.formState,
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): ConfirmUninstallMappedActions => ({
   setFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState)),
   uninstallApp: (params: UninstallParams) => dispatch(appInstallationsRequestUninstall(params)),
-  setAppDetailStale: (stale: boolean) => dispatch(setAppDetailStale(stale))
+  setAppDetailStale: (stale: boolean) => dispatch(setAppDetailStale(stale)),
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps)
@@ -138,7 +138,7 @@ export interface TerminatedErrors {
 }
 
 export const mapPropsToValues = (): TerminatedValues => ({
-  terminatedReason: ''
+  terminatedReason: '',
 })
 
 export const handleSubmit = (values: TerminatedValues, { props }) => {
@@ -146,7 +146,7 @@ export const handleSubmit = (values: TerminatedValues, { props }) => {
   const params: UninstallParams = {
     installationId: id,
     appId: appId,
-    terminatedReason: values.terminatedReason
+    terminatedReason: values.terminatedReason,
   }
   props.uninstallApp(params)
 }
@@ -163,7 +163,7 @@ const withFormik = formik({
   displayName: 'Terminated',
   mapPropsToValues: mapPropsToValues,
   validate: validate,
-  handleSubmit: handleSubmit
+  handleSubmit: handleSubmit,
 })
 
 export default compose<React.FC<ConfirmUninstallInnerProps>>(withConnect, withFormik)(ConfirmUninstall)

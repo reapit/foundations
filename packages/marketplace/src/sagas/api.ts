@@ -7,11 +7,11 @@ export const fetchAdminApps = async ({ params }) => {
     const response = await fetcher({
       url: `${URLS.apps}?${setQueryParams({
         ...params,
-        pageSize: APPS_PER_PAGE
+        pageSize: APPS_PER_PAGE,
       })}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
     return response
   } catch (error) {
@@ -26,7 +26,7 @@ export const deleteApp = async ({ appId }) => {
       url: `${URLS.apps}/${appId}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'DELETE',
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
     return response
   } catch (error) {
@@ -37,5 +37,5 @@ export const deleteApp = async ({ appId }) => {
 
 export default {
   fetchAdminApps,
-  deleteApp
+  deleteApp,
 }

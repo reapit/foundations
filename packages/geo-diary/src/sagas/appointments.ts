@@ -2,14 +2,14 @@ import {
   selectTodayAppointments,
   selectAppointmentTypes,
   selectTomorrowAppointments,
-  selectWeekAppointments
+  selectWeekAppointments,
 } from './../selectors/appointments'
 import {
   appointmentsReceiveTodayData,
   appointmentsReceiveTomorrowData,
   appointmentsReceiveWeekData,
   appointmentsLoading,
-  appointmentsRequestDataFailure
+  appointmentsRequestDataFailure,
 } from './../actions/appointments'
 import dayjs from 'dayjs'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
@@ -92,12 +92,12 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
     const appointments = yield call(fetcher, {
-      url: `${
-        URLS.appointments
-      }?NegotiatorId=${userCode}&Start=${start.toISOString()}&End=${end.toISOString()}&IncludeCancelled=true&IncludeUnconfirmed=true`,
+      url:
+        `${URLS.appointments}?NegotiatorId=${userCode}&Start=${start.toISOString()}&End=${end.toISOString()}` +
+        '&IncludeCancelled=true&IncludeUnconfirmed=true',
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers
+      headers,
     })
 
     // Sort appoinments by start time
@@ -105,7 +105,7 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
       const sortedAppoinments = yield call(sortAppoinmentsByStartTime, appointments._embedded)
       appointments.data = sortedAppoinments
       appointments._embedded = yield all(
-        appointments._embedded.map(appointment => call(fetchAppointmentMetadata, appointment))
+        appointments._embedded.map(appointment => call(fetchAppointmentMetadata, appointment)),
       )
     }
 
@@ -113,7 +113,7 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
       url: URLS.appointmentTypes,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers
+      headers,
     })
 
     if (appointments && appointmentTypes) {
@@ -138,8 +138,8 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

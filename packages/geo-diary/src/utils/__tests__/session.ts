@@ -5,8 +5,8 @@ jest.mock('@/core/store', () => ({
   dispatch: jest.fn(),
   state: {
     online: {},
-    auth: {}
-  }
+    auth: {},
+  },
 }))
 
 jest.mock('@reapit/cognito-auth')

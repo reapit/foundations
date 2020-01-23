@@ -19,9 +19,9 @@ describe('AppointmentList', () => {
             selectedAppointment={null}
             setSelectedAppointment={jest.fn()}
             isOnline={false}
-          />
-        )
-      )
+          />,
+        ),
+      ),
     ).toMatchSnapshot()
   })
 
@@ -35,9 +35,9 @@ describe('AppointmentList', () => {
             selectedAppointment={appointmentsDataStub?.appointments?._embedded?.[0] as ExtendedAppointmentModel}
             setSelectedAppointment={jest.fn()}
             isOnline={false}
-          />
-        )
-      )
+          />,
+        ),
+      ),
     ).toMatchSnapshot()
   })
 
@@ -51,8 +51,8 @@ describe('AppointmentList', () => {
     const smallerAppointmentDataStub: AppointmentsData = {
       ...appointmentsDataStub,
       appointments: {
-        _embedded: appointmentsDataStub?.appointments?._embedded?.slice(0, 1)
-      }
+        _embedded: appointmentsDataStub?.appointments?._embedded?.slice(0, 1),
+      },
     }
 
     const wrapper = shallow(
@@ -62,7 +62,7 @@ describe('AppointmentList', () => {
         selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as ExtendedAppointmentModel}
         setSelectedAppointment={jest.fn()}
         isOnline={false}
-      ></AppointmentList>
+      ></AppointmentList>,
     )
 
     const iconList = wrapper.find(IconList).dive()
@@ -84,10 +84,10 @@ describe('AppointmentList', () => {
         _embedded: [
           {
             ...anAppointmentSub,
-            typeId: notExistTypeId
-          }
-        ]
-      }
+            typeId: notExistTypeId,
+          },
+        ],
+      },
     }
 
     const wrapper = shallow(
@@ -97,7 +97,7 @@ describe('AppointmentList', () => {
         selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as ExtendedAppointmentModel}
         setSelectedAppointment={jest.fn()}
         isOnline={false}
-      ></AppointmentList>
+      ></AppointmentList>,
     )
 
     const iconList = wrapper.find(IconList).dive()
@@ -124,12 +124,12 @@ describe('AppointmentList', () => {
                 line2: '',
                 line3: '',
                 line4: '',
-                postcode: ''
-              }
-            }
-          }
-        ]
-      }
+                postcode: '',
+              },
+            },
+          },
+        ],
+      },
     }
 
     const wrapper = shallow(
@@ -139,7 +139,7 @@ describe('AppointmentList', () => {
         selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as ExtendedAppointmentModel}
         setSelectedAppointment={jest.fn()}
         isOnline={false}
-      ></AppointmentList>
+      ></AppointmentList>,
     )
 
     const iconList = wrapper.find(IconList).dive()
@@ -168,12 +168,12 @@ describe('AppointmentList', () => {
                 line2: '',
                 line3: '',
                 line4: '',
-                postcode: ''
-              }
-            }
-          }
-        ]
-      }
+                postcode: '',
+              },
+            },
+          },
+        ],
+      },
     }
 
     const wrapper = shallow(
@@ -183,7 +183,7 @@ describe('AppointmentList', () => {
         selectedAppointment={appointmentsDataStub.appointments?._embedded?.[0] as ExtendedAppointmentModel}
         setSelectedAppointment={jest.fn()}
         isOnline={false}
-      ></AppointmentList>
+      ></AppointmentList>,
     )
 
     const iconList = wrapper.find(IconList).dive()
@@ -197,8 +197,8 @@ describe('AppointmentList', () => {
     it('should run correctly', () => {
       const mockRefAppointment = {
         current: {
-          scrollIntoView: jest.fn()
-        }
+          scrollIntoView: jest.fn(),
+        },
       }
       const fn = handleUseEffect({ refAppointment: mockRefAppointment })
       fn()

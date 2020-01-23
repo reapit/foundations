@@ -1,5 +1,4 @@
 import { AppointmentsData } from '@/reducers/appointments'
-import { ExtendedAppointmentModel } from '@/types/core'
 
 export const appointmentsDataStub: AppointmentsData = {
   appointments: {
@@ -25,23 +24,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 52.079532,
-              longitude: -0.790871
-            }
-          }
+              longitude: -0.790871,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'BED1600537',
@@ -64,23 +63,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 52.135071,
-              longitude: -0.45936
-            }
-          }
+              longitude: -0.45936,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'BUC1600211',
@@ -103,23 +102,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 51.924759,
-              longitude: -0.929362
-            }
-          }
+              longitude: -0.929362,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'BUC1600210',
@@ -142,23 +141,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 51.989592,
-              longitude: -1.06774
-            }
-          }
+              longitude: -1.06774,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'STS1600403',
@@ -173,15 +172,15 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'STS1600401',
@@ -196,15 +195,15 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'NEP1600288',
@@ -227,23 +226,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 52.079532,
-              longitude: -0.790871
-            }
-          }
+              longitude: -0.790871,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'STS1600396',
@@ -258,15 +257,15 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'NEP1600287',
@@ -281,15 +280,15 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'BED1600534',
@@ -312,23 +311,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 52.29491,
-              longitude: -0.512901
-            }
-          }
+              longitude: -0.512901,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'STS1600394',
@@ -343,15 +342,15 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'BED1600532',
@@ -374,23 +373,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 52.188155,
-              longitude: -0.604618
-            }
-          }
+              longitude: -0.604618,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowet'
-          }
+            name: 'Liam Jowet',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'MKC1600312',
@@ -413,23 +412,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 52.044516,
-              longitude: -0.689953
-            }
-          }
+              longitude: -0.689953,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'BED1600530',
@@ -452,23 +451,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 52.105969,
-              longitude: -0.353784
-            }
-          }
+              longitude: -0.353784,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'BUC1600209',
@@ -491,23 +490,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 51.989592,
-              longitude: -1.06774
-            }
-          }
+              longitude: -1.06774,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'BED1600525',
@@ -530,23 +529,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 52.135071,
-              longitude: -0.45936
-            }
-          }
+              longitude: -0.45936,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'BED1600523',
@@ -569,23 +568,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: 'GB',
             geolocation: {
               latitude: 52.161384,
-              longitude: -0.461113
-            }
-          }
+              longitude: -0.461113,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'MKC1600311',
@@ -608,23 +607,23 @@ export const appointmentsDataStub: AppointmentsData = {
             country: '',
             geolocation: {
               latitude: 52.04681,
-              longitude: -0.710721
-            }
-          }
+              longitude: -0.710721,
+            },
+          },
         },
         organiserId: 'BED160186',
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
+            name: 'Reapit',
+          },
+        ],
       },
       {
         id: 'STS1600389',
@@ -639,21 +638,21 @@ export const appointmentsDataStub: AppointmentsData = {
         negotiators: [
           {
             id: 'LJW',
-            name: 'Liam Jowett'
-          }
+            name: 'Liam Jowett',
+          },
         ],
         offices: [
           {
             id: 'RPT',
-            name: 'Reapit'
-          }
-        ]
-      }
+            name: 'Reapit',
+          },
+        ],
+      },
     ],
     pageNumber: 1,
     pageSize: 50,
     pageCount: 50,
-    totalCount: 1710
+    totalCount: 1710,
   },
   appointmentTypes: [
     { id: 'AP', value: 'Appointment' },
@@ -674,6 +673,6 @@ export const appointmentsDataStub: AppointmentsData = {
     { id: 'RV', value: 'RICS Valuation' },
     { id: 'SY', value: 'Survey' },
     { id: '', value: 'Unknown' },
-    { id: 'VW', value: 'Viewing' }
-  ]
+    { id: 'VW', value: 'Viewing' },
+  ],
 }

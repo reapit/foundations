@@ -10,14 +10,14 @@ import { ReduxState } from '@/types/core'
 const mockProps = (loading: boolean, appData: MyAppsItem | null): MyAppsProps => ({
   myAppsState: {
     loading: loading,
-    myAppsData: appData
+    myAppsData: appData,
   },
   // @ts-ignore: just pick the needed props for the test
   match: {
     params: {
-      page: '2'
-    }
-  }
+      page: '2',
+    },
+  },
 })
 
 describe('MyApps', () => {
@@ -31,7 +31,7 @@ describe('MyApps', () => {
 
   it('handleOnChange', () => {
     const mockHistory = {
-      push: jest.fn()
+      push: jest.fn(),
     }
     const fn = handleOnChange(mockHistory)
     fn(1)
@@ -43,7 +43,7 @@ describe('MyApps', () => {
       isDone: true,
       installationsSetFormState: jest.fn(),
       fetchMyApp: jest.fn(),
-      pageNumber: 1
+      pageNumber: 1,
     }
     const fn = handleUseEffect(mockProps)
     fn()
@@ -58,20 +58,20 @@ describe('MyApps', () => {
       auth: {
         loginSession: {
           loginIdentity: {
-            clientId: ''
-          }
-        }
+            clientId: '',
+          },
+        },
       },
       installations: {
-        formState: 'PENDING'
-      }
+        formState: 'PENDING',
+      },
     } as ReduxState
     const result = mapStateToProps(mockState)
     const output = {
       myAppsState: {},
       appDetail: {},
       clientId: '',
-      installationsFormState: 'PENDING'
+      installationsFormState: 'PENDING',
     }
     expect(result).toEqual(output)
   })

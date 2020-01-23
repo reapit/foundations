@@ -7,7 +7,7 @@ import settingsSagas, {
   developerPasswordChange,
   developerPasswordChangeListen,
   fetchDeveloperInfo,
-  updateDeveloperInfo
+  updateDeveloperInfo,
 } from '../settings'
 import { Action } from '@/types/core'
 import ActionTypes from '@/constants/action-types'
@@ -48,9 +48,9 @@ describe('settings', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
@@ -60,22 +60,22 @@ describe('settings', () => {
   describe('developerInfomationChange', () => {
     const gen = cloneableGenerator(developerInfomationChange)({
       type: 'SETTING_UPDATE_DEVELOPER',
-      data: { company: '123' }
+      data: { company: '123' },
     })
     expect(gen.next().value).toEqual(put(settingShowLoading(true)))
     expect(gen.next().value).toEqual(select(selectDeveloperId))
     it('should call api success', () => {
       const clone = gen.clone()
       expect(clone.next('123').value).toEqual(
-        call(updateDeveloperInfo, { developerId: '123', values: { company: '123' } })
+        call(updateDeveloperInfo, { developerId: '123', values: { company: '123' } }),
       )
       expect(clone.next({ message: 'SUCCESS' }).value).toEqual(
         put(
           showNotificationMessage({
             variant: 'info',
-            message: messages.CHANGE_SAVE_SUCCESSFULLY
-          })
-        )
+            message: messages.CHANGE_SAVE_SUCCESSFULLY,
+          }),
+        ),
       )
       expect(clone.next({ message: 'SUCCESS' }).value).toEqual(call(fetchDeveloperInfo, '123'))
       expect(clone.next(developerStub).value).toEqual(put(requestDeveloperDataSuccess(developerStub)))
@@ -94,9 +94,9 @@ describe('settings', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
@@ -107,7 +107,7 @@ describe('settings', () => {
     const data = { currentPassword: '123', password: '456', confirmPassword: '456' }
     const gen = cloneableGenerator(developerPasswordChange)({
       type: 'CHANGE_PASSWORD',
-      data
+      data,
     })
     expect(gen.next().value).toEqual(put(settingShowLoading(true)))
     expect(gen.next().value).toEqual(select(selectDeveloperEmail))
@@ -115,15 +115,15 @@ describe('settings', () => {
     it('should call API success', () => {
       const clone = gen.clone()
       expect(clone.next('abc@gmail.com').value).toEqual(
-        call(changePassword, { password: '123', newPassword: '456', userName: 'abc@gmail.com' })
+        call(changePassword, { password: '123', newPassword: '456', userName: 'abc@gmail.com' }),
       )
       expect(clone.next('SUCCESS').value).toEqual(
         put(
           showNotificationMessage({
             variant: 'info',
-            message: messages.CHANGE_SAVE_SUCCESSFULLY
-          })
-        )
+            message: messages.CHANGE_SAVE_SUCCESSFULLY,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(call(removeSession))
       expect(clone.next().value).toEqual(put(authLogoutSuccess()))
@@ -135,15 +135,15 @@ describe('settings', () => {
     it('should fail if API response !== "SUCCESS" ', () => {
       const clone = gen.clone()
       expect(clone.next('abc@gmail.com').value).toEqual(
-        call(changePassword, { password: '123', newPassword: '456', userName: 'abc@gmail.com' })
+        call(changePassword, { password: '123', newPassword: '456', userName: 'abc@gmail.com' }),
       )
       expect(clone.next('FAIL').value).toEqual(
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
@@ -156,9 +156,9 @@ describe('settings', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
@@ -171,7 +171,7 @@ describe('settings thunks', () => {
     it('should submit data when called', () => {
       const gen = developerInformationFetchListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<string>>(ActionTypes.SETTING_FETCH_DEVELOPER_INFO, developerInformationFetch)
+        takeLatest<Action<string>>(ActionTypes.SETTING_FETCH_DEVELOPER_INFO, developerInformationFetch),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -181,7 +181,7 @@ describe('settings thunks', () => {
     it('should submit data when called', () => {
       const gen = developerInformationChangeListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<DeveloperModel>>(ActionTypes.SETTING_UPDATE_DEVELOPER, developerInfomationChange)
+        takeLatest<Action<DeveloperModel>>(ActionTypes.SETTING_UPDATE_DEVELOPER, developerInfomationChange),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -191,7 +191,7 @@ describe('settings thunks', () => {
     it('should submit data when called', () => {
       const gen = developerPasswordChangeListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<ChangePasswordParams>>(ActionTypes.CHANGE_PASSWORD, developerPasswordChange)
+        takeLatest<Action<ChangePasswordParams>>(ActionTypes.CHANGE_PASSWORD, developerPasswordChange),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -205,8 +205,8 @@ describe('settings thunks', () => {
         all([
           fork(developerInformationFetchListen),
           fork(developerInformationChangeListen),
-          fork(developerPasswordChangeListen)
-        ])
+          fork(developerPasswordChangeListen),
+        ]),
       )
       expect(gen.next().done).toBe(true)
     })

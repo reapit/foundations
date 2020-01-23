@@ -7,7 +7,7 @@ import {
   AppDetailParams,
   requestAuthenticationSuccess,
   requestAuthenticationFailure,
-  setAppDetailStale
+  setAppDetailStale,
 } from '../actions/app-detail'
 import { put, call, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -20,7 +20,7 @@ export const fetchAppDetail = async ({ clientId, id }) => {
     url: clientId ? `${URLS.apps}/${id}?clientId=${clientId}` : `${URLS.apps}/${id}`,
     api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'GET',
-    headers: MARKETPLACE_HEADERS
+    headers: MARKETPLACE_HEADERS,
   })
   return response
 }
@@ -41,8 +41,8 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -52,7 +52,7 @@ export const fetchAuthCode = id =>
     url: `${URLS.apps}/${id}/secret`,
     api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'GET',
-    headers: MARKETPLACE_HEADERS
+    headers: MARKETPLACE_HEADERS,
   })
 
 export const requestAuthCode = function*({ data: id }: Action<string>) {
@@ -65,8 +65,8 @@ export const requestAuthCode = function*({ data: id }: Action<string>) {
       yield put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
       )
     }
   } catch (err) {
@@ -75,8 +75,8 @@ export const requestAuthCode = function*({ data: id }: Action<string>) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

@@ -11,11 +11,11 @@ describe('forgot-password reducer', () => {
   it('should set loading to true when FORGOT_PASSWORD_LOADING action is called', () => {
     const newState = forgotPasswordReducer(undefined, {
       type: ActionTypes.FORGOT_PASSWORD_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })

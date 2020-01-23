@@ -13,10 +13,10 @@ describe('ForgotPassword', () => {
         key: '',
         pathname: '',
         state: {},
-        search: '?isSuccessRequestResetPassword=1'
+        search: '?isSuccessRequestResetPassword=1',
       },
       loading: false,
-      submitEmail: jest.fn()
+      submitEmail: jest.fn(),
     }
     const wrapper = shallow(<ForgotPassword {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -32,10 +32,10 @@ describe('ForgotPassword', () => {
         key: '',
         pathname: '',
         state: {},
-        search: ''
+        search: '',
       },
       loading: true,
-      submitEmail: jest.fn()
+      submitEmail: jest.fn(),
     }
     const wrapper = shallow(<ForgotPassword {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -55,8 +55,8 @@ describe('ForgotPassword', () => {
     it('should return correctly', () => {
       const mockState = {
         forgotPassword: {
-          loading: true
-        }
+          loading: true,
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({ loading: true })

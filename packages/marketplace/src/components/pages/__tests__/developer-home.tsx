@@ -10,7 +10,7 @@ import {
   handleAfterClose,
   handleOnChange,
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 } from '../developer-home'
 import { ReduxState } from '@/types/core'
 
@@ -22,16 +22,16 @@ describe('DeveloperHome', () => {
         isVisible: false,
         developerData: {
           ...appsDataStub,
-          scopes: appPermissionStub
+          scopes: appPermissionStub,
         },
-        formState: 'PENDING'
+        formState: 'PENDING',
       },
       // @ts-ignore: just pick the needed props for the test
       match: {
         params: {
-          page: '2'
-        }
-      }
+          page: '2',
+        },
+      },
     }
     expect(shallow(<DeveloperHome {...mockProps} />)).toMatchSnapshot()
   })
@@ -43,9 +43,9 @@ describe('DeveloperHome', () => {
       // @ts-ignore: just pick the needed props for the test
       match: {
         params: {
-          page: '2'
-        }
-      }
+          page: '2',
+        },
+      },
     }
     expect(shallow(<DeveloperHome {...mockProps} />)).toMatchSnapshot()
   })
@@ -56,16 +56,16 @@ describe('DeveloperHome', () => {
         isVisible: true,
         developerData: {
           ...appsDataStub,
-          scopes: appPermissionStub
+          scopes: appPermissionStub,
         },
-        formState: 'PENDING'
+        formState: 'PENDING',
       },
       // @ts-ignore: just pick the needed props for the test
       match: {
         params: {
-          page: '2'
-        }
-      }
+          page: '2',
+        },
+      },
     }
     expect(shallow(<DeveloperHome {...mockProps} />)).toMatchSnapshot()
   })
@@ -75,11 +75,11 @@ describe('DeveloperHome', () => {
       const mockProps = {
         setVisible: jest.fn(),
         appDetail: {
-          appDetailData: appsDataStub.data
+          appDetailData: appsDataStub.data,
         },
         fetchAppDetail: jest.fn(),
         setDeveloperAppModalStateViewDetail: jest.fn(),
-        appDeleteSetInitFormState: jest.fn()
+        appDeleteSetInitFormState: jest.fn(),
       }
       const fn = handleOnCardClick(mockProps)
       fn({ id: '1' })
@@ -102,7 +102,7 @@ describe('DeveloperHome', () => {
   describe('handleOnChange', () => {
     it('should call push correctly', () => {
       const mockHistory = {
-        push: jest.fn()
+        push: jest.fn(),
       }
       const fn = handleOnChange(mockHistory)
       fn(1)
@@ -114,17 +114,17 @@ describe('DeveloperHome', () => {
     it('should return correctly', () => {
       const mockState = {
         developer: {
-          isVisible: true
+          isVisible: true,
         },
-        appDetail: appsDataStub && appsDataStub.data && appsDataStub.data.data && appsDataStub.data.data[0]
+        appDetail: appsDataStub && appsDataStub.data && appsDataStub.data.data && appsDataStub.data.data[0],
       } as ReduxState
       const result = mapStateToProps(mockState)
       const output = {
         developerState: {
-          isVisible: true
+          isVisible: true,
         },
         appDetail: mockState.appDetail,
-        isVisible: true
+        isVisible: true,
       }
       expect(result).toEqual(output)
     })

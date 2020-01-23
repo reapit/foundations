@@ -8,7 +8,7 @@ import {
   ForgotPasswordValues,
   handleSubmitForgotPassword,
   ForgotPasswordFormProps,
-  SuccessForgetPasswordContent
+  SuccessForgetPasswordContent,
 } from '../forgot-password-form'
 
 describe('ForgotPasswordForm', () => {
@@ -16,7 +16,7 @@ describe('ForgotPasswordForm', () => {
     const mockProps = {
       ...mockWithFormik({ email: '1' }),
       ...getMockRouterProps({}),
-      getFieldHelpers: jest.fn()
+      getFieldHelpers: jest.fn(),
     } as ForgotPasswordFormProps
     const wrapper = shallow(<ForgotPasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -32,9 +32,9 @@ describe('ForgotPasswordForm', () => {
         key: '',
         pathname: '',
         search: '?isError=1',
-        state: {}
+        state: {},
       },
-      getFieldHelpers: jest.fn()
+      getFieldHelpers: jest.fn(),
     } as ForgotPasswordFormProps
     const wrapper = shallow(<ForgotPasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -50,9 +50,9 @@ describe('ForgotPasswordForm', () => {
         key: '',
         pathname: '',
         search: '?isSuccess=1',
-        state: {}
+        state: {},
       },
-      getFieldHelpers: jest.fn()
+      getFieldHelpers: jest.fn(),
     } as ForgotPasswordFormProps
     const wrapper = shallow(<ForgotPasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -75,14 +75,14 @@ describe('ForgotPasswordForm', () => {
   describe('handleSubmitForgotPassword', () => {
     it('should call setSubmitting with false', done => {
       const mockValues = {
-        email: 'abc@gmail.com'
+        email: 'abc@gmail.com',
       } as ForgotPasswordValues
       const mockProps = {
         ...getMockRouterProps({}),
-        submitEmail: jest.fn()
+        submitEmail: jest.fn(),
       }
       const mockFormik = {
-        ...mockFormikAction
+        ...mockFormikAction,
       }
       setTimeout(() => {
         handleSubmitForgotPassword(mockValues, { ...mockFormik, props: mockProps })

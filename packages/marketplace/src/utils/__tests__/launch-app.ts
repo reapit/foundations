@@ -7,7 +7,7 @@ describe('handleLaunchApp', () => {
   it('should run correctly', () => {
     const mockApp = {
       homePage: '',
-      id: '123'
+      id: '123',
     } as AppSummaryModel
     handleLaunchApp(mockApp)
     expect(window.location.href).toEqual('')

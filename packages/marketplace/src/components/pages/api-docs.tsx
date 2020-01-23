@@ -97,30 +97,30 @@ const ApiDocsPage: React.FC = () => {
               columns={[
                 {
                   Header: 'Method',
-                  accessor: 'method'
+                  accessor: 'method',
                 },
                 {
                   Header: 'Action',
-                  accessor: 'action'
-                }
+                  accessor: 'action',
+                },
               ]}
               data={[
                 {
                   method: 'GET',
-                  action: 'Retrieve a resource or collection of resources'
+                  action: 'Retrieve a resource or collection of resources',
                 },
                 {
                   method: 'POST',
-                  action: 'Create a new resource'
+                  action: 'Create a new resource',
                 },
                 {
                   method: 'PATCH',
-                  action: 'Partially update an existing resource by only including the fields to replace in payload'
+                  action: 'Partially update an existing resource by only including the fields to replace in payload',
                 },
                 {
                   method: 'DELETE',
-                  action: 'Soft delete an existing resource'
-                }
+                  action: 'Soft delete an existing resource',
+                },
               ]}
             />
           </div>
@@ -136,74 +136,74 @@ const ApiDocsPage: React.FC = () => {
               columns={[
                 {
                   Header: 'Code',
-                  accessor: 'code'
+                  accessor: 'code',
                 },
                 {
                   Header: 'Title',
-                  accessor: 'title'
+                  accessor: 'title',
                 },
                 {
                   Header: 'Description',
-                  accessor: 'description'
-                }
+                  accessor: 'description',
+                },
               ]}
               data={[
                 {
                   code: '200',
                   title: 'OK',
-                  description: 'The request has been fulfilled.'
+                  description: 'The request has been fulfilled.',
                 },
                 {
                   code: '201',
                   title: 'Created',
-                  description: 'The request has been fulfilled and a new resource has been created.'
+                  description: 'The request has been fulfilled and a new resource has been created.',
                 },
                 {
                   code: '202',
                   title: 'Async created',
-                  description: 'The request has been accepted will be fulfilled asynchronously'
+                  description: 'The request has been accepted will be fulfilled asynchronously',
                 },
                 {
                   code: '400',
                   title: 'Bad request',
                   description: `The request was not understood by the server, generally due to bad syntax or because 
-                    the "Content-Type" header was not correctly set to <code>application/json</code>.`
+                    the "Content-Type" header was not correctly set to <code>application/json</code>.`,
                 },
                 {
                   code: '401',
                   title: 'Unauthorized',
                   description: `The provided authentication credentials are incorrect or not present. 
-                    Generally, this is due to the lack of an "Authorization" header`
+                    Generally, this is due to the lack of an "Authorization" header`,
                 },
                 {
                   code: '403',
                   title: 'Forbidden',
                   description: `The provided authentication credentials do not provide the 
-                    request with sufficient scope to fulfill the request.`
+                    request with sufficient scope to fulfill the request.`,
                 },
                 {
                   code: '404',
                   title: 'Not found',
-                  description: 'The requested resource was not found'
+                  description: 'The requested resource was not found',
                 },
                 {
                   code: '422',
                   title: 'Unprocessable entity',
                   description: `A validation error has occured. The error response body 
-                    will provide additional information on the failure(s).`
+                    will provide additional information on the failure(s).`,
                 },
                 {
                   code: '429',
                   title: 'Too many requests',
                   description: `The request was not accepted because the application has exceeded the rate limit. 
-                    See Rate Limit for an overview of this mechanism`
+                    See Rate Limit for an overview of this mechanism`,
                 },
                 {
                   code: '500',
                   title: 'Too many requests',
                   description: `The request was not accepted because the application has exceeded the rate limit. 
-                    See Rate Limit for an overview of this mechanism`
-                }
+                    See Rate Limit for an overview of this mechanism`,
+                },
               ]}
             />
           </div>
@@ -312,30 +312,30 @@ const ApiDocsPage: React.FC = () => {
               columns={[
                 {
                   Header: 'Attribute',
-                  accessor: 'attribute'
+                  accessor: 'attribute',
                 },
                 {
                   Header: 'Description',
-                  accessor: 'description'
-                }
+                  accessor: 'description',
+                },
               ]}
               data={[
                 {
                   attribute: 'id_token',
-                  description: 'A JWT containing claims about the users identity.'
+                  description: 'A JWT containing claims about the users identity.',
                 },
                 {
                   attribute: 'refresh_token',
-                  description: 'A refresh token that can be issued to get a new id and access token.'
+                  description: 'A refresh token that can be issued to get a new id and access token.',
                 },
                 {
                   attribute: 'access_token',
-                  description: 'A JWT to grant access to secured API resources for given set of scopes'
+                  description: 'A JWT to grant access to secured API resources for given set of scopes',
                 },
                 {
                   attribute: 'expires_in',
-                  description: 'A JWT to grant access to secured API resources for given set of scopes'
-                }
+                  description: 'A JWT to grant access to secured API resources for given set of scopes',
+                },
               ]}
             />
           </div>
@@ -430,32 +430,32 @@ const ApiDocsPage: React.FC = () => {
               columns={[
                 {
                   Header: 'Header',
-                  accessor: 'header'
+                  accessor: 'header',
                 },
                 {
                   Header: 'Attribute',
-                  accessor: 'attribute'
-                }
+                  accessor: 'attribute',
+                },
               ]}
               data={[
                 {
                   header: 'X-RateLimit-Limit',
-                  attribute: 'The number of requests that a client is allowed to issue per minute'
+                  attribute: 'The number of requests that a client is allowed to issue per minute',
                 },
                 {
                   header: 'X-RateLimit-Remaining',
                   attribute: `The number of requests that a client is allowed to issue in the current rate limit 
-                    window before hitting the limit`
+                    window before hitting the limit`,
                 },
                 {
                   header: 'X-RateLimit-Reset',
-                  attribute: 'The unix timestamp at which the current rate limit window resets'
+                  attribute: 'The unix timestamp at which the current rate limit window resets',
                 },
                 {
                   header: 'Retry-After',
                   attribute: `When the rate limit is hit, this header presents the number of seconds 
-                    to wait before attempting another request`
-                }
+                    to wait before attempting another request`,
+                },
               ]}
             />
           </div>

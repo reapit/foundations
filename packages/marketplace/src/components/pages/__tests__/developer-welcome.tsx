@@ -8,13 +8,13 @@ import {
   Submitting,
   Managing,
   Support,
-  Welcome
+  Welcome,
 } from '../developer-welcome'
 import routes from '@/constants/routes'
 import { HelpGuide } from '@reapit/elements'
 
 const mockProps: DeveloperWelcomeMessageProps = {
-  userAcceptTermAndCondition: jest.fn()
+  userAcceptTermAndCondition: jest.fn(),
 }
 
 describe('DeveloperWelcomeMessage', () => {
@@ -27,8 +27,8 @@ describe('DeveloperWelcomeMessage', () => {
       shallow(
         <HelpGuide>
           <HelpGuide.Step id="step" component={Welcome} heading="Test" subHeading="Test" />
-        </HelpGuide>
-      )
+        </HelpGuide>,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -37,8 +37,8 @@ describe('DeveloperWelcomeMessage', () => {
       shallow(
         <HelpGuide>
           <HelpGuide.Step id="step" component={Managing} heading="Test" subHeading="Test" />
-        </HelpGuide>
-      )
+        </HelpGuide>,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -47,8 +47,8 @@ describe('DeveloperWelcomeMessage', () => {
       shallow(
         <HelpGuide>
           <HelpGuide.Step id="step" component={Submitting} heading="Test" subHeading="Test" />
-        </HelpGuide>
-      )
+        </HelpGuide>,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -57,8 +57,8 @@ describe('DeveloperWelcomeMessage', () => {
       shallow(
         <HelpGuide>
           <HelpGuide.Step id="step" component={Support} heading="Test" subHeading="Test" />
-        </HelpGuide>
-      )
+        </HelpGuide>,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -67,8 +67,8 @@ describe('DeveloperWelcomeMessage', () => {
       shallow(
         <HelpGuide>
           <HelpGuide.Step id="step" component={Welcome} heading="Test" subHeading="Test" />
-        </HelpGuide>
-      )
+        </HelpGuide>,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -76,7 +76,7 @@ describe('DeveloperWelcomeMessage', () => {
     it('should call dispatch', () => {
       const mockUserAcceptTermAndCondition = jest.fn()
       const mockHistory = {
-        push: jest.fn()
+        push: jest.fn(),
       }
       const fn = handleUserAccept(mockUserAcceptTermAndCondition, mockHistory)
       fn()

@@ -46,7 +46,7 @@ export class Store {
     direction,
     appointments,
     appointmentDetail,
-    nextAppointment
+    nextAppointment,
   })
 
   static sagas = function*() {
@@ -55,7 +55,7 @@ export class Store {
       fork(homeSagas),
       fork(appointmentsSagas),
       fork(appointmentDetailSagas),
-      fork(nextAppointmentSaga)
+      fork(nextAppointmentSaga),
     ])
   }
 
@@ -72,7 +72,7 @@ export class Store {
     const persistConfig = {
       key: 'root',
       storage: localForage,
-      blacklist: ['online']
+      blacklist: ['online'],
     }
     const persistedReducer = persistReducer(persistConfig, Store.reducers)
     const composed = Store.composeEnhancers(applyMiddleware(Store.sagaMiddleware))

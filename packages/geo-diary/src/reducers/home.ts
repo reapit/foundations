@@ -11,14 +11,14 @@ export interface HomeState {
 export const defaultState: HomeState = {
   loading: false,
   homeData: null,
-  homeTab: 'LIST'
+  homeTab: 'LIST',
 }
 
 const homeReducer = (state: HomeState = defaultState, action: Action<any>): HomeState => {
   if (isType(action, homeLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -26,7 +26,7 @@ const homeReducer = (state: HomeState = defaultState, action: Action<any>): Home
     return {
       ...state,
       loading: false,
-      homeData: action.data || null
+      homeData: action.data || null,
     }
   }
 
@@ -34,21 +34,21 @@ const homeReducer = (state: HomeState = defaultState, action: Action<any>): Home
     return {
       ...state,
       loading: false,
-      homeData: action.data
+      homeData: action.data,
     }
   }
 
   if (isType(action, homeRequestDataFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 
   if (isType(action, homeTabChange)) {
     return {
       ...state,
-      homeTab: action.data
+      homeTab: action.data,
     }
   }
 

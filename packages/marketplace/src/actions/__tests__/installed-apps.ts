@@ -2,7 +2,7 @@ import {
   installedAppsLoading,
   installedAppsReceiveData,
   installedAppsRequestData,
-  installedAppsClearData
+  installedAppsClearData,
 } from '../installed-apps'
 import ActionTypes from '../../constants/action-types'
 import { appsDataStub } from '../../sagas/__stubs__/apps'

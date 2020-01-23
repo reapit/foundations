@@ -17,11 +17,11 @@ export type RevisionApproveRequestParams = RevisionDetailRequestParams & Approve
 export type RevisionDeclineRequestParams = RevisionDetailRequestParams & RejectRevisionModel
 
 export const revisionDetailRequestData = actionCreator<RevisionDetailRequestParams>(
-  ActionTypes.REVISION_DETAIL_REQUEST_DATA
+  ActionTypes.REVISION_DETAIL_REQUEST_DATA,
 )
 export const revisionDetailLoading = actionCreator<boolean>(ActionTypes.REVISION_DETAIL_LOADING)
 export const revisionDetailReceiveData = actionCreator<RevisionReceiveDataParams>(
-  ActionTypes.REVISION_DETAIL_RECEIVE_DATA
+  ActionTypes.REVISION_DETAIL_RECEIVE_DATA,
 )
 export const revisionDetailFailure = actionCreator<void>(ActionTypes.REVISION_DETAIL_REQUEST_DATA__FAILURE)
 export const revisionDetailClearData = actionCreator<null>(ActionTypes.REVISION_DETAIL_CLEAR_DATA)

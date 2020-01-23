@@ -13,7 +13,7 @@ describe('client reducer', () => {
     const newState = clientReducer(undefined, { type: ActionTypes.CLIENT_LOADING as ActionType, data: true })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -21,11 +21,11 @@ describe('client reducer', () => {
   it('should set client item data when CLIENT_RECEIVE_DATA action is called', () => {
     const newState = clientReducer(undefined, {
       type: ActionTypes.CLIENT_RECEIVE_DATA as ActionType,
-      data: appsDataStub
+      data: appsDataStub,
     })
     const expected = {
       ...defaultState,
-      clientData: appsDataStub
+      clientData: appsDataStub,
     }
     expect(newState).toEqual(expected)
   })
@@ -34,7 +34,7 @@ describe('client reducer', () => {
     const newState = clientReducer(undefined, { type: ActionTypes.CLIENT_CLEAR_DATA as ActionType, data: null })
     const expected = {
       ...defaultState,
-      clientData: null
+      clientData: null,
     }
     expect(newState).toEqual(expected)
   })

@@ -4,7 +4,7 @@ import { adminStatsRequestData, adminStatsReceiveData, adminStatsRequestFailure 
 import {
   PagedResultAppSummaryModel_,
   PagedResultDeveloperModel_,
-  PagedResultInstallationModel_
+  PagedResultInstallationModel_,
 } from '@reapit/foundations-ts-definitions'
 
 export interface AdminStatsState {
@@ -14,14 +14,14 @@ export interface AdminStatsState {
 
 export const defaultState: AdminStatsState = {
   loading: false,
-  result: { data: [], totalCount: 0 }
+  result: { data: [], totalCount: 0 },
 }
 
 const adminStatsReducer = (state: AdminStatsState = defaultState, action: Action<any>): AdminStatsState => {
   if (isType(action, adminStatsRequestData)) {
     return {
       ...state,
-      loading: true
+      loading: true,
     }
   }
 
@@ -30,14 +30,14 @@ const adminStatsReducer = (state: AdminStatsState = defaultState, action: Action
     return {
       ...state,
       loading: false,
-      result: action.data
+      result: action.data,
     }
   }
 
   if (isType(action, adminStatsRequestFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 

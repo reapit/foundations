@@ -14,7 +14,7 @@ import {
   FlexContainerBasic,
   GridFourColItem,
   Helper,
-  infoText
+  infoText,
 } from '@reapit/elements'
 
 export type AppListProps = {
@@ -36,7 +36,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
   title,
   infoType,
   pagination,
-  numOfColumn = 4
+  numOfColumn = 4,
 }) => {
   const WrapperContainer = numOfColumn === 4 ? GridFourColItem : GridThreeColItem
 

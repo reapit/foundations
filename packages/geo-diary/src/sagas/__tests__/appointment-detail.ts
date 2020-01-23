@@ -7,7 +7,7 @@ import {
   appointmentDetailReceiveData,
   appointmentDetailRequestDataFailure,
   showConfirmModalSubmitting,
-  showHideConfirmModal
+  showHideConfirmModal,
 } from '@/actions/appointment-detail'
 import { appointmentsRequestData } from '@/actions/appointments'
 import { put, call, takeLatest, all, fork, select } from '@redux-saga/core/effects'
@@ -18,7 +18,7 @@ import appointmentDetailSagas, {
   appointmentDetailDataFetch,
   appointmentDetailDataListen,
   cancelAppointmentListen,
-  cancelAppointmentRequest
+  cancelAppointmentRequest,
 } from '../appointment-detail'
 import { appointmentDataStub, appointmentDataStubWithNegotiatorsOfficesProperty } from '@/sagas/__stubs__/appointment'
 import ActionTypes from '@/constants/action-types'
@@ -30,9 +30,9 @@ jest.mock('../../core/store')
 
 const params: Action<AppointmentDetailRequestParams> = {
   data: {
-    id: '1'
+    id: '1',
   },
-  type: 'APPOINTMENT_DETAIL_REQUEST_DATA'
+  type: 'APPOINTMENT_DETAIL_REQUEST_DATA',
 }
 describe('appointment-detail', () => {
   describe('appointmentDetailDataFetch', () => {
@@ -45,12 +45,12 @@ describe('appointment-detail', () => {
       const clone = gen.clone()
 
       expect(clone.next(appointmentDataStub as any).value).toEqual(
-        select(selectAppointmentWithId, appointmentDataStub.id || '')
+        select(selectAppointmentWithId, appointmentDataStub.id || ''),
       )
 
       const { property, offices, negotiators } = appointmentDataStubWithNegotiatorsOfficesProperty
       expect(clone.next(appointmentDataStubWithNegotiatorsOfficesProperty).value).toEqual(
-        put(appointmentDetailReceiveData({ ...appointmentDataStub, property, offices, negotiators }))
+        put(appointmentDetailReceiveData({ ...appointmentDataStub, property, offices, negotiators })),
       )
       expect(clone.next().value).toEqual(put(appointmentDetailLoading(false)))
       expect(clone.next().done).toEqual(true)
@@ -64,15 +64,15 @@ describe('appointment-detail', () => {
       const clone = gen.clone()
       // @ts-ignore
       expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
-        put(appointmentDetailRequestDataFailure())
+        put(appointmentDetailRequestDataFailure()),
       )
       expect(clone.next().value).toEqual(
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().done).toBe(true)
     })
@@ -83,8 +83,8 @@ describe('appointment-detail', () => {
       expect(gen.next().value).toEqual(
         takeLatest<Action<AppointmentDetailRequestParams>>(
           ActionTypes.APPOINTMENT_DETAIL_REQUEST_DATA,
-          appointmentDetailDataFetch
-        )
+          appointmentDetailDataFetch,
+        ),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -112,7 +112,7 @@ describe('appointment-detail', () => {
     it('should trigger request data when called', () => {
       const gen = cancelAppointmentListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<void>>(ActionTypes.CANCEL_APPOINTMENT, cancelAppointmentRequest)
+        takeLatest<Action<void>>(ActionTypes.CANCEL_APPOINTMENT, cancelAppointmentRequest),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -124,7 +124,7 @@ describe('appointment-detail', () => {
     expect(gen.next().value).toEqual(select(selectAppointmentDetail))
     const newAppointment = {
       ...appointmentDataStub,
-      cancelled: true
+      cancelled: true,
     }
     expect(gen.next(appointmentDataStub).value).toEqual(call(updateAppointment, newAppointment))
     it('api call sucessfully', () => {
@@ -142,14 +142,14 @@ describe('appointment-detail', () => {
       const clone = gen.clone()
       expect(
         // @ts-ignore
-        clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value
+        clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value,
       ).toEqual(
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(showConfirmModalSubmitting(false)))
       expect(clone.next().done).toEqual(true)

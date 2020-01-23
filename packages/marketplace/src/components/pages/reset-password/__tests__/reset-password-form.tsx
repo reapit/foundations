@@ -7,7 +7,7 @@ import {
   ResetPasswordValues,
   handleSubmitResetPassword,
   mapDispatchToProps,
-  mapStateToProps
+  mapStateToProps,
 } from '../reset-password-form'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import { mockFormikAction } from '@/utils/mock-formik'
@@ -18,7 +18,7 @@ describe('ResetPasswordForm', () => {
     const mockProps = {
       isSubmitting: false,
       isValidating: false,
-      isValid: true
+      isValid: true,
     } as ResetPasswordFormProps
     const wrapper = shallow(<ResetPasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -29,7 +29,7 @@ describe('ResetPasswordForm', () => {
       const result = mapPropsToValues()
       expect(result).toEqual({
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
       })
     })
   })
@@ -38,15 +38,15 @@ describe('ResetPasswordForm', () => {
     it('should not call resetPassword', done => {
       const mockValues: ResetPasswordValues = {
         password: '456',
-        confirmPassword: '456'
+        confirmPassword: '456',
       }
       const mockForm = {
-        ...mockFormikAction
+        ...mockFormikAction,
       }
       const mockProps = {
         resetPassword: jest.fn(),
         logout: jest.fn(),
-        ...getMockRouterProps({})
+        ...getMockRouterProps({}),
       }
       handleSubmitResetPassword(mockValues, { ...mockForm, props: mockProps })
       setTimeout(() => {
@@ -60,10 +60,10 @@ describe('ResetPasswordForm', () => {
     it('should call resetPassword', done => {
       const mockValues: ResetPasswordValues = {
         password: 'Password1',
-        confirmPassword: 'Password1'
+        confirmPassword: 'Password1',
       }
       const mockForm = {
-        ...mockFormikAction
+        ...mockFormikAction,
       }
       const mockProps = {
         resetPassword: jest.fn(),
@@ -74,8 +74,8 @@ describe('ResetPasswordForm', () => {
           key: '',
           pathname: '',
           search: '?userName=mockEmail@gmail.com&verificationCode=123',
-          state: {}
-        }
+          state: {},
+        },
       }
       handleSubmitResetPassword(mockValues, { ...mockForm, props: mockProps })
       setTimeout(() => {
@@ -93,7 +93,7 @@ describe('ResetPasswordForm', () => {
         confirmPassword: 'Password1',
         password: 'Password1',
         email: 'abc@gmail.com',
-        verificationCode: '123'
+        verificationCode: '123',
       })
       expect(mockDispatch).toBeCalled()
     })
@@ -103,12 +103,12 @@ describe('ResetPasswordForm', () => {
     it('should run correctly', () => {
       const mockState = {
         resetPassword: {
-          loading: true
-        }
+          loading: true,
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       const output = {
-        loading: true
+        loading: true,
       }
       expect(result).toEqual(output)
     })

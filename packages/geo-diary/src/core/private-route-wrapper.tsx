@@ -33,7 +33,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   children,
   location,
   isDesktopMode,
-  hasSession
+  hasSession,
 }) => {
   const desktopLogin = getTokenFromQueryString(location.search)
 
@@ -65,11 +65,11 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
-  isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP'
+  isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({
-  setRefreshSession: refreshParams => dispatch(authSetRefreshSession(refreshParams))
+  setRefreshSession: refreshParams => dispatch(authSetRefreshSession(refreshParams)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PrivateRouteWrapper))

@@ -14,7 +14,7 @@ const diffTypes = {
   chars: jsdiff.diffChars,
   words: jsdiff.diffWords,
   lines: jsdiff.diffLines,
-  wordsWithSpace: jsdiff.diffWordsWithSpace
+  wordsWithSpace: jsdiff.diffWordsWithSpace,
 }
 
 const DiffViewer = ({ currentString, changedString, type = 'words' }: DiffViewerProps) => {

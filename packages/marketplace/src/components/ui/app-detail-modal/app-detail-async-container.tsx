@@ -8,7 +8,7 @@ export const mapStateToProps = (state: ReduxState) => {
   return {
     loading,
     error,
-    data: appDetailData
+    data: appDetailData,
   }
 }
 

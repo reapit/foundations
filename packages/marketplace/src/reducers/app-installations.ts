@@ -5,7 +5,7 @@ import {
   appInstallationsSetFormState,
   appInstallationsReceiveData,
   appInstallationsRequestData,
-  appInstallationsRequestDataFailure
+  appInstallationsRequestDataFailure,
 } from '@/actions/app-installations'
 
 export interface AppInstallationsState {
@@ -17,12 +17,12 @@ export interface AppInstallationsState {
 export const defaultState: AppInstallationsState = {
   formState: 'PENDING',
   loading: false,
-  installationsAppData: null
+  installationsAppData: null,
 }
 
 const appInstallationsReducer = (
   state: AppInstallationsState = defaultState,
-  action: Action<any>
+  action: Action<any>,
 ): AppInstallationsState => {
   if (isType(action, appInstallationsRequestData)) {
     return { ...state, loading: true }

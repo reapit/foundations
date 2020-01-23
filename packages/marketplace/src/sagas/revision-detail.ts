@@ -8,7 +8,7 @@ import {
   RevisionApproveRequestParams,
   approveRevisionSetFormState,
   RevisionDeclineRequestParams,
-  declineRevisionSetFormState
+  declineRevisionSetFormState,
 } from '../actions/revision-detail'
 import { put, call, fork, takeLatest, all, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -18,7 +18,7 @@ import { Action, ReduxState } from '@/types/core'
 import { adminApprovalsDataFetch } from './admin-approvals'
 
 export const revisionDetailDataFetch = function*({
-  data: { appId, appRevisionId }
+  data: { appId, appRevisionId },
 }: Action<RevisionDetailRequestParams>) {
   yield put(revisionDetailLoading(true))
   try {
@@ -26,13 +26,13 @@ export const revisionDetailDataFetch = function*({
       url: `${URLS.apps}/${appId}/revisions/${appRevisionId}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
     const scopes = yield call(fetcher, {
       url: `${URLS.scopes}`,
       method: 'GET',
       api: process.env.MARKETPLACE_API_BASE_URL as string,
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
 
     if (response && scopes) {
@@ -45,8 +45,8 @@ export const revisionDetailDataFetch = function*({
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -54,12 +54,12 @@ export const revisionDetailDataFetch = function*({
 export const revisionDetailDataListen = function*() {
   yield takeLatest<Action<RevisionDetailRequestParams>>(
     ActionTypes.REVISION_DETAIL_REQUEST_DATA,
-    revisionDetailDataFetch
+    revisionDetailDataFetch,
   )
 }
 
 export const getApprovalPageNumber = (state: ReduxState) => ({
-  pageNumber: state?.adminApprovals?.adminApprovalsData?.data?.pageNumber || 1
+  pageNumber: state?.adminApprovals?.adminApprovalsData?.data?.pageNumber || 1,
 })
 
 export const approveRevision = function*({ data: params }: Action<RevisionApproveRequestParams>) {
@@ -72,7 +72,7 @@ export const approveRevision = function*({ data: params }: Action<RevisionApprov
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       headers: MARKETPLACE_HEADERS,
-      body
+      body,
     })
 
     const status = response ? 'SUCCESS' : 'ERROR'
@@ -86,8 +86,8 @@ export const approveRevision = function*({ data: params }: Action<RevisionApprov
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -106,7 +106,7 @@ export const declineRevision = function*({ data: params }: Action<RevisionDeclin
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       headers: MARKETPLACE_HEADERS,
-      body
+      body,
     })
 
     const status = response ? 'SUCCESS' : 'ERROR'
@@ -120,8 +120,8 @@ export const declineRevision = function*({ data: params }: Action<RevisionDeclin
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

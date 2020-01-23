@@ -29,19 +29,19 @@ export type ViewDirectionButtonOwnProps = {
 
 export const mapDispatchToProps = (
   dispatch: Dispatch,
-  ownProps: ViewDirectionButtonOwnProps
+  ownProps: ViewDirectionButtonOwnProps,
 ): ViewDirectionButtonMappedActions => ({
   handleOnClick: () => {
     const appointment = ownProps.appointment
     dispatch(setSelectedAppointment(appointment))
     dispatch(setDestination(appointment))
     dispatch(homeTabChange('MAP'))
-  }
+  },
 })
 
 const ViewDirectionWithRedux = connect<null, ViewDirectionButtonMappedActions, ViewDirectionButtonOwnProps>(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ViewDirectionButton)
 
 ViewDirectionWithRedux.displayName = 'ViewDirectionWithRedux'

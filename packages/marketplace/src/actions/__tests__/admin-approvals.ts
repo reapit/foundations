@@ -2,7 +2,7 @@ import {
   adminApprovalsLoading,
   adminApprovalsReceiveData,
   adminApprovalsRequestData,
-  adminApprovalsClearData
+  adminApprovalsClearData,
 } from '../admin-approvals'
 import ActionTypes from '../../constants/action-types'
 import { approvalsStub } from '../../sagas/__stubs__/approvals'

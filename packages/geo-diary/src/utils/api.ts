@@ -3,5 +3,5 @@ import { APPOINTMENTS_HEADERS } from '@/constants/api'
 
 export const initAuthorizedRequestHeaders = async () => ({
   ...APPOINTMENTS_HEADERS,
-  Authorization: `Bearer ${await getAccessToken()}`
+  Authorization: `Bearer ${await getAccessToken()}`,
 })

@@ -4,7 +4,7 @@ import { FormState } from '../types/core'
 import {
   PagedResultInstallationModel_,
   TerminateInstallationModel,
-  CreateInstallationModel
+  CreateInstallationModel,
 } from '@reapit/foundations-ts-definitions'
 
 export interface InstallationParams {
@@ -26,15 +26,15 @@ export type UninstallParams = {
 
 export const appInstallationsRequestData = actionCreator<InstallationParams>(ActionTypes.APP_INSTALLATIONS_REQUEST_DATA)
 export const appInstallationsReceiveData = actionCreator<PagedResultInstallationModel_>(
-  ActionTypes.APP_INSTALLATIONS_RECEIVE_DATA
+  ActionTypes.APP_INSTALLATIONS_RECEIVE_DATA,
 )
 export const appInstallationsRequestDataFailure = actionCreator<void>(
-  ActionTypes.APP_INSTALLATIONS_REQUEST_DATA_FAILURE
+  ActionTypes.APP_INSTALLATIONS_REQUEST_DATA_FAILURE,
 )
 export const appInstallationsRequestInstall = actionCreator<InstallParams>(
-  ActionTypes.APP_INSTALLATIONS_REQUEST_INSTALL
+  ActionTypes.APP_INSTALLATIONS_REQUEST_INSTALL,
 )
 export const appInstallationsRequestUninstall = actionCreator<UninstallParams>(
-  ActionTypes.APP_INSTALLATIONS_REQUEST_UNINSTALL
+  ActionTypes.APP_INSTALLATIONS_REQUEST_UNINSTALL,
 )
 export const appInstallationsSetFormState = actionCreator<FormState>(ActionTypes.APP_INSTALLATIONS_SET_FORM_STATE)

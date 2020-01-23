@@ -13,7 +13,7 @@ import {
   mapDispatchToProps,
   handleOnClickFilterTime,
   mapStateToProps,
-  tabConfigs
+  tabConfigs,
 } from '../home'
 
 describe('Home', () => {
@@ -23,12 +23,12 @@ describe('Home', () => {
         appointments: appointmentsDataStub.appointments,
         loading: false,
         time: 'Today',
-        selectedAppointment: appointmentsDataStub?.appointments?._embedded?.[0]
+        selectedAppointment: appointmentsDataStub?.appointments?._embedded?.[0],
       },
       nextAppointmentState: {
-        data: null
+        data: null,
       },
-      desktopMode: false
+      desktopMode: false,
     } as HomeProps
 
     expect(shallow(<Home {...mockProps} />)).toMatchSnapshot()
@@ -40,12 +40,12 @@ describe('Home', () => {
         appointments: appointmentsDataStub.appointments,
         loading: true,
         time: 'Today',
-        selectedAppointment: appointmentsDataStub?.appointments?._embedded?.[0]
+        selectedAppointment: appointmentsDataStub?.appointments?._embedded?.[0],
       },
       nextAppointmentState: {
-        data: null
+        data: null,
       },
-      desktopMode: true
+      desktopMode: true,
     } as HomeProps
 
     expect(shallow(<Home {...mockProps} />)).toMatchSnapshot()
@@ -65,7 +65,7 @@ describe('Home', () => {
       const appointmentsState = {
         appointments: appointmentsDataStub.appointments,
         time: 'Today',
-        loading: false
+        loading: false,
       }
       const requestNextAppointment = jest.fn()
       const travelMode = 'WALKING'
@@ -78,7 +78,7 @@ describe('Home', () => {
       const appointmentsState = {
         appointments: appointmentsDataStub.appointments,
         time: 'Today',
-        loading: true
+        loading: true,
       }
       const requestNextAppointment = jest.fn()
       const travelMode = 'WALKING'
@@ -158,16 +158,16 @@ describe('Home', () => {
         appointments: appointmentsDataStub.appointments,
         nextAppointment: appointmentDataStub,
         home: {
-          homeTab: 'LIST'
+          homeTab: 'LIST',
         },
         auth: {
           refreshSession: {
-            mode: 'DESKTOP'
-          }
+            mode: 'DESKTOP',
+          },
         },
         online: {
-          value: true
-        } as OnlineState
+          value: true,
+        } as OnlineState,
       } as ReduxState
       const result = mapStateToProps(mockState)
       const expected = {
@@ -175,7 +175,7 @@ describe('Home', () => {
         nextAppointmentState: appointmentDataStub,
         currentTab: 'LIST',
         desktopMode: true,
-        isOnline: true
+        isOnline: true,
       }
       expect(result).toEqual(expected)
     })

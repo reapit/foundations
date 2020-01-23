@@ -11,11 +11,11 @@ describe('home reducer', () => {
   it('should set loading to true when HOME_LOADING action is called', () => {
     const newState = homeReducer(undefined, {
       type: ActionTypes.HOME_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -23,11 +23,11 @@ describe('home reducer', () => {
   it('should set approvals list data when HOME_RECEIVE_DATA action is called', () => {
     const newState = homeReducer(undefined, {
       type: ActionTypes.HOME_RECEIVE_DATA as ActionType,
-      data: {}
+      data: {},
     })
     const expected = {
       ...defaultState,
-      homeData: {}
+      homeData: {},
     }
     expect(newState).toEqual(expected)
   })
@@ -35,11 +35,11 @@ describe('home reducer', () => {
   it('should clear approvals list data when HOME_CLEAR_DATA action is called', () => {
     const newState = homeReducer(undefined, {
       type: ActionTypes.HOME_CLEAR_DATA as ActionType,
-      data: null
+      data: null,
     })
     const expected = {
       ...defaultState,
-      homeData: null
+      homeData: null,
     }
     expect(newState).toEqual(expected)
   })

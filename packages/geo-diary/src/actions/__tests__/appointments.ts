@@ -3,7 +3,7 @@ import {
   appointmentsReceiveData,
   appointmentsRequestData,
   appointmentsClearData,
-  setSelectedAppointment
+  setSelectedAppointment,
 } from '../appointments'
 import ActionTypes from '../../constants/action-types'
 import { appointmentsDataStub } from '../../sagas/__stubs__/appointments'

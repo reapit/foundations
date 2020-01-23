@@ -2,7 +2,7 @@ import {
   adminDevManagementRequestData,
   adminDevManagementRequestDataFailure,
   adminDevManagementLoading,
-  adminDevManagementReceiveData
+  adminDevManagementReceiveData,
 } from '../admin-dev-management'
 import ActionTypes from '../../constants/action-types'
 

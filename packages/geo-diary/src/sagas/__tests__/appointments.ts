@@ -1,7 +1,7 @@
 import appointmentsSagas, {
   appointmentsDataFetch,
   appointmentsDataListen,
-  getStartAndEndDate
+  getStartAndEndDate,
 } from '@/sagas/appointments'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
@@ -12,7 +12,7 @@ import {
   appointmentsReceiveTodayData,
   AppointmentRequestParams,
   appointmentsReceiveTomorrowData,
-  appointmentsReceiveWeekData
+  appointmentsReceiveWeekData,
 } from '@/actions/appointments'
 import { selectOnlineStatus } from '@/selectors/online'
 import { Action, ExtendedAppointmentModel } from '@/types/core'
@@ -28,7 +28,7 @@ import {
   selectAppointmentTypes,
   selectTodayAppointments,
   selectTomorrowAppointments,
-  selectWeekAppointments
+  selectWeekAppointments,
 } from '@/selectors/appointments'
 import { selectUserCode } from '@/selectors/auth'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -40,17 +40,17 @@ jest.mock('@reapit/cognito-auth')
 
 const params: Action<AppointmentRequestParams> = {
   data: { time: 'Today' as AppointmentsTime },
-  type: 'APPOINTMENTS_REQUEST_DATA'
+  type: 'APPOINTMENTS_REQUEST_DATA',
 }
 
 const params1: Action<AppointmentRequestParams> = {
   data: { time: 'Tomorrow' as AppointmentsTime },
-  type: 'APPOINTMENTS_REQUEST_DATA'
+  type: 'APPOINTMENTS_REQUEST_DATA',
 }
 
 const params2: Action<AppointmentRequestParams> = {
   data: { time: 'Week View' as AppointmentsTime },
-  type: 'APPOINTMENTS_REQUEST_DATA'
+  type: 'APPOINTMENTS_REQUEST_DATA',
 }
 
 const mockOnlineVal = true
@@ -58,7 +58,7 @@ const mockOfflineVal = false
 const mockNegotiatorId = 'JWB'
 
 const mockHeaders = {
-  Authorization: '123'
+  Authorization: '123',
 }
 
 describe('appointments should not fetch data', () => {
@@ -71,9 +71,9 @@ describe('appointments should not fetch data', () => {
       put(
         appointmentsReceiveTodayData({
           appointments: appointmentsDataStub.appointments,
-          appointmentTypes: [{}] as ListItemModel[]
-        })
-      )
+          appointmentTypes: [{}] as ListItemModel[],
+        }),
+      ),
     )
     expect(gen.next().done).toEqual(true)
   })
@@ -86,9 +86,9 @@ describe('appointments should not fetch data', () => {
       put(
         appointmentsReceiveTomorrowData({
           appointments: appointmentsDataStub.appointments,
-          appointmentTypes: [{}] as ListItemModel[]
-        })
-      )
+          appointmentTypes: [{}] as ListItemModel[],
+        }),
+      ),
     )
     expect(gen.next().done).toEqual(true)
   })
@@ -102,9 +102,9 @@ describe('appointments should not fetch data', () => {
       put(
         appointmentsReceiveWeekData({
           appointments: appointmentsDataStub.appointments,
-          appointmentTypes: [{}] as ListItemModel[]
-        })
-      )
+          appointmentTypes: [{}] as ListItemModel[],
+        }),
+      ),
     )
     expect(gen.next().done).toEqual(true)
   })
@@ -120,25 +120,28 @@ describe('appointments should fetch data', () => {
 
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
-      url: `/appointments?NegotiatorId=${mockNegotiatorId}&Start=2019-10-10T00:00:00.000Z&End=2019-10-10T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true`,
+      url:
+        `/appointments?NegotiatorId=${mockNegotiatorId}` +
+        '&Start=2019-10-10T00:00:00.000Z&' +
+        'End=2019-10-10T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true',
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: mockHeaders
-    })
+      headers: mockHeaders,
+    }),
   )
 
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
-      call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as ExtendedAppointmentModel[])
+      call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as ExtendedAppointmentModel[]),
     )
 
     expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
       all(
         (appointmentsDataStub.appointments?._embedded || [])?.map(appointment =>
-          call(fetchAppointmentMetadata, appointment)
-        )
-      )
+          call(fetchAppointmentMetadata, appointment),
+        ),
+      ),
     )
 
     expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
@@ -146,17 +149,17 @@ describe('appointments should fetch data', () => {
         url: URLS.appointmentTypes,
         api: process.env.PLATFORM_API_BASE_URL as string,
         method: 'GET',
-        headers: mockHeaders
-      })
+        headers: mockHeaders,
+      }),
     )
 
     expect(clone.next(appointmentsDataStub.appointmentTypes as any).value).toEqual(
       put(
         appointmentsReceiveTodayData({
           appointments: appointmentsDataStub.appointments,
-          appointmentTypes: appointmentsDataStub.appointmentTypes
-        })
-      )
+          appointmentTypes: appointmentsDataStub.appointmentTypes,
+        }),
+      ),
     )
 
     expect(clone.next().done).toBe(true)
@@ -169,9 +172,9 @@ describe('appointments should fetch data', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().done).toBe(true)
   })
@@ -187,24 +190,27 @@ describe('appointments should fetch data tomowrrow', () => {
 
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
-      url: `/appointments?NegotiatorId=${mockNegotiatorId}&Start=2019-10-11T00:00:00.000Z&End=2019-10-11T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true`,
+      url:
+        `/appointments?NegotiatorId=${mockNegotiatorId}` +
+        '&Start=2019-10-11T00:00:00.000Z&End=2019-10-11T23:59:59.999Z&' +
+        'IncludeCancelled=true&IncludeUnconfirmed=true',
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: mockHeaders
-    })
+      headers: mockHeaders,
+    }),
   )
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
-      call(sortAppoinmentsByStartTime, appointmentsDataStub.appointments?._embedded as ExtendedAppointmentModel[])
+      call(sortAppoinmentsByStartTime, appointmentsDataStub.appointments?._embedded as ExtendedAppointmentModel[]),
     )
 
     expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
       all(
         (appointmentsDataStub.appointments?._embedded || []).map(appointment =>
-          call(fetchAppointmentMetadata, appointment)
-        )
-      )
+          call(fetchAppointmentMetadata, appointment),
+        ),
+      ),
     )
 
     expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
@@ -212,17 +218,17 @@ describe('appointments should fetch data tomowrrow', () => {
         url: URLS.appointmentTypes,
         api: process.env.PLATFORM_API_BASE_URL as string,
         method: 'GET',
-        headers: mockHeaders
-      })
+        headers: mockHeaders,
+      }),
     )
 
     expect(clone.next(appointmentsDataStub.appointmentTypes as any).value).toEqual(
       put(
         appointmentsReceiveTomorrowData({
           appointments: appointmentsDataStub.appointments,
-          appointmentTypes: appointmentsDataStub.appointmentTypes
-        })
-      )
+          appointmentTypes: appointmentsDataStub.appointmentTypes,
+        }),
+      ),
     )
 
     expect(clone.next().done).toBe(true)
@@ -235,9 +241,9 @@ describe('appointments should fetch data tomowrrow', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().done).toBe(true)
   })
@@ -253,24 +259,27 @@ describe('appointments should fetch data week view', () => {
 
   expect(gen.next(mockHeaders as any).value).toEqual(
     call(fetcher, {
-      url: `/appointments?NegotiatorId=${mockNegotiatorId}&Start=2019-10-10T00:00:00.000Z&End=2019-10-16T23:59:59.999Z&IncludeCancelled=true&IncludeUnconfirmed=true`,
+      url:
+        `/appointments?NegotiatorId=${mockNegotiatorId}` +
+        '&Start=2019-10-10T00:00:00.000Z&End=2019-10-16T23:59:59.999Z' +
+        '&IncludeCancelled=true&IncludeUnconfirmed=true',
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: mockHeaders
-    })
+      headers: mockHeaders,
+    }),
   )
   test('api call success', () => {
     const clone = gen.clone()
     expect(clone.next(appointmentsDataStub.appointments).value).toEqual(
-      call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as ExtendedAppointmentModel[])
+      call(sortAppoinmentsByStartTime, appointmentsDataStub?.appointments?._embedded as ExtendedAppointmentModel[]),
     )
 
     expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
       all(
         (appointmentsDataStub.appointments?._embedded as any[]).map(appointment =>
-          call(fetchAppointmentMetadata, appointment)
-        )
-      )
+          call(fetchAppointmentMetadata, appointment),
+        ),
+      ),
     )
 
     expect(clone.next(appointmentsDataStub.appointments?._embedded).value).toEqual(
@@ -278,17 +287,17 @@ describe('appointments should fetch data week view', () => {
         url: URLS.appointmentTypes,
         api: process.env.PLATFORM_API_BASE_URL as string,
         method: 'GET',
-        headers: mockHeaders
-      })
+        headers: mockHeaders,
+      }),
     )
 
     expect(clone.next(appointmentsDataStub.appointmentTypes).value).toEqual(
       put(
         appointmentsReceiveWeekData({
           appointments: appointmentsDataStub.appointments,
-          appointmentTypes: appointmentsDataStub.appointmentTypes
-        })
-      )
+          appointmentTypes: appointmentsDataStub.appointmentTypes,
+        }),
+      ),
     )
 
     expect(clone.next().done).toBe(true)
@@ -301,9 +310,9 @@ describe('appointments should fetch data week view', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().done).toBe(true)
   })
@@ -314,7 +323,7 @@ describe('appointments thunks', () => {
     it('should trigger request data when called', () => {
       const gen = appointmentsDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<AppointmentRequestParams>>(ActionTypes.APPOINTMENTS_REQUEST_DATA, appointmentsDataFetch)
+        takeLatest<Action<AppointmentRequestParams>>(ActionTypes.APPOINTMENTS_REQUEST_DATA, appointmentsDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

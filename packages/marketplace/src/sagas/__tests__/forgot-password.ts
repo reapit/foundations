@@ -32,7 +32,7 @@ describe('requestForgotPassword', () => {
     const clone = gen.clone()
     // @ts-ignore
     expect(clone.throw(new Error('Client id is not exists')).value).toEqual(
-      history.push(`${Routes.FORGOT_PASSWORD}?isError=1`)
+      history.push(`${Routes.FORGOT_PASSWORD}?isError=1`),
     )
     expect(clone.next().value).toEqual(put(forgotPasswordLoading(false)))
     expect(clone.next().done).toEqual(true)
@@ -44,7 +44,7 @@ describe('forgot-password thunks', () => {
     it('should request data when called', () => {
       const gen = requestForgotPasswordListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<number>>(ActionTypes.FORGOT_PASSWORD_SUBMIT_EMAIL, requestForgotPassword)
+        takeLatest<Action<number>>(ActionTypes.FORGOT_PASSWORD_SUBMIT_EMAIL, requestForgotPassword),
       )
       expect(gen.next().done).toBe(true)
     })

@@ -7,7 +7,7 @@ import {
   mapDispatchToProps,
   handleAfterClose,
   handleOnPageChange,
-  RenderContent
+  RenderContent,
 } from '../admin-approvals'
 import { approvalsStub } from '@/sagas/__stubs__/approvals'
 import { AdminApprovalsList } from '@/reducers/admin-approvals'
@@ -17,14 +17,14 @@ import routes from '@/constants/routes'
 const mockProps = (loading: boolean, approvals: AdminApprovalsList | null): AdminApprovalsProps => ({
   approvalsState: {
     loading: loading,
-    adminApprovalsData: approvals
+    adminApprovalsData: approvals,
   },
   // @ts-ignore: just pick the needed props for the test
   match: {
     params: {
-      page: '2'
-    }
-  }
+      page: '2',
+    },
+  },
 })
 
 describe('AdminApproval', () => {
@@ -41,12 +41,12 @@ describe('AdminApproval', () => {
       const mockState = {
         adminApprovals: {},
         appDetail: {},
-        revisionDetail: {}
+        revisionDetail: {},
       } as ReduxState
       const output = {
         approvalsState: mockState.adminApprovals,
         appDetail: mockState.appDetail,
-        revisionDetail: mockState.revisionDetail
+        revisionDetail: mockState.revisionDetail,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(output)
@@ -81,7 +81,7 @@ describe('AdminApproval', () => {
   describe('handleOnPageChange', () => {
     it('should call dispatch', () => {
       const mockHistory = {
-        push: jest.fn()
+        push: jest.fn(),
       }
       const fn = handleOnPageChange(mockHistory)
       fn('1')
@@ -99,11 +99,11 @@ describe('AdminApproval', () => {
             tableColumns={[
               {
                 Header: 'AppId',
-                accessor: 'appId'
-              }
+                accessor: 'appId',
+              },
             ]}
-          />
-        )
+          />,
+        ),
       ).toMatchSnapshot()
     })
   })
@@ -117,11 +117,11 @@ describe('AdminApproval', () => {
           tableColumns={[
             {
               Header: 'AppId',
-              accessor: 'appId'
-            }
+              accessor: 'appId',
+            },
           ]}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 })

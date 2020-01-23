@@ -11,7 +11,7 @@ import { ReduxState } from '../../types/core'
 export const generateMenuConfig = (
   logoutCallback: () => void,
   location: Location<any>,
-  mode: LoginMode
+  mode: LoginMode,
 ): MenuConfig => {
   return {
     defaultActiveKey: 'GEO_DIARY',
@@ -21,14 +21,14 @@ export const generateMenuConfig = (
       {
         key: 'LOGO',
         icon: <ReapitLogo className="nav-item-icon" />,
-        type: 'LOGO'
+        type: 'LOGO',
       },
       {
         title: 'Geo Diary',
         key: 'GEO_DIARY',
         icon: <FaMapMarkerAlt className="nav-item-icon" />,
         url: '/',
-        type: 'PRIMARY'
+        type: 'PRIMARY',
       },
       {
         title: 'Apps',
@@ -36,18 +36,18 @@ export const generateMenuConfig = (
         icon: <FaCloud className="nav-item-icon" />,
         callback: () =>
           (window.location.href = !window.location.href.includes('dev')
-            ? `https://marketplace.reapit.com/client/installed`
-            : `https://dev.marketplace.reapit.com/client/installed`),
-        type: 'PRIMARY'
+            ? 'https://marketplace.reapit.com/client/installed'
+            : 'https://dev.marketplace.reapit.com/client/installed'),
+        type: 'PRIMARY',
       },
       {
         title: 'Logout',
         key: 'LOGOUT',
         callback: logoutCallback,
         icon: <FaSignOutAlt className="nav-item-icon" />,
-        type: 'SECONDARY'
-      }
-    ]
+        type: 'SECONDARY',
+      },
+    ],
   }
 }
 
@@ -68,11 +68,11 @@ export const Menu: React.FunctionComponent<MenuProps> = ({ logout, location, mod
 }
 
 export const mapDispatchToProps = (dispatch: any): MenuMappedActions => ({
-  logout: () => dispatch(authLogout())
+  logout: () => dispatch(authLogout()),
 })
 
 export const mapStateToProps = (state: ReduxState): MenuMappedState => ({
-  mode: state?.auth?.refreshSession?.mode || 'WEB'
+  mode: state?.auth?.refreshSession?.mode || 'WEB',
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Menu))

@@ -7,9 +7,9 @@ export const attendees = {
     communicationDetails: [
       {
         label: 'Negotiator',
-        detail: 'Negotiator'
-      }
-    ]
+        detail: 'Negotiator',
+      },
+    ],
   },
   office: {
     id: 'Office',
@@ -19,9 +19,9 @@ export const attendees = {
     communicationDetails: [
       {
         label: 'Office',
-        detail: 'Office'
-      }
-    ]
+        detail: 'Office',
+      },
+    ],
   },
   landlord: {
     id: 'Landlord',
@@ -31,9 +31,9 @@ export const attendees = {
     communicationDetails: [
       {
         label: 'Landlord',
-        detail: 'Landlord'
-      }
-    ]
+        detail: 'Landlord',
+      },
+    ],
   },
   contact: {
     id: 'Contact',
@@ -43,9 +43,9 @@ export const attendees = {
     communicationDetails: [
       {
         label: 'Contact',
-        detail: 'Contact'
-      }
-    ]
+        detail: 'Contact',
+      },
+    ],
   },
   applicant: {
     id: 'Applicant',
@@ -55,9 +55,9 @@ export const attendees = {
     communicationDetails: [
       {
         label: 'Applicant',
-        detail: 'Applicant'
-      }
-    ]
+        detail: 'Applicant',
+      },
+    ],
   },
   tenant: {
     id: 'Tenant',
@@ -67,8 +67,8 @@ export const attendees = {
     communicationDetails: [
       {
         label: 'Tenant',
-        detail: 'Tenant'
-      }
-    ]
-  }
+        detail: 'Tenant',
+      },
+    ],
+  },
 }

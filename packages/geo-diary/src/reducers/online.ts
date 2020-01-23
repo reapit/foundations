@@ -7,18 +7,18 @@ export interface OnlineState {
 }
 
 export const defaultState: OnlineState = {
-  value: navigator.onLine
+  value: navigator.onLine,
 }
 
 const onlineReducer = (state: OnlineState = defaultState, action: Action<any>): OnlineState => {
   if (isType(action, setOnline)) {
     return {
-      value: true
+      value: true,
     }
   }
   if (isType(action, setOffline)) {
     return {
-      value: false
+      value: false,
     }
   }
 

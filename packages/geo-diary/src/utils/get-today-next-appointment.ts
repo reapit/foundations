@@ -7,7 +7,9 @@ export function getTodayNextAppointment(appointments: ExtendedAppointmentModel[]
       appointment =>
         !appointment.cancelled &&
         dayjs(appointment.start).isSame(dayjs(), 'day') &&
-        dayjs().isBefore(dayjs(appointment.start))
+        dayjs().isBefore(dayjs(appointment.start)),
     )
-    .sort((a, b) => (dayjs(a.start).isAfter(dayjs(b.start)) ? 1 : -1))[0]
+    .sort((a, b) => {
+      return (dayjs(a.start).isAfter(dayjs(b.start)) ? 1 : -1)[0]
+    })
 }

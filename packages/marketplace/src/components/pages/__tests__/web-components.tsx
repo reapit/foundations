@@ -16,8 +16,8 @@ describe('WebComponents', () => {
     const mockEvent = {
       preventDefault: jest.fn(),
       target: {
-        id: 'mockId'
-      }
+        id: 'mockId',
+      },
     }
     // @ts-ignore
     fn(mockEvent)
@@ -30,8 +30,8 @@ describe('WebComponents', () => {
     const mockEvent = {
       preventDefault: jest.fn(),
       target: {
-        id: 'mockId'
-      }
+        id: 'mockId',
+      },
     }
     // @ts-ignore
     fn(mockEvent)

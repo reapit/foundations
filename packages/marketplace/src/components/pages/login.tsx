@@ -40,7 +40,7 @@ export const tabConfigs = ({ loginType, history }: LoginProps): TabConfig[] => [
     onTabClick: () => {
       history.push(Routes.CLIENT_LOGIN)
     },
-    active: loginType === 'CLIENT'
+    active: loginType === 'CLIENT',
   },
   {
     tabIdentifier: 'DEVELOPER',
@@ -48,8 +48,8 @@ export const tabConfigs = ({ loginType, history }: LoginProps): TabConfig[] => [
     onTabClick: () => {
       history.push(Routes.DEVELOPER_LOGIN)
     },
-    active: loginType === 'DEVELOPER'
-  }
+    active: loginType === 'DEVELOPER',
+  },
 ]
 
 export const handleUseEffect = ({ setIsSubmitting, error }) => () => {
@@ -156,12 +156,12 @@ export const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
   error: state.auth.error,
   loginType: state.auth.loginType,
-  mode: state?.auth?.refreshSession?.mode || 'WEB'
+  mode: state?.auth?.refreshSession?.mode || 'WEB',
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
   login: (params: LoginParams) => dispatch(authLogin(params)),
-  authChangeLoginType: (loginType: string) => dispatch(authChangeLoginType(loginType as LoginType))
+  authChangeLoginType: (loginType: string) => dispatch(authChangeLoginType(loginType as LoginType)),
 })
 
 export const withRedux = connect(mapStateToProps, mapDispatchToProps)

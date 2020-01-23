@@ -82,7 +82,7 @@ const authSaga = function*() {
     fork(logoutListen),
     fork(clearAuthListen),
     fork(checkFirstTimeLoginListen),
-    fork(setFirstLoginListen)
+    fork(setFirstLoginListen),
   ])
 }
 

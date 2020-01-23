@@ -8,25 +8,25 @@ import developerSubmitAppPage from '../pages/developer-submit-app-page'
 import clientAppsPage from '../pages/client-apps-page'
 
 const {
-  selectors: { getDivAppCardWithName }
+  selectors: { getDivAppCardWithName },
 } = clientAppsPage
 
 const {
   actions: { clickViewDetailsButtonWithAppId },
-  selectors: { buttonApprove, btnConfirmApproval, divApproveAppSuccessfully }
+  selectors: { buttonApprove, btnConfirmApproval, divApproveAppSuccessfully },
 } = adminApprovalsPage
 
 const {
-  actions: { loginUsingDeveloperAccount, loginUsingAdminAccount, loginUsingClientAccount }
+  actions: { loginUsingDeveloperAccount, loginUsingAdminAccount, loginUsingClientAccount },
 } = loginPage
 
 const {
   actions: { clickAppCardWithName, deleteAppWithName },
-  selectors: { buttonEditDetails }
+  selectors: { buttonEditDetails },
 } = developerAppsPage
 
 const {
-  selectors: { textBoxName, checkBoxIsListed, buttonSubmit, checkboxAgreeTheTermsAndConditions }
+  selectors: { textBoxName, checkBoxIsListed, buttonSubmit, checkboxAgreeTheTermsAndConditions },
 } = developerSubmitAppPage
 
 const appName = `Update App And Delist App - ${nanoid()}`
@@ -65,7 +65,7 @@ describe('Update and delist an app happy path', () => {
     cy.wait('@requestGetScopes')
 
     cy.get(checkBoxIsListed).click({
-      force: true
+      force: true,
     })
     cy.get(textBoxName).type(' - changed')
     cy.get(checkboxAgreeTheTermsAndConditions).click({ force: true })

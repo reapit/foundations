@@ -10,7 +10,7 @@ import {
   Form,
   withFormik,
   FormikProps,
-  FormikBag
+  FormikBag,
 } from '@reapit/elements'
 import { compose, Dispatch } from 'redux'
 import { connect } from 'react-redux'
@@ -57,7 +57,7 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ isValid, l
 export const mapPropsToValues = (): ResetPasswordValues => {
   return {
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
   }
 }
 
@@ -73,7 +73,7 @@ export type ResetPasswordParams = {
 
 export const handleSubmitResetPassword = async (
   values: ResetPasswordValues,
-  { props }: FormikBag<DispatchProps & RouteComponentProps, ResetPasswordValues>
+  { props }: FormikBag<DispatchProps & RouteComponentProps, ResetPasswordValues>,
 ) => {
   const queryParams = new URLSearchParams(props.location.search)
   const email = queryParams.get('userName')
@@ -87,7 +87,7 @@ export const withForm = withFormik({
   displayName: 'ResetPasswordPageWithForm',
   validate,
   mapPropsToValues: mapPropsToValues,
-  handleSubmit: handleSubmitResetPassword
+  handleSubmit: handleSubmitResetPassword,
 })
 
 export type DispatchProps = {
@@ -97,7 +97,7 @@ export type DispatchProps = {
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     resetPassword: (values: ResetPasswordValues & { email: string; verificationCode: string }) =>
-      dispatch(resetPassword(values))
+      dispatch(resetPassword(values)),
   }
 }
 
@@ -107,7 +107,7 @@ export type StateProps = {
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
-    loading: state.resetPassword?.loading
+    loading: state.resetPassword?.loading,
   }
 }
 
@@ -118,7 +118,7 @@ export type EnhanceResetPasswordFormProps = {}
 export const EnhanceResetPasswordForm = compose<React.FC<EnhanceResetPasswordFormProps>>(
   withRouter,
   withRedux,
-  withForm
+  withForm,
 )(ResetPasswordForm)
 
 EnhanceResetPasswordForm.displayName = 'EnhanceResetPasswordForm'

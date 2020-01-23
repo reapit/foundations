@@ -14,14 +14,14 @@ export interface MyAppsState {
 
 export const defaultState: MyAppsState = {
   loading: false,
-  myAppsData: null
+  myAppsData: null,
 }
 
 const myAppsReducer = (state: MyAppsState = defaultState, action: Action<any>): MyAppsState => {
   if (isType(action, myAppsLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -29,7 +29,7 @@ const myAppsReducer = (state: MyAppsState = defaultState, action: Action<any>): 
     return {
       ...state,
       loading: false,
-      myAppsData: action.data || null
+      myAppsData: action.data || null,
     }
   }
 
@@ -37,14 +37,14 @@ const myAppsReducer = (state: MyAppsState = defaultState, action: Action<any>): 
     return {
       ...state,
       loading: false,
-      myAppsData: action.data
+      myAppsData: action.data,
     }
   }
 
   if (isType(action, myAppsRequestDataFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 

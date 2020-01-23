@@ -7,7 +7,7 @@ describe('changePasswordValidation', () => {
     const input: ChangePasswordValues = {
       currentPassword: '',
       password: 'Password1',
-      confirmPassword: ''
+      confirmPassword: '',
     }
 
     const validateRequiredKeys = ['currentPassword', 'confirmPassword']
@@ -23,10 +23,10 @@ describe('changePasswordValidation', () => {
     const input: ChangePasswordValues = {
       currentPassword: 'mypassword',
       password: 'newInvalidPassoword',
-      confirmPassword: 'newInvalidPassoword'
+      confirmPassword: 'newInvalidPassoword',
     }
     expect(validate(input)).toEqual({
-      password: errorMessages.FIELD_INVALID_PASSWORD
+      password: errorMessages.FIELD_INVALID_PASSWORD,
     })
   })
 
@@ -34,10 +34,10 @@ describe('changePasswordValidation', () => {
     const input: ChangePasswordValues = {
       currentPassword: 'mypassword',
       password: 'Password1',
-      confirmPassword: 'Password2'
+      confirmPassword: 'Password2',
     }
     expect(validate(input)).toEqual({
-      confirmPassword: 'Passwords do not match.'
+      confirmPassword: 'Passwords do not match.',
     })
   })
 
@@ -45,7 +45,7 @@ describe('changePasswordValidation', () => {
     const input: ChangePasswordValues = {
       currentPassword: 'mypassword',
       password: 'Password1',
-      confirmPassword: 'Password1'
+      confirmPassword: 'Password1',
     }
     expect(validate(input)).toEqual({})
   })

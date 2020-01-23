@@ -27,7 +27,7 @@ describe('MapPanel', () => {
       it('handles invalid current location', () => {
         const input = {
           currentLocation: { lng: UNDEFINED_LATLNG_NUMBER, lat: UNDEFINED_LATLNG_NUMBER },
-          destination: { lng: 1, lat: 1 }
+          destination: { lng: 1, lat: 1 },
         }
         const output = `maps://maps.google.com/maps?daddr=${input.destination.lat},${input.destination.lng}`
         expect(getMapUrl(input)).toBe(output)
@@ -71,7 +71,7 @@ describe('MapPanel', () => {
       destination: { lat: 52.158215, lng: -0.433459 },
       filterType: 'Today',
       showAllAppointment: jest.fn(),
-      isDesktopMode: false
+      isDesktopMode: false,
     }
     expect(toJson(shallow(<MapPanel {...props} />))).toMatchSnapshot()
   })
@@ -84,7 +84,7 @@ describe('MapPanel', () => {
       destination: { lat: undefined, lng: undefined },
       filterType: 'Today',
       showAllAppointment: jest.fn(),
-      isDesktopMode: false
+      isDesktopMode: false,
     }
     expect(toJson(shallow(<MapPanel {...props} />))).toMatchSnapshot()
   })
@@ -93,17 +93,17 @@ describe('MapPanel', () => {
     it('should return correctly', () => {
       const state = {
         appointments: {
-          time: 'Today'
+          time: 'Today',
         },
         auth: {
           refreshSession: {
-            mode: 'DESKTOP'
-          }
-        }
+            mode: 'DESKTOP',
+          },
+        },
       } as ReduxState
       const expected = {
         filterType: 'Today',
-        isDesktopMode: true
+        isDesktopMode: true,
       }
       const result = mapStateToProps(state)
       expect(result).toEqual(expected)
@@ -113,7 +113,7 @@ describe('MapPanel', () => {
       const state = {} as ReduxState
       const expected = {
         filterType: 'Today',
-        isDesktopMode: false
+        isDesktopMode: false,
       }
       const result = mapStateToProps(state)
       expect(result).toEqual(expected)

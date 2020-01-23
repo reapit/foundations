@@ -10,7 +10,7 @@ import { Button, EntityType, navigateDynamicApp, DynamicLinkParams } from '@reap
 import {
   setAppDetailModalStateBrowse,
   setAppDetailModalStateUninstall,
-  setAppDetailModalStateInstall
+  setAppDetailModalStateInstall,
 } from '@/actions/app-detail-modal'
 import { appInstallationsSetFormState } from '@/actions/app-installations'
 import { AppDetailModel } from '@/types/marketplace-api-schema'
@@ -34,14 +34,14 @@ export interface AppDetailInnerMappedActions {
 export const mapStateToProps = (state: ReduxState): AppDetailInnerMappedProps => ({
   appDetailModalState: state.appDetailModal,
   appDetailData: state.appDetail.appDetailData?.data!,
-  loginMode: state.auth.refreshSession?.mode || 'WEB'
+  loginMode: state.auth.refreshSession?.mode || 'WEB',
 })
 
 export const mapDispatchToProps = (dispatch: any): AppDetailInnerMappedActions => ({
   setStateViewBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   setStateViewInstall: () => dispatch(setAppDetailModalStateInstall()),
   setStateViewUninstall: () => dispatch(setAppDetailModalStateUninstall()),
-  installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState))
+  installationsSetFormState: (formState: FormState) => dispatch(appInstallationsSetFormState(formState)),
 })
 
 export type AppDetailInnerProps = AppDetailInnerMappedProps &
@@ -53,12 +53,12 @@ export const handleCloseModal = (
   setAppDetailModalStateBrowse: () => void,
   loginMode: LoginMode,
   installationsSetFormState: (formState: FormState) => void,
-  afterClose?: () => void
+  afterClose?: () => void,
 ) => () => {
   const dynamicLinkParams = {
     appMode: loginMode,
     entityType: EntityType.APPS,
-    entityCode: 'refresh'
+    entityCode: 'refresh',
   } as DynamicLinkParams
 
   navigateDynamicApp(dynamicLinkParams, window)
@@ -97,7 +97,7 @@ export const AppDetailInner: React.FunctionComponent<AppDetailInnerProps> = ({
   setStateViewInstall,
   setStateViewUninstall,
   installationsSetFormState,
-  loginMode
+  loginMode,
 }) => {
   if (appDetailModalState === 'VIEW_DETAIL_BROWSE') {
     return (

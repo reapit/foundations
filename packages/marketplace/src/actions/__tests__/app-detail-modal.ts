@@ -1,7 +1,7 @@
 import {
   setAppDetailModalStateBrowse,
   setAppDetailModalStateInstall,
-  setAppDetailModalStateSuccess
+  setAppDetailModalStateSuccess,
 } from '../app-detail-modal'
 
 import ActionTypes from '../../constants/action-types'

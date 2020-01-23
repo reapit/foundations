@@ -17,7 +17,7 @@ describe('submitAppValidation', () => {
       homePage: '',
       description: '',
       summary: '',
-      scopes: []
+      scopes: [],
     }
 
     const validateRequiredKeys = [
@@ -29,7 +29,7 @@ describe('submitAppValidation', () => {
       'homePage',
       'description',
       'screen1ImageUrl',
-      'summary'
+      'summary',
     ]
 
     const output = {}
@@ -54,11 +54,11 @@ describe('submitAppValidation', () => {
       homePage: 'test',
       description: 'test',
       summary: 'test',
-      scopes: []
+      scopes: [],
     }
 
     expect(validate(input)).toEqual({
-      supportEmail: errorMessages.FIELD_WRONG_EMAIL_FORMAT
+      supportEmail: errorMessages.FIELD_WRONG_EMAIL_FORMAT,
     })
   })
 
@@ -76,7 +76,7 @@ describe('submitAppValidation', () => {
       homePage: 'test',
       description: 'test',
       summary: 'test',
-      scopes: []
+      scopes: [],
     }
 
     expect(validate(input)).toEqual({})

@@ -57,13 +57,13 @@ export const MapContainer = ({
   destinationAddress,
   travelMode,
   handleOnClick,
-  desktopMode
+  desktopMode,
 }: MapContainerProps) => {
   const [distance, setDistance] = React.useState('')
   const [duration, setDuration] = React.useState('')
   const [currentLocation, setCurrentLocation] = React.useState<Coords>({
     lat: UNDEFINED_LATLNG_NUMBER,
-    lng: UNDEFINED_LATLNG_NUMBER
+    lng: UNDEFINED_LATLNG_NUMBER,
   })
 
   const coordinates: CoordinateProps<any> = filterInvalidMarker(
@@ -78,11 +78,11 @@ export const MapContainer = ({
           address,
           position: {
             lat,
-            lng
-          }
+            lng,
+          },
         }
-      }
-    )
+      },
+    ),
   )
 
   React.useEffect(() => {
@@ -99,7 +99,7 @@ export const MapContainer = ({
       setDistance(distance.text)
       setDuration(duration.text)
     },
-    [destinationLatLng]
+    [destinationLatLng],
   )
 
   const hasMapPanel = destinationLatLng.lng && destinationLatLng.lat
@@ -142,17 +142,17 @@ export const mapStateToProps = (state: ReduxState): MapContainerMappedState => {
     appointments,
     destinationLatLng: {
       lat: destinationLat,
-      lng: destinationLng
+      lng: destinationLng,
     },
     destinationAddress,
-    desktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP'
+    desktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
   }
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): MapContainerMappedActions => ({
   handleOnClick: (id: string) => () => {
     dispatch(appointmentDetailRequestData({ id }))
-  }
+  },
 })
 
 const MapContainerWithConnect = connect(mapStateToProps, mapDispatchToProps)(MapContainer)

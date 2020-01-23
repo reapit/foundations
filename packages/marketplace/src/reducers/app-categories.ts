@@ -11,14 +11,14 @@ export const defaultState: AppCategoriesState = {
   pageNumber: 1,
   pageSize: APPS_PER_PAGE,
   pageCount: 1,
-  totalCount: 0
+  totalCount: 0,
 }
 
 const appCategoriesReducer = (state: AppCategoriesState = defaultState, action: Action<any>): AppCategoriesState => {
   if (isType(action, categoriesReceiveData)) {
     return {
       ...state,
-      ...action.data
+      ...action.data,
     }
   }
 

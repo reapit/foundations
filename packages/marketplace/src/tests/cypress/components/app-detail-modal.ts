@@ -8,6 +8,6 @@ export default {
     buttonSuccess: 'button[data-test="installations-success-button"]',
 
     divInstalled: 'div[data-test="detail-modal-installed"]',
-    divSuccessMessage: 'div[data-test="installations-success-message"]'
-  }
+    divSuccessMessage: 'div[data-test="installations-success-message"]',
+  },
 }

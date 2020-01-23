@@ -68,15 +68,15 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.ADMIN_DEV_MANAGEMENT:
       store.dispatch(
-        adminDevManagementRequestData({ page: 1, queryString: search } as AdminDevManagementRequestDataValues)
+        adminDevManagementRequestData({ page: 1, queryString: search } as AdminDevManagementRequestDataValues),
       )
       break
     case Routes.ADMIN_DEV_MANAGEMENT_PAGINATE:
       store.dispatch(
         adminDevManagementRequestData({
           page: params && params.page ? Number(params.page) : 1,
-          queryString: search
-        } as AdminDevManagementRequestDataValues)
+          queryString: search,
+        } as AdminDevManagementRequestDataValues),
       )
       break
     case Routes.SUBMIT_APP:

@@ -7,7 +7,7 @@ import {
   appointmentDetailShowModal,
   appointmentDetailHideModal,
   showHideConfirmModal,
-  showConfirmModalSubmitting
+  showConfirmModalSubmitting,
 } from '../actions/appointment-detail'
 import { ExtendedAppointmentModel } from '@/types/core'
 
@@ -27,45 +27,45 @@ export const defaultState: AppointmentDetailState = {
   isModalVisible: false,
   confirmModal: {
     isConfirmContentVisible: false,
-    isSubmitting: false
-  }
+    isSubmitting: false,
+  },
 }
 
 export const appointmentDetailReducer = (
   state: AppointmentDetailState = defaultState,
-  action: Action<any>
+  action: Action<any>,
 ): AppointmentDetailState => {
   if (isType(action, appointmentDetailLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
   if (isType(action, appointmentDetailReceiveData)) {
     return {
       ...state,
-      appointmentDetail: action.data
+      appointmentDetail: action.data,
     }
   }
 
   if (isType(action, appointmentDetailRequestDataFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 
   if (isType(action, appointmentDetailShowModal)) {
     return {
       ...state,
-      isModalVisible: true
+      isModalVisible: true,
     }
   }
 
   if (isType(action, appointmentDetailHideModal)) {
     return {
       ...state,
-      isModalVisible: false
+      isModalVisible: false,
     }
   }
 
@@ -74,8 +74,8 @@ export const appointmentDetailReducer = (
       ...state,
       confirmModal: {
         ...state.confirmModal,
-        isConfirmContentVisible: action.data
-      }
+        isConfirmContentVisible: action.data,
+      },
     }
   }
 
@@ -84,8 +84,8 @@ export const appointmentDetailReducer = (
       ...state,
       confirmModal: {
         ...state.confirmModal,
-        isSubmitting: action.data
-      }
+        isSubmitting: action.data,
+      },
     }
   }
 

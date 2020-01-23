@@ -5,6 +5,6 @@ export default {
     },
     clickAppCardSettingWithId(id: string) {
       return cy.get(`div[data-test="app-settings_${id}"]`).click()
-    }
-  }
+    },
+  },
 }

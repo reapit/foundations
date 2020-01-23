@@ -13,7 +13,7 @@ describe('my-apps reducer', () => {
     const newState = myAppsReducer(undefined, { type: ActionTypes.MY_APPS_LOADING as ActionType, data: true })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -21,11 +21,11 @@ describe('my-apps reducer', () => {
   it('should set my-apps item data when MY_APPS_RECEIVE_DATA action is called', () => {
     const newState = myAppsReducer(undefined, {
       type: ActionTypes.MY_APPS_RECEIVE_DATA as ActionType,
-      data: appsDataStub
+      data: appsDataStub,
     })
     const expected = {
       ...defaultState,
-      myAppsData: appsDataStub
+      myAppsData: appsDataStub,
     }
     expect(newState).toEqual(expected)
   })
@@ -34,7 +34,7 @@ describe('my-apps reducer', () => {
     const newState = myAppsReducer(undefined, { type: ActionTypes.MY_APPS_CLEAR_DATA as ActionType, data: null })
     const expected = {
       ...defaultState,
-      myAppsData: null
+      myAppsData: null,
     }
     expect(newState).toEqual(expected)
   })

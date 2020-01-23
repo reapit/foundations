@@ -4,7 +4,7 @@ import DiffCheckbox, { DiffCheckboxProps } from '../diff-checkbox'
 
 const props: DiffCheckboxProps = {
   changedChecked: false,
-  currentChecked: true
+  currentChecked: true,
 }
 
 describe('DiffCheckbox', () => {

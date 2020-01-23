@@ -12,10 +12,10 @@ describe('current loc reducer test', () => {
   it('it should change change destination', () => {
     const newState = directionReducer(defaultState, {
       type: ActionTypes.SET_DESTINATION as ActionType,
-      data: appointmentDataStub
+      data: appointmentDataStub,
     })
     const output = {
-      destination: appointmentDataStub
+      destination: appointmentDataStub,
     }
     expect(newState).toEqual(output)
   })

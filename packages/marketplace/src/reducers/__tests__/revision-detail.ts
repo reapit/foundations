@@ -12,11 +12,11 @@ describe('revision-detail reducer', () => {
   it('should set loading to true when REVISION_DETAIL_LOADING action is called', () => {
     const newState = revisionDetailReducer(undefined, {
       type: ActionTypes.REVISION_DETAIL_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -24,11 +24,11 @@ describe('revision-detail reducer', () => {
   it('should set error to false when REVISION_DETAIL_REQUEST_DATA__FAILURE action is called', () => {
     const newState = revisionDetailReducer(undefined, {
       type: ActionTypes.REVISION_DETAIL_REQUEST_DATA__FAILURE as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      error: true
+      error: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -36,11 +36,11 @@ describe('revision-detail reducer', () => {
   it('should set revision-detail item data when REVISION_DETAIL_RECEIVE_DATA action is called', () => {
     const newState = revisionDetailReducer(undefined, {
       type: ActionTypes.REVISION_DETAIL_RECEIVE_DATA as ActionType,
-      data: revisionDetailDataStub
+      data: revisionDetailDataStub,
     })
     const expected = {
       ...defaultState,
-      revisionDetailData: revisionDetailDataStub
+      revisionDetailData: revisionDetailDataStub,
     }
     expect(newState).toEqual(expected)
   })
@@ -48,11 +48,11 @@ describe('revision-detail reducer', () => {
   it('should clear revision-detail item data when REVISION_DETAIL_CLEAR_DATA action is called', () => {
     const newState = revisionDetailReducer(undefined, {
       type: ActionTypes.REVISION_DETAIL_CLEAR_DATA as ActionType,
-      data: null
+      data: null,
     })
     const expected = {
       ...defaultState,
-      revisionDetailData: null
+      revisionDetailData: null,
     }
     expect(newState).toEqual(expected)
   })
@@ -63,14 +63,14 @@ describe('revision-detail reducer', () => {
     () => {
       const newState = revisionDetailReducer(undefined, {
         type: ActionTypes.REVISION_APPROVE_SET_FORM_STATE as ActionType,
-        data: 'SUBMITTING'
+        data: 'SUBMITTING',
       })
       const expected = {
         ...defaultState,
-        approveFormState: 'SUBMITTING'
+        approveFormState: 'SUBMITTING',
       }
       expect(newState).toEqual(expected)
-    }
+    },
   )
 
   it(
@@ -79,13 +79,13 @@ describe('revision-detail reducer', () => {
     () => {
       const newState = revisionDetailReducer(undefined, {
         type: ActionTypes.REVISION_DECLINE_SET_FORM_STATE as ActionType,
-        data: 'SUBMITTING'
+        data: 'SUBMITTING',
       })
       const expected = {
         ...defaultState,
-        declineFormState: 'SUBMITTING'
+        declineFormState: 'SUBMITTING',
       }
       expect(newState).toEqual(expected)
-    }
+    },
   )
 })

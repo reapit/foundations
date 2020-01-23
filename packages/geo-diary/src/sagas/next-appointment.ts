@@ -21,7 +21,7 @@ export const getCurrentPosition = function() {
 export const callCurrentPosition = function({
   origin,
   destination,
-  travelMode = google.maps.TravelMode.DRIVING
+  travelMode = google.maps.TravelMode.DRIVING,
 }: {
   origin: Position
   destination: Position
@@ -37,11 +37,11 @@ export const callCurrentPosition = function({
         {
           origins,
           destinations,
-          travelMode
+          travelMode,
         },
         response => {
           resolve(response)
-        }
+        },
       )
     }
   })
@@ -54,7 +54,7 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
   if (window.google && appointment?.property?.address?.geolocation) {
     try {
       const {
-        coords: { latitude, longitude }
+        coords: { latitude, longitude },
       } = yield call(getCurrentPosition)
 
       const testLatitude = 52.130189
@@ -64,9 +64,9 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
         origin: { lat: latitude, lng: longitude },
         destination: {
           lat: appointment?.property?.address?.geolocation?.latitude || testLatitude,
-          lng: appointment?.property?.address?.geolocation?.longitude || testLongitude
+          lng: appointment?.property?.address?.geolocation?.longitude || testLongitude,
         },
-        travelMode: travelMode === 'DRIVING' ? google.maps.TravelMode.DRIVING : google.maps.TravelMode.WALKING
+        travelMode: travelMode === 'DRIVING' ? google.maps.TravelMode.DRIVING : google.maps.TravelMode.WALKING,
       })
 
       if (
@@ -96,8 +96,8 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
             distanceValue,
             attendeeWithMobile,
             currentNegotiator,
-            id: appointment.id as string
-          })
+            id: appointment.id as string,
+          }),
         )
       }
     } catch (err) {

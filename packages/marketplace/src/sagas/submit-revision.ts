@@ -34,7 +34,7 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
       imageUploaderHelper({ name: `${formatedName}-screen1ImageUrl`, imageData: screen1ImageUrl }),
       imageUploaderHelper({ name: `${formatedName}-screen2ImageUrl`, imageData: screen2ImageUrl }),
       imageUploaderHelper({ name: `${formatedName}-screen3ImageUrl`, imageData: screen3ImageUrl }),
-      imageUploaderHelper({ name: `${formatedName}-screen4ImageUrl`, imageData: screen4ImageUrl })
+      imageUploaderHelper({ name: `${formatedName}-screen4ImageUrl`, imageData: screen4ImageUrl }),
     ]
 
     const imageUploaderResults = yield all(imageUploaderReqs)
@@ -45,12 +45,12 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
       screen2ImageUrl: imageUploaderResults[2] ? imageUploaderResults[2].Url : screen2ImageUrl,
       screen3ImageUrl: imageUploaderResults[3] ? imageUploaderResults[3].Url : screen3ImageUrl,
       screen4ImageUrl: imageUploaderResults[4] ? imageUploaderResults[4].Url : screen4ImageUrl,
-      name
+      name,
     }
 
     const updatedValuesAfterValidatingCategoryId = {
       ...updatedValues,
-      categoryId: categoryId === '' ? undefined : categoryId
+      categoryId: categoryId === '' ? undefined : categoryId,
     }
 
     const regResponse: true | undefined = yield call(fetcher, {
@@ -58,7 +58,7 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       body: updatedValuesAfterValidatingCategoryId,
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
 
     const status = regResponse ? 'SUCCESS' : 'ERROR'
@@ -72,8 +72,8 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
     yield put(submitRevisionSetFormState('ERROR'))
   }
@@ -82,7 +82,7 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
 export const submitRevisionDataListen = function*() {
   yield takeLatest<Action<CreateAppRevisionModel & { id: string }>>(
     ActionTypes.DEVELOPER_SUBMIT_REVISION,
-    submitRevision
+    submitRevision,
   )
 }
 

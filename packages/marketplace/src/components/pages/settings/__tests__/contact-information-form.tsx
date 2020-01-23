@@ -6,7 +6,7 @@ import {
   mapPropsContactInformation,
   EnhanceContactInformationProps,
   ContactInformationValues,
-  handleSubmitContactInformation
+  handleSubmitContactInformation,
 } from '../contact-information-form'
 import { mockFormikAction } from '@/utils/mock-formik'
 import { developerStub } from '@/sagas/__stubs__/developer'
@@ -16,7 +16,7 @@ describe('ContactInformationForm', () => {
     const mockProps = {
       isSubmitting: false,
       isValidating: false,
-      isValid: true
+      isValid: true,
     } as ContactInformationFormProps
     const wrapper = shallow(<ContactInformationForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -25,7 +25,7 @@ describe('ContactInformationForm', () => {
     const mockProps = {
       isSubmitting: true,
       isValidating: true,
-      isValid: false
+      isValid: false,
     } as ContactInformationFormProps
     const wrapper = shallow(<ContactInformationForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -34,14 +34,14 @@ describe('ContactInformationForm', () => {
     it('should run correctly', () => {
       const mockProps: EnhanceContactInformationProps = {
         developerInformation: developerStub,
-        updateDeveloperInformation: jest.fn()
+        updateDeveloperInformation: jest.fn(),
       }
       const result = mapPropsContactInformation(mockProps)
       const output = {
         jobTitle: mockProps.developerInformation?.jobTitle || '',
         telephone: mockProps.developerInformation?.telephone || '',
         companyName: mockProps.developerInformation?.company || '',
-        name: mockProps.developerInformation?.name || ''
+        name: mockProps.developerInformation?.name || '',
       }
       expect(result).toEqual(output)
     })
@@ -49,14 +49,14 @@ describe('ContactInformationForm', () => {
     it('should return to fall back', () => {
       const mockProps: EnhanceContactInformationProps = {
         developerInformation: developerStub,
-        updateDeveloperInformation: jest.fn()
+        updateDeveloperInformation: jest.fn(),
       }
       const result = mapPropsContactInformation(mockProps)
       const output = {
         jobTitle: mockProps.developerInformation?.jobTitle || '',
         telephone: mockProps.developerInformation?.telephone || '',
         companyName: mockProps.developerInformation?.company || '',
-        name: mockProps.developerInformation?.name || ''
+        name: mockProps.developerInformation?.name || '',
       }
       expect(result).toEqual(output)
     })
@@ -67,14 +67,14 @@ describe('ContactInformationForm', () => {
         companyName: 'Reapit Ltd',
         name: 'Reapit Ltd',
         jobTitle: 'Head of Cloud',
-        telephone: '01234 567890'
+        telephone: '01234 567890',
       }
       const mockForm = {
-        ...mockFormikAction
+        ...mockFormikAction,
       }
       const mockProps: EnhanceContactInformationProps = {
         developerInformation: developerStub,
-        updateDeveloperInformation: jest.fn()
+        updateDeveloperInformation: jest.fn(),
       }
       handleSubmitContactInformation(mockValues, { ...mockForm, props: mockProps })
       expect(mockForm.setSubmitting).toBeCalledWith(true)

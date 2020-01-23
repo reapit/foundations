@@ -34,7 +34,7 @@ export const handleOnCardClick = ({
   appDetail,
   fetchAppDetail,
   setDeveloperAppModalStateViewDetail,
-  appDeleteSetInitFormState
+  appDeleteSetInitFormState,
 }) => (app: AppSummaryModel) => {
   setVisible(true)
   setDeveloperAppModalStateViewDetail()
@@ -63,7 +63,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
   history,
   isVisible,
   setVisible,
-  removeAuthenticationCode
+  removeAuthenticationCode,
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !developerState.developerData
@@ -87,14 +87,14 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
             appDetail,
             fetchAppDetail,
             setDeveloperAppModalStateViewDetail,
-            appDeleteSetInitFormState
+            appDeleteSetInitFormState,
           })}
           infoType="DEVELOPER_APPS_EMPTY"
           pagination={{
             totalCount,
             pageSize,
             pageNumber,
-            onChange: handleOnChange(history)
+            onChange: handleOnChange(history),
           }}
         />
         <SandboxPopUp loading={loading} />
@@ -110,7 +110,7 @@ export const DeveloperHome: React.FunctionComponent<DeveloperProps> = ({
 export const mapStateToProps = (state: ReduxState): DeveloperMappedProps => ({
   developerState: state.developer,
   appDetail: state.appDetail,
-  isVisible: state.developer.isVisible
+  isVisible: state.developer.isVisible,
 })
 
 export const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
@@ -118,7 +118,7 @@ export const mapDispatchToProps = (dispatch: any): DeveloperMappedActions => ({
   setDeveloperAppModalStateViewDetail: () => dispatch(setDeveloperAppModalStateViewDetail()),
   appDeleteSetInitFormState: () => dispatch(appDeleteSetInitFormState()),
   setVisible: (isVisible: boolean) => dispatch(developerAppShowModal(isVisible)),
-  removeAuthenticationCode: () => dispatch(removeAuthenticationCode())
+  removeAuthenticationCode: () => dispatch(removeAuthenticationCode()),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DeveloperHome))

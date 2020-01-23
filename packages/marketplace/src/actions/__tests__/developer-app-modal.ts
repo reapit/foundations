@@ -2,7 +2,7 @@ import {
   setDeveloperAppModalStateViewDetail,
   setDeveloperAppModalStateEditDetail,
   setDeveloperAppModalStateDelete,
-  developerAppShowModal
+  developerAppShowModal,
 } from '../developer-app-modal'
 import ActionTypes from '@/constants/action-types'
 

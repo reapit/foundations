@@ -36,7 +36,7 @@ export interface MapPanelProps {
 export const getMapUrl = ({
   currentLocation,
   destination,
-  isIOS = true
+  isIOS = true,
 }: {
   currentLocation: Latlng
   destination: Latlng
@@ -75,7 +75,7 @@ export const MapPanel = ({
   destination,
   filterType,
   showAllAppointment,
-  isDesktopMode
+  isDesktopMode,
 }: MapPanelProps) => {
   const openDefaultMap = () => {
     window.open(getMapUrl({ currentLocation, destination, isIOS: isIOS() }))
@@ -110,7 +110,7 @@ export const MapPanel = ({
 export const mapStateToProps = (state: ReduxState) => {
   return {
     isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
-    filterType: state?.appointments?.time || 'Today'
+    filterType: state?.appointments?.time || 'Today',
   }
 }
 
@@ -118,7 +118,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     showAllAppointment: () => {
       dispatch(setDestination(null))
-    }
+    },
   }
 }
 

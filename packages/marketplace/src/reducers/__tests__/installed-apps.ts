@@ -12,11 +12,11 @@ describe('installed-apps reducer', () => {
   it('should set loading to true when INSTALLED_APPS_LOADING action is called', () => {
     const newState = installedAppsReducer(undefined, {
       type: ActionTypes.INSTALLED_APPS_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -24,11 +24,11 @@ describe('installed-apps reducer', () => {
   it('should set installed-apps item data when INSTALLED_APPS_RECEIVE_DATA action is called', () => {
     const newState = installedAppsReducer(undefined, {
       type: ActionTypes.INSTALLED_APPS_RECEIVE_DATA as ActionType,
-      data: appsDataStub
+      data: appsDataStub,
     })
     const expected = {
       ...defaultState,
-      installedAppsData: appsDataStub
+      installedAppsData: appsDataStub,
     }
     expect(newState).toEqual(expected)
   })
@@ -36,11 +36,11 @@ describe('installed-apps reducer', () => {
   it('should clear installed-apps item data when INSTALLED_APPS_CLEAR_DATA action is called', () => {
     const newState = installedAppsReducer(undefined, {
       type: ActionTypes.INSTALLED_APPS_CLEAR_DATA as ActionType,
-      data: null
+      data: null,
     })
     const expected = {
       ...defaultState,
-      installedAppsData: null
+      installedAppsData: null,
     }
     expect(newState).toEqual(expected)
   })

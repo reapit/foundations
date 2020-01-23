@@ -13,7 +13,7 @@ import {
   AppointmentModel,
   OfficeModel,
   PropertyModel,
-  NegotiatorModel
+  NegotiatorModel,
 } from '@reapit/foundations-ts-definitions'
 
 export type ExtendedPagedResultAppointmentModel_ = Omit<PagedResultAppointmentModel_, '_embedded'> & {

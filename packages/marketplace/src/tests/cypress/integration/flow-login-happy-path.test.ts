@@ -10,22 +10,22 @@ describe('Login happy path', () => {
       selectors: { inputEmail, inputPassword, buttonLogin },
       loginAsAdminUrl,
       loginAsClientUrl,
-      loginAsDeveloperUrl
+      loginAsDeveloperUrl,
     } = loginPage
 
     const {
       url: pageClientAppsUrl,
-      selectors: { container: clientAppsPageContainer }
+      selectors: { container: clientAppsPageContainer },
     } = clientAppsPage
 
     const {
       url: developerPageUrl,
-      selectors: { container: developerPageContainer }
+      selectors: { container: developerPageContainer },
     } = developerPage
 
     const {
       url: adminPageUrl,
-      selectors: { container: adminPageContainer }
+      selectors: { container: adminPageContainer },
     } = adminApprovalsPage
 
     const testCases = [
@@ -35,7 +35,7 @@ describe('Login happy path', () => {
         password: Cypress.env('DEVELOPER_ACCOUNT_PASSWORD'),
         container: developerPageContainer,
         url: developerPageUrl,
-        loginUrl: loginAsDeveloperUrl
+        loginUrl: loginAsDeveloperUrl,
       },
       {
         testCaseName: 'Login successfully using CLIENT account',
@@ -43,7 +43,7 @@ describe('Login happy path', () => {
         password: Cypress.env('CLIENT_ACCOUNT_PASSWORD'),
         container: clientAppsPageContainer,
         url: pageClientAppsUrl,
-        loginUrl: loginAsClientUrl
+        loginUrl: loginAsClientUrl,
       },
       {
         testCaseName: 'Login successfully using ADMIN account',
@@ -51,8 +51,8 @@ describe('Login happy path', () => {
         password: Cypress.env('ADMIN_ACCOUNT_PASSWORD'),
         container: adminPageContainer,
         url: adminPageUrl,
-        loginUrl: loginAsAdminUrl
-      }
+        loginUrl: loginAsAdminUrl,
+      },
     ]
     for (const { container, email, password, testCaseName, loginUrl } of testCases) {
       it(testCaseName, done => {

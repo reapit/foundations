@@ -5,7 +5,7 @@ import {
   setAppDetailModalStateInstall,
   setAppDetailModalStateSuccess,
   setAppDetailModalStateUninstall,
-  setAppDetailModalStateManage
+  setAppDetailModalStateManage,
 } from '../actions/app-detail-modal'
 
 export type AppDetailModalState =

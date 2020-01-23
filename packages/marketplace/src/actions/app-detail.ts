@@ -17,7 +17,7 @@ export const setAppDetailStale = actionCreator<boolean>(ActionTypes.APP_DETAIL_I
 
 export const requestAuthenticationCode = actionCreator<string>(ActionTypes.REQUEST_AUTHENTICATION_CODE)
 export const requestAuthenticationSuccess = actionCreator<AppClientSecretModel>(
-  ActionTypes.REQUEST_AUTHENTICATION_CODE_SUCCESS
+  ActionTypes.REQUEST_AUTHENTICATION_CODE_SUCCESS,
 )
 export const requestAuthenticationFailure = actionCreator<void>(ActionTypes.REQUEST_AUTHENTICATION_CODE_FAILURE)
 export const removeAuthenticationCode = actionCreator<void>(ActionTypes.REMOVE_AUTHENTICATION_CODE)

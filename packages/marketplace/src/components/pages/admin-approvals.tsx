@@ -10,7 +10,7 @@ import {
   FlexContainerResponsive,
   Helper,
   infoText,
-  FlexContainerBasic
+  FlexContainerBasic,
 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { withRouter, RouteComponentProps } from 'react-router'
@@ -45,7 +45,7 @@ export const handleOnPageChange = history => page => history.push(`${routes.ADMI
 export const RenderContent = ({
   loading,
   list,
-  tableColumns
+  tableColumns,
 }: {
   loading: Boolean
   list: ApprovalModel[]
@@ -81,7 +81,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
   fetchRevisionDetail,
   fetchAppDetail,
   appDetail,
-  revisionDetail
+  revisionDetail,
 }) => {
   const pageNumber = match.params && !isNaN(match.params.page) ? Number(match.params.page) : 1
   const unfetched = !approvalsState.adminApprovalsData
@@ -125,25 +125,25 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
     {
       Header: '#',
       id: 'id',
-      Cell: HeaderCell
+      Cell: HeaderCell,
     },
     {
       Header: 'AppId',
-      accessor: 'appId'
+      accessor: 'appId',
     },
     {
       Header: 'Type',
-      accessor: 'type'
+      accessor: 'type',
     },
     {
       Header: 'Description',
-      accessor: 'description'
+      accessor: 'description',
     },
     {
       Header: '',
       id: 'buttonColumn',
-      Cell: ButtonColumnCell
-    }
+      Cell: ButtonColumnCell,
+    },
   ]
 
   return (
@@ -169,12 +169,12 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
 export const mapStateToProps = (state: ReduxState): AdminApprovalsMappedProps => ({
   approvalsState: state.adminApprovals,
   appDetail: state.appDetail,
-  revisionDetail: state.revisionDetail
+  revisionDetail: state.revisionDetail,
 })
 
 export const mapDispatchToProps = (dispatch: any): AdminApprovalsMappedActions => ({
   fetchRevisionDetail: param => dispatch(revisionDetailRequestData(param)),
-  fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id }))
+  fetchAppDetail: (id: string) => dispatch(appDetailRequestData({ id })),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AdminApprovals))

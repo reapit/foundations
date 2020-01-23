@@ -11,16 +11,16 @@ describe('notification message reducer', () => {
   it('should display notification message', () => {
     const notificationData: Partial<NotificationMessageState> = {
       variant: 'info',
-      message: 'Create successfully'
+      message: 'Create successfully',
     }
     const newState = notificationMessageReducer(undefined, {
       type: ActionTypes.SHOW_NOTIFICATION_MESSAGE as ActionType,
-      data: notificationData
+      data: notificationData,
     })
     const expected = {
       ...defaultState,
       visible: true,
-      ...notificationData
+      ...notificationData,
     }
     expect(newState).toEqual(expected)
   })
@@ -30,11 +30,11 @@ describe('notification message reducer', () => {
       { ...defaultState },
       {
         type: ActionTypes.HIDE_NOTIFICATION_MESSAGE as ActionType,
-        data: null
-      }
+        data: null,
+      },
     )
     const expected = {
-      ...defaultState
+      ...defaultState,
     }
     expect(newState).toEqual(expected)
   })

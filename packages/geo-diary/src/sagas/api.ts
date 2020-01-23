@@ -13,13 +13,13 @@ export const fetchOffices = async (officeIds: string[]) => {
       }
 
       return office
-    })
+    }),
   )
 }
 
 export const fetchAppointmentMetadata = async (appointment: ExtendedAppointmentModel) => {
   if (!appointment.id) {
-    throw new Error(`key propertyId of reponse of appointment is required`)
+    throw new Error('key propertyId of reponse of appointment is required')
   }
   const appointmentId = appointment.id
   if (!appointment.propertyId) {
@@ -35,7 +35,7 @@ export const fetchAppointmentMetadata = async (appointment: ExtendedAppointmentM
   const [property, negotiators, offices] = await Promise.all([
     fetchProperty({ id: appointment.propertyId }),
     fetchNegotiators(appointment.negotiatorIds),
-    fetchOffices(appointment.officeIds)
+    fetchOffices(appointment.officeIds),
   ])
 
   // avoid modifying the original object
@@ -57,7 +57,7 @@ export const fetchNegotiators = async (negotiatorsIds: string[]) => {
       }
 
       return negotiator
-    })
+    }),
   )
 }
 
@@ -67,7 +67,7 @@ export const fetchProperty = async ({ id }) => {
     url: `${URLS.properties}/${id}`,
     api: process.env.PLATFORM_API_BASE_URL as string,
     method: 'GET',
-    headers: headers
+    headers: headers,
   })
   return response
 }
@@ -78,7 +78,7 @@ export const fetchNegotiator = async ({ id }) => {
     url: `${URLS.negotiators}/${id}`,
     api: process.env.PLATFORM_API_BASE_URL as string,
     method: 'GET',
-    headers: headers
+    headers: headers,
   })
   return response
 }
@@ -89,7 +89,7 @@ export const fetchOffice = async ({ id }) => {
     url: `${URLS.offices}/${id}`,
     api: process.env.PLATFORM_API_BASE_URL as string,
     method: 'GET',
-    headers: headers
+    headers: headers,
   })
   return response
 }
@@ -100,7 +100,7 @@ export const fetchAppointment = async ({ id }) => {
     url: `${URLS.appointments}/${id}`,
     api: process.env.PLATFORM_API_BASE_URL as string,
     method: 'GET',
-    headers: headers
+    headers: headers,
   })
   return response
 }
@@ -112,7 +112,7 @@ export const updateAppointment = async ({ id, ...rest }: ExtendedAppointmentMode
     api: process.env.PLATFORM_API_BASE_URL as string,
     method: 'PATCH',
     headers: headers,
-    body: rest
+    body: rest,
   })
   return response
 }

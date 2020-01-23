@@ -17,7 +17,7 @@ import {
   H6,
   H4,
   Button,
-  FlexContainerResponsive
+  FlexContainerResponsive,
 } from '@reapit/elements'
 import {
   AppointmentAttendeeCommunicationModel,
@@ -25,7 +25,7 @@ import {
   AppointmentAttendeeModel,
   NegotiatorModel,
   AppointmentContactModel,
-  OfficeModel
+  OfficeModel,
 } from '@reapit/foundations-ts-definitions'
 import { ReduxState, ExtendedAppointmentModel } from '@/types/core'
 import { appointmentDetailHideModal, showHideConfirmModal } from '@/actions/appointment-detail'
@@ -75,7 +75,7 @@ export const renderHrefLink = (communicationLabel: string | undefined) => {
 }
 
 export const renderCommunicationDetail = (
-  communicationDetails: AppointmentAttendeeCommunicationModel[] | undefined
+  communicationDetails: AppointmentAttendeeCommunicationModel[] | undefined,
 ) => {
   if (!communicationDetails) {
     return null
@@ -89,7 +89,7 @@ export const renderCommunicationDetail = (
             <a href={`${renderHrefLink(communicationDetail.label)}${communicationDetail.detail}`}>
               {communicationDetail.detail}
             </a>
-          )
+          ),
         }
       })}
     />
@@ -107,7 +107,7 @@ export const renderAddress = (
   loginMode: LoginMode,
   // AppointmentPropertyAddressModel have been deprecated
   address: any | undefined,
-  propertyId: string | undefined
+  propertyId: string | undefined,
 ) => {
   if (!address) {
     return null
@@ -125,7 +125,7 @@ export const renderAddress = (
         dynamicLinkParams={{
           appMode: loginMode,
           entityType: EntityType.PROPERTY,
-          entityCode: propertyId
+          entityCode: propertyId,
         }}
       >
         <p>{addressParts.filter(p => p).join(', ')}</p>
@@ -167,7 +167,7 @@ export const renderNegotiators = (negotiators: NegotiatorModel[], loginMode: Log
               dynamicLinkParams={{
                 appMode: loginMode,
                 entityType: EntityType.CONTACT,
-                entityCode: negotiator.id
+                entityCode: negotiator.id,
               }}
             >
               <p>{negotiator.name}</p>
@@ -197,7 +197,7 @@ export const renderOffices = (offices: OfficeModel[], loginMode: LoginMode) => {
               dynamicLinkParams={{
                 appMode: loginMode,
                 entityType: EntityType.CONTACT,
-                entityCode: office.id
+                entityCode: office.id,
               }}
             >
               <p>{office.name}</p>
@@ -229,7 +229,7 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
                   dynamicLinkParams={{
                     appMode: loginMode,
                     entityType: getAttendeeEntityType(attendee?.type || ''),
-                    entityCode: attendee.id
+                    entityCode: attendee.id,
                   }}
                 >
                   <p>{contact?.name}</p>
@@ -324,7 +324,7 @@ export const renderModalContent = ({
   offices,
   loginMode,
   attendee,
-  handleCancelAppointment
+  handleCancelAppointment,
 }: RenderModalContentParams) => {
   if (isLoading) {
     return <Loader />
@@ -365,7 +365,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
   offices,
   attendee,
   handleCancelAppointment,
-  isConfirmContentVisible
+  isConfirmContentVisible,
 }) => {
   const address = appointment?.property?.address
   const basicAddress = address
@@ -390,7 +390,7 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({
           negotiators,
           offices,
           loginMode,
-          attendee
+          attendee,
         })}
       </Modal>
     </React.Fragment>
@@ -411,7 +411,7 @@ export type StateProps = {
 
 export const filterLoggedInUser = (
   attendees: AppointmentAttendeeModel[] | undefined,
-  userCode: string
+  userCode: string,
 ): AppointmentAttendeeModel[] => {
   if (!attendees) {
     return []
@@ -426,7 +426,7 @@ export const filterLoggedInUser = (
 
 export const getLoggedInUser = (
   attendees: AppointmentAttendeeModel[] | undefined,
-  userCode: string
+  userCode: string,
 ): AppointmentAttendeeModel | undefined => {
   if (!attendees) {
     return
@@ -463,7 +463,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
     loginMode: state?.auth?.refreshSession?.mode || 'WEB',
     negotiators: appointment?.negotiators || [],
     offices: appointment?.offices || [],
-    attendee: appointment?.attendee || {}
+    attendee: appointment?.attendee || {},
   }
 }
 
@@ -474,7 +474,7 @@ export type DispatchProps = {
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   afterClose: () => dispatch(appointmentDetailHideModal()),
-  handleCancelAppointment: () => dispatch(showHideConfirmModal(true))
+  handleCancelAppointment: () => dispatch(showHideConfirmModal(true)),
 })
 
 const AppointmentDetailWithRedux = connect(mapStateToProps, mapDispatchToProps)(AppointmentModal)

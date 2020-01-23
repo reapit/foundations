@@ -14,8 +14,8 @@ const invalidValues: InputOutput[] = [
       password:
         'Your Password should be a minimum of 8 characters; must contain at least ' +
         'one lowercase letter, one uppercase letter and one number',
-      agreedTerms: 'Required'
-    }
+      agreedTerms: 'Required',
+    },
   ],
   [
     {
@@ -25,7 +25,7 @@ const invalidValues: InputOutput[] = [
       telephone: '',
       password: '',
       confirmPassword: 'xxxxxx',
-      agreedTerms: ''
+      agreedTerms: '',
     },
     {
       email: 'Required',
@@ -33,8 +33,8 @@ const invalidValues: InputOutput[] = [
       password:
         'Your Password should be a minimum of 8 characters; must contain at least ' +
         'one lowercase letter, one uppercase letter and one number',
-      agreedTerms: 'Required'
-    }
+      agreedTerms: 'Required',
+    },
   ],
   [
     {
@@ -44,7 +44,7 @@ const invalidValues: InputOutput[] = [
       telephone: '12345678',
       password: 'xxxxxx',
       confirmPassword: 'xxxxxx',
-      agreedTerms: ''
+      agreedTerms: '',
     },
     {
       name: 'Required',
@@ -52,8 +52,8 @@ const invalidValues: InputOutput[] = [
       password:
         'Your Password should be a minimum of 8 characters; must contain at least ' +
         'one lowercase letter, one uppercase letter and one number',
-      agreedTerms: 'Required'
-    }
+      agreedTerms: 'Required',
+    },
   ],
   [
     {
@@ -63,15 +63,15 @@ const invalidValues: InputOutput[] = [
       telephone: '12345678',
       password: 'password',
       confirmPassword: 'password',
-      agreedTerms: '123'
+      agreedTerms: '123',
     },
     {
       name: 'Required',
       email: 'Invalid email address',
       password:
         'Your Password should be a minimum of 8 characters; must contain at least ' +
-        'one lowercase letter, one uppercase letter and one number'
-    }
+        'one lowercase letter, one uppercase letter and one number',
+    },
   ],
   [
     {
@@ -81,10 +81,10 @@ const invalidValues: InputOutput[] = [
       telephone: '12345678',
       password: 'Password1',
       confirmPassword: 'Password2',
-      agreedTerms: '123'
+      agreedTerms: '123',
     },
-    { confirmPassword: 'Password does not match' }
-  ]
+    { confirmPassword: 'Password does not match' },
+  ],
 ]
 
 const validValues: RegisterFormValues[] = [
@@ -95,7 +95,7 @@ const validValues: RegisterFormValues[] = [
     telephone: '12345678',
     password: 'Password1',
     confirmPassword: 'Password1',
-    agreedTerms: '123'
+    agreedTerms: '123',
   },
   {
     name: 'xxxxxxxx',
@@ -104,8 +104,8 @@ const validValues: RegisterFormValues[] = [
     telephone: '12345678',
     password: 'Password123',
     confirmPassword: 'Password123',
-    agreedTerms: '123'
-  }
+    agreedTerms: '123',
+  },
 ]
 
 describe('registerValidation', () => {

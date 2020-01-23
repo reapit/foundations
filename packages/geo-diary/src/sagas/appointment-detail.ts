@@ -5,7 +5,7 @@ import {
   appointmentDetailShowModal,
   appointmentDetailHideModal,
   showConfirmModalSubmitting,
-  showHideConfirmModal
+  showHideConfirmModal,
 } from '../actions/appointment-detail'
 import { appointmentsRequestData } from '@/actions/appointments'
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
@@ -53,8 +53,8 @@ export const appointmentDetailDataFetch = function*({ data: { id } }: Action<App
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -65,7 +65,7 @@ export const cancelAppointmentRequest = function*() {
     const currentAppointment = yield select(selectAppointmentDetail)
     const newAppointment: ExtendedAppointmentModel = {
       ...currentAppointment,
-      cancelled: true
+      cancelled: true,
     }
     const updateResponse = yield call(updateAppointment, newAppointment)
     if (updateResponse) {
@@ -82,8 +82,8 @@ export const cancelAppointmentRequest = function*() {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   } finally {
     yield put(showConfirmModalSubmitting(false))
@@ -93,7 +93,7 @@ export const cancelAppointmentRequest = function*() {
 export const appointmentDetailDataListen = function*() {
   yield takeLatest<Action<AppointmentDetailRequestParams>>(
     ActionTypes.APPOINTMENT_DETAIL_REQUEST_DATA,
-    appointmentDetailDataFetch
+    appointmentDetailDataFetch,
   )
 }
 

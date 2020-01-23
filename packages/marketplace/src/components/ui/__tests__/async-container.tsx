@@ -8,7 +8,7 @@ describe('AsyncContainer', () => {
     const props: AsyncContainerProps = {
       loading: true,
       error: false,
-      data: []
+      data: [],
     }
 
     expect(shallow(<AsyncContainer {...props} />)).toMatchSnapshot()
@@ -18,7 +18,7 @@ describe('AsyncContainer', () => {
     const props: AsyncContainerProps = {
       loading: false,
       error: true,
-      data: []
+      data: [],
     }
 
     expect(shallow(<AsyncContainer {...props} />)).toMatchSnapshot()
@@ -28,7 +28,7 @@ describe('AsyncContainer', () => {
     const props: AsyncContainerProps = {
       loading: false,
       error: false,
-      data: null
+      data: null,
     }
 
     expect(shallow(<AsyncContainer {...props} />)).toMatchSnapshot()

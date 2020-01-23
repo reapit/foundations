@@ -32,7 +32,7 @@ export const SetDeveloperStatusModal = ({
   formState,
   developer,
   developerSetStatusRequest,
-  resetDeveloperSetStatusReducer
+  resetDeveloperSetStatusReducer,
 }: SetDeveloperStatusProps) => {
   const isLoading = Boolean(formState === 'SUBMITTING')
   const isSucceeded = Boolean(formState === 'SUCCESS')
@@ -99,12 +99,12 @@ export const onSuccessHandler = ({ onSuccess, resetDeveloperSetStatusReducer }) 
 }
 
 export const mapStateToProps = (state: ReduxState): SetDeveloperStatusMappedProps => ({
-  formState: state.developerSetStatus.formState
+  formState: state.developerSetStatus.formState,
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): SetDeveloperStatusMappedActions => ({
   developerSetStatusRequest: (developer: DeveloperModel) => dispatch(developerSetStatusRequest(developer)),
-  resetDeveloperSetStatusReducer: () => dispatch(developerSetStatusSetInitFormState())
+  resetDeveloperSetStatusReducer: () => dispatch(developerSetStatusSetInitFormState()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SetDeveloperStatusModal)

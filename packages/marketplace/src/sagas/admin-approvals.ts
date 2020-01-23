@@ -1,7 +1,7 @@
 import {
   adminApprovalsLoading,
   adminApprovalsReceiveData,
-  adminApprovalsRequestDataFailure
+  adminApprovalsRequestDataFailure,
 } from '../actions/admin-approvals'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -20,7 +20,7 @@ export const adminApprovalsDataFetch = function*({ data: page }) {
       url: `${URLS.approvals}?PageNumber=${page}&PageSize=${REVISIONS_PER_PAGE}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
     if (response) {
       yield put(adminApprovalsReceiveData({ data: response }))
@@ -32,8 +32,8 @@ export const adminApprovalsDataFetch = function*({ data: page }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

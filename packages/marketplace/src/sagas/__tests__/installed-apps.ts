@@ -1,7 +1,7 @@
 import installedAppsSagas, {
   installedAppsDataFetch,
   installedAppsDataListen,
-  fetchInstalledApps
+  fetchInstalledApps,
 } from '../installed-apps'
 import { appsDataStub } from '../__stubs__/apps'
 import ActionTypes from '@/constants/action-types'
@@ -9,7 +9,7 @@ import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effec
 import {
   installedAppsLoading,
   installedAppsReceiveData,
-  installedAppsRequestDataFailure
+  installedAppsRequestDataFailure,
 } from '@/actions/installed-apps'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -30,8 +30,8 @@ describe('installed-apps fetch data', () => {
   expect(gen.next(clientId).value).toEqual(
     call(fetchInstalledApps, {
       clientId,
-      page: params.data
-    })
+      page: params.data,
+    }),
   )
 
   test('api call success', () => {
@@ -57,9 +57,9 @@ describe('installed-apps fetch data error', () => {
     put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
-    )
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
+    ),
   )
 })
 
@@ -68,7 +68,7 @@ describe('installed-apps thunks', () => {
     it('should request data when called', () => {
       const gen = installedAppsDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<number>>(ActionTypes.INSTALLED_APPS_REQUEST_DATA, installedAppsDataFetch)
+        takeLatest<Action<number>>(ActionTypes.INSTALLED_APPS_REQUEST_DATA, installedAppsDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

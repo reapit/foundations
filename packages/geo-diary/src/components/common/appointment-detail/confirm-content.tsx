@@ -29,7 +29,7 @@ export type StateProps = {
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
-    isSubmitting: state?.appointmentDetail?.confirmModal?.isSubmitting || false
+    isSubmitting: state?.appointmentDetail?.confirmModal?.isSubmitting || false,
   }
 }
 
@@ -41,7 +41,7 @@ export type DispatchProps = {
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     handleCancel: () => dispatch(showHideConfirmModal(false)),
-    handleConfirm: () => dispatch(cancelAppointment())
+    handleConfirm: () => dispatch(cancelAppointment()),
   }
 }
 const ConfirmContentWithRedux = connect(mapStateToProps, mapDispatchToProps)(ConfirmContent)

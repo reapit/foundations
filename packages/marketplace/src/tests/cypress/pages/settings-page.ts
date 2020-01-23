@@ -7,8 +7,8 @@ const settingsPageMetaData = {
     textBoxCurrentPassword: 'input#currentPassword',
     textBoxPassword: 'input#password',
     textBoxConfirmPassword: 'input#confirmPassword',
-    buttonSubmitChangePassword: 'button[data-test="button-change-password"]'
-  }
+    buttonSubmitChangePassword: 'button[data-test="button-change-password"]',
+  },
 }
 
 const settingsPage = {
@@ -19,7 +19,7 @@ const settingsPage = {
         textBoxPassword,
         textBoxCurrentPassword,
         textBoxConfirmPassword,
-        buttonSubmitChangePassword
+        buttonSubmitChangePassword,
       } = settingsPageMetaData.selectors
 
       cy.visit(settingsPage.url)
@@ -31,8 +31,8 @@ const settingsPage = {
       cy.route('POST', apiRoutes.changePassword).as('requestChangePassword')
       cy.get(buttonSubmitChangePassword).click()
       cy.wait('@requestChangePassword')
-    }
-  }
+    },
+  },
 }
 
 export default settingsPage

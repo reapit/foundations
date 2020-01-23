@@ -11,7 +11,7 @@ import {
   LevelRight,
   FlexContainerResponsive,
   Formik,
-  Form
+  Form,
 } from '@reapit/elements'
 import styles from '@/styles/pages/admin-dev-management.scss?mod'
 
@@ -27,7 +27,7 @@ export interface AdminDevManagementFilterFormProps {
 
 export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterFormProps> = ({
   filterValues,
-  onSearch
+  onSearch,
 }) => (
   <FlexContainerBasic flexColumn className="pb-4">
     <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.mx0}>

@@ -6,7 +6,7 @@ import {
   DeveloperAppModalInner,
   DeveloperAppInnerProps,
   DeveloperAppModal,
-  DeveloperAppModalProps
+  DeveloperAppModalProps,
 } from '../developer-app-modal'
 
 // @ts-ignore: just need to pick relevant props to test
@@ -17,15 +17,15 @@ const daiProps = (loading: boolean, error: boolean): DeveloperAppInnerProps => (
     appDetailData: { data: appDetailDataStub.data },
     authentication: {
       loading: false,
-      code: ''
+      code: '',
     },
-    isStale: false
+    isStale: false,
   },
   closeParentModal: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
   history: {
-    push: jest.fn()
-  }
+    push: jest.fn(),
+  },
 })
 
 describe('DeveloperAppModalInner', () => {
@@ -47,8 +47,8 @@ const damProps = (): DeveloperAppModalProps => ({
   afterClose: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
   history: {
-    push: jest.fn()
-  }
+    push: jest.fn(),
+  },
 })
 
 describe('DeveloperAppModal', () => {

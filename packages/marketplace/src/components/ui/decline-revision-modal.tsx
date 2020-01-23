@@ -26,18 +26,18 @@ export interface DeclineRevisionModalMappedActions {
 
 const mapStateToProps = (
   state: ReduxState,
-  ownProps: DeclineRevisionInnerWithConnectOwnProps
+  ownProps: DeclineRevisionInnerWithConnectOwnProps,
 ): DeclineRevisionModalMappedProps => ({
   revisionDetail: state.revisionDetail,
   email: state?.auth?.loginSession?.loginIdentity?.email || '',
   name: state?.auth?.loginSession?.loginIdentity?.name || '',
   closeModal: ownProps.closeModal,
   onDeclineSuccess: ownProps.onDeclineSuccess,
-  visible: ownProps.visible
+  visible: ownProps.visible,
 })
 
 const mapDispatchToProps = (dispatch: any): DeclineRevisionModalMappedActions => ({
-  submitDeclineRevision: params => dispatch(declineRevision(params))
+  submitDeclineRevision: params => dispatch(declineRevision(params)),
 })
 
 export type DeclineRevisionModalProps = Pick<ModalProps, 'visible' | 'afterClose'> &
@@ -53,7 +53,7 @@ export const handleAfterClose = ({ isSuccessed, onDeclineSuccess, isLoading, aft
 }
 
 export const handleOnSubmit = ({ appId, appRevisionId, setRejectionReason, submitDeclineRevision }) => (
-  formValues: RejectRevisionModel
+  formValues: RejectRevisionModel,
 ) => {
   if (appId && appRevisionId) {
     setRejectionReason(formValues.rejectionReason || '')
@@ -68,7 +68,7 @@ export const DeclineRevisionModal: React.FunctionComponent<DeclineRevisionModalP
   revisionDetail,
   onDeclineSuccess,
   name,
-  email
+  email,
 }) => {
   const { declineFormState } = revisionDetail
   const { appId, id: appRevisionId } = revisionDetail?.revisionDetailData?.data || {}

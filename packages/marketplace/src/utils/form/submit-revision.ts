@@ -4,7 +4,7 @@ import {
   validateMinCharacterLength,
   validateMaxCharacterLength,
   validateURI,
-  validateRequire
+  validateRequire,
 } from '@reapit/elements'
 
 export type SubmitRevisionFormErrorKeys = keyof CreateAppRevisionModel
@@ -22,8 +22,8 @@ export const validate = (values: CreateAppRevisionModel) => {
       'homePage',
       'description',
       'summary',
-      'screen1ImageUrl'
-    ] as SubmitRevisionFormErrorKeys[]
+      'screen1ImageUrl',
+    ] as SubmitRevisionFormErrorKeys[],
   })
 
   errors = validateMinCharacterLength({ values, currentErrors: errors, keys: ['description'], length: 150 })
@@ -35,13 +35,13 @@ export const validate = (values: CreateAppRevisionModel) => {
   errors = validateEmail({
     values,
     currentErrors: errors,
-    keys: ['supportEmail']
+    keys: ['supportEmail'],
   })
 
   errors = validateURI({
     values,
     currentErrors: errors,
-    keys: ['launchUri', 'homePage']
+    keys: ['launchUri', 'homePage'],
   })
 
   return errors

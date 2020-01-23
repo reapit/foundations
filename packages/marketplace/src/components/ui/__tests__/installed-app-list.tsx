@@ -5,7 +5,7 @@ import {
   InstalledAppListProps,
   onClickHandler,
   ListMobileScreen,
-  ListDesktopScreen
+  ListDesktopScreen,
 } from '../installed-app-list'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { Loader } from '@reapit/elements'
@@ -14,7 +14,7 @@ import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
 const app = (appsDataStub as { data: { data: AppSummaryModel[] } }).data.data[0]
 
 const event = ({
-  stopPropagation: jest.fn()
+  stopPropagation: jest.fn(),
 } as unknown) as React.MouseEvent
 
 const props: InstalledAppListProps = {
@@ -27,15 +27,15 @@ const props: InstalledAppListProps = {
     pageNumber: 2,
     pageSize: 20,
     totalCount: 200,
-    onChange: jest.fn()
-  }
+    onChange: jest.fn(),
+  },
 }
 
 const listProps = {
   list: appsDataStub.data.data as AppSummaryModel[],
   loading: false,
   onCardClick: jest.fn(),
-  infoType: 'CLIENT_APPS_EMPTY'
+  infoType: 'CLIENT_APPS_EMPTY',
 }
 
 describe('InstalledAppList', () => {

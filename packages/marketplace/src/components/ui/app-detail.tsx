@@ -41,7 +41,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   isCurrentLoggedUserClient,
   isCurrentLoggedUserDeveloper,
   afterClose,
-  footerItems
+  footerItems,
 }) => {
   if (!data) {
     return null
@@ -58,7 +58,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
     scopes = [],
     isListed,
     isDirectApi,
-    authFlow
+    authFlow,
   } = data
   const icon = media.filter(({ type }) => type === 'icon')[0]
   const carouselImages = media.filter(({ type }) => type === 'image')
@@ -78,7 +78,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
       <SlickButtonNav>
         <ChevronLeftIcon />
       </SlickButtonNav>
-    )
+    ),
   }
 
   return (
@@ -159,14 +159,14 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
 export const mapStateToProps = (state: ReduxState): AppDetailModalMappedProps => {
   return {
     isCurrentLoggedUserClient: state.auth.loginType === 'CLIENT',
-    isCurrentLoggedUserDeveloper: state.auth.loginType === 'DEVELOPER'
+    isCurrentLoggedUserDeveloper: state.auth.loginType === 'DEVELOPER',
   }
 }
 
 export const mapDispatchToProps = (dispatch: any): AppDetailModalMappedActions => ({
   setAppDetailModalStateInstall: () => dispatch(setAppDetailModalStateInstall()),
   setAppDetailModalStateUninstall: () => dispatch(setAppDetailModalStateUninstall()),
-  setDeveloperAppModalStateDelete: () => dispatch(setDeveloperAppModalStateDelete())
+  setDeveloperAppModalStateDelete: () => dispatch(setDeveloperAppModalStateDelete()),
 })
 
 const AppDetailWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppDetail)

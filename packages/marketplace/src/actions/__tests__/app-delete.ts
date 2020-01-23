@@ -3,7 +3,7 @@ import {
   appDeleteRequestSuccess,
   appDeleteRequestFailure,
   appDeleteRequest,
-  appDeleteRequestLoading
+  appDeleteRequestLoading,
 } from '../app-delete'
 
 import ActionTypes from '../../constants/action-types'

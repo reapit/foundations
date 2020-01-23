@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json'
 
 const props: TravelModeProps = {
   travelMode: 'DRIVING',
-  onChangeTravelMode: jest.fn()
+  onChangeTravelMode: jest.fn(),
 }
 
 describe('TravelMode', () => {

@@ -38,11 +38,11 @@ export const clientDataFetch = function*({ data }) {
           pageNumber: page,
           pageSize: APPS_PER_PAGE,
           IsFeatured: isFilteringForDirectApiApps ? undefined : false,
-          IsDirectApi: isFilteringForDirectApiApps ? true : undefined
+          IsDirectApi: isFilteringForDirectApiApps ? true : undefined,
         })}`,
         api: process.env.MARKETPLACE_API_BASE_URL as string,
         method: 'GET',
-        headers: MARKETPLACE_HEADERS
+        headers: MARKETPLACE_HEADERS,
       }),
       !!search || !!category
         ? currentFeaturedApps
@@ -50,7 +50,7 @@ export const clientDataFetch = function*({ data }) {
             url: `${URLS.apps}?clientId=${clientId}&PageNumber=1&PageSize=${FEATURED_APPS}&IsFeatured=true`,
             api: process.env.MARKETPLACE_API_BASE_URL as string,
             method: 'GET',
-            headers: MARKETPLACE_HEADERS
+            headers: MARKETPLACE_HEADERS,
           }),
       currentCategories.length > 1
         ? currentCategories
@@ -58,8 +58,8 @@ export const clientDataFetch = function*({ data }) {
             url: `${URLS.categories}`,
             method: 'GET',
             api: process.env.MARKETPLACE_API_BASE_URL as string,
-            headers: MARKETPLACE_HEADERS
-          })
+            headers: MARKETPLACE_HEADERS,
+          }),
     ])
     if (apps && categories && featuredApps) {
       const clientItem: ClientItem = { apps: apps, featuredApps: featuredApps?.data }
@@ -73,8 +73,8 @@ export const clientDataFetch = function*({ data }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

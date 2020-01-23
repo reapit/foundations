@@ -18,24 +18,24 @@ export interface NextAppointmentState {
 }
 
 export const defaultState: NextAppointmentState = {
-  data: null
+  data: null,
 }
 
 const nextAppointmentReducer = (
   state: NextAppointmentState = defaultState,
-  action: Action<any>
+  action: Action<any>,
 ): NextAppointmentState => {
   if (isType(action, nextAppointmentValidateSuccess)) {
     return {
       ...state,
-      data: action.data
+      data: action.data,
     }
   }
 
   if (isType(action, nextAppointmentClear)) {
     return {
       ...state,
-      data: null
+      data: null,
     }
   }
 

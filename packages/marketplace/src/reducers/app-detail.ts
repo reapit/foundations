@@ -10,7 +10,7 @@ import {
   requestAuthenticationCode,
   requestAuthenticationSuccess,
   requestAuthenticationFailure,
-  removeAuthenticationCode
+  removeAuthenticationCode,
 } from '../actions/app-detail'
 
 export interface AppDetailItem {
@@ -32,7 +32,7 @@ export interface AppDetailState {
 
 export const defaultAppAuthState: AppAuthDetailState = {
   loading: false,
-  code: ''
+  code: '',
 }
 
 export const defaultState: AppDetailState = {
@@ -40,14 +40,14 @@ export const defaultState: AppDetailState = {
   error: false,
   appDetailData: null,
   authentication: defaultAppAuthState,
-  isStale: true
+  isStale: true,
 }
 
 const appDetailReducer = (state: AppDetailState = defaultState, action: Action<any>): AppDetailState => {
   if (isType(action, setAppDetailStale)) {
     return {
       ...state,
-      isStale: action.data
+      isStale: action.data,
     }
   }
 
@@ -55,7 +55,7 @@ const appDetailReducer = (state: AppDetailState = defaultState, action: Action<a
     return {
       ...state,
       error: false,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -65,7 +65,7 @@ const appDetailReducer = (state: AppDetailState = defaultState, action: Action<a
       loading: false,
       error: false,
       isStale: false,
-      appDetailData: action.data || null
+      appDetailData: action.data || null,
     }
   }
 
@@ -74,7 +74,7 @@ const appDetailReducer = (state: AppDetailState = defaultState, action: Action<a
       ...state,
       loading: false,
       error: false,
-      appDetailData: action.data
+      appDetailData: action.data,
     }
   }
 
@@ -82,7 +82,7 @@ const appDetailReducer = (state: AppDetailState = defaultState, action: Action<a
     return {
       ...state,
       loading: false,
-      error: true
+      error: true,
     }
   }
 
@@ -91,8 +91,8 @@ const appDetailReducer = (state: AppDetailState = defaultState, action: Action<a
       ...state,
       authentication: {
         ...state.authentication,
-        loading: true
-      }
+        loading: true,
+      },
     }
   }
 
@@ -102,8 +102,8 @@ const appDetailReducer = (state: AppDetailState = defaultState, action: Action<a
       authentication: {
         ...state.authentication,
         loading: false,
-        code: action.data?.clientSecret || ''
-      }
+        code: action.data?.clientSecret || '',
+      },
     }
   }
 
@@ -113,8 +113,8 @@ const appDetailReducer = (state: AppDetailState = defaultState, action: Action<a
       authentication: {
         ...state.authentication,
         code: '',
-        loading: false
-      }
+        loading: false,
+      },
     }
   }
 
@@ -123,8 +123,8 @@ const appDetailReducer = (state: AppDetailState = defaultState, action: Action<a
       ...state,
       authentication: {
         ...state.authentication,
-        code: ''
-      }
+        code: '',
+      },
     }
   }
 

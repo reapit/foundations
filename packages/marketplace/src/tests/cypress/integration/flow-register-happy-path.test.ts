@@ -19,7 +19,7 @@ describe.skip('Register happy path', () => {
       textBoxConfirmPassword: 'q1W2e3R4t5Y6',
       textBoxFullName: 'Test name',
       textBoxEmail: `testEmail${nanoid(5)}@gmail.com`,
-      textBoxCompanyName: 'Test company'
+      textBoxCompanyName: 'Test company',
     }
     for (let inputTestDataSelector in inputTestData) {
       const data = inputTestData[inputTestDataSelector]
@@ -30,7 +30,7 @@ describe.skip('Register happy path', () => {
       checkBoxTermsAndConditions,
       btnAcceptTermsAndConditions,
       buttonSubmitRegister,
-      divRegisterSuccessfully
+      divRegisterSuccessfully,
     } = registerPageSelectors
     cy.get(checkBoxTermsAndConditions).click({ force: true })
     cy.get(btnAcceptTermsAndConditions).click()

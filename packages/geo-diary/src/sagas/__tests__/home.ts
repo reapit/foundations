@@ -27,9 +27,9 @@ describe('home fetch data', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().done).toBe(true)
   })
