@@ -18,11 +18,10 @@
     "handleCronjob": "node ./scripts/handle-cronjob.js"
   },
   "dependencies": {
-    "@octokit/rest": "^16.35.0",
+    "@octokit/rest": "^16.38.1",
     "compare-versions": "^3.5.1",
     "dotenv": "^8.2.0",
     "isomorphic-fetch": "^2.2.1",
-    "prettier": "^1.18.2",
     "rimraf": "^3.0.0",
     "semver": "^7.1.1",
     "sw2dts": "^2.6.2"
