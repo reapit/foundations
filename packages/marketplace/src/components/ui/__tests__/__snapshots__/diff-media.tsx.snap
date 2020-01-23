@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiffMedia should match a snapshot 1`] = `
+<div>
+  <div
+    className="undefined undefined undefined"
+  >
+    <div
+      className="undefined undefined"
+      style={
+        Object {
+          "backgroundImage": "url(image-2)",
+        }
+      }
+    />
+  </div>
+  <span>
+    →
+  </span>
+  <div
+    className="undefined undefined undefined"
+  >
+    <div
+      className="undefined undefined"
+      style={
+        Object {
+          "backgroundImage": "url(image-1)",
+        }
+      }
+    />
+  </div>
+</div>
+`;

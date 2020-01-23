@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppDetailModel should match a snapshot 1`] = `
+<Modal
+  afterClose={[Function]}
+  renderChildren={true}
+  visible={true}
+>
+  <Connect(AsyncContainer)>
+    <Connect(Component)
+      afterClose={[MockFunction]}
+    />
+  </Connect(AsyncContainer)>
+</Modal>
+`;

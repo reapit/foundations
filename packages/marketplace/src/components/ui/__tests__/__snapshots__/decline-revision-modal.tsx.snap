@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeclineRevisionModal should match a snapshot 1`] = `
+<Modal
+  afterClose={[Function]}
+  renderChildren={true}
+  visible={true}
+>
+  <Formik
+    data-test="revision-decline-form"
+    initialValues={
+      Object {
+        "email": "email",
+        "name": "name",
+        "rejectionReason": "",
+      }
+    }
+    onSubmit={[Function]}
+    render={[Function]}
+    validate={[Function]}
+  />
+</Modal>
+`;

@@ -1,0 +1,17 @@
+@import './installed-app-card.scss';
+
+.contentIsLoading {
+  opacity: 0.75;
+}
+.wrapList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: space-between;
+  align-items: center;
+
+  & > * {
+    margin-bottom: 1rem;
+  }
+}
+

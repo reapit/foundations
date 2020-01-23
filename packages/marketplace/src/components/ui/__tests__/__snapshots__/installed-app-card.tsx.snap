@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InstalledAppCard should match a snapshot 1`] = `
+<div
+  data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
+  data-test-app-name="test"
+>
+  <Tile
+    heading="test"
+    image={
+      <img
+        alt="test"
+        className="image"
+        src="https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png"
+      />
+    }
+    onClick={[MockFunction]}
+    subHeading="Pete's Proptech World Ltd"
+  >
+    <p>
+      nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
+    </p>
+  </Tile>
+</div>
+`;

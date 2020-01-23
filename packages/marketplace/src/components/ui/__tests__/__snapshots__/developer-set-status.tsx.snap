@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SetDeveloperStatusModal should match snapshot 1`] = `
+<Modal
+  afterClose={[Function]}
+  renderChildren={true}
+  visible={true}
+>
+  <ModalHeader
+    afterClose={[Function]}
+    title="Confirm undefined Deactivation"
+  />
+  <ModalBody
+    body={
+      <SubTitleH6
+        isCentered={true}
+      >
+        Are you sure you want to 
+        deactivate
+         ‘
+        ’?
+      </SubTitleH6>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Confirm
+        </Button>
+        <Button
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Modal>
+`;

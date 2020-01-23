@@ -1,0 +1,373 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "current": "step",
+      "currentIndex": 0,
+      "goNext": [Function],
+      "goPrev": [Function],
+      "goTo": [Function],
+      "isFirst": true,
+      "isLast": true,
+      "isLoading": false,
+      "steps": Array [
+        Object {
+          "component": [Function],
+          "heading": "Test",
+          "id": "step",
+          "subHeading": "Test",
+        },
+      ],
+    }
+  }
+>
+  <FlexContainerBasic
+    centerContent={true}
+    flexColumn={false}
+    hasPadding={true}
+  >
+    <VerticalTimeline
+      currentIndex={0}
+      onSelect={[Function]}
+      total={1}
+    />
+    <div
+      className="helpguide"
+    >
+      <div
+        className="helpguide-wrapper"
+      >
+        <div
+          className="helpguide-steps"
+          key="helper-guide-child-0"
+        >
+          <Component
+            component={[Function]}
+            heading="Test"
+            id="step"
+            key=".0"
+            subHeading="Test"
+          />
+        </div>
+      </div>
+    </div>
+  </FlexContainerBasic>
+</ContextProvider>
+`;
+
+exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "current": "step",
+      "currentIndex": 0,
+      "goNext": [Function],
+      "goPrev": [Function],
+      "goTo": [Function],
+      "isFirst": true,
+      "isLast": true,
+      "isLoading": false,
+      "steps": Array [
+        Object {
+          "component": [Function],
+          "heading": "Test",
+          "id": "step",
+          "subHeading": "Test",
+        },
+      ],
+    }
+  }
+>
+  <FlexContainerBasic
+    centerContent={true}
+    flexColumn={false}
+    hasPadding={true}
+  >
+    <VerticalTimeline
+      currentIndex={0}
+      onSelect={[Function]}
+      total={1}
+    />
+    <div
+      className="helpguide"
+    >
+      <div
+        className="helpguide-wrapper"
+      >
+        <div
+          className="helpguide-steps"
+          key="helper-guide-child-0"
+        >
+          <Component
+            component={[Function]}
+            heading="Test"
+            id="step"
+            key=".0"
+            subHeading="Test"
+          />
+        </div>
+      </div>
+    </div>
+  </FlexContainerBasic>
+</ContextProvider>
+`;
+
+exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "current": "step",
+      "currentIndex": 0,
+      "goNext": [Function],
+      "goPrev": [Function],
+      "goTo": [Function],
+      "isFirst": true,
+      "isLast": true,
+      "isLoading": false,
+      "steps": Array [
+        Object {
+          "component": [Function],
+          "heading": "Test",
+          "id": "step",
+          "subHeading": "Test",
+        },
+      ],
+    }
+  }
+>
+  <FlexContainerBasic
+    centerContent={true}
+    flexColumn={false}
+    hasPadding={true}
+  >
+    <VerticalTimeline
+      currentIndex={0}
+      onSelect={[Function]}
+      total={1}
+    />
+    <div
+      className="helpguide"
+    >
+      <div
+        className="helpguide-wrapper"
+      >
+        <div
+          className="helpguide-steps"
+          key="helper-guide-child-0"
+        >
+          <Component
+            component={[Function]}
+            heading="Test"
+            id="step"
+            key=".0"
+            subHeading="Test"
+          />
+        </div>
+      </div>
+    </div>
+  </FlexContainerBasic>
+</ContextProvider>
+`;
+
+exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "current": "step",
+      "currentIndex": 0,
+      "goNext": [Function],
+      "goPrev": [Function],
+      "goTo": [Function],
+      "isFirst": true,
+      "isLast": true,
+      "isLoading": false,
+      "steps": Array [
+        Object {
+          "component": [Function],
+          "heading": "Test",
+          "id": "step",
+          "subHeading": "Test",
+        },
+      ],
+    }
+  }
+>
+  <FlexContainerBasic
+    centerContent={true}
+    flexColumn={false}
+    hasPadding={true}
+  >
+    <VerticalTimeline
+      currentIndex={0}
+      onSelect={[Function]}
+      total={1}
+    />
+    <div
+      className="helpguide"
+    >
+      <div
+        className="helpguide-wrapper"
+      >
+        <div
+          className="helpguide-steps"
+          key="helper-guide-child-0"
+        >
+          <Component
+            component={[Function]}
+            heading="Test"
+            id="step"
+            key=".0"
+            subHeading="Test"
+          />
+        </div>
+      </div>
+    </div>
+  </FlexContainerBasic>
+</ContextProvider>
+`;
+
+exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "current": "step",
+      "currentIndex": 0,
+      "goNext": [Function],
+      "goPrev": [Function],
+      "goTo": [Function],
+      "isFirst": true,
+      "isLast": true,
+      "isLoading": false,
+      "steps": Array [
+        Object {
+          "component": [Function],
+          "heading": "Test",
+          "id": "step",
+          "subHeading": "Test",
+        },
+      ],
+    }
+  }
+>
+  <FlexContainerBasic
+    centerContent={true}
+    flexColumn={false}
+    hasPadding={true}
+  >
+    <VerticalTimeline
+      currentIndex={0}
+      onSelect={[Function]}
+      total={1}
+    />
+    <div
+      className="helpguide"
+    >
+      <div
+        className="helpguide-wrapper"
+      >
+        <div
+          className="helpguide-steps"
+          key="helper-guide-child-0"
+        >
+          <Component
+            component={[Function]}
+            heading="Test"
+            id="step"
+            key=".0"
+            subHeading="Test"
+          />
+        </div>
+      </div>
+    </div>
+  </FlexContainerBasic>
+</ContextProvider>
+`;
+
+exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <HelpGuide>
+        <Component
+          component={[Function]}
+          graphic={
+            <img
+              alt="step-1"
+              src=""
+            />
+          }
+          heading="Welcome to Reapit Foundations"
+          id="step-1"
+          subHeading="Let’s get started."
+        />
+        <Component
+          component={[Function]}
+          graphic={
+            <img
+              alt="step-2"
+              src=""
+            />
+          }
+          heading="Documentation"
+          id="step-2"
+          subHeading="We’ve got you covered."
+        />
+        <Component
+          component={[Function]}
+          graphic={
+            <img
+              alt="step-3"
+              src=""
+            />
+          }
+          heading="Submitting an App"
+          id="step-3"
+          subHeading="Nearly there."
+        />
+        <Component
+          component={[Function]}
+          graphic={
+            <img
+              alt="step-4"
+              src=""
+            />
+          }
+          heading="Managing your App"
+          id="step-4"
+          subHeading="Installations and changes."
+        />
+        <Component
+          component={[Function]}
+          graphic={
+            <img
+              alt="step-5"
+              src=""
+            />
+          }
+          heading="On going support"
+          id="step-5"
+          subHeading="We’re here to help."
+        />
+      </HelpGuide>
+      <LevelRight>
+        <Button
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Get Started
+        </Button>
+      </LevelRight>
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;

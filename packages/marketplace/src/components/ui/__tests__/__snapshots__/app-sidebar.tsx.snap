@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppSidebar FilterForm should match a snapshot 1`] = `
+<Form>
+  <Input
+    id="search"
+    name="search"
+    placeholder="Search..."
+    rightIcon={
+      <button
+        type="submit"
+      >
+        <FaSearch />
+      </button>
+    }
+    type="text"
+  />
+  <RadioSelect
+    id="searchBy"
+    name="searchBy"
+    options={
+      Array [
+        Object {
+          "label": "By App Name",
+          "value": "appName",
+        },
+        Object {
+          "label": "By Company",
+          "value": "companyName",
+        },
+      ]
+    }
+    state="1"
+  />
+</Form>
+`;
+
+exports[`AppSidebar should match a snapshot 1`] = `
+<div>
+  <FlexContainerBasic
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <div>
+      <H3>
+        Browse Apps
+      </H3>
+      <H6>
+        Search
+      </H6>
+      <Formik
+        component={[Function]}
+        enableReinitialize={true}
+        initialValues={
+          Object {
+            "search": undefined,
+            "searchBy": "appName",
+          }
+        }
+        onSubmit={[Function]}
+      />
+    </div>
+    <div>
+      <H6>
+        Filter
+      </H6>
+      <CategoriesList
+        categories={
+          Array [
+            Object {
+              "description": "apps for game",
+              "id": "3",
+              "name": "Game",
+            },
+            Object {
+              "description": "apps for entertainment",
+              "id": "2",
+              "name": "entertainment",
+            },
+            Object {
+              "description": "apps for education",
+              "id": "1",
+              "name": "education",
+            },
+            Object {
+              "id": "DIRECT_API_APPS_FILTER",
+              "name": "Direct API",
+            },
+          ]
+        }
+        onSelectCategory={[Function]}
+      />
+    </div>
+  </FlexContainerBasic>
+</div>
+`;

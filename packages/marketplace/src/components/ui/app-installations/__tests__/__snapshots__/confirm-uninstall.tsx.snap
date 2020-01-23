@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmUninstall should match a snapshot when FORMSTATE is PENDING 1`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    title="Confirm Uninstall"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <H6>
+          Are you sure you wish to uninstall ‘
+          1
+          ’ from ‘
+          DXX
+          ’?
+        </H6>
+        <TextArea
+          id="terminatedReason"
+          labelText="Please confirm reason for uninstalling"
+          name="terminatedReason"
+        />
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          disabled={false}
+          loading={false}
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Yes, Uninstall
+        </Button>
+        <Button
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
+          variant="secondary"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
+
+exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUBMITTING 1`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    title="Confirm Uninstall"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <H6>
+          Are you sure you wish to uninstall ‘
+          1
+          ’ from ‘
+          DXX
+          ’?
+        </H6>
+        <TextArea
+          id="terminatedReason"
+          labelText="Please confirm reason for uninstalling"
+          name="terminatedReason"
+        />
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          disabled={true}
+          loading={true}
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Yes, Uninstall
+        </Button>
+        <Button
+          disabled={true}
+          onClick={[MockFunction]}
+          type="button"
+          variant="secondary"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
+
+exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUCCESS 1`] = `
+<CallToAction
+  buttonText="Back to List"
+  dataTest="alertUninstallSuccess"
+  isCenter={true}
+  onButtonClick={[Function]}
+  title="Success"
+>
+  ‘
+  1
+  ’ has been successfully uninstalled from ‘
+  DXX
+  ’
+</CallToAction>
+`;

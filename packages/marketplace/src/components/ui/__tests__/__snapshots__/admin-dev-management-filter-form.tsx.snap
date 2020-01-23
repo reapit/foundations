@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
+<FlexContainerBasic
+  className="pb-4"
+  flexColumn={true}
+>
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <Formik
+      initialValues={
+        Object {
+          "company": "company",
+          "name": "name",
+        }
+      }
+      onSubmit={[Function]}
+    >
+      <Form
+        noValidate={true}
+      >
+        <FormSection>
+          <FormHeading>
+            Developer Management Filter Form
+          </FormHeading>
+          <FormSubHeading>
+            Filter the result by Name and Company
+          </FormSubHeading>
+          <Grid>
+            <GridItem>
+              <Input
+                id="name"
+                labelText="Name"
+                name="name"
+                type="text"
+              />
+            </GridItem>
+            <GridItem>
+              <Input
+                id="company"
+                labelText="Company"
+                name="company"
+                type="text"
+              />
+            </GridItem>
+          </Grid>
+        </FormSection>
+        <FormSection>
+          <LevelRight>
+            <Button
+              type="submit"
+              variant="primary"
+            >
+              Search
+            </Button>
+          </LevelRight>
+        </FormSection>
+      </Form>
+    </Formik>
+  </FlexContainerResponsive>
+</FlexContainerBasic>
+`;

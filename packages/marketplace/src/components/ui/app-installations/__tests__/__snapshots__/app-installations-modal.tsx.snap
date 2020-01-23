@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppInstallationsModal should match a snapshot 1`] = `
+<Modal
+  afterClose={[MockFunction]}
+  renderChildren={true}
+  visible={true}
+>
+  <Connect(Component)
+    afterClose={[Function]}
+    appId="1"
+    onUninstall={[Function]}
+  />
+</Modal>
+`;
