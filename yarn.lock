@@ -2446,11 +2446,6 @@
     react-table "7.0.0-alpha.35"
     styled-components "^4.4.1"
 
-"@reapit/foundations-ts-definitions@^0.0.18":
-  version "0.0.18"
-  resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-0.0.18.tgz#d1787f930e48b4aa68a837dadd9ff1565a58f097"
-  integrity sha512-abrr4qGgSxKbZMZPrwgxQJIGU36lA93GR+GXnxIfQploWea3TT3vnEyCxlDrGnU+PvTVaBrUSsu3DF9OHa9C3A==
-
 "@reapit/foundations-ts-definitions@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-0.0.4.tgz#d469eda53eab4419b6a5e711afbfc0f4b976d22f"

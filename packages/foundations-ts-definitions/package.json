@@ -21,18 +21,11 @@
     "@octokit/rest": "^16.35.0",
     "compare-versions": "^3.5.1",
     "dotenv": "^8.2.0",
-    "husky": "^3.0.9",
     "isomorphic-fetch": "^2.2.1",
-    "lint-staged": "^9.4.2",
     "prettier": "^1.18.2",
     "rimraf": "^3.0.0",
-    "semver": "^6.3.0",
+    "semver": "^7.1.1",
     "sw2dts": "^2.6.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
