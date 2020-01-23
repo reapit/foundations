@@ -1,0 +1,9 @@
+@import '../base/colors.scss';
+
+.desktop-api-docs {
+  pre {
+    code {
+      color: $reapit-red;
+    }
+  }
+}

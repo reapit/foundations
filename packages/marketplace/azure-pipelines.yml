@@ -1,0 +1,184 @@
+# Node.js with React
+# Build a Node.js project that uses React.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  branches:
+    include:
+      - '*'
+  tags:
+    include:
+      - 'AS-*'
+
+jobs:
+  - job: buildWebApp
+    displayName: Test and build web app
+    pool:
+      vmImage: 'ubuntu-latest'
+    variables:
+      - group: aws
+      - name: REAPIT_ENV
+        value: 'DEV'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Install Node.js'
+      - script: yarn install
+        displayName: Install deps
+        env:
+          NPM_TOKEN: $(NPM_TOKEN)
+
+      - script: yarn test:ci
+        displayName: Unit tests
+        env:
+          NPM_TOKEN: $(NPM_TOKEN)
+        
+      - script: yarn test-e2e:ci
+        displayName: E2E Tests
+        condition: eq(variables['Build.SourceBranch'], 'refs/heads/develop')
+        env:
+          NPM_TOKEN: $(NPM_TOKEN)
+          REAPIT_ENV: $(REAPIT_ENV)
+          AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+          AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
+
+      - task: PublishTestResults@2
+        inputs:
+          testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+          testResultsFiles: '*.xml'
+          searchFolder: '$(System.DefaultWorkingDirectory)/.jest-junit-reports' # Optional
+          mergeTestResults: false # Optional
+          failTaskOnFailedTests: true # Optional
+          publishRunAttachments: true # Optional
+
+      - bash: |
+          branch=$(Build.SourceBranch)
+          if [[ branch == *"refs/tags/AS-"* ]]; then
+            echo "##vso[task.setvariable variable=REAPIT_ENV]PROD";
+          fi
+          if [[ branch == *"refs/heads/demo"* ]]; then
+            echo "##vso[task.setvariable variable=REAPIT_ENV]DEMO";
+          fi
+        displayName: Set Reapit Env
+
+      - script: yarn build
+        displayName: Build static assets
+        failOnStderr: true
+        env:
+          REAPIT_ENV: $(REAPIT_ENV)
+          NPM_TOKEN: $(NPM_TOKEN)
+          AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+          AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
+
+        # Temporary fix while browserstack is on free-tier
+      # Disabling e2e tests temporarily while testing new authentication mode
+      # - script: yarn test-e2e:ci
+      #   displayName: E2E Tests
+      #   # continueOnError: true
+      #   env:
+      #     NPM_TOKEN: $(NPM_TOKEN)
+
+      - task: PublishPipelineArtifact@1
+        inputs:
+          path: $(System.DefaultWorkingDirectory)/public/dist
+          artifact: AppStoreBundle
+
+    # Skipping while we are on free-tier as tests not running
+    # - task: BrowserStackConfig@0
+    #   inputs:
+    #     BrowserStackServiceEndPoint: 'BrowserStack connection'
+    #     browserstackLocal: true
+    #     bsLocalOptions: '{"verbose": true, "forceLocal": true}'
+
+    # - script: yarn test-e2e:bstack:ci
+    #   displayName: Run E2E Tests on BrowserStack
+    #   continueOnError: true
+    #   env:
+    #     BROWSER_STACK_BUILD: $(Build.BuildNumber)
+    #     NPM_TOKEN: $(NPM_TOKEN)
+
+    # - task: BrowserStackStopLocal@0
+
+    # - task: BrowserStackResults@0
+    #   continueOnError: true
+  - deployment: S3DeployWebDev
+    displayName: 'Dev | S3 Deployment'
+    dependsOn: buildWebApp
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'reapit-app-store-dev'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: S3Upload@1
+              displayName: Deploy assets to S3
+              inputs:
+                awsCredentials: 'df-duong'
+                regionName: 'eu-west-2'
+                bucketName: 'reapit-app-store'
+                sourceFolder: '$(Pipeline.Workspace)/AppStoreBundle'
+                globExpressions: '**'
+                filesAcl: 'public-read'
+                createBucket: true
+
+  - deployment: S3DeployWebProd
+    displayName: 'Prod | S3 Deployment'
+    dependsOn: buildWebApp
+    condition: and(succeeded(), contains(variables['Build.SourceBranch'], 'refs/tags/AS-'))
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'reapit-app-store-prod'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: S3Upload@1
+              displayName: Deploy assets to S3
+              inputs:
+                awsCredentials: 'df-duong'
+                regionName: 'eu-west-2'
+                bucketName: 'reapit-app-store-prod'
+                sourceFolder: '$(Pipeline.Workspace)/AppStoreBundle'
+                globExpressions: '**'
+                filesAcl: 'public-read'
+                createBucket: true
+
+  - deployment: S3DeployWebDemo
+    displayName: 'Demo | S3 Deployment'
+    dependsOn: buildWebApp
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/demo'))
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'reapit-app-store-demo'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: S3Upload@1
+              displayName: Deploy assets to S3
+              inputs:
+                awsCredentials: 'df-duong'
+                regionName: 'eu-west-2'
+                bucketName: 'reapit-demo-marketplace'
+                sourceFolder: '$(Pipeline.Workspace)/AppStoreBundle'
+                globExpressions: '**'
+                filesAcl: 'public-read'
+                createBucket: true
+# no benefits as we only have 1 parallel jobs
+# - job: e2e
+#   displayName: E2E Test
+#   steps:
+#   - task: NodeTool@0
+#     inputs:
+#       versionSpec: '10.x'
+#     displayName: 'Install Node.js'
+#   - script: yarn install
+#     displayName: Install deps
+#     failOnStderr: true
+#   - script: yarn test-e2e:ci
+#     displayName: E2E Tests
+#     continueOnError: true

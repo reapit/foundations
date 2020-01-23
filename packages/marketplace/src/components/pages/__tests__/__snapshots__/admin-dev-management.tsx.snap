@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `<Loader />`;
+
+exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerResponsive>
+    <Section
+      className="mw-100"
+    >
+      <Component
+        filterValues={Object {}}
+        onSearch={[MockFunction]}
+      />
+      <Table
+        columns={
+          Array [
+            Object {
+              "Cell": [Function],
+              "Header": "#",
+              "id": "id",
+            },
+            Object {
+              "Header": "Name",
+              "accessor": "name",
+            },
+            Object {
+              "Header": "Company",
+              "accessor": "company",
+            },
+            Object {
+              "Header": "Job Title",
+              "accessor": "jobTitle",
+            },
+            Object {
+              "Header": "Email",
+              "accessor": "email",
+            },
+            Object {
+              "Header": "Phone",
+              "accessor": "telephone",
+            },
+            Object {
+              "Cell": [Function],
+              "Header": "",
+              "id": "buttonColumn",
+            },
+          ]
+        }
+        loading={false}
+        scrollable={true}
+      />
+      <Pagination
+        onChange={[MockFunction]}
+      />
+    </Section>
+  </FlexContainerResponsive>
+  <Connect(Component)
+    afterClose={[Function]}
+    developer={Object {}}
+    onSuccess={[Function]}
+    visible={false}
+  />
+</Connect(ErrorBoundary)>
+`;
+
+exports[`AdminDevManagement should show loader when LOADING true 1`] = `<Loader />`;

@@ -1,0 +1,24 @@
+.permissionBlock {
+  margin-bottom: 15px
+}
+
+.installButtonContainer {
+  display: flex;
+}
+
+.installButton {
+  margin: 0 1rem;
+  width: 100%;
+
+  &:last-child {
+    margin: 0 0 0 1rem;
+  }
+}
+
+.permissionList {
+  padding: 0 2rem 2rem 2rem;
+}
+
+.permissionListItem {
+  list-style-type: circle;
+}

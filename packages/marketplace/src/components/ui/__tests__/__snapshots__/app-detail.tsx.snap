@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppDetailModalInner should match a snapshot 1`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    title=""
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <Tile
+          heading=""
+          image={
+            <img
+              className="image"
+              src="https://bulma.io/images/placeholders/48x48.png"
+            />
+          }
+          subHeading={
+            <React.Fragment>
+              
+            </React.Fragment>
+          }
+        >
+          <div>
+            <H6 />
+          </div>
+        </Tile>
+        <React.Fragment>
+          <p>
+            App Information
+          </p>
+          <div>
+            <p>
+              App ID:
+            </p>
+            <p />
+          </div>
+          <div>
+            <p>
+              Status:
+            </p>
+            <p>
+              Not listed
+            </p>
+            <FaTimes />
+          </div>
+        </React.Fragment>
+        <br />
+        <p />
+        <br />
+        <H6>
+          Permissions requested
+        </H6>
+        <GridFiveCol />
+      </React.Fragment>
+    }
+  />
+  <ModalFooter />
+</Fragment>
+`;

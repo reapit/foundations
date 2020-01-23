@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppAuthenticationDetail should match a snapshot 1`] = `
+<Fragment>
+  <div>
+    <p>
+      Authentication:
+    </p>
+    <a
+      href="#"
+      onClick={[Function]}
+    >
+      Show Client Secret
+    </a>
+  </div>
+</Fragment>
+`;
