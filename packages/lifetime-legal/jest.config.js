@@ -6,6 +6,7 @@ module.exports = {
   ...baseConfig,
   moduleNameMapper: {
     '^.+.(?=.*scss|sass|css|png|jpg).*': '<rootDir>/src/scripts/css-stub.js',
+    '^@reapit/cognito-auth$': '<rootDir>/../cognito-auth/src/index.ts',
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
     }),

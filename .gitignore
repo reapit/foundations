@@ -15,6 +15,7 @@
 /packages/*/dist
 /packages/*/public/dist
 /packages/*/.serverless
+.rts2_cache*
 
 # misc
 .DS_Store

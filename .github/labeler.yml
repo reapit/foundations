@@ -10,3 +10,6 @@ lifetime-legal:
 
 config-manager:
   - packages/config-manager/**
+
+cognito-auth:
+  - packages/cognito-auth/**
