@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/cognito-auth": ["../cognito-auth/src"]
+    }
+  },
+  "include": ["src"],
+  "exclude": [
+    "public",
+    "dist",
+    "src/scripts",
+    "node_modules",
+    "src/tests/coverage"
+  ]
+}

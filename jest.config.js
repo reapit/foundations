@@ -1,5 +1,4 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
-const { compilerOptions } = require('./tsconfig.json')
+const { defaults } = require('jest-config')
 
 module.exports = {
   preset: 'ts-jest',
@@ -9,7 +8,13 @@ module.exports = {
   coverageDirectory: './src/tests/coverage',
   coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]'],
   modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules)[/\\\\]'],
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
+  verbose: true,
+  bail: 1,
+  projects: [
+    '<rootDir>/jest.config.js',
+  ],
   coverageThreshold: {
     global: {
       branches: 80,
