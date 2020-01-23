@@ -4,11 +4,13 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const Dotenv = require('dotenv-webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssWhitelister = require('purgecss-whitelister')
+const { EnvironmentPlugin } = require('webpack')
+
+const config = require(path.resolve(__dirname, '../../../..', 'reapit-config.json'))
 
 const PATHS = {
   src: path.join(__dirname, '../..', 'src'),
@@ -18,7 +20,12 @@ const PurgecssLoader = {
   loader: path.resolve('./src/scripts/purgecss-loader.js'),
   options: {
     paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`),
-    whitelist: PurgecssWhitelister(['node_modules/@reapit/elements/dist/*.css']),
+    whitelistPatterns: [/^(slick)/, /^(modal)/],
+    whitelist: PurgecssWhitelister([
+      'src/styles/utilities.scss',
+      'src/styles/vendor/normalize.scss',
+      'node_modules/@reapit/elements/dist/*.css',
+    ]),
   },
 }
 
@@ -76,12 +83,10 @@ module.exports = {
       },
     }),
     new BundleAnalyzerPlugin({
-      analyzerMode: 'disabled',
       generateStatsFile: true,
+      analyzerMode: 'disabled',
     }),
-    new Dotenv({
-      path: path.join(process.cwd(), 'src', 'constants', '.env'),
-    }),
+    new EnvironmentPlugin(config[process.env.REAPIT_ENV]),
     new HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',

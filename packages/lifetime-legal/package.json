@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "author": "Author",
-  "main": "./src/index.ts",
+  "main": "dist/index.ts",
   "scripts": {
     "build": "webpack --color --mode production --config ./src/scripts/webpack-prod.js",
     "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
@@ -31,9 +31,6 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "^2.3.0",
     "isomorphic-fetch": "^2.2.1",
-    "jest": "^24.9.0",
-    "jest-fetch-mock": "^2.1.2",
-    "jest-junit": "^8.0.0",
     "lint-staged": "^8.1.7",
     "loader-utils": "^1.2.3",
     "mini-css-extract-plugin": "^0.7.0",

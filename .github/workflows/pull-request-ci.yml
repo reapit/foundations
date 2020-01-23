@@ -34,6 +34,11 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
+      - name: Set up workspace experimental
+        run: |
+          yarn config set workspaces-experimental true
+
       - name: Install dependencies
         run: |
           yarn
@@ -46,13 +51,13 @@ jobs:
         run: |
           yarn fetch-config
 
-      - name: Test
-        run: |
-          yarn test
-
       - name: Build Development
         run: |
           yarn build
+
+      - name: Test
+        run: |
+          yarn test
 
   add-reviews:
     runs-on: ubuntu-latest
