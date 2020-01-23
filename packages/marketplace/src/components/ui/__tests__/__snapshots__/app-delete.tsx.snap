@@ -14,9 +14,9 @@ exports[`app-delete should match snapshot 1`] = `
   <ModalBody
     body={
       <React.Fragment>
-        Are you sure you want to remove this App '
+        Are you sure you want to remove this App ‘
         test
-        '. By clicking 'Delete' it will remove the App and all its data, including all revisions and listings. Please click 'Delete' to continue with deletion.
+        ’. By clicking ‘Delete’ it will remove the App and all its data, including all revisions and listings. Please click ‘Delete’ to continue with deletion.
       </React.Fragment>
     }
   />

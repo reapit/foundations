@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import DiffMedia, { DiffMediaProps } from '../diff-media'
-import toJson from 'enzyme-to-json'
 
 const props: DiffMediaProps = {
   changedMedia: 'image-1',
@@ -10,7 +9,7 @@ const props: DiffMediaProps = {
 
 describe('DiffMedia', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<DiffMedia {...props} />))).toMatchSnapshot()
+    expect(shallow(<DiffMedia {...props} />)).toMatchSnapshot()
   })
 
   afterEach(() => {

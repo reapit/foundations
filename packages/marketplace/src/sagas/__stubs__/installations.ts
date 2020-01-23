@@ -1,4 +1,4 @@
-import { InstallationModel, PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
+import { PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
 
 export const installationsStub: PagedResultInstallationModel_ = {
   data: [

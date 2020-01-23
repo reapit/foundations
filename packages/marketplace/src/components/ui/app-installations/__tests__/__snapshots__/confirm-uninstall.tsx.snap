@@ -10,9 +10,9 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is PENDING 1`] 
     body={
       <React.Fragment>
         <H6>
-          Are you sure you wish to uninstall '
+          Are you sure you wish to uninstall ‘
           1
-          ' from ‘
+          ’ from ‘
           DXX
           ’?
         </H6>
@@ -60,9 +60,9 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUBMITTING 1
     body={
       <React.Fragment>
         <H6>
-          Are you sure you wish to uninstall '
+          Are you sure you wish to uninstall ‘
           1
-          ' from ‘
+          ’ from ‘
           DXX
           ’?
         </H6>
@@ -108,10 +108,10 @@ exports[`ConfirmUninstall should match a snapshot when FORMSTATE is SUCCESS 1`] 
   onButtonClick={[Function]}
   title="Success"
 >
-  '
+  ‘
   1
-  ' has been successfully uninstalled from '
+  ’ has been successfully uninstalled from ‘
   DXX
-  '
+  ’
 </CallToAction>
 `;

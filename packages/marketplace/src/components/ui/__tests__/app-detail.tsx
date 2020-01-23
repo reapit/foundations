@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 import { AppDetail, AppDetailProps, mapDispatchToProps, SlickButtonNav } from '../app-detail'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import { setAppDetailModalStateInstall, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
@@ -61,5 +61,6 @@ describe('SlickButtonNav', () => {
         <div>mockComponent</div>
       </SlickButtonNav>
     )
+    expect(wrapper).toMatchSnapshot()
   })
 })

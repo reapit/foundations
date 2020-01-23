@@ -1,12 +1,8 @@
 import * as React from 'react'
-import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
+import { shallow } from 'enzyme'
 import { Installations, InstallationsProps, mapDispatchToProps, mapStateToProps } from '../installations'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { ReduxState } from '@/types/core'
-import { InstallationParams } from '@/actions/app-installations'
-
-const params = { appId: ['1'], pageNumber: 1 } as InstallationParams
 
 const props: InstallationsProps = {
   appId: '1',
@@ -19,12 +15,12 @@ const props: InstallationsProps = {
 
 describe('Installations', () => {
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<Installations {...props} />))).toMatchSnapshot()
+    expect(shallow(<Installations {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING true', () => {
     const newProps = { ...props, loading: true }
-    expect(toJson(shallow(<Installations {...newProps} />))).toMatchSnapshot()
+    expect(shallow(<Installations {...newProps} />)).toMatchSnapshot()
   })
 
   describe('mapStateToProps', () => {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import {
   AppInstallationsModal,
   handleAfterClose,
@@ -19,7 +19,7 @@ const props: AppInstallationsModalProps = {
 
 describe('AppInstallationsModal', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<AppInstallationsModal {...props} />))).toMatchSnapshot()
+    expect(shallow(<AppInstallationsModal {...props} />)).toMatchSnapshot()
   })
   describe('handleAfterClose have afterClose', () => {
     it('should run correctly', () => {

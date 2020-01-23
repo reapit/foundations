@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import CallToAction, { CallToActionCardProps } from '../call-to-action'
-import toJson from 'enzyme-to-json'
-import { AcButton } from '@reapit/elements'
 
 const props: CallToActionCardProps = {
   buttonText: 'My button',
@@ -11,7 +9,7 @@ const props: CallToActionCardProps = {
 
 describe('CallToAction', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<CallToAction {...props} />))).toMatchSnapshot()
+    expect(shallow(<CallToAction {...props} />)).toMatchSnapshot()
   })
 
   it('should allow custom className', () => {

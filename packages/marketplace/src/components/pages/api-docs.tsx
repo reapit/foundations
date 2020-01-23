@@ -166,20 +166,20 @@ const ApiDocsPage: React.FC = () => {
                 {
                   code: '400',
                   title: 'Bad request',
-                  description:
-                    'The request was not understood by the server, generally due to bad syntax or because the "Content-Type" header was not correctly set to <code>application/json</code>.'
+                  description: `The request was not understood by the server, generally due to bad syntax or because 
+                    the "Content-Type" header was not correctly set to <code>application/json</code>.`
                 },
                 {
                   code: '401',
                   title: 'Unauthorized',
-                  description:
-                    'The provided authentication credentials are incorrect or not present. Generally, this is due to the lack of an "Authorization" header'
+                  description: `The provided authentication credentials are incorrect or not present. 
+                    Generally, this is due to the lack of an "Authorization" header`
                 },
                 {
                   code: '403',
                   title: 'Forbidden',
-                  description:
-                    'The provided authentication credentials do not provide the request with sufficient scope to fulfill the request.'
+                  description: `The provided authentication credentials do not provide the 
+                    request with sufficient scope to fulfill the request.`
                 },
                 {
                   code: '404',
@@ -189,28 +189,28 @@ const ApiDocsPage: React.FC = () => {
                 {
                   code: '422',
                   title: 'Unprocessable entity',
-                  description:
-                    'A validation error has occured. The error response body will provide additional information on the failure(s).'
+                  description: `A validation error has occured. The error response body 
+                    will provide additional information on the failure(s).`
                 },
                 {
                   code: '429',
                   title: 'Too many requests',
-                  description:
-                    'The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism'
+                  description: `The request was not accepted because the application has exceeded the rate limit. 
+                    See Rate Limit for an overview of this mechanism`
                 },
                 {
                   code: '500',
                   title: 'Too many requests',
-                  description:
-                    'The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism'
+                  description: `The request was not accepted because the application has exceeded the rate limit. 
+                    See Rate Limit for an overview of this mechanism`
                 }
               ]}
             />
           </div>
           <H4 id="authorization">Authorization</H4>
           <p>
-            The Foundation platform uses <a href="https://openid.net/connect/faq/">OpenID Connect</a> (OIDC) as it's
-            Authentication protocol, based on the OAuth 2.0 specification.
+            The Foundation platform uses <a href="https://openid.net/connect/faq/">OpenID Connect</a> (OIDC) as
+            it&apos;s Authentication protocol, based on the OAuth 2.0 specification.
           </p>
           <p>
             Our authentication mechanisms allow you to quickly build apps on top of our platform and provide a seamless
@@ -223,7 +223,7 @@ const ApiDocsPage: React.FC = () => {
             Marketplace documentation.
           </p>
           <p>
-            As part of creating your application, you'll be required to choose the{' '}
+            As part of creating your application, you&apos;ll be required to choose the{' '}
             <a href="https://oauth.net/2/scope/">scopes </a>that you application requires. Scopes govern the actions
             that your application can perform against our services. Each endpoint will detail the scopes that an
             application must be granted in order to interact with it.
@@ -235,8 +235,8 @@ const ApiDocsPage: React.FC = () => {
           <H5>Client installation</H5>
           <p>
             Once your application submission has been approved by Reapit, it will appear as a listing in our
-            Marketplace. Reapit clients will then be able to interact with your application's details and potentially
-            choose to install it.
+            Marketplace. Reapit clients will then be able to interact with your application&apos;s details and
+            potentially choose to install it.
           </p>
           <p>
             As part of the installation process, clients are required to agree to the scopes that your application
@@ -251,8 +251,8 @@ const ApiDocsPage: React.FC = () => {
           <H5>Create an authorization code</H5>
           <p>
             To create an OAuth <a href="https://oauth.net/2/grant-types/authorization-code/">authorization code</a>,
-            direct users to the URL documented below where they'll be prompted to enter their credentials. The clientId
-            parameter is required and provided during the Marketplace app registration process.
+            direct users to the URL documented below where they&apos;ll be prompted to enter their credentials. The
+            clientId parameter is required and provided during the Marketplace app registration process.
           </p>
           <p>
             <pre>
@@ -369,12 +369,12 @@ const ApiDocsPage: React.FC = () => {
             before submitting your application to our Marketplace.
           </p>
           <p>
-            To access the sandbox, you'll need to register for a developer account at our Portal. You're then able to
-            simply use those credentials provide them to our Authorization services in the normal way. The access token
-            generated for your developer credentials will point our APIs at your sandbox data.
+            To access the sandbox, you&apos;ll need to register for a developer account at our Portal. You&apos;re then
+            able to simply use those credentials provide them to our Authorization services in the normal way. The
+            access token generated for your developer credentials will point our APIs at your sandbox data.
           </p>
           <p>
-            Alternatively, our Interactive API Explorer will automatically grant access to sandbox data when you're
+            Alternatively, our Interactive API Explorer will automatically grant access to sandbox data when you&apos;re
             logged into the Developer Portal.
           </p>
           <H4 id="errors">Errors</H4>
@@ -444,8 +444,8 @@ const ApiDocsPage: React.FC = () => {
                 },
                 {
                   header: 'X-RateLimit-Remaining',
-                  attribute:
-                    'The number of requests that a client is allowed to issue in the current rate limit window before hitting the limit'
+                  attribute: `The number of requests that a client is allowed to issue in the current rate limit 
+                    window before hitting the limit`
                 },
                 {
                   header: 'X-RateLimit-Reset',
@@ -453,8 +453,8 @@ const ApiDocsPage: React.FC = () => {
                 },
                 {
                   header: 'Retry-After',
-                  attribute:
-                    'When the rate limit is hit, this header presents the number of seconds to wait before attempting another request'
+                  attribute: `When the rate limit is hit, this header presents the number of seconds 
+                    to wait before attempting another request`
                 }
               ]}
             />

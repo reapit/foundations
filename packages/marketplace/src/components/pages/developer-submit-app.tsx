@@ -25,7 +25,6 @@ import {
   Form,
   FormikHelpers,
   H6,
-  FormikValues,
   RadioSelect,
   FlexContainerResponsive
 } from '@reapit/elements'
@@ -107,7 +106,8 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
     const images = (media || [])
       .filter(({ type }) => type !== 'icon')
       .reduce((a, c, i) => ({ ...a, [`screen${i + 1}ImageUrl`]: c.uri }), {})
-    // ^reason of using index instead of `order` property is because all images in media have order of 0 (see ticket [CLD-623] to learn more)
+    // ^reason of using index instead of `order` property is because all images
+    // in media have order of 0 (see ticket [CLD-623] to learn more)
 
     initialValues = {
       name,
@@ -373,7 +373,8 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         dataTest="submit-app-summary"
                         labelText="Summary"
                         name="summary"
-                        placeholder="A short strapline summary for your app listing. Must be between 50 and 150 characters"
+                        placeholder={`A short strapline summary for your app 
+                          listing. Must be between 50 and 150 characters`}
                       />
                     </GridItem>
                     <GridItem>
@@ -382,7 +383,8 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         dataTest="submit-app-description"
                         labelText="Description"
                         name="description"
-                        placeholder="A detailed description for your app listing. Must be between 150 and 1000 characters"
+                        placeholder={`A detailed description for your app listing. 
+                          Must be between 150 and 1000 characters`}
                       />
                     </GridItem>
                   </Grid>
@@ -474,12 +476,12 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                   <FormSubHeading>
                     This section refers to the listing status in the Marketplace. If your App is an external application
                     i.e. it is just an API feed app or is a web application that exists out of the Marketplace
-                    ecosystem, please select, 'Direct API'. Your app will still need to be listed in the Marketplace and
-                    installed by clients so they can grant permissions however, it will not appear as a launchable app
-                    for users from the Marketplace. It is a hard requirement that launchable apps conform closely to our
-                    "Elements", brand guidelines so if your app does not, please also select "Direct API". When you have
-                    done your initial app submit, please return here to set the "Is Listed" status to make the app
-                    installable for users.
+                    ecosystem, please select, &ldquo;Direct API&rdquo; Your app will still need to be listed in the
+                    Marketplace and installed by clients so they can grant permissions however, it will not appear as a
+                    launchable app for users from the Marketplace. It is a hard requirement that launchable apps conform
+                    closely to our &ldquo;Elements&rdquo;, brand guidelines so if your app does not, please also select
+                    &ldquo;Direct API&rdquo;. When you have done your initial app submit, please return here to set the
+                    &ldquo;is Listed&rdquo; status to make the app installable for users.
                   </FormSubHeading>
                   <Grid>
                     <GridItem>
@@ -496,17 +498,18 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                   <FormHeading>AUTHENTICATION FLOW</FormHeading>
                   <FormSubHeading>
                     Please select an authentication flow for your application.{' '}
-                    <strong>You can only do this once when you submit your app.</strong> You should always select "User
-                    Session" for client side authenticated apps. In this case, your users will have to login and you
-                    will need to attach a Bearer token to your API Authorization headers. If you select "Client Secret"
-                    we will provide you with a secret token to include in your API requests. This secret will be unique
-                    per app and would typically be the flow for machine-to-machine server side apps.{' '}
+                    <strong>You can only do this once when you submit your app.</strong> You should always select
+                    &ldquo;User Session&rdquo; for client side authenticated apps. In this case, your users will have to
+                    login and you will need to attach a Bearer token to your API Authorization headers. If you select
+                    &ldquo;Client Secret&rdquo; we will provide you with a secret token to include in your API requests.
+                    This secret will be unique per app and would typically be the flow for machine-to-machine server
+                    side apps.{' '}
                     <strong>
                       It is fundementally insecure to expose this secret on the client side and doing so will result in
                       your app being rejected.
                     </strong>
                     For more on authentication please read the docs{' '}
-                    <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank">
+                    <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank" rel="noopener noreferrer">
                       here
                     </a>{' '}
                     before progressing.
@@ -530,12 +533,12 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                 <FormSection>
                   <FormHeading>Permissions</FormHeading>
                   <FormSubHeading>
-                    To access a client's data, you will need to specify the entities you need access to on a read or
-                    write basis. You should be familar with these entities from the sandbox. When the user installs your
-                    application, they will have to consent to your usage based on these permissions. If you do not have
-                    the correct permissions on an entity basis, your app will receive a 403 error. For more on scopes
-                    please read the docs{' '}
-                    <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank">
+                    To access a client&apos;s data, you will need to specify the entities you need access to on a read
+                    or write basis. You should be familar with these entities from the sandbox. When the user installs
+                    your application, they will have to consent to your usage based on these permissions. If you do not
+                    have the correct permissions on an entity basis, your app will receive a 403 error. For more on
+                    scopes please read the docs{' '}
+                    <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank" rel="noopener noreferrer">
                       here
                     </a>{' '}
                     before progressing.
@@ -564,7 +567,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                             <label htmlFor="terms-submit-app" className={`pb-4 mb-4 ${styles['label-terms']}`}>
                               I AGREE TO THE{' '}
                               <span className={styles['terms-link']} onClick={handleClickOpenModal(setTermModalIsOpen)}>
-                                'TERMS AND CONDITIONS'
+                                &lsquo;TERMS AND CONDITIONS&rsquo;
                               </span>
                             </label>
                           </div>

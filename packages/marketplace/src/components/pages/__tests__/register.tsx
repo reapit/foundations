@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import {
   Register,
   mapStateToProps,
@@ -33,11 +33,11 @@ const props = {
 
 describe('Register', () => {
   it('should match a snapshot for PENDING state', () => {
-    expect(toJson(shallow(<Register {...props} />))).toMatchSnapshot()
+    expect(shallow(<Register {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for SUCCESS state', () => {
-    expect(toJson(shallow(<Register {...{ ...props, formState: 'SUCCESS' }} />))).toMatchSnapshot()
+    expect(shallow(<Register {...{ ...props, formState: 'SUCCESS' }} />)).toMatchSnapshot()
   })
 
   describe('handleSubmitCreateDeveloper', () => {

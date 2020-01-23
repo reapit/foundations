@@ -70,7 +70,7 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
         onButtonClick={handleSuccessUninstall({ onUninstallSuccess, setFormState, setAppDetailStale })}
         isCenter
       >
-        '{appName}' has been successfully uninstalled from '{installationDetail?.client}'
+        &lsquo;{appName}&rsquo; has been successfully uninstalled from &lsquo;{installationDetail?.client}&rsquo;
       </CallToAction>
     )
   }
@@ -82,7 +82,7 @@ export const ConfirmUninstall: React.FC<ConfirmUninstallProps> = ({
         body={
           <>
             <H6>
-              Are you sure you wish to uninstall '{appName}' from ‘{installationDetail?.client}’?
+              Are you sure you wish to uninstall &lsquo;{appName}&rsquo; from ‘{installationDetail?.client}’?
             </H6>
             <TextArea
               name="terminatedReason"

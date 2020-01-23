@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { mount, shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import {
   AnalyticsPage,
   transformListAppToSelectBoxOptions,
@@ -69,184 +68,156 @@ const mockProps = (
 describe('Analytics', () => {
   it('should match a snapshot when appInstallations loading false', () => {
     expect(
-      toJson(
-        shallow(
-          <AnalyticsPage
-            {...mockProps(
-              appDetailDataStub.data.id,
-              installationsStub,
-              false,
-              appsDataStub.data,
-              false,
-              appDetailDataStub,
-              false
-            )}
-          />
-        )
+      shallow(
+        <AnalyticsPage
+          {...mockProps(
+            appDetailDataStub.data.id,
+            installationsStub,
+            false,
+            appsDataStub.data,
+            false,
+            appDetailDataStub,
+            false
+          )}
+        />
       )
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot when appInstallations loading true', () => {
     expect(
-      toJson(
-        mount(
-          <AnalyticsPage
-            {...mockProps(
-              appDetailDataStub.data.id,
-              installationsStub,
-              true,
-              appsDataStub.data,
-              false,
-              appDetailDataStub,
-              false
-            )}
-          />
-        )
+      mount(
+        <AnalyticsPage
+          {...mockProps(
+            appDetailDataStub.data.id,
+            installationsStub,
+            true,
+            appsDataStub.data,
+            false,
+            appDetailDataStub,
+            false
+          )}
+        />
       )
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot when appInstallations data null', () => {
     expect(
-      toJson(
-        mount(
-          <AnalyticsPage
-            {...mockProps(appDetailDataStub.data.id, null, false, appsDataStub.data, false, appDetailDataStub, false)}
-          />
-        )
+      mount(
+        <AnalyticsPage
+          {...mockProps(appDetailDataStub.data.id, null, false, appsDataStub.data, false, appDetailDataStub, false)}
+        />
       )
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot when appsOfDeveloper loading true', () => {
     expect(
-      toJson(
-        shallow(
-          <AnalyticsPage
-            {...mockProps(
-              appDetailDataStub.data.id,
-              installationsStub,
-              false,
-              appsDataStub.data,
-              true,
-              appDetailDataStub,
-              false
-            )}
-          />
-        )
+      shallow(
+        <AnalyticsPage
+          {...mockProps(
+            appDetailDataStub.data.id,
+            installationsStub,
+            false,
+            appsDataStub.data,
+            true,
+            appDetailDataStub,
+            false
+          )}
+        />
       )
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot when appsOfDeveloper loading false', () => {
     expect(
-      toJson(
-        shallow(
-          <AnalyticsPage
-            {...mockProps(
-              appDetailDataStub.data.id,
-              installationsStub,
-              false,
-              appsDataStub.data,
-              false,
-              appDetailDataStub,
-              false
-            )}
-          />
-        )
+      shallow(
+        <AnalyticsPage
+          {...mockProps(
+            appDetailDataStub.data.id,
+            installationsStub,
+            false,
+            appsDataStub.data,
+            false,
+            appDetailDataStub,
+            false
+          )}
+        />
       )
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot when appsOfDeveloper data undefined', () => {
     expect(
-      toJson(
-        shallow(
-          <AnalyticsPage
-            {...mockProps(
-              appDetailDataStub.data.id,
-              installationsStub,
-              false,
-              appsDataStub.data,
-              false,
-              appDetailDataStub,
-              false
-            )}
-          />
-        )
+      shallow(
+        <AnalyticsPage
+          {...mockProps(
+            appDetailDataStub.data.id,
+            installationsStub,
+            false,
+            appsDataStub.data,
+            false,
+            appDetailDataStub,
+            false
+          )}
+        />
       )
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot when app detail loading true', () => {
     expect(
-      toJson(
-        shallow(
-          <AnalyticsPage
-            {...mockProps(
-              appDetailDataStub.data.id,
-              installationsStub,
-              false,
-              appsDataStub.data,
-              false,
-              appDetailDataStub,
-              true
-            )}
-          />
-        )
+      shallow(
+        <AnalyticsPage
+          {...mockProps(
+            appDetailDataStub.data.id,
+            installationsStub,
+            false,
+            appsDataStub.data,
+            false,
+            appDetailDataStub,
+            true
+          )}
+        />
       )
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot when app detail loading false', () => {
     expect(
-      toJson(
-        shallow(
-          <AnalyticsPage
-            {...mockProps(
-              appDetailDataStub.data.id,
-              installationsStub,
-              false,
-              appsDataStub.data,
-              false,
-              appDetailDataStub,
-              false
-            )}
-          />
-        )
+      shallow(
+        <AnalyticsPage
+          {...mockProps(
+            appDetailDataStub.data.id,
+            installationsStub,
+            false,
+            appsDataStub.data,
+            false,
+            appDetailDataStub,
+            false
+          )}
+        />
       )
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot when app detail data undefined', () => {
     expect(
-      toJson(
-        shallow(
-          <AnalyticsPage
-            {...mockProps(
-              appDetailDataStub.data.id,
-              installationsStub,
-              false,
-              appsDataStub.data,
-              false,
-              undefined,
-              true
-            )}
-          />
-        )
+      shallow(
+        <AnalyticsPage
+          {...mockProps(appDetailDataStub.data.id, installationsStub, false, appsDataStub.data, false, undefined, true)}
+        />
       )
     ).toMatchSnapshot()
   })
 
   it('should match a snapshot when no appId params', () => {
     expect(
-      toJson(
-        shallow(
-          <AnalyticsPage
-            {...mockProps(undefined, installationsStub, false, appsDataStub.data, false, appDetailDataStub, false)}
-          />
-        )
+      shallow(
+        <AnalyticsPage
+          {...mockProps(undefined, installationsStub, false, appsDataStub.data, false, appDetailDataStub, false)}
+        />
       )
     ).toMatchSnapshot()
   })

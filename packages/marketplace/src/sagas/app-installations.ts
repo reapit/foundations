@@ -13,7 +13,6 @@ import {
   InstallParams,
   appInstallationsRequestDataFailure
 } from '@/actions/app-installations'
-import { setAppDetailStale } from '@/actions/app-detail'
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { selectDeveloperId } from '@/selector/developer'
 
@@ -68,7 +67,6 @@ export const installationsSaga = function*({ data }) {
 }
 
 export const appInstallSaga = function*({ data }) {
-  const { appId } = data
   try {
     yield put(appInstallationsSetFormState('SUBMITTING'))
 

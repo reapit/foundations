@@ -273,17 +273,20 @@ exports[`ApiDocs should match a snapshot 1`] = `
               },
               Object {
                 "code": "400",
-                "description": "The request was not understood by the server, generally due to bad syntax or because the \\"Content-Type\\" header was not correctly set to <code>application/json</code>.",
+                "description": "The request was not understood by the server, generally due to bad syntax or because 
+                    the \\"Content-Type\\" header was not correctly set to <code>application/json</code>.",
                 "title": "Bad request",
               },
               Object {
                 "code": "401",
-                "description": "The provided authentication credentials are incorrect or not present. Generally, this is due to the lack of an \\"Authorization\\" header",
+                "description": "The provided authentication credentials are incorrect or not present. 
+                    Generally, this is due to the lack of an \\"Authorization\\" header",
                 "title": "Unauthorized",
               },
               Object {
                 "code": "403",
-                "description": "The provided authentication credentials do not provide the request with sufficient scope to fulfill the request.",
+                "description": "The provided authentication credentials do not provide the 
+                    request with sufficient scope to fulfill the request.",
                 "title": "Forbidden",
               },
               Object {
@@ -293,17 +296,20 @@ exports[`ApiDocs should match a snapshot 1`] = `
               },
               Object {
                 "code": "422",
-                "description": "A validation error has occured. The error response body will provide additional information on the failure(s).",
+                "description": "A validation error has occured. The error response body 
+                    will provide additional information on the failure(s).",
                 "title": "Unprocessable entity",
               },
               Object {
                 "code": "429",
-                "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
+                "description": "The request was not accepted because the application has exceeded the rate limit. 
+                    See Rate Limit for an overview of this mechanism",
                 "title": "Too many requests",
               },
               Object {
                 "code": "500",
-                "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
+                "description": "The request was not accepted because the application has exceeded the rate limit. 
+                    See Rate Limit for an overview of this mechanism",
                 "title": "Too many requests",
               },
             ]
@@ -597,7 +603,8 @@ exports[`ApiDocs should match a snapshot 1`] = `
                 "header": "X-RateLimit-Limit",
               },
               Object {
-                "attribute": "The number of requests that a client is allowed to issue in the current rate limit window before hitting the limit",
+                "attribute": "The number of requests that a client is allowed to issue in the current rate limit 
+                    window before hitting the limit",
                 "header": "X-RateLimit-Remaining",
               },
               Object {
@@ -605,7 +612,8 @@ exports[`ApiDocs should match a snapshot 1`] = `
                 "header": "X-RateLimit-Reset",
               },
               Object {
-                "attribute": "When the rate limit is hit, this header presents the number of seconds to wait before attempting another request",
+                "attribute": "When the rate limit is hit, this header presents the number of seconds 
+                    to wait before attempting another request",
                 "header": "Retry-After",
               },
             ]
@@ -1102,17 +1110,20 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
               },
               Object {
                 "code": "400",
-                "description": "The request was not understood by the server, generally due to bad syntax or because the \\"Content-Type\\" header was not correctly set to <code>application/json</code>.",
+                "description": "The request was not understood by the server, generally due to bad syntax or because 
+                    the \\"Content-Type\\" header was not correctly set to <code>application/json</code>.",
                 "title": "Bad request",
               },
               Object {
                 "code": "401",
-                "description": "The provided authentication credentials are incorrect or not present. Generally, this is due to the lack of an \\"Authorization\\" header",
+                "description": "The provided authentication credentials are incorrect or not present. 
+                    Generally, this is due to the lack of an \\"Authorization\\" header",
                 "title": "Unauthorized",
               },
               Object {
                 "code": "403",
-                "description": "The provided authentication credentials do not provide the request with sufficient scope to fulfill the request.",
+                "description": "The provided authentication credentials do not provide the 
+                    request with sufficient scope to fulfill the request.",
                 "title": "Forbidden",
               },
               Object {
@@ -1122,17 +1133,20 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
               },
               Object {
                 "code": "422",
-                "description": "A validation error has occured. The error response body will provide additional information on the failure(s).",
+                "description": "A validation error has occured. The error response body 
+                    will provide additional information on the failure(s).",
                 "title": "Unprocessable entity",
               },
               Object {
                 "code": "429",
-                "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
+                "description": "The request was not accepted because the application has exceeded the rate limit. 
+                    See Rate Limit for an overview of this mechanism",
                 "title": "Too many requests",
               },
               Object {
                 "code": "500",
-                "description": "The request was not accepted because the application has exceeded the rate limit. See Rate Limit for an overview of this mechanism",
+                "description": "The request was not accepted because the application has exceeded the rate limit. 
+                    See Rate Limit for an overview of this mechanism",
                 "title": "Too many requests",
               },
             ]
@@ -1426,7 +1440,8 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
                 "header": "X-RateLimit-Limit",
               },
               Object {
-                "attribute": "The number of requests that a client is allowed to issue in the current rate limit window before hitting the limit",
+                "attribute": "The number of requests that a client is allowed to issue in the current rate limit 
+                    window before hitting the limit",
                 "header": "X-RateLimit-Remaining",
               },
               Object {
@@ -1434,7 +1449,8 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
                 "header": "X-RateLimit-Reset",
               },
               Object {
-                "attribute": "When the rate limit is hit, this header presents the number of seconds to wait before attempting another request",
+                "attribute": "When the rate limit is hit, this header presents the number of seconds 
+                    to wait before attempting another request",
                 "header": "Retry-After",
               },
             ]

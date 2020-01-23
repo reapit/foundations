@@ -2,7 +2,6 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
-import InstalledAppList from '@/components/ui/installed-app-list'
 import { InstalledAppsItem } from '@/reducers/installed-apps'
 import routes from '@/constants/routes'
 import {

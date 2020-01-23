@@ -1,5 +1,3 @@
-import { fetcher } from '@reapit/elements'
-import { MARKETPLACE_HEADERS } from '../constants/api'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { history } from '../core/router'

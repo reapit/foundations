@@ -17,7 +17,7 @@ const ElementsPage: React.SFC = () => (
           </p>
           <p>
             When using this page, you can toggle between code examples and rendered output of components by using the
-            "Canvas" and "Docs" tabs. For general usage and other NPM packagages, visit{' '}
+            &lsquo;Canvas&rsquo; and &lsquo;Docs&rsquo; tabs. For general usage and other NPM packagages, visit{' '}
             <Link to={Routes.DEVELOPER_PACKAGE_DOCS}>the package documentation.</Link>
           </p>
         </FlexContainerResponsive>

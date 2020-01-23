@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import WebComponents, { handleOnClickSearchWidget, handleCopiedClipboardTheme } from '../web-components'
 
 jest.mock('../../../core/store')
 
 describe('WebComponents', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<WebComponents />))).toMatchSnapshot()
+    expect(shallow(<WebComponents />)).toMatchSnapshot()
   })
 
   describe('handleOnClickSearchWidget', () => {

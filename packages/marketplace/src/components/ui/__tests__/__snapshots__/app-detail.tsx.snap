@@ -60,3 +60,15 @@ exports[`AppDetailModalInner should match a snapshot 1`] = `
   <ModalFooter />
 </Fragment>
 `;
+
+exports[`SlickButtonNav should match snapshot 1`] = `
+<button
+  currentSlide=""
+  setAppDetailModalStateInstall={[MockFunction]}
+  slideCount={[MockFunction]}
+>
+  <div>
+    mockComponent
+  </div>
+</button>
+`;

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import {
   AdminApprovalModalInner,
   AdminApprovalModalInnerProps,
@@ -41,15 +41,15 @@ const props = (loading: boolean, error: boolean): AdminApprovalModalInnerProps =
 
 describe('AdminRevisionModalInner', () => {
   it('should match a snapshot when LOADING true', () => {
-    expect(toJson(shallow(<AdminApprovalModalInner {...props(true, false)} />))).toMatchSnapshot()
+    expect(shallow(<AdminApprovalModalInner {...props(true, false)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<AdminApprovalModalInner {...props(false, false)} />))).toMatchSnapshot()
+    expect(shallow(<AdminApprovalModalInner {...props(false, false)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when ERROR true', () => {
-    expect(toJson(shallow(<AdminApprovalModalInner {...props(false, true)} />))).toMatchSnapshot()
+    expect(shallow(<AdminApprovalModalInner {...props(false, true)} />)).toMatchSnapshot()
   })
 })
 
@@ -189,7 +189,9 @@ describe('getChangedMediaList', () => {
     name: 'Grab',
     summary: 'Grab Holdings Inc., formerly known as MyTeksi and GrabTaxi, is a Singapore based ridesharing company.',
     description:
-      'Grab Holdings Inc., formerly known as MyTeksi and GrabTaxi, is a Singapore based ridesharing company. In addition to transportation, the company offers food delivery and digital payments services via mobile app. The company was originally founded in Malaysia and later moved its headquarters to Singapore',
+      'Grab Holdings Inc., formerly known as MyTeksi and GrabTaxi, is a Singapore based ridesharing company. ' +
+      'In addition to transportation, the company offers food delivery and digital payments services via mobile app. ' +
+      'The company was originally founded in Malaysia and later moved its headquarters to Singapore',
     supportEmail: 'tanphamhaiduong@gmail.com',
     telephone: '0978100461',
     homePage: 'https://grab.com',
@@ -277,7 +279,9 @@ describe('getChangedMediaList', () => {
     name: 'Grab',
     summary: 'Grab Holdings Inc., formerly known as MyTeksi and GrabTaxi, is a Singapore based ridesharing company.',
     description:
-      'Grab Holdings Inc., formerly known as MyTeksi and GrabTaxi, is a Singapore based ridesharing company. In addition to transportation, the company offers food delivery and digital payments services via mobile app. The company was originally founded in Malaysia and later moved its headquarters to Singapore',
+      'Grab Holdings Inc., formerly known as MyTeksi and GrabTaxi, is a Singapore based ridesharing company. ' +
+      'In addition to transportation, the company offers food delivery and digital payments services via mobile app. ' +
+      'The company was originally founded in Malaysia and later moved its headquarters to Singapore',
     developer: 'Dwarves Foundation',
     supportEmail: 'tanphamhaiduong@gmail.com',
     telephone: '0978100461',

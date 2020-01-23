@@ -6,7 +6,6 @@ import {
   Loader,
   H3,
   InfoType,
-  Info,
   PaginationProps,
   Section,
   Pagination,

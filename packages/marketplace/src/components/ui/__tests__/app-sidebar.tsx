@@ -10,12 +10,11 @@ import {
   FilterFormValues
 } from '../app-sidebar'
 import CategoriesList from '@/components/ui/categories-list'
-import { addQuery, removeQuery, getParamValueFromPath } from '@/utils/client-url-params'
+import { addQuery, removeQuery } from '@/utils/client-url-params'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
 import { selectCategories } from '@/selector/app-categories'
 import { ReduxState } from '@/types/core'
 import { FormikProps } from '@reapit/elements'
-import { mockWithFormik } from '@/utils/mock-formik'
 
 jest.mock('@/selector/app-categories')
 jest.mock('@/utils/client-url-params')

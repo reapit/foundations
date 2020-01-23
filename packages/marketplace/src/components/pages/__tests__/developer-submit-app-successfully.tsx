@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import {
   DeveloperSubmitAppSuccessfully,
   DeveloperSubmitAppSuccessfullyProps
@@ -12,6 +11,6 @@ describe('DeveloperSubmitAppSuccessfully', () => {
       onClickHandler: () => jest.fn()
     }
 
-    expect(toJson(shallow(<DeveloperSubmitAppSuccessfully {...props} />))).toMatchSnapshot()
+    expect(shallow(<DeveloperSubmitAppSuccessfully {...props} />)).toMatchSnapshot()
   })
 })

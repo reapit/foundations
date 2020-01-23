@@ -2,7 +2,8 @@ import routes from '../fixtures/routes'
 import { AppDetailModel, CreateAppRevisionModel } from '../types/app'
 
 const sampleImageData =
-  'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=='
+  'data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAA' +
+  'AfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=='
 
 export const sampleApp = {
   categoryId: '3',
@@ -11,10 +12,13 @@ export const sampleApp = {
   supportEmail: 'submitAppHappyFlow@gmail.com',
   launchUri: 'https://google.com',
   homePage: 'https://google.com',
-  description:
-    'Lorem ipsum dolor amet organic fashion axe man bun cray kitsch hashtag post-ironic normcore copper mug keytar fam actually street art air plant. Copper mug put a bird on it kombucha pop-up. Man bun kickstarter fam pour-over plaid, franzen blog. Activated charcoal letterpress mlkshk kickstarter master cleanse. Paleo austin actually blue bottle mixtape mustache bicycle rights gochujang humblebrag. Direct trade affogato cliche, asymmetrical sartorial pinterest chambray coloring book.',
-  summary:
-    'Lorem ipsum dolor amet messenger bag pinterest af umami. Master cleanse photo booth cardigan, jean shorts dreamcatcher butcher ethical YOLO.',
+  description: `Lorem ipsum dolor amet organic fashion axe man bun cray kitsch hashtag post-ironic normcore copper 
+    mug keytar fam actually street art air plant. Copper mug put a bird on it kombucha pop-up. Man bun kickstarter 
+    fam pour-over plaid, franzen blog. Activated charcoal letterpress mlkshk kickstarter master cleanse. Paleo austin 
+    actually blue bottle mixtape mustache bicycle rights gochujang humblebrag. Direct trade affogato cliche, 
+    asymmetrical sartorial pinterest chambray coloring book.`,
+  summary: `Lorem ipsum dolor amet messenger bag pinterest af umami. Master cleanse 
+    photo booth cardigan, jean shorts dreamcatcher butcher ethical YOLO.`,
   developerId: '47a37635-5044-4f20-b981-4f25970ac9cf',
   scopes: [],
   isFeatured: false,
@@ -25,7 +29,8 @@ export default {
   createApp: (name: string) => {
     cy.request({
       /**
-       * Upload a dummy image (Backend validates image's links of an app when submitting must be from configured s3 bucket - a proper link is required )
+       * Upload a dummy image (Backend validates image's links of an app when submitting
+       * must be from configured s3 bucket - a proper link is required )
        * And create an app
        */
       url: Cypress.env('UPLOAD_FILE_BASE_URL'),

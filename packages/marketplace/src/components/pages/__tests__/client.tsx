@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { appsDataStub, featuredAppsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import { ClientItem } from '@/reducers/client'
@@ -64,11 +63,11 @@ const props = (loading: boolean): ClientProps => ({
 
 describe('Client', () => {
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<Client {...props(false)} />))).toMatchSnapshot()
+    expect(shallow(<Client {...props(false)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING true', () => {
-    expect(toJson(shallow(<Client {...props(true)} />))).toMatchSnapshot()
+    expect(shallow(<Client {...props(true)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when featured apps is empty []', () => {
@@ -111,7 +110,7 @@ describe('Client', () => {
       ...routerProps
     }
 
-    expect(toJson(shallow(<Client {...props} />))).toMatchSnapshot()
+    expect(shallow(<Client {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when featured apps is undefined', () => {
@@ -143,7 +142,7 @@ describe('Client', () => {
       ...routerProps
     }
 
-    expect(toJson(shallow(<Client {...props} />))).toMatchSnapshot()
+    expect(shallow(<Client {...props} />)).toMatchSnapshot()
   })
 
   describe('mapStateToProps', () => {

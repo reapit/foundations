@@ -1,4 +1,3 @@
-import { submitRevision as submitRevisionSaga, submitRevisionDataListen, submitRevisionSagas } from '../submit-revision'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import ActionTypes from '@/constants/action-types'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'

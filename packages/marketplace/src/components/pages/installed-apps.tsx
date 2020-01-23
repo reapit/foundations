@@ -2,7 +2,7 @@ import * as React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { ReduxState, FormState } from '@/types/core'
+import { ReduxState } from '@/types/core'
 import { InstalledAppsState } from '@/reducers/installed-apps'
 import { Loader } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -27,7 +27,6 @@ export const InstalledApps: React.FC<InstalledAppsProps> = ({ installedAppsState
   const loading = installedAppsState.loading
   const list = installedAppsState?.installedAppsData?.data?.data || []
   const { totalCount, pageSize } = installedAppsState?.installedAppsData?.data || {}
-  const [visible, setVisible] = React.useState(false)
 
   if (unfetched || loading) {
     return <Loader />

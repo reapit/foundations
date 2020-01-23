@@ -27,7 +27,8 @@ export function registerValidate(values: RegisterFormValues) {
 
   if (!isValidPassword(values.password)) {
     errors.password =
-      'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number'
+      'Your Password should be a minimum of 8 characters; must contain at ' +
+      'least one lowercase letter, one uppercase letter and one number'
   } else {
     if (!values.confirmPassword) {
       errors.confirmPassword = 'Required'

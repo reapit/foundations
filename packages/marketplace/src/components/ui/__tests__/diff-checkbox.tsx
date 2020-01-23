@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import DiffCheckbox, { DiffCheckboxProps } from '../diff-checkbox'
-import toJson from 'enzyme-to-json'
 
 const props: DiffCheckboxProps = {
   changedChecked: false,
@@ -10,7 +9,7 @@ const props: DiffCheckboxProps = {
 
 describe('DiffCheckbox', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<DiffCheckbox {...props} />))).toMatchSnapshot()
+    expect(shallow(<DiffCheckbox {...props} />)).toMatchSnapshot()
   })
 
   it('should only render one checkbox if no different', () => {

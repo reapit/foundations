@@ -106,7 +106,7 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
   try {
     const email = yield select(selectDeveloperEmail)
     /* rename for compatible reason */
-    const { currentPassword: password, password: newPassword, confirmPassword: newPasswordConfirm } = data
+    const { currentPassword: password, password: newPassword } = data
     const response = yield call(changePassword, { userName: email, password, newPassword })
     const isCallAPISuccess = response === 'SUCCESS'
     if (!isCallAPISuccess) {

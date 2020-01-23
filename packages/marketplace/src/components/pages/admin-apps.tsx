@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import qs from 'query-string'
-import { withRouter, RouterProps, RouteComponentProps } from 'react-router'
+import { withRouter, RouteComponentProps } from 'react-router'
 import { ReduxState } from '@/types/core'
 import {
   Loader,
@@ -29,6 +29,34 @@ import { adminAppsRequestFeatured, AdminAppsFeaturedParams } from '@/actions/adm
 import AppDeleteModal from '../ui/app-delete'
 
 export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal }) => () => {
+  const FeaturedCell = ({ row, cell }) => {
+    const { id } = row.original
+    const { value } = cell
+    return (
+      <div className="field field-checkbox">
+        <input
+          className="checkbox"
+          type="checkbox"
+          id={id}
+          name={id}
+          checked={value}
+          onChange={evt => onChangeFeatured({ id, isFeatured: evt.target.checked })}
+        />
+        <label className="label" htmlFor={id}></label>
+      </div>
+    )
+  }
+  const DeleteCell = ({ row }) => (
+    <Button
+      type="button"
+      variant="danger"
+      onClick={() =>
+        setDeleteModal({ ...deleteModal, visible: true, appId: row.original.id, appName: row.original.name })
+      }
+    >
+      Delete
+    </Button>
+  )
   return [
     {
       Header: 'AppID',
@@ -61,37 +89,11 @@ export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal 
     {
       Header: 'Featured',
       accessor: 'isFeatured',
-      Cell: ({ row, cell }) => {
-        const { id } = row.original
-        const { value } = cell
-        return (
-          <div className="field field-checkbox">
-            <input
-              className="checkbox"
-              type="checkbox"
-              id={id}
-              name={id}
-              checked={value}
-              onChange={evt => onChangeFeatured({ id, isFeatured: evt.target.checked })}
-            />
-            <label className="label" htmlFor={id}></label>
-          </div>
-        )
-      }
+      Cell: FeaturedCell
     },
     {
       id: 'Delete',
-      Cell: ({ row }) => (
-        <Button
-          type="button"
-          variant="danger"
-          onClick={() =>
-            setDeleteModal({ ...deleteModal, visible: true, appId: row.original.id, appName: row.original.name })
-          }
-        >
-          Delete
-        </Button>
-      )
+      Cell: DeleteCell
     }
   ]
 }

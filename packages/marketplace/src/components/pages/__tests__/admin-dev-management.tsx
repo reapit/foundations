@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import {
   AdminDevManagement,
   AdminDevManagementProps,
@@ -24,7 +23,7 @@ describe('AdminDevManagement', () => {
       onSearch: jest.fn()
     }
 
-    expect(toJson(shallow(<AdminDevManagement {...props} />))).toMatchSnapshot()
+    expect(shallow(<AdminDevManagement {...props} />)).toMatchSnapshot()
   })
 
   it('should show loader when LOADING true', () => {
@@ -36,7 +35,7 @@ describe('AdminDevManagement', () => {
       onSearch: jest.fn()
     }
 
-    expect(toJson(shallow(<AdminDevManagement {...props} />))).toMatchSnapshot()
+    expect(shallow(<AdminDevManagement {...props} />)).toMatchSnapshot()
   })
 
   it('should render blank Info when data is empty', () => {
@@ -48,7 +47,7 @@ describe('AdminDevManagement', () => {
       onSearch: jest.fn()
     }
 
-    expect(toJson(shallow(<AdminDevManagement {...props} />))).toMatchSnapshot()
+    expect(shallow(<AdminDevManagement {...props} />)).toMatchSnapshot()
   })
 })
 

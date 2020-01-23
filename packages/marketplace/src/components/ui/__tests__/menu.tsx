@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Menu, MenuProps, mapStateToProps, mapDispatchToProps, generateMenuConfig } from '../menu'
-import toJson from 'enzyme-to-json'
 import { ReduxState } from '@/types/core'
-import { Location } from 'history'
 
 const props: MenuProps = {
   loginType: 'CLIENT',
@@ -16,7 +14,7 @@ const props: MenuProps = {
 
 describe('Menu', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Menu {...props} />))).toMatchSnapshot()
+    expect(shallow(<Menu {...props} />)).toMatchSnapshot()
   })
 
   describe('mapStateToProps', () => {

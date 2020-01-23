@@ -2,7 +2,7 @@ import * as React from 'react'
 import { History } from 'history'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { withRouter, RouteComponentProps, match } from 'react-router'
+import { withRouter, RouteComponentProps } from 'react-router'
 import { ReduxState } from '@/types/core'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { AdminDevManamgenetState } from '@/reducers/admin-dev-management'
@@ -10,7 +10,6 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import {
   Pagination,
   Table,
-  Info,
   FlexContainerResponsive,
   Button,
   Loader,
@@ -61,12 +60,33 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
       fetchData({ page: pageNumber, queryString: qs.stringify(filterValues as { name: string; company: string }) })
     }
   }
+  const pageNo = pageNumber - 1
+  const pageNoTimesRevsions = pageNo * REVISIONS_PER_PAGE
+  const HeaderCell = ({ row: { index } }) => <>{pageNoTimesRevsions + index + 1}</>
+  const ButtonCell = ({ row: { original } }) => {
+    const { id, isInactive } = original as DeveloperModel
+
+    return (
+      <Button
+        type="button"
+        variant="primary"
+        onClick={() => {
+          if (id) {
+            setDeveloper({ ...original, isInactive: isInactive! })
+            setIsSetStatusModalOpen(true)
+          }
+        }}
+      >
+        {isInactive ? 'Enable' : 'Deactive'}
+      </Button>
+    )
+  }
 
   const columns = [
     {
       Header: '#',
       id: 'id',
-      Cell: ({ row: { index } }) => <>{(pageNumber - 1) * REVISIONS_PER_PAGE + index + 1}</>
+      Cell: HeaderCell
     },
     { Header: 'Name', accessor: 'name' },
     { Header: 'Company', accessor: 'company' },
@@ -76,24 +96,7 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
     {
       Header: '',
       id: 'buttonColumn',
-      Cell: ({ row: { original } }) => {
-        const { id, isInactive } = original as DeveloperModel
-
-        return (
-          <Button
-            type="button"
-            variant="primary"
-            onClick={() => {
-              if (id) {
-                setDeveloper({ ...original, isInactive: isInactive! })
-                setIsSetStatusModalOpen(true)
-              }
-            }}
-          >
-            {isInactive ? 'Enable' : 'Deactive'}
-          </Button>
-        )
-      }
+      Cell: ButtonCell
     }
   ]
 
@@ -149,7 +152,7 @@ export const onPageChangeHandler = (history: History<any>, queryParams: AdminDev
   return history.push(`${Routes.ADMIN_DEV_MANAGEMENT}/${page}${query}`)
 }
 
-export const onSearchHandler = (history: History<any>, match: match<{ page?: any }>) => (
+export const onSearchHandler = (history: History<any>, match: { params: { page?: number } }) => (
   queryParams: AdminDevManagementFilterFormValues
 ) => {
   const page = match.params.page || 1

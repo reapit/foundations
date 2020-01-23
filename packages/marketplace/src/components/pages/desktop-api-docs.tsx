@@ -38,9 +38,10 @@ const DesktopApiDocsPage: React.SFC = () => {
           <H4 id="api">API Introduction</H4>
           <H5>Overview</H5>
           <p>
-            Applications that are built on our Foundations Platform are able to communicate with Reapit's Agency Cloud
-            CRM system. Using a well-defined API, you are able to trigger a wide variety of actions in our award-winning
-            desktop application to augment your own applications and build a rich integration between systems.
+            Applications that are built on our Foundations Platform are able to communicate with Reapit&apos;s Agency
+            Cloud CRM system. Using a well-defined API, you are able to trigger a wide variety of actions in our
+            award-winning desktop application to augment your own applications and build a rich integration between
+            systems.
           </p>
           <H5>URL Scheme</H5>
           <p>
@@ -61,28 +62,28 @@ const DesktopApiDocsPage: React.SFC = () => {
           <p>Opens the property edit screen for the property with specified id</p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://properties/{id}`}</code>
+              <code>{'agencycloud://properties/{id}'}</code>
             </pre>
           </p>
           <H5>Perform Matching</H5>
           <p>Performs a property to applicant match for the applicant with specified id</p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://properties/{id}/match`}</code>
+              <code>{'agencycloud://properties/{id}/match'}</code>
             </pre>
           </p>
           <H5>Load Journal</H5>
           <p>Opens the journal screen for the specified property</p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://properties/{id}/journal`}</code>
+              <code>{'agencycloud://properties/{id}/journal'}</code>
             </pre>
           </p>
           <H5>Load Offers</H5>
           <p>Opens the offers screen for the specified property</p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://properties/{id}/offers`}</code>
+              <code>{'agencycloud://properties/{id}/offers'}</code>
             </pre>
           </p>
           <H5>Property Search</H5>
@@ -92,7 +93,7 @@ const DesktopApiDocsPage: React.SFC = () => {
           </p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://properties?address=MK43&mode=s`}</code>
+              <code>{'agencycloud://properties?address=MK43&mode=s'}</code>
             </pre>
           </p>
           <Table
@@ -144,15 +145,15 @@ const DesktopApiDocsPage: React.SFC = () => {
               {
                 parameter: 'appId',
                 type: 'string',
-                description:
-                  'The GUID of the app to return the code of the selected property to (if not present then search will not return to an app)',
+                description: `The GUID of the app to return the code of the selected property to 
+                  (if not present then search will not return to an app)`,
                 required: 'No'
               },
               {
                 parameter: 'appParam',
                 type: 'string',
-                description:
-                  'The key to use in the query string when returning the property primary key to an app (required if appId is set) ',
+                description: `The key to use in the query string when returning the property 
+                  primary key to an app (required if appId is set) `,
                 required: 'No?'
               }
             ]}
@@ -162,21 +163,21 @@ const DesktopApiDocsPage: React.SFC = () => {
           <p>Opens the applicant edit screen for the applicant with specified id</p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://applicants/{id}`}</code>
+              <code>{'agencycloud://applicants/{id}'}</code>
             </pre>
           </p>
           <H5>Perform Matching</H5>
           <p>Performs a applicant to applicant match for the applicant with specified id</p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://applicants/{id}/match`}</code>
+              <code>{'agencycloud://applicants/{id}/match'}</code>
             </pre>
           </p>
           <H5>Load Journal</H5>
           <p>Opens the journal screen for the specified applicant</p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://applicants/{id}/journal`}</code>
+              <code>{'agencycloud://applicants/{id}/journal'}</code>
             </pre>
           </p>
           <H5>Applicant Search</H5>
@@ -186,7 +187,7 @@ const DesktopApiDocsPage: React.SFC = () => {
           </p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://applicants?name=smith&mode=lettings`}</code>
+              <code>{'agencycloud://applicants?name=smith&mode=lettings'}</code>
             </pre>
           </p>
           <Table
@@ -238,15 +239,15 @@ const DesktopApiDocsPage: React.SFC = () => {
               {
                 parameter: 'appId',
                 type: 'string',
-                description:
-                  'The GUID of the app to return the code of the selected property to (if not present then search will not return to an app)',
+                description: `The GUID of the app to return the code of the selected property to 
+                  (if not present then search will not return to an app)`,
                 required: 'No'
               },
               {
                 parameter: 'appParam',
                 type: 'string',
-                description:
-                  'The key to use in the query string when returning the property primary key to an app (required if appId is set) ',
+                description: `The key to use in the query string when returning the property 
+                  primary key to an app (required if appId is set) `,
                 required: 'No?'
               }
             ]}
@@ -260,7 +261,7 @@ const DesktopApiDocsPage: React.SFC = () => {
           </p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://appointments?dateFrom=2019/12/25&dateTo=2019/12/26`}</code>
+              <code>{'agencycloud://appointments?dateFrom=2019/12/25&dateTo=2019/12/26'}</code>
             </pre>
           </p>
           <Table
@@ -307,7 +308,7 @@ const DesktopApiDocsPage: React.SFC = () => {
           </p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://contacts?name=smith`}</code>
+              <code>{'agencycloud://contacts?name=smith'}</code>
             </pre>
           </p>
           <Table
@@ -353,15 +354,15 @@ const DesktopApiDocsPage: React.SFC = () => {
               {
                 parameter: 'appId',
                 type: 'string',
-                description:
-                  'The GUID of the app to return the code of the selected contact to (if not present then search will not return to an app)',
+                description: `The GUID of the app to return the code of the selected contact to 
+                  (if not present then search will not return to an app)`,
                 required: 'No'
               },
               {
                 parameter: 'appParam',
                 type: 'string',
-                description:
-                  'The key to use in the query string when returning the contact primary key to an app (required if appId is set) ',
+                description: `The key to use in the query string when returning the contact 
+                  primary key to an app (required if appId is set) `,
                 required: 'No?'
               }
             ]}
@@ -370,14 +371,14 @@ const DesktopApiDocsPage: React.SFC = () => {
           <p>Opens the contact edit screen for the contact with specified id</p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://contacts/{id}`}</code>
+              <code>{'agencycloud://contacts/{id}'}</code>
             </pre>
           </p>
           <H5>Load Journal</H5>
           <p>Opens the journal screen for the specified contact</p>
           <p className="mb-4">
             <pre>
-              <code>{`agencycloud://contacts/{id}/journal`}</code>
+              <code>{'agencycloud://contacts/{id}/journal'}</code>
             </pre>
           </p>
           <H4 id="agency-cloud">Agency Cloud Interaction API</H4>
@@ -428,7 +429,7 @@ const DesktopApiDocsPage: React.SFC = () => {
           </p>
           <p className="mb-4">
             <pre>
-              <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&CntCode={PrimaryKey}`}</code>
+              <code>{'https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&CntCode={PrimaryKey}'}</code>
             </pre>
           </p>
           <Table
@@ -469,8 +470,9 @@ const DesktopApiDocsPage: React.SFC = () => {
               {
                 parameter: 'cntCode',
                 type: 'string',
-                description:
-                  'The primary key of the contact to load the ID checks for (note that this won’t be present when the app loads from the marketplace, but the app needs to be able to accept this parameter when it is launched via the app association route).',
+                description: `The primary key of the contact to load the ID checks for (note that this won’t be 
+                    present when the app loads from the marketplace, but the app needs to be able to accept 
+                    this parameter when it is launched via the app association route).`,
                 required: 'Yes'
               }
             ]}
@@ -484,7 +486,7 @@ const DesktopApiDocsPage: React.SFC = () => {
           </p>
           <p className="mb-4">
             <pre>
-              <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&PrpCode={PrimaryKey}`}</code>
+              <code>{'https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true&PrpCode={PrimaryKey}'}</code>
             </pre>
           </p>
           <Table
@@ -525,8 +527,9 @@ const DesktopApiDocsPage: React.SFC = () => {
               {
                 parameter: 'prpCode',
                 type: 'string',
-                description:
-                  'The primary key of the property to load generate the brochures for (note that this won’t be present when the app loads from the marketplace, but the app needs to be able to accept this parameter when it is launched via the app association route).',
+                description: `The primary key of the property to load generate the brochures for (note that this 
+                    won’t be present when the app loads from the marketplace, but the app needs to be 
+                    able to accept this parameter when it is launched via the app association route).`,
                 required: 'Yes'
               }
             ]}
@@ -539,7 +542,9 @@ const DesktopApiDocsPage: React.SFC = () => {
           </p>
           <p className="mb-4">
             <pre>
-              <code>{`https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true &PrpCodes={List of PrimaryKeys}`}</code>
+              <code>
+                {'https://{AppLaunchUrl}?Username={loggedInUserEmail}&Desktop=true &PrpCodes={List of PrimaryKeys}'}
+              </code>
             </pre>
           </p>
           <Table
@@ -580,8 +585,9 @@ const DesktopApiDocsPage: React.SFC = () => {
               {
                 parameter: 'prpCodes',
                 type: 'string',
-                description:
-                  'The primary key of the property to load generate the brochures for (note that this won’t be present when the app loads from the marketplace, but the app needs to be able to accept this parameter when it is launched via the app association route).',
+                description: `The primary key of the property to load generate the brochures for (note that this 
+                    won’t be present when the app loads from the marketplace, but the app needs to be 
+                    able to accept this parameter when it is launched via the app association route).`,
                 required: 'Yes'
               }
             ]}

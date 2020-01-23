@@ -7,7 +7,6 @@ import {
   Pagination,
   Table,
   Button,
-  Info,
   FlexContainerResponsive,
   Helper,
   infoText,
@@ -91,13 +90,42 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
   const { totalCount, pageSize } = approvalsState?.adminApprovalsData?.data || {}
   const [isModalOpen, setIsModalOpen] = React.useState(false)
   const pageNumberInState = approvalsState?.adminApprovalsData?.data?.pageNumber || 1
+  const HeaderCell = ({ row: { index } }) => {
+    const pageNo = pageNumberInState - 1
+    const pageNoTimesRevsions = pageNo * REVISIONS_PER_PAGE
+    return <div>{pageNoTimesRevsions + index + 1}</div>
+  }
+  const ButtonColumnCell = ({ row: { original } }) => {
+    const { appId } = original
+    return (
+      <Button
+        dataTest={`view-details-button_${appId}`}
+        type="button"
+        variant="primary"
+        onClick={() => {
+          const { appId, appRevisionId } = original
+          if (appRevisionId && appId) {
+            const currentRevisionId = revisionDetail?.revisionDetailData?.data?.id
+            const currentAppId = appDetail?.appDetailData?.data?.id
+            if (currentRevisionId !== appRevisionId) {
+              fetchRevisionDetail({ appId, appRevisionId })
+            }
+            if (currentAppId !== appId) {
+              fetchAppDetail(appId)
+            }
+            setIsModalOpen(true)
+          }
+        }}
+      >
+        View details
+      </Button>
+    )
+  }
   const tableColumns = [
     {
       Header: '#',
       id: 'id',
-      Cell: ({ row: { index } }) => {
-        return <div>{(pageNumberInState - 1) * REVISIONS_PER_PAGE + index + 1}</div>
-      }
+      Cell: HeaderCell
     },
     {
       Header: 'AppId',
@@ -114,32 +142,7 @@ export const AdminApprovals: React.FunctionComponent<AdminApprovalsProps> = ({
     {
       Header: '',
       id: 'buttonColumn',
-      Cell: ({ row: { original } }) => {
-        const { appId } = original
-        return (
-          <Button
-            dataTest={`view-details-button_${appId}`}
-            type="button"
-            variant="primary"
-            onClick={() => {
-              const { appId, appRevisionId } = original
-              if (appRevisionId && appId) {
-                const currentRevisionId = revisionDetail?.revisionDetailData?.data?.id
-                const currentAppId = appDetail?.appDetailData?.data?.id
-                if (currentRevisionId !== appRevisionId) {
-                  fetchRevisionDetail({ appId, appRevisionId })
-                }
-                if (currentAppId !== appId) {
-                  fetchAppDetail(appId)
-                }
-                setIsModalOpen(true)
-              }
-            }}
-          >
-            View details
-          </Button>
-        )
-      }
+      Cell: ButtonColumnCell
     }
   ]
 

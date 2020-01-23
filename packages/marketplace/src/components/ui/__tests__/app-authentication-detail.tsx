@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import { AppAuthenticationDetail, AppAuthenticationDetailProps, mapDispatchToProps } from '../app-authentication-detail'
 import { requestAuthenticationCode } from '../../../actions/app-detail'
 
@@ -14,7 +14,7 @@ const props: AppAuthenticationDetailProps = {
 
 describe('AppAuthenticationDetail', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<AppAuthenticationDetail {...props} />))).toMatchSnapshot()
+    expect(shallow(<AppAuthenticationDetail {...props} />)).toMatchSnapshot()
   })
 
   describe('mapDispatchToProps', () => {

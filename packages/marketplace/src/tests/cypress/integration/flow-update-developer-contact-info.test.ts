@@ -19,7 +19,7 @@ describe('Success update developer contact info', () => {
     cy.route({ method: 'GET', url: apiRoute }).as('getDeveloperInfo')
     cy.visit(url)
     cy.wait('@getDeveloperInfo')
-      .then(xhr => parseXhrBodyToJson(xhr))
+      .then(xhr => (parseXhrBodyToJson as any)(xhr))
       .then(response => {
         initialData = {
           company: response.company,

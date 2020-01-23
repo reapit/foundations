@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import { AppDetailModal, AppDetailModalProps, handleAfterClose } from '../app-detail-modal'
 
 const props: AppDetailModalProps = {
@@ -11,7 +11,7 @@ const props: AppDetailModalProps = {
 
 describe('AppDetailModel', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<AppDetailModal {...props} />))).toMatchSnapshot()
+    expect(shallow(<AppDetailModal {...props} />)).toMatchSnapshot()
   })
   describe('handleAfterClose have afterClose', () => {
     const afterClose = jest.fn()

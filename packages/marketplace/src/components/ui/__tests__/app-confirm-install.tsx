@@ -1,6 +1,5 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { FormState, ReduxState } from '@/types/core'
 import { AppConfirmInstallContent, handleCloseModal, mapDispatchToProps, mapStateToProps } from '../app-confirm-install'
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
@@ -17,15 +16,15 @@ const mockProps = {
 describe('AppConfirmInstallContent', () => {
   it('render correctly', () => {
     const wrapper = shallow(<AppConfirmInstallContent {...mockProps} />)
-    expect(toJson(wrapper)).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
     const wrapper1 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="DONE" />)
-    expect(toJson(wrapper1)).toMatchSnapshot()
+    expect(wrapper1).toMatchSnapshot()
     const wrapper2 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="SUBMITTING" />)
-    expect(toJson(wrapper2)).toMatchSnapshot()
+    expect(wrapper2).toMatchSnapshot()
     const wrapper3 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="ERROR" />)
-    expect(toJson(wrapper3)).toMatchSnapshot()
+    expect(wrapper3).toMatchSnapshot()
     const wrapper4 = shallow(<AppConfirmInstallContent {...mockProps} installationsFormState="SUCCESS" />)
-    expect(toJson(wrapper4)).toMatchSnapshot()
+    expect(wrapper4).toMatchSnapshot()
   })
 
   it('should return null when formState SUCCESS', () => {

@@ -19,8 +19,6 @@ import {
   setAppDetailStale
 } from '@/actions/app-detail'
 import { Action } from '@/types/core'
-import { fetcher } from '@reapit/elements'
-import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'

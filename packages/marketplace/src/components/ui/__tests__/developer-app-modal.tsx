@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
 import {
   DeveloperAppModalInner,
@@ -30,15 +30,15 @@ const daiProps = (loading: boolean, error: boolean): DeveloperAppInnerProps => (
 
 describe('DeveloperAppModalInner', () => {
   it('should match a snapshot when LOADING true', () => {
-    expect(toJson(shallow(<DeveloperAppModalInner {...daiProps(true, false)} />))).toMatchSnapshot()
+    expect(shallow(<DeveloperAppModalInner {...daiProps(true, false)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<DeveloperAppModalInner {...daiProps(false, false)} />))).toMatchSnapshot()
+    expect(shallow(<DeveloperAppModalInner {...daiProps(false, false)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when ERROR true', () => {
-    expect(toJson(shallow(<DeveloperAppModalInner {...daiProps(false, true)} />))).toMatchSnapshot()
+    expect(shallow(<DeveloperAppModalInner {...daiProps(false, true)} />)).toMatchSnapshot()
   })
 })
 
@@ -53,6 +53,6 @@ const damProps = (): DeveloperAppModalProps => ({
 
 describe('DeveloperAppModal', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<DeveloperAppModal {...damProps()} />))).toMatchSnapshot()
+    expect(shallow(<DeveloperAppModal {...damProps()} />)).toMatchSnapshot()
   })
 })

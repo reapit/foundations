@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import { MemoryRouter, Route } from 'react-router'
 import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
 
@@ -23,11 +23,11 @@ const desktopProps: PrivateRouteWrapperProps = { ...props, isLogin: true, locati
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<PrivateRouteWrapper {...props} />))).toMatchSnapshot()
+    expect(shallow(<PrivateRouteWrapper {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot for desktop login', () => {
-    expect(toJson(shallow(<PrivateRouteWrapper {...desktopProps} />))).toMatchSnapshot()
+    expect(shallow(<PrivateRouteWrapper {...desktopProps} />)).toMatchSnapshot()
   })
 
   it('should redirect to /login page if isLogin is false and not desktop login', () => {

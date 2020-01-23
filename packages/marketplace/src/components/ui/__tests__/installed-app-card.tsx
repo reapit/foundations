@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
+
 import InstalledAppCard, { InstalledAppCardProps } from '../installed-app-card'
 
 const props: InstalledAppCardProps = {
@@ -9,7 +9,8 @@ const props: InstalledAppCardProps = {
     developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
     name: 'test',
     summary:
-      'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
+      'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsi' +
+      'cr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
     developer: "Pete's Proptech World Ltd",
     homePage: 'http://google.com/abc',
     iconUri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import {
@@ -12,7 +11,6 @@ import {
   handleCloseAppDeleteModal
 } from '../admin-apps'
 import { RouteComponentProps, StaticContext } from 'react-router'
-import { getMockRouterProps } from '@/utils/mock-helper'
 
 const routerProps = {
   match: {
@@ -37,11 +35,11 @@ const props = (loading: boolean): AdminAppsProps => ({
 
 describe('AdminApps', () => {
   it('should match a snapshot when LOADING false', () => {
-    expect(toJson(shallow(<AdminApps {...props(false)} />))).toMatchSnapshot()
+    expect(shallow(<AdminApps {...props(false)} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when LOADING true', () => {
-    expect(toJson(shallow(<AdminApps {...props(true)} />))).toMatchSnapshot()
+    expect(shallow(<AdminApps {...props(true)} />)).toMatchSnapshot()
   })
 
   describe('mapStateToProps', () => {
@@ -61,7 +59,6 @@ describe('AdminApps', () => {
   describe('mapDispatchToProps', () => {
     it('should call dispatch correctly', () => {
       const mockDispatch = jest.fn()
-      const mockOwnProps = getMockRouterProps({})
       const { onChangeFeatured } = mapDispatchToProps(mockDispatch)
       onChangeFeatured({ id: '1', isFeatured: true })
       expect(mockDispatch).toBeCalled()

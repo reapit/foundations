@@ -28,8 +28,6 @@
     "test-perf:ci": "concurrently --success=\"first\" \"yarn start\" \"yarn test-perf\" -k"
   },
   "dependencies": {
-    "@reapit/cognito-auth": "^2.0.5",
-    "@reapit/elements": "^0.5.34",
     "@sentry/browser": "^5.11.1",
     "chart.js": "^2.9.3",
     "dayjs": "^1.8.17",
@@ -82,7 +80,6 @@
     "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "enzyme-to-json": "^3.4.3",
     "favicons-webpack-plugin": "^0.0.9",
     "file-loader": "~3.0.1",
     "fork-ts-checker-notifier-webpack-plugin": "~1.0.0",

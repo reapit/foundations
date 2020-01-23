@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { match } from 'react-router'
-import toJson from 'enzyme-to-json'
 import { shallow, mount, render } from 'enzyme'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import {
@@ -16,8 +15,6 @@ import {
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
-import { FormikHelpers } from '@reapit/elements'
-import { DeveloperHome } from '../developer-home'
 
 const submitAppMappedActionsProps: SubmitAppMappedActions = {
   submitApp: jest.fn(),
@@ -57,7 +54,7 @@ describe('DeveloperSubmitApp', () => {
       categories: appCategorieStub?.data || []
     }
 
-    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+    expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
 
   it('should show when fetch data loading', () => {
@@ -118,7 +115,7 @@ describe('DeveloperSubmitApp', () => {
       categories: appCategorieStub?.data || []
     }
 
-    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+    expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
 
   it('should match snapshot when there are two app images', () => {
@@ -193,7 +190,7 @@ describe('DeveloperSubmitApp', () => {
       categories: appCategorieStub?.data || []
     }
 
-    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+    expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
 
   it('should match submit revision form when appDetailState is having errors snapshot', () => {
@@ -228,7 +225,7 @@ describe('DeveloperSubmitApp', () => {
       categories: appCategorieStub?.data || []
     }
 
-    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+    expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
 
   it('should match submit revision form when appDetailState is having null snapshot', () => {
@@ -263,7 +260,7 @@ describe('DeveloperSubmitApp', () => {
       categories: appCategorieStub?.data || []
     }
 
-    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+    expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
 
   it('should match submit app successfully snapshot', () => {
@@ -294,7 +291,7 @@ describe('DeveloperSubmitApp', () => {
       categories: appCategorieStub?.data || []
     }
 
-    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+    expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
 
   it('should match submit revision successfully snapshot', () => {
@@ -329,7 +326,7 @@ describe('DeveloperSubmitApp', () => {
       categories: appCategorieStub?.data || []
     }
 
-    expect(toJson(shallow(<SubmitApp {...props} />))).toMatchSnapshot()
+    expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
 
   it('should show enough scope checkbox', () => {

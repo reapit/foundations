@@ -1,8 +1,6 @@
 import React from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
-import { fetcher } from '@reapit/elements'
 import Routes from '@/constants/routes'
-import { MARKETPLACE_HEADERS } from '@/constants/api'
 import { confirmRegistration } from '@reapit/cognito-auth'
 
 export const handleUseEffect = ({ userName, verificationCode, replace }) => () => {

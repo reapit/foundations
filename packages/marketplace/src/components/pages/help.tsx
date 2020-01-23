@@ -46,16 +46,16 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
   {
     imgSrc: welcomeImg,
     header: 'Welcome Guide',
-    text:
-      'Need a little help? Have a look through the Welcome Guide, which we’ve put together to help you navigate through your Developer portal.',
+    text: `Need a little help? Have a look through the Welcome Guide, which we’ve put 
+      together to help you navigate through your Developer portal.`,
     buttonText: 'VIEW',
     buttonOnClick: handleGotoWelcomeGuide
   },
   {
     imgSrc: requestEndpointImg,
     header: 'Request a Feature',
-    text:
-      'Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will look at all requests carefully however, we cannot guarantee all will be implemented.',
+    text: `Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will 
+      look at all requests carefully however, we cannot guarantee all will be implemented.`,
     buttonText: 'REQUEST',
     buttonOnClick: handleRequestEndpoint
   },
@@ -70,8 +70,8 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
   {
     imgSrc: roadmapImg,
     header: 'Roadmap',
-    text:
-      'Want to see what we are building or check on the progress of your feature requests? You can see our product roadmap milestones here. ',
+    text: `Want to see what we are building or check on the progress of your feature requests? 
+      You can see our product roadmap milestones here. `,
     buttonText: 'VIEW',
     buttonOnClick: handleViewRoadmap
   },

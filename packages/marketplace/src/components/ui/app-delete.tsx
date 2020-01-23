@@ -73,7 +73,7 @@ export const DeleteAppModal = ({
             onButtonClick={onDeleteSuccess}
             isCenter
           >
-            We have successfully deleted app '{appName}'.
+            We have successfully deleted app &lsquo;{appName}&rsquo;.
           </CallToAction>
         ) : (
           <React.Fragment>
@@ -85,8 +85,9 @@ export const DeleteAppModal = ({
             <ModalBody
               body={
                 <React.Fragment>
-                  Are you sure you want to remove this App '{appName}'. By clicking 'Delete' it will remove the App and
-                  all its data, including all revisions and listings. Please click 'Delete' to continue with deletion.
+                  Are you sure you want to remove this App &lsquo;{appName}&rsquo;. By clicking &lsquo;Delete&rsquo; it
+                  will remove the App and all its data, including all revisions and listings. Please click
+                  &lsquo;Delete&rsquo; to continue with deletion.
                 </React.Fragment>
               }
             />

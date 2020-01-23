@@ -1,4 +1,4 @@
-async function parseXhrBodyToJson(xhr) {
+async function parseXhrBodyToJson(xhr: any) {
   try {
     const text = await xhr.response.body.text()
     const jsonBody = JSON.parse(text)

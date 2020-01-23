@@ -17,8 +17,8 @@ exports[`SetDeveloperStatusModal should match snapshot 1`] = `
       >
         Are you sure you want to 
         deactivate
-         '
-        '?
+         ‘
+        ’?
       </SubTitleH6>
     }
   />
