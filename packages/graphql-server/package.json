@@ -1,5 +1,5 @@
 {
-  "name": "apollo-server",
+  "name": "graphql-server",
   "version": "0.0.0",
   "description": "GraphQL Server",
   "main": "dist/index.js",
@@ -22,8 +22,8 @@
     "dev": "cross-env REAPIT_ENV=LOCAL nodemon",
     "build": "cross-env NODE_ENV=production rimraf dist && tsc --p tsconfig.json",
     "start": "node ./dist/app.js",
-    "test": "jest --coverage --silent",
-    "test:ci": "jest --coverage --silent --detectOpenHandles --forceExit"
+    "test": "cross-env TZ=UTC jest --coverage --silent",
+    "test:ci": "cross-env TZ=UTC jest --coverage --silent --detectOpenHandles --forceExit"
   },
   "devDependencies": {
     "@types/graphql-depth-limit": "^1.1.2",

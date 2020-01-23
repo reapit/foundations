@@ -1,6 +1,6 @@
 #https://github.com/actions/labeler
 
-name: 'Pull Request Set Label'
+name: 'Set Label For Pull Request'
 on:
   pull_request:
     types: [opened, 'synchronize']

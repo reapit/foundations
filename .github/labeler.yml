@@ -7,3 +7,6 @@ apollo-server:
 
 lifetime-legal:
   - packages/lifetime-legal/**
+
+cognito-auth:
+  - packages/cognito-auth/**

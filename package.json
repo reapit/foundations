@@ -5,7 +5,8 @@
     "build": "lerna run build --parallel",
     "test": "lerna run test:ci --parallel",
     "lint": "eslint --fix --ext=jsx,ts,tsx packages",
-    "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config"
+    "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
+    "release:develop": "lerna run release:develop --parallel"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
@@ -40,8 +41,10 @@
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.17.0",
-    "husky": "^3.1.0",
+    "husky": "^4.2.0",
     "isomorphic-fetch": "^2.2.1",
+    "jest": "^25.1.0",
+    "jest-config": "^25.1.0",
     "jest-fetch-mock": "^2.1.2",
     "lerna": "^3.19.0",
     "lint-staged": "^9.5.0",
@@ -58,7 +61,6 @@
     "packages/*"
   ],
   "dependencies": {
-    "@reapit/cognito-auth": "^2.0.10",
     "@reapit/elements": "^0.5.30",
     "@sentry/browser": "^5.11.1",
     "dayjs": "^1.8.19",
