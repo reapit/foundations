@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminApps renderForm should return correctly 1`] = `
-<ForwardRef>
+<Form>
   <FormSection>
     <FormHeading>
       Admin Apps Filter Form
@@ -52,7 +52,7 @@ exports[`AdminApps renderForm should return correctly 1`] = `
       </GridItem>
     </Grid>
   </FormSection>
-</ForwardRef>
+</Form>
 `;
 
 exports[`AdminApps should match a snapshot when LOADING false 1`] = `
