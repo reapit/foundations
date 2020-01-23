@@ -51,6 +51,7 @@
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@cypress/webpack-preprocessor": "^4.1.1",
+    "@reapit/foundations-ts-definitions": "^0.0.18",
     "@types/diff": "^4.0.2",
     "@types/jsonwebtoken": "^8.3.2",
     "@types/nanoid": "^2.1.0",

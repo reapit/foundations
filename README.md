@@ -1,4 +1,6 @@
-# graphql-app
+# Foundations
+
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 ## How to setup
 Set up workspace experimental to true
