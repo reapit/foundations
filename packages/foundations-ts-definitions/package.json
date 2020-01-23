@@ -17,7 +17,7 @@
     "createIndexFile": "node './scripts/create-index-file.js'",
     "handleCronjob": "node ./scripts/handle-cronjob.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "@octokit/rest": "^16.35.0",
     "compare-versions": "^3.5.1",
     "dotenv": "^8.2.0",
