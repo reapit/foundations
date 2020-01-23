@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Swagger should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <div
+    className="swagger"
+  >
+    <Loader />
+    <div
+      className="swagger-loading"
+    >
+      <SwaggerUI
+        docExpansion="none"
+        onComplete={[Function]}
+        requestInterceptor={[Function]}
+        url="undefined/prod/swaggerdocs"
+      />
+    </div>
+    <Component
+      loading={true}
+    />
+  </div>
+</Connect(ErrorBoundary)>
+`;

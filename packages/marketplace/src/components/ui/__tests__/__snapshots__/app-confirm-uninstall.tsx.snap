@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppConfirmUninstall render correctly 1`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties uninstall"
+  />
+  <ModalBody
+    body={
+      <SubTitleH6
+        isCentered={true}
+      >
+        Are you sure you wish to uninstall 
+        Peter's Properties
+        ? This action will uninstall the app for ALL platform users.
+      </SubTitleH6>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          className="mx-4"
+          dataTest="agree-btn"
+          fullWidth={true}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Agree
+        </Button>
+        <Button
+          className="mx-4"
+          dataTest="disagree-btn"
+          disabled={false}
+          fullWidth={true}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Disagree
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
+
+exports[`AppConfirmUninstall render correctly 2`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties uninstall"
+  />
+  <ModalBody
+    body={
+      <SubTitleH6
+        isCentered={true}
+      >
+        Are you sure you wish to uninstall 
+        Peter's Properties
+        ? This action will uninstall the app for ALL platform users.
+      </SubTitleH6>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          className="mx-4"
+          dataTest="agree-btn"
+          fullWidth={true}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Agree
+        </Button>
+        <Button
+          className="mx-4"
+          dataTest="disagree-btn"
+          disabled={false}
+          fullWidth={true}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Disagree
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
+
+exports[`AppConfirmUninstall render correctly 3`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties uninstall"
+  />
+  <ModalBody
+    body={
+      <SubTitleH6
+        isCentered={true}
+      >
+        Are you sure you wish to uninstall 
+        Peter's Properties
+        ? This action will uninstall the app for ALL platform users.
+      </SubTitleH6>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          className="mx-4"
+          dataTest="agree-btn"
+          fullWidth={true}
+          loading={true}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Agree
+        </Button>
+        <Button
+          className="mx-4"
+          dataTest="disagree-btn"
+          disabled={true}
+          fullWidth={true}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Disagree
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
+
+exports[`AppConfirmUninstall render correctly 4`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties uninstall"
+  />
+  <ModalBody
+    body={
+      <SubTitleH6
+        isCentered={true}
+      >
+        Are you sure you wish to uninstall 
+        Peter's Properties
+        ? This action will uninstall the app for ALL platform users.
+      </SubTitleH6>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          className="mx-4"
+          dataTest="agree-btn"
+          fullWidth={true}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Agree
+        </Button>
+        <Button
+          className="mx-4"
+          dataTest="disagree-btn"
+          disabled={false}
+          fullWidth={true}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Disagree
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
+
+exports[`AppConfirmUninstall render correctly 5`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties uninstall"
+  />
+  <ModalBody
+    body={
+      <SubTitleH6
+        isCentered={true}
+      >
+        Are you sure you wish to uninstall 
+        Peter's Properties
+        ? This action will uninstall the app for ALL platform users.
+      </SubTitleH6>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          className="mx-4"
+          dataTest="agree-btn"
+          fullWidth={true}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Agree
+        </Button>
+        <Button
+          className="mx-4"
+          dataTest="disagree-btn"
+          disabled={false}
+          fullWidth={true}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Disagree
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;

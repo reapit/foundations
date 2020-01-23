@@ -1,0 +1,276 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppConfirmInstallContent render correctly 1`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties installation"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <SubTitleH6
+          isCentered={true}
+        >
+          This action will install the app for ALL platform users.
+          <br />
+          Peter's Properties
+           requires the permissions below. By installing you are granting permission to your data.
+        </SubTitleH6>
+        <ul>
+          <li>
+            Read data about developers
+          </li>
+          <li>
+            Write data about developers
+          </li>
+        </ul>
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          dataTest="agree-btn"
+          loading={false}
+          type="button"
+          variant="primary"
+        >
+          Confirm
+        </Button>
+        <Button
+          dataTest="disagree-btn"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
+
+exports[`AppConfirmInstallContent render correctly 2`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties installation"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <SubTitleH6
+          isCentered={true}
+        >
+          This action will install the app for ALL platform users.
+          <br />
+          Peter's Properties
+           requires the permissions below. By installing you are granting permission to your data.
+        </SubTitleH6>
+        <ul>
+          <li>
+            Read data about developers
+          </li>
+          <li>
+            Write data about developers
+          </li>
+        </ul>
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          dataTest="agree-btn"
+          loading={false}
+          type="button"
+          variant="primary"
+        >
+          Confirm
+        </Button>
+        <Button
+          dataTest="disagree-btn"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
+
+exports[`AppConfirmInstallContent render correctly 3`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties installation"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <SubTitleH6
+          isCentered={true}
+        >
+          This action will install the app for ALL platform users.
+          <br />
+          Peter's Properties
+           requires the permissions below. By installing you are granting permission to your data.
+        </SubTitleH6>
+        <ul>
+          <li>
+            Read data about developers
+          </li>
+          <li>
+            Write data about developers
+          </li>
+        </ul>
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          dataTest="agree-btn"
+          loading={true}
+          type="button"
+          variant="primary"
+        >
+          Confirm
+        </Button>
+        <Button
+          dataTest="disagree-btn"
+          disabled={true}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
+
+exports[`AppConfirmInstallContent render correctly 4`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties installation"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <SubTitleH6
+          isCentered={true}
+        >
+          This action will install the app for ALL platform users.
+          <br />
+          Peter's Properties
+           requires the permissions below. By installing you are granting permission to your data.
+        </SubTitleH6>
+        <ul>
+          <li>
+            Read data about developers
+          </li>
+          <li>
+            Write data about developers
+          </li>
+        </ul>
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          dataTest="agree-btn"
+          loading={false}
+          type="button"
+          variant="primary"
+        >
+          Confirm
+        </Button>
+        <Button
+          dataTest="disagree-btn"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;
+
+exports[`AppConfirmInstallContent render correctly 5`] = `
+<Fragment>
+  <ModalHeader
+    afterClose={[MockFunction]}
+    data-test="confirm-content"
+    title="Confirm Peter's Properties installation"
+  />
+  <ModalBody
+    body={
+      <React.Fragment>
+        <SubTitleH6
+          isCentered={true}
+        >
+          This action will install the app for ALL platform users.
+          <br />
+          Peter's Properties
+           requires the permissions below. By installing you are granting permission to your data.
+        </SubTitleH6>
+        <ul>
+          <li>
+            Read data about developers
+          </li>
+          <li>
+            Write data about developers
+          </li>
+        </ul>
+      </React.Fragment>
+    }
+  />
+  <ModalFooter
+    footerItems={
+      <React.Fragment>
+        <Button
+          dataTest="agree-btn"
+          loading={false}
+          type="button"
+          variant="primary"
+        >
+          Confirm
+        </Button>
+        <Button
+          dataTest="disagree-btn"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          Cancel
+        </Button>
+      </React.Fragment>
+    }
+  />
+</Fragment>
+`;

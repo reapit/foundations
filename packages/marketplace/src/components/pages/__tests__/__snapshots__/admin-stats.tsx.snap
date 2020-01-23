@@ -1,0 +1,930 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin Stats setArea APPS should match snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <H3>
+          Stats
+        </H3>
+      </div>
+      <H5>
+        Please select an area:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="area-apps-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Apps
+        </Button>
+        <Button
+          dataTest="area-developers-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Developers
+        </Button>
+        <Button
+          dataTest="area-installations-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Installations
+        </Button>
+      </ButtonGroup>
+      <H5>
+        Please select a time range:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="range-week-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Last week
+        </Button>
+        <Button
+          dataTest="range-month-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Last Month
+        </Button>
+        <Button
+          dataTest="range-all-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          All time
+        </Button>
+      </ButtonGroup>
+      <H4>
+        Showing results for ‘
+        APPS
+        ’ and ‘
+        WEEK
+        ’
+      </H4>
+      <Line
+        data={
+          Object {
+            "datasets": Array [
+              Object {
+                "backgroundColor": "rgba(75,192,192,0.4)",
+                "borderCapStyle": "butt",
+                "borderColor": "rgba(75,192,192,1)",
+                "borderDash": Array [],
+                "borderDashOffset": 0,
+                "borderJoinStyle": "miter",
+                "data": Array [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                ],
+                "fill": false,
+                "label": "Apps",
+                "lineTension": 0.1,
+                "pointBackgroundColor": "#fff",
+                "pointBorderColor": "rgba(75,192,192,1)",
+                "pointBorderWidth": 1,
+                "pointHitRadius": 10,
+                "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                "pointHoverBorderColor": "rgba(220,220,220,1)",
+                "pointHoverBorderWidth": 2,
+                "pointHoverRadius": 5,
+                "pointRadius": 1,
+              },
+            ],
+            "labels": Array [
+              "15/01/2020",
+              "16/01/2020",
+              "17/01/2020",
+              "18/01/2020",
+              "19/01/2020",
+              "20/01/2020",
+              "21/01/2020",
+              "22/01/2020",
+            ],
+          }
+        }
+      />
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;
+
+exports[`Admin Stats setArea DEVELOPRES should match snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <H3>
+          Stats
+        </H3>
+      </div>
+      <H5>
+        Please select an area:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="area-apps-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Apps
+        </Button>
+        <Button
+          dataTest="area-developers-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Developers
+        </Button>
+        <Button
+          dataTest="area-installations-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Installations
+        </Button>
+      </ButtonGroup>
+      <H5>
+        Please select a time range:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="range-week-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Last week
+        </Button>
+        <Button
+          dataTest="range-month-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Last Month
+        </Button>
+        <Button
+          dataTest="range-all-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          All time
+        </Button>
+      </ButtonGroup>
+      <H4>
+        Showing results for ‘
+        DEVELOPERS
+        ’ and ‘
+        WEEK
+        ’
+      </H4>
+      <Line
+        data={
+          Object {
+            "datasets": Array [
+              Object {
+                "backgroundColor": "rgba(75,192,192,0.4)",
+                "borderCapStyle": "butt",
+                "borderColor": "rgba(75,192,192,1)",
+                "borderDash": Array [],
+                "borderDashOffset": 0,
+                "borderJoinStyle": "miter",
+                "data": Array [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                ],
+                "fill": false,
+                "label": "Developers",
+                "lineTension": 0.1,
+                "pointBackgroundColor": "#fff",
+                "pointBorderColor": "rgba(75,192,192,1)",
+                "pointBorderWidth": 1,
+                "pointHitRadius": 10,
+                "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                "pointHoverBorderColor": "rgba(220,220,220,1)",
+                "pointHoverBorderWidth": 2,
+                "pointHoverRadius": 5,
+                "pointRadius": 1,
+              },
+            ],
+            "labels": Array [
+              "15/01/2020",
+              "16/01/2020",
+              "17/01/2020",
+              "18/01/2020",
+              "19/01/2020",
+              "20/01/2020",
+              "21/01/2020",
+              "22/01/2020",
+            ],
+          }
+        }
+      />
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;
+
+exports[`Admin Stats setArea INSTALLATIONS should match snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <H3>
+          Stats
+        </H3>
+      </div>
+      <H5>
+        Please select an area:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="area-apps-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Apps
+        </Button>
+        <Button
+          dataTest="area-developers-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Developers
+        </Button>
+        <Button
+          dataTest="area-installations-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Installations
+        </Button>
+      </ButtonGroup>
+      <H5>
+        Please select a time range:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="range-week-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Last week
+        </Button>
+        <Button
+          dataTest="range-month-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Last Month
+        </Button>
+        <Button
+          dataTest="range-all-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          All time
+        </Button>
+      </ButtonGroup>
+      <H4>
+        Showing results for ‘
+        INSTALLATIONS
+        ’ and ‘
+        WEEK
+        ’
+      </H4>
+      <Line
+        data={
+          Object {
+            "datasets": Array [
+              Object {
+                "backgroundColor": "rgba(75,192,192,0.4)",
+                "borderCapStyle": "butt",
+                "borderColor": "rgba(75,192,192,1)",
+                "borderDash": Array [],
+                "borderDashOffset": 0,
+                "borderJoinStyle": "miter",
+                "data": Array [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                ],
+                "fill": false,
+                "label": "Installations",
+                "lineTension": 0.1,
+                "pointBackgroundColor": "#fff",
+                "pointBorderColor": "rgba(75,192,192,1)",
+                "pointBorderWidth": 1,
+                "pointHitRadius": 10,
+                "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                "pointHoverBorderColor": "rgba(220,220,220,1)",
+                "pointHoverBorderWidth": 2,
+                "pointHoverRadius": 5,
+                "pointRadius": 1,
+              },
+            ],
+            "labels": Array [
+              "15/01/2020",
+              "16/01/2020",
+              "17/01/2020",
+              "18/01/2020",
+              "19/01/2020",
+              "20/01/2020",
+              "21/01/2020",
+              "22/01/2020",
+            ],
+          }
+        }
+      />
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;
+
+exports[`Admin Stats setRange ALL should match snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <H3>
+          Stats
+        </H3>
+      </div>
+      <H5>
+        Please select an area:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="area-apps-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Apps
+        </Button>
+        <Button
+          dataTest="area-developers-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Developers
+        </Button>
+        <Button
+          dataTest="area-installations-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Installations
+        </Button>
+      </ButtonGroup>
+      <H5>
+        Please select a time range:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="range-week-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Last week
+        </Button>
+        <Button
+          dataTest="range-month-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Last Month
+        </Button>
+        <Button
+          dataTest="range-all-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          All time
+        </Button>
+      </ButtonGroup>
+      <H4>
+        Showing results for ‘
+        APPS
+        ’ and ‘
+        ALL
+        ’
+      </H4>
+      <H4>
+        Total: 
+        0
+      </H4>
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;
+
+exports[`Admin Stats setRange MONTH should match snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <H3>
+          Stats
+        </H3>
+      </div>
+      <H5>
+        Please select an area:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="area-apps-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Apps
+        </Button>
+        <Button
+          dataTest="area-developers-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Developers
+        </Button>
+        <Button
+          dataTest="area-installations-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Installations
+        </Button>
+      </ButtonGroup>
+      <H5>
+        Please select a time range:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="range-week-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Last week
+        </Button>
+        <Button
+          dataTest="range-month-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Last Month
+        </Button>
+        <Button
+          dataTest="range-all-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          All time
+        </Button>
+      </ButtonGroup>
+      <H4>
+        Showing results for ‘
+        APPS
+        ’ and ‘
+        MONTH
+        ’
+      </H4>
+      <Line
+        data={
+          Object {
+            "datasets": Array [
+              Object {
+                "backgroundColor": "rgba(75,192,192,0.4)",
+                "borderCapStyle": "butt",
+                "borderColor": "rgba(75,192,192,1)",
+                "borderDash": Array [],
+                "borderDashOffset": 0,
+                "borderJoinStyle": "miter",
+                "data": Array [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                ],
+                "fill": false,
+                "label": "Apps",
+                "lineTension": 0.1,
+                "pointBackgroundColor": "#fff",
+                "pointBorderColor": "rgba(75,192,192,1)",
+                "pointBorderWidth": 1,
+                "pointHitRadius": 10,
+                "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                "pointHoverBorderColor": "rgba(220,220,220,1)",
+                "pointHoverBorderWidth": 2,
+                "pointHoverRadius": 5,
+                "pointRadius": 1,
+              },
+            ],
+            "labels": Array [
+              "01/01/2020",
+              "02/01/2020",
+              "03/01/2020",
+              "04/01/2020",
+              "05/01/2020",
+              "06/01/2020",
+              "07/01/2020",
+              "08/01/2020",
+              "09/01/2020",
+              "10/01/2020",
+              "11/01/2020",
+              "12/01/2020",
+              "13/01/2020",
+              "14/01/2020",
+              "15/01/2020",
+              "16/01/2020",
+              "17/01/2020",
+              "18/01/2020",
+              "19/01/2020",
+              "20/01/2020",
+              "21/01/2020",
+              "22/01/2020",
+            ],
+          }
+        }
+      />
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;
+
+exports[`Admin Stats setRange WEEK should match snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <H3>
+          Stats
+        </H3>
+      </div>
+      <H5>
+        Please select an area:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="area-apps-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Apps
+        </Button>
+        <Button
+          dataTest="area-developers-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Developers
+        </Button>
+        <Button
+          dataTest="area-installations-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Installations
+        </Button>
+      </ButtonGroup>
+      <H5>
+        Please select a time range:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="range-week-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Last week
+        </Button>
+        <Button
+          dataTest="range-month-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Last Month
+        </Button>
+        <Button
+          dataTest="range-all-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          All time
+        </Button>
+      </ButtonGroup>
+      <H4>
+        Showing results for ‘
+        APPS
+        ’ and ‘
+        WEEK
+        ’
+      </H4>
+      <Line
+        data={
+          Object {
+            "datasets": Array [
+              Object {
+                "backgroundColor": "rgba(75,192,192,0.4)",
+                "borderCapStyle": "butt",
+                "borderColor": "rgba(75,192,192,1)",
+                "borderDash": Array [],
+                "borderDashOffset": 0,
+                "borderJoinStyle": "miter",
+                "data": Array [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                ],
+                "fill": false,
+                "label": "Apps",
+                "lineTension": 0.1,
+                "pointBackgroundColor": "#fff",
+                "pointBorderColor": "rgba(75,192,192,1)",
+                "pointBorderWidth": 1,
+                "pointHitRadius": 10,
+                "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                "pointHoverBorderColor": "rgba(220,220,220,1)",
+                "pointHoverBorderWidth": 2,
+                "pointHoverRadius": 5,
+                "pointRadius": 1,
+              },
+            ],
+            "labels": Array [
+              "15/01/2020",
+              "16/01/2020",
+              "17/01/2020",
+              "18/01/2020",
+              "19/01/2020",
+              "20/01/2020",
+              "21/01/2020",
+              "22/01/2020",
+            ],
+          }
+        }
+      />
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;
+
+exports[`Admin Stats should match snapshot 1`] = `
+<FlexContainerBasic
+  flexColumn={true}
+  hasPadding={true}
+>
+  <Content>
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <H3>
+          Stats
+        </H3>
+      </div>
+      <H5>
+        Please select an area:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="area-apps-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Apps
+        </Button>
+        <Button
+          dataTest="area-developers-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Developers
+        </Button>
+        <Button
+          dataTest="area-installations-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Installations
+        </Button>
+      </ButtonGroup>
+      <H5>
+        Please select a time range:
+      </H5>
+      <ButtonGroup>
+        <Button
+          className="ml-0"
+          dataTest="range-week-btn"
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          Last week
+        </Button>
+        <Button
+          dataTest="range-month-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          Last Month
+        </Button>
+        <Button
+          dataTest="range-all-btn"
+          onClick={[Function]}
+          type="button"
+          variant="secondary"
+        >
+          All time
+        </Button>
+      </ButtonGroup>
+      <H4>
+        Showing results for ‘
+        APPS
+        ’ and ‘
+        WEEK
+        ’
+      </H4>
+      <Line
+        data={
+          Object {
+            "datasets": Array [
+              Object {
+                "backgroundColor": "rgba(75,192,192,0.4)",
+                "borderCapStyle": "butt",
+                "borderColor": "rgba(75,192,192,1)",
+                "borderDash": Array [],
+                "borderDashOffset": 0,
+                "borderJoinStyle": "miter",
+                "data": Array [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                ],
+                "fill": false,
+                "label": "Apps",
+                "lineTension": 0.1,
+                "pointBackgroundColor": "#fff",
+                "pointBorderColor": "rgba(75,192,192,1)",
+                "pointBorderWidth": 1,
+                "pointHitRadius": 10,
+                "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+                "pointHoverBorderColor": "rgba(220,220,220,1)",
+                "pointHoverBorderWidth": 2,
+                "pointHoverRadius": 5,
+                "pointRadius": 1,
+              },
+            ],
+            "labels": Array [
+              "15/01/2020",
+              "16/01/2020",
+              "17/01/2020",
+              "18/01/2020",
+              "19/01/2020",
+              "20/01/2020",
+              "21/01/2020",
+              "22/01/2020",
+            ],
+          }
+        }
+      />
+    </FlexContainerResponsive>
+  </Content>
+</FlexContainerBasic>
+`;

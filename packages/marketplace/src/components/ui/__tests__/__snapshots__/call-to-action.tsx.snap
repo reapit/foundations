@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CallToAction should match a snapshot 1`] = `
+<div
+  className=""
+  data-test=""
+>
+  <Alert
+    className="mb-0"
+    message="My title"
+    type="success"
+  />
+  <FlexContainerBasic
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <p />
+    <LevelRight>
+      <Button
+        dataTest=""
+        type="button"
+        variant="primary"
+      >
+        My button
+      </Button>
+    </LevelRight>
+  </FlexContainerBasic>
+</div>
+`;

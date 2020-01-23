@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactInformationForm should match snapshot 1`] = `
+<FormSection>
+  <Form>
+    <FormHeading>
+      Contact Information
+    </FormHeading>
+    <FormSubHeading>
+      Please use the fields below to edit your contact information
+      <br />
+      <br />
+    </FormSubHeading>
+    <Grid>
+      <GridItem>
+        <Input
+          dataTest="company-name"
+          id="companyName"
+          labelText="Company Name"
+          name="companyName"
+          type="text"
+        />
+      </GridItem>
+      <GridItem>
+        <Input
+          dataTest="name"
+          id="name"
+          labelText="Full Name"
+          name="name"
+          type="text"
+        />
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
+        <Input
+          dataTest="job-title"
+          id="jobTitle"
+          labelText="Job Title"
+          name="jobTitle"
+          type="text"
+        />
+      </GridItem>
+      <GridItem>
+        <Input
+          dataTest="telephone"
+          id="phone"
+          labelText="Telephone"
+          name="telephone"
+          type="tel"
+        />
+      </GridItem>
+    </Grid>
+    <FlexContainerResponsive>
+      <Button
+        dataTest="save-changes"
+        disabled={true}
+        loading={false}
+        type="submit"
+        variant="primary"
+      >
+        Save Changes
+      </Button>
+    </FlexContainerResponsive>
+  </Form>
+</FormSection>
+`;
+
+exports[`ContactInformationForm should match snapshot 2`] = `
+<FormSection>
+  <Form>
+    <FormHeading>
+      Contact Information
+    </FormHeading>
+    <FormSubHeading>
+      Please use the fields below to edit your contact information
+      <br />
+      <br />
+    </FormSubHeading>
+    <Grid>
+      <GridItem>
+        <Input
+          dataTest="company-name"
+          id="companyName"
+          labelText="Company Name"
+          name="companyName"
+          type="text"
+        />
+      </GridItem>
+      <GridItem>
+        <Input
+          dataTest="name"
+          id="name"
+          labelText="Full Name"
+          name="name"
+          type="text"
+        />
+      </GridItem>
+    </Grid>
+    <Grid>
+      <GridItem>
+        <Input
+          dataTest="job-title"
+          id="jobTitle"
+          labelText="Job Title"
+          name="jobTitle"
+          type="text"
+        />
+      </GridItem>
+      <GridItem>
+        <Input
+          dataTest="telephone"
+          id="phone"
+          labelText="Telephone"
+          name="telephone"
+          type="tel"
+        />
+      </GridItem>
+    </Grid>
+    <FlexContainerResponsive>
+      <Button
+        dataTest="save-changes"
+        disabled={true}
+        loading={true}
+        type="submit"
+        variant="primary"
+      >
+        Save Changes
+      </Button>
+    </FlexContainerResponsive>
+  </Form>
+</FormSection>
+`;
