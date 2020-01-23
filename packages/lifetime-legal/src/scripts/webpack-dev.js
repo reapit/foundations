@@ -12,7 +12,7 @@ module.exports = {
   context: process.cwd(),
   entry: './src/core/index.tsx',
   output: {
-    path: path.join(process.cwd(), 'public', 'dist'),
+    path: path.join(process.cwd(), 'dist'),
     filename: '[name].[hash].js',
   },
   plugins: [

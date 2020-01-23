@@ -1,0 +1,67 @@
+name: Release develop
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  CI: true
+
+jobs:
+  release_develop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checks out repository to $GITHUB_WORKSPACE
+        uses: actions/checkout@v1
+
+      - name: Setup Node Environement
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: build-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            build-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Set up workspace experimental
+        run: |
+          yarn global add aws-cli
+
+      - name: Set up workspace experimental
+        run: |
+          yarn config set workspaces-experimental true
+
+      - name: Install dependencies
+        run: |
+          yarn
+
+      - name: Lint
+        run: |
+          yarn lint
+
+      - name: Fetch config
+        run: |
+          yarn fetch-config
+
+      - name: Build
+        run: |
+          yarn build
+
+      - name: Test
+        run: |
+          yarn test
+
+      - name: Release
+        run: |
+          yarn release:develop

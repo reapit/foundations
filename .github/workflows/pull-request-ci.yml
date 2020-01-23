@@ -51,7 +51,7 @@ jobs:
         run: |
           yarn fetch-config
 
-      - name: Build Development
+      - name: Build
         run: |
           yarn build
 

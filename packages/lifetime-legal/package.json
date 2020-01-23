@@ -12,10 +12,10 @@
   "main": "dist/index.ts",
   "scripts": {
     "build": "webpack --color --mode production --config ./src/scripts/webpack-prod.js",
-    "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
-    "start": "node ./public/index.js smb",
+    "start": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
     "test": "cross-env TZ=UTC jest --coverage --silent",
-    "test:ci": "cross-env TZ=UTC jest --coverage --silent --detectOpenHandles --forceExit"
+    "test:ci": "cross-env TZ=UTC jest --coverage --silent --detectOpenHandles --forceExit",
+    "release:develop": "node src/scripts/release-develop.js"
   },
   "dependencies": {
     "react-icons": "^3.7.0",
