@@ -1,0 +1,38 @@
+{
+  "LOCAL": {
+    "PLATFORM_API_BASE_URL": "https://dev.platform.reapit.net",
+    "MARKETPLACE_API_BASE_URL": "https://dev.platformmarketplace.reapit.net",
+    "NODE_ENV": "development",
+    "NPM_TOKEN": "8f27a8b6-b238-43d9-b288-923a84548e79",
+    "GOOGLE_MAPS_API_KEY": "AIzaSyCsCzPm4VwBHlr7ERyNGizRWMQMNdswzSo",
+    "COGNITO_USERPOOL_ID": "eu-west-2_hbt0B7yys",
+    "COGNITO_CLIENT_ID": "672grsvi32r3fsd2fiqi9mpgq9"
+  },
+  "DEV": {
+    "PLATFORM_API_BASE_URL": "https://dev.platform.reapit.net",
+    "MARKETPLACE_API_BASE_URL": "https://dev.platformmarketplace.reapit.net",
+    "NODE_ENV": "production",
+    "NPM_TOKEN": "8f27a8b6-b238-43d9-b288-923a84548e79",
+    "GOOGLE_MAPS_API_KEY": "AIzaSyCsCzPm4VwBHlr7ERyNGizRWMQMNdswzSo",
+    "COGNITO_USERPOOL_ID": "eu-west-2_hbt0B7yys",
+    "COGNITO_CLIENT_ID": "672grsvi32r3fsd2fiqi9mpgq9"
+  },
+  "PROD": {
+    "PLATFORM_API_BASE_URL": "https://platform.reapit.net",
+    "MARKETPLACE_API_BASE_URL": "https://platformmarketplace.reapit.net",
+    "NODE_ENV": "production",
+    "NPM_TOKEN": "8f27a8b6-b238-43d9-b288-923a84548e79",
+    "GOOGLE_MAPS_API_KEY": "AIzaSyCsCzPm4VwBHlr7ERyNGizRWMQMNdswzSo",
+    "COGNITO_USERPOOL_ID": "eu-west-2_hbt0B7yys",
+    "COGNITO_CLIENT_ID": "672grsvi32r3fsd2fiqi9mpgq9"
+  },
+  "DEMO": {
+    "PLATFORM_API_BASE_URL": "https://reapit.cloud.tyk.io",
+    "MARKETPLACE_API_BASE_URL": "https://reapit.cloud.tyk.io/marketplace",
+    "NODE_ENV": "production",
+    "NPM_TOKEN": "8f27a8b6-b238-43d9-b288-923a84548e79",
+    "GOOGLE_MAPS_API_KEY": "AIzaSyCsCzPm4VwBHlr7ERyNGizRWMQMNdswzSo",
+    "COGNITO_USERPOOL_ID": "eu-west-2_hbt0B7yys",
+    "COGNITO_CLIENT_ID": "672grsvi32r3fsd2fiqi9mpgq9"
+  }
+}
