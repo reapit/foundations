@@ -17,7 +17,7 @@ Install dependencies
 - `./wapp add-dev <package_name> <dependency_name>` OR `yarn workspace <package_name> add -D <dependency_name>`
 
 ## How to run particular project
-- `./wapp dev <package_name> <dependency_name>` OR `yarn workspace <package_name> dev`
+- `./wapp start <package_name> <dependency_name>` OR `yarn workspace <package_name> start`
 
 ## How to run test particular project
 - `./wapp test <package_name> --watch` OR `yarn workspace <package_name> test --watch`
