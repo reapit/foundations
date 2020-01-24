@@ -1,0 +1,91 @@
+import React from 'react'
+import { shallow } from 'enzyme'
+import { contact } from '@/sagas/__stubs__/contact'
+import { PrimaryIdentification, mapStateToProps, mapDispatchToProps } from '../primary-identification'
+import { ReduxState } from '@/types/core'
+import { idCheck } from '@/sagas/__stubs__/id-check'
+describe('PrimaryIdentification', () => {
+  describe('PrimaryIdentification', () => {
+    it('should match snapshot', () => {
+      const mockProps = {
+        contact: contact,
+        identityCheckModel: null,
+        initFormValues: {},
+        loading: false,
+        updateIdentification: jest.fn(),
+        onNextHandler: jest.fn(),
+        onPrevHandler: jest.fn()
+      }
+      const wrapper = shallow(<PrimaryIdentification {...mockProps} />)
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  describe('mapStateToProps', () => {
+    it('should run correctly', () => {
+      // @ts-ignore: only pick necessary props
+      const mockState = {
+        checklistDetail: {
+          isSubmitting: false,
+          checklistDetailData: {
+            contact,
+            idCheck
+          }
+        }
+      } as ReduxState
+      const result = mapStateToProps(mockState)
+      const { typeId, expiry, details } = idCheck.document1
+      const expected = {
+        loading: false,
+        contact: contact,
+        initFormValues: {
+          typeId,
+          details,
+          expiry: new Date(expiry),
+          fileUrl: idCheck.metadata.primaryIdUrl
+        }
+      }
+      expect(result).toEqual(expected)
+    })
+
+    it('should return correctly', () => {
+      // @ts-ignore: only pick necessary props
+      const mockState = {} as ReduxState
+      const result = mapStateToProps(mockState)
+      const expected = {
+        loading: false,
+        contact: null,
+        initFormValues: {
+          details: '',
+          expiry: '',
+          fileUrl: undefined,
+          typeId: ''
+        }
+      }
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('mapDispatchToProps', () => {
+    it('updateIdentification', () => {
+      const mockDispatch = jest.fn()
+      const { updateIdentification } = mapDispatchToProps(mockDispatch)
+      updateIdentification({} as any)
+      expect(mockDispatch).toBeCalled()
+    })
+
+    it('onPrevHandler', () => {
+      const mockDispatch = jest.fn()
+      const { onPrevHandler } = mapDispatchToProps(mockDispatch)
+      onPrevHandler()
+      expect(mockDispatch).toBeCalled()
+    })
+
+    it('onNextHandler', () => {
+      const mockDispatch = jest.fn()
+      const { onNextHandler } = mapDispatchToProps(mockDispatch)
+      onNextHandler({})()
+      expect(mockDispatch).toBeCalled()
+    })
+  })
+})

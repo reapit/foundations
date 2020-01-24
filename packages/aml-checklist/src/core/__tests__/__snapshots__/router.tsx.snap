@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Router should match a snapshot 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Suspense
+    fallback={null}
+  >
+    <Switch>
+      <Route
+        exact={true}
+        path="/login"
+        render={[Function]}
+      />
+      <withRouter(Connect(Component))
+        path="/"
+      >
+        <Switch>
+          <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            fetcher={true}
+            path="/checklist-detail/:id"
+          />
+          <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            exact={true}
+            path="/"
+          />
+          <Connect(Component)
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            path="/results"
+          />
+        </Switch>
+      </withRouter(Connect(Component))>
+      <Redirect
+        to="/login"
+      />
+    </Switch>
+  </Suspense>
+</Router>
+`;
