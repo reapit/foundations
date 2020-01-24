@@ -12,8 +12,8 @@ const props: LoginProps = {
   loginType: 'CLIENT',
   // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
   location: {
-    pathname: '/client'
-  }
+    pathname: '/client',
+  },
 }
 
 describe('Login', () => {
@@ -40,7 +40,7 @@ describe('Login', () => {
       const fn = onSubmitHandler({ setIsSubmitting: mockSetIsSubmitting, login: mockLogin, loginType, mode })
       const mockValues = {
         email: '',
-        password: ''
+        password: '',
       }
       fn(mockValues)
       expect(mockSetIsSubmitting).toHaveBeenCalledWith(true)
@@ -48,7 +48,7 @@ describe('Login', () => {
         email: mockValues.email,
         mode,
         loginType,
-        password: mockValues.password
+        password: mockValues.password,
       })
     })
   })
@@ -58,17 +58,17 @@ describe('Login', () => {
         auth: {
           loginSession: {},
           refreshSession: {
-            mode: 'WEB'
+            mode: 'WEB',
           },
           error: {},
-          loginType: 'CLIENT'
-        }
+          loginType: 'CLIENT',
+        },
       } as ReduxState
       const output = {
         hasSession: true,
         error: {},
         loginType: 'CLIENT',
-        mode: 'WEB'
+        mode: 'WEB',
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(output)
@@ -84,7 +84,7 @@ describe('Login', () => {
           userName: '',
           password: '',
           loginType: 'CLIENT',
-          mode: 'DESKTOP'
+          mode: 'DESKTOP',
         } as LoginParams
         login(mockParams)
         expect(mockDispatch).toBeCalled()

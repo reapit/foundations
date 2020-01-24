@@ -11,11 +11,11 @@ describe('submitApp reducer', () => {
   it('should set formState to test when DEVELOPER_SUBMIT_APP_SET_FORM_STATE action is called with test', () => {
     const newState = submitReducer(undefined, {
       type: ActionTypes.DEVELOPER_SUBMIT_APP_SET_FORM_STATE as ActionType,
-      data: 'test'
+      data: 'test',
     })
     const expected = {
       ...defaultState,
-      formState: 'test'
+      formState: 'test',
     }
     expect(newState).toEqual(expected)
   })
@@ -23,11 +23,11 @@ describe('submitApp reducer', () => {
   it('should set loading to test when DEVELOPER_SUBMIT_APP_LOADING action is called with true', () => {
     const newState = submitReducer(undefined, {
       type: ActionTypes.DEVELOPER_SUBMIT_APP_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -35,13 +35,13 @@ describe('submitApp reducer', () => {
   it('should set submitAppData to test when DEVELOPER_SUBMIT_APP_RECEIVE_DATA action is called with scopes', () => {
     const newState = submitReducer(undefined, {
       type: ActionTypes.DEVELOPER_SUBMIT_APP_RECEIVE_DATA as ActionType,
-      data: [{ name: 'mockName', description: 'mockDescription' }]
+      data: [{ name: 'mockName', description: 'mockDescription' }],
     })
     const expected = {
       ...defaultState,
       submitAppData: {
-        scopes: [{ name: 'mockName', description: 'mockDescription' }]
-      }
+        scopes: [{ name: 'mockName', description: 'mockDescription' }],
+      },
     }
     expect(newState).toEqual(expected)
   })

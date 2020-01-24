@@ -5,7 +5,7 @@ import {
   ChangePasswordFormProps,
   ChangePasswordValues,
   mapPropsChangePassword,
-  handleSubmitChangePassword
+  handleSubmitChangePassword,
 } from '../change-password-form'
 import { mockFormikAction } from '@/utils/mock-formik'
 import { validate } from '@/utils/form/change-password'
@@ -15,7 +15,7 @@ describe('ChangePasswordForm', () => {
     const mockProps = {
       isSubmitting: false,
       isValidating: false,
-      isValid: true
+      isValid: true,
     } as ChangePasswordFormProps
     const wrapper = shallow(<ChangePasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -24,7 +24,7 @@ describe('ChangePasswordForm', () => {
     const mockProps = {
       isSubmitting: true,
       isValidating: true,
-      isValid: false
+      isValid: false,
     } as ChangePasswordFormProps
     const wrapper = shallow(<ChangePasswordForm {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -34,7 +34,7 @@ describe('ChangePasswordForm', () => {
       const mockValues: ChangePasswordValues = {
         currentPassword: '123',
         password: 'Password1',
-        confirmPassword: 'Password1'
+        confirmPassword: 'Password1',
       }
       const result = validate(mockValues)
       expect(result).toEqual({})
@@ -44,11 +44,11 @@ describe('ChangePasswordForm', () => {
       const mockValues: ChangePasswordValues = {
         currentPassword: '123',
         password: 'Password1',
-        confirmPassword: 'Password2'
+        confirmPassword: 'Password2',
       }
       const result = validate(mockValues)
       expect(result).toEqual({
-        confirmPassword: 'Passwords do not match.'
+        confirmPassword: 'Passwords do not match.',
       })
     })
 
@@ -56,13 +56,13 @@ describe('ChangePasswordForm', () => {
       const mockValues: ChangePasswordValues = {
         currentPassword: '123',
         password: 'abc@123',
-        confirmPassword: 'abc@123'
+        confirmPassword: 'abc@123',
       }
       const result = validate(mockValues)
       expect(result).toEqual({
         password:
           'Your Password should be a minimum of 8 characters; must contain at ' +
-          'least one lowercase letter, one uppercase letter and one number.'
+          'least one lowercase letter, one uppercase letter and one number.',
       })
     })
   })
@@ -73,7 +73,7 @@ describe('ChangePasswordForm', () => {
       expect(result).toEqual({
         currentPassword: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
       })
     })
   })
@@ -82,14 +82,14 @@ describe('ChangePasswordForm', () => {
       const mockValues: ChangePasswordValues = {
         currentPassword: '123',
         password: 'Password1',
-        confirmPassword: 'Password1'
+        confirmPassword: 'Password1',
       }
       const mockForm = {
-        ...mockFormikAction
+        ...mockFormikAction,
       }
       const mockProps = {
         changePassword: jest.fn(),
-        email: 'test@gmail.com'
+        email: 'test@gmail.com',
       }
       handleSubmitChangePassword(mockValues, { ...mockForm, props: mockProps })
       expect(mockForm.setSubmitting).toBeCalledWith(true)

@@ -12,18 +12,18 @@ export interface NotificationMessageState {
 export const defaultState: NotificationMessageState = {
   visible: false,
   variant: '',
-  message: ''
+  message: '',
 }
 
 const notificationMessageReducer = (
   state: NotificationMessageState = defaultState,
-  action: Action<any>
+  action: Action<any>,
 ): NotificationMessageState => {
   if (isType(action, showNotificationMessage)) {
     return {
       ...state,
       visible: true,
-      ...action.data
+      ...action.data,
     }
   }
 

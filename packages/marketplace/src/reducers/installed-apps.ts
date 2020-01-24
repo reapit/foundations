@@ -4,7 +4,7 @@ import {
   installedAppsLoading,
   installedAppsReceiveData,
   installedAppsClearData,
-  installedAppsRequestDataFailure
+  installedAppsRequestDataFailure,
 } from '../actions/installed-apps'
 import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 
@@ -19,14 +19,14 @@ export interface InstalledAppsState {
 
 export const defaultState: InstalledAppsState = {
   loading: false,
-  installedAppsData: null
+  installedAppsData: null,
 }
 
 const installedAppsReducer = (state: InstalledAppsState = defaultState, action: Action<any>): InstalledAppsState => {
   if (isType(action, installedAppsLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -34,7 +34,7 @@ const installedAppsReducer = (state: InstalledAppsState = defaultState, action: 
     return {
       ...state,
       loading: false,
-      installedAppsData: action.data || null
+      installedAppsData: action.data || null,
     }
   }
 
@@ -42,14 +42,14 @@ const installedAppsReducer = (state: InstalledAppsState = defaultState, action: 
     return {
       ...state,
       loading: false,
-      installedAppsData: action.data
+      installedAppsData: action.data,
     }
   }
 
   if (isType(action, installedAppsRequestDataFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 

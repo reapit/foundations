@@ -20,7 +20,7 @@ export const fetchDeveloperInfo = async (developerId: string | null | undefined)
     url: `${URLS.developers}/${developerId}`,
     api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'GET',
-    headers: MARKETPLACE_HEADERS
+    headers: MARKETPLACE_HEADERS,
   })
   return response
 }
@@ -41,8 +41,8 @@ export const developerInformationFetch = function*() {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   } finally {
     yield put(settingShowLoading(false))
@@ -60,7 +60,7 @@ export const updateDeveloperInfo = async ({ developerId, values }: UpdateDevelop
     api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'PUT',
     headers: MARKETPLACE_HEADERS,
-    body: values
+    body: values,
   })
   return response
 }
@@ -77,8 +77,8 @@ export const developerInfomationChange = function*({ data }: Action<DeveloperMod
       yield put(
         showNotificationMessage({
           variant: 'info',
-          message: messages.CHANGE_SAVE_SUCCESSFULLY
-        })
+          message: messages.CHANGE_SAVE_SUCCESSFULLY,
+        }),
       )
       const newResponse = yield call(fetchDeveloperInfo, developerId)
       yield put(requestDeveloperDataSuccess(newResponse))
@@ -88,8 +88,8 @@ export const developerInfomationChange = function*({ data }: Action<DeveloperMod
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   } finally {
     yield put(settingShowLoading(false))
@@ -115,8 +115,8 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     yield put(
       showNotificationMessage({
         variant: 'info',
-        message: messages.CHANGE_SAVE_SUCCESSFULLY
-      })
+        message: messages.CHANGE_SAVE_SUCCESSFULLY,
+      }),
     )
     const SUCCESS_ALERT_LOGIN_PAGE = `${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`
     yield call(removeSession)
@@ -126,8 +126,8 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   } finally {
     yield put(settingShowLoading(false))
@@ -150,7 +150,7 @@ export const settingsSagas = function*() {
   yield all([
     fork(developerInformationFetchListen),
     fork(developerInformationChangeListen),
-    fork(developerPasswordChangeListen)
+    fork(developerPasswordChangeListen),
   ])
 }
 

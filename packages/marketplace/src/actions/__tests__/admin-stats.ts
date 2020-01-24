@@ -3,7 +3,7 @@ import {
   adminStatsReceiveData,
   adminStatsRequestFailure,
   AdminStatsRequestParams,
-  AdminStatsReceiveParams
+  AdminStatsReceiveParams,
 } from '../admin-stats'
 import ActionTypes from '../../constants/action-types'
 

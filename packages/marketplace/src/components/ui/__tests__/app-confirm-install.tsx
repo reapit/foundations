@@ -10,7 +10,7 @@ const mockProps = {
   afterClose: jest.fn(),
   installApp: jest.fn(),
   setAppDetailModalStateBrowse: jest.fn(),
-  setAppDetailModalStateSuccess: jest.fn()
+  setAppDetailModalStateSuccess: jest.fn(),
 }
 
 describe('AppConfirmInstallContent', () => {
@@ -76,15 +76,15 @@ describe('AppConfirmInstallContent', () => {
     it('should return correct Props', () => {
       const mockState = {
         appDetail: {
-          appDetailData: appDetailDataStub
+          appDetailData: appDetailDataStub,
         },
         installations: {
-          formState: 'PENDING'
-        }
+          formState: 'PENDING',
+        },
       } as ReduxState
       const expected = {
         appDetailData: appDetailDataStub.data,
-        installationsFormState: 'PENDING'
+        installationsFormState: 'PENDING',
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)

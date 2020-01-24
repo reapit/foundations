@@ -17,11 +17,11 @@ interface ToastMessageMappedProps {
 const mapStateToProps = (state: ReduxState): ToastMessageMappedProps => ({
   visible: state.noticationMessage.visible,
   variant: state.noticationMessage.variant || 'primary',
-  message: state.noticationMessage.message
+  message: state.noticationMessage.message,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): ToastMessageMappedActions => ({
-  onCloseToast: () => dispatch(hideNotificationMessage(null))
+  onCloseToast: () => dispatch(hideNotificationMessage(null)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToastMessage)

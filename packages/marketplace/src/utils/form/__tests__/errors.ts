@@ -9,7 +9,7 @@ const values: InputOutput[] = [
   [{ errors: null }, null],
   [{}, null],
   [undefined, null],
-  [null, null]
+  [null, null],
 ]
 
 describe('getApiErrorsFromResponse', () => {

@@ -14,7 +14,7 @@ export const developerResetPassword = function*({ data }: Action<ResetPasswordPa
     const response = yield call(confirmPassword, {
       newPassword: data.password,
       userName: data.email,
-      verificationCode: data.verificationCode
+      verificationCode: data.verificationCode,
     })
     const isSuccess = response === 'SUCCESS'
     if (isSuccess) {
@@ -25,8 +25,8 @@ export const developerResetPassword = function*({ data }: Action<ResetPasswordPa
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   } finally {
     yield put(resetPasswordLoading(false))

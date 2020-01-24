@@ -7,7 +7,7 @@ import {
   mapDispatchToProps,
   handleSubmitCreateDeveloper,
   RegisterProps,
-  RegisterFormValues
+  RegisterFormValues,
 } from '../register'
 import { FormState, ReduxState } from '../../../types/core'
 import { mockWithFormik } from '@/utils/mock-formik'
@@ -27,8 +27,8 @@ const props = {
     telephone: '123',
     password: '123123',
     confirmPassword: '123123',
-    agreedTerms: '123'
-  })
+    agreedTerms: '123',
+  }),
 } as RegisterProps & FormikProps<RegisterFormValues>
 
 describe('Register', () => {
@@ -49,10 +49,10 @@ describe('Register', () => {
         telephone: '123',
         password: '123123',
         confirmPassword: '123123',
-        agreedTerms: '123'
+        agreedTerms: '123',
       }
       const mockProps = {
-        developerCreate: jest.fn()
+        developerCreate: jest.fn(),
       }
       handleSubmitCreateDeveloper(mockValues, { props: mockProps })
       expect(mockProps.developerCreate).toBeCalled()
@@ -62,12 +62,12 @@ describe('Register', () => {
   it('mapStateToProps', () => {
     const mockState = {
       developer: {
-        formState: 'PENDING'
-      }
+        formState: 'PENDING',
+      },
     } as ReduxState
     const result = mapStateToProps(mockState)
     const output = {
-      formState: 'PENDING'
+      formState: 'PENDING',
     }
     expect(result).toEqual(output)
   })

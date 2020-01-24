@@ -22,7 +22,7 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
   afterClose,
   onAccept,
   onDecline,
-  text = placeholderText
+  text = placeholderText,
 }) => {
   return (
     <Modal

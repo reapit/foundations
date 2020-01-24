@@ -18,14 +18,14 @@ export const appsDataStub: { data: PagedResultAppSummaryModel_ } = {
           {
             rel: 'self',
             href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
-            action: 'GET'
+            action: 'GET',
           },
           {
             rel: 'developer',
             href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
-            action: 'GET'
-          }
-        ]
+            action: 'GET',
+          },
+        ],
       },
       {
         id: '261da083-cee2-4f5c-a18f-8f9375f1f5af',
@@ -42,21 +42,21 @@ export const appsDataStub: { data: PagedResultAppSummaryModel_ } = {
           {
             rel: 'self',
             href: 'http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af',
-            action: 'GET'
+            action: 'GET',
           },
           {
             rel: 'developer',
             href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
-            action: 'GET'
-          }
-        ]
-      }
+            action: 'GET',
+          },
+        ],
+      },
     ],
     pageNumber: 1,
     pageSize: 2,
     pageCount: 2,
-    totalCount: 6
-  }
+    totalCount: 6,
+  },
 }
 
 export const featuredAppsDataStub: { data: PagedResultAppSummaryModel_ } = {
@@ -80,19 +80,19 @@ export const featuredAppsDataStub: { data: PagedResultAppSummaryModel_ } = {
           {
             rel: 'self',
             href: 'http://dev.platformmarketplace.reapit.net/apps/da20d0ac-47ab-44c9-af3e-b44e25f2ec2b',
-            action: 'GET'
+            action: 'GET',
           },
           {
             rel: 'developer',
             href: 'http://dev.platformmarketplace.reapit.net/developers/7a96e6b2-3778-4118-9c9b-6450851e5608',
-            action: 'GET'
-          }
-        ]
-      }
+            action: 'GET',
+          },
+        ],
+      },
     ],
     pageNumber: 1,
     pageSize: 3,
     pageCount: 1,
-    totalCount: 1
-  }
+    totalCount: 1,
+  },
 }

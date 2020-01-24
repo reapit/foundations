@@ -6,13 +6,13 @@ const adminAppMetaData = {
   selectors: {
     listAppTr: 'table>tbody>tr',
     buttonSubmit: 'button[type=submit]',
-    buttonRefresh: 'button[type=button]'
+    buttonRefresh: 'button[type=button]',
   },
-  apiGetAppList: `${api.apps}?**`
+  apiGetAppList: `${api.apps}?**`,
 }
 
 const adminAppPage = {
-  ...adminAppMetaData
+  ...adminAppMetaData,
 }
 
 export default adminAppPage

@@ -14,7 +14,7 @@ import {
   GridFiveCol,
   GridFourColItem,
   Helper,
-  infoText
+  infoText,
 } from '@reapit/elements'
 
 export type InstalledAppListProps = {
@@ -27,7 +27,7 @@ export type InstalledAppListProps = {
 }
 
 export const onClickHandler = (onCardClick: ((app: AppSummaryModel) => void) | undefined, app: AppSummaryModel) => (
-  event: React.MouseEvent
+  event: React.MouseEvent,
 ) => {
   if (onCardClick) {
     event.stopPropagation()
@@ -38,7 +38,7 @@ export const onClickHandler = (onCardClick: ((app: AppSummaryModel) => void) | u
 export const ListMobileScreen = ({
   list,
   loading,
-  onCardClick
+  onCardClick,
 }: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
   <div className={`${installedAppListStyles.wrapList} ${loading ? installedAppListStyles.isLoading : ''}`}>
     {list.map(app => (
@@ -50,7 +50,7 @@ export const ListMobileScreen = ({
 export const ListDesktopScreen = ({
   list,
   loading,
-  onCardClick
+  onCardClick,
 }: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
   <GridFiveCol className={` ${loading ? installedAppListStyles.contentIsLoading : ''}`} data-test="app-list-container">
     {list.map(app => (
@@ -67,7 +67,7 @@ export const InstalledAppList: React.FC<InstalledAppListProps> = ({
   onCardClick,
   title,
   infoType,
-  pagination
+  pagination,
 }) => {
   return (
     <FlexContainerBasic hasPadding flexColumn>

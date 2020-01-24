@@ -10,7 +10,7 @@ const mockProps: AppDetailInnerProps = {
   setStateViewBrowse: jest.fn(),
   setStateViewInstall: jest.fn(),
   setStateViewUninstall: jest.fn(),
-  installationsSetFormState: jest.fn()
+  installationsSetFormState: jest.fn(),
 }
 
 describe('AppDetailInner', () => {
@@ -56,7 +56,7 @@ describe('AppDetailInner', () => {
   it('should render null when wrong appDetailModalState', () => {
     const props = {
       appDetailModalState: 'VIEW_DETAIL_MOCK',
-      appDetailState: { loading: false, error: false }
+      appDetailState: { loading: false, error: false },
     } as any
     const wrapper = shallow(<AppDetailInner {...props} />)
     expect(wrapper.find('AppInstallConfirm')).toHaveLength(0)

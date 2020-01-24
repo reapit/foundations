@@ -6,9 +6,9 @@ import { AdminDevManagementFilterForm, AdminDevManagementFilterFormProps } from 
 const initProps = (): AdminDevManagementFilterFormProps => ({
   filterValues: {
     name: 'name',
-    company: 'company'
+    company: 'company',
   },
-  onSearch: jest.fn()
+  onSearch: jest.fn(),
 })
 
 describe('AdminDevManagementFilterForm', () => {

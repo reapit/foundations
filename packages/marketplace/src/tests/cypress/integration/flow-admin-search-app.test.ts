@@ -3,13 +3,13 @@ import adminAppPage from '../pages/admin-apps-page'
 import parseXhrBodyToJson from '../utils/parse-xhr-body-to-json'
 
 const {
-  actions: { loginUsingAdminAccount }
+  actions: { loginUsingAdminAccount },
 } = loginPage
 
 const {
   url,
   selectors: { listAppTr, buttonSubmit, buttonRefresh },
-  apiGetAppList
+  apiGetAppList,
 } = adminAppPage
 
 before(() => {
@@ -59,7 +59,7 @@ describe('Search app happy path', () => {
     cy.route({
       method: 'GET',
       url: apiGetAppList,
-      response: { data: [] }
+      response: { data: [] },
     }).as('getAppList')
     cy.get('input#appName')
       .clear()

@@ -28,12 +28,12 @@ describe('adminStatsFetch', () => {
     call(fetcher, {
       url: `${url}?${setQueryParams({
         pageSize: APPS_PER_PAGE,
-        ...queryParams
+        ...queryParams,
       })}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
 
   test('api call success', () => {
@@ -51,9 +51,9 @@ describe('adminStatsFetch', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().done).toBe(true)
     }
@@ -65,7 +65,7 @@ describe('adminStatsSagas thunks', () => {
     it('should request data when called', () => {
       const gen = adminStatsDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<AdminStatsRequestParams>>(ActionTypes.ADMIN_STATS_REQUEST_DATA, adminStatsDataFetch)
+        takeLatest<Action<AdminStatsRequestParams>>(ActionTypes.ADMIN_STATS_REQUEST_DATA, adminStatsDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

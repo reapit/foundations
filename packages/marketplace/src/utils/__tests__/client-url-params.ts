@@ -28,7 +28,7 @@ describe('getParamsFromPath', () => {
     expect(getParamsFromPath(search)).toEqual({
       page: 1,
       search: 'google',
-      category: '1'
+      category: '1',
     })
   })
 })

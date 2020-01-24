@@ -12,11 +12,11 @@ describe('admin approvals reducer', () => {
   it('should set loading to true when ADMIN_APPS_REQUEST_DATA action is called', () => {
     const newState = adminAppsReducer(undefined, {
       type: ActionTypes.ADMIN_APPS_REQUEST_DATA as ActionType,
-      data: { pageNumber: 1, appName: '1', companyName: '1', developerName: '1' }
+      data: { pageNumber: 1, appName: '1', companyName: '1', developerName: '1' },
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -24,11 +24,11 @@ describe('admin approvals reducer', () => {
   it('should set approvals list data when ADMIN_APPS_RECEIVE_DATA action is called', () => {
     const newState = adminAppsReducer(undefined, {
       type: ActionTypes.ADMIN_APPS_RECEIVE_DATA as ActionType,
-      data: appsDataStub.data
+      data: appsDataStub.data,
     })
     const expected = {
       ...defaultState,
-      adminAppsData: appsDataStub.data
+      adminAppsData: appsDataStub.data,
     }
     expect(newState).toEqual(expected)
   })
@@ -36,11 +36,11 @@ describe('admin approvals reducer', () => {
   it('should clear approvals list data when ADMIN_APPS_REQUEST_FAILURE action is called', () => {
     const newState = adminAppsReducer(undefined, {
       type: ActionTypes.ADMIN_APPS_REQUEST_FAILURE as ActionType,
-      data: null
+      data: null,
     })
     const expected = {
       ...defaultState,
-      loading: false
+      loading: false,
     }
     expect(newState).toEqual(expected)
   })

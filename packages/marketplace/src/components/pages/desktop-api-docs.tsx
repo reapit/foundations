@@ -102,60 +102,60 @@ const DesktopApiDocsPage: React.SFC = () => {
             columns={[
               {
                 Header: 'Parameter',
-                accessor: 'parameter'
+                accessor: 'parameter',
               },
               {
                 Header: 'Type',
-                accessor: 'type'
+                accessor: 'type',
               },
               {
                 Header: 'Description',
-                accessor: 'description'
+                accessor: 'description',
               },
               {
                 Header: 'Required',
-                accessor: 'required'
-              }
+                accessor: 'required',
+              },
             ]}
             data={[
               {
                 parameter: 'name',
                 type: 'string',
                 description: 'A full or partial name fragment to search for',
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'address',
                 type: 'string',
                 description: 'An address fragment to search for (eg. a postcode)',
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'communication',
                 type: 'string',
                 description: 'An email address or phone number to search for',
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'mode',
                 type: 'string',
                 description: 'The marketing mode of the properties to search for',
-                required: 'Yes'
+                required: 'Yes',
               },
               {
                 parameter: 'appId',
                 type: 'string',
                 description: `The GUID of the app to return the code of the selected property to 
                   (if not present then search will not return to an app)`,
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'appParam',
                 type: 'string',
                 description: `The key to use in the query string when returning the property 
                   primary key to an app (required if appId is set) `,
-                required: 'No?'
-              }
+                required: 'No?',
+              },
             ]}
           />
           <H4 id="applicants">Applicants</H4>
@@ -196,60 +196,60 @@ const DesktopApiDocsPage: React.SFC = () => {
             columns={[
               {
                 Header: 'Parameter',
-                accessor: 'parameter'
+                accessor: 'parameter',
               },
               {
                 Header: 'Type',
-                accessor: 'type'
+                accessor: 'type',
               },
               {
                 Header: 'Description',
-                accessor: 'description'
+                accessor: 'description',
               },
               {
                 Header: 'Required',
-                accessor: 'required'
-              }
+                accessor: 'required',
+              },
             ]}
             data={[
               {
                 parameter: 'name',
                 type: 'string',
                 description: 'A full or partial name fragment to search for',
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'address',
                 type: 'string',
                 description: 'An address fragment to search for (eg. a postcode)',
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'communication',
                 type: 'string',
                 description: 'An email address or phone number to search for',
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'mode',
                 type: 'string',
                 description: 'The marketing mode of the properties to search for',
-                required: 'Yes'
+                required: 'Yes',
               },
               {
                 parameter: 'appId',
                 type: 'string',
                 description: `The GUID of the app to return the code of the selected property to 
                   (if not present then search will not return to an app)`,
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'appParam',
                 type: 'string',
                 description: `The key to use in the query string when returning the property 
                   primary key to an app (required if appId is set) `,
-                required: 'No?'
-              }
+                required: 'No?',
+              },
             ]}
           />
           <H4 id="appointments">Appointments</H4>
@@ -270,34 +270,34 @@ const DesktopApiDocsPage: React.SFC = () => {
             columns={[
               {
                 Header: 'Parameter',
-                accessor: 'parameter'
+                accessor: 'parameter',
               },
               {
                 Header: 'Type',
-                accessor: 'type'
+                accessor: 'type',
               },
               {
                 Header: 'Description',
-                accessor: 'description'
+                accessor: 'description',
               },
               {
                 Header: 'Required',
-                accessor: 'required'
-              }
+                accessor: 'required',
+              },
             ]}
             data={[
               {
                 parameter: 'dateFrom',
                 type: 'date',
                 description: 'Only display appointments scheduled after and including this date',
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'dateTo',
                 type: 'date',
                 description: 'Only display appointments scheduled before this date',
-                required: 'No'
-              }
+                required: 'No',
+              },
             ]}
           />
           <H4 id="contacts">Contacts</H4>
@@ -317,54 +317,54 @@ const DesktopApiDocsPage: React.SFC = () => {
             columns={[
               {
                 Header: 'Parameter',
-                accessor: 'parameter'
+                accessor: 'parameter',
               },
               {
                 Header: 'Type',
-                accessor: 'type'
+                accessor: 'type',
               },
               {
                 Header: 'Description',
-                accessor: 'description'
+                accessor: 'description',
               },
               {
                 Header: 'Required',
-                accessor: 'required'
-              }
+                accessor: 'required',
+              },
             ]}
             data={[
               {
                 parameter: 'name',
                 type: 'string',
                 description: 'A full or partial name fragment to search for',
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'address',
                 type: 'string',
                 description: 'An address fragment to search for (eg. a postcode)',
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'communication',
                 type: 'string',
                 description: 'An email address or phone number to search for',
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'appId',
                 type: 'string',
                 description: `The GUID of the app to return the code of the selected contact to 
                   (if not present then search will not return to an app)`,
-                required: 'No'
+                required: 'No',
               },
               {
                 parameter: 'appParam',
                 type: 'string',
                 description: `The key to use in the query string when returning the contact 
                   primary key to an app (required if appId is set) `,
-                required: 'No?'
-              }
+                required: 'No?',
+              },
             ]}
           />
           <H5>Load Contact</H5>
@@ -438,34 +438,34 @@ const DesktopApiDocsPage: React.SFC = () => {
             columns={[
               {
                 Header: 'Parameter',
-                accessor: 'parameter'
+                accessor: 'parameter',
               },
               {
                 Header: 'Type',
-                accessor: 'type'
+                accessor: 'type',
               },
               {
                 Header: 'Description',
-                accessor: 'description'
+                accessor: 'description',
               },
               {
                 Header: 'Required',
-                accessor: 'required'
-              }
+                accessor: 'required',
+              },
             ]}
             data={[
               {
                 parameter: 'username',
                 type: 'string',
                 description: 'The username of the user logged into Agency Cloud',
-                required: 'Yes'
+                required: 'Yes',
               },
               {
                 parameter: 'desktop',
                 type: 'boolean',
                 description:
                   'This will always be passed as True to indicate app should run in desktop mode (if it has/needs one)',
-                required: 'Yes'
+                required: 'Yes',
               },
               {
                 parameter: 'cntCode',
@@ -473,8 +473,8 @@ const DesktopApiDocsPage: React.SFC = () => {
                 description: `The primary key of the contact to load the ID checks for (note that this won’t be 
                     present when the app loads from the marketplace, but the app needs to be able to accept 
                     this parameter when it is launched via the app association route).`,
-                required: 'Yes'
-              }
+                required: 'Yes',
+              },
             ]}
           />
           <H5>Property Detail Generation</H5>
@@ -495,34 +495,34 @@ const DesktopApiDocsPage: React.SFC = () => {
             columns={[
               {
                 Header: 'Parameter',
-                accessor: 'parameter'
+                accessor: 'parameter',
               },
               {
                 Header: 'Type',
-                accessor: 'type'
+                accessor: 'type',
               },
               {
                 Header: 'Description',
-                accessor: 'description'
+                accessor: 'description',
               },
               {
                 Header: 'Required',
-                accessor: 'required'
-              }
+                accessor: 'required',
+              },
             ]}
             data={[
               {
                 parameter: 'username',
                 type: 'string',
                 description: 'The username of the user logged into Agency Cloud',
-                required: 'Yes'
+                required: 'Yes',
               },
               {
                 parameter: 'desktop',
                 type: 'boolean',
                 description:
                   'This will always be passed as True to indicate app should run in desktop mode (if it has/needs one)',
-                required: 'Yes'
+                required: 'Yes',
               },
               {
                 parameter: 'prpCode',
@@ -530,8 +530,8 @@ const DesktopApiDocsPage: React.SFC = () => {
                 description: `The primary key of the property to load generate the brochures for (note that this 
                     won’t be present when the app loads from the marketplace, but the app needs to be 
                     able to accept this parameter when it is launched via the app association route).`,
-                required: 'Yes'
-              }
+                required: 'Yes',
+              },
             ]}
           />
           <H5>Applicant Preview</H5>
@@ -553,34 +553,34 @@ const DesktopApiDocsPage: React.SFC = () => {
             columns={[
               {
                 Header: 'Parameter',
-                accessor: 'parameter'
+                accessor: 'parameter',
               },
               {
                 Header: 'Type',
-                accessor: 'type'
+                accessor: 'type',
               },
               {
                 Header: 'Description',
-                accessor: 'description'
+                accessor: 'description',
               },
               {
                 Header: 'Required',
-                accessor: 'required'
-              }
+                accessor: 'required',
+              },
             ]}
             data={[
               {
                 parameter: 'username',
                 type: 'string',
                 description: 'The username of the user logged into Agency Cloud',
-                required: 'Yes'
+                required: 'Yes',
               },
               {
                 parameter: 'desktop',
                 type: 'boolean',
                 description:
                   'This will always be passed as True to indicate app should run in desktop mode (if it has/needs one)',
-                required: 'Yes'
+                required: 'Yes',
               },
               {
                 parameter: 'prpCodes',
@@ -588,8 +588,8 @@ const DesktopApiDocsPage: React.SFC = () => {
                 description: `The primary key of the property to load generate the brochures for (note that this 
                     won’t be present when the app loads from the marketplace, but the app needs to be 
                     able to accept this parameter when it is launched via the app association route).`,
-                required: 'Yes'
-              }
+                required: 'Yes',
+              },
             ]}
           />
         </FlexContainerResponsive>

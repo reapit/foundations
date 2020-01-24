@@ -3,7 +3,7 @@ import {
   requestDeveloperDataSuccess,
   settingShowLoading,
   updateDeveloperData,
-  changePassword
+  changePassword,
 } from '../settings'
 import ActionTypes from '../../constants/action-types'
 import { developerStub } from '../../sagas/__stubs__/developer'

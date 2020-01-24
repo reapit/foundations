@@ -6,8 +6,8 @@ jest.mock('../../../core/store')
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useLocation: jest.fn(() => ({
-    location: { hash: '' }
-  }))
+    location: { hash: '' },
+  })),
 }))
 
 let scrollIntoViewMock
@@ -27,8 +27,8 @@ describe('ApiDocs', () => {
     jest.mock('react-router-dom', () => ({
       ...jest.requireActual('react-router-dom'),
       useLocation: jest.fn(() => ({
-        location: { hash: '#authorization' }
-      }))
+        location: { hash: '#authorization' },
+      })),
     }))
     expect(shallow(<ApiDocs />)).toMatchSnapshot()
   })

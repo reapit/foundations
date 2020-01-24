@@ -44,7 +44,7 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
   requestAuthenticationCode,
   showError,
   loading,
-  code
+  code,
 }) => {
   const [tooltipMessage, setTooltipMessage] = React.useState('Copy')
 
@@ -86,7 +86,7 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
 export const mapStateToProps = (state: ReduxState): AppAuthenticationDetailMappedProps => {
   return {
     loading: state.appDetail.authentication.loading,
-    code: state.appDetail.authentication.code
+    code: state.appDetail.authentication.code,
   }
 }
 
@@ -96,9 +96,9 @@ export const mapDispatchToProps = (dispatch: any): AppAuthenticationDetailMapped
     dispatch(
       errorThrownComponent({
         type: 'COMPONENT',
-        message
-      })
-    )
+        message,
+      }),
+    ),
 })
 
 const AppAuthenticationDetailConnect = connect(mapStateToProps, mapDispatchToProps)(AppAuthenticationDetail)

@@ -4,7 +4,7 @@ import {
   adminApprovalsLoading,
   adminApprovalsReceiveData,
   adminApprovalsClearData,
-  adminApprovalsRequestDataFailure
+  adminApprovalsRequestDataFailure,
 } from '../actions/admin-approvals'
 import { PagedResultApprovalModel_ } from '@reapit/foundations-ts-definitions'
 
@@ -19,14 +19,14 @@ export interface AdminApprovalsState {
 
 export const defaultState: AdminApprovalsState = {
   loading: false,
-  adminApprovalsData: null
+  adminApprovalsData: null,
 }
 
 const adminApprovalsReducer = (state: AdminApprovalsState = defaultState, action: Action<any>): AdminApprovalsState => {
   if (isType(action, adminApprovalsLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -34,7 +34,7 @@ const adminApprovalsReducer = (state: AdminApprovalsState = defaultState, action
     return {
       ...state,
       loading: false,
-      adminApprovalsData: action.data || null
+      adminApprovalsData: action.data || null,
     }
   }
 
@@ -42,14 +42,14 @@ const adminApprovalsReducer = (state: AdminApprovalsState = defaultState, action
     return {
       ...state,
       loading: false,
-      adminApprovalsData: action.data
+      adminApprovalsData: action.data,
     }
   }
 
   if (isType(action, adminApprovalsRequestDataFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 

@@ -11,11 +11,11 @@ describe('resetPassword reducer', () => {
   it('should set formState to test when DEVELOPER_SUBMIT_APP_SET_FORM_STATE action is called with test', () => {
     const newState = resetPasswordReducer(undefined, {
       type: ActionTypes.RESET_PASSWORD_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })

@@ -42,7 +42,7 @@ export const generateUninstallParams = ({ id, installationId }) => () => {
   return {
     appId: id,
     installationId,
-    terminatedReason: 'User uninstall'
+    terminatedReason: 'User uninstall',
   } as UninstallParams
 }
 
@@ -53,7 +53,7 @@ export const AppConfirmUninstall = ({
   afterClose,
   setAppDetailModalStateBrowse,
   setAppDetailModalStateSuccess,
-  setAppDetailStale
+  setAppDetailStale,
 }: AppConfirmUninstallProps) => {
   const isLoading = installationsFormState === 'SUBMITTING'
   const isSuccessed = installationsFormState === 'SUCCESS'
@@ -114,14 +114,14 @@ export const AppConfirmUninstall = ({
 
 export const mapStateToProps = (state: ReduxState): AppConfirmUninstallMappedProps => ({
   appDetailData: state.appDetail.appDetailData?.data,
-  installationsFormState: state.installations.formState
+  installationsFormState: state.installations.formState,
 })
 
 export const mapDispatchToProps = (dispatch: any): AppConfirmUninstallMappedActions => ({
   setAppDetailModalStateBrowse: () => dispatch(setAppDetailModalStateBrowse()),
   setAppDetailModalStateSuccess: () => dispatch(setAppDetailModalStateSuccess()),
   uninstallApp: (params: UninstallParams) => dispatch(appInstallationsRequestUninstall(params)),
-  setAppDetailStale: (stale: boolean) => dispatch(setAppDetailStale(stale))
+  setAppDetailStale: (stale: boolean) => dispatch(setAppDetailStale(stale)),
 })
 
 const AppConfirmUninstallInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(AppConfirmUninstall)

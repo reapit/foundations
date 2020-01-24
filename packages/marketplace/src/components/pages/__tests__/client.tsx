@@ -12,7 +12,7 @@ import {
   handleAfterClose,
   handleOnChange,
   handleOnCardClick,
-  onCardClickParams
+  onCardClickParams,
 } from '../client'
 import { addQuery } from '@/utils/client-url-params'
 import { AppSummaryModel } from '@reapit/foundations-ts-definitions'
@@ -25,12 +25,12 @@ import { BrowserRouter as Router } from 'react-router-dom'
 const routerProps = {
   match: {
     params: {
-      page: '2'
-    }
+      page: '2',
+    },
   },
   location: {
-    search: 'page=1'
-  }
+    search: 'page=1',
+  },
 } as RouteComponentProps<any, StaticContext, any>
 
 const props = (loading: boolean): ClientProps => ({
@@ -38,8 +38,8 @@ const props = (loading: boolean): ClientProps => ({
     loading: loading,
     clientData: {
       featuredApps: featuredAppsDataStub.data,
-      apps: appsDataStub
-    } as ClientItem
+      apps: appsDataStub,
+    } as ClientItem,
   },
   appDetail: {
     appDetailData: appDetailDataStub,
@@ -47,9 +47,9 @@ const props = (loading: boolean): ClientProps => ({
     error: false,
     authentication: {
       loading: false,
-      code: ''
+      code: '',
     },
-    isStale: false
+    isStale: false,
   },
   clientId: '1',
   setStateViewBrowse: jest.fn(),
@@ -58,7 +58,7 @@ const props = (loading: boolean): ClientProps => ({
   fetchAppDetail: jest.fn(),
   userAcceptTermAndCondition: jest.fn(),
   firstLogin: false,
-  ...routerProps
+  ...routerProps,
 })
 
 describe('Client', () => {
@@ -74,12 +74,12 @@ describe('Client', () => {
     const routerProps = {
       match: {
         params: {
-          page: '2'
-        }
+          page: '2',
+        },
       },
       location: {
-        search: 'page=1'
-      }
+        search: 'page=1',
+      },
     } as RouteComponentProps<any, StaticContext, any>
 
     const props: ClientProps = {
@@ -87,8 +87,8 @@ describe('Client', () => {
         loading: false,
         clientData: {
           featuredApps: [] as AppSummaryModel[],
-          apps: appsDataStub
-        } as ClientItem
+          apps: appsDataStub,
+        } as ClientItem,
       },
       appDetail: {
         appDetailData: appDetailDataStub,
@@ -96,9 +96,9 @@ describe('Client', () => {
         error: false,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       clientId: '1',
       installationsFormState: 'PENDING',
@@ -107,7 +107,7 @@ describe('Client', () => {
       fetchAppDetail: jest.fn(),
       userAcceptTermAndCondition: jest.fn(),
       firstLogin: false,
-      ...routerProps
+      ...routerProps,
     }
 
     expect(shallow(<Client {...props} />)).toMatchSnapshot()
@@ -119,8 +119,8 @@ describe('Client', () => {
         loading: false,
         clientData: {
           featuredApps: undefined,
-          apps: appsDataStub
-        } as ClientItem
+          apps: appsDataStub,
+        } as ClientItem,
       },
       appDetail: {
         appDetailData: appDetailDataStub,
@@ -128,9 +128,9 @@ describe('Client', () => {
         error: false,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       clientId: '1',
       installationsFormState: 'PENDING',
@@ -139,7 +139,7 @@ describe('Client', () => {
       fetchAppDetail: jest.fn(),
       userAcceptTermAndCondition: jest.fn(),
       firstLogin: false,
-      ...routerProps
+      ...routerProps,
     }
 
     expect(shallow(<Client {...props} />)).toMatchSnapshot()
@@ -151,30 +151,30 @@ describe('Client', () => {
         client: {
           clientData: {
             featuredApps: featuredAppsDataStub.data,
-            apps: appsDataStub
-          }
+            apps: appsDataStub,
+          },
         },
         appDetail: {
           appDetailData: appDetailDataStub,
           error: false,
-          loading: false
+          loading: false,
         },
         auth: {
           loginSession: {
             loginIdentity: {
-              clientId: 'ABC'
-            }
-          }
+              clientId: 'ABC',
+            },
+          },
         },
         installations: {
-          formState: 'PENDING'
-        }
+          formState: 'PENDING',
+        },
       } as ReduxState
       const output = {
         clientState: mockState.client,
         appDetail: mockState.appDetail,
         clientId: 'ABC',
-        installationsFormState: 'PENDING'
+        installationsFormState: 'PENDING',
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(output)
@@ -199,7 +199,7 @@ describe('Client', () => {
   describe('handleOnChange', () => {
     it('should call push correctly', () => {
       const mockHistory = {
-        push: jest.fn()
+        push: jest.fn(),
       }
       const fn = handleOnChange(mockHistory)
       fn(1)
@@ -221,18 +221,18 @@ describe('Client', () => {
         appDetail: {
           authentication: {
             loading: false,
-            code: '200'
+            code: '200',
           },
           error: false,
           loading: false,
           appDetailData: {
-            data: appsDataStub.data.data![0]
+            data: appsDataStub.data.data![0],
           },
-          isStale: true
+          isStale: true,
         },
         setStateViewBrowse: jest.fn(),
         fetchAppDetail: jest.fn(),
-        clientId: 'ABC'
+        clientId: 'ABC',
       }
       const fn = handleOnCardClick(mockProps)
       fn({ id: '1' })
@@ -248,7 +248,7 @@ describe('Client', () => {
           <Router>
             <Client {...props(false)} firstLogin />
           </Router>
-        </Provider>
+        </Provider>,
       )
       setTimeout(() => {
         expect(wrapper.find(<ClientWelcomeMessageModal visible={true} onAccept={jest.fn()} />)).toEqual(1)

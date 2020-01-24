@@ -17,8 +17,8 @@ export const appSubmitStub: { data: CreateAppModel } = {
     screen5ImageUrl: 'https://some-s3-image-link.com',
     summary: 'Lorem ipsum',
     supportEmail: 'support@reapit.com',
-    telephone: '999999999'
-  }
+    telephone: '999999999',
+  },
 }
 
 export const appSubmitStubWithActions: { data: SubmitAppArgs } = {
@@ -27,9 +27,9 @@ export const appSubmitStubWithActions: { data: SubmitAppArgs } = {
     // @ts-ignore
     actions: {
       setStatus: status => status,
-      setErrors: errors => errors
-    }
-  }
+      setErrors: errors => errors,
+    },
+  },
 }
 
 export const appSubmitStubFailed: { data: CreateAppModel } = {
@@ -46,8 +46,8 @@ export const appSubmitStubFailed: { data: CreateAppModel } = {
     screen5ImageUrl: 'https://some-s3-image-link.com',
     summary: 'Lorem ipsum',
     supportEmail: 'support@reapit.com',
-    telephone: '999999999'
-  }
+    telephone: '999999999',
+  },
 }
 
 export const appSubmitStubFailedWithActions: { data: SubmitAppArgs } = {
@@ -56,7 +56,7 @@ export const appSubmitStubFailedWithActions: { data: SubmitAppArgs } = {
     // @ts-ignore
     actions: {
       setStatus: status => status,
-      setErrors: errors => errors
-    }
-  }
+      setErrors: errors => errors,
+    },
+  },
 }

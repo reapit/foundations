@@ -14,7 +14,7 @@ import authSagas, {
   setFirstLoginListen,
   setFirstTimeLogin,
   checkFirstTimeLoginListen,
-  checkFirstTimeLogin
+  checkFirstTimeLogin,
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { authLoginSuccess, authLogoutSuccess, authLoginFailure, toggleFirstLogin } from '../../actions/auth'
@@ -25,8 +25,8 @@ import { ActionType } from '../../types/core'
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({
   history: {
-    push: jest.fn()
-  }
+    push: jest.fn(),
+  },
 }))
 jest.mock('../../core/store')
 jest.mock('@reapit/cognito-auth')
@@ -41,15 +41,15 @@ export const mockLoginSession = {
   loginIdentity: {
     developerId: 'SOME_DEV_ID',
     clientId: 'SOME_CLIENT_ID',
-    adminId: 'SOME_ADMIN_ID'
-  }
+    adminId: 'SOME_ADMIN_ID',
+  },
 } as LoginSession
 
 describe('login submit', () => {
   const loginParams: LoginParams = { loginType: 'CLIENT', userName: 'bob@acme.com', password: 'xxxxxx', mode: 'WEB' }
   const action: Action<LoginParams> = {
     type: ActionTypes.AUTH_LOGIN as ActionType,
-    data: loginParams
+    data: loginParams,
   }
 
   it('api call success', () => {
@@ -133,8 +133,8 @@ describe('auth thunks', () => {
           fork(logoutListen),
           fork(clearAuthListen),
           fork(checkFirstTimeLoginListen),
-          fork(setFirstLoginListen)
-        ])
+          fork(setFirstLoginListen),
+        ]),
       )
       expect(gen.next().done).toBe(true)
     })

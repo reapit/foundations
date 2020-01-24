@@ -4,7 +4,7 @@ import {
   SetDeveloperStatusModal,
   SetDeveloperStatusProps,
   onAfterCloseHandler,
-  onSuccessHandler
+  onSuccessHandler,
 } from '../developer-set-status'
 
 describe('SetDeveloperStatusModal', () => {
@@ -17,7 +17,7 @@ describe('SetDeveloperStatusModal', () => {
       visible: true,
       afterClose: () => jest.fn(),
       developerSetStatusRequest: () => jest.fn(),
-      resetDeveloperSetStatusReducer: () => jest.fn()
+      resetDeveloperSetStatusReducer: () => jest.fn(),
     } as SetDeveloperStatusProps
 
     const wrapper = shallow(<SetDeveloperStatusModal {...props} />)
@@ -44,7 +44,7 @@ describe('onSuccessHandler', () => {
 
     const onSuccessHandlerFn = onSuccessHandler({
       onSuccess: mockOnSuccess,
-      resetDeveloperSetStatusReducer: mockResetDeveloperSetStatusReducer
+      resetDeveloperSetStatusReducer: mockResetDeveloperSetStatusReducer,
     })
     expect(onSuccessHandlerFn).toBeDefined()
 

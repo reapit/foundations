@@ -7,13 +7,13 @@ export const validate = (values: ChangePasswordValues) => {
   let errors = validateRequire<ChangePasswordValues, ChangePasswordFormErrorKeys>({
     values,
     currentErrors: {},
-    keys: ['currentPassword', 'confirmPassword'] as ChangePasswordFormErrorKeys[]
+    keys: ['currentPassword', 'confirmPassword'] as ChangePasswordFormErrorKeys[],
   })
 
   errors = validatePassword({
     values,
     currentErrors: errors,
-    keys: ['password']
+    keys: ['password'],
   })
 
   if (values.password !== values.confirmPassword && !errors.confirmPassword) {

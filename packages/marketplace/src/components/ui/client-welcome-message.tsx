@@ -7,7 +7,7 @@ export type ClientWelcomeMessageModalProps = {
 
 export const ClientWelcomeMessageModal: React.FunctionComponent<ClientWelcomeMessageModalProps> = ({
   visible,
-  onAccept
+  onAccept,
 }) => {
   return (
     <Modal

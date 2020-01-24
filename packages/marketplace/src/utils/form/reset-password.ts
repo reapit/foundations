@@ -7,7 +7,7 @@ export const validate = (values: ResetPasswordValues) => {
   let errors = validatePassword<ResetPasswordValues, ResetPasswordFormErrorKeys>({
     values,
     currentErrors: {},
-    keys: ['password']
+    keys: ['password'],
   })
 
   if (values.password !== values.confirmPassword) {

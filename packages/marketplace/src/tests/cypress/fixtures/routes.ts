@@ -16,5 +16,5 @@ export default {
   revision: `${apiEndPoint}/apps/**/revisions`,
   installations: `${apiEndPoint}/installations`,
   terminateApp: `${apiEndPoint}/installations/**/terminate`,
-  auth: 'https://cognito-idp.eu-west-2.amazonaws.com/'
+  auth: 'https://cognito-idp.eu-west-2.amazonaws.com/',
 }

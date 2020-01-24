@@ -22,7 +22,7 @@ export const myAppsDataFetch = function*({ data: page }) {
       url: `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=${page}&PageSize=${APPS_PER_PAGE}`,
       method: 'GET',
       api: process.env.MARKETPLACE_API_BASE_URL as string,
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
     if (response) {
       yield put(myAppsReceiveData({ data: response }))
@@ -34,8 +34,8 @@ export const myAppsDataFetch = function*({ data: page }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

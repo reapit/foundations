@@ -12,7 +12,7 @@ const errorMessages = {
   SERVER_LIMIT_UNLISTED_APPS: `Unable to register client app: Limit of unlisted apps against this 
     account has been reached`,
   CLIENT_LIMIT_UNLISTED_APPS: `We are unable to process this submission. You currently have reached 
-    your limit of unlisted apps. Please edit your existing apps to continue.`
+    your limit of unlisted apps. Please edit your existing apps to continue.`,
 }
 
 export default errorMessages

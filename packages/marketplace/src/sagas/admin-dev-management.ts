@@ -3,7 +3,7 @@ import {
   adminDevManagementLoading,
   adminDevManagementReceiveData,
   adminDevManagementRequestDataFailure,
-  AdminDevManagementRequestDataValues
+  AdminDevManagementRequestDataValues,
 } from '@/actions/admin-dev-management'
 import { errorThrownServer } from '@/actions/error'
 import { fetcher } from '@reapit/elements'
@@ -25,7 +25,7 @@ export const adminDevManagementRequestDataHandler = function*({ data: { page, qu
       url: `${URLS.developers}?PageNumber=${page}&PageSize=${REVISIONS_PER_PAGE}&Name=${name}&Company=${company}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
 
     if (response) {
@@ -38,8 +38,8 @@ export const adminDevManagementRequestDataHandler = function*({ data: { page, qu
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -47,7 +47,7 @@ export const adminDevManagementRequestDataHandler = function*({ data: { page, qu
 export const adminDevManagementRequestDataListen = function*() {
   yield takeLatest<Action<AdminDevManagementRequestDataValues>>(
     ActionTypes.ADMIN_DEV_MANAGEMENT_REQUEST_DATA,
-    adminDevManagementRequestDataHandler
+    adminDevManagementRequestDataHandler,
   )
 }
 

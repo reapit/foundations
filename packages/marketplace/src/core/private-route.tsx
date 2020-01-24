@@ -45,6 +45,6 @@ export const PrivateRoute = ({
 }
 
 const mapStateToProps = (state: ReduxState): PrivateRouteConnectProps => ({
-  loginType: state.auth.loginType
+  loginType: state.auth.loginType,
 })
 export default connect(mapStateToProps)(PrivateRoute)

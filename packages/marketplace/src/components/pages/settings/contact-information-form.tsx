@@ -12,7 +12,7 @@ import {
   Form,
   withFormik,
   FormikProps,
-  FormikBag
+  FormikBag,
 } from '@reapit/elements'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 
@@ -22,7 +22,7 @@ export const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
   isSubmitting,
   isValidating,
   isValid,
-  touched
+  touched,
 }) => {
   const isEnable =
     isValid && Boolean(touched) && (touched.companyName || touched.jobTitle || touched.name || touched.telephone)
@@ -79,7 +79,7 @@ export const mapPropsContactInformation = ({ developerInformation }: EnhanceCont
     jobTitle: developerInformation?.jobTitle || '',
     telephone: developerInformation?.telephone || '',
     companyName: developerInformation?.company || '',
-    name: developerInformation?.name || ''
+    name: developerInformation?.name || '',
   }
 }
 
@@ -90,7 +90,7 @@ export type EnhanceContactInformationProps = {
 
 export const handleSubmitContactInformation = async (
   values: ContactInformationValues,
-  { setSubmitting, props }: FormikBag<EnhanceContactInformationProps, ContactInformationValues>
+  { setSubmitting, props }: FormikBag<EnhanceContactInformationProps, ContactInformationValues>,
 ) => {
   setSubmitting(true)
   props.updateDeveloperInformation(values)
@@ -99,11 +99,11 @@ export const handleSubmitContactInformation = async (
 export const withContactInformationForm = withFormik({
   displayName: 'WithContactInformationForm',
   mapPropsToValues: mapPropsContactInformation,
-  handleSubmit: handleSubmitContactInformation
+  handleSubmit: handleSubmitContactInformation,
 })
 
 const EnhanceContactInformation = compose<React.FC<EnhanceContactInformationProps>>(withContactInformationForm)(
-  ContactInformationForm
+  ContactInformationForm,
 )
 EnhanceContactInformation.displayName = 'EnhanceContactInformation'
 

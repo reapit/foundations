@@ -49,7 +49,7 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
     text: `Need a little help? Have a look through the Welcome Guide, which we’ve put 
       together to help you navigate through your Developer portal.`,
     buttonText: 'VIEW',
-    buttonOnClick: handleGotoWelcomeGuide
+    buttonOnClick: handleGotoWelcomeGuide,
   },
   {
     imgSrc: requestEndpointImg,
@@ -57,7 +57,7 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
     text: `Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will 
       look at all requests carefully however, we cannot guarantee all will be implemented.`,
     buttonText: 'REQUEST',
-    buttonOnClick: handleRequestEndpoint
+    buttonOnClick: handleRequestEndpoint,
   },
   {
     imgSrc: reportBugImg,
@@ -65,7 +65,7 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
     text:
       'Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. ',
     buttonText: 'REPORT',
-    buttonOnClick: handleReportBug
+    buttonOnClick: handleReportBug,
   },
   {
     imgSrc: roadmapImg,
@@ -73,7 +73,7 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
     text: `Want to see what we are building or check on the progress of your feature requests? 
       You can see our product roadmap milestones here. `,
     buttonText: 'VIEW',
-    buttonOnClick: handleViewRoadmap
+    buttonOnClick: handleViewRoadmap,
   },
   {
     imgSrc: liveChatImg,
@@ -81,8 +81,8 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
     text:
       'If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.',
     buttonText: 'START CHAT',
-    buttonOnClick: () => handleFaq(loginIdentity)
-  }
+    buttonOnClick: () => handleFaq(loginIdentity),
+  },
 ]
 
 export const renderHelpItems = (items: HelpItem[]): React.ReactNode => (
@@ -119,7 +119,7 @@ export interface HelpMappedProps {
 }
 
 export const mapStateToProps = (state: ReduxState): HelpMappedProps => ({
-  loginIdentity: state.auth.loginSession?.loginIdentity
+  loginIdentity: state.auth.loginSession?.loginIdentity,
 })
 
 export const HelpPage: React.FC<HelpMappedProps> = ({ loginIdentity }) => {

@@ -7,7 +7,7 @@ import {
   revisionDetailClearData,
   revisionDetailFailure,
   approveRevisionSetFormState,
-  declineRevisionSetFormState
+  declineRevisionSetFormState,
 } from '../actions/revision-detail'
 
 export interface RevisionDetailItem {
@@ -28,7 +28,7 @@ export const defaultState: RevisionDetailState = {
   error: false,
   revisionDetailData: null,
   approveFormState: 'PENDING',
-  declineFormState: 'PENDING'
+  declineFormState: 'PENDING',
 }
 
 const revisionDetailReducer = (state: RevisionDetailState = defaultState, action: Action<any>): RevisionDetailState => {
@@ -38,7 +38,7 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
       error: false,
       approveFormState: 'PENDING',
       declineFormState: 'PENDING',
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -47,7 +47,7 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
       ...state,
       loading: false,
       error: false,
-      revisionDetailData: action.data || null
+      revisionDetailData: action.data || null,
     }
   }
 
@@ -56,7 +56,7 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
       ...state,
       loading: false,
       error: false,
-      revisionDetailData: action.data
+      revisionDetailData: action.data,
     }
   }
 
@@ -64,21 +64,21 @@ const revisionDetailReducer = (state: RevisionDetailState = defaultState, action
     return {
       ...state,
       loading: false,
-      error: true
+      error: true,
     }
   }
 
   if (isType(action, approveRevisionSetFormState)) {
     return {
       ...state,
-      approveFormState: action.data
+      approveFormState: action.data,
     }
   }
 
   if (isType(action, declineRevisionSetFormState)) {
     return {
       ...state,
-      declineFormState: action.data
+      declineFormState: action.data,
     }
   }
 

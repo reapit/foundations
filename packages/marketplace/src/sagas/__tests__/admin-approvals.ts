@@ -4,7 +4,7 @@ import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import {
   adminApprovalsLoading,
   adminApprovalsReceiveData,
-  adminApprovalsRequestDataFailure
+  adminApprovalsRequestDataFailure,
 } from '@/actions/admin-approvals'
 import { appsDataStub } from '../__stubs__/apps'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
@@ -27,8 +27,8 @@ describe('adminApprovals fetch data', () => {
       url: `${URLS.approvals}?PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
 
   test('api call success', () => {
@@ -50,9 +50,9 @@ describe('adminApprovals fetch data', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
   })
 })
@@ -63,7 +63,7 @@ describe('adminApprovals thunks', () => {
       const gen = adminApprovalsDataListen()
 
       expect(gen.next().value).toEqual(
-        takeLatest<Action<number>>(ActionTypes.ADMIN_APPROVALS_REQUEST_DATA, adminApprovalsDataFetch)
+        takeLatest<Action<number>>(ActionTypes.ADMIN_APPROVALS_REQUEST_DATA, adminApprovalsDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

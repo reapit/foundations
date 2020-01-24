@@ -31,7 +31,7 @@ export type DispatchProps = {
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
-    submitEmail: email => dispatch(submitEmail(email))
+    submitEmail: email => dispatch(submitEmail(email)),
   }
 }
 
@@ -41,7 +41,7 @@ export type StateProps = {
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
-    loading: state.forgotPassword?.loading
+    loading: state.forgotPassword?.loading,
   }
 }
 

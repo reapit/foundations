@@ -7,14 +7,14 @@ export interface ForgotPasswordState {
 }
 
 export const defaultState: ForgotPasswordState = {
-  loading: false
+  loading: false,
 }
 
 const forgotPasswordReducer = (state: ForgotPasswordState = defaultState, action: Action<any>): ForgotPasswordState => {
   if (isType(action, forgotPasswordLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 

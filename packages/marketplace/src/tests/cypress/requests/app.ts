@@ -22,7 +22,7 @@ export const sampleApp = {
   developerId: '47a37635-5044-4f20-b981-4f25970ac9cf',
   scopes: [],
   isFeatured: false,
-  isDirectApi: false
+  isDirectApi: false,
 }
 
 export default {
@@ -37,16 +37,16 @@ export default {
       method: 'POST',
       body: {
         name: 'e2e-test-image',
-        imageData: sampleImageData
-      }
+        imageData: sampleImageData,
+      },
     }).then(res => {
       const imageUrl = res?.body?.Url
 
       if (!imageUrl) {
         throw new Error(
           `No field named "Url" was returned in the response of the request: POST ${Cypress.env(
-            'UPLOAD_FILE_BASE_URL'
-          )} `
+            'UPLOAD_FILE_BASE_URL',
+          )} `,
         )
       }
 
@@ -54,7 +54,7 @@ export default {
         url: `${routes.apps}`,
         method: 'POST',
         headers: {
-          'x-api-key': Cypress.env('MARKETPLACE_API_KEY')
+          'x-api-key': Cypress.env('MARKETPLACE_API_KEY'),
         },
         body: {
           ...sampleApp,
@@ -64,8 +64,8 @@ export default {
           screen3ImageUrl: imageUrl,
           screen2ImageUrl: imageUrl,
           screen1ImageUrl: imageUrl,
-          iconImageUrl: imageUrl
-        }
+          iconImageUrl: imageUrl,
+        },
       })
     })
   },
@@ -74,15 +74,15 @@ export default {
       url: `${routes.apps}/${appId}/revisions`,
       method: 'POST',
       headers: {
-        'x-api-key': Cypress.env('MARKETPLACE_API_KEY')
+        'x-api-key': Cypress.env('MARKETPLACE_API_KEY'),
       },
       body: {
         ...existingApp,
         iconImageUrl: existingApp.media[0].uri,
         screen1ImageUrl: existingApp.media[0].uri,
         categoryId: existingApp.category.id,
-        ...newRevision
-      }
+        ...newRevision,
+      },
     })
   },
   deleteApp: (appId: string) => {
@@ -90,8 +90,8 @@ export default {
       url: `${routes.apps}/${appId}`,
       method: 'DELETE',
       headers: {
-        'x-api-key': Cypress.env('MARKETPLACE_API_KEY')
-      }
+        'x-api-key': Cypress.env('MARKETPLACE_API_KEY'),
+      },
     })
   },
   getAppIdByAppName: (appName: string) => {
@@ -99,11 +99,11 @@ export default {
       url: routes.apps,
       method: 'GET',
       qs: {
-        AppName: appName
+        AppName: appName,
       },
       headers: {
-        'x-api-key': Cypress.env('MARKETPLACE_API_KEY')
-      }
+        'x-api-key': Cypress.env('MARKETPLACE_API_KEY'),
+      },
     })
   },
   getAppById: (appId: string) => {
@@ -111,8 +111,8 @@ export default {
       url: `${routes.apps}/${appId}`,
       method: 'GET',
       headers: {
-        'x-api-key': Cypress.env('MARKETPLACE_API_KEY')
-      }
+        'x-api-key': Cypress.env('MARKETPLACE_API_KEY'),
+      },
     })
-  }
+  },
 }

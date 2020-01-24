@@ -9,10 +9,10 @@ describe('selectClientId', () => {
         loginSession: {
           loginIdentity: {
             clientId: '123',
-            email: 'abc@gmail.com'
-          }
-        }
-      }
+            email: 'abc@gmail.com',
+          },
+        },
+      },
     } as ReduxState
     const result = selectClientId(input)
     expect(result).toEqual('123')
@@ -32,10 +32,10 @@ describe('selectLoggedUserEmail', () => {
         loginSession: {
           loginIdentity: {
             clientId: '',
-            email: 'abc@gmail.com'
-          }
-        }
-      }
+            email: 'abc@gmail.com',
+          },
+        },
+      },
     } as ReduxState
     const result = selectLoggedUserEmail(input)
     expect(result).toEqual('abc@gmail.com')
@@ -53,9 +53,9 @@ describe('selectFeaturedApps', () => {
     const input = {
       client: {
         clientData: {
-          featuredApps: featuredAppsDataStub.data
-        }
-      }
+          featuredApps: featuredAppsDataStub.data,
+        },
+      },
     } as ReduxState
     const result = selectFeaturedApps(input)
     expect(result).toEqual(featuredAppsDataStub.data)

@@ -9,7 +9,7 @@ import {
   Loader,
   FormSection,
   Button,
-  LevelRight
+  LevelRight,
 } from '@reapit/elements'
 import EnhanceContactInformation, { ContactInformationValues } from './contact-information-form'
 import EnhanceChangePasswordForm, { ChangePasswordValues } from './change-password-form'
@@ -28,7 +28,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
   loading,
   updateDeveloperInformation,
   changePassword,
-  logout
+  logout,
 }) => {
   if (loading) {
     return <Loader />
@@ -72,7 +72,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     developerInfo: state.settings.developerInfomation || {},
     email: state.auth?.loginSession?.loginIdentity?.email || '',
-    loading: state.settings?.loading
+    loading: state.settings?.loading,
   }
 }
 
@@ -86,7 +86,7 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     updateDeveloperInformation: (values: ContactInformationValues) => dispatch(updateDeveloperData(values)),
     changePassword: (values: ChangePasswordValues) => dispatch(changePassword(values)),
-    logout: () => dispatch(authLogout())
+    logout: () => dispatch(authLogout()),
   }
 }
 

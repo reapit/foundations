@@ -11,11 +11,11 @@ describe('admin stats reducer', () => {
   it('should set loading to true when ADMIN_STATS_REQUEST_DATA action is called', () => {
     const newState = adminStatsReducer(undefined, {
       type: ActionTypes.ADMIN_STATS_REQUEST_DATA as ActionType,
-      data: {}
+      data: {},
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -23,11 +23,11 @@ describe('admin stats reducer', () => {
   it('should set data when ADMIN_STATS_RECEIVE_DATA action is called', () => {
     const newState = adminStatsReducer(undefined, {
       type: ActionTypes.ADMIN_STATS_RECEIVE_DATA as ActionType,
-      data: { data: [], totalCount: 0 }
+      data: { data: [], totalCount: 0 },
     })
     const expected = {
       ...defaultState,
-      result: { data: [], totalCount: 0 }
+      result: { data: [], totalCount: 0 },
     }
     expect(newState).toEqual(expected)
   })
@@ -35,11 +35,11 @@ describe('admin stats reducer', () => {
   it('should clear approvals list data when ADMIN_STATS_REQUEST_DATA_FAILURE action is called', () => {
     const newState = adminStatsReducer(undefined, {
       type: ActionTypes.ADMIN_STATS_REQUEST_DATA_FAILURE as ActionType,
-      data: null
+      data: null,
     })
     const expected = {
       ...defaultState,
-      loading: false
+      loading: false,
     }
     expect(newState).toEqual(expected)
   })

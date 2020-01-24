@@ -4,7 +4,7 @@ import {
   appInstallationsRequestDataFailure,
   appInstallationsRequestInstall,
   appInstallationsRequestUninstall,
-  appInstallationsSetFormState
+  appInstallationsSetFormState,
 } from '../app-installations'
 import ActionTypes from '@/constants/action-types'
 import { installationsStub } from '@/sagas/__stubs__/installations'
@@ -29,7 +29,7 @@ describe('app install actions', () => {
     expect(appInstallationsRequestUninstall.type).toEqual(ActionTypes.APP_INSTALLATIONS_REQUEST_UNINSTALL)
     expect(appInstallationsRequestUninstall({ appId: '1', installationId: '1' }).data).toEqual({
       appId: '1',
-      installationId: '1'
+      installationId: '1',
     })
   })
   it('should create a appInstallationsSetFormState action', () => {

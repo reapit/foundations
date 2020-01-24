@@ -17,9 +17,9 @@ export const getApiErrorsFromResponse = (resp: ApiFormErrorsResponse) => {
   const errors = resp.errors.reduce(
     (prev: { [k: string]: string | string[] } = {}, curr: ApiFormError = defaultApiFormError) => ({
       ...prev,
-      [curr.field]: curr.message
+      [curr.field]: curr.message,
     }),
-    {}
+    {},
   )
   return errors || null
 }

@@ -5,7 +5,7 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import {
   developerSetStatusRequestFailure,
   developerSetStatusRequestLoading,
-  developerSetStatusRequestSuccess
+  developerSetStatusRequestSuccess,
 } from '@/actions/developer-set-status'
 import errorMessages from '@/constants/error-messages'
 import { developerStub } from '../__stubs__/developer'
@@ -22,8 +22,8 @@ describe('developerSetStatusRequestSaga', () => {
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       body: { ...developerStub, companyName: developerStub.company },
       method: 'PUT',
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
 
   test('api call success', () => {
@@ -39,9 +39,9 @@ describe('developerSetStatusRequestSaga', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
   })
 })

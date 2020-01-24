@@ -32,7 +32,7 @@ describe('admin stats utils', () => {
       const data = [
         { id: 1, created: new Date(2020, 1, 14) },
         { id: 2, created: new Date(2020, 1, 15) },
-        { id: 3, created: new Date(2020, 1, 16) }
+        { id: 3, created: new Date(2020, 1, 16) },
       ]
       const date = new Date(2020, 1, 14)
       expect(numOfObjectCreatedInDate(data, date)).toEqual(1)

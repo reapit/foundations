@@ -7,7 +7,7 @@ import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
 const props: CategoryItemProps = {
   category: (appCategorieStub.data || [])[0],
   selected: false,
-  onSelectCategory: jest.fn()
+  onSelectCategory: jest.fn(),
 }
 
 describe('CategoryItem', () => {
@@ -21,7 +21,7 @@ describe('CategoryItem', () => {
       wrapper
         .find('a')
         .first()
-        .text()
+        .text(),
     ).toEqual('All')
   })
 })

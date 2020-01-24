@@ -18,7 +18,7 @@ export const handleAfterClose = ({ setUninstallApp, afterClose }) => () => {
 }
 
 export const handleUninstall = (setUninstallApp: (app: InstallationModel) => void) => (
-  app: InstallationModel
+  app: InstallationModel,
 ) => () => {
   setUninstallApp(app)
 }
@@ -28,7 +28,7 @@ export const AppInstallationsModal: React.FC<AppInstallationsModalProps> = ({
   appName,
   visible,
   afterClose,
-  onUninstallSuccess
+  onUninstallSuccess,
 }) => {
   const [uninstallApp, setUninstallApp] = React.useState<InstallationModel>()
 

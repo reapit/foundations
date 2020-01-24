@@ -12,6 +12,6 @@ export default {
     checkBoxTermsAndConditions: 'input#terms',
     divRegisterSuccessfully: 'div[data-test="register-success-message"]',
     btnAcceptTermsAndConditions: 'button[data-test="buttonAcceptTermsAndConditions"]',
-    buttonSubmitRegister: 'button[type="submit"]'
-  }
+    buttonSubmitRegister: 'button[type="submit"]',
+  },
 }

@@ -3,7 +3,7 @@ import {
   submitApp,
   submitAppLoading,
   submitAppRequestData,
-  submitAppReceiveData
+  submitAppReceiveData,
 } from '../submit-app'
 import ActionTypes from '../../constants/action-types'
 

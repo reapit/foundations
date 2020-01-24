@@ -10,11 +10,11 @@ describe('developer set status reducer', () => {
   it('should set form state to submitting', () => {
     const newState = developerSetStatusReducer(undefined, {
       type: 'DEVELOPER_SET_STATUS_REQUEST_LOADING' as ActionType,
-      data: undefined
+      data: undefined,
     })
     const expected = {
       ...defaultState,
-      formState: 'SUBMITTING'
+      formState: 'SUBMITTING',
     } as RequestState
     expect(newState).toEqual(expected)
   })
@@ -22,11 +22,11 @@ describe('developer set status reducer', () => {
   it('should set form state to success', () => {
     const newState = developerSetStatusReducer(undefined, {
       type: 'DEVELOPER_SET_STATUS_REQUEST_SUCCESS' as ActionType,
-      data: undefined
+      data: undefined,
     })
     const expected = {
       ...defaultState,
-      formState: 'SUCCESS'
+      formState: 'SUCCESS',
     } as RequestState
     expect(newState).toEqual(expected)
   })
@@ -34,11 +34,11 @@ describe('developer set status reducer', () => {
   it('should set form state to error', () => {
     const newState = developerSetStatusReducer(undefined, {
       type: 'DEVELOPER_SET_STATUS_REQUEST_FAILURE' as ActionType,
-      data: undefined
+      data: undefined,
     })
     const expected = {
       ...defaultState,
-      formState: 'ERROR'
+      formState: 'ERROR',
     } as RequestState
     expect(newState).toEqual(expected)
   })
@@ -46,11 +46,11 @@ describe('developer set status reducer', () => {
   it('should set form state to pending', () => {
     const newState = developerSetStatusReducer(undefined, {
       type: 'DEVELOPER_SET_STATUS_SET_INIT_FORM_STATE' as ActionType,
-      data: undefined
+      data: undefined,
     })
     const expected = {
       ...defaultState,
-      formState: 'PENDING'
+      formState: 'PENDING',
     } as RequestState
     expect(newState).toEqual(expected)
   })

@@ -6,7 +6,7 @@ import errorMessages from '@/constants/error-messages'
 describe('rejectRevisionValidation', () => {
   it('validate required fields', () => {
     const input: RejectRevisionModel = {
-      rejectionReason: ''
+      rejectionReason: '',
     }
 
     const validateRequiredKeys = ['rejectionReason']

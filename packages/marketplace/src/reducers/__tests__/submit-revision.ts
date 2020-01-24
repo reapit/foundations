@@ -14,13 +14,13 @@ describe('submitRevision reducer', () => {
     () => {
       const newState = submitRevisionReducer(undefined, {
         type: ActionTypes.DEVELOPER_SUBMIT_REVISION_SET_FORM_STATE as ActionType,
-        data: 'SUBMITTING'
+        data: 'SUBMITTING',
       })
       const expected = {
         ...defaultState,
-        formState: 'SUBMITTING'
+        formState: 'SUBMITTING',
       }
       expect(newState).toEqual(expected)
-    }
+    },
   )
 })
