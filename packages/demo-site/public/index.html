@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./images/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>Reapit Demo Site</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div id="navbar">
+      <!-- Menu Icon -->
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+        width="36"
+        height="36"
+        viewBox="0 0 24 24"
+      >
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path id="path-bar" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+      </svg>
+
+      <!-- Header -->
+      <!-- <h1>AGENT & SONS</h1> -->
+      <img src="./images/agent-and-son.png" />
+
+      <!-- Empty div for align purpose -->
+      <div></div>
+    </div>
+
+    <!-- Widget -->
+    <div id="widget">
+      <img src="./images/header.jpg" />
+      <div id="reapit-search-widget-container">
+        <div id="reapit-search-widget"></div>
+      </div>
+    </div>
+    <div id="root"></div>
+
+    <!-- Search results -->
+    <div id="reapit-search-widget-result"></div>
+
+    <!-- Our approach -->
+    <div id="approach">
+      <div id="our-approach">
+        <h1>Our Approach</h1>
+        <p>
+          Agent and Sons are an independent Estate Agent based in London,
+          incorporating a professional team offering services in Sales and
+          Lettings . Our dedicated Property Managers and Negotiators have a vast
+          knowledge in the local and surrounding areas which allows us to
+          provide a personal service.
+        </p>
+        <p>
+          Being an independent agent allows us to put our clients first. Whether
+          you are selling, letting, buying or renting our experienced and
+          friendly team can help.
+        </p>
+        <button>MORE</button>
+      </div>
+      <div id="img-approach">
+        <img src="./images/approach.jpg" />
+      </div>
+    </div>
+
+    <script src="https://web-components.reapit.com/search-widget.js"></script>
+    <script src="./scripts/theme.js"></script>
+  </body>
+</html>
