@@ -8,7 +8,7 @@ import {
   LoginFormValues,
   mapStateToProps,
   mapDispatchToProps,
-  resetSubmitting
+  resetSubmitting,
 } from '@/components/pages/login'
 import { ReduxState } from '@/types/core'
 import { LoginParams } from '@reapit/cognito-auth'
@@ -18,7 +18,7 @@ const props = (hasSession: boolean): LoginProps => ({
   hasSession,
   login: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
-  history: {}
+  history: {},
 })
 
 describe('Login', () => {
@@ -45,7 +45,7 @@ describe('Login', () => {
   describe('onSubmitHandler', () => {
     const mockProps = {
       setIsSubmitting: jest.fn(),
-      login: jest.fn()
+      login: jest.fn(),
     }
     const mockValues = {} as LoginFormValues
     it('should run correctly', () => {
@@ -70,13 +70,13 @@ describe('Login', () => {
         auth: {
           refreshSession: null,
           loginSession: null,
-          error: false
-        }
+          error: false,
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         hasSession: false,
-        error: false
+        error: false,
       })
     })
   })

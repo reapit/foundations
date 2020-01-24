@@ -1,3 +1,4 @@
+// @ts-ignore #49 Breaking changes to API
 import { PagedResultContactIdentityCheckModel_, PagedResultContactModel_ } from '@reapit/foundations-ts-definitions'
 
 export const mapIdentitiesToContacts = (

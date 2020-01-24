@@ -21,7 +21,7 @@ describe('auth reducer', () => {
       userName: 'bob@acme.com',
       accessToken: '',
       refreshToken: '',
-      sessionExpiry: 1
+      sessionExpiry: 1,
     }
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_LOGIN_SUCCESS as ActionType, data })
     const expected = { ...defaultState(), loginSession: data }
@@ -44,7 +44,7 @@ describe('auth reducer', () => {
     const data = {
       loginType: 'CLIENT' as LoginType,
       refreshToken: 'REFRESH_TOKEN',
-      userName: 'bob@acme.com'
+      userName: 'bob@acme.com',
     }
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_SET_REFRESH_SESSION as ActionType, data })
     expect(newState.refreshSession).toEqual(data)

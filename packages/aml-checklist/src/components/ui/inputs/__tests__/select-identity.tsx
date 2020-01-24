@@ -11,8 +11,8 @@ const props = (loading: boolean): SelectIdentityProps => ({
   name: 'idType',
   identityState: {
     loading: loading,
-    identityTypes: identityTypes
-  }
+    identityTypes: identityTypes,
+  },
 })
 
 describe('Select identity', () => {
@@ -38,15 +38,15 @@ describe('Select identity', () => {
       const mockState = {
         identityTypes: {
           loading: false,
-          identityTypes: identityTypes
-        }
+          identityTypes: identityTypes,
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         identityState: {
           loading: false,
-          identityTypes: identityTypes
-        }
+          identityTypes: identityTypes,
+        },
       })
     })
   })

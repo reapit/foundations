@@ -7,7 +7,7 @@ describe('UpdateStatusSuccess', () => {
   it('should match snapshot', () => {
     const mockProps = {
       hideModal: jest.fn(),
-      history: {} as History
+      history: {} as History,
     }
     const wrapper = shallow(<UpdateStatusSuccess {...mockProps} />)
     expect(wrapper).toMatchSnapshot()

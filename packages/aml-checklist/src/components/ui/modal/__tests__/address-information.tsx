@@ -8,7 +8,7 @@ import {
   handleMoreThreeYear,
   mapStateToProps,
   mapDispatchToProps,
-  AddressInput
+  AddressInput,
 } from '../address-information'
 
 describe('AddressInformation', () => {
@@ -18,7 +18,7 @@ describe('AddressInformation', () => {
       isSubmitting: false,
       onNextHandler: jest.fn(),
       onPrevHandler: jest.fn(),
-      onHandleSubmit: jest.fn()
+      onHandleSubmit: jest.fn(),
     }
     const wrapper = shallow(<AddressInformation {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -32,7 +32,7 @@ describe('AddressInformation', () => {
       setShowMoreThreeYearInput: jest.fn(),
       isSubmitting: false,
       onNextHandler: jest.fn(),
-      onPrevHandler: jest.fn()
+      onPrevHandler: jest.fn(),
     }
     const fn = renderForm(mockProps)
     const component = fn({ values: {} })
@@ -42,7 +42,7 @@ describe('AddressInformation', () => {
   it('handleMoreThreeYear', () => {
     const mockProps = {
       setShowMoreThreeYearInput: jest.fn(),
-      isShowMoreThreeYearInput: true
+      isShowMoreThreeYearInput: true,
     }
     const fn = handleMoreThreeYear(mockProps)
     fn()
@@ -56,14 +56,14 @@ describe('AddressInformation', () => {
         checklistDetail: {
           isSubmitting: false,
           checklistDetailData: {
-            contact
-          }
-        }
+            contact,
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact,
-        isSubmitting: false
+        isSubmitting: false,
       })
     })
     it('should run correctly', () => {
@@ -71,7 +71,7 @@ describe('AddressInformation', () => {
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact: {},
-        isSubmitting: false
+        isSubmitting: false,
       })
     })
   })
@@ -95,7 +95,7 @@ describe('AddressInformation', () => {
     it('should render correctly', () => {
       const mockProps = {
         index: 0,
-        addressType: 'primaryAddress'
+        addressType: 'primaryAddress',
       }
       const wrapper = shallow(<AddressInput {...mockProps} />)
       expect(wrapper).toMatchSnapshot()

@@ -12,11 +12,11 @@ describe('identity-types reducer', () => {
   it('should set loading to true when IDENTITY_TYPES_REQUEST_DATA action is called', () => {
     const newState = identityTypesReducer(undefined, {
       type: ActionTypes.IDENTITY_TYPES_REQUEST_DATA as ActionType,
-      data: {}
+      data: {},
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -24,12 +24,12 @@ describe('identity-types reducer', () => {
   it('should set approvals list data when IDENTITY_TYPES_RECEIVE_DATA action is called', () => {
     const newState = identityTypesReducer(undefined, {
       type: ActionTypes.IDENTITY_TYPES_RECEIVE_DATA as ActionType,
-      data: identityTypes
+      data: identityTypes,
     })
     const expected = {
       ...defaultState,
       loading: false,
-      identityTypes: identityTypes
+      identityTypes: identityTypes,
     }
     expect(newState).toEqual(expected)
   })

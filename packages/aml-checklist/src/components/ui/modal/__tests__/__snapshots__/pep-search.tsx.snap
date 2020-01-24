@@ -37,14 +37,14 @@ exports[`pep-search renderForm should match snapshot 1`] = `
       <FaRegTimesCircle />
       <div>
         <H4>
-          No Result Found for "
+          No Result Found for ‘
           a
-          ".
+          ’.
         </H4>
         <p>
-          Search conducted for "
+          Search conducted for ‘
           a
-          " on 
+          ’ on 
           1
         </p>
       </div>
@@ -92,14 +92,14 @@ exports[`pep-search renderNoResult should match snapshot 1`] = `
     <FaRegTimesCircle />
     <div>
       <H4>
-        No Result Found for "
+        No Result Found for ‘
         param
-        ".
+        ’.
       </H4>
       <p>
-        Search conducted for "
+        Search conducted for ‘
         param
-        " on 
+        ’ on 
         time
       </p>
     </div>

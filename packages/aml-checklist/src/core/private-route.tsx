@@ -54,6 +54,6 @@ export const PrivateRoute = ({
 }
 
 const mapStateToProps = (): PrivateRouteConnectProps => ({
-  loginType: 'CLIENT'
+  loginType: 'CLIENT',
 })
 export default connect(mapStateToProps)(PrivateRoute)

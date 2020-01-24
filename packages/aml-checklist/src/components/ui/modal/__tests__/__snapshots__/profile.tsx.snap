@@ -54,7 +54,7 @@ exports[`profile renderForm should match snapshot 1`] = `
       required={true}
     />
     <p
-      className="is-size-6	"
+      className="is-size-6"
     >
       * At least one telephone number is required
     </p>
@@ -166,7 +166,7 @@ exports[`profile renderForm should match snapshot 2`] = `
       required={true}
     />
     <p
-      className="is-size-6	"
+      className="is-size-6"
     >
       * At least one telephone number is required
     </p>

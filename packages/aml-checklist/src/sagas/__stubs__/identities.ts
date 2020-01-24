@@ -11,23 +11,23 @@ export const identities = {
       document1: {
         typeId: 'DL',
         expiry: '2019-11-14T00:00:00',
-        details: 'adwqr'
+        details: 'adwqr',
       },
       metadata: {
-        primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC19000013-adwqr.png'
+        primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC19000013-adwqr.png',
       },
       _links: {
         self: {
-          href: '/identityChecks/RPT19000114'
+          href: '/identityChecks/RPT19000114',
         },
         contact: {
-          href: '/contacts/MKC19000013'
+          href: '/contacts/MKC19000013',
         },
         identityDocument1Type: {
-          href: '/configuration/identityDocumentTypes/DL'
-        }
-      }
-    }
+          href: '/configuration/identityDocumentTypes/DL',
+        },
+      },
+    },
   ],
   pageNumber: 1,
   pageSize: 50,
@@ -36,11 +36,15 @@ export const identities = {
   _links: {
     self: {
       href:
-        '/identityChecks/?PageNumber=1&PageSize=50&ContactId=MKC19000013&ContactId=BED16000182&ContactId=MKC16000060&ContactId=BED16000099&ContactId=MKC16000011&ContactId=MKC15000909&ContactId=BUC15000679&ContactId=BED15002235&ContactId=BED15002208&ContactId=BED15001889'
+        '/identityChecks/?PageNumber=1&PageSize=50&ContactId=MKC19000013&ContactId=BED16000182' +
+        '&ContactId=MKC16000060&ContactId=BED16000099&ContactId=MKC16000011&ContactId=MKC15000909&' +
+        'ContactId=BUC15000679&ContactId=BED15002235&ContactId=BED15002208&ContactId=BED15001889',
     },
     first: {
       href:
-        '/identityChecks/?PageNumber=1&PageSize=50&ContactId=MKC19000013&ContactId=BED16000182&ContactId=MKC16000060&ContactId=BED16000099&ContactId=MKC16000011&ContactId=MKC15000909&ContactId=BUC15000679&ContactId=BED15002235&ContactId=BED15002208&ContactId=BED15001889'
-    }
-  }
+        '/identityChecks/?PageNumber=1&PageSize=50&ContactId=MKC19000013&ContactId=BED16000182' +
+        '&ContactId=MKC16000060&ContactId=BED16000099&ContactId=MKC16000011&ContactId=MKC15000909&' +
+        'ContactId=BUC15000679&ContactId=BED15002235&ContactId=BED15002208&ContactId=BED15001889',
+    },
+  },
 }

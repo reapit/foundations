@@ -4,7 +4,7 @@ jest.mock('../checklist-detail', () => ({
   uploadImage: jest.fn().mockResolvedValue({ Url: 'mockUrl' }),
   updateChecklist: jest.fn().mockResolvedValue(contact),
   updateIdentityCheck: jest.fn().mockResolvedValue(idCheck),
-  createIdentityCheck: jest.fn().mockResolvedValue(idCheck)
+  createIdentityCheck: jest.fn().mockResolvedValue(idCheck),
 }))
 
 import { contact, idCheck } from '../__stubs__/contact'
@@ -14,11 +14,11 @@ import {
   uploadImage,
   updateChecklist,
   updateIdentityCheck,
-  createIdentityCheck
+  createIdentityCheck,
 } from '../checklist-detail'
 
 const mockHeaders = {
-  Authorization: '123'
+  Authorization: '123',
 }
 
 describe('checklist-detail', () => {
@@ -26,7 +26,7 @@ describe('checklist-detail', () => {
     it('should return resolve', async () => {
       const mockParams = {
         headers: mockHeaders,
-        id: '1'
+        id: '1',
       }
       const result = await fetchChecklist(mockParams)
       expect(result).toEqual(contact)
@@ -37,7 +37,7 @@ describe('checklist-detail', () => {
     it('should return resolve', async () => {
       const mockParams = {
         headers: mockHeaders,
-        contactId: '1'
+        contactId: '1',
       }
       const result = await fetchIdentityCheck(mockParams)
       expect(result).toEqual(idCheck)
@@ -49,7 +49,7 @@ describe('checklist-detail', () => {
       const mockParams = {
         name: 'test',
         imageData: 'test',
-        headers: mockHeaders
+        headers: mockHeaders,
       }
       const result = await uploadImage(mockParams)
       expect(result).toEqual({ Url: 'mockUrl' })
@@ -61,7 +61,7 @@ describe('checklist-detail', () => {
       const mockParams = {
         contactId: 'test',
         contact,
-        headers: mockHeaders
+        headers: mockHeaders,
       }
       const result = await updateChecklist(mockParams)
       expect(result).toEqual(contact)
@@ -73,7 +73,7 @@ describe('checklist-detail', () => {
       const mockParams = {
         contactId: 'test',
         identityChecks: idCheck,
-        headers: mockHeaders
+        headers: mockHeaders,
       }
       const result = await updateIdentityCheck(mockParams)
       expect(result).toEqual(idCheck)
@@ -85,7 +85,7 @@ describe('checklist-detail', () => {
       const mockParams = {
         contactId: 'test',
         identityChecks: idCheck,
-        headers: mockHeaders
+        headers: mockHeaders,
       }
       const result = await createIdentityCheck(mockParams)
       expect(result).toEqual(idCheck)

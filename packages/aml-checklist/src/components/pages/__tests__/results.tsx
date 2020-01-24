@@ -11,7 +11,7 @@ import {
   generateSearchTitle,
   fnChangePage,
   fnFetchContacts,
-  renderEmptyResult
+  renderEmptyResult,
 } from '../results'
 import { contacts } from '@/sagas/__stubs__/contacts'
 import { ReduxState } from '@/types/core'
@@ -21,11 +21,11 @@ const props = (search: SearchParams, contacts: PagedResultContactModel_ | null):
   resultState: {
     loading: false,
     search: search,
-    contacts: contacts
+    contacts: contacts,
   },
   fetchContacts: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
-  history: {}
+  history: {},
 })
 
 describe('Result', () => {
@@ -40,7 +40,7 @@ describe('Result', () => {
   describe('generateColumn', () => {
     it('should run correctly', () => {
       const mockHistory = {
-        push: jest.fn()
+        push: jest.fn(),
       }
       const fn = generateColumns(mockHistory)
       const result = fn()
@@ -91,16 +91,16 @@ describe('Result', () => {
         result: {
           loading: false,
           search: { name: 'a' },
-          contacts
-        }
+          contacts,
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         resultState: {
           contacts,
           loading: false,
-          search: { name: 'a' }
-        }
+          search: { name: 'a' },
+        },
       })
     })
   })

@@ -16,7 +16,7 @@ describe('UpdateStatus', () => {
       contact,
       status: sectionsStatus,
       loginMode: 'WEB' as LoginMode,
-      updateIdentityCheckStatus: jest.fn()
+      updateIdentityCheckStatus: jest.fn(),
     }
     const wrapper = shallow(<UpdateStatus {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -28,23 +28,23 @@ describe('UpdateStatus', () => {
       const mockState = {
         checklistDetail: {
           checklistDetailData: {
-            contact
+            contact,
           },
           status: sectionsStatus,
-          isSubmitting: false
+          isSubmitting: false,
         },
         auth: {
           refreshSession: {
-            mode: 'WEB'
-          }
-        }
+            mode: 'WEB',
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         isSubmitting: false,
         contact,
         status: sectionsStatus,
-        loginMode: 'WEB'
+        loginMode: 'WEB',
       })
     })
     it('should run correctly', () => {
@@ -54,7 +54,7 @@ describe('UpdateStatus', () => {
         isSubmitting: false,
         contact: null,
         status: defaultStatus,
-        loginMode: 'WEB'
+        loginMode: 'WEB',
       })
     })
   })
@@ -69,8 +69,8 @@ describe('UpdateStatus', () => {
           entityType: EntityType.CONTACT,
           entityCode: '1',
           appMode: 'WEB',
-          webRoute: `${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/$1`
-        }
+          webRoute: `${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/$1`,
+        },
       )
       expect(mockDispatch).toBeCalled()
     })

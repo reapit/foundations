@@ -18,7 +18,7 @@ describe('AMLProgressBar', () => {
         id: 'AYL19000002',
         loginMode: 'WEB' as LoginMode,
         showModal: jest.fn(),
-        idCheck: {}
+        idCheck: {},
       }
       const wrapper = shallow(<AMLProgressBar {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -36,23 +36,23 @@ describe('AMLProgressBar', () => {
       const mockState = {
         auth: {
           refreshSession: {
-            mode: 'WEB'
-          }
+            mode: 'WEB',
+          },
         },
         checklistDetail: {
           checklistDetailData: {
             contact,
-            idCheck
+            idCheck,
           },
-          status: sectionsStatus
-        }
+          status: sectionsStatus,
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         loginMode: 'WEB',
         contact,
         idCheck,
-        status: sectionsStatus
+        status: sectionsStatus,
       })
     })
     it('should run correctly', () => {
@@ -62,7 +62,7 @@ describe('AMLProgressBar', () => {
         loginMode: 'WEB',
         contact: null,
         idCheck: null,
-        status: defaultStatus
+        status: defaultStatus,
       })
     })
   })

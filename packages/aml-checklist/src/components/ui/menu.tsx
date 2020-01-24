@@ -13,7 +13,7 @@ import { FaCloud, FaSignOutAlt, FaSearch, FaList } from 'react-icons/fa'
 export const generateMenuConfig = (
   logoutCallback: () => void,
   location: Location<any>,
-  mode: LoginMode
+  mode: LoginMode,
 ): MenuConfig => {
   return {
     defaultActiveKey: 'CLIENT_SEARCH',
@@ -23,21 +23,21 @@ export const generateMenuConfig = (
       {
         key: 'LOGO',
         icon: <ReapitLogo className="nav-item-icon" />,
-        type: 'LOGO'
+        type: 'LOGO',
       },
       {
         title: 'Search',
         key: 'CLIENT_SEARCH',
         icon: <FaSearch className="nav-item-icon" />,
         url: Routes.HOME,
-        type: 'PRIMARY'
+        type: 'PRIMARY',
       },
       {
         title: 'Results',
         key: 'SEARCH_RESULTS',
         icon: <FaList className="nav-item-icon" />,
         url: Routes.RESULTS,
-        type: 'PRIMARY'
+        type: 'PRIMARY',
       },
       {
         title: 'Apps',
@@ -45,18 +45,18 @@ export const generateMenuConfig = (
         icon: <FaCloud className="nav-item-icon" />,
         callback: () =>
           (window.location.href = !window.location.href.includes('dev')
-            ? `https://marketplace.reapit.com/client/installed`
-            : `https://dev.marketplace.reapit.com/client/installed`),
-        type: 'PRIMARY'
+            ? 'https://marketplace.reapit.com/client/installed'
+            : 'https://dev.marketplace.reapit.com/client/installed'),
+        type: 'PRIMARY',
       },
       {
         title: 'Logout',
         key: 'LOGOUT',
         callback: logoutCallback,
         icon: <FaSignOutAlt className="nav-item-icon" />,
-        type: 'SECONDARY'
-      }
-    ]
+        type: 'SECONDARY',
+      },
+    ],
   }
 }
 
@@ -72,12 +72,12 @@ export const Menu: React.FunctionComponent<MenuProps> = ({ location, logout, mod
 
 export const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    logout: () => dispatch(authLogout())
+    logout: () => dispatch(authLogout()),
   }
 }
 
 export const mapStateToProps = (state: ReduxState) => ({
-  mode: state?.auth?.refreshSession?.mode || 'WEB'
+  mode: state?.auth?.refreshSession?.mode || 'WEB',
 })
 
 export const MenuWithRedux = connect(mapStateToProps, mapDispatchToProps)(Menu)

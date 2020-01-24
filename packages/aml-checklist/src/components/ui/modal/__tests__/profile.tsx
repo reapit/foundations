@@ -10,7 +10,7 @@ describe('profile', () => {
       const mockOnNextHandler = jest.fn()
       const mockIsSubmitting = false
       const component = renderForm({ contact, onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })({
-        values: {}
+        values: {},
       })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -21,7 +21,7 @@ describe('profile', () => {
       const mockOnNextHandler = jest.fn()
       const mockIsSubmitting = false
       const component = renderForm({ contact, onNextHandler: mockOnNextHandler, isSubmitting: mockIsSubmitting })({
-        values: {}
+        values: {},
       })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -32,7 +32,7 @@ describe('profile', () => {
       contact: contact,
       onNextHandler: jest.fn(),
       onSubmitHandler: jest.fn(),
-      isSubmitting: false
+      isSubmitting: false,
     }
     const wrapper = shallow(<Profile {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -44,14 +44,14 @@ describe('profile', () => {
       const mockState = {
         checklistDetail: {
           checklistDetailData: {
-            contact
-          }
-        }
+            contact,
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact,
-        isSubmitting: false
+        isSubmitting: false,
       })
     })
     it('should run correctly', () => {
@@ -59,7 +59,7 @@ describe('profile', () => {
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact: {},
-        isSubmitting: false
+        isSubmitting: false,
       })
     })
   })
@@ -84,10 +84,10 @@ describe('profile', () => {
         homePhone: '',
         mobilePhone: '',
         workPhone: '',
-        email: 'client@gmail.com'
+        email: 'client@gmail.com',
       }
       const output = {
-        home: 'At least one telephone number is required'
+        home: 'At least one telephone number is required',
       }
       expect(validate(input)).toEqual(output)
     })
@@ -97,10 +97,10 @@ describe('profile', () => {
         homePhone: '0987654321',
         mobilePhone: '',
         workPhone: '',
-        email: 'client@'
+        email: 'client@',
       }
       const output = {
-        email: 'Invalid email format'
+        email: 'Invalid email format',
       }
       expect(validate(input)).toEqual(output)
     })

@@ -6,7 +6,7 @@ import {
   mapDispatchToProps,
   renderNoResult,
   renderLoading,
-  renderForm
+  renderForm,
 } from '../pep-search'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
@@ -19,7 +19,7 @@ describe('pep-search', () => {
         handleSubmit: jest.fn(),
         onPrevHandler: jest.fn(),
         onNextHandler: jest.fn(),
-        isSubmitting: false
+        isSubmitting: false,
       }
       const wrapper = shallow(<PepSearch {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -32,14 +32,14 @@ describe('pep-search', () => {
       const input = {
         checklistDetail: {
           checklistDetailData: {
-            contact: contact
+            contact: contact,
           },
-          isSubmitting: true
-        }
+          isSubmitting: true,
+        },
       } as ReduxState
       const expected = {
         isSubmitting: true,
-        contact: contact
+        contact: contact,
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -48,7 +48,7 @@ describe('pep-search', () => {
       const input = {} as ReduxState
       const expected = {
         isSubmitting: false,
-        contact: {}
+        contact: {},
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -83,7 +83,7 @@ describe('pep-search', () => {
         onNextHandler: jest.fn(),
         isSubmitting: false,
         pepSearchStatus: { MKC13000122: { param: 'a', result: [], time: '1' } },
-        contact: contact
+        contact: contact,
       }
       const component = renderForm(mockProps)()
       const wrapper = shallow(<div>{component}</div>)

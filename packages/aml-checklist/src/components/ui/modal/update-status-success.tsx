@@ -32,7 +32,7 @@ export interface DispatchProps {
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  hideModal: () => dispatch(checklistDetailHideModal())
+  hideModal: () => dispatch(checklistDetailHideModal()),
 })
 
 export default connect(null, mapDispatchToProps)(UpdateStatusSuccess)

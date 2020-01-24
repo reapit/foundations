@@ -9,28 +9,28 @@ export const idCheck = {
   document1: {
     typeId: 'TX',
     expiry: '2020-02-07T00:00:00',
-    details: 'Hshs'
+    details: 'Hshs',
   },
   document2: {
     typeId: 'CI',
     expiry: '2019-12-21T00:00:00',
-    details: 'a'
+    details: 'a',
   },
   metadata: {
-    primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png'
+    primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
   },
   _links: {
     self: {
-      href: '/identityChecks/RPT19000104'
+      href: '/identityChecks/RPT19000104',
     },
     contact: {
-      href: '/contacts/AYL19000001'
+      href: '/contacts/AYL19000001',
     },
     identityDocument1Type: {
-      href: '/configuration/identityDocumentTypes/TX'
+      href: '/configuration/identityDocumentTypes/TX',
     },
     identityDocument2Type: {
-      href: '/configuration/identityDocumentTypes/CI'
-    }
-  }
+      href: '/configuration/identityDocumentTypes/CI',
+    },
+  },
 }

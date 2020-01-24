@@ -8,7 +8,7 @@ import {
   checklistDetailShowModal,
   pepSearchResult,
   checklistDetailHideModal,
-  checklistDetailSubmitForm
+  checklistDetailSubmitForm,
 } from '../actions/checklist-detail'
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import {
@@ -16,7 +16,7 @@ import {
   isCompletedPrimaryID,
   isCompletedSecondaryID,
   isCompletedDeclarationRisk,
-  isCompletedAddress
+  isCompletedAddress,
 } from '@reapit/elements'
 // import { isCompletedPepSearch } from '@/utils/pep-search'
 import { defaultStatus } from '@/constants/section-status'
@@ -54,14 +54,14 @@ export const defaultState: ChecklistDetailState = {
   isSubmitting: false,
   pepSearchParam: '',
   pepSearchResultData: null,
-  status: defaultStatus
+  status: defaultStatus,
 }
 
 const checklistReducer = (state: ChecklistDetailState = defaultState, action: Action<any>): ChecklistDetailState => {
   if (isType(action, checklistDetailLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -71,12 +71,12 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
       loading: false,
       checklistDetailData: {
         idCheck: state.checklistDetailData && state.checklistDetailData.idCheck,
-        contact: action.data
+        contact: action.data,
       },
       status: updateCheckListDetailFormStatus({
         contact: action.data,
-        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck
-      })
+        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck,
+      }),
     }
   }
 
@@ -86,12 +86,12 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
       loading: false,
       checklistDetailData: {
         contact: state.checklistDetailData && state.checklistDetailData.contact,
-        idCheck: action.data
+        idCheck: action.data,
       },
       status: updateCheckListDetailFormStatus({
         contact: state.checklistDetailData && state.checklistDetailData.contact,
-        idCheck: action.data
-      })
+        idCheck: action.data,
+      }),
     }
   }
 
@@ -99,21 +99,21 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
     return {
       ...state,
       modalContentType: action.data,
-      isModalVisible: true
+      isModalVisible: true,
     }
   }
 
   if (isType(action, checklistDetailHideModal)) {
     return {
       ...state,
-      isModalVisible: false
+      isModalVisible: false,
     }
   }
 
   if (isType(action, checklistDetailSubmitForm)) {
     return {
       ...state,
-      isSubmitting: action.data
+      isSubmitting: action.data,
     }
   }
 
@@ -124,8 +124,8 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
       pepSearchResultData: action.data.searchResults,
       status: updateCheckListDetailFormStatus({
         contact: state.checklistDetailData && state.checklistDetailData.contact,
-        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck
-      })
+        idCheck: state.checklistDetailData && state.checklistDetailData.idCheck,
+      }),
     }
   }
 
@@ -149,7 +149,7 @@ export const updateCheckListDetailFormStatus = ({ contact, idCheck }: UpdateChec
     primaryId: isCompletedPrimaryID(idCheck),
     secondaryId: isCompletedSecondaryID(idCheck),
     declarationRisk: metadata ? isCompletedDeclarationRisk(contact) : false,
-    addresses: metadata ? isCompletedAddress(contact) : false
+    addresses: metadata ? isCompletedAddress(contact) : false,
     // pepSearch: isCompletedPepSearch(contact as ContactModel),
     // experian: true
   }

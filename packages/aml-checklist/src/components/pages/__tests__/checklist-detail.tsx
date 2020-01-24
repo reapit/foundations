@@ -6,7 +6,7 @@ import {
   ChecklistDetail,
   CheckListDetailProps,
   generateSection,
-  renderSections
+  renderSections,
 } from '../checklist-detail'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
@@ -39,17 +39,17 @@ describe('checklist-detail', () => {
           loading: true,
           modalContentType: 'PROFILE',
           checklistDetailData: {
-            contact: contact
+            contact: contact,
           },
-          status: sectionsStatus
-        }
+          status: sectionsStatus,
+        },
       } as ReduxState
       const expected = {
         isModalVisible: true,
         loading: true,
         contact: contact,
         modalContentType: 'PROFILE',
-        status: sectionsStatus
+        status: sectionsStatus,
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -57,14 +57,14 @@ describe('checklist-detail', () => {
 
     it('should run when undefined', () => {
       const input = {
-        checklistDetail: {}
+        checklistDetail: {},
       } as ReduxState
       const expected = {
         isModalVisible: false,
         loading: false,
         contact: {},
         modalContentType: 'PROFILE',
-        status: defaultStatus
+        status: defaultStatus,
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
@@ -83,7 +83,7 @@ describe('checklist-detail', () => {
         status: sectionsStatus,
         modalContentType: 'PROFILE',
         mode: 'WEB',
-        ...getMockRouterProps({ id: '123' })
+        ...getMockRouterProps({ id: '123' }),
       } as CheckListDetailProps
       const wrapper = shallow(<ChecklistDetail {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -100,7 +100,7 @@ describe('checklist-detail', () => {
         status: sectionsStatus,
         mode: 'WEB',
         modalContentType: 'PROFILE',
-        ...getMockRouterProps({ id: '123' })
+        ...getMockRouterProps({ id: '123' }),
       } as CheckListDetailProps
       const wrapper = shallow(<ChecklistDetail {...mockProps} />)
       expect(wrapper).toMatchSnapshot()

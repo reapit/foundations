@@ -16,21 +16,21 @@ import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { mapIdentitiesToContacts } from '@/utils/map-identities-to-contacts'
 
 jest.mock('../../utils/map-identities-to-contacts', () => ({
-  mapIdentitiesToContacts: jest.fn().mockReturnValue('mappedData')
+  mapIdentitiesToContacts: jest.fn().mockReturnValue('mappedData'),
 }))
 
 jest.mock('../../core/store.ts')
 
 const mockHeaders = {
-  Authorization: '123'
+  Authorization: '123',
 }
 
 const params: Action<ContactsParams> = {
   data: {
     pageNumber: 1,
-    name: '1'
+    name: '1',
   },
-  type: 'RESULT_REQUEST_DATA'
+  type: 'RESULT_REQUEST_DATA',
 }
 
 describe('result fetch data', () => {
@@ -41,8 +41,8 @@ describe('result fetch data', () => {
       url: `${URLS.contacts}/?${queryParams({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: mockHeaders
-    })
+      headers: mockHeaders,
+    }),
   )
 
   it('api call sucessfully', () => {
@@ -53,8 +53,8 @@ describe('result fetch data', () => {
         url: `${URLS.idChecks}/?${queryParams({ ContactId: [...listContactId] })}`,
         api: process.env.PLATFORM_API_BASE_URL as string,
         method: 'GET',
-        headers: mockHeaders
-      })
+        headers: mockHeaders,
+      }),
     )
     expect(clone.next(identities as any).value).toEqual(put(resultReceiveData('mappedData' as any)))
     expect(mapIdentitiesToContacts).toHaveBeenCalled()
@@ -64,15 +64,15 @@ describe('result fetch data', () => {
   it('api fail sagas', () => {
     const clone = gen.clone()
     expect((clone as any).throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
-      put(resultRequestDataFailure())
+      put(resultRequestDataFailure()),
     )
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().done).toBe(true)
   })

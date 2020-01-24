@@ -10,7 +10,7 @@ import {
   checklistDetailSecondaryIdUpdateData,
   checklistDetailReceiveContact,
   checklistDetailReceiveIdentityCheck,
-  checkListDetailIdentityCheckUpdateData
+  checkListDetailIdentityCheckUpdateData,
 } from '../checklist-detail'
 import { EntityType } from '@reapit/elements'
 
@@ -66,8 +66,8 @@ describe('checklist-detail actions', () => {
     expect(
       checkListDetailIdentityCheckUpdateData({
         idCheck,
-        dynamicLinkParams: { appMode: 'DESKTOP', entityType: EntityType.CONTACT }
-      }).data
+        dynamicLinkParams: { appMode: 'DESKTOP', entityType: EntityType.CONTACT },
+      }).data,
     ).toEqual({ idCheck, dynamicLinkParams })
   })
 })

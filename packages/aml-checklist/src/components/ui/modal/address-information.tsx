@@ -21,7 +21,7 @@ const optionsMonth = [
   { label: '9', value: '9' },
   { label: '10', value: '10' },
   { label: '11', value: '11' },
-  { label: '12', value: '12' }
+  { label: '12', value: '12' },
 ] as SelectBoxOptions[]
 
 const MIN_NUMBER_OF_YEARS = 1
@@ -52,7 +52,7 @@ const optionsDocumentType = [
   { label: DOCUMENT_TYPE.CREDIT_STATEMENT, value: DOCUMENT_TYPE.CREDIT_STATEMENT },
   { label: DOCUMENT_TYPE.TAX_NOTIFICATION, value: DOCUMENT_TYPE.TAX_NOTIFICATION },
   { label: DOCUMENT_TYPE.ACCOUNT_DOCUMENT, value: DOCUMENT_TYPE.ACCOUNT_DOCUMENT },
-  { label: DOCUMENT_TYPE.LETTER_FROM_COUNCIL, value: DOCUMENT_TYPE.LETTER_FROM_COUNCIL }
+  { label: DOCUMENT_TYPE.LETTER_FROM_COUNCIL, value: DOCUMENT_TYPE.LETTER_FROM_COUNCIL },
 ]
 
 export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThreeYearInput }) => () => {
@@ -157,7 +157,7 @@ export const renderForm = ({
   isShowMoreThreeYearInput,
   setShowMoreThreeYearInput,
   onNextHandler,
-  onPrevHandler
+  onPrevHandler,
 }) => ({ values }) => (
   <Form>
     <AddressInput addressType="primaryAddress" />
@@ -183,7 +183,7 @@ export const generateMetadata = secondaryAddress => {
   const baseAddressMetadata = {
     year: '',
     month: '',
-    documentType: ''
+    documentType: '',
   }
 
   if (secondaryAddress) {
@@ -197,12 +197,12 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
   onNextHandler,
   onPrevHandler,
   onHandleSubmit,
-  isSubmitting
+  isSubmitting,
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
   const { primaryAddress, secondaryAddress } = contact
   const metadata = contact.metadata || {
-    addresses: generateMetadata(secondaryAddress)
+    addresses: generateMetadata(secondaryAddress),
   }
 
   return (
@@ -211,7 +211,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
         initialValues={{
           primaryAddress,
           secondaryAddress,
-          metadata
+          metadata,
         }}
         onSubmit={onHandleSubmit}
       >
@@ -221,7 +221,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
           setShowMoreThreeYearInput,
           onNextHandler,
           onPrevHandler,
-          isSubmitting
+          isSubmitting,
         })}
       </Formik>
     </div>
@@ -236,7 +236,7 @@ export type StateProps = {
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: state?.checklistDetail?.isSubmitting || false,
-    contact: state?.checklistDetail?.checklistDetailData?.contact || {}
+    contact: state?.checklistDetail?.checklistDetailData?.contact || {},
   }
 }
 
@@ -253,7 +253,7 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
     },
     onNextHandler: (values: any) => () =>
       dispatch(updateAddressHistory({ nextSection: STEPS.DECLARATION_RISK_MANAGEMENT, contact: values })),
-    onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.SECONDARY_IDENTIFICATION))
+    onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.SECONDARY_IDENTIFICATION)),
   }
 }
 

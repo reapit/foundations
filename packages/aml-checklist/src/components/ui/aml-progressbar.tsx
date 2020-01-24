@@ -10,7 +10,7 @@ import {
   AcLink,
   EntityType,
   SubTitleH5,
-  FlexContainerBasic
+  FlexContainerBasic,
 } from '@reapit/elements'
 import styles from '@/styles/ui/aml-progressbar.scss?mod'
 import { SectionsStatus } from '@/reducers/checklist-detail'
@@ -23,7 +23,7 @@ import { connect } from 'react-redux'
 import {
   selectCheckListDetailStatus,
   selectCheckListDetailContact,
-  selectCheckListDetailIdCheck
+  selectCheckListDetailIdCheck,
 } from '@/selectors/checklist-detail'
 import { ID_STATUS } from './modal/modal'
 
@@ -55,7 +55,7 @@ export const AMLProgressBar: React.FC<AMLProgressBarProps> = ({ contact, idCheck
                       dynamicLinkParams={{
                         appMode: loginMode,
                         entityType: EntityType.CONTACT,
-                        entityCode: id
+                        entityCode: id,
                       }}
                     >
                       {name}
@@ -94,7 +94,7 @@ export const mapStateToProps = (state: ReduxState): AMLProgressBarMappedProps =>
   contact: selectCheckListDetailContact(state),
   idCheck: selectCheckListDetailIdCheck(state),
   status: selectCheckListDetailStatus(state),
-  loginMode: state?.auth?.refreshSession?.mode || 'WEB'
+  loginMode: state?.auth?.refreshSession?.mode || 'WEB',
 })
 
 export interface AMLProgressBarMappedActions {
@@ -102,7 +102,7 @@ export interface AMLProgressBarMappedActions {
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): AMLProgressBarMappedActions => ({
-  showModal: (modalType: string) => dispatch(checklistDetailShowModal(modalType))
+  showModal: (modalType: string) => dispatch(checklistDetailShowModal(modalType)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AMLProgressBar)

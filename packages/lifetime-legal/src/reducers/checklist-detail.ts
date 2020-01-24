@@ -6,6 +6,7 @@ import {
   identityCheckReceiveData,
   checkListDetailSubmitForm,
 } from '../actions/checklist-detail'
+// @ts-ignore #49 Breaking changes to API
 import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import {
   isCompletedProfile,
@@ -89,6 +90,7 @@ const checklistReducer = (state: ChecklistDetailState = defaultState, action: Ac
   if (isType(action, checkListDetailSubmitForm)) {
     return {
       ...state,
+      // @ts-ignore #49 Breaking changes to API
       isSubmitting: action.data,
     }
   }

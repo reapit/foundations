@@ -31,31 +31,31 @@ export const generateSection = (status: SectionsStatus, onClick: (modalType: str
       title: STEPS.PROFILE,
       isCompleted: status.profile,
       onEdit: onClick(STEPS.PROFILE),
-      buttonText: 'Edit'
+      buttonText: 'Edit',
     },
     {
       title: STEPS.PRIMARY_IDENTIFICATION,
       isCompleted: status.primaryId,
       onEdit: onClick(STEPS.PRIMARY_IDENTIFICATION),
-      buttonText: 'Edit'
+      buttonText: 'Edit',
     },
     {
       title: STEPS.SECONDARY_IDENTIFICATION,
       isCompleted: status.secondaryId,
       onEdit: onClick(STEPS.SECONDARY_IDENTIFICATION),
-      buttonText: 'Edit'
+      buttonText: 'Edit',
     },
     {
       title: STEPS.ADDRESS_INFORMATION,
       isCompleted: status.addresses,
       onEdit: onClick(STEPS.ADDRESS_INFORMATION),
-      buttonText: 'Edit'
+      buttonText: 'Edit',
     },
     {
       title: STEPS.DECLARATION_RISK_MANAGEMENT,
       isCompleted: status.declarationRisk,
       onEdit: onClick(STEPS.DECLARATION_RISK_MANAGEMENT),
-      buttonText: 'Edit'
+      buttonText: 'Edit',
     },
     // {
     //   title: STEPS.PEP_SEARCH,
@@ -73,8 +73,8 @@ export const generateSection = (status: SectionsStatus, onClick: (modalType: str
       title: STEPS.REPORT,
       isCompleted: false,
       onEdit: onClick(STEPS.REPORT),
-      buttonText: 'View'
-    }
+      buttonText: 'View',
+    },
   ]
 }
 
@@ -117,8 +117,8 @@ export const ChecklistDetail: React.FC<CheckListDetailProps> = ({
   status,
   modalContentType,
   match: {
-    params: { id }
-  }
+    params: { id },
+  },
 }) => {
   if (loading) {
     return <Loader />
@@ -156,7 +156,7 @@ export const mapStateToProps = (state: ReduxState): HomeMappedProps => ({
   loading: state?.checklistDetail?.loading || false,
   contact: state?.checklistDetail?.checklistDetailData?.contact || {},
   status: state?.checklistDetail?.status || defaultStatus,
-  modalContentType: state?.checklistDetail?.modalContentType || 'PROFILE'
+  modalContentType: state?.checklistDetail?.modalContentType || 'PROFILE',
 })
 
 export type HomeMappedActions = {
@@ -166,7 +166,7 @@ export type HomeMappedActions = {
 
 export const mapDispatchToProps = (dispatch: Dispatch): HomeMappedActions => ({
   hideModal: () => dispatch(checklistDetailHideModal()),
-  showModal: (modalType: string) => () => dispatch(checklistDetailShowModal(modalType))
+  showModal: (modalType: string) => () => dispatch(checklistDetailShowModal(modalType)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChecklistDetail))

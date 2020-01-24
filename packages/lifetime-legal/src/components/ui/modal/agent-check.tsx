@@ -2,6 +2,7 @@ import React from 'react'
 import { SelectBox, DatePicker, SelectBoxOptions, Button, Input, RadioSelect, Formik, Form } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
+// @ts-ignore #49 Breaking changes to API
 import { ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import { checkListDetailAgentCheckUpdateData } from '@/actions/checklist-detail'

@@ -15,7 +15,7 @@ export const identityTypesDataFetch = function*() {
       url: `${URLS.configuration}/identityDocumentTypes`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers
+      headers: headers,
     })
     yield put(identityTypesReceiveData(response))
   } catch (err) {
@@ -23,8 +23,8 @@ export const identityTypesDataFetch = function*() {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

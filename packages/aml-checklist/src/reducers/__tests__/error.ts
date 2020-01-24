@@ -12,15 +12,15 @@ describe('error reducer', () => {
   it('should set a component error', () => {
     const errorData = {
       type: 'COMPONENT',
-      message: errorMessages.DEFAULT_COMPONENT_ERROR
+      message: errorMessages.DEFAULT_COMPONENT_ERROR,
     } as ErrorData
     const newState = errorReducer(undefined, {
       type: ActionTypes.ERROR_THROWN_COMPONENT as ActionType,
-      data: errorData
+      data: errorData,
     })
     const expected = {
       ...defaultState,
-      componentError: errorData
+      componentError: errorData,
     }
     expect(newState).toEqual(expected)
   })
@@ -28,19 +28,19 @@ describe('error reducer', () => {
   it('should clear a component error', () => {
     const errorData = {
       type: 'COMPONENT',
-      message: errorMessages.DEFAULT_COMPONENT_ERROR
+      message: errorMessages.DEFAULT_COMPONENT_ERROR,
     } as ErrorData
 
     const newState = errorReducer(
       { ...defaultState, componentError: errorData },
       {
         type: ActionTypes.ERROR_CLEARED_COMPONENT as ActionType,
-        data: null
-      }
+        data: null,
+      },
     )
     const expected = {
       ...defaultState,
-      componentError: null
+      componentError: null,
     }
     expect(newState).toEqual(expected)
   })
@@ -48,15 +48,15 @@ describe('error reducer', () => {
   it('should set a server error', () => {
     const errorData = {
       type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR
+      message: errorMessages.DEFAULT_SERVER_ERROR,
     } as ErrorData
     const newState = errorReducer(undefined, {
       type: ActionTypes.ERROR_THROWN_SERVER as ActionType,
-      data: errorData
+      data: errorData,
     })
     const expected = {
       ...defaultState,
-      serverError: errorData
+      serverError: errorData,
     }
     expect(newState).toEqual(expected)
   })
@@ -64,19 +64,19 @@ describe('error reducer', () => {
   it('should clear a server error', () => {
     const errorData = {
       type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR
+      message: errorMessages.DEFAULT_SERVER_ERROR,
     } as ErrorData
 
     const newState = errorReducer(
       { ...defaultState, serverError: errorData },
       {
         type: ActionTypes.ERROR_CLEARED_SERVER as ActionType,
-        data: null
-      }
+        data: null,
+      },
     )
     const expected = {
       ...defaultState,
-      serverError: null
+      serverError: null,
     }
     expect(newState).toEqual(expected)
   })
