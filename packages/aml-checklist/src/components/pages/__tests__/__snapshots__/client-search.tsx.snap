@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKTOP 1`] = `
+<div>
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <H3>
+      Client Search
+    </H3>
+    <ForwardRef
+      className="mb-8"
+    >
+      <Input
+        id="name"
+        labelText="Search by name"
+        name="name"
+        placeholder="Firstname or Surname"
+        type="text"
+      />
+      <Input
+        id="address"
+        labelText="Search by address"
+        name="address"
+        placeholder="Streetname, Village, Town or Postcode"
+        type="text"
+      />
+      <SelectBox
+        id="identityCheck"
+        labelText="Search by ID Status"
+        name="identityCheck"
+        options={
+          Array [
+            Object {
+              "label": "Please select…",
+              "value": "",
+            },
+            Object {
+              "label": "Pass",
+              "value": "Pass",
+            },
+            Object {
+              "label": "Fail",
+              "value": "Fail",
+            },
+            Object {
+              "label": "Pending",
+              "value": "Pending",
+            },
+            Object {
+              "label": "Cancelled",
+              "value": "Cancelled",
+            },
+            Object {
+              "label": "Warnings",
+              "value": "Warnings",
+            },
+            Object {
+              "label": "Unchecked",
+              "value": "Unchecked",
+            },
+          ]
+        }
+      />
+      <Button
+        className="is-right"
+        disabled={true}
+        type="submit"
+        variant="primary"
+      >
+        Search
+      </Button>
+      <AcButton
+        buttonProps={
+          Object {
+            "disabled": true,
+            "type": "button",
+            "variant": "primary",
+          }
+        }
+        dynamicLinkParams={
+          Object {
+            "appMode": "DESKTOP",
+            "entityType": "contacts",
+            "queryParams": Object {
+              "address": undefined,
+              "appId": "77f7c64f-0214-49eb-8963-f0b98f747072",
+              "appParam": "cntCode",
+              "name": undefined,
+            },
+          }
+        }
+      >
+        Advanced Search
+      </AcButton>
+    </ForwardRef>
+  </FlexContainerResponsive>
+</div>
+`;
+
+exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1`] = `
+<div>
+  <FlexContainerResponsive
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <H3>
+      Client Search
+    </H3>
+    <ForwardRef
+      className="mb-8"
+    >
+      <Input
+        id="name"
+        labelText="Search by name"
+        name="name"
+        placeholder="Firstname or Surname"
+        type="text"
+      />
+      <Input
+        id="address"
+        labelText="Search by address"
+        name="address"
+        placeholder="Streetname, Village, Town or Postcode"
+        type="text"
+      />
+      <SelectBox
+        id="identityCheck"
+        labelText="Search by ID Status"
+        name="identityCheck"
+        options={
+          Array [
+            Object {
+              "label": "Please select…",
+              "value": "",
+            },
+            Object {
+              "label": "Pass",
+              "value": "Pass",
+            },
+            Object {
+              "label": "Fail",
+              "value": "Fail",
+            },
+            Object {
+              "label": "Pending",
+              "value": "Pending",
+            },
+            Object {
+              "label": "Cancelled",
+              "value": "Cancelled",
+            },
+            Object {
+              "label": "Warnings",
+              "value": "Warnings",
+            },
+            Object {
+              "label": "Unchecked",
+              "value": "Unchecked",
+            },
+          ]
+        }
+      />
+      <Button
+        className="is-right"
+        disabled={true}
+        type="submit"
+        variant="primary"
+      >
+        Search
+      </Button>
+    </ForwardRef>
+  </FlexContainerResponsive>
+</div>
+`;
+
+exports[`ClientSearch should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerBasic
+    flexColumn={true}
+    hasPadding={true}
+  >
+    <Formik
+      initialValues={
+        Object {
+          "address": "",
+          "identityCheck": "",
+          "name": "",
+        }
+      }
+      onSubmit={[Function]}
+    >
+      <Component />
+    </Formik>
+  </FlexContainerBasic>
+</Connect(ErrorBoundary)>
+`;
