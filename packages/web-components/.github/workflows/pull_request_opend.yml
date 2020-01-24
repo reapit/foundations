@@ -1,0 +1,38 @@
+name: Pull Request
+
+on:
+  pull_request
+
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checks out repository to $GITHUB_WORKSPACE
+        uses: actions/checkout@v1
+
+      - name: Setup Node Environement
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install
+
+      - name: Check version
+        run: yarn checkVersion
+
+      - name: Test
+        run: yarn test
+
+      - name: Lint
+        run: yarn lint
+        
+      - name: Build CDN
+        run: yarn build:npm
+
+      - name: Build NPM
+        run: yarn build:npm
