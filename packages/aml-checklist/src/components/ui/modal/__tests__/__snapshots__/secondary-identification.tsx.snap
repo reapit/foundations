@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SecondaryIdentification SecondaryIdentification should match snapshot 1`] = `
+<Component
+  contact={
+    Object {
+      "_links": Object {
+        "documents": Object {
+          "href": "/documents/?OwnerType=contact&OwnerId=MKC13000122",
+        },
+        "identityChecks": Object {
+          "href": "/identityChecks/?ContactId=MKC13000122",
+        },
+        "self": Object {
+          "href": "/contacts/MKC13000122",
+        },
+      },
+      "active": true,
+      "created": "2017-01-10T11:33:37.0000000Z",
+      "dateOfBirth": "1986-06-30",
+      "email": "hrees927@rpsfiction.net",
+      "forename": "Holly",
+      "homePhone": "01632 968608",
+      "id": "MKC13000122",
+      "marketingConsent": "notAsked",
+      "metadata": Object {
+        "addresses": Array [
+          Object {
+            "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png",
+            "documentType": "Bank / Building Society / Statement",
+            "month": "2",
+            "year": "2",
+          },
+          Object {
+            "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/previous-7-Larch Cottage-LU7 0PX(1).jpg",
+            "documentType": "Credit Card Statements from main provider",
+            "month": "1",
+            "year": "3",
+          },
+        ],
+        "declarationRisk": Object {
+          "reason": "Test",
+          "riskAssessmentForm": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png",
+          "type": "Simplified",
+        },
+      },
+      "mobilePhone": "07700 908608",
+      "modified": "2020-01-21T14:04:50.0000000Z",
+      "negotiatorIds": Array [
+        "JPB",
+      ],
+      "officeIds": Array [
+        "MKC",
+      ],
+      "primaryAddress": Object {
+        "buildingName": "Larch Cottage",
+        "buildingNumber": "12",
+        "countryId": "GB",
+        "line1": "High Street North",
+        "line2": "Stewkley",
+        "line3": "Leighton Buzzard",
+        "line4": "Buckinghamshire",
+        "postcode": "LU7 0EP",
+        "type": "home",
+      },
+      "secondaryAddress": Object {
+        "buildingName": "Larch Cottage",
+        "buildingNumber": "7",
+        "countryId": "",
+        "line1": "Ledburn",
+        "line2": "Leighton Buzzard",
+        "line3": "Buckinghamshire",
+        "line4": "",
+        "postcode": "LU7 0PX",
+        "type": "previous",
+      },
+      "source": Object {
+        "id": "",
+        "type": "",
+      },
+      "surname": "Rees",
+      "title": "Msss",
+      "workPhone": "020 7946 8608",
+    }
+  }
+  disabled={true}
+  initFormValues={Object {}}
+  loading={false}
+  onNextHandler={[MockFunction]}
+  onPrevHandler={[MockFunction]}
+  onSaveHandler={[MockFunction]}
+/>
+`;

@@ -1,0 +1,15 @@
+@import '../base/colors.scss';
+
+.info {
+  border-radius: 0;
+  padding: 1rem;
+  position: relative;
+  background-color: $white;
+  color: $black;
+  border: 1px solid $grey;
+
+  h3 {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}

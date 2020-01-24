@@ -44,6 +44,7 @@ export const renderAddress = ({ row }: RowProps) => {
     buildingNumber,
     line1,
     line2,
+    // @ts-ignore #49 Breaking changes to API
   }))(row?.original?.addresses?.[0] || {})
 
   return (
@@ -58,6 +59,7 @@ export const renderAddress = ({ row }: RowProps) => {
 }
 
 export const renderPostCode = ({ row }: RowProps) => {
+  // @ts-ignore #49 Breaking changes to API
   const postcode = row?.original?.addresses?.[0]?.postcode
   return (
     <div>
@@ -67,9 +69,11 @@ export const renderPostCode = ({ row }: RowProps) => {
 }
 
 export const renderStatus = ({ row }: RowProps) => {
+  // @ts-ignore #49 Breaking changes to API
+  const checkValue = row.original.identityCheck
   return (
     <div>
-      <span className="capitalize">{row.original.identityCheck}</span>
+      <span className="capitalize">{checkValue}</span>
     </div>
   )
 }

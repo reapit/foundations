@@ -1,0 +1,423 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  <div
+    className="pb-4"
+    key="0"
+  >
+    <Tile
+      heading="Personal Details"
+      menu={
+        <div>
+          <div
+            className="undefined undefined"
+          >
+            <FaCheck />
+            <span>
+              Completed
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
+      }
+    >
+      <div
+        className="undefined undefined"
+      >
+        <FaCheck />
+        <span>
+          Completed
+        </span>
+      </div>
+    </Tile>
+  </div>
+  <div
+    className="pb-4"
+    key="1"
+  >
+    <Tile
+      heading="Primary ID"
+      menu={
+        <div>
+          <div
+            className="undefined undefined"
+          >
+            <FaTimes />
+            <span>
+              Incomplete
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
+      }
+    >
+      <div
+        className="undefined undefined"
+      >
+        <FaTimes />
+        <span>
+          Incomplete
+        </span>
+      </div>
+    </Tile>
+  </div>
+  <div
+    className="pb-4"
+    key="2"
+  >
+    <Tile
+      heading="Secondary ID"
+      menu={
+        <div>
+          <div
+            className="undefined undefined"
+          >
+            <FaCheck />
+            <span>
+              Completed
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
+      }
+    >
+      <div
+        className="undefined undefined"
+      >
+        <FaCheck />
+        <span>
+          Completed
+        </span>
+      </div>
+    </Tile>
+  </div>
+  <div
+    className="pb-4"
+    key="3"
+  >
+    <Tile
+      heading="Address Information"
+      menu={
+        <div>
+          <div
+            className="undefined undefined"
+          >
+            <FaTimes />
+            <span>
+              Incomplete
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
+      }
+    >
+      <div
+        className="undefined undefined"
+      >
+        <FaTimes />
+        <span>
+          Incomplete
+        </span>
+      </div>
+    </Tile>
+  </div>
+  <div
+    className="pb-4"
+    key="4"
+  >
+    <Tile
+      heading="Declaration Risk Management"
+      menu={
+        <div>
+          <div
+            className="undefined undefined"
+          >
+            <FaTimes />
+            <span>
+              Incomplete
+            </span>
+          </div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Edit
+          </Button>
+        </div>
+      }
+    >
+      <div
+        className="undefined undefined"
+      >
+        <FaTimes />
+        <span>
+          Incomplete
+        </span>
+      </div>
+    </Tile>
+  </div>
+  <div
+    className="pb-4"
+    key="5"
+  >
+    <Tile
+      heading="Report"
+      menu={
+        <div>
+          <Button
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            View
+          </Button>
+        </div>
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Loader />`;
+
+exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerBasic
+    isScrollable={true}
+  >
+    <div>
+      <FlexContainerResponsive
+        flexColumn={true}
+        hasPadding={true}
+      >
+        <Connect(Component) />
+        <div
+          className="pb-4"
+          key="0"
+        >
+          <Tile
+            heading="Personal Details"
+            menu={
+              <div>
+                <div
+                  className="undefined undefined"
+                >
+                  <FaCheck />
+                  <span>
+                    Completed
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
+            }
+          >
+            <div
+              className="undefined undefined"
+            >
+              <FaCheck />
+              <span>
+                Completed
+              </span>
+            </div>
+          </Tile>
+        </div>
+        <div
+          className="pb-4"
+          key="1"
+        >
+          <Tile
+            heading="Primary ID"
+            menu={
+              <div>
+                <div
+                  className="undefined undefined"
+                >
+                  <FaTimes />
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
+            }
+          >
+            <div
+              className="undefined undefined"
+            >
+              <FaTimes />
+              <span>
+                Incomplete
+              </span>
+            </div>
+          </Tile>
+        </div>
+        <div
+          className="pb-4"
+          key="2"
+        >
+          <Tile
+            heading="Secondary ID"
+            menu={
+              <div>
+                <div
+                  className="undefined undefined"
+                >
+                  <FaCheck />
+                  <span>
+                    Completed
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
+            }
+          >
+            <div
+              className="undefined undefined"
+            >
+              <FaCheck />
+              <span>
+                Completed
+              </span>
+            </div>
+          </Tile>
+        </div>
+        <div
+          className="pb-4"
+          key="3"
+        >
+          <Tile
+            heading="Address Information"
+            menu={
+              <div>
+                <div
+                  className="undefined undefined"
+                >
+                  <FaTimes />
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
+            }
+          >
+            <div
+              className="undefined undefined"
+            >
+              <FaTimes />
+              <span>
+                Incomplete
+              </span>
+            </div>
+          </Tile>
+        </div>
+        <div
+          className="pb-4"
+          key="4"
+        >
+          <Tile
+            heading="Declaration Risk Management"
+            menu={
+              <div>
+                <div
+                  className="undefined undefined"
+                >
+                  <FaTimes />
+                  <span>
+                    Incomplete
+                  </span>
+                </div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  Edit
+                </Button>
+              </div>
+            }
+          >
+            <div
+              className="undefined undefined"
+            >
+              <FaTimes />
+              <span>
+                Incomplete
+              </span>
+            </div>
+          </Tile>
+        </div>
+        <div
+          className="pb-4"
+          key="5"
+        >
+          <Tile
+            heading="Report"
+            menu={
+              <div>
+                <Button
+                  type="button"
+                  variant="primary"
+                >
+                  View
+                </Button>
+              </div>
+            }
+          />
+        </div>
+      </FlexContainerResponsive>
+    </div>
+  </FlexContainerBasic>
+  <withRouter()
+    afterClose={[MockFunction]}
+    id="123"
+    modalContentType="PROFILE"
+    visible={true}
+  />
+</Connect(ErrorBoundary)>
+`;

@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
+<div
+  className="mb-4"
+>
+  <FlexContainerBasic
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <div>
+      <Level>
+        <LevelLeft>
+          <LevelItem>
+            <div>
+              <H3>
+                <AcLink
+                  dynamicLinkParams={
+                    Object {
+                      "appMode": "WEB",
+                      "entityCode": "MKC13000122",
+                      "entityType": "contacts",
+                    }
+                  }
+                >
+                  Msss Holly Rees
+                </AcLink>
+              </H3>
+              <SubTitleH5 />
+            </div>
+          </LevelItem>
+        </LevelLeft>
+        <LevelRight>
+          <LevelItem>
+            <Button
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+              variant="primary"
+            >
+              Update Status
+            </Button>
+          </LevelItem>
+        </LevelRight>
+      </Level>
+      <ProgressBar
+        percentage={40}
+      />
+      <div>
+        2
+        /
+        5
+         
+        <span>
+          Completed
+        </span>
+      </div>
+    </div>
+  </FlexContainerBasic>
+</div>
+`;

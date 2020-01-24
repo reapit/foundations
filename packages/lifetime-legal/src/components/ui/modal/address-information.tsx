@@ -166,12 +166,14 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
     <div>
       <Formik
         initialValues={{
+          // @ts-ignore #49 Breaking changes to API
           addresses: contact.addresses || [],
           metadata: contact.metadata || {},
         }}
         onSubmit={onHandleSubmit}
       >
         {renderForm({
+          // @ts-ignore #49 Breaking changes to API
           addresses: contact.addresses,
           isShowMoreThreeYearInput,
           setShowMoreThreeYearInput,

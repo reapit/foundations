@@ -1,4 +1,5 @@
 import { IdentificationFormValues } from '@/components/ui/forms/identification'
+// @ts-ignore #49 Breaking changes to API
 import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'

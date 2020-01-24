@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "jsx": "react",
+    "types": ["jest", "node", "react"],
+    "typeRoots": ["./src/types/index.d.ts", "./node_modules/@types", "../../node_modules/@types"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/cognito-auth": ["../../node_modules/@reapit/cognito-auth/src"]
+    },
+    "lib": ["es2015", "es2017", "dom", "es5", "es6", "esnext"]
+  },
+  "include": ["src"],
+  "exclude": [
+    "public",
+    "dist",
+    "./webpack.config.js",
+    "node_modules",
+    "src/tests/coverage"
+  ]
+}
