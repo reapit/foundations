@@ -7,7 +7,7 @@ import styles from '@/styles/pages/checklist-detail.scss?mod'
 export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentModel = {
   typeId: '',
   details: '',
-  expiry: ''
+  expiry: '',
 }
 
 export type IdentificationProps = {
@@ -21,7 +21,7 @@ export type IdentificationProps = {
 }
 
 export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandler, disabled = false }) => ({
-  values
+  values,
 }) => {
   const id = contact?.id || ''
   return (
@@ -70,7 +70,7 @@ export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandl
 }
 
 export const onSubmitHandler = (onSaveHandler: (formValues: IdentityDocumentModel) => void) => (
-  formValues: IdentityDocumentModel
+  formValues: IdentityDocumentModel,
 ) => onSaveHandler(formValues)
 
 export const Identification: React.FC<IdentificationProps> = ({
@@ -80,7 +80,7 @@ export const Identification: React.FC<IdentificationProps> = ({
   initFormValues,
   onSaveHandler,
   onNextHandler,
-  onPrevHandler
+  onPrevHandler,
 }) => (
   <Formik initialValues={initFormValues} onSubmit={onSubmitHandler(onSaveHandler)}>
     {renderFormHandler({ contact, loading, onNextHandler, onPrevHandler, disabled })}

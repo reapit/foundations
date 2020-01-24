@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import { toUTCTime, toLocalTime, DATE_TIME_FORMAT } from '@reapit/elements'
+// @ts-ignore #49 Breaking changes to API
 import { ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
 
 /**

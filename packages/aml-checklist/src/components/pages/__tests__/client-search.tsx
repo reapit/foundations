@@ -7,7 +7,7 @@ import {
   renderForm,
   mapStateToProps,
   mapDispatchToProps,
-  searchContacts
+  searchContacts,
 } from '../client-search'
 import { LoginMode } from '@reapit/cognito-auth'
 import { ReduxState } from '@/types/core'
@@ -16,7 +16,7 @@ import Routes from '@/constants/routes'
 const props: ClientSearchProps = {
   setSearchParams: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
-  history: {}
+  history: {},
 }
 
 describe('ClientSearch', () => {
@@ -26,7 +26,7 @@ describe('ClientSearch', () => {
 
   it('renderForm should match a snapshot when loginMode is DESKTOP', () => {
     const mockProps = {
-      loginMode: 'DESKTOP' as LoginMode
+      loginMode: 'DESKTOP' as LoginMode,
     }
     const fn = renderForm(mockProps)({ values: {} })
     expect(fn).toMatchSnapshot()
@@ -34,7 +34,7 @@ describe('ClientSearch', () => {
 
   it('renderForm should match a snapshot when loginMode is WEB', () => {
     const mockProps = {
-      loginMode: 'WEB' as LoginMode
+      loginMode: 'WEB' as LoginMode,
     }
     const fn = renderForm(mockProps)({ values: {} })
     expect(fn).toMatchSnapshot()
@@ -44,8 +44,8 @@ describe('ClientSearch', () => {
     const mockProps = {
       setSearchParams: jest.fn(),
       history: {
-        push: jest.fn()
-      }
+        push: jest.fn(),
+      },
     }
     const mockValues = { values: {} }
     const fn = searchContacts(mockProps)
@@ -59,19 +59,19 @@ describe('ClientSearch', () => {
       // @ts-ignore: only pick necessary props
       const mockState = {
         auth: {
-          refreshSession: {}
-        }
+          refreshSession: {},
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        loginMode: 'WEB'
+        loginMode: 'WEB',
       })
     })
     it('should run correctly', () => {
       const mockState = {} as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        loginMode: 'WEB'
+        loginMode: 'WEB',
       })
     })
   })

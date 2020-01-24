@@ -4,7 +4,7 @@ import { ListItemModel } from '@reapit/foundations-ts-definitions'
 import {
   identityTypesRequestFailure,
   identityTypesRequestData,
-  identityTypesReceiveData
+  identityTypesReceiveData,
 } from '../actions/identity-types'
 
 export interface IdentityTypesState {
@@ -14,14 +14,14 @@ export interface IdentityTypesState {
 
 export const defaultState: IdentityTypesState = {
   loading: false,
-  identityTypes: []
+  identityTypes: [],
 }
 
 const identityTypesReducer = (state: IdentityTypesState = defaultState, action: Action<any>): IdentityTypesState => {
   if (isType(action, identityTypesRequestData)) {
     return {
       ...state,
-      loading: true
+      loading: true,
     }
   }
 
@@ -29,14 +29,14 @@ const identityTypesReducer = (state: IdentityTypesState = defaultState, action: 
     return {
       ...state,
       loading: false,
-      identityTypes: action.data || []
+      identityTypes: action.data || [],
     }
   }
 
   if (isType(action, identityTypesRequestFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 

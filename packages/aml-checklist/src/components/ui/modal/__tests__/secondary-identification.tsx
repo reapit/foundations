@@ -14,7 +14,7 @@ describe('SecondaryIdentification', () => {
         idCheck: idCheck,
         updateIdentification: jest.fn(),
         onNextHandler: jest.fn(),
-        onPrevHandler: jest.fn()
+        onPrevHandler: jest.fn(),
       }
       const wrapper = shallow(<SecondaryIdentification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -29,9 +29,9 @@ describe('SecondaryIdentification', () => {
           isSubmitting: false,
           checklistDetailData: {
             contact,
-            idCheck
-          }
-        }
+            idCheck,
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       const { typeId, expiry, details } = idCheck.document2
@@ -42,8 +42,8 @@ describe('SecondaryIdentification', () => {
         initFormValues: {
           typeId,
           details,
-          expiry: new Date(expiry)
-        }
+          expiry: new Date(expiry),
+        },
       }
       expect(result).toEqual(expected)
     })
@@ -60,8 +60,8 @@ describe('SecondaryIdentification', () => {
           details: '',
           expiry: '',
           fileUrl: undefined,
-          typeId: ''
-        }
+          typeId: '',
+        },
       }
       expect(result).toEqual(expected)
     })

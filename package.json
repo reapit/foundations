@@ -14,7 +14,7 @@
     "@commitlint/config-conventional": "^8.2.0",
     "@octokit/rest": "^16.38.1",
     "@reapit/config-manager": "^1.1.0",
-    "@reapit/foundations-ts-definitions": "^0.0.4",
+    "@reapit/foundations-ts-definitions": "^0.0.18",
     "@redux-saga/testing-utils": "^1.0.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

@@ -12,7 +12,7 @@ export const contacts = {
       marketingConsent: 'deny',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '',
       workPhone: '',
@@ -27,22 +27,22 @@ export const contacts = {
         line3: '',
         line4: '',
         postcode: 'MK3 7QN',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['MKC', 'RPT'],
       negotiatorIds: ['HJA'],
       metadata: {},
       _links: {
         self: {
-          href: '/contacts/MKC19000013'
+          href: '/contacts/MKC19000013',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC19000013'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC19000013',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC19000013'
-        }
-      }
+          href: '/identityChecks/?ContactId=MKC19000013',
+        },
+      },
     },
     {
       id: 'BED16000182',
@@ -54,7 +54,7 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 963892',
       workPhone: '020 7946 3892',
@@ -69,21 +69,21 @@ export const contacts = {
         line3: '',
         line4: '',
         postcode: 'SG5 3FL',
-        countryId: ''
+        countryId: '',
       },
       officeIds: ['BED'],
       negotiatorIds: ['JWB'],
       _links: {
         self: {
-          href: '/contacts/BED16000182'
+          href: '/contacts/BED16000182',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED16000182'
+          href: '/documents/?OwnerType=contact&OwnerId=BED16000182',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED16000182'
-        }
-      }
+          href: '/identityChecks/?ContactId=BED16000182',
+        },
+      },
     },
     {
       id: 'MKC16000060',
@@ -96,7 +96,7 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 969167',
       workPhone: '020 7946 9167',
@@ -111,21 +111,21 @@ export const contacts = {
         line3: 'Milton Keynes',
         line4: 'Buckinghamshire',
         postcode: 'MK17 8GJ',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['MKC'],
       negotiatorIds: ['GEC'],
       _links: {
         self: {
-          href: '/contacts/MKC16000060'
+          href: '/contacts/MKC16000060',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC16000060'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC16000060',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC16000060'
-        }
-      }
+          href: '/identityChecks/?ContactId=MKC16000060',
+        },
+      },
     },
     {
       id: 'BED16000099',
@@ -137,7 +137,7 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 962097',
       workPhone: '020 7946 2097',
@@ -152,21 +152,21 @@ export const contacts = {
         line3: 'Bedford',
         line4: 'Bedfordshire',
         postcode: 'MK43 7RJ',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['BED'],
       negotiatorIds: ['SLB'],
       _links: {
         self: {
-          href: '/contacts/BED16000099'
+          href: '/contacts/BED16000099',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED16000099'
+          href: '/documents/?OwnerType=contact&OwnerId=BED16000099',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED16000099'
-        }
-      }
+          href: '/identityChecks/?ContactId=BED16000099',
+        },
+      },
     },
     {
       id: 'MKC16000011',
@@ -178,7 +178,7 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 965040',
       workPhone: '020 7946 5040',
@@ -193,21 +193,21 @@ export const contacts = {
         line3: 'Milton Keynes',
         line4: 'Buckinghamshire',
         postcode: 'MK15 9JA',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['MKC'],
       negotiatorIds: ['RMK'],
       _links: {
         self: {
-          href: '/contacts/MKC16000011'
+          href: '/contacts/MKC16000011',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC16000011'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC16000011',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC16000011'
-        }
-      }
+          href: '/identityChecks/?ContactId=MKC16000011',
+        },
+      },
     },
     {
       id: 'MKC15000909',
@@ -219,7 +219,7 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 962222',
       workPhone: '020 7946 2222',
@@ -234,21 +234,21 @@ export const contacts = {
         line3: 'Milton Keynes',
         line4: 'Buckinghamshire',
         postcode: 'MK4 2EE',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['MKC'],
       negotiatorIds: ['GEC'],
       _links: {
         self: {
-          href: '/contacts/MKC15000909'
+          href: '/contacts/MKC15000909',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC15000909'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC15000909',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC15000909'
-        }
-      }
+          href: '/identityChecks/?ContactId=MKC15000909',
+        },
+      },
     },
     {
       id: 'BUC15000679',
@@ -261,7 +261,7 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 969317',
       workPhone: '020 7946 9317',
@@ -276,21 +276,21 @@ export const contacts = {
         line3: 'Milton Keynes',
         line4: 'Buckinghamshire',
         postcode: 'MK17 0HD',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['BUC'],
       negotiatorIds: ['FHA'],
       _links: {
         self: {
-          href: '/contacts/BUC15000679'
+          href: '/contacts/BUC15000679',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BUC15000679'
+          href: '/documents/?OwnerType=contact&OwnerId=BUC15000679',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BUC15000679'
-        }
-      }
+          href: '/identityChecks/?ContactId=BUC15000679',
+        },
+      },
     },
     {
       id: 'BED15002235',
@@ -303,7 +303,7 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 966385',
       workPhone: '020 7946 6385',
@@ -318,21 +318,21 @@ export const contacts = {
         line3: 'Bedfordshire',
         line4: '',
         postcode: 'SG18 8DZ',
-        countryId: ''
+        countryId: '',
       },
       officeIds: ['BED'],
       negotiatorIds: ['JWB'],
       _links: {
         self: {
-          href: '/contacts/BED15002235'
+          href: '/contacts/BED15002235',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED15002235'
+          href: '/documents/?OwnerType=contact&OwnerId=BED15002235',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED15002235'
-        }
-      }
+          href: '/identityChecks/?ContactId=BED15002235',
+        },
+      },
     },
     {
       id: 'BED15002208',
@@ -345,7 +345,7 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 961651',
       workPhone: '020 7946 1651',
@@ -360,21 +360,21 @@ export const contacts = {
         line3: 'Bedfordshire',
         line4: '',
         postcode: 'MK41 7DH',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['BED'],
       negotiatorIds: ['SLB'],
       _links: {
         self: {
-          href: '/contacts/BED15002208'
+          href: '/contacts/BED15002208',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED15002208'
+          href: '/documents/?OwnerType=contact&OwnerId=BED15002208',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED15002208'
-        }
-      }
+          href: '/identityChecks/?ContactId=BED15002208',
+        },
+      },
     },
     {
       id: 'BED15001889',
@@ -386,7 +386,7 @@ export const contacts = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 969316',
       workPhone: '020 7946 9316',
@@ -401,22 +401,22 @@ export const contacts = {
         line3: 'Bedfordshire',
         line4: '',
         postcode: 'MK40 3DG',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['BED'],
       negotiatorIds: ['JWB'],
       _links: {
         self: {
-          href: '/contacts/BED15001889'
+          href: '/contacts/BED15001889',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED15001889'
+          href: '/documents/?OwnerType=contact&OwnerId=BED15001889',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED15001889'
-        }
-      }
-    }
+          href: '/identityChecks/?ContactId=BED15001889',
+        },
+      },
+    },
   ],
   pageNumber: 1,
   pageSize: 10,
@@ -424,18 +424,18 @@ export const contacts = {
   totalCount: 26,
   _links: {
     self: {
-      href: '/contacts/?PageNumber=1&PageSize=10&name=Dan'
+      href: '/contacts/?PageNumber=1&PageSize=10&name=Dan',
     },
     first: {
-      href: '/contacts/?PageNumber=1&PageSize=10&name=Dan'
+      href: '/contacts/?PageNumber=1&PageSize=10&name=Dan',
     },
     next: {
-      href: '/contacts/?PageNumber=2&PageSize=10&name=Dan'
+      href: '/contacts/?PageNumber=2&PageSize=10&name=Dan',
     },
     last: {
-      href: '/contacts/?PageNumber=3&PageSize=10&name=Dan'
-    }
-  }
+      href: '/contacts/?PageNumber=3&PageSize=10&name=Dan',
+    },
+  },
 }
 
 export const responseContactsWithStatus = {
@@ -453,7 +453,7 @@ export const responseContactsWithStatus = {
       marketingConsent: 'deny',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '',
       workPhone: '',
@@ -468,22 +468,22 @@ export const responseContactsWithStatus = {
         line3: '',
         line4: '',
         postcode: 'MK3 7QN',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['MKC', 'RPT'],
       negotiatorIds: ['HJA'],
       metadata: {},
       _links: {
         self: {
-          href: '/contacts/MKC19000013'
+          href: '/contacts/MKC19000013',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC19000013'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC19000013',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC19000013'
-        }
-      }
+          href: '/identityChecks/?ContactId=MKC19000013',
+        },
+      },
     },
     {
       id: 'BED16000182',
@@ -496,7 +496,7 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 963892',
       workPhone: '020 7946 3892',
@@ -511,21 +511,21 @@ export const responseContactsWithStatus = {
         line3: '',
         line4: '',
         postcode: 'SG5 3FL',
-        countryId: ''
+        countryId: '',
       },
       officeIds: ['BED'],
       negotiatorIds: ['JWB'],
       _links: {
         self: {
-          href: '/contacts/BED16000182'
+          href: '/contacts/BED16000182',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED16000182'
+          href: '/documents/?OwnerType=contact&OwnerId=BED16000182',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED16000182'
-        }
-      }
+          href: '/identityChecks/?ContactId=BED16000182',
+        },
+      },
     },
     {
       id: 'MKC16000060',
@@ -539,7 +539,7 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 969167',
       workPhone: '020 7946 9167',
@@ -554,21 +554,21 @@ export const responseContactsWithStatus = {
         line3: 'Milton Keynes',
         line4: 'Buckinghamshire',
         postcode: 'MK17 8GJ',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['MKC'],
       negotiatorIds: ['GEC'],
       _links: {
         self: {
-          href: '/contacts/MKC16000060'
+          href: '/contacts/MKC16000060',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC16000060'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC16000060',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC16000060'
-        }
-      }
+          href: '/identityChecks/?ContactId=MKC16000060',
+        },
+      },
     },
     {
       id: 'BED16000099',
@@ -581,7 +581,7 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 962097',
       workPhone: '020 7946 2097',
@@ -596,21 +596,21 @@ export const responseContactsWithStatus = {
         line3: 'Bedford',
         line4: 'Bedfordshire',
         postcode: 'MK43 7RJ',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['BED'],
       negotiatorIds: ['SLB'],
       _links: {
         self: {
-          href: '/contacts/BED16000099'
+          href: '/contacts/BED16000099',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED16000099'
+          href: '/documents/?OwnerType=contact&OwnerId=BED16000099',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED16000099'
-        }
-      }
+          href: '/identityChecks/?ContactId=BED16000099',
+        },
+      },
     },
     {
       id: 'MKC16000011',
@@ -623,7 +623,7 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 965040',
       workPhone: '020 7946 5040',
@@ -638,21 +638,21 @@ export const responseContactsWithStatus = {
         line3: 'Milton Keynes',
         line4: 'Buckinghamshire',
         postcode: 'MK15 9JA',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['MKC'],
       negotiatorIds: ['RMK'],
       _links: {
         self: {
-          href: '/contacts/MKC16000011'
+          href: '/contacts/MKC16000011',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC16000011'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC16000011',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC16000011'
-        }
-      }
+          href: '/identityChecks/?ContactId=MKC16000011',
+        },
+      },
     },
     {
       id: 'MKC15000909',
@@ -665,7 +665,7 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 962222',
       workPhone: '020 7946 2222',
@@ -680,21 +680,21 @@ export const responseContactsWithStatus = {
         line3: 'Milton Keynes',
         line4: 'Buckinghamshire',
         postcode: 'MK4 2EE',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['MKC'],
       negotiatorIds: ['GEC'],
       _links: {
         self: {
-          href: '/contacts/MKC15000909'
+          href: '/contacts/MKC15000909',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=MKC15000909'
+          href: '/documents/?OwnerType=contact&OwnerId=MKC15000909',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=MKC15000909'
-        }
-      }
+          href: '/identityChecks/?ContactId=MKC15000909',
+        },
+      },
     },
     {
       id: 'BUC15000679',
@@ -708,7 +708,7 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 969317',
       workPhone: '020 7946 9317',
@@ -723,21 +723,21 @@ export const responseContactsWithStatus = {
         line3: 'Milton Keynes',
         line4: 'Buckinghamshire',
         postcode: 'MK17 0HD',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['BUC'],
       negotiatorIds: ['FHA'],
       _links: {
         self: {
-          href: '/contacts/BUC15000679'
+          href: '/contacts/BUC15000679',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BUC15000679'
+          href: '/documents/?OwnerType=contact&OwnerId=BUC15000679',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BUC15000679'
-        }
-      }
+          href: '/identityChecks/?ContactId=BUC15000679',
+        },
+      },
     },
     {
       id: 'BED15002235',
@@ -751,7 +751,7 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 966385',
       workPhone: '020 7946 6385',
@@ -766,21 +766,21 @@ export const responseContactsWithStatus = {
         line3: 'Bedfordshire',
         line4: '',
         postcode: 'SG18 8DZ',
-        countryId: ''
+        countryId: '',
       },
       officeIds: ['BED'],
       negotiatorIds: ['JWB'],
       _links: {
         self: {
-          href: '/contacts/BED15002235'
+          href: '/contacts/BED15002235',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED15002235'
+          href: '/documents/?OwnerType=contact&OwnerId=BED15002235',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED15002235'
-        }
-      }
+          href: '/identityChecks/?ContactId=BED15002235',
+        },
+      },
     },
     {
       id: 'BED15002208',
@@ -794,7 +794,7 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 961651',
       workPhone: '020 7946 1651',
@@ -809,21 +809,21 @@ export const responseContactsWithStatus = {
         line3: 'Bedfordshire',
         line4: '',
         postcode: 'MK41 7DH',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['BED'],
       negotiatorIds: ['SLB'],
       _links: {
         self: {
-          href: '/contacts/BED15002208'
+          href: '/contacts/BED15002208',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED15002208'
+          href: '/documents/?OwnerType=contact&OwnerId=BED15002208',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED15002208'
-        }
-      }
+          href: '/identityChecks/?ContactId=BED15002208',
+        },
+      },
     },
     {
       id: 'BED15001889',
@@ -837,7 +837,7 @@ export const responseContactsWithStatus = {
       marketingConsent: 'notAsked',
       source: {
         id: '',
-        type: ''
+        type: '',
       },
       homePhone: '01632 969316',
       workPhone: '020 7946 9316',
@@ -852,22 +852,22 @@ export const responseContactsWithStatus = {
         line3: 'Bedfordshire',
         line4: '',
         postcode: 'MK40 3DG',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       officeIds: ['BED'],
       negotiatorIds: ['JWB'],
       _links: {
         self: {
-          href: '/contacts/BED15001889'
+          href: '/contacts/BED15001889',
         },
         documents: {
-          href: '/documents/?OwnerType=contact&OwnerId=BED15001889'
+          href: '/documents/?OwnerType=contact&OwnerId=BED15001889',
         },
         identityChecks: {
-          href: '/identityChecks/?ContactId=BED15001889'
-        }
-      }
-    }
+          href: '/identityChecks/?ContactId=BED15001889',
+        },
+      },
+    },
   ],
   pageNumber: 1,
   pageSize: 10,
@@ -875,16 +875,16 @@ export const responseContactsWithStatus = {
   totalCount: 26,
   _links: {
     self: {
-      href: '/contacts/?PageNumber=1&PageSize=10&name=Dan'
+      href: '/contacts/?PageNumber=1&PageSize=10&name=Dan',
     },
     first: {
-      href: '/contacts/?PageNumber=1&PageSize=10&name=Dan'
+      href: '/contacts/?PageNumber=1&PageSize=10&name=Dan',
     },
     next: {
-      href: '/contacts/?PageNumber=2&PageSize=10&name=Dan'
+      href: '/contacts/?PageNumber=2&PageSize=10&name=Dan',
     },
     last: {
-      href: '/contacts/?PageNumber=3&PageSize=10&name=Dan'
-    }
-  }
+      href: '/contacts/?PageNumber=3&PageSize=10&name=Dan',
+    },
+  },
 }

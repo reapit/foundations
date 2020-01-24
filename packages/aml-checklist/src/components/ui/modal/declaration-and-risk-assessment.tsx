@@ -13,7 +13,7 @@ const optionsRiskAssessmentType = [
   { label: 'Please select...', value: '' },
   { label: RISK_ASSESSMENT_TYPE.SIMPLIFIED, value: RISK_ASSESSMENT_TYPE.SIMPLIFIED },
   { label: RISK_ASSESSMENT_TYPE.NORMAL, value: RISK_ASSESSMENT_TYPE.NORMAL },
-  { label: RISK_ASSESSMENT_TYPE.ENHANCED, value: RISK_ASSESSMENT_TYPE.ENHANCED }
+  { label: RISK_ASSESSMENT_TYPE.ENHANCED, value: RISK_ASSESSMENT_TYPE.ENHANCED },
 ]
 
 export const renderForm = ({ onNextHandler, onPrevHandler, isSubmitting }) => ({ values }) => {
@@ -76,19 +76,19 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
   onNextHandler,
   onPrevHandler,
   onHandleSubmit,
-  isSubmitting
+  isSubmitting,
 }) => {
   const metadata = contact?.metadata || {
     declarationRisk: {
       type: '',
-      reason: ''
-    }
+      reason: '',
+    },
   }
   const initialValues = React.useMemo(
     () => ({
-      metadata
+      metadata,
     }),
-    [contact]
+    [contact],
   )
   return (
     <div>
@@ -96,7 +96,7 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
         {renderForm({
           onNextHandler,
           onPrevHandler,
-          isSubmitting
+          isSubmitting,
         })}
       </Formik>
     </div>
@@ -106,7 +106,7 @@ export const DeclarationAndRiskAssessment: React.FC<DeclarationAndRiskAssessment
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: state?.checklistDetail?.isSubmitting || false,
-    contact: state?.checklistDetail?.checklistDetailData?.contact || {}
+    contact: state?.checklistDetail?.checklistDetailData?.contact || {},
   }
 }
 
@@ -129,13 +129,13 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onHandleSubmit: values => dispatch(updateDeclarationAndRisk({ contact: values })),
     onNextHandler: (values: any) => () => dispatch(updateDeclarationAndRisk({ contact: values })),
-    onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.ADDRESS_INFORMATION))
+    onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.ADDRESS_INFORMATION)),
   }
 }
 
 export const DeclarationAndRiskAssessmentWithRedux = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(DeclarationAndRiskAssessment)
 
 DeclarationAndRiskAssessmentWithRedux.displayName = 'DeclarationAndRiskAssessmentWithReduxWithRedux'

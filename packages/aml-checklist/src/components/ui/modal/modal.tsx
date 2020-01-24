@@ -19,12 +19,12 @@ export const STEPS = {
   REPORT: 'Report',
   DECLARATION_RISK_MANAGEMENT: 'Declaration Risk Management',
   EXPERIAN: 'Experian',
-  PEP_SEARCH: 'PEP Search'
+  PEP_SEARCH: 'PEP Search',
 }
 
 export const ID_STATUS = {
   UPDATE: 'Update Status',
-  SUCCESS: 'Update Status Success'
+  SUCCESS: 'Update Status Success',
 }
 
 export type ProfileModalProps = {
@@ -71,7 +71,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
   visible,
   afterClose,
   modalContentType = STEPS.PROFILE,
-  history
+  history,
 }) => {
   return (
     <Modal title={modalContentType} visible={visible} size="medium" afterClose={afterClose}>

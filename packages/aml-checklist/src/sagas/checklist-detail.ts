@@ -15,7 +15,7 @@ import {
   checklistDetailShowModal,
   checklistDetailHideModal,
   UpdateContactParams,
-  UpdateIdentityCheckParams
+  UpdateIdentityCheckParams,
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
 import { ContactModel, ContactAddressModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
@@ -32,7 +32,7 @@ export const fetchChecklist = async ({ id, headers }) => {
       url: `${URLS.contacts}/${id}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers
+      headers: headers,
     })
     return response
   } catch (err) {
@@ -47,13 +47,13 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
       url: `${URLS.idChecks}?ContactId=${contactId}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers
+      headers: headers,
     })
     const newResponse = {
       ...response,
       _embedded: response?._embedded.map(identityCheck => {
         return changeTimeZoneLocalForIdentityCheck(identityCheck)
-      })
+      }),
     }
     return newResponse?._embedded?.[0] || null
   } catch (err) {
@@ -69,7 +69,7 @@ export const updateChecklist = async ({ contact, headers }) => {
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
       headers: headers,
-      body: contact
+      body: contact,
     })
     return response
   } catch (err) {
@@ -87,8 +87,8 @@ export const uploadImage = async ({ name, imageData, headers }) => {
       headers: headers,
       body: {
         name,
-        imageData
-      }
+        imageData,
+      },
     })
     return response
   } catch (err) {
@@ -105,7 +105,7 @@ export const updateIdentityCheck = async ({ identityChecks, headers }) => {
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
       headers: headers,
-      body: formatedIdentityChecks
+      body: formatedIdentityChecks,
     })
     return response
   } catch (err) {
@@ -122,7 +122,7 @@ export const createIdentityCheck = async ({ identityChecks, headers }) => {
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'POST',
       headers: headers,
-      body: formatedIdentityChecks
+      body: formatedIdentityChecks,
     })
     return response
   } catch (err) {
@@ -142,7 +142,7 @@ export const mapArrAddressToUploadImageFunc = ({ primaryAddress, secondaryAddres
     return uploadImage({
       headers,
       name: `${address.type}-${address.buildingNumber}-${address.buildingName}-${address.postcode}`,
-      imageData: addressesMeta[index].documentImage
+      imageData: addressesMeta[index].documentImage,
     })
   })
 }
@@ -159,7 +159,7 @@ export const mapAddressToMetaData = ({ addressesMeta, responseUpload }) => {
           : addressMeta.documentImage,
       year: addressMeta.year,
       month: addressMeta.month,
-      documentType: addressMeta.documentType
+      documentType: addressMeta.documentType,
     }
   })
 }
@@ -170,7 +170,7 @@ export const fetchInitialData = function*({ data: id }) {
   try {
     const [contact, identityChecks] = yield all([
       call(fetchChecklist, { id, headers }),
-      call(fetchIdentityCheck, { contactId: id, headers })
+      call(fetchIdentityCheck, { contactId: id, headers }),
     ])
     yield put(checklistDetailReceiveContact(contact))
     yield put(checklistDetailReceiveIdentityCheck(identityChecks))
@@ -178,8 +178,8 @@ export const fetchInitialData = function*({ data: id }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   } finally {
     yield put(checklistDetailLoading(false))
@@ -193,8 +193,8 @@ export type OnUpdateChecklistParams = {
 export const onUpdateChecklist = function*({
   data: {
     nextSection,
-    contact: { metadata, ...rest }
-  }
+    contact: { metadata, ...rest },
+  },
 }: OnUpdateChecklistParams) {
   yield put(checklistDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
@@ -216,8 +216,8 @@ export const onUpdateChecklist = function*({
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -231,8 +231,8 @@ export type OnUpdateAddressHistoryParams = {
 export const onUpdateAddressHistory = function*({
   data: {
     nextSection,
-    contact: { primaryAddress, secondaryAddress, metadata }
-  }
+    contact: { primaryAddress, secondaryAddress, metadata },
+  },
 }: OnUpdateAddressHistoryParams) {
   yield put(checklistDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
@@ -248,8 +248,8 @@ export const onUpdateAddressHistory = function*({
       secondaryAddress,
       metadata: {
         ...currentContact.metadata,
-        addresses: addressMeta
-      }
+        addresses: addressMeta,
+      },
     }
     const responseUpdate = yield call(updateChecklist, { contact: newContact, headers })
     if (responseUpdate) {
@@ -266,8 +266,8 @@ export const onUpdateAddressHistory = function*({
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -281,8 +281,8 @@ export type OnUpdateDeclarationAndRisk = {
 export const onUpdateDeclarationAndRisk = function*({
   data: {
     nextSection,
-    contact: { metadata }
-  }
+    contact: { metadata },
+  },
 }: OnUpdateDeclarationAndRisk) {
   yield put(checklistDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
@@ -295,7 +295,7 @@ export const onUpdateDeclarationAndRisk = function*({
         : null,
       isBase64(riskAssessmentForm)
         ? call(uploadImage, { headers, name: `riskAssessment-${type}-${reason}`, imageData: riskAssessmentForm })
-        : null
+        : null,
     ])
 
     const newContact = {
@@ -306,9 +306,9 @@ export const onUpdateDeclarationAndRisk = function*({
           reason,
           type,
           declarationForm: (declarationResponse && declarationResponse.Url) || declarationForm,
-          riskAssessmentForm: (riskAssessmentResponse && riskAssessmentResponse.Url) || riskAssessmentForm
-        }
-      }
+          riskAssessmentForm: (riskAssessmentResponse && riskAssessmentResponse.Url) || riskAssessmentForm,
+        },
+      },
     }
 
     const responseUpdate = yield call(updateChecklist, { headers, contact: newContact })
@@ -326,8 +326,8 @@ export const onUpdateDeclarationAndRisk = function*({
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -368,8 +368,8 @@ export const pepSearch = function*({ data }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   } finally {
     yield put(checklistDetailSubmitForm(false))
@@ -381,7 +381,7 @@ export type FileUploaderResponse = {
 }
 
 export const updateSecondaryId = function*({
-  data: { nextSection, identityChecks }
+  data: { nextSection, identityChecks },
 }: Action<UpdateIdentityCheckParams>) {
   yield put(checklistDetailSubmitForm(true))
 
@@ -394,7 +394,7 @@ export const updateSecondaryId = function*({
       ? yield call(uploadImage, {
           headers,
           name: `${contact.id}-${identityChecks.details}`,
-          imageData: secondaryIdUrl
+          imageData: secondaryIdUrl,
         })
       : null
 
@@ -405,10 +405,10 @@ export const updateSecondaryId = function*({
     const baseValues = {
       metadata: {
         primaryIdUrl: currentPrimaryIdUrl,
-        secondaryIdUrl: uploaderDocument ? uploaderDocument.Url : secondaryIdUrl
+        secondaryIdUrl: uploaderDocument ? uploaderDocument.Url : secondaryIdUrl,
       },
       document1,
-      document2
+      document2,
     } as IdentityCheckModel
 
     if (idCheck) {
@@ -416,8 +416,8 @@ export const updateSecondaryId = function*({
         headers,
         identityChecks: {
           ...idCheck,
-          ...baseValues
-        }
+          ...baseValues,
+        },
       })
     } else {
       yield call(createIdentityCheck, {
@@ -429,8 +429,8 @@ export const updateSecondaryId = function*({
           checkDate: dayjs()
             .startOf('day')
             .format('YYYY-MM-DDTHH:mm:ss'),
-          negotiatorId: selectUserCode(store.state)
-        }
+          negotiatorId: selectUserCode(store.state),
+        },
       })
     }
     const responseIdentityCheck = yield call(fetchIdentityCheck, { contactId: contact.id, headers })
@@ -445,7 +445,7 @@ export const updateSecondaryId = function*({
   } catch (err) {
     const result: ErrorData = {
       type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR
+      message: errorMessages.DEFAULT_SERVER_ERROR,
     }
     yield put(errorThrownServer(result))
   } finally {
@@ -465,7 +465,7 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
       ? yield call(uploadImage, {
           headers,
           name: `${contact.id}-${identityChecks.details}`,
-          imageData: primaryIdUrl
+          imageData: primaryIdUrl,
         })
       : null
 
@@ -476,10 +476,10 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
     const baseValues = {
       metadata: {
         primaryIdUrl: uploaderDocument ? uploaderDocument.Url : primaryIdUrl,
-        secondaryIdUrl: currentSecondaryIdUrl
+        secondaryIdUrl: currentSecondaryIdUrl,
       },
       document1,
-      document2
+      document2,
     } as IdentityCheckModel
 
     if (idCheck) {
@@ -487,8 +487,8 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
         headers,
         identityChecks: {
           ...idCheck,
-          ...baseValues
-        }
+          ...baseValues,
+        },
       })
     } else {
       yield call(createIdentityCheck, {
@@ -500,8 +500,8 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
           checkDate: dayjs()
             .startOf('day')
             .format('YYYY-MM-DDTHH:mm:ss'),
-          negotiatorId: selectUserCode(store.state)
-        }
+          negotiatorId: selectUserCode(store.state),
+        },
       })
     }
     const responseIdentityCheck = yield call(fetchIdentityCheck, { contactId: contact.id, headers })
@@ -516,7 +516,7 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
   } catch (err) {
     const result: ErrorData = {
       type: 'SERVER',
-      message: errorMessages.DEFAULT_SERVER_ERROR
+      message: errorMessages.DEFAULT_SERVER_ERROR,
     }
     yield put(errorThrownServer(result))
   } finally {
@@ -533,7 +533,7 @@ export const updateChecklistListen = function*() {
 }
 
 export const updateIdentityCheckStatus = function*({
-  data: { idCheck, dynamicLinkParams }
+  data: { idCheck, dynamicLinkParams },
 }: Action<{
   idCheck: IdentityCheckModel
   dynamicLinkParams: DynamicLinkParams
@@ -545,11 +545,11 @@ export const updateIdentityCheckStatus = function*({
   if (idCheck) {
     const newIdCheck = {
       ...existingIdCheck,
-      ...idCheck
+      ...idCheck,
     }
     const responseIdentityCheck = yield call(updateIdentityCheck, {
       headers,
-      identityChecks: newIdCheck
+      identityChecks: newIdCheck,
     })
     if (responseIdentityCheck) {
       yield put(checklistDetailReceiveIdentityCheck(newIdCheck))
@@ -565,14 +565,14 @@ export const updateIdentityCheckStatus = function*({
 export const updateAddressHistoryListen = function*() {
   yield takeLatest<Action<UpdateContactParams>>(
     ActionTypes.CHECKLIST_DETAIL_ADDRESS_UPDATE_DATA,
-    onUpdateAddressHistory
+    onUpdateAddressHistory,
   )
 }
 
 export const checkListDetailDeclarationAndRiskUpdateListen = function*() {
   yield takeLatest<Action<UpdateContactParams>>(
     ActionTypes.CHECKLIST_DETAIL_DECLARATION_AND_RISK_UPDATE_DATA,
-    onUpdateDeclarationAndRisk
+    onUpdateDeclarationAndRisk,
   )
 }
 
@@ -583,14 +583,14 @@ export const checkListDetailPepSearchListen = function*() {
 export const updatePrimaryIdListen = function*() {
   yield takeLatest<Action<UpdateIdentityCheckParams>>(
     ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA,
-    updatePrimaryId
+    updatePrimaryId,
   )
 }
 
 export const updateSecondaryIdListen = function*() {
   yield takeLatest<Action<UpdateIdentityCheckParams>>(
     ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA,
-    updateSecondaryId
+    updateSecondaryId,
   )
 }
 
@@ -612,7 +612,7 @@ export const checklistDetailSagas = function*() {
     fork(checkListDetailPepSearchListen),
     fork(updatePrimaryIdListen),
     fork(updateSecondaryIdListen),
-    fork(updateIdentityCheckStatusListen)
+    fork(updateIdentityCheckStatusListen),
   ])
 }
 

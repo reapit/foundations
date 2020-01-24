@@ -1,7 +1,7 @@
 import checklistReducer, {
   defaultState,
   updateCheckListDetailFormStatus,
-  ChecklistDetailState
+  ChecklistDetailState,
 } from '../checklist-detail'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
@@ -16,11 +16,11 @@ describe('home reducer', () => {
   it('should set loading to true when CHECKLIST_DETAIL_LOADING action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_LOADING as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -28,7 +28,7 @@ describe('home reducer', () => {
   it('should set approvals list data when CHECKLIST_DETAIL_RECEIVE_CONTACT action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT as ActionType,
-      data: contact
+      data: contact,
     })
 
     const expected = {
@@ -36,9 +36,9 @@ describe('home reducer', () => {
       loading: false,
       checklistDetailData: {
         contact: contact,
-        idCheck: null
+        idCheck: null,
       },
-      status: updateCheckListDetailFormStatus({ contact, idCheck: null })
+      status: updateCheckListDetailFormStatus({ contact, idCheck: null }),
     }
     expect(newState).toEqual(expected)
   })
@@ -46,7 +46,7 @@ describe('home reducer', () => {
   it('should set approvals list data when CHECKLIST_DETAIL_RECEIVE_IDENTITY_CHECKS action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_IDENTITY_CHECKS as ActionType,
-      data: idCheck
+      data: idCheck,
     })
 
     const expected = {
@@ -54,9 +54,9 @@ describe('home reducer', () => {
       loading: false,
       checklistDetailData: {
         contact: null,
-        idCheck: idCheck
+        idCheck: idCheck,
       },
-      status: updateCheckListDetailFormStatus({ contact: null, idCheck })
+      status: updateCheckListDetailFormStatus({ contact: null, idCheck }),
     }
     expect(newState).toEqual(expected)
   })
@@ -64,12 +64,12 @@ describe('home reducer', () => {
   it('should clear approvals list data when CHECKLIST_DETAIL_SHOW_MODAL action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_SHOW_MODAL as ActionType,
-      data: 'PROFILE'
+      data: 'PROFILE',
     })
     const expected = {
       ...defaultState,
       modalContentType: 'PROFILE',
-      isModalVisible: true
+      isModalVisible: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -77,11 +77,11 @@ describe('home reducer', () => {
   it('should clear approvals list data when CHECKLIST_DETAIL_HIDE_MODAL action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_HIDE_MODAL as ActionType,
-      data: undefined
+      data: undefined,
     })
     const expected = {
       ...defaultState,
-      isModalVisible: false
+      isModalVisible: false,
     }
     expect(newState).toEqual(expected)
   })
@@ -89,11 +89,11 @@ describe('home reducer', () => {
   it('should clear approvals list data when CHECKLIST_DETAIL_SUBMIT_FORM action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      isSubmitting: true
+      isSubmitting: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -101,12 +101,12 @@ describe('home reducer', () => {
   it('should clear approvals list data when CHECKLIST_DETAIL_SUBMIT_FORM action is called', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP_RESULT as ActionType,
-      data: { searchParam: '', searchResults: [] }
+      data: { searchParam: '', searchResults: [] },
     })
     const expected = {
       ...defaultState,
       pepSearchParam: '',
-      pepSearchResultData: []
+      pepSearchResultData: [],
     }
     expect(newState).toEqual(expected)
   })
@@ -114,7 +114,7 @@ describe('home reducer', () => {
   it('should mark personal details not completed because missing date of birth', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT as ActionType,
-      data: contact
+      data: contact,
     })
 
     const expected: ChecklistDetailState = {
@@ -122,12 +122,12 @@ describe('home reducer', () => {
       loading: false,
       checklistDetailData: {
         contact: contact,
-        idCheck: null
+        idCheck: null,
       },
       status: {
         ...updateCheckListDetailFormStatus({ contact, idCheck: null }),
-        profile: false
-      }
+        profile: false,
+      },
     }
 
     expect(newState).toEqual(expected)
@@ -138,7 +138,7 @@ describe('home reducer', () => {
 
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT as ActionType,
-      data: contactWithDOB
+      data: contactWithDOB,
     })
 
     const expected: ChecklistDetailState = {
@@ -146,13 +146,13 @@ describe('home reducer', () => {
       loading: false,
       checklistDetailData: {
         contact: contactWithDOB,
-        idCheck: null
+        idCheck: null,
       },
       status: {
         ...updateCheckListDetailFormStatus({ contact, idCheck: null }),
         // need to update isCompletedProfile in elementstrue
-        profile: false
-      }
+        profile: false,
+      },
     }
 
     expect(newState).toEqual(expected)

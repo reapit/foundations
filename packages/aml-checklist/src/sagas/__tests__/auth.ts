@@ -13,8 +13,8 @@ jest.mock('../../utils/session')
 jest.mock('../../core/store.ts')
 jest.mock('../../core/router', () => ({
   history: {
-    push: jest.fn()
-  }
+    push: jest.fn(),
+  },
 }))
 
 describe('auth sagas', () => {
@@ -22,7 +22,7 @@ describe('auth sagas', () => {
     const loginParams: LoginParams = { loginType: 'CLIENT', userName: 'bob@acme.com', password: 'xxxxxx', mode: 'WEB' }
     const action: Action<LoginParams> = {
       type: ActionTypes.AUTH_LOGIN as ActionType,
-      data: loginParams
+      data: loginParams,
     }
 
     test('login success', () => {

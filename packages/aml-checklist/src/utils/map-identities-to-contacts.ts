@@ -2,7 +2,7 @@ import { PagedResultIdentityCheckModel_, PagedResultContactModel_ } from '@reapi
 
 export const mapIdentitiesToContacts = (
   responseContacts: PagedResultContactModel_,
-  responseIdentities: PagedResultIdentityCheckModel_
+  responseIdentities: PagedResultIdentityCheckModel_,
 ) => {
   // For each contact, find the first identity in the list, take status and set as identityCheck
   const responseContactsEmbeddedWithStatus = responseContacts._embedded?.map(({ id, ...rest }) => {
@@ -11,11 +11,11 @@ export const mapIdentitiesToContacts = (
     return {
       ...rest,
       id,
-      identityCheck: identity?.status
+      identityCheck: identity?.status,
     }
   })
   return {
     ...responseContacts,
-    _embedded: responseContactsEmbeddedWithStatus
+    _embedded: responseContactsEmbeddedWithStatus,
   }
 }

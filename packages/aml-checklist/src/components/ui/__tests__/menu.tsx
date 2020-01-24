@@ -10,7 +10,7 @@ describe('Menu', () => {
     const mockProps = {
       ...getMockRouterProps({} as any),
       logout: jest.fn(),
-      mode: 'WEB' as LoginMode
+      mode: 'WEB' as LoginMode,
     }
     const wrapper = shallow(<Menu {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -22,20 +22,20 @@ describe('Menu', () => {
       const mockState = {
         auth: {
           refreshSession: {
-            mode: 'WEB'
-          }
-        }
+            mode: 'WEB',
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        mode: 'WEB'
+        mode: 'WEB',
       })
     })
     it('should run correctly', () => {
       const mockState = {} as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
-        mode: 'WEB'
+        mode: 'WEB',
       })
     })
   })

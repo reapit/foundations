@@ -4,7 +4,7 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/cognito-auth": ["../cognito-auth/src"]
+      "@reapit/cognito-auth": ["../../node_modules/@reapit/cognito-auth/src"]
     }
   },
   "include": ["src"],

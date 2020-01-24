@@ -10,7 +10,7 @@ describe('Modal', () => {
       modalContentType: type,
       contact: contact,
       isSubmitting: false,
-      history: {}
+      history: {},
     })
     it('should return Profile', () => {
       const result = renderContent(mockProps(STEPS.PROFILE))
@@ -71,7 +71,7 @@ describe('Modal', () => {
         visible: true,
         afterClose: jest.fn(),
         modalContentType: STEPS.PROFILE,
-        history: {}
+        history: {},
       }
       const wrapper = shallow(<ProfileModal {...mockProps} />)
       expect(wrapper).toMatchSnapshot()

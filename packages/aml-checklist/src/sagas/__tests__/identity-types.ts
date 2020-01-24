@@ -14,7 +14,7 @@ import { identityTypes } from '../__stubs__/identity-types'
 jest.mock('../../core/store.ts')
 
 const mockHeaders = {
-  Authorization: '123'
+  Authorization: '123',
 }
 
 describe('identity fetch data', () => {
@@ -25,8 +25,8 @@ describe('identity fetch data', () => {
       url: `${URLS.configuration}/identityDocumentTypes`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: mockHeaders
-    })
+      headers: mockHeaders,
+    }),
   )
 
   it('api call sucessfully', () => {
@@ -43,9 +43,9 @@ describe('identity fetch data', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().done).toBe(true)
   })
@@ -55,7 +55,7 @@ describe('identityTypesListen', () => {
   it('should trigger request data when called', () => {
     const gen = identityTypesListen()
     expect(gen.next().value).toEqual(
-      takeLatest<Action<void>>(ActionTypes.IDENTITY_TYPES_REQUEST_DATA, identityTypesDataFetch)
+      takeLatest<Action<void>>(ActionTypes.IDENTITY_TYPES_REQUEST_DATA, identityTypesDataFetch),
     )
     expect(gen.next().done).toBe(true)
   })

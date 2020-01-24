@@ -12,7 +12,7 @@ import {
   EntityType,
   AppParams,
   Form,
-  Formik
+  Formik,
 } from '@reapit/elements'
 import { LoginMode } from '@reapit/cognito-auth'
 import ErrorBoundary from '@/components/hocs/error-boundary'
@@ -37,7 +37,7 @@ const identityCheckList = [
   { label: 'Pending', value: 'Pending' },
   { label: 'Cancelled', value: 'Cancelled' },
   { label: 'Warnings', value: 'Warnings' },
-  { label: 'Unchecked', value: 'Unchecked' }
+  { label: 'Unchecked', value: 'Unchecked' },
 ]
 
 export const renderForm = ({ loginMode }) => ({ values }) => {
@@ -73,14 +73,14 @@ export const renderForm = ({ loginMode }) => ({ values }) => {
                   address: values.address,
                   // TODO - this should be dynamic - is the hardcoded AML dev id
                   appId: '77f7c64f-0214-49eb-8963-f0b98f747072',
-                  appParam: AppParams.CONTACT_CODE
+                  appParam: AppParams.CONTACT_CODE,
                 },
-                appMode: loginMode
+                appMode: loginMode,
               }}
               buttonProps={{
                 type: 'button',
                 variant: 'primary',
-                disabled: !values.name && !values.address
+                disabled: !values.name && !values.address,
               }}
             >
               Advanced Search
@@ -113,11 +113,11 @@ export const ClientSearch: React.FunctionComponent<ClientSearchProps> = ({ setSe
 }
 
 export const mapDispatchToProps = (dispatch: any): ClientSearchMappedActions => ({
-  setSearchParams: (params: SearchParams) => dispatch(resultSetSearchParams(params))
+  setSearchParams: (params: SearchParams) => dispatch(resultSetSearchParams(params)),
 })
 
 export const mapStateToProps = (state: ReduxState): ClientSearchMappedState => ({
-  loginMode: state?.auth?.refreshSession?.mode || 'WEB'
+  loginMode: state?.auth?.refreshSession?.mode || 'WEB',
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ClientSearch))

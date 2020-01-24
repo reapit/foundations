@@ -6,19 +6,19 @@ type InputOutput = [LoginFormValues, LoginFormError]
 const invalidValues: InputOutput[] = [
   [
     { email: '', password: '' },
-    { email: 'Required', password: 'Required' }
+    { email: 'Required', password: 'Required' },
   ],
   [
     { email: 'invalid.com', password: '' },
-    { email: 'Invalid email address', password: 'Required' }
+    { email: 'Invalid email address', password: 'Required' },
   ],
   [{ email: '', password: '12345678' }, { email: 'Required' }],
-  [{ email: '@@@.org', password: 'password' }, { email: 'Invalid email address' }]
+  [{ email: '@@@.org', password: 'password' }, { email: 'Invalid email address' }],
 ]
 
 const validValues: InputOutput[] = [
   [{ email: 'my@gmail.com', password: '1234567' }, {}],
-  [{ email: 'foo@bar.com.au', password: 'aaaaaaaaaa' }, {}]
+  [{ email: 'foo@bar.com.au', password: 'aaaaaaaaaa' }, {}],
 ]
 
 describe('loginValidation', () => {

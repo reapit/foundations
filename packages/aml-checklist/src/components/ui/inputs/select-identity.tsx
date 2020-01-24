@@ -16,7 +16,7 @@ export const generateListIdentity = (identityTypes: ListItemModel[]) => () => {
     .filter(item => item.id)
     .map(item => ({
       label: item.value as string,
-      value: item.id as string
+      value: item.id as string,
     }))
 }
 
@@ -28,7 +28,7 @@ export const SelectIdentity: React.FC<SelectIdentityProps> = ({ identityState, .
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => ({
-  identityState: state.identityTypes
+  identityState: state.identityTypes,
 })
 
 export default connect(mapStateToProps, null)(SelectIdentity)

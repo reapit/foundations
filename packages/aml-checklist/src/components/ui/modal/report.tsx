@@ -13,7 +13,7 @@ import {
   selectCheckListDetailContact,
   selectCheckListDetailIdCheck,
   selectCheckListDetailStatus,
-  selectIdentityTypes
+  selectIdentityTypes,
 } from '@/selectors/checklist-detail'
 
 export const handleTrigger = () => (
@@ -55,7 +55,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
     return [
       {
         section: 'Personal Detail',
-        description: () => {
+        description: function DescriptionComponent() {
           return (
             <div>
               {name && <p>Name: {name}</p>}
@@ -67,7 +67,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
             </div>
           )
         },
-        status: status.profile
+        status: status.profile,
       },
       {
         section: 'Primary ID',
@@ -81,7 +81,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
             </div>
           )
         },
-        status: status.primaryId
+        status: status.primaryId,
       },
       {
         section: 'Secondary ID',
@@ -95,7 +95,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
             </div>
           )
         },
-        status: status.secondaryId
+        status: status.secondaryId,
       },
       {
         section: 'Address History',
@@ -123,11 +123,11 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
             })
           )
         },
-        status: status.addresses
+        status: status.addresses,
       },
       {
         section: 'Declaration and Risk Assessment',
-        description: () => {
+        description: function DescriptionComponent() {
           const reason = contact?.metadata?.declarationRisk?.reason
           const type = contact?.metadata?.declarationRisk?.type
           return (
@@ -137,8 +137,8 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
             </div>
           )
         },
-        status: status.declarationRisk
-      }
+        status: status.declarationRisk,
+      },
       // {
       //   section: 'PEP Search',
       //   description: () => {
@@ -159,29 +159,31 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
   const columns = [
     {
       Header: 'Section',
-      accessor: 'section'
+      accessor: 'section',
     },
     {
       Header: 'Description',
       id: 'description',
       accessor: 'description',
-      Cell: ({ row }) => row.original.description()
+      Cell: ({ row }) => row.original.description(),
     },
     {
       Header: 'Status',
       id: 'status',
       accessor: 'status',
-      Cell: ({ row }) => (
-        <div className={styles.statusColumn}>
-          {row.original.status ? (
-            <FaCheck className={styles.checkCompleted} />
-          ) : (
-            <FaTimes className={styles.checkIncomplete} />
-          )}
-          <span>{row.original.status ? 'Completed' : 'Incomplete'}</span>
-        </div>
-      )
-    }
+      Cell: function StatusComponent({ row }) {
+        return (
+          <div className={styles.statusColumn}>
+            {row.original.status ? (
+              <FaCheck className={styles.checkCompleted} />
+            ) : (
+              <FaTimes className={styles.checkIncomplete} />
+            )}
+            <span>{row.original.status ? 'Completed' : 'Incomplete'}</span>
+          </div>
+        )
+      },
+    },
   ]
 
   return (
@@ -208,7 +210,7 @@ export const mapStateToProps = (state: ReduxState) => {
     contact: selectCheckListDetailContact(state),
     idCheck: selectCheckListDetailIdCheck(state),
     status: selectCheckListDetailStatus(state),
-    identityTypes: selectIdentityTypes(state)
+    identityTypes: selectIdentityTypes(state),
   }
 }
 
@@ -216,7 +218,7 @@ export const mapDispatchToProps = () => {
   return {
     onEmailReport: () => {
       console.log('send Email')
-    }
+    },
   }
 }
 

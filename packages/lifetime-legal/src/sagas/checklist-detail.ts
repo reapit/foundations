@@ -16,7 +16,9 @@ import errorMessages from '../constants/error-messages'
 import {
   ContactModel,
   ContactAddressModel,
+  // @ts-ignore #49 Breaking changes to API
   ContactIdentityDocumentModel,
+  // @ts-ignore #49 Breaking changes to API
   ContactIdentityCheckModel,
 } from '@reapit/foundations-ts-definitions'
 import { ErrorData } from '@/reducers/error'
@@ -129,6 +131,7 @@ export type UpdateAddressHistoryParams = {
   data: ContactModel
 }
 
+// @ts-ignore #49 Breaking changes to API
 export const updateAddressHistory = function*({ data: { addresses = [], metadata } }: UpdateAddressHistoryParams) {
   yield put(checkListDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)

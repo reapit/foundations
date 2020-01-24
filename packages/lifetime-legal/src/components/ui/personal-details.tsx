@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Input, DatePicker, Formik, Form } from '@reapit/elements'
+// @ts-ignore #49 Breaking changes to API
 import { ContactCommunicationModel, ContactAddressModel, ContactModel } from '@reapit/foundations-ts-definitions'
 
 export const renderForm = () => () => {
@@ -91,9 +92,13 @@ export const PersonalDetails = ({ contact }: PersonalDetailsProps) => {
         initialValues={{
           name: `${contact.title} ${contact.forename} ${contact.surname}`,
           dateOfBirth: contact.dateOfBirth ? new Date(contact.dateOfBirth) : null,
+          // @ts-ignore #49 Breaking changes to API
           address: combineAdress(contact.addresses),
+          // @ts-ignore #49 Breaking changes to API
           home: filterCommunication(contact.communications, 'Home'),
+          // @ts-ignore #49 Breaking changes to API
           mobile: filterCommunication(contact.communications, 'Mobile'),
+          // @ts-ignore #49 Breaking changes to API
           email: filterCommunication(contact.communications, 'E-Mail'),
         }}
         onSubmit={values => {

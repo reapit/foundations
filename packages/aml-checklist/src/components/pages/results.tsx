@@ -20,68 +20,74 @@ export interface ResultMappedProps {
 
 export type ResultProps = ResultMappedActions & ResultMappedProps & RouteComponentProps
 
-export const generateColumns = history => () => [
-  {
-    Header: 'Name',
-    id: 'name',
-    accessor: d => `${d.forename} ${d.surname}`
-  },
-  {
-    Header: 'Address',
-    id: 'primaryAddress',
-    accessor: d => d,
-    Cell: ({ row }) => {
-      const primaryAddress = row.original.primaryAddress || {}
-      const addressKeys = ['buildingName', 'buildingNumber', 'line1', 'line2']
-      const filteredAddressEntries = Object.entries(primaryAddress)
-        .filter(([key, value]) => addressKeys.includes(key) && value)
-        .map(([_, value]) => value)
-        .join(', ')
-      return (
-        <div>
-          <span>{filteredAddressEntries}</span>
-        </div>
-      )
-    }
-  },
-  {
-    Header: 'Postcode',
-    id: 'postcode',
-    accessor: d => d,
-    Cell: ({ row }) => {
-      const postcode = row.original.primaryAddress?.postcode
-      return (
-        <div>
-          <span>{postcode}</span>
-        </div>
-      )
-    }
-  },
-  {
-    Header: 'Status',
-    id: 'identityCheck',
-    accessor: d => d,
-    Cell: ({ row }) => {
-      return (
-        <div>
-          <span className={styles.columnText}>{row.original.identityCheck}</span>
-        </div>
-      )
-    }
-  },
-  {
-    Header: '',
-    id: 'action',
-    accessor: d => d,
-    Cell: ({ row }) => {
-      return (
-        <Button type="button" variant="info" onClick={() => history.push(`/checklist-detail/${row.original.id}`)}>
-          Edit
-        </Button>
-      )
-    }
+export const generateColumns = history => () => {
+  const PostCodeCell = ({ row }) => {
+    const postcode = row.original.primaryAddress?.postcode
+    return (
+      <div>
+        <span>{postcode}</span>
+      </div>
+    )
   }
-]
+  const AddressCell = ({ row }) => {
+    const primaryAddress = row.original.primaryAddress || {}
+    const addressKeys = ['buildingName', 'buildingNumber', 'line1', 'line2']
+    const filteredAddressEntries = Object.entries(primaryAddress)
+      .filter(([key, value]) => addressKeys.includes(key) && value)
+      .map(([value]) => value)
+      .join(', ')
+    return (
+      <div>
+        <span>{filteredAddressEntries}</span>
+      </div>
+    )
+  }
+  const StatusCell = ({ row }) => {
+    return (
+      <div>
+        <span className={styles.columnText}>{row.original.identityCheck}</span>
+      </div>
+    )
+  }
+  const ButtonCell = ({ row }) => {
+    return (
+      <Button type="button" variant="info" onClick={() => history.push(`/checklist-detail/${row.original.id}`)}>
+        Edit
+      </Button>
+    )
+  }
+  return [
+    {
+      Header: 'Name',
+      id: 'name',
+      accessor: d => `${d.forename} ${d.surname}`,
+    },
+    {
+      Header: 'Address',
+      id: 'primaryAddress',
+      accessor: d => d,
+      Cell: AddressCell,
+    },
+    {
+      Header: 'Postcode',
+      id: 'postcode',
+      accessor: d => d,
+      Cell: PostCodeCell,
+    },
+    {
+      Header: 'Status',
+      id: 'identityCheck',
+      accessor: d => d,
+      Cell: StatusCell,
+    },
+    {
+      Header: '',
+      id: 'action',
+      accessor: d => d,
+      Cell: ButtonCell,
+    },
+  ]
+}
 
 export const generateSearchTitle = (search: SearchParams | null) => () => {
   if (search) {
@@ -98,7 +104,7 @@ export const fnChangePage = (setPageNumber: (page: number) => void) => (page: nu
 export const fnFetchContacts = (
   search: SearchParams | null,
   pageNumber: number,
-  fetchContacts: (params: ContactsParams) => void
+  fetchContacts: (params: ContactsParams) => void,
 ) => () => {
   if (search) {
     fetchContacts({ ...search, pageNumber })
@@ -142,7 +148,7 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
       ) : (
         <FlexContainerBasic hasPadding flexColumn>
           <FlexContainerBasic hasBackground flexColumn hasPadding isScrollable>
-            {search && <H3>Showing Results for '{searchTitle}'</H3>}
+            {search && <H3>Showing Results for &lsquo;{searchTitle}&rsquo;</H3>}
             <div className={styles.tableWrap}>
               <Table scrollable data={_embedded} columns={columns} loading={loading} />
             </div>
@@ -162,11 +168,11 @@ export const Result: React.FunctionComponent<ResultProps> = ({ resultState, fetc
 }
 
 export const mapStateToProps = (state: ReduxState): ResultMappedProps => ({
-  resultState: state.result
+  resultState: state.result,
 })
 
 export const mapDispatchToProps = (dispatch: any): ResultMappedActions => ({
-  fetchContacts: (params: ContactsParams) => dispatch(resultRequestData(params))
+  fetchContacts: (params: ContactsParams) => dispatch(resultRequestData(params)),
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Result))

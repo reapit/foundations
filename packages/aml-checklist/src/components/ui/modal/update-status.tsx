@@ -20,7 +20,7 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
   status,
   loginMode,
   isSubmitting,
-  updateIdentityCheckStatus
+  updateIdentityCheckStatus,
 }) => {
   const { id, title, forename, surname } = contact || {}
 
@@ -39,7 +39,7 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
           dynamicLinkParams={{
             entityType: EntityType.CONTACT,
             entityCode: id,
-            appMode: loginMode
+            appMode: loginMode,
           }}
           buttonProps={{
             type: 'button',
@@ -52,9 +52,9 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
                   entityType: EntityType.CONTACT,
                   entityCode: id,
                   appMode: loginMode,
-                  webRoute: `${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${id}`
-                }
-              )
+                  webRoute: `${Routes.CHECKLIST_DETAIL_WITHOUT_ID}/${id}`,
+                },
+              ),
           }}
         >
           ID Check Successful
@@ -85,7 +85,7 @@ export const mapStateToProps = (state: ReduxState) => {
     contact: selectCheckListDetailContact(state),
     loginMode: selectLoginMode(state),
     status: selectCheckListDetailStatus(state),
-    isSubmitting: state?.checklistDetail?.isSubmitting || false
+    isSubmitting: state?.checklistDetail?.isSubmitting || false,
   }
 }
 
@@ -96,7 +96,7 @@ export type DispatchProps = {
 export const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     updateIdentityCheckStatus: (idCheck: IdentityCheckModel, dynamicLinkParams: DynamicLinkParams) =>
-      dispatch(checkListDetailIdentityCheckUpdateData({ idCheck, dynamicLinkParams }))
+      dispatch(checkListDetailIdentityCheckUpdateData({ idCheck, dynamicLinkParams })),
   }
 }
 

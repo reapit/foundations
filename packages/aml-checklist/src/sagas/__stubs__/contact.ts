@@ -10,7 +10,7 @@ export const contact = {
   marketingConsent: 'notAsked',
   source: {
     id: '',
-    type: ''
+    type: '',
   },
   homePhone: '01632 968608',
   workPhone: '020 7946 8608',
@@ -25,7 +25,7 @@ export const contact = {
     line3: 'Leighton Buzzard',
     line4: 'Buckinghamshire',
     postcode: 'LU7 0EP',
-    countryId: 'GB'
+    countryId: 'GB',
   },
   secondaryAddress: {
     type: 'previous',
@@ -36,7 +36,7 @@ export const contact = {
     line3: 'Buckinghamshire',
     line4: '',
     postcode: 'LU7 0PX',
-    countryId: ''
+    countryId: '',
   },
   officeIds: ['MKC'],
   negotiatorIds: ['JPB'],
@@ -47,34 +47,34 @@ export const contact = {
           'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png',
         year: '2',
         month: '2',
-        documentType: 'Bank / Building Society / Statement'
+        documentType: 'Bank / Building Society / Statement',
       },
       {
         documentImage:
           'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/previous-7-Larch Cottage-LU7 0PX(1).jpg',
         year: '3',
         month: '1',
-        documentType: 'Credit Card Statements from main provider'
-      }
+        documentType: 'Credit Card Statements from main provider',
+      },
     ],
     declarationRisk: {
       reason: 'Test',
       type: 'Simplified',
       riskAssessmentForm:
-        'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png'
-    }
+        'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png',
+    },
   },
   _links: {
     self: {
-      href: '/contacts/MKC13000122'
+      href: '/contacts/MKC13000122',
     },
     documents: {
-      href: '/documents/?OwnerType=contact&OwnerId=MKC13000122'
+      href: '/documents/?OwnerType=contact&OwnerId=MKC13000122',
     },
     identityChecks: {
-      href: '/identityChecks/?ContactId=MKC13000122'
-    }
-  }
+      href: '/identityChecks/?ContactId=MKC13000122',
+    },
+  },
 }
 
 export const idCheck = {
@@ -88,29 +88,29 @@ export const idCheck = {
   document1: {
     typeId: 'PP',
     expiry: '2020-07-03T23:00:00',
-    details: '123123'
+    details: '123123',
   },
   document2: {
     typeId: 'BB',
     expiry: '2020-01-12T00:00:00',
-    details: 'ID Reference'
+    details: 'ID Reference',
   },
   metadata: {
     primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
-    secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png'
+    secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png',
   },
   _links: {
     self: {
-      href: '/identityChecks/RPT19000083'
+      href: '/identityChecks/RPT19000083',
     },
     contact: {
-      href: '/contacts/MKC13000122'
+      href: '/contacts/MKC13000122',
     },
     identityDocument1Type: {
-      href: '/configuration/identityDocumentTypes/PP'
+      href: '/configuration/identityDocumentTypes/PP',
     },
     identityDocument2Type: {
-      href: '/configuration/identityDocumentTypes/BB'
-    }
-  }
+      href: '/configuration/identityDocumentTypes/BB',
+    },
+  },
 }

@@ -28,7 +28,7 @@ export const renderForm = ({ contact, onNextHandler, isSubmitting }) => ({ value
       <Input type="text" labelText="Forename" id="forename" name="forename" required />
       <Input type="text" labelText="Surname" id="surname" name="surname" required />
       <DatePicker labelText="Date Of Birth" id="dateOfBirth" name="dateOfBirth" required />
-      <p className="is-size-6	">* At least one telephone number is required</p>
+      <p className="is-size-6">* At least one telephone number is required</p>
       <Input type="text" labelText="Home" id="homePhone" name="homePhone" />
       <Input type="text" labelText="Mobile" id="mobilePhone" name="mobilePhone" />
       <Input type="text" labelText="Work" id="workPhone" name="workPhone" />
@@ -77,7 +77,7 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onNextHandler, onSubm
           homePhone,
           workPhone,
           mobilePhone,
-          email
+          email,
         }}
         onSubmit={onSubmitHandler}
         validate={validate}
@@ -96,7 +96,7 @@ export type StateProps = {
 export const mapStateToProps = (state: ReduxState): StateProps => {
   return {
     isSubmitting: state?.checklistDetail?.isSubmitting || false,
-    contact: state?.checklistDetail?.checklistDetailData?.contact || {}
+    contact: state?.checklistDetail?.checklistDetailData?.contact || {},
   }
 }
 
@@ -112,7 +112,7 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
     },
     onNextHandler: values => () => {
       dispatch(updateContact({ nextSection: STEPS.PRIMARY_IDENTIFICATION, contact: values }))
-    }
+    },
   }
 }
 

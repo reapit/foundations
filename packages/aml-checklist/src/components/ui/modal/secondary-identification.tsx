@@ -10,7 +10,7 @@ import {
   selectCheckListDetailSecondaryId,
   selectCheckListDetailIsSubmitting,
   selectCheckListDetailSecondaryIdUrl,
-  selectCheckListDetailIdCheck
+  selectCheckListDetailIdCheck,
 } from '@/selectors/checklist-detail'
 import { IdentityDocumentModel, ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { isCompletedPrimaryID } from '@reapit/elements'
@@ -22,7 +22,7 @@ export const SecondaryIdentification = ({
   loading,
   updateIdentification,
   onNextHandler,
-  onPrevHandler
+  onPrevHandler,
 }) => {
   const isDisabled = !isCompletedPrimaryID(idCheck)
   return (
@@ -62,7 +62,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
       typeId: typeId || DEFAULT_TYPE,
       expiry: expiry ? new Date(expiry) : undefined,
       details: details,
-      fileUrl: secondaryIdUrl
+      fileUrl: secondaryIdUrl,
     } as IdentityDocumentModel
   }
 
@@ -70,7 +70,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
     loading: isSubmitting,
     contact,
     idCheck,
-    initFormValues
+    initFormValues,
   }
 }
 
@@ -86,8 +86,10 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.PRIMARY_IDENTIFICATION)),
   onNextHandler: (values: any) => () =>
     dispatch(
-      dispatch(checklistDetailSecondaryIdUpdateData({ nextSection: STEPS.ADDRESS_INFORMATION, identityChecks: values }))
-    )
+      dispatch(
+        checklistDetailSecondaryIdUpdateData({ nextSection: STEPS.ADDRESS_INFORMATION, identityChecks: values }),
+      ),
+    ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SecondaryIdentification)

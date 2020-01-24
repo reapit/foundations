@@ -11,14 +11,14 @@ import { identityTypes } from '@/sagas/__stubs__/identity-types'
 describe('ReportContainer', () => {
   it('should match snapshot', () => {
     const wrapper = shallow(
-      <ReportContainer contact={contact} idCheck={idCheck} status={sectionsStatus} identityTypes={identityTypes} />
+      <ReportContainer contact={contact} idCheck={idCheck} status={sectionsStatus} identityTypes={identityTypes} />,
     )
     expect(wrapper).toMatchSnapshot()
   })
 
   it('handleContent', () => {
     const mockRef = {
-      current: 'mockRef'
+      current: 'mockRef',
     }
     const fn = handleContent({ printRef: mockRef })
     const result = fn()
@@ -38,20 +38,20 @@ describe('ReportContainer', () => {
         checklistDetail: {
           checklistDetailData: {
             contact,
-            idCheck
+            idCheck,
           },
-          status: sectionsStatus
+          status: sectionsStatus,
         },
         identityTypes: {
-          identityTypes: identityTypes
-        }
+          identityTypes: identityTypes,
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         contact,
         idCheck,
         status: sectionsStatus,
-        identityTypes: identityTypes
+        identityTypes: identityTypes,
       })
     })
     it('should run correctly', () => {
@@ -61,7 +61,7 @@ describe('ReportContainer', () => {
         contact: null,
         idCheck: null,
         status: defaultStatus,
-        identityTypes: []
+        identityTypes: [],
       })
     })
   })

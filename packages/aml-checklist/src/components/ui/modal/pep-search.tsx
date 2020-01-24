@@ -8,7 +8,7 @@ import styles from '@/styles/pages/checklist-detail.scss?mod'
 import {
   checklistDetailShowModal,
   checklistDetailSearchPep,
-  checklistDetailHideModal
+  checklistDetailHideModal,
 } from '@/actions/checklist-detail'
 import { STEPS } from './modal'
 import { getPepSearchStatus } from '@/utils/pep-search'
@@ -27,9 +27,9 @@ export const renderNoResult = (param: string, time: string) => {
     <FlexContainerBasic className={styles.noResultContainer}>
       <FaRegTimesCircle />
       <div>
-        <H4 className={styles.noResultTitle}>No Result Found for "{param}".</H4>
+        <H4 className={styles.noResultTitle}>No Result Found for &lsquo;{param}&rsquo;.</H4>
         <p>
-          Search conducted for "{param}" on {time}
+          Search conducted for &lsquo;{param}&rsquo; on {time}
         </p>
       </div>
     </FlexContainerBasic>
@@ -74,7 +74,7 @@ export const PepSearch: React.FC<PepSearchProps> = ({
   handleSubmit,
   onPrevHandler,
   onNextHandler,
-  isSubmitting
+  isSubmitting,
 }) => {
   const pepSearchStatus = getPepSearchStatus()
   return (
@@ -85,7 +85,7 @@ export const PepSearch: React.FC<PepSearchProps> = ({
           onNextHandler,
           isSubmitting,
           pepSearchStatus,
-          contact
+          contact,
         })}
       </Formik>
     </div>
@@ -100,7 +100,7 @@ export type StateProps = {
 export const mapStateToProps = (state: ReduxState) => {
   return {
     contact: state?.checklistDetail?.checklistDetailData?.contact || {},
-    isSubmitting: state?.checklistDetail?.isSubmitting || false
+    isSubmitting: state?.checklistDetail?.isSubmitting || false,
   }
 }
 
@@ -116,7 +116,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
       dispatch(checklistDetailSearchPep(values.name))
     },
     onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.DECLARATION_RISK_MANAGEMENT)),
-    onNextHandler: () => dispatch(checklistDetailHideModal())
+    onNextHandler: () => dispatch(checklistDetailHideModal()),
   }
 }
 

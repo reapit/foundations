@@ -18,7 +18,7 @@ export const resultFetch = function*(params: Action<ContactsParams>) {
       url: `${URLS.contacts}/?${queryParams({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers
+      headers,
     })
     const listContactId = responseContacts._embedded.map(({ id }) => id)
     /* fetch all identities which have contactId in listContactId */
@@ -26,7 +26,7 @@ export const resultFetch = function*(params: Action<ContactsParams>) {
       url: `${URLS.idChecks}/?${queryParams({ ContactId: [...listContactId] })}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers
+      headers,
     })
     const responseContactsWithStatus = mapIdentitiesToContacts(responseContacts, responseIdentities)
     yield put(resultReceiveData(responseContactsWithStatus))
@@ -35,8 +35,8 @@ export const resultFetch = function*(params: Action<ContactsParams>) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

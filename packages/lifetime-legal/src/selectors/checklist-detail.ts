@@ -1,5 +1,6 @@
 import { ReduxState } from '@/types/core'
 import { defaultStatus } from '@/reducers/checklist-detail'
+// @ts-ignore #49 Breaking changes to API
 import { ContactIdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
 
 export const selectCheckListDetailStatus = (state: ReduxState) => {

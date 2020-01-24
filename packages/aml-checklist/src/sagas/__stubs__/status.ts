@@ -5,7 +5,7 @@ export const sectionsStatus: SectionsStatus = {
   primaryId: false,
   secondaryId: true,
   declarationRisk: false,
-  addresses: false
+  addresses: false,
   // pepSearch: false,
   // experian: true
 }

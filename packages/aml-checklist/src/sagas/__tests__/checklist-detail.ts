@@ -9,7 +9,7 @@ import {
   checklistDetailHideModal,
   checklistDetailShowModal,
   UpdateContactParams,
-  UpdateIdentityCheckParams
+  UpdateIdentityCheckParams,
 } from '@/actions/checklist-detail'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
@@ -37,7 +37,7 @@ import {
   updateAddressHistoryListen,
   fetchInitialDataListen,
   updateIdentityCheckStatusListen,
-  updateIdentityCheckStatus
+  updateIdentityCheckStatus,
 } from '../checklist-detail'
 import { contact, idCheck } from '../__stubs__/contact'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
@@ -51,7 +51,7 @@ import { EntityType, DynamicLinkParams } from '@reapit/elements'
 jest.mock('../../core/store.ts')
 
 const mockHeaders = {
-  Authorization: '123'
+  Authorization: '123',
 }
 
 describe('checklist-detail', () => {
@@ -61,7 +61,7 @@ describe('checklist-detail', () => {
         primaryAddress: contact.primaryAddress,
         secondaryAddress: contact.secondaryAddress,
         headers: mockHeaders,
-        addressesMeta: contact.metadata.addresses
+        addressesMeta: contact.metadata.addresses,
       } as any
       const result = mapArrAddressToUploadImageFunc(mockParams)
       expect(result).toEqual([null, null])
@@ -71,7 +71,7 @@ describe('checklist-detail', () => {
         primaryAddress: undefined,
         secondaryAddress: contact.secondaryAddress,
         headers: mockHeaders,
-        addressesMeta: contact.metadata.addresses
+        addressesMeta: contact.metadata.addresses,
       }
       const result = mapArrAddressToUploadImageFunc(mockParams)
       expect(result).toEqual([])
@@ -83,8 +83,8 @@ describe('checklist-detail', () => {
       const mockParams = {
         addressesMeta: contact.metadata.addresses,
         responseUpload: [
-          { Url: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png' }
-        ]
+          { Url: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png' },
+        ],
       }
       const result = mapAddressToMetaData(mockParams)
       expect(result).toEqual(contact.metadata.addresses)
@@ -93,8 +93,8 @@ describe('checklist-detail', () => {
       const mockParams = {
         addressesMeta: undefined,
         responseUpload: [
-          { Url: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png' }
-        ]
+          { Url: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png' },
+        ],
       }
       const result = mapAddressToMetaData(mockParams)
       expect(result).toEqual([])
@@ -108,8 +108,8 @@ describe('checklist-detail', () => {
     expect(gen.next(mockHeaders as any).value).toEqual(
       all([
         call(fetchChecklist, { id: contact.id, headers: mockHeaders }),
-        call(fetchIdentityCheck, { contactId: contact.id, headers: mockHeaders })
-      ])
+        call(fetchIdentityCheck, { contactId: contact.id, headers: mockHeaders }),
+      ]),
     )
     test('api call success', () => {
       const clone = gen.clone()
@@ -125,9 +125,9 @@ describe('checklist-detail', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(checklistDetailLoading(false)))
       expect(clone.next().done).toBe(true)
@@ -156,9 +156,9 @@ describe('checklist-detail', () => {
           put(
             errorThrownServer({
               type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR
-            })
-          )
+              message: errorMessages.DEFAULT_SERVER_ERROR,
+            }),
+          ),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -186,9 +186,9 @@ describe('checklist-detail', () => {
           put(
             errorThrownServer({
               type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR
-            })
-          )
+              message: errorMessages.DEFAULT_SERVER_ERROR,
+            }),
+          ),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -203,9 +203,9 @@ describe('checklist-detail', () => {
           contact: {
             primaryAddress: contact.primaryAddress,
             secondaryAddress: contact.secondaryAddress,
-            metadata: contact.metadata
-          }
-        } as ContactModel
+            metadata: contact.metadata,
+          },
+        } as ContactModel,
       })
       expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -228,9 +228,9 @@ describe('checklist-detail', () => {
           put(
             errorThrownServer({
               type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR
-            })
-          )
+              message: errorMessages.DEFAULT_SERVER_ERROR,
+            }),
+          ),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -244,9 +244,9 @@ describe('checklist-detail', () => {
           contact: {
             primaryAddress: contact.primaryAddress,
             secondaryAddress: contact.secondaryAddress,
-            metadata: contact.metadata
-          }
-        } as ContactModel
+            metadata: contact.metadata,
+          },
+        } as ContactModel,
       })
       expect(gen.next(contact as any).value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -268,9 +268,9 @@ describe('checklist-detail', () => {
           put(
             errorThrownServer({
               type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR
-            })
-          )
+              message: errorMessages.DEFAULT_SERVER_ERROR,
+            }),
+          ),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -281,7 +281,7 @@ describe('checklist-detail', () => {
   describe('checklist-detail onUpdateDeclarationAndRisk', () => {
     describe('onHideModal', () => {
       const gen = cloneableGenerator(onUpdateDeclarationAndRisk as any)({
-        data: { contact: { metadata: contact.metadata } }
+        data: { contact: { metadata: contact.metadata } },
       })
       expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -305,9 +305,9 @@ describe('checklist-detail', () => {
           put(
             errorThrownServer({
               type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR
-            })
-          )
+              message: errorMessages.DEFAULT_SERVER_ERROR,
+            }),
+          ),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -315,7 +315,7 @@ describe('checklist-detail', () => {
     })
     describe('onNextSection', () => {
       const gen = cloneableGenerator(onUpdateDeclarationAndRisk as any)({
-        data: { contact: { metadata: contact.metadata }, nextSection: 'nextSection' }
+        data: { contact: { metadata: contact.metadata }, nextSection: 'nextSection' },
       })
       expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -339,9 +339,9 @@ describe('checklist-detail', () => {
           put(
             errorThrownServer({
               type: 'SERVER',
-              message: errorMessages.DEFAULT_SERVER_ERROR
-            })
-          )
+              message: errorMessages.DEFAULT_SERVER_ERROR,
+            }),
+          ),
         )
         expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
         expect(clone.next().done).toBe(true)
@@ -358,10 +358,10 @@ describe('checklist-detail', () => {
     test('api call success', () => {
       const clone = gen.clone()
       expect(clone.next(contact as any).value).toEqual(
-        call(fetchDataPepSearch, { name: 'mockName', headers: mockHeaders })
+        call(fetchDataPepSearch, { name: 'mockName', headers: mockHeaders }),
       )
       expect(clone.next([] as any).value).toEqual(
-        call(handlePepSearchStatus, { id: contact.id, param: 'mockName', result: [] })
+        call(handlePepSearchStatus, { id: contact.id, param: 'mockName', result: [] }),
       )
       expect(clone.next().value).toEqual(put(pepSearchResult({ searchParam: 'mockName', searchResults: [] })))
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
@@ -375,9 +375,9 @@ describe('checklist-detail', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
       expect(clone.next().done).toBe(true)
@@ -391,9 +391,9 @@ describe('checklist-detail', () => {
           typeId: '123',
           details: '123',
           expiry: new Date('2019-10-15T10:00:00Z'),
-          fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA'
-        }
-      }
+          fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
+        },
+      },
     })
     expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
     expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -404,19 +404,19 @@ describe('checklist-detail', () => {
       const baseValues = {
         metadata: {
           primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
-          secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png'
+          secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png',
         },
         document1: idCheck.document1,
-        document2: idCheck.document2
+        document2: idCheck.document2,
       }
       expect(clone.next(contact as any).value).toEqual(
         call(updateIdentityCheck, {
           headers: mockHeaders,
           identityChecks: {
             ...idCheck,
-            ...baseValues
-          }
-        })
+            ...baseValues,
+          },
+        }),
       )
       expect(clone.next().value).toEqual(call(fetchIdentityCheck, { contactId: contact.id, headers: mockHeaders }))
       expect(clone.next(idCheck as any).value).toEqual(put(checklistDetailReceiveIdentityCheck(idCheck)))
@@ -431,9 +431,9 @@ describe('checklist-detail', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
       expect(clone.next().done).toBe(true)
@@ -447,9 +447,9 @@ describe('checklist-detail', () => {
           typeId: '123',
           details: '123',
           expiry: new Date('2019-10-15T10:00:00Z'),
-          fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA'
-        }
-      }
+          fileUrl: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
+        },
+      },
     })
     expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
     expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -461,19 +461,19 @@ describe('checklist-detail', () => {
       const baseValues = {
         metadata: {
           primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
-          secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png'
+          secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png',
         },
         document1: idCheck.document1,
-        document2: idCheck.document2
+        document2: idCheck.document2,
       }
       expect(clone.next(contact as any).value).toEqual(
         call(updateIdentityCheck, {
           headers: mockHeaders,
           identityChecks: {
             ...idCheck,
-            ...baseValues
-          }
-        })
+            ...baseValues,
+          },
+        }),
       )
       expect(clone.next().value).toEqual(call(fetchIdentityCheck, { contactId: contact.id, headers: mockHeaders }))
       expect(clone.next(idCheck as any).value).toEqual(put(checklistDetailReceiveIdentityCheck(idCheck)))
@@ -488,9 +488,9 @@ describe('checklist-detail', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().value).toEqual(put(checklistDetailSubmitForm(false)))
       expect(clone.next().done).toBe(true)
@@ -500,10 +500,10 @@ describe('checklist-detail', () => {
   describe('checklist-detail updateIdentityCheckStatus', () => {
     const params = {
       dynamicLinkParams: { appMode: 'DESKTOP', entityType: EntityType.CONTACT },
-      idCheck: { status: 'pass' }
+      idCheck: { status: 'pass' },
     }
     const gen = cloneableGenerator(updateIdentityCheckStatus as any)({
-      data: params
+      data: params,
     })
     expect(gen.next().value).toEqual(select(selectCheckListDetailIdCheck))
     expect(gen.next(idCheck as any).value).toEqual(call(initAuthorizedRequestHeaders))
@@ -517,12 +517,12 @@ describe('checklist-detail', () => {
           headers: mockHeaders,
           identityChecks: {
             ...idCheck,
-            ...params.idCheck
-          }
-        })
+            ...params.idCheck,
+          },
+        }),
       )
       expect(clone.next({ ...idCheck, ...params.idCheck } as any).value).toEqual(
-        put(checklistDetailReceiveIdentityCheck({ ...idCheck, ...params.idCheck }))
+        put(checklistDetailReceiveIdentityCheck({ ...idCheck, ...params.idCheck })),
       )
     })
   })
@@ -532,7 +532,7 @@ describe('checklist-detail', () => {
       it('should request data when called', () => {
         const gen = fetchInitialDataListen()
         expect(gen.next().value).toEqual(
-          takeLatest<Action<number>>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA, fetchInitialData)
+          takeLatest<Action<number>>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA, fetchInitialData),
         )
         expect(gen.next().done).toBe(true)
       })
@@ -542,7 +542,7 @@ describe('checklist-detail', () => {
       it('should request data when called', () => {
         const gen = updateChecklistListen()
         expect(gen.next().value).toEqual(
-          takeLatest<Action<UpdateContactParams>>(ActionTypes.CHECKLIST_DETAIL_UPDATE_DATA, onUpdateChecklist)
+          takeLatest<Action<UpdateContactParams>>(ActionTypes.CHECKLIST_DETAIL_UPDATE_DATA, onUpdateChecklist),
         )
         expect(gen.next().done).toBe(true)
       })
@@ -554,8 +554,8 @@ describe('checklist-detail', () => {
         expect(gen.next().value).toEqual(
           takeLatest<Action<UpdateContactParams>>(
             ActionTypes.CHECKLIST_DETAIL_ADDRESS_UPDATE_DATA,
-            onUpdateAddressHistory
-          )
+            onUpdateAddressHistory,
+          ),
         )
         expect(gen.next().done).toBe(true)
       })
@@ -567,8 +567,8 @@ describe('checklist-detail', () => {
         expect(gen.next().value).toEqual(
           takeLatest<Action<UpdateContactParams>>(
             ActionTypes.CHECKLIST_DETAIL_DECLARATION_AND_RISK_UPDATE_DATA,
-            onUpdateDeclarationAndRisk
-          )
+            onUpdateDeclarationAndRisk,
+          ),
         )
         expect(gen.next().done).toBe(true)
       })
@@ -578,7 +578,7 @@ describe('checklist-detail', () => {
       it('should request data when called', () => {
         const gen = checkListDetailPepSearchListen()
         expect(gen.next().value).toEqual(
-          takeLatest<Action<UpdateContactParams>>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP, pepSearch)
+          takeLatest<Action<UpdateContactParams>>(ActionTypes.CHECKLIST_DETAIL_SEARCH_PEP, pepSearch),
         )
         expect(gen.next().done).toBe(true)
       })
@@ -590,8 +590,8 @@ describe('checklist-detail', () => {
         expect(gen.next().value).toEqual(
           takeLatest<Action<UpdateIdentityCheckParams>>(
             ActionTypes.CHECKLIST_DETAIL_PRIMARY_ID_UPDATE_DATA,
-            updatePrimaryId
-          )
+            updatePrimaryId,
+          ),
         )
         expect(gen.next().done).toBe(true)
       })
@@ -603,8 +603,8 @@ describe('checklist-detail', () => {
         expect(gen.next().value).toEqual(
           takeLatest<Action<UpdateIdentityCheckParams>>(
             ActionTypes.CHECKLIST_DETAIL_SECONDARY_ID_UPDATE_DATA,
-            updateSecondaryId
-          )
+            updateSecondaryId,
+          ),
         )
         expect(gen.next().done).toBe(true)
       })
@@ -619,7 +619,7 @@ describe('checklist-detail', () => {
               idCheck: IdentityCheckModel
               dynamicLinkParams: DynamicLinkParams
             }>
-          >(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA, updateIdentityCheckStatus)
+          >(ActionTypes.CHECKLIST_DETAIL_IDENTITY_CHECK_UPDATE_DATA, updateIdentityCheckStatus),
         )
         expect(gen.next().done).toBe(true)
       })
@@ -637,8 +637,8 @@ describe('checklist-detail', () => {
             fork(checkListDetailPepSearchListen),
             fork(updatePrimaryIdListen),
             fork(updateSecondaryIdListen),
-            fork(updateIdentityCheckStatusListen)
-          ])
+            fork(updateIdentityCheckStatusListen),
+          ]),
         )
         expect(gen.next().done).toBe(true)
       })

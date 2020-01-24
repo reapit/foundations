@@ -15,7 +15,7 @@ exports[`Result renderEmptyResult should run correctly 1`] = `
     </Info>
   </div>
   <div>
-    <ForwardRef
+    <Link
       to="/"
     >
       <Button
@@ -25,7 +25,7 @@ exports[`Result renderEmptyResult should run correctly 1`] = `
         New Search
          
       </Button>
-    </ForwardRef>
+    </Link>
   </div>
 </FlexContainerBasic>
 `;
@@ -43,9 +43,9 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
       isScrollable={true}
     >
       <H3>
-        Showing Results for '
+        Showing Results for ‘
         1
-        '
+        ’
       </H3>
       <div>
         <Table
@@ -574,8 +574,8 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
       isScrollable={true}
     >
       <H3>
-        Showing Results for '
-        '
+        Showing Results for ‘
+        ’
       </H3>
       <div>
         <Table

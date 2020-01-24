@@ -10,7 +10,7 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKT
     <H3>
       Client Search
     </H3>
-    <ForwardRef
+    <Form
       className="mb-8"
     >
       <Input
@@ -95,7 +95,7 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKT
       >
         Advanced Search
       </AcButton>
-    </ForwardRef>
+    </Form>
   </FlexContainerResponsive>
 </div>
 `;
@@ -110,7 +110,7 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1
     <H3>
       Client Search
     </H3>
-    <ForwardRef
+    <Form
       className="mb-8"
     >
       <Input
@@ -172,7 +172,7 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1
       >
         Search
       </Button>
-    </ForwardRef>
+    </Form>
   </FlexContainerResponsive>
 </div>
 `;

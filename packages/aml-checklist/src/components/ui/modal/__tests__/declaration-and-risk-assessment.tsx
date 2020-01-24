@@ -6,7 +6,7 @@ import {
   DeclarationAndRiskAssessment,
   renderForm,
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 } from '../declaration-and-risk-assessment'
 
 describe('DeclarationAndRiskAssessment', () => {
@@ -16,7 +16,7 @@ describe('DeclarationAndRiskAssessment', () => {
       contact,
       onNextHandler: jest.fn(),
       onPrevHandler: jest.fn(),
-      onHandleSubmit: jest.fn()
+      onHandleSubmit: jest.fn(),
     }
     const wrapper = shallow(<DeclarationAndRiskAssessment {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -31,7 +31,7 @@ describe('DeclarationAndRiskAssessment', () => {
       loading: false,
       onNextHandler: jest.fn(),
       onPrevHandler: jest.fn(),
-      isSubmitting: false
+      isSubmitting: false,
     }
     const fn = renderForm(mockProps)
     const component = fn({ values: {} })
@@ -44,14 +44,14 @@ describe('DeclarationAndRiskAssessment', () => {
       const mockState = {
         checklistDetail: {
           checklistDetailData: {
-            contact
-          }
-        }
+            contact,
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         isSubmitting: false,
-        contact
+        contact,
       })
     })
     it('should run correctly', () => {
@@ -59,7 +59,7 @@ describe('DeclarationAndRiskAssessment', () => {
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         isSubmitting: false,
-        contact: {}
+        contact: {},
       })
     })
   })

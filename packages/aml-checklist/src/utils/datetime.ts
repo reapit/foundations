@@ -11,21 +11,21 @@ export const changeTimeZoneLocalForIdentityCheck = (identityChecks: IdentityChec
   const newDocument1 = document1
     ? {
         ...document1,
-        expiry: toLocalTime(document1.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339)
+        expiry: toLocalTime(document1.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
     : undefined
 
   const newDocument2 = document2
     ? {
         ...document2,
-        expiry: toLocalTime(document2.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339)
+        expiry: toLocalTime(document2.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
     : undefined
   const newIdentityChecks = {
     ...identityChecks,
     document1: newDocument1,
     document2: newDocument2,
-    checkDate: toLocalTime(identityChecks.checkDate as ConfigType, DATE_TIME_FORMAT.RFC3339)
+    checkDate: toLocalTime(identityChecks.checkDate as ConfigType, DATE_TIME_FORMAT.RFC3339),
   }
   return newIdentityChecks
 }
@@ -39,14 +39,14 @@ export const changeTimeZoneUTCForIdentityCheck = (identityChecks: IdentityCheckM
   const newDocument1 = document1
     ? {
         ...document1,
-        expiry: toUTCTime(document1.expiry as ConfigType)
+        expiry: toUTCTime(document1.expiry as ConfigType),
       }
     : undefined
 
   const newDocument2 = document2
     ? {
         ...document2,
-        expiry: toUTCTime(document2.expiry as ConfigType)
+        expiry: toUTCTime(document2.expiry as ConfigType),
       }
     : undefined
 
@@ -54,7 +54,7 @@ export const changeTimeZoneUTCForIdentityCheck = (identityChecks: IdentityCheckM
     ...identityChecks,
     document1: newDocument1,
     document2: newDocument2,
-    checkDate: toUTCTime(identityChecks.checkDate as ConfigType)
+    checkDate: toUTCTime(identityChecks.checkDate as ConfigType),
   }
   return newIdentityChecks
 }

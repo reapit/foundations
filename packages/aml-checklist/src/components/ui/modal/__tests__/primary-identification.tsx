@@ -14,7 +14,7 @@ describe('PrimaryIdentification', () => {
         loading: false,
         updateIdentification: jest.fn(),
         onNextHandler: jest.fn(),
-        onPrevHandler: jest.fn()
+        onPrevHandler: jest.fn(),
       }
       const wrapper = shallow(<PrimaryIdentification {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -29,9 +29,9 @@ describe('PrimaryIdentification', () => {
           isSubmitting: false,
           checklistDetailData: {
             contact,
-            idCheck
-          }
-        }
+            idCheck,
+          },
+        },
       } as ReduxState
       const result = mapStateToProps(mockState)
       const { typeId, expiry, details } = idCheck.document1
@@ -42,8 +42,8 @@ describe('PrimaryIdentification', () => {
           typeId,
           details,
           expiry: new Date(expiry),
-          fileUrl: idCheck.metadata.primaryIdUrl
-        }
+          fileUrl: idCheck.metadata.primaryIdUrl,
+        },
       }
       expect(result).toEqual(expected)
     })
@@ -59,8 +59,8 @@ describe('PrimaryIdentification', () => {
           details: '',
           expiry: '',
           fileUrl: undefined,
-          typeId: ''
-        }
+          typeId: '',
+        },
       }
       expect(result).toEqual(expected)
     })

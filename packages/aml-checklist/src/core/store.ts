@@ -1,5 +1,15 @@
-import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
-import { ReduxState } from '../types/core'
+import {
+  createStore,
+  applyMiddleware,
+  compose,
+  combineReducers,
+  Store as ReduxStore,
+  Dispatch,
+  Reducer,
+  CombinedState,
+  AnyAction,
+} from 'redux'
+import { ReduxState, Action } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { all, fork } from '@redux-saga/core/effects'
 
@@ -34,8 +44,8 @@ export class Store {
     error,
     result,
     checklistDetail,
-    identityTypes
-  })
+    identityTypes,
+  }) as Reducer<CombinedState<ReduxState>, Action<any> | AnyAction>
 
   static sagas = function*() {
     yield all([fork(authSagas), fork(checklistDetailSagas), fork(resultSagas), fork(identityTypesSagas)])

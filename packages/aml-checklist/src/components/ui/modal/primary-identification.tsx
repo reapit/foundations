@@ -8,7 +8,7 @@ import { checklistDetailShowModal, checklistDetailPrimaryIdUpdateData } from '@/
 import {
   selectCheckListDetailContact,
   selectCheckListDetailPrimaryId,
-  selectCheckListDetailIsSubmitting
+  selectCheckListDetailIsSubmitting,
 } from '@/selectors/checklist-detail'
 import { IdentityDocumentModel, ContactModel } from '@reapit/foundations-ts-definitions'
 import { selectCheckListDetailPrimaryIdUrl } from '../../../selectors/checklist-detail'
@@ -21,7 +21,7 @@ export const PrimaryIdentification: React.FC<PrimaryIdentiticationProps> = ({
   loading,
   updateIdentification,
   onNextHandler,
-  onPrevHandler
+  onPrevHandler,
 }) => (
   <Identification
     loading={loading}
@@ -54,14 +54,14 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
       typeId: typeId || DEFAULT_TYPE,
       expiry: expiry ? new Date(expiry) : '',
       details: details,
-      fileUrl: primaryIdUrl
+      fileUrl: primaryIdUrl,
     } as IdentityDocumentModel
   }
 
   return {
     loading: isSubmitting,
     contact,
-    initFormValues
+    initFormValues,
   }
 }
 
@@ -78,9 +78,9 @@ export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   onNextHandler: (values: any) => () =>
     dispatch(
       dispatch(
-        checklistDetailPrimaryIdUpdateData({ nextSection: STEPS.SECONDARY_IDENTIFICATION, identityChecks: values })
-      )
-    )
+        checklistDetailPrimaryIdUpdateData({ nextSection: STEPS.SECONDARY_IDENTIFICATION, identityChecks: values }),
+      ),
+    ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PrimaryIdentification)
