@@ -16,7 +16,7 @@ import { selectCategories } from '@/selector/app-categories'
 import {
   PagedResultCategoryModel_,
   PagedResultAppSummaryModel_,
-  AppSummaryModel
+  AppSummaryModel,
 } from '@reapit/foundations-ts-definitions'
 import { appCategorieStub } from '../__stubs__/app-categories'
 
@@ -40,25 +40,25 @@ describe('client fetch data', () => {
           appName: params.data.search,
           pageNumber: params.data.page,
           pageSize: APPS_PER_PAGE,
-          IsFeatured: false
+          IsFeatured: false,
         })}`,
         api: process.env.MARKETPLACE_API_BASE_URL as string,
         method: 'GET',
-        headers: MARKETPLACE_HEADERS
+        headers: MARKETPLACE_HEADERS,
       }),
       call(fetcher, {
         url: `${URLS.apps}?clientId=1&PageNumber=${params.data.page}&PageSize=${FEATURED_APPS}&IsFeatured=true`,
         api: process.env.MARKETPLACE_API_BASE_URL as string,
         method: 'GET',
-        headers: MARKETPLACE_HEADERS
+        headers: MARKETPLACE_HEADERS,
       }),
       call(fetcher, {
         url: `${URLS.categories}`,
         method: 'GET',
         api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS
-      })
-    ])
+        headers: MARKETPLACE_HEADERS,
+      }),
+    ]),
   )
 
   test('api call success', () => {
@@ -68,9 +68,9 @@ describe('client fetch data', () => {
       put(
         clientReceiveData({
           apps: response[0] as PagedResultAppSummaryModel_,
-          featuredApps: response[1].data as AppSummaryModel[]
-        })
-      )
+          featuredApps: response[1].data as AppSummaryModel[],
+        }),
+      ),
     )
     expect(clone.next().value).toEqual(put(categoriesReceiveData(response[2] as PagedResultCategoryModel_)))
     expect(clone.next().done).toBe(true)
@@ -89,9 +89,9 @@ describe('client fetch data', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
   })
 })
@@ -107,9 +107,9 @@ describe('client fetch data error', () => {
     put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
-    )
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
+    ),
   )
 })
 

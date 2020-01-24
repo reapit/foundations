@@ -4,7 +4,7 @@ import {
   adminAppsReceiveData,
   adminAppsRequestData,
   adminAppsRequestFailure,
-  adminAppsSetFormState
+  adminAppsSetFormState,
 } from '../actions/admin-apps'
 import { PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 
@@ -17,14 +17,14 @@ export interface AdminAppsState {
 export const defaultState: AdminAppsState = {
   loading: false,
   formState: 'PENDING',
-  adminAppsData: null
+  adminAppsData: null,
 }
 
 const adminAppsReducer = (state: AdminAppsState = defaultState, action: Action<any>): AdminAppsState => {
   if (isType(action, adminAppsRequestData)) {
     return {
       ...state,
-      loading: true
+      loading: true,
     }
   }
 
@@ -32,21 +32,21 @@ const adminAppsReducer = (state: AdminAppsState = defaultState, action: Action<a
     return {
       ...state,
       loading: false,
-      adminAppsData: action.data || null
+      adminAppsData: action.data || null,
     }
   }
 
   if (isType(action, adminAppsRequestFailure)) {
     return {
       ...state,
-      loading: false
+      loading: false,
     }
   }
 
   if (isType(action, adminAppsSetFormState)) {
     return {
       ...state,
-      formState: action.data
+      formState: action.data,
     }
   }
 

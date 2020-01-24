@@ -1,7 +1,7 @@
 import {
   installedAppsLoading,
   installedAppsReceiveData,
-  installedAppsRequestDataFailure
+  installedAppsRequestDataFailure,
 } from '../actions/installed-apps'
 import { put, fork, takeLatest, call, all, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
@@ -33,8 +33,8 @@ export const installedAppsDataFetch = function*({ data: page }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -46,7 +46,7 @@ export const fetchInstalledApps = async ({ clientId, page }) => {
       `${page}&PageSize=${INSTALLED_APPS_PERPAGE}&IsDirectApi=false`,
     method: 'GET',
     api: process.env.MARKETPLACE_API_BASE_URL as string,
-    headers: MARKETPLACE_HEADERS
+    headers: MARKETPLACE_HEADERS,
   })
 }
 

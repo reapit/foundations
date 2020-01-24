@@ -8,7 +8,7 @@ const adminProps: AdminStatsProps = {
   loading: false,
   data: [],
   totalCount: 0,
-  loadStats: jest.fn()
+  loadStats: jest.fn(),
 }
 
 describe('Admin Stats', () => {
@@ -110,7 +110,7 @@ describe('Admin Stats', () => {
           wrapper
             .find(H4)
             .last()
-            .text()
+            .text(),
         ).toContain('Total')
       }, 1000)
     })

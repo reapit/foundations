@@ -19,7 +19,7 @@ export const setCookieString = (key, value, href = window.location.href): void =
     hardtack.set(key, value, {
       path: '/',
       domain: whitelistedHost,
-      samesite: 'lax'
+      samesite: 'lax',
     })
   }
 }

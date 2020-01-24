@@ -11,8 +11,8 @@ const fakeResponse = {} as PagedResultDeveloperModel_
 const params = {
   data: {
     page: 1,
-    queryString: '?name=name&company=company'
-  }
+    queryString: '?name=name&company=company',
+  },
 }
 
 describe('adminDevManagementRequestDataHandler', () => {
@@ -24,8 +24,8 @@ describe('adminDevManagementRequestDataHandler', () => {
       url: `${URLS.developers}?PageNumber=${1}&PageSize=${REVISIONS_PER_PAGE}&Name=${'name'}&Company=${'company'}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
 
   test('api call success', () => {

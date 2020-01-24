@@ -7,5 +7,5 @@ export const developerSetStatusRequestLoading = actionCreator<void>(ActionTypes.
 export const developerSetStatusRequestFailure = actionCreator<void>(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_FAILURE)
 export const developerSetStatusRequestSuccess = actionCreator<void>(ActionTypes.DEVELOPER_SET_STATUS_REQUEST_SUCCESS)
 export const developerSetStatusSetInitFormState = actionCreator<void>(
-  ActionTypes.DEVELOPER_SET_STATUS_SET_INIT_FORM_STATE
+  ActionTypes.DEVELOPER_SET_STATUS_SET_INIT_FORM_STATE,
 )

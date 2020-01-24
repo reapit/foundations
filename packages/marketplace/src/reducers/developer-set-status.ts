@@ -4,11 +4,11 @@ import {
   developerSetStatusSetInitFormState,
   developerSetStatusRequestSuccess,
   developerSetStatusRequestLoading,
-  developerSetStatusRequestFailure
+  developerSetStatusRequestFailure,
 } from '../actions/developer-set-status'
 
 export const defaultState: RequestState = {
-  formState: 'PENDING'
+  formState: 'PENDING',
 }
 
 const developerSetStatusReducer = (state: RequestState = defaultState, action: Action<any>): RequestState => {

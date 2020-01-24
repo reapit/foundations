@@ -7,7 +7,7 @@ export const validate = (values: RejectRevisionModel) => {
   let errors = validateRequire<RejectRevisionModel, SubmitRevisionFormErrorKeys>({
     values,
     currentErrors: {},
-    keys: ['rejectionReason']
+    keys: ['rejectionReason'],
   })
 
   return errors

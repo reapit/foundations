@@ -8,12 +8,12 @@ const developerAppsPageMetadata = {
   selectors: {
     container: '#page-developer-apps-container',
     buttonEditDetails: 'button[data-test="detail-modal-edit-button"]',
-    btnCloseDetailModal: 'button[data-test="modal-close-button"]'
-  }
+    btnCloseDetailModal: 'button[data-test="modal-close-button"]',
+  },
 }
 
 const {
-  selectors: { checkBoxIsListed, buttonSubmit, checkboxAgreeTheTermsAndConditions }
+  selectors: { checkBoxIsListed, buttonSubmit, checkboxAgreeTheTermsAndConditions },
 } = developerSubmitAppPage
 
 const developerAppsPageActions = {
@@ -63,12 +63,12 @@ const developerAppsPageActions = {
     cy.get(buttonEditDetails)
       .should('have.text', 'Pending Revision')
       .should('be.disabled')
-  }
+  },
 }
 
 const developerAppsPage = {
   ...developerAppsPageMetadata,
-  actions: { ...developerAppsPageActions }
+  actions: { ...developerAppsPageActions },
 }
 
 export default developerAppsPage

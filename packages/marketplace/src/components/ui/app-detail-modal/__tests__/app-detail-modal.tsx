@@ -6,7 +6,7 @@ import { AppDetailModal, AppDetailModalProps, handleAfterClose } from '../app-de
 const props: AppDetailModalProps = {
   visible: true,
   afterClose: jest.fn(),
-  setAppDetailModalStateBrowse: jest.fn()
+  setAppDetailModalStateBrowse: jest.fn(),
 }
 
 describe('AppDetailModel', () => {

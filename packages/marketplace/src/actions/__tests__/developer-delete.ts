@@ -3,7 +3,7 @@ import {
   developerSetStatusRequestLoading,
   developerSetStatusRequestFailure,
   developerSetStatusRequestSuccess,
-  developerSetStatusSetInitFormState
+  developerSetStatusSetInitFormState,
 } from '../developer-set-status'
 import ActionTypes from '../../constants/action-types'
 

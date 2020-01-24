@@ -6,8 +6,8 @@ describe('selectAppDetailId', () => {
   it('should run correctly', () => {
     const input = {
       appDetail: {
-        appDetailData: appDetailDataStub
-      }
+        appDetailData: appDetailDataStub,
+      },
     } as ReduxState
     const result = selectAppDetailId(input)
     expect(result).toEqual(appDetailDataStub.data.id)
@@ -24,8 +24,8 @@ describe('selectAppDetailInstallationId', () => {
   it('should run correctly', () => {
     const input = {
       appDetail: {
-        appDetailData: appDetailDataStub
-      }
+        appDetailData: appDetailDataStub,
+      },
     } as ReduxState
     const result = selectAppDetailInstallationId(input)
     expect(result).toEqual(appDetailDataStub.data.installationId)

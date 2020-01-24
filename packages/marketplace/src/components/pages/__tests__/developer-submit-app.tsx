@@ -11,7 +11,7 @@ import {
   handleClickOpenModal,
   handleCloseModal,
   handleAcceptTerms,
-  handleDeclineTerms
+  handleDeclineTerms,
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
@@ -20,7 +20,7 @@ const submitAppMappedActionsProps: SubmitAppMappedActions = {
   submitApp: jest.fn(),
   submitAppSetFormState: jest.fn(),
   submitRevision: jest.fn(),
-  submitRevisionSetFormState: jest.fn()
+  submitRevisionSetFormState: jest.fn(),
 }
 
 const mockRouterProps = getMockRouterProps(null)
@@ -35,23 +35,23 @@ describe('DeveloperSubmitApp', () => {
         appDetailData: null,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }],
         },
-        formState: 'PENDING'
+        formState: 'PENDING',
       },
       developerId: '',
       match: {} as match<{ appid?: string }>,
       history: mockRouterProps.history,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
@@ -66,9 +66,9 @@ describe('DeveloperSubmitApp', () => {
         appDetailData: null,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: { loading: true, submitAppData: null, formState: 'PENDING' },
@@ -76,7 +76,7 @@ describe('DeveloperSubmitApp', () => {
       match: {} as match<{ appid?: string }>,
       history: mockRouterProps.history,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     const wrapper = shallow(<SubmitApp {...props} />)
@@ -92,27 +92,27 @@ describe('DeveloperSubmitApp', () => {
         appDetailData: appDetailDataStub,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }],
         },
-        formState: 'PENDING'
+        formState: 'PENDING',
       },
       developerId: '2',
       match: {
         params: {
-          appid: '1'
-        }
+          appid: '1',
+        },
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
@@ -127,27 +127,27 @@ describe('DeveloperSubmitApp', () => {
         appDetailData: appDetailDataStub,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }],
         },
-        formState: 'PENDING'
+        formState: 'PENDING',
       },
       developerId: '2',
       match: {
         params: {
-          appid: '1'
-        }
+          appid: '1',
+        },
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     const wrapper = render(<SubmitApp {...props} />)
@@ -167,27 +167,27 @@ describe('DeveloperSubmitApp', () => {
         appDetailData: null,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }],
         },
-        formState: 'PENDING'
+        formState: 'PENDING',
       },
       developerId: '2',
       match: {
         params: {
-          appid: '1'
-        }
+          appid: '1',
+        },
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
@@ -202,27 +202,27 @@ describe('DeveloperSubmitApp', () => {
         appDetailData: null,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }],
         },
-        formState: 'PENDING'
+        formState: 'PENDING',
       },
       developerId: '2',
       match: {
         params: {
-          appid: '1'
-        }
+          appid: '1',
+        },
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
@@ -237,27 +237,27 @@ describe('DeveloperSubmitApp', () => {
         appDetailData: null,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }],
         },
-        formState: 'PENDING'
+        formState: 'PENDING',
       },
       developerId: '2',
       match: {
         params: {
-          appid: '1'
-        }
+          appid: '1',
+        },
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
@@ -272,23 +272,23 @@ describe('DeveloperSubmitApp', () => {
         appDetailData: null,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }],
         },
-        formState: 'SUCCESS'
+        formState: 'SUCCESS',
       },
       developerId: '2',
       match: {} as match<{ appid?: string }>,
       history: mockRouterProps.history,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
@@ -303,27 +303,27 @@ describe('DeveloperSubmitApp', () => {
         appDetailData: null,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'SUCCESS' },
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }],
         },
-        formState: 'PENDING'
+        formState: 'PENDING',
       },
       developerId: '2',
       match: {
         params: {
-          appid: '1'
-        }
+          appid: '1',
+        },
       } as match<{ appid?: string }>,
       history: mockRouterProps.history,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
@@ -338,23 +338,23 @@ describe('DeveloperSubmitApp', () => {
         appDetailData: null,
         authentication: {
           loading: false,
-          code: ''
+          code: '',
         },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }],
         },
-        formState: 'SUBMITTING'
+        formState: 'SUBMITTING',
       },
       developerId: null,
       match: {} as match<{ appid?: string }>,
       history: mockRouterProps.history,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     const wrapper = mount(<SubmitApp {...props} />)
@@ -370,25 +370,25 @@ describe('DeveloperSubmitApp', () => {
         error: false,
         appDetailData: appDetailDataStub,
         authentication: { loading: false, code: '' },
-        isStale: false
+        isStale: false,
       },
       submitRevisionState: { formState: 'PENDING' },
       submitAppState: {
         loading: false,
         submitAppData: {
-          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
+          scopes: [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }],
         },
-        formState: 'PENDING'
+        formState: 'PENDING',
       },
       developerId: '2',
       match: {
         params: {
-          appid: '1'
-        }
+          appid: '1',
+        },
       } as match<{ appid?: string }>,
       history: mockHistory,
       location: mockRouterProps.location,
-      categories: appCategorieStub?.data || []
+      categories: appCategorieStub?.data || [],
     }
 
     const wrapper = mount(<SubmitApp {...props} />)
@@ -402,7 +402,7 @@ describe('renderScopesCheckbox run correctly', () => {
   it('when renderScopesCheckBox have scope', () => {
     const scopes = [
       { name: 'AgencyCloud/properties.read', description: 'Read data about properties' },
-      { name: 'AgencyCloud/properties.write', description: 'Write data about developers' }
+      { name: 'AgencyCloud/properties.write', description: 'Write data about developers' },
     ]
     const checkboxes = renderScopesCheckbox(scopes)
     expect(checkboxes).toHaveLength(2)
@@ -440,7 +440,7 @@ describe('handleSubmitApp', () => {
     submitRevision: jest.fn(),
     setSubmitError: jest.fn(),
     isAgreedTerms: false,
-    setShouldShowError: jest.fn()
+    setShouldShowError: jest.fn(),
   }
   const appModel = {}
   const actions = {} as any
@@ -474,7 +474,7 @@ describe('handleSubmitApp', () => {
 describe('handleClickOpenModal', () => {
   it('should call preventDefault and setTermModalIsOpen', () => {
     const eventMock = {
-      preventDefault: jest.fn()
+      preventDefault: jest.fn(),
     }
     const setTermModalIsOpen = jest.fn()
     const spy = jest.spyOn(eventMock, 'preventDefault')

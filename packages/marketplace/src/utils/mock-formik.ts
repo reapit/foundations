@@ -12,14 +12,14 @@ export const mockFormikAction = {
   validateField: jest.fn(),
   resetForm: jest.fn(),
   submitForm: jest.fn(),
-  setFormikState: jest.fn()
+  setFormikState: jest.fn(),
 }
 
 export const mockFormikSharedConfig = {
   validateOnChange: true,
   validateOnBlur: true,
   isInitialValid: true,
-  enableReinitialize: true
+  enableReinitialize: true,
 }
 
 export const mockFormikState = values => ({
@@ -30,7 +30,7 @@ export const mockFormikState = values => ({
   isValidating: true,
   isSubmitting: true,
   status: {},
-  submitCount: 1
+  submitCount: 1,
 })
 
 export const mockFormikHandler = {
@@ -39,7 +39,7 @@ export const mockFormikHandler = {
   handleBlur: jest.fn(),
   handleChange: jest.fn(),
   getFieldProps: jest.fn(),
-  getFieldMeta: jest.fn()
+  getFieldMeta: jest.fn(),
 }
 
 export const mockFormikComputeProps = values => ({
@@ -50,12 +50,12 @@ export const mockFormikComputeProps = values => ({
   error: '',
   touched: false,
   initialTouched: false,
-  initialErrors: ''
+  initialErrors: '',
 })
 
 export const mockFormikRegistration = {
   registerField: jest.fn(),
-  unregisterField: jest.fn()
+  unregisterField: jest.fn(),
 }
 
 export const mockWithFormik = values => ({
@@ -64,5 +64,5 @@ export const mockWithFormik = values => ({
   ...mockFormikState(values),
   ...mockFormikHandler,
   ...mockFormikComputeProps(values),
-  ...mockFormikRegistration
+  ...mockFormikRegistration,
 })

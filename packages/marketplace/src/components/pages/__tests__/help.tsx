@@ -9,7 +9,7 @@ import {
   handleFaq,
   helpItems,
   renderHelpItems,
-  handleViewRoadmap
+  handleViewRoadmap,
 } from '../help'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
@@ -20,8 +20,8 @@ jest.mock('../../../scripts/chat-bot')
 
 jest.mock('../../../core/router', () => ({
   history: {
-    push: jest.fn()
-  }
+    push: jest.fn(),
+  },
 }))
 
 afterEach(() => {

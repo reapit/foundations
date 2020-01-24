@@ -23,11 +23,11 @@ export const adminStatsDataFetch = function*({ data }) {
     const response = yield call(fetcher, {
       url: `${url}?${setQueryParams({
         pageSize: APPS_PER_PAGE,
-        ...queryParams
+        ...queryParams,
       })}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS
+      headers: MARKETPLACE_HEADERS,
     })
     if (response) {
       yield put(adminStatsReceiveData({ data: response.data, totalCount: response.totalCount }))
@@ -40,8 +40,8 @@ export const adminStatsDataFetch = function*({ data }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

@@ -1,0 +1,81 @@
+.appoinmentDetailHeaderText {
+  line-height: 2rem;
+
+  h4 {
+    margin: 0.5rem 0 !important;
+  }
+
+  h5 {
+    margin: 0 !important;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem !important;
+    line-height: 1.7rem;
+  }
+}
+
+.appoinmentDetailModal {
+  header h4, h5 {
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.appointmentDetailIconContainer {
+  width: 200px;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+
+  svg {
+    margin-right: 1rem;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  h5 {
+    font-family: "Museo Sans W03_700",Helvetica,sans-serif !important
+  }
+}
+
+.appointmentDetailTextContainer {
+  display: flex;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    flex-direction: column;
+
+    p {
+      margin-left: 2rem;
+    }
+
+    h6 {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  h5 {
+    font-family: "Museo Sans W03_300",Helvetica,sans-serif;
+  }
+
+  & > div:first-child,
+  &> h5 {
+    display: flex;
+  }
+
+  h4,
+  h5 {
+    margin-bottom: 0 !important;
+    width: 200px;
+  }
+
+  h5,
+  a {
+    flex: 1;
+    width: 100%;
+  }
+}

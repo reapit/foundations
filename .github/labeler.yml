@@ -19,3 +19,6 @@ marketplace:
 
 foundations-ts-definitons:
   - packages/foundations-ts-definitons/**
+
+geo-diary:
+  - packages/geo-diary/**

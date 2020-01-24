@@ -14,7 +14,7 @@ import {
   FormSubHeading,
   Form,
   withFormik,
-  FormikProps
+  FormikProps,
 } from '@reapit/elements'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import { registerValidate } from '@/utils/form/register'
@@ -57,7 +57,7 @@ export const handleOpenModal = (visible: boolean, setVisible: (visible: boolean)
 export const handleChangeAgree = (
   agreedTerms: boolean,
   setAgree: (agreedTerms: boolean) => void,
-  setVisible: (visible: boolean) => void
+  setVisible: (visible: boolean) => void,
 ) => () => {
   setVisible(false)
   setAgree(agreedTerms)
@@ -69,7 +69,7 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
   errors,
   touched,
   setFieldValue,
-  handleSubmit
+  handleSubmit,
 }) => {
   const [visible, setVisible] = React.useState<boolean>(false)
   const [agreedTerms, setAgreedTerms] = React.useState<boolean>(false)
@@ -222,12 +222,12 @@ export const Register: React.FunctionComponent<RegisterProps & FormikProps<Regis
 }
 
 export const mapStateToProps = (state: ReduxState): RegisterMappedProps => ({
-  formState: state.developer.formState
+  formState: state.developer.formState,
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): RegisterMappedActions => ({
   developerCreate: (developer: CreateDeveloperModel) => dispatch(developerCreate(developer)),
-  developerSetFormState: (formState: FormState) => dispatch(developerSetFormState(formState))
+  developerSetFormState: (formState: FormState) => dispatch(developerSetFormState(formState)),
 })
 
 export const mapPropsToValues = () =>
@@ -238,7 +238,7 @@ export const mapPropsToValues = () =>
     telephone: '',
     password: '',
     confirmPassword: '',
-    agreedTerms: ''
+    agreedTerms: '',
   } as RegisterFormValues)
 
 export const handleSubmitCreateDeveloper = (values: CreateDeveloperModel, { props }) => {
@@ -249,7 +249,7 @@ export const handleSubmitCreateDeveloper = (values: CreateDeveloperModel, { prop
 export const enhancedForm = withFormik<RegisterProps, RegisterFormValues>({
   mapPropsToValues: mapPropsToValues,
   validate: registerValidate,
-  handleSubmit: handleSubmitCreateDeveloper
+  handleSubmit: handleSubmitCreateDeveloper,
 })
 
 export const withConnect = connect(mapStateToProps, mapDispatchToProps)

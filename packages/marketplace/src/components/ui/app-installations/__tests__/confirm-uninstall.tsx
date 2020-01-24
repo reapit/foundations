@@ -7,7 +7,7 @@ import {
   mapStateToProps,
   TerminatedValues,
   handleSuccessUninstall,
-  handleSubmit
+  handleSubmit,
 } from '../confirm-uninstall'
 import { ReduxState, FormState } from '@/types/core'
 import { UninstallParams } from '@/actions/app-installations'
@@ -25,7 +25,7 @@ const props = {
   onUninstallSuccess: jest.fn(),
   uninstallApp: jest.fn(),
   getFieldHelpers: jest.fn(),
-  ...mockWithFormik({ terminatedReason: '' })
+  ...mockWithFormik({ terminatedReason: '' }),
 } as ConfirmUninstallProps & FormikProps<TerminatedValues>
 
 describe('ConfirmUninstall', () => {
@@ -56,10 +56,10 @@ describe('ConfirmUninstall', () => {
   describe('handleSubmit', () => {
     it('should run corectly', () => {
       const mockValues = {
-        terminatedReason: 'test'
+        terminatedReason: 'test',
       }
       const mockProps = {
-        uninstallApp: jest.fn()
+        uninstallApp: jest.fn(),
       }
       handleSubmit(mockValues, { props: mockProps })
       expect(mockProps.uninstallApp).toBeCalled()
@@ -70,11 +70,11 @@ describe('ConfirmUninstall', () => {
     it('should run correctly', () => {
       const mockState = {
         installations: {
-          formState: 'PENDING'
-        }
+          formState: 'PENDING',
+        },
       } as ReduxState
       const expected = {
-        formState: 'PENDING'
+        formState: 'PENDING',
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)

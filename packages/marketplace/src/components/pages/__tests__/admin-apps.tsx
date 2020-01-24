@@ -8,29 +8,29 @@ import {
   mapStateToProps,
   mapDispatchToProps,
   renderForm,
-  handleCloseAppDeleteModal
+  handleCloseAppDeleteModal,
 } from '../admin-apps'
 import { RouteComponentProps, StaticContext } from 'react-router'
 
 const routerProps = {
   match: {
     params: {
-      page: '2'
-    }
+      page: '2',
+    },
   },
   location: {
-    search: 'page=1'
-  }
+    search: 'page=1',
+  },
 } as RouteComponentProps<any, StaticContext, any>
 
 const props = (loading: boolean): AdminAppsProps => ({
   adminAppsState: {
     loading: loading,
     formState: 'PENDING',
-    adminAppsData: appsDataStub.data
+    adminAppsData: appsDataStub.data,
   },
   onChangeFeatured: jest.fn(),
-  ...routerProps
+  ...routerProps,
 })
 
 describe('AdminApps', () => {
@@ -45,11 +45,11 @@ describe('AdminApps', () => {
   describe('mapStateToProps', () => {
     it('should return correctly', () => {
       const mockState = {
-        adminApps: appsDataStub.data
+        adminApps: appsDataStub.data,
       } as ReduxState
       const output = {
         adminAppsState: mockState.adminApps,
-        ...routerProps
+        ...routerProps,
       }
       const result = mapStateToProps(mockState, routerProps)
       expect(result).toEqual(output)
@@ -76,7 +76,7 @@ describe('AdminApps', () => {
   describe('handleCloseAppDeleteModal', () => {
     it('should return correctly', () => {
       const mockProps = {
-        setDeleteModal: jest.fn()
+        setDeleteModal: jest.fn(),
       }
       handleCloseAppDeleteModal(mockProps)()
       expect(mockProps.setDeleteModal).toBeCalled()

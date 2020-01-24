@@ -3,12 +3,12 @@ import {
   appDeleteSetInitFormState,
   appDeleteRequestSuccess,
   appDeleteRequestLoading,
-  appDeleteRequestFailure
+  appDeleteRequestFailure,
 } from '@/actions/app-delete'
 import { RequestState, Action } from '@/types/core'
 
 export const defaultState: RequestState = {
-  formState: 'PENDING'
+  formState: 'PENDING',
 }
 
 const appDeleteReducer = (state: RequestState = defaultState, action: Action<any>): RequestState => {

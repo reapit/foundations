@@ -11,7 +11,7 @@ import {
   appInstallationsSetFormState,
   UninstallParams,
   InstallParams,
-  appInstallationsRequestDataFailure
+  appInstallationsRequestDataFailure,
 } from '@/actions/app-installations'
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { selectDeveloperId } from '@/selector/developer'
@@ -21,7 +21,7 @@ export const fetchInstallations = async (data: InstallationParams) => {
     url: `${URLS.installations}?${setQueryParams({ ...data })}`,
     api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'GET',
-    headers: MARKETPLACE_HEADERS
+    headers: MARKETPLACE_HEADERS,
   })
   return response
 }
@@ -33,7 +33,7 @@ export const fetchInstallApp = async ({ data, clientId, email }) => {
     api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'POST',
     headers: MARKETPLACE_HEADERS,
-    body: { appId, clientId, approvedBy: email }
+    body: { appId, clientId, approvedBy: email },
   })
   return response
 }
@@ -45,7 +45,7 @@ export const fetchUninstallApp = async ({ data, email }) => {
     api: process.env.MARKETPLACE_API_BASE_URL as string,
     method: 'POST',
     headers: MARKETPLACE_HEADERS,
-    body: { ...body, terminatedBy: email }
+    body: { ...body, terminatedBy: email },
   })
   return response
 }
@@ -60,8 +60,8 @@ export const installationsSaga = function*({ data }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -84,8 +84,8 @@ export const appInstallSaga = function*({ data }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }
@@ -102,8 +102,8 @@ export const appUninstallSaga = function*({ data }) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
     )
   }
 }

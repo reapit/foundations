@@ -15,6 +15,6 @@ export const revisionSubmitStub: { data: CreateAppRevisionModel } = {
     screen5ImageUrl: 'https://some-s3-image-url.com',
     summary: 'Lorem ipsum',
     supportEmail: 'support@reapit.com',
-    telephone: '999999999'
-  }
+    telephone: '999999999',
+  },
 }

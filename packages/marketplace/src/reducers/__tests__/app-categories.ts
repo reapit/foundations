@@ -12,11 +12,11 @@ describe('appCategories reducer', () => {
   it('should set state to test when CATEGORIES_RECEIVE_DATA action is called with test', () => {
     const newState = appCaregoriesReducer(undefined, {
       type: ActionTypes.CATEGORIES_RECEIVE_DATA as ActionType,
-      data: appCategorieStub
+      data: appCategorieStub,
     })
     const expected = {
       ...defaultState,
-      ...appCategorieStub
+      ...appCategorieStub,
     }
     expect(newState).toEqual(expected)
   })

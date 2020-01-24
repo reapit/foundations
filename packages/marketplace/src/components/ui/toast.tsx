@@ -16,12 +16,12 @@ interface ToastMappedProps {
 
 const mapStateToProps = (state: ReduxState): ToastMappedProps => ({
   serverError: state.error.serverError,
-  componentError: state.error.componentError
+  componentError: state.error.componentError,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): ToastMappedActions => ({
   errorClearedServer: () => dispatch(errorClearedServer(null)),
-  errorClearedComponent: () => dispatch(errorClearedComponent(null))
+  errorClearedComponent: () => dispatch(errorClearedComponent(null)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Toast)

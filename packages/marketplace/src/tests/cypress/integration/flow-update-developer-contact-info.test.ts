@@ -4,7 +4,7 @@ import parseXhrBodyToJson from '../utils/parse-xhr-body-to-json'
 import nanoid from 'nanoid'
 
 const {
-  actions: { loginUsingDeveloperAccount }
+  actions: { loginUsingDeveloperAccount },
 } = loginPage
 const { selectors, url, apiRoute } = developerSetting
 
@@ -25,7 +25,7 @@ describe('Success update developer contact info', () => {
           company: response.company,
           name: response.name,
           jobTitle: response.jobTitle,
-          telephone: response.telephone
+          telephone: response.telephone,
         }
 
         /* check if info is correctly pass to input */
@@ -44,7 +44,7 @@ describe('Success update developer contact info', () => {
       company: 'New company' + nanoid(),
       name: 'New Name' + nanoid(),
       jobTitle: 'New job' + nanoid(),
-      telephone: '0845 123 4567'
+      telephone: '0845 123 4567',
     }
     /* typing valid data */
     cy.get(selectors.companyName)

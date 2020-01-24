@@ -9,7 +9,7 @@ import { CategoryModel } from '@reapit/foundations-ts-definitions'
 const props: CategoriesListProps = {
   categories: appCategorieStub.data as CategoryModel[],
   selectedCategory: '',
-  onSelectCategory: jest.fn()
+  onSelectCategory: jest.fn(),
 }
 
 describe('CategoriesList', () => {

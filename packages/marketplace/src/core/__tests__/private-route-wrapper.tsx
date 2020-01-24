@@ -14,8 +14,8 @@ const props: PrivateRouteWrapperProps = {
   setDesktopSession: jest.fn(),
   // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
   location: {
-    search: '/client/apps?username=wmcvay@reapit.com&desktopToken=TOKEN'
-  }
+    search: '/client/apps?username=wmcvay@reapit.com&desktopToken=TOKEN',
+  },
 }
 
 // @ts-ignore:
@@ -35,7 +35,7 @@ describe('PrivateRouter', () => {
       <MemoryRouter initialEntries={['/my-path']}>
         <PrivateRouteWrapper {...props} />
         <Route path="/client/login" render={() => <div className="login" />} />
-      </MemoryRouter>
+      </MemoryRouter>,
     )
     expect(wrapper.find('.login')).toHaveLength(1)
   })

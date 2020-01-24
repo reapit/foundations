@@ -18,16 +18,16 @@ const props: InstalledAppCardProps = {
       {
         rel: 'self',
         href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
-        action: 'GET'
+        action: 'GET',
       },
       {
         rel: 'developer',
         href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
-        action: 'GET'
-      }
-    ]
+        action: 'GET',
+      },
+    ],
   },
-  onClick: jest.fn()
+  onClick: jest.fn(),
 }
 
 describe('InstalledAppCard', () => {

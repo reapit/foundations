@@ -13,7 +13,7 @@ describe('developer reducer', () => {
     const newState = developerReducer(undefined, { type: ActionTypes.DEVELOPER_LOADING as ActionType, data: true })
     const expected = {
       ...defaultState,
-      loading: true
+      loading: true,
     }
     expect(newState).toEqual(expected)
   })
@@ -21,11 +21,11 @@ describe('developer reducer', () => {
   it('should set developer item data when DEVELOPER_RECEIVE_DATA action is called', () => {
     const newState = developerReducer(undefined, {
       type: ActionTypes.DEVELOPER_RECEIVE_DATA as ActionType,
-      data: appsDataStub
+      data: appsDataStub,
     })
     const expected = {
       ...defaultState,
-      developerData: appsDataStub
+      developerData: appsDataStub,
     }
     expect(newState).toEqual(expected)
   })
@@ -34,7 +34,7 @@ describe('developer reducer', () => {
     const newState = developerReducer(undefined, { type: ActionTypes.DEVELOPER_CLEAR_DATA as ActionType, data: null })
     const expected = {
       ...defaultState,
-      developerData: null
+      developerData: null,
     }
     expect(newState).toEqual(expected)
   })
@@ -42,11 +42,11 @@ describe('developer reducer', () => {
   it('should set formState when DEVELOPER_SET_FORM_STATE is called', () => {
     const newState = developerReducer(undefined, {
       type: ActionTypes.DEVELOPER_SET_FORM_STATE as ActionType,
-      data: 'SUCCESS'
+      data: 'SUCCESS',
     })
     const expected = {
       ...defaultState,
-      formState: 'SUCCESS'
+      formState: 'SUCCESS',
     }
     expect(newState).toEqual(expected)
   })
@@ -54,11 +54,11 @@ describe('developer reducer', () => {
   it('should set formState when DEVELOPER_SHOW_MODAL is called', () => {
     const newState = developerReducer(undefined, {
       type: ActionTypes.DEVELOPER_SHOW_MODAL as ActionType,
-      data: true
+      data: true,
     })
     const expected = {
       ...defaultState,
-      isVisible: true
+      isVisible: true,
     }
     expect(newState).toEqual(expected)
   })

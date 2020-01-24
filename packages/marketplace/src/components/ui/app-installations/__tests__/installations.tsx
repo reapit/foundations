@@ -10,7 +10,7 @@ const props: InstallationsProps = {
   installationsData: installationsStub,
   onUninstall: jest.fn(),
   fetchInstallationsApp: jest.fn(),
-  afterClose: jest.fn()
+  afterClose: jest.fn(),
 }
 
 describe('Installations', () => {
@@ -29,12 +29,12 @@ describe('Installations', () => {
         installations: {
           installationsAppData: installationsStub,
           loading: false,
-          formState: 'PENDING'
-        }
+          formState: 'PENDING',
+        },
       } as ReduxState
       const expected = {
         installationsData: installationsStub,
-        loading: false
+        loading: false,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)

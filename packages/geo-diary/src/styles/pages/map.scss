@@ -1,0 +1,77 @@
+@import '../base/colors.scss';
+@import '../base/layout.scss';
+
+.mapContainer {
+  overflow: hidden;
+  position: absolute;
+  left: calc(#{$left-panel-width} + 66px);
+  width: calc(100vw - 376px);
+  top: 0;
+  height: 100%;
+
+  @media screen and (max-width: 768px) {
+    left: 0;
+    top: 98px;
+    height: calc(100vh - 98px);
+    width: 100%;
+  }
+}
+
+.mapContainer.isDesktop {
+  top: 0;
+  height: 100vh;
+  left: 350px;
+  width: calc(100vw - 350px);
+
+  @media screen and (max-width: 768px) {
+    top: 35px;
+    height: calc(100vh - 35px);
+    width: 100vw;
+    left: 0;
+  }
+}
+
+.mapContainer.mapHasPanel {
+  height: calc(100vh - 94px);
+
+  @media screen and (max-width: 768px) {
+    height: calc(100vh - 200px);
+  }
+}
+
+.mapContainer.mapHasPanel.isDesktop {
+  height: calc(100vh - 94px);
+
+  @media screen and (max-width: 768px) {
+    height: calc(100vh - 128px);
+  }
+}
+
+.mapPanel {
+  position: absolute;
+  bottom: 0;
+  width: calc(100vw - 416px);
+  left: 416px;
+  display: flex;
+  background-color: #fff;
+  padding: 1.5rem;
+  & > * {
+    margin-right: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    justify-content: space-between;
+    & > * {
+      margin-right: 0;
+    }
+    left: 0;
+    width: 100%;
+  }
+}
+
+.mapPanel.isDesktop {
+  left: 350px;
+  width: calc(100vw - 350px);
+  @media screen and (max-width: 768px) {
+    left: 0;
+  }
+}

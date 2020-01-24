@@ -4,7 +4,7 @@ import ClientWelcomeMessageModal, { ClientWelcomeMessageModalProps } from '../cl
 
 const props: ClientWelcomeMessageModalProps = {
   visible: true,
-  onAccept: jest.fn()
+  onAccept: jest.fn(),
 }
 
 describe('Menu', () => {

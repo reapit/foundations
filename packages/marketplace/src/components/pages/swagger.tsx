@@ -13,8 +13,8 @@ export const fetchInterceptor = async (params: RequestInit) => {
     ...params,
     headers: {
       ...MARKETPLACE_HEADERS,
-      Authorization: `Bearer ${await getAccessToken()}`
-    }
+      Authorization: `Bearer ${await getAccessToken()}`,
+    },
   }
 }
 

@@ -6,6 +6,6 @@ export const installedAppsRequestData = actionCreator<number>(ActionTypes.INSTAL
 export const installedAppsRequestDataFailure = actionCreator<void>(ActionTypes.INSTALLED_APPS_REQUEST_DATA_FAILURE)
 export const installedAppsLoading = actionCreator<boolean>(ActionTypes.INSTALLED_APPS_LOADING)
 export const installedAppsReceiveData = actionCreator<InstalledAppsItem | undefined>(
-  ActionTypes.INSTALLED_APPS_RECEIVE_DATA
+  ActionTypes.INSTALLED_APPS_RECEIVE_DATA,
 )
 export const installedAppsClearData = actionCreator<null>(ActionTypes.INSTALLED_APPS_CLEAR_DATA)

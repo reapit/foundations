@@ -12,7 +12,7 @@ import {
   adminAppsReceiveData,
   adminAppsRequestFailure,
   AdminAppsFeaturedParams,
-  adminAppsSetFormState
+  adminAppsSetFormState,
 } from '@/actions/admin-apps'
 import { selectAdminAppsData } from '@/selector/admin'
 import api from '../api'
@@ -23,8 +23,8 @@ describe('adminAppsFetch', () => {
   const gen = cloneableGenerator(adminAppsFetch)()
   expect(gen.next().value).toEqual(
     call(api.fetchAdminApps, {
-      params: {}
-    })
+      params: {},
+    }),
   )
 
   test('api call success', () => {
@@ -41,9 +41,9 @@ describe('adminAppsFetch', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       expect(clone.next().done).toBe(true)
     }
@@ -53,8 +53,8 @@ describe('adminAppsFetch', () => {
 const featuredParams = {
   data: {
     id: '1',
-    isFeatured: true
-  } as AdminAppsFeaturedParams
+    isFeatured: true,
+  } as AdminAppsFeaturedParams,
 }
 
 describe('adminAppsFeatured', () => {
@@ -64,7 +64,7 @@ describe('adminAppsFeatured', () => {
   expect(gen.next().value).toEqual(select(selectAdminAppsData))
   const newData = data.data?.map(d => ({
     ...d,
-    isFeatured: d.id === featuredParams.data.id ? !d.isFeatured : d.isFeatured
+    isFeatured: d.id === featuredParams.data.id ? !d.isFeatured : d.isFeatured,
   }))
   // expect equal store
   expect(gen.next({ ...data, data: newData }).value).toEqual(put(adminAppsReceiveData({ ...data, data: newData })))
@@ -75,8 +75,8 @@ describe('adminAppsFeatured', () => {
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       body: featuredParams.data.isFeatured ? { isFeatured: featuredParams.data.isFeatured } : undefined,
       method: featuredParams.data.isFeatured ? 'PUT' : 'DELETE',
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
 
   test('api call success', () => {
@@ -93,9 +93,9 @@ describe('adminAppsFeatured', () => {
         put(
           errorThrownServer({
             type: 'SERVER',
-            message: errorMessages.DEFAULT_SERVER_ERROR
-          })
-        )
+            message: errorMessages.DEFAULT_SERVER_ERROR,
+          }),
+        ),
       )
       // expect store to be reverted back
       expect(clone.next().value).toEqual(put(adminAppsReceiveData(featuredAppsDataStub.data)))
@@ -111,7 +111,7 @@ describe('adminAppsSagas thunks', () => {
 
       expect(gen.next().value).toEqual(takeLatest<Action<void>>(ActionTypes.ADMIN_APPS_REQUEST_DATA, adminAppsFetch))
       expect(gen.next().value).toEqual(
-        takeLatest<Action<AdminAppsFeaturedParams>>(ActionTypes.ADMIN_APPS_REQUEST_FEATURED, adminAppsFeatured)
+        takeLatest<Action<AdminAppsFeaturedParams>>(ActionTypes.ADMIN_APPS_REQUEST_FEATURED, adminAppsFeatured),
       )
       expect(gen.next().done).toBe(true)
     })

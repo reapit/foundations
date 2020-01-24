@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppointmentModal AppointmentModal should render a header correctly 1`] = `
+<header
+  className="modal-card-head"
+>
+  <div
+    className="undefined modal-card-title"
+  >
+    <H4>
+      Some address
+    </H4>
+    <SubTitleH5>
+      Some type
+    </SubTitleH5>
+  </div>
+  <button
+    aria-label="close"
+    className="delete"
+    data-test="modal-close-button"
+    onClick={[Function]}
+  />
+</header>
+`;
+
+exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
+<Fragment>
+  <Modal
+    HeaderComponent={[Function]}
+    afterClose={[MockFunction]}
+    visible={true}
+  >
+    <div>
+      <div>
+        <FaClock />
+        <H6>
+          Time:
+        </H6>
+      </div>
+      <div>
+        <p>
+          10 Jan 2020 10:27 AM - 10:40 AM
+        </p>
+      </div>
+    </div>
+    <div>
+      <div>
+        <FaHome />
+        <H6>
+          Property:
+        </H6>
+      </div>
+      <AcLink
+        dynamicLinkParams={
+          Object {
+            "appMode": "DESKTOP",
+            "entityCode": "BED140946",
+            "entityType": "properties",
+          }
+        }
+      >
+        <p>
+          42, Mill Road, Sharnbrook, Bedford, Bedfordshire, MK44 1NX, GB
+        </p>
+      </AcLink>
+    </div>
+    <div>
+      <div>
+        <FaStickyNote />
+        <H6>
+          Entry Notes:
+        </H6>
+      </div>
+      <p>
+        It has windows, a roof and doors - it's basically a house.
+      </p>
+    </div>
+    <div>
+      <div>
+        <FaHandshake />
+        <H6>
+          Arrangements:
+        </H6>
+      </div>
+      <p>
+        Don't let the cat in
+      </p>
+    </div>
+    <FlexContainerResponsive>
+      <Button
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+        variant="primary"
+      >
+        Cancel Appointment
+      </Button>
+    </FlexContainerResponsive>
+  </Modal>
+</Fragment>
+`;
+
+exports[`AppointmentModal AppointmentModal should render correctly for confirm content 1`] = `
+<Fragment>
+  <Modal
+    HeaderComponent={[Function]}
+    afterClose={[MockFunction]}
+    visible={true}
+  >
+    <ConfirmContentWithRedux />
+  </Modal>
+</Fragment>
+`;
+
+exports[`AppointmentModal AppointmentModal should render correctly when loading 1`] = `
+<Fragment>
+  <Modal
+    HeaderComponent={[Function]}
+    afterClose={[MockFunction]}
+    visible={true}
+  >
+    <Loader />
+  </Modal>
+</Fragment>
+`;
+
+exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <FaHome />
+      <H6>
+        Property:
+      </H6>
+    </div>
+    <AcLink
+      dynamicLinkParams={
+        Object {
+          "appMode": "DESKTOP",
+          "entityCode": "SOME_ID",
+          "entityType": "properties",
+        }
+      }
+    >
+      <p>
+        65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
+      </p>
+    </AcLink>
+  </div>
+</div>
+`;
+
+exports[`AppointmentModal renderCheckMark should match snapshot 1`] = `
+<div>
+  <TiTick />
+</div>
+`;
+
+exports[`AppointmentModal renderCommunicationDetail should match snapshot 1`] = `
+<div>
+  <IconList
+    items={
+      Array [
+        Object {
+          "icon": <TiMail
+            className="icon-list-icon"
+          />,
+          "text": <a
+            href="mailto:chase.maclean@reapitestates.net"
+          >
+            chase.maclean@reapitestates.net
+          </a>,
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`AppointmentModal renderCommunicationType should match snapshot 1`] = `
+<div>
+  <TiMail
+    className="icon-list-icon"
+  />
+</div>
+`;
+
+exports[`AppointmentModal renderTime should match snapshot 1`] = `
+<div>
+  <div>
+    <FaClock />
+    <H6>
+      Time:
+    </H6>
+  </div>
+  <div>
+    <p>
+      18 Dec 2016 04:30 PM - 05:30 PM
+    </p>
+  </div>
+</div>
+`;

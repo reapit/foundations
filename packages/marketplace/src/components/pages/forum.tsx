@@ -15,8 +15,8 @@ export const Forum: React.FunctionComponent = () => {
           room: GITTER.REAPIT_ROOM_NAME,
           targetElement: roomRef.current,
           showChatByDefault: true,
-          useStyles: false
-        })
+          useStyles: false,
+        }),
       )
     }
   }, [])

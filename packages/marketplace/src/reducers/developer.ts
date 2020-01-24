@@ -25,14 +25,14 @@ export const defaultState: DeveloperState = {
   loading: false,
   developerData: null,
   formState: 'PENDING',
-  isVisible: false
+  isVisible: false,
 }
 
 const developerReducer = (state: DeveloperState = defaultState, action: Action<any>): DeveloperState => {
   if (isType(action, developerLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
@@ -40,7 +40,7 @@ const developerReducer = (state: DeveloperState = defaultState, action: Action<a
     return {
       ...state,
       loading: false,
-      developerData: action.data || null
+      developerData: action.data || null,
     }
   }
 
@@ -48,21 +48,21 @@ const developerReducer = (state: DeveloperState = defaultState, action: Action<a
     return {
       ...state,
       loading: false,
-      developerData: action.data
+      developerData: action.data,
     }
   }
 
   if (isType(action, developerSetFormState)) {
     return {
       ...state,
-      formState: action.data
+      formState: action.data,
     }
   }
 
   if (isType(action, developerAppShowModal)) {
     return {
       ...state,
-      isVisible: action.data
+      isVisible: action.data,
     }
   }
 

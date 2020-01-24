@@ -11,7 +11,7 @@ const props: AppDetailProps = {
   isCurrentLoggedUserDeveloper: true,
   isCurrentLoggedUserClient: false,
   data: {},
-  afterClose: jest.fn()
+  afterClose: jest.fn(),
 }
 
 describe('AppDetailModalInner', () => {
@@ -23,7 +23,7 @@ describe('AppDetailModalInner', () => {
     it('should dispatch correctly if mapped setAppDetailModalStateInstall is called', () => {
       const mockedDispatch = jest.fn()
       const { setAppDetailModalStateInstall: mappedsetAppDetailModalStateViewConfirm } = mapDispatchToProps(
-        mockedDispatch
+        mockedDispatch,
       )
       mappedsetAppDetailModalStateViewConfirm()
       expect(mockedDispatch).toHaveBeenNthCalledWith(1, setAppDetailModalStateInstall())
@@ -32,7 +32,7 @@ describe('AppDetailModalInner', () => {
     it('should dispatch correctly if mapped requestUninstall is called', () => {
       const mockedDispatch = jest.fn()
       const { setAppDetailModalStateUninstall: mappedSetAppDetailModalStateUninstall } = mapDispatchToProps(
-        mockedDispatch
+        mockedDispatch,
       )
       mappedSetAppDetailModalStateUninstall()
       expect(mockedDispatch).toHaveBeenNthCalledWith(1, setAppDetailModalStateUninstall())
@@ -41,7 +41,7 @@ describe('AppDetailModalInner', () => {
     it('should dispatch correctly if mapped setDeveloperAppModalStateDelete is called', () => {
       const mockedDispatch = jest.fn()
       const { setDeveloperAppModalStateDelete: mappedSetDeveloperAppModalStateDelete } = mapDispatchToProps(
-        mockedDispatch
+        mockedDispatch,
       )
       mappedSetDeveloperAppModalStateDelete()
       expect(mockedDispatch).toHaveBeenNthCalledWith(1, setDeveloperAppModalStateDelete())
@@ -54,12 +54,12 @@ describe('SlickButtonNav', () => {
     const mockProps = {
       currentSlide: '',
       setAppDetailModalStateInstall: jest.fn(),
-      slideCount: jest.fn()
+      slideCount: jest.fn(),
     }
     const wrapper = shallow(
       <SlickButtonNav {...mockProps}>
         <div>mockComponent</div>
-      </SlickButtonNav>
+      </SlickButtonNav>,
     )
     expect(wrapper).toMatchSnapshot()
   })

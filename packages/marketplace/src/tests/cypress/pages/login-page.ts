@@ -12,8 +12,8 @@ const loginPageMetadata = {
   selectors: {
     inputEmail: 'input#userName',
     inputPassword: 'input#password',
-    buttonLogin: "button[type='submit']"
-  }
+    buttonLogin: "button[type='submit']",
+  },
 }
 
 const loginPage = {
@@ -27,7 +27,7 @@ const loginPage = {
 
       const {
         loginAsDeveloperUrl,
-        selectors: { buttonLogin, inputPassword, inputEmail }
+        selectors: { buttonLogin, inputPassword, inputEmail },
       } = loginPageMetadata
 
       cy.visit(loginAsDeveloperUrl)
@@ -44,7 +44,7 @@ const loginPage = {
     loginUsingAdminAccount() {
       const {
         loginAsAdminUrl,
-        selectors: { buttonLogin, inputPassword, inputEmail }
+        selectors: { buttonLogin, inputPassword, inputEmail },
       } = loginPageMetadata
 
       cy.visit(loginAsAdminUrl)
@@ -61,7 +61,7 @@ const loginPage = {
     loginUsingClientAccount() {
       const {
         loginAsClientUrl,
-        selectors: { buttonLogin, inputPassword, inputEmail }
+        selectors: { buttonLogin, inputPassword, inputEmail },
       } = loginPageMetadata
 
       cy.visit(loginAsClientUrl)
@@ -73,8 +73,8 @@ const loginPage = {
       cy.wait('@getClientApps')
 
       cy.get(clientAppsPage.selectors.container).should('have.length', 1)
-    }
-  }
+    },
+  },
 }
 
 export default loginPage

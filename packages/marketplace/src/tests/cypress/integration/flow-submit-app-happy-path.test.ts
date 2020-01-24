@@ -7,11 +7,11 @@ import nanoid from 'nanoid'
 const appName = `Submit App -${nanoid()}`
 
 const {
-  actions: { deleteAppWithName }
+  actions: { deleteAppWithName },
 } = developerAppsPage
 
 const {
-  actions: { loginUsingDeveloperAccount }
+  actions: { loginUsingDeveloperAccount },
 } = loginPage
 
 const { selectors: developerSubmitAppPageSelectors } = developerSubmitAppPage
@@ -21,7 +21,7 @@ const {
   buttonSubmit,
   selectCategory,
   submitSuccessSection,
-  checkboxAgreeTheTermsAndConditions
+  checkboxAgreeTheTermsAndConditions,
 } = developerSubmitAppPageSelectors
 
 describe('Submit app happy path', () => {
@@ -54,7 +54,7 @@ describe('Submit app happy path', () => {
         master cleanse. Paleo austin actually blue bottle mixtape mustache bicycle rights gochujang 
         humblebrag. Direct trade affogato cliche, asymmetrical sartorial pinterest chambray coloring book.`,
       textAreaSummary: `Lorem ipsum dolor amet messenger bag pinterest af umami. Master cleanse photo booth cardigan, 
-        jean shorts dreamcatcher butcher ethical YOLO.`
+        jean shorts dreamcatcher butcher ethical YOLO.`,
     }
     for (let inputTestDataSelector in inputTestData) {
       const data = inputTestData[inputTestDataSelector]
@@ -71,7 +71,7 @@ describe('Submit app happy path', () => {
       fileUploadScreenshot3:
         'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk4PpfDwACpQGKFCvGMAAAAABJRU5ErkJggg==',
       fileUploadScreenshot4:
-        'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMK86uBwAEMAG9Q194bwAAAABJRU5ErkJggg=='
+        'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOMK86uBwAEMAG9Q194bwAAAABJRU5ErkJggg==',
     }
     for (let fileUploadTestDataSelector in fileUploadTestData) {
       const data = fileUploadTestData[fileUploadTestDataSelector]
@@ -81,15 +81,15 @@ describe('Submit app happy path', () => {
           fileContent: data,
           fileName: selector,
           mimeType: 'image/jpeg',
-          encoding: 'binary'
+          encoding: 'binary',
         },
-        { subjectType: 'input' }
+        { subjectType: 'input' },
       )
     }
     cy.get(selectCategory).select('Game')
     cy.get(checkBoxUserSession).click({ force: true })
     cy.get(checkboxAgreeTheTermsAndConditions).click({
-      force: true
+      force: true,
     })
 
     cy.get(buttonSubmit).click()

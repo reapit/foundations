@@ -12,7 +12,7 @@ import {
   Form,
   withFormik,
   FormikProps,
-  FormikBag
+  FormikBag,
 } from '@reapit/elements'
 import { validate } from '@/utils/form/change-password'
 
@@ -22,7 +22,7 @@ export const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({
   isSubmitting,
   isValidating,
   isValid,
-  touched
+  touched,
 }) => {
   const isEnable =
     isValid && Boolean(touched) && (touched.confirmPassword || touched.currentPassword || touched.password)
@@ -84,7 +84,7 @@ export type ChangePasswordValues = {
 export const mapPropsChangePassword = (): ChangePasswordValues => ({
   currentPassword: '',
   password: '',
-  confirmPassword: ''
+  confirmPassword: '',
 })
 
 export type ChangePasswordParams = {
@@ -99,7 +99,7 @@ export type EnhanceChangePasswordFormProps = {
 
 export const handleSubmitChangePassword = async (
   values: ChangePasswordValues,
-  { setSubmitting, props }: FormikBag<EnhanceChangePasswordFormProps, ChangePasswordValues>
+  { setSubmitting, props }: FormikBag<EnhanceChangePasswordFormProps, ChangePasswordValues>,
 ) => {
   setSubmitting(true)
   props.changePassword(values)
@@ -109,11 +109,11 @@ export const withChangePasswordForm = withFormik({
   displayName: 'WithChangePasswordForm',
   validate,
   mapPropsToValues: mapPropsChangePassword,
-  handleSubmit: handleSubmitChangePassword
+  handleSubmit: handleSubmitChangePassword,
 })
 
 const EnhanceChangePasswordForm = compose<React.FC<EnhanceChangePasswordFormProps>>(withChangePasswordForm)(
-  ChangePasswordForm
+  ChangePasswordForm,
 )
 EnhanceChangePasswordForm.displayName = 'EnhanceChangePasswordForm'
 

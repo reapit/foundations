@@ -21,6 +21,6 @@ export default {
     fileUploadScreenshot4: 'input#screenshot4',
     submitSuccessSection: 'div[data-test="submit-success-section"]',
     checkboxAgreeTheTermsAndConditions: 'input#terms-submit-app',
-    checkBoxIsListed: 'input#isListed'
-  }
+    checkBoxIsListed: 'input#isListed',
+  },
 }

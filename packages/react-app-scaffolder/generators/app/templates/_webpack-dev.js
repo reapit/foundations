@@ -88,7 +88,14 @@ module.exports = {
     openPage: 'login',
     clientLogLevel: 'warning',
     historyApiFallback: true,
-    stats: 'errors-only'
+    stats: {
+      cached: false,
+      cachedAssets: false,
+      chunks: false,
+      chunkModules: false,
+      chunkOrigins: false,
+      modules: false
+    }
   },
   optimization: {
     nodeEnv: 'development',

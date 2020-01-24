@@ -12,19 +12,19 @@ import appCard from '../components/app-card'
 import nanoid from 'nanoid'
 
 const {
-  actions: { loginUsingClientAccount, loginUsingDeveloperAccount, loginUsingAdminAccount }
+  actions: { loginUsingClientAccount, loginUsingDeveloperAccount, loginUsingAdminAccount },
 } = loginPage
 
 const {
-  selectors: { buttonAceptWelcome }
+  selectors: { buttonAceptWelcome },
 } = clientWelcomeModal
 
 const {
-  actions: { listedAppWithName }
+  actions: { listedAppWithName },
 } = developerAppsPage
 
 const {
-  actions: { approveAppWithId }
+  actions: { approveAppWithId },
 } = adminApprovalsPage
 
 const { url: installedAppsPageUrl } = installedAppsPage
@@ -32,11 +32,11 @@ const { url: installedAppsPageUrl } = installedAppsPage
 const { url: manageAppsPageUrl } = manageAppsPage
 
 const {
-  selectors: { buttonAgree, buttonInstallApp, buttonUninstallApp, buttonSuccess, divSuccessMessage }
+  selectors: { buttonAgree, buttonInstallApp, buttonUninstallApp, buttonSuccess, divSuccessMessage },
 } = appDetailModal
 
 const {
-  actions: { clickAppCardSettingWithId }
+  actions: { clickAppCardSettingWithId },
 } = appCard
 
 const appName = `Install App - ${nanoid()}`

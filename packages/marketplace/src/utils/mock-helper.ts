@@ -6,7 +6,7 @@ export function getMockRouterProps<P>(data: P) {
     key: '',
     pathname: '',
     search: '?token=123',
-    state: {}
+    state: {},
   }
 
   const props: RouteComponentProps<P> = {
@@ -14,7 +14,7 @@ export function getMockRouterProps<P>(data: P) {
       isExact: true,
       params: data,
       path: '',
-      url: ''
+      url: '',
     },
     location: location,
     history: {
@@ -28,9 +28,9 @@ export function getMockRouterProps<P>(data: P) {
       goForward: jest.fn(),
       block: jest.fn(),
       createHref: () => '',
-      listen: jest.fn()
+      listen: jest.fn(),
     },
-    staticContext: {}
+    staticContext: {},
   }
 
   return props

@@ -5,7 +5,7 @@ import {
   DeclineRevisionModal,
   DeclineRevisionModalProps,
   handleAfterClose,
-  handleOnSubmit
+  handleOnSubmit,
 } from '../decline-revision-modal'
 import { appPermissionStub } from '@/sagas/__stubs__/app-permission'
 
@@ -20,12 +20,12 @@ const props: DeclineRevisionModalProps = {
     revisionDetailData: {
       data: {
         appId: 'appIDd',
-        id: 'revisionID'
+        id: 'revisionID',
       },
-      scopes: appPermissionStub
+      scopes: appPermissionStub,
     },
-    approveFormState: 'PENDING'
-  }
+    approveFormState: 'PENDING',
+  },
 }
 
 describe('DeclineRevisionModal', () => {
@@ -44,7 +44,7 @@ describe('handleAfterClose', () => {
       isSuccessed: false,
       onDeclineSuccess: jest.fn(),
       isLoading: false,
-      afterClose: jest.fn()
+      afterClose: jest.fn(),
     }
     const fn = handleAfterClose(mockProps)
     fn()
@@ -55,7 +55,7 @@ describe('handleAfterClose', () => {
       isSuccessed: true,
       onDeclineSuccess: jest.fn(),
       isLoading: true,
-      afterClose: jest.fn()
+      afterClose: jest.fn(),
     }
     const fn = handleAfterClose(mockProps)
     fn()
@@ -67,7 +67,7 @@ describe('handleAfterClose', () => {
       appId: '123',
       appRevisionId: '123',
       setRejectionReason: jest.fn(),
-      submitDeclineRevision: jest.fn()
+      submitDeclineRevision: jest.fn(),
     }
     const fn = handleOnSubmit(mockProps)
     fn({})

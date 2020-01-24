@@ -11,7 +11,7 @@ import {
   Button,
   H4,
   H5,
-  Loader
+  Loader,
 } from '@reapit/elements'
 import styles from '@/styles/pages/admin-stats.scss?mod'
 import { AdminStatsRequestParams, adminStatsRequestData } from '@/actions/admin-stats'
@@ -130,7 +130,7 @@ export type StateProps = {
 export const mapStateToProps = (state: ReduxState): StateProps => ({
   loading: state.adminStats.loading,
   data: state.adminStats.result.data || [],
-  totalCount: state.adminStats.result.totalCount || 0
+  totalCount: state.adminStats.result.totalCount || 0,
 })
 
 export type DispatchProps = {
@@ -138,7 +138,7 @@ export type DispatchProps = {
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  loadStats: (params: AdminStatsRequestParams) => dispatch(adminStatsRequestData(params))
+  loadStats: (params: AdminStatsRequestParams) => dispatch(adminStatsRequestData(params)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminStats)

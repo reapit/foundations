@@ -14,7 +14,7 @@ jest.mock('@reapit/elements')
 
 const params: Action<CreateAppRevisionModel & { id: string }> = {
   data: { ...revisionSubmitStub.data, id: '1' },
-  type: 'DEVELOPER_SUBMIT_REVISION'
+  type: 'DEVELOPER_SUBMIT_REVISION',
 }
 
 const generateDumpPromise = () => new Promise(() => null)
@@ -25,14 +25,14 @@ describe('submit-revision post data', () => {
     generateDumpPromise(),
     generateDumpPromise(),
     generateDumpPromise(),
-    generateDumpPromise()
+    generateDumpPromise(),
   ]
   const imageUploaderResults = [
     { Url: 'base64 string...' },
     { Url: 'base64 string...' },
     { Url: 'base64 string...' },
     { Url: 'base64 string...' },
-    { Url: 'base64 string...' }
+    { Url: 'base64 string...' },
   ]
   const updatedData = {
     ...revisionSubmitStub.data,
@@ -40,7 +40,7 @@ describe('submit-revision post data', () => {
     screen1ImageUrl: 'base64 string...',
     screen2ImageUrl: 'base64 string...',
     screen3ImageUrl: 'base64 string...',
-    screen4ImageUrl: 'base64 string...'
+    screen4ImageUrl: 'base64 string...',
   }
 
   const gen = cloneableGenerator(submitRevisionSaga)(params)
@@ -54,8 +54,8 @@ describe('submit-revision post data', () => {
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       body: { ...updatedData, categoryId: undefined },
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
 
   test('api call success', () => {
@@ -79,8 +79,8 @@ describe('submit-revision thunks', () => {
       expect(gen.next().value).toEqual(
         takeLatest<Action<CreateAppRevisionModel & { id: string }>>(
           ActionTypes.DEVELOPER_SUBMIT_REVISION,
-          submitRevisionSaga
-        )
+          submitRevisionSaga,
+        ),
       )
       expect(gen.next().done).toBe(true)
     })

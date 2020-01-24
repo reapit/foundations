@@ -12,7 +12,7 @@ describe('SettingsPage', () => {
       loading: true,
       updateDeveloperInformation: jest.fn(),
       changePassword: jest.fn(),
-      logout: jest.fn()
+      logout: jest.fn(),
     }
     const wrapper = shallow(<SettingsPage {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -24,7 +24,7 @@ describe('SettingsPage', () => {
       loading: false,
       updateDeveloperInformation: jest.fn(),
       changePassword: jest.fn(),
-      logout: jest.fn()
+      logout: jest.fn(),
     }
     const wrapper = shallow(<SettingsPage {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -37,7 +37,7 @@ describe('SettingsPage', () => {
       loading: false,
       updateDeveloperInformation: jest.fn(),
       changePassword: jest.fn(),
-      logout: jest.fn()
+      logout: jest.fn(),
     }
     const wrapper = shallow(<SettingsPage {...mockProps} />)
     wrapper
@@ -52,20 +52,20 @@ describe('SettingsPage', () => {
       const mockState = {
         settings: {
           loading: true,
-          developerInfomation: developerStub
+          developerInfomation: developerStub,
         },
         auth: {
           loginSession: {
             loginIdentity: {
-              email: developerStub.email
-            }
-          }
-        }
+              email: developerStub.email,
+            },
+          },
+        },
       } as ReduxState
       const output = {
         developerInfo: mockState.settings.developerInfomation,
         email: mockState.auth?.loginSession?.loginIdentity?.email,
-        loading: mockState.settings.loading
+        loading: mockState.settings.loading,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(output)
@@ -74,12 +74,12 @@ describe('SettingsPage', () => {
     it('should return null', () => {
       const mockState = {
         settings: {},
-        auth: {}
+        auth: {},
       } as ReduxState
       const output = {
         developerInfo: mockState.settings.developerInfomation || {},
         email: mockState.auth?.loginSession?.loginIdentity?.email || '',
-        loading: mockState.settings?.loading
+        loading: mockState.settings?.loading,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(output)

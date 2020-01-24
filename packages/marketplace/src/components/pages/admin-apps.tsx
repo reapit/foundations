@@ -18,7 +18,7 @@ import {
   Form,
   FormSection,
   FormHeading,
-  FormSubHeading
+  FormSubHeading,
 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AdminAppsState } from '@/reducers/admin-apps'
@@ -60,41 +60,41 @@ export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal 
   return [
     {
       Header: 'AppID',
-      accessor: 'id'
+      accessor: 'id',
     },
     {
       Header: 'App Name',
-      accessor: 'name'
+      accessor: 'name',
     },
     {
       Header: 'App Summary',
-      accessor: 'summary'
+      accessor: 'summary',
     },
     {
       Header: 'Developer Name',
-      accessor: 'developer'
+      accessor: 'developer',
     },
     {
       Header: 'Is Listed',
-      accessor: 'isListed'
+      accessor: 'isListed',
     },
     {
       Header: 'Pending Revisions',
-      accessor: 'pendingRevisions'
+      accessor: 'pendingRevisions',
     },
     {
       Header: 'Direct API',
-      accessor: 'isDirectApi'
+      accessor: 'isDirectApi',
     },
     {
       Header: 'Featured',
       accessor: 'isFeatured',
-      Cell: FeaturedCell
+      Cell: FeaturedCell,
     },
     {
       id: 'Delete',
-      Cell: DeleteCell
-    }
+      Cell: DeleteCell,
+    },
   ]
 }
 
@@ -155,7 +155,7 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
   adminAppsState,
   onChangeFeatured,
   history,
-  location
+  location,
 }) => {
   const unfetched = !adminAppsState.adminAppsData
   const { loading } = adminAppsState
@@ -209,7 +209,7 @@ export type StateProps = RouteComponentProps & {
 
 export const mapStateToProps = (state: ReduxState, ownProps: RouteComponentProps): StateProps => ({
   adminAppsState: selectAdminAppsState(state),
-  ...ownProps
+  ...ownProps,
 })
 
 export type DispatchProps = {
@@ -217,7 +217,7 @@ export type DispatchProps = {
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  onChangeFeatured: (params: AdminAppsFeaturedParams) => dispatch(adminAppsRequestFeatured(params))
+  onChangeFeatured: (params: AdminAppsFeaturedParams) => dispatch(adminAppsRequestFeatured(params)),
 })
 
 export const withRedux = connect(mapStateToProps, mapDispatchToProps)

@@ -44,7 +44,7 @@ export const InstalledApps: React.FC<InstalledAppsProps> = ({ installedAppsState
           totalCount,
           pageSize,
           pageNumber,
-          onChange: handleOnChange(history)
+          onChange: handleOnChange(history),
         }}
       />
     </ErrorBoundary>
@@ -52,7 +52,7 @@ export const InstalledApps: React.FC<InstalledAppsProps> = ({ installedAppsState
 }
 
 export const mapStateToProps = (state: ReduxState): InstalledAppsMappedProps => ({
-  installedAppsState: state.installedApps
+  installedAppsState: state.installedApps,
 })
 const withRedux = connect(mapStateToProps, null)
 const EnhancedInstalledApps = compose<React.FC>(withRouter, withRedux)(InstalledApps)

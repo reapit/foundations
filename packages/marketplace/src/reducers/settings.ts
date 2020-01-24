@@ -10,21 +10,21 @@ export interface SettingsState {
 
 export const defaultState: SettingsState = {
   loading: true,
-  developerInfomation: null
+  developerInfomation: null,
 }
 
 const settingReducer = (state: SettingsState = defaultState, action: Action<any>): SettingsState => {
   if (isType(action, settingShowLoading)) {
     return {
       ...state,
-      loading: action.data
+      loading: action.data,
     }
   }
 
   if (isType(action, requestDeveloperDataSuccess)) {
     return {
       ...state,
-      developerInfomation: action.data
+      developerInfomation: action.data,
     }
   }
 

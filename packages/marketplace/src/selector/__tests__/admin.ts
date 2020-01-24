@@ -7,8 +7,8 @@ describe('selectAdminAppsState', () => {
     const input = {
       adminApps: {
         adminAppsData: appsDataStub.data,
-        loading: false
-      }
+        loading: false,
+      },
     } as ReduxState
     const result = selectAdminAppsState(input)
     expect(result).toEqual({ adminAppsData: appsDataStub.data, loading: false })

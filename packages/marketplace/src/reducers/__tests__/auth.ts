@@ -21,7 +21,7 @@ describe('auth reducer', () => {
       userName: 'bob@acme.com',
       accessToken: '',
       refreshToken: '',
-      sessionExpiry: 1
+      sessionExpiry: 1,
     }
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_LOGIN_SUCCESS as ActionType, data })
     const expected = { ...defaultState(), loginSession: data }
@@ -43,11 +43,11 @@ describe('auth reducer', () => {
   it('should update the loginType state when the AUTH_CHANGE_LOGIN_TYPE action is called', () => {
     const newState = authReducer(undefined, {
       type: ActionTypes.AUTH_CHANGE_LOGIN_TYPE as ActionType,
-      data: 'DEVELOPER'
+      data: 'DEVELOPER',
     })
     const expected = {
       ...defaultState(),
-      loginType: 'DEVELOPER'
+      loginType: 'DEVELOPER',
     }
     expect(newState).toEqual(expected)
   })
@@ -57,7 +57,7 @@ describe('auth reducer', () => {
       loginType: 'CLIENT' as LoginType,
       refreshToken: 'REFRESH_TOKEN',
       userName: 'bob@acme.com',
-      mode: 'DESKTOP'
+      mode: 'DESKTOP',
     }
     const newState = authReducer(undefined, { type: ActionTypes.AUTH_SET_REFRESH_SESSION as ActionType, data })
     expect(newState.refreshSession).toEqual(data)

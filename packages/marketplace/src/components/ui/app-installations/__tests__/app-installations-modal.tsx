@@ -5,7 +5,7 @@ import {
   AppInstallationsModal,
   handleAfterClose,
   handleUninstall,
-  AppInstallationsModalProps
+  AppInstallationsModalProps,
 } from '../app-installations-modal'
 import { installationStub } from '@/sagas/__stubs__/installation'
 
@@ -14,7 +14,7 @@ const props: AppInstallationsModalProps = {
   appName: '1',
   visible: true,
   afterClose: jest.fn(),
-  onUninstallSuccess: jest.fn()
+  onUninstallSuccess: jest.fn(),
 }
 
 describe('AppInstallationsModal', () => {

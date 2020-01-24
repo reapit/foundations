@@ -3,7 +3,7 @@ import {
   submitAppDataListen,
   submitAppSagas,
   submitAppDataFetchListen,
-  submitAppsDataFetch
+  submitAppsDataFetch,
 } from '../submit-app'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
@@ -30,14 +30,14 @@ describe('submit-app post data', () => {
     generateDumpPromise(),
     generateDumpPromise(),
     generateDumpPromise(),
-    generateDumpPromise()
+    generateDumpPromise(),
   ]
   const imageUploaderResults = [
     { Url: 'base64 string...' },
     { Url: 'base64 string...' },
     { Url: 'base64 string...' },
     { Url: 'base64 string...' },
-    { Url: 'base64 string...' }
+    { Url: 'base64 string...' },
   ]
   const updatedData = {
     ...appSubmitStub.data,
@@ -45,7 +45,7 @@ describe('submit-app post data', () => {
     screen1ImageUrl: 'base64 string...',
     screen2ImageUrl: 'base64 string...',
     screen3ImageUrl: 'base64 string...',
-    screen4ImageUrl: 'base64 string...'
+    screen4ImageUrl: 'base64 string...',
   }
 
   const gen = cloneableGenerator(submitAppSaga)(params)
@@ -59,8 +59,8 @@ describe('submit-app post data', () => {
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'POST',
       body: { ...updatedData, categoryId: undefined },
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
 
   test('api call success', () => {
@@ -77,9 +77,9 @@ describe('submit-app post data', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().done).toBe(true)
   })
@@ -95,15 +95,15 @@ describe('submit-app fetch data', () => {
         url: `${URLS.scopes}`,
         method: 'GET',
         api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS
+        headers: MARKETPLACE_HEADERS,
       }),
       call(fetcher, {
         url: `${URLS.categories}`,
         method: 'GET',
         api: process.env.MARKETPLACE_API_BASE_URL as string,
-        headers: MARKETPLACE_HEADERS
-      })
-    ])
+        headers: MARKETPLACE_HEADERS,
+      }),
+    ]),
   )
 
   test('api fetch success', () => {
@@ -123,9 +123,9 @@ describe('submit-app fetch data', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
-          message: errorMessages.DEFAULT_SERVER_ERROR
-        })
-      )
+          message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
     )
     expect(clone.next().done).toBe(true)
   })
@@ -136,7 +136,7 @@ describe('submit-app thunks', () => {
     it('should submit data when called', () => {
       const gen = submitAppDataListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<SubmitAppArgs>>(ActionTypes.DEVELOPER_SUBMIT_APP, submitAppSaga)
+        takeLatest<Action<SubmitAppArgs>>(ActionTypes.DEVELOPER_SUBMIT_APP, submitAppSaga),
       )
       expect(gen.next().done).toBe(true)
     })
@@ -146,7 +146,7 @@ describe('submit-app thunks', () => {
     it('should submit data when called', () => {
       const gen = submitAppDataFetchListen()
       expect(gen.next().value).toEqual(
-        takeLatest<Action<void>>(ActionTypes.DEVELOPER_SUBMIT_APP_REQUEST_DATA, submitAppsDataFetch)
+        takeLatest<Action<void>>(ActionTypes.DEVELOPER_SUBMIT_APP_REQUEST_DATA, submitAppsDataFetch),
       )
       expect(gen.next().done).toBe(true)
     })

@@ -22,7 +22,7 @@ describe('cookie utils', () => {
       expect(hardtack.set).toHaveBeenCalledWith(COOKIE_FIRST_TIME_LOGIN, now, {
         path: '/',
         domain: '.reapit.com',
-        samesite: 'lax'
+        samesite: 'lax',
       })
     })
     it('should not set a cookie if host is not in the whitelist array', () => {

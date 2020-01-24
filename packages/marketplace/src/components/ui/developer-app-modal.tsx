@@ -31,7 +31,7 @@ export const DeveloperAppModalInner: React.FunctionComponent<DeveloperAppInnerPr
   fetchDeveloperApps,
   closeParentModal,
   history,
-  removeAuthenticationCode
+  removeAuthenticationCode,
 }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [isInstallationsModalOpen, setIsInstallationsModalOpen] = React.useState(false)
@@ -126,12 +126,12 @@ interface DeveloperAppModalOwnProps {
 
 const mapStateToProps = (state: ReduxState, ownState) => ({
   appDetailState: state.appDetail,
-  closeParentModal: ownState.closeParentModal
+  closeParentModal: ownState.closeParentModal,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   fetchDeveloperApps: (page: number) => dispatch(developerRequestData({ page })),
-  removeAuthenticationCode: () => dispatch(removeAuthenticationCode())
+  removeAuthenticationCode: () => dispatch(removeAuthenticationCode()),
 })
 
 const DeveloperAppInnerWithConnect = connect(mapStateToProps, mapDispatchToProps)(DeveloperAppModalInner)
@@ -143,7 +143,7 @@ export interface DeveloperAppModalMappedActions {
 export const DeveloperAppModal: React.FunctionComponent<DeveloperAppModalProps> = ({
   visible = true,
   afterClose,
-  history
+  history,
 }) => {
   return (
     <Modal visible={visible} afterClose={afterClose} renderChildren>

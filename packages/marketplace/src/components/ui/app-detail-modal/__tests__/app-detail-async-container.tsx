@@ -9,25 +9,25 @@ describe('DetailAsyncContainer', () => {
         appDetail: {
           loading: true,
           error: false,
-          appDetailData: appDetailDataStub
-        }
+          appDetailData: appDetailDataStub,
+        },
       } as ReduxState
       const expected = {
         loading: true,
         error: false,
-        data: appDetailDataStub
+        data: appDetailDataStub,
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)
     })
     it('should return correct data when appDetail {}', () => {
       const input = {
-        appDetail: {}
+        appDetail: {},
       } as ReduxState
       const expected = {
         loading: undefined,
         error: undefined,
-        appDetailData: undefined
+        appDetailData: undefined,
       }
       const result = mapStateToProps(input)
       expect(result).toEqual(expected)

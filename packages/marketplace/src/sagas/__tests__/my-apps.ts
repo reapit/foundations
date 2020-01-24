@@ -26,8 +26,8 @@ describe('my-apps fetch data', () => {
       url: `${URLS.apps}?clientId=${clientId}&OnlyInstalled=true&PageNumber=${params.data}&PageSize=${APPS_PER_PAGE}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
       method: 'GET',
-      headers: MARKETPLACE_HEADERS
-    })
+      headers: MARKETPLACE_HEADERS,
+    }),
   )
 
   test('api call success', () => {
@@ -54,9 +54,9 @@ describe('my-apps fetch data error', () => {
     put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR
-      })
-    )
+        message: errorMessages.DEFAULT_SERVER_ERROR,
+      }),
+    ),
   )
 })
 

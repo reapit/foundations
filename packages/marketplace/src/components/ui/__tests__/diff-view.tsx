@@ -4,7 +4,7 @@ import DiffViewer, { DiffViewerProps } from '../diff-viewer'
 
 const props: DiffViewerProps = {
   currentString: 'abc',
-  changedString: 'axxxxxxxxxxxbc'
+  changedString: 'axxxxxxxxxxxbc',
 }
 
 describe('DiffViewer', () => {

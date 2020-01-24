@@ -12,7 +12,7 @@ describe('client actions', () => {
     expect(clientReceiveData.type).toEqual(ActionTypes.CLIENT_RECEIVE_DATA)
     expect(clientReceiveData({ featuredApps: featuredAppsDataStub.data.data, apps: appsDataStub.data }).data).toEqual({
       featuredApps: featuredAppsDataStub.data.data,
-      apps: appsDataStub.data
+      apps: appsDataStub.data,
     })
   })
 

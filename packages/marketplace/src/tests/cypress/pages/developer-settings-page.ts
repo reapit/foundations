@@ -8,13 +8,13 @@ const developerSettingsMetaData = {
     fullName: 'input[data-test="name"]',
     jobTitle: 'input[data-test="job-title"]',
     telephone: 'input[data-test="telephone"]',
-    submitButton: 'button[type="submit"][data-test="save-changes"]'
+    submitButton: 'button[type="submit"][data-test="save-changes"]',
   },
-  apiRoute: `${api.developers}/**`
+  apiRoute: `${api.developers}/**`,
 }
 
 const developerSettingsAppPage = {
-  ...developerSettingsMetaData
+  ...developerSettingsMetaData,
 }
 
 export default developerSettingsAppPage

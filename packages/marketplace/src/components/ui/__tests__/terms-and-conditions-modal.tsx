@@ -5,7 +5,7 @@ import TermsAndConditionsModal, { TermsAndConditionsModalProps } from '../terms-
 const props: TermsAndConditionsModalProps = {
   visible: true,
   onAccept: jest.fn(),
-  onDecline: jest.fn()
+  onDecline: jest.fn(),
 }
 
 describe('Menu', () => {
