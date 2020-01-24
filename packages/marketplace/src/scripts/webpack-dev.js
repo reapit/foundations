@@ -18,25 +18,25 @@ module.exports = {
   entry: ['whatwg-fetch', './src/core/index.tsx'],
   output: {
     path: path.join(process.cwd(), 'public', 'dist'),
-    filename: '[name].[hash].js'
+    filename: '[name].[hash].js',
   },
   plugins: [
     new ResolveTSPathsToWebpackAlias({
-      tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json')
+      tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json'),
     }),
     new ForkTsCheckerWebpackPlugin({
       tslint: true,
-      useTypescriptIncrementalApi: true
+      useTypescriptIncrementalApi: true,
     }),
     new ForkTsCheckerNotifierWebpackPlugin({
       title: 'TypeScript',
-      excludeWarnings: false
+      excludeWarnings: false,
     }),
     new EnvironmentPlugin(config[process.env.REAPIT_ENV]),
     new HtmlWebpackPlugin({
       inject: true,
       template: 'public/index.html',
-      chunksSortMode: 'none'
+      chunksSortMode: 'none',
     }),
     new FaviconsWebpackPlugin({
       logo: './public/logo.png',
@@ -55,9 +55,9 @@ module.exports = {
         opengraph: false,
         twitter: false,
         yandex: false,
-        windows: false
-      }
-    })
+        windows: false,
+      },
+    }),
   ],
   module: {
     rules: [
@@ -66,22 +66,22 @@ module.exports = {
         use: [
           {
             loader: 'ts-loader',
-            options: { transpileOnly: true }
-          }
-        ]
+            options: { transpileOnly: true },
+          },
+        ],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
         use: {
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]'
-          }
-        }
+            name: '[name].[ext]',
+          },
+        },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(sass|scss)$/,
@@ -90,46 +90,46 @@ module.exports = {
             resourceQuery: /\?mod$/,
             use: [
               {
-                loader: 'style-loader'
+                loader: 'style-loader',
               },
               {
                 loader: 'css-loader',
                 options: {
                   modules: {
-                    localIdentName: '[name]-[local]-[hash:base64:5]'
+                    localIdentName: '[name]-[local]-[hash:base64:5]',
                   },
-                  localsConvention: 'camelCase'
-                }
+                  localsConvention: 'camelCase',
+                },
               },
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  includePaths: ['node_modules']
-                }
-              }
-            ]
+                  includePaths: ['node_modules'],
+                },
+              },
+            ],
           },
           {
             use: [
               {
-                loader: 'style-loader'
+                loader: 'style-loader',
               },
               {
-                loader: 'css-loader'
+                loader: 'css-loader',
               },
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  includePaths: ['node_modules']
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ]
+                  includePaths: ['node_modules'],
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass'],
@@ -138,19 +138,34 @@ module.exports = {
       react: require.resolve('react'),
       'react-dom': require.resolve('react-dom'),
       'react-router': require.resolve('react-router'),
-      'react-router-dom': require.resolve('react-router-dom')
-    }
+      'react-router-dom': require.resolve('react-router-dom'),
+    },
   },
   devtool: 'inline-source-map',
   devServer: {
     clientLogLevel: 'warning',
     historyApiFallback: true,
-    stats: 'errors-only'
+    stats: {
+      cached: false,
+      cachedAssets: false,
+      chunks: false,
+      chunkModules: false,
+      chunkOrigins: false,
+      modules: false,
+    },
   },
   optimization: {
     nodeEnv: 'development',
     splitChunks: {
-      chunks: 'all'
-    }
-  }
+      chunks: 'all',
+    },
+  },
+  stats: {
+    cached: false,
+    cachedAssets: false,
+    chunks: false,
+    chunkModules: false,
+    chunkOrigins: false,
+    modules: false,
+  },
 }

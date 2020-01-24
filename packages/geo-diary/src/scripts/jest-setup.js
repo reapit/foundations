@@ -6,7 +6,6 @@ const MockDate = require('mockdate')
 Enzyme.configure({ adapter: new Adapter() })
 global.fetch = fetchMock
 
-
 /* tslint:disable */
 const createMockFuncsFromArray = (instance, names = []) => {
   names.forEach(name => {
@@ -15,7 +14,7 @@ const createMockFuncsFromArray = (instance, names = []) => {
 }
 
 const createGoogleMapsMock = (libraries = []) => {
-  const createMVCObject = (instance) => {
+  const createMVCObject = instance => {
     const listeners = {}
     instance.listeners = listeners
 
@@ -86,7 +85,7 @@ const createGoogleMapsMock = (libraries = []) => {
       CENTER: 13,
     },
     Data: jest.fn().mockImplementation(function(options) {
-//@ts-ignore
+      //@ts-ignore
       this.options = options
       //@ts-ignore
       createMVCObject(this)
@@ -94,7 +93,7 @@ const createGoogleMapsMock = (libraries = []) => {
       createMockFuncsFromArray(this, ['setControlPosition', 'setControls', 'setDrawingMode', 'setMap', 'setStyle'])
     }),
     DirectionsRenderer: jest.fn().mockImplementation(function(opts) {
-//@ts-ignore
+      //@ts-ignore
       this.opts = opts
       //@ts-ignore
       createMVCObject(this)
@@ -102,7 +101,7 @@ const createGoogleMapsMock = (libraries = []) => {
       createMockFuncsFromArray(this, ['setDirections', 'setMap', 'setOptions', 'setPanel', 'setRouteIndex'])
     }),
     DirectionsService: jest.fn().mockImplementation(function(opts) {
-//@ts-ignore
+      //@ts-ignore
       this.opts = opts
       //@ts-ignore
       createMVCObject(this)
@@ -154,7 +153,7 @@ const createGoogleMapsMock = (libraries = []) => {
       UNKNOWN_ERROR: 'UNKNOWN_ERROR',
     },
     FusionTablesLayer: jest.fn().mockImplementation(function(options) {
-//@ts-ignore
+      //@ts-ignore
       this.options = options
       //@ts-ignore
       createMVCObject(this)
@@ -185,9 +184,7 @@ const createGoogleMapsMock = (libraries = []) => {
       //@ts-ignore
       createMVCObject(this)
       //@ts-ignore
-      createMockFuncsFromArray(this, [
-        'setContent'
-      ])
+      createMockFuncsFromArray(this, ['setContent'])
     },
     KmlLayer: function() {},
     KmlLayerStatus: {
@@ -202,22 +199,17 @@ const createGoogleMapsMock = (libraries = []) => {
       UNKNOWN: 'UNKNOWN',
     },
     //@ts-ignore
-    LatLng: function(lat, lng) {
+    LatLng: function() {
       //@ts-ignore
       createMVCObject(this)
       //@ts-ignore
-      createMockFuncsFromArray(this, [
-        'setMap'
-      ])
+      createMockFuncsFromArray(this, ['setMap'])
     },
     LatLngBounds: function() {
       //@ts-ignore
       createMVCObject(this)
       //@ts-ignore
-      createMockFuncsFromArray(this, [
-        'getCenter',
-        'extend'
-      ])
+      createMockFuncsFromArray(this, ['getCenter', 'extend'])
     },
     MVCArray: function() {},
     MVCObject: jest.fn().mockImplementation(function() {
@@ -261,7 +253,7 @@ const createGoogleMapsMock = (libraries = []) => {
     },
     MapTypeRegistry: function() {},
     Marker: jest.fn().mockImplementation(function(opts) {
-//@ts-ignore
+      //@ts-ignore
       this.opts = opts
       //@ts-ignore
       createMVCObject(this)
@@ -275,13 +267,13 @@ const createGoogleMapsMock = (libraries = []) => {
         'setTitle',
         'setVisible',
         'setZIndex',
-        'getPosition'
+        'getPosition',
       ])
     }),
     MarkerImage: function() {},
     MaxZoomService: function() {
       return {
-        getMaxZoomAtLatLng: function() {}
+        getMaxZoomAtLatLng: function() {},
       }
     },
     MaxZoomStatus: {
@@ -336,7 +328,7 @@ const createGoogleMapsMock = (libraries = []) => {
       FORWARD_OPEN_ARROW: 2,
     },
     TrafficLayer: jest.fn().mockImplementation(function(opts) {
-//@ts-ignore
+      //@ts-ignore
       this.opts = opts
       //@ts-ignore
       createMVCObject(this)
@@ -384,7 +376,7 @@ const createGoogleMapsMock = (libraries = []) => {
     __gjsload__: function() {},
     event: {
       clearInstanceListeners: jest.fn().mockName('clearInstanceListeners'),
-      addListener: jest.fn().mockName('addListener')
+      addListener: jest.fn().mockName('addListener'),
     },
   }
   if (libraries.includes('places')) {
@@ -413,26 +405,26 @@ const mockStorage = (() => {
     },
     clear: () => {
       store = {}
-    }
+    },
   }
 })()
 
 Object.defineProperty(window, 'localStorage', {
-  value: mockStorage
+  value: mockStorage,
 })
 
 Object.defineProperty(window, 'google', {
-  value: createGoogleMapsMock()
+  value: createGoogleMapsMock(),
 })
 
 // https://github.com/akiran/react-slick/issues/742
 window.matchMedia =
   window.matchMedia ||
-  function () {
+  function() {
     return {
       matches: false,
-      addListener: function () { },
-      removeListener: function () { }
+      addListener: function() {},
+      removeListener: function() {},
     }
   }
 

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Menu, MenuProps, mapDispatchToProps, generateMenuConfig } from '../menu'
-import toJson from 'enzyme-to-json'
 
 const props: MenuProps = {
   logout: jest.fn(),
@@ -13,7 +12,7 @@ const props: MenuProps = {
 
 describe('Menu', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Menu {...props} />))).toMatchSnapshot()
+    expect(shallow(<Menu {...props} />)).toMatchSnapshot()
   })
 
   describe('mapDispatchToProps', () => {

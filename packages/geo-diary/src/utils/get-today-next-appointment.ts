@@ -10,6 +10,6 @@ export function getTodayNextAppointment(appointments: ExtendedAppointmentModel[]
         dayjs().isBefore(dayjs(appointment.start)),
     )
     .sort((a, b) => {
-      return (dayjs(a.start).isAfter(dayjs(b.start)) ? 1 : -1)[0]
-    })
+      return dayjs(a.start).isAfter(dayjs(b.start)) ? 1 : -1
+    })[0]
 }

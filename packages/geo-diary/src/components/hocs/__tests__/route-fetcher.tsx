@@ -26,7 +26,7 @@ describe('RouteFetcher', () => {
   it('should call the routeDispatcher with the route path', () => {
     shallow(<RouteFetcher {...props} />)
     expect(routeDispatcher).toHaveBeenCalledTimes(1)
-    expect(routeDispatcher).toHaveBeenCalledWith(props.routerProps.match.path, props.routerProps.match.params)
+    expect(routeDispatcher).toHaveBeenCalledWith(props.routerProps.match.path)
   })
 
   afterEach(() => {
