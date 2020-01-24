@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should match a snapshot 1`] = `
+<button
+  className="button  is-primary  "
+  data-test="some-selector"
+  disabled={false}
+  onClick={[MockFunction]}
+  type="submit"
+>
+  button text
+</button>
+`;
+
+exports[`ButtonGroup should match a snapshot 1`] = `
+<div
+  className="is-centered buttons has-addons "
+>
+  <Component
+    dataTest="some-selector"
+    disabled={false}
+    fullWidth={false}
+    loading={false}
+    onClick={[MockFunction]}
+    type="submit"
+    variant="primary"
+  >
+    button text
+  </Component>
+  <Component
+    dataTest="some-selector"
+    disabled={false}
+    fullWidth={false}
+    loading={false}
+    onClick={[MockFunction]}
+    type="submit"
+    variant="primary"
+  >
+    button text
+  </Component>
+</div>
+`;

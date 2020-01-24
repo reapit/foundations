@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectBox should match a snapshot 1`] = `
+<Field
+  name="demo"
+  validate={null}
+>
+  <Component />
+</Field>
+`;

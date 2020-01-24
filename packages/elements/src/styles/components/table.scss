@@ -1,0 +1,12 @@
+.table {
+  &-loading {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.table-responsive {
+  width: 100%;
+  overflow: auto;
+}

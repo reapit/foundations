@@ -1,0 +1,570 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddRowButton should match snapshot 1`] = `
+<div
+  className="add-button"
+>
+  <Component
+    onClick={[MockFunction]}
+    type="submit"
+    variant="info"
+  >
+    Add new
+  </Component>
+</div>
+`;
+
+exports[`Spreadsheet should match snapshot with default props 1`] = `
+<div
+  className="spreadsheet"
+>
+  <div
+    className="wrap-top"
+  >
+    <div
+      className="description"
+    />
+    <div
+      className="button-group"
+    >
+      <Component
+        onChangeInput={[Function]}
+      />
+      <Component
+        data={
+          Array [
+            Array [
+              Object {
+                "value": "Office name",
+              },
+              Object {
+                "value": "Building Name",
+              },
+              Object {
+                "value": "Building No.",
+              },
+              Object {
+                "value": "Address 1",
+              },
+              Object {
+                "value": "Address 2",
+              },
+              Object {
+                "value": "Address 3",
+              },
+              Object {
+                "value": "Address 4",
+              },
+              Object {
+                "value": "Post Code",
+              },
+              Object {
+                "value": "Telephone",
+              },
+              Object {
+                "value": "Fax",
+              },
+              Object {
+                "value": "Email",
+              },
+            ],
+            Array [
+              Object {
+                "value": "London",
+              },
+              Object {
+                "value": "The White House",
+              },
+              Object {
+                "value": "15",
+              },
+              Object {
+                "value": "London 1",
+              },
+              Object {
+                "value": "",
+              },
+              Object {
+                "value": "Londom 3",
+              },
+              Object {
+                "value": "",
+              },
+              Object {
+                "value": "EC12NH",
+              },
+              Object {
+                "value": "0845 0000",
+              },
+              Object {
+                "value": "",
+              },
+              Object {
+                "value": "row1@gmail.com",
+              },
+            ],
+            Array [
+              Object {
+                "value": "London2",
+              },
+              Object {
+                "value": "The Black House",
+              },
+              Object {
+                "value": "11",
+              },
+              Object {
+                "value": "Test Addres",
+              },
+              Object {
+                "value": "",
+              },
+              Object {
+                "value": "Adress 3",
+              },
+              Object {
+                "value": "",
+              },
+              Object {
+                "value": "EC12NH",
+              },
+              Object {
+                "value": "087 471 929",
+              },
+              Object {
+                "value": "",
+              },
+              Object {
+                "value": "row2@gmail.com",
+              },
+            ],
+            Array [
+              Object {
+                "value": "New York",
+              },
+              Object {
+                "value": "Building A",
+              },
+              Object {
+                "value": "11",
+              },
+              Object {
+                "value": "",
+              },
+              Object {
+                "value": "",
+              },
+              Object {
+                "value": "City Z",
+              },
+              Object {
+                "value": "",
+              },
+              Object {
+                "value": "AL7187",
+              },
+              Object {
+                "value": "017 7162 9121",
+              },
+              Object {
+                "value": "",
+              },
+              Object {
+                "value": "row3@gmail.com",
+              },
+            ],
+          ]
+        }
+      />
+    </div>
+  </div>
+  <MyReactDataSheet
+    cellRenderer={[Function]}
+    data={
+      Array [
+        Array [
+          Object {
+            "value": "Office name",
+          },
+          Object {
+            "value": "Building Name",
+          },
+          Object {
+            "value": "Building No.",
+          },
+          Object {
+            "value": "Address 1",
+          },
+          Object {
+            "value": "Address 2",
+          },
+          Object {
+            "value": "Address 3",
+          },
+          Object {
+            "value": "Address 4",
+          },
+          Object {
+            "value": "Post Code",
+          },
+          Object {
+            "value": "Telephone",
+          },
+          Object {
+            "value": "Fax",
+          },
+          Object {
+            "value": "Email",
+          },
+        ],
+        Array [
+          Object {
+            "value": "London",
+          },
+          Object {
+            "value": "The White House",
+          },
+          Object {
+            "value": "15",
+          },
+          Object {
+            "value": "London 1",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "Londom 3",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "EC12NH",
+          },
+          Object {
+            "value": "0845 0000",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "row1@gmail.com",
+          },
+        ],
+        Array [
+          Object {
+            "value": "London2",
+          },
+          Object {
+            "value": "The Black House",
+          },
+          Object {
+            "value": "11",
+          },
+          Object {
+            "value": "Test Addres",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "Adress 3",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "EC12NH",
+          },
+          Object {
+            "value": "087 471 929",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "row2@gmail.com",
+          },
+        ],
+        Array [
+          Object {
+            "value": "New York",
+          },
+          Object {
+            "value": "Building A",
+          },
+          Object {
+            "value": "11",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "City Z",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "AL7187",
+          },
+          Object {
+            "value": "017 7162 9121",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "row3@gmail.com",
+          },
+        ],
+      ]
+    }
+    dataEditor={[Function]}
+    onCellsChanged={[Function]}
+    onContextMenu={[Function]}
+    onSelect={[Function]}
+    overflow="clip"
+    rowRenderer={[Function]}
+    selected={null}
+    sheetRenderer={[Function]}
+    valueRenderer={[Function]}
+    valueViewer={[Function]}
+  />
+  <div
+    className="wrap-bottom"
+  >
+    <Component
+      addNewRow={[Function]}
+    />
+  </div>
+  <Component
+    contextMenuProp={
+      Object {
+        "left": 0,
+        "top": 0,
+        "visible": false,
+      }
+    }
+    selected={null}
+    setContextMenuProp={[Function]}
+    setData={[Function]}
+  />
+</div>
+`;
+
+exports[`Spreadsheet should match snapshot with full props 1`] = `
+<div
+  className="spreadsheet"
+>
+  <div
+    className="wrap-top"
+  >
+    <div
+      className="description"
+    >
+      des
+    </div>
+    <div
+      className="button-group"
+    />
+  </div>
+  <MyReactDataSheet
+    cellRenderer={[Function]}
+    data={
+      Array [
+        Array [
+          Object {
+            "value": "Office name",
+          },
+          Object {
+            "value": "Building Name",
+          },
+          Object {
+            "value": "Building No.",
+          },
+          Object {
+            "value": "Address 1",
+          },
+          Object {
+            "value": "Address 2",
+          },
+          Object {
+            "value": "Address 3",
+          },
+          Object {
+            "value": "Address 4",
+          },
+          Object {
+            "value": "Post Code",
+          },
+          Object {
+            "value": "Telephone",
+          },
+          Object {
+            "value": "Fax",
+          },
+          Object {
+            "value": "Email",
+          },
+        ],
+        Array [
+          Object {
+            "value": "London",
+          },
+          Object {
+            "value": "The White House",
+          },
+          Object {
+            "value": "15",
+          },
+          Object {
+            "value": "London 1",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "Londom 3",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "EC12NH",
+          },
+          Object {
+            "value": "0845 0000",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "row1@gmail.com",
+          },
+        ],
+        Array [
+          Object {
+            "value": "London2",
+          },
+          Object {
+            "value": "The Black House",
+          },
+          Object {
+            "value": "11",
+          },
+          Object {
+            "value": "Test Addres",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "Adress 3",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "EC12NH",
+          },
+          Object {
+            "value": "087 471 929",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "row2@gmail.com",
+          },
+        ],
+        Array [
+          Object {
+            "value": "New York",
+          },
+          Object {
+            "value": "Building A",
+          },
+          Object {
+            "value": "11",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "City Z",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "AL7187",
+          },
+          Object {
+            "value": "017 7162 9121",
+          },
+          Object {
+            "value": "",
+          },
+          Object {
+            "value": "row3@gmail.com",
+          },
+        ],
+      ]
+    }
+    dataEditor={[Function]}
+    onCellsChanged={[Function]}
+    onContextMenu={[Function]}
+    onSelect={[Function]}
+    overflow="clip"
+    rowRenderer={[Function]}
+    selected={null}
+    sheetRenderer={[Function]}
+    valueRenderer={[Function]}
+    valueViewer={[Function]}
+  />
+  <div
+    className="wrap-bottom"
+  />
+  <Component
+    contextMenuProp={
+      Object {
+        "left": 0,
+        "top": 0,
+        "visible": false,
+      }
+    }
+    selected={null}
+    setContextMenuProp={[Function]}
+    setData={[Function]}
+  />
+</div>
+`;
+
+exports[`UploadButton should match snapshot 1`] = `
+<div
+  className="upload-button"
+>
+  <Component
+    onClick={[Function]}
+    type="submit"
+    variant="info"
+  >
+    Upload file
+  </Component>
+  <input
+    accept=".csv"
+    hidden={true}
+    name="file-upload"
+    onChange={[MockFunction]}
+    type="file"
+  />
+</div>
+`;

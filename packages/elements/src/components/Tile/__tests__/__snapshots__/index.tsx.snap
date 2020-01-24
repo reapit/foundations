@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tile should match snapshot when HIGHTLIGHT false 1`] = `
+<div
+  className="card  "
+  data-test=""
+>
+  <div
+    className="card-content"
+  >
+    <div
+      className="media"
+    >
+      <div
+        className="media-content"
+      >
+        <Component
+          className="text-ellipisis"
+        >
+          mockHeading
+        </Component>
+        <Component />
+        <div>
+          City
+        </div>
+        <div>
+          Country
+        </div>
+        <div>
+          PostalCode
+        </div>
+        <div>
+          "contactPerson"
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tile should match snapshot when HIGHTLIGHT true 1`] = `
+<div
+  className="card hightlight "
+  data-test=""
+>
+  <div
+    className="card-content"
+  >
+    <div
+      className="media"
+    >
+      <div
+        className="media-content"
+      >
+        <Component
+          className="text-ellipisis"
+        >
+          mockHeading
+        </Component>
+        <Component />
+        <div>
+          City
+        </div>
+        <div>
+          Country
+        </div>
+        <div>
+          PostalCode
+        </div>
+        <div>
+          "contactPerson"
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

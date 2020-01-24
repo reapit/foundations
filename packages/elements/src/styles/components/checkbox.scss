@@ -1,0 +1,87 @@
+@import '../base/colors.scss';
+
+.field {
+  
+  .checkbox {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    & + label {
+      position: relative;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    // Box.
+    & + label:before {
+      content: '';
+      margin-right: 1rem;
+      display: inline-block;
+      vertical-align: middle;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: white;
+      border: 1px solid $grey;
+    }
+
+    // Box hover
+    &:hover + label:before {
+      background: $reapit-teal;
+      border-color: $reapit-teal;
+    }
+
+    // Box focus
+    label:before {
+      box-shadow: 0 0 0 1px $grey-dark;
+    }
+
+    // Box checked
+    &:checked + label:before {
+      background: $reapit-teal;
+      border-color: $reapit-teal;
+    }
+
+    &:disabled + label {
+      color: #b8b8b8;
+      cursor: auto;
+    }
+
+    &:disabled + label:before {
+      box-shadow: none;
+      background: #ddd;
+    }
+
+    // Checkmark
+    &:checked + label:after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 9px;
+      background: white;
+      width: 2px;
+      height: 2px;
+      box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+      transform: rotate(45deg);
+    }
+  }
+
+  .checkbox-error[type='radio'] {
+    & + label:before {
+      background: white;
+      border: 1px solid red;
+    }
+  }
+
+  .radio-wrap {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  
+}
+
+.field-checkbox {
+  position: relative;
+}
