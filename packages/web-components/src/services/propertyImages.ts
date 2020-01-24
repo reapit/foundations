@@ -1,8 +1,5 @@
 import { getAccessToken } from '@/utils/get-access-token'
-import {
-  PropertyModel,
-  PropertyImageModel
-} from '@reapit/foundations-ts-definitions'
+import { PropertyModel, PropertyImageModel } from '@reapit/foundations-ts-definitions'
 import { IMAGE_API_URL } from '@/constants'
 
 export const getPropertyImages = async (result: PropertyModel[]) => {
@@ -14,8 +11,8 @@ export const getPropertyImages = async (result: PropertyModel[]) => {
   const token = await getAccessToken()
   const response = await fetch(url.toString(), {
     headers: {
-      Authorization: token
-    }
+      Authorization: token,
+    },
   })
 
   const parsedResponse = await response.json()

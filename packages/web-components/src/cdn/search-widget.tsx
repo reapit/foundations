@@ -4,7 +4,7 @@ import { SearchWidget } from '@/components/search-widget'
 ;(window as any).initReapitSearchWidget = ({
   theme = {},
   containerID = 'reapit-search-widget',
-  searchResultContainerID = 'reapit-search-widget-result'
+  searchResultContainerID = 'reapit-search-widget-result',
 }) => {
   const container = document.getElementById(containerID)
   if (!container) {
@@ -12,10 +12,7 @@ import { SearchWidget } from '@/components/search-widget'
   }
 
   ReactDOM.render(
-    <SearchWidget
-      theme={theme}
-      searchResultContainerID={searchResultContainerID}
-    />,
-    document.getElementById(containerID)
+    <SearchWidget theme={theme} searchResultContainerID={searchResultContainerID} />,
+    document.getElementById(containerID),
   )
 }

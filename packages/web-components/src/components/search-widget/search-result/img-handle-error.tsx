@@ -29,7 +29,7 @@ export const ImgHandleError = React.memo(
   },
   () => {
     return false
-  }
+  },
 )
 
 ImgHandleError.displayName = 'ImgHandleError'

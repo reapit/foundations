@@ -19,7 +19,7 @@
     "lint": "yarn lint:src && yarn lint:cypress",
     "test": "cross-env TZ=UTC jest --coverage --silent",
     "test-dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:ci": "cross-env TZ=UTC jest --ci",
+    "test:ci": "cross-env TZ=UTC jest -u  --ci",
     "test-e2e:dev": "cypress open --project './src/tests'",
     "test-e2e": "cypress run --project './src/tests'",
     "test-e2e:ci": "yarn dev:ci && yarn test-e2e",

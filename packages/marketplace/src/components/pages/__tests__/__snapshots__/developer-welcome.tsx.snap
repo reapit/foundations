@@ -43,7 +43,7 @@ exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] 
           className="helpguide-steps"
           key="helper-guide-child-0"
         >
-          <Component
+          <HelpGuideStep
             component={[Function]}
             heading="Test"
             id="step"
@@ -100,7 +100,7 @@ exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
           className="helpguide-steps"
           key="helper-guide-child-0"
         >
-          <Component
+          <HelpGuideStep
             component={[Function]}
             heading="Test"
             id="step"
@@ -157,7 +157,7 @@ exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
           className="helpguide-steps"
           key="helper-guide-child-0"
         >
-          <Component
+          <HelpGuideStep
             component={[Function]}
             heading="Test"
             id="step"
@@ -214,7 +214,7 @@ exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
           className="helpguide-steps"
           key="helper-guide-child-0"
         >
-          <Component
+          <HelpGuideStep
             component={[Function]}
             heading="Test"
             id="step"
@@ -271,7 +271,7 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
           className="helpguide-steps"
           key="helper-guide-child-0"
         >
-          <Component
+          <HelpGuideStep
             component={[Function]}
             heading="Test"
             id="step"
@@ -297,7 +297,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
       hasPadding={true}
     >
       <HelpGuide>
-        <Component
+        <HelpGuideStep
           component={[Function]}
           graphic={
             <img
@@ -309,7 +309,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
           id="step-1"
           subHeading="Let’s get started."
         />
-        <Component
+        <HelpGuideStep
           component={[Function]}
           graphic={
             <img
@@ -321,7 +321,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
           id="step-2"
           subHeading="We’ve got you covered."
         />
-        <Component
+        <HelpGuideStep
           component={[Function]}
           graphic={
             <img
@@ -333,7 +333,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
           id="step-3"
           subHeading="Nearly there."
         />
-        <Component
+        <HelpGuideStep
           component={[Function]}
           graphic={
             <img
@@ -345,7 +345,7 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
           id="step-4"
           subHeading="Installations and changes."
         />
-        <Component
+        <HelpGuideStep
           component={[Function]}
           graphic={
             <img

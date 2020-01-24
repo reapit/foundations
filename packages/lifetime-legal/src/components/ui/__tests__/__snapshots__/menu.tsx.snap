@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match snapshot 1`] = `
-<Memo()
+<Memo(MenuComponent)
   defaultActiveKey="CLIENT_SEARCH"
   location={
     Object {

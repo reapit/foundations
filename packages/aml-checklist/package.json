@@ -18,7 +18,7 @@
     "start": "node ./public/index.js aml-checklist",
     "test-dev": "cross-env TZ=UTC jest --watch --verbose",
     "test": "cross-env TZ=UTC jest --coverage --silent",
-    "test:ci": "cross-env TZ=UTC jest --coverage --silent --detectOpenHandles --forceExit",
+    "test:ci": "cross-env TZ=UTC jest -u  --coverage --silent --detectOpenHandles --forceExit",
     "release:develop": "node src/scripts/release-develop.js"
   },
   "dependencies": {

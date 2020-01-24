@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react'
 import { INVALID_BACKGROUND_AS_BASE64 } from '../constants'
 import { context } from '../context'
@@ -61,19 +62,15 @@ export const getContent = ({
   bedrooms,
   bathrooms,
   marketingMode,
-  imageUrl = INVALID_BACKGROUND_AS_BASE64
+  imageUrl = INVALID_BACKGROUND_AS_BASE64,
 }: GetContentParams) => `
-  <div style="display:flex; font-family: ${
-    theme.base.font.family
-  }" id="coordinate-${latitude}-${longitude}">
+  <div style="display:flex; font-family: ${theme.base.font.family}" id="coordinate-${latitude}-${longitude}">
     <div><img style="width: 110px; height: 110px; object-fit: cover" src="${imageUrl}"></div>
     <div style="padding: 0rem 1rem;">
-      <div style="margin-bottom: 2px; font-weight:bold;font-size:1rem; color: ${
-        theme.colors.base
-      }">${address.line1}</div>
-      <div style="margin-bottom: 2px; font-size:1rem; color: ${
-        theme.colors.base
-      }">${address.line2}</div>
+      <div style="margin-bottom: 2px; font-weight:bold;font-size:1rem; color: ${theme.colors.base}">${
+  address.line1
+}</div>
+      <div style="margin-bottom: 2px; font-size:1rem; color: ${theme.colors.base}">${address.line2}</div>
       ${
         marketingMode === 'selling'
           ? `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:1rem">${price}</div>`
@@ -118,25 +115,16 @@ export const getLatLng = (property: PropertyModel) => {
   const longitude = property?.address?.geolocation?.longitude
   return {
     latitude,
-    longitude
+    longitude,
   }
 }
 
-export const createMarker = ({
-  property,
-  googleMap,
-  map,
-  searchStore,
-  theme,
-  infoWindows
-}: CreateMarkerParams) => {
+export const createMarker = ({ property, googleMap, map, searchStore, theme, infoWindows }: CreateMarkerParams) => {
   if (property) {
     let imageUrl = INVALID_BACKGROUND_AS_BASE64
     if (searchStore && property) {
       const propertyId = property?.id
-      const propertyImage = propertyId
-        ? searchStore?.propertyImages[propertyId]
-        : {}
+      const propertyImage = propertyId ? searchStore?.propertyImages[propertyId] : {}
       if (propertyImage?.url) {
         imageUrl = propertyImage.url
       }
@@ -150,14 +138,14 @@ export const createMarker = ({
     const marker = new googleMap.Marker({
       position: {
         lat: latitude || DEFAULT_CENTER.lat,
-        lng: longitude || DEFAULT_CENTER.lng
+        lng: longitude || DEFAULT_CENTER.lng,
       },
       icon: null,
-      map
+      map,
     })
     const address = {
       line1: property?.address?.line1 || '',
-      line2: property?.address?.line2 || ''
+      line2: property?.address?.line2 || '',
     }
     const lettingPrice = property?.letting?.rent
     const rentFrequency = property?.letting?.rentFrequency
@@ -176,8 +164,8 @@ export const createMarker = ({
         marketingMode,
         lettingPrice,
         rentFrequency,
-        imageUrl
-      })
+        imageUrl,
+      }),
     })
     googleMap.event.addListener(marker, 'click', () => {
       if (infoWindows?.length > 0) {
@@ -198,9 +186,7 @@ export type ClearMapParams = {
 
 export const clearMap = ({ markersRef }: ClearMapParams) => {
   if (markersRef && markersRef.current) {
-    markersRef.current.forEach((marker: google.maps.Marker) =>
-      marker.setMap(null)
-    )
+    markersRef.current.forEach((marker: google.maps.Marker) => marker.setMap(null))
   }
 }
 
@@ -209,10 +195,7 @@ export type GetCurrentMarkerIndexParams = {
   centerPoint: google.maps.LatLng
 }
 
-export const getCurrentMarkerIndex = ({
-  markersRef,
-  centerPoint
-}: GetCurrentMarkerIndexParams) => {
+export const getCurrentMarkerIndex = ({ markersRef, centerPoint }: GetCurrentMarkerIndexParams) => {
   const markers = markersRef.current
   if (!markersRef || !centerPoint || !markers || markers.length < 1) {
     return null
@@ -221,11 +204,7 @@ export const getCurrentMarkerIndex = ({
   const longitude = centerPoint.lng()
   for (let i = 0; i < markers.length; i++) {
     const position: google.maps.LatLng = markers?.[i]?.getPosition()
-    if (
-      position &&
-      position.lat() === latitude &&
-      position.lng() === longitude
-    ) {
+    if (position && position.lat() === latitude && position.lng() === longitude) {
       return i
     }
   }
@@ -255,18 +234,15 @@ export const handleUseEffect = ({
   mapRef,
   theme,
   properties,
-  markersRef
+  markersRef,
 }: HandleUseEffectParams) => () => {
   if (googleMap && theme) {
-    const map = new googleMap.Map(
-      document.getElementById('reapit-map-container'),
-      {
-        center: center || DEFAULT_CENTER,
-        zoom: zoom || DEFAULT_ZOOM,
-        styles: mapStyles,
-        ...restProps
-      }
-    )
+    const map = new googleMap.Map(document.getElementById('reapit-map-container'), {
+      center: center || DEFAULT_CENTER,
+      zoom: zoom || DEFAULT_ZOOM,
+      styles: mapStyles,
+      ...restProps,
+    })
     mapRef.current = map
     const markers: any[] = []
     const infoWindows: any[] = []
@@ -279,7 +255,7 @@ export const handleUseEffect = ({
           map,
           theme,
           searchStore,
-          infoWindows
+          infoWindows,
         })
         markers.push(newMarker?.marker)
         infoWindows.push(newMarker?.infoWindow)
@@ -300,19 +276,13 @@ export const handleUseEffect = ({
       const centerPoint = new googleMap.LatLng(latitude, longitude)
       const currentMarkerIndex = getCurrentMarkerIndex({
         markersRef,
-        centerPoint
+        centerPoint,
       })
       map.setCenter(centerPoint)
       map.setZoom(DEFAULT_ZOOM)
       const FIRST_INFO_WINDOW_INDEX = 0
-      if (
-        currentMarkerIndex ||
-        currentMarkerIndex === FIRST_INFO_WINDOW_INDEX
-      ) {
-        infoWindows?.[currentMarkerIndex]?.open(
-          map,
-          markers[currentMarkerIndex]
-        )
+      if (currentMarkerIndex || currentMarkerIndex === FIRST_INFO_WINDOW_INDEX) {
+        infoWindows?.[currentMarkerIndex]?.open(map, markers[currentMarkerIndex])
       }
       return
     }
@@ -350,9 +320,9 @@ export const MapContainer: React.FC<MapContainerProps> = ({
       restProps,
       property,
       properties,
-      theme: contextValue ? contextValue.theme : null
+      theme: contextValue ? contextValue.theme : null,
     }),
-    [googleMap, center, zoom, property, properties]
+    [googleMap, center, zoom, property, properties],
   )
 
   if (!contextValue) {
@@ -368,24 +338,14 @@ export type RenderMapParams = {
   center?: google.maps.LatLngLiteral
 }
 
-export const renderMap = ({
-  property,
-  zoom,
-  center,
-  properties
-}: RenderMapParams) => ({ googleMap, error }: RenderProps) => {
+export const renderMap = ({ property, zoom, center, properties }: RenderMapParams) => ({
+  googleMap,
+  error,
+}: RenderProps) => {
   if (error) {
     return <div>{error}</div>
   }
-  return (
-    <MapContainer
-      googleMap={googleMap}
-      property={property}
-      properties={properties}
-      zoom={zoom}
-      center={center}
-    />
-  )
+  return <MapContainer googleMap={googleMap} property={property} properties={properties} zoom={zoom} center={center} />
 }
 
 export type GoogleMaType = {
@@ -396,19 +356,8 @@ export type GoogleMaType = {
   center?: google.maps.LatLngLiteral
 }
 
-export const GoogleMap: React.FC<GoogleMaType> = ({
-  params,
-  property,
-  zoom,
-  center,
-  properties
-}) => {
-  return (
-    <GoogleMapLoader
-      params={params}
-      render={renderMap({ property, zoom, center, properties })}
-    />
-  )
+export const GoogleMap: React.FC<GoogleMaType> = ({ params, property, zoom, center, properties }) => {
+  return <GoogleMapLoader params={params} render={renderMap({ property, zoom, center, properties })} />
 }
 
 export default GoogleMap

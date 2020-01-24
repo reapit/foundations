@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "cross-env TZ=UTC jest --coverage --silent",
-    "test:ci": "cross-env TZ=UTC jest --coverage --silent --detectOpenHandles --forceExit",
+    "test:ci": "cross-env TZ=UTC jest -u  --coverage --silent --detectOpenHandles --forceExit",
     "prepublish": "yarn test && yarn build",
     "prebuild": "rimraf dist && rimraf public",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
