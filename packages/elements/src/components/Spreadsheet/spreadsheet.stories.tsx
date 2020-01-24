@@ -16,7 +16,7 @@ storiesOf('Spreadsheet', module)
         { readOnly: true, value: 'Post Code' },
         { readOnly: true, value: 'Telephone' },
         { readOnly: true, value: 'Fax' },
-        { readOnly: true, value: 'Email' }
+        { readOnly: true, value: 'Email' },
       ],
       [
         { value: 'London' },
@@ -29,7 +29,7 @@ storiesOf('Spreadsheet', module)
         { value: 'EC12NH' },
         { value: '0845 0000' },
         { value: '' },
-        { value: 'row1@gmail.com' }
+        { value: 'row1@gmail.com' },
       ],
       [
         { value: 'London2' },
@@ -42,7 +42,7 @@ storiesOf('Spreadsheet', module)
         { value: 'EC12NH' },
         { value: '087 471 929' },
         { value: '' },
-        { value: 'row2@gmail.com' }
+        { value: 'row2@gmail.com' },
       ],
       [
         { value: 'New York' },
@@ -55,8 +55,8 @@ storiesOf('Spreadsheet', module)
         { value: 'AL7187' },
         { value: '017 7162 9121' },
         { value: '' },
-        { value: 'row3@gmail.com' }
-      ]
+        { value: 'row3@gmail.com' },
+      ],
     ]
 
     return (
@@ -66,7 +66,7 @@ storiesOf('Spreadsheet', module)
           <p>
             <strong>Basic DataSheet</strong>
             <br />
-            You can double click a column header to select the entire column's cells.
+            You can double click a column header to select the entire column&apos;s cells.
             <br />
             Select one or multiple cells and press Delete/Backspace to delete it value.
           </p>
@@ -87,7 +87,7 @@ storiesOf('Spreadsheet', module)
         { readOnly: true, value: 'Post Code' },
         { readOnly: true, value: 'Telephone' },
         { readOnly: true, value: 'Fax' },
-        { readOnly: true, value: 'Email' }
+        { readOnly: true, value: 'Email' },
       ],
       [
         { value: 'London' },
@@ -100,7 +100,7 @@ storiesOf('Spreadsheet', module)
         { value: 'EC12NH' },
         { value: '0845 0000' },
         { value: '' },
-        { value: 'row1@gmail.com' }
+        { value: 'row1@gmail.com' },
       ],
       [
         { value: 'London2' },
@@ -113,7 +113,7 @@ storiesOf('Spreadsheet', module)
         { value: 'EC12NH' },
         { value: '087 471 929' },
         { value: '' },
-        { value: 'row2@gmail.com' }
+        { value: 'row2@gmail.com' },
       ],
       [
         { value: 'New York' },
@@ -129,11 +129,12 @@ storiesOf('Spreadsheet', module)
         {
           value: 'row3@com',
           validate: cell => {
+            // eslint-disable-next-line
             const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
             return emailRegex.test(cell.value)
-          }
-        }
-      ]
+          },
+        },
+      ],
     ]
     return (
       <Spreadsheet
@@ -161,7 +162,7 @@ storiesOf('Spreadsheet', module)
         { readOnly: true, value: 'Post Code' },
         { readOnly: true, value: 'Telephone' },
         { readOnly: true, value: 'Fax' },
-        { readOnly: true, value: 'Email' }
+        { readOnly: true, value: 'Email' },
       ],
       [
         { value: 'London' },
@@ -174,7 +175,7 @@ storiesOf('Spreadsheet', module)
         { value: 'EC12NH' },
         { value: '0845 0000' },
         { value: '' },
-        { value: 'row1@gmail.com' }
+        { value: 'row1@gmail.com' },
       ],
       [
         { value: 'London2' },
@@ -187,7 +188,7 @@ storiesOf('Spreadsheet', module)
         { value: 'EC12NH' },
         { value: '087 471 929' },
         { value: '' },
-        { value: 'row2@gmail.com' }
+        { value: 'row2@gmail.com' },
       ],
       [
         { value: 'New York' },
@@ -200,8 +201,8 @@ storiesOf('Spreadsheet', module)
         { value: 'AL7187' },
         { value: '017 7162 9121' },
         { value: '' },
-        { value: 'row3@gmail.com' }
-      ]
+        { value: 'row3@gmail.com' },
+      ],
     ]
     const dataCustomStyle = (dataBasic as Cell[][]).map((e, i) => {
       if (i % 2 !== 0) {
@@ -210,14 +211,14 @@ storiesOf('Spreadsheet', module)
           ...c,
           style: {
             background: '#6A5ACD',
-            color: '#fff'
-          }
+            color: '#fff',
+          },
         }))
       }
       /* customize by className */
       return e.map(c => ({
         ...c,
-        className: 'custom-classname-style'
+        className: 'custom-classname-style',
       }))
     })
 
@@ -268,13 +269,13 @@ storiesOf('Spreadsheet', module)
         { readOnly: true, value: 'Post Code' },
         { readOnly: true, value: 'Telephone' },
         { readOnly: true, value: 'Fax' },
-        { readOnly: true, value: 'Email' }
+        { readOnly: true, value: 'Email' },
       ],
       [
         { value: 'London' },
         {
           value: 'The White House',
-          CustomComponent
+          CustomComponent,
         },
         { value: '15' },
         { value: 'London 1' },
@@ -284,7 +285,7 @@ storiesOf('Spreadsheet', module)
         { value: 'EC12NH' },
         { value: '0845 0000' },
         { value: '' },
-        { value: 'row1@gmail.com' }
+        { value: 'row1@gmail.com' },
       ],
       [
         { value: 'London2' },
@@ -297,7 +298,7 @@ storiesOf('Spreadsheet', module)
         { value: 'EC12NH' },
         { value: '087 471 929' },
         { value: '' },
-        { value: 'row2@gmail.com' }
+        { value: 'row2@gmail.com' },
       ],
       [
         { value: 'New York' },
@@ -310,8 +311,8 @@ storiesOf('Spreadsheet', module)
         { value: 'AL7187' },
         { value: '017 7162 9121' },
         { value: '' },
-        { value: 'row3@gmail.com' }
-      ]
+        { value: 'row3@gmail.com' },
+      ],
     ]
     return (
       <Spreadsheet
@@ -343,7 +344,7 @@ storiesOf('Spreadsheet', module)
         { readOnly: true, value: 'Post Code' },
         { readOnly: true, value: 'Telephone' },
         { readOnly: true, value: 'Fax' },
-        { readOnly: true, value: 'Email' }
+        { readOnly: true, value: 'Email' },
       ],
       [
         { value: 'London' },
@@ -356,7 +357,7 @@ storiesOf('Spreadsheet', module)
         { value: 'EC12NH' },
         { value: '0845 0000' },
         { value: '' },
-        { value: 'row1@gmail.com' }
+        { value: 'row1@gmail.com' },
       ],
       [
         { value: 'London2' },
@@ -369,7 +370,7 @@ storiesOf('Spreadsheet', module)
         { value: 'EC12NH' },
         { value: '087 471 929' },
         { value: '' },
-        { value: 'row2@gmail.com' }
+        { value: 'row2@gmail.com' },
       ],
       [
         { value: 'New York' },
@@ -382,8 +383,8 @@ storiesOf('Spreadsheet', module)
         { value: 'AL7187' },
         { value: '017 7162 9121' },
         { value: '' },
-        { value: 'row3@gmail.com' }
-      ]
+        { value: 'row3@gmail.com' },
+      ],
     ]
 
     return <Spreadsheet data={dataBasic} hasAddButton={false} hasUploadButton={false} hasDownloadButton={false} />
@@ -401,8 +402,8 @@ storiesOf('Spreadsheet', module)
         { readOnly: true, value: 'Post Code' },
         { readOnly: true, value: 'Telephone' },
         { readOnly: true, value: 'Fax' },
-        { readOnly: true, value: 'Email' }
-      ]
+        { readOnly: true, value: 'Email' },
+      ],
     ]
 
     return (
@@ -413,9 +414,9 @@ storiesOf('Spreadsheet', module)
             row.map(cell => {
               return {
                 ...cell,
-                validate: cell => Number.isInteger(Number(cell.value))
+                validate: cell => Number.isInteger(Number(cell.value)),
               }
-            })
+            }),
           )
         }
         description={

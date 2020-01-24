@@ -22,7 +22,7 @@ export const Input = ({
   dataTest = '',
   placeholder = '',
   rightIcon,
-  required = false
+  required = false,
 }: InputProps) => (
   <Field name={name} validate={required ? fieldValidateRequire : null}>
     {({ field, meta }: FieldProps<string | number>) => {

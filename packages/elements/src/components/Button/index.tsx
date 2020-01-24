@@ -20,7 +20,7 @@ export const Button: React.SFC<ButtonProps> = ({
   children,
   fullWidth = false,
   onClick,
-  dataTest = ''
+  dataTest = '',
 }) => {
   const theme =
     variant === 'primary'

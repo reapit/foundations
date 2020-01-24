@@ -9,13 +9,15 @@ export interface Element {
   content?: string
 }
 
-const sortContentType = (domItem: Element, index: number, diffing: boolean) =>
-  domItem.type === 'text' ? domItem.content || null : rendererModule.sortTags(domItem, index, diffing)
+const sortContentType = (domItem: Element, index: number, diffing: boolean) => {
+  return domItem.type === 'text' ? domItem.content || null : rendererModule.sortTags(domItem, index, diffing)
+}
 
-const getChildren = (domTag: Element, diffing: boolean) =>
-  domTag.children
+const getChildren = (domTag: Element, diffing: boolean) => {
+  return domTag.children
     ? domTag.children.map((child: Element, index: number) => rendererModule.sortContentType(child, index, diffing))
     : null
+}
 
 const getAttributes = (domTag: Element, index: number) => {
   const attributes = domTag.attributes || {}
@@ -80,6 +82,6 @@ export const rendererModule = {
   getChildren,
   getAttributes,
   sortTags,
-  renderer
+  renderer,
 }
 export default renderer

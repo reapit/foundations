@@ -6,11 +6,11 @@ export default [
     input: 'src/styles/index.scss',
     output: {
       name: 'index',
-      format: 'es'
+      format: 'es',
     },
     plugins: [
       scss({
-        output: (styles, styleNodes) => {
+        output: styles => {
           const content = ['./dist/elements.esm.js']
           const options = {
             output: 'dist/index.css',
@@ -36,15 +36,15 @@ export default [
               '*absolute*',
               '*relative*',
               '*capitalize*',
-              'mw-100'
-            ]
+              'mw-100',
+            ],
             // Uncomment this line if you want to see the CSS purified from the package
             // rejected: true
           }
 
           purify(content, styles, options)
-        }
-      })
-    ]
-  }
+        },
+      }),
+    ],
+  },
 ]

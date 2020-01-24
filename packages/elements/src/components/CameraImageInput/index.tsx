@@ -5,7 +5,7 @@ export const CameraImageInput = (props: FileInputProps) => (
   <FileInput
     inputProps={{
       ...props.inputProps,
-      capture: 'camera'
+      capture: 'camera',
     }}
     dataTest={props.dataTest}
     name={props.name}

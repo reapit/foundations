@@ -7,7 +7,9 @@ import { Button } from '../Button'
 const stories = storiesOf('ToastMessage', module)
 
 const longText =
-  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non sint voluptas qui amet architecto, maxime laudantium voluptatibus, laborum beatae explicabo minima voluptatum, doloremque blanditiis ipsum reiciendis quasi fugit eveniet perferendis!'
+  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non sint voluptas qui amet architecto, ' +
+  'maxime laudantium voluptatibus, laborum beatae explicabo minima voluptatum, doloremque blanditiis ' +
+  'ipsum reiciendis quasi fugit eveniet perferendis!'
 
 const Usage = () => {
   const [visible, setVisible] = useState<boolean>(false)

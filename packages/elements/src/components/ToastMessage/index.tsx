@@ -16,7 +16,7 @@ export const ToastMessage: React.FC<ToastMessageProps> = ({
   displayDuration = 3000,
   message,
   onCloseToast,
-  variant
+  variant,
 }) => {
   if (visible) {
     setTimeout(onCloseToast, displayDuration)

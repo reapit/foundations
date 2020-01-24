@@ -8,7 +8,7 @@ jest.unmock('dayjs')
 const props: DatePickerProps = {
   name: 'abc',
   labelText: 'abc',
-  id: '123'
+  id: '123',
 }
 
 describe('Date-time picker', () => {
@@ -25,7 +25,7 @@ describe('Date-time picker', () => {
         value: '',
         id: 'mockId',
         onClick: jest.fn(),
-        className: ''
+        className: '',
       }
       expect(shallow(<CustomInput {...mockProps} />)).toMatchSnapshot()
     })
@@ -35,8 +35,8 @@ describe('Date-time picker', () => {
     const submitCallback = jest.fn()
     const mockEvent = {
       target: {
-        value: '22/11/1997'
-      }
+        value: '22/11/1997',
+      },
     }
     const wrapper = mount(
       <Formik initialValues={{ test: '1997-11-20T17:00:00' }} onSubmit={submitCallback}>
@@ -47,7 +47,7 @@ describe('Date-time picker', () => {
             </Form>
           )
         }}
-      </Formik>
+      </Formik>,
     )
     const input = wrapper.find('input')
     input.simulate('change', mockEvent)
@@ -74,7 +74,7 @@ describe('Date-time picker', () => {
               </Form>
             )
           }}
-        </Formik>
+        </Formik>,
       )
 
       const input = wrapper.find('input')
@@ -90,7 +90,7 @@ describe('Date-time picker', () => {
               </Form>
             )
           }}
-        </Formik>
+        </Formik>,
       )
 
       const input = wrapper.find('input')
@@ -106,15 +106,15 @@ describe('Date-time picker', () => {
               </Form>
             )
           }}
-        </Formik>
+        </Formik>,
       )
 
       const input = wrapper.find('input')
       expect(input.props().value).toBe('20/11/1997')
       input.simulate('change', {
         target: {
-          value: '1'
-        }
+          value: '1',
+        },
       })
 
       // onChange
@@ -135,7 +135,7 @@ describe('Date-time picker', () => {
             <DatePicker {...props} />
           </Form>
         )}
-      </Formik>
+      </Formik>,
     )
     expect(wrapper.find('label')).toHaveLength(1)
   })
@@ -147,7 +147,7 @@ describe('Date-time picker', () => {
       value: '',
       id: 'mockId',
       onClick: jest.fn(),
-      className: ''
+      className: '',
     }
     const wrapper = shallow(<CustomInput {...mockProps} />)
     const inputWrapper = wrapper.find('input')

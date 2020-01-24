@@ -13,34 +13,34 @@ describe('validate-email', () => {
     it('work correctly', () => {
       const values = {
         validEmail: 'test@mail.com',
-        invalidEmail: 'test'
+        invalidEmail: 'test',
       }
 
       expect(
         validateEmail<ValueTypes, ErrorKeys>({
           values,
           currentErrors: {},
-          keys: ['invalidEmail', 'validEmail']
-        })
+          keys: ['invalidEmail', 'validEmail'],
+        }),
       ).toStrictEqual({
-        invalidEmail: errorMessages.FIELD_WRONG_EMAIL_FORMAT
+        invalidEmail: errorMessages.FIELD_WRONG_EMAIL_FORMAT,
       })
     })
 
     it('should not override existed error key', () => {
       const values = {
         validEmail: 'test@mail.com',
-        invalidEmail: 'test'
+        invalidEmail: 'test',
       }
 
       expect(
         validateEmail<ValueTypes, ErrorKeys>({
           values,
           currentErrors: { invalidEmail: 'test' },
-          keys: ['invalidEmail', 'validEmail']
-        })
+          keys: ['invalidEmail', 'validEmail'],
+        }),
       ).toStrictEqual({
-        invalidEmail: 'test'
+        invalidEmail: 'test',
       })
     })
   })
@@ -67,10 +67,10 @@ describe('validate-email', () => {
         values: 'mockValue',
         keys: ['mockKey'],
         length: 1,
-        currentErrors: { mockKey: 'mockCurrentError' }
+        currentErrors: { mockKey: 'mockCurrentError' },
       }
       const output = {
-        mockKey: 'mockCurrentError'
+        mockKey: 'mockCurrentError',
       }
       const result = validateEmail(input)
       expect(result).toEqual(output)
@@ -81,7 +81,7 @@ describe('validate-email', () => {
         values: 'mockValue',
         keys: [],
         length: 1,
-        currentErrors: {}
+        currentErrors: {},
       }
       const output = {}
       const result = validateEmail(input)

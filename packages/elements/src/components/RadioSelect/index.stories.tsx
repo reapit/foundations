@@ -11,7 +11,10 @@ const mockProps = {
   labelText: 'mockLabelText',
   id: 'mockId',
   dataTest: 'mockDatatest',
-  options: [{ label: 'label', value: 'value' }, { label: 'label1', value: 'value1' }]
+  options: [
+    { label: 'label', value: 'value' },
+    { label: 'label1', value: 'value1' },
+  ],
 }
 
 storiesOf('RadioSelect', module)

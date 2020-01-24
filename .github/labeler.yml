@@ -25,3 +25,6 @@ geo-diary:
 
 aml-checklist:
   - packages/aml-checklist/**
+
+elements:
+  - packages/elements/**

@@ -15,7 +15,9 @@ export const clearColSetData = (currentColIndex: number) => (prevData: Cell[][])
   const newData = prevData.map(row => {
     /* Loop through row, in each row, loop through cells, check if col index = current selected col
           if equal, clear that cell value */
-    return row.map((cell, colIndex) => (colIndex === currentColIndex ? { ...cell, value: '' } : cell))
+    return row.map((cell, colIndex) => {
+      return colIndex === currentColIndex ? { ...cell, value: '' } : cell
+    })
   })
   return newData
 }
@@ -33,7 +35,7 @@ export const removeColSetData = (currentColIndex: number) => (prevData: Cell[][]
 export const handleContextClick = (selected: SelectedMatrix | null, setData: SetData, setContextMenuProp) => event => {
   event.stopPropagation()
   const {
-    start: { i: currentRowIndex, j: currentColIndex }
+    start: { i: currentRowIndex, j: currentColIndex },
   } = selected as SelectedMatrix
   switch (event.target.id) {
     case 'clear-row':
@@ -78,34 +80,34 @@ const dataMenu: ContextMenuData[] = [
     items: [
       {
         id: 'clear-row',
-        text: 'Clear row'
+        text: 'Clear row',
       },
       {
         id: 'clear-col',
-        text: 'Clear column'
-      }
-    ]
+        text: 'Clear column',
+      },
+    ],
   },
   {
     label: 'Remove',
     items: [
       {
         id: 'remove-row',
-        text: 'Remove row'
+        text: 'Remove row',
       },
       {
         id: 'remove-col',
-        text: 'Remove column'
-      }
-    ]
-  }
+        text: 'Remove column',
+      },
+    ],
+  },
 ]
 
 export const ContextMenu: React.FC<ContextMenuFCProps> = ({
   selected,
   contextMenuProp: { visible, top, left },
   setData,
-  setContextMenuProp
+  setContextMenuProp,
 }) => {
   const visibleClass = visible ? 'spreadsheet-context-menu-visible' : 'spreadsheet-context-menu-hidden'
   return (

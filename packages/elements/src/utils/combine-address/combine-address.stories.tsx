@@ -11,7 +11,7 @@ export const address = {
   line2: 'Bow Brickhill',
   line3: 'Milton Keynes',
   line4: 'Buckinghamshire',
-  postcode: 'MK17 9JU'
+  postcode: 'MK17 9JU',
 }
 
 storiesOf('CombineAddress', module).add(
@@ -19,5 +19,5 @@ storiesOf('CombineAddress', module).add(
   () => {
     return <div>Result: {combineAddress(address)}</div>
   },
-  { notes: 'Funtion combine address' }
+  { notes: 'Funtion combine address' },
 )

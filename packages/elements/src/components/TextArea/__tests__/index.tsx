@@ -7,7 +7,7 @@ import toJson from 'enzyme-to-json'
 const props: TextAreaProps = {
   id: 'username',
   name: 'username',
-  labelText: 'User name'
+  labelText: 'User name',
 }
 
 describe('Input', () => {
@@ -23,14 +23,14 @@ describe('Input', () => {
             <TextArea {...props} />
           </Form>
         )}
-      </Formik>
+      </Formik>,
     )
     expect(wrapper.find('label')).toHaveLength(1)
     wrapper.find('textarea').simulate('change', {
       target: {
         value: 'abcxyz',
-        name: 'username'
-      }
+        name: 'username',
+      },
     })
     expect(wrapper.find('textarea').prop('value')).toEqual('abcxyz')
   })

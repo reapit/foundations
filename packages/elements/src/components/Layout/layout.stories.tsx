@@ -14,7 +14,7 @@ import {
   LevelRight,
   LevelItem,
   Section,
-  Content
+  Content,
 } from './index'
 import { Menu } from '../Menu/Menu'
 import { mockMenuProps } from '../Menu/__mocks__/menu-props'

@@ -18,20 +18,20 @@ storiesOf('SearchComponent', module)
               h3: '5rem',
               h4: '4rem',
               h5: '3rem',
-              h6: '2rem'
-            }
-          }
-        }
+              h6: '2rem',
+            },
+          },
+        },
       },
       button: {
-        background: 'green'
+        background: 'green',
       },
       colors: {
         base: 'white',
         primary: 'yellow',
         inputBackgroundColor: 'red',
-        widgetHeading: 'orange'
-      }
+        widgetHeading: 'orange',
+      },
     }
     return <SearchComponent theme={theme} />
   })

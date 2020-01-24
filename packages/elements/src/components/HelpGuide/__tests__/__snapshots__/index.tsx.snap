@@ -87,7 +87,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
           className="helpguide-steps"
           key="helper-guide-child-0"
         >
-          <Component
+          <HelpGuideStep
             component={[Function]}
             id="step-1"
             key=".0"
@@ -97,7 +97,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
           className="helpguide-steps"
           key="helper-guide-child-1"
         >
-          <Component
+          <HelpGuideStep
             component={[Function]}
             id="step-2"
             key=".1"
@@ -107,7 +107,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
           className="helpguide-steps"
           key="helper-guide-child-2"
         >
-          <Component
+          <HelpGuideStep
             component={[Function]}
             id="step-3"
             key=".2"
@@ -117,7 +117,7 @@ exports[`HelpGuide should match a snapshot 1`] = `
           className="helpguide-steps"
           key="helper-guide-child-3"
         >
-          <Component
+          <HelpGuideStep
             component={[Function]}
             id="step-4"
             key=".3"

@@ -7,7 +7,7 @@ describe('NumberedTimeline', () => {
     const mockProps = {
       total: 5,
       currentIndex: 3,
-      onSelect: jest.fn()
+      onSelect: jest.fn(),
     }
     expect(shallow(<HorizontalTimeline {...mockProps} />)).toMatchSnapshot()
   })
@@ -16,14 +16,14 @@ describe('NumberedTimeline', () => {
     const mockProps = {
       activeRef: {
         current: {
-          offsetLeft: 40
-        }
+          offsetLeft: 40,
+        },
       } as React.RefObject<HTMLLIElement>,
       circleRef: {
         current: {
-          offsetWidth: 15
-        }
-      } as React.RefObject<HTMLDivElement>
+          offsetWidth: 15,
+        },
+      } as React.RefObject<HTMLDivElement>,
     }
 
     const { activeRef, circleRef } = mockProps
@@ -41,9 +41,9 @@ describe('NumberedTimeline', () => {
       activeRef: {
         current: {
           nextElementSibling: null,
-          offsetTop: 20
-        }
-      } as React.RefObject<HTMLLIElement>
+          offsetTop: 20,
+        },
+      } as React.RefObject<HTMLLIElement>,
     }
 
     const { activeRef } = mockProps
@@ -58,10 +58,10 @@ describe('NumberedTimeline', () => {
     const mockProps = {
       activeRef: {
         current: {
-          nextElementSibling: <li>Test</li> as any,
-          offsetTop: 20
-        }
-      } as React.RefObject<HTMLLIElement>
+          nextElementSibling: (<li>Test</li>) as any,
+          offsetTop: 20,
+        },
+      } as React.RefObject<HTMLLIElement>,
     }
 
     const { activeRef } = mockProps
@@ -69,8 +69,8 @@ describe('NumberedTimeline', () => {
     if (activeRef.current) {
       const widthActiveItem = parseInt(window.getComputedStyle(activeRef.current, ':before').width, 10)
       const marginBetween = parseInt(window.getComputedStyle(activeRef.current, ':before').marginRight, 10)
-
-      expect(caculateLineRef(mockProps)).toEqual(activeRef.current.offsetLeft + widthActiveItem + marginBetween / 2)
+      const offset = activeRef.current.offsetLeft + widthActiveItem + marginBetween
+      expect(caculateLineRef(mockProps)).toEqual(offset / 2)
     }
   })
 
@@ -79,24 +79,24 @@ describe('NumberedTimeline', () => {
       activeRef: {
         current: {
           offsetLeft: 10,
-          offsetWidth: 20
-        }
+          offsetWidth: 20,
+        },
       } as React.RefObject<HTMLLIElement>,
       circleRef: {
         current: {
           offsetWidth: 15,
           style: {
-            transform: ''
-          }
-        }
+            transform: '',
+          },
+        },
       } as React.RefObject<HTMLDivElement>,
       lineRef: {
         current: {
           style: {
-            height: ''
-          }
-        }
-      } as React.RefObject<HTMLDivElement>
+            height: '',
+          },
+        },
+      } as React.RefObject<HTMLDivElement>,
     }
 
     const { activeRef, circleRef, lineRef } = mockProps

@@ -2,7 +2,7 @@ import { PartialRecord } from './index'
 
 interface ValidateBaseProps<ValuesType, ErrorKeys extends string> {
   values: ValuesType
-  keys: (ErrorKeys)[]
+  keys: ErrorKeys[]
   validator(value: string): Boolean
   errMessage: string
   currentErrors: PartialRecord<ErrorKeys, string>
@@ -10,7 +10,7 @@ interface ValidateBaseProps<ValuesType, ErrorKeys extends string> {
 
 export interface ValidateCustomParams<ValuesType, ErrorKeys extends string> {
   values: ValuesType
-  keys: (ErrorKeys)[]
+  keys: ErrorKeys[]
   currentErrors: PartialRecord<ErrorKeys, string>
 }
 
@@ -19,7 +19,7 @@ export const validateBase = <ValuesType extends Object, ErrorKeys extends string
   keys,
   validator,
   errMessage,
-  currentErrors
+  currentErrors,
 }: ValidateBaseProps<ValuesType, ErrorKeys>): PartialRecord<ErrorKeys, string> => {
   const errors: PartialRecord<ErrorKeys, string> = keys.reduce((errors, key) => {
     const keyAsString = key.toString()

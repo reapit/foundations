@@ -26,7 +26,7 @@ export const RadioSelect: React.FC<RadioSelectProps> = ({
   options,
   setFieldValue,
   state,
-  disabled = false
+  disabled = false,
 }) => {
   return (
     <Field type="radio" name={name}>

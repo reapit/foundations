@@ -23,7 +23,7 @@ export const Tile: React.FC<TileProps> = ({
   subHeading,
   footerItems,
   onClick,
-  dataTest
+  dataTest,
 }) => {
   return (
     <div

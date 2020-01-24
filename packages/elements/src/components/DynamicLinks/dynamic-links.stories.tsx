@@ -18,44 +18,44 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
       appMode: 'DESKTOP',
       entityType: EntityType.APPS,
       queryParams: {
-        id: '516060af-ea0a-4384-8465-28befc6f34b3'
+        id: '516060af-ea0a-4384-8465-28befc6f34b3',
       },
-      webRoute: 'https://dev.geo-diary-app.reapit.com'
+      webRoute: 'https://dev.geo-diary-app.reapit.com',
     },
     description: 'Launch (eg Geo Diary) in desktop from existing app',
-    expectedLink: 'agencycloud://apps?id=516060af-ea0a-4384-8465-28befc6f34b3'
+    expectedLink: 'agencycloud://apps?id=516060af-ea0a-4384-8465-28befc6f34b3',
   },
   {
     dynamicLinkParams: {
       appMode: 'WEB',
       entityType: EntityType.APPS,
       queryParams: {
-        id: '516060af-ea0a-4384-8465-28befc6f34b3'
+        id: '516060af-ea0a-4384-8465-28befc6f34b3',
       },
-      webRoute: 'https://dev.geo-diary-app.reapit.com'
+      webRoute: 'https://dev.geo-diary-app.reapit.com',
     },
     description: 'Launch app (eg Geo Diary) in web mode from existing app',
-    expectedLink: 'https://dev.geo-diary-app.reapit.com'
+    expectedLink: 'https://dev.geo-diary-app.reapit.com',
   },
   {
     dynamicLinkParams: {
       appMode: 'DESKTOP',
       entityType: EntityType.PROPERTY,
       entityCode: 'BED140946',
-      entityParams: EntityParams.JOURNAL
+      entityParams: EntityParams.JOURNAL,
     },
     description: 'Launch the journal for a property',
-    expectedLink: 'agencycloud://properties/BED140946/Journal'
+    expectedLink: 'agencycloud://properties/BED140946/Journal',
   },
   {
     dynamicLinkParams: {
       appMode: 'DESKTOP',
       entityType: EntityType.PROPERTY,
       entityCode: 'BED140946',
-      entityParams: EntityParams.LANDLORD
+      entityParams: EntityParams.LANDLORD,
     },
     description: 'Launch the landlord for a property',
-    expectedLink: 'agencycloud://properties/BED140946/Landlord'
+    expectedLink: 'agencycloud://properties/BED140946/Landlord',
   },
   {
     dynamicLinkParams: {
@@ -63,11 +63,11 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
       entityType: EntityType.CONTACT,
       entityCode: 'AYL19000002',
       queryParams: {
-        closeApp: true
-      }
+        closeApp: true,
+      },
     },
     description: 'Launch a contact and close app',
-    expectedLink: 'agencycloud://contacts/AYL19000002?closeApp=true'
+    expectedLink: 'agencycloud://contacts/AYL19000002?closeApp=true',
   },
   {
     dynamicLinkParams: {
@@ -77,11 +77,11 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
       queryParams: {
         name: 'Bob',
         appParam: AppParams.CONTACT_CODE,
-        appId: '516060af-ea0a-4384-8465-28befc6f34b3'
-      }
+        appId: '516060af-ea0a-4384-8465-28befc6f34b3',
+      },
     },
     description: 'Launch a contact search for name "Bob" and return to marketplace',
-    expectedLink: 'agencycloud://contacts?name=Bob&appParam=cntCode&appId=516060af-ea0a-4384-8465-28befc6f34b3'
+    expectedLink: 'agencycloud://contacts?name=Bob&appParam=cntCode&appId=516060af-ea0a-4384-8465-28befc6f34b3',
   },
   {
     dynamicLinkParams: {
@@ -89,22 +89,22 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
       entityType: EntityType.PROPERTY,
       entityCode: 'BED140946',
       queryParams: {
-        closeApp: true
-      }
+        closeApp: true,
+      },
     },
     description: 'Launch a property and close app',
-    expectedLink: 'agencycloud://properties/BED140946?closeApp=true'
+    expectedLink: 'agencycloud://properties/BED140946?closeApp=true',
   },
   {
     dynamicLinkParams: {
       appMode: 'DESKTOP',
       entityType: EntityType.PROPERTY,
       queryParams: {
-        address: 'E2'
-      }
+        address: 'E2',
+      },
     },
     description: 'Launch a property search for address "E2"',
-    expectedLink: 'agencycloud://properties?address=E2'
+    expectedLink: 'agencycloud://properties?address=E2',
   },
   {
     dynamicLinkParams: {
@@ -112,11 +112,11 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
       entityType: EntityType.PROPERTY,
       queryParams: {
         address: 'E2',
-        mode: 'Sales'
-      }
+        mode: 'Sales',
+      },
     },
     description: 'Launch a property search for address "E2" where mode is "Sales"',
-    expectedLink: 'agencycloud://properties?address=E2&mode=Sales'
+    expectedLink: 'agencycloud://properties?address=E2&mode=Sales',
   },
   {
     dynamicLinkParams: {
@@ -124,11 +124,11 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
       entityType: EntityType.PROPERTY,
       queryParams: {
         address: 'E2',
-        closeApp: true
-      }
+        closeApp: true,
+      },
     },
     description: 'Launch a property search for address "E2" and close app',
-    expectedLink: 'agencycloud://properties?address=E2&closeApp=true'
+    expectedLink: 'agencycloud://properties?address=E2&closeApp=true',
   },
   {
     dynamicLinkParams: {
@@ -136,12 +136,12 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
       entityType: EntityType.PROPERTY,
       queryParams: {
         address: 'E2',
-        closeApp: true
-      }
+        closeApp: true,
+      },
     },
     description: 'Web mode, valid link but should just render some text',
-    expectedLink: null
-  }
+    expectedLink: null,
+  },
 ]
 
 storiesOf('DynamicLinks', module).add('DynamicButtonsAndLinks', () => (
@@ -157,7 +157,7 @@ storiesOf('DynamicLinks', module).add('DynamicButtonsAndLinks', () => (
               disabled: false,
               loading: false,
               fullWidth: false,
-              type: 'button'
+              type: 'button',
             }}
             dynamicLinkParams={scenario.dynamicLinkParams}
             navigateParentWindow={window}

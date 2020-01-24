@@ -9,8 +9,8 @@ describe('AcButton AcLink', () => {
   const mockWindow = ({
     postMessage: jest.fn(),
     location: {
-      origin: 'http://localhost'
-    }
+      origin: 'http://localhost',
+    },
   } as unknown) as Window
 
   dynamicLinkScenarios.forEach(scenario => {
@@ -25,7 +25,7 @@ describe('AcButton AcLink', () => {
                   disabled: false,
                   loading: false,
                   fullWidth: false,
-                  type: 'button'
+                  type: 'button',
                 }}
                 dynamicLinkParams={scenario.dynamicLinkParams}
                 navigateParentWindow={mockWindow}
@@ -35,9 +35,9 @@ describe('AcButton AcLink', () => {
               <AcLink dynamicLinkParams={scenario.dynamicLinkParams} navigateParentWindow={mockWindow}>
                 Navigate
               </AcLink>
-            </div>
-          )
-        )
+            </div>,
+          ),
+        ),
       )
     })
 
@@ -53,19 +53,19 @@ describe('AcButton AcLink', () => {
             disabled: false,
             loading: false,
             fullWidth: false,
-            type: 'button'
+            type: 'button',
           }}
           dynamicLinkParams={scenario.dynamicLinkParams}
           navigateParentWindow={mockWindow}
         >
           Navigate
-        </AcButton>
+        </AcButton>,
       )
       if (scenario.expectedLink) {
         component.simulate('click', { preventDefault: jest.fn() })
         expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
           { dynamicLink: scenario.expectedLink },
-          'https://dev.reapit.marketplace.com'
+          'https://dev.reapit.marketplace.com',
         )
       }
     })
@@ -74,13 +74,13 @@ describe('AcButton AcLink', () => {
       const component = shallow(
         <AcLink dynamicLinkParams={scenario.dynamicLinkParams} navigateParentWindow={mockWindow}>
           Navigate
-        </AcLink>
+        </AcLink>,
       )
       component.simulate('click', { preventDefault: jest.fn() })
       if (scenario.expectedLink) {
         expect(mockWindow.postMessage).toHaveBeenLastCalledWith(
           { dynamicLink: scenario.expectedLink },
-          'https://dev.reapit.marketplace.com'
+          'https://dev.reapit.marketplace.com',
         )
       }
     })

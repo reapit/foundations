@@ -11,13 +11,13 @@ export function isValidPassword(password: string) {
 export const validatePassword = <ValueTypes, ErrorKeys extends string>({
   values,
   currentErrors,
-  keys
+  keys,
 }: ValidateCustomParams<ValueTypes, ErrorKeys>): PartialRecord<ErrorKeys, string> => {
   return validateBase<ValueTypes, ErrorKeys>({
     values,
     keys,
     validator: isValidPassword,
     errMessage: errorMessages.FIELD_INVALID_PASSWORD,
-    currentErrors
+    currentErrors,
   })
 }

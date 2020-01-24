@@ -5,7 +5,7 @@ export const LI_MARGIN = 30
 
 export const caculateCircleRef = ({
   activeRef,
-  circleRef
+  circleRef,
 }: {
   activeRef: React.RefObject<HTMLLIElement>
   circleRef: React.RefObject<HTMLDivElement>
@@ -13,7 +13,9 @@ export const caculateCircleRef = ({
   if (circleRef.current && activeRef.current) {
     // calculate the gap between outer for '.circle-active' element and inner for li elements
     // offsetHeight for li element include margin-top and margin-bottom so need minus first
-    const gap = (circleRef.current.offsetHeight - (activeRef.current.offsetHeight - LI_MARGIN * 2)) / 2
+    const offset = activeRef.current.offsetHeight - LI_MARGIN
+    const offsetDoubled = offset * 2
+    const gap = (circleRef.current.offsetHeight - offsetDoubled) / 2
     // ensure the actived element will be rounded by wrapper with margin
     return activeRef.current.offsetTop + LI_MARGIN - gap
   }
@@ -22,9 +24,8 @@ export const caculateCircleRef = ({
 export const caculateLineRef = ({ activeRef }: { activeRef: React.RefObject<HTMLLIElement> }) => {
   // calculate the height for '.line-active'
   if (activeRef.current) {
-    return activeRef.current.nextElementSibling
-      ? activeRef.current.offsetTop + LI_MARGIN * 2
-      : activeRef.current.offsetTop + LI_MARGIN
+    const nextSibling = activeRef.current.offsetTop + LI_MARGIN
+    return activeRef.current.nextElementSibling ? nextSibling * 2 : activeRef.current.offsetTop + LI_MARGIN
   }
 }
 
@@ -32,7 +33,7 @@ export const caculateLineRef = ({ activeRef }: { activeRef: React.RefObject<HTML
 export const calculateElement = ({
   circleRef,
   activeRef,
-  lineRef
+  lineRef,
 }: {
   activeRef: React.RefObject<HTMLLIElement>
   circleRef: React.RefObject<HTMLDivElement>

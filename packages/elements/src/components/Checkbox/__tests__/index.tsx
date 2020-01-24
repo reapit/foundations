@@ -7,7 +7,7 @@ import toJson from 'enzyme-to-json'
 const props: CheckboxProps = {
   id: 'test',
   name: 'test',
-  labelText: 'Test checkbox'
+  labelText: 'Test checkbox',
 }
 
 describe('Checkbox', () => {
@@ -23,7 +23,7 @@ describe('Checkbox', () => {
             <Checkbox {...props} />
           </Form>
         )}
-      </Formik>
+      </Formik>,
     )
     expect(wrapper.find('label')).toHaveLength(1)
   })
@@ -36,7 +36,7 @@ describe('Checkbox', () => {
         multiple: true,
         checked: true,
         onChange: jest.fn(),
-        onBlur: jest.fn()
+        onBlur: jest.fn(),
       }
       const fn = handleOnCheckboxChange({ field: mockField, value: '1' })
       fn()
@@ -49,7 +49,7 @@ describe('Checkbox', () => {
         multiple: true,
         checked: true,
         onChange: jest.fn(),
-        onBlur: jest.fn()
+        onBlur: jest.fn(),
       }
       const fn = handleOnCheckboxChange({ field: mockField, value: '1' })
       fn()
@@ -63,7 +63,7 @@ describe('Checkbox', () => {
         multiple: true,
         checked: true,
         onChange: jest.fn(),
-        onBlur: jest.fn()
+        onBlur: jest.fn(),
       }
       const fn = handleOnCheckboxChange({ field: mockField, value: '1' })
       fn()

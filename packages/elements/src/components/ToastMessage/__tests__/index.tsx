@@ -1,17 +1,17 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { ToastMessage, ToastMessageProps, ToastVariant } from '..'
+import { ToastMessage, ToastMessageProps } from '..'
 
 const baseProps: ToastMessageProps = {
   message: 'Toast message',
   variant: 'primary',
-  onCloseToast: jest.fn()
+  onCloseToast: jest.fn(),
 }
 const defaultProps: ToastMessageProps = {
   ...baseProps,
   visible: true,
-  displayDuration: 5000
+  displayDuration: 5000,
 }
 
 describe('ToastMessage', () => {

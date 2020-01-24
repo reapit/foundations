@@ -6,7 +6,7 @@ describe('checkError', () => {
     const input = {
       value: '123',
       error: '123',
-      touched: true
+      touched: true,
     } as FieldMetaProps<string>
     const result = checkError(input)
     expect(result).toEqual(true)
@@ -15,7 +15,7 @@ describe('checkError', () => {
     const input = {
       value: '123',
       error: '',
-      touched: true
+      touched: true,
     } as FieldMetaProps<string>
     const result = checkError(input)
     expect(result).toEqual(false)
@@ -24,7 +24,7 @@ describe('checkError', () => {
     const input = {
       value: '123',
       error: '123',
-      touched: false
+      touched: false,
     } as FieldMetaProps<string>
     const result = checkError(input)
     expect(result).toEqual(false)

@@ -13,7 +13,7 @@ describe('LayoutComponents', () => {
       const wrapper = shallow(
         <FormHeading className="mockClassName">
           <div>mockChildren</div>
-        </FormHeading>
+        </FormHeading>,
       )
       expect(wrapper).toMatchSnapshot()
     })
@@ -24,7 +24,7 @@ describe('LayoutComponents', () => {
       const wrapper = shallow(
         <FormSubHeading className="mockClassName">
           <div>mockChildren</div>
-        </FormSubHeading>
+        </FormSubHeading>,
       )
       expect(wrapper).toMatchSnapshot()
     })
@@ -35,7 +35,7 @@ describe('LayoutComponents', () => {
       const wrapper = shallow(
         <FormSection className="mockClassName">
           <div>mockChildren</div>
-        </FormSection>
+        </FormSection>,
       )
       expect(wrapper).toMatchSnapshot()
     })

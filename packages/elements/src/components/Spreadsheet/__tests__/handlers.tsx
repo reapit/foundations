@@ -1,5 +1,4 @@
 import * as React from 'react'
-import ReactDataSheet from 'react-datasheet'
 import { shallow } from 'enzyme'
 import {
   onDoubleClickCell,
@@ -11,7 +10,7 @@ import {
   handleOnChangeInput,
   handleClickUpload,
   handleDownload,
-  handleContextMenu
+  handleContextMenu,
 } from '../handlers'
 import {
   data,
@@ -20,15 +19,9 @@ import {
   setData,
   setSelected,
   parseResult,
-  setContextMenuProp
+  setContextMenuProp,
 } from '../__stubs__'
-import {
-  getMaxRowAndCol,
-  parseCsvFile,
-  convertToCompatibleData,
-  convertDataToCsv,
-  unparseDataToCsvString
-} from '../utils'
+import { getMaxRowAndCol, convertDataToCsv, unparseDataToCsvString } from '../utils'
 
 const onDoubleClickDefault = jest.fn()
 
@@ -36,9 +29,9 @@ const validateUpload = jest.fn(data =>
   data.map(row =>
     row.map(cell => ({
       ...cell,
-      validate: cell => Number.isInteger(Number(cell.value))
-    }))
-  )
+      validate: cell => Number.isInteger(Number(cell.value)),
+    })),
+  ),
 )
 
 jest.mock('../utils', () => {
@@ -54,7 +47,7 @@ jest.mock('../utils', () => {
       { value: 'Post Code' },
       { value: 'Telephone' },
       { value: 'Fax' },
-      { value: 'Email' }
+      { value: 'Email' },
     ],
     [
       { value: 'London' },
@@ -67,7 +60,7 @@ jest.mock('../utils', () => {
       { value: 'EC12NH' },
       { value: '0845 0000' },
       { value: '' },
-      { value: 'row1@gmail.com' }
+      { value: 'row1@gmail.com' },
     ],
     [
       { value: 'London2' },
@@ -80,7 +73,7 @@ jest.mock('../utils', () => {
       { value: 'EC12NH' },
       { value: '087 471 929' },
       { value: '' },
-      { value: 'row2@gmail.com' }
+      { value: 'row2@gmail.com' },
     ],
     [
       { value: 'New York' },
@@ -93,8 +86,8 @@ jest.mock('../utils', () => {
       { value: 'AL7187' },
       { value: '017 7162 9121' },
       { value: '' },
-      { value: 'row3@gmail.com' }
-    ]
+      { value: 'row3@gmail.com' },
+    ],
   ]
   const parseResult = {
     data: [
@@ -109,7 +102,7 @@ jest.mock('../utils', () => {
         'Post Code',
         'Telephone',
         'Fax',
-        'Email'
+        'Email',
       ],
       ['London', 'The White House', '15', 'London 1', '', 'Londom 3', '', 'EC12NH', '0845 0000', '', 'row1@gmail.com'],
       [
@@ -123,12 +116,12 @@ jest.mock('../utils', () => {
         'EC12NH',
         '087 471 929',
         '',
-        'row2@gmail.com'
+        'row2@gmail.com',
       ],
-      ['New York', 'Building A', '11', '', '', 'City Z', '', 'AL7187', '017 7162 9121', '', 'row3@gmail.com']
+      ['New York', 'Building A', '11', '', '', 'City Z', '', 'AL7187', '017 7162 9121', '', 'row3@gmail.com'],
     ],
     errors: [],
-    meta: { delimiter: ',', linebreak: '\r\n', aborted: false, truncated: false, cursor: 345 }
+    meta: { delimiter: ',', linebreak: '\r\n', aborted: false, truncated: false, cursor: 345 },
   }
 
   return {
@@ -136,7 +129,7 @@ jest.mock('../utils', () => {
     parseCsvFile: jest.fn().mockResolvedValue(parseResult),
     convertToCompatibleData: jest.fn(() => parseResult.data),
     convertDataToCsv: jest.fn().mockReturnValue(parseResult.data),
-    unparseDataToCsvString: jest.fn().mockReturnValue('unparse data')
+    unparseDataToCsvString: jest.fn().mockReturnValue('unparse data'),
   }
 })
 
@@ -158,7 +151,7 @@ describe('onDoubleClickCell', () => {
       col: 1,
       maxRowIndex: 3,
       maxColIndex: 4,
-      isReadOnly: true
+      isReadOnly: true,
     }
     const fn = onDoubleClickCell(payload, setSelected, onDoubleClickDefault)
     const result = fn(1, 2)
@@ -167,8 +160,8 @@ describe('onDoubleClickCell', () => {
       start: { i: 0, j: payload.col },
       end: {
         i: payload.maxRowIndex,
-        j: payload.col
-      }
+        j: payload.col,
+      },
     })
     expect(result).toBe(true)
   })
@@ -178,7 +171,7 @@ describe('onDoubleClickCell', () => {
       col: 1,
       maxRowIndex: 3,
       maxColIndex: 4,
-      isReadOnly: true
+      isReadOnly: true,
     }
     const fn = onDoubleClickCell(payload, setSelected, onDoubleClickDefault)
     const result = fn(1, 2)
@@ -192,7 +185,7 @@ describe('onDoubleClickCell', () => {
       col: 1,
       maxRowIndex: 3,
       maxColIndex: 4,
-      isReadOnly: false
+      isReadOnly: false,
     }
     const fn = onDoubleClickCell(payload, setSelected, onDoubleClickDefault)
     const result = fn(1, 2)
@@ -216,12 +209,13 @@ describe('customCellRenderer', () => {
     expect(shallow(<CellComponent {...cellRenderProps} />)).toMatchSnapshot()
   })
   it('should match snapshot with CustomComponent', () => {
+    const CustomComponent = () => <div>Custom Component</div>
     const cellRenderPropsCustomComponent = {
       ...cellRenderProps,
       cell: {
         ...cellRenderProps.cell,
-        CustomComponent: () => <div>Custom Component</div>
-      }
+        CustomComponent,
+      },
     }
     const CellComponent = customCellRenderer(data, setData, setSelected)
     expect(shallow(<CellComponent {...cellRenderPropsCustomComponent} />)).toMatchSnapshot()
@@ -230,7 +224,7 @@ describe('customCellRenderer', () => {
   it('should match snapshot with invalid cell', () => {
     const cellRenderPropsInvalid = {
       ...cellRenderProps,
-      cell: { value: '11aa', validate: cell => Number.isInteger(Number(cell.value)) }
+      cell: { value: '11aa', validate: cell => Number.isInteger(Number(cell.value)) },
     }
 
     const CellComponent = customCellRenderer(data, setData, setSelected)
@@ -254,7 +248,7 @@ describe('handleAddNewRow', () => {
       { value: '' },
       { value: '' },
       { value: '' },
-      { value: '' }
+      { value: '' },
     ])
     expect(setData).toHaveBeenCalledWith(expectedResult)
   })
@@ -272,7 +266,7 @@ describe('handleAddNewRow', () => {
         { readOnly: true, value: 'Post Code' },
         { readOnly: true, value: 'Telephone' },
         { readOnly: true, value: 'Fax' },
-        { readOnly: true, value: 'Email' }
+        { readOnly: true, value: 'Email' },
       ],
       [
         { readOnly: true, value: 'Office Name' },
@@ -280,12 +274,12 @@ describe('handleAddNewRow', () => {
         { readOnly: true, value: 'Building No.' },
         { readOnly: true, value: 'Address 1' },
         { readOnly: true, value: 'Address 2' },
-        { readOnly: true, value: 'Address 3' }
-      ]
+        { readOnly: true, value: 'Address 3' },
+      ],
     ]
     ;(getMaxRowAndCol as jest.Mocked<any>).mockImplementation(() => ({
       maxRow: dataNotEqualColLength.length,
-      maxCol: dataNotEqualColLength[0].length
+      maxCol: dataNotEqualColLength[0].length,
     }))
 
     const fn = handleAddNewRow(dataNotEqualColLength, setData)
@@ -303,8 +297,8 @@ describe('handleAddNewRow', () => {
         { value: '' },
         { value: '' },
         { value: '' },
-        { value: '' }
-      ]
+        { value: '' },
+      ],
     ]
     expect(setData).toHaveBeenCalledWith(expectedResult)
   })
@@ -327,8 +321,8 @@ describe('handleOnChangeInput', () => {
     const fn = handleOnChangeInput(validateUpload, setData)
     const eventMock: any = {
       target: {
-        files: ['data']
-      }
+        files: ['data'],
+      },
     }
     const returnData = await fn(eventMock)
     expect(returnData).toBe('validated')
@@ -337,8 +331,8 @@ describe('handleOnChangeInput', () => {
     const fn = handleOnChangeInput(undefined, setData)
     const eventMock: any = {
       target: {
-        files: ['data']
-      }
+        files: ['data'],
+      },
     }
     const returnData = await fn(eventMock)
     expect(returnData).toBe(true)
@@ -346,7 +340,7 @@ describe('handleOnChangeInput', () => {
   it('should return with correct value when dont have target', async () => {
     const fn = handleOnChangeInput(undefined, setData)
     const eventMock: any = {
-      target: undefined
+      target: undefined,
     }
     const returnData = await fn(eventMock)
     expect(returnData).toBe(false)
@@ -358,8 +352,8 @@ describe('handleClickUpload', () => {
     const ref = {
       current: {
         click: jest.fn(),
-        value: 'val'
-      }
+        value: 'val',
+      },
     } as any
     const spy = jest.spyOn(ref.current, 'click')
     const fn = handleClickUpload(ref)
@@ -370,7 +364,7 @@ describe('handleClickUpload', () => {
 
   it('should not call click and return false without ref', () => {
     const ref = {
-      current: null
+      current: null,
     } as any
     const fn = handleClickUpload(ref)
     const result = fn()
@@ -379,14 +373,17 @@ describe('handleClickUpload', () => {
 })
 
 describe('handleDownload', () => {
-  it('should call convertDataToCsv & unparseDataToCsvString with correct arg and return true if window & document', () => {
-    window.URL.createObjectURL = jest.fn()
-    const fn = handleDownload(data, window, document)
-    const result = fn()
-    expect(convertDataToCsv).toHaveBeenCalledWith(data)
-    expect(unparseDataToCsvString).toHaveBeenCalledWith(parseResult.data)
-    expect(result).toBe(true)
-  })
+  it(
+    'should call convertDataToCsv & unparseDataToCsvString with' + ' correct arg and return true if window & document',
+    () => {
+      window.URL.createObjectURL = jest.fn()
+      const fn = handleDownload(data, window, document)
+      const result = fn()
+      expect(convertDataToCsv).toHaveBeenCalledWith(data)
+      expect(unparseDataToCsvString).toHaveBeenCalledWith(parseResult.data)
+      expect(result).toBe(true)
+    },
+  )
   it('should return false if window & document are undefined', () => {
     const fn = handleDownload(data, undefined, undefined)
     const result = fn()
@@ -399,7 +396,7 @@ describe('handleContextMenu', () => {
     const mockEvent = { clientX: 10, clientY: 10, preventDefault: jest.fn() } as any
     const spy = jest.spyOn(mockEvent, 'preventDefault')
     const fn = handleContextMenu(setContextMenuProp)
-    const result = fn(mockEvent)
+    fn(mockEvent)
     expect(spy).toHaveBeenCalled()
     expect(setContextMenuProp).toHaveBeenCalledWith({ visible: true, left: 20, top: 10 })
   })

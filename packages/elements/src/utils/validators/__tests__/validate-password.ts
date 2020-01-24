@@ -13,34 +13,34 @@ describe('validate-password', () => {
     it('work correctly', () => {
       const values = {
         validPassword: 'Password1',
-        invalidPassword: 'Passwor'
+        invalidPassword: 'Passwor',
       }
 
       expect(
         validatePassword<ValueTypes, ErrorKeys>({
           values,
           currentErrors: {},
-          keys: ['validPassword', 'invalidPassword']
-        })
+          keys: ['validPassword', 'invalidPassword'],
+        }),
       ).toStrictEqual({
-        invalidPassword: errorMessages.FIELD_INVALID_PASSWORD
+        invalidPassword: errorMessages.FIELD_INVALID_PASSWORD,
       })
     })
 
     it('should not override existed error key', () => {
-        const values = {
-            validPassword: 'Password1',
-            invalidPassword: 'Passwor'
-          }
+      const values = {
+        validPassword: 'Password1',
+        invalidPassword: 'Passwor',
+      }
 
       expect(
         validatePassword<ValueTypes, ErrorKeys>({
           values,
           currentErrors: { invalidPassword: 'Passwor' },
-          keys: ['validPassword', 'invalidPassword']
-        })
+          keys: ['validPassword', 'invalidPassword'],
+        }),
       ).toStrictEqual({
-        invalidPassword: 'Passwor'
+        invalidPassword: 'Passwor',
       })
     })
   })
@@ -67,10 +67,10 @@ describe('validate-password', () => {
         values: 'mockValue',
         keys: ['mockKey'],
         length: 1,
-        currentErrors: { mockKey: 'mockCurrentError' }
+        currentErrors: { mockKey: 'mockCurrentError' },
       }
       const output = {
-        mockKey: 'mockCurrentError'
+        mockKey: 'mockCurrentError',
       }
       const result = validatePassword(input)
       expect(result).toEqual(output)
@@ -81,7 +81,7 @@ describe('validate-password', () => {
         values: 'mockValue',
         keys: [],
         length: 1,
-        currentErrors: {}
+        currentErrors: {},
       }
       const output = {}
       const result = validatePassword(input)

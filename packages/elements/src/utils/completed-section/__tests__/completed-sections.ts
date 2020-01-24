@@ -4,7 +4,7 @@ import {
   isCompletedPrimaryID,
   isCompletedProfile,
   isCompletedSecondaryID,
-  isCompletedAgentCheck
+  isCompletedAgentCheck,
 } from '../completed-sections'
 
 describe('completed-sections', () => {
@@ -17,18 +17,18 @@ describe('completed-sections', () => {
           surname: 'A',
           forename: 'B',
           dateOfBirth: '04/04/1996',
-          communications: [{ label: 'Mobile', value: '0123456789' }]
+          communications: [{ label: 'Mobile', value: '0123456789' }],
         },
-        true
+        true,
       ],
       [
         {
           title: 'Mr',
           forename: 'B',
-          communications: [{ label: 'Mobile', value: '0123456789' }]
+          communications: [{ label: 'Mobile', value: '0123456789' }],
         },
-        false
-      ]
+        false,
+      ],
     ].forEach(([params, expected]) => {
       const result = isCompletedProfile(params)
       expect(result).toBe(expected)
@@ -49,18 +49,18 @@ describe('completed-sections', () => {
           {
             typeId: 'RF',
             expiry: '2019-10-24T09:51:48',
-            details: '2131231'
+            details: '2131231',
           },
           {
             typeId: 'RF',
             expiry: '2019-10-24T09:51:48',
-            details: '2131231'
-          }
+            details: '2131231',
+          },
         ],
         metadata: {
           primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
-          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
-        }
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+        },
       }
       const result = isCompletedPrimaryID(mockIdentityCheck)
       expect(result).toEqual(true)
@@ -78,12 +78,12 @@ describe('completed-sections', () => {
           {
             typeId: 'RF',
             expiry: '2019-10-24T09:51:48',
-            details: '2131231'
-          }
+            details: '2131231',
+          },
         ],
         metadata: {
-          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
-        }
+          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+        },
       }
       const result = isCompletedPrimaryID(mockIdentityCheck)
       expect(result).toEqual(true)
@@ -101,12 +101,12 @@ describe('completed-sections', () => {
           {
             typeId: 'RF',
             expiry: '2019-10-24T09:51:48',
-            details: '2131231'
-          }
+            details: '2131231',
+          },
         ],
         metadata: {
-          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
-        }
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+        },
       }
       const result = isCompletedPrimaryID(mockIdentityCheck)
       expect(result).toEqual(false)
@@ -134,7 +134,7 @@ describe('completed-sections', () => {
         modified: '2019-10-19T02:52:10',
         checkDate: '2019-10-19T02:52:10',
         status: 'pending',
-        negotiatorId: 'DAC'
+        negotiatorId: 'DAC',
       }
       const result = isCompletedPrimaryID(mockIdentityCheck)
       expect(result).toEqual(false)
@@ -153,12 +153,12 @@ describe('completed-sections', () => {
           {
             typeId: 'RF',
             expiry: '2019-10-24T09:51:48',
-            details: undefined
-          }
+            details: undefined,
+          },
         ],
         metadata: {
-          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
-        }
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+        },
       }
       const result = isCompletedPrimaryID(mockIdentityCheck)
       expect(result).toEqual(false)
@@ -177,12 +177,12 @@ describe('completed-sections', () => {
           {
             typeId: undefined,
             expiry: undefined,
-            details: undefined
-          }
+            details: undefined,
+          },
         ],
         metadata: {
-          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
-        }
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+        },
       }
       const result = isCompletedPrimaryID(mockIdentityCheck)
       expect(result).toEqual(false)
@@ -223,18 +223,18 @@ describe('completed-sections', () => {
           {
             typeId: 'RF',
             expiry: '2019-10-24T09:51:48',
-            details: '2131231'
+            details: '2131231',
           },
           {
             typeId: 'RF',
             expiry: '2019-10-24T09:51:48',
-            details: '2131231'
-          }
+            details: '2131231',
+          },
         ],
         metadata: {
           primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
-          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
-        }
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+        },
       }
       const result = isCompletedSecondaryID(mockIdentityCheck)
       expect(result).toEqual(true)
@@ -253,12 +253,12 @@ describe('completed-sections', () => {
           {
             typeId: 'RF',
             expiry: '2019-10-24T09:51:48',
-            details: '2131231'
-          }
+            details: '2131231',
+          },
         ],
         metadata: {
-          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg'
-        }
+          secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
+        },
       }
       const result = isCompletedSecondaryID(mockIdentityCheck)
       expect(result).toEqual(true)
@@ -277,12 +277,12 @@ describe('completed-sections', () => {
           {
             typeId: 'RF',
             expiry: '2019-10-24T09:51:48',
-            details: '2131231'
-          }
+            details: '2131231',
+          },
         ],
         metadata: {
           primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
-        }
+        },
       }
       const result = isCompletedSecondaryID(mockIdentityCheck)
       expect(result).toEqual(false)
@@ -298,20 +298,20 @@ describe('completed-sections', () => {
             {
               line1: 'A',
               line3: 'B',
-              postcode: '700000'
-            }
+              postcode: '700000',
+            },
           ],
           metadata: {
             addresses: [
               {
                 year: '2018',
                 month: '12',
-                documentImage: 'Test'
-              }
-            ]
-          }
+                documentImage: 'Test',
+              },
+            ],
+          },
         },
-        true
+        true,
       ],
       [
         {
@@ -319,13 +319,13 @@ describe('completed-sections', () => {
             {
               line1: 'A',
               line3: 'B',
-              postcode: '700000'
-            }
+              postcode: '700000',
+            },
           ],
-          metadata: {}
+          metadata: {},
         },
-        false
-      ]
+        false,
+      ],
     ].forEach(([params, expected]) => {
       const result = isCompletedAddress(params)
       expect(result).toBe(expected)
@@ -341,21 +341,21 @@ describe('completed-sections', () => {
             declarationRisk: {
               reason: 'test',
               type: 'test',
-              declarationForm: 'Test'
-            }
-          }
+              declarationForm: 'Test',
+            },
+          },
         },
-        true
+        true,
       ],
       [
         {
           metadata: {
             declarationRisk: {
-              type: 'test'
-            }
-          }
+              type: 'test',
+            },
+          },
         },
-        false
+        false,
       ],
       [
         {
@@ -363,12 +363,12 @@ describe('completed-sections', () => {
             declarationRisk: {
               reason: 'test',
               type: 'test',
-              declarationForm: ''
-            }
-          }
+              declarationForm: '',
+            },
+          },
         },
-        false
-      ]
+        false,
+      ],
     ].forEach(([params, expected]) => {
       const result = isCompletedDeclarationRisk(params)
       expect(result).toBe(expected)
@@ -389,8 +389,8 @@ describe('completed-sections', () => {
           {
             typeId: 'RF',
             expiry: '2019-10-24T09:51:48',
-            details: '2131231'
-          }
+            details: '2131231',
+          },
         ],
         metadata: {
           secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
@@ -398,8 +398,8 @@ describe('completed-sections', () => {
           timeSelection: '10:00',
           clientType: 'Individual',
           placeMeet: 'Home Address',
-          isUKResident: 'Yes'
-        }
+          isUKResident: 'Yes',
+        },
       }
       const result = isCompletedAgentCheck(mockIdentityCheck)
       expect(result).toEqual(true)
@@ -419,8 +419,8 @@ describe('completed-sections', () => {
         {
           typeId: 'RF',
           expiry: '2019-10-24T09:51:48',
-          details: '2131231'
-        }
+          details: '2131231',
+        },
       ],
       metadata: {
         secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
@@ -428,8 +428,8 @@ describe('completed-sections', () => {
         timeSelection: '10:00',
         clientType: 'Individual',
         placeMeet: 'Home Address',
-        isUKResident: 'Yes'
-      }
+        isUKResident: 'Yes',
+      },
     }
     const result = isCompletedAgentCheck(mockIdentityCheck)
     expect(result).toEqual(false)
@@ -448,15 +448,15 @@ describe('completed-sections', () => {
         {
           typeId: 'RF',
           expiry: '2019-10-24T09:51:48',
-          details: '2131231'
-        }
+          details: '2131231',
+        },
       ],
       metadata: {
         secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
         clientType: 'Individual',
         placeMeet: 'Home Address',
-        isUKResident: 'Yes'
-      }
+        isUKResident: 'Yes',
+      },
     }
     const result = isCompletedAgentCheck(mockIdentityCheck)
     expect(result).toEqual(false)
@@ -475,12 +475,12 @@ describe('completed-sections', () => {
         {
           typeId: 'RF',
           expiry: '2019-10-24T09:51:48',
-          details: '2131231'
-        }
+          details: '2131231',
+        },
       ],
       metadata: {
         secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
-      }
+      },
     }
     const result = isCompletedAgentCheck(mockIdentityCheck)
     expect(result).toEqual(false)

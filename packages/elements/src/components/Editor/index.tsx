@@ -27,7 +27,7 @@ const defaultActions = [
   'ulist',
   'code',
   'line',
-  'link'
+  'link',
 ]
 
 export const Editor = ({
@@ -39,7 +39,7 @@ export const Editor = ({
   placeholder,
   actionbarClass = 'pell-actionbar',
   buttonClass = 'pell-button',
-  contentClass = 'pell-content'
+  contentClass = 'pell-content',
 }: EditorProps) => {
   const containerEl = React.useRef<HTMLDivElement>(null)
 
@@ -52,8 +52,8 @@ export const Editor = ({
       classes: {
         actionbar: actionbarClass,
         button: buttonClass,
-        content: contentClass
-      }
+        content: contentClass,
+      },
     })
     if (containerEl && containerEl.current) {
       const content = containerEl.current.getElementsByClassName(contentClass)[0]

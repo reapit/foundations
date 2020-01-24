@@ -16,7 +16,7 @@ export const IconList: React.SFC<IcomListProps> = ({
   items,
   iconClassName = '',
   listClassName = '',
-  textClassName = ''
+  textClassName = '',
 }) => (
   <ul className={`icon-list ${iconClassName}`}>
     {items.map((item: IconListItem, index: number) => (

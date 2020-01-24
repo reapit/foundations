@@ -1,5 +1,5 @@
 export enum DynamicAppConstants {
-  DESKTOP_URL = 'agencycloud://'
+  DESKTOP_URL = 'agencycloud://',
 }
 
 export enum EntityType {
@@ -10,18 +10,18 @@ export enum EntityType {
   LANDLORD = 'landlords',
   PERSON = 'people',
   COMPANY = 'companies',
-  APPS = 'apps'
+  APPS = 'apps',
 }
 
 export enum EntityParams {
   JOURNAL = 'Journal',
-  LANDLORD = 'Landlord'
+  LANDLORD = 'Landlord',
 }
 
 export enum AppParams {
   CODE = 'code',
   CONTACT_CODE = 'cntCode',
-  TENNANT_ID = 'tenId'
+  TENNANT_ID = 'tenId',
 }
 
 export type SalesMode = 'Sales' | 'Lettings'
@@ -45,15 +45,17 @@ export interface DynamicLinkQueryParams {
 export interface DynamicLinkParams {
   appMode: 'DESKTOP' | 'WEB' // Am I in desktop or web mode
   entityType: EntityType // What base desktop entity am I querying
-  queryParams?: Partial<DynamicLinkQueryParams> // An object that will be deconstructed into a query string and appened if needed
+  // An object that will be deconstructed into a query string and appened if needed
+  queryParams?: Partial<DynamicLinkQueryParams>
   webRoute?: string // Where to route to in web mode if needed
   entityCode?: string // The id of the relevant entity I which to trigger eg contact or property
   entityParams?: EntityParams // Addtional url params specific to the entity
 }
 
 // Launches contact and wit parameter, it will close down the marketplace at the same time
-export const genLaunchEntityLink = ({ entityCode }: DynamicLinkParams, entity?: EntityType): string | null =>
-  entityCode && entity ? `${entity}/${entityCode}` : null
+export const genLaunchEntityLink = ({ entityCode }: DynamicLinkParams, entity?: EntityType): string | null => {
+  return entityCode && entity ? `${entity}/${entityCode}` : null
+}
 
 // Launches contact and wit parameter, it will close down the marketplace at the same time
 export const genDynamicLink = ({ entityType, entityCode, queryParams, entityParams }: DynamicLinkParams): string => {
@@ -66,14 +68,11 @@ export const genDynamicLink = ({ entityType, entityCode, queryParams, entityPara
 
 export const queryParamsToQueryString = (queryParams: Partial<DynamicLinkQueryParams> = {}) =>
   Object.keys(queryParams)
-    .reduce(
-      (acc, current, index) => {
-        const queryString = `${!index ? '?' : ''}${current}=${queryParams[current]}`
-        acc.push(queryString)
-        return acc
-      },
-      [] as string[]
-    )
+    .reduce((acc, current, index) => {
+      const queryString = `${!index ? '?' : ''}${current}=${queryParams[current]}`
+      acc.push(queryString)
+      return acc
+    }, [] as string[])
     .join('&')
 
 export const getDynamicLink = (dynamicLinkParams: DynamicLinkParams): string | null => {

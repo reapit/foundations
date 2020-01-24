@@ -1,5 +1,4 @@
 import * as React from 'react'
-import ReactDataSheet from 'react-datasheet'
 import { shallow } from 'enzyme'
 import { Spreadsheet, UploadButton, DownloadButton, AddRowButton, handleEffect } from '../index'
 import { data, setContextMenuProp } from '../__stubs__'
@@ -17,8 +16,8 @@ describe('Spreadsheet', () => {
           hasUploadButton={false}
           hasDownloadButton={false}
           hasAddButton={false}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 })
@@ -46,7 +45,6 @@ describe('AddRowButton', () => {
 describe('handleEffect', () => {
   it('should add event', () => {
     const addEventListenerSpy = jest.spyOn(window, 'addEventListener')
-    const hideContextMenu = jest.fn().mockReturnValue(() => {})
     const fn = handleEffect(setContextMenuProp)
     fn()
     expect(addEventListenerSpy).toHaveBeenCalled()

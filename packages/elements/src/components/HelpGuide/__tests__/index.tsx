@@ -8,7 +8,7 @@ import {
   handleGoTo,
   renderTimeline,
   NavigationProps,
-  HelpGuideStepProps
+  HelpGuideStepProps,
 } from '..'
 
 describe('HelpGuide', () => {
@@ -20,15 +20,15 @@ describe('HelpGuide', () => {
           <HelpGuide.Step id="step-2" component={() => <div className="step-2">Step 2</div>}></HelpGuide.Step>
           <HelpGuide.Step id="step-3" component={() => <div className="step-3">Step 3</div>}></HelpGuide.Step>
           <HelpGuide.Step id="step-4" component={() => <div className="step-4">Step 4</div>}></HelpGuide.Step>
-        </HelpGuide>
-      )
+        </HelpGuide>,
+      ),
     ).toMatchSnapshot()
   })
 
   describe('HelpGuide.Step', () => {
     it('should match a snapshot', () => {
       expect(
-        shallow(<HelpGuide.Step id="step-3" component={() => <div className="step-3">Step 3</div>} />)
+        shallow(<HelpGuide.Step id="step-3" component={() => <div className="step-3">Step 3</div>} />),
       ).toMatchSnapshot()
     })
   })
@@ -38,7 +38,7 @@ describe('HelpGuide', () => {
       total: 5,
       currentIndex: 3,
       isMobileScreen: true,
-      goTo: jest.fn()
+      goTo: jest.fn(),
     }
     it('should match a snapshot when isMobileScreen TRUE', () => {
       expect(renderTimeline(mockProps)).toMatchSnapshot()
@@ -55,29 +55,29 @@ describe('HelpGuide', () => {
           style: {
             zIndex: '',
             opacity: '',
-            transform: ''
-          }
-        }
+            transform: '',
+          },
+        },
       } as React.RefObject<HTMLDivElement>,
       wrapperStepRef: {
         current: {
           style: {
             zIndex: '',
             opacity: '',
-            transform: ''
-          }
-        }
+            transform: '',
+          },
+        },
       } as React.RefObject<HTMLDivElement>,
       helpguideRef: {
         current: {
           style: {
             zIndex: '',
             opacity: '',
-            transform: ''
-          }
-        }
+            transform: '',
+          },
+        },
       } as React.RefObject<HTMLDivElement>,
-      isMobileScreen: false
+      isMobileScreen: false,
     }
 
     const { currentStepRef, helpguideRef, wrapperStepRef } = mockProps
@@ -110,7 +110,7 @@ describe('HelpGuide', () => {
     const mockProps = {
       steps: [{ id: 'step-1' }, { id: 'step-2' }, { id: 'step-3' }] as HelpGuideStepProps[],
       currentIndex: 0,
-      setInternalCurrent: jest.fn()
+      setInternalCurrent: jest.fn(),
     } as NavigationProps
 
     it('should run correctly', () => {
@@ -124,7 +124,7 @@ describe('HelpGuide', () => {
       steps: [{ id: 'step-1' }, { id: 'step-2' }, { id: 'step-3' }] as HelpGuideStepProps[],
       currentIndex: 0,
       setInternalCurrent: jest.fn(),
-      isLast: false
+      isLast: false,
     } as NavigationProps
 
     it('should run correctly when isLast false', () => {
@@ -143,7 +143,7 @@ describe('HelpGuide', () => {
       steps: [{ id: 'step-1' }, { id: 'step-2' }, { id: 'step-3' }] as HelpGuideStepProps[],
       currentIndex: 3,
       setInternalCurrent: jest.fn(),
-      isFirst: false
+      isFirst: false,
     } as NavigationProps
 
     it('should run correctly when isFirst false', () => {

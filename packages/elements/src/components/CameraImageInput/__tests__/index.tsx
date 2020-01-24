@@ -7,7 +7,7 @@ import toJson from 'enzyme-to-json'
 const props: FileInputProps = {
   name: 'test',
   id: 'test',
-  labelText: 'test'
+  labelText: 'test',
 }
 
 describe('CameraImageInput', () => {

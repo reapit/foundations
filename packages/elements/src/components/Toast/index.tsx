@@ -24,7 +24,7 @@ export const Toast: React.FC<ToastProps> = ({
   serverError,
   componentError,
   errorClearedServer,
-  errorClearedComponent
+  errorClearedComponent,
 }) => {
   const error = componentError || serverError || null
   const isVisible = Boolean(error)

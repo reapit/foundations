@@ -6,19 +6,20 @@ dayjs.extend(utc)
 
 describe('datetime', () => {
   it('getTime', () => {
-    ;[['Fri, 30 Aug 2019 17:44:20', '05:44 PM', '17:44'], ['2019-09-05T00:30:00', '12:30 AM', '00:30']].forEach(
-      ([input, expected, expectedFor24h]) => {
-        expect(getTime(input)).toBe(expected)
-        expect(getTime(input, true)).toBe(expectedFor24h)
-      }
-    )
+    ;[
+      ['Fri, 30 Aug 2019 17:44:20', '05:44 PM', '17:44'],
+      ['2019-09-05T00:30:00', '12:30 AM', '00:30'],
+    ].forEach(([input, expected, expectedFor24h]) => {
+      expect(getTime(input)).toBe(expected)
+      expect(getTime(input, true)).toBe(expectedFor24h)
+    })
   })
 
   it('getDate', () => {
     ;[
       ['2019-07-05T00:37:40.220Z', undefined, '05 Jul 2019'],
       ['Fri, 30 Aug 2019 17:44:20', 'DD MMM YYYY', '30 Aug 2019'],
-      ['2019-07-05T00:37:40.220Z', 'DD MMM', '05 Jul']
+      ['2019-07-05T00:37:40.220Z', 'DD MMM', '05 Jul'],
     ].forEach(([input, format, expected]) => {
       const result = getDate(input as dayjs.ConfigType, format)
       expect(result).toBe(expected)
@@ -28,7 +29,10 @@ describe('datetime', () => {
   it('isSameDay', () => {
     const TIME_OFFSET = 0
     MockDate.set('2019-12-18T16:30:00', TIME_OFFSET)
-    ;[['2019-12-18T10:30:00', true], ['Fri, 30 Aug 2019 17:44:20', false]].forEach(([input, expected]) => {
+    ;[
+      ['2019-12-18T10:30:00', true],
+      ['Fri, 30 Aug 2019 17:44:20', false],
+    ].forEach(([input, expected]) => {
       const result = isSameDay(input as dayjs.ConfigType)
       expect(result).toBe(expected)
     })

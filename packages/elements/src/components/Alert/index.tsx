@@ -19,7 +19,7 @@ export const Alert: React.SFC<AlertProps> = ({
   closable = false,
   type = 'primary',
   dataTest = '',
-  children
+  children,
 }: AlertProps) => {
   const alertType =
     type === 'warning' || type === 'danger'

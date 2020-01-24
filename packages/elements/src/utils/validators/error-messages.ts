@@ -8,10 +8,11 @@ const errorMessages = {
   FIELD_REQUIRED: 'Required',
   FIELD_WRONG_EMAIL_FORMAT: 'Invalid email format',
   FIELD_INVALID_PASSWORD:
-    'Your Password should be a minimum of 8 characters; must contain at least one lowercase letter, one uppercase letter and one number.',
+    'Your Password should be a minimum of 8 characters; ' +
+    'must contain at least one lowercase letter, one uppercase letter and one number.',
   FIELD_WRONG_URI_FORMAT: 'Invalid uri format',
   MINIMUM_CHARACTER_LENGTH: minCharLengthErrMessage,
-  MAXIMUM_CHARACTER_LENGTH: maxCharLengthErrMessage
+  MAXIMUM_CHARACTER_LENGTH: maxCharLengthErrMessage,
 }
 
 export default errorMessages

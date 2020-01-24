@@ -8,19 +8,19 @@ const tabConfigs = ({ tab, handleChangeTab }: any): TabConfig[] => [
     tabIdentifier: 'ITEMONE',
     displayText: 'Item one',
     onTabClick: handleChangeTab,
-    active: tab === 'ITEMONE'
+    active: tab === 'ITEMONE',
   },
   {
     tabIdentifier: 'ITEMTWO',
     displayText: 'Item two',
     onTabClick: handleChangeTab,
-    active: tab === 'ITEMTWO'
-  }
+    active: tab === 'ITEMTWO',
+  },
 ]
 
 const props: Partial<any> = {
   tab: 'ITEMONE',
-  handleChangeTab: jest.fn()
+  handleChangeTab: jest.fn(),
 }
 
 describe('Tabs', () => {
@@ -34,7 +34,7 @@ describe('Tabs', () => {
       .find('a')
       .first()
       .simulate('click', {
-        preventDefault: jest.fn()
+        preventDefault: jest.fn(),
       })
     expect(props.handleChangeTab).toBeCalledTimes(1)
   })

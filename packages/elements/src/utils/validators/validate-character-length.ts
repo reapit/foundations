@@ -13,14 +13,14 @@ export const validateMinCharacterLength = <ValueTypes, ErrorKeys extends string>
   values,
   currentErrors,
   keys,
-  length
+  length,
 }: ValidateCustomParams<ValueTypes, ErrorKeys> & { length: number }): PartialRecord<ErrorKeys, string> => {
   return validateBase<ValueTypes, ErrorKeys>({
     values,
     keys,
     validator: minLengthValidator(length),
     errMessage: `The minimum length is ${length} characters`,
-    currentErrors
+    currentErrors,
   })
 }
 
@@ -28,13 +28,13 @@ export const validateMaxCharacterLength = <ValueTypes, ErrorKeys extends string>
   values,
   currentErrors,
   keys,
-  length
+  length,
 }: ValidateCustomParams<ValueTypes, ErrorKeys> & { length: number }): PartialRecord<ErrorKeys, string> => {
   return validateBase<ValueTypes, ErrorKeys>({
     values,
     keys,
     validator: maxLengthValidator(length),
     errMessage: `The maximum length is ${length} characters`,
-    currentErrors
+    currentErrors,
   })
 }

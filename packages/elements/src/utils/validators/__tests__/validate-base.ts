@@ -7,10 +7,10 @@ describe('validate-base', () => {
       keys: ['mockKey'],
       validator: jest.fn(),
       errMessage: 'mockError',
-      currentErrors: { mockKey: 'mockCurrentError' }
+      currentErrors: { mockKey: 'mockCurrentError' },
     }
     const output = {
-      mockKey: 'mockCurrentError'
+      mockKey: 'mockCurrentError',
     }
     const result = validateBase(input)
     expect(result).toEqual(output)
@@ -22,7 +22,7 @@ describe('validate-base', () => {
       keys: [],
       validator: jest.fn(),
       errMessage: 'mockError',
-      currentErrors: {}
+      currentErrors: {},
     }
     const output = {}
     const result = validateBase(input)
@@ -36,12 +36,12 @@ describe('validate-base', () => {
       validator: jest.fn(),
       errMessage: 'mockError',
       currentErrors: {
-        mockKey: 'mockCurrentError'
-      }
+        mockKey: 'mockCurrentError',
+      },
     }
     const output = {
       keys: 'mockError',
-      mockKey: 'mockCurrentError'
+      mockKey: 'mockCurrentError',
     }
     const result = validateBase(input)
     expect(result).toEqual(output)

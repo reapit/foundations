@@ -6,39 +6,39 @@ import { Toast, ToastProps } from '..'
 const defaultProps = {
   serverError: {
     type: 'SERVER',
-    message: 'Something went wrong fetching data'
+    message: 'Something went wrong fetching data',
   },
   componentError: {
     type: 'COMPONENT',
-    message: 'Something went wrong with this component'
+    message: 'Something went wrong with this component',
   },
   errorClearedServer: jest.fn(),
-  errorClearedComponent: jest.fn()
+  errorClearedComponent: jest.fn(),
 } as ToastProps
 
 const props = (newProps?: Partial<ToastProps>): ToastProps => ({
   ...defaultProps,
-  ...newProps
+  ...newProps,
 })
 
 describe('Toast', () => {
   it('should match a snapshot for a serverError', () => {
     const newProps = {
-      componentError: null
+      componentError: null,
     }
     expect(toJson(shallow(<Toast {...props(newProps)} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot for a componentError', () => {
     const newProps = {
-      serverError: null
+      serverError: null,
     }
     expect(toJson(shallow(<Toast {...props(newProps)} />))).toMatchSnapshot()
   })
 
   it('should dismiss a server error onClick', () => {
     const newProps = {
-      componentError: null
+      componentError: null,
     }
     shallow(<Toast {...props(newProps)} />)
       .find('[data-test="toast-wrapper"]')
@@ -50,7 +50,7 @@ describe('Toast', () => {
 
   it('should dismiss a component error onClick', () => {
     const newProps = {
-      serverError: null
+      serverError: null,
     }
     shallow(<Toast {...props(newProps)} />)
       .find('[data-test="toast-wrapper"]')
@@ -63,7 +63,7 @@ describe('Toast', () => {
   it('should dismiss a server error after 5 seconds', () => {
     jest.useFakeTimers()
     const newProps = {
-      componentError: null
+      componentError: null,
     }
     shallow(<Toast {...props(newProps)} />)
     jest.runAllTimers()
@@ -73,7 +73,7 @@ describe('Toast', () => {
   it('should dismiss a component error after 5 seconds', () => {
     jest.useFakeTimers()
     const newProps = {
-      serverError: null
+      serverError: null,
     }
     shallow(<Toast {...props(newProps)} />)
     jest.runAllTimers()

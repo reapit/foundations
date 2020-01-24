@@ -25,7 +25,23 @@ exports[`Map renderMap should run correctly 1`] = `
       autoFitBounds={false}
       boundsOffset={0.002}
       center={Object {}}
-      coordinates={Array []}
+      component={[Function]}
+      coordinates={
+        Array [
+          Object {
+            "position": Object {
+              "lat": 0,
+              "lng": 0,
+            },
+          },
+          Object {
+            "position": Object {
+              "lat": 1,
+              "lng": 1,
+            },
+          },
+        ]
+      }
       googleMaps={
         Object {
           "Animation": Object {

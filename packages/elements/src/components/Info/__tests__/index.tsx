@@ -11,7 +11,7 @@ const variants: InfoType[] = [
   'INSTALLED_APPS_EMPTY',
   'DEVELOPER_APPS_EMPTY',
   'ADMIN_APPROVALS_EMPTY',
-  ''
+  '',
 ]
 
 describe('Info', () => {
@@ -22,7 +22,7 @@ describe('Info', () => {
   })
 
   variants.forEach(variant => {
-    it(`should have message \"${infoText(variant)}\" when info type is \"${variant}\"`, () => {
+    it(`should have message "${infoText(variant)}" when info type is "${variant}"`, () => {
       const alert = shallow(<Info infoType={variant} />)
         .find(Alert)
         .dive()

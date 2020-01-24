@@ -9,8 +9,8 @@ const props: FileInputProps = {
   id: 'test',
   labelText: 'test',
   inputProps: {
-    className: 'test'
-  }
+    className: 'test',
+  },
 }
 
 describe('FileInput', () => {
@@ -59,7 +59,8 @@ describe('FileInput', () => {
 
     submitForm()
 
-    // validate function of is asynchornous and non blocking. use setimeout to push assertion function into event loop queue
+    // validate function of is asynchornous and non blocking. use setimeout to push assertion
+    // function into event loop queue
     setTimeout(() => {
       wrapper.update()
       const error = wrapper.find('.has-text-danger')
@@ -95,7 +96,7 @@ describe('FileInput', () => {
           return (
             <FileInput
               testProps={{
-                waitUntilDataReaderLoadResolver
+                waitUntilDataReaderLoadResolver,
               }}
               id="test"
               labelText="test"
@@ -113,8 +114,8 @@ describe('FileInput', () => {
 
     fileUploader.simulate('change', {
       target: {
-        files: [file]
-      }
+        files: [file],
+      },
     })
 
     // assert filename test
@@ -122,7 +123,7 @@ describe('FileInput', () => {
       submitForm()
       waitUntilFormSubmitted.then(formValues => {
         expect(formValues).toEqual({
-          test: 'data:image/png;base64,YQ=='
+          test: 'data:image/png;base64,YQ==',
         })
         done()
       })
@@ -136,7 +137,7 @@ describe('FileInput', () => {
           return (
             <FileInput
               inputProps={{
-                demo: 'test'
+                demo: 'test',
               }}
               id="test"
               labelText="test"
@@ -164,7 +165,7 @@ describe('FileInput', () => {
           return (
             <FileInput
               testProps={{
-                waitUntilDataReaderLoadResolver
+                waitUntilDataReaderLoadResolver,
               }}
               id="test"
               labelText="test"
@@ -182,8 +183,8 @@ describe('FileInput', () => {
 
     fileUploader.simulate('change', {
       target: {
-        files: [file]
-      }
+        files: [file],
+      },
     })
 
     // assert filename test

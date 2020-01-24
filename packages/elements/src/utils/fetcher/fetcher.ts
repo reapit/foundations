@@ -22,14 +22,14 @@ export const fetcher = async <T, B>({
   url,
   method,
   body,
-  headers
+  headers,
 }: FetcherParams<B>): Promise<any | FetchError> => {
   const path = `${api}${url}`
 
   const res = await fetch(path, {
     headers,
     method,
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
   } as RequestInit)
 
   if (res.status < 400) {

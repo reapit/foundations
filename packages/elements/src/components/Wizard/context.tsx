@@ -41,7 +41,7 @@ const RenderWizardContext = createContext<WizardRenderContextValues>({})
 
 export const WizardRenderContextProvider = ({
   children,
-  value
+  value,
 }: {
   value: WizardRenderContextValues
   children: React.ReactNode

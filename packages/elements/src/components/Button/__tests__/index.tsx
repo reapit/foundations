@@ -10,7 +10,7 @@ const props: ButtonProps = {
   loading: false,
   fullWidth: false,
   dataTest: 'some-selector',
-  onClick: jest.fn()
+  onClick: jest.fn(),
 }
 
 describe('Button', () => {
@@ -41,9 +41,9 @@ describe('ButtonGroup', () => {
           <ButtonGroup>
             <Button {...props}>button text</Button>
             <Button {...props}>button text</Button>
-          </ButtonGroup>
-        )
-      )
+          </ButtonGroup>,
+        ),
+      ),
     ).toMatchSnapshot()
   })
 })

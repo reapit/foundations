@@ -6,11 +6,11 @@ import { Button } from '../Button'
 
 const DEFAULT_SERVER_ERROR = {
   type: 'SERVER',
-  message: 'Something went wrong fetching data'
+  message: 'Something went wrong fetching data',
 }
 const DEFAULT_COMPONENT_ERROR = {
   type: 'COMPONENT',
-  message: 'Something went wrong with this component'
+  message: 'Something went wrong with this component',
 }
 
 const stories = storiesOf('Toast', module)

@@ -7,7 +7,7 @@ const props: TextAreaEditorProps = {
   id: 'username',
   name: 'username',
   labelText: 'User name',
-  placeholder: 'enter your name here'
+  placeholder: 'enter your name here',
 }
 
 describe('TextAreaEditor', () => {
@@ -19,7 +19,7 @@ describe('TextAreaEditor', () => {
       onChange: jest.fn(),
       onBlur: jest.fn(),
       name: '123',
-      value: '1'
+      value: '1',
     } as FieldInputProps<string>
     const fn = handleTextAreaOnChange({ field: mockField, name: '' })
     fn('<div></div>')
@@ -30,12 +30,12 @@ describe('TextAreaEditor', () => {
       const mockProps = {
         labelText: 'mockLabel',
         id: '123',
-        placeholder: 'mockPlaceholder'
+        placeholder: 'mockPlaceholder',
       }
       const fn = renderTextAreaEditor(mockProps)
       const mockField = {
         name: '123',
-        value: '1'
+        value: '1',
       } as FieldInputProps<string>
       const mockMeta = {
         touched: true,
@@ -43,7 +43,7 @@ describe('TextAreaEditor', () => {
         value: '123',
         initialValue: '123',
         initialTouched: false,
-        initialError: ''
+        initialError: '',
       } as FieldMetaProps<string>
       const component = fn({ field: mockField, meta: mockMeta } as FieldProps<string>)
       const wrapper = shallow(<div>{component}</div>)
@@ -54,11 +54,11 @@ describe('TextAreaEditor', () => {
       const mockProps = {
         labelText: 'mockLabel',
         id: '123',
-        placeholder: 'mockPlaceholder'
+        placeholder: 'mockPlaceholder',
       }
       const fn = renderTextAreaEditor(mockProps)
       const mockField = {
-        name: '123'
+        name: '123',
       } as FieldInputProps<string>
       const mockMeta = {
         touched: false,
@@ -66,7 +66,7 @@ describe('TextAreaEditor', () => {
         value: '123',
         initialValue: '123',
         initialTouched: false,
-        initialError: ''
+        initialError: '',
       } as FieldMetaProps<string>
       const component = fn({ field: mockField, meta: mockMeta } as FieldProps<string>)
       const wrapper = shallow(<div>{component}</div>)

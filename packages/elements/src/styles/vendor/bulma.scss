@@ -1,7 +1,7 @@
 /* These are the Bulma initialisers - have to come before overides */
 @import '../base/colors.scss';
 @import '../base/fonts.scss';
-@import '../../../node_modules/bulma/sass/utilities/initial-variables.sass';
+@import '../../../../../node_modules/bulma/sass/utilities/initial-variables.sass';
 
 /*
   Bulma override defaults
@@ -54,4 +54,4 @@ $modal-card-foot-radius: 0;
 // Form elements
 $checkbox-radius: 0;
 
-@import '../../../node_modules/bulma/bulma.sass';
+@import '../../../../../node_modules/bulma/bulma.sass';

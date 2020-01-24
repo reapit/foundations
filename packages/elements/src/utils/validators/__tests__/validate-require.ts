@@ -13,17 +13,17 @@ describe('validate-require', () => {
     it('work correctly', () => {
       const values = {
         valid: 'test@mail.com',
-        invalid: ''
+        invalid: '',
       }
 
       expect(
         validateRequire<ValueTypes, ErrorKeys>({
           values,
           currentErrors: {},
-          keys: ['invalid', 'valid']
-        })
+          keys: ['invalid', 'valid'],
+        }),
       ).toStrictEqual({
-        invalid: errorMessages.FIELD_REQUIRED
+        invalid: errorMessages.FIELD_REQUIRED,
       })
     })
   })
@@ -34,10 +34,10 @@ describe('validate-require', () => {
         values: 'mockValue',
         keys: ['mockKey'],
         length: 1,
-        currentErrors: { mockKey: 'mockCurrentError' }
+        currentErrors: { mockKey: 'mockCurrentError' },
       }
       const output = {
-        mockKey: 'mockCurrentError'
+        mockKey: 'mockCurrentError',
       }
       const result = validateRequire(input)
       expect(result).toEqual(output)
@@ -48,7 +48,7 @@ describe('validate-require', () => {
         values: 'mockValue',
         keys: [],
         length: 1,
-        currentErrors: {}
+        currentErrors: {},
       }
       const output = {}
       const result = validateRequire(input)

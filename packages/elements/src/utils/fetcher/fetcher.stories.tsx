@@ -17,8 +17,8 @@ storiesOf('Fetcher', module).add('Primary', () => {
       url: `users/${username}/repos?type=all&sort=updated`,
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     })
     setRepo(res)
     setSubmitting(false)

@@ -5,7 +5,7 @@ interface PortalContainerProps {
   portals: { [key: string]: React.ComponentType<any> }
 }
 
-const PortalContainer: React.SFC<PortalContainerProps> = React.memo(({ portals }: PortalContainerProps) => {
+const PortalContainer: React.SFC<PortalContainerProps> = ({ portals }: PortalContainerProps) => {
   const [mountNode, setMountNode] = React.useState<Element | undefined>(undefined)
   React.useEffect(() => {
     setMountNode(document.body)
@@ -22,8 +22,8 @@ const PortalContainer: React.SFC<PortalContainerProps> = React.memo(({ portals }
         return <Component key={key} />
       })}
     </>,
-    document.body
+    document.body,
   )
-})
+}
 
-export default PortalContainer
+export default React.memo(PortalContainer)

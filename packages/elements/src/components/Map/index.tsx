@@ -37,20 +37,20 @@ export const renderMarkers = ({ coordinates, googleMaps, map, markerCallBack }) 
     const label = {
       text: String(index + 1),
       fontSize: '1.5rem',
-      fontWeight: '500'
+      fontWeight: '500',
     }
     const marker = new googleMaps.Marker({
       position: {
         lat: coordinate.position.lat,
-        lng: coordinate.position.lng
+        lng: coordinate.position.lng,
       },
       label,
-      map
+      map,
     })
     const infoWindow = new googleMaps.InfoWindow({
       content: `<div style="max-width: 200px;" id="coordinate-${coordinate.position.lat}-${coordinate.position.lng}">
                   <div>${combineAddress(coordinate.address)}</div>
-                </div>`
+                </div>`,
     })
     googleMaps.event.addListener(marker, 'click', () => {
       infoWindow.open(map, marker)
@@ -70,10 +70,10 @@ export const getCurrentLocation = ({ googleMaps, position, map }) => {
   const currentLocation = new googleMaps.Marker({
     position: {
       lat: position.coords.latitude,
-      lng: position.coords.longitude
+      lng: position.coords.longitude,
     },
     content: 'Your location',
-    map
+    map,
   })
   return currentLocation
 }
@@ -82,7 +82,7 @@ export const handleRequestDirectionServiceResponse = ({
   currentLocation,
   onLoadedDirection,
   directionsRenderer,
-  destinationAddress
+  destinationAddress,
 }) => (response, status) => {
   if (status === 'OK') {
     currentLocation.setMap(null)
@@ -114,7 +114,7 @@ export const renderDirection = ({
   travelMode,
   onLoadedDirection,
   currentLocation,
-  destinationAddress
+  destinationAddress,
 }) => {
   directionsRenderer.setMap(map)
   const origin = new googleMaps.LatLng(position.coords.latitude, position.coords.longitude)
@@ -123,14 +123,14 @@ export const renderDirection = ({
     {
       origin,
       destination,
-      travelMode
+      travelMode,
     },
     handleRequestDirectionServiceResponse({
       currentLocation,
       onLoadedDirection,
       directionsRenderer,
-      destinationAddress
-    })
+      destinationAddress,
+    }),
   )
 }
 
@@ -166,7 +166,7 @@ export const renderDirectionAndMarkers = ({
   directionsServiceRef,
   boundsRef,
   markerCallBack,
-  destinationAddress
+  destinationAddress,
 }) => {
   const googleMaps = googleMapsRef.current
   const map = mapRef.current
@@ -190,7 +190,7 @@ export const renderDirectionAndMarkers = ({
             travelMode,
             onLoadedDirection,
             currentLocation,
-            destinationAddress
+            destinationAddress,
           })
           return
         }
@@ -206,7 +206,7 @@ export const renderDirectionAndMarkers = ({
         setZoomAndCenter({ googleMaps, bounds, center, zoom, map, markers })
         markersRef.current = markers
         return
-      }
+      },
     )
   }
 }
@@ -217,7 +217,7 @@ export const handleOnLoaded = ({
   directionsServiceRef,
   directionsRendererRef,
   boundsRef,
-  onLoaded
+  onLoaded,
 }) => (googleMaps, map) => {
   googleMapsRef.current = googleMaps
   mapRef.current = map
@@ -247,8 +247,6 @@ export const renderMap = ({
   directionsServiceRef,
   center,
   zoom,
-  coordinates,
-  component,
   mapContainerStyles,
   ...restProps
 }) => (googleMaps, error) => {
@@ -263,7 +261,7 @@ export const renderMap = ({
             onLoaded,
             directionsRendererRef,
             boundsRef,
-            directionsServiceRef
+            directionsServiceRef,
           })}
           center={center}
           zoom={zoom}
@@ -306,7 +304,7 @@ export const handleUseEffect = ({
   directionsServiceRef,
   boundsRef,
   markerCallBack,
-  destinationAddress
+  destinationAddress,
 }) => () => {
   renderDirectionAndMarkers({
     googleMapsRef,
@@ -322,7 +320,7 @@ export const handleUseEffect = ({
     directionsServiceRef,
     boundsRef,
     markerCallBack,
-    destinationAddress
+    destinationAddress,
   })
   return clearMap({ directionsRendererRef, markersRef })
 }
@@ -365,15 +363,15 @@ export const Map: React.FC<MapProps<any>> = ({
       directionsServiceRef,
       boundsRef,
       markerCallBack,
-      destinationAddress
+      destinationAddress,
     }),
-    [coordinates, destinationPoint]
+    [coordinates, destinationPoint],
   )
   return (
     <ReactGoogleMapLoader
       params={{
         key: apiKey,
-        libraries: libraries
+        libraries: libraries,
       }}
       render={renderMap({
         googleMapsRef,
@@ -387,7 +385,7 @@ export const Map: React.FC<MapProps<any>> = ({
         coordinates,
         component,
         mapContainerStyles,
-        ...restProps
+        ...restProps,
       })}
     />
   )

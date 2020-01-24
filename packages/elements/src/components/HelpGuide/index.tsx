@@ -32,7 +32,7 @@ export const caculateStepChange = ({
   currentStepRef,
   wrapperStepRef,
   helpguideRef,
-  isMobileScreen
+  isMobileScreen,
 }: {
   currentStepRef: React.RefObject<HTMLElement>
   wrapperStepRef: React.RefObject<HTMLElement>
@@ -53,7 +53,7 @@ export const caculateWrapperWith = ({
   isMobileScreen,
   total,
   helpguideRef,
-  wrapperStepRef
+  wrapperStepRef,
 }: {
   wrapperStepRef: React.RefObject<HTMLElement>
   helpguideRef: React.RefObject<HTMLElement>
@@ -78,7 +78,7 @@ export const handleGoPrev = ({ steps, currentIndex, isFirst, setInternalCurrent 
   }
 }
 
-export const handleGoTo = ({ steps, currentIndex, setInternalCurrent }: NavigationProps) => (stepIndex: number) => {
+export const handleGoTo = ({ steps, setInternalCurrent }: NavigationProps) => (stepIndex: number) => {
   setInternalCurrent(steps[stepIndex].id)
 }
 
@@ -96,7 +96,7 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
 
   const isMobileScreen = isMobile()
 
-  const steps = React.Children.toArray(children).map(({ props }) => ({ ...props }))
+  const steps = React.Children.toArray(children).map(({ props }: any) => ({ ...props }))
 
   const [internalCurrent, setInternalCurrent] = useState(current || steps[0].id || '')
 
@@ -120,7 +120,7 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
     steps,
     isFirst,
     isLast,
-    isLoading
+    isLoading,
   }
 
   return (
@@ -145,7 +145,7 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
   )
 }
 
-HelpGuide.Step = function({ component: Component, heading, subHeading, graphic }: HelpGuideStepProps) {
+function HelpGuideStep({ component: Component, heading, subHeading, graphic }: HelpGuideStepProps) {
   return (
     <FlexContainerBasic className="items-center justify-between">
       <div className="helpguide-content">
@@ -163,3 +163,5 @@ HelpGuide.Step = function({ component: Component, heading, subHeading, graphic }
     </FlexContainerBasic>
   )
 }
+
+HelpGuide.Step = HelpGuideStep
