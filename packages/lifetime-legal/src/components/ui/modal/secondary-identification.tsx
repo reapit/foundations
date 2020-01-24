@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch, compose } from 'redux'
+// @ts-ignore #49 Breaking changes to API
 import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import Identification, {
   IdentificationFormValues,

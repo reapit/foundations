@@ -1,0 +1,136 @@
+# Node.js with React
+# Build a Node.js project that uses React.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  branches:
+    include:
+      - '*'
+  tags:
+    include:
+      - '*'
+
+jobs:
+  - job: buildWebApp
+    displayName: Test and build web app
+    pool:
+      vmImage: 'ubuntu-latest'
+    variables:
+      - group: aws
+      - name: REAPIT_ENV
+        value: 'DEV'
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+        displayName: 'Install Node.js'
+
+      - script: yarn install
+        displayName: Install deps
+        env:
+          NPM_TOKEN: $(NPM_TOKEN)
+
+      - script: yarn test:ci
+        displayName: Unit tests
+        env:
+          NPM_TOKEN: $(NPM_TOKEN)
+
+      - task: PublishTestResults@2
+        inputs:
+          testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+          testResultsFiles: '*.xml'
+          searchFolder: '$(System.DefaultWorkingDirectory)/.jest-junit-reports' # Optional
+          mergeTestResults: false # Optional
+          failTaskOnFailedTests: true # Optional
+          publishRunAttachments: true # Optional
+
+      - bash: |
+          branch=$(Build.SourceBranch)
+          if [[ branch == *"refs/tags/AC-"* ]]; then
+            echo "##vso[task.setvariable variable=REAPIT_ENV]PROD";
+          fi
+          if [[ branch == *"refs/heads/demo"* ]]; then
+            echo "##vso[task.setvariable variable=REAPIT_ENV]DEMO";
+          fi
+        displayName: Set Reapit Env
+
+      - script: yarn build
+        displayName: Build static assets
+        failOnStderr: true
+        env:
+          REAPIT_ENV: $(REAPIT_ENV
+          NPM_TOKEN: $(NPM_TOKEN)
+          AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+          AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY) 
+
+      - task: PublishPipelineArtifact@1
+        inputs:
+          path: $(System.DefaultWorkingDirectory)/public/dist
+          artifact: AppBundle
+
+  - deployment: S3DeployWebDev
+    displayName: 'Dev | S3 Deployment'
+    dependsOn: buildWebApp
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'reapit-aml-checklist-dev'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: S3Upload@1
+              displayName: Deploy assets to S3
+              inputs:
+                awsCredentials: 'df-duong'
+                regionName: 'eu-west-2'
+                bucketName: 'reapit-aml-checklist-dev'
+                sourceFolder: '$(Pipeline.Workspace)/AppBundle'
+                globExpressions: '**'
+                filesAcl: 'public-read'
+                createBucket: true
+
+  - deployment: S3DeployWebProd
+    displayName: 'Prod | S3 Deployment'
+    dependsOn: buildWebApp
+    condition: and(succeeded(), contains(variables['Build.SourceBranch'], 'refs/tags/AC-'))
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'reapit-aml-checklist-prod'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: S3Upload@1
+              displayName: Deploy assets to S3
+              inputs:
+                awsCredentials: 'df-duong'
+                regionName: 'eu-west-2'
+                bucketName: 'reapit-aml-checklist-prod'
+                sourceFolder: '$(Pipeline.Workspace)/AppBundle'
+                globExpressions: '**'
+                filesAcl: 'public-read'
+                createBucket: true
+
+  - deployment: S3DeployWebDemo
+    displayName: 'Demo | S3 Deployment'
+    dependsOn: buildWebApp
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/demo'))
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: 'reapit-aml-demo'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: S3Upload@1
+              displayName: Deploy assets to S3
+              inputs:
+                awsCredentials: 'df-duong'
+                regionName: 'eu-west-2'
+                bucketName: 'reapit-demo-aml'
+                sourceFolder: '$(Pipeline.Workspace)/AppStoreBundle'
+                globExpressions: '**'
+                filesAcl: 'public-read'
+                createBucket: true

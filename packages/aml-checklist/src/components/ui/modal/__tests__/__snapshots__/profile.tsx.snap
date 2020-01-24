@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  <Formik
+    initialValues={
+      Object {
+        "dateOfBirth": 1986-06-30T00:00:00.000Z,
+        "email": "hrees927@rpsfiction.net",
+        "forename": "Holly",
+        "homePhone": "01632 968608",
+        "mobilePhone": "07700 908608",
+        "surname": "Rees",
+        "title": "Msss",
+        "workPhone": "020 7946 8608",
+      }
+    }
+    onSubmit={[MockFunction]}
+    validate={[Function]}
+  >
+    <Component />
+  </Formik>
+</div>
+`;
+
+exports[`profile renderForm should match snapshot 1`] = `
+<div>
+  <Form>
+    <Input
+      id="title"
+      labelText="Title"
+      name="title"
+      required={true}
+      type="text"
+    />
+    <Input
+      id="forename"
+      labelText="Forename"
+      name="forename"
+      required={true}
+      type="text"
+    />
+    <Input
+      id="surname"
+      labelText="Surname"
+      name="surname"
+      required={true}
+      type="text"
+    />
+    <DatePicker
+      id="dateOfBirth"
+      labelText="Date Of Birth"
+      name="dateOfBirth"
+      required={true}
+    />
+    <p
+      className="is-size-6"
+    >
+      * At least one telephone number is required
+    </p>
+    <Input
+      id="homePhone"
+      labelText="Home"
+      name="homePhone"
+      type="text"
+    />
+    <Input
+      id="mobilePhone"
+      labelText="Mobile"
+      name="mobilePhone"
+      type="text"
+    />
+    <Input
+      id="workPhone"
+      labelText="Work"
+      name="workPhone"
+      type="text"
+    />
+    <Input
+      id="email"
+      labelText="Email"
+      name="email"
+      type="email"
+    />
+    <div
+      className="field pb-2"
+    >
+      <div
+        className="columns undefined"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="undefined flex items-center"
+          >
+            <span>
+              RPS Ref:
+            </span>
+            <span
+              className="ml-1"
+            >
+              MKC13000122
+            </span>
+          </div>
+        </div>
+        <div
+          className="column undefined"
+        >
+          <Button
+            className="mr-2"
+            loading={false}
+            type="submit"
+            variant="primary"
+          >
+            Save
+          </Button>
+          <Button
+            dataTest="submit-revision-modal-edit-button"
+            disabled={false}
+            type="button"
+            variant="primary"
+          >
+            Next
+          </Button>
+        </div>
+      </div>
+    </div>
+    <p
+      className="is-size-6"
+    >
+      * Indicates fields that are required in order to ‘Complete’ this section.
+    </p>
+  </Form>
+</div>
+`;
+
+exports[`profile renderForm should match snapshot 2`] = `
+<div>
+  <Form>
+    <Input
+      id="title"
+      labelText="Title"
+      name="title"
+      required={true}
+      type="text"
+    />
+    <Input
+      id="forename"
+      labelText="Forename"
+      name="forename"
+      required={true}
+      type="text"
+    />
+    <Input
+      id="surname"
+      labelText="Surname"
+      name="surname"
+      required={true}
+      type="text"
+    />
+    <DatePicker
+      id="dateOfBirth"
+      labelText="Date Of Birth"
+      name="dateOfBirth"
+      required={true}
+    />
+    <p
+      className="is-size-6"
+    >
+      * At least one telephone number is required
+    </p>
+    <Input
+      id="homePhone"
+      labelText="Home"
+      name="homePhone"
+      type="text"
+    />
+    <Input
+      id="mobilePhone"
+      labelText="Mobile"
+      name="mobilePhone"
+      type="text"
+    />
+    <Input
+      id="workPhone"
+      labelText="Work"
+      name="workPhone"
+      type="text"
+    />
+    <Input
+      id="email"
+      labelText="Email"
+      name="email"
+      type="email"
+    />
+    <div
+      className="field pb-2"
+    >
+      <div
+        className="columns undefined"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="undefined flex items-center"
+          >
+            <span>
+              RPS Ref:
+            </span>
+            <span
+              className="ml-1"
+            >
+              MKC13000122
+            </span>
+          </div>
+        </div>
+        <div
+          className="column undefined"
+        >
+          <Button
+            className="mr-2"
+            loading={false}
+            type="submit"
+            variant="primary"
+          >
+            Save
+          </Button>
+          <Button
+            dataTest="submit-revision-modal-edit-button"
+            disabled={false}
+            type="button"
+            variant="primary"
+          >
+            Next
+          </Button>
+        </div>
+      </div>
+    </div>
+    <p
+      className="is-size-6"
+    >
+      * Indicates fields that are required in order to ‘Complete’ this section.
+    </p>
+  </Form>
+</div>
+`;

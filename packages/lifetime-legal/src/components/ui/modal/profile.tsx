@@ -3,6 +3,7 @@ import { Button, Input, DatePicker, Formik, Form } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { ReduxState } from '@/types/core'
+// @ts-ignore #49 Breaking changes to API
 import { ContactCommunicationModel, ContactModel } from '@reapit/foundations-ts-definitions'
 import { checkListDetailUpdateData } from '@/actions/checklist-detail'
 
@@ -55,9 +56,13 @@ export const Profile: React.FC<ProfileProps> = ({ contact, onSubmitHandler, isSu
           forename: contact.forename,
           surname: contact.surname,
           dateOfBirth: contact.dateOfBirth ? new Date(contact.dateOfBirth) : null,
+          // @ts-ignore #49 Breaking changes to API
           home: filterCommunication(contact.communications, 'Home'),
+          // @ts-ignore #49 Breaking changes to API
           work: filterCommunication(contact.communications, 'Work'),
+          // @ts-ignore #49 Breaking changes to API
           mobile: filterCommunication(contact.communications, 'Mobile'),
+          // @ts-ignore #49 Breaking changes to API
           email: filterCommunication(contact.communications, 'E-Mail'),
         }}
         onSubmit={onSubmitHandler}
