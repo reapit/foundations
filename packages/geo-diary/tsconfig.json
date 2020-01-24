@@ -10,10 +10,11 @@
     "strict": true,
     "jsx": "react",
     "types": ["jest", "node", "react"],
-    "typeRoots": ["./src/types/index.d.ts", "./node_modules/@types"],
+    "typeRoots": ["./src/types/index.d.ts", "./node_modules/@types", "../../node_modules/@types"],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@reapit/cognito-auth": ["../../node_modules/@reapit/cognito-auth/src"]
     },
     "lib": ["dom", "es2015", "es2017", "es2018", "es2019", "es2020", "es5", "es6", "es7", "esnext"]
   },

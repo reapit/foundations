@@ -16,9 +16,9 @@
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
     "start": "node ./public/index.js geo-diary",
     "serve": "serve public/dist -s -l 8080",
-    "test": "jest --coverage --silent",
-    "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
-    "test-dev": "jest --watch --verbose"
+    "test": "cross-env TZ=UTC jest --coverage --silent",
+    "test:ci": "cross-env TZ=UTC jest --ci",
+    "test-dev": "cross-env TZ=UTC jest --watch --verbose"
   },
   "dependencies": {
     "hardtack": "^4.1.0",
@@ -32,7 +32,6 @@
     "@babel/core": "^7.7.2",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
-    "@reapit/config-manager": "^1.1.0",
     "@reapit/foundations-ts-definitions": "^0.0.18",
     "@redux-saga/testing-utils": "^1.0.5",
     "@types/googlemaps": "^3.37.5",

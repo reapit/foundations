@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { ETAButton } from '../eta-button'
-import toJson from 'enzyme-to-json'
 import { shallow } from 'enzyme'
 
 let userAgentGetter
@@ -10,7 +9,7 @@ describe('ETAButton', () => {
     userAgentGetter = jest.spyOn(window.navigator, 'userAgent', 'get')
   })
   it('Should match snapshot', () => {
-    expect(toJson(shallow(<ETAButton tel="99999999">ETA Text</ETAButton>))).toMatchSnapshot()
+    expect(shallow(<ETAButton tel="99999999">ETA Text</ETAButton>)).toMatchSnapshot()
   })
 
   it('Should include body message if using Android phone', () => {

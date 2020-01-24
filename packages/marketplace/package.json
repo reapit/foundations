@@ -19,7 +19,7 @@
     "lint": "yarn lint:src && yarn lint:cypress",
     "test": "cross-env TZ=UTC jest --coverage --silent",
     "test-dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:ci": "cross-env TZ=UTC jest --ci --reporters=default --reporters=jest-junit",
+    "test:ci": "cross-env TZ=UTC jest --ci",
     "test-e2e:dev": "cypress open --project './src/tests'",
     "test-e2e": "cypress run --project './src/tests'",
     "test-e2e:ci": "yarn dev:ci && yarn test-e2e",
@@ -69,7 +69,6 @@
     "fork-ts-checker-notifier-webpack-plugin": "~1.0.0",
     "fork-ts-checker-webpack-plugin": "~1.3.4",
     "html-webpack-plugin": "~3.2.0",
-    "jest-junit": "~6.4.0",
     "lighthouse": "~5.0.0",
     "lint-staged": "~8.1.7",
     "loader-utils": "^1.2.3",
@@ -116,8 +115,5 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 10"
-  ],
-  "jest-junit": {
-    "outputDirectory": "./.jest-junit-reports"
-  }
+  ]
 }

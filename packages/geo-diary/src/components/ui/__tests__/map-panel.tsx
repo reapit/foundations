@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { MapPanel, MapPanelProps, mapStateToProps, mapDispatchToProps, getMapUrl } from '../map-panel'
-import toJson from 'enzyme-to-json'
 import { ReduxState } from '@/types/core'
 import invalidValues from '@/constants/invalid-values'
 
@@ -73,7 +72,7 @@ describe('MapPanel', () => {
       showAllAppointment: jest.fn(),
       isDesktopMode: false,
     }
-    expect(toJson(shallow(<MapPanel {...props} />))).toMatchSnapshot()
+    expect(shallow(<MapPanel {...props} />)).toMatchSnapshot()
   })
 
   it('should match a snapshot when invalid LAT, LONG', () => {
@@ -86,7 +85,7 @@ describe('MapPanel', () => {
       showAllAppointment: jest.fn(),
       isDesktopMode: false,
     }
-    expect(toJson(shallow(<MapPanel {...props} />))).toMatchSnapshot()
+    expect(shallow(<MapPanel {...props} />)).toMatchSnapshot()
   })
 
   describe('mapStateToProps', () => {

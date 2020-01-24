@@ -1,10 +1,20 @@
-import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
+import {
+  createStore,
+  applyMiddleware,
+  compose,
+  combineReducers,
+  Store as ReduxStore,
+  Dispatch,
+  AnyAction,
+  CombinedState,
+  Reducer,
+} from 'redux'
 import createSagaMiddleware from 'redux-saga'
 // @ts-ignore
 import { persistStore, persistReducer, Persistor } from 'redux-persist'
 // @ts-ignore
 import * as localForage from 'localforage'
-import { ReduxState } from '@/types/core'
+import { ReduxState, Action } from '@/types/core'
 import { all, fork } from '@redux-saga/core/effects'
 import ActionTypes from '@/constants/action-types'
 
@@ -47,7 +57,7 @@ export class Store {
     appointments,
     appointmentDetail,
     nextAppointment,
-  })
+  }) as Reducer<CombinedState<ReduxState>, Action<any> | AnyAction>
 
   static sagas = function*() {
     yield all([
