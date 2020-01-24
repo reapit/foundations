@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date-time picker CustomInput should match a snapshot 1`] = `
+<input
+  className=""
+  id="mockId"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onClick={[MockFunction]}
+  onKeyDown={[Function]}
+  placeholder="DD/MM/YYYY"
+  type="input"
+  value=""
+/>
+`;
+
+exports[`Date-time picker DatePicker should match a snapshot 1`] = `
+<Field
+  name="abc"
+  validate={null}
+>
+  <Component />
+</Field>
+`;

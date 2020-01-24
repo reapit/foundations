@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberedTimeline should match a snapshot 1`] = `
+<ul
+  className="horizontal-timeline"
+>
+  <div
+    className="circle-active"
+  />
+  <div
+    className="line-active"
+  />
+  <li
+    className=" passed"
+    key="0"
+    onClick={[Function]}
+  />
+  <li
+    className=" passed"
+    key="1"
+    onClick={[Function]}
+  />
+  <li
+    className=" passed"
+    key="2"
+    onClick={[Function]}
+  />
+  <li
+    className="active "
+    key="3"
+    onClick={[Function]}
+  />
+  <li
+    className=" "
+    key="4"
+    onClick={[Function]}
+  />
+</ul>
+`;

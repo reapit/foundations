@@ -1,0 +1,43 @@
+@import "../base/colors.scss";
+
+.app-nav-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.container-flex {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 auto;
+  width: 100%;
+
+  &.is-column {
+    flex-direction: column;
+  }
+
+  &.is-centered {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.has-padding {
+    padding: 1rem;
+  }
+
+  &.is-scrollable{
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  &.has-background {
+    background-color: $white;
+  }
+}

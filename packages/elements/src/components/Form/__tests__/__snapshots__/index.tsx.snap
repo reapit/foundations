@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutComponents FormHeading should match snapshot 1`] = `
+<div
+  className="form-heading mb-1 mockClassName"
+>
+  <div>
+    mockChildren
+  </div>
+</div>
+`;
+
+exports[`LayoutComponents FormSection should match snapshot 1`] = `
+<div
+  className="form-section mb-4 mockClassName"
+>
+  <div>
+    mockChildren
+  </div>
+</div>
+`;
+
+exports[`LayoutComponents FormSubHeading should match snapshot 1`] = `
+<div
+  className="form-subheading mb-6 mockClassName"
+>
+  <div>
+    mockChildren
+  </div>
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for an example form 1`] = `
+<Component
+  hasBackground={true}
+  hasPadding={true}
+>
+  <Formik
+    initialValues={
+      Object {
+        "email": "",
+        "password": "",
+        "tel": "",
+        "text": "",
+      }
+    }
+    onSubmit={[Function]}
+  >
+    <Component />
+  </Formik>
+  <Component />
+</Component>
+`;

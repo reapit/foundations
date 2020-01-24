@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div
+  className="filler"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+/>
+`;
+
+exports[`ProgressBar ProgressBar should match snapshot 1`] = `
+<div
+  className="progress-bar"
+>
+  <Filler
+    percentage={100}
+  />
+</div>
+`;

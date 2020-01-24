@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconList should match a snapshot with custom props 1`] = `
+<ul
+  className="icon-list icon-class-name"
+>
+  <li
+    className="icon-list-item list-class-name"
+    key="0"
+  >
+    <FaClock
+      className="icon-list-icon"
+    />
+    <span
+      className="icon-list-text text-class-name"
+    >
+      11:00 AM - 12:00 PM
+    </span>
+  </li>
+  <li
+    className="icon-list-item list-class-name"
+    key="1"
+  >
+    <FaStreetView
+      className="icon-list-icon"
+    />
+    <span
+      className="icon-list-text text-class-name"
+    >
+      Viewing
+    </span>
+  </li>
+  <li
+    className="icon-list-item list-class-name"
+    key="2"
+  >
+    <FaStickyNote
+      className="icon-list-icon"
+    />
+    <span
+      className="icon-list-text text-class-name"
+    >
+      Info about the viewing
+    </span>
+  </li>
+</ul>
+`;
+
+exports[`IconList should match a snapshot with default props 1`] = `
+<ul
+  className="icon-list "
+>
+  <li
+    className="icon-list-item "
+    key="0"
+  >
+    <FaClock
+      className="icon-list-icon"
+    />
+    <span
+      className="icon-list-text "
+    >
+      11:00 AM - 12:00 PM
+    </span>
+  </li>
+  <li
+    className="icon-list-item "
+    key="1"
+  >
+    <FaStreetView
+      className="icon-list-icon"
+    />
+    <span
+      className="icon-list-text "
+    >
+      Viewing
+    </span>
+  </li>
+  <li
+    className="icon-list-item "
+    key="2"
+  >
+    <FaStickyNote
+      className="icon-list-icon"
+    />
+    <span
+      className="icon-list-text "
+    >
+      Info about the viewing
+    </span>
+  </li>
+</ul>
+`;

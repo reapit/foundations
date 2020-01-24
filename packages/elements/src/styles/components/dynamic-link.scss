@@ -1,0 +1,26 @@
+@import "../base/colors.scss";
+
+.dynamic-link {
+  cursor: default;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &.desktop {
+    color: $reapit-mid-blue;
+  }
+
+  &.web {
+    color: $reapit-dark-blue;
+  }
+
+  &.web, &.desktop {
+    cursor: pointer;
+    
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}

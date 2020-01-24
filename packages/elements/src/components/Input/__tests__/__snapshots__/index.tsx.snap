@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should match a snapshot 1`] = `
+<Field
+  name="username"
+  validate={null}
+>
+  <Component />
+</Field>
+`;
+
+exports[`Input should match a snapshot if field is required 1`] = `
+<Field
+  name="username"
+  validate={[Function]}
+>
+  <Component />
+</Field>
+`;
+
+exports[`Input should match a snapshot with right icon 1`] = `
+<Field
+  name="username"
+  validate={null}
+>
+  <Component />
+</Field>
+`;

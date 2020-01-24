@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutComponents should match a snapshot for AppNavContainer 1`] = `
+<div
+  className="app-nav-container "
+>
+  <Component
+    text="AppNavContainer"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for Content 1`] = `
+<div
+  className="content "
+>
+  <Component
+    text="Content"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for FlexContainerBasic 1`] = `
+<div
+  className="container-flex      "
+>
+  <Component
+    text="FlexContainerBasic"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for FlexContainerResponsive 1`] = `
+<div
+  className="container      "
+>
+  <Component
+    text="FlexContainerResponsive"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for Grid 1`] = `
+<div
+  className="columns  "
+>
+  <Component
+    text="Grid"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for GridFiveCol 1`] = `
+<div
+  className="columns is-multiline "
+>
+  <Component
+    text="GridFiveCol"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for GridFourColItem 1`] = `
+<div
+  className="column is-multiline is-half-tablet is-one-third-widescreen is-one-quarter-fullhd "
+>
+  <Component
+    text="GridFourColItem"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for GridItem 1`] = `
+<div
+  className="column  "
+>
+  <Component
+    text="GridItem"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for GridThreeColItem 1`] = `
+<div
+  className="column is-multiline is-half-tablet is-one-third-widescreen "
+>
+  <Component
+    text="GridThreeColItem"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for Level 1`] = `
+<div
+  className="level "
+>
+  <Component
+    text="Level"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for LevelItem 1`] = `
+<div
+  className="level-item "
+>
+  <Component
+    text="LevelItem"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for LevelLeft 1`] = `
+<div
+  className="level-left "
+>
+  <Component
+    text="LevelLeft"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for LevelRight 1`] = `
+<div
+  className="level-right "
+>
+  <Component
+    text="LevelRight"
+  />
+</div>
+`;
+
+exports[`LayoutComponents should match a snapshot for Section 1`] = `
+<div
+  className="section "
+>
+  <Component
+    text="Section"
+  />
+</div>
+`;
