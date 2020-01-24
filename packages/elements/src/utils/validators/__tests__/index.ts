@@ -7,7 +7,7 @@ import {
   validateEmail,
   isEmail,
   validateRequire,
-  validateURI
+  validateURI,
 } from '../index'
 
 describe('validators', () => {

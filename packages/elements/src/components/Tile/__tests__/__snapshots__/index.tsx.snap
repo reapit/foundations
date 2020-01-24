@@ -30,7 +30,7 @@ exports[`Tile should match snapshot when HIGHTLIGHT false 1`] = `
           PostalCode
         </div>
         <div>
-          "contactPerson"
+          contactPerson
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@ exports[`Tile should match snapshot when HIGHTLIGHT true 1`] = `
           PostalCode
         </div>
         <div>
-          "contactPerson"
+          contactPerson
         </div>
       </div>
     </div>

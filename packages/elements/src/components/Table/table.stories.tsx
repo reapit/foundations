@@ -19,7 +19,7 @@ export const newPerson = () => {
   return {
     firstName: randomChar(),
     middleName: randomChar(),
-    lastName: randomChar()
+    lastName: randomChar(),
   }
 }
 
@@ -38,16 +38,16 @@ storiesOf('Table', module).add('Primary', () => {
   const columns = [
     {
       Header: 'First Name',
-      accessor: 'firstName'
+      accessor: 'firstName',
     },
     {
       Header: 'Middle Name',
-      accessor: 'middleName'
+      accessor: 'middleName',
     },
     {
       Header: 'Last Name',
-      accessor: 'lastName'
-    }
+      accessor: 'lastName',
+    },
   ]
 
   return <Table columns={columns} data={data} loading={false} />
@@ -58,16 +58,16 @@ storiesOf('Table', module).add('Responsive', () => {
   const columns = [
     {
       Header: 'First Name',
-      accessor: 'firstName'
+      accessor: 'firstName',
     },
     {
       Header: 'Middle Name',
-      accessor: 'middleName'
+      accessor: 'middleName',
     },
     {
       Header: 'Last Name',
-      accessor: 'lastName'
-    }
+      accessor: 'lastName',
+    },
   ]
 
   return <Table scrollable columns={columns} data={data} loading={false} />
@@ -78,16 +78,16 @@ storiesOf('Table', module).add('IsLoading', () => {
   const columns = [
     {
       Header: 'First Name',
-      accessor: 'firstName'
+      accessor: 'firstName',
     },
     {
       Header: 'Middle Name',
-      accessor: 'middleName'
+      accessor: 'middleName',
     },
     {
       Header: 'Last Name',
-      accessor: 'lastName'
-    }
+      accessor: 'lastName',
+    },
   ]
 
   return <Table columns={columns} data={data} loading />

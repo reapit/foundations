@@ -7,7 +7,7 @@ import {
   isCompletedDeclarationRisk,
   isCompletedPrimaryID,
   isCompletedProfile,
-  isCompletedSecondaryID
+  isCompletedSecondaryID,
 } from './completed-sections'
 
 export const contact = {
@@ -22,20 +22,20 @@ export const contact = {
   communications: [
     {
       label: 'Home',
-      detail: '01632 961556'
+      detail: '01632 961556',
     },
     {
       label: 'Mobile',
-      detail: '07700 901556'
+      detail: '07700 901556',
     },
     {
       label: 'Work',
-      detail: '020 7946 1556'
+      detail: '020 7946 1556',
     },
     {
       label: 'E-Mail',
-      detail: 'schadwick512@rpsfiction.net'
-    }
+      detail: 'schadwick512@rpsfiction.net',
+    },
   ],
   addresses: [
     {
@@ -47,18 +47,18 @@ export const contact = {
       line3: 'Milton Keynes',
       line4: 'Buckinghamshire',
       postcode: 'MK17 9JU',
-      countryId: ''
-    }
+      countryId: '',
+    },
   ],
   relationships: [
     {
       id: 'RMK',
-      type: 'negotiator'
+      type: 'negotiator',
     },
     {
       id: 'MKC',
-      type: 'office'
-    }
+      type: 'office',
+    },
   ],
   metadata: {
     addresses: [
@@ -66,8 +66,8 @@ export const contact = {
         documentImage: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg',
         year: '1911',
         month: '6',
-        documentType: 'Current Benefits Agency letter'
-      }
+        documentType: 'Current Benefits Agency letter',
+      },
     ],
     primaryId: [
       {
@@ -76,10 +76,10 @@ export const contact = {
             typeId: 'CR',
             expiry: '2019-10-15T10:00:00Z',
             details: '1123',
-            fileUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg'
-          }
-        ]
-      }
+            fileUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg',
+          },
+        ],
+      },
     ],
     secondaryId: [
       {
@@ -88,18 +88,18 @@ export const contact = {
             typeId: 'PP',
             expiry: '2019-10-10T00:00:00Z',
             details: '123',
-            fileUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg'
-          }
-        ]
-      }
+            fileUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg',
+          },
+        ],
+      },
     ],
     declarationRisk: {
       type: 'Normal',
       reason: 'reason',
       declarationForm: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png',
-      riskAssessmentForm: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png'
-    }
-  }
+      riskAssessmentForm: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png',
+    },
+  },
 }
 
 export const idCheck = {
@@ -114,40 +114,40 @@ export const idCheck = {
     {
       typeId: 'PP',
       expiry: '2019-12-05T16:44:00',
-      details: 'This is a test'
+      details: 'This is a test',
     },
     {
       typeId: 'ER',
       expiry: '2019-12-05T16:44:00',
-      details: 'This is a test'
-    }
+      details: 'This is a test',
+    },
   ],
   metadata: {
     primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000002-This is a test.jpg',
-    secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000002-secondary test.jpg'
+    secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000002-secondary test.jpg',
   },
   links: [
     {
       rel: 'self',
       href: 'http://reapit.cloud.tyk.io/AYL19000002/identityChecks/AYL19000004',
-      action: 'GET'
+      action: 'GET',
     },
     {
       rel: 'contact',
       href: 'http://reapit.cloud.tyk.io/AYL19000002',
-      action: 'GET'
+      action: 'GET',
     },
     {
       rel: 'idDocumentType',
       href: 'https://reapit.cloud.tyk.io/configuration/identityDocumentTypes/PP',
-      action: 'GET'
+      action: 'GET',
     },
     {
       rel: 'idDocumentType',
       href: 'https://reapit.cloud.tyk.io/configuration/identityDocumentTypes/ER',
-      action: 'GET'
-    }
-  ]
+      action: 'GET',
+    },
+  ],
 }
 
 storiesOf('CompletedSections', module)
@@ -156,40 +156,40 @@ storiesOf('CompletedSections', module)
     () => {
       return <div>Result: {isCompletedAddress(contact).toString()}</div>
     },
-    { notes: 'Function check completed address' }
+    { notes: 'Function check completed address' },
   )
   .add(
     'PrimaryId',
     () => {
       return <div>Result: {isCompletedPrimaryID(idCheck).toString()}</div>
     },
-    { notes: 'Function check completed Primary ID' }
+    { notes: 'Function check completed Primary ID' },
   )
   .add(
     'SecondaryId',
     () => {
       return <div>Result: {isCompletedSecondaryID(idCheck).toString()}</div>
     },
-    { notes: 'Function check completed Secondary ID' }
+    { notes: 'Function check completed Secondary ID' },
   )
   .add(
     'Profile',
     () => {
       return <div>Result: {isCompletedProfile(contact).toString()}</div>
     },
-    { notes: 'Function check completed Profile' }
+    { notes: 'Function check completed Profile' },
   )
   .add(
     'DeclarationRisk',
     () => {
       return <div>Result: {isCompletedDeclarationRisk(contact).toString()}</div>
     },
-    { notes: 'Function check completed Declaration and Risk' }
+    { notes: 'Function check completed Declaration and Risk' },
   )
   .add(
     'AgentCheck',
     () => {
       return <div>Result: {isCompletedAgentCheck(contact).toString()}</div>
     },
-    { notes: 'Function check completed Agent Check' }
+    { notes: 'Function check completed Agent Check' },
   )

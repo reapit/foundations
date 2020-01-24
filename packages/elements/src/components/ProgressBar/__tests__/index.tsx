@@ -6,7 +6,7 @@ describe('ProgressBar', () => {
   describe('ProgressBar', () => {
     it('should match snapshot', () => {
       const mockProps = {
-        percentage: 100
+        percentage: 100,
       }
       const wrapper = shallow(<ProgressBar {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
@@ -14,7 +14,7 @@ describe('ProgressBar', () => {
 
     it('should run correctly when percentage < 0', () => {
       const mockProps = {
-        percentage: -1
+        percentage: -1,
       }
       const wrapper = shallow(<ProgressBar {...mockProps} />)
       expect(wrapper.find('Filler').prop('percentage')).toEqual(0)
@@ -22,7 +22,7 @@ describe('ProgressBar', () => {
 
     it('should run correctly when percentage > 100', () => {
       const mockProps = {
-        percentage: 101
+        percentage: 101,
       }
       const wrapper = shallow(<ProgressBar {...mockProps} />)
       expect(wrapper.find('Filler').prop('percentage')).toEqual(100)

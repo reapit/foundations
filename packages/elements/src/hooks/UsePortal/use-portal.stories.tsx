@@ -12,7 +12,7 @@ const UsePortalComponent = () => {
         <b>Outside app root</b>: {count}
       </div>
     ),
-    [count]
+    [count],
   )
   useEffect(() => {
     showPortal()

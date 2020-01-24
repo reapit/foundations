@@ -4,12 +4,15 @@ import { SelectBox, SelectBoxOptions, SelectBoxProps } from '../index'
 import { Formik, Form, FormikErrors } from 'formik'
 import toJson from 'enzyme-to-json'
 
-const mockedOptions: SelectBoxOptions[] = [{ label: 'a', value: 'a' }, { label: 'b', value: 'b' }]
+const mockedOptions: SelectBoxOptions[] = [
+  { label: 'a', value: 'a' },
+  { label: 'b', value: 'b' },
+]
 const selectBoxProps: SelectBoxProps = {
   options: mockedOptions,
   name: 'demo',
   labelText: 'demo',
-  id: 'demo'
+  id: 'demo',
 }
 
 const createFormikWrapper = () => {
@@ -22,7 +25,7 @@ const createFormikWrapper = () => {
           </div>
         </Form>
       )}
-    </Formik>
+    </Formik>,
   )
 
   return wrapper
@@ -34,7 +37,7 @@ const ErrorFomrikComponent = () => {
       <Formik
         validate={values => {
           const errors: FormikErrors<any> = {
-            demo: ''
+            demo: '',
           }
           if (values.demo === 'b') {
             errors.demo = 'Required'
@@ -88,8 +91,8 @@ describe('SelectBox', () => {
 
     wrapper.find('select').simulate('change', {
       target: {
-        value: 'a'
-      }
+        value: 'a',
+      },
     })
     setTimeout(() => {
       expect(wrapper.find('select').prop('value')).toEqual('a')

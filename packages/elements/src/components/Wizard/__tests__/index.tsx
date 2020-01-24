@@ -83,22 +83,22 @@ describe('Wizard', () => {
       .first()
       .simulate('click')
 
-    expect(wrapper.find(`.step-2`)).toHaveLength(1)
+    expect(wrapper.find('.step-2')).toHaveLength(1)
 
     wrapper
       .find('[data-test="wizard-next-btn"]')
       .first()
       .simulate('click')
 
-    expect(wrapper.find(`.step-2`)).toHaveLength(0)
-    expect(wrapper.find(`.step-3`)).toHaveLength(1)
+    expect(wrapper.find('.step-2')).toHaveLength(0)
+    expect(wrapper.find('.step-3')).toHaveLength(1)
 
     wrapper
       .find('[data-test="wizard-next-btn"]')
       .first()
       .simulate('click')
 
-    expect(wrapper.find(`.step-4`)).toHaveLength(1)
+    expect(wrapper.find('.step-4')).toHaveLength(1)
     expect(wrapper.find('[data-test="wizard-prev-btn"]')).toHaveLength(1)
     expect(wrapper.find('[data-test="wizard-save-btn"]')).toHaveLength(0)
     expect(wrapper.find('[data-test="wizard-next-btn"]')).toHaveLength(0)
@@ -116,7 +116,7 @@ describe('Wizard', () => {
       .find('[data-test="wizard-prev-btn"]')
       .first()
       .simulate('click')
-    expect(wrapper.find(`.step-1`)).toHaveLength(1)
+    expect(wrapper.find('.step-1')).toHaveLength(1)
   })
 
   afterEach(() => {

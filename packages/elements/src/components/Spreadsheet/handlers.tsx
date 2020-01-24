@@ -7,14 +7,14 @@ import {
   SpreadsheetProps,
   SetContextMenuProp,
   SetData,
-  SetSelected
+  SetSelected,
 } from './types'
 import {
   getMaxRowAndCol,
   parseCsvFile,
   unparseDataToCsvString,
   convertToCompatibleData,
-  convertDataToCsv
+  convertDataToCsv,
 } from './utils'
 
 export const valueRenderer = (cell: Cell): string => cell.value
@@ -31,7 +31,7 @@ export const onDoubleClickCell = (payload: DoubleClickPayLoad, setSelected: SetS
     /* select all row's cells */
     setSelected({
       start: { i: 0, j: col },
-      end: { i: maxRowIndex, j: col }
+      end: { i: maxRowIndex, j: col },
     })
     return true
   }
@@ -50,7 +50,7 @@ export const handleContextMenu = (setContextMenuProp: SetContextMenuProp) => e =
 
 /** all the customization of cell go here */
 export const customCellRenderer = (data: Cell[][], setData: SetData, setSelected: SetSelected) => (
-  props: ReactDataSheet.CellRendererProps<Cell>
+  props: ReactDataSheet.CellRendererProps<Cell>,
 ) => {
   const { style: defaultStyle, cell, onDoubleClick, ...restProps } = props
   const {
@@ -68,11 +68,11 @@ export const customCellRenderer = (data: Cell[][], setData: SetData, setSelected
     col: props.col,
     maxRowIndex,
     maxColIndex,
-    isReadOnly: readOnly
+    isReadOnly: readOnly,
   }
   const style = {
     ...defaultStyle,
-    ...customStyle
+    ...customStyle,
   }
   return (
     <td
@@ -110,7 +110,7 @@ export const handleAddNewRow = (data: Cell[][], setData: SetData) => () => {
       if (lastRow[i]) {
         return {
           ...lastRow[i],
-          value: ''
+          value: '',
         }
       }
       return e
@@ -139,7 +139,7 @@ export const handleClickUpload = (ref: React.RefObject<HTMLInputElement>) => () 
 
 export const handleOnChangeInput = (
   validateUpload: SpreadsheetProps['validateUpload'],
-  setData: SetData
+  setData: SetData,
 ) => async (event: { target: HTMLInputElement }) => {
   const { target } = event
   if (target && target.files && target.files[0]) {

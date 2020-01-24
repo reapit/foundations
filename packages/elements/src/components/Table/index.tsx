@@ -23,12 +23,12 @@ export const Table = ({
   striped = true,
   fullWidth = true,
   scrollable = false,
-  bordered = false
+  bordered = false,
 }) => {
   // Use the state and functions returned from useTable to build your UI
   const { getTableProps, headerGroups, rows, prepareRow } = useTable({
     columns,
-    data
+    data,
   })
 
   // Render the UI for your table
@@ -40,10 +40,12 @@ export const Table = ({
       }`}
     >
       <thead>
-        {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(header => (
-              <th {...header.getHeaderProps()}>{header.render('Header')}</th>
+        {headerGroups.map((headerGroup, index) => (
+          <tr key={index} {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map((header, index) => (
+              <th key={index} {...header.getHeaderProps()}>
+                {header.render('Header')}
+              </th>
             ))}
           </tr>
         ))}
@@ -58,11 +60,15 @@ export const Table = ({
             row =>
               prepareRow(row) || (
                 <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => {
-                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                  {row.cells.map((cell, index) => {
+                    return (
+                      <td key={index} {...cell.getCellProps()}>
+                        {cell.render('Cell')}
+                      </td>
+                    )
                   })}
                 </tr>
-              )
+              ),
           )
         )}
       </tbody>

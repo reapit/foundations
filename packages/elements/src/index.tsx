@@ -56,7 +56,7 @@ export * from './utils/is-base64'
 export * from './utils/device-detection/device-detection'
 
 const elements = {
-  v2: v2
+  v2: v2,
 }
 
 export default elements

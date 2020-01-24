@@ -11,5 +11,5 @@ const noop = () => {
 
 export const PortalContext = React.createContext<PortalContextValues>({
   showPortal: noop,
-  hidePortal: noop
+  hidePortal: noop,
 })

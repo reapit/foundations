@@ -13,9 +13,9 @@ describe('LayoutComponents', () => {
           shallow(
             <Component>
               <Placeholder text={componentName} />
-            </Component>
-          )
-        )
+            </Component>,
+          ),
+        ),
       ).toMatchSnapshot()
     })
   })

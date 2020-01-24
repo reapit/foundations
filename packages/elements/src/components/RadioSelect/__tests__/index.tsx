@@ -10,7 +10,10 @@ describe('RadioSelect', () => {
       labelText: 'mockLabelText',
       id: 'mockId',
       dataTest: 'mockDatatest',
-      options: [{ label: 'label', value: 'value' }, { label: 'label1', value: 'value1' }]
+      options: [
+        { label: 'label', value: 'value' },
+        { label: 'label1', value: 'value1' },
+      ],
     }
     const wrapper = shallow(<RadioSelect setFieldValue={jest.fn()} state={'value'} {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
@@ -22,7 +25,10 @@ describe('RadioSelect', () => {
       labelText: 'mockLabelText',
       id: 'mockId',
       dataTest: 'mockDatatest',
-      options: [{ label: 'label', value: 'value' }, { label: 'label1', value: 'value1' }]
+      options: [
+        { label: 'label', value: 'value' },
+        { label: 'label1', value: 'value1' },
+      ],
     }
     const wrapper = mount(
       <Formik initialValues={{ username: '' } as FormikValues} onSubmit={jest.fn()}>
@@ -31,7 +37,7 @@ describe('RadioSelect', () => {
             <RadioSelect setFieldValue={setFieldValue} state={values[mockProps.name]} {...mockProps} />
           </Form>
         )}
-      </Formik>
+      </Formik>,
     )
     expect(wrapper.find('label')).toHaveLength(3)
     expect(wrapper.find('input')).toHaveLength(2)

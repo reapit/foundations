@@ -21,7 +21,7 @@ export const setCurrentCellValue = (
   data: Cell[][],
   row: number,
   col: number,
-  setData: SetData
+  setData: SetData,
 ): void => {
   const newData = data.map(row => row.map(cell => ({ ...cell })))
   newData[row][col].value = cellData
@@ -33,7 +33,7 @@ export const parseCsvFile = (file: File): Promise<Papa.ParseResult> =>
     Papa.parse(file, {
       complete: (results: Papa.ParseResult) => {
         resolve(results)
-      }
+      },
     })
   })
 

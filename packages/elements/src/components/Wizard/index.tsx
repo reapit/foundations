@@ -5,7 +5,7 @@ import {
   WizardContextValues,
   WizardRenderContextProvider,
   useRenderWizardContext,
-  WizardRenderCallbackParams
+  WizardRenderCallbackParams,
 } from './context'
 import { Button } from '../Button'
 import { Formik, FormikProps, Form } from 'formik'
@@ -28,9 +28,9 @@ export const Wizard = ({
   visible,
   afterClose,
   leftFooterRender,
-  rightFooterRender
+  rightFooterRender,
 }: WizardProps) => {
-  const steps = React.Children.toArray(children).map(({ props }) => ({ ...props }))
+  const steps = React.Children.toArray(children).map(({ props }: any) => ({ ...props }))
 
   const [internalCurrent, setInternalCurrent] = useState(current || steps[0].id || '')
 
@@ -74,12 +74,12 @@ export const Wizard = ({
     isFirst,
     isLast,
     close,
-    isLoading
+    isLoading,
   }
 
   const renderValue = {
     leftFooterRender,
-    rightFooterRender
+    rightFooterRender,
   }
   return (
     <WizardContextProvider value={value}>
@@ -92,7 +92,7 @@ export const Wizard = ({
                 <MdClose />
               </button>
             </header>
-            {React.Children.toArray(children).filter(({ props }) => props.id === internalCurrent)}
+            {React.Children.toArray(children).filter(({ props }: any) => props.id === internalCurrent)}
           </div>
         </div>
       </WizardRenderContextProvider>
@@ -115,7 +115,7 @@ export interface WizardStepProps<T> {
   onSubmit?: (params: { values: T; context: WizardContextValues; form: FormikProps<T> }) => void
 }
 
-Wizard.Step = function<T>({ Component, initialValue, onNavigate, validate, onSubmit }: WizardStepProps<T>) {
+function WizardStep<T>({ Component, initialValue, onNavigate, validate, onSubmit }: WizardStepProps<T>) {
   const context = useWizardContext()
   const { leftFooterRender, rightFooterRender } = useRenderWizardContext()
   const { goNext, goPrev, isFirst, isLast, isLoading } = context
@@ -222,5 +222,7 @@ Wizard.Step = function<T>({ Component, initialValue, onNavigate, validate, onSub
     </Formik>
   )
 }
+
+Wizard.Step = WizardStep
 
 export default Wizard

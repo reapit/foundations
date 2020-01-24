@@ -19,20 +19,20 @@ const mockStorage = (() => {
     },
     clear: () => {
       store = {}
-    }
+    },
   }
 })()
 
 Object.defineProperty(window, 'localStorage', {
-  value: mockStorage
+  value: mockStorage,
 })
 
 Object.defineProperty(window, 'getComputedStyle', {
   value: () => ({
-    getPropertyValue: prop => {
+    getPropertyValue: () => {
       return ''
-    }
-  })
+    },
+  }),
 })
 
 // https://github.com/akiran/react-slick/issues/742
@@ -42,18 +42,18 @@ window.matchMedia =
     return {
       matches: false,
       addListener: function() {},
-      removeListener: function() {}
+      removeListener: function() {},
     }
   }
 
 const mockGeolocation = {
   getCurrentPosition: jest.fn(),
-  watchPosition: jest.fn()
+  watchPosition: jest.fn(),
 }
 
 global.navigator.geolocation = mockGeolocation
 
 // browserMock.js
 Object.defineProperty(document, 'currentScript', {
-  value: document.createElement('div').id = 'coordinate-0-0'
+  value: (document.createElement('div').id = 'coordinate-0-0'),
 })

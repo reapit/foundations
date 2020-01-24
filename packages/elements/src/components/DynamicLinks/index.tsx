@@ -36,7 +36,7 @@ export const AcButton: React.SFC<AcButtonParams> = ({
   buttonProps,
   dynamicLinkParams,
   navigateParentWindow,
-  children
+  children,
 }) => {
   return (
     <Button onClick={() => navigateDynamicApp(dynamicLinkParams, navigateParentWindow)} {...buttonProps}>

@@ -13,7 +13,7 @@ export const Helper: React.FC<HelperProps> = ({
   variant = 'info',
   children = '',
   closeButton = false,
-  onCloseClick
+  onCloseClick,
 }) => {
   const helperColor = variant === 'warning' ? 'helper-warning' : 'helper-info'
   return (

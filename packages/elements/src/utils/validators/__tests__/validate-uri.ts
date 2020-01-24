@@ -13,17 +13,17 @@ describe('validate-require', () => {
     it('work correctly', () => {
       const values = {
         validURI: 'http://website.com',
-        invalidURI: 'invalid.net'
+        invalidURI: 'invalid.net',
       }
 
       expect(
         validateURI<ValueTypes, ErrorKeys>({
           values,
           currentErrors: {},
-          keys: ['invalidURI', 'validURI']
-        })
+          keys: ['invalidURI', 'validURI'],
+        }),
       ).toStrictEqual({
-        invalidURI: errorMessages.FIELD_WRONG_URI_FORMAT
+        invalidURI: errorMessages.FIELD_WRONG_URI_FORMAT,
       })
     })
   })
@@ -48,10 +48,10 @@ describe('validate-require', () => {
         values: 'mockValue',
         keys: ['mockKey'],
         length: 1,
-        currentErrors: { mockKey: 'mockCurrentError' }
+        currentErrors: { mockKey: 'mockCurrentError' },
       }
       const output = {
-        mockKey: 'mockCurrentError'
+        mockKey: 'mockCurrentError',
       }
       const result = validateURI(input)
       expect(result).toEqual(output)
@@ -62,7 +62,7 @@ describe('validate-require', () => {
         values: 'mockValue',
         keys: [],
         length: 1,
-        currentErrors: {}
+        currentErrors: {},
       }
       const output = {}
       const result = validateURI(input)

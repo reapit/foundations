@@ -6,9 +6,8 @@ import {
   unparseDataToCsvString,
   convertToCompatibleData,
   convertDataToCsv,
-  hideContextMenu
+  hideContextMenu,
 } from '../utils'
-import { Cell } from '../types'
 import fs from 'fs'
 import path from 'path'
 
@@ -73,7 +72,7 @@ describe('hideContextMenu', () => {
     expect(hideContextMenu(mockState)).toEqual({
       visible: false,
       top: 0,
-      left: 0
+      left: 0,
     })
   })
 })
@@ -83,7 +82,7 @@ describe('hideContextMenu', () => {
     expect(hideContextMenu(mockState)).toEqual({
       visible: false,
       top: 0,
-      left: 0
+      left: 0,
     })
   })
 })

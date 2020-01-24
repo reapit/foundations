@@ -20,7 +20,7 @@ describe('Menu', () => {
         {item.title && <div className="nav-item-title">{item.title}</div>}
       </>
     )
-    const wrapper = shallow(<LinkItem item={item} children={children} />)
+    const wrapper = shallow(<LinkItem item={item}>{children}</LinkItem>)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
@@ -32,7 +32,7 @@ describe('Menu', () => {
         {item.title && <div className="nav-item-title">{item.title}</div>}
       </>
     )
-    const wrapper = shallow(<LinkItem item={item} children={children} />)
+    const wrapper = shallow(<LinkItem item={item}>{children}</LinkItem>)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
@@ -44,14 +44,14 @@ describe('Menu', () => {
         {item.title && <div className="nav-item-title">{item.title}</div>}
       </>
     )
-    const wrapper = shallow(<LinkItem item={item} children={children} />)
+    const wrapper = shallow(<LinkItem item={item}>{children}</LinkItem>)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 
   describe('getActiveItemKey', () => {
     it('should return url if matches an item', () => {
       const result = getActiveItemKey(mockMenuProps.menu, {
-        pathname: mockMenuProps.menu[1].url
+        pathname: mockMenuProps.menu[1].url,
       } as Location<any>)
       expect(result).toEqual(mockMenuProps.menu[1].key)
     })
@@ -61,7 +61,7 @@ describe('Menu', () => {
     })
     it('should return null if location does not match an item', () => {
       const result = getActiveItemKey(mockMenuProps.menu, {
-        pathname: '/some-random-path'
+        pathname: '/some-random-path',
       } as Location<any>)
       expect(result).toBeNull()
     })
@@ -95,7 +95,7 @@ describe('Menu', () => {
           .find('.is-active')
           .at(0)
           .childAt(1)
-          .text()
+          .text(),
       ).toEqual(currentSelectedItem.title)
 
       wrapper.setProps({ location: { pathname: newSelectedItem.url } })
@@ -106,7 +106,7 @@ describe('Menu', () => {
           .find('.is-active')
           .at(0)
           .childAt(1)
-          .text()
+          .text(),
       ).toEqual(newSelectedItem.title)
     })
 
@@ -133,7 +133,7 @@ describe('Menu', () => {
           .find('.is-active')
           .at(0)
           .childAt(1)
-          .text()
+          .text(),
       ).toEqual(currentSelectedItem.title)
 
       wrapper.setProps({ location: { pathname: '/docs/2' } })
@@ -144,7 +144,7 @@ describe('Menu', () => {
           .find('.is-active')
           .at(0)
           .childAt(1)
-          .text()
+          .text(),
       ).toEqual(newSelectedItem.title)
     })
   })

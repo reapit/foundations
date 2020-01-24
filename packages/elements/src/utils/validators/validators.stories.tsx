@@ -11,7 +11,7 @@ import {
   validateRequire,
   validateURI,
   validateEmail,
-  validatePassword
+  validatePassword,
 } from './index'
 
 const validate = values => {

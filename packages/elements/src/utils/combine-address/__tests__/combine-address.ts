@@ -13,8 +13,8 @@ describe('combineAddress', () => {
       country: '',
       geolocation: {
         latitude: 52.1284,
-        longitude: -0.507145
-      }
+        longitude: -0.507145,
+      },
     }
     const result = combineAddress(address)
     const expected = '65 Lindsey Close Great Denham Bedford Bedfordshire MK40 4GT'

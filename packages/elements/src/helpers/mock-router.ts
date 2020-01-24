@@ -8,7 +8,7 @@ export function getMockRouterProps<P>(data: P | {}) {
     key: 'mockKey',
     pathname: 'mockPathname',
     search: 'mockSearch',
-    state: {}
+    state: {},
   }
 
   const props: RouteComponentProps<P | {}> = {
@@ -16,7 +16,7 @@ export function getMockRouterProps<P>(data: P | {}) {
       isExact: true,
       params: data,
       path: '/mockPathname',
-      url: '/mockPathname'
+      url: '/mockPathname',
     },
     location: location,
     history: {
@@ -41,9 +41,9 @@ export function getMockRouterProps<P>(data: P | {}) {
         // tslint:disable-next-line:no-empty
         const temp: UnregisterCallback = () => {}
         return temp
-      }
+      },
     },
-    staticContext: {}
+    staticContext: {},
   }
 
   return props

@@ -75,8 +75,8 @@ export const CustomInput = ({
     if (parsedTransformedTextFieldValue.isValid()) {
       onChange({
         target: {
-          value: parsedTransformedTextFieldValue
-        }
+          value: parsedTransformedTextFieldValue,
+        },
       })
     }
 

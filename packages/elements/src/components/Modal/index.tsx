@@ -57,7 +57,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   renderChildren,
   className = '',
   HeaderComponent,
-  tapOutsideToDissmiss = true
+  tapOutsideToDissmiss = true,
 }) => {
   // CLD-250: https://reapit.atlassian.net/secure/RapidBoard.jspa?rapidView=200&view=planning&selectedIssue=CLD-250
   // we can't access the showPortal in the component passed to usePortal
@@ -101,7 +101,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
         </div>
       </div>
     ),
-    deps || [children]
+    deps || [children],
   )
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json'
 
 const props = (body: boolean): LoaderProps => ({
   body,
-  dataTest: 'some-selector'
+  dataTest: 'some-selector',
 })
 
 describe('Loader', () => {

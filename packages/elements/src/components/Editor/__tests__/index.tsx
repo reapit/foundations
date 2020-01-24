@@ -12,7 +12,7 @@ const defaultProps = {
   actionbarClass: 'pell-actionbar',
   buttonClass: 'pell-button',
   contentClass: 'pell-content',
-  actions: undefined
+  actions: undefined,
 } as EditorProps
 
 describe('Editor', () => {

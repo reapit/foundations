@@ -48,3 +48,10 @@ dist-cdn/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+.rts2_cache*
+storybook-static
+elements/public
+out*
+package-lock.json
+.env

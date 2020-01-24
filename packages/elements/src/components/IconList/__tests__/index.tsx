@@ -14,9 +14,9 @@ describe('IconList', () => {
             textClassName="text-class-name"
             listClassName="list-class-name"
             iconClassName="icon-class-name"
-          />
-        )
-      )
+          />,
+        ),
+      ),
     ).toMatchSnapshot()
   })
 

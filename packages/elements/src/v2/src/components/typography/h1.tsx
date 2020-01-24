@@ -9,9 +9,9 @@ export const H1 = styled.h1`
 H1.defaultProps = {
   theme: {
     h1: {
-      color: TYPOGRAPHY_TITLE_FONT_COLOR
-    }
-  }
+      color: TYPOGRAPHY_TITLE_FONT_COLOR,
+    },
+  },
 }
 
 export default H1

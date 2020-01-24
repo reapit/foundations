@@ -6,16 +6,16 @@ import { IconList } from './index'
 export const items = [
   {
     icon: <FaClock className="icon-list-icon" />,
-    text: '11:00 AM - 12:00 PM'
+    text: '11:00 AM - 12:00 PM',
   },
   {
     icon: <FaStreetView className="icon-list-icon" />,
-    text: 'Viewing'
+    text: 'Viewing',
   },
   {
     icon: <FaStickyNote className="icon-list-icon" />,
-    text: 'Info about the viewing'
-  }
+    text: 'Info about the viewing',
+  },
 ]
 
 storiesOf('IconList', module).add('Primary', () => {

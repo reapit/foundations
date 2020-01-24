@@ -2,7 +2,7 @@ import {
   minLengthValidator,
   maxLengthValidator,
   validateMinCharacterLength,
-  validateMaxCharacterLength
+  validateMaxCharacterLength,
 } from '../validate-character-length'
 import errorMessages from '../error-messages'
 
@@ -18,7 +18,7 @@ describe('validate-character-length', () => {
     it('validateMinCharacterLength should work correctly', () => {
       const values = {
         validInput: 'lorem ipsum',
-        invalidInput: 'sorem'
+        invalidInput: 'sorem',
       }
 
       expect(
@@ -26,17 +26,17 @@ describe('validate-character-length', () => {
           values,
           currentErrors: {},
           keys: ['validInput', 'invalidInput'],
-          length: 6
-        })
+          length: 6,
+        }),
       ).toEqual({
-        invalidInput: errorMessages.MINIMUM_CHARACTER_LENGTH(6)
+        invalidInput: errorMessages.MINIMUM_CHARACTER_LENGTH(6),
       })
     })
 
     it('validateMaxCharacterLength should work correctly', () => {
       const values = {
         validInput: 'sorem',
-        invalidInput: 'lorem ipsum'
+        invalidInput: 'lorem ipsum',
       }
 
       expect(
@@ -44,10 +44,10 @@ describe('validate-character-length', () => {
           values,
           currentErrors: {},
           keys: ['validInput', 'invalidInput'],
-          length: 5
-        })
+          length: 5,
+        }),
       ).toEqual({
-        invalidInput: errorMessages.MAXIMUM_CHARACTER_LENGTH(5)
+        invalidInput: errorMessages.MAXIMUM_CHARACTER_LENGTH(5),
       })
     })
   })
@@ -94,10 +94,10 @@ describe('validate-character-length', () => {
         values: 'mockValue',
         keys: ['mockKey'],
         length: 1,
-        currentErrors: { mockKey: 'mockCurrentError' }
+        currentErrors: { mockKey: 'mockCurrentError' },
       }
       const output = {
-        mockKey: 'mockCurrentError'
+        mockKey: 'mockCurrentError',
       }
       const result = validateMinCharacterLength(input)
       expect(result).toEqual(output)
@@ -108,7 +108,7 @@ describe('validate-character-length', () => {
         values: 'mockValue',
         keys: [],
         length: 1,
-        currentErrors: {}
+        currentErrors: {},
       }
       const output = {}
       const result = validateMinCharacterLength(input)
@@ -122,10 +122,10 @@ describe('validate-character-length', () => {
         values: 'mockValue',
         keys: ['mockKey'],
         length: 1,
-        currentErrors: { mockKey: 'mockCurrentError' }
+        currentErrors: { mockKey: 'mockCurrentError' },
       }
       const output = {
-        mockKey: 'mockCurrentError'
+        mockKey: 'mockCurrentError',
       }
       const result = validateMaxCharacterLength(input)
       expect(result).toEqual(output)
@@ -136,10 +136,10 @@ describe('validate-character-length', () => {
         values: 'mockValue',
         keys: ['mockKey'],
         length: 1,
-        currentErrors: { mockKey: 'mockCurrentError' }
+        currentErrors: { mockKey: 'mockCurrentError' },
       }
       const output = {
-        mockKey: 'mockCurrentError'
+        mockKey: 'mockCurrentError',
       }
       const result = validateMaxCharacterLength(input)
       expect(result).toEqual(output)

@@ -9,7 +9,7 @@ import {
   handleClickUpload,
   handleOnChangeInput,
   handleDownload,
-  handleContextMenu
+  handleContextMenu,
 } from './handlers'
 import { Button } from '../Button'
 import { ContextMenu } from './context-menu'
@@ -62,7 +62,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   hasUploadButton = true,
   hasDownloadButton = true,
   hasAddButton = true,
-  validateUpload
+  validateUpload,
 }) => {
   const [selected, setSelected] = React.useState<SelectedMatrix | null>(null)
 
@@ -71,7 +71,7 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   const [contextMenuProp, setContextMenuProp] = React.useState<ContextMenuProp>({
     visible: false,
     top: 0,
-    left: 0
+    left: 0,
   })
 
   const cellRenderer = React.useCallback(customCellRenderer(data, setData, setSelected), [data])

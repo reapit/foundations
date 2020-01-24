@@ -7,7 +7,7 @@ describe('NumberedTimeline', () => {
     const mockProps = {
       total: 5,
       currentIndex: 3,
-      onSelect: jest.fn()
+      onSelect: jest.fn(),
     }
     expect(shallow(<VerticalTimeline {...mockProps} />)).toMatchSnapshot()
   })
@@ -17,20 +17,22 @@ describe('NumberedTimeline', () => {
       activeRef: {
         current: {
           offsetHeight: 10,
-          offsetTop: 20
-        }
+          offsetTop: 20,
+        },
       } as React.RefObject<HTMLLIElement>,
       circleRef: {
         current: {
-          offsetHeight: 15
-        }
-      } as React.RefObject<HTMLDivElement>
+          offsetHeight: 15,
+        },
+      } as React.RefObject<HTMLDivElement>,
     }
 
     const { activeRef, circleRef } = mockProps
 
     if (activeRef.current && circleRef.current) {
-      const gap = (circleRef.current.offsetHeight - (activeRef.current.offsetHeight - LI_MARGIN * 2)) / 2
+      const offset = activeRef.current.offsetHeight - LI_MARGIN
+      const offsetDoubled = offset * 2
+      const gap = (circleRef.current.offsetHeight - offsetDoubled) / 2
       expect(caculateCircleRef(mockProps)).toEqual(activeRef.current.offsetTop + LI_MARGIN - gap)
     }
   })
@@ -40,9 +42,9 @@ describe('NumberedTimeline', () => {
       activeRef: {
         current: {
           nextElementSibling: null,
-          offsetTop: 20
-        }
-      } as React.RefObject<HTMLLIElement>
+          offsetTop: 20,
+        },
+      } as React.RefObject<HTMLLIElement>,
     }
 
     const { activeRef } = mockProps
@@ -56,16 +58,17 @@ describe('NumberedTimeline', () => {
     const mockProps = {
       activeRef: {
         current: {
-          nextElementSibling: <li>Test</li> as any,
-          offsetTop: 20
-        }
-      } as React.RefObject<HTMLLIElement>
+          nextElementSibling: (<li>Test</li>) as any,
+          offsetTop: 20,
+        },
+      } as React.RefObject<HTMLLIElement>,
     }
 
     const { activeRef } = mockProps
 
     if (activeRef.current) {
-      expect(caculateLineRef(mockProps)).toEqual(activeRef.current.offsetTop + LI_MARGIN * 2)
+      const offset = activeRef.current.offsetTop + LI_MARGIN
+      expect(caculateLineRef(mockProps)).toEqual(offset * 2)
     }
   })
 
@@ -74,24 +77,24 @@ describe('NumberedTimeline', () => {
       activeRef: {
         current: {
           offsetHeight: 10,
-          offsetTop: 20
-        }
+          offsetTop: 20,
+        },
       } as React.RefObject<HTMLLIElement>,
       circleRef: {
         current: {
           offsetHeight: 15,
           style: {
-            transform: ''
-          }
-        }
+            transform: '',
+          },
+        },
       } as React.RefObject<HTMLDivElement>,
       lineRef: {
         current: {
           style: {
-            height: ''
-          }
-        }
-      } as React.RefObject<HTMLDivElement>
+            height: '',
+          },
+        },
+      } as React.RefObject<HTMLDivElement>,
     }
 
     const { activeRef, circleRef, lineRef } = mockProps

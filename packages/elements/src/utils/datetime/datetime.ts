@@ -6,7 +6,7 @@ dayjs.extend(utc)
 export const DATE_TIME_FORMAT = {
   RFC3339: 'YYYY-MM-DDTHH:mm:ssZ',
   DATE_FORMAT: 'DD MMM YYYY',
-  DATE_TIME_FORMAT: 'DD MMM YYYY HH:mm'
+  DATE_TIME_FORMAT: 'DD MMM YYYY HH:mm',
 }
 
 export function getTime(date: dayjs.ConfigType, is24HourTime: boolean = false) {
@@ -57,7 +57,7 @@ export function toUTCTime(value: dayjs.ConfigType, format: string | undefined = 
 
 export function toLocalTime(
   value: dayjs.ConfigType,
-  format: string | undefined = DATE_TIME_FORMAT.DATE_TIME_FORMAT
+  format: string | undefined = DATE_TIME_FORMAT.DATE_TIME_FORMAT,
 ): string {
   const date = dayjs(value)
   return date.local().format(format)

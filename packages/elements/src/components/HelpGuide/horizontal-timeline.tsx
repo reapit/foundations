@@ -3,7 +3,7 @@ import { generateNumbers } from './utils'
 
 export const caculateCircleRef = ({
   activeRef,
-  circleRef
+  circleRef,
 }: {
   activeRef: React.RefObject<HTMLLIElement>
   circleRef: React.RefObject<HTMLDivElement>
@@ -23,9 +23,8 @@ export const caculateLineRef = ({ activeRef }: { activeRef: React.RefObject<HTML
   if (activeRef.current) {
     const widthActiveItem = parseInt(window.getComputedStyle(activeRef.current, ':before').width, 10)
     const marginBetween = parseInt(window.getComputedStyle(activeRef.current, ':before').marginRight, 10)
-    return activeRef.current.nextElementSibling
-      ? activeRef.current.offsetLeft + widthActiveItem + marginBetween / 2
-      : activeRef.current.offsetLeft + widthActiveItem
+    const nextSibling = activeRef.current.offsetLeft + widthActiveItem + marginBetween
+    return activeRef.current.nextElementSibling ? nextSibling / 2 : activeRef.current.offsetLeft + widthActiveItem
   }
 }
 
@@ -33,7 +32,7 @@ export const caculateLineRef = ({ activeRef }: { activeRef: React.RefObject<HTML
 export const calculateElement = ({
   circleRef,
   activeRef,
-  lineRef
+  lineRef,
 }: {
   activeRef: React.RefObject<HTMLLIElement>
   circleRef: React.RefObject<HTMLDivElement>

@@ -5,14 +5,14 @@ import errorMessages from './error-messages'
 export const validateRequire = <ValuesType, ErrorKeys extends string>({
   values,
   currentErrors,
-  keys
+  keys,
 }: ValidateCustomParams<ValuesType, ErrorKeys>): PartialRecord<ErrorKeys, string> => {
   return validateBase<ValuesType, ErrorKeys>({
     values,
     keys,
     validator: str => str !== '',
     errMessage: errorMessages.FIELD_REQUIRED,
-    currentErrors
+    currentErrors,
   })
 }
 

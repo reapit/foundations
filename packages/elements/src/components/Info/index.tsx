@@ -21,9 +21,15 @@ export const infoText = (infoType: InfoType) => {
     case 'CLIENT_APPS_EMPTY':
       return 'We are sorry, there are no apps listed compatible with your account'
     case 'INSTALLED_APPS_EMPTY':
-      return 'It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu.'
+      return (
+        'It looks like you haven’t installed any Apps yet. Have a look at what’s available by ' +
+        'clicking ‘Browse’ from the menu.'
+      )
     case 'DEVELOPER_APPS_EMPTY':
-      return 'It looks like you haven’t submitted an App yet . When you’re ready, click on ‘Submit’ from the menu to get started.'
+      return (
+        'It looks like you haven’t submitted an App yet . When you’re ready, click on ‘Submit’ ' +
+        'from the menu to get started.'
+      )
     case 'ADMIN_APPROVALS_EMPTY':
       return 'There are no updates that require approval'
     case 'DEVELOPER_EMPTY':

@@ -15,7 +15,7 @@ export const parseResult = {
       'Post Code',
       'Telephone',
       'Fax',
-      'Email'
+      'Email',
     ],
     ['London', 'The White House', '15', 'London 1', '', 'Londom 3', '', 'EC12NH', '0845 0000', '', 'row1@gmail.com'],
     [
@@ -29,12 +29,12 @@ export const parseResult = {
       'EC12NH',
       '087 471 929',
       '',
-      'row2@gmail.com'
+      'row2@gmail.com',
     ],
-    ['New York', 'Building A', '11', '', '', 'City Z', '', 'AL7187', '017 7162 9121', '', 'row3@gmail.com']
+    ['New York', 'Building A', '11', '', '', 'City Z', '', 'AL7187', '017 7162 9121', '', 'row3@gmail.com'],
   ],
   errors: [],
-  meta: { delimiter: ',', linebreak: '\r\n', aborted: false, truncated: false, cursor: 345 }
+  meta: { delimiter: ',', linebreak: '\r\n', aborted: false, truncated: false, cursor: 345 },
 }
 
 export const data: Cell[][] = [
@@ -49,7 +49,7 @@ export const data: Cell[][] = [
     { value: 'Post Code' },
     { value: 'Telephone' },
     { value: 'Fax' },
-    { value: 'Email' }
+    { value: 'Email' },
   ],
   [
     { value: 'London' },
@@ -62,7 +62,7 @@ export const data: Cell[][] = [
     { value: 'EC12NH' },
     { value: '0845 0000' },
     { value: '' },
-    { value: 'row1@gmail.com' }
+    { value: 'row1@gmail.com' },
   ],
   [
     { value: 'London2' },
@@ -75,7 +75,7 @@ export const data: Cell[][] = [
     { value: 'EC12NH' },
     { value: '087 471 929' },
     { value: '' },
-    { value: 'row2@gmail.com' }
+    { value: 'row2@gmail.com' },
   ],
   [
     { value: 'New York' },
@@ -88,8 +88,8 @@ export const data: Cell[][] = [
     { value: 'AL7187' },
     { value: '017 7162 9121' },
     { value: '' },
-    { value: 'row3@gmail.com' }
-  ]
+    { value: 'row3@gmail.com' },
+  ],
 ]
 
 export const cellRenderProps: ReactDataSheet.CellRendererProps<Cell> = {
@@ -106,7 +106,7 @@ export const cellRenderProps: ReactDataSheet.CellRendererProps<Cell> = {
   onMouseOver: jest.fn(),
   onDoubleClick: jest.fn(),
   onContextMenu: jest.fn(),
-  children: <div>hi</div>
+  children: <div>hi</div>,
 }
 
 export const setData: SetData = jest.fn()
@@ -116,5 +116,5 @@ export const setContextMenuProp: SetContextMenuProp = jest.fn()
 
 export const selectedMatrix = {
   start: { i: 0, j: 1 },
-  end: { i: 2, j: 3 }
+  end: { i: 2, j: 3 },
 }

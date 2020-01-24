@@ -1,5 +1,4 @@
 import * as React from 'react'
-import ReactDataSheet from 'react-datasheet'
 import { shallow } from 'enzyme'
 import {
   ContextMenu,
@@ -7,7 +6,7 @@ import {
   clearRowSetData,
   clearColSetData,
   removeRowSetData,
-  removeColSetData
+  removeColSetData,
 } from '../context-menu'
 import { selectedMatrix, setData, setContextMenuProp, data } from '../__stubs__'
 
@@ -20,8 +19,8 @@ describe('ContextMenu', () => {
           setData={setData}
           setContextMenuProp={setContextMenuProp}
           contextMenuProp={{ visible: true, top: 0, left: 0 }}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -33,8 +32,8 @@ describe('ContextMenu', () => {
           setData={setData}
           setContextMenuProp={setContextMenuProp}
           contextMenuProp={{ visible: false, top: 0, left: 0 }}
-        />
-      )
+        />,
+      ),
     ).toMatchSnapshot()
   })
 })
@@ -43,8 +42,8 @@ describe('handleContextClick', () => {
   const eventBase = {
     stopPropagation: jest.fn(),
     target: {
-      id: ''
-    }
+      id: '',
+    },
   }
   const fn = handleContextClick(selectedMatrix, setData, setContextMenuProp)
 
@@ -56,8 +55,8 @@ describe('handleContextClick', () => {
     const mockEvent = {
       ...eventBase,
       target: {
-        id: 'clear-row'
-      }
+        id: 'clear-row',
+      },
     }
     const result = fn(mockEvent)
     expect(result).toBe('clear-row')
@@ -67,8 +66,8 @@ describe('handleContextClick', () => {
     const mockEvent = {
       ...eventBase,
       target: {
-        id: 'clear-col'
-      }
+        id: 'clear-col',
+      },
     }
     const result = fn(mockEvent)
     expect(result).toBe('clear-col')
@@ -78,8 +77,8 @@ describe('handleContextClick', () => {
     const mockEvent = {
       ...eventBase,
       target: {
-        id: 'remove-row'
-      }
+        id: 'remove-row',
+      },
     }
     const result = fn(mockEvent)
     expect(result).toBe('remove-row')
@@ -88,8 +87,8 @@ describe('handleContextClick', () => {
     const mockEvent = {
       ...eventBase,
       target: {
-        id: 'remove-col'
-      }
+        id: 'remove-col',
+      },
     }
     const result = fn(mockEvent)
     expect(result).toBe('remove-col')
@@ -99,8 +98,8 @@ describe('handleContextClick', () => {
     const mockEvent = {
       ...eventBase,
       target: {
-        id: ''
-      }
+        id: '',
+      },
     }
     const result = fn(mockEvent)
     expect(result).toBe('')
@@ -122,7 +121,7 @@ describe('clearRowSetData', () => {
         { value: 'Post Code' },
         { value: 'Telephone' },
         { value: 'Fax' },
-        { value: 'Email' }
+        { value: 'Email' },
       ],
       [
         { value: '' },
@@ -135,7 +134,7 @@ describe('clearRowSetData', () => {
         { value: '' },
         { value: '' },
         { value: '' },
-        { value: '' }
+        { value: '' },
       ],
       [
         { value: 'London2' },
@@ -148,7 +147,7 @@ describe('clearRowSetData', () => {
         { value: 'EC12NH' },
         { value: '087 471 929' },
         { value: '' },
-        { value: 'row2@gmail.com' }
+        { value: 'row2@gmail.com' },
       ],
       [
         { value: 'New York' },
@@ -161,8 +160,8 @@ describe('clearRowSetData', () => {
         { value: 'AL7187' },
         { value: '017 7162 9121' },
         { value: '' },
-        { value: 'row3@gmail.com' }
-      ]
+        { value: 'row3@gmail.com' },
+      ],
     ]
     const fn = clearRowSetData(currentRowIndex)
     const result = fn(data)
@@ -185,7 +184,7 @@ describe('clearColSetData', () => {
         { value: 'Post Code' },
         { value: 'Telephone' },
         { value: 'Fax' },
-        { value: 'Email' }
+        { value: 'Email' },
       ],
       [
         { value: 'London' },
@@ -198,7 +197,7 @@ describe('clearColSetData', () => {
         { value: 'EC12NH' },
         { value: '0845 0000' },
         { value: '' },
-        { value: 'row1@gmail.com' }
+        { value: 'row1@gmail.com' },
       ],
       [
         { value: 'London2' },
@@ -211,7 +210,7 @@ describe('clearColSetData', () => {
         { value: 'EC12NH' },
         { value: '087 471 929' },
         { value: '' },
-        { value: 'row2@gmail.com' }
+        { value: 'row2@gmail.com' },
       ],
       [
         { value: 'New York' },
@@ -224,8 +223,8 @@ describe('clearColSetData', () => {
         { value: 'AL7187' },
         { value: '017 7162 9121' },
         { value: '' },
-        { value: 'row3@gmail.com' }
-      ]
+        { value: 'row3@gmail.com' },
+      ],
     ]
     const fn = clearColSetData(currentColIndex)
     const result = fn(data)
@@ -248,7 +247,7 @@ describe('removeRowSetData', () => {
         { value: 'Post Code' },
         { value: 'Telephone' },
         { value: 'Fax' },
-        { value: 'Email' }
+        { value: 'Email' },
       ],
       [
         { value: 'London2' },
@@ -261,7 +260,7 @@ describe('removeRowSetData', () => {
         { value: 'EC12NH' },
         { value: '087 471 929' },
         { value: '' },
-        { value: 'row2@gmail.com' }
+        { value: 'row2@gmail.com' },
       ],
       [
         { value: 'New York' },
@@ -274,8 +273,8 @@ describe('removeRowSetData', () => {
         { value: 'AL7187' },
         { value: '017 7162 9121' },
         { value: '' },
-        { value: 'row3@gmail.com' }
-      ]
+        { value: 'row3@gmail.com' },
+      ],
     ]
     const fn = removeRowSetData(currentRowIndex)
     const result = fn(data)
@@ -297,7 +296,7 @@ describe('removeColSetData', () => {
         { value: 'Post Code' },
         { value: 'Telephone' },
         { value: 'Fax' },
-        { value: 'Email' }
+        { value: 'Email' },
       ],
       [
         { value: 'London' },
@@ -309,7 +308,7 @@ describe('removeColSetData', () => {
         { value: 'EC12NH' },
         { value: '0845 0000' },
         { value: '' },
-        { value: 'row1@gmail.com' }
+        { value: 'row1@gmail.com' },
       ],
       [
         { value: 'London2' },
@@ -321,7 +320,7 @@ describe('removeColSetData', () => {
         { value: 'EC12NH' },
         { value: '087 471 929' },
         { value: '' },
-        { value: 'row2@gmail.com' }
+        { value: 'row2@gmail.com' },
       ],
       [
         { value: 'New York' },
@@ -333,8 +332,8 @@ describe('removeColSetData', () => {
         { value: 'AL7187' },
         { value: '017 7162 9121' },
         { value: '' },
-        { value: 'row3@gmail.com' }
-      ]
+        { value: 'row3@gmail.com' },
+      ],
     ]
     const fn = removeColSetData(currentColIndex)
     const result = fn(data)

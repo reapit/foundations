@@ -8,14 +8,14 @@ const tabConfigs = ({ tab, handleChangeTab }: any): TabConfig[] => [
     tabIdentifier: 'ITEMONE',
     displayText: 'Item one',
     onTabClick: handleChangeTab,
-    active: tab === 'ITEMONE'
+    active: tab === 'ITEMONE',
   },
   {
     tabIdentifier: 'ITEMTWO',
     displayText: 'Item two',
     onTabClick: handleChangeTab,
-    active: tab === 'ITEMTWO'
-  }
+    active: tab === 'ITEMTWO',
+  },
 ]
 
 storiesOf('Tabs', module).add('Primary', () => {

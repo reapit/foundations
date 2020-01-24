@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { HTMLRender } from '../'
-import { H4, H5 } from '../../Typography'
+import { H4 } from '../../Typography'
 import { htmlElements } from '../__stubs__/html'
 import { Element, rendererModule } from '../utils'
 
@@ -125,14 +125,14 @@ describe('getAttributes', () => {
     const attributes = {
       style: 'width: 100px',
       id: 'my-id',
-      src: 'some-src'
+      src: 'some-src',
     }
     const index = 0
     const expected = {
       id: 'my-id',
       src: 'some-src',
       key: index,
-      style: {}
+      style: {},
     }
     const result = rendererModule.getAttributes({ attributes } as Element, index)
     expect(result).toEqual(expected)
@@ -141,7 +141,7 @@ describe('getAttributes', () => {
     const index = 0
     const expected = {
       key: index,
-      style: {}
+      style: {},
     }
     const result = rendererModule.getAttributes({} as Element, index)
     expect(result).toEqual(expected)
@@ -155,57 +155,57 @@ describe('sortTags', () => {
   const coreProps = {
     type: 'element',
     attributes: {
-      id
+      id,
     },
     children: [
       {
         type: 'text',
-        content: text
-      }
-    ]
+        content: text,
+      },
+    ],
   } as Partial<Element>
   const cases = [
     {
-      tag: 'p'
+      tag: 'p',
     },
     {
-      tag: 'a'
+      tag: 'a',
     },
     {
-      tag: 'b'
+      tag: 'b',
     },
     {
-      tag: 'u'
+      tag: 'u',
     },
     {
-      tag: 'ul'
+      tag: 'ul',
     },
     {
-      tag: 'ol'
+      tag: 'ol',
     },
     {
-      tag: 'li'
+      tag: 'li',
     },
     {
       tag: 'h1',
-      actualTag: 'h4'
+      actualTag: 'h4',
     },
     {
       tag: 'h2',
-      actualTag: 'h5'
+      actualTag: 'h5',
     },
     {
-      tag: 'i'
+      tag: 'i',
     },
     {
-      tag: 'blockquote'
+      tag: 'blockquote',
     },
     {
-      tag: 'pre'
+      tag: 'pre',
     },
     {
-      tag: 'hr'
-    }
+      tag: 'hr',
+    },
   ]
 
   cases.forEach((node: any) => {
@@ -225,9 +225,9 @@ describe('should not render empty tags', () => {
     const coreProps = {
       tag: 'p',
       attributes: {
-        id
+        id,
       },
-      children: []
+      children: [],
     } as Partial<Element>
     const styledComponent = rendererModule.sortTags({ ...coreProps } as Element, 0, false)
     expect(styledComponent).toBe(null)
@@ -237,8 +237,8 @@ describe('should not render empty tags', () => {
     const coreProps = {
       tag: 'p',
       attributes: {
-        id
-      }
+        id,
+      },
     } as Partial<Element>
     const styledComponent = rendererModule.sortTags({ ...coreProps } as Element, 0, false)
     expect(styledComponent).toBe(null)

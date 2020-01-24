@@ -7,7 +7,10 @@ import { action } from '@storybook/addon-actions'
 
 storiesOf('SelectBox', module)
   .add('Primary', () => {
-    const mockedOptions: SelectBoxOptions[] = [{ label: 'option1', value: 'a' }, { label: 'option2', value: 'b' }]
+    const mockedOptions: SelectBoxOptions[] = [
+      { label: 'option1', value: 'a' },
+      { label: 'option2', value: 'b' },
+    ]
 
     return (
       <section className="section">
@@ -30,7 +33,10 @@ storiesOf('SelectBox', module)
   })
   .add('Required', () => {
     const Parent = () => {
-      const mockedOptions: SelectBoxOptions[] = [{ label: 'option1', value: 'a' }, { label: 'option2', value: 'b' }]
+      const mockedOptions: SelectBoxOptions[] = [
+        { label: 'option1', value: 'a' },
+        { label: 'option2', value: 'b' },
+      ]
       return (
         <section className="section">
           <Formik

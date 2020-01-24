@@ -12,7 +12,7 @@ import {
   renderMap,
   handleUseEffect,
   clearMap,
-  Map
+  Map,
 } from '../index'
 
 describe('Map', () => {
@@ -35,36 +35,36 @@ describe('Map', () => {
   const mockError = new Error('some error')
   const currentLocationLatLng = {
     lat: 0,
-    lng: 0
+    lng: 0,
   }
   beforeEach(() => {
     mockCoordinates = [
       {
-        position: { lat: 0, lng: 0 }
+        position: { lat: 0, lng: 0 },
       },
-      { position: { lat: 1, lng: 1 } }
+      { position: { lat: 1, lng: 1 } },
     ]
     mockPosition = {
       coords: {
         latitude: 0,
-        longitude: 0
-      }
+        longitude: 0,
+      },
     }
     mockMap = new mockGoogleMaps.Map()
     mockDirectionsService = new mockGoogleMaps.DirectionsService()
     mockDirectionsRenderer = new mockGoogleMaps.DirectionsRenderer()
     mockDestinationPoint = {
-      position: { lat: 0, lng: 0 }
+      position: { lat: 0, lng: 0 },
     }
     mockCurrentLocation = new mockGoogleMaps.LatLng(currentLocationLatLng.lat, currentLocationLatLng.lng)
     mockBounds = new mockGoogleMaps.LatLngBounds()
     mockMarker = new mockGoogleMaps.Marker({
       position: {
         lat: 0,
-        lng: 0
+        lng: 0,
       },
       label: 'mock marker',
-      map: mockMap
+      map: mockMap,
     })
     mockMarkers = [mockMarker]
   })
@@ -74,7 +74,7 @@ describe('Map', () => {
         coordinates: mockCoordinates,
         googleMaps: mockGoogleMaps,
         map: mockMap,
-        markerCallBack
+        markerCallBack,
       })
       expect(result).toHaveLength(2)
     })
@@ -93,7 +93,7 @@ describe('Map', () => {
         currentLocation: mockCurrentLocation,
         onLoadedDirection: mockOnLoadedDirection,
         directionsRenderer: mockDirectionsRenderer,
-        destinationAddress: ''
+        destinationAddress: '',
       })
       const mockResponse = {}
       const mockStatus = 'OK'
@@ -108,7 +108,7 @@ describe('Map', () => {
         currentLocation: mockCurrentLocation,
         onLoadedDirection: mockOnLoadedDirection,
         directionsRenderer: mockDirectionsRenderer,
-        destinationAddress: ''
+        destinationAddress: '',
       })
       const mockResponse = {}
       const mockStatus = 'ERROR'
@@ -129,7 +129,7 @@ describe('Map', () => {
         travelMode,
         onLoadedDirection: mockOnLoadedDirection,
         currentLocation: mockCurrentLocation,
-        destinationAddress: ''
+        destinationAddress: '',
       })
       expect(mockDirectionsRenderer.setMap).toBeCalled()
       expect(mockDirectionsService.route).toBeCalled()
@@ -144,7 +144,7 @@ describe('Map', () => {
         zoom: undefined,
         map: mockMap,
         markers: mockMarkers,
-        googleMaps: mockGoogleMaps
+        googleMaps: mockGoogleMaps,
       })
       expect(mockMap.fitBounds).toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).toBeCalledWith(mockBounds.getCenter())
@@ -157,7 +157,7 @@ describe('Map', () => {
         zoom: 10,
         map: mockMap,
         markers: mockMarkers,
-        googleMaps: mockGoogleMaps
+        googleMaps: mockGoogleMaps,
       })
       expect(mockMap.fitBounds).not.toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
@@ -170,7 +170,7 @@ describe('Map', () => {
         zoom: 10,
         map: mockMap,
         markers: mockMarkers,
-        googleMaps: mockGoogleMaps
+        googleMaps: mockGoogleMaps,
       })
       expect(mockMap.fitBounds).not.toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).toBeCalledWith(mockBounds.getCenter())
@@ -183,7 +183,7 @@ describe('Map', () => {
         zoom: undefined,
         map: mockMap,
         markers: mockMarkers,
-        googleMaps: mockGoogleMaps
+        googleMaps: mockGoogleMaps,
       })
       expect(mockMap.fitBounds).toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
@@ -196,7 +196,7 @@ describe('Map', () => {
         zoom: undefined,
         map: mockMap,
         markers: [],
-        googleMaps: mockGoogleMaps
+        googleMaps: mockGoogleMaps,
       })
       expect(mockMap.setZoom).toBeCalledWith(10)
       expect(mockMap.setCenter).toBeCalled()
@@ -207,10 +207,10 @@ describe('Map', () => {
     it('should run correctly', () => {
       renderDirectionAndMarkers({
         googleMapsRef: {
-          current: mockGoogleMaps
+          current: mockGoogleMaps,
         },
         mapRef: {
-          current: mockMap
+          current: mockMap,
         },
         coordinates: mockCoordinates,
         center: undefined,
@@ -219,17 +219,17 @@ describe('Map', () => {
         travelMode,
         onLoadedDirection: mockOnLoadedDirection,
         markersRef: {
-          current: mockMarkers
+          current: mockMarkers,
         },
         directionsRendererRef: {
-          current: mockDirectionsRenderer
+          current: mockDirectionsRenderer,
         },
         directionsServiceRef: {
-          current: mockDirectionsService
+          current: mockDirectionsService,
         },
         boundsRef: mockBounds,
         markerCallBack,
-        destinationAddress: ''
+        destinationAddress: '',
       })
       expect(mockMap.fitBounds).not.toBeCalledWith(mockBounds)
       expect(mockMap.setCenter).not.toBeCalledWith(mockBounds.getCenter())
@@ -240,19 +240,19 @@ describe('Map', () => {
     it('should run correctly', () => {
       const fn = handleOnLoaded({
         googleMapsRef: {
-          current: mockGoogleMaps
+          current: mockGoogleMaps,
         },
         mapRef: {
-          current: mockMap
+          current: mockMap,
         },
         directionsRendererRef: {
-          current: mockDirectionsRenderer
+          current: mockDirectionsRenderer,
         },
         directionsServiceRef: {
-          current: mockDirectionsService
+          current: mockDirectionsService,
         },
         boundsRef: mockBounds,
-        onLoaded: mockOnLoadedDirection
+        onLoaded: mockOnLoadedDirection,
       })
       fn(mockGoogleMaps, mockMap)
       expect(mockOnLoadedDirection).toBeCalled()
@@ -264,25 +264,25 @@ describe('Map', () => {
       const fn = renderMap({
         mapContainerStyles: '',
         googleMapsRef: {
-          current: mockGoogleMaps
+          current: mockGoogleMaps,
         },
         mapRef: {
-          current: mockMap
+          current: mockMap,
         },
         onLoaded: mockOnLoadedDirection,
         directionsRendererRef: {
-          current: mockDirectionsRenderer
+          current: mockDirectionsRenderer,
         },
         boundsRef: {
-          current: mockBounds
+          current: mockBounds,
         },
         directionsServiceRef: {
-          current: mockDirectionsService
+          current: mockDirectionsService,
         },
         center: {},
         zoom: 10,
         coordinates: mockCoordinates,
-        component: mockMarkerComponent
+        component: mockMarkerComponent,
       })
       const component = fn(mockGoogleMaps, undefined)
       const wrapper = shallow(<div>{component}</div>)
@@ -293,25 +293,25 @@ describe('Map', () => {
       const fn = renderMap({
         mapContainerStyles: '',
         googleMapsRef: {
-          current: mockGoogleMaps
+          current: mockGoogleMaps,
         },
         mapRef: {
-          current: mockMap
+          current: mockMap,
         },
         onLoaded: mockOnLoadedDirection,
         directionsRendererRef: {
-          current: mockDirectionsRenderer
+          current: mockDirectionsRenderer,
         },
         boundsRef: {
-          current: mockBounds
+          current: mockBounds,
         },
         directionsServiceRef: {
-          current: mockDirectionsService
+          current: mockDirectionsService,
         },
         center: {},
         zoom: 10,
         coordinates: mockCoordinates,
-        component: mockMarkerComponent
+        component: mockMarkerComponent,
       })
       const component = fn(mockGoogleMaps, mockError)
       const wrapper = shallow(<div>{component}</div>)
@@ -321,25 +321,25 @@ describe('Map', () => {
       const fn = renderMap({
         mapContainerStyles: '',
         googleMapsRef: {
-          current: mockGoogleMaps
+          current: mockGoogleMaps,
         },
         mapRef: {
-          current: mockMap
+          current: mockMap,
         },
         onLoaded: mockOnLoadedDirection,
         directionsRendererRef: {
-          current: mockDirectionsRenderer
+          current: mockDirectionsRenderer,
         },
         boundsRef: {
-          current: mockBounds
+          current: mockBounds,
         },
         directionsServiceRef: {
-          current: mockDirectionsService
+          current: mockDirectionsService,
         },
         center: {},
         zoom: 10,
         coordinates: mockCoordinates,
-        component: mockMarkerComponent
+        component: mockMarkerComponent,
       })
       const component = fn(mockGoogleMaps, new Error('Network Error'))
       const wrapper = shallow(<div>{component}</div>)
@@ -350,31 +350,31 @@ describe('Map', () => {
     it('should run correctly', () => {
       const fn = handleUseEffect({
         googleMapsRef: {
-          current: mockGoogleMaps
+          current: mockGoogleMaps,
         },
         mapRef: {
-          current: mockMap
+          current: mockMap,
         },
         destinationPoint: mockDestinationPoint,
         onLoadedDirection: mockOnLoadedDirection,
         directionsRendererRef: {
-          current: mockDirectionsRenderer
+          current: mockDirectionsRenderer,
         },
         boundsRef: {
-          current: mockBounds
+          current: mockBounds,
         },
         directionsServiceRef: {
-          current: mockDirectionsService
+          current: mockDirectionsService,
         },
         center: {},
         zoom: 10,
         coordinates: mockCoordinates,
         travelMode,
         markersRef: {
-          current: mockMarkers
+          current: mockMarkers,
         },
         markerCallBack,
-        destinationAddress: ''
+        destinationAddress: '',
       })
       expect(fn).toBeDefined()
       const result = fn()
@@ -384,19 +384,19 @@ describe('Map', () => {
     it('should run correctly', () => {
       const result = handleUseEffect({
         googleMapsRef: {
-          current: mockGoogleMaps
+          current: mockGoogleMaps,
         },
         mapRef: {
-          current: mockMap
+          current: mockMap,
         },
         destinationPoint: mockDestinationPoint,
         onLoadedDirection: mockOnLoadedDirection,
         directionsRendererRef: null,
         boundsRef: {
-          current: mockBounds
+          current: mockBounds,
         },
         directionsServiceRef: {
-          current: mockDirectionsService
+          current: mockDirectionsService,
         },
         center: {},
         zoom: 10,
@@ -404,7 +404,7 @@ describe('Map', () => {
         travelMode,
         markersRef: null,
         markerCallBack,
-        destinationAddress: ''
+        destinationAddress: '',
       })
       expect(result).toBeDefined()
     })
@@ -414,11 +414,11 @@ describe('Map', () => {
     it('should run correctly', () => {
       const fn = clearMap({
         directionsRendererRef: {
-          current: mockDirectionsRenderer
+          current: mockDirectionsRenderer,
         },
         markersRef: {
-          current: mockMarkers
-        }
+          current: mockMarkers,
+        },
       })
       fn()
       expect(mockDirectionsRenderer.setMap).toBeCalledWith(null)
@@ -427,7 +427,7 @@ describe('Map', () => {
     it('should run correctly', () => {
       const fn = clearMap({
         directionsRendererRef: null,
-        markersRef: null
+        markersRef: null,
       })
       fn()
       expect(mockDirectionsRenderer.setMap).not.toBeCalledWith(null)
@@ -446,7 +446,7 @@ describe('Map', () => {
         onLoaded: jest.fn(),
         destinationPoint: mockDestinationPoint,
         travelMode: 'DRIVING',
-        onLoadedDirection: mockOnLoadedDirection
+        onLoadedDirection: mockOnLoadedDirection,
       }
       const wrapper = shallow(<Map {...mockProps} />)
       expect(wrapper).toMatchSnapshot()

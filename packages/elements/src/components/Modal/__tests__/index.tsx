@@ -8,7 +8,7 @@ import { ModalFooter, ModalBody, ModalHeader } from '../index'
 
 const App: React.FunctionComponent<any> = ({
   defaultVisible = false,
-  tapOutsideToDissmiss = true
+  tapOutsideToDissmiss = true,
 }: {
   defaultVisible: boolean
   tapOutsideToDissmiss: boolean
@@ -167,8 +167,8 @@ describe('Modal', () => {
         <>
           <Modal visible={true}>Modal 1</Modal>
           <Modal visible={true}>Modal 2</Modal>
-        </>
-      )
+        </>,
+      ),
     )
     expect(wrapper.find('[data-test="modal"]')).toHaveLength(2)
   })

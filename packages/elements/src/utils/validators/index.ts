@@ -5,7 +5,7 @@ export {
   minLengthValidator,
   maxLengthValidator,
   validateMinCharacterLength,
-  validateMaxCharacterLength
+  validateMaxCharacterLength,
 } from './validate-character-length'
 export { validateEmail, isEmail } from './validate-email'
 export { validateRequire, fieldValidateRequire } from './validate-require'

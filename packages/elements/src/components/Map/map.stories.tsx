@@ -23,7 +23,7 @@ storiesOf('Map', module).add('Map', () => {
           id: '123',
           position: {
             lat: 10.801147,
-            lng: 106.655838
+            lng: 106.655838,
           },
           address: {
             buildingName: '',
@@ -36,10 +36,10 @@ storiesOf('Map', module).add('Map', () => {
             country: '',
             geolocation: {
               latitude: 52.1284,
-              longitude: -0.507145
-            }
-          }
-        }
+              longitude: -0.507145,
+            },
+          },
+        },
       ]}
       onLoaded={onLoaded}
       onLoadedDirection={onLoadedDirection}

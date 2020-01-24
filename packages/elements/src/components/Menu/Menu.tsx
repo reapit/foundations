@@ -37,8 +37,8 @@ export const LinkItem: React.SFC<{
   item: MenuItem
   children: React.ReactNode
   activeItemRef?: React.RefObject<HTMLAnchorElement & Link>
-}> = ({ item, children, activeItemRef }) =>
-  item.url ? (
+}> = ({ item, children, activeItemRef }) => {
+  return item.url ? (
     <Link
       ref={activeItemRef}
       className={`nav-item-link ${
@@ -67,8 +67,9 @@ export const LinkItem: React.SFC<{
       {children}
     </span>
   )
+}
 
-export const Menu: React.FC<MenuConfig> = React.memo(({ menu, location, mode, defaultActiveKey }) => {
+const MenuComponent: React.FC<MenuConfig> = ({ menu, location, mode, defaultActiveKey }) => {
   const activeItem = getActiveItemKey(menu, location)
   const [activeKey, setIsActive] = React.useState(activeItem || defaultActiveKey)
   const activeItemRef = React.createRef<HTMLAnchorElement & Link>()
@@ -102,4 +103,6 @@ export const Menu: React.FC<MenuConfig> = React.memo(({ menu, location, mode, de
       </ul>
     </nav>
   )
-})
+}
+
+export const Menu = React.memo(MenuComponent)

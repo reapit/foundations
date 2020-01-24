@@ -10,7 +10,7 @@ const props: InputProps = {
   id: 'username',
   name: 'username',
   labelText: 'User name',
-  type: 'text'
+  type: 'text',
 }
 
 const hasRightIconInputProps: InputProps = {
@@ -18,7 +18,7 @@ const hasRightIconInputProps: InputProps = {
   name: 'username',
   labelText: 'User name',
   type: 'text',
-  rightIcon: <FaSearch />
+  rightIcon: <FaSearch />,
 }
 
 const requiredInputProps: InputProps = {
@@ -26,7 +26,7 @@ const requiredInputProps: InputProps = {
   name: 'username',
   labelText: 'User name',
   type: 'text',
-  required: true
+  required: true,
 }
 
 describe('Input', () => {
@@ -50,14 +50,14 @@ describe('Input', () => {
             <Input {...props} />
           </Form>
         )}
-      </Formik>
+      </Formik>,
     )
     expect(wrapper.find('label')).toHaveLength(1)
     wrapper.find('input').simulate('change', {
       target: {
         value: 'abcxyz',
-        name: 'username'
-      }
+        name: 'username',
+      },
     })
     expect(wrapper.find('input').prop('value')).toEqual('abcxyz')
   })

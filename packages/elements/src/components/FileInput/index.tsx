@@ -31,7 +31,7 @@ export const FileInput = ({
   allowClear = false,
   testProps,
   inputProps,
-  required = false
+  required = false,
 }: FileInputProps) => {
   const [fileUrl, setFileName] = useState()
   const inputFile = React.useRef<HTMLInputElement>(null)
@@ -81,7 +81,7 @@ export const FileInput = ({
                   {hasFile && (
                     <span data-test="fileUploadFileName" className="file-name">
                       {!isBase64(field.value) ? (
-                        <a href={field.value} target="_blank">
+                        <a href={field.value} target="_blank" rel="noopener noreferrer">
                           {fileUrl || field.value}
                         </a>
                       ) : (

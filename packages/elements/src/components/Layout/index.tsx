@@ -23,7 +23,7 @@ export const FlexContainerResponsive: React.SFC<FlexContainerProps> = ({
   hasPadding = false,
   isScrollable = false,
   hasBackground = false,
-  className = ''
+  className = '',
 }) => (
   <div
     className={`container ${flexColumn ? 'is-column' : ''} ${centerContent ? 'is-centered' : ''} ${
@@ -41,7 +41,7 @@ export const FlexContainerBasic: React.SFC<FlexContainerProps> = ({
   hasPadding = false,
   isScrollable = false,
   hasBackground = false,
-  className = ''
+  className = '',
 }) => (
   <div
     className={`container-flex ${flexColumn ? 'is-column' : ''} ${centerContent ? 'is-centered' : ''} ${

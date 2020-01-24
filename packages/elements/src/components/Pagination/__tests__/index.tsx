@@ -7,7 +7,7 @@ const props: PaginationProps = {
   pageNumber: 4,
   pageSize: 10,
   totalCount: 999,
-  onChange: jest.fn()
+  onChange: jest.fn(),
 }
 
 describe('Pagination render test', () => {

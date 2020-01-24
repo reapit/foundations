@@ -7,8 +7,8 @@ export const htmlElements: Element[] = [
     attributes: [
       {
         key: 'class',
-        value: 'post post-featured'
-      }
+        value: 'post post-featured',
+      },
     ],
     children: [
       {
@@ -18,14 +18,14 @@ export const htmlElements: Element[] = [
         children: [
           {
             type: 'text',
-            content: 'Himalaya parsed me'
-          }
-        ]
+            content: 'Himalaya parsed me',
+          },
+        ],
       },
       {
         type: 'text',
-        content: ' ...and I liked it. '
-      }
-    ]
-  }
+        content: ' ...and I liked it. ',
+      },
+    ],
+  },
 ]

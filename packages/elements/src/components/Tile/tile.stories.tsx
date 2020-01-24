@@ -14,22 +14,22 @@ const footerItems = [
     <Button type="submit" variant="primary" onClick={() => null} disabled={false} loading={false} fullWidth={false}>
       Directions
     </Button>
-  </>
+  </>,
 ]
 
 const iconItems = [
   {
     icon: <FaClock className="icon-list-icon" />,
-    text: '11:00 AM - 12:00 PM'
+    text: '11:00 AM - 12:00 PM',
   },
   {
     icon: <FaStreetView className="icon-list-icon" />,
-    text: 'Viewing'
+    text: 'Viewing',
   },
   {
     icon: <FaStickyNote className="icon-list-icon" />,
-    text: 'Info about the viewing'
-  }
+    text: 'Info about the viewing',
+  },
 ]
 
 storiesOf('Tile', module)

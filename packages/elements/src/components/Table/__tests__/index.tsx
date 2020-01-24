@@ -9,16 +9,16 @@ describe('Table', () => {
     const columns = [
       {
         Header: 'First Name',
-        accessor: 'firstName'
+        accessor: 'firstName',
       },
       {
         Header: 'Middle Name',
-        accessor: 'middleName'
+        accessor: 'middleName',
       },
       {
         Header: 'Last Name',
-        accessor: 'lastName'
-      }
+        accessor: 'lastName',
+      },
     ]
     expect(toJson(shallow(<Table data={data} columns={columns} loading={false} />))).toMatchSnapshot()
   })
@@ -27,16 +27,16 @@ describe('Table', () => {
     const columns = [
       {
         Header: 'First Name',
-        accessor: 'firstName'
+        accessor: 'firstName',
       },
       {
         Header: 'Middle Name',
-        accessor: 'middleName'
+        accessor: 'middleName',
       },
       {
         Header: 'Last Name',
-        accessor: 'lastName'
-      }
+        accessor: 'lastName',
+      },
     ]
     expect(toJson(shallow(<Table data={data} columns={columns} loading />))).toMatchSnapshot()
   })
@@ -45,16 +45,16 @@ describe('Table', () => {
     const columns = [
       {
         Header: 'First Name',
-        accessor: 'firstName'
+        accessor: 'firstName',
       },
       {
         Header: 'Middle Name',
-        accessor: 'middleName'
+        accessor: 'middleName',
       },
       {
         Header: 'Last Name',
-        accessor: 'lastName'
-      }
+        accessor: 'lastName',
+      },
     ]
     expect(toJson(shallow(<Table scrollable data={data} columns={columns} loading={false} />))).toMatchSnapshot()
   })
