@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
@@ -16,15 +15,15 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components|types)/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.(ts|tsx)$/,
         exclude: /(node_modules|bower_components|types|\.d\.ts)/,
         use: {
-          loader: 'ts-loader'
-        }
+          loader: 'ts-loader',
+        },
       },
       {
         test: /\.(svg|png|jpg|jpeg|gif)$/,
@@ -32,31 +31,28 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: '[path][name].[ext]'
-          }
-        }
-      }
-    ]
+            name: '[path][name].[ext]',
+          },
+        },
+      },
+    ],
   },
   resolve: {
-    // since our webpack config store not in the same folde as node module
-    modules: [path.resolve(__dirname, '../node_modules')],
-
     // import without filename
     extensions: ['.js', '.ts', '.tsx'],
 
     // auto resolve config from typescript
     plugins: [
       new TsconfigPathsPlugin({
-        configFile: path.resolve(__dirname, '../tsconfig.json')
-      })
-    ]
+        configFile: path.resolve(__dirname, '../tsconfig.json'),
+      }),
+    ],
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
-      tsconfig: path.resolve(__dirname, '../tsconfig.json')
+      tsconfig: path.resolve(__dirname, '../tsconfig.json'),
     }),
     new Dotenv(),
-    ...analyzePlugins
-  ]
+    ...analyzePlugins,
+  ],
 }

@@ -1,9 +1,7 @@
+/* eslint-disable max-len */
 import * as React from 'react'
 import Loader from '../loader'
-import {
-  ContactAddressModel,
-  PropertyModel
-} from '@reapit/foundations-ts-definitions'
+import { ContactAddressModel, PropertyModel } from '@reapit/foundations-ts-definitions'
 import styled from 'styled-components'
 import { context } from '../context'
 import { FaBed, FaToilet } from 'react-icons/fa'
@@ -14,7 +12,7 @@ const { useContext } = React
 const currencyFormatter = new Intl.NumberFormat('en-GB', {
   style: 'currency',
   currency: 'GBP',
-  minimumFractionDigits: 0
+  minimumFractionDigits: 0,
 })
 
 const SearchResultContainer = styled.div`
@@ -171,7 +169,9 @@ const SearchResultItemDiv = styled.div`
 
 const SearchResultImageContainer = styled.div<{ isSelectedProperty: boolean }>`
   border: ${props => `2px solid ${props.theme.colors.jade}`};
-  border-width: ${props => (props.isSelectedProperty ? '2px' : '0px')};
+  border-width: ${props => {
+    return props.isSelectedProperty ? '2px' : '0px'
+  }};
   margin-top: 0px !important;
   width: 100%;
   border-radius: 5px;
@@ -179,9 +179,7 @@ const SearchResultImageContainer = styled.div<{ isSelectedProperty: boolean }>`
   overflow: hidden;
 `
 
-export const combineAdress = (
-  address: ContactAddressModel | undefined
-): string => {
+export const combineAdress = (address: ContactAddressModel | undefined): string => {
   if (!address) {
     return ''
   }
@@ -229,9 +227,7 @@ export const getPrice = (result: PropertyModel, searchType: SearchType) => {
     const formattedPrice = currencyFormatter.format(rent)
     let rentFrequency = result?.letting?.rentFrequency || ''
     if (rentFrequency.length > 0) {
-      rentFrequency =
-        rentFrequency.charAt(0).toUpperCase() +
-        rentFrequency.substr(1, rentFrequency.length - 1)
+      rentFrequency = rentFrequency.charAt(0).toUpperCase() + rentFrequency.substr(1, rentFrequency.length - 1)
     }
     return `${formattedPrice} ${rentFrequency}`
   }
@@ -312,7 +308,7 @@ export const SearchResult = () => {
     propertyImages,
     result: rawResult,
     selectedProperty,
-    setSelectedProperty
+    setSelectedProperty,
   } = searchStore
 
   if (isLoading) {
@@ -347,29 +343,19 @@ export const SearchResult = () => {
 
           return (
             <SearchResultItemDiv key={property.id} onClick={onClick}>
-              <SearchResultImageContainer
-                isSelectedProperty={isSelectedProperty}
-              >
-                {sellingStatus === 'underOffer' && (
-                  <ImageFlag>Under Offer</ImageFlag>
-                )}
-                {lettingStatus === 'underOffer' && (
-                  <ImageFlag>Let Agreed</ImageFlag>
-                )}
+              <SearchResultImageContainer isSelectedProperty={isSelectedProperty}>
+                {sellingStatus === 'underOffer' && <ImageFlag>Under Offer</ImageFlag>}
+                {lettingStatus === 'underOffer' && <ImageFlag>Let Agreed</ImageFlag>}
                 <ImgHandleError src={imageUrl} />
               </SearchResultImageContainer>
               <div>
                 <AddressSecondaryText>
-                  <AddressPrimaryText>
-                    {property?.address?.line1 || ''}
-                  </AddressPrimaryText>
+                  <AddressPrimaryText>{property?.address?.line1 || ''}</AddressPrimaryText>
                   {combineAdress(property.address)}
                 </AddressSecondaryText>
               </div>
               <PricingText>{getPrice(property, searchType)}</PricingText>
-              <NumBedTypeStyleText>
-                {combineNumberBedTypeStyle(property)}
-              </NumBedTypeStyleText>
+              <NumBedTypeStyleText>{combineNumberBedTypeStyle(property)}</NumBedTypeStyleText>
               <DescriptionText>{property.description}</DescriptionText>
               <IconContainer>
                 <FaBed /> {property?.bedrooms || 0}

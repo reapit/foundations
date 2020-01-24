@@ -9,10 +9,7 @@ import { context } from './context'
 import { GoogleMap } from './map/google-map'
 import { createPortal } from 'react-dom'
 import scrollIntoView from '@/utils/scroll-into-view'
-import {
-  getPropertiesForSale,
-  getPropertiesToRent
-} from '@/services/properties'
+import { getPropertiesForSale, getPropertiesToRent } from '@/services/properties'
 import { getPropertyImages } from '@/services/propertyImages'
 
 const SearchResultTextContainer = styled.h1`
@@ -188,14 +185,18 @@ const Tab = styled.div<{ isActive: boolean }>`
   padding: 1rem;
   cursor: pointer;
   border-bottom: 2px solid ${props => props.theme.colors.primary};
-  border-width: ${props => (props.isActive ? '3px' : '1px')};
+  border-width: ${props => {
+    return props.isActive ? '3px' : '1px'
+  }};
 `
 
 const TabContent = styled.div<{ isActive: boolean }>`
   width: 100%;
   @media screen and (max-width: 1600px) {
     & {
-      display: ${props => (props.isActive ? 'block' : 'none')};
+      display: ${props => {
+        return props.isActive ? 'block' : 'none'
+      }};
     }
   }
 `
@@ -212,11 +213,7 @@ const SearchWidget: React.FC<{
   theme?: Theme
   className?: string
   searchResultContainerID?: string
-}> = ({
-  theme = {},
-  className = '',
-  searchResultContainerID = 'reapit-search-widget-result'
-}) => {
+}> = ({ theme = {}, className = '', searchResultContainerID = 'reapit-search-widget-result' }) => {
   const mergedTheme: Theme = merge({}, defaultTheme, theme)
   const [searchKeyword, _setSearchKeyword] = useState('')
   const searchStore = useSearchStore()
@@ -230,7 +227,7 @@ const SearchWidget: React.FC<{
     setStartFetching,
     isLoading,
     selectedProperty,
-    result
+    result,
   } = searchStore
 
   const [activeTab, setActiveTab] = useState<TabItem>('MAP')
@@ -251,17 +248,8 @@ const SearchWidget: React.FC<{
     setStartFetching()
     const resultElement = document.getElementById('search-result-container')
     if (resultElement) {
-      const scrollingElement =
-        document.scrollingElement || document.documentElement
-      scrollIntoView(
-        scrollingElement,
-        'scrollTop',
-        '',
-        0,
-        resultElement.offsetTop,
-        500,
-        true
-      )
+      const scrollingElement = document.scrollingElement || document.documentElement
+      scrollIntoView(scrollingElement, 'scrollTop', '', 0, resultElement.offsetTop, 500, true)
     }
 
     try {
@@ -288,17 +276,8 @@ const SearchWidget: React.FC<{
     setStartFetching()
     const resultElement = document.getElementById(searchResultContainerID)
     if (resultElement) {
-      const scrollingElement =
-        document.scrollingElement || document.documentElement
-      scrollIntoView(
-        scrollingElement,
-        'scrollTop',
-        '',
-        0,
-        resultElement.offsetTop,
-        500,
-        true
-      )
+      const scrollingElement = document.scrollingElement || document.documentElement
+      scrollIntoView(scrollingElement, 'scrollTop', '', 0, resultElement.offsetTop, 500, true)
     }
 
     try {
@@ -350,22 +329,15 @@ const SearchWidget: React.FC<{
                   {!isLoading && result && (
                     <div>
                       <TabContainer>
-                        <Tab
-                          onClick={onTabMapClick}
-                          isActive={activeTab === 'MAP'}
-                        >
+                        <Tab onClick={onTabMapClick} isActive={activeTab === 'MAP'}>
                           Map
                         </Tab>
-                        <Tab
-                          onClick={onTabSearchResultClick}
-                          isActive={activeTab === 'SEARCH_RESULT'}
-                        >
+                        <Tab onClick={onTabSearchResultClick} isActive={activeTab === 'SEARCH_RESULT'}>
                           Results
                         </Tab>
                       </TabContainer>
                       <SearchResultTextContainer>
-                        {getCountResult()} Results showing for {searchKeyWord},
-                        for {searchType}
+                        {getCountResult()} Results showing for {searchKeyWord}, for {searchType}
                       </SearchResultTextContainer>
                       <SearchResultContainer>
                         <TabContent isActive={activeTab === 'MAP'}>
@@ -382,7 +354,7 @@ const SearchWidget: React.FC<{
                     </div>
                   )}
                 </BaseStyle>,
-                searchResultContainer
+                searchResultContainer,
               )}
           </context.Provider>
         </BaseStyle>

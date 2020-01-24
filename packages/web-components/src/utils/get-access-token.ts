@@ -5,7 +5,7 @@ export const getAccessToken = async () => {
     userName: 'cbryan@reapit.com',
     password: 'T00lb0x53',
     loginType: 'CLIENT',
-    mode: 'WEB'
+    mode: 'WEB',
   })
   return response.accessToken
 }

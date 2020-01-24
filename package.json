@@ -2,7 +2,6 @@
   "name": "root",
   "private": true,
   "scripts": {
-
     "build": "lerna run build --parallel",
     "test": "lerna run test:ci --parallel",
     "lint": "eslint --ext=jsx,ts,tsx packages --fix",
@@ -66,8 +65,7 @@
     "packages/*"
   ],
   "dependencies": {
-    "@reapit/cognito-auth": "^2.0.14",
-    "@reapit/elements": "^0.5.30",
+    "@reapit/elements": "^0.5.34",
     "@sentry/browser": "^5.11.1",
     "dayjs": "^1.8.19",
     "react": "^16.12.0",

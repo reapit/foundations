@@ -5,7 +5,7 @@ import {
   SearchResult,
   formatPriceAndQuantifier,
   formatStyle,
-  formatType
+  formatType,
 } from './search-result'
 import { shallow } from 'enzyme'
 
@@ -21,7 +21,7 @@ describe('SearchResult', () => {
         ['offersOver', 'Offers Over £500,000'],
         ['offersInExcess', 'OIEO £500,000'],
         ['fixedPrice', 'Fixed Price £500,000'],
-        ['priceReducedTo', '£500,000']
+        ['priceReducedTo', '£500,000'],
       ]
 
       for (let testCase of testCases) {
@@ -41,7 +41,7 @@ describe('SearchResult', () => {
       ['groundFloor', 'Ground floor'],
       ['firstFloor', 'First floor'],
       ['upperFloor', 'Upper floor'],
-      ['upperFloorWithLift', 'Upper floor with lift']
+      ['upperFloorWithLift', 'Upper floor with lift'],
     ]
 
     for (let testCase of testCases) {
@@ -59,7 +59,7 @@ describe('SearchResult', () => {
       ['land', 'Land'],
       ['farm', 'Farm'],
       ['developmentPlot', 'Development Plot'],
-      ['cottage', 'Cottage']
+      ['cottage', 'Cottage'],
     ]
 
     for (let testCase of testCases) {
@@ -79,8 +79,8 @@ describe('SearchResult', () => {
         line2: '2',
         line3: '3',
         line4: '4',
-        postcode: '5'
-      })
+        postcode: '5',
+      }),
     ).toBe('2, 3, 4, 5')
   })
 
@@ -89,8 +89,8 @@ describe('SearchResult', () => {
       combineNumberBedTypeStyle({
         bedrooms: 1,
         style: ['style1', 'style2'],
-        type: ['type1', 'type2']
-      })
+        type: ['type1', 'type2'],
+      }),
     ).toBe('1 Bed style1 style2 type1 type2')
   })
 })

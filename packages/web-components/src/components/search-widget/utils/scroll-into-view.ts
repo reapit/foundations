@@ -5,7 +5,7 @@ function scrollIntoView(
   from: number,
   to: number,
   time: number,
-  prop: boolean
+  prop: boolean,
 ) {
   if (!element) {
     return
@@ -14,11 +14,14 @@ function scrollIntoView(
   const timer = setInterval(function() {
     const step = Math.min(1, (new Date().getTime() - start) / time)
     if (prop) {
-      // @ts-ignore
-      element[style] = from + step * (to - from) + unit
+      const initial = from + step
+      const multiplier = to - from
+      element[style] = `${initial * multiplier}${unit}`
     } else {
+      const initial = from + step
+      const multiplier = to - from
       // @ts-ignore
-      element.style[style] = from + step * (to - from) + unit
+      element.style[style] = `${initial * multiplier}${unit}`
     }
     if (step === 1) {
       clearInterval(timer)

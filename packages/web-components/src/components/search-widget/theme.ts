@@ -50,7 +50,7 @@ export interface SearchWidget {
 
 export const theme: Theme = {
   searchWidget: {
-    backgroundColor: 'rgba(124, 160, 145, 0.7)'
+    backgroundColor: 'rgba(124, 160, 145, 0.7)',
   },
   base: {
     font: {
@@ -62,14 +62,14 @@ export const theme: Theme = {
           h2: '2.2rem',
           h3: '2.0rem',
           h4: '1.8rem',
-          h5: '1.6rem'
-        }
-      }
-    }
+          h5: '1.6rem',
+        },
+      },
+    },
   },
   button: {
     background: '#887d97',
-    color: '#ffffff'
+    color: '#ffffff',
   },
   colors: {
     searchResult: '#7ca091',
@@ -80,6 +80,6 @@ export const theme: Theme = {
     widgetHeading: '#ffffff',
     background: '#ffffff',
     warning: '#d3033d',
-    loading: '#95aac9'
-  }
+    loading: '#95aac9',
+  },
 }

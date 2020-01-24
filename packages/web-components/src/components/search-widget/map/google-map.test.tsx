@@ -12,7 +12,7 @@ import {
   clearMap,
   MarkersRef,
   MapRef,
-  getCurrentMarkerIndex
+  getCurrentMarkerIndex,
 } from './google-map'
 import { shallow } from 'enzyme'
 import { theme } from '../theme'
@@ -24,7 +24,7 @@ describe('google-map', () => {
   const marketingMode = property?.marketingMode
   const address = {
     line1: property?.address?.line1 || '',
-    line2: property?.address?.line2 || ''
+    line2: property?.address?.line2 || '',
   }
 
   const lettingPrice = property?.letting?.rent
@@ -40,27 +40,26 @@ describe('google-map', () => {
   const mockMarker = new mockGoogleMap.Marker({
     position: {
       lat: latitude,
-      lng: longitude
+      lng: longitude,
     },
-    map: mockMap
+    map: mockMap,
   })
   const mockCenterPoint = new mockGoogleMap.LatLng(latitude, longitude)
   const mockMapRef: MapRef = {
-    current: mockMap
+    current: mockMap,
   }
   const mockMarkersRef: MarkersRef = {
-    current: [mockMarker]
+    current: [mockMarker],
   }
   const mockSearchStore: SearchStore = {
     result: {
-      _embedded: [property]
+      _embedded: [property],
     },
     propertyImages: {
       AYL190002: {
         id: 'AYL190002',
-        url:
-          'https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/RPT/19/RPT190222_01.jpg'
-      }
+        url: 'https://reapit-dev.s3.eu-west-2.amazonaws.com/pictures/RPT/19/RPT190222_01.jpg',
+      },
     },
     isLoading: false,
     err: null,
@@ -75,10 +74,10 @@ describe('google-map', () => {
     getCountResult: jest.fn(),
     getErrorString: jest.fn(),
     getResultArr: jest.fn(),
-    selectedProperty: property
+    selectedProperty: property,
   }
   const mockInfoWindow = new mockGoogleMap.InfoWindow({
-    content: 'mockContent'
+    content: 'mockContent',
   })
 
   const mockProperties = [property]
@@ -95,7 +94,7 @@ describe('google-map', () => {
         bedrooms,
         bathrooms,
         theme,
-        price: ''
+        price: '',
       })
       expect(result).toMatchSnapshot()
     })
@@ -110,7 +109,7 @@ describe('google-map', () => {
         bedrooms,
         bathrooms,
         theme,
-        price: ''
+        price: '',
       })
       expect(result).toMatchSnapshot()
     })
@@ -121,13 +120,13 @@ describe('google-map', () => {
       const result = getLatLng(property)
       expect(result).toEqual({
         latitude: property?.address?.geolocation?.latitude,
-        longitude: property?.address?.geolocation?.longitude
+        longitude: property?.address?.geolocation?.longitude,
       })
     })
     it('should return value when property address empty', () => {
       const newProperty = {
         ...property,
-        address: {}
+        address: {},
       }
       const result = getLatLng(newProperty)
       expect(result).toEqual({ latitude: undefined, longitude: undefined })
@@ -142,7 +141,7 @@ describe('google-map', () => {
         map: mockMapRef.current,
         searchStore: mockSearchStore,
         theme,
-        infoWindows: [mockInfoWindow]
+        infoWindows: [mockInfoWindow],
       })
       expect(result).toBeDefined()
     })
@@ -151,7 +150,7 @@ describe('google-map', () => {
   describe('clearMap', () => {
     it('should run correctly', () => {
       clearMap({
-        markersRef: mockMarkersRef
+        markersRef: mockMarkersRef,
       })
       expect(mockMarker.setMap).toBeCalled()
     })
@@ -161,7 +160,7 @@ describe('google-map', () => {
     it('should run correctly', () => {
       const result = getCurrentMarkerIndex({
         markersRef: mockMarkersRef,
-        centerPoint: mockCenterPoint
+        centerPoint: mockCenterPoint,
       })
       expect(result).toEqual(null)
     })
@@ -179,7 +178,7 @@ describe('google-map', () => {
         theme,
         searchStore: mockSearchStore,
         markersRef: mockMarkersRef,
-        properties: mockProperties
+        properties: mockProperties,
       })
       fn()
       expect(mockGoogleMap.Marker).toBeCalled()
@@ -198,7 +197,7 @@ describe('google-map', () => {
         theme,
         searchStore: mockSearchStore,
         markersRef: mockMarkersRef,
-        properties: mockProperties
+        properties: mockProperties,
       })
       fn()
       expect(mockGoogleMap.Marker).toBeCalled()
@@ -217,7 +216,7 @@ describe('google-map', () => {
         theme,
         searchStore: mockSearchStore,
         markersRef: mockMarkersRef,
-        properties: undefined
+        properties: undefined,
       })
       fn()
       expect(mockGoogleMap.Marker).toBeCalled()
@@ -230,12 +229,7 @@ describe('google-map', () => {
   describe('MapContainer', () => {
     it('should match snapshot', () => {
       const wrapper = shallow(
-        <MapContainer
-          googleMap={mockGoogleMap}
-          center={mockCenter}
-          zoom={mockZoom}
-          property={property}
-        />
+        <MapContainer googleMap={mockGoogleMap} center={mockCenter} zoom={mockZoom} property={property} />,
       )
       expect(wrapper).toMatchSnapshot()
     })
@@ -247,7 +241,7 @@ describe('google-map', () => {
         property,
         zoom: mockZoom,
         center: mockCenter,
-        properties: mockProperties
+        properties: mockProperties,
       })({ googleMap: mockGoogleMap, error: null })
       const wrapper = shallow(<div>{component}</div>)
       expect(wrapper).toMatchSnapshot()
@@ -256,7 +250,7 @@ describe('google-map', () => {
 
   describe('GoogleMap', () => {
     const mockParams = {
-      key: 'mockKey'
+      key: 'mockKey',
     }
     const wrapper = shallow(
       <GoogleMap
@@ -265,7 +259,7 @@ describe('google-map', () => {
         zoom={mockZoom}
         center={mockCenter}
         properties={mockProperties}
-      />
+      />,
     )
     expect(wrapper).toMatchSnapshot()
   })

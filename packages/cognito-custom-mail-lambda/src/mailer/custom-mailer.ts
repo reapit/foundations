@@ -8,7 +8,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
     event.response.emailMessage = await forgotPasswordTemplate({
       verificationCode: event.request.codeParameter as string,
       userName: event.request.userAttributes.email,
-      url: resetPasswordUrl
+      url: resetPasswordUrl,
     })
   }
   if (event.userPoolId === process.env.COGNITO_USERPOOL_ID && event.triggerSource === 'CustomMessage_SignUp') {
@@ -16,7 +16,7 @@ export const customMailer: CognitoUserPoolTriggerHandler = async (event, _contex
     const confirmRegistrationUrl = `${process.env.MARKET_PLACE_URL}/register/confirm`
     event.response.emailMessage = await confirmRegistrationTemplate({
       userName: event.request.userAttributes.email,
-      url: confirmRegistrationUrl
+      url: confirmRegistrationUrl,
     })
   }
   callback(null, event)

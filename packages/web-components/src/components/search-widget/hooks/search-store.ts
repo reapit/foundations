@@ -1,8 +1,4 @@
-import {
-  PagedResultPropertyModel_,
-  PropertyModel,
-  PropertyImageModel
-} from '@reapit/foundations-ts-definitions'
+import { PagedResultPropertyModel_, PropertyModel, PropertyImageModel } from '@reapit/foundations-ts-definitions'
 import { useState } from 'react'
 
 export type SearchType = 'Sale' | 'Rent' | undefined
@@ -21,14 +17,12 @@ export interface SearchStore {
     result: PagedResultPropertyModel_,
     propertyImages: Record<string, PropertyImageModel>,
     searchKeyWord: string,
-    searchType: SearchType
+    searchType: SearchType,
   ) => void
   setFetchError: (err: Error) => void
   setSearchKeyWord: (keyWord: string) => void
   setSelectedProperty: any
-  setPropertyImages: (
-    propertyImages: Record<string, PropertyImageModel>
-  ) => void
+  setPropertyImages: (propertyImages: Record<string, PropertyImageModel>) => void
   getErrorString: () => string | null | undefined
   getCountResult: () => number | null | undefined
   getResultArr: () => PropertyModel[]
@@ -40,16 +34,14 @@ export function useSearchStore(): SearchStore {
   const [isLoading, _setIsLoading] = useState<boolean | null>(false)
   const [searchKeyWord, setSearchKeyWord] = useState<string>('')
   const [searchType, setSearchType] = useState<SearchType>()
-  const [propertyImages, setPropertyImages] = useState<
-    Record<string, PropertyImageModel>
-  >({})
+  const [propertyImages, setPropertyImages] = useState<Record<string, PropertyImageModel>>({})
   const [selectedProperty, setSelectedProperty] = useState<PropertyModel>()
 
   const setFetchResult = (
     result: PagedResultPropertyModel_,
     propertyImages: Record<string, PropertyImageModel>,
     searchKeyWord: string,
-    searchType: SearchType
+    searchType: SearchType,
   ) => {
     _setResult(result)
     _setIsLoading(false)
@@ -108,6 +100,6 @@ export function useSearchStore(): SearchStore {
     setStartFetching,
     setSearchKeyWord,
     searchType,
-    setPropertyImages
+    setPropertyImages,
   }
 }

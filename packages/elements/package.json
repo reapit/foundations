@@ -12,7 +12,7 @@
   "scripts": {
     "test": "cross-env TZ=UTC jest --coverage --silent",
     "test-dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:ci": "cross-env TZ=UTC jest --coverage --silent --detectOpenHandles --forceExit",
+    "test:ci": "cross-env TZ=UTC jest -u  --coverage --silent --detectOpenHandles --forceExit",
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c",
     "start": "cross-env NODE_ENV=development tsdx watch",

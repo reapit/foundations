@@ -7,9 +7,9 @@
     "dist"
   ],
   "scripts": {
-    "test": "jest --coverage --silent",
-    "test-dev": "jest --watch --verbose",
-    "lint": "tslint --fix --project tsconfig.json --format stylish",
+    "test": "cross-env TZ=UTC jest --coverage --silent",
+    "test-dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:ci": "cross-env TZ=UTC jest -u  --coverage --silent --detectOpenHandles --forceExit",
     "prepublish": "yarn test && yarn build",
     "prebuild": "rimraf dist && rimraf public",
     "build": "tsc --p tsconfig.legacy.json && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
@@ -34,19 +34,9 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.39",
     "@types/ejs": "^2.7.0",
-    "@types/jest": "~24.0.15",
     "cross-env": "^6.0.3",
     "husky": "~3.0.0",
-    "jest": "~24.8.0",
-    "lint-staged": "~9.2.0",
-    "prettier": "~1.19.1",
-    "rimraf": "^3.0.0",
-    "ts-jest": "~24.0.2",
-    "tslint": "~5.20.1",
-    "tslint-config-prettier": "~1.18.0",
-    "tslint-config-standard": "~9.0.0",
-    "tslint-plugin-prettier": "~2.0.1",
-    "typescript": "~3.7.2"
+    "rimraf": "^3.0.0"
   },
   "jest": {
     "preset": "ts-jest",
@@ -69,17 +59,5 @@
         "statements": 90
       }
     }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
-    }
-  },
-  "lint-staged": {
-    "*.{ts}": [
-      "yarn lint",
-      "git add"
-    ]
   }
 }
