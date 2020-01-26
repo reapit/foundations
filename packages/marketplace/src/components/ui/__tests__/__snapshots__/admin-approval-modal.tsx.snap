@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminRevisionModalInner should match a snapshot when ERROR true 1`] = `
-<ModalBody
+<Component
   body={
-    <Alert
+    <Unknown
       message="Failed to fetch. Please try later."
       type="danger"
     />
@@ -13,11 +13,11 @@ exports[`AdminRevisionModalInner should match a snapshot when ERROR true 1`] = `
 
 exports[`AdminRevisionModalInner should match a snapshot when LOADING false 1`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     data-test="revision-detail-modal"
     title="Confirm Peter's Properties revision"
   />
-  <ModalBody
+  <Component
     body={
       <React.Fragment>
         <div
@@ -252,10 +252,10 @@ Get
       </React.Fragment>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           className="mr-2"
           dataTest="revision-approve-button"
           onClick={[MockFunction]}
@@ -263,15 +263,15 @@ Get
           variant="primary"
         >
           Approve
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           data-test="revision-decline-button"
           onClick={[MockFunction]}
           type="button"
           variant="danger"
         >
           Decline
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
@@ -279,7 +279,7 @@ Get
 `;
 
 exports[`AdminRevisionModalInner should match a snapshot when LOADING true 1`] = `
-<ModalBody
-  body={<Loader />}
+<Component
+  body={<Unknown />}
 />
 `;

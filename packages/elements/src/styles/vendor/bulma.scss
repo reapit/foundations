@@ -1,0 +1,57 @@
+/* These are the Bulma initialisers - have to come before overides */
+@import '../base/colors.scss';
+@import '../base/fonts.scss';
+@import '../../../../../node_modules/bulma/sass/utilities/initial-variables.sass';
+
+/*
+  Bulma override defaults
+  Things that can be customised here: https://bulma.io/documentation/customize/variables/
+*/
+
+// Fonts
+$family-primary: 'Roboto', Helvetica, sans-serif;
+
+$title-family: 'Museo Sans W03_700', Helvetica, sans-serif;
+$title-weight: 700;
+$subtitle-family: 'Museo Sans W03_700', Helvetica, sans-serif;
+$subtitle-weight: 700;
+
+// Colors
+$grey-dark: $grey-dark;
+$grey-light: $grey;
+$dark: $grey-dark;
+
+$orange: $reapit-orange;
+$yellow: $reapit-gold;
+$green: $reapit-green;
+$turquoise: $reapit-teal;
+$cyan: $reapit-light-blue;
+$blue: $reapit-dark-blue;
+$purple: $reapit-plumb;
+$red: $reapit-red;
+
+$title-color: $black;
+
+$text: $dark;
+
+$title-weight: $weight-bold;
+$subtitle-weight: $weight-bold;
+$subtitle-color: $dark;
+
+// Notifications
+$notification-radius: 0;
+$notification-padding: 1rem;
+
+// Card
+$card-shadow: none;
+$card-footer-padding: 0.5rem;
+
+// Modal
+$modal-background-background-color: rgba($black, 0.3);
+$modal-card-head-radius: 0;
+$modal-card-foot-radius: 0;
+
+// Form elements
+$checkbox-radius: 0;
+
+@import '../../../../../node_modules/bulma/bulma.sass';

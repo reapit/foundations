@@ -1,23 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SettingsPage should match snapshot 1`] = `<Loader />`;
+exports[`SettingsPage should match snapshot 1`] = `<Component />`;
 
 exports[`SettingsPage should match snapshot 2`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
     >
-      <H3>
+      <Component>
         Settings
-      </H3>
-      <Grid>
-        <GridItem>
+      </Component>
+      <Component>
+        <Component>
           <EnhanceContactInformation
             developerInformation={
               Object {
@@ -34,26 +34,26 @@ exports[`SettingsPage should match snapshot 2`] = `
             }
             updateDeveloperInformation={[MockFunction]}
           />
-        </GridItem>
-        <GridItem>
+        </Component>
+        <Component>
           <EnhanceChangePasswordForm
             changePassword={[MockFunction]}
             email="test@gmail.com"
           />
-        </GridItem>
-      </Grid>
-      <FormSection>
-        <LevelRight>
-          <Button
+        </Component>
+      </Component>
+      <Component>
+        <Component>
+          <Component
             onClick={[MockFunction]}
             type="button"
             variant="primary"
           >
             Logout
-          </Button>
-        </LevelRight>
-      </FormSection>
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+          </Component>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Component>
 `;

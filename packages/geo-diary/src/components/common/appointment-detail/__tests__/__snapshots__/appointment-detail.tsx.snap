@@ -7,12 +7,12 @@ exports[`AppointmentModal AppointmentModal should render a header correctly 1`] 
   <div
     className="undefined modal-card-title"
   >
-    <H4>
+    <Component>
       Some address
-    </H4>
-    <SubTitleH5>
+    </Component>
+    <Component>
       Some type
-    </SubTitleH5>
+    </Component>
   </div>
   <button
     aria-label="close"
@@ -25,7 +25,7 @@ exports[`AppointmentModal AppointmentModal should render a header correctly 1`] 
 
 exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
 <Fragment>
-  <Modal
+  <Component
     HeaderComponent={[Function]}
     afterClose={[MockFunction]}
     visible={true}
@@ -33,9 +33,9 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
     <div>
       <div>
         <FaClock />
-        <H6>
+        <Component>
           Time:
-        </H6>
+        </Component>
       </div>
       <div>
         <p>
@@ -46,11 +46,11 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
     <div>
       <div>
         <FaHome />
-        <H6>
+        <Component>
           Property:
-        </H6>
+        </Component>
       </div>
-      <AcLink
+      <Component
         dynamicLinkParams={
           Object {
             "appMode": "DESKTOP",
@@ -62,14 +62,14 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
         <p>
           42, Mill Road, Sharnbrook, Bedford, Bedfordshire, MK44 1NX, GB
         </p>
-      </AcLink>
+      </Component>
     </div>
     <div>
       <div>
         <FaStickyNote />
-        <H6>
+        <Component>
           Entry Notes:
-        </H6>
+        </Component>
       </div>
       <p>
         It has windows, a roof and doors - it's basically a house.
@@ -78,49 +78,49 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
     <div>
       <div>
         <FaHandshake />
-        <H6>
+        <Component>
           Arrangements:
-        </H6>
+        </Component>
       </div>
       <p>
         Don't let the cat in
       </p>
     </div>
-    <FlexContainerResponsive>
-      <Button
+    <Component>
+      <Component
         disabled={false}
         onClick={[MockFunction]}
         type="button"
         variant="primary"
       >
         Cancel Appointment
-      </Button>
-    </FlexContainerResponsive>
-  </Modal>
+      </Component>
+    </Component>
+  </Component>
 </Fragment>
 `;
 
 exports[`AppointmentModal AppointmentModal should render correctly for confirm content 1`] = `
 <Fragment>
-  <Modal
+  <Component
     HeaderComponent={[Function]}
     afterClose={[MockFunction]}
     visible={true}
   >
     <ConfirmContentWithRedux />
-  </Modal>
+  </Component>
 </Fragment>
 `;
 
 exports[`AppointmentModal AppointmentModal should render correctly when loading 1`] = `
 <Fragment>
-  <Modal
+  <Component
     HeaderComponent={[Function]}
     afterClose={[MockFunction]}
     visible={true}
   >
-    <Loader />
-  </Modal>
+    <Component />
+  </Component>
 </Fragment>
 `;
 
@@ -129,11 +129,11 @@ exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
   <div>
     <div>
       <FaHome />
-      <H6>
+      <Component>
         Property:
-      </H6>
+      </Component>
     </div>
-    <AcLink
+    <Component
       dynamicLinkParams={
         Object {
           "appMode": "DESKTOP",
@@ -145,7 +145,7 @@ exports[`AppointmentModal renderAddress should matchSnapshot 1`] = `
       <p>
         65, Lindsey Close, Great Denham, Bedford, Bedfordshire, MK40 4GT
       </p>
-    </AcLink>
+    </Component>
   </div>
 </div>
 `;
@@ -158,7 +158,7 @@ exports[`AppointmentModal renderCheckMark should match snapshot 1`] = `
 
 exports[`AppointmentModal renderCommunicationDetail should match snapshot 1`] = `
 <div>
-  <IconList
+  <Component
     items={
       Array [
         Object {
@@ -189,9 +189,9 @@ exports[`AppointmentModal renderTime should match snapshot 1`] = `
 <div>
   <div>
     <FaClock />
-    <H6>
+    <Component>
       Time:
-    </H6>
+    </Component>
   </div>
   <div>
     <p>

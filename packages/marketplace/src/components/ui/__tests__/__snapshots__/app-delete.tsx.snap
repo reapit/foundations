@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`app-delete should match snapshot 1`] = `
-<Modal
+<Component
   afterClose={[Function]}
   renderChildren={true}
   visible={true}
 >
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm test deletion"
   />
-  <ModalBody
+  <Component
     body={
       <React.Fragment>
         Are you sure you want to remove this App ‘
@@ -20,10 +20,10 @@ exports[`app-delete should match snapshot 1`] = `
       </React.Fragment>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           dataTest="agree-btn"
           loading={false}
           onClick={[Function]}
@@ -31,8 +31,8 @@ exports[`app-delete should match snapshot 1`] = `
           variant="danger"
         >
           Delete
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           dataTest="disagree-btn"
           disabled={false}
           onClick={[MockFunction]}
@@ -40,9 +40,9 @@ exports[`app-delete should match snapshot 1`] = `
           variant="secondary"
         >
           Cancel
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
-</Modal>
+</Component>
 `;

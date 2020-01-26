@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "es6",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "noEmit": false,
+    "strict": true,
+    "declaration": true,
+    "jsx": "react",
+    "types": ["jest", "node", "react"],
+    "typeRoots": ["src/utils/types/index.d.ts", "./node_modules/@types", "../../node_modules/@types"],
+    "baseUrl": "./",
+    "lib": ["es2015", "es2017", "dom", "es5", "es6", "esnext"],
+    "outDir": "public",
+    "rootDir": "src"
+  },
+  "include": ["src"],
+  "exclude": ["public", "dist", "node_modules", "src/scripts", "src/styles", "**/__tests__"]
+}

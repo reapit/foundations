@@ -1,0 +1,25 @@
+
+@import '../base/colors.scss';
+@import '../base/fonts.scss';
+
+.form {
+  width: 100%;
+}
+
+.form-section {
+  padding: 1rem;
+  border-top: 1px solid $grey;
+
+  .form-heading, .form-subheading  {
+    color: $grey-dark;    
+  }
+
+  .form-heading {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .form-subheading {
+    font-style: italic;
+  }
+}

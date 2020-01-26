@@ -1,0 +1,12 @@
+{
+  "name": "demo-site",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://demo-site.reapit.com",
+  "scripts": {
+    "serve": "serve -d public -l 8080"
+  },
+  "devDependencies": {
+    "serve": "^11.2.0"
+  }
+}

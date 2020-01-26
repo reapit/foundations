@@ -5,11 +5,11 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
   <div
     className="undefined "
   >
-    <H1
+    <Component
       isCentered={true}
     >
       Register
-    </H1>
+    </Component>
     <p
       className="pb-8"
     >
@@ -19,14 +19,14 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
       data-test="register-form"
       noValidate={true}
     >
-      <FormSection>
-        <FormHeading>
+      <Component>
+        <Component>
           Register for Foundations
-        </FormHeading>
-        <FormSubHeading>
+        </Component>
+        <Component>
           By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what you build!
-        </FormSubHeading>
-        <Input
+        </Component>
+        <Component
           dataTest="register-name"
           id="name"
           labelText="Full name"
@@ -34,7 +34,7 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
           placeholder="Joe Developer"
           type="text"
         />
-        <Input
+        <Component
           dataTest="register-company-name"
           id="companyName"
           labelText="Company name"
@@ -42,7 +42,7 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
           placeholder="Acme Industries Ltd"
           type="text"
         />
-        <Input
+        <Component
           dataTest="register-email"
           id="email"
           labelText="Email"
@@ -50,7 +50,7 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
           placeholder="name@address.com"
           type="email"
         />
-        <Input
+        <Component
           dataTest="register-telephone"
           id="telephone"
           labelText="Telephone"
@@ -58,14 +58,14 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
           placeholder="0800 800 800"
           type="tel"
         />
-        <Input
+        <Component
           dataTest="register-password"
           id="password"
           labelText="Password"
           name="password"
           type="password"
         />
-        <Input
+        <Component
           dataTest="register-confirm-password"
           id="confirmPassword"
           labelText="Confirm password"
@@ -90,10 +90,10 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
             I agree to the Terms and Conditions
           </label>
         </div>
-      </FormSection>
-      <FormSection>
-        <Level>
-          <Button
+      </Component>
+      <Component>
+        <Component>
+          <Component
             disabled={false}
             fullWidth={true}
             loading={false}
@@ -102,17 +102,17 @@ exports[`Register should match a snapshot for PENDING state 1`] = `
             variant="primary"
           >
             Register
-          </Button>
-        </Level>
-        <Level>
+          </Component>
+        </Component>
+        <Component>
           Already have an account?
           <Link
             to="/developer/login"
           >
             Login
           </Link>
-        </Level>
-      </FormSection>
+        </Component>
+      </Component>
     </Form>
   </div>
   <div>
@@ -135,11 +135,11 @@ exports[`Register should match a snapshot for SUCCESS state 1`] = `
   <div
     className="undefined "
   >
-    <H1
+    <Component
       isCentered={true}
     >
       Register
-    </H1>
+    </Component>
     <p
       className="pb-8"
     >

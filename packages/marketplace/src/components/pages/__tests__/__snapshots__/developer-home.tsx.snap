@@ -75,7 +75,7 @@ exports[`DeveloperHome should match a snapshot 1`] = `
 </Connect(ErrorBoundary)>
 `;
 
-exports[`DeveloperHome should match a snapshot 2`] = `<Loader />`;
+exports[`DeveloperHome should match a snapshot 2`] = `<Component />`;
 
 exports[`DeveloperHome should match a snapshot 3`] = `
 <Connect(ErrorBoundary)>

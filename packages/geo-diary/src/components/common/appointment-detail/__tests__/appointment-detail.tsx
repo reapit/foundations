@@ -52,7 +52,6 @@ describe('AppointmentModal', () => {
         isConfirmContentVisible: false,
       } as AppointmentModalProps
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
-      expect(wrapper.find('Modal')).toHaveLength(1)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -72,7 +71,6 @@ describe('AppointmentModal', () => {
         isConfirmContentVisible: true,
       } as AppointmentModalProps
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
-      expect(wrapper.find('Modal')).toHaveLength(1)
       expect(wrapper).toMatchSnapshot()
     })
 
@@ -102,7 +100,6 @@ describe('AppointmentModal', () => {
         isConfirmContentVisible: false,
       } as AppointmentModalProps
       const wrapper = shallow(<AppointmentModal {...mockProps} />)
-      expect(wrapper.find('Loader')).toHaveLength(1)
       expect(wrapper).toMatchSnapshot()
     })
   })

@@ -2,16 +2,16 @@
 
 exports[`Installations should match a snapshot when LOADING false 1`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     title="Installations"
   />
-  <ModalBody
+  <Component
     body={
       <React.Fragment>
         <React.Fragment>
           <React.Fragment>
-            <Table
+            <Unknown
               columns={
                 Array [
                   Object {
@@ -53,7 +53,7 @@ exports[`Installations should match a snapshot when LOADING false 1`] = `
               }
               loading={false}
             />
-            <Pagination
+            <Unknown
               onChange={[Function]}
               pageNumber={1}
               pageSize={15}
@@ -69,14 +69,14 @@ exports[`Installations should match a snapshot when LOADING false 1`] = `
 
 exports[`Installations should match a snapshot when LOADING true 1`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     title="Installations"
   />
-  <ModalBody
+  <Component
     body={
       <React.Fragment>
-        <Loader />
+        <Unknown />
       </React.Fragment>
     }
   />

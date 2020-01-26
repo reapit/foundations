@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should match a snapshot for ModalBody 1`] = `
+<section
+  className="modal-card-body"
+>
+  <div>
+    Some body content
+  </div>
+</section>
+`;
+
+exports[`Modal should match a snapshot for ModalFooter 1`] = `
+<footer
+  className="modal-card-foot"
+>
+  <div>
+    Some footer content
+  </div>
+</footer>
+`;
+
+exports[`Modal should match a snapshot for ModalHeader 1`] = `
+<header
+  className="modal-card-head"
+>
+  <h4
+    className="modal-card-title is-4"
+  >
+    Some body content
+  </h4>
+  <button
+    aria-label="close"
+    className="delete"
+    data-test="modal-close-button"
+    onClick={[Function]}
+  />
+</header>
+`;

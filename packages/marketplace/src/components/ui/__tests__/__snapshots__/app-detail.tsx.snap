@@ -2,14 +2,14 @@
 
 exports[`AppDetailModalInner should match a snapshot 1`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     title=""
   />
-  <ModalBody
+  <Component
     body={
       <React.Fragment>
-        <Tile
+        <Unknown
           heading=""
           image={
             <img
@@ -24,9 +24,9 @@ exports[`AppDetailModalInner should match a snapshot 1`] = `
           }
         >
           <div>
-            <H6 />
+            <Unknown />
           </div>
-        </Tile>
+        </Unknown>
         <React.Fragment>
           <p>
             App Information
@@ -50,14 +50,14 @@ exports[`AppDetailModalInner should match a snapshot 1`] = `
         <br />
         <p />
         <br />
-        <H6>
+        <Unknown>
           Permissions requested
-        </H6>
-        <GridFiveCol />
+        </Unknown>
+        <Unknown />
       </React.Fragment>
     }
   />
-  <ModalFooter />
+  <Component />
 </Fragment>
 `;
 

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeclineRevisionModal should match a snapshot 1`] = `
-<Modal
+<Component
   afterClose={[Function]}
   renderChildren={true}
   visible={true}
@@ -19,5 +19,5 @@ exports[`DeclineRevisionModal should match a snapshot 1`] = `
     render={[Function]}
     validate={[Function]}
   />
-</Modal>
+</Component>
 `;

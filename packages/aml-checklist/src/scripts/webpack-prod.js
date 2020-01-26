@@ -12,7 +12,7 @@ const { EnvironmentPlugin } = require('webpack')
 
 const config = require(path.resolve(__dirname, '../..', 'reapit-config.json'))
 const PATHS = {
-  src: path.join(__dirname, '../..', 'src')
+  src: path.join(__dirname, '../..', 'src'),
 }
 
 const PurgecssLoader = {
@@ -23,9 +23,9 @@ const PurgecssLoader = {
     whitelist: PurgecssWhitelister([
       'src/styles/utilities.scss',
       'src/styles/vendor/normalize.scss',
-      'node_modules/@reapit/elements/dist/*.css'
-    ])
-  }
+      'node_modules/@reapit/elements/dist/*.css',
+    ]),
+  },
 }
 
 module.exports = {
@@ -33,16 +33,16 @@ module.exports = {
   entry: './src/core/index.tsx',
   output: {
     path: path.join(process.cwd(), 'public', 'dist'),
-    filename: '[name].[hash].js'
+    filename: '[name].[hash].js',
   },
   plugins: [
     new ResolveTSPathsToWebpackAlias({
-      tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json')
+      tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json'),
     }),
     new ForkTsCheckerWebpackPlugin({
       async: false,
       useTypescriptIncrementalApi: true,
-      memoryLimit: 4096
+      memoryLimit: 4096,
     }),
     new HtmlWebpackPlugin({
       hash: true,
@@ -58,8 +58,8 @@ module.exports = {
         keepClosingSlash: true,
         minifyJS: true,
         minifyCSS: true,
-        minifyURLs: true
-      }
+        minifyURLs: true,
+      },
     }),
     new FaviconsWebpackPlugin({
       logo: './public/logo.png',
@@ -78,25 +78,24 @@ module.exports = {
         opengraph: false,
         twitter: false,
         yandex: false,
-        windows: false
-      }
+        windows: false,
+      },
     }),
     new BundleAnalyzerPlugin({
       generateStatsFile: true,
       analyzerMode: 'disabled',
-      generateStatsFile: true
     }),
     new EnvironmentPlugin(config[process.env.REAPIT_ENV]),
     new HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash].css'
-    })
+      filename: 'css/[name].[hash].css',
+    }),
   ],
   module: {
     rules: [
       {
         test: /.tsx?$/,
-        use: [{ loader: 'ts-loader', options: { transpileOnly: true } }]
+        use: [{ loader: 'ts-loader', options: { transpileOnly: true } }],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
@@ -104,9 +103,9 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: '/assets'
-          }
-        }
+            outputPath: '/assets',
+          },
+        },
       },
       {
         test: /\.(css)$/,
@@ -115,10 +114,10 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1
-            }
-          }
-        ]
+              importLoaders: 1,
+            },
+          },
+        ],
       },
       {
         test: /\.(sass|scss)$/,
@@ -132,19 +131,19 @@ module.exports = {
                 options: {
                   importLoaders: 1,
                   modules: {
-                    localIdentName: '[hash:base64:5]'
+                    localIdentName: '[hash:base64:5]',
                   },
-                  localsConvention: 'camelCase'
-                }
+                  localsConvention: 'camelCase',
+                },
               },
               PurgecssLoader,
               {
                 loader: 'sass-loader',
                 options: {
-                  sourceMap: false
-                }
-              }
-            ]
+                  sourceMap: false,
+                },
+              },
+            ],
           },
           {
             use: [
@@ -152,32 +151,32 @@ module.exports = {
               {
                 loader: 'css-loader',
                 options: {
-                  importLoaders: 1
-                }
+                  importLoaders: 1,
+                },
               },
               PurgecssLoader,
               {
                 loader: 'sass-loader',
                 options: {
-                  sourceMap: false
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ]
+                  sourceMap: false,
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass'],
     alias: {
-      '@': path.resolve(__dirname, 'src/')
-    }
+      '@': path.resolve(__dirname, 'src/'),
+    },
   },
   optimization: {
     nodeEnv: 'production',
     splitChunks: {
-      chunks: 'all'
-    }
-  }
+      chunks: 'all',
+    },
+  },
 }

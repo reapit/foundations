@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ViewDetailButton ViewDetailButton should match snapshot 1`] = `
-<Button
+<Component
   className="is-centered"
   onClick={[MockFunction]}
   type="button"
   variant="info"
 >
   Details
-</Button>
+</Component>
 `;

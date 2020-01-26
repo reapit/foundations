@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match a snapshot 1`] = `
-<Memo()
+<Memo(MenuComponent)
   defaultActiveKey="LOGO"
   location={
     Object {
@@ -15,7 +15,7 @@ exports[`Menu should match a snapshot 1`] = `
   menu={
     Array [
       Object {
-        "icon": <ReapitLogo
+        "icon": <Unknown
           className="nav-item-icon"
         />,
         "key": "LOGO",
@@ -46,7 +46,7 @@ exports[`Menu should match a snapshot 1`] = `
 `;
 
 exports[`Menu should match a snapshot 2`] = `
-<Memo()
+<Memo(MenuComponent)
   defaultActiveKey="LOGO"
   location={
     Object {
@@ -60,7 +60,7 @@ exports[`Menu should match a snapshot 2`] = `
   menu={
     Array [
       Object {
-        "icon": <ReapitLogo
+        "icon": <Unknown
           className="nav-item-icon"
         />,
         "key": "LOGO",

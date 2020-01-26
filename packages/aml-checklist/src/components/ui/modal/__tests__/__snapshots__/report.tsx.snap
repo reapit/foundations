@@ -2,13 +2,13 @@
 
 exports[`ReportContainer handleTrigger 1`] = `
 <div>
-  <Button
+  <Component
     className="mr-2"
     type="button"
     variant="primary"
   >
     Print Report
-  </Button>
+  </Component>
 </div>
 `;
 
@@ -23,7 +23,7 @@ exports[`ReportContainer should match snapshot 1`] = `
       pass
     </p>
     <div>
-      <Table
+      <Component
         bordered={true}
         columns={
           Array [

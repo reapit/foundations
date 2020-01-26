@@ -15,6 +15,7 @@ import {
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
+import { Loader, Checkbox } from '@reapit/elements'
 
 const submitAppMappedActionsProps: SubmitAppMappedActions = {
   submitApp: jest.fn(),
@@ -79,8 +80,8 @@ describe('DeveloperSubmitApp', () => {
       categories: appCategorieStub?.data || [],
     }
 
-    const wrapper = shallow(<SubmitApp {...props} />)
-    expect(wrapper.find('Loader')).toHaveLength(1)
+    const wrapper = mount(<SubmitApp {...props} />)
+    expect(wrapper.find(Loader)).toHaveLength(1)
   })
 
   it('should match submit revision form snapshot', () => {
@@ -358,7 +359,7 @@ describe('DeveloperSubmitApp', () => {
     }
 
     const wrapper = mount(<SubmitApp {...props} />)
-    expect(wrapper.find('Checkbox')).toHaveLength(2)
+    expect(wrapper.find(Checkbox)).toHaveLength(2)
   })
 
   it('should go back to my apps page if click "Back To Apps" when editing an app', () => {

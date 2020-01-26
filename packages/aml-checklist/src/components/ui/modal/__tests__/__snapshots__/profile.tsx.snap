@@ -26,28 +26,28 @@ exports[` 1`] = `
 exports[`profile renderForm should match snapshot 1`] = `
 <div>
   <Form>
-    <Input
+    <Component
       id="title"
       labelText="Title"
       name="title"
       required={true}
       type="text"
     />
-    <Input
+    <Component
       id="forename"
       labelText="Forename"
       name="forename"
       required={true}
       type="text"
     />
-    <Input
+    <Component
       id="surname"
       labelText="Surname"
       name="surname"
       required={true}
       type="text"
     />
-    <DatePicker
+    <Component
       id="dateOfBirth"
       labelText="Date Of Birth"
       name="dateOfBirth"
@@ -58,25 +58,25 @@ exports[`profile renderForm should match snapshot 1`] = `
     >
       * At least one telephone number is required
     </p>
-    <Input
+    <Component
       id="homePhone"
       labelText="Home"
       name="homePhone"
       type="text"
     />
-    <Input
+    <Component
       id="mobilePhone"
       labelText="Mobile"
       name="mobilePhone"
       type="text"
     />
-    <Input
+    <Component
       id="workPhone"
       labelText="Work"
       name="workPhone"
       type="text"
     />
-    <Input
+    <Component
       id="email"
       labelText="Email"
       name="email"
@@ -107,22 +107,22 @@ exports[`profile renderForm should match snapshot 1`] = `
         <div
           className="column undefined"
         >
-          <Button
+          <Component
             className="mr-2"
             loading={false}
             type="submit"
             variant="primary"
           >
             Save
-          </Button>
-          <Button
+          </Component>
+          <Component
             dataTest="submit-revision-modal-edit-button"
             disabled={false}
             type="button"
             variant="primary"
           >
             Next
-          </Button>
+          </Component>
         </div>
       </div>
     </div>
@@ -138,28 +138,28 @@ exports[`profile renderForm should match snapshot 1`] = `
 exports[`profile renderForm should match snapshot 2`] = `
 <div>
   <Form>
-    <Input
+    <Component
       id="title"
       labelText="Title"
       name="title"
       required={true}
       type="text"
     />
-    <Input
+    <Component
       id="forename"
       labelText="Forename"
       name="forename"
       required={true}
       type="text"
     />
-    <Input
+    <Component
       id="surname"
       labelText="Surname"
       name="surname"
       required={true}
       type="text"
     />
-    <DatePicker
+    <Component
       id="dateOfBirth"
       labelText="Date Of Birth"
       name="dateOfBirth"
@@ -170,25 +170,25 @@ exports[`profile renderForm should match snapshot 2`] = `
     >
       * At least one telephone number is required
     </p>
-    <Input
+    <Component
       id="homePhone"
       labelText="Home"
       name="homePhone"
       type="text"
     />
-    <Input
+    <Component
       id="mobilePhone"
       labelText="Mobile"
       name="mobilePhone"
       type="text"
     />
-    <Input
+    <Component
       id="workPhone"
       labelText="Work"
       name="workPhone"
       type="text"
     />
-    <Input
+    <Component
       id="email"
       labelText="Email"
       name="email"
@@ -219,22 +219,22 @@ exports[`profile renderForm should match snapshot 2`] = `
         <div
           className="column undefined"
         >
-          <Button
+          <Component
             className="mr-2"
             loading={false}
             type="submit"
             variant="primary"
           >
             Save
-          </Button>
-          <Button
+          </Component>
+          <Component
             dataTest="submit-revision-modal-edit-button"
             disabled={false}
             type="button"
             variant="primary"
           >
             Next
-          </Button>
+          </Component>
         </div>
       </div>
     </div>

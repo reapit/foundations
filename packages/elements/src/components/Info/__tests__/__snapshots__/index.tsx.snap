@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info should match a snapshot for variant  1`] = `
+<Component
+  message=""
+  type="info"
+/>
+`;
+
+exports[`Info should match a snapshot for variant 404 1`] = `
+<Component
+  message="Page not found"
+  type="danger"
+/>
+`;
+
+exports[`Info should match a snapshot for variant ADMIN_APPROVALS_EMPTY 1`] = `
+<Component
+  message="There are no updates that require approval"
+  type="info"
+/>
+`;
+
+exports[`Info should match a snapshot for variant CLIENT_APPS_EMPTY 1`] = `
+<Component
+  message="We are sorry, there are no apps listed compatible with your account"
+  type="info"
+/>
+`;
+
+exports[`Info should match a snapshot for variant DEVELOPER_APPS_EMPTY 1`] = `
+<Component
+  message="It looks like you haven’t submitted an App yet . When you’re ready, click on ‘Submit’ from the menu to get started."
+  type="info"
+/>
+`;
+
+exports[`Info should match a snapshot for variant INSTALLED_APPS_EMPTY 1`] = `
+<Component
+  message="It looks like you haven’t installed any Apps yet. Have a look at what’s available by clicking ‘Browse’ from the menu."
+  type="info"
+/>
+`;

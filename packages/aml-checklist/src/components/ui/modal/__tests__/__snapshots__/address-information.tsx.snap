@@ -4,58 +4,58 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
 <div
   key="primaryAddress"
 >
-  <Input
+  <Component
     id="primaryAddress[type]"
     labelText="Type"
     name="primaryAddress[type]"
     type="hidden"
   />
-  <Input
+  <Component
     id="primaryAddress[buildingName]"
     labelText="Building Name"
     name="primaryAddress[buildingName]"
     type="text"
   />
-  <Input
+  <Component
     id="primaryAddress[buildingNumber]"
     labelText="Building Number"
     name="primaryAddress[buildingNumber]"
     type="text"
   />
-  <Input
+  <Component
     id="primaryAddress[line1]"
     labelText="Line 1"
     name="primaryAddress[line1]"
     required={true}
     type="text"
   />
-  <Input
+  <Component
     id="primaryAddress[line2]"
     labelText="Line 2"
     name="primaryAddress[line2]"
     type="text"
   />
-  <Input
+  <Component
     id="primaryAddress[line3]"
     labelText="Line 3"
     name="primaryAddress[line3]"
     required={true}
     type="text"
   />
-  <Input
+  <Component
     id="primaryAddress[line4]"
     labelText="Line 4"
     name="primaryAddress[line4]"
     type="text"
   />
-  <Input
+  <Component
     id="primaryAddress[postcode]"
     labelText="Post Code"
     name="primaryAddress[postcode]"
     required={true}
     type="text"
   />
-  <SelectBox
+  <Component
     id="metadata.addresses[0][year]"
     labelText="Number of Years at Address"
     name="metadata.addresses[0][year]"
@@ -465,7 +465,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     }
     required={true}
   />
-  <SelectBox
+  <Component
     id="metadata.addresses[0][month]"
     labelText="Number of Months at Address"
     name="metadata.addresses[0][month]"
@@ -523,7 +523,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     }
     required={true}
   />
-  <SelectBox
+  <Component
     id="metadata.addresses[0][documentType]"
     labelText="Document Type"
     name="metadata.addresses[0][documentType]"
@@ -593,7 +593,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     }
     required={true}
   />
-  <CameraImageInput
+  <Component
     allowClear={true}
     id="metadata.addresses[0][documentImage]"
     labelText="Upload file"

@@ -1,0 +1,13 @@
+@import '../base/colors.scss';
+
+.progress-bar {
+  position: relative;
+  height: 2rem;
+  border: 1px solid $reapit-teal;
+  width: 100%;
+}
+
+.filler {
+  background: $reapit-teal;
+  height: 100%;
+}

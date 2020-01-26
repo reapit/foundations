@@ -2,7 +2,7 @@
 
 exports[`AppSidebar FilterForm should match a snapshot 1`] = `
 <Form>
-  <Input
+  <Component
     id="search"
     name="search"
     placeholder="Search..."
@@ -15,7 +15,7 @@ exports[`AppSidebar FilterForm should match a snapshot 1`] = `
     }
     type="text"
   />
-  <RadioSelect
+  <Component
     id="searchBy"
     name="searchBy"
     options={
@@ -37,17 +37,17 @@ exports[`AppSidebar FilterForm should match a snapshot 1`] = `
 
 exports[`AppSidebar should match a snapshot 1`] = `
 <div>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
     <div>
-      <H3>
+      <Component>
         Browse Apps
-      </H3>
-      <H6>
+      </Component>
+      <Component>
         Search
-      </H6>
+      </Component>
       <Formik
         component={[Function]}
         enableReinitialize={true}
@@ -61,9 +61,9 @@ exports[`AppSidebar should match a snapshot 1`] = `
       />
     </div>
     <div>
-      <H6>
+      <Component>
         Filter
-      </H6>
+      </Component>
       <CategoriesList
         categories={
           Array [
@@ -91,6 +91,6 @@ exports[`AppSidebar should match a snapshot 1`] = `
         onSelectCategory={[Function]}
       />
     </div>
-  </FlexContainerBasic>
+  </Component>
 </div>
 `;
