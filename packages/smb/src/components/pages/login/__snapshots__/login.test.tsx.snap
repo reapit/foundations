@@ -1600,7 +1600,7 @@ exports[`Login Login should match a snapshot 1`] = `
         <div
           className="undefined"
         >
-          <H1
+          <Component
             isCentered={true}
           >
             <h1
@@ -1609,7 +1609,7 @@ exports[`Login Login should match a snapshot 1`] = `
             >
               Sign in
             </h1>
-          </H1>
+          </Component>
           <p
             className="pb-8"
           >
@@ -1633,7 +1633,7 @@ exports[`Login Login should match a snapshot 1`] = `
                 onReset={[Function]}
                 onSubmit={[Function]}
               >
-                <Input
+                <Component
                   dataTest="login-email"
                   id="userName"
                   labelText="Email"
@@ -1672,8 +1672,8 @@ exports[`Login Login should match a snapshot 1`] = `
                       </div>
                     </div>
                   </Field>
-                </Input>
-                <Input
+                </Component>
+                <Component
                   dataTest="login-password"
                   id="password"
                   labelText="Password"
@@ -1712,12 +1712,12 @@ exports[`Login Login should match a snapshot 1`] = `
                       </div>
                     </div>
                   </Field>
-                </Input>
-                <Level>
+                </Component>
+                <Component>
                   <div
                     className="level "
                   >
-                    <Button
+                    <Component
                       disabled={false}
                       loading={false}
                       type="submit"
@@ -1731,9 +1731,9 @@ exports[`Login Login should match a snapshot 1`] = `
                       >
                         Login
                       </button>
-                    </Button>
+                    </Component>
                   </div>
-                </Level>
+                </Component>
               </form>
             </Form>
           </Formik>

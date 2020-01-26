@@ -5,7 +5,7 @@ exports[`Swagger should match a snapshot 1`] = `
   <div
     className="swagger"
   >
-    <Loader />
+    <Component />
     <div
       className="swagger-loading"
     >

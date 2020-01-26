@@ -20,21 +20,21 @@ exports[` 1`] = `
   <div
     className="flex justify-end"
   >
-    <Button
+    <Component
       className="mr-2"
       onClick={[Function]}
       type="submit"
       variant="primary"
     >
       Submit
-    </Button>
-    <Button
+    </Component>
+    <Component
       dataTest="submit-revision-modal-edit-button"
       type="button"
       variant="primary"
     >
       Next
-    </Button>
+    </Component>
   </div>
 </div>
 `;

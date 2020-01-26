@@ -92,7 +92,7 @@ exports[`Client should match a snapshot when LOADING true 1`] = `
     id="page-client-apps-container"
   >
     <withRouter(Connect(Component)) />
-    <Loader />
+    <Component />
   </div>
   <Connect(Component)
     afterClose={[Function]}

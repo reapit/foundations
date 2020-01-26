@@ -5,26 +5,26 @@ exports[`CallToAction should match a snapshot 1`] = `
   className=""
   data-test=""
 >
-  <Alert
+  <Component
     className="mb-0"
     message="My title"
     type="success"
   />
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
   >
     <p />
-    <LevelRight>
-      <Button
+    <Component>
+      <Component
         dataTest=""
         type="button"
         variant="primary"
       >
         My button
-      </Button>
-    </LevelRight>
-  </FlexContainerBasic>
+      </Component>
+    </Component>
+  </Component>
 </div>
 `;

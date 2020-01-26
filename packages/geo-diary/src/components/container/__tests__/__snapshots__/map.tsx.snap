@@ -5,7 +5,7 @@ exports[`Map Should match snapshot 1`] = `
   <div
     className="undefined  "
   >
-    <Map
+    <Component
       autoFitBounds={true}
       coordinates={
         Array [
@@ -326,7 +326,7 @@ exports[`Map Should match snapshot 2`] = `
   <div
     className="undefined  "
   >
-    <Map
+    <Component
       autoFitBounds={true}
       coordinates={Array []}
       destinationAddress="mockAddress"

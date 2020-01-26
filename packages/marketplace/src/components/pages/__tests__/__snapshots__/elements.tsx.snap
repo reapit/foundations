@@ -2,19 +2,19 @@
 
 exports[`Elements should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <Content>
-      <FlexContainerResponsive
+    <Component>
+      <Component
         flexColumn={true}
         hasBackground={true}
         hasPadding={true}
       >
-        <H3>
+        <Component>
           Elements 
-        </H3>
+        </Component>
         <p>
           Elements is a React UI Component and utility library we have developed internally and open sourced. The Developer Portal and Marketplace itself uses Elements extensively and if you are building a React app to be installed by clients, we recommend you do too.
         </p>
@@ -27,9 +27,9 @@ exports[`Elements should match a snapshot 1`] = `
             the package documentation.
           </Link>
         </p>
-      </FlexContainerResponsive>
-    </Content>
-    <FlexContainerBasic
+      </Component>
+    </Component>
+    <Component
       className="container"
     >
       <iframe
@@ -42,7 +42,7 @@ exports[`Elements should match a snapshot 1`] = `
         }
         width="100%"
       />
-    </FlexContainerBasic>
-  </FlexContainerBasic>
+    </Component>
+  </Component>
 </Connect(ErrorBoundary)>
 `;

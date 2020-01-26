@@ -17,7 +17,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
     key="NEP1600290"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -74,7 +74,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={true}
       key="NEP1600290"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -98,14 +98,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="BED1600537"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -162,7 +162,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="BED1600537"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -186,14 +186,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="BUC1600211"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -250,7 +250,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="BUC1600211"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -274,14 +274,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="BUC1600210"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -338,7 +338,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="BUC1600210"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -362,14 +362,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="STS1600403"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -383,7 +383,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="STS1600403"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -401,14 +401,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="STS1600401"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -422,7 +422,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="STS1600401"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -440,14 +440,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="NEP1600288"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -504,7 +504,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="NEP1600288"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -528,14 +528,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="STS1600396"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -549,7 +549,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="STS1600396"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -567,14 +567,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="NEP1600287"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -588,7 +588,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="NEP1600287"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -606,14 +606,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="BED1600534"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -670,7 +670,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="BED1600534"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -694,14 +694,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="STS1600394"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -715,7 +715,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="STS1600394"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -733,14 +733,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="BED1600532"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -797,7 +797,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="BED1600532"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -821,14 +821,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="MKC1600312"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -885,7 +885,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="MKC1600312"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -909,14 +909,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="BED1600530"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -973,7 +973,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="BED1600530"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -997,14 +997,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="BUC1600209"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -1061,7 +1061,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="BUC1600209"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -1085,14 +1085,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="BED1600525"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -1149,7 +1149,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="BED1600525"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -1173,14 +1173,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="BED1600523"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -1237,7 +1237,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="BED1600523"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -1261,14 +1261,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="MKC1600311"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -1325,7 +1325,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="MKC1600311"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -1349,14 +1349,14 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
   <div
     className="mb-4"
     key="STS1600389"
     onClick={[Function]}
   >
-    <Tile
+    <Component
       footerItems={
         Array [
           <div>
@@ -1370,7 +1370,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
       hightlight={false}
       key="STS1600389"
     >
-      <IconList
+      <Component
         items={
           Array [
             Object {
@@ -1388,7 +1388,7 @@ exports[`AppointmentList Should match snapshot if having no data 2`] = `
           ]
         }
       />
-    </Tile>
+    </Component>
   </div>
 </div>
 `;

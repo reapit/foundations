@@ -40,7 +40,6 @@ describe('ForgotPassword', () => {
     const wrapper = shallow(<ForgotPassword {...mockProps} />)
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.find('EnhanceForgotPasswordForm')).toHaveLength(0)
-    expect(wrapper.find('Loader')).toHaveLength(1)
   })
   describe('mapDispatchToProps', () => {
     it('should call dispatch when call submitEmail', () => {

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperSubmitAppSuccessfully renders correctly 1`] = `
-<FlexContainerResponsive
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <FlexContainerResponsive
+  <Component
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
@@ -31,6 +31,6 @@ exports[`DeveloperSubmitAppSuccessfully renders correctly 1`] = `
         For any help or support, please visit the ‘Help’ page.
       </p>
     </CallToAction>
-  </FlexContainerResponsive>
-</FlexContainerResponsive>
+  </Component>
+</Component>
 `;

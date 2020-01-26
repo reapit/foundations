@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InstalledAppList should match a snappshot ListDesktopScreen 1`] = `
-<GridFiveCol
+<Component
   className=" "
   data-test="app-list-container"
 >
-  <GridFourColItem
+  <Component
     key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
   >
     <InstalledAppCard
@@ -35,8 +35,8 @@ exports[`InstalledAppList should match a snappshot ListDesktopScreen 1`] = `
       key="09043eb8-9e5e-4650-b7f1-f0cb62699027"
       onClick={[Function]}
     />
-  </GridFourColItem>
-  <GridFourColItem
+  </Component>
+  <Component
     key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
   >
     <InstalledAppCard
@@ -66,8 +66,8 @@ exports[`InstalledAppList should match a snappshot ListDesktopScreen 1`] = `
       key="261da083-cee2-4f5c-a18f-8f9375f1f5af"
       onClick={[Function]}
     />
-  </GridFourColItem>
-</GridFiveCol>
+  </Component>
+</Component>
 `;
 
 exports[`InstalledAppList should match a snappshot ListMobileScreen 1`] = `
@@ -132,13 +132,13 @@ exports[`InstalledAppList should match a snappshot ListMobileScreen 1`] = `
 `;
 
 exports[`InstalledAppList should match a snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <H3>
+  <Component>
     Title
-  </H3>
+  </Component>
   <Component
     list={
       Array [
@@ -189,25 +189,25 @@ exports[`InstalledAppList should match a snapshot 1`] = `
     loading={false}
     onCardClick={[MockFunction]}
   />
-  <Section>
-    <Pagination
+  <Component>
+    <Component
       onChange={[MockFunction]}
       pageNumber={2}
       pageSize={20}
       totalCount={200}
     />
-  </Section>
-</FlexContainerBasic>
+  </Component>
+</Component>
 `;
 
 exports[`InstalledAppList should match a snapshot when use empty infoType 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <H3>
+  <Component>
     Title
-  </H3>
+  </Component>
   <Component
     list={
       Array [
@@ -258,13 +258,13 @@ exports[`InstalledAppList should match a snapshot when use empty infoType 1`] = 
     loading={false}
     onCardClick={[MockFunction]}
   />
-  <Section>
-    <Pagination
+  <Component>
+    <Component
       onChange={[MockFunction]}
       pageNumber={2}
       pageSize={20}
       totalCount={200}
     />
-  </Section>
-</FlexContainerBasic>
+  </Component>
+</Component>
 `;
