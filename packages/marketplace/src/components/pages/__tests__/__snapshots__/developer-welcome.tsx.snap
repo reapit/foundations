@@ -23,12 +23,12 @@ exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] 
     }
   }
 >
-  <FlexContainerBasic
+  <Component
     centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
-    <VerticalTimeline
+    <Component
       currentIndex={0}
       onSelect={[Function]}
       total={1}
@@ -53,7 +53,7 @@ exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] 
         </div>
       </div>
     </div>
-  </FlexContainerBasic>
+  </Component>
 </ContextProvider>
 `;
 
@@ -80,12 +80,12 @@ exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
     }
   }
 >
-  <FlexContainerBasic
+  <Component
     centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
-    <VerticalTimeline
+    <Component
       currentIndex={0}
       onSelect={[Function]}
       total={1}
@@ -110,7 +110,7 @@ exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
         </div>
       </div>
     </div>
-  </FlexContainerBasic>
+  </Component>
 </ContextProvider>
 `;
 
@@ -137,12 +137,12 @@ exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
     }
   }
 >
-  <FlexContainerBasic
+  <Component
     centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
-    <VerticalTimeline
+    <Component
       currentIndex={0}
       onSelect={[Function]}
       total={1}
@@ -167,7 +167,7 @@ exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
         </div>
       </div>
     </div>
-  </FlexContainerBasic>
+  </Component>
 </ContextProvider>
 `;
 
@@ -194,12 +194,12 @@ exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
     }
   }
 >
-  <FlexContainerBasic
+  <Component
     centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
-    <VerticalTimeline
+    <Component
       currentIndex={0}
       onSelect={[Function]}
       total={1}
@@ -224,7 +224,7 @@ exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
         </div>
       </div>
     </div>
-  </FlexContainerBasic>
+  </Component>
 </ContextProvider>
 `;
 
@@ -251,12 +251,12 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
     }
   }
 >
-  <FlexContainerBasic
+  <Component
     centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
-    <VerticalTimeline
+    <Component
       currentIndex={0}
       onSelect={[Function]}
       total={1}
@@ -281,22 +281,22 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
         </div>
       </div>
     </div>
-  </FlexContainerBasic>
+  </Component>
 </ContextProvider>
 `;
 
 exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
     >
-      <HelpGuide>
+      <Component>
         <HelpGuideStep
           component={[Function]}
           graphic={
@@ -357,17 +357,17 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
           id="step-5"
           subHeading="We’re here to help."
         />
-      </HelpGuide>
-      <LevelRight>
-        <Button
+      </Component>
+      <Component>
+        <Component
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           Get Started
-        </Button>
-      </LevelRight>
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+        </Component>
+      </Component>
+    </Component>
+  </Component>
+</Component>
 `;

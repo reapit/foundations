@@ -2,14 +2,14 @@
 
 exports[`HelpPage should match a snapshot 1`] = `
 <div>
-  <H3>
+  <Component>
     Help
-  </H3>
-  <GridFiveCol>
-    <GridFourColItem
+  </Component>
+  <Component>
+    <Component
       key="Welcome Guide"
     >
-      <FlexContainerBasic
+      <Component
         centerContent={true}
         flexColumn={true}
         hasPadding={true}
@@ -20,17 +20,17 @@ exports[`HelpPage should match a snapshot 1`] = `
             src=""
           />
         </div>
-        <H4
+        <Component
           isCentered={true}
         >
           Welcome Guide
-        </H4>
+        </Component>
         <p>
           Need a little help? Have a look through the Welcome Guide, which we’ve put 
       together to help you navigate through your Developer portal.
         </p>
         <p>
-          <Button
+          <Component
             disabled={false}
             fullWidth={false}
             loading={false}
@@ -39,14 +39,14 @@ exports[`HelpPage should match a snapshot 1`] = `
             variant="primary"
           >
             VIEW
-          </Button>
+          </Component>
         </p>
-      </FlexContainerBasic>
-    </GridFourColItem>
-    <GridFourColItem
+      </Component>
+    </Component>
+    <Component
       key="Request a Feature"
     >
-      <FlexContainerBasic
+      <Component
         centerContent={true}
         flexColumn={true}
         hasPadding={true}
@@ -57,17 +57,17 @@ exports[`HelpPage should match a snapshot 1`] = `
             src=""
           />
         </div>
-        <H4
+        <Component
           isCentered={true}
         >
           Request a Feature
-        </H4>
+        </Component>
         <p>
           Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will 
       look at all requests carefully however, we cannot guarantee all will be implemented.
         </p>
         <p>
-          <Button
+          <Component
             disabled={false}
             fullWidth={false}
             loading={false}
@@ -76,14 +76,14 @@ exports[`HelpPage should match a snapshot 1`] = `
             variant="primary"
           >
             REQUEST
-          </Button>
+          </Component>
         </p>
-      </FlexContainerBasic>
-    </GridFourColItem>
-    <GridFourColItem
+      </Component>
+    </Component>
+    <Component
       key="Report a Bug"
     >
-      <FlexContainerBasic
+      <Component
         centerContent={true}
         flexColumn={true}
         hasPadding={true}
@@ -94,16 +94,16 @@ exports[`HelpPage should match a snapshot 1`] = `
             src=""
           />
         </div>
-        <H4
+        <Component
           isCentered={true}
         >
           Report a Bug
-        </H4>
+        </Component>
         <p>
           Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
         </p>
         <p>
-          <Button
+          <Component
             disabled={false}
             fullWidth={false}
             loading={false}
@@ -112,14 +112,14 @@ exports[`HelpPage should match a snapshot 1`] = `
             variant="primary"
           >
             REPORT
-          </Button>
+          </Component>
         </p>
-      </FlexContainerBasic>
-    </GridFourColItem>
-    <GridFourColItem
+      </Component>
+    </Component>
+    <Component
       key="Roadmap"
     >
-      <FlexContainerBasic
+      <Component
         centerContent={true}
         flexColumn={true}
         hasPadding={true}
@@ -130,17 +130,17 @@ exports[`HelpPage should match a snapshot 1`] = `
             src=""
           />
         </div>
-        <H4
+        <Component
           isCentered={true}
         >
           Roadmap
-        </H4>
+        </Component>
         <p>
           Want to see what we are building or check on the progress of your feature requests? 
       You can see our product roadmap milestones here. 
         </p>
         <p>
-          <Button
+          <Component
             disabled={false}
             fullWidth={false}
             loading={false}
@@ -149,14 +149,14 @@ exports[`HelpPage should match a snapshot 1`] = `
             variant="primary"
           >
             VIEW
-          </Button>
+          </Component>
         </p>
-      </FlexContainerBasic>
-    </GridFourColItem>
-    <GridFourColItem
+      </Component>
+    </Component>
+    <Component
       key="Need Help?"
     >
-      <FlexContainerBasic
+      <Component
         centerContent={true}
         flexColumn={true}
         hasPadding={true}
@@ -167,16 +167,16 @@ exports[`HelpPage should match a snapshot 1`] = `
             src=""
           />
         </div>
-        <H4
+        <Component
           isCentered={true}
         >
           Need Help?
-        </H4>
+        </Component>
         <p>
           If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.
         </p>
         <p>
-          <Button
+          <Component
             disabled={false}
             fullWidth={false}
             loading={false}
@@ -185,18 +185,18 @@ exports[`HelpPage should match a snapshot 1`] = `
             variant="primary"
           >
             START CHAT
-          </Button>
+          </Component>
         </p>
-      </FlexContainerBasic>
-    </GridFourColItem>
-  </GridFiveCol>
+      </Component>
+    </Component>
+  </Component>
 </div>
 `;
 
 exports[`renderHelpItems should match snapshot 1`] = `
-<GridFiveCol>
-  <GridFourColItem>
-    <FlexContainerBasic
+<Unknown>
+  <Unknown>
+    <Unknown
       centerContent={true}
       flexColumn={true}
       hasPadding={true}
@@ -207,17 +207,17 @@ exports[`renderHelpItems should match snapshot 1`] = `
           src=""
         />
       </div>
-      <H4
+      <Unknown
         isCentered={true}
       >
         Welcome Guide
-      </H4>
+      </Unknown>
       <p>
         Need a little help? Have a look through the Welcome Guide, which we’ve put 
       together to help you navigate through your Developer portal.
       </p>
       <p>
-        <Button
+        <Unknown
           disabled={false}
           fullWidth={false}
           loading={false}
@@ -226,12 +226,12 @@ exports[`renderHelpItems should match snapshot 1`] = `
           variant="primary"
         >
           VIEW
-        </Button>
+        </Unknown>
       </p>
-    </FlexContainerBasic>
-  </GridFourColItem>
-  <GridFourColItem>
-    <FlexContainerBasic
+    </Unknown>
+  </Unknown>
+  <Unknown>
+    <Unknown
       centerContent={true}
       flexColumn={true}
       hasPadding={true}
@@ -242,17 +242,17 @@ exports[`renderHelpItems should match snapshot 1`] = `
           src=""
         />
       </div>
-      <H4
+      <Unknown
         isCentered={true}
       >
         Request a Feature
-      </H4>
+      </Unknown>
       <p>
         Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will 
       look at all requests carefully however, we cannot guarantee all will be implemented.
       </p>
       <p>
-        <Button
+        <Unknown
           disabled={false}
           fullWidth={false}
           loading={false}
@@ -261,12 +261,12 @@ exports[`renderHelpItems should match snapshot 1`] = `
           variant="primary"
         >
           REQUEST
-        </Button>
+        </Unknown>
       </p>
-    </FlexContainerBasic>
-  </GridFourColItem>
-  <GridFourColItem>
-    <FlexContainerBasic
+    </Unknown>
+  </Unknown>
+  <Unknown>
+    <Unknown
       centerContent={true}
       flexColumn={true}
       hasPadding={true}
@@ -277,16 +277,16 @@ exports[`renderHelpItems should match snapshot 1`] = `
           src=""
         />
       </div>
-      <H4
+      <Unknown
         isCentered={true}
       >
         Report a Bug
-      </H4>
+      </Unknown>
       <p>
         Please report details of any bugs in relation to the Reapit Developer portal or Reapit Foundations API here. 
       </p>
       <p>
-        <Button
+        <Unknown
           disabled={false}
           fullWidth={false}
           loading={false}
@@ -295,12 +295,12 @@ exports[`renderHelpItems should match snapshot 1`] = `
           variant="primary"
         >
           REPORT
-        </Button>
+        </Unknown>
       </p>
-    </FlexContainerBasic>
-  </GridFourColItem>
-  <GridFourColItem>
-    <FlexContainerBasic
+    </Unknown>
+  </Unknown>
+  <Unknown>
+    <Unknown
       centerContent={true}
       flexColumn={true}
       hasPadding={true}
@@ -311,17 +311,17 @@ exports[`renderHelpItems should match snapshot 1`] = `
           src=""
         />
       </div>
-      <H4
+      <Unknown
         isCentered={true}
       >
         Roadmap
-      </H4>
+      </Unknown>
       <p>
         Want to see what we are building or check on the progress of your feature requests? 
       You can see our product roadmap milestones here. 
       </p>
       <p>
-        <Button
+        <Unknown
           disabled={false}
           fullWidth={false}
           loading={false}
@@ -330,12 +330,12 @@ exports[`renderHelpItems should match snapshot 1`] = `
           variant="primary"
         >
           VIEW
-        </Button>
+        </Unknown>
       </p>
-    </FlexContainerBasic>
-  </GridFourColItem>
-  <GridFourColItem>
-    <FlexContainerBasic
+    </Unknown>
+  </Unknown>
+  <Unknown>
+    <Unknown
       centerContent={true}
       flexColumn={true}
       hasPadding={true}
@@ -346,16 +346,16 @@ exports[`renderHelpItems should match snapshot 1`] = `
           src=""
         />
       </div>
-      <H4
+      <Unknown
         isCentered={true}
       >
         Need Help?
-      </H4>
+      </Unknown>
       <p>
         If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.
       </p>
       <p>
-        <Button
+        <Unknown
           disabled={false}
           fullWidth={false}
           loading={false}
@@ -364,9 +364,9 @@ exports[`renderHelpItems should match snapshot 1`] = `
           variant="primary"
         >
           START CHAT
-        </Button>
+        </Unknown>
       </p>
-    </FlexContainerBasic>
-  </GridFourColItem>
-</GridFiveCol>
+    </Unknown>
+  </Unknown>
+</Unknown>
 `;

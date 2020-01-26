@@ -11,7 +11,7 @@ exports[`Menu should match a snapshot 1`] = `
   menu={
     Array [
       Object {
-        "icon": <ReapitLogo
+        "icon": <Unknown
           className="nav-item-icon"
         />,
         "key": "LOGO",

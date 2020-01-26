@@ -12,8 +12,6 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@octokit/rest": "^16.38.1",
-    "@reapit/config-manager": "^1.1.0",
-    "@reapit/foundations-ts-definitions": "^0.0.18",
     "@redux-saga/testing-utils": "^1.0.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -21,7 +19,7 @@
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.17",
+    "@types/node": "10.17.13",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-redux": "^7.0.9",
@@ -65,7 +63,6 @@
     "packages/*"
   ],
   "dependencies": {
-    "@reapit/elements": "^0.5.34",
     "@sentry/browser": "^5.11.1",
     "dayjs": "^1.8.19",
     "react": "^16.12.0",

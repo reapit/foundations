@@ -4,55 +4,55 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
 <div
   key="0"
 >
-  <Input
+  <Component
     id="addresses[0][type]"
     labelText="Type"
     name="addresses[0][type]"
     type="hidden"
   />
-  <Input
+  <Component
     id="addresses[0][buildingName]"
     labelText="Building Name"
     name="addresses[0][buildingName]"
     type="text"
   />
-  <Input
+  <Component
     id="addresses[0][buildingNumber]"
     labelText="Building Number"
     name="addresses[0][buildingNumber]"
     type="text"
   />
-  <Input
+  <Component
     id="addresses[0][line1]"
     labelText="Line 1"
     name="addresses[0][line1]"
     type="text"
   />
-  <Input
+  <Component
     id="addresses[0][line2]"
     labelText="Line 2"
     name="addresses[0][line2]"
     type="text"
   />
-  <Input
+  <Component
     id="addresses[0][line3]"
     labelText="Line 3"
     name="addresses[0][line3]"
     type="text"
   />
-  <Input
+  <Component
     id="addresses[0][line4]"
     labelText="Line 4"
     name="addresses[0][line4]"
     type="text"
   />
-  <Input
+  <Component
     id="addresses[0][postcode]"
     labelText="Post Code"
     name="addresses[0][postcode]"
     type="text"
   />
-  <SelectBox
+  <Component
     id="metadata.addresses[0][year]"
     labelText="Number of Years at Address"
     name="metadata.addresses[0][year]"
@@ -461,7 +461,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
       ]
     }
   />
-  <SelectBox
+  <Component
     id="metadata.addresses[0][month]"
     labelText="Number of Months at Address"
     name="metadata.addresses[0][month]"
@@ -518,7 +518,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
       ]
     }
   />
-  <SelectBox
+  <Component
     id="metadata.addresses[0][documentType]"
     labelText="Document Type"
     name="metadata.addresses[0][documentType]"
@@ -587,7 +587,7 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
       ]
     }
   />
-  <CameraImageInput
+  <Component
     id="metadata.addresses.[0][documentImage]"
     labelText="Upload file"
     name="metadata.addresses.[0][documentImage]"

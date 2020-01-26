@@ -1,32 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WebComponents should match a snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
     >
-      <H3>
+      <Component>
         Web Components
-      </H3>
+      </Component>
       <p>
         In addition to the Elements React component toolkit, Reapit offer a number of other downloadable Front End Resources.
       </p>
       <p>
         These may be modular blocks of functionality that can be embedded within your site, toolsets or even CMS friendly bundles of scripts available elsewhere.
       </p>
-      <H4>
+      <Component>
         Search Widget
-      </H4>
+      </Component>
       <p>
         Coming soon...
       </p>
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+    </Component>
+  </Component>
+</Component>
 `;

@@ -16025,14 +16025,14 @@ query CONTACTS($pageSize: Int!, $pageNumber: Int!) {
       }
       staticContext={Object {}}
     >
-      <FlexContainerBasic
+      <Component
         hasBackground={true}
         hasPadding={true}
       >
         <div
           className="container-flex   has-background has-padding  "
         >
-          <FlexContainerResponsive
+          <Component
             flexColumn={true}
             hasBackground={true}
             hasPadding={true}
@@ -16040,15 +16040,15 @@ query CONTACTS($pageSize: Int!, $pageNumber: Int!) {
             <div
               className="container is-column  has-background has-padding  "
             >
-              <H3>
+              <Component>
                 <h3
                   className="title is-3  "
                   id=""
                 >
                   Welcome To Reapit Elements
                 </h3>
-              </H3>
-              <Loader>
+              </Component>
+              <Component>
                 <div
                   className="loader-spinner body"
                   data-test=""
@@ -16058,11 +16058,11 @@ query CONTACTS($pageSize: Int!, $pageNumber: Int!) {
                   <div />
                   <div />
                 </div>
-              </Loader>
+              </Component>
             </div>
-          </FlexContainerResponsive>
+          </Component>
         </div>
-      </FlexContainerBasic>
+      </Component>
     </Component>
   </ApolloProvider>
 </MockedProvider>
@@ -32093,14 +32093,14 @@ query CONTACTS($pageSize: Int!, $pageNumber: Int!) {
       }
       staticContext={Object {}}
     >
-      <FlexContainerBasic
+      <Component
         hasBackground={true}
         hasPadding={true}
       >
         <div
           className="container-flex   has-background has-padding  "
         >
-          <FlexContainerResponsive
+          <Component
             flexColumn={true}
             hasBackground={true}
             hasPadding={true}
@@ -32108,15 +32108,15 @@ query CONTACTS($pageSize: Int!, $pageNumber: Int!) {
             <div
               className="container is-column  has-background has-padding  "
             >
-              <H3>
+              <Component>
                 <h3
                   className="title is-3  "
                   id=""
                 >
                   Welcome To Reapit Elements
                 </h3>
-              </H3>
-              <Loader>
+              </Component>
+              <Component>
                 <div
                   className="loader-spinner body"
                   data-test=""
@@ -32126,11 +32126,11 @@ query CONTACTS($pageSize: Int!, $pageNumber: Int!) {
                   <div />
                   <div />
                 </div>
-              </Loader>
+              </Component>
             </div>
-          </FlexContainerResponsive>
+          </Component>
         </div>
-      </FlexContainerBasic>
+      </Component>
     </Component>
   </ApolloProvider>
 </MockedProvider>
@@ -32148,13 +32148,13 @@ exports[`Home renderAddress should match snapshot 1`] = `
 
 exports[`Home renderContent should match snapshot 1`] = `
 <div>
-  <Loader />
+  <Component />
 </div>
 `;
 
 exports[`Home renderContent should match snapshot 2`] = `
 <div>
-  <Alert
+  <Component
     message="mockError"
     type="danger"
   />
@@ -32164,7 +32164,7 @@ exports[`Home renderContent should match snapshot 2`] = `
 exports[`Home renderContent should match snapshot 3`] = `
 <div>
   <div>
-    <Table
+    <Component
       columns={
         Array [
           Object {
@@ -32422,14 +32422,14 @@ exports[`Home renderContent should match snapshot 3`] = `
       scrollable={true}
     />
   </div>
-  <Section>
-    <Pagination
+  <Component>
+    <Component
       onChange={[MockFunction]}
       pageNumber={1}
       pageSize={10}
       totalCount={3966}
     />
-  </Section>
+  </Component>
 </div>
 `;
 

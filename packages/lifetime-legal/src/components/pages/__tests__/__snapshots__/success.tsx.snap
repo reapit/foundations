@@ -2,15 +2,15 @@
 
 exports[`SuccessPage should match a snapshot when submitCompleteFormState is PENDING 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerResponsive
+  <Component
     flexColumn={true}
   >
-    <H3>
+    <Component>
       Referral Complete
       <span>
         <FaCheck />
       </span>
-    </H3>
+    </Component>
     <div>
       <p>
         Thank you for your referral. Our dedicated team will now process the information you have submitted, and we will be in contact with you in due course.
@@ -25,7 +25,7 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is PEN
       </p>
     </div>
     <div>
-      <AcButton
+      <Component
         buttonProps={
           Object {
             "disabled": false,
@@ -45,23 +45,23 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is PEN
         }
       >
         Complete Submission
-      </AcButton>
+      </Component>
     </div>
-  </FlexContainerResponsive>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUBMITTING 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerResponsive
+  <Component
     flexColumn={true}
   >
-    <H3>
+    <Component>
       Referral Complete
       <span>
         <FaCheck />
       </span>
-    </H3>
+    </Component>
     <div>
       <p>
         Thank you for your referral. Our dedicated team will now process the information you have submitted, and we will be in contact with you in due course.
@@ -76,7 +76,7 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUB
       </p>
     </div>
     <div>
-      <AcButton
+      <Component
         buttonProps={
           Object {
             "disabled": true,
@@ -96,23 +96,23 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUB
         }
       >
         Complete Submission
-      </AcButton>
+      </Component>
     </div>
-  </FlexContainerResponsive>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUCCESS 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerResponsive
+  <Component
     flexColumn={true}
   >
-    <H3>
+    <Component>
       Referral Complete
       <span>
         <FaCheck />
       </span>
-    </H3>
+    </Component>
     <div>
       <p>
         Thank you for your referral. Our dedicated team will now process the information you have submitted, and we will be in contact with you in due course.
@@ -127,7 +127,7 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUC
       </p>
     </div>
     <div>
-      <AcButton
+      <Component
         buttonProps={
           Object {
             "disabled": false,
@@ -147,8 +147,8 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUC
         }
       >
         Complete Submission
-      </AcButton>
+      </Component>
     </div>
-  </FlexContainerResponsive>
+  </Component>
 </Connect(ErrorBoundary)>
 `;

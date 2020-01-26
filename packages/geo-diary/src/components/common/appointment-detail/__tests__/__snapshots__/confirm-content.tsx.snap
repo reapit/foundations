@@ -2,52 +2,52 @@
 
 exports[`confirm-content it should match snapshot 1`] = `
 <Fragment>
-  <H5>
+  <Component>
     Are you sure you want to cancel this appointment?
-  </H5>
-  <FlexContainerResponsive>
-    <Button
+  </Component>
+  <Component>
+    <Component
       loading={false}
       onClick={[MockFunction]}
       type="button"
       variant="primary"
     >
       Yes
-    </Button>
-    <Button
+    </Component>
+    <Component
       disabled={false}
       onClick={[MockFunction]}
       type="button"
       variant="primary"
     >
       No
-    </Button>
-  </FlexContainerResponsive>
+    </Component>
+  </Component>
 </Fragment>
 `;
 
 exports[`confirm-content it should match snapshot when isSubmitting equal to true 1`] = `
 <Fragment>
-  <H5>
+  <Component>
     Are you sure you want to cancel this appointment?
-  </H5>
-  <FlexContainerResponsive>
-    <Button
+  </Component>
+  <Component>
+    <Component
       loading={true}
       onClick={[MockFunction]}
       type="button"
       variant="primary"
     >
       Yes
-    </Button>
-    <Button
+    </Component>
+    <Component
       disabled={true}
       onClick={[MockFunction]}
       type="button"
       variant="primary"
     >
       No
-    </Button>
-  </FlexContainerResponsive>
+    </Component>
+  </Component>
 </Fragment>
 `;

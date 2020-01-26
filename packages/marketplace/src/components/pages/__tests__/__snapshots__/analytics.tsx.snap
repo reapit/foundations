@@ -2,20 +2,20 @@
 
 exports[`Analytics should match a snapshot when app detail data undefined 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <H3>
+    <Component>
       Analytics
-    </H3>
-    <H5>
+    </Component>
+    <Component>
       Total number of installations: 
       1
-    </H5>
-    <SubTitleH5>
+    </Component>
+    <Component>
       To see specific installations please select an App from the list below:
-    </SubTitleH5>
+    </Component>
     <Formik
       initialValues={
         Object {
@@ -26,26 +26,26 @@ exports[`Analytics should match a snapshot when app detail data undefined 1`] = 
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Analytics should match a snapshot when app detail loading false 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <H3>
+    <Component>
       Analytics
-    </H3>
-    <H5>
+    </Component>
+    <Component>
       Total number of installations: 
       1
-    </H5>
-    <SubTitleH5>
+    </Component>
+    <Component>
       To see specific installations please select an App from the list below:
-    </SubTitleH5>
+    </Component>
     <Formik
       initialValues={
         Object {
@@ -56,26 +56,26 @@ exports[`Analytics should match a snapshot when app detail loading false 1`] = `
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Analytics should match a snapshot when app detail loading true 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <H3>
+    <Component>
       Analytics
-    </H3>
-    <H5>
+    </Component>
+    <Component>
       Total number of installations: 
       1
-    </H5>
-    <SubTitleH5>
+    </Component>
+    <Component>
       To see specific installations please select an App from the list below:
-    </SubTitleH5>
+    </Component>
     <Formik
       initialValues={
         Object {
@@ -86,7 +86,7 @@ exports[`Analytics should match a snapshot when app detail loading true 1`] = `
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
@@ -228,7 +228,7 @@ exports[`Analytics should match a snapshot when appInstallations data null 1`] =
   }
   requestAppDetailData={[MockFunction]}
 >
-  <Loader>
+  <Component>
     <div
       className="loader-spinner body"
       data-test=""
@@ -238,26 +238,26 @@ exports[`Analytics should match a snapshot when appInstallations data null 1`] =
       <div />
       <div />
     </div>
-  </Loader>
+  </Component>
 </Component>
 `;
 
 exports[`Analytics should match a snapshot when appInstallations loading false 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <H3>
+    <Component>
       Analytics
-    </H3>
-    <H5>
+    </Component>
+    <Component>
       Total number of installations: 
       1
-    </H5>
-    <SubTitleH5>
+    </Component>
+    <Component>
       To see specific installations please select an App from the list below:
-    </SubTitleH5>
+    </Component>
     <Formik
       initialValues={
         Object {
@@ -268,7 +268,7 @@ exports[`Analytics should match a snapshot when appInstallations loading false 1
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
@@ -436,7 +436,7 @@ exports[`Analytics should match a snapshot when appInstallations loading true 1`
   }
   requestAppDetailData={[MockFunction]}
 >
-  <Loader>
+  <Component>
     <div
       className="loader-spinner body"
       data-test=""
@@ -446,26 +446,26 @@ exports[`Analytics should match a snapshot when appInstallations loading true 1`
       <div />
       <div />
     </div>
-  </Loader>
+  </Component>
 </Component>
 `;
 
 exports[`Analytics should match a snapshot when appsOfDeveloper data undefined 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <H3>
+    <Component>
       Analytics
-    </H3>
-    <H5>
+    </Component>
+    <Component>
       Total number of installations: 
       1
-    </H5>
-    <SubTitleH5>
+    </Component>
+    <Component>
       To see specific installations please select an App from the list below:
-    </SubTitleH5>
+    </Component>
     <Formik
       initialValues={
         Object {
@@ -476,26 +476,26 @@ exports[`Analytics should match a snapshot when appsOfDeveloper data undefined 1
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Analytics should match a snapshot when appsOfDeveloper loading false 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <H3>
+    <Component>
       Analytics
-    </H3>
-    <H5>
+    </Component>
+    <Component>
       Total number of installations: 
       1
-    </H5>
-    <SubTitleH5>
+    </Component>
+    <Component>
       To see specific installations please select an App from the list below:
-    </SubTitleH5>
+    </Component>
     <Formik
       initialValues={
         Object {
@@ -506,26 +506,26 @@ exports[`Analytics should match a snapshot when appsOfDeveloper loading false 1`
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Analytics should match a snapshot when appsOfDeveloper loading true 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <H3>
+    <Component>
       Analytics
-    </H3>
-    <H5>
+    </Component>
+    <Component>
       Total number of installations: 
       1
-    </H5>
-    <SubTitleH5>
+    </Component>
+    <Component>
       To see specific installations please select an App from the list below:
-    </SubTitleH5>
+    </Component>
     <Formik
       initialValues={
         Object {
@@ -536,26 +536,26 @@ exports[`Analytics should match a snapshot when appsOfDeveloper loading true 1`]
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Analytics should match a snapshot when no appId params 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <H3>
+    <Component>
       Analytics
-    </H3>
-    <H5>
+    </Component>
+    <Component>
       Total number of installations: 
       1
-    </H5>
-    <SubTitleH5>
+    </Component>
+    <Component>
       To see specific installations please select an App from the list below:
-    </SubTitleH5>
+    </Component>
     <Formik
       initialValues={
         Object {
@@ -566,6 +566,6 @@ exports[`Analytics should match a snapshot when no appId params 1`] = `
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;

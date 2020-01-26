@@ -5,18 +5,18 @@ exports[`Login should match a snapshot 1`] = `
   <div
     className="undefined false"
   >
-    <H1
+    <Component
       isCentered={true}
     >
       Sign in
-    </H1>
+    </Component>
     <p
       className="pb-8"
     >
       Welcome to Reapit 
       Marketplace
     </p>
-    <Tabs
+    <Component
       tabConfigs={
         Array [
           Object {

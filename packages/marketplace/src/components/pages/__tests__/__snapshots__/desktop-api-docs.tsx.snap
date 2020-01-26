@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DesktopApiDocs should match a snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
     >
-      <H3>
+      <Component>
         Desktop Documentation
-      </H3>
-      <H4>
+      </Component>
+      <Component>
         Contents
-      </H4>
+      </Component>
       <ul
         className="mb-6"
       >
@@ -63,37 +63,37 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </Link>
         </li>
       </ul>
-      <H4
+      <Component
         id="api"
       >
         API Introduction
-      </H4>
-      <H5>
+      </Component>
+      <Component>
         Overview
-      </H5>
+      </Component>
       <p>
         Applications that are built on our Foundations Platform are able to communicate with Reapit's Agency Cloud CRM system. Using a well-defined API, you are able to trigger a wide variety of actions in our award-winning desktop application to augment your own applications and build a rich integration between systems.
       </p>
-      <H5>
+      <Component>
         URL Scheme
-      </H5>
+      </Component>
       <p>
         When a Marketplace application is launched and hosted within Agency Cloud, that application can interact with Agency Cloud by using our custom URI scheme. When a user triggers a link with an agencycloud: prefix, Agency Cloud will interpret that action and perform the corresponding action.
       </p>
-      <H5>
+      <Component>
         Format
-      </H5>
+      </Component>
       <p>
         Links are structured in a REST style to provide a well-defined and descriptive mechanism for interacting with the screens and functionality that Agency Cloud offers. The primary and secondary screens that exist in the Agency Cloud user interface broadly map to the REST notion of resources and sub-resources. Some actions also accept parameters which can be applied to the URI in the usual manner. Full documentation of the available interactions is listed below, grouped by primary screen.
       </p>
-      <H4
+      <Component
         id="property"
       >
         Property
-      </H4>
-      <H5>
+      </Component>
+      <Component>
         Load Property
-      </H5>
+      </Component>
       <p>
         Opens the property edit screen for the property with specified id
       </p>
@@ -106,9 +106,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Perform Matching
-      </H5>
+      </Component>
       <p>
         Performs a property to applicant match for the applicant with specified id
       </p>
@@ -121,9 +121,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Load Journal
-      </H5>
+      </Component>
       <p>
         Opens the journal screen for the specified property
       </p>
@@ -136,9 +136,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Load Offers
-      </H5>
+      </Component>
       <p>
         Opens the offers screen for the specified property
       </p>
@@ -151,9 +151,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Property Search
-      </H5>
+      </Component>
       <p>
         Opens advanced search screen in property mode and runs a search with provided parameters. At least one parameter is required.
       </p>
@@ -166,7 +166,7 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <Table
+      <Component
         columns={
           Array [
             Object {
@@ -232,14 +232,14 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
         loading={false}
         scrollable={true}
       />
-      <H4
+      <Component
         id="applicants"
       >
         Applicants
-      </H4>
-      <H5>
+      </Component>
+      <Component>
         Load Applicant
-      </H5>
+      </Component>
       <p>
         Opens the applicant edit screen for the applicant with specified id
       </p>
@@ -252,9 +252,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Perform Matching
-      </H5>
+      </Component>
       <p>
         Performs a applicant to applicant match for the applicant with specified id
       </p>
@@ -267,9 +267,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Load Journal
-      </H5>
+      </Component>
       <p>
         Opens the journal screen for the specified applicant
       </p>
@@ -282,9 +282,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Applicant Search
-      </H5>
+      </Component>
       <p>
         Opens advanced search screen in applicant mode and runs a search with provided parameters. At least one parameter is required.
       </p>
@@ -297,7 +297,7 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <Table
+      <Component
         columns={
           Array [
             Object {
@@ -363,14 +363,14 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
         loading={false}
         scrollable={true}
       />
-      <H4
+      <Component
         id="appointments"
       >
         Appointments
-      </H4>
-      <H5>
+      </Component>
+      <Component>
         Load Diary
-      </H5>
+      </Component>
       <p>
         Opens the diary screen to provide a calendar view of appointments for the given date range. The dates don’t need to be set, but if you set one, you need to set both. If you don’t set a date range then the current default dates for the negotiator will be used.
       </p>
@@ -383,7 +383,7 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <Table
+      <Component
         columns={
           Array [
             Object {
@@ -423,14 +423,14 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
         loading={false}
         scrollable={true}
       />
-      <H4
+      <Component
         id="contacts"
       >
         Contacts
-      </H4>
-      <H5>
+      </Component>
+      <Component>
         Contact Search
-      </H5>
+      </Component>
       <p>
         Opens advanced search screen in contact mode and runs a search with provided parameters. At least one parameter is required.
       </p>
@@ -443,7 +443,7 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <Table
+      <Component
         columns={
           Array [
             Object {
@@ -503,9 +503,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
         loading={false}
         scrollable={true}
       />
-      <H5>
+      <Component>
         Load Contact
-      </H5>
+      </Component>
       <p>
         Opens the contact edit screen for the contact with specified id
       </p>
@@ -518,9 +518,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Load Journal
-      </H5>
+      </Component>
       <p>
         Opens the journal screen for the specified contact
       </p>
@@ -533,14 +533,14 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H4
+      <Component
         id="agency-cloud"
       >
         Agency Cloud Interaction API
-      </H4>
-      <H5>
+      </Component>
+      <Component>
         Overview
-      </H5>
+      </Component>
       <p>
         Not only can Applications built on the Foundations Platform trigger events in the Agency Cloud CRM system, but installed apps can also be associated with common actions in Agency Cloud to replace the default behaviour.
       </p>
@@ -553,9 +553,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
       <p>
         All apps should be able to be launched from the Installed Apps screen and be ran standalone without the need to be linked to an action. They will just be hosted in the marketplace and launched in Agency Cloud – for example the Geo Diary application.
       </p>
-      <H5>
+      <Component>
         Categorisation
-      </H5>
+      </Component>
       <p>
         To be able to associate an application with an action in Agency Cloud the application will need to be given a category. This will be required so that Agency Cloud can be confident of the way the application will behave and that the application is agreeing to accept certain parameters when launched.
       </p>
@@ -576,12 +576,12 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           Applicant Preview
         </li>
       </ul>
-      <H4>
+      <Component>
         Categories
-      </H4>
-      <H5>
+      </Component>
+      <Component>
         Id Check
-      </H5>
+      </Component>
       <p>
         The category of ID Check will be given to an application that can be used to replace the ID Check screen in Agency Cloud. The url that an application with this category would look like would be:
       </p>
@@ -594,7 +594,7 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <Table
+      <Component
         columns={
           Array [
             Object {
@@ -642,9 +642,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
         loading={false}
         scrollable={true}
       />
-      <H5>
+      <Component>
         Property Detail Generation
-      </H5>
+      </Component>
       <p>
         The category of Property Detail Generation can be given to an application that can replace the standard details template generation and brochure ordering process. This application could allow selection of a template as defined in the application – selection of pictures to include, what paper size to print the brochures on etc The url that this application would use would be like:
       </p>
@@ -657,7 +657,7 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <Table
+      <Component
         columns={
           Array [
             Object {
@@ -705,9 +705,9 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
         loading={false}
         scrollable={true}
       />
-      <H5>
+      <Component>
         Applicant Preview
-      </H5>
+      </Component>
       <p>
         The category of Applicant Preview would enable an application to be used to display a list of properties to a user. The application would need to be able to take a comma separated list of property codes which to display. The url that this application would use would be like:
       </p>
@@ -720,7 +720,7 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <Table
+      <Component
         columns={
           Array [
             Object {
@@ -768,7 +768,7 @@ exports[`DesktopApiDocs should match a snapshot 1`] = `
         loading={false}
         scrollable={true}
       />
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+    </Component>
+  </Component>
+</Component>
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApproveRevisionModal should match a snapshot 1`] = `
-<Modal
+<Component
   afterClose={[Function]}
   renderChildren={true}
   visible={true}
@@ -17,5 +17,5 @@ exports[`ApproveRevisionModal should match a snapshot 1`] = `
     onSubmit={[Function]}
     render={[Function]}
   />
-</Modal>
+</Component>
 `;

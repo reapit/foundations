@@ -65,4 +65,4 @@ exports[`InstalledApps should match a snapshot when LOADING false 1`] = `
 </Connect(ErrorBoundary)>
 `;
 
-exports[`InstalledApps should match a snapshot when LOADING true 1`] = `<Loader />`;
+exports[`InstalledApps should match a snapshot when LOADING true 1`] = `<Component />`;

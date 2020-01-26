@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "cross-env TZ=UTC jest --coverage --silent",
-    "test:ci": "cross-env TZ=UTC jest -u  --coverage --silent --detectOpenHandles --forceExit",
+    "test:ci": "cross-env TZ=UTC jest  --coverage --silent --detectOpenHandles --forceExit",
     "prepublish": "yarn test && yarn build",
     "prebuild": "rimraf dist && rimraf public",
     "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
@@ -39,6 +39,7 @@
     "@octokit/rest": "^16.35.0",
     "@types/jsonwebtoken": "^8.3.5",
     "@types/jest": "~24.0.15",
+    "@types/node": "^10.1.0",
     "@types/yaml": "^1.2.0",
     "compare-versions": "^3.5.1",
     "lint-staged": "~9.2.0",

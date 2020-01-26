@@ -9,7 +9,7 @@
   "scripts": {
     "test": "cross-env TZ=UTC jest --coverage --silent",
     "test-dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:ci": "cross-env TZ=UTC jest -u  --coverage --silent --detectOpenHandles --forceExit",
+    "test:ci": "cross-env TZ=UTC jest  --coverage --silent --detectOpenHandles --forceExit",
     "prepublish": "yarn test && yarn build",
     "prebuild": "rimraf dist && rimraf public",
     "build": "tsc --p tsconfig.legacy.json && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",

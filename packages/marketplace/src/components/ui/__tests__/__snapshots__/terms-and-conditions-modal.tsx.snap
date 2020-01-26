@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match a snapshot 1`] = `
-<Modal
+<Component
   footerItems={
     <React.Fragment>
-      <Button
+      <Unknown
         onClick={[MockFunction]}
         type="button"
         variant="secondary"
       >
         Decline
-      </Button>
-      <Button
+      </Unknown>
+      <Unknown
         dataTest="buttonAcceptTermsAndConditions"
         onClick={[MockFunction]}
         type="button"
         variant="primary"
       >
         Accept
-      </Button>
+      </Unknown>
     </React.Fragment>
   }
   title="Terms and Conditions"
@@ -33,5 +33,5 @@ exports[`Menu should match a snapshot 1`] = `
       recusandae harum quod, non iste, eligendi nihil? Unde quasi quaerat eveniet illo consectetur asperiores nostrum
       alias nobis ratione! Dolorum repellendus aut iure blanditiis nostrum.
 
-</Modal>
+</Component>
 `;

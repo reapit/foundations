@@ -17,7 +17,7 @@
     "start": "node ./public/index.js geo-diary",
     "serve": "serve public/dist -s -l 8080",
     "test": "cross-env TZ=UTC jest --coverage --silent",
-    "test:ci": "cross-env TZ=UTC jest -u  --ci",
+    "test:ci": "cross-env TZ=UTC jest --coverage --silent --detectOpenHandles --forceExit",
     "test-dev": "cross-env TZ=UTC jest --watch --verbose"
   },
   "dependencies": {

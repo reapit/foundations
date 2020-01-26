@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminApproval RenderContent should match snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Helper
+  <Component
     variant="info"
   >
     There are no updates that require approval
-  </Helper>
-</FlexContainerBasic>
+  </Component>
+</Component>
 `;
 
 exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
@@ -18,7 +18,7 @@ exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
   <div
     id="page-admin-approvals-container"
   >
-    <FlexContainerResponsive
+    <Component
       data-test="revision-list-container"
     >
       <Component
@@ -284,13 +284,13 @@ exports[`AdminApproval should match a snapshot when LOADING false 1`] = `
           ]
         }
       />
-      <Pagination
+      <Component
         onChange={[Function]}
         pageNumber={2}
         pageSize={10}
         totalCount={69}
       />
-    </FlexContainerResponsive>
+    </Component>
     <Component
       afterClose={[Function]}
       visible={false}
@@ -316,6 +316,6 @@ exports[`AdminApproval should match snapshot 1`] = `
 <div
   className="pin absolute flex items-center justify-center"
 >
-  <Loader />
+  <Component />
 </div>
 `;

@@ -17,24 +17,24 @@ exports[`MapPanel should match a snapshot when valid LAT, LONG 1`] = `
     </p>
   </div>
   <div>
-    <Button
+    <Component
       className="is-medium"
       onClick={[Function]}
       type="button"
       variant="info"
     >
       Start Journey
-    </Button>
+    </Component>
   </div>
   <div>
-    <Button
+    <Component
       className="is-medium"
       onClick={[MockFunction]}
       type="button"
       variant="info"
     >
       Today
-    </Button>
+    </Component>
   </div>
 </div>
 `;

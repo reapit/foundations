@@ -4,7 +4,7 @@ exports[`Login renderForm should match a snapshot when ERROR true 1`] = `
 <Form
   data-test="login-form"
 >
-  <Input
+  <Unknown
     dataTest="login-email"
     id="email"
     labelText="Email"
@@ -12,7 +12,7 @@ exports[`Login renderForm should match a snapshot when ERROR true 1`] = `
     placeholder="name@address.com"
     type="email"
   />
-  <Input
+  <Unknown
     dataTest="login-password"
     id="password"
     labelText="Password"
@@ -20,17 +20,17 @@ exports[`Login renderForm should match a snapshot when ERROR true 1`] = `
     placeholder="Enter your password"
     type="password"
   />
-  <Level>
-    <Button
+  <Unknown>
+    <Unknown
       disabled={false}
       loading={false}
       type="submit"
       variant="primary"
     >
       Login
-    </Button>
-  </Level>
-  <Alert
+    </Unknown>
+  </Unknown>
+  <Unknown
     message="Login failed, user credentials not recognised"
     type="danger"
   />
@@ -41,7 +41,7 @@ exports[`Login renderForm should match a snapshot when ERROR true 2`] = `
 <Form
   data-test="login-form"
 >
-  <Input
+  <Unknown
     dataTest="login-email"
     id="email"
     labelText="Email"
@@ -49,7 +49,7 @@ exports[`Login renderForm should match a snapshot when ERROR true 2`] = `
     placeholder="name@address.com"
     type="email"
   />
-  <Input
+  <Unknown
     dataTest="login-password"
     id="password"
     labelText="Password"
@@ -57,16 +57,16 @@ exports[`Login renderForm should match a snapshot when ERROR true 2`] = `
     placeholder="Enter your password"
     type="password"
   />
-  <Level>
-    <Button
+  <Unknown>
+    <Unknown
       disabled={false}
       loading={false}
       type="submit"
       variant="primary"
     >
       Login
-    </Button>
-  </Level>
+    </Unknown>
+  </Unknown>
 </Form>
 `;
 
@@ -75,11 +75,11 @@ exports[`Login should match a snapshot 1`] = `
   <div
     className="undefined false"
   >
-    <H1
+    <Component
       isCentered={true}
     >
       Sign in
-    </H1>
+    </Component>
     <p
       className="pb-8"
     >

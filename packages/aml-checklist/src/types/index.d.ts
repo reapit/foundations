@@ -11,5 +11,3 @@ declare module '*.scss'
 declare module '*.scss?mod'
 declare module '*.sass'
 declare module '*.jpg'
-
-declare module 'swagger-ui-react'

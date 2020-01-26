@@ -2,22 +2,22 @@
 
 exports[`Result should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
     <div>
-      <FlexContainerResponsive
+      <Component
         flexColumn={true}
         hasBackground={true}
         hasPadding={true}
       >
-        <H3>
+        <Component>
           Showing Results for '
           1
           '
-        </H3>
-        <Table
+        </Component>
+        <Component
           columns={
             Array [
               Object {
@@ -358,36 +358,36 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
           loading={false}
           scrollable={true}
         />
-        <Pagination
+        <Component
           onChange={[Function]}
           pageNumber={1}
           pageSize={10}
           totalCount={4}
         />
-      </FlexContainerResponsive>
+      </Component>
     </div>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Result should match a snapshot when LOADING true 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
     <div>
-      <FlexContainerResponsive
+      <Component
         flexColumn={true}
         hasBackground={true}
         hasPadding={true}
       >
-        <H3>
+        <Component>
           Showing Results for '
           1
           '
-        </H3>
-        <Table
+        </Component>
+        <Component
           columns={
             Array [
               Object {
@@ -421,54 +421,54 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
           loading={true}
           scrollable={true}
         />
-        <Pagination
+        <Component
           onChange={[Function]}
           pageNumber={1}
         />
-      </FlexContainerResponsive>
+      </Component>
     </div>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Result should match a snapshot when no results found 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
     <div>
-      <FlexContainerResponsive
+      <Component
         flexColumn={true}
         hasBackground={true}
         hasPadding={true}
       >
         <div>
           <div>
-            <Info
+            <Component
               infoType=""
             >
-              <H6>
+              <Component>
                 No Results found
-              </H6>
-            </Info>
+              </Component>
+            </Component>
           </div>
           <div>
-            <Button
+            <Component
               onClick={[Function]}
               type="button"
               variant="primary"
             >
               New Search
-            </Button>
+            </Component>
           </div>
         </div>
-        <Pagination
+        <Component
           onChange={[Function]}
           pageNumber={1}
         />
-      </FlexContainerResponsive>
+      </Component>
     </div>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
