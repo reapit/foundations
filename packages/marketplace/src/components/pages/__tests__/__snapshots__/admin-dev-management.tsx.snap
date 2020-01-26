@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `<Loader />`;
+exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `<Component />`;
 
 exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerResponsive>
-    <Section
+  <Component>
+    <Component
       className="mw-100"
     >
       <Component
         filterValues={Object {}}
         onSearch={[MockFunction]}
       />
-      <Table
+      <Component
         columns={
           Array [
             Object {
@@ -50,11 +50,11 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
         loading={false}
         scrollable={true}
       />
-      <Pagination
+      <Component
         onChange={[MockFunction]}
       />
-    </Section>
-  </FlexContainerResponsive>
+    </Component>
+  </Component>
   <Connect(Component)
     afterClose={[Function]}
     developer={Object {}}
@@ -64,4 +64,4 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
 </Connect(ErrorBoundary)>
 `;
 
-exports[`AdminDevManagement should show loader when LOADING true 1`] = `<Loader />`;
+exports[`AdminDevManagement should show loader when LOADING true 1`] = `<Component />`;

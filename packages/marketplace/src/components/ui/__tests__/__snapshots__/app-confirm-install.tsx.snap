@@ -2,22 +2,22 @@
 
 exports[`AppConfirmInstallContent render correctly 1`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm Peter's Properties installation"
   />
-  <ModalBody
+  <Component
     body={
       <React.Fragment>
-        <SubTitleH6
+        <Unknown
           isCentered={true}
         >
           This action will install the app for ALL platform users.
           <br />
           Peter's Properties
            requires the permissions below. By installing you are granting permission to your data.
-        </SubTitleH6>
+        </Unknown>
         <ul>
           <li>
             Read data about developers
@@ -29,18 +29,18 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
       </React.Fragment>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           dataTest="agree-btn"
           loading={false}
           type="button"
           variant="primary"
         >
           Confirm
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           dataTest="disagree-btn"
           disabled={false}
           onClick={[Function]}
@@ -48,7 +48,7 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
           variant="danger"
         >
           Cancel
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
@@ -57,22 +57,22 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
 
 exports[`AppConfirmInstallContent render correctly 2`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm Peter's Properties installation"
   />
-  <ModalBody
+  <Component
     body={
       <React.Fragment>
-        <SubTitleH6
+        <Unknown
           isCentered={true}
         >
           This action will install the app for ALL platform users.
           <br />
           Peter's Properties
            requires the permissions below. By installing you are granting permission to your data.
-        </SubTitleH6>
+        </Unknown>
         <ul>
           <li>
             Read data about developers
@@ -84,18 +84,18 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
       </React.Fragment>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           dataTest="agree-btn"
           loading={false}
           type="button"
           variant="primary"
         >
           Confirm
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           dataTest="disagree-btn"
           disabled={false}
           onClick={[Function]}
@@ -103,7 +103,7 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
           variant="danger"
         >
           Cancel
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
@@ -112,22 +112,22 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
 
 exports[`AppConfirmInstallContent render correctly 3`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm Peter's Properties installation"
   />
-  <ModalBody
+  <Component
     body={
       <React.Fragment>
-        <SubTitleH6
+        <Unknown
           isCentered={true}
         >
           This action will install the app for ALL platform users.
           <br />
           Peter's Properties
            requires the permissions below. By installing you are granting permission to your data.
-        </SubTitleH6>
+        </Unknown>
         <ul>
           <li>
             Read data about developers
@@ -139,18 +139,18 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
       </React.Fragment>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           dataTest="agree-btn"
           loading={true}
           type="button"
           variant="primary"
         >
           Confirm
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           dataTest="disagree-btn"
           disabled={true}
           onClick={[Function]}
@@ -158,7 +158,7 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
           variant="danger"
         >
           Cancel
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
@@ -167,22 +167,22 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
 
 exports[`AppConfirmInstallContent render correctly 4`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm Peter's Properties installation"
   />
-  <ModalBody
+  <Component
     body={
       <React.Fragment>
-        <SubTitleH6
+        <Unknown
           isCentered={true}
         >
           This action will install the app for ALL platform users.
           <br />
           Peter's Properties
            requires the permissions below. By installing you are granting permission to your data.
-        </SubTitleH6>
+        </Unknown>
         <ul>
           <li>
             Read data about developers
@@ -194,18 +194,18 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
       </React.Fragment>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           dataTest="agree-btn"
           loading={false}
           type="button"
           variant="primary"
         >
           Confirm
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           dataTest="disagree-btn"
           disabled={false}
           onClick={[Function]}
@@ -213,7 +213,7 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
           variant="danger"
         >
           Cancel
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
@@ -222,22 +222,22 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
 
 exports[`AppConfirmInstallContent render correctly 5`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm Peter's Properties installation"
   />
-  <ModalBody
+  <Component
     body={
       <React.Fragment>
-        <SubTitleH6
+        <Unknown
           isCentered={true}
         >
           This action will install the app for ALL platform users.
           <br />
           Peter's Properties
            requires the permissions below. By installing you are granting permission to your data.
-        </SubTitleH6>
+        </Unknown>
         <ul>
           <li>
             Read data about developers
@@ -249,18 +249,18 @@ exports[`AppConfirmInstallContent render correctly 5`] = `
       </React.Fragment>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           dataTest="agree-btn"
           loading={false}
           type="button"
           variant="primary"
         >
           Confirm
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           dataTest="disagree-btn"
           disabled={false}
           onClick={[Function]}
@@ -268,7 +268,7 @@ exports[`AppConfirmInstallContent render correctly 5`] = `
           variant="danger"
         >
           Cancel
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />

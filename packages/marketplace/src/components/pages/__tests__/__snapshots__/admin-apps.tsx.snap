@@ -2,71 +2,71 @@
 
 exports[`AdminApps renderForm should return correctly 1`] = `
 <Form>
-  <FormSection>
-    <FormHeading>
+  <Unknown>
+    <Unknown>
       Admin Apps Filter Form
-    </FormHeading>
-    <FormSubHeading>
+    </Unknown>
+    <Unknown>
       Filter the result by App, Developer and Company
-    </FormSubHeading>
-    <Grid>
-      <GridItem>
-        <Input
+    </Unknown>
+    <Unknown>
+      <Unknown>
+        <Unknown
           id="appName"
           labelText="App Name"
           name="appName"
           type="text"
         />
-      </GridItem>
-      <GridItem>
-        <Input
+      </Unknown>
+      <Unknown>
+        <Unknown
           id="developerName"
           labelText="Developer Name"
           name="developerName"
           type="text"
         />
-      </GridItem>
-      <GridItem>
-        <Input
+      </Unknown>
+      <Unknown>
+        <Unknown
           id="companyName"
           labelText="Company Name"
           name="companyName"
           type="text"
         />
-      </GridItem>
-      <GridItem>
-        <Button
+      </Unknown>
+      <Unknown>
+        <Unknown
           disabled={true}
           type="submit"
           variant="primary"
         >
           Search
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           Refresh
-        </Button>
-      </GridItem>
-    </Grid>
-  </FormSection>
+        </Unknown>
+      </Unknown>
+    </Unknown>
+  </Unknown>
 </Form>
 `;
 
 exports[`AdminApps should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerResponsive
+  <Component
     data-test="revision-list-container"
     flexColumn={true}
   >
     <div
       className="mb-5"
     >
-      <H3>
+      <Component>
         Admin Apps
-      </H3>
+      </Component>
       <Formik
         initialValues={
           Object {
@@ -81,7 +81,7 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
     <div
       className="mb-5"
     >
-      <Table
+      <Component
         columns={
           Array [
             Object {
@@ -173,13 +173,13 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
         scrollable={true}
       />
     </div>
-    <Pagination
+    <Component
       onChange={[Function]}
       pageNumber={1}
       pageSize={2}
       totalCount={6}
     />
-  </FlexContainerResponsive>
+  </Component>
   <AppDeleteModalWithRedux
     afterClose={[Function]}
     appId=""
@@ -192,21 +192,21 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
 
 exports[`AdminApps should match a snapshot when LOADING true 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerResponsive
+  <Component
     data-test="revision-list-container"
     flexColumn={true}
   >
     <div
       className="pin absolute flex items-center justify-center"
     >
-      <Loader />
+      <Component />
     </div>
     <div
       className="mb-5"
     >
-      <H3>
+      <Component>
         Admin Apps
-      </H3>
+      </Component>
       <Formik
         initialValues={
           Object {
@@ -221,7 +221,7 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
     <div
       className="mb-5"
     >
-      <Table
+      <Component
         columns={
           Array [
             Object {
@@ -313,13 +313,13 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
         scrollable={true}
       />
     </div>
-    <Pagination
+    <Component
       onChange={[Function]}
       pageNumber={1}
       pageSize={2}
       totalCount={6}
     />
-  </FlexContainerResponsive>
+  </Component>
   <AppDeleteModalWithRedux
     afterClose={[Function]}
     appId=""

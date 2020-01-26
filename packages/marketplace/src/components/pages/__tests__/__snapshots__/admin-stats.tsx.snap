@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Admin Stats setArea APPS should match snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasPadding={true}
     >
       <div>
-        <H3>
+        <Component>
           Stats
-        </H3>
+        </Component>
       </div>
-      <H5>
+      <Component>
         Please select an area:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="area-apps-btn"
           onClick={[Function]}
@@ -27,29 +27,29 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
           variant="primary"
         >
           Apps
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-developers-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Developers
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-installations-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Installations
-        </Button>
-      </ButtonGroup>
-      <H5>
+        </Component>
+      </Component>
+      <Component>
         Please select a time range:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="range-week-btn"
           onClick={[Function]}
@@ -57,31 +57,31 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
           variant="primary"
         >
           Last week
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-month-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Last Month
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-all-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           All time
-        </Button>
-      </ButtonGroup>
-      <H4>
+        </Component>
+      </Component>
+      <Component>
         Showing results for ‘
         APPS
         ’ and ‘
         WEEK
         ’
-      </H4>
+      </Component>
       <Line
         data={
           Object {
@@ -118,43 +118,43 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
               },
             ],
             "labels": Array [
-              "17/01/2020",
-              "18/01/2020",
               "19/01/2020",
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
               "23/01/2020",
               "24/01/2020",
+              "25/01/2020",
+              "26/01/2020",
             ],
           }
         }
       />
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+    </Component>
+  </Component>
+</Component>
 `;
 
 exports[`Admin Stats setArea DEVELOPRES should match snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasPadding={true}
     >
       <div>
-        <H3>
+        <Component>
           Stats
-        </H3>
+        </Component>
       </div>
-      <H5>
+      <Component>
         Please select an area:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="area-apps-btn"
           onClick={[Function]}
@@ -162,29 +162,29 @@ exports[`Admin Stats setArea DEVELOPRES should match snapshot 1`] = `
           variant="secondary"
         >
           Apps
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-developers-btn"
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           Developers
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-installations-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Installations
-        </Button>
-      </ButtonGroup>
-      <H5>
+        </Component>
+      </Component>
+      <Component>
         Please select a time range:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="range-week-btn"
           onClick={[Function]}
@@ -192,31 +192,31 @@ exports[`Admin Stats setArea DEVELOPRES should match snapshot 1`] = `
           variant="primary"
         >
           Last week
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-month-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Last Month
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-all-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           All time
-        </Button>
-      </ButtonGroup>
-      <H4>
+        </Component>
+      </Component>
+      <Component>
         Showing results for ‘
         DEVELOPERS
         ’ and ‘
         WEEK
         ’
-      </H4>
+      </Component>
       <Line
         data={
           Object {
@@ -253,43 +253,43 @@ exports[`Admin Stats setArea DEVELOPRES should match snapshot 1`] = `
               },
             ],
             "labels": Array [
-              "17/01/2020",
-              "18/01/2020",
               "19/01/2020",
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
               "23/01/2020",
               "24/01/2020",
+              "25/01/2020",
+              "26/01/2020",
             ],
           }
         }
       />
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+    </Component>
+  </Component>
+</Component>
 `;
 
 exports[`Admin Stats setArea INSTALLATIONS should match snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasPadding={true}
     >
       <div>
-        <H3>
+        <Component>
           Stats
-        </H3>
+        </Component>
       </div>
-      <H5>
+      <Component>
         Please select an area:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="area-apps-btn"
           onClick={[Function]}
@@ -297,29 +297,29 @@ exports[`Admin Stats setArea INSTALLATIONS should match snapshot 1`] = `
           variant="secondary"
         >
           Apps
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-developers-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Developers
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-installations-btn"
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           Installations
-        </Button>
-      </ButtonGroup>
-      <H5>
+        </Component>
+      </Component>
+      <Component>
         Please select a time range:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="range-week-btn"
           onClick={[Function]}
@@ -327,31 +327,31 @@ exports[`Admin Stats setArea INSTALLATIONS should match snapshot 1`] = `
           variant="primary"
         >
           Last week
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-month-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Last Month
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-all-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           All time
-        </Button>
-      </ButtonGroup>
-      <H4>
+        </Component>
+      </Component>
+      <Component>
         Showing results for ‘
         INSTALLATIONS
         ’ and ‘
         WEEK
         ’
-      </H4>
+      </Component>
       <Line
         data={
           Object {
@@ -388,43 +388,43 @@ exports[`Admin Stats setArea INSTALLATIONS should match snapshot 1`] = `
               },
             ],
             "labels": Array [
-              "17/01/2020",
-              "18/01/2020",
               "19/01/2020",
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
               "23/01/2020",
               "24/01/2020",
+              "25/01/2020",
+              "26/01/2020",
             ],
           }
         }
       />
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+    </Component>
+  </Component>
+</Component>
 `;
 
 exports[`Admin Stats setRange ALL should match snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasPadding={true}
     >
       <div>
-        <H3>
+        <Component>
           Stats
-        </H3>
+        </Component>
       </div>
-      <H5>
+      <Component>
         Please select an area:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="area-apps-btn"
           onClick={[Function]}
@@ -432,29 +432,29 @@ exports[`Admin Stats setRange ALL should match snapshot 1`] = `
           variant="primary"
         >
           Apps
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-developers-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Developers
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-installations-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Installations
-        </Button>
-      </ButtonGroup>
-      <H5>
+        </Component>
+      </Component>
+      <Component>
         Please select a time range:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="range-week-btn"
           onClick={[Function]}
@@ -462,60 +462,60 @@ exports[`Admin Stats setRange ALL should match snapshot 1`] = `
           variant="secondary"
         >
           Last week
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-month-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Last Month
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-all-btn"
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           All time
-        </Button>
-      </ButtonGroup>
-      <H4>
+        </Component>
+      </Component>
+      <Component>
         Showing results for ‘
         APPS
         ’ and ‘
         ALL
         ’
-      </H4>
-      <H4>
+      </Component>
+      <Component>
         Total: 
         0
-      </H4>
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+      </Component>
+    </Component>
+  </Component>
+</Component>
 `;
 
 exports[`Admin Stats setRange MONTH should match snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasPadding={true}
     >
       <div>
-        <H3>
+        <Component>
           Stats
-        </H3>
+        </Component>
       </div>
-      <H5>
+      <Component>
         Please select an area:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="area-apps-btn"
           onClick={[Function]}
@@ -523,29 +523,29 @@ exports[`Admin Stats setRange MONTH should match snapshot 1`] = `
           variant="primary"
         >
           Apps
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-developers-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Developers
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-installations-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Installations
-        </Button>
-      </ButtonGroup>
-      <H5>
+        </Component>
+      </Component>
+      <Component>
         Please select a time range:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="range-week-btn"
           onClick={[Function]}
@@ -553,31 +553,31 @@ exports[`Admin Stats setRange MONTH should match snapshot 1`] = `
           variant="secondary"
         >
           Last week
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-month-btn"
           onClick={[Function]}
           type="button"
           variant="primary"
         >
           Last Month
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-all-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           All time
-        </Button>
-      </ButtonGroup>
-      <H4>
+        </Component>
+      </Component>
+      <Component>
         Showing results for ‘
         APPS
         ’ and ‘
         MONTH
         ’
-      </H4>
+      </Component>
       <Line
         data={
           Object {
@@ -590,6 +590,8 @@ exports[`Admin Stats setRange MONTH should match snapshot 1`] = `
                 "borderDashOffset": 0,
                 "borderJoinStyle": "miter",
                 "data": Array [
+                  0,
+                  0,
                   0,
                   0,
                   0,
@@ -654,35 +656,37 @@ exports[`Admin Stats setRange MONTH should match snapshot 1`] = `
               "22/01/2020",
               "23/01/2020",
               "24/01/2020",
+              "25/01/2020",
+              "26/01/2020",
             ],
           }
         }
       />
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+    </Component>
+  </Component>
+</Component>
 `;
 
 exports[`Admin Stats setRange WEEK should match snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasPadding={true}
     >
       <div>
-        <H3>
+        <Component>
           Stats
-        </H3>
+        </Component>
       </div>
-      <H5>
+      <Component>
         Please select an area:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="area-apps-btn"
           onClick={[Function]}
@@ -690,29 +694,29 @@ exports[`Admin Stats setRange WEEK should match snapshot 1`] = `
           variant="primary"
         >
           Apps
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-developers-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Developers
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-installations-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Installations
-        </Button>
-      </ButtonGroup>
-      <H5>
+        </Component>
+      </Component>
+      <Component>
         Please select a time range:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="range-week-btn"
           onClick={[Function]}
@@ -720,31 +724,31 @@ exports[`Admin Stats setRange WEEK should match snapshot 1`] = `
           variant="primary"
         >
           Last week
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-month-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Last Month
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-all-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           All time
-        </Button>
-      </ButtonGroup>
-      <H4>
+        </Component>
+      </Component>
+      <Component>
         Showing results for ‘
         APPS
         ’ and ‘
         WEEK
         ’
-      </H4>
+      </Component>
       <Line
         data={
           Object {
@@ -781,43 +785,43 @@ exports[`Admin Stats setRange WEEK should match snapshot 1`] = `
               },
             ],
             "labels": Array [
-              "17/01/2020",
-              "18/01/2020",
               "19/01/2020",
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
               "23/01/2020",
               "24/01/2020",
+              "25/01/2020",
+              "26/01/2020",
             ],
           }
         }
       />
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+    </Component>
+  </Component>
+</Component>
 `;
 
 exports[`Admin Stats should match snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasPadding={true}
     >
       <div>
-        <H3>
+        <Component>
           Stats
-        </H3>
+        </Component>
       </div>
-      <H5>
+      <Component>
         Please select an area:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="area-apps-btn"
           onClick={[Function]}
@@ -825,29 +829,29 @@ exports[`Admin Stats should match snapshot 1`] = `
           variant="primary"
         >
           Apps
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-developers-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Developers
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="area-installations-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Installations
-        </Button>
-      </ButtonGroup>
-      <H5>
+        </Component>
+      </Component>
+      <Component>
         Please select a time range:
-      </H5>
-      <ButtonGroup>
-        <Button
+      </Component>
+      <Component>
+        <Component
           className="ml-0"
           dataTest="range-week-btn"
           onClick={[Function]}
@@ -855,31 +859,31 @@ exports[`Admin Stats should match snapshot 1`] = `
           variant="primary"
         >
           Last week
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-month-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Last Month
-        </Button>
-        <Button
+        </Component>
+        <Component
           dataTest="range-all-btn"
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           All time
-        </Button>
-      </ButtonGroup>
-      <H4>
+        </Component>
+      </Component>
+      <Component>
         Showing results for ‘
         APPS
         ’ and ‘
         WEEK
         ’
-      </H4>
+      </Component>
       <Line
         data={
           Object {
@@ -916,19 +920,19 @@ exports[`Admin Stats should match snapshot 1`] = `
               },
             ],
             "labels": Array [
-              "17/01/2020",
-              "18/01/2020",
               "19/01/2020",
               "20/01/2020",
               "21/01/2020",
               "22/01/2020",
               "23/01/2020",
               "24/01/2020",
+              "25/01/2020",
+              "26/01/2020",
             ],
           }
         }
       />
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+    </Component>
+  </Component>
+</Component>
 `;

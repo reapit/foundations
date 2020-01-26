@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperSubmitApp should match a snapshot 1`] = `
-<FlexContainerBasic
+<Component
   className=" undefined"
   data-test="app-input-form"
   flexColumn={true}
   hasPadding={true}
 >
-  <FlexContainerResponsive
+  <Component
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
   >
-    <H3>
+    <Component>
       Submit App
-    </H3>
+    </Component>
     <Formik
       initialValues={
         Object {
@@ -42,8 +42,8 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
     >
       <Component />
     </Formik>
-  </FlexContainerResponsive>
-</FlexContainerBasic>
+  </Component>
+</Component>
 `;
 
 exports[`DeveloperSubmitApp should match submit app successfully snapshot 1`] = `
@@ -53,20 +53,20 @@ exports[`DeveloperSubmitApp should match submit app successfully snapshot 1`] = 
 `;
 
 exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
-<FlexContainerBasic
+<Component
   className=" undefined"
   data-test="app-input-form"
   flexColumn={true}
   hasPadding={true}
 >
-  <FlexContainerResponsive
+  <Component
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
   >
-    <H3>
+    <Component>
       Edit App
-    </H3>
+    </Component>
     <Formik
       initialValues={
         Object {
@@ -101,12 +101,12 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
     >
       <Component />
     </Formik>
-  </FlexContainerResponsive>
-</FlexContainerBasic>
+  </Component>
+</Component>
 `;
 
 exports[`DeveloperSubmitApp should match submit revision form when appDetailState is having errors snapshot 1`] = `
-<Alert
+<Component
   message="Failed to fetch. Please try later."
   type="danger"
 />
@@ -114,6 +114,6 @@ exports[`DeveloperSubmitApp should match submit revision form when appDetailStat
 
 exports[`DeveloperSubmitApp should match submit revision form when appDetailState is having null snapshot 1`] = `""`;
 
-exports[`DeveloperSubmitApp should match submit revision form when appDetailState is loading snapshot 1`] = `<Loader />`;
+exports[`DeveloperSubmitApp should match submit revision form when appDetailState is loading snapshot 1`] = `<Component />`;
 
 exports[`DeveloperSubmitApp should match submit revision successfully snapshot 1`] = `""`;

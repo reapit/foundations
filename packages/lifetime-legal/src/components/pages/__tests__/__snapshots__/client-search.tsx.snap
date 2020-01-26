@@ -3,32 +3,32 @@
 exports[`ClientSearch renderForm should match snapshot 1`] = `
 <div>
   <div>
-    <FlexContainerResponsive
+    <Component
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
     >
-      <H3>
+      <Component>
         Client Search
-      </H3>
+      </Component>
       <Form
         className="mb-8"
       >
-        <Input
+        <Component
           id="name"
           labelText="Search by name"
           name="name"
           placeholder="Firstname or Surname"
           type="text"
         />
-        <Input
+        <Component
           id="address"
           labelText="Search by address"
           name="address"
           placeholder="Streetname, Village, Town or Postcode"
           type="text"
         />
-        <SelectBox
+        <Component
           id="identityCheck"
           labelText="Search by ID Status"
           name="identityCheck"
@@ -65,16 +65,16 @@ exports[`ClientSearch renderForm should match snapshot 1`] = `
             ]
           }
         />
-        <Button
+        <Component
           className="is-right"
           disabled={true}
           type="submit"
           variant="primary"
         >
           Search
-        </Button>
+        </Component>
       </Form>
-    </FlexContainerResponsive>
+    </Component>
   </div>
 </div>
 `;
@@ -82,32 +82,32 @@ exports[`ClientSearch renderForm should match snapshot 1`] = `
 exports[`ClientSearch renderForm should match snapshot 2`] = `
 <div>
   <div>
-    <FlexContainerResponsive
+    <Component
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
     >
-      <H3>
+      <Component>
         Client Search
-      </H3>
+      </Component>
       <Form
         className="mb-8"
       >
-        <Input
+        <Component
           id="name"
           labelText="Search by name"
           name="name"
           placeholder="Firstname or Surname"
           type="text"
         />
-        <Input
+        <Component
           id="address"
           labelText="Search by address"
           name="address"
           placeholder="Streetname, Village, Town or Postcode"
           type="text"
         />
-        <SelectBox
+        <Component
           id="identityCheck"
           labelText="Search by ID Status"
           name="identityCheck"
@@ -144,23 +144,23 @@ exports[`ClientSearch renderForm should match snapshot 2`] = `
             ]
           }
         />
-        <Button
+        <Component
           className="is-right"
           disabled={false}
           type="submit"
           variant="primary"
         >
           Search
-        </Button>
+        </Component>
       </Form>
-    </FlexContainerResponsive>
+    </Component>
   </div>
 </div>
 `;
 
 exports[`ClientSearch should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
@@ -176,6 +176,6 @@ exports[`ClientSearch should match a snapshot 1`] = `
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;

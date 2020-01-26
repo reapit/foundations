@@ -2,15 +2,15 @@
 
 exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerResponsive
+  <Component
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
   >
     <div>
-      <H3>
+      <Component>
         Ms Saoirse Chadwick
-      </H3>
+      </Component>
       <div>
         RPS Reference: 
         MKC16000098
@@ -66,30 +66,30 @@ exports[`Profile should match a snapshot when submitChecksFormState is PENDING 1
     <div
       className="flex justify-end mt-10"
     >
-      <Button
+      <Component
         loading={false}
         onClick={[Function]}
         type="button"
         variant="primary"
       >
         Submit Record for Checks
-      </Button>
+      </Component>
     </div>
-  </FlexContainerResponsive>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTING 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerResponsive
+  <Component
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
   >
     <div>
-      <H3>
+      <Component>
         Ms Saoirse Chadwick
-      </H3>
+      </Component>
       <div>
         RPS Reference: 
         MKC16000098
@@ -145,16 +145,16 @@ exports[`Profile should match a snapshot when submitChecksFormState is SUBMITTIN
     <div
       className="flex justify-end mt-10"
     >
-      <Button
+      <Component
         loading={true}
         onClick={[Function]}
         type="button"
         variant="primary"
       >
         Submit Record for Checks
-      </Button>
+      </Component>
     </div>
-  </FlexContainerResponsive>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 

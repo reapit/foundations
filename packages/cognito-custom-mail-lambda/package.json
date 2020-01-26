@@ -1,0 +1,63 @@
+{
+  "name": "@reapit/cognito-custom-mail-lambda",
+  "version": "1.0.0",
+  "description": "Lambda Mailer Function",
+  "main": "public/app.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "cross-env TZ=UTC jest --coverage --silent",
+    "test-dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:ci": "cross-env TZ=UTC jest  --coverage --silent --detectOpenHandles --forceExit",
+    "prepublish": "yarn test && yarn build",
+    "prebuild": "rimraf dist && rimraf public",
+    "build": "tsc --p tsconfig.legacy.json && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
+    "deploy:dev": "cross-env CI=true && yarn lint && yarn build && yarn test && serverless deploy --stage dev",
+    "deploy:prod": "cross-env CI=true && yarn lint && yarn build && yarn test && serverless deploy --stage prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/cognito-custom-mail-lambda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reapit/cognito-custom-mail-lambda/issues"
+  },
+  "homepage": "https://github.com/reapit/cognito-custom-mail-lambda#readme",
+  "dependencies": {
+    "aws-lambda": "^0.1.2",
+    "ejs": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.39",
+    "@types/ejs": "^2.7.0",
+    "cross-env": "^6.0.3",
+    "husky": "~3.0.0",
+    "rimraf": "^3.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.ts"
+    ],
+    "coverageDirectory": "./coverage",
+    "coveragePathIgnorePatterns": [
+      "<rootDir>[/\\\\](node_modules|src/core)[/\\\\]",
+      "<rootDir>/src/app.ts"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
+  }
+}

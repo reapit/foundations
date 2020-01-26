@@ -6,7 +6,7 @@ exports[` 1`] = `
     className="pb-4"
     key="0"
   >
-    <Tile
+    <Component
       heading="Personal Details"
       menu={
         <div>
@@ -18,13 +18,13 @@ exports[` 1`] = `
               Completed
             </span>
           </div>
-          <Button
+          <Unknown
             onClick={[MockFunction]}
             type="button"
             variant="primary"
           >
             Edit
-          </Button>
+          </Unknown>
         </div>
       }
     >
@@ -36,13 +36,13 @@ exports[` 1`] = `
           Completed
         </span>
       </div>
-    </Tile>
+    </Component>
   </div>
   <div
     className="pb-4"
     key="1"
   >
-    <Tile
+    <Component
       heading="Primary ID"
       menu={
         <div>
@@ -54,13 +54,13 @@ exports[` 1`] = `
               Incomplete
             </span>
           </div>
-          <Button
+          <Unknown
             onClick={[MockFunction]}
             type="button"
             variant="primary"
           >
             Edit
-          </Button>
+          </Unknown>
         </div>
       }
     >
@@ -72,13 +72,13 @@ exports[` 1`] = `
           Incomplete
         </span>
       </div>
-    </Tile>
+    </Component>
   </div>
   <div
     className="pb-4"
     key="2"
   >
-    <Tile
+    <Component
       heading="Secondary ID"
       menu={
         <div>
@@ -90,13 +90,13 @@ exports[` 1`] = `
               Completed
             </span>
           </div>
-          <Button
+          <Unknown
             onClick={[MockFunction]}
             type="button"
             variant="primary"
           >
             Edit
-          </Button>
+          </Unknown>
         </div>
       }
     >
@@ -108,13 +108,13 @@ exports[` 1`] = `
           Completed
         </span>
       </div>
-    </Tile>
+    </Component>
   </div>
   <div
     className="pb-4"
     key="3"
   >
-    <Tile
+    <Component
       heading="Address Information"
       menu={
         <div>
@@ -126,13 +126,13 @@ exports[` 1`] = `
               Incomplete
             </span>
           </div>
-          <Button
+          <Unknown
             onClick={[MockFunction]}
             type="button"
             variant="primary"
           >
             Edit
-          </Button>
+          </Unknown>
         </div>
       }
     >
@@ -144,13 +144,13 @@ exports[` 1`] = `
           Incomplete
         </span>
       </div>
-    </Tile>
+    </Component>
   </div>
   <div
     className="pb-4"
     key="4"
   >
-    <Tile
+    <Component
       heading="Declaration Risk Management"
       menu={
         <div>
@@ -162,13 +162,13 @@ exports[` 1`] = `
               Incomplete
             </span>
           </div>
-          <Button
+          <Unknown
             onClick={[MockFunction]}
             type="button"
             variant="primary"
           >
             Edit
-          </Button>
+          </Unknown>
         </div>
       }
     >
@@ -180,23 +180,23 @@ exports[` 1`] = `
           Incomplete
         </span>
       </div>
-    </Tile>
+    </Component>
   </div>
   <div
     className="pb-4"
     key="5"
   >
-    <Tile
+    <Component
       heading="Report"
       menu={
         <div>
-          <Button
+          <Unknown
             onClick={[MockFunction]}
             type="button"
             variant="primary"
           >
             View
-          </Button>
+          </Unknown>
         </div>
       }
     />
@@ -204,15 +204,15 @@ exports[` 1`] = `
 </div>
 `;
 
-exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Loader />`;
+exports[`checklist-detail ChecklistDetail should match snapshot when loading 1`] = `<Component />`;
 
 exports[`checklist-detail ChecklistDetail should match snapshot when not loading 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     isScrollable={true}
   >
     <div>
-      <FlexContainerResponsive
+      <Component
         flexColumn={true}
         hasPadding={true}
       >
@@ -221,7 +221,7 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
           className="pb-4"
           key="0"
         >
-          <Tile
+          <Component
             heading="Personal Details"
             menu={
               <div>
@@ -233,12 +233,12 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                     Completed
                   </span>
                 </div>
-                <Button
+                <Unknown
                   type="button"
                   variant="primary"
                 >
                   Edit
-                </Button>
+                </Unknown>
               </div>
             }
           >
@@ -250,13 +250,13 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                 Completed
               </span>
             </div>
-          </Tile>
+          </Component>
         </div>
         <div
           className="pb-4"
           key="1"
         >
-          <Tile
+          <Component
             heading="Primary ID"
             menu={
               <div>
@@ -268,12 +268,12 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                     Incomplete
                   </span>
                 </div>
-                <Button
+                <Unknown
                   type="button"
                   variant="primary"
                 >
                   Edit
-                </Button>
+                </Unknown>
               </div>
             }
           >
@@ -285,13 +285,13 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                 Incomplete
               </span>
             </div>
-          </Tile>
+          </Component>
         </div>
         <div
           className="pb-4"
           key="2"
         >
-          <Tile
+          <Component
             heading="Secondary ID"
             menu={
               <div>
@@ -303,12 +303,12 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                     Completed
                   </span>
                 </div>
-                <Button
+                <Unknown
                   type="button"
                   variant="primary"
                 >
                   Edit
-                </Button>
+                </Unknown>
               </div>
             }
           >
@@ -320,13 +320,13 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                 Completed
               </span>
             </div>
-          </Tile>
+          </Component>
         </div>
         <div
           className="pb-4"
           key="3"
         >
-          <Tile
+          <Component
             heading="Address Information"
             menu={
               <div>
@@ -338,12 +338,12 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                     Incomplete
                   </span>
                 </div>
-                <Button
+                <Unknown
                   type="button"
                   variant="primary"
                 >
                   Edit
-                </Button>
+                </Unknown>
               </div>
             }
           >
@@ -355,13 +355,13 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                 Incomplete
               </span>
             </div>
-          </Tile>
+          </Component>
         </div>
         <div
           className="pb-4"
           key="4"
         >
-          <Tile
+          <Component
             heading="Declaration Risk Management"
             menu={
               <div>
@@ -373,12 +373,12 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                     Incomplete
                   </span>
                 </div>
-                <Button
+                <Unknown
                   type="button"
                   variant="primary"
                 >
                   Edit
-                </Button>
+                </Unknown>
               </div>
             }
           >
@@ -390,29 +390,29 @@ exports[`checklist-detail ChecklistDetail should match snapshot when not loading
                 Incomplete
               </span>
             </div>
-          </Tile>
+          </Component>
         </div>
         <div
           className="pb-4"
           key="5"
         >
-          <Tile
+          <Component
             heading="Report"
             menu={
               <div>
-                <Button
+                <Unknown
                   type="button"
                   variant="primary"
                 >
                   View
-                </Button>
+                </Unknown>
               </div>
             }
           />
         </div>
-      </FlexContainerResponsive>
+      </Component>
     </div>
-  </FlexContainerBasic>
+  </Component>
   <withRouter()
     afterClose={[MockFunction]}
     id="123"

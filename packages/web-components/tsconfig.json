@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "outDir": "dist-npm",
+    "declaration": true,
+    "declarationDir": "dist-npm",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": false,
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noUnusedParameters": true,
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@reapit/cognito-auth": ["../../node_modules/@reapit/cognito-auth/src"]
+    },
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "validate": false
+      }
+    ],
+    "resolveJsonModule": true,
+    "rootDirs": [
+      "src"
+    ],
+    "skipLibCheck": true,
+    "target": "es5",
+    "typeRoots": [
+      "./node_modules/@types",
+      "../../node_modules/@types"
+    ],
+    "types": [
+      "jest",
+      "node",
+      "react"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}

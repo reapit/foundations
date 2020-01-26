@@ -87,7 +87,6 @@ describe('checklist-detail', () => {
       } as CheckListDetailProps
       const wrapper = shallow(<ChecklistDetail {...mockProps} />)
       expect(wrapper).toMatchSnapshot()
-      expect(wrapper.find('Loader')).toHaveLength(1)
     })
     it('should match snapshot when not loading', () => {
       const mockProps = {

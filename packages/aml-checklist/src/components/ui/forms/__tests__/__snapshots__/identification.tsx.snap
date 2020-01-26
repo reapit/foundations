@@ -17,7 +17,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
       labelText="ID Type"
       name="typeId"
     />
-    <Input
+    <Component
       id="details"
       labelText="ID Reference"
       name="details"
@@ -25,13 +25,13 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
       required={true}
       type="text"
     />
-    <DatePicker
+    <Component
       id="expiry"
       labelText="Expiry Date"
       name="expiry"
       required={true}
     />
-    <CameraImageInput
+    <Component
       allowClear={true}
       id="fileUrl"
       inputProps={
@@ -68,7 +68,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
         <div
           className="column undefined"
         >
-          <Button
+          <Component
             className="mr-2"
             disabled={false}
             loading={false}
@@ -76,8 +76,8 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
             variant="primary"
           >
             Save
-          </Button>
-          <Button
+          </Component>
+          <Component
             className="mr-2"
             disabled={false}
             onClick={[MockFunction]}
@@ -85,14 +85,14 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
             variant="primary"
           >
             Previous
-          </Button>
-          <Button
+          </Component>
+          <Component
             disabled={false}
             type="button"
             variant="primary"
           >
             Next
-          </Button>
+          </Component>
         </div>
       </div>
     </div>
@@ -118,7 +118,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
       labelText="ID Type"
       name="typeId"
     />
-    <Input
+    <Component
       id="details"
       labelText="ID Reference"
       name="details"
@@ -126,13 +126,13 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
       required={true}
       type="text"
     />
-    <DatePicker
+    <Component
       id="expiry"
       labelText="Expiry Date"
       name="expiry"
       required={true}
     />
-    <CameraImageInput
+    <Component
       allowClear={true}
       id="fileUrl"
       inputProps={
@@ -169,7 +169,7 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
         <div
           className="column undefined"
         >
-          <Button
+          <Component
             className="mr-2"
             disabled={true}
             loading={false}
@@ -177,8 +177,8 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
             variant="primary"
           >
             Save
-          </Button>
-          <Button
+          </Component>
+          <Component
             className="mr-2"
             disabled={false}
             onClick={[MockFunction]}
@@ -186,14 +186,14 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
             variant="primary"
           >
             Previous
-          </Button>
-          <Button
+          </Component>
+          <Component
             disabled={true}
             type="button"
             variant="primary"
           >
             Next
-          </Button>
+          </Component>
         </div>
       </div>
     </div>

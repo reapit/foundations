@@ -25,3 +25,15 @@ geo-diary:
 
 aml-checklist:
   - packages/aml-checklist/**
+
+elements:
+  - packages/elements/**
+
+demo-site:
+  - packages/demo-site/**
+
+web-components:
+  - packages/web-components/**
+
+cognito-custom-mail-lambda:
+  - packages/cognito-custom-mail-lambda/**

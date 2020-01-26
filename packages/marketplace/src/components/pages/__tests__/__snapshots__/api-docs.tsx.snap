@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ApiDocs should match a snapshot 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
     >
-      <H3>
+      <Component>
         Foundations Documentation
-      </H3>
-      <H4>
+      </Component>
+      <Component>
         Contents
-      </H4>
+      </Component>
       <ul
         className="mb-6"
       >
@@ -105,11 +105,11 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </Link>
         </li>
       </ul>
-      <H4
+      <Component
         id="api"
       >
         API Overview
-      </H4>
+      </Component>
       <p>
         The Foundations API is organised around
          
@@ -173,23 +173,23 @@ exports[`ApiDocs should match a snapshot 1`] = `
         </Link>
          provides a quick start experience to quickly get to grips with the platform and start developing.
       </p>
-      <H4
+      <Component
         id="rest"
       >
         REST
-      </H4>
-      <H5
+      </Component>
+      <Component
         id="httpmethods"
       >
         HTTP Methods
-      </H5>
+      </Component>
       <p>
         Foundation APIs present a uniform interface for performing CRUD (create, retrieve, update, delete) operations. Each endpoint adheres to REST guidelines to map the correct verb to the operation being performed. Our APIs support the following HTTP methods:
       </p>
       <div
         className="mb-4"
       >
-        <Table
+        <Component
           columns={
             Array [
               Object {
@@ -226,18 +226,18 @@ exports[`ApiDocs should match a snapshot 1`] = `
           scrollable={true}
         />
       </div>
-      <H5
+      <Component
         id="statuscodes"
       >
         Response status codes
-      </H5>
+      </Component>
       <p>
         Foundation APIs use standardised HTTP status codes to indicate whether a request has been successful or has resulted in an error. Below is a listing of the codes our APIs may return and their meaning:
       </p>
       <div
         className="mb-4"
       >
-        <Table
+        <Component
           columns={
             Array [
               Object {
@@ -318,11 +318,11 @@ exports[`ApiDocs should match a snapshot 1`] = `
           scrollable={true}
         />
       </div>
-      <H4
+      <Component
         id="authorization"
       >
         Authorization
-      </H4>
+      </Component>
       <p>
         The Foundation platform uses 
         <a
@@ -335,9 +335,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <p>
         Our authentication mechanisms allow you to quickly build apps on top of our platform and provide a seamless authentication experience for your end users.
       </p>
-      <H5>
+      <Component>
         Registering your application
-      </H5>
+      </Component>
       <p>
         Your application must be registered with our Marketplace before it can interact with data, functionality and assets provided by the Foundations API. For more information on how to register your application, see our Marketplace documentation.
       </p>
@@ -354,9 +354,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <p>
         Once your application has been successfully registered, you will be provided with a unique application id which is required to interact with our authorization services.
       </p>
-      <H5>
+      <Component>
         Client installation
-      </H5>
+      </Component>
       <p>
         Once your application submission has been approved by Reapit, it will appear as a listing in our Marketplace. Reapit clients will then be able to interact with your application's details and potentially choose to install it.
       </p>
@@ -366,9 +366,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <p>
         Once installed, an application can access Foundation services on an end users behalf. The recommended way to achieve this is to use one of our Client Libraries, however you can interact directly with our APIs as detailed below.
       </p>
-      <H5>
+      <Component>
         Create an authorization code
-      </H5>
+      </Component>
       <p>
         To create an OAuth 
         <a
@@ -395,9 +395,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Exchange code for tokens
-      </H5>
+      </Component>
       <p>
         If your application has successfully guided the end user through the OAuth flow and obtained an authorization code, you need to send it along with the client id issued to your application during Marketplace registration to the following endpoint:
       </p>
@@ -438,7 +438,7 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <div
         className="mb-4"
       >
-        <Table
+        <Component
           columns={
             Array [
               Object {
@@ -475,9 +475,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
           scrollable={true}
         />
       </div>
-      <H5>
+      <Component>
         Create a request
-      </H5>
+      </Component>
       <p>
         The access token must then be sent in the Authorization header to be able to access protected Foundation APIs.
       </p>
@@ -502,11 +502,11 @@ exports[`ApiDocs should match a snapshot 1`] = `
           The applications access to the end users data has not been revoked.
         </li>
       </ul>
-      <H4
+      <Component
         id="developersandbox"
       >
         Developer Sandbox
-      </H4>
+      </Component>
       <p>
         You can use the Foundation API in Sandbox mode which provides a set of demonstration data that can be interacted with without affecting any client environment.
       </p>
@@ -522,11 +522,11 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <p>
         Alternatively, our Interactive API Explorer will automatically grant access to sandbox data when you're logged into the Developer Portal.
       </p>
-      <H4
+      <Component
         id="errors"
       >
         Errors
-      </H4>
+      </Component>
       <p>
         Unsuccessful requests return an error response in JSON format. This includes a status code, a time stamp and textual description of the error:
       </p>
@@ -572,18 +572,18 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H4
+      <Component
         id="rate-limits"
       >
         Rate limits
-      </H4>
+      </Component>
       <p>
         You can make 1000 requests per minute to our APIs. Each response will include HTTP headers to provide information on the current rate limit statistics.
       </p>
       <div
         className="mb-4"
       >
-        <Table
+        <Component
           columns={
             Array [
               Object {
@@ -645,17 +645,17 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H4
+      <Component
         id="pagingation"
       >
         Pagination
-      </H4>
+      </Component>
       <p>
         All collection API resources can be paged and share a common structure in their responses. Page size and offset is controlled by use of standardised query strings.
       </p>
-      <H5>
+      <Component>
         Request
-      </H5>
+      </Component>
       <p>
         Unless documented, the default page size is 25 and the maximum is 50.
       </p>
@@ -666,9 +666,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Response
-      </H5>
+      </Component>
       <p
         className="mb-4"
       >
@@ -689,11 +689,11 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H4
+      <Component
         id="resource-expansion"
       >
         Resource expansion
-      </H4>
+      </Component>
       <p>
         Some of the top level resources made available by the platform include resource expansion functionality. When fetching data from a resource expansion enabled endpoint, clients can optionally request that a response includes data from one or more related resources.
       </p>
@@ -703,9 +703,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <p>
         Query parameters are used to govern this functionality, please see the specific documention of each end point for details.
       </p>
-      <H5>
+      <Component>
         Request
-      </H5>
+      </Component>
       <p>
         The example request below will fetch a list of contacts with resource expansion enabled for the identity checks nested collection:
       </p>
@@ -716,9 +716,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Response
-      </H5>
+      </Component>
       <p>
         A paged response from the
         <code>
@@ -764,9 +764,9 @@ exports[`ApiDocs should match a snapshot 1`] = `
           </code>
         </pre>
       </p>
-      <H4>
+      <Component>
         Metadata
-      </H4>
+      </Component>
       <p>
         Resources that support editing have a
         <code>
@@ -783,16 +783,16 @@ exports[`ApiDocs should match a snapshot 1`] = `
       <p>
         Information stored in metadata is specific to your application and is not available to other Reapit or third party applications. Do not store any sensitive information (personally identifiable information, bank details, etc.) as metadata.
       </p>
-      <H4
+      <Component
         id="versioning"
       >
         Versioning
-      </H4>
-      <H4
+      </Component>
+      <Component
         id="elements"
       >
         Elements
-      </H4>
+      </Component>
       <p>
         The Elements UI toolkit you can browse 
         <Link
@@ -802,27 +802,27 @@ exports[`ApiDocs should match a snapshot 1`] = `
         </Link>
          is available as an NPM package. We also support an AMD (require.js), version that may suit your needs better, especially when serving content from a CDN or CMS.
       </p>
-      <H4
+      <Component
         id="app-scaffolder"
       >
         React App Scaffolder
-      </H4>
+      </Component>
       <p>
         Content
       </p>
-      <H4
+      <Component
         id="cognito-auth"
       >
         Cognito Auth
-      </H4>
+      </Component>
       <p>
         Content
       </p>
-      <H4
+      <Component
         id="ts-definitions"
       >
         Foundations TS Definitions
-      </H4>
+      </Component>
       <p>
         If you are using TypeScript (and we recommend you do!), for your front end project, we provide full type definitions for the API documented in the 
         <Link
@@ -832,28 +832,28 @@ exports[`ApiDocs should match a snapshot 1`] = `
         </Link>
         . We generate these types from the Swagger contracts direct so you can be sure that when the API changes, your types will be updated also. This allows for a much closer alignment between front and back end development and ultimately more robust applications.
       </p>
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+    </Component>
+  </Component>
+</Component>
 `;
 
 exports[`ApiDocs should match snapshot after changing hash 1`] = `
-<FlexContainerBasic
+<Component
   flexColumn={true}
   hasPadding={true}
 >
-  <Content>
-    <FlexContainerResponsive
+  <Component>
+    <Component
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
     >
-      <H3>
+      <Component>
         Foundations Documentation
-      </H3>
-      <H4>
+      </Component>
+      <Component>
         Contents
-      </H4>
+      </Component>
       <ul
         className="mb-6"
       >
@@ -942,11 +942,11 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </Link>
         </li>
       </ul>
-      <H4
+      <Component
         id="api"
       >
         API Overview
-      </H4>
+      </Component>
       <p>
         The Foundations API is organised around
          
@@ -1010,23 +1010,23 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
         </Link>
          provides a quick start experience to quickly get to grips with the platform and start developing.
       </p>
-      <H4
+      <Component
         id="rest"
       >
         REST
-      </H4>
-      <H5
+      </Component>
+      <Component
         id="httpmethods"
       >
         HTTP Methods
-      </H5>
+      </Component>
       <p>
         Foundation APIs present a uniform interface for performing CRUD (create, retrieve, update, delete) operations. Each endpoint adheres to REST guidelines to map the correct verb to the operation being performed. Our APIs support the following HTTP methods:
       </p>
       <div
         className="mb-4"
       >
-        <Table
+        <Component
           columns={
             Array [
               Object {
@@ -1063,18 +1063,18 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           scrollable={true}
         />
       </div>
-      <H5
+      <Component
         id="statuscodes"
       >
         Response status codes
-      </H5>
+      </Component>
       <p>
         Foundation APIs use standardised HTTP status codes to indicate whether a request has been successful or has resulted in an error. Below is a listing of the codes our APIs may return and their meaning:
       </p>
       <div
         className="mb-4"
       >
-        <Table
+        <Component
           columns={
             Array [
               Object {
@@ -1155,11 +1155,11 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           scrollable={true}
         />
       </div>
-      <H4
+      <Component
         id="authorization"
       >
         Authorization
-      </H4>
+      </Component>
       <p>
         The Foundation platform uses 
         <a
@@ -1172,9 +1172,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <p>
         Our authentication mechanisms allow you to quickly build apps on top of our platform and provide a seamless authentication experience for your end users.
       </p>
-      <H5>
+      <Component>
         Registering your application
-      </H5>
+      </Component>
       <p>
         Your application must be registered with our Marketplace before it can interact with data, functionality and assets provided by the Foundations API. For more information on how to register your application, see our Marketplace documentation.
       </p>
@@ -1191,9 +1191,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <p>
         Once your application has been successfully registered, you will be provided with a unique application id which is required to interact with our authorization services.
       </p>
-      <H5>
+      <Component>
         Client installation
-      </H5>
+      </Component>
       <p>
         Once your application submission has been approved by Reapit, it will appear as a listing in our Marketplace. Reapit clients will then be able to interact with your application's details and potentially choose to install it.
       </p>
@@ -1203,9 +1203,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <p>
         Once installed, an application can access Foundation services on an end users behalf. The recommended way to achieve this is to use one of our Client Libraries, however you can interact directly with our APIs as detailed below.
       </p>
-      <H5>
+      <Component>
         Create an authorization code
-      </H5>
+      </Component>
       <p>
         To create an OAuth 
         <a
@@ -1232,9 +1232,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Exchange code for tokens
-      </H5>
+      </Component>
       <p>
         If your application has successfully guided the end user through the OAuth flow and obtained an authorization code, you need to send it along with the client id issued to your application during Marketplace registration to the following endpoint:
       </p>
@@ -1275,7 +1275,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <div
         className="mb-4"
       >
-        <Table
+        <Component
           columns={
             Array [
               Object {
@@ -1312,9 +1312,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           scrollable={true}
         />
       </div>
-      <H5>
+      <Component>
         Create a request
-      </H5>
+      </Component>
       <p>
         The access token must then be sent in the Authorization header to be able to access protected Foundation APIs.
       </p>
@@ -1339,11 +1339,11 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           The applications access to the end users data has not been revoked.
         </li>
       </ul>
-      <H4
+      <Component
         id="developersandbox"
       >
         Developer Sandbox
-      </H4>
+      </Component>
       <p>
         You can use the Foundation API in Sandbox mode which provides a set of demonstration data that can be interacted with without affecting any client environment.
       </p>
@@ -1359,11 +1359,11 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <p>
         Alternatively, our Interactive API Explorer will automatically grant access to sandbox data when you're logged into the Developer Portal.
       </p>
-      <H4
+      <Component
         id="errors"
       >
         Errors
-      </H4>
+      </Component>
       <p>
         Unsuccessful requests return an error response in JSON format. This includes a status code, a time stamp and textual description of the error:
       </p>
@@ -1409,18 +1409,18 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </code>
         </pre>
       </p>
-      <H4
+      <Component
         id="rate-limits"
       >
         Rate limits
-      </H4>
+      </Component>
       <p>
         You can make 1000 requests per minute to our APIs. Each response will include HTTP headers to provide information on the current rate limit statistics.
       </p>
       <div
         className="mb-4"
       >
-        <Table
+        <Component
           columns={
             Array [
               Object {
@@ -1482,17 +1482,17 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </code>
         </pre>
       </p>
-      <H4
+      <Component
         id="pagingation"
       >
         Pagination
-      </H4>
+      </Component>
       <p>
         All collection API resources can be paged and share a common structure in their responses. Page size and offset is controlled by use of standardised query strings.
       </p>
-      <H5>
+      <Component>
         Request
-      </H5>
+      </Component>
       <p>
         Unless documented, the default page size is 25 and the maximum is 50.
       </p>
@@ -1503,9 +1503,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Response
-      </H5>
+      </Component>
       <p
         className="mb-4"
       >
@@ -1526,11 +1526,11 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </code>
         </pre>
       </p>
-      <H4
+      <Component
         id="resource-expansion"
       >
         Resource expansion
-      </H4>
+      </Component>
       <p>
         Some of the top level resources made available by the platform include resource expansion functionality. When fetching data from a resource expansion enabled endpoint, clients can optionally request that a response includes data from one or more related resources.
       </p>
@@ -1540,9 +1540,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <p>
         Query parameters are used to govern this functionality, please see the specific documention of each end point for details.
       </p>
-      <H5>
+      <Component>
         Request
-      </H5>
+      </Component>
       <p>
         The example request below will fetch a list of contacts with resource expansion enabled for the identity checks nested collection:
       </p>
@@ -1553,9 +1553,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </code>
         </pre>
       </p>
-      <H5>
+      <Component>
         Response
-      </H5>
+      </Component>
       <p>
         A paged response from the
         <code>
@@ -1601,9 +1601,9 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
           </code>
         </pre>
       </p>
-      <H4>
+      <Component>
         Metadata
-      </H4>
+      </Component>
       <p>
         Resources that support editing have a
         <code>
@@ -1620,16 +1620,16 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
       <p>
         Information stored in metadata is specific to your application and is not available to other Reapit or third party applications. Do not store any sensitive information (personally identifiable information, bank details, etc.) as metadata.
       </p>
-      <H4
+      <Component
         id="versioning"
       >
         Versioning
-      </H4>
-      <H4
+      </Component>
+      <Component
         id="elements"
       >
         Elements
-      </H4>
+      </Component>
       <p>
         The Elements UI toolkit you can browse 
         <Link
@@ -1639,27 +1639,27 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
         </Link>
          is available as an NPM package. We also support an AMD (require.js), version that may suit your needs better, especially when serving content from a CDN or CMS.
       </p>
-      <H4
+      <Component
         id="app-scaffolder"
       >
         React App Scaffolder
-      </H4>
+      </Component>
       <p>
         Content
       </p>
-      <H4
+      <Component
         id="cognito-auth"
       >
         Cognito Auth
-      </H4>
+      </Component>
       <p>
         Content
       </p>
-      <H4
+      <Component
         id="ts-definitions"
       >
         Foundations TS Definitions
-      </H4>
+      </Component>
       <p>
         If you are using TypeScript (and we recommend you do!), for your front end project, we provide full type definitions for the API documented in the 
         <Link
@@ -1669,7 +1669,7 @@ exports[`ApiDocs should match snapshot after changing hash 1`] = `
         </Link>
         . We generate these types from the Swagger contracts direct so you can be sure that when the API changes, your types will be updated also. This allows for a much closer alignment between front and back end development and ultimately more robust applications.
       </p>
-    </FlexContainerResponsive>
-  </Content>
-</FlexContainerBasic>
+    </Component>
+  </Component>
+</Component>
 `;

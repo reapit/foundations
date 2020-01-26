@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
-<FlexContainerBasic
+<Component
   className="pb-4"
   flexColumn={true}
 >
-  <FlexContainerResponsive
+  <Component
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
@@ -22,44 +22,44 @@ exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
       <Form
         noValidate={true}
       >
-        <FormSection>
-          <FormHeading>
+        <Component>
+          <Component>
             Developer Management Filter Form
-          </FormHeading>
-          <FormSubHeading>
+          </Component>
+          <Component>
             Filter the result by Name and Company
-          </FormSubHeading>
-          <Grid>
-            <GridItem>
-              <Input
+          </Component>
+          <Component>
+            <Component>
+              <Component
                 id="name"
                 labelText="Name"
                 name="name"
                 type="text"
               />
-            </GridItem>
-            <GridItem>
-              <Input
+            </Component>
+            <Component>
+              <Component
                 id="company"
                 labelText="Company"
                 name="company"
                 type="text"
               />
-            </GridItem>
-          </Grid>
-        </FormSection>
-        <FormSection>
-          <LevelRight>
-            <Button
+            </Component>
+          </Component>
+        </Component>
+        <Component>
+          <Component>
+            <Component
               type="submit"
               variant="primary"
             >
               Search
-            </Button>
-          </LevelRight>
-        </FormSection>
+            </Component>
+          </Component>
+        </Component>
       </Form>
     </Formik>
-  </FlexContainerResponsive>
-</FlexContainerBasic>
+  </Component>
+</Component>
 `;

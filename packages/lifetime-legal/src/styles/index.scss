@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import './base/colors.scss';
 @import './utilities.scss';
-@import '~@reapit/elements/dist/index.css';
+@import "../../../elements/src/styles/index.scss";
 
 * {
   box-sizing: border-box !important;

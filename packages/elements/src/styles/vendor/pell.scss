@@ -1,0 +1,91 @@
+@import '../base/colors.scss';
+
+$pell-button-width: 32px !default;
+$pell-button-height: 40px !default;
+$pell-content-height: 80px !default;
+$pell-content-padding: 10px !default;
+
+.pell {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $grey;
+  box-shadow: inset 0 1px 2px rgba(18, 38, 63, 0.1);
+  border-radius: 0;
+  overflow: hidden;
+  color: $black;
+
+  &--is-danger {
+    border: 1px solid $reapit-red;
+  }
+}
+
+.pell-content {
+  outline: none;
+  padding: $pell-content-padding;
+  min-height: $pell-content-height;
+  box-sizing: border-box;
+  background-color: $white;
+
+  &:focus {
+    box-shadow: 0 0 0 0.125em rgba(35, 164, 222, 0.25);
+  }
+
+  h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+
+  h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+
+  ul {
+    list-style: disc outside none;
+    padding-inline-start: 25px;
+  }
+
+  ol {
+    list-style: decimal;
+    padding-inline-start: 25px;
+  }
+}
+
+.pell-actionbar {
+  background-color: $white;
+  border-bottom: 1px solid $grey;
+  padding-left: 8px;
+}
+
+.pell-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: $pell-button-height;
+  outline: 0;
+  width: $pell-button-width;
+  vertical-align: bottom;
+  opacity: 0.6;
+}
+
+.pell-button-selected {
+  color: $reapit-teal;
+  font-weight: 600;
+}
+
+div[contenteditable='true']:empty:before {
+  content: attr(placeholder);
+  color: $grey-lighter;
+  display: block; /* For Firefox */
+}

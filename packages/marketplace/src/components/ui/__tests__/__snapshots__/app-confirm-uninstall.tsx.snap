@@ -2,26 +2,26 @@
 
 exports[`AppConfirmUninstall render correctly 1`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm Peter's Properties uninstall"
   />
-  <ModalBody
+  <Component
     body={
-      <SubTitleH6
+      <Unknown
         isCentered={true}
       >
         Are you sure you wish to uninstall 
         Peter's Properties
         ? This action will uninstall the app for ALL platform users.
-      </SubTitleH6>
+      </Unknown>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           className="mx-4"
           dataTest="agree-btn"
           fullWidth={true}
@@ -31,8 +31,8 @@ exports[`AppConfirmUninstall render correctly 1`] = `
           variant="primary"
         >
           Agree
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           className="mx-4"
           dataTest="disagree-btn"
           disabled={false}
@@ -42,7 +42,7 @@ exports[`AppConfirmUninstall render correctly 1`] = `
           variant="danger"
         >
           Disagree
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
@@ -51,26 +51,26 @@ exports[`AppConfirmUninstall render correctly 1`] = `
 
 exports[`AppConfirmUninstall render correctly 2`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm Peter's Properties uninstall"
   />
-  <ModalBody
+  <Component
     body={
-      <SubTitleH6
+      <Unknown
         isCentered={true}
       >
         Are you sure you wish to uninstall 
         Peter's Properties
         ? This action will uninstall the app for ALL platform users.
-      </SubTitleH6>
+      </Unknown>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           className="mx-4"
           dataTest="agree-btn"
           fullWidth={true}
@@ -80,8 +80,8 @@ exports[`AppConfirmUninstall render correctly 2`] = `
           variant="primary"
         >
           Agree
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           className="mx-4"
           dataTest="disagree-btn"
           disabled={false}
@@ -91,7 +91,7 @@ exports[`AppConfirmUninstall render correctly 2`] = `
           variant="danger"
         >
           Disagree
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
@@ -100,26 +100,26 @@ exports[`AppConfirmUninstall render correctly 2`] = `
 
 exports[`AppConfirmUninstall render correctly 3`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm Peter's Properties uninstall"
   />
-  <ModalBody
+  <Component
     body={
-      <SubTitleH6
+      <Unknown
         isCentered={true}
       >
         Are you sure you wish to uninstall 
         Peter's Properties
         ? This action will uninstall the app for ALL platform users.
-      </SubTitleH6>
+      </Unknown>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           className="mx-4"
           dataTest="agree-btn"
           fullWidth={true}
@@ -129,8 +129,8 @@ exports[`AppConfirmUninstall render correctly 3`] = `
           variant="primary"
         >
           Agree
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           className="mx-4"
           dataTest="disagree-btn"
           disabled={true}
@@ -140,7 +140,7 @@ exports[`AppConfirmUninstall render correctly 3`] = `
           variant="danger"
         >
           Disagree
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
@@ -149,26 +149,26 @@ exports[`AppConfirmUninstall render correctly 3`] = `
 
 exports[`AppConfirmUninstall render correctly 4`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm Peter's Properties uninstall"
   />
-  <ModalBody
+  <Component
     body={
-      <SubTitleH6
+      <Unknown
         isCentered={true}
       >
         Are you sure you wish to uninstall 
         Peter's Properties
         ? This action will uninstall the app for ALL platform users.
-      </SubTitleH6>
+      </Unknown>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           className="mx-4"
           dataTest="agree-btn"
           fullWidth={true}
@@ -178,8 +178,8 @@ exports[`AppConfirmUninstall render correctly 4`] = `
           variant="primary"
         >
           Agree
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           className="mx-4"
           dataTest="disagree-btn"
           disabled={false}
@@ -189,7 +189,7 @@ exports[`AppConfirmUninstall render correctly 4`] = `
           variant="danger"
         >
           Disagree
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
@@ -198,26 +198,26 @@ exports[`AppConfirmUninstall render correctly 4`] = `
 
 exports[`AppConfirmUninstall render correctly 5`] = `
 <Fragment>
-  <ModalHeader
+  <Component
     afterClose={[MockFunction]}
     data-test="confirm-content"
     title="Confirm Peter's Properties uninstall"
   />
-  <ModalBody
+  <Component
     body={
-      <SubTitleH6
+      <Unknown
         isCentered={true}
       >
         Are you sure you wish to uninstall 
         Peter's Properties
         ? This action will uninstall the app for ALL platform users.
-      </SubTitleH6>
+      </Unknown>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           className="mx-4"
           dataTest="agree-btn"
           fullWidth={true}
@@ -227,8 +227,8 @@ exports[`AppConfirmUninstall render correctly 5`] = `
           variant="primary"
         >
           Agree
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           className="mx-4"
           dataTest="disagree-btn"
           disabled={false}
@@ -238,7 +238,7 @@ exports[`AppConfirmUninstall render correctly 5`] = `
           variant="danger"
         >
           Disagree
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />

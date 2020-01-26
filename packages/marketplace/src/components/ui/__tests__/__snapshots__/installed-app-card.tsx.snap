@@ -5,7 +5,7 @@ exports[`InstalledAppCard should match a snapshot 1`] = `
   data-test-app-id="09043eb8-9e5e-4650-b7f1-f0cb62699027"
   data-test-app-name="test"
 >
-  <Tile
+  <Component
     heading="test"
     image={
       <img
@@ -20,6 +20,6 @@ exports[`InstalledAppCard should match a snapshot 1`] = `
     <p>
       nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz
     </p>
-  </Tile>
+  </Component>
 </div>
 `;

@@ -8,8 +8,8 @@ exports[`Home should match a snapshot 1`] = `
     <div
       className="undefined "
     >
-      <ButtonGroup>
-        <Button
+      <Component>
+        <Component
           className="is-selected is-info"
           key="Today"
           onClick={[Function]}
@@ -17,8 +17,8 @@ exports[`Home should match a snapshot 1`] = `
           variant="secondary"
         >
           Today
-        </Button>
-        <Button
+        </Component>
+        <Component
           className=""
           key="Tomorrow"
           onClick={[Function]}
@@ -26,8 +26,8 @@ exports[`Home should match a snapshot 1`] = `
           variant="secondary"
         >
           Tomorrow
-        </Button>
-        <Button
+        </Component>
+        <Component
           className=""
           key="Week View"
           onClick={[Function]}
@@ -35,8 +35,8 @@ exports[`Home should match a snapshot 1`] = `
           variant="secondary"
         >
           Week View
-        </Button>
-      </ButtonGroup>
+        </Component>
+      </Component>
       <Memo()
         onChangeTravelMode={[Function]}
         travelMode="DRIVING"
@@ -760,8 +760,8 @@ exports[`Home should match a snapshot when loading 1`] = `
     <div
       className="undefined undefined"
     >
-      <ButtonGroup>
-        <Button
+      <Component>
+        <Component
           className="is-selected is-info"
           key="Today"
           onClick={[Function]}
@@ -769,8 +769,8 @@ exports[`Home should match a snapshot when loading 1`] = `
           variant="secondary"
         >
           Today
-        </Button>
-        <Button
+        </Component>
+        <Component
           className=""
           key="Tomorrow"
           onClick={[Function]}
@@ -778,8 +778,8 @@ exports[`Home should match a snapshot when loading 1`] = `
           variant="secondary"
         >
           Tomorrow
-        </Button>
-        <Button
+        </Component>
+        <Component
           className=""
           key="Week View"
           onClick={[Function]}
@@ -787,14 +787,14 @@ exports[`Home should match a snapshot when loading 1`] = `
           variant="secondary"
         >
           Week View
-        </Button>
-      </ButtonGroup>
+        </Component>
+      </Component>
       <Memo()
         onChangeTravelMode={[Function]}
         travelMode="DRIVING"
       />
     </div>
-    <Loader />
+    <Component />
   </div>
   <div
     style={

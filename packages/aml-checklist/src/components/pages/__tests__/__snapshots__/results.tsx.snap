@@ -1,54 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Result renderEmptyResult should run correctly 1`] = `
-<FlexContainerBasic
+<Unknown
   flexColumn={true}
   hasBackground={true}
 >
   <div>
-    <Info
+    <Unknown
       infoType=""
     >
-      <H6>
+      <Unknown>
         No Results found
-      </H6>
-    </Info>
+      </Unknown>
+    </Unknown>
   </div>
   <div>
     <Link
       to="/"
     >
-      <Button
+      <Unknown
         type="button"
         variant="info"
       >
         New Search
          
-      </Button>
+      </Unknown>
     </Link>
   </div>
-</FlexContainerBasic>
+</Unknown>
 `;
 
 exports[`Result should match a snapshot when LOADING false 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <FlexContainerBasic
+    <Component
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
       isScrollable={true}
     >
-      <H3>
+      <Component>
         Showing Results for ‘
         1
         ’
-      </H3>
+      </Component>
       <div>
-        <Table
+        <Component
           columns={
             Array [
               Object {
@@ -548,37 +548,37 @@ exports[`Result should match a snapshot when LOADING false 1`] = `
           scrollable={true}
         />
       </div>
-      <Section>
-        <Pagination
+      <Component>
+        <Component
           onChange={[Function]}
           pageNumber={1}
           pageSize={10}
           totalCount={26}
         />
-      </Section>
-    </FlexContainerBasic>
-  </FlexContainerBasic>
+      </Component>
+    </Component>
+  </Component>
 </Connect(ErrorBoundary)>
 `;
 
 exports[`Result should match a snapshot when LOADING true 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
-    <FlexContainerBasic
+    <Component
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
       isScrollable={true}
     >
-      <H3>
+      <Component>
         Showing Results for ‘
         ’
-      </H3>
+      </Component>
       <div>
-        <Table
+        <Component
           columns={
             Array [
               Object {
@@ -617,13 +617,13 @@ exports[`Result should match a snapshot when LOADING true 1`] = `
           scrollable={true}
         />
       </div>
-      <Section>
-        <Pagination
+      <Component>
+        <Component
           onChange={[Function]}
           pageNumber={1}
         />
-      </Section>
-    </FlexContainerBasic>
-  </FlexContainerBasic>
+      </Component>
+    </Component>
+  </Component>
 </Connect(ErrorBoundary)>
 `;

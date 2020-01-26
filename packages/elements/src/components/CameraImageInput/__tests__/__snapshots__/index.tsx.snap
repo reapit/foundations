@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CameraImageInput should match a snapshot 1`] = `
+<Component
+  id="test"
+  inputProps={
+    Object {
+      "capture": "camera",
+    }
+  }
+  labelText="test"
+  name="test"
+/>
+`;

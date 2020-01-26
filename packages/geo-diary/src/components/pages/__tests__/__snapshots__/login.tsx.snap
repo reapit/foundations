@@ -5,7 +5,7 @@ exports[`Login renderForm should match snapshot 1`] = `
   <Form
     data-test="login-form"
   >
-    <Input
+    <Component
       dataTest="login-email"
       id="email"
       labelText="Email"
@@ -13,7 +13,7 @@ exports[`Login renderForm should match snapshot 1`] = `
       placeholder="name@address.com"
       type="email"
     />
-    <Input
+    <Component
       dataTest="login-password"
       id="password"
       labelText="Password"
@@ -21,16 +21,16 @@ exports[`Login renderForm should match snapshot 1`] = `
       placeholder="Enter your password"
       type="password"
     />
-    <Level>
-      <Button
+    <Component>
+      <Component
         disabled={true}
         loading={true}
         type="submit"
         variant="primary"
       >
         Login
-      </Button>
-    </Level>
+      </Component>
+    </Component>
   </Form>
 </div>
 `;
@@ -40,7 +40,7 @@ exports[`Login renderForm should match snapshot 2`] = `
   <Form
     data-test="login-form"
   >
-    <Input
+    <Component
       dataTest="login-email"
       id="email"
       labelText="Email"
@@ -48,7 +48,7 @@ exports[`Login renderForm should match snapshot 2`] = `
       placeholder="name@address.com"
       type="email"
     />
-    <Input
+    <Component
       dataTest="login-password"
       id="password"
       labelText="Password"
@@ -56,17 +56,17 @@ exports[`Login renderForm should match snapshot 2`] = `
       placeholder="Enter your password"
       type="password"
     />
-    <Level>
-      <Button
+    <Component>
+      <Component
         disabled={false}
         loading={false}
         type="submit"
         variant="primary"
       >
         Login
-      </Button>
-    </Level>
-    <Alert
+      </Component>
+    </Component>
+    <Component
       message="Login failed, user credentials not recognised"
       type="danger"
     />
@@ -79,11 +79,11 @@ exports[`Login should match a snapshot 1`] = `
   <div
     className="undefined false"
   >
-    <H1
+    <Component
       isCentered={true}
     >
       Sign in
-    </H1>
+    </Component>
     <p
       className="pb-8"
     >

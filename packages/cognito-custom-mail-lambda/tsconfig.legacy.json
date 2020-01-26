@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "outDir": "public",
+    "strict": true,
+    "types": ["jest", "node"],
+    "lib": ["dom", "es5", "es6"],
+    "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types", "../../node_modules/@types"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "public", "dist"]
+}

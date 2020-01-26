@@ -1,48 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SetDeveloperStatusModal should match snapshot 1`] = `
-<Modal
+<Component
   afterClose={[Function]}
   renderChildren={true}
   visible={true}
 >
-  <ModalHeader
+  <Component
     afterClose={[Function]}
     title="Confirm undefined Deactivation"
   />
-  <ModalBody
+  <Component
     body={
-      <SubTitleH6
+      <Unknown
         isCentered={true}
       >
         Are you sure you want to 
         deactivate
          ‘
         ’?
-      </SubTitleH6>
+      </Unknown>
     }
   />
-  <ModalFooter
+  <Component
     footerItems={
       <React.Fragment>
-        <Button
+        <Unknown
           loading={false}
           onClick={[Function]}
           type="button"
           variant="danger"
         >
           Confirm
-        </Button>
-        <Button
+        </Unknown>
+        <Unknown
           disabled={false}
           onClick={[Function]}
           type="button"
           variant="secondary"
         >
           Cancel
-        </Button>
+        </Unknown>
       </React.Fragment>
     }
   />
-</Modal>
+</Component>
 `;

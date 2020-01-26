@@ -2,32 +2,32 @@
 
 exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKTOP 1`] = `
 <div>
-  <FlexContainerResponsive
+  <Unknown
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
   >
-    <H3>
+    <Unknown>
       Client Search
-    </H3>
+    </Unknown>
     <Form
       className="mb-8"
     >
-      <Input
+      <Unknown
         id="name"
         labelText="Search by name"
         name="name"
         placeholder="Firstname or Surname"
         type="text"
       />
-      <Input
+      <Unknown
         id="address"
         labelText="Search by address"
         name="address"
         placeholder="Streetname, Village, Town or Postcode"
         type="text"
       />
-      <SelectBox
+      <Unknown
         id="identityCheck"
         labelText="Search by ID Status"
         name="identityCheck"
@@ -64,15 +64,15 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKT
           ]
         }
       />
-      <Button
+      <Unknown
         className="is-right"
         disabled={true}
         type="submit"
         variant="primary"
       >
         Search
-      </Button>
-      <AcButton
+      </Unknown>
+      <Unknown
         buttonProps={
           Object {
             "disabled": true,
@@ -94,40 +94,40 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is DESKT
         }
       >
         Advanced Search
-      </AcButton>
+      </Unknown>
     </Form>
-  </FlexContainerResponsive>
+  </Unknown>
 </div>
 `;
 
 exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1`] = `
 <div>
-  <FlexContainerResponsive
+  <Unknown
     flexColumn={true}
     hasBackground={true}
     hasPadding={true}
   >
-    <H3>
+    <Unknown>
       Client Search
-    </H3>
+    </Unknown>
     <Form
       className="mb-8"
     >
-      <Input
+      <Unknown
         id="name"
         labelText="Search by name"
         name="name"
         placeholder="Firstname or Surname"
         type="text"
       />
-      <Input
+      <Unknown
         id="address"
         labelText="Search by address"
         name="address"
         placeholder="Streetname, Village, Town or Postcode"
         type="text"
       />
-      <SelectBox
+      <Unknown
         id="identityCheck"
         labelText="Search by ID Status"
         name="identityCheck"
@@ -164,22 +164,22 @@ exports[`ClientSearch renderForm should match a snapshot when loginMode is WEB 1
           ]
         }
       />
-      <Button
+      <Unknown
         className="is-right"
         disabled={true}
         type="submit"
         variant="primary"
       >
         Search
-      </Button>
+      </Unknown>
     </Form>
-  </FlexContainerResponsive>
+  </Unknown>
 </div>
 `;
 
 exports[`ClientSearch should match a snapshot 1`] = `
 <Connect(ErrorBoundary)>
-  <FlexContainerBasic
+  <Component
     flexColumn={true}
     hasPadding={true}
   >
@@ -195,6 +195,6 @@ exports[`ClientSearch should match a snapshot 1`] = `
     >
       <Component />
     </Formik>
-  </FlexContainerBasic>
+  </Component>
 </Connect(ErrorBoundary)>
 `;

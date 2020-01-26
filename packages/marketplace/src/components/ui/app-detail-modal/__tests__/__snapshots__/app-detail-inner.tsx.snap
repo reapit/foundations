@@ -49,14 +49,14 @@ exports[`AppDetailInner should match a snapshot when appDetailModalState = VIEW_
     }
   }
   footerItems={
-    <Button
+    <Unknown
       dataTest="detail-modal-install-button"
       onClick={[MockFunction]}
       type="button"
       variant="primary"
     >
       Install App
-    </Button>
+    </Unknown>
   }
 />
 `;
@@ -108,14 +108,14 @@ exports[`AppDetailInner should match a snapshot when appDetailModalState = VIEW_
     }
   }
   footerItems={
-    <Button
+    <Unknown
       dataTest="detail-modal-uninstall-button"
       onClick={[MockFunction]}
       type="button"
       variant="primary"
     >
       Uninstall App
-    </Button>
+    </Unknown>
   }
 />
 `;

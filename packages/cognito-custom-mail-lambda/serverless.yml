@@ -1,0 +1,42 @@
+service: cognito-mailer
+custom: ${file(./env.yml)}
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: cognito.mailer.${self:provider.stage}
+    blockPublicAccess: false
+  environment:
+    COGNITO_USERPOOL_ID: ${self:custom.${self:provider.stage}.COGNITO_USERPOOL_ID}
+    MARKET_PLACE_URL: ${self:custom.${self:provider.stage}.MARKET_PLACE_URL}
+package:
+  include:
+    - public/**
+    - node_modules/**
+  exclude:
+    - .git/**
+    - .github/**
+    - .serverless/**
+    - coverage/**
+    - src/**
+    - .gitignore
+    - env.example.yml
+    - env.yml
+    - package.json
+    - README.md
+    - serverless.yml
+    - tsconfig.json
+    - tsconfig.legacy.json
+    - tslint.json
+    - yarn.lock
+
+functions:
+  cognitoCustomMailerHandler:
+    handler: public/app.cognitoCustomMailerHandler
+    events:
+      - cognitoUserPool:
+        pool: ${self:custom.${self:provider.stage}.COGNITO_USERPOOL_ID}
+        trigger: CustomMessage
+        existing: true
