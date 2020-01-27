@@ -8,6 +8,7 @@ const path = require('path')
 const sw2dts = require('sw2dts')
 const prettifyCode = require('./format-code')
 
+// TODO - Should be fetched from reapit-config.json
 const BASE_URL = 'https://dev.platformmarketplace.reapit.net'
 
 const apiSchema = [

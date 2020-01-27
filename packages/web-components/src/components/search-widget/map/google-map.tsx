@@ -64,21 +64,21 @@ export const getContent = ({
   marketingMode,
   imageUrl = INVALID_BACKGROUND_AS_BASE64,
 }: GetContentParams) => `
-  <div style="display:flex; font-family: ${theme.base.font.family}" id="coordinate-${latitude}-${longitude}">
+  <div style="display:flex; font-family: ${theme?.base?.font?.family}" id="coordinate-${latitude}-${longitude}">
     <div><img style="width: 110px; height: 110px; object-fit: cover" src="${imageUrl}"></div>
     <div style="padding: 0rem 1rem;">
-      <div style="margin-bottom: 2px; font-weight:bold;font-size:1rem; color: ${theme.colors.base}">${
+      <div style="margin-bottom: 2px; font-weight:bold;font-size:1rem; color: ${theme?.colors?.base}">${
   address.line1
 }</div>
-      <div style="margin-bottom: 2px; font-size:1rem; color: ${theme.colors.base}">${address.line2}</div>
+      <div style="margin-bottom: 2px; font-size:1rem; color: ${theme?.colors?.base}">${address.line2}</div>
       ${
         marketingMode === 'selling'
-          ? `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:1rem">${price}</div>`
-          : `<div style="color: ${theme.colors.primary};font-weight:bold;font-size:1rem">${price}</div>`
+          ? `<div style="color: ${theme?.colors?.primary};font-weight:bold;font-size:1rem">${price}</div>`
+          : `<div style="color: ${theme?.colors?.primary};font-weight:bold;font-size:1rem">${price}</div>`
       }
       <div style="display:flex; margin-top: 2px">
         <div style="margin-right: 1.2rem">
-          <span style="color: ${theme.colors.icon}">
+          <span style="color: ${theme?.colors?.icon}">
             <svg style="width:20px; height:20px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bed" class="svg-inline--fa fa-bed fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
               <path fill="currentColor" d="M176 256c44.11 0 80-35.89 80-80s-35.89-80-80-80-80 35.89-80 80 35.89 80 80 80zm352-128H304c-8.84 0-16 7.16-16 16v144H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v352c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-48h512v48c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V240c0-61.86-50.14-112-112-112z">
               </path>
@@ -87,7 +87,7 @@ export const getContent = ({
           <div>${bedrooms}</div>
         </div>
         <div>
-          <span style="color: ${theme.colors.icon}">
+          <span style="color: ${theme?.colors?.icon}">
             <svg style="width:20px; height:20px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bath" class="svg-inline--fa fa-bath fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path fill="currentColor" d="M488 256H80V112c0-17.645 14.355-32 32-32 11.351 0 21.332 5.945 27.015 14.88-16.492 25.207-14.687 59.576 6.838 83.035-4.176 4.713-4.021 11.916.491 16.428l11.314 11.314c4.686 4.686 12.284 4.686 16.971 0l95.03-95.029c4.686-4.686 4.686-12.284 0-16.971l-11.314-11.314c-4.512-4.512-11.715-4.666-16.428-.491-17.949-16.469-42.294-21.429-64.178-15.365C163.281 45.667 139.212 32 112 32c-44.112 0-80 35.888-80 80v144h-8c-13.255 0-24 10.745-24 24v16c0 13.255 10.745 24 24 24h8v32c0 28.43 12.362 53.969 32 71.547V456c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-8h256v8c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-32.453c19.638-17.578 32-43.117 32-71.547v-32h8c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z">
               </path>
@@ -203,7 +203,7 @@ export const getCurrentMarkerIndex = ({ markersRef, centerPoint }: GetCurrentMar
   const latitude = centerPoint.lat()
   const longitude = centerPoint.lng()
   for (let i = 0; i < markers.length; i++) {
-    const position: google.maps.LatLng = markers?.[i]?.getPosition()
+    const position = markers?.[i]?.getPosition() as google.maps.LatLng
     if (position && position.lat() === latitude && position.lng() === longitude) {
       return i
     }

@@ -1,5 +1,7 @@
 # Foundations
 
+![Pull Request](https://github.com/reapit/foundations/workflows/Pull%20Request/badge.svg)
+![Release develop](https://github.com/reapit/foundations/workflows/Release%20develop/badge.svg)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 ## How to setup

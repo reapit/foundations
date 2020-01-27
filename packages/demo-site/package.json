@@ -4,9 +4,8 @@
   "private": true,
   "homepage": "https://demo-site.reapit.com",
   "scripts": {
-    "serve": "serve -d public -l 8080"
+    "release:prod": "echo 'to implement",
+    "start:prod": "serve -d public -l 8080"
   },
-  "devDependencies": {
-    "serve": "^11.2.0"
-  }
+  "devDependencies": {}
 }

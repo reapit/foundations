@@ -4,14 +4,14 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/cognito-auth": ["../cognito-auth/src"]
+      "@reapit/cognito-auth": ["../cognito-auth/src"],
+      "@reapit/elements": ["../elements/src"]
     }
   },
   "include": ["src"],
   "exclude": [
     "public",
     "dist",
-    "./webpack.config.js",
     "node_modules",
     "src/tests/coverage"
   ]

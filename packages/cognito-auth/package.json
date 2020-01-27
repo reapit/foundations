@@ -10,40 +10,25 @@
     "dist"
   ],
   "scripts": {
-    "test": "cross-env TZ=UTC jest --coverage --silent",
-    "test:ci": "cross-env TZ=UTC jest  --coverage --silent --detectOpenHandles --forceExit",
-    "prepublish": "yarn test && yarn build",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "prepublish": "yarn test:ci && yarn build:prod",
     "prebuild": "rimraf dist && rimraf public",
-    "build": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
-    "release:master": "node ./src/scripts/releaseMaster.js",
-    "checkVersion": "node ./src/scripts/checkVersion.js"
+    "build:prod": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
+    "release:npm": "node ./src/scripts/release-npm.js",
+    "check-version": "node ./src/scripts/check-version.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reapit/cognitio-auth.git"
+    "url": "git+https://github.com/reapit/foundations.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/reapit/cognitio-auth/issues"
+    "url": "https://github.com/reapit/foundations/issues"
   },
-  "homepage": "https://github.com/reapit/cognitio-auth#readme",
-  "dependencies": {
-    "amazon-cognito-identity-js": "~3.0.13",
-    "cors": "^2.8.5",
-    "jsonwebtoken": "^8.5.1",
-    "hardtack": "^4.1.2"
-  },
-  "devDependencies": {
-    "@octokit/rest": "^16.35.0",
-    "@types/jsonwebtoken": "^8.3.5",
-    "@types/jest": "~24.0.15",
-    "@types/node": "^10.1.0",
-    "@types/yaml": "^1.2.0",
-    "compare-versions": "^3.5.1",
-    "lint-staged": "~9.2.0",
-    "prettier": "~1.19.1",
-    "tsdx": "^0.11.0"
-  }
+  "homepage": "https://github.com/reapit/foundations#readme",
+  "dependencies": {},
+  "devDependencies": {}
 }
