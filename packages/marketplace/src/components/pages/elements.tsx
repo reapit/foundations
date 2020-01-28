@@ -1,8 +1,6 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { Content, FlexContainerBasic, FlexContainerResponsive, H3 } from '@reapit/elements'
-import { Link } from 'react-router-dom'
-import Routes from '@/constants/routes'
 
 const ElementsPage: React.SFC = () => (
   <ErrorBoundary>
@@ -17,8 +15,8 @@ const ElementsPage: React.SFC = () => (
           </p>
           <p>
             When using this page, you can toggle between code examples and rendered output of components by using the
-            &lsquo;Canvas&rsquo; and &lsquo;Docs&rsquo; tabs. For general usage and other NPM packagages, visit{' '}
-            <Link to={Routes.DEVELOPER_PACKAGE_DOCS}>the package documentation.</Link>
+            &lsquo;Canvas&rsquo; and &lsquo;Docs&rsquo; tabs. For general usage and other NPM packages, visit the
+            package documentation.
           </p>
         </FlexContainerResponsive>
       </Content>
