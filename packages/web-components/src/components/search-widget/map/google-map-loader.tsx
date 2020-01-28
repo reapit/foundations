@@ -14,7 +14,7 @@ export const loadedCallback = ({ setError, setGoogleMap }: LoadedCallBackParams)
     setError(err)
   }
   if (!err) {
-    const googleMap = window?.google?.maps
+    const googleMap = (window as any).google?.maps
     setGoogleMap(googleMap)
   }
 }

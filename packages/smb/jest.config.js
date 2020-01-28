@@ -1,5 +1,5 @@
 const { pathsToModuleNameMapper } = require('ts-jest/utils')
-const baseConfig = require('../../jest.config')
+const baseConfig = require('../../scripts/jest/jest.config')
 const { compilerOptions } = require('./tsconfig.json')
 
 module.exports = {
@@ -8,18 +8,17 @@ module.exports = {
     '^.+\\.graphql$': 'jest-transform-graphql',
   },
   moduleNameMapper: {
-    '^.+.(?=.*scss|sass|css|png|jpg).*': '<rootDir>/src/scripts/css-stub.js',
-    '^@reapit/cognito-auth$': '<rootDir>/../cognito-auth/src/index.ts',
+    ...baseConfig.moduleNameMapper,
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
     }),
   },
   coverageThreshold: {
     global: {
-      branches: 75,
-      functions: 80,
-      lines: 90,
-      statements: 90,
+      branches: 73,
+      functions: 84,
+      lines: 96,
+      statements: 95,
     },
   },
 }

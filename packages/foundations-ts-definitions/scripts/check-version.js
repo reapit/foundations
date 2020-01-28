@@ -1,7 +1,9 @@
-const {npm_package_version: currentPackageVersion, npm_package_name: npmPackageName} = process.env
-const { execSync } = require('child_process');
-const remotePackageVersion = execSync(`yarn info ${npmPackageName} version`).toString().trim()
-const compareVersions = require('compare-versions');
+const { npm_package_version: currentPackageVersion, npm_package_name: npmPackageName } = process.env
+const { execSync } = require('child_process')
+const remotePackageVersion = execSync(`yarn info ${npmPackageName} version`)
+  .toString()
+  .trim()
+const compareVersions = require('compare-versions')
 
 if (!remotePackageVersion) {
   return

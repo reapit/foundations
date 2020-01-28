@@ -1,27 +1,14 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "outDir": "dist-npm",
     "declaration": true,
     "declarationDir": "dist-npm",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": false,
-    "jsx": "react",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "module": "esnext",
     "moduleResolution": "node",
-    "noUnusedParameters": true,
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@reapit/cognito-auth": ["../../node_modules/@reapit/cognito-auth/src"]
+      "@/*": ["src/*"],
+      "@reapit/cognito-auth": ["../cognito-auth/src"]
     },
     "plugins": [
       {
@@ -30,26 +17,8 @@
       }
     ],
     "resolveJsonModule": true,
-    "rootDirs": [
-      "src"
-    ],
+    "rootDirs": ["src"],
     "skipLibCheck": true,
-    "target": "es5",
-    "typeRoots": [
-      "./node_modules/@types",
-      "../../node_modules/@types"
-    ],
-    "types": [
-      "jest",
-      "node",
-      "react"
-    ]
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+    "target": "es5"
+  }
 }

@@ -1,4 +1,4 @@
-import { setUserSession } from '@reapit/cognito-auth'
+import { setUserSession, LoginSession } from '@reapit/cognito-auth'
 
 export const getAccessToken = async () => {
   const response = await setUserSession({
@@ -7,5 +7,5 @@ export const getAccessToken = async () => {
     loginType: 'CLIENT',
     mode: 'WEB',
   })
-  return response.accessToken
+  return (response as LoginSession).accessToken
 }

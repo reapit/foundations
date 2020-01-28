@@ -2,9 +2,6 @@ import * as React from 'react'
 import { mount } from 'enzyme'
 import { Editor, EditorProps } from '../index'
 
-//@ts-ignore
-global.document.execCommand = jest.fn
-
 const defaultProps = {
   onChange: () => {},
   defaultContent: '<b>Editor</b>',
