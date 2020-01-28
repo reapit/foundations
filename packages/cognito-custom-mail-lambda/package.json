@@ -10,8 +10,8 @@
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "build:prod": "rimraf dist && rimraf public && tsc --p tsconfig.json && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
-    "release:dev": "cross-env CI=true && yarn build:prod && yarn test:ci && serverless deploy --stage dev",
-    "release:prod": "cross-env CI=true && yarn build:prod && yarn test:ci && serverless deploy --stage prod"
+    "release:dev": "cross-env CI=true serverless deploy --stage dev",
+    "release:prod": "cross-env CI=true serverless deploy --stage prod"
   },
   "repository": {
     "type": "git",
