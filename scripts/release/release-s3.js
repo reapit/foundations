@@ -13,5 +13,5 @@ if (!packageName) {
 const distPath = path.resolve(__dirname, '../../', 'packages', packageName, 'public', 'dist')
 
 execSync(
-  `aws s3 cp ${distPath} s3://reapit-${packageName}-dev --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive`,
+  `aws s3 cp ${distPath} s3://${packageName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive`,
 )
