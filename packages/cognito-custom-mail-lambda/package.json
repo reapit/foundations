@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reapit/cognito-custom-mail-lambda.git"
+    "url": "git+https://github.com/reapit/foundations.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/reapit/cognito-custom-mail-lambda/issues"
+    "url": "https://github.com/reapit/foundations/issues"
   },
-  "homepage": "https://github.com/reapit/cognito-custom-mail-lambda#readme",
+  "homepage": "https://github.com/reapit/foundations#readme",
   "dependencies": {},
   "devDependencies": {}
 }

@@ -19,13 +19,7 @@ exports[`Elements should match a snapshot 1`] = `
           Elements is a React UI Component and utility library we have developed internally and open sourced. The Developer Portal and Marketplace itself uses Elements extensively and if you are building a React app to be installed by clients, we recommend you do too.
         </p>
         <p>
-          When using this page, you can toggle between code examples and rendered output of components by using the ‘Canvas’ and ‘Docs’ tabs. For general usage and other NPM packagages, visit
-           
-          <Link
-            to="/developer/packages"
-          >
-            the package documentation.
-          </Link>
+          When using this page, you can toggle between code examples and rendered output of components by using the ‘Canvas’ and ‘Docs’ tabs. For general usage and other NPM packages, visit the package documentation.
         </p>
       </Component>
     </Component>

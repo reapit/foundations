@@ -20,8 +20,6 @@ const AdminDevManagementPage = React.lazy(() => import('../components/pages/admi
 const ApiDocsPage = React.lazy(() => import('../components/pages/api-docs'))
 const SwaggerPage = React.lazy(() => import('../components/pages/swagger'))
 const ElementsPage = React.lazy(() => import('../components/pages/elements'))
-const DesktopDocsPage = React.lazy(() => import('../components/pages/desktop-api-docs'))
-const WebComponentsPage = React.lazy(() => import('../components/pages/web-components'))
 const SettingsPage = React.lazy(() => import('../components/pages/settings'))
 const DeveloperWelcomePage = React.lazy(() => import('../components/pages/developer-welcome'))
 const HelpPage = React.lazy(() => import('../components/pages/help'))
@@ -31,7 +29,6 @@ const ForgotPassword = React.lazy(() => import('../components/pages/forgot-passw
 const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
 const RegisterConfirm = React.lazy(() => import('../components/pages/register-confirm'))
 const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
-const Forum = React.lazy(() => import('../components/pages/forum'))
 
 const Router = () => (
   <BrowserRouter history={history}>
@@ -82,15 +79,7 @@ const Router = () => (
               exact
               component={AnalyticsPage}
             />
-            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_DESKTOP_DOCS} exact component={DesktopDocsPage} />
-            <PrivateRoute
-              allow="DEVELOPER"
-              path={Routes.DEVELOPER_WEB_COMPONENTS}
-              exact
-              component={WebComponentsPage}
-            />
             <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
-            <PrivateRoute allow="DEVELOPER" path={Routes.FORUM} exact component={Forum}></PrivateRoute>
             <PrivateRoute
               allow="DEVELOPER"
               path={Routes.DEVELOPER_WELCOME}
