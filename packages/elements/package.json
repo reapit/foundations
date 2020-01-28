@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "build:prod": "rimraf dist && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c",
     "start:prod": "cross-env NODE_ENV=development tsdx watch",

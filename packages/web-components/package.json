@@ -28,7 +28,7 @@
     "build:prod": "yarn build:npm && yarn build:cdn",
     "start:dev": "start-storybook -p 8080",
     "check-version": "node ./scripts/check-version.js",   
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "release:npm": "node ./scripts/release-npm.js",
     "release:dev": "node ../../scripts/release/release-s3-dev.js web-components"

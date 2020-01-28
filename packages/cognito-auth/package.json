@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "prepublish": "yarn test:ci && yarn build:prod",
     "prebuild": "rimraf dist && rimraf public",
