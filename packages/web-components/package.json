@@ -2,7 +2,7 @@
   "name": "@reapit/web-components",
   "version": "0.0.4",
   "files": [
-    "dist-npm/**/*"
+    "pidist-npm/**/*"
   ],
   "main": "dist-npm/index.js",
   "types": "dist-npm/index.d.ts",
@@ -31,7 +31,7 @@
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "release:npm": "node ./scripts/release-npm.js",
-    "release:dev": "node ../../scripts/release/release-s3.js web-components reapit-web-components"
+    "release:dev": "echo 'TODO - Need to implement - fails on CI node ../../scripts/release/release-s3.js web-components reapit-web-components'"
   },
   "browserslist": {
     "production": [
