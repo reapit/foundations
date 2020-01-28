@@ -67,4 +67,4 @@ jobs:
 
       - name: Release
         run: |
-          yarn release:develop
+          yarn release:dev

@@ -39,12 +39,12 @@ jobs:
       - name: Make sure code don't have linter errors
         run: yarn lint
 
-      - name: Release develop
+      - name: Release NPM
         run: |
           git checkout --detach
           yarn build
           git add -f ./dist
-          yarn release:develop
+          yarn release:npm
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
