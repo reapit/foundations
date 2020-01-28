@@ -15,8 +15,6 @@ import {
   FaCloudUploadAlt,
   FaCloudDownloadAlt,
   FaCog,
-  FaDesktop,
-  FaNetworkWired,
   FaClipboardList,
   FaPortrait,
   FaTable,
@@ -124,33 +122,12 @@ export const generateMenuConfig = (
           icon: <FaReadme className="nav-item-icon" />,
         },
         {
-          title: 'Desktop',
-          key: 'DESKTOP_DOCS',
-          url: Routes.DEVELOPER_DESKTOP_DOCS,
-          type: 'PRIMARY',
-          icon: <FaDesktop className="nav-item-icon" />,
-        },
-        {
           title: 'Elements',
           key: 'ELEMENTS',
           url: Routes.DEVELOPER_ELEMENTS,
           type: 'PRIMARY',
           icon: <GoCode className="nav-item-icon" />,
         },
-        {
-          title: 'Web',
-          key: 'WEB_COMPONENTS',
-          url: Routes.DEVELOPER_WEB_COMPONENTS,
-          type: 'PRIMARY',
-          icon: <FaNetworkWired className="nav-item-icon" />,
-        },
-        // {
-        //   title: 'Forum',
-        //   key: 'FORUM',
-        //   url: Routes.FORUM,
-        //   icon: <FaComments className="nav-item-icon" />,
-        //   type: 'PRIMARY'
-        // },
         {
           title: 'Help',
           key: 'HELP',

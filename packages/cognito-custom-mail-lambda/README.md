@@ -1,2 +1,3 @@
-# cognito-custom-mail-lambda
-Lambda that intercepts Cognito Emails and applies custom Reapit response
+# Cognito Custom Mail Lambda
+
+For detailed documentation [visit here](https://wmcvay.gitbook.io/reapit-foundations/open-source/packages/cognito-custom-mail-lambda).
