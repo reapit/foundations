@@ -13,7 +13,7 @@
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "release:dev": "node ../../scripts/release/release-s3.js reapit-app-store",
+    "release:dev": "node ../../scripts/release/release-s3.js marketplace reapit-app-store",
     "test-e2e:dev": "cypress open --project './src/tests'",
     "test-e2e:ci": "yarn start:prod && cypress run --project './src/tests'"
   },
