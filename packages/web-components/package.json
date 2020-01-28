@@ -7,40 +7,31 @@
   "main": "dist-npm/index.js",
   "types": "dist-npm/index.d.ts",
   "typings": "dist-npm/index.d.ts",
-  "homepage": "https://github.com/reapit/web-components",
+  "homepage": "https://github.com/reapit/foundations",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reapit/web-components.git"
+    "url": "git+https://github.com/reapit/foundations.git"
   },
   "bugs": {
-    "url": "https://github.com/reapit/web-components/issues"
+    "url": "https://github.com/reapit/foundations/issues"
   },
-  "dependencies": {
-    "little-loader": "^0.2.0",
-    "lodash.merge": "^4.6.2",
-    "react-icons": "^3.7.0",
-    "styled-components": "^4.4.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
   "scripts": {
-    "build:cdn-analyze": "ANALYZE=true webpack --config ./scripts/webpack.cdn.js",
-    "build:npm-analyze": "ANALYZE=true webpack --config ./scripts/webpack.npm.js",
-    "deploy:cdn": "aws s3 sync ./dist-cdn s3://reapit-web-components --delete --acl public-read",
-    "build:cdn": "rimraf dist-cdn && rimraf dist-npm && webpack --config ./scripts/webpack.cdn.js",
-    "build:npm": "rimraf dist-npm webpack --config ./scripts/webpack.npm.js && yarn build:tsc",
-    "build:tsc": "tsc -p './tsconfig.build.json'",
-    "build": "yarn build:npm && yarn build:cdn",
-    "test": "jest --coverage --silent",
-    "test-dev": "jest --watch",
-    "test:ci": "cross-env TZ=UTC jest  --coverage --silent --detectOpenHandles --forceExit",
-    "lint": "tslint --fix --project tsconfig.json --format stylish",
-    "storybook": "start-storybook -p 8080",
-    "release:master": "node scripts/releaseMaster.js",
-    "checkVersion": "node ./scripts/checkVersion.js"
+    "build:cdn": "rimraf dist-cdn && rimraf dist-npm && webpack --config ../../scripts/webpack/webpack.cdn.js",
+    "build:npm": "rimraf dist-npm && webpack --config ../../scripts/webpack/webpack.basic.js && yarn build:tsc",
+    "build:tsc": "tsc -p './tsconfig.json'",
+    "build:prod": "yarn build:npm && yarn build:cdn",
+    "start:dev": "start-storybook -p 8080",
+    "check-version": "node ./scripts/check-version.js",   
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "release:npm": "node ./scripts/release-npm.js",
+    "release:dev": "node ../../scripts/release/release-s3-dev.js web-components"
   },
   "browserslist": {
     "production": [
@@ -54,42 +45,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@babel/cli": "^7.7.5",
-    "@babel/core": "^7.0.0-0",
-    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
-    "@babel/plugin-transform-runtime": "^7.7.6",
-    "@babel/preset-env": "^7.7.6",
-    "@babel/preset-react": "^7.7.4",
-    "@babel/preset-typescript": "^7.7.4",
-    "@octokit/rest": "^16.35.0",
-    "@storybook/addon-actions": "^5.2.8",
-    "@storybook/addon-links": "^5.2.8",
-    "@storybook/addons": "^5.2.8",
-    "@storybook/preset-typescript": "^1.1.0",
-    "@storybook/react": "^5.2.8",
-    "@testing-library/react-hooks": "^2.0.3",
-    "@types/enzyme": "^3.10.3",
-    "@types/jest": "^24.0.19",
-    "@types/little-loader": "^0.2.0",
-    "@types/lodash.merge": "^4.6.6",
-    "@types/styled-components": "^4.1.19",
-    "babel-jest": "^24.9.0",
-    "babel-loader": "^8.0.6",
-    "compare-versions": "^3.5.1",
-    "core-js": "^3.6.0",
-    "file-loader": "^5.0.2",
-    "fork-ts-checker-webpack-plugin": "^3.1.1",
-    "parcel-plugin-bundle-visualiser": "^1.2.0",
-    "react-test-renderer": "^16.12.0",
-    "regenerator-runtime": "^0.13.3",
-    "rimraf": "^3.0.0",
-    "ts-loader": "^6.2.1",
-    "tsconfig-paths-webpack-plugin": "^3.2.0",
-    "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-cli": "^3.3.10",
-    "webpack-merge": "^4.2.2"
-  },
+  "devDependencies": {},
   "alias": {
     "@/*": "./src/*"
   }

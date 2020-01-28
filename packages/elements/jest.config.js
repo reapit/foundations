@@ -1,7 +1,8 @@
+const baseConfig = require('../../scripts/jest/jest.config')
+
 module.exports = {
-  preset: 'ts-jest',
+  ...baseConfig,
   testPathIgnorePatterns: ['<rootDir>/src/tests/'],
-  setupFiles: ['<rootDir>/src/scripts/jest-setup.js'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.tsx'],
   coveragePathIgnorePatterns: [
     '<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts|src/helpers|src/stylesq)[/\\\\]',
@@ -10,20 +11,19 @@ module.exports = {
     'index.ts',
     'v2.ts'
   ],
-  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public)[/\\\\]'],
+  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
   transform: {
     '^.+\\.svg$': '<rootDir>/src/scripts/svg-transform.js'
   },
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   moduleNameMapper: {
     '\\.(css|less)$': '<rootDir>/src/scripts/style-mock.js'
   },
   coverageThreshold: {
     global: {
-      branches: 85,
-      functions: 94,
-      lines: 95,
-      statements: 95
+      branches: 83,
+      functions: 92,
+      lines: 93,
+      statements: 93
     }
   }
 }

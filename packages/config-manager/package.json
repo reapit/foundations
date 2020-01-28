@@ -6,17 +6,18 @@
   "bin": {
     "config-manager": "./src/cli.js"
   },
+  "scripts": {
+    "release:prod": "yarn publish"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reapit/config-manager.git"
+    "url": "git+https://github.com/reapit/foundations.git"
   },
   "author": "wmcvay@reapit.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/reapit/config-manager/issues"
+    "url": "https://github.com/reapit/foundations/issues"
   },
-  "homepage": "https://github.com/reapit/config-manager#readme",
-  "dependencies": {
-    "aws-sdk": "^2.582.0"
-  }
+  "homepage": "https://github.com/reapit/foundations#readme",
+  "dependencies": {}
 }

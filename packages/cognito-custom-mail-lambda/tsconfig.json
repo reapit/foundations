@@ -1,16 +1,10 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "es2020",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "allowJs": true,
-    "esModuleInterop": true,
-    "outDir": "public",
-    "strict": true,
-    "types": ["jest", "node"],
-    "lib": ["dom", "es2015", "es2017", "es2018", "es2019", "es2020", "es5", "es6", "es7", "esnext"],
-    "typeRoots": ["./src/core/definitions.d.ts", "./node_modules/@types", "../../node_modules/@types"]
+    "target": "es6",
+    "module": "commonjs",
+    "noEmit": false,
+    "outDir": "public"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "public", "dist"]
+  "include": ["src"]
 }

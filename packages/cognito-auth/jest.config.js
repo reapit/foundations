@@ -1,6 +1,6 @@
 const { pathsToModuleNameMapper } = require('ts-jest/utils')
 const { compilerOptions } = require('./tsconfig.json')
-const baseConfig = require('../../jest.config')
+const baseConfig = require('../../scripts/jest/jest.config')
 
 module.exports = {
   ...baseConfig,
@@ -15,4 +15,12 @@ module.exports = {
     "<rootDir>/src/app.dev.ts",
     "<rootDir>/src/index.ts"
   ],
+  coverageThreshold: {
+    global: {
+      branches: 92,
+      functions: 86,
+      lines: 93,
+      statements: 93,
+    },
+  },
 }

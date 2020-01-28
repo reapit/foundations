@@ -4,16 +4,9 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/cognito-auth": ["../../node_modules/@reapit/cognito-auth/src"],
-      "@reapit/elements": ["../../node_modules/@reapit/elements/src"]
+      "@reapit/cognito-auth": ["../cognito-auth/src"],
+      "@reapit/elements": ["../elements/src"]
     }
   },
-  "include": ["src"],
-  "exclude": [
-    "public",
-    "dist",
-    "src/scripts",
-    "node_modules",
-    "src/tests/coverage"
-  ]
+  "include": ["src"]
 }
