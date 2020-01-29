@@ -2,8 +2,8 @@
 smb:
   - packages/smb/**
 
-apollo-server:
-  - packages/apollo-server/**
+graphql-server:
+  - packages/graphql-server/**
 
 lifetime-legal:
   - packages/lifetime-legal/**
@@ -37,3 +37,6 @@ web-components:
 
 cognito-custom-mail-lambda:
   - packages/cognito-custom-mail-lambda/**
+
+react-app-scaffolder:
+  - packages/react-app-scaffolder/**
