@@ -100,7 +100,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: err?.response?.description,
+        message: err?.response?.description || errorMessages.DEFAULT_SERVER_ERROR,
       }),
     )
   }

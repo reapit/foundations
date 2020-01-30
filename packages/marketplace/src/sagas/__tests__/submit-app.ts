@@ -77,6 +77,7 @@ describe('submit-app post data', () => {
       put(
         errorThrownServer({
           type: 'SERVER',
+          message: errorMessages.DEFAULT_SERVER_ERROR,
         }),
       ),
     )
