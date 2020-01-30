@@ -123,7 +123,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       iconImageUrl,
       isListed,
       isDirectApi,
-      scopes: appScopes?.map(item => item.name),
+      scopes: appScopes ? appScopes.map(item => item.name) : [],
       ...images,
     }
   } else {

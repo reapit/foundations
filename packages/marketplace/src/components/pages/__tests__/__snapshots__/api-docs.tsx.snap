@@ -6,23 +6,12 @@ exports[`ApiDocs should match a snapshot 1`] = `
     flexColumn={true}
     hasPadding={true}
   >
-    <Component>
-      <Component
-        flexColumn={true}
-        hasBackground={true}
-        hasPadding={true}
-      >
-        <Component>
-          Foundations Documentation
-        </Component>
-      </Component>
-    </Component>
     <Component
       className="container"
     >
       <iframe
         height="100%"
-        src="https://wmcvay.gitbook.io/reapit-foundations/"
+        src="https://reapit-1.gitbook.io/reapit-foundations/"
         style={
           Object {
             "border": "none",
