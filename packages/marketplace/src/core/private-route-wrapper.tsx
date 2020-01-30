@@ -3,7 +3,6 @@ import { Redirect, RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
-import Routes from '../constants/routes'
 import { Loader, Section, FlexContainerBasic, AppNavContainer } from '@reapit/elements'
 import { LoginType, RefreshParams, getTokenFromQueryString } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
@@ -53,7 +52,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   return (
     <AppNavContainer>
       <Menu />
-      <FlexContainerBasic hasPadding={location.pathname !== Routes.DEVELOPER_ELEMENTS} isScrollable flexColumn>
+      <FlexContainerBasic isScrollable flexColumn>
         <Suspense
           fallback={
             <Section>
