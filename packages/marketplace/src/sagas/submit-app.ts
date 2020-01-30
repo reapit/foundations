@@ -36,7 +36,7 @@ export const imageUploaderHelper = async (object: ImageUploaderReq) => {
 }
 
 export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
-  const { actions, setSubmitError, ...values } = data
+  const { actions, ...values } = data
   actions.setStatus(undefined)
 
   yield put(submitAppSetFormState('SUBMITTING'))
@@ -94,17 +94,13 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
       if (formErrors) {
         actions.setErrors(formErrors)
       }
-
-      if (response.description === errorMessages.SERVER_LIMIT_UNLISTED_APPS) {
-        setSubmitError(errorMessages.CLIENT_LIMIT_UNLISTED_APPS)
-      }
     }
 
     yield put(submitAppSetFormState('ERROR'))
     yield put(
       errorThrownServer({
         type: 'SERVER',
-        message: errorMessages.DEFAULT_SERVER_ERROR,
+        message: err?.response?.description || errorMessages.DEFAULT_SERVER_ERROR,
       }),
     )
   }
