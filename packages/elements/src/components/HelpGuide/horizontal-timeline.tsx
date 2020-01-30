@@ -23,8 +23,8 @@ export const caculateLineRef = ({ activeRef }: { activeRef: React.RefObject<HTML
   if (activeRef.current) {
     const widthActiveItem = parseInt(window.getComputedStyle(activeRef.current, ':before').width, 10)
     const marginBetween = parseInt(window.getComputedStyle(activeRef.current, ':before').marginRight, 10)
-    const nextSibling = activeRef.current.offsetLeft + widthActiveItem + marginBetween
-    return activeRef.current.nextElementSibling ? nextSibling / 2 : activeRef.current.offsetLeft + widthActiveItem
+    const nextSibling = activeRef.current.offsetLeft + widthActiveItem
+    return activeRef.current.nextElementSibling ? nextSibling + marginBetween / 2 : nextSibling
   }
 }
 

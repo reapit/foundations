@@ -47,7 +47,17 @@ module.exports = {
     'prettier/prettier': 'error',
     'max-len': ['error', { code: 120, ignoreUrls: true }],
     'no-confusing-arrow': ['error', { allowParens: false }],
-    'no-mixed-operators': 'error',
+    'no-mixed-operators': [
+      'error',
+      {
+        groups: [
+          ['&', '|', '^', '~', '<<', '>>', '>>>'],
+          ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
+          ['&&', '||'],
+          ['in', 'instanceof'],
+        ],
+      },
+    ],
     'no-tabs': ['error', { allowIndentationTabs: true }],
     'no-unexpected-multiline': 'error',
     // Disabling as conflicts with Prettier

@@ -7,7 +7,6 @@ import {
   useHelpGuideContext,
   HelpGuide,
   Button,
-  LevelRight,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
@@ -26,7 +25,7 @@ export interface DevelopeWelcomeMappedActions {
 export type DeveloperWelcomeMessageProps = DevelopeWelcomeMappedActions
 
 export const Welcome = () => {
-  const context = useHelpGuideContext()
+  const { goNext } = useHelpGuideContext()
   return (
     <div>
       <p className="mb-5">
@@ -38,7 +37,7 @@ export const Welcome = () => {
         We understand how important it is to have the right tools to enable you to produce the best applications for
         your customers. With that in mind, let us show you what’s available to help you to get started.
       </p>
-      <Button type="button" variant="primary" onClick={context.goNext}>
+      <Button type="button" variant="primary" onClick={handleChangeSteps(goNext)}>
         Next
       </Button>
     </div>
@@ -46,7 +45,7 @@ export const Welcome = () => {
 }
 
 export const Documentation = () => {
-  const context = useHelpGuideContext()
+  const { goNext, goPrev } = useHelpGuideContext()
 
   return (
     <div>
@@ -71,10 +70,10 @@ export const Documentation = () => {
         been tested to work with a mobile or desktop application and allows you to build your Apps in compliance with
         our Reapit Brand Guidelines.
       </p>
-      <Button type="button" variant="primary" onClick={context.goPrev}>
+      <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
       </Button>
-      <Button type="button" variant="primary" onClick={context.goNext}>
+      <Button type="button" variant="primary" onClick={handleChangeSteps(goNext)}>
         Next
       </Button>
     </div>
@@ -82,7 +81,7 @@ export const Documentation = () => {
 }
 
 export const Submitting = () => {
-  const context = useHelpGuideContext()
+  const { goNext, goPrev } = useHelpGuideContext()
   return (
     <div>
       <p className="mb-5">
@@ -100,10 +99,10 @@ export const Submitting = () => {
         page. Any changes, including &lsdquo;Listing&lsdquo; your application will need to be approved by our Admin
         team.
       </p>
-      <Button type="button" variant="primary" onClick={context.goPrev}>
+      <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
       </Button>
-      <Button type="button" variant="primary" onClick={context.goNext}>
+      <Button type="button" variant="primary" onClick={handleChangeSteps(goNext)}>
         Next
       </Button>
     </div>
@@ -111,7 +110,7 @@ export const Submitting = () => {
 }
 
 export const Managing = () => {
-  const context = useHelpGuideContext()
+  const { goNext, goPrev } = useHelpGuideContext()
   return (
     <div>
       <p className="mb-5">
@@ -124,18 +123,18 @@ export const Managing = () => {
         From the &lsdquo;Apps&rsdquo; page you will also be able to handle any client installations by opening your
         &lsdquo;App&rsdquo; and clicking &lsdquo;Installations&rsdquo;.
       </p>
-      <Button type="button" variant="primary" onClick={context.goPrev}>
+      <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
       </Button>
-      <Button type="button" variant="primary" onClick={context.goNext}>
+      <Button type="button" variant="primary" onClick={handleChangeSteps(goNext)}>
         Next
       </Button>
     </div>
   )
 }
 
-export const Support = () => {
-  const context = useHelpGuideContext()
+export const Support = ({ onAccept }) => {
+  const { goPrev } = useHelpGuideContext()
   return (
     <div>
       <p className="mb-5">
@@ -146,8 +145,11 @@ export const Support = () => {
       <p className="mb-5">
         We are excited to be working with and hope to see your application in the Marketplace soon.
       </p>
-      <Button type="button" variant="primary" onClick={context.goPrev}>
+      <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
+      </Button>
+      <Button variant="primary" type="button" onClick={handleUserAccept(onAccept, history)}>
+        Get Started
       </Button>
     </div>
   )
@@ -158,9 +160,14 @@ export const handleUserAccept = (userAcceptTermAndCondition, history) => () => {
   history.push(Routes.DEVELOPER_MY_APPS)
 }
 
+export const handleChangeSteps = (goTo: () => void) => () => {
+  goTo()
+  document.getElementsByClassName('welcome-container')[0].scrollIntoView({ behavior: 'smooth' })
+}
+
 export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = ({ userAcceptTermAndCondition }) => {
   return (
-    <FlexContainerBasic flexColumn hasPadding>
+    <FlexContainerBasic className="welcome-container" flexColumn hasPadding>
       <Content>
         <FlexContainerResponsive flexColumn hasBackground hasPadding>
           <HelpGuide>
@@ -194,17 +201,12 @@ export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = (
             />
             <HelpGuide.Step
               id="step-5"
-              component={Support}
+              render={<Support onAccept={userAcceptTermAndCondition} />}
               heading="On going support"
               subHeading="We’re here to help."
               graphic={<img className={styles.graphic} alt="step-5" src={Step5} />}
             />
           </HelpGuide>
-          <LevelRight>
-            <Button variant="primary" type="button" onClick={handleUserAccept(userAcceptTermAndCondition, history)}>
-              Get Started
-            </Button>
-          </LevelRight>
         </FlexContainerResponsive>
       </Content>
     </FlexContainerBasic>

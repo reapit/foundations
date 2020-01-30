@@ -255,3 +255,13 @@
     display: flex;
   }
 }
+
+.content {
+  & ul {
+    margin: 0;
+  }
+
+  & li + li {
+    margin-top: 0;
+  }
+}
