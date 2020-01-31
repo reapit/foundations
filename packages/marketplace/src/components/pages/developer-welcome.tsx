@@ -58,7 +58,7 @@ export const Documentation = () => {
         <p>
           <strong>APIs</strong>
         </p>
-        Our interactive documentation allows you to easily experiment with our API’s with a &lsdquo;Try it now&rsdquo;
+        Our interactive documentation allows you to easily experiment with our API’s with a &lsquo;Try it now&rsquo;
         function to quickly build requests and inspect responses. To try it yourself and to see what data is available,
         click here.
       </p>
@@ -85,8 +85,8 @@ export const Submitting = () => {
   return (
     <div>
       <p className="mb-5">
-        Once you are ready to go, you’ll need to submit your App. Using the &lsdquo;Submit App&rsdquo; option on the
-        left, you will need to tell us about your Application, such as what permissions it requires, the type of
+        Once you are ready to go, you’ll need to submit your App. Using the &lsquo;Submit App&rsquo; option on the left,
+        you will need to tell us about your Application, such as what permissions it requires, the type of
         authentication, description & screenshots and support contact details.
       </p>
       <p className="mb-5">
@@ -95,9 +95,8 @@ export const Submitting = () => {
       </p>
       <p className="mb-5">
         Once you have submitted your App and you are ready for it to be published on the Marketplace, you will need
-        change the status to &lsdquo;Listed&rsdquo;. This can be done by editing your App from the &lsdquo;Apps&rsdquo;
-        page. Any changes, including &lsdquo;Listing&lsdquo; your application will need to be approved by our Admin
-        team.
+        change the status to &lsquo;Listed&rsquo;. This can be done by editing your App from the &lsquo;Apps&rsquo;
+        page. Any changes, including &lsquo;Listing&rsquo; your application will need to be approved by our Admin team.
       </p>
       <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
@@ -115,13 +114,13 @@ export const Managing = () => {
     <div>
       <p className="mb-5">
         If you need to make a change to your App, such as update a screenshot, edit text, or request additional
-        permissions, you can do so by clicking &lsdquo;Edit App&rsdquo; from the &lsdquo;Apps&rsdquo; page. Any change
-        will need to be approved by our Admin Team and whilst it is in the reviewal stage, it will be marked as
-        &lsdquo;Pending Revision&rsdquo;.
+        permissions, you can do so by clicking &lsquo;Edit App&rsquo; from the &lsquo;Apps&rsquo; page. Any change will
+        need to be approved by our Admin Team and whilst it is in the reviewal stage, it will be marked as
+        &lsquo;Pending Revision&rsquo;.
       </p>
       <p className="mb-5">
-        From the &lsdquo;Apps&rsdquo; page you will also be able to handle any client installations by opening your
-        &lsdquo;App&rsdquo; and clicking &lsdquo;Installations&rsdquo;.
+        From the &lsquo;Apps&rsquo; page you will also be able to handle any client installations by opening your
+        &lsquo;App&rsquo; and clicking &lsquo;Installations&rsquo;.
       </p>
       <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
