@@ -22,7 +22,7 @@ module.exports = {
   context: process.cwd(),
   entry: entries,
   output: {
-    path: `${process.cwd()}/dist`,
+    path: PATHS.output,
     libraryTarget: 'umd',
   },
   plugins: [
