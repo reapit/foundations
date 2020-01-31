@@ -54,11 +54,11 @@ jobs:
 
       - name: Build
         run: |
-          yarn build
+          yarn build --since origin/master --parallel
 
       - name: Test
         run: |
-          yarn test
+          yarn test --since origin/master --parallel
 
   add-reviews:
     runs-on: ubuntu-latest
