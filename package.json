@@ -2,11 +2,11 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build": "lerna run build:prod --since origin/master --parallel",
-    "test": "lerna run test:ci --since origin/master --parallel",
+    "build": "lerna run build:prod --parallel",
+    "test": "lerna run test:ci --parallel",
     "lint": "eslint --ext=jsx,ts,tsx packages --fix",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
-    "release:dev": "lerna run release:dev --since origin/master --parallel"
+    "release:dev": "lerna run release:dev --parallel"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",

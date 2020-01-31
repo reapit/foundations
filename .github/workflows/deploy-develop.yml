@@ -59,12 +59,12 @@ jobs:
 
       - name: Build
         run: |
-          yarn build
+          yarn build --since origin/master^1 --parallel
 
       - name: Test
         run: |
-          yarn test
+          yarn test --since origin/master^1 --parallel
 
       - name: Release
         run: |
-          yarn release:dev
+          yarn release:dev --since origin/master^1 --parallel
