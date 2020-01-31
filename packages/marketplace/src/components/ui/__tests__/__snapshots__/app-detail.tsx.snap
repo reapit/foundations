@@ -53,12 +53,22 @@ exports[`AppDetailModalInner should match a snapshot 1`] = `
         <Unknown>
           Permissions requested
         </Unknown>
-        <Unknown />
       </React.Fragment>
     }
   />
   <Component />
 </Fragment>
+`;
+
+exports[`ScopeGridThreeCol should match snapshot 1`] = `
+Array [
+  <Component>
+    <li />
+  </Component>,
+  <Component>
+    <li />
+  </Component>,
+]
 `;
 
 exports[`SlickButtonNav should match snapshot 1`] = `

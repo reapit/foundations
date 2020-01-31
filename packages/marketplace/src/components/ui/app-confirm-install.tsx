@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { FormState, ReduxState } from '@/types/core'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import appPermissionContentStyles from '@/styles/pages/app-permission-content.scss?mod'
-import { Button, SubTitleH6, ModalHeader, ModalBody, ModalFooter } from '@reapit/elements'
+import { Button, ModalHeader, ModalBody, ModalFooter } from '@reapit/elements'
 import { setAppDetailModalStateBrowse, setAppDetailModalStateSuccess } from '@/actions/app-detail-modal'
 import { InstallParams, appInstallationsRequestInstall } from '@/actions/app-installations'
 
@@ -60,11 +60,11 @@ export const AppConfirmInstallContent = ({
         body={
           scopes.length ? (
             <>
-              <SubTitleH6 isCentered>
+              <p>
                 This action will install the app for ALL platform users.
                 <br />
                 {name} requires the permissions below. By installing you are granting permission to your data.
-              </SubTitleH6>
+              </p>
               <ul className={appPermissionContentStyles.permissionList}>
                 {scopes.map(({ description, name }) => (
                   <li key={name} className={appPermissionContentStyles.permissionListItem}>
@@ -74,7 +74,7 @@ export const AppConfirmInstallContent = ({
               </ul>
             </>
           ) : (
-            <SubTitleH6 isCentered>This action will install the app for ALL platform users.</SubTitleH6>
+            <>This action will install the app for ALL platform users.</>
           )
         }
       />
