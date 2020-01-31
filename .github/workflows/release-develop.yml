@@ -15,7 +15,7 @@ env:
   CI: true
 
 jobs:
-  release_production:
+  release_develop:
     runs-on: ubuntu-latest
     steps:
       - name: checks out repository to $GITHUB_WORKSPACE
