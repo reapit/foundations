@@ -42,6 +42,7 @@ export const caculateStepChange = ({
 }) => () => {
   if (currentStepRef.current && wrapperStepRef.current && helpguideRef.current) {
     if (isMobileScreen) {
+      helpguideRef.current.style.height = '100%'
       wrapperStepRef.current.style.transform = `translate3d(-${currentStepRef.current.offsetLeft}px, 0, 0)`
     } else {
       helpguideRef.current.style.height = `${currentStepRef.current.offsetHeight}px`
@@ -61,9 +62,13 @@ export const caculateWrapperWith = ({
   total: number
   isMobileScreen: boolean
 }) => () => {
-  if (isMobileScreen && helpguideRef.current && wrapperStepRef.current) {
-    const wrapperWidth = helpguideRef.current.clientWidth * total
-    wrapperStepRef.current.style.width = `${wrapperWidth}px`
+  if (helpguideRef.current && wrapperStepRef.current) {
+    if (isMobileScreen) {
+      const wrapperWidth = helpguideRef.current.clientWidth * total
+      wrapperStepRef.current.style.width = `${wrapperWidth}px`
+    } else {
+      wrapperStepRef.current.style.width = '100%'
+    }
   }
 }
 
@@ -106,9 +111,12 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
   const isLast = steps[steps.length - 1].id === internalCurrent
   const currentIndex = steps.findIndex(({ id }) => id === internalCurrent)
 
-  useEffect(caculateWrapperWith({ isMobileScreen, total, helpguideRef, wrapperStepRef }), [])
+  useEffect(caculateWrapperWith({ isMobileScreen, total, helpguideRef, wrapperStepRef }), [isMobileScreen])
 
-  useEffect(caculateStepChange({ currentStepRef, wrapperStepRef, helpguideRef, isMobileScreen }), [internalCurrent])
+  useEffect(caculateStepChange({ currentStepRef, wrapperStepRef, helpguideRef, isMobileScreen }), [
+    internalCurrent,
+    isMobileScreen,
+  ])
 
   const goTo = handleGoTo({ steps, currentIndex, setInternalCurrent })
 

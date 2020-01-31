@@ -13,15 +13,15 @@
   flex-direction: row;
   position: relative;
   justify-content: center;
-  transition: all 0.3s ease-in-out;
-  @media (min-width: 768px) {
+  transition: transform 0.3s;
+  @media (min-width: 769px) {
     flex-direction: column;
   }
 }
 
 .helpguide-steps {
   width: 100%;
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     padding: 3rem 0;
   }
 }
@@ -30,7 +30,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     padding: 1rem;
     margin-right: 2rem;
     margin-top: 0;
