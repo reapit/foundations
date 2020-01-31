@@ -7,11 +7,15 @@ const fs = require('fs')
 const path = require('path')
 const sw2dts = require('sw2dts')
 const prettifyCode = require('./format-code')
+const constants = require('../constants/api')
 
 const apiSchema = [
   {
     definitionFile: path.resolve(__dirname, '../types/platform-schema.ts'),
     endpoint: 'https://dev.platform.reapit.net/docs',
+    headers: {
+      'api-version': constants.API_VERSION,
+    },
   },
 ]
 
