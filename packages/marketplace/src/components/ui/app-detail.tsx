@@ -143,7 +143,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
             </H6>
             <GridFiveCol>
               {scopes.map(item => (
-                <GridFourColItem key={item.name}>
+                <GridFourColItem className={styles.permissionItem} key={item.name}>
                   <li>{item.description}</li>
                 </GridFourColItem>
               ))}

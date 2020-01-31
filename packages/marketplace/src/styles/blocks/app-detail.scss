@@ -68,3 +68,10 @@
 .appInfoSpace {
   margin-right: 8px;
 }
+
+/* override for 3 columns  */
+@media screen and (min-width: 1408px) {
+  .permissionItem {
+    width: calc(100% / 3) !important;
+  }
+}
