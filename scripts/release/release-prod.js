@@ -9,7 +9,7 @@ const removeUnuseChar = value => {
 
 const getVersionTag = () => {
   const tagName = execSync('git describe --tags $(git rev-list --tags --max-count=1)').toString()
-  const tagNameArr = removeUnuseChar(tagName).split('-')
+  const tagNameArr = removeUnuseChar(tagName).split('_')
   const PACKAGE_NAME_INDEX = 0
   const VERSION_INDEX = 1
   const packageName = tagNameArr[PACKAGE_NAME_INDEX]
@@ -29,7 +29,7 @@ const getPreviousTag = ({ packageName }) => {
 
 const formatReleaseNote = ({ previousTag, packageName, version, commitLog }) => {
   let releaseNote = `
-    Release: ${packageName}-${version}
+    Release: ${packageName}_${version}
     Rollback: ${previousTag}
     Changes:
     commit | author | description
@@ -72,29 +72,33 @@ const editReleaseNote = async ({ packageName, version, previousTag }) => {
   })
 }
 
-const [, , ...args] = process.argv
-const packageName = args[0]
-const bucketName = args[1]
-const { version, packageName: packageNameOnTag } = getVersionTag()
-if (!packageName) {
-  console.error('No package name was specified for your deployment')
-  process.exit(1)
+const releaseProd = async () => {
+  const [, , ...args] = process.argv
+  const packageName = args[0]
+  const bucketName = args[1]
+  const { version, packageName: packageNameOnTag } = getVersionTag()
+  if (!packageName) {
+    console.error('No package name was specified for your deployment')
+    process.exit(1)
+  }
+
+  if (packageName !== packageNameOnTag) {
+    process.exit(1)
+  }
+
+  if (!bucketName) {
+    console.error('No bucket name was specified for your deployment')
+    process.exit(1)
+  }
+
+  const distPath = path.resolve(__dirname, '../../', 'packages', packageName, 'public', 'dist')
+
+  execSync(
+    `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive`,
+  )
+  const previousTag = getPreviousTag({ packageName: packageNameOnTag })
+
+  await editReleaseNote({ packageName: packageNameOnTag, version, previousTag })
 }
 
-if (packageName !== packageNameOnTag) {
-  process.exit(1)
-}
-
-if (!bucketName) {
-  console.error('No bucket name was specified for your deployment')
-  process.exit(1)
-}
-
-const distPath = path.resolve(__dirname, '../../', 'packages', packageName, 'public', 'dist')
-
-execSync(
-  `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive`,
-)
-const previousTag = getPreviousTag({ packageName: packageNameOnTag })
-
-await editReleaseNote({ packageName: packageNameOnTag, version, previousTag })
+releaseProd()
