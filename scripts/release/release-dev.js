@@ -2,7 +2,7 @@
 const path = require('path')
 const { execSync } = require('child_process')
 
-const releaseS3 = () => {
+const releaseDev = () => {
   const [, , ...args] = process.argv
   const packageName = args[0]
   const bucketName = args[1]
@@ -24,4 +24,4 @@ const releaseS3 = () => {
   )
 }
 
-releaseS3()
+releaseDev()

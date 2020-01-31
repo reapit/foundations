@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-const path = require('path')
 const { execSync } = require('child_process')
 const { getPreviousTag, editReleaseNote, getVersionTag } = require('./utils')
 
-const releaseProd = async () => {
+const releaseServerless = async () => {
   const [, , ...args] = process.argv
   const packageName = args[0]
   const bucketName = args[1]
@@ -19,15 +18,11 @@ const releaseProd = async () => {
   }
 
   if (packageName === packageNameOnTag) {
-    const distPath = path.resolve(__dirname, '../../', 'packages', packageName, 'public', 'dist')
-
-    execSync(
-      `aws s3 cp ${distPath} s3://${bucketName} --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --recursive`,
-    )
+    execSync('cross-env CI=true serverless deploy --stage prod')
     const previousTag = getPreviousTag({ packageName: packageNameOnTag })
 
     await editReleaseNote({ packageName: packageNameOnTag, version, previousTag })
   }
 }
 
-releaseProd()
+releaseServerless()

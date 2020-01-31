@@ -10,8 +10,8 @@
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "build:prod": "rimraf dist && rimraf public && tsc --p tsconfig.json && cp -rf ./src/mailer/templates/ejs ./public/mailer/templates/ejs",
-    "release:serverless:dev": "echo 'TODO - Need to implement - fails on CI cross-env CI=true serverless deploy --stage dev'",
-    "release:serverless:prod": "cross-env CI=true serverless deploy --stage prod"
+    "release:dev": "cross-env CI=true serverless deploy --stage dev'",
+    "release:prod": "node ../../scripts/release/release-serverless.js cognito-custom-mail-lambda cognito-custom-mail-lambda-prod"
   },
   "repository": {
     "type": "git",
