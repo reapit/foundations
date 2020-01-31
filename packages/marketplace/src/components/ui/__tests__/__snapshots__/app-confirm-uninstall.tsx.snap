@@ -9,13 +9,11 @@ exports[`AppConfirmUninstall render correctly 1`] = `
   />
   <Component
     body={
-      <Unknown
-        isCentered={true}
-      >
+      <React.Fragment>
         Are you sure you wish to uninstall 
         Peter's Properties
         ? This action will uninstall the app for ALL platform users.
-      </Unknown>
+      </React.Fragment>
     }
   />
   <Component
@@ -58,13 +56,11 @@ exports[`AppConfirmUninstall render correctly 2`] = `
   />
   <Component
     body={
-      <Unknown
-        isCentered={true}
-      >
+      <React.Fragment>
         Are you sure you wish to uninstall 
         Peter's Properties
         ? This action will uninstall the app for ALL platform users.
-      </Unknown>
+      </React.Fragment>
     }
   />
   <Component
@@ -107,13 +103,11 @@ exports[`AppConfirmUninstall render correctly 3`] = `
   />
   <Component
     body={
-      <Unknown
-        isCentered={true}
-      >
+      <React.Fragment>
         Are you sure you wish to uninstall 
         Peter's Properties
         ? This action will uninstall the app for ALL platform users.
-      </Unknown>
+      </React.Fragment>
     }
   />
   <Component
@@ -156,13 +150,11 @@ exports[`AppConfirmUninstall render correctly 4`] = `
   />
   <Component
     body={
-      <Unknown
-        isCentered={true}
-      >
+      <React.Fragment>
         Are you sure you wish to uninstall 
         Peter's Properties
         ? This action will uninstall the app for ALL platform users.
-      </Unknown>
+      </React.Fragment>
     }
   />
   <Component
@@ -205,13 +197,11 @@ exports[`AppConfirmUninstall render correctly 5`] = `
   />
   <Component
     body={
-      <Unknown
-        isCentered={true}
-      >
+      <React.Fragment>
         Are you sure you wish to uninstall 
         Peter's Properties
         ? This action will uninstall the app for ALL platform users.
-      </Unknown>
+      </React.Fragment>
     }
   />
   <Component
