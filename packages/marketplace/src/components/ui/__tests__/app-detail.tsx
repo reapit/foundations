@@ -1,6 +1,13 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { AppDetail, AppDetailProps, mapDispatchToProps, SlickButtonNav } from '../app-detail'
+import {
+  AppDetail,
+  AppDetailProps,
+  mapDispatchToProps,
+  SlickButtonNav,
+  ScopeGridThreeCol,
+  sliceThreeItemEach,
+} from '../app-detail'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import { setAppDetailModalStateInstall, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 
@@ -13,6 +20,56 @@ const props: AppDetailProps = {
   data: {},
   afterClose: jest.fn(),
 }
+
+const scopes = [
+  {
+    name: 'agencyCloud/applicants.read',
+    description: 'Read applicants',
+  },
+  {
+    name: 'agencyCloud/companies.read',
+    description: 'Read companies',
+  },
+  {
+    name: 'agencyCloud/companies.read1',
+    description: 'Read companies2',
+  },
+  {
+    name: 'agencyCloud/companies.read2',
+    description: 'Read companies2',
+  },
+  {
+    name: 'agencyCloud/companies.read3',
+    description: 'Read companies3',
+  },
+]
+
+const scopeArrayItem = [
+  [
+    {
+      name: 'agencyCloud/applicants.read',
+      description: 'Read applicants',
+    },
+    {
+      name: 'agencyCloud/companies.read',
+      description: 'Read companies',
+    },
+    {
+      name: 'agencyCloud/companies.read1',
+      description: 'Read companies2',
+    },
+  ],
+  [
+    {
+      name: 'agencyCloud/companies.read2',
+      description: 'Read companies2',
+    },
+    {
+      name: 'agencyCloud/companies.read3',
+      description: 'Read companies3',
+    },
+  ],
+]
 
 describe('AppDetailModalInner', () => {
   it('should match a snapshot', () => {
@@ -62,5 +119,17 @@ describe('SlickButtonNav', () => {
       </SlickButtonNav>,
     )
     expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('sliceThreeItemEach', () => {
+  it('should return correctly', () => {
+    expect(sliceThreeItemEach(scopes)).toEqual(scopeArrayItem)
+  })
+})
+
+describe('ScopeGridThreeCol', () => {
+  it('should match snapshot', () => {
+    expect(shallow(<ScopeGridThreeCol scopeArrayItem={scopeArrayItem} />)).toMatchSnapshot()
   })
 })

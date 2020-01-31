@@ -1,8 +1,9 @@
-name: Pull Request
+name: Release develop
 
 on:
-  pull_request:
-    types: ['opened', 'synchronize']
+  push:
+    branches:
+      - master
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -14,7 +15,7 @@ env:
   CI: true
 
 jobs:
-  test:
+  release_develop:
     runs-on: ubuntu-latest
     steps:
       - name: checks out repository to $GITHUB_WORKSPACE
@@ -36,6 +37,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      - name: Install AWS CLI
+        run: |
+          yarn global add aws-cli
+
       - name: Set up workspace experimental
         run: |
           yarn config set workspaces-experimental true
@@ -54,15 +59,12 @@ jobs:
 
       - name: Build
         run: |
-          yarn build --since origin/master --parallel
+          yarn build --since origin/master^1 --parallel
 
       - name: Test
         run: |
-          yarn test --since origin/master --parallel
+          yarn test --since origin/master^1 --parallel
 
-  add-reviews:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: kentaro-m/auto-assign-action@v1.0.1
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Release Develop
+        run: |
+          yarn release:dev --since origin/master^1 --parallel
