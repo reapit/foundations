@@ -287,6 +287,7 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
 
 exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
 <Component
+  className="welcome-container"
   flexColumn={true}
   hasPadding={true}
 >
@@ -346,7 +347,6 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
           subHeading="Installations and changes."
         />
         <HelpGuideStep
-          component={[Function]}
           graphic={
             <img
               alt="step-5"
@@ -355,17 +355,13 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
           }
           heading="On going support"
           id="step-5"
+          render={
+            <Unknown
+              onAccept={[MockFunction]}
+            />
+          }
           subHeading="We’re here to help."
         />
-      </Component>
-      <Component>
-        <Component
-          onClick={[Function]}
-          type="button"
-          variant="primary"
-        >
-          Get Started
-        </Component>
       </Component>
     </Component>
   </Component>

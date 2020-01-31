@@ -17,7 +17,8 @@ export interface HelpGuideStepProps {
   heading?: React.ReactNode
   subHeading?: React.ReactNode
   graphic?: React.ReactNode
-  component: React.FC<any>
+  component?: React.FC<any>
+  render?: React.ReactNode
 }
 
 export interface NavigationProps {
@@ -145,15 +146,13 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
   )
 }
 
-function HelpGuideStep({ component: Component, heading, subHeading, graphic }: HelpGuideStepProps) {
+function HelpGuideStep({ component: Component, render, heading, subHeading, graphic }: HelpGuideStepProps) {
   return (
     <FlexContainerBasic className="items-center justify-between">
       <div className="helpguide-content">
         <H3>{heading}</H3>
         <SubTitleH6>{subHeading}</SubTitleH6>
-        <div className="flex">
-          <Component />
-        </div>
+        <div className="flex">{Component ? <Component /> : render ? render : null}</div>
       </div>
       {!isMobile() && graphic && (
         <div className="helpguide-wrapper-graphic">

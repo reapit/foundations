@@ -30,9 +30,8 @@ describe('NumberedTimeline', () => {
     const { activeRef, circleRef } = mockProps
 
     if (activeRef.current && circleRef.current) {
-      const offset = activeRef.current.offsetHeight - LI_MARGIN
-      const offsetDoubled = offset * 2
-      const gap = (circleRef.current.offsetHeight - offsetDoubled) / 2
+      const offset = activeRef.current.offsetHeight - LI_MARGIN * 2
+      const gap = (circleRef.current.offsetHeight - offset) / 2
       expect(caculateCircleRef(mockProps)).toEqual(activeRef.current.offsetTop + LI_MARGIN - gap)
     }
   })
@@ -50,7 +49,7 @@ describe('NumberedTimeline', () => {
     const { activeRef } = mockProps
 
     if (activeRef.current) {
-      expect(caculateLineRef(mockProps)).toEqual(activeRef.current.offsetTop + LI_MARGIN)
+      expect(caculateLineRef(mockProps)).toEqual(activeRef.current.offsetTop)
     }
   })
 
@@ -67,8 +66,8 @@ describe('NumberedTimeline', () => {
     const { activeRef } = mockProps
 
     if (activeRef.current) {
-      const offset = activeRef.current.offsetTop + LI_MARGIN
-      expect(caculateLineRef(mockProps)).toEqual(offset * 2)
+      const offset = activeRef.current.offsetTop + LI_MARGIN * 2
+      expect(caculateLineRef(mockProps)).toEqual(offset)
     }
   })
 

@@ -69,8 +69,8 @@ describe('NumberedTimeline', () => {
     if (activeRef.current) {
       const widthActiveItem = parseInt(window.getComputedStyle(activeRef.current, ':before').width, 10)
       const marginBetween = parseInt(window.getComputedStyle(activeRef.current, ':before').marginRight, 10)
-      const offset = activeRef.current.offsetLeft + widthActiveItem + marginBetween
-      expect(caculateLineRef(mockProps)).toEqual(offset / 2)
+      const offset = activeRef.current.offsetLeft + widthActiveItem
+      expect(caculateLineRef(mockProps)).toEqual(marginBetween / 2 + offset)
     }
   })
 
