@@ -3,6 +3,7 @@ import { CreateContactIdentityCheckArgs } from './contact-identity-check'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
 import errors from '../../errors'
+import { API_VERSION } from '../../constants/api'
 
 export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
 
@@ -18,6 +19,7 @@ export const callCreateIdentityCheckAPI = async (args: CreateContactIdentityChec
     const headers = {
       Authorization: context.authorization,
       'Content-Type': 'application/json',
+      'api-version': API_VERSION,
     }
     const createResponse = await fetcher({
       url: `${URLS.contacts}/${args.contactId}${URLS.identityChecks}`,
