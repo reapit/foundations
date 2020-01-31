@@ -2,25 +2,25 @@
   "name": "@reapit/react-app-scaffolder",
   "version": "0.0.1",
   "description": "An opinionated gnerator for scaffolding TypeScript React Redux apps",
-  "main": "index.js",
-  "scripts": {
-    "scaffold": "./node_modules/.bin/yo ./generators/app --force"
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "homepage": "https://github.com/reapit/foundations#readme",
+  "bugs": {
+    "url": "https://github.com/reapit/foundations/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reapit/foundations.git"
   },
+  "license": "MIT",
+  "author": "Will McVay <wmcvay@reapit.com>",
   "files": [
     "generators"
   ],
-  "keywords": [
-    "yeoman-generator"
-  ],
-  "author": "Will McVay <wmcvay@reapit.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/reapit/foundations/issues"
+  "main": "index.js",
+  "scripts": {
+    "scaffold": "../../node_modules/.bin/yo ./generators/app --force"
   },
-  "homepage": "https://github.com/reapit/foundations#readme",
   "dependencies": {}
 }

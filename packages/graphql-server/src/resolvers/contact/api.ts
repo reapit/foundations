@@ -3,6 +3,7 @@ import logger from '../../logger'
 import { ServerContext } from '../../app'
 import { GetContactByIdArgs, CreateContactArgs, GetContactsArgs } from './contact'
 import errors from '../../errors'
+import { API_VERSION } from '@/constants/api'
 
 export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
 export const CONTACTS_PER_PAGE = 10
@@ -22,6 +23,7 @@ export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: S
       headers: {
         Authorization: context.authorization,
         'Content-Type': 'application/json',
+        'api-version': API_VERSION,
       },
     })
     return getResponse
@@ -42,6 +44,7 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
       headers: {
         Authorization: context.authorization,
         'Content-Type': 'application/json',
+        'api-version': API_VERSION,
       },
     })
     return response
