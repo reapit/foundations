@@ -48,6 +48,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
       screen2ImageUrl,
       screen3ImageUrl,
       screen4ImageUrl,
+      screen5ImageUrl,
       categoryId,
     } = values
 
@@ -58,6 +59,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
       imageUploaderHelper({ name: `${formatedName}-screen2ImageUrl`, imageData: screen2ImageUrl }),
       imageUploaderHelper({ name: `${formatedName}-screen3ImageUrl`, imageData: screen3ImageUrl }),
       imageUploaderHelper({ name: `${formatedName}-screen4ImageUrl`, imageData: screen4ImageUrl }),
+      imageUploaderHelper({ name: `${formatedName}-screen5ImageUrl`, imageData: screen5ImageUrl }),
     ]
 
     const imageUploaderResults = yield all(imageUploaderReqs)
@@ -68,6 +70,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
       screen2ImageUrl: imageUploaderResults[2] ? imageUploaderResults[2].Url : '',
       screen3ImageUrl: imageUploaderResults[3] ? imageUploaderResults[3].Url : '',
       screen4ImageUrl: imageUploaderResults[4] ? imageUploaderResults[4].Url : '',
+      screen5ImageUrl: imageUploaderResults[5] ? imageUploaderResults[5].Url : '',
     }
 
     const updatedValuesAfterValidatingCategoryId = {
