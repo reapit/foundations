@@ -11,7 +11,7 @@
   "scripts": {
     "fetch:platform": "node './scripts/fetch-platform-definition.js'",
     "fetch:marketPlace": "node './scripts/fetch-marketplace-definition.js'",
-    "fetch:definition": "rimraf types && mkdir types && yarn fetch:platform && yarn fetch:marketPlace && yarn createIndexFile",
+    "fetch:definition": "rimraf types && mkdir types && yarn fetch:platform && yarn fetch:marketPlace && yarn create-index-file",
     "create-index-file": "node './scripts/create-index-file.js'",
     "handle-cronjob": "node ./scripts/handle-cronjob.js"
   },

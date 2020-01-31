@@ -1,4 +1,87 @@
 /**
+ * Model for exposing error details to API consumers
+ */
+export interface ApiErrorModel {
+  /**
+   * The Http StatusCode associated with this error event
+   */
+  statusCode?:
+    | 'Continue'
+    | 'SwitchingProtocols'
+    | 'Processing'
+    | 'EarlyHints'
+    | 'OK'
+    | 'Created'
+    | 'Accepted'
+    | 'NonAuthoritativeInformation'
+    | 'NoContent'
+    | 'ResetContent'
+    | 'PartialContent'
+    | 'MultiStatus'
+    | 'AlreadyReported'
+    | 'IMUsed'
+    | 'MultipleChoices'
+    | 'Ambiguous'
+    | 'MovedPermanently'
+    | 'Moved'
+    | 'Found'
+    | 'Redirect'
+    | 'SeeOther'
+    | 'RedirectMethod'
+    | 'NotModified'
+    | 'UseProxy'
+    | 'Unused'
+    | 'TemporaryRedirect'
+    | 'RedirectKeepVerb'
+    | 'PermanentRedirect'
+    | 'BadRequest'
+    | 'Unauthorized'
+    | 'PaymentRequired'
+    | 'Forbidden'
+    | 'NotFound'
+    | 'MethodNotAllowed'
+    | 'NotAcceptable'
+    | 'ProxyAuthenticationRequired'
+    | 'RequestTimeout'
+    | 'Conflict'
+    | 'Gone'
+    | 'LengthRequired'
+    | 'PreconditionFailed'
+    | 'RequestEntityTooLarge'
+    | 'RequestUriTooLong'
+    | 'UnsupportedMediaType'
+    | 'RequestedRangeNotSatisfiable'
+    | 'ExpectationFailed'
+    | 'MisdirectedRequest'
+    | 'UnprocessableEntity'
+    | 'Locked'
+    | 'FailedDependency'
+    | 'UpgradeRequired'
+    | 'PreconditionRequired'
+    | 'TooManyRequests'
+    | 'RequestHeaderFieldsTooLarge'
+    | 'UnavailableForLegalReasons'
+    | 'InternalServerError'
+    | 'NotImplemented'
+    | 'BadGateway'
+    | 'ServiceUnavailable'
+    | 'GatewayTimeout'
+    | 'HttpVersionNotSupported'
+    | 'VariantAlsoNegotiates'
+    | 'InsufficientStorage'
+    | 'LoopDetected'
+    | 'NotExtended'
+    | 'NetworkAuthenticationRequired'
+  /**
+   * The date and time that this error event occurred
+   */
+  dateTime?: string // date-time
+  /**
+   * The detailed information regarding this error event
+   */
+  description?: string
+}
+/**
  * The details specific to applicants with a marketingMode of buying
  */
 export interface ApplicantBuyingModel {
@@ -117,6 +200,36 @@ export interface ApplicantContactModel {
      */
     countryId?: string
   }
+}
+export interface ApplicantContactRelationshipModel {
+  /**
+   * The unique identifier of the applicant relationship
+   */
+  id?: string
+  /**
+   * The date and time when the relationship was created
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the relationship was last modified
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the applicant
+   */
+  applicantId?: string
+  /**
+   * The type of related entity
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the related entity
+   */
+  associatedId?: string
+  /**
+   * A flag denoting whether or not this relationship should be regarded as the main relationship for the parent applicant entity
+   */
+  isMain?: boolean
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -344,14 +457,6 @@ export interface ApplicantModel {
      * Gets the applicants source type
      */
     type?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
   }
   /**
    * A collection of office unique identifiers that are associated to the applicant. The first identifier listed is considered to be the primary office
@@ -430,14 +535,6 @@ export interface ApplicantModel {
        */
       countryId?: string
     }
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
   }[]
   /**
    * A listing of app specific metadata that has been set against this applicant
@@ -445,6 +542,10 @@ export interface ApplicantModel {
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of this applicant. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -495,261 +596,296 @@ export interface ApplicantSourceModel {
    * Gets the applicants source type
    */
   type?: string
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
+}
+export interface Applicants {
+  PageNumber?: number
+  PageSize?: number
+  SortBy?: string
+  Id?: string[]
+  NegotiatorId?: string[]
+  OfficeId?: string[]
+  Address?: string
+  DepartmentId?: string
+  Name?: string
+  PriceFrom?: number
+  PriceTo?: number
+  RentFrom?: number
+  RentTo?: number
+  BedroomsFrom?: number
+  BedroomsTo?: number
+  CreatedFrom?: string
+  CreatedTo?: string
+  LastCallFrom?: string
+  LastCallTo?: string
+  NextCallFrom?: string
+  NextCallTo?: string
+  Age?: ('period' | 'new' | 'modern')[]
+  Furnishing?: ('furnished' | 'unfurnished' | 'partFurnished')[]
+  Locality?: ('rural' | 'village' | 'townCity')[]
+  Parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
+  Situation?: ('garden' | 'land' | 'patio' | 'roofTerrace' | 'conservatory' | 'balcony' | 'communalGardens')[]
+  Style?: (
+    | 'terraced'
+    | 'endTerrace'
+    | 'detached'
+    | 'semiDetached'
+    | 'linkDetached'
+    | 'mews'
+    | 'basement'
+    | 'lowerGroundFloor'
+    | 'groundFloor'
+    | 'firstFloor'
+    | 'upperFloor'
+    | 'upperFloorWithLift'
+    | 'penthouse'
+  )[]
+  Type?: (
+    | 'house'
+    | 'bungalow'
+    | 'flatApartment'
+    | 'maisonette'
+    | 'land'
+    | 'farm'
+    | 'cottage'
+    | 'studio'
+    | 'townhouse'
+    | 'developmentPlot'
+  )[]
+  MarketingMode?: ('buying' | 'renting')[]
 }
 /**
- * Model representing a single contact detail (eg mobile telephone number)
- */
-export interface AppointmentAttendeeCommunicationModel {
-  /**
-   * Gets the label representing the type of detail (eg E-mail)
-   */
-  label?: string
-  /**
-   * Gets the contact detail (eg the actual telephone number or email address)
-   */
-  detail?: string
-}
-/**
- * Model representing an appointment attendee
+ * Represents an appointments attendee.
  */
 export interface AppointmentAttendeeModel {
   /**
-   * Gets the identifier of the attendee
+   * The unique identifier of the attendee.
    */
   id?: string
   /**
-   * Gets the type of attendee
+   * The type of attendee.
    */
   type?: string
   /**
-   * Gets the contacts of this attendee
+   * The contacts of this attendee.
    */
   contacts?: {
     /**
-     * Gets the identifier of the contact
+     * The identifier of the contact.
      */
     id?: string
     /**
-     * Gets the name of the contact
+     * The name of the contact.
      */
     name?: string
     /**
-     * Gets a collection of the contacts' contact details
+     * The home phone number of the contact
      */
-    communicationDetails?: {
-      /**
-       * Gets the label representing the type of detail (eg E-mail)
-       */
-      label?: string
-      /**
-       * Gets the contact detail (eg the actual telephone number or email address)
-       */
-      detail?: string
-    }[]
-  }[]
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
-}
-export interface AppointmentContactModel {
-  /**
-   * Gets the identifier of the contact
-   */
-  id?: string
-  /**
-   * Gets the name of the contact
-   */
-  name?: string
-  /**
-   * Gets a collection of the contacts' contact details
-   */
-  communicationDetails?: {
+    homePhone?: string
     /**
-     * Gets the label representing the type of detail (eg E-mail)
+     * The work phone number of the contact
      */
-    label?: string
+    workPhone?: string
     /**
-     * Gets the contact detail (eg the actual telephone number or email address)
+     * The mobile phone number of the contact
      */
-    detail?: string
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
   }[]
 }
 /**
- * Model representing appointment follow up data
+ * Represents an appointments contact.
+ */
+export interface AppointmentContactModel {
+  /**
+   * The identifier of the contact.
+   */
+  id?: string
+  /**
+   * The name of the contact.
+   */
+  name?: string
+  /**
+   * The home phone number of the contact
+   */
+  homePhone?: string
+  /**
+   * The work phone number of the contact
+   */
+  workPhone?: string
+  /**
+   * The mobile phone number of the contact
+   */
+  mobilePhone?: string
+  /**
+   * The email address of the contact
+   */
+  email?: string
+}
+/**
+ * Represents appointment follow up data.
  */
 export interface AppointmentFollowUpModel {
   /**
-   * Gets the date that the appointment should be followed up on
+   * The date when the appointment should be followed up on.
    */
   due?: string // date-time
   /**
-   * Gets the unique identifier of a pre-defined follow up response type
+   * The unique identifier of a pre-defined follow up response type.
    */
   responseId?: string
   /**
-   * Gets the internal follow up notes to be stored against the appointment
+   * The internal follow up notes to be stored against the appointment.
    */
   notes?: string
 }
 /**
- * Model representing a calendar appointment
+ * Represents a calendar appointment.
  */
 export interface AppointmentModel {
   /**
-   * Gets the unique identifier
+   * The appointments unique identifier.
    */
   id?: string
   /**
-   * Gets the datetime when the appointment was created
+   * The datetime when the appointment was created.
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the appointment was last modified
+   * The date and time when the appointment was last modified.
    */
   modified?: string // date-time
   /**
-   * Gets the date and time that the appointment will start
+   * The date and time when the appointment will start.
    */
   start?: string // date-time
   /**
-   * Gets the date and time that the appointment will end
+   * The date and time when the appointment will end.
    */
   end?: string // date-time
   /**
-   * Gets the type of appointment
+   * The type of appointment.
    */
   typeId?: string
   /**
-   * Gets the appointment description
+   * The appointment description.
    */
   description?: string
   /**
-   * Gets directions to the appointment location
+   * The directions to the appointment location.
    */
   directions?: string
   /**
-   * Flag denoting whether or not the appointment recurs
+   * A flag denoting whether or not the appointment recurs.
    */
   recurring?: boolean
   /**
-   * Flag denoting whether or not the appointment is cancelled
+   * A flag denoting whether or not the appointment is cancelled.
    */
   cancelled?: boolean
   /**
-   * Gets the appointments follow up information
+   * The appointments follow up information.
    */
   followUp?: {
     /**
-     * Gets the date that the appointment should be followed up on
+     * The date when the appointment should be followed up on.
      */
     due?: string // date-time
     /**
-     * Gets the unique identifier of a pre-defined follow up response type
+     * The unique identifier of a pre-defined follow up response type.
      */
     responseId?: string
     /**
-     * Gets the internal follow up notes to be stored against the appointment
+     * The internal follow up notes to be stored against the appointment.
      */
     notes?: string
   }
   /**
-   * Gets the unique identifier of the property related to the appointment
+   * The unique identifier of the property related to the appointment.
    */
   propertyId?: string
   /**
-   * Gets the id of the person that organised the appointment
+   * The identifier of the person that organised the appointment.
    */
   organiserId?: string
   /**
-   * Gets a collection of negotiators related to the appointment
+   * A collection of negotiators related to the appointment.
    */
   negotiatorIds?: string[]
   /**
-   * Gets a collection of offices related to the appointment
+   * A collection of offices related to the appointment.
    */
   officeIds?: string[]
   /**
-   * Gets a collection of attendees who are requested to attend the appointment
+   * A collection of attendees who are requested to attend the appointment.
    */
   attendee?: {
     /**
-     * Gets the identifier of the attendee
+     * The unique identifier of the attendee.
      */
     id?: string
     /**
-     * Gets the type of attendee
+     * The type of attendee.
      */
     type?: string
     /**
-     * Gets the contacts of this attendee
+     * The contacts of this attendee.
      */
     contacts?: {
       /**
-       * Gets the identifier of the contact
+       * The identifier of the contact.
        */
       id?: string
       /**
-       * Gets the name of the contact
+       * The name of the contact.
        */
       name?: string
       /**
-       * Gets a collection of the contacts' contact details
+       * The home phone number of the contact
        */
-      communicationDetails?: {
-        /**
-         * Gets the label representing the type of detail (eg E-mail)
-         */
-        label?: string
-        /**
-         * Gets the contact detail (eg the actual telephone number or email address)
-         */
-        detail?: string
-      }[]
+      homePhone?: string
+      /**
+       * The work phone number of the contact
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact
+       */
+      email?: string
     }[]
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
   }
   /**
-   * Flag denoting whether or not the appointment is accompanied
+   * A flag denoting whether or not the appointment is accompanied.
    */
   accompanied?: boolean
   /**
-   * Flag denoting whether or not the negotiator is confirmed
+   * A flag denoting whether or not the negotiator is confirmed.
    */
   negotiatorConfirmed?: boolean
   /**
-   * Flag denoting whether or not the attendee is confirmed
+   * A flag denoting whether or not the attendee is confirmed.
    */
   attendeeConfirmed?: boolean
   /**
-   * Flag denoting whether or not the property is confirmed
+   * A flag denoting whether or not the property is confirmed.
    */
   propertyConfirmed?: boolean
   /**
-   * Gets a listing of additional metadata that has been set against this appointment
+   * A listing of additional metadata that has been set against this appointment.
    */
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of this appointment. Used for managing update concurrency.
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -758,6 +894,22 @@ export interface AppointmentModel {
   readonly _embedded?: {
     [name: string]: any
   }
+}
+export interface Appointments {
+  PageNumber?: number
+  PageSize?: number
+  SortBy?: string
+  Id?: string[]
+  TypeId?: string[]
+  NegotiatorId?: string[]
+  OfficeId?: string[]
+  PropertyId?: string[]
+  Start?: string
+  End?: string
+  FollowUpDueFrom?: string
+  FollowUpDueTo?: string
+  IncludeCancelled?: boolean
+  IncludeUnconfirmed?: boolean
 }
 export interface AreaModel {
   /**
@@ -796,6 +948,10 @@ export interface AreaModel {
    * Gets the offices linked to this area
    */
   officeIds?: string[]
+  /**
+   * The ETag for the current version of this area. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -804,6 +960,28 @@ export interface AreaModel {
   readonly _embedded?: {
     [name: string]: any
   }
+}
+export interface Areas {
+  PageNumber?: number
+  PageSize?: number
+  SortBy?: string
+  Id?: string[]
+  DepartmentId?: string[]
+  OfficeId?: string[]
+  Name?: string
+  Active?: boolean
+}
+export interface Companies {
+  PageNumber?: number
+  PageSize?: number
+  SortBy?: string
+  Id?: string[]
+  Address?: string
+  Branch?: string
+  Name?: string
+  TypeId?: string
+  CreatedFrom?: string
+  CreatedTo?: string
 }
 /**
  * Model representing the physical address of a building or premise
@@ -936,19 +1114,15 @@ export interface CompanyModel {
     country?: string
   }
   /**
-   * Gets the collection of office ids that are related to this company
-   */
-  officeIds?: string[]
-  /**
-   * Gets the collection of negotiator ids that are related to this company
-   */
-  negotiatorIds?: string[]
-  /**
    * Gets a listing of additional metadata that has been set against this company
    */
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of this company. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -957,6 +1131,9 @@ export interface CompanyModel {
   readonly _embedded?: {
     [name: string]: any
   }
+}
+export interface ConfigurationCompanyTypes {
+  Id?: string[]
 }
 /**
  * Model representing the physical address of a building or premise
@@ -1040,6 +1217,10 @@ export interface ContactModel {
    */
   marketingConsent?: string
   /**
+   * Gets the status of the last identity check performed against this contact (pass/fail/pending/cancelled/warnings/unchecked)
+   */
+  identityCheck?: string
+  /**
    * Gets the contacts source information
    */
   source?: {
@@ -1051,14 +1232,6 @@ export interface ContactModel {
      * Gets the contacts source type
      */
     type?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
   }
   /**
    * The home phone number of the contact
@@ -1213,6 +1386,10 @@ export interface ContactModel {
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of this contact. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -1234,14 +1411,21 @@ export interface ContactSourceModel {
    * Gets the contacts source type
    */
   type?: string
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
+}
+export interface Contacts {
+  PageNumber?: number
+  PageSize?: number
+  SortBy?: string
+  Id?: string[]
+  NegotiatorId?: string[]
+  OfficeId?: string[]
+  Address?: string
+  IdentityCheck?: string
+  Name?: string
+  Active?: boolean
+  CreatedFrom?: string
+  CreatedTo?: string
+  MarketingConsent?: ('grant' | 'deny' | 'notAsked')[]
 }
 /**
  * The details specific to applicants with a marketingMode of buying
@@ -1301,6 +1485,8 @@ export interface CreateApplicantInternalAreaModel {
 }
 /**
  * Representation of an applicant
+ * example:
+ * [object Object]
  */
 export interface CreateApplicantModel {
   /**
@@ -1390,7 +1576,7 @@ export interface CreateApplicantModel {
   /**
    * Sets the sales specific requirements, if the applicant is looking to buy
    */
-  selling?: {
+  buying?: {
     /**
      * The lower bound of the applicant's budget
      */
@@ -1403,7 +1589,7 @@ export interface CreateApplicantModel {
   /**
    * Sets the letting specific requirements, if the applicant is looking to rent
    */
-  letting?: {
+  renting?: {
     /**
      * The date the applicant is looking to move to a new property
      */
@@ -1544,81 +1730,81 @@ export interface CreateApplicantSourceModel {
   type?: string
 }
 /**
- * Model to associate an attendee to a new appointment
+ * Represents an appointments attendee.
  */
 export interface CreateAppointmentAttendeeModel {
   /**
-   * Sets the identifier of the attendee
+   * The identifier of the attendee.
    */
   id?: string
   /**
-   * Sets the type of attendee
+   * The type of attendee.
    */
   type?: string
 }
 /**
- * Model required to create a calendar entry
+ * Represents a calendar appointment.
  */
 export interface CreateAppointmentModel {
   /**
-   * Sets the date and time that the appointment will start
+   * The date and time when the appointment will start.
    */
   start?: string // date-time
   /**
-   * Sets the date and time that the appointment will end
+   * The date and time when the appointment will end.
    */
   end?: string // date-time
   /**
-   * Sets the date that the appointment should be followed up on
+   * The date and time when the appointment should be followed up on.
    */
   followUpOn?: string // date-time
   /**
-   * Sets the type of appointment
+   * The type of appointment.
    */
   typeId?: string
   /**
-   * Sets the appointment description
+   * The appointment description.
    */
   description?: string
   /**
-   * Sets the id of the person that organised the appointment
+   * The id of the person that organised the appointment.
    */
   organiserId?: string
   /**
-   * Sets the negotiator ids to link the appointment too.
+   * The negotiator ids to link the appointment too.
    */
   negotiatorIds?: string[]
   /**
-   * Sets the office ids to link the appointment too.
+   * The office ids to link the appointment too.
    */
   officeIds?: string[]
   /**
-   * Sets the details of the attendee of the appointment
+   * The details of the attendee of the appointment.
    */
   attendee?: {
     /**
-     * Sets the identifier of the attendee
+     * The identifier of the attendee.
      */
     id?: string
     /**
-     * Sets the type of attendee
+     * The type of attendee.
      */
     type?: string
   }
   /**
-   * Sets the property identifier that the appointment takes place at
+   * The property identifier that the appointment takes place at.
    */
   propertyId?: string
   /**
-   * Sets the flag to specify if the appointment is accompanied.
+   * The flag to specify if the appointment is accompanied.
    */
   accompanied?: boolean
   /**
-   * Sets the flag to specify if the negotiator is confirmed.
+   * The flag to specify if the negotiator is confirmed.
    */
   negotiatorConfirmed?: boolean
   /**
-   * Sets the flag to specify if the attendee is confirmed.
+   * The flag to specify if the attendee is confirmed.
    */
   attendeeConfirmed?: boolean
   /**
@@ -1626,46 +1812,50 @@ export interface CreateAppointmentModel {
    */
   propertyConfirmed?: boolean
   /**
-   * Sets the recurrence pattern for this appointment
+   * The recurrence pattern for this appointment.
    */
   recurrence?: {
     /**
-     * Sets the numeric value for often this appointment will recur
+     * The numeric value for often this appointment will recur.
      */
     interval?: number // int32
     /**
-     * Sets the type of unit that the interval will apply to
+     * The type of unit that the interval will apply to.
      */
     type?: string
     /**
-     * Sets the date this appointment will continue to recur until
+     * The date and time when the appointment will continue to recur until.
      */
     until?: string // date-time
   }
   /**
-   * Sets a JSON fragment to attach to this appointment as metadata
+   * A JSON fragment to attach to this appointment as metadata.
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model to set the recurrence details of a new appointment
+ * Represents the recurrence details of a new appointment.
  */
 export interface CreateAppointmentRecurrenceModel {
   /**
-   * Sets the numeric value for often this appointment will recur
+   * The numeric value for often this appointment will recur.
    */
   interval?: number // int32
   /**
-   * Sets the type of unit that the interval will apply to
+   * The type of unit that the interval will apply to.
    */
   type?: string
   /**
-   * Sets the date this appointment will continue to recur until
+   * The date and time when the appointment will continue to recur until.
    */
   until?: string // date-time
 }
+/**
+ * example:
+ * [object Object]
+ */
 export interface CreateAreaModel {
   /**
    * Sets the areas name
@@ -1735,6 +1925,8 @@ export interface CreateCompanyAddressModel {
 }
 /**
  * Model to create a company
+ * example:
+ * [object Object]
  */
 export interface CreateCompanyModel {
   /**
@@ -1819,14 +2011,6 @@ export interface CreateCompanyModel {
     countryId?: string
   }
   /**
-   * Sets a collection of office ids that are related to this company
-   */
-  officeIds?: string[]
-  /**
-   * Sets a collection of negotiator ids that are related to this company
-   */
-  negotiatorIds?: string[]
-  /**
    * Sets a JSON fragment to attach to this company as metadata
    */
   metadata?: {
@@ -1876,6 +2060,8 @@ export interface CreateContactAddressModel {
 }
 /**
  * Model to create a new contact record
+ * example:
+ * [object Object]
  */
 export interface CreateContactModel {
   /**
@@ -2084,6 +2270,8 @@ export interface CreateContactSourceModel {
 }
 /**
  * Model used for creating a new document
+ * example:
+ * [object Object]
  */
 export interface CreateDocumentModel {
   /**
@@ -2109,6 +2297,8 @@ export interface CreateDocumentModel {
 }
 /**
  * Model to create an identity check
+ * example:
+ * [object Object]
  */
 export interface CreateIdentityCheckModel {
   /**
@@ -2132,7 +2322,7 @@ export interface CreateIdentityCheckModel {
   /**
    * Sets the details of document one that have been provided for this identity check
    */
-  document1?: {
+  identityDocument1?: {
     /**
      * Sets the id of the document type that describes this document
      */
@@ -2145,11 +2335,19 @@ export interface CreateIdentityCheckModel {
      * Sets the textual details of the identity document (eg. passport number)
      */
     details?: string
+    /**
+     * Sets the base64 binary content of the file
+     */
+    fileData?: string
+    /**
+     * Sets the filename assigned to the document
+     */
+    name?: string
   }
   /**
    * Sets the details of document two that have been provided for this identity check
    */
-  document2?: {
+  identityDocument2?: {
     /**
      * Sets the id of the document type that describes this document
      */
@@ -2162,6 +2360,14 @@ export interface CreateIdentityCheckModel {
      * Sets the textual details of the identity document (eg. passport number)
      */
     details?: string
+    /**
+     * Sets the base64 binary content of the file
+     */
+    fileData?: string
+    /**
+     * Sets the filename assigned to the document
+     */
+    name?: string
   }
   /**
    * Sets a JSON fragment to attach to this identity check as metadata
@@ -2186,6 +2392,14 @@ export interface CreateIdentityDocumentModel {
    * Sets the textual details of the identity document (eg. passport number)
    */
   details?: string
+  /**
+   * Sets the base64 binary content of the file
+   */
+  fileData?: string
+  /**
+   * Sets the filename assigned to the document
+   */
+  name?: string
 }
 /**
  * A model used to create a new relationship between a landlord and an existing contact
@@ -2264,29 +2478,31 @@ export interface CreateLandlordSourceModel {
   type?: string
 }
 /**
- * Model to create an negotiator
+ * Request body used to create a new negotiator
+ * example:
+ * [object Object]
  */
 export interface CreateNegotiatorModel {
   /**
-   * Sets the unique identifier of the negotiator
+   * The unique identifier of the negotiator
    */
   id?: string
   /**
-   * Sets the unique identifier of the office related to the negotiator
-   */
-  officeId?: string
-  /**
-   * Sets the name of the negotiator
+   * The name of the negotiator
    */
   name?: string
   /**
-   * Sets the job title of the negotiator
+   * The job title of the negotiator
    */
   jobTitle?: string
   /**
-   * Sets the active flag for a negotiator
+   * Flag denoting whether or not the negotiator is active
    */
   active?: boolean
+  /**
+   * The unique identifier of the office that the negotiator is attached to
+   */
+  officeId?: string
   /**
    * The work phone number of the negotiator
    */
@@ -2300,7 +2516,7 @@ export interface CreateNegotiatorModel {
    */
   email?: string
   /**
-   * Sets a JSON fragment to attach to this negotiator as metadata
+   * App specific metadata to set against the negotiator
    */
   metadata?: {
     [name: string]: any
@@ -2308,6 +2524,8 @@ export interface CreateNegotiatorModel {
 }
 /**
  * Model to create an offer
+ * example:
+ * [object Object]
  */
 export interface CreateOfferModel {
   /**
@@ -2354,100 +2572,92 @@ export interface CreateOfferModel {
   }
 }
 /**
- * Model to create an office address
+ * Request body used to set the address of a new office
  */
 export interface CreateOfficeAddressModel {
   /**
-   * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
-   */
-  type?: string
-  /**
-   * Sets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Sets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Sets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Sets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Sets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Sets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Sets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Sets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
   countryId?: string
 }
 /**
- * Model to create an office
+ * Request body used to create a new office
  */
 export interface CreateOfficeModel {
   /**
-   * Sets the unique identifier of the office
+   * The unique identifier of the office
    */
   id?: string
   /**
-   * Sets the name of the office
+   * The name of the office
    */
   name?: string
   /**
-   * Sets the manager of the office
+   * The name of the office manager
    */
   manager?: string
   /**
-   * Sets the address of the office
+   * The address of the office
    */
   address?: {
     /**
-     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
-     */
-    type?: string
-    /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
     countryId?: string
   }
@@ -2460,262 +2670,282 @@ export interface CreateOfficeModel {
    */
   email?: string
   /**
-   * Sets a JSON fragment to attach to this office as metadata
+   * App specific metadata to set against the office
    */
   metadata?: {
     [name: string]: any
   }
 }
+/**
+ * Request body used to set the address of a new property
+ */
 export interface CreatePropertyAddressModel {
   /**
-   * Sets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Sets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Sets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Sets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Sets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Sets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Sets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Sets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
   countryId?: string
   /**
-   * Sets the geolocation of the address
+   * The geolocation coordinates associated with the address
    */
   geolocation?: {
     /**
-     * Sets the latitude coordinate of the coordinate pair
+     * The latitude coordinate of the coordinate pair
      */
     latitude?: number // double
     /**
-     * Sets the longitude coordinate of the coordinate pair
+     * The longitude coordinate of the coordinate pair
      */
     longitude?: number // double
   }
 }
+/**
+ * Request body used to set the EPC statistic of a new property
+ */
 export interface CreatePropertyEpcModel {
   /**
-   * Sets whether this property is exempt from requiring an EPC
+   * A flag denoting whether or not this property is exempt from requiring an EPC certificate
    */
   exempt?: boolean
   /**
-   * Sets the current energy efficienty rating
+   * The current energy efficiency rating
    */
   eer?: number // int32
   /**
-   * Sets the potential energy efficienty rating
+   * The potential energy efficiency rating
    */
   eerPotential?: number // int32
   /**
-   * Sets the current environmental impact rating
+   * The current environmental impact rating
    */
   eir?: number // int32
   /**
-   * Sets the potential environmental impact rating
+   * The potential environmental impact rating
    */
   eirPotential?: number // int32
 }
+/**
+ * Request body to set the external land area of a new property
+ */
 export interface CreatePropertyExternalAreaModel {
   /**
-   * Sets the unit of area (acres/hectares)
+   * The unit of area (acres/hectares)
    */
   type?: string
   /**
-   * Sets the minimum area bound
+   * The minimum area bound
    */
   min?: number // double
   /**
-   * Sets the maximum area bound
+   * The maximum area bound
    */
   max?: number // double
 }
+/**
+ * Request body used to set the geolocation coordinates of a new property's address
+ */
 export interface CreatePropertyGeolocationModel {
   /**
-   * Sets the latitude coordinate of the coordinate pair
+   * The latitude coordinate of the coordinate pair
    */
   latitude?: number // double
   /**
-   * Sets the longitude coordinate of the coordinate pair
+   * The longitude coordinate of the coordinate pair
    */
   longitude?: number // double
 }
 /**
- * Outward facing model for the creation of a property image
+ * Request body used to create a new property image
+ * example:
+ * [object Object]
  */
 export interface CreatePropertyImageModel {
   /**
-   * Sets the base64 binary content of the file
+   * The base64 binary content of the file, including mime type
    */
   data?: string
   /**
-   * Sets the id of the property the image is linked to
+   * The unique identifier of the property attached to the image
    */
   propertyId?: string
   /**
-   * Sets the images caption
+   * The image caption
    */
   caption?: string
   /**
-   * Sets the images type
+   * The type of image (picture/floorPlan/epc/map)
    */
   type?: string
 }
+/**
+ * Request body to set the internal dimensions of a new property
+ */
 export interface CreatePropertyInternalAreaModel {
   /**
-   * Sets the unit of area (squareFeet/squareMetres)
+   * The unit of area (squareFeet/squareMetres)
    */
   type?: string
   /**
-   * Sets the minimum area bound
+   * The minimum area bound
    */
   min?: number // double
   /**
-   * Sets the maximum area bound
+   * The maximum area bound
    */
   max?: number // double
 }
+/**
+ * Request body used to set details specific to lettings marketing on a new property
+ */
 export interface CreatePropertyLettingModel {
   /**
-   * Sets the date that the property was flagged as for let
+   * The date the property was marked as to let
    */
   instructed?: string // date-time
   /**
-   * Sets the date this property is next available from
+   * The date the property is available from
    */
   availableFrom?: string // date-time
   /**
-   * Sets the date this property is available to
+   * The date the property is available to
    */
   availableTo?: string // date-time
   /**
-   * Sets the monetary amount required to rent this property
+   * The rent being charged for the property
    */
   rent?: number // double
   /**
-   * Sets the rent collection frequency (weekly/monthly/yearly)
+   * The frequency at which rent will be collected (weekly/monthly/yearly)
    */
   rentFrequency?: string
   /**
-   * Sets the acceptable letting terms (short/long/any)
+   * The acceptable letting terms (short/long/any)
    */
   term?: string
   /**
-   * Sets the letting status of this property (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
+   * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
    */
   status?: string
 }
 /**
- * A model used to create a new property
+ * Request body used to create a new property
  */
 export interface CreatePropertyModel {
   /**
-   * Sets the marketing mode of the property (selling/letting/sellingAndLetting)
+   * The marketing mode of the property (selling/letting/sellingAndLetting)
    */
   marketingMode?: string
   /**
-   * Sets the department id which defines a specific property's acceptable values for type, style, situation, parking, age and locality
+   * The unique identifier of the department
    */
   departmentId?: string
   /**
-   * Sets the strapline description
+   * The strapline description containing a short summary about the property
    */
   strapline?: string
   /**
-   * Sets the brief description
+   * The brief description of the property
    */
   description?: string
   /**
-   * Sets the summary of accommodation
+   * The summary of accommodation, typically short phrases or bullet points describing the key features of the property
    */
   summary?: string
   /**
-   * Sets the address of the property
+   * The address of the property
    */
   address?: {
     /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
     countryId?: string
     /**
-     * Sets the geolocation of the address
+     * The geolocation coordinates associated with the address
      */
     geolocation?: {
       /**
-       * Sets the latitude coordinate of the coordinate pair
+       * The latitude coordinate of the coordinate pair
        */
       latitude?: number // double
       /**
-       * Sets the longitude coordinate of the coordinate pair
+       * The longitude coordinate of the coordinate pair
        */
       longitude?: number // double
     }
   }
   /**
-   * Sets the number of bedrooms
+   * The total number of bedrooms in the property
    */
   bedrooms?: number // int32
   /**
-   * Sets the number of reception rooms
+   * The total number of reception rooms in the property
    */
   receptions?: number // int32
   /**
-   * Sets the number of bathrooms
+   * The total number of bathrooms in the property
    */
   bathrooms?: number // int32
   /**
-   * Sets the council tax banding (A/B/C/D/E/F/G/H)
+   * The council tax banding of the property (A/B/C/D/E/F/G/H)
    */
   councilTax?: string
   /**
-   * Sets a value indicating whether this property can be advertised on the internet
+   * A flag denoting whether or not this property can be advertised on the internet
    */
   internetAdvertising?: boolean
   /**
@@ -2723,426 +2953,334 @@ export interface CreatePropertyModel {
    */
   viewingArrangements?: string
   /**
-   * Sets details of the EPC statistics
+   * Details of the EPC statistics
    */
   epc?: {
     /**
-     * Sets whether this property is exempt from requiring an EPC
+     * A flag denoting whether or not this property is exempt from requiring an EPC certificate
      */
     exempt?: boolean
     /**
-     * Sets the current energy efficienty rating
+     * The current energy efficiency rating
      */
     eer?: number // int32
     /**
-     * Sets the potential energy efficienty rating
+     * The potential energy efficiency rating
      */
     eerPotential?: number // int32
     /**
-     * Sets the current environmental impact rating
+     * The current environmental impact rating
      */
     eir?: number // int32
     /**
-     * Sets the potential environmental impact rating
+     * The potential environmental impact rating
      */
     eirPotential?: number // int32
   }
   /**
-   * Sets the external area
+   * Details of the external land area associated to this property
    */
   externalArea?: {
     /**
-     * Sets the unit of area (acres/hectares)
+     * The unit of area (acres/hectares)
      */
     type?: string
     /**
-     * Sets the minimum area bound
+     * The minimum area bound
      */
     min?: number // double
     /**
-     * Sets the maximum area bound
+     * The maximum area bound
      */
     max?: number // double
   }
   /**
-   * Sets details of the internal dimensions of the property
+   * Details of the internal dimensions of the property
    */
   internalArea?: {
     /**
-     * Sets the unit of area (squareFeet/squareMetres)
+     * The unit of area (squareFeet/squareMetres)
      */
     type?: string
     /**
-     * Sets the minimum area bound
+     * The minimum area bound
      */
     min?: number // double
     /**
-     * Sets the maximum area bound
+     * The maximum area bound
      */
     max?: number // double
   }
   /**
-   * Sets the sales specific details of the property
+   * Selling specific details about the property
    */
   selling?: {
     /**
-     * Sets the date that the property was flagged as for sale
+     * The date that the property was marked as for sale
      */
     instructed?: string // date-time
     /**
-     * Sets the asking price of the property
+     * The marketing price of the property
      */
     price?: number // int32
     /**
-     * Sets the price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
+     * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
      */
     qualifier?: string
     /**
-     * Sets the sales status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+     * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
      */
     status?: string
     /**
-     * Sets details of the sales tenure of the property
+     * Details about the tenure of the property
      */
     tenure?: {
       /**
-       * Sets the type of tenure that applies to this property
+       * The type of tenure that applies to the property (freehold/leasehold/shareOfFreehold/commonhold/tba)
        */
       type?: string
       /**
-       * Sets tenure expiration date
+       * The tenure expiration date
        */
       expiry?: string // date-time
     }
   }
   /**
-   * Sets the letting specific details of the property
+   * Letting specific details about the property
    */
   letting?: {
     /**
-     * Sets the date that the property was flagged as for let
+     * The date the property was marked as to let
      */
     instructed?: string // date-time
     /**
-     * Sets the date this property is next available from
+     * The date the property is available from
      */
     availableFrom?: string // date-time
     /**
-     * Sets the date this property is available to
+     * The date the property is available to
      */
     availableTo?: string // date-time
     /**
-     * Sets the monetary amount required to rent this property
+     * The rent being charged for the property
      */
     rent?: number // double
     /**
-     * Sets the rent collection frequency (weekly/monthly/yearly)
+     * The frequency at which rent will be collected (weekly/monthly/yearly)
      */
     rentFrequency?: string
     /**
-     * Sets the acceptable letting terms (short/long/any)
+     * The acceptable letting terms (short/long/any)
      */
     term?: string
     /**
-     * Sets the letting status of this property (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
+     * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
      */
     status?: string
   }
   /**
-   * Sets the property types
+   * The property type attributes
    */
   type?: string[]
   /**
-   * Sets the property style
+   * The property style attributes
    */
   style?: string[]
   /**
-   * Sets the property situation
+   * The property situation attributes
    */
   situation?: string[]
   /**
-   * Sets the property parking
+   * The property parking attributes
    */
   parking?: string[]
   /**
-   * Sets the property age
+   * The property age attributes
    */
   age?: string[]
   /**
-   * Sets the property locality
+   * The property locality attributes
    */
   locality?: string[]
   /**
-   * Sets the listing of room details
+   * Details of each room in the property
    */
   rooms?: {
+    /**
+     * The name of the room
+     */
     name?: string
+    /**
+     * Details about the dimensions of the room
+     */
     dimensions?: string
+    /**
+     * Short description of the room
+     */
     description?: string
   }[]
   /**
-   * Sets the properties negotiatior id
+   * The unique identifier of the negotiator managing the property
    */
   negotiatorId?: string
   /**
-   * Sets the properties office ids
+   * A collection of unique identifiers of offices attached to the property
    */
   officeIds?: string[]
   /**
-   * Sets the identifier of the area that the property resides in
+   * The unique identifier of the area that the property resides in
    */
   areaId?: string
   /**
-   * Sets a JSON fragment to attach to this property as metadata
+   * App specific metadata to set against the property
    */
   metadata?: {
     [name: string]: any
   }
 }
+/**
+ * Request body to create a room in the Rooms collection of a new property
+ */
 export interface CreatePropertyRoomModel {
+  /**
+   * The name of the room
+   */
   name?: string
+  /**
+   * Details about the dimensions of the room
+   */
   dimensions?: string
+  /**
+   * Short description of the room
+   */
   description?: string
 }
+/**
+ * Request body used to set details specific to sales marketing on a new property
+ */
 export interface CreatePropertySellingModel {
   /**
-   * Sets the date that the property was flagged as for sale
+   * The date that the property was marked as for sale
    */
   instructed?: string // date-time
   /**
-   * Sets the asking price of the property
+   * The marketing price of the property
    */
   price?: number // int32
   /**
-   * Sets the price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
+   * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
    */
   qualifier?: string
   /**
-   * Sets the sales status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+   * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
    */
   status?: string
   /**
-   * Sets details of the sales tenure of the property
+   * Details about the tenure of the property
    */
   tenure?: {
     /**
-     * Sets the type of tenure that applies to this property
+     * The type of tenure that applies to the property (freehold/leasehold/shareOfFreehold/commonhold/tba)
      */
     type?: string
     /**
-     * Sets tenure expiration date
+     * The tenure expiration date
      */
     expiry?: string // date-time
   }
 }
+/**
+ * Request body used to set the tenure of a new property
+ */
 export interface CreatePropertyTenureModel {
   /**
-   * Sets the type of tenure that applies to this property
+   * The type of tenure that applies to the property (freehold/leasehold/shareOfFreehold/commonhold/tba)
    */
   type?: string
   /**
-   * Sets tenure expiration date
+   * The tenure expiration date
    */
   expiry?: string // date-time
 }
 /**
- * Model to create a tasks recipient
- */
-export interface CreateRecipientModel {
-  /**
-   * Unique identifier of the tasks recipient
-   */
-  id?: string
-  /**
-   * Entity type of the recipient (office/negotiator)
-   */
-  type?: string
-}
-/**
- * Model to create a source
+ * Request body used to create a new source of business
+ * example:
+ * [object Object]
  */
 export interface CreateSourceModel {
   /**
-   * Sets the sources name
+   * The name of the source or advertising publication
    */
   name?: string
   /**
-   * Sets the sources type
+   * The type of the source (source/advertisement)
    */
   type?: string
   /**
-   * Sets a list of departments related to this source
-   */
-  departmentIds?: string[]
-  /**
-   * Sets a list of offices related to this source
+   * A collection of the unique identifiers of offices that regularly get business from the source
    */
   officeIds?: string[]
+  /**
+   * A collection of unique identifiers of departments that regularly get business from the source
+   */
+  departmentIds?: string[]
 }
 /**
- * Model used to create a new task
+ * Representation of a task, which can also be an internal message
+ * example:
+ * [object Object]
  */
 export interface CreateTaskModel {
   /**
-   * Sets the date the task will be activated
+   * The date the task becomes active
    */
   activates?: string // date-time
   /**
-   * Sets the date the task will be completed
+   * The date the task was completed
    */
   completed?: string // date-time
   /**
-   * Sets the type of task to create
+   * The unique identifier of the task type
    */
   typeId?: string
   /**
-   * Sets the unique identifier of the negotiator whos creating the task
+   * The unique identifer of the negotiator that created the task
    */
   senderId?: string
   /**
-   * Sets the text against the task or message
+   * The textual contents of the task or message
    */
   text?: string
   /**
-   * Sets the unique identifier of the landlord the task is related too
+   * The unique identifier of the landlord the task is associated to
    */
   landlordId?: string
   /**
-   * Sets the unique identifier of the property the task is related too
+   * The unique identifier of the property the task is associated to
    */
   propertyId?: string
   /**
-   * Sets the unique identifier of the applicant the task is related too
+   * The unique identifier of the applicant the task is associated to
    */
   applicantId?: string
   /**
-   * Sets the unique identifier of the tenancy the task is related too
+   * The unique identifier of the tenancy the task is associated to
    */
   tenancyId?: string
   /**
-   * Sets the unique identifier of the contact the task is related too
+   * The unique identifier of the contact the task is associated to
    */
   contactId?: string
   /**
-   * Sets the recipient to create against this task
+   * The unique identifier of the negotiator or office the task is being sent to
    */
-  recipient?: {
-    /**
-     * Unique identifier of the tasks recipient
-     */
-    id?: string
-    /**
-     * Entity type of the recipient (office/negotiator)
-     */
-    type?: string
-  }
+  recipientId?: string
   /**
-   * Sets a JSON fragment to attach to this task as metadata
+   * The type of the recipient (office/negotiator)
    */
-  metadata?: {
-    [name: string]: any
-  }
-}
-/**
- * Request body to create a works order item
- */
-export interface CreateWorksOrderItemModel {
+  recipientType?: string
   /**
-   * Sets the notes against the work order item
-   */
-  notes?: string
-  /**
-   * Sets the entity to charge the work order item to
-   */
-  chargeTo?: string
-  /**
-   * Sets the estimate of the work order item
-   */
-  estimate?: number // double
-  /**
-   * Sets the estimate type of the work order item
-   */
-  estimateType?: string
-  /**
-   * Sets the cost of the work order item
-   */
-  cost?: number // double
-}
-/**
- * Request body to create a works order
- */
-export interface CreateWorksOrderModel {
-  /**
-   * Sets the id of the company that has been selected to perform the work
-   */
-  companyId?: string
-  /**
-   * Sets the id of the property the work is for
-   */
-  propertyId?: string
-  /**
-   * Sets the id of the tenancy that originated the work
-   */
-  tenancyId?: string
-  /**
-   * Sets the id of the negotiator that booked the work
-   */
-  negotiatorId?: string
-  /**
-   * Sets the id of the type of work that needs to be performed
-   */
-  typeId?: string
-  /**
-   * Sets the status of the works order
-   */
-  status?: string
-  /**
-   * Sets the description of the works order
-   */
-  description?: string
-  /**
-   * Sets the person who reported the fault
-   */
-  reporter?: string
-  /**
-   * Sets the date the works order was booked
-   */
-  booked?: string // date-time
-  /**
-   * Sets the date the works order is required
-   */
-  required?: string // date-time
-  /**
-   * Sets the date the works order was completed
-   */
-  completed?: string // date-time
-  /**
-   * Sets the items to create against the works order
-   */
-  items?: {
-    /**
-     * Sets the notes against the work order item
-     */
-    notes?: string
-    /**
-     * Sets the entity to charge the work order item to
-     */
-    chargeTo?: string
-    /**
-     * Sets the estimate of the work order item
-     */
-    estimate?: number // double
-    /**
-     * Sets the estimate type of the work order item
-     */
-    estimateType?: string
-    /**
-     * Sets the cost of the work order item
-     */
-    cost?: number // double
-  }[]
-  /**
-   * Sets a JSON fragment to attach to this works order as metadata
+   * App specific metadata that has been set against the task
    */
   metadata?: {
     [name: string]: any
@@ -3192,6 +3330,10 @@ export interface DepartmentModel {
    * Gets a list of property locality values that will be accepted by other services
    */
   localityOptions?: string[]
+  /**
+   * The ETag for the current version of this department. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -3200,6 +3342,12 @@ export interface DepartmentModel {
   readonly _embedded?: {
     [name: string]: any
   }
+}
+export interface Departments {
+  Id?: string[]
+  Name?: string
+  PageNumber?: number
+  PageSize?: number
 }
 /**
  * Model representing a Document
@@ -3233,6 +3381,10 @@ export interface DocumentModel {
    * Gets the filename assigned to the document
    */
   name?: string
+  /**
+   * The ETag for the current version of this contact. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -3241,6 +3393,34 @@ export interface DocumentModel {
   readonly _embedded?: {
     [name: string]: any
   }
+}
+export interface Documents {
+  PageNumber?: number
+  PageSize?: number
+  SortBy?: string
+  Id?: string[]
+  AssociatedId?: string[]
+  TypeId?: string[]
+  AssociatedType?: (
+    | 'appliance'
+    | 'applicant'
+    | 'bankStatement'
+    | 'batch'
+    | 'certificate'
+    | 'contact'
+    | 'depositCertificate'
+    | 'estate'
+    | 'estateUnit'
+    | 'idCheck'
+    | 'keySet'
+    | 'landlord'
+    | 'nominalTransaction'
+    | 'property'
+    | 'tenancy'
+    | 'tenancyCheck'
+    | 'tenancyRenewal'
+    | 'worksOrder'
+  )[]
 }
 export interface EntityTagHeaderValue {
   readonly tag?: {
@@ -3305,11 +3485,11 @@ export interface IdentityCheckModel {
   /**
    * Gets the details of document one that has been provided for this identity check
    */
-  document1?: {
+  identityDocument1?: {
     /**
      * Gets the unique identifier of the document
      */
-    id?: string
+    documentId?: string
     /**
      * Gets the id of the document type that describes this document
      */
@@ -3326,11 +3506,11 @@ export interface IdentityCheckModel {
   /**
    * Gets the details of document two that has been provided for this identity check
    */
-  document2?: {
+  identityDocument2?: {
     /**
      * Gets the unique identifier of the document
      */
-    id?: string
+    documentId?: string
     /**
      * Gets the id of the document type that describes this document
      */
@@ -3350,6 +3530,10 @@ export interface IdentityCheckModel {
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of this identity check. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -3359,6 +3543,21 @@ export interface IdentityCheckModel {
     [name: string]: any
   }
 }
+export interface IdentityChecks {
+  PageNumber?: number
+  PageSize?: number
+  SortBy?: string
+  Id?: string[]
+  ContactId?: string[]
+  NegotiatorId?: string[]
+  Status?: string[]
+  CheckDateTo?: string
+  CheckDateFrom?: string
+  CreatedTo?: string
+  CreatedFrom?: string
+  pageNumber?: number
+  pageSize?: number
+}
 /**
  * Represents the details of a document added to an identity check
  */
@@ -3366,7 +3565,7 @@ export interface IdentityDocumentModel {
   /**
    * Gets the unique identifier of the document
    */
-  id?: string
+  documentId?: string
   /**
    * Gets the id of the document type that describes this document
    */
@@ -3382,6 +3581,8 @@ export interface IdentityDocumentModel {
 }
 /**
  * Create (OR update) a relationship between the applicant and a contact
+ * example:
+ * [object Object]
  */
 export interface InsertApplicantContactRelationshipModel {
   /**
@@ -3415,7 +3616,7 @@ export interface InsertLandlordContactRelationshipModel {
   isMain?: boolean
 }
 /**
- * Create (OR update) a relationship between the vendor and a contact
+ * Request body used to create or edit a relationship between the vendor and a contact
  */
 export interface InsertVendorContactRelationshipModel {
   /**
@@ -3537,14 +3738,6 @@ export interface LandlordContactModel {
      */
     countryId?: string
   }
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
 }
 export interface LandlordModel {
   id?: string
@@ -3580,14 +3773,6 @@ export interface LandlordModel {
      * Gets the landlords source type
      */
     type?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
   }
   /**
    * Gets a collection of contact entities attached to this landlord
@@ -3659,14 +3844,6 @@ export interface LandlordModel {
        */
       countryId?: string
     }
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
   }[]
   /**
    * Gets a listing of additional metadata that has been set against this landlord
@@ -3674,6 +3851,10 @@ export interface LandlordModel {
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of this landlord. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -3695,14 +3876,17 @@ export interface LandlordSourceModel {
    * Gets the landlords source type
    */
   type?: string
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
+}
+export interface Landlords {
+  PageNumber?: number
+  PageSize?: number
+  SortBy?: string
+  Id?: string[]
+  Active?: boolean
+  Address?: string
+  Name?: string
+  CreatedFrom?: string
+  CreatedTo?: string
 }
 export interface LinkModel {
   href?: string
@@ -3717,33 +3901,36 @@ export interface ListItemModel {
    */
   value?: string
 }
+/**
+ * Representation of a negotiator
+ */
 export interface NegotiatorModel {
   /**
-   * Gets the unique identifier
+   * The unique identifier of the negotiator
    */
   id?: string
   /**
-   * Gets the date and time that the negotiator was created
+   * The date and time when the negotiator was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the negotiator was last modified
+   * The date and time when the negotiator was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the name of the negotiator
+   * The name of the negotiator
    */
   name?: string
   /**
-   * Gets the job title of the negotiator
+   * The job title of the negotiator
    */
   jobTitle?: string
   /**
-   * Gets the active flag for a negotiator
+   * Flag denoting whether or not the negotiator is active
    */
   active?: boolean
   /**
-   * Gets the office the negotiator is linked too
+   * The unique identifier of the office that the negotiator is attached to
    */
   officeId?: string
   /**
@@ -3759,11 +3946,15 @@ export interface NegotiatorModel {
    */
   email?: string
   /**
-   * Gets a listing of additional metadata that has been set against this negotiator
+   * App specific metadata to set against the negotiator
    */
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of the negotiator. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -3772,6 +3963,14 @@ export interface NegotiatorModel {
   readonly _embedded?: {
     [name: string]: any
   }
+}
+export interface Negotiators {
+  PageSize?: number
+  PageNumber?: number
+  SortBy?: string
+  Id?: string[]
+  OfficeId?: string[]
+  Name?: string
 }
 /**
  * Model representing the physical address of a building or premise
@@ -3878,14 +4077,6 @@ export interface OfferContactModel {
      * Gets the ISO-3166 country code associated with the address
      */
     countryId?: string
-  }
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
   }
 }
 /**
@@ -4014,14 +4205,6 @@ export interface OfferModel {
        */
       countryId?: string
     }
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
   }[]
   /**
    * Gets a listing of additional metadata that has been set against this offer
@@ -4029,6 +4212,10 @@ export interface OfferModel {
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of this offer. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -4038,106 +4225,116 @@ export interface OfferModel {
     [name: string]: any
   }
 }
+export interface Offers {
+  PageNumber?: number
+  PageSize?: number
+  SortBy?: string
+  Id?: string[]
+  ApplicantId?: string[]
+  PropertyId?: string[]
+  Address?: string
+  Name?: string
+  AmountFrom?: number
+  AmountTo?: number
+  DateFrom?: string
+  DateTo?: string
+  Status?: ('pending' | 'withdrawn' | 'rejected' | 'accepted' | 'noteOfInterest' | 'noteOfInterestWithdrawn')[]
+}
 /**
- * Model representing the physical address of a building or premise
+ * Representation of the physical address of a building or premise
  */
 export interface OfficeAddressModel {
   /**
-   * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
-   */
-  type?: string
-  /**
-   * Gets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Gets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Gets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Gets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Gets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Gets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Gets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Gets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
   countryId?: string
 }
+/**
+ * Representation of an office
+ */
 export interface OfficeModel {
   /**
-   * Gets the unique identifier
+   * The unique identifier of the office
    */
   id?: string
   /**
-   * Gets the date and time that the office was created
+   * The date and time when the office was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the office was last modified
+   * The date and time when the office was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the name of the office
+   * The name of the office
    */
   name?: string
   /**
-   * Gets the manager of the office
+   * The name of the office manager
    */
   manager?: string
   /**
-   * Gets the address of the office
+   * The address of the office
    */
   address?: {
     /**
-     * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
-     */
-    type?: string
-    /**
-     * Gets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Gets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Gets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Gets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Gets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Gets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Gets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Gets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
     countryId?: string
   }
@@ -4150,11 +4347,15 @@ export interface OfficeModel {
    */
   email?: string
   /**
-   * Gets a listing of additional metadata that has been set against this office
+   * App specific metadata that has been set against the office
    */
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of the office. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -4163,6 +4364,14 @@ export interface OfficeModel {
   readonly _embedded?: {
     [name: string]: any
   }
+}
+export interface Offices {
+  PageSize?: number
+  PageNumber?: number
+  SortBy?: string
+  Id?: string[]
+  Address?: string
+  Name?: string
 }
 export interface PagedResultApplicantModel_ {
   _embedded?: {
@@ -4350,14 +4559,6 @@ export interface PagedResultApplicantModel_ {
        * Gets the applicants source type
        */
       type?: string
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
     }
     /**
      * A collection of office unique identifiers that are associated to the applicant. The first identifier listed is considered to be the primary office
@@ -4436,14 +4637,6 @@ export interface PagedResultApplicantModel_ {
          */
         countryId?: string
       }
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
     }[]
     /**
      * A listing of app specific metadata that has been set against this applicant
@@ -4451,6 +4644,10 @@ export interface PagedResultApplicantModel_ {
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of this applicant. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -4473,147 +4670,207 @@ export interface PagedResultApplicantModel_ {
 export interface PagedResultAppointmentModel_ {
   _embedded?: {
     /**
-     * Gets the unique identifier
+     * The appointments unique identifier.
      */
     id?: string
     /**
-     * Gets the datetime when the appointment was created
+     * The datetime when the appointment was created.
      */
     created?: string // date-time
     /**
-     * Gets the date and time that the appointment was last modified
+     * The date and time when the appointment was last modified.
      */
     modified?: string // date-time
     /**
-     * Gets the date and time that the appointment will start
+     * The date and time when the appointment will start.
      */
     start?: string // date-time
     /**
-     * Gets the date and time that the appointment will end
+     * The date and time when the appointment will end.
      */
     end?: string // date-time
     /**
-     * Gets the type of appointment
+     * The type of appointment.
      */
     typeId?: string
     /**
-     * Gets the appointment description
+     * The appointment description.
      */
     description?: string
     /**
-     * Gets directions to the appointment location
+     * The directions to the appointment location.
      */
     directions?: string
     /**
-     * Flag denoting whether or not the appointment recurs
+     * A flag denoting whether or not the appointment recurs.
      */
     recurring?: boolean
     /**
-     * Flag denoting whether or not the appointment is cancelled
+     * A flag denoting whether or not the appointment is cancelled.
      */
     cancelled?: boolean
     /**
-     * Gets the appointments follow up information
+     * The appointments follow up information.
      */
     followUp?: {
       /**
-       * Gets the date that the appointment should be followed up on
+       * The date when the appointment should be followed up on.
        */
       due?: string // date-time
       /**
-       * Gets the unique identifier of a pre-defined follow up response type
+       * The unique identifier of a pre-defined follow up response type.
        */
       responseId?: string
       /**
-       * Gets the internal follow up notes to be stored against the appointment
+       * The internal follow up notes to be stored against the appointment.
        */
       notes?: string
     }
     /**
-     * Gets the unique identifier of the property related to the appointment
+     * The unique identifier of the property related to the appointment.
      */
     propertyId?: string
     /**
-     * Gets the id of the person that organised the appointment
+     * The identifier of the person that organised the appointment.
      */
     organiserId?: string
     /**
-     * Gets a collection of negotiators related to the appointment
+     * A collection of negotiators related to the appointment.
      */
     negotiatorIds?: string[]
     /**
-     * Gets a collection of offices related to the appointment
+     * A collection of offices related to the appointment.
      */
     officeIds?: string[]
     /**
-     * Gets a collection of attendees who are requested to attend the appointment
+     * A collection of attendees who are requested to attend the appointment.
      */
     attendee?: {
       /**
-       * Gets the identifier of the attendee
+       * The unique identifier of the attendee.
        */
       id?: string
       /**
-       * Gets the type of attendee
+       * The type of attendee.
        */
       type?: string
       /**
-       * Gets the contacts of this attendee
+       * The contacts of this attendee.
        */
       contacts?: {
         /**
-         * Gets the identifier of the contact
+         * The identifier of the contact.
          */
         id?: string
         /**
-         * Gets the name of the contact
+         * The name of the contact.
          */
         name?: string
         /**
-         * Gets a collection of the contacts' contact details
+         * The home phone number of the contact
          */
-        communicationDetails?: {
-          /**
-           * Gets the label representing the type of detail (eg E-mail)
-           */
-          label?: string
-          /**
-           * Gets the contact detail (eg the actual telephone number or email address)
-           */
-          detail?: string
-        }[]
+        homePhone?: string
+        /**
+         * The work phone number of the contact
+         */
+        workPhone?: string
+        /**
+         * The mobile phone number of the contact
+         */
+        mobilePhone?: string
+        /**
+         * The email address of the contact
+         */
+        email?: string
       }[]
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
     }
     /**
-     * Flag denoting whether or not the appointment is accompanied
+     * A flag denoting whether or not the appointment is accompanied.
      */
     accompanied?: boolean
     /**
-     * Flag denoting whether or not the negotiator is confirmed
+     * A flag denoting whether or not the negotiator is confirmed.
      */
     negotiatorConfirmed?: boolean
     /**
-     * Flag denoting whether or not the attendee is confirmed
+     * A flag denoting whether or not the attendee is confirmed.
      */
     attendeeConfirmed?: boolean
     /**
-     * Flag denoting whether or not the property is confirmed
+     * A flag denoting whether or not the property is confirmed.
      */
     propertyConfirmed?: boolean
     /**
-     * Gets a listing of additional metadata that has been set against this appointment
+     * A listing of additional metadata that has been set against this appointment.
      */
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of this appointment. Used for managing update concurrency.
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultAreaModel_ {
+  _embedded?: {
+    /**
+     * Gets the unique identifier
+     */
+    id?: string
+    /**
+     * Gets the date and time that the contact was created
+     */
+    created?: string // date-time
+    /**
+     * Gets the date and time that the contact was last modified
+     */
+    modified?: string // date-time
+    /**
+     * Gets the areas name
+     */
+    name?: string
+    /**
+     * Gets the areas active flag
+     */
+    active?: boolean
+    /**
+     * Gets the areas type (postcodes/polygon/group)
+     */
+    type?: string
+    /**
+     * Gets the areas location details (Postcodes, Group names or Lat Longs)
+     */
+    area?: string[]
+    /**
+     * Gets the departments linked to this area
+     */
+    departmentIds?: string[]
+    /**
+     * Gets the offices linked to this area
+     */
+    officeIds?: string[]
+    /**
+     * The ETag for the current version of this area. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -4725,19 +4982,15 @@ export interface PagedResultCompanyModel_ {
       country?: string
     }
     /**
-     * Gets the collection of office ids that are related to this company
-     */
-    officeIds?: string[]
-    /**
-     * Gets the collection of negotiator ids that are related to this company
-     */
-    negotiatorIds?: string[]
-    /**
      * Gets a listing of additional metadata that has been set against this company
      */
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of this company. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -4796,6 +5049,10 @@ export interface PagedResultContactModel_ {
      */
     marketingConsent?: string
     /**
+     * Gets the status of the last identity check performed against this contact (pass/fail/pending/cancelled/warnings/unchecked)
+     */
+    identityCheck?: string
+    /**
      * Gets the contacts source information
      */
     source?: {
@@ -4807,14 +5064,6 @@ export interface PagedResultContactModel_ {
        * Gets the contacts source type
        */
       type?: string
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
     }
     /**
      * The home phone number of the contact
@@ -4969,6 +5218,10 @@ export interface PagedResultContactModel_ {
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of this contact. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -5030,6 +5283,10 @@ export interface PagedResultDepartmentModel_ {
      * Gets a list of property locality values that will be accepted by other services
      */
     localityOptions?: string[]
+    /**
+     * The ETag for the current version of this department. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -5079,6 +5336,10 @@ export interface PagedResultDocumentModel_ {
      * Gets the filename assigned to the document
      */
     name?: string
+    /**
+     * The ETag for the current version of this contact. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -5133,11 +5394,11 @@ export interface PagedResultIdentityCheckModel_ {
     /**
      * Gets the details of document one that has been provided for this identity check
      */
-    document1?: {
+    identityDocument1?: {
       /**
        * Gets the unique identifier of the document
        */
-      id?: string
+      documentId?: string
       /**
        * Gets the id of the document type that describes this document
        */
@@ -5154,11 +5415,11 @@ export interface PagedResultIdentityCheckModel_ {
     /**
      * Gets the details of document two that has been provided for this identity check
      */
-    document2?: {
+    identityDocument2?: {
       /**
        * Gets the unique identifier of the document
        */
-      id?: string
+      documentId?: string
       /**
        * Gets the id of the document type that describes this document
        */
@@ -5178,6 +5439,10 @@ export interface PagedResultIdentityCheckModel_ {
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of this identity check. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -5232,14 +5497,6 @@ export interface PagedResultLandlordModel_ {
        * Gets the landlords source type
        */
       type?: string
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
     }
     /**
      * Gets a collection of contact entities attached to this landlord
@@ -5311,14 +5568,6 @@ export interface PagedResultLandlordModel_ {
          */
         countryId?: string
       }
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
     }[]
     /**
      * Gets a listing of additional metadata that has been set against this landlord
@@ -5326,6 +5575,10 @@ export interface PagedResultLandlordModel_ {
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of this landlord. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -5348,31 +5601,31 @@ export interface PagedResultLandlordModel_ {
 export interface PagedResultNegotiatorModel_ {
   _embedded?: {
     /**
-     * Gets the unique identifier
+     * The unique identifier of the negotiator
      */
     id?: string
     /**
-     * Gets the date and time that the negotiator was created
+     * The date and time when the negotiator was created
      */
     created?: string // date-time
     /**
-     * Gets the date and time that the negotiator was last modified
+     * The date and time when the negotiator was last modified
      */
     modified?: string // date-time
     /**
-     * Gets the name of the negotiator
+     * The name of the negotiator
      */
     name?: string
     /**
-     * Gets the job title of the negotiator
+     * The job title of the negotiator
      */
     jobTitle?: string
     /**
-     * Gets the active flag for a negotiator
+     * Flag denoting whether or not the negotiator is active
      */
     active?: boolean
     /**
-     * Gets the office the negotiator is linked too
+     * The unique identifier of the office that the negotiator is attached to
      */
     officeId?: string
     /**
@@ -5388,11 +5641,15 @@ export interface PagedResultNegotiatorModel_ {
      */
     email?: string
     /**
-     * Gets a listing of additional metadata that has been set against this negotiator
+     * App specific metadata to set against the negotiator
      */
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of the negotiator. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -5536,14 +5793,6 @@ export interface PagedResultOfferModel_ {
          */
         countryId?: string
       }
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
     }[]
     /**
      * Gets a listing of additional metadata that has been set against this offer
@@ -5551,6 +5800,10 @@ export interface PagedResultOfferModel_ {
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of this offer. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -5573,63 +5826,59 @@ export interface PagedResultOfferModel_ {
 export interface PagedResultOfficeModel_ {
   _embedded?: {
     /**
-     * Gets the unique identifier
+     * The unique identifier of the office
      */
     id?: string
     /**
-     * Gets the date and time that the office was created
+     * The date and time when the office was created
      */
     created?: string // date-time
     /**
-     * Gets the date and time that the office was last modified
+     * The date and time when the office was last modified
      */
     modified?: string // date-time
     /**
-     * Gets the name of the office
+     * The name of the office
      */
     name?: string
     /**
-     * Gets the manager of the office
+     * The name of the office manager
      */
     manager?: string
     /**
-     * Gets the address of the office
+     * The address of the office
      */
     address?: {
       /**
-       * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
-       */
-      type?: string
-      /**
-       * Gets the building name
+       * The building name
        */
       buildingName?: string
       /**
-       * Gets the building number
+       * The building number
        */
       buildingNumber?: string
       /**
-       * Gets the first line of the address
+       * The first line of the address
        */
       line1?: string
       /**
-       * Gets the second line of the address
+       * The second line of the address
        */
       line2?: string
       /**
-       * Gets the third line of the address
+       * The third line of the address
        */
       line3?: string
       /**
-       * Gets the fourth line of the address
+       * The fourth line of the address
        */
       line4?: string
       /**
-       * Gets the postcode
+       * The postcode
        */
       postcode?: string
       /**
-       * Gets the ISO-3166 country code associated with the address
+       * The ISO-3166 country code that the address resides within
        */
       countryId?: string
     }
@@ -5642,11 +5891,15 @@ export interface PagedResultOfficeModel_ {
      */
     email?: string
     /**
-     * Gets a listing of additional metadata that has been set against this office
+     * App specific metadata that has been set against the office
      */
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of the office. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -5669,37 +5922,41 @@ export interface PagedResultOfficeModel_ {
 export interface PagedResultPropertyImageModel_ {
   _embedded?: {
     /**
-     * Gets the unique id of the image (also the filename)
+     * The unique identifier of the image, which is also the filename
      */
     id?: string
     /**
-     * Gets the datetime of when the property image was created
+     * The date and time when the image was created
      */
     created?: string // date-time
     /**
-     * Gets the datetime of when the property image was last modified
+     * The date and time when the property image was last modified
      */
     modified?: string // date-time
     /**
-     * The unique identifier for the property the image is linked to
+     * The unique identifier of the property attached to the image
      */
     propertyId?: string
     /**
-     * Gets the Url where the image is located
+     * The url where the image can be downloaded from
      */
     url?: string
     /**
-     * Gets the caption of the image
+     * The image caption
      */
     caption?: string
     /**
-     * Gets the type of the image (picture/floorPlan/epc/map)
+     * The type of image (picture/floorPlan/epc/map)
      */
     type?: string
     /**
-     * Gets this images order (ascending)
+     * The display order index of the image which can be used to correctly order the whole collection
      */
     order?: number // int32
+    /**
+     * The ETag for the current version of the image. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -5722,63 +5979,63 @@ export interface PagedResultPropertyImageModel_ {
 export interface PagedResultPropertyModel_ {
   _embedded?: {
     /**
-     * Gets the unique identifier
+     * The unique identifier of the property
      */
     id?: string
     /**
-     * Gets the datetime when the property was created
+     * The date and time when the property was created
      */
     created?: string // date-time
     /**
-     * Gets the date and time that the property was last modified
+     * The date and time when the property was last modified
      */
     modified?: string // date-time
     /**
-     * Gets the marketing mode of the property (selling/letting/sellingAndLetting)
+     * The marketing mode of the property (selling/letting/sellingAndLetting)
      */
     marketingMode?: string
     /**
-     * Gets the currency that applies to monetary amounts exposed in the model
+     * The currency that applies to monetary amounts exposed in the model
      */
     currency?: string
     /**
-     * Gets the address of the property
+     * The address of the property
      */
     address?: {
       /**
-       * Gets the building name
+       * The building name
        */
       buildingName?: string
       /**
-       * Gets the building number
+       * The building number
        */
       buildingNumber?: string
       /**
-       * Gets the first line of the address
+       * The first line of the address
        */
       line1?: string
       /**
-       * Gets the second line of the address
+       * The second line of the address
        */
       line2?: string
       /**
-       * Gets the third line of the address
+       * The third line of the address
        */
       line3?: string
       /**
-       * Gets the fourth line of the address
+       * The fourth line of the address
        */
       line4?: string
       /**
-       * Gets the postcode
+       * The postcode
        */
       postcode?: string
       /**
-       * Gets the ISO-3166 country code associated with the address
+       * The ISO-3166 country code that the address resides within
        */
-      country?: string
+      countryId?: string
       /**
-       * Gets the geolocation of the address
+       * The geolocation coordinates associated with the address
        */
       geolocation?: {
         /**
@@ -5796,43 +6053,43 @@ export interface PagedResultPropertyModel_ {
      */
     areaId?: string
     /**
-     * Gets the strapline description
+     * The strapline description containing a short summary about the property
      */
     strapline?: string
     /**
-     * Gets the brief description
+     * The brief description of the property
      */
     description?: string
     /**
-     * Gets the summary of accommodation
+     * The summary of accommodation, typically short phrases or bullet points describing the key features of the property
      */
     summary?: string
     /**
-     * Gets the department id
+     * The unique identifier of the department
      */
     departmentId?: string
     /**
-     * Gets the properties negotiatior id
+     * The unique identifier of the negotiator managing the property
      */
     negotiatorId?: string
     /**
-     * Gets the number of bedrooms
+     * The total number of bedrooms in the property
      */
     bedrooms?: number // int32
     /**
-     * Gets the number of reception rooms
+     * The total number of reception rooms in the property
      */
     receptions?: number // int32
     /**
-     * Gets the number of bathrooms
+     * The total number of bathrooms in the property
      */
     bathrooms?: number // int32
     /**
-     * Gets the council tax banding (A/B/C/D/E/F/G/H)
+     * The council tax banding of the property (A/B/C/D/E/F/G/H)
      */
     councilTax?: string
     /**
-     * Gets a value indicating whether this property can be advertised on the internet
+     * A flag denoting whether or not this property can be advertised on the internet
      */
     internetAdvertising?: boolean
     /**
@@ -5840,190 +6097,194 @@ export interface PagedResultPropertyModel_ {
      */
     viewingArrangements?: string
     /**
-     * Gets details of the external land area associated to this property
+     * Details of the external land area associated to this property
      */
     externalArea?: {
       /**
-       * Gets the unit of area (acres/hectares)
+       * The unit of area (acres/hectares)
        */
       type?: string
       /**
-       * Gets the minimum area bound
+       * The minimum area bound
        */
       min?: number // double
       /**
-       * Gets the maximum area bound
+       * The maximum area bound
        */
       max?: number // double
     }
     /**
-     * Gets details of the internal dimensions of the property
+     * Details of the internal dimensions of the property
      */
     internalArea?: {
       /**
-       * Gets the unit of area (squareFeet/squareMetres)
+       * The unit of area (squareFeet/squareMetres)
        */
       type?: string
       /**
-       * Gets the minimum area bound
+       * The minimum area bound
        */
       min?: number // double
       /**
-       * Gets the maximum area bound
+       * The maximum area bound
        */
       max?: number // double
     }
     /**
-     * Gets details of the EPC statistics
+     * Details of the EPC statistics
      */
     epc?: {
       /**
-       * Gets whether this property is exempt from requiring an EPC
+       * A flag denoting whether or not this property is exempt from requiring an EPC certificate
        */
       exempt?: boolean
       /**
-       * Gets the current energy efficienty rating
+       * The current energy efficiency rating
        */
       eer?: number // int32
       /**
-       * Gets the potential energy efficienty rating
+       * The potential energy efficiency rating
        */
       eerPotential?: number // int32
       /**
-       * Gets the current environmental impact rating
+       * The current environmental impact rating
        */
       eir?: number // int32
       /**
-       * Gets the potential environmental impact rating
+       * The potential environmental impact rating
        */
       eirPotential?: number // int32
     }
     /**
-     * Gets the sales specific details of the property
+     * Selling specific details about the property
      */
     selling?: {
       /**
-       * Gets the date that the property was flagged as for sale
+       * The date that the property was marked as for sale
        */
       instructed?: string // date-time
       /**
-       * Gets the asking price of the property
+       * The marketing price of the property
        */
       price?: number // int32
       /**
-       * Gets the price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
+       * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
        */
       qualifier?: string
       /**
-       * Gets the sales status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+       * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
        */
       status?: string
       /**
-       * Gets details of the sales tenure of the property
+       * Details about the tenure of the property
        */
       tenure?: {
         /**
-         * Gets the type of tenure that applies to this property
+         * The type of tenure that applies to the property (freehold/leasehold/shareOfFreehold/commonhold/tba)
          */
         type?: string
         /**
-         * Gets tenure expiration date
+         * The tenure expiration date
          */
         expiry?: string // date-time
       }
       /**
-       * Gets the unique identifier of the vendor selling this property
+       * The unique identifier of the vendor selling the property
        */
       vendorId?: string
     }
     /**
-     * Gets the lettings specific details of the property
+     * Letting specific details about the property
      */
     letting?: {
       /**
-       * Gets the date that the property was flagged as for let
+       * The date the property was marked as to let
        */
       instructed?: string // date-time
       /**
-       * Gets the date this property is next available from
+       * The date the property is next available from
        */
       availableFrom?: string // date-time
       /**
-       * Gets the date this property is available to
+       * The date the property is available to
        */
       availableTo?: string // date-time
       /**
-       * Gets the monetary amount required to rent this property
+       * The rent being charged for the property
        */
       rent?: number // double
       /**
-       * Gets the rent collection frequency (weekly/monthly/yearly)
+       * The frequency at which rent will be collected (weekly/monthly/yearly)
        */
       rentFrequency?: string
       /**
-       * Gets the acceptable letting terms (short/long/any)
+       * The acceptable letting terms (short/long/any)
        */
       term?: string
       /**
-       * Gets the id of the letting status of this property (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
+       * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
        */
       status?: string
       /**
-       * Gets the unique identifier of the landlord letting this property
+       * The unique identifier of the landlord letting the property
        */
       landlordId?: string
     }
     /**
-     * Gets the property types
+     * The property type attributes
      */
     type?: string[]
     /**
-     * Gets the property style
+     * The property style attributes
      */
     style?: string[]
     /**
-     * Gets the property situation
+     * The property situation attributes
      */
     situation?: string[]
     /**
-     * Gets the property parking
+     * The property parking attributes
      */
     parking?: string[]
     /**
-     * Gets the property age
+     * The property age attributes
      */
     age?: string[]
     /**
-     * Gets the property locality
+     * The property locality attributes
      */
     locality?: string[]
     /**
-     * Gets a listing of room details
+     * Details of each room in the property
      */
     rooms?: {
       /**
-       * Gets the name of the room
+       * The name of the room
        */
       name?: string
       /**
-       * Gets details on the dimension of the room
+       * Details about the dimensions of the room
        */
       dimensions?: string
       /**
-       * Gets a short description of the room
+       * Short description of the room
        */
       description?: string
     }[]
     /**
-     * Gets the properties office ids
+     * A collection of unique identifiers of offices attached to the property
      */
     officeIds?: string[]
     /**
-     * Gets a listing of additional metadata that has been set against this property
+     * App specific metadata that has been set against the property
      */
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of the property. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -6046,33 +6307,37 @@ export interface PagedResultPropertyModel_ {
 export interface PagedResultSourceModel_ {
   _embedded?: {
     /**
-     * Gets the sources unique identifier
+     * The unique identifier of the source
      */
     id?: string
     /**
-     * Gets the date and time that the source was created
+     * The date and time when the source was created
      */
     created?: string // date-time
     /**
-     * Gets the date and time that the source was last modified
+     * The date and time when the source was last modified
      */
     modified?: string // date-time
     /**
-     * Gets the sources name
+     * The name of the source or advertising publication
      */
     name?: string
     /**
-     * Gets the sources type
+     * The type of the source (source/advertisement)
      */
     type?: string
     /**
-     * Gets the sources office ids
+     * A collection of the unique identifiers of offices that regularly get business from the source
      */
     officeIds?: string[]
     /**
-     * Gets the sources department ids
+     * A collection of unique identifiers of departments that regularly get business from the source
      */
     departmentIds?: string[]
+    /**
+     * The ETag for the current version of the source. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -6095,76 +6360,75 @@ export interface PagedResultSourceModel_ {
 export interface PagedResultTaskModel_ {
   _embedded?: {
     /**
-     * Gets the unique identifier of the task
+     * The unique identifier of the task
      */
     id?: string
     /**
-     * Gets the date the task was created
+     * The date and time when the task was created
      */
     created?: string // date-time
     /**
-     * Gets the date the task was modified
+     * The date and time when the task was last modified
      */
     modified?: string // date-time
     /**
-     * Gets the date the task was activated
+     * The date the task becomes active
      */
-    activated?: string // date-time
+    activates?: string // date-time
     /**
-     * Gets the date the task was completed
+     * The date the task was completed
      */
     completed?: string // date-time
     /**
-     * Gets the type of task
+     * The unique identifier of the task type
      */
     typeId?: string
     /**
-     * Gets the unique identifier of the negotiator who created the task
+     * The unique identifer of the negotiator that created the task
      */
     senderId?: string
     /**
-     * Gets the text against the task or message
+     * The textual contents of the task or message
      */
     text?: string
     /**
-     * Gets the unique identifier of the landlord the task is related too
+     * The unique identifier of the landlord the task is associated to
      */
     landlordId?: string
     /**
-     * Gets the unique identifier of the property the task is related too
+     * The unique identifier of the property the task is associated to
      */
     propertyId?: string
     /**
-     * Gets the unique identifier of the applicant the task is related too
+     * The unique identifier of the applicant the task is associated to
      */
     applicantId?: string
     /**
-     * Gets the unique identifier of the tenancy the task is related too
+     * The unique identifier of the tenancy the task is associated to
      */
     tenancyId?: string
     /**
-     * Gets the unique identifier of the contact the task is related too
+     * The unique identifier of the contact the task is associated to
      */
     contactId?: string
     /**
-     * Gets the recipients of this task
+     * The unique identifier of the negotiator or office the task is being sent to
      */
-    recipients?: {
-      /**
-       * Unique identifier of the tasks recipient
-       */
-      id?: string
-      /**
-       * Entity type of the recipient (office/negotiator)
-       */
-      type?: string
-    }[]
+    recipientId?: string
     /**
-     * Gets a listing of additional metadata that has been set against this task
+     * The type of the recipient (office/negotiator)
+     */
+    recipientType?: string
+    /**
+     * App specific metadata that has been set against the task
      */
     metadata?: {
       [name: string]: any
     }
+    /**
+     * The ETag for the current version of the task. Used for managing update concurrency
+     */
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -6187,73 +6451,64 @@ export interface PagedResultTaskModel_ {
 export interface PagedResultVendorModel_ {
   _embedded?: {
     /**
-     * Gets the vendors unique identfier
+     * The unique identifier of the vendor
      */
     id?: string
     /**
-     * Gets the datetime when the vendor was created
+     * The date and time when the vendor was created
      */
     created?: string // date-time
     /**
-     * Gets the date and time that the vendor was last modified
+     * The date and time when the vendor was last modified
      */
     modified?: string // date-time
     /**
-     * Gets the date and time that the vendor was last called
+     * The date the vendor was last called
      */
     lastCall?: string // date-time
     /**
-     * Gets the date and time that the vendor will be called next
+     * The date the vendor is next due to be called
      */
     nextCall?: string // date-time
     /**
-     * Gets the type of vendor
+     * The unique identifier of the type of vendor
      */
     typeId?: string
     /**
-     * Gets the vendors reason for selling
+     * The unique identifier of the reason the vendor is selling
      */
     sellingReasonId?: string
     /**
-     * Gets the unique identifier of the vendors solicitor
+     * The unique identifier of the vendor's solicitor
      */
     solicitorId?: string
     /**
-     * Gets the vendors source information
+     * The source of the vendor
      */
     source?: {
       /**
-       * Gets the unique identifier of the vendors source
+       * The unique identifier of the source of the vendor
        */
       id?: string
       /**
-       * Gets the vendors source type (office/source)
+       * The source type (office/source)
        */
       type?: string
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
     }
     /**
-     * Gets a collection of contact entities attached to this vendor
-     * The primary contact will always appear first in the collection
+     * A collection of contacts associated to the vendor
      */
     related?: {
       /**
-       * Gets the unique identifier of the contact
+       * The unique identifier of the contact
        */
       id?: string
       /**
-       * Gets the name of this contact or company
+       * The name of the contact
        */
       name?: string
       /**
-       * Gets the type of this contact (Contact/Company)
+       * The type of the contact (company/contact)
        */
       type?: string
       /**
@@ -6273,254 +6528,61 @@ export interface PagedResultVendorModel_ {
        */
       email?: string
       /**
-       * Gets the primary address of the contact
+       * The primary address of the contact
        */
       primaryAddress?: {
         /**
-         * Gets the building name
+         * The building name
          */
         buildingName?: string
         /**
-         * Gets the building number
+         * The building number
          */
         buildingNumber?: string
         /**
-         * Gets the first line of the address
+         * The first line of the address
          */
         line1?: string
         /**
-         * Gets the second line of the address
+         * The second line of the address
          */
         line2?: string
         /**
-         * Gets the third line of the address
+         * The third line of the address
          */
         line3?: string
         /**
-         * Gets the fourth line of the address
+         * The fourth line of the address
          */
         line4?: string
         /**
-         * Gets the postcode
+         * The postcode
          */
         postcode?: string
         /**
-         * Gets the ISO-3166 country code associated with the address
+         * The ISO-3166 country code that the address resides within
          */
         countryId?: string
       }
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
     }[]
     /**
-     * Gets the vendor's negotiator id
+     * The unique identifier of the negotiator attached to the vendor
      */
     negotiatorId?: string
     /**
-     * Gets the vendor's office ids
+     * A collection of unique identifiers of offices attached to the vendor
      */
     officeIds?: string[]
     /**
-     * Gets a listing of additional metadata that has been set against this vendor
+     * App specific metadata that has been set against the vendor
      */
     metadata?: {
       [name: string]: any
     }
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultWorksOrderItemModel_ {
-  _embedded?: {
     /**
-     * Gets the unique identifier of the works order item
+     * The ETag for the current version of the vendor. Used for managing update concurrency
      */
-    id?: string
-    /**
-     * Gets the unique identifier of the works order
-     */
-    worksOrderId?: string
-    /**
-     * Gets the datetime when the works order item was created
-     */
-    created?: string // date-time
-    /**
-     * Gets the date and time that the works order item was last modified
-     */
-    modified?: string // date-time
-    /**
-     * Gets the notes of the work order item
-     */
-    notes?: string
-    /**
-     * Gets the entity type to charge to (Landlord, Tenant)
-     */
-    chargeTo?: string
-    /**
-     * Gets the estimate of the work order item
-     */
-    estimate?: number // double
-    /**
-     * Gets the work order items estimate type (Agent, Verbal, Written)
-     */
-    estimateType?: string
-    /**
-     * Gets the cost of the work order item
-     */
-    cost?: number // double
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultWorksOrderModel_ {
-  _embedded?: {
-    /**
-     * Gets the unique identifier of the works order
-     */
-    id?: string
-    /**
-     * Gets the datetime when the works order was created
-     */
-    created?: string // date-time
-    /**
-     * Gets the date and time that the works order was last modified
-     */
-    modified?: string // date-time
-    /**
-     * Gets the id of the company that has been selected to perform the work
-     */
-    companyId?: string
-    /**
-     * Gets the id of the property the work is for
-     */
-    propertyId?: string
-    /**
-     * Gets the id of the tenancy that originated the work
-     */
-    tenancyId?: string
-    /**
-     * Gets the id of the negotiator that booked the work
-     */
-    negotiatorId?: string
-    /**
-     * Gets the id of the type of work that needs to be performed
-     */
-    typeId?: string
-    /**
-     * Gets the status of the works order
-     */
-    status?: string
-    /**
-     * Gets the description of the works order
-     */
-    description?: string
-    /**
-     * Gets the person who reported the fault
-     */
-    reporter?: string
-    /**
-     * Gets the date the works order was booked
-     */
-    booked?: string // date-time
-    /**
-     * Gets the date the works order is requried
-     */
-    required?: string // date-time
-    /**
-     * Gets the date the works order is completed
-     */
-    completed?: string // date-time
-    /**
-     * Gets the collection of work order items associated to the works order
-     */
-    items?: {
-      /**
-       * Gets the unique identifier of the works order item
-       */
-      id?: string
-      /**
-       * Gets the unique identifier of the works order
-       */
-      worksOrderId?: string
-      /**
-       * Gets the datetime when the works order item was created
-       */
-      created?: string // date-time
-      /**
-       * Gets the date and time that the works order item was last modified
-       */
-      modified?: string // date-time
-      /**
-       * Gets the notes of the work order item
-       */
-      notes?: string
-      /**
-       * Gets the entity type to charge to (Landlord, Tenant)
-       */
-      chargeTo?: string
-      /**
-       * Gets the estimate of the work order item
-       */
-      estimate?: number // double
-      /**
-       * Gets the work order items estimate type (Agent, Verbal, Written)
-       */
-      estimateType?: string
-      /**
-       * Gets the cost of the work order item
-       */
-      cost?: number // double
-      readonly _links?: {
-        [name: string]: {
-          href?: string
-        }
-      }
-      readonly _embedded?: {
-        [name: string]: any
-      }
-    }[]
-    /**
-     * Gets a listing of additional metadata that has been set against this works order
-     */
-    metadata?: {
-      [name: string]: any
-    }
+    readonly _eTag?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -6551,44 +6613,124 @@ export interface ProblemDetails {
   detail?: string
   instance?: string
 }
+export interface Properties {
+  PageSize?: number
+  PageNumber?: number
+  SortBy?: string
+  Id?: string[]
+  LandlordId?: string[]
+  Address?: string
+  DepartmentId?: string
+  BedroomsFrom?: number
+  BedroomsTo?: number
+  PriceFrom?: number
+  PriceTo?: number
+  RentFrom?: number
+  RentTo?: number
+  InternetAdvertising?: boolean
+  Age?: ('period' | 'new' | 'modern')[]
+  LettingStatus?: (
+    | 'valuation'
+    | 'toLet'
+    | 'toLetUnavailable'
+    | 'underOffer '
+    | 'underOfferUnavailable'
+    | 'arrangingTenancyUnavailable '
+    | 'arrangingTenancy'
+    | 'tenancyCurrentUnavailable'
+    | 'tenancyCurrent'
+    | 'tenancyFinished '
+    | 'tenancyCancelled'
+    | 'sold'
+    | 'letByOtherAgent'
+    | 'letPrivately '
+    | 'provisional'
+    | 'withdrawn'
+  )[]
+  Locality?: ('rural' | 'village' | 'townCity')[]
+  Parking?: ('residents' | 'offStreet' | 'secure' | 'underground' | 'garage' | 'doubleGarage' | 'tripleGarage')[]
+  SellingStatus?: (
+    | 'preAppraisal'
+    | 'valuation'
+    | 'paidValuation'
+    | 'forSale '
+    | 'forSaleUnavailable'
+    | 'underOffer'
+    | 'underOfferUnavailable'
+    | 'reserved'
+    | 'exchanged '
+    | 'completed'
+    | 'soldExternally'
+    | 'withdrawn'
+  )[]
+  Situation?: ('garden' | 'land' | 'patio' | 'roofTerrace' | 'conservatory' | 'balcony' | 'communalGardens')[]
+  Style?: (
+    | 'terraced'
+    | 'endTerrace'
+    | 'detached'
+    | 'semiDetached'
+    | 'linkDetached'
+    | 'mews'
+    | 'basement'
+    | 'lowerGroundFloor'
+    | 'groundFloor'
+    | 'firstFloor'
+    | 'upperFloor'
+    | 'upperFloorWithLift'
+    | 'penthouse'
+  )[]
+  Type?: (
+    | 'house'
+    | 'bungalow'
+    | 'flatApartment'
+    | 'maisonette'
+    | 'land'
+    | 'farm'
+    | 'cottage'
+    | 'studio'
+    | 'townhouse'
+    | 'developmentPlot'
+  )[]
+  MarketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
+}
 /**
- * Model representing the physical address of a building or premise
+ * Representation of the physical address of a building or premise
  */
 export interface PropertyAddressModel {
   /**
-   * Gets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Gets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Gets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Gets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Gets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Gets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Gets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Gets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
-  country?: string
+  countryId?: string
   /**
-   * Gets the geolocation of the address
+   * The geolocation coordinates associated with the address
    */
   geolocation?: {
     /**
@@ -6602,49 +6744,49 @@ export interface PropertyAddressModel {
   }
 }
 /**
- * A model to represent the details of an EPC graph
+ * Representation of EPC statistics
  */
 export interface PropertyEpcModel {
   /**
-   * Gets whether this property is exempt from requiring an EPC
+   * A flag denoting whether or not this property is exempt from requiring an EPC certificate
    */
   exempt?: boolean
   /**
-   * Gets the current energy efficienty rating
+   * The current energy efficiency rating
    */
   eer?: number // int32
   /**
-   * Gets the potential energy efficienty rating
+   * The potential energy efficiency rating
    */
   eerPotential?: number // int32
   /**
-   * Gets the current environmental impact rating
+   * The current environmental impact rating
    */
   eir?: number // int32
   /**
-   * Gets the potential environmental impact rating
+   * The potential environmental impact rating
    */
   eirPotential?: number // int32
 }
 /**
- * A model to represent external area of a propeerty
+ * Representation of the external land area of a property
  */
 export interface PropertyExternalAreaModel {
   /**
-   * Gets the unit of area (acres/hectares)
+   * The unit of area (acres/hectares)
    */
   type?: string
   /**
-   * Gets the minimum area bound
+   * The minimum area bound
    */
   min?: number // double
   /**
-   * Gets the maximum area bound
+   * The maximum area bound
    */
   max?: number // double
 }
 /**
- * Model representing the geographical location of an address using coordinates
+ * Representation of the geographical location of an address using coordinates
  */
 export interface PropertyGeolocationModel {
   /**
@@ -6657,41 +6799,45 @@ export interface PropertyGeolocationModel {
   longitude?: number // double
 }
 /**
- * Response model for property image details
+ * Representation of a property image
  */
 export interface PropertyImageModel {
   /**
-   * Gets the unique id of the image (also the filename)
+   * The unique identifier of the image, which is also the filename
    */
   id?: string
   /**
-   * Gets the datetime of when the property image was created
+   * The date and time when the image was created
    */
   created?: string // date-time
   /**
-   * Gets the datetime of when the property image was last modified
+   * The date and time when the property image was last modified
    */
   modified?: string // date-time
   /**
-   * The unique identifier for the property the image is linked to
+   * The unique identifier of the property attached to the image
    */
   propertyId?: string
   /**
-   * Gets the Url where the image is located
+   * The url where the image can be downloaded from
    */
   url?: string
   /**
-   * Gets the caption of the image
+   * The image caption
    */
   caption?: string
   /**
-   * Gets the type of the image (picture/floorPlan/epc/map)
+   * The type of image (picture/floorPlan/epc/map)
    */
   type?: string
   /**
-   * Gets this images order (ascending)
+   * The display order index of the image which can be used to correctly order the whole collection
    */
   order?: number // int32
+  /**
+   * The ETag for the current version of the image. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -6701,122 +6847,130 @@ export interface PropertyImageModel {
     [name: string]: any
   }
 }
+export interface PropertyImages {
+  PageSize?: number
+  PageNumber?: number
+  SortBy?: string
+  Id?: string[]
+  PropertyId?: string[]
+  Type?: string[]
+}
 /**
- * A model to represent internal area of a propeerty
+ * Representation of the internal dimensions of a property
  */
 export interface PropertyInternalAreaModel {
   /**
-   * Gets the unit of area (squareFeet/squareMetres)
+   * The unit of area (squareFeet/squareMetres)
    */
   type?: string
   /**
-   * Gets the minimum area bound
+   * The minimum area bound
    */
   min?: number // double
   /**
-   * Gets the maximum area bound
+   * The maximum area bound
    */
   max?: number // double
 }
 /**
- * Model to represent the property details specific to lettings marketing
+ * Representation of property details specific to lettings marketing
  */
 export interface PropertyLettingModel {
   /**
-   * Gets the date that the property was flagged as for let
+   * The date the property was marked as to let
    */
   instructed?: string // date-time
   /**
-   * Gets the date this property is next available from
+   * The date the property is next available from
    */
   availableFrom?: string // date-time
   /**
-   * Gets the date this property is available to
+   * The date the property is available to
    */
   availableTo?: string // date-time
   /**
-   * Gets the monetary amount required to rent this property
+   * The rent being charged for the property
    */
   rent?: number // double
   /**
-   * Gets the rent collection frequency (weekly/monthly/yearly)
+   * The frequency at which rent will be collected (weekly/monthly/yearly)
    */
   rentFrequency?: string
   /**
-   * Gets the acceptable letting terms (short/long/any)
+   * The acceptable letting terms (short/long/any)
    */
   term?: string
   /**
-   * Gets the id of the letting status of this property (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
+   * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
    */
   status?: string
   /**
-   * Gets the unique identifier of the landlord letting this property
+   * The unique identifier of the landlord letting the property
    */
   landlordId?: string
 }
 /**
- * Model representing the details of a property
+ * Representation of a property
  */
 export interface PropertyModel {
   /**
-   * Gets the unique identifier
+   * The unique identifier of the property
    */
   id?: string
   /**
-   * Gets the datetime when the property was created
+   * The date and time when the property was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the property was last modified
+   * The date and time when the property was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the marketing mode of the property (selling/letting/sellingAndLetting)
+   * The marketing mode of the property (selling/letting/sellingAndLetting)
    */
   marketingMode?: string
   /**
-   * Gets the currency that applies to monetary amounts exposed in the model
+   * The currency that applies to monetary amounts exposed in the model
    */
   currency?: string
   /**
-   * Gets the address of the property
+   * The address of the property
    */
   address?: {
     /**
-     * Gets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Gets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Gets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Gets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Gets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Gets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Gets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Gets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
-    country?: string
+    countryId?: string
     /**
-     * Gets the geolocation of the address
+     * The geolocation coordinates associated with the address
      */
     geolocation?: {
       /**
@@ -6834,43 +6988,43 @@ export interface PropertyModel {
    */
   areaId?: string
   /**
-   * Gets the strapline description
+   * The strapline description containing a short summary about the property
    */
   strapline?: string
   /**
-   * Gets the brief description
+   * The brief description of the property
    */
   description?: string
   /**
-   * Gets the summary of accommodation
+   * The summary of accommodation, typically short phrases or bullet points describing the key features of the property
    */
   summary?: string
   /**
-   * Gets the department id
+   * The unique identifier of the department
    */
   departmentId?: string
   /**
-   * Gets the properties negotiatior id
+   * The unique identifier of the negotiator managing the property
    */
   negotiatorId?: string
   /**
-   * Gets the number of bedrooms
+   * The total number of bedrooms in the property
    */
   bedrooms?: number // int32
   /**
-   * Gets the number of reception rooms
+   * The total number of reception rooms in the property
    */
   receptions?: number // int32
   /**
-   * Gets the number of bathrooms
+   * The total number of bathrooms in the property
    */
   bathrooms?: number // int32
   /**
-   * Gets the council tax banding (A/B/C/D/E/F/G/H)
+   * The council tax banding of the property (A/B/C/D/E/F/G/H)
    */
   councilTax?: string
   /**
-   * Gets a value indicating whether this property can be advertised on the internet
+   * A flag denoting whether or not this property can be advertised on the internet
    */
   internetAdvertising?: boolean
   /**
@@ -6878,190 +7032,194 @@ export interface PropertyModel {
    */
   viewingArrangements?: string
   /**
-   * Gets details of the external land area associated to this property
+   * Details of the external land area associated to this property
    */
   externalArea?: {
     /**
-     * Gets the unit of area (acres/hectares)
+     * The unit of area (acres/hectares)
      */
     type?: string
     /**
-     * Gets the minimum area bound
+     * The minimum area bound
      */
     min?: number // double
     /**
-     * Gets the maximum area bound
+     * The maximum area bound
      */
     max?: number // double
   }
   /**
-   * Gets details of the internal dimensions of the property
+   * Details of the internal dimensions of the property
    */
   internalArea?: {
     /**
-     * Gets the unit of area (squareFeet/squareMetres)
+     * The unit of area (squareFeet/squareMetres)
      */
     type?: string
     /**
-     * Gets the minimum area bound
+     * The minimum area bound
      */
     min?: number // double
     /**
-     * Gets the maximum area bound
+     * The maximum area bound
      */
     max?: number // double
   }
   /**
-   * Gets details of the EPC statistics
+   * Details of the EPC statistics
    */
   epc?: {
     /**
-     * Gets whether this property is exempt from requiring an EPC
+     * A flag denoting whether or not this property is exempt from requiring an EPC certificate
      */
     exempt?: boolean
     /**
-     * Gets the current energy efficienty rating
+     * The current energy efficiency rating
      */
     eer?: number // int32
     /**
-     * Gets the potential energy efficienty rating
+     * The potential energy efficiency rating
      */
     eerPotential?: number // int32
     /**
-     * Gets the current environmental impact rating
+     * The current environmental impact rating
      */
     eir?: number // int32
     /**
-     * Gets the potential environmental impact rating
+     * The potential environmental impact rating
      */
     eirPotential?: number // int32
   }
   /**
-   * Gets the sales specific details of the property
+   * Selling specific details about the property
    */
   selling?: {
     /**
-     * Gets the date that the property was flagged as for sale
+     * The date that the property was marked as for sale
      */
     instructed?: string // date-time
     /**
-     * Gets the asking price of the property
+     * The marketing price of the property
      */
     price?: number // int32
     /**
-     * Gets the price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
+     * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
      */
     qualifier?: string
     /**
-     * Gets the sales status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+     * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
      */
     status?: string
     /**
-     * Gets details of the sales tenure of the property
+     * Details about the tenure of the property
      */
     tenure?: {
       /**
-       * Gets the type of tenure that applies to this property
+       * The type of tenure that applies to the property (freehold/leasehold/shareOfFreehold/commonhold/tba)
        */
       type?: string
       /**
-       * Gets tenure expiration date
+       * The tenure expiration date
        */
       expiry?: string // date-time
     }
     /**
-     * Gets the unique identifier of the vendor selling this property
+     * The unique identifier of the vendor selling the property
      */
     vendorId?: string
   }
   /**
-   * Gets the lettings specific details of the property
+   * Letting specific details about the property
    */
   letting?: {
     /**
-     * Gets the date that the property was flagged as for let
+     * The date the property was marked as to let
      */
     instructed?: string // date-time
     /**
-     * Gets the date this property is next available from
+     * The date the property is next available from
      */
     availableFrom?: string // date-time
     /**
-     * Gets the date this property is available to
+     * The date the property is available to
      */
     availableTo?: string // date-time
     /**
-     * Gets the monetary amount required to rent this property
+     * The rent being charged for the property
      */
     rent?: number // double
     /**
-     * Gets the rent collection frequency (weekly/monthly/yearly)
+     * The frequency at which rent will be collected (weekly/monthly/yearly)
      */
     rentFrequency?: string
     /**
-     * Gets the acceptable letting terms (short/long/any)
+     * The acceptable letting terms (short/long/any)
      */
     term?: string
     /**
-     * Gets the id of the letting status of this property (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
+     * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
      */
     status?: string
     /**
-     * Gets the unique identifier of the landlord letting this property
+     * The unique identifier of the landlord letting the property
      */
     landlordId?: string
   }
   /**
-   * Gets the property types
+   * The property type attributes
    */
   type?: string[]
   /**
-   * Gets the property style
+   * The property style attributes
    */
   style?: string[]
   /**
-   * Gets the property situation
+   * The property situation attributes
    */
   situation?: string[]
   /**
-   * Gets the property parking
+   * The property parking attributes
    */
   parking?: string[]
   /**
-   * Gets the property age
+   * The property age attributes
    */
   age?: string[]
   /**
-   * Gets the property locality
+   * The property locality attributes
    */
   locality?: string[]
   /**
-   * Gets a listing of room details
+   * Details of each room in the property
    */
   rooms?: {
     /**
-     * Gets the name of the room
+     * The name of the room
      */
     name?: string
     /**
-     * Gets details on the dimension of the room
+     * Details about the dimensions of the room
      */
     dimensions?: string
     /**
-     * Gets a short description of the room
+     * Short description of the room
      */
     description?: string
   }[]
   /**
-   * Gets the properties office ids
+   * A collection of unique identifiers of offices attached to the property
    */
   officeIds?: string[]
   /**
-   * Gets a listing of additional metadata that has been set against this property
+   * App specific metadata that has been set against the property
    */
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of the property. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -7072,115 +7230,109 @@ export interface PropertyModel {
   }
 }
 /**
- * Model representing a room in a property
+ * Representation of a single room in a property
  */
 export interface PropertyRoomModel {
   /**
-   * Gets the name of the room
+   * The name of the room
    */
   name?: string
   /**
-   * Gets details on the dimension of the room
+   * Details about the dimensions of the room
    */
   dimensions?: string
   /**
-   * Gets a short description of the room
+   * Short description of the room
    */
   description?: string
 }
 /**
- * Model to represent the property details specific to sales marketing
+ * Representation of property details specific to sales marketing
  */
 export interface PropertySellingModel {
   /**
-   * Gets the date that the property was flagged as for sale
+   * The date that the property was marked as for sale
    */
   instructed?: string // date-time
   /**
-   * Gets the asking price of the property
+   * The marketing price of the property
    */
   price?: number // int32
   /**
-   * Gets the price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
+   * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
    */
   qualifier?: string
   /**
-   * Gets the sales status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+   * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
    */
   status?: string
   /**
-   * Gets details of the sales tenure of the property
+   * Details about the tenure of the property
    */
   tenure?: {
     /**
-     * Gets the type of tenure that applies to this property
+     * The type of tenure that applies to the property (freehold/leasehold/shareOfFreehold/commonhold/tba)
      */
     type?: string
     /**
-     * Gets tenure expiration date
+     * The tenure expiration date
      */
     expiry?: string // date-time
   }
   /**
-   * Gets the unique identifier of the vendor selling this property
+   * The unique identifier of the vendor selling the property
    */
   vendorId?: string
 }
 /**
- * Model representing the sales tenure of a property
+ * Representation of the tenure of a property
  */
 export interface PropertyTenureModel {
   /**
-   * Gets the type of tenure that applies to this property
+   * The type of tenure that applies to the property (freehold/leasehold/shareOfFreehold/commonhold/tba)
    */
   type?: string
   /**
-   * Gets tenure expiration date
+   * The tenure expiration date
    */
   expiry?: string // date-time
 }
 /**
- * Model to display a tasks recipient
+ * Representation of a source of business
  */
-export interface RecipientModel {
-  /**
-   * Unique identifier of the tasks recipient
-   */
-  id?: string
-  /**
-   * Entity type of the recipient (office/negotiator)
-   */
-  type?: string
-}
 export interface SourceModel {
   /**
-   * Gets the sources unique identifier
+   * The unique identifier of the source
    */
   id?: string
   /**
-   * Gets the date and time that the source was created
+   * The date and time when the source was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the source was last modified
+   * The date and time when the source was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the sources name
+   * The name of the source or advertising publication
    */
   name?: string
   /**
-   * Gets the sources type
+   * The type of the source (source/advertisement)
    */
   type?: string
   /**
-   * Gets the sources office ids
+   * A collection of the unique identifiers of offices that regularly get business from the source
    */
   officeIds?: string[]
   /**
-   * Gets the sources department ids
+   * A collection of unique identifiers of departments that regularly get business from the source
    */
   departmentIds?: string[]
+  /**
+   * The ETag for the current version of the source. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -7189,6 +7341,18 @@ export interface SourceModel {
   readonly _embedded?: {
     [name: string]: any
   }
+}
+export interface Sources {
+  PageSize?: number
+  PageNumber?: number
+  SortBy?: string
+  Id?: string[]
+  OfficeId?: string[]
+  DepartmentId?: string[]
+  Name?: string
+  CreatedFrom?: string
+  CreatedTo?: string
+  Type?: ('advertisement' | 'source')[]
 }
 export interface StringSegment {
   readonly buffer?: string
@@ -7198,80 +7362,79 @@ export interface StringSegment {
   readonly hasValue?: boolean
 }
 /**
- * Outward facing model to display task details
+ * Representation of a task, which can also be an internal message
  */
 export interface TaskModel {
   /**
-   * Gets the unique identifier of the task
+   * The unique identifier of the task
    */
   id?: string
   /**
-   * Gets the date the task was created
+   * The date and time when the task was created
    */
   created?: string // date-time
   /**
-   * Gets the date the task was modified
+   * The date and time when the task was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the date the task was activated
+   * The date the task becomes active
    */
-  activated?: string // date-time
+  activates?: string // date-time
   /**
-   * Gets the date the task was completed
+   * The date the task was completed
    */
   completed?: string // date-time
   /**
-   * Gets the type of task
+   * The unique identifier of the task type
    */
   typeId?: string
   /**
-   * Gets the unique identifier of the negotiator who created the task
+   * The unique identifer of the negotiator that created the task
    */
   senderId?: string
   /**
-   * Gets the text against the task or message
+   * The textual contents of the task or message
    */
   text?: string
   /**
-   * Gets the unique identifier of the landlord the task is related too
+   * The unique identifier of the landlord the task is associated to
    */
   landlordId?: string
   /**
-   * Gets the unique identifier of the property the task is related too
+   * The unique identifier of the property the task is associated to
    */
   propertyId?: string
   /**
-   * Gets the unique identifier of the applicant the task is related too
+   * The unique identifier of the applicant the task is associated to
    */
   applicantId?: string
   /**
-   * Gets the unique identifier of the tenancy the task is related too
+   * The unique identifier of the tenancy the task is associated to
    */
   tenancyId?: string
   /**
-   * Gets the unique identifier of the contact the task is related too
+   * The unique identifier of the contact the task is associated to
    */
   contactId?: string
   /**
-   * Gets the recipients of this task
+   * The unique identifier of the negotiator or office the task is being sent to
    */
-  recipients?: {
-    /**
-     * Unique identifier of the tasks recipient
-     */
-    id?: string
-    /**
-     * Entity type of the recipient (office/negotiator)
-     */
-    type?: string
-  }[]
+  recipientId?: string
   /**
-   * Gets a listing of additional metadata that has been set against this task
+   * The type of the recipient (office/negotiator)
+   */
+  recipientType?: string
+  /**
+   * App specific metadata that has been set against the task
    */
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of the task. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -7280,6 +7443,25 @@ export interface TaskModel {
   readonly _embedded?: {
     [name: string]: any
   }
+}
+export interface Tasks {
+  PageSize?: number
+  PageNumber?: number
+  SortBy?: string
+  Id?: string[]
+  ApplicantId?: string[]
+  ContactId?: string[]
+  LandlordId?: string[]
+  OfficeId?: string[]
+  PropertyId?: string[]
+  RecipientId?: string[]
+  SenderId?: string[]
+  TypeId?: string[]
+  TenancyId?: string[]
+  ActivatesFrom?: string
+  ActivatesTo?: string
+  CreatedFrom?: string
+  CreatedTo?: string
 }
 /**
  * The details specific to applicants with a marketingMode of buying
@@ -7326,6 +7508,8 @@ export interface UpdateApplicantInternalAreaModel {
 }
 /**
  * Representation of an applicant
+ * example:
+ * [object Object]
  */
 export interface UpdateApplicantModel {
   /**
@@ -7415,7 +7599,7 @@ export interface UpdateApplicantModel {
   /**
    * Sets the sales specific requirements, if the applicant is looking to buy
    */
-  selling?: {
+  buying?: {
     /**
      * The lower bound of the applicant's budget
      */
@@ -7428,7 +7612,7 @@ export interface UpdateApplicantModel {
   /**
    * Sets the letting specific requirements, if the applicant is looking to rent
    */
-  letting?: {
+  renting?: {
     /**
      * The date the applicant is looking to move to a new property
      */
@@ -7555,168 +7739,170 @@ export interface UpdateApplicantSourceModel {
   type?: string
 }
 /**
- * Model to update an attendee on an appointment
+ * Represents an attendee on an appointment.
  */
 export interface UpdateAppointmentAttendeeModel {
   /**
-   * Sets the identifier of the attendee
+   * The identifier of the attendee.
    */
   id?: string
   /**
-   * Sets the type of attendee
+   * The type of attendee.
    */
   type?: string
   /**
-   * Flag denoting whether or not the attendee has confirmed their attendance to the appointment
+   * A flag denoting whether or not the attendee has confirmed their attendance to the appointment.
    */
   confirmed?: boolean
 }
 /**
- * Model used to update the follow up information on a single appointment
+ * Represents the follow up information on a single appointment
  */
 export interface UpdateAppointmentFollowUpModel {
   /**
-   * Sets the unique identifier of a pre-defined follow up response type
+   * The unique identifier of a pre-defined follow up response type.
    */
   responseId?: string
   /**
-   * Sets the internal follow up notes to be stored against the appointment
+   * The internal follow up notes to be stored against the appointment.
    */
   notes?: string
 }
 /**
- * Model required to update a calendar entry
+ * Represents a calendar entry.
  */
 export interface UpdateAppointmentModel {
   /**
-   * Sets the date and time that the appointment will start
+   * The date and time when the appointment will start.
    */
   start?: string // date-time
   /**
-   * Sets the date and time that the appointment will end
+   * The date and time when the appointment will end.
    */
   end?: string // date-time
   /**
-   * Sets the type of appointment
+   * The type of appointment.
    */
   typeId?: string
   /**
-   * Sets the date that the appointment should be followed up on
+   * The date and time when the appointment should be followed up on.
    */
   followUpOn?: string // date-time
   /**
-   * Sets the appointment description
+   * The appointment description.
    */
   description?: string
   /**
-   * Sets the property identifier that the appointment takes place at
+   * The property identifier that the appointment takes place at.
    */
   propertyId?: string
   /**
-   * Sets the id of the person that organised the appointment
+   * The id of the person that organised the appointment.
    */
   organiserId?: string
   /**
-   * Sets the flag that determines if this appointment is cancelled
+   * The flag that determines if this appointment is cancelled.
    */
   cancelled?: boolean
   /**
-   * Sets the negotiator ids to link the appointment too.
+   * The negotiator ids to link the appointment too.
    */
   negotiatorIds?: string[]
   /**
-   * Sets the office ids to link the appointment too.
+   * The office ids to link the appointment too.
    */
   officeIds?: string[]
   /**
-   * Sets the details of the attendee of the appointment
+   * The details of the attendee of the appointment.
    */
   attendee?: {
     /**
-     * Sets the identifier of the attendee
+     * The identifier of the attendee.
      */
     id?: string
     /**
-     * Sets the type of attendee
+     * The type of attendee.
      */
     type?: string
     /**
-     * Flag denoting whether or not the attendee has confirmed their attendance to the appointment
+     * A flag denoting whether or not the attendee has confirmed their attendance to the appointment.
      */
     confirmed?: boolean
   }
   /**
-   * Sets the flag to specify if the appointment is accompanied.
+   * The flag to specify if the appointment is accompanied.
    */
   accompanied?: boolean
   /**
-   * Sets the flag to specify if the negotiator is confirmed.
+   * The flag to specify if the negotiator is confirmed.
    */
   negotiatorConfirmed?: boolean
   /**
-   * Sets the flag to specify if the attendee is confirmed.
+   * The flag to specify if the attendee is confirmed.
    */
   attendeeConfirmed?: boolean
   /**
-   * Sets the flag to specify if the property is confirmed.
+   * The flag to specify if the property is confirmed.
    */
   propertyConfirmed?: boolean
   /**
-   * Sets the details of the appointments follow up
+   * The details of the appointments follow up.
    */
   followUp?: {
     /**
-     * Sets the unique identifier of a pre-defined follow up response type
+     * The unique identifier of a pre-defined follow up response type.
      */
     responseId?: string
     /**
-     * Sets the internal follow up notes to be stored against the appointment
+     * The internal follow up notes to be stored against the appointment.
      */
     notes?: string
   }
   /**
-   * Sets the recurrence pattern for this appointment
+   * The recurrence pattern for this appointment.
    */
   recurrence?: {
     /**
-     * Sets the type of unit that the interval will apply to
+     * The type of unit that the interval will apply to.
      */
     type?: string
     /**
-     * Sets the numeric value for often this appointment will recur
+     * The numeric value for how often the appointment will recur.
      */
     interval?: number // int32
     /**
-     * Sets the date this appointment will continue to recur until
+     * The date and time when the appointment will continue to recur until.
      */
     until?: string // date-time
   }
   /**
-   * Sets a JSON fragment to attach to this appointment as metadata
+   * Sets a JSON fragment to attach to this appointment as metadata.
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model to update the recurrence details of an appointment
+ * Represents the recurrence details of an appointment.
  */
 export interface UpdateAppointmentRecurrenceModel {
   /**
-   * Sets the type of unit that the interval will apply to
+   * The type of unit that the interval will apply to.
    */
   type?: string
   /**
-   * Sets the numeric value for often this appointment will recur
+   * The numeric value for how often the appointment will recur.
    */
   interval?: number // int32
   /**
-   * Sets the date this appointment will continue to recur until
+   * The date and time when the appointment will continue to recur until.
    */
   until?: string // date-time
 }
 /**
  * Model to update an area
+ * example:
+ * [object Object]
  */
 export interface UpdateAreaModel {
   /**
@@ -7779,6 +7965,8 @@ export interface UpdateCompanyAddressModel {
 }
 /**
  * Model to update a company
+ * example:
+ * [object Object]
  */
 export interface UpdateCompanyModel {
   /**
@@ -7863,14 +8051,6 @@ export interface UpdateCompanyModel {
     countryId?: string
   }
   /**
-   * Sets a collection of office ids that are related to this company
-   */
-  officeIds?: string[]
-  /**
-   * Sets a collection of negotiator ids that are related to this company
-   */
-  negotiatorIds?: string[]
-  /**
    * Sets a JSON fragment to attach to this company as metadata
    */
   metadata?: {
@@ -7920,6 +8100,8 @@ export interface UpdateContactAddressModel {
 }
 /**
  * Model to update a contact record
+ * example:
+ * [object Object]
  */
 export interface UpdateContactModel {
   /**
@@ -8126,6 +8308,10 @@ export interface UpdateContactSourceModel {
    */
   type?: string
 }
+/**
+ * example:
+ * [object Object]
+ */
 export interface UpdateDocumentModel {
   /**
    * Sets the Id of the document type
@@ -8138,6 +8324,8 @@ export interface UpdateDocumentModel {
 }
 /**
  * Model to update an existing identity check
+ * example:
+ * [object Object]
  */
 export interface UpdateIdentityCheckModel {
   /**
@@ -8157,7 +8345,7 @@ export interface UpdateIdentityCheckModel {
   /**
    * Sets the details of document one that have been provided for this identity check
    */
-  document1?: {
+  identityDocument1?: {
     /**
      * Sets the id of the document type that describes this document
      */
@@ -8170,11 +8358,19 @@ export interface UpdateIdentityCheckModel {
      * Sets the textual details of the identity document (eg. passport number)
      */
     details?: string
+    /**
+     * Sets the base64 binary content of the file
+     */
+    fileData?: string
+    /**
+     * Sets the filename assigned to the document
+     */
+    name?: string
   }
   /**
    * Sets the details of document two that have been provided for this identity check
    */
-  document2?: {
+  identityDocument2?: {
     /**
      * Sets the id of the document type that describes this document
      */
@@ -8187,6 +8383,14 @@ export interface UpdateIdentityCheckModel {
      * Sets the textual details of the identity document (eg. passport number)
      */
     details?: string
+    /**
+     * Sets the base64 binary content of the file
+     */
+    fileData?: string
+    /**
+     * Sets the filename assigned to the document
+     */
+    name?: string
   }
   /**
    * Sets a JSON fragment to attach to this identity check as metadata
@@ -8211,6 +8415,14 @@ export interface UpdateIdentityDocumentModel {
    * Sets the textual details of the identity document (eg. passport number)
    */
   details?: string
+  /**
+   * Sets the base64 binary content of the file
+   */
+  fileData?: string
+  /**
+   * Sets the filename assigned to the document
+   */
+  name?: string
 }
 /**
  * Request body to update a landlord
@@ -8262,19 +8474,21 @@ export interface UpdateLandlordSourceModel {
   type?: string
 }
 /**
- * Model to update a negotiator
+ * Request body used to update an existing negotiator
+ * example:
+ * [object Object]
  */
 export interface UpdateNegotiatorModel {
   /**
-   * Sets the name of the negotiator
+   * The name of the negotiator
    */
   name?: string
   /**
-   * Sets the job title of the negotiator
+   * The job title of the negotiator
    */
   jobTitle?: string
   /**
-   * Sets the inactive flag of the negotiator
+   * Flag denoting whether or not the negotiator is active
    */
   active?: boolean
   /**
@@ -8290,7 +8504,7 @@ export interface UpdateNegotiatorModel {
    */
   email?: string
   /**
-   * Sets a JSON fragment to attach to this negotiator as metadata
+   * App specific metadata to set against the negotiator
    */
   metadata?: {
     [name: string]: any
@@ -8298,6 +8512,8 @@ export interface UpdateNegotiatorModel {
 }
 /**
  * Model to update an offer
+ * example:
+ * [object Object]
  */
 export interface UpdateOfferModel {
   /**
@@ -8336,96 +8552,88 @@ export interface UpdateOfferModel {
   }
 }
 /**
- * Model to update an address
+ * Request body used to update the address of an existing office
  */
 export interface UpdateOfficeAddressModel {
   /**
-   * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
-   */
-  type?: string
-  /**
-   * Sets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Sets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Sets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Sets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Sets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Sets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Sets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Sets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
   countryId?: string
 }
 /**
- * Model to update an office
+ * Request body used to update an existing office
  */
 export interface UpdateOfficeModel {
   /**
-   * Sets the name of the office
+   * The name of the office
    */
   name?: string
   /**
-   * Sets the manager of the office
+   * The name of the office manager
    */
   manager?: string
   /**
-   * Sets the address of the office
+   * The address of the office
    */
   address?: {
     /**
-     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
-     */
-    type?: string
-    /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
     countryId?: string
   }
@@ -8438,264 +8646,266 @@ export interface UpdateOfficeModel {
    */
   email?: string
   /**
-   * Sets a JSON fragment to attach to this office as metadata
+   * App specific metadata to set against the office
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * A model used to update a property address
+ * Request body used to update the address of an existing property
  */
 export interface UpdatePropertyAddressModel {
   /**
-   * Sets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Sets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Sets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Sets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Sets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Sets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Sets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Sets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
   countryId?: string
   /**
-   * Sets the geolocation of the address
+   * The geolocation coordinates associated with the address
    */
   geolocation?: {
     /**
-     * Sets the latitude coordinate of the coordinate pair
+     * The latitude coordinate of the coordinate pair
      */
     latitude?: number // double
     /**
-     * Sets the longitude coordinate of the coordinate pair
+     * The longitude coordinate of the coordinate pair
      */
     longitude?: number // double
   }
 }
 /**
- * A model used to update the details of an EPC graph
+ * Request body used to update the EPC statistics of an existing property
  */
 export interface UpdatePropertyEpcModel {
   /**
-   * Sets whether this property is exempt from requiring an EPC
+   * A flag denoting whether or not this property is exempt from requiring an EPC certificate
    */
   exempt?: boolean
   /**
-   * Sets the current energy efficienty rating
+   * The current energy efficiency rating
    */
   eer?: number // int32
   /**
-   * Sets the potential energy efficienty rating
+   * The potential energy efficiency rating
    */
   eerPotential?: number // int32
   /**
-   * Sets the current environmental impact rating
+   * The current environmental impact rating
    */
   eir?: number // int32
   /**
-   * Sets the potential environmental impact rating
+   * The potential environmental impact rating
    */
   eirPotential?: number // int32
 }
 /**
- * A model used to update the external area information about a property
+ * Request body to update the external land area of an existing property
  */
 export interface UpdatePropertyExternalAreaModel {
   /**
-   * Sets the unit of area (acres/hectares)
+   * The unit of area (acres/hectares)
    */
   type?: string
   /**
-   * Sets the minimum area bound
+   * The minimum area bound
    */
   min?: number // double
   /**
-   * Sets the maximum area bound
+   * The maximum area bound
    */
   max?: number // double
 }
 /**
- * A model used to update the geolocation coordinates of a property address
+ * Request body used to update the geolocation coordinates of an existing property's address
  */
 export interface UpdatePropertyGeolocationModel {
   /**
-   * Sets the latitude coordinate of the coordinate pair
+   * The latitude coordinate of the coordinate pair
    */
   latitude?: number // double
   /**
-   * Sets the longitude coordinate of the coordinate pair
+   * The longitude coordinate of the coordinate pair
    */
   longitude?: number // double
 }
 /**
- * Outward facing model for the updating of a property image
+ * Request body used to update an existing property image
+ * example:
+ * [object Object]
  */
 export interface UpdatePropertyImageModel {
   /**
-   * Sets the images caption
+   * The image caption
    */
   caption?: string
   /**
-   * Sets the images type
+   * The type of image (picture/floorPlan/epc/map)
    */
   type?: string
 }
 /**
- * A model used to update the internal area information about a property address
+ * Request body to update the internal dimensions of an existing property
  */
 export interface UpdatePropertyInternalAreaModel {
   /**
-   * Sets the unit of area (squareFeet/squareMetres)
+   * The unit of area (squareFeet/squareMetres)
    */
   type?: string
   /**
-   * Sets the minimum area bound
+   * The minimum area bound
    */
   min?: number // double
   /**
-   * Sets the maximum area bound
+   * The maximum area bound
    */
   max?: number // double
 }
 /**
- * A model used to update the letting information associated to a property
+ * Request body used to update details specific to lettings marketing on an existing property
  */
 export interface UpdatePropertyLettingModel {
   /**
-   * Sets the date that the property was flagged as for let
+   * The date the property was marked as to let
    */
   instructed?: string // date-time
   /**
-   * Sets the date this property is next available from
+   * The date the property is next available from
    */
   availableFrom?: string // date-time
   /**
-   * Sets the date this property is available to
+   * The date the property is available to
    */
   availableTo?: string // date-time
   /**
-   * Sets the monetary amount required to rent this property
+   * The rent being charged for the property
    */
   rent?: number // double
   /**
-   * Sets the rent collection frequency (weekly/monthly/yearly)
+   * The frequency at which rent will be collected (weekly/monthly/yearly)
    */
   rentFrequency?: string
   /**
-   * Sets the acceptable letting terms (short/long/any)
+   * The acceptable letting terms (short/long/any)
    */
   term?: string
   /**
-   * Sets the letting status of this property (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
+   * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
    */
   status?: string
 }
 /**
- * A model used to update an existing property
+ * Request body used to update an existing property
  */
 export interface UpdatePropertyModel {
   /**
-   * Sets the strapline description
+   * The strapline description containing a short summary about the property
    */
   strapline?: string
   /**
-   * Sets the brief description
+   * The brief description of the property
    */
   description?: string
   /**
-   * Sets the summary of accommodation
+   * The summary of accommodation, typically short phrases or bullet points describing the key features of the property
    */
   summary?: string
   /**
-   * Sets the address of the property
+   * The address of the property
    */
   address?: {
     /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
     countryId?: string
     /**
-     * Sets the geolocation of the address
+     * The geolocation coordinates associated with the address
      */
     geolocation?: {
       /**
-       * Sets the latitude coordinate of the coordinate pair
+       * The latitude coordinate of the coordinate pair
        */
       latitude?: number // double
       /**
-       * Sets the longitude coordinate of the coordinate pair
+       * The longitude coordinate of the coordinate pair
        */
       longitude?: number // double
     }
   }
   /**
-   * Sets the number of bedrooms
+   * The total number of bedrooms in the property
    */
   bedrooms?: number // int32
   /**
-   * Sets the number of reception rooms
+   * The total number of reception rooms in the property
    */
   receptions?: number // int32
   /**
-   * Sets the number of bathrooms
+   * The total number of bathrooms in the property
    */
   bathrooms?: number // int32
   /**
-   * Sets the council tax banding (A/B/C/D/E/F/G/H)
+   * The council tax banding of the property (A/B/C/D/E/F/G/H)
    */
   councilTax?: string
   /**
-   * Sets a value indicating whether this property can be advertised on the internet
+   * A flag denoting whether or not this property can be advertised on the internet
    */
   internetAdvertising?: boolean
   /**
@@ -8703,494 +8913,402 @@ export interface UpdatePropertyModel {
    */
   viewingArrangements?: string
   /**
-   * Sets details of the EPC statistics
+   * Details of the EPC statistics
    */
   epc?: {
     /**
-     * Sets whether this property is exempt from requiring an EPC
+     * A flag denoting whether or not this property is exempt from requiring an EPC certificate
      */
     exempt?: boolean
     /**
-     * Sets the current energy efficienty rating
+     * The current energy efficiency rating
      */
     eer?: number // int32
     /**
-     * Sets the potential energy efficienty rating
+     * The potential energy efficiency rating
      */
     eerPotential?: number // int32
     /**
-     * Sets the current environmental impact rating
+     * The current environmental impact rating
      */
     eir?: number // int32
     /**
-     * Sets the potential environmental impact rating
+     * The potential environmental impact rating
      */
     eirPotential?: number // int32
   }
   /**
-   * Sets the external area
+   * Details of the external land area associated to this property
    */
   externalArea?: {
     /**
-     * Sets the unit of area (acres/hectares)
+     * The unit of area (acres/hectares)
      */
     type?: string
     /**
-     * Sets the minimum area bound
+     * The minimum area bound
      */
     min?: number // double
     /**
-     * Sets the maximum area bound
+     * The maximum area bound
      */
     max?: number // double
   }
   /**
-   * Sets details of the internal dimensions of the property
+   * Details of the internal dimensions of the property
    */
   internalArea?: {
     /**
-     * Sets the unit of area (squareFeet/squareMetres)
+     * The unit of area (squareFeet/squareMetres)
      */
     type?: string
     /**
-     * Sets the minimum area bound
+     * The minimum area bound
      */
     min?: number // double
     /**
-     * Sets the maximum area bound
+     * The maximum area bound
      */
     max?: number // double
   }
   /**
-   * Sets the sales specific details of the property
+   * Selling specific details about the property
    */
   selling?: {
     /**
-     * Sets the date that the property was flagged as for sale
+     * The date that the property was marked as for sale
      */
     instructed?: string // date-time
     /**
-     * Sets the asking price of the property
+     * The marketing price of the property
      */
     price?: number // int32
     /**
-     * Sets the price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
+     * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
      */
     qualifier?: string
     /**
-     * Sets the sales status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+     * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
      */
     status?: string
     /**
-     * Sets details of the sales tenure of the property
+     * Details about the tenure of the property
      */
     tenure?: {
       /**
-       * Sets the type of tenure that applies to this property
+       * The type of tenure that applies to the property (freehold/leasehold/shareOfFreehold/commonhold/tba)
        */
       type?: string
       /**
-       * Sets tenure expiration date
+       * The tenure expiration date
        */
       expiry?: string // date-time
     }
   }
   /**
-   * Sets the letting specific details of the property
+   * Letting specific details about the property
    */
   letting?: {
     /**
-     * Sets the date that the property was flagged as for let
+     * The date the property was marked as to let
      */
     instructed?: string // date-time
     /**
-     * Sets the date this property is next available from
+     * The date the property is next available from
      */
     availableFrom?: string // date-time
     /**
-     * Sets the date this property is available to
+     * The date the property is available to
      */
     availableTo?: string // date-time
     /**
-     * Sets the monetary amount required to rent this property
+     * The rent being charged for the property
      */
     rent?: number // double
     /**
-     * Sets the rent collection frequency (weekly/monthly/yearly)
+     * The frequency at which rent will be collected (weekly/monthly/yearly)
      */
     rentFrequency?: string
     /**
-     * Sets the acceptable letting terms (short/long/any)
+     * The acceptable letting terms (short/long/any)
      */
     term?: string
     /**
-     * Sets the letting status of this property (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
+     * The current status of the let (valuation/toLet/toLetUnavailable/underOffer/underOfferUnavailable/arrangingTenancyUnavailable/arrangingTenancy/tenancyCurrentUnavailable/tenancyCurrent/tenancyFinished/tenancyCancelled/sold/letByOtherAgent/letPrivately/provisional/withdrawn)
      */
     status?: string
   }
   /**
-   * Sets the property types
+   * The property type attributes
    */
   type?: string[]
   /**
-   * Sets the property style
+   * The property style attributes
    */
   style?: string[]
   /**
-   * Sets the property situation
+   * The property situation attributes
    */
   situation?: string[]
   /**
-   * Sets the property parking
+   * The property parking attributes
    */
   parking?: string[]
   /**
-   * Sets the property age
+   * The property age attributes
    */
   age?: string[]
   /**
-   * Sets the property locality
+   * The property locality attributes
    */
   locality?: string[]
   /**
-   * Sets the properties negotiatior id
+   * The unique identifier of the negotiator managing the property
    */
   negotiatorId?: string
   /**
-   * Sets the properties office ids
+   * A collection of unique identifiers of offices attached to the property
    */
   officeIds?: string[]
   /**
-   * Sets the identifier of the area that the property resides in
+   * The unique identifier of the area that the property resides in
    */
   areaId?: string
   /**
-   * Sets a JSON fragment to attach to this property as metadata
+   * App specific metadata to set against the property
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * A model used to update the selling information associated to a property
+ * Request body used to update details specific to sales marketing on an existing property
  */
 export interface UpdatePropertySellingModel {
   /**
-   * Sets the date that the property was flagged as for sale
+   * The date that the property was marked as for sale
    */
   instructed?: string // date-time
   /**
-   * Sets the asking price of the property
+   * The marketing price of the property
    */
   price?: number // int32
   /**
-   * Sets the price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
+   * The price qualifier (askingPrice/priceOnApplication/guidePrice/offersInRegion/offersOver/offersInExcess/fixedPrice/priceReducedTo)
    */
   qualifier?: string
   /**
-   * Sets the sales status (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
+   * The current status of the sale (preAppraisal/valuation/paidValuation/forSale/forSaleUnavailable/underOffer/underOfferUnavailable/reserved/exchanged/completed/soldExternally/withdrawn)
    */
   status?: string
   /**
-   * Sets details of the sales tenure of the property
+   * Details about the tenure of the property
    */
   tenure?: {
     /**
-     * Sets the type of tenure that applies to this property
+     * The type of tenure that applies to the property (freehold/leasehold/shareOfFreehold/commonhold/tba)
      */
     type?: string
     /**
-     * Sets tenure expiration date
+     * The tenure expiration date
      */
     expiry?: string // date-time
   }
 }
 /**
- * A model used to update the tenure information about a property
+ * Request body used to set the tenure of an existing property
  */
 export interface UpdatePropertyTenureModel {
   /**
-   * Sets the type of tenure that applies to this property
+   * The type of tenure that applies to the property (freehold/leasehold/shareOfFreehold/commonhold/tba)
    */
   type?: string
   /**
-   * Sets tenure expiration date
+   * The tenure expiration date
    */
   expiry?: string // date-time
 }
 /**
- * Model to update a tasks recipient
- */
-export interface UpdateRecipientModel {
-  /**
-   * Unique identifier of the tasks recipient
-   */
-  id?: string
-  /**
-   * Entity type of the recipient (office/negotiator)
-   */
-  type?: string
-}
-/**
- * Model to update a source
+ * Request body used to update an existing source of business
+ * example:
+ * [object Object]
  */
 export interface UpdateSourceModel {
   /**
-   * Sets the sources name
+   * The name of the source or advertising publication
    */
   name?: string
   /**
-   * Sets the sources type
+   * The type of the source (source/advertisement)
    */
   type?: string
   /**
-   * Sets a list of departments related to this source
-   */
-  departmentIds?: string[]
-  /**
-   * Sets a list of offices related to this source
+   * A collection of the unique identifiers of offices that regularly get business from the source
    */
   officeIds?: string[]
+  /**
+   * A collection of unique identifiers of departments that regularly get business from the source
+   */
+  departmentIds?: string[]
 }
 /**
- * Model used to update an existing task
+ * Representation of a task, which can also be an internal message
+ * example:
+ * [object Object]
  */
 export interface UpdateTaskModel {
   /**
-   * Sets the date the task will be activated
+   * The date the task becomes active
    */
   activates?: string // date-time
   /**
-   * Sets the date the task will be completed
+   * The date the task was completed
    */
   completed?: string // date-time
   /**
-   * Sets the type of task
+   * The unique identifier of the task type
    */
   typeId?: string
   /**
-   * Sets the unique identifier of the negotiator who created the task
+   * The unique identifer of the negotiator that created the task
    */
   senderId?: string
   /**
-   * Sets the text against the task or message
+   * The textual contents of the task or message
    */
   text?: string
   /**
-   * Sets the unique identifier of the landlord the task is related too
+   * The unique identifier of the landlord the task is associated to
    */
   landlordId?: string
   /**
-   * Sets the unique identifier of the property the task is related too
+   * The unique identifier of the property the task is associated to
    */
   propertyId?: string
   /**
-   * Sets the unique identifier of the applicant the task is related too
+   * The unique identifier of the applicant the task is associated to
    */
   applicantId?: string
   /**
-   * Sets the unique identifier of the tenancy the task is related too
+   * The unique identifier of the tenancy the task is associated to
    */
   tenancyId?: string
   /**
-   * Sets the unique identifier of the contact the task is related too
+   * The unique identifier of the contact the task is associated to
    */
   contactId?: string
   /**
-   * Sets the recipient to update against this task
+   * The unique identifier of the negotiator or office the task is being sent to
    */
-  recipient?: {
-    /**
-     * Unique identifier of the tasks recipient
-     */
-    id?: string
-    /**
-     * Entity type of the recipient (office/negotiator)
-     */
-    type?: string
-  }
+  recipientId?: string
   /**
-   * Sets a JSON fragment to attach to this task as metadata
+   * The type of the recipient (office/negotiator)
+   */
+  recipientType?: string
+  /**
+   * App specific metadata that has been set against the task
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model to specify updates for a vendor
+ * Request body used to update an existing vendor
+ * example:
+ * [object Object]
  */
 export interface UpdateVendorModel {
   /**
-   * Sets the date of the last call
+   * The date the vendor was last called
    */
   lastCall?: string // date-time
   /**
-   * Sets the date of the next call
+   * The date the vendor is next due to be called
    */
   nextCall?: string // date-time
   /**
-   * Sets the vendors type
+   * The unique identifier of the type of vendor
    */
   typeId?: string
   /**
-   * Sets the vendors selling reason
+   * The unique identifier of the reason the vendor is selling
    */
   sellingReasonId?: string
   /**
-   * Sets the unique identifier of the vendors solicitor
+   * The unique identifier of the vendor's solicitor
    */
   solicitorId?: string
   /**
-   * Sets the vendors source
+   * The source of the vendor
    */
   source?: {
     /**
-     * Sets the unique identifier of the vendors source
+     * The unique identifier of the source of the vendor
      */
     id?: string
     /**
-     * Sets the vendors source type
+     * The source type (office/source)
      */
     type?: string
   }
   /**
-   * Sets a JSON fragment to attach to this vendor as metadata
+   * App specific metadata that has been set against the vendor
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Request body to update a works order item
- */
-export interface UpdateWorksOrderItemModel {
-  /**
-   * Sets the notes against the work order item
-   */
-  notes?: string
-  /**
-   * Sets the entity to charge the work order item to
-   */
-  chargeTo?: string
-  /**
-   * Sets the estimate of the work order item
-   */
-  estimate?: number // double
-  /**
-   * Sets the estimate type of the work order item
-   */
-  estimateType?: string
-  /**
-   * Sets the cost of the work order item
-   */
-  cost?: number // double
-}
-/**
- * Request body to update a works order
- */
-export interface UpdateWorksOrderModel {
-  /**
-   * Sets the id of the company that has been selected to perform the work
-   */
-  companyId?: string
-  /**
-   * Sets the id of the property the work is for
-   */
-  propertyId?: string
-  /**
-   * Sets the id of the tenancy that originated the work
-   */
-  tenancyId?: string
-  /**
-   * Sets the id of the negotiator that booked the work
-   */
-  negotiatorId?: string
-  /**
-   * Sets the id of the type of work that needs to be performed
-   */
-  typeId?: string
-  /**
-   * Sets the status of the works order
-   */
-  status?: string
-  /**
-   * Sets the description of the works order
-   */
-  description?: string
-  /**
-   * Sets the person who reported the fault
-   */
-  reporter?: string
-  /**
-   * Sets the date the works order was booked
-   */
-  booked?: string // date-time
-  /**
-   * Sets the date the works order is required
-   */
-  required?: string // date-time
-  /**
-   * Sets the date the works order was completed
-   */
-  completed?: string // date-time
-  /**
-   * Sets a JSON fragment to attach to this works order as metadata
-   */
-  metadata?: {
-    [name: string]: any
-  }
-}
-/**
- * Model representing the physical address of a building or premise
+ * Representation of the physical address of a building or premise
  */
 export interface VendorContactAddressModel {
   /**
-   * Gets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Gets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Gets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Gets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Gets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Gets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Gets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Gets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
   countryId?: string
 }
 /**
- * Model representing the details of a contact relationship associated with a vendor entity
+ * A summarised view of the details of a contact associated to a vendor
  */
 export interface VendorContactModel {
   /**
-   * Gets the unique identifier of the contact
+   * The unique identifier of the contact
    */
   id?: string
   /**
-   * Gets the name of this contact or company
+   * The name of the contact
    */
   name?: string
   /**
-   * Gets the type of this contact (Contact/Company)
+   * The type of the contact (company/contact)
    */
   type?: string
   /**
@@ -9210,123 +9328,106 @@ export interface VendorContactModel {
    */
   email?: string
   /**
-   * Gets the primary address of the contact
+   * The primary address of the contact
    */
   primaryAddress?: {
     /**
-     * Gets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Gets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Gets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Gets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Gets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Gets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Gets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Gets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
     countryId?: string
   }
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
 }
 /**
- * Model representing a vendor
+ * Representation of a vendor
  */
 export interface VendorModel {
   /**
-   * Gets the vendors unique identfier
+   * The unique identifier of the vendor
    */
   id?: string
   /**
-   * Gets the datetime when the vendor was created
+   * The date and time when the vendor was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the vendor was last modified
+   * The date and time when the vendor was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the date and time that the vendor was last called
+   * The date the vendor was last called
    */
   lastCall?: string // date-time
   /**
-   * Gets the date and time that the vendor will be called next
+   * The date the vendor is next due to be called
    */
   nextCall?: string // date-time
   /**
-   * Gets the type of vendor
+   * The unique identifier of the type of vendor
    */
   typeId?: string
   /**
-   * Gets the vendors reason for selling
+   * The unique identifier of the reason the vendor is selling
    */
   sellingReasonId?: string
   /**
-   * Gets the unique identifier of the vendors solicitor
+   * The unique identifier of the vendor's solicitor
    */
   solicitorId?: string
   /**
-   * Gets the vendors source information
+   * The source of the vendor
    */
   source?: {
     /**
-     * Gets the unique identifier of the vendors source
+     * The unique identifier of the source of the vendor
      */
     id?: string
     /**
-     * Gets the vendors source type (office/source)
+     * The source type (office/source)
      */
     type?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
   }
   /**
-   * Gets a collection of contact entities attached to this vendor
-   * The primary contact will always appear first in the collection
+   * A collection of contacts associated to the vendor
    */
   related?: {
     /**
-     * Gets the unique identifier of the contact
+     * The unique identifier of the contact
      */
     id?: string
     /**
-     * Gets the name of this contact or company
+     * The name of the contact
      */
     name?: string
     /**
-     * Gets the type of this contact (Contact/Company)
+     * The type of the contact (company/contact)
      */
     type?: string
     /**
@@ -9346,65 +9447,61 @@ export interface VendorModel {
      */
     email?: string
     /**
-     * Gets the primary address of the contact
+     * The primary address of the contact
      */
     primaryAddress?: {
       /**
-       * Gets the building name
+       * The building name
        */
       buildingName?: string
       /**
-       * Gets the building number
+       * The building number
        */
       buildingNumber?: string
       /**
-       * Gets the first line of the address
+       * The first line of the address
        */
       line1?: string
       /**
-       * Gets the second line of the address
+       * The second line of the address
        */
       line2?: string
       /**
-       * Gets the third line of the address
+       * The third line of the address
        */
       line3?: string
       /**
-       * Gets the fourth line of the address
+       * The fourth line of the address
        */
       line4?: string
       /**
-       * Gets the postcode
+       * The postcode
        */
       postcode?: string
       /**
-       * Gets the ISO-3166 country code associated with the address
+       * The ISO-3166 country code that the address resides within
        */
       countryId?: string
     }
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
   }[]
   /**
-   * Gets the vendor's negotiator id
+   * The unique identifier of the negotiator attached to the vendor
    */
   negotiatorId?: string
   /**
-   * Gets the vendor's office ids
+   * A collection of unique identifiers of offices attached to the vendor
    */
   officeIds?: string[]
   /**
-   * Gets a listing of additional metadata that has been set against this vendor
+   * App specific metadata that has been set against the vendor
    */
   metadata?: {
     [name: string]: any
   }
+  /**
+   * The ETag for the current version of the vendor. Used for managing update concurrency
+   */
+  readonly _eTag?: string
   readonly _links?: {
     [name: string]: {
       href?: string
@@ -9415,206 +9512,44 @@ export interface VendorModel {
   }
 }
 /**
- * Model representing the details of a vendors source
+ * Representation of a vendor's source
  */
 export interface VendorSourceModel {
   /**
-   * Gets the unique identifier of the vendors source
+   * The unique identifier of the source of the vendor
    */
   id?: string
   /**
-   * Gets the vendors source type (office/source)
+   * The source type (office/source)
    */
   type?: string
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
 }
 /**
- * Model used for updating a vendors source
+ * Representation of a vendor's source
  */
 export interface VendorUpdateSourceModel {
   /**
-   * Sets the unique identifier of the vendors source
+   * The unique identifier of the source of the vendor
    */
   id?: string
   /**
-   * Sets the vendors source type
+   * The source type (office/source)
    */
   type?: string
 }
-/**
- * Outward facing model to display a work order item
- */
-export interface WorksOrderItemModel {
-  /**
-   * Gets the unique identifier of the works order item
-   */
-  id?: string
-  /**
-   * Gets the unique identifier of the works order
-   */
-  worksOrderId?: string
-  /**
-   * Gets the datetime when the works order item was created
-   */
-  created?: string // date-time
-  /**
-   * Gets the date and time that the works order item was last modified
-   */
-  modified?: string // date-time
-  /**
-   * Gets the notes of the work order item
-   */
-  notes?: string
-  /**
-   * Gets the entity type to charge to (Landlord, Tenant)
-   */
-  chargeTo?: string
-  /**
-   * Gets the estimate of the work order item
-   */
-  estimate?: number // double
-  /**
-   * Gets the work order items estimate type (Agent, Verbal, Written)
-   */
-  estimateType?: string
-  /**
-   * Gets the cost of the work order item
-   */
-  cost?: number // double
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
-}
-export interface WorksOrderModel {
-  /**
-   * Gets the unique identifier of the works order
-   */
-  id?: string
-  /**
-   * Gets the datetime when the works order was created
-   */
-  created?: string // date-time
-  /**
-   * Gets the date and time that the works order was last modified
-   */
-  modified?: string // date-time
-  /**
-   * Gets the id of the company that has been selected to perform the work
-   */
-  companyId?: string
-  /**
-   * Gets the id of the property the work is for
-   */
-  propertyId?: string
-  /**
-   * Gets the id of the tenancy that originated the work
-   */
-  tenancyId?: string
-  /**
-   * Gets the id of the negotiator that booked the work
-   */
-  negotiatorId?: string
-  /**
-   * Gets the id of the type of work that needs to be performed
-   */
-  typeId?: string
-  /**
-   * Gets the status of the works order
-   */
-  status?: string
-  /**
-   * Gets the description of the works order
-   */
-  description?: string
-  /**
-   * Gets the person who reported the fault
-   */
-  reporter?: string
-  /**
-   * Gets the date the works order was booked
-   */
-  booked?: string // date-time
-  /**
-   * Gets the date the works order is requried
-   */
-  required?: string // date-time
-  /**
-   * Gets the date the works order is completed
-   */
-  completed?: string // date-time
-  /**
-   * Gets the collection of work order items associated to the works order
-   */
-  items?: {
-    /**
-     * Gets the unique identifier of the works order item
-     */
-    id?: string
-    /**
-     * Gets the unique identifier of the works order
-     */
-    worksOrderId?: string
-    /**
-     * Gets the datetime when the works order item was created
-     */
-    created?: string // date-time
-    /**
-     * Gets the date and time that the works order item was last modified
-     */
-    modified?: string // date-time
-    /**
-     * Gets the notes of the work order item
-     */
-    notes?: string
-    /**
-     * Gets the entity type to charge to (Landlord, Tenant)
-     */
-    chargeTo?: string
-    /**
-     * Gets the estimate of the work order item
-     */
-    estimate?: number // double
-    /**
-     * Gets the work order items estimate type (Agent, Verbal, Written)
-     */
-    estimateType?: string
-    /**
-     * Gets the cost of the work order item
-     */
-    cost?: number // double
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  /**
-   * Gets a listing of additional metadata that has been set against this works order
-   */
-  metadata?: {
-    [name: string]: any
-  }
-  readonly _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-  readonly _embedded?: {
-    [name: string]: any
-  }
+export interface Vendors {
+  PageSize?: number
+  PageNumber?: number
+  SortBy?: string
+  Id?: string[]
+  NegotiatorId?: string[]
+  OfficeId?: string[]
+  Address?: string
+  Name?: string
+  CreatedFrom?: string
+  CreatedTo?: string
+  LastCallFrom?: string
+  LastCallTo?: string
+  NextCallFrom?: string
+  NextCallTo?: string
 }
