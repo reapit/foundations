@@ -13,7 +13,7 @@ provider:
     MARKET_PLACE_URL: ${self:custom.${self:provider.stage}.MARKET_PLACE_URL}
 package:
   include:
-    - public/**
+    - dist/**
     - node_modules/**
   exclude:
     - .git/**

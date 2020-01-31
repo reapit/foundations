@@ -60,10 +60,6 @@ jobs:
         run: |
           yarn test --since origin/master --parallel
 
-      - name: Test E2E
-        run: |
-          yarn test-e2e:ci --since origin/master --parallel
-
   add-reviews:
     runs-on: ubuntu-latest
     steps:

@@ -7,7 +7,7 @@
     "config-manager": "./src/cli.js"
   },
   "scripts": {
-    "release:prod": "yarn publish"
+    "release:prod": "node ../../scripts/release/release-npm.js @reapit/config-manager"
   },
   "repository": {
     "type": "git",
