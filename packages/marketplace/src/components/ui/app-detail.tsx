@@ -7,13 +7,14 @@ import '@/styles/vendor/slick.scss'
 import { connect } from 'react-redux'
 import { setAppDetailModalStateInstall, setAppDetailModalStateUninstall } from '@/actions/app-detail-modal'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
-import { Tile, ModalHeader, ModalBody, ModalFooter, H6, GridFiveCol, GridFourColItem } from '@reapit/elements'
+import { Tile, ModalHeader, ModalBody, ModalFooter, H6, Grid, GridItem } from '@reapit/elements'
 import { setDeveloperAppModalStateDelete } from '@/actions/developer-app-modal'
 import styles from '@/styles/blocks/app-detail.scss?mod'
 import appCardStyles from '@/styles/blocks/app-card.scss?mod'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import AppAuthenticationDetail from './app-authentication-detail'
 import AuthFlow from '@/constants/app-auth-flow'
+import { ScopeModel } from '@reapit/foundations-ts-definitions'
 
 export interface AppDetailModalInnerProps {
   data: AppDetailModel
@@ -141,19 +142,34 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
               {isCurrentLoggedUserDeveloper && 'Permissions requested'}
               {isCurrentLoggedUserClient && (installedOn ? 'Permissions granted' : 'Permissions required')}
             </H6>
-            <GridFiveCol>
-              {scopes.map(item => (
-                <GridFourColItem key={item.name}>
-                  <li>{item.description}</li>
-                </GridFourColItem>
-              ))}
-            </GridFiveCol>
+            {sliceThreeItemEach(scopes).map((scopeArrayItem, index) => (
+              <Grid key={index}>
+                <ScopeGridThreeCol scopeArrayItem={scopeArrayItem} />
+              </Grid>
+            ))}
           </>
         }
       />
       <ModalFooter footerItems={footerItems} />
     </>
   )
+}
+
+export const ScopeGridThreeCol = ({ scopeArrayItem }) => {
+  return scopeArrayItem.map(item => (
+    <GridItem key={item.name}>
+      <li>{item.description}</li>
+    </GridItem>
+  ))
+}
+
+export const sliceThreeItemEach = (scopes: ScopeModel[]): ScopeModel[][] => {
+  const slicedScopes: ScopeModel[][] = []
+  for (let i = 0; i < scopes.length; i = i + 3) {
+    const threeItemArray = scopes.slice(i, i + 3)
+    slicedScopes.push(threeItemArray)
+  }
+  return slicedScopes
 }
 
 export const mapStateToProps = (state: ReduxState): AppDetailModalMappedProps => {

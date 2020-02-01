@@ -10,14 +10,12 @@ exports[`AppConfirmInstallContent render correctly 1`] = `
   <Component
     body={
       <React.Fragment>
-        <Unknown
-          isCentered={true}
-        >
+        <p>
           This action will install the app for ALL platform users.
           <br />
           Peter's Properties
            requires the permissions below. By installing you are granting permission to your data.
-        </Unknown>
+        </p>
         <ul>
           <li>
             Read data about developers
@@ -65,14 +63,12 @@ exports[`AppConfirmInstallContent render correctly 2`] = `
   <Component
     body={
       <React.Fragment>
-        <Unknown
-          isCentered={true}
-        >
+        <p>
           This action will install the app for ALL platform users.
           <br />
           Peter's Properties
            requires the permissions below. By installing you are granting permission to your data.
-        </Unknown>
+        </p>
         <ul>
           <li>
             Read data about developers
@@ -120,14 +116,12 @@ exports[`AppConfirmInstallContent render correctly 3`] = `
   <Component
     body={
       <React.Fragment>
-        <Unknown
-          isCentered={true}
-        >
+        <p>
           This action will install the app for ALL platform users.
           <br />
           Peter's Properties
            requires the permissions below. By installing you are granting permission to your data.
-        </Unknown>
+        </p>
         <ul>
           <li>
             Read data about developers
@@ -175,14 +169,12 @@ exports[`AppConfirmInstallContent render correctly 4`] = `
   <Component
     body={
       <React.Fragment>
-        <Unknown
-          isCentered={true}
-        >
+        <p>
           This action will install the app for ALL platform users.
           <br />
           Peter's Properties
            requires the permissions below. By installing you are granting permission to your data.
-        </Unknown>
+        </p>
         <ul>
           <li>
             Read data about developers
@@ -230,14 +222,12 @@ exports[`AppConfirmInstallContent render correctly 5`] = `
   <Component
     body={
       <React.Fragment>
-        <Unknown
-          isCentered={true}
-        >
+        <p>
           This action will install the app for ALL platform users.
           <br />
           Peter's Properties
            requires the permissions below. By installing you are granting permission to your data.
-        </Unknown>
+        </p>
         <ul>
           <li>
             Read data about developers
