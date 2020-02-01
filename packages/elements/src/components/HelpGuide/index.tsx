@@ -40,14 +40,14 @@ export const caculateStepChange = ({
   helpguideRef: React.RefObject<HTMLElement>
   isMobileScreen: boolean
 }) => () => {
-  if (currentStepRef.current && wrapperStepRef.current && helpguideRef.current) {
-    if (isMobileScreen) {
-      helpguideRef.current.style.height = '100%'
-      wrapperStepRef.current.style.transform = `translate3d(-${currentStepRef.current.offsetLeft}px, 0, 0)`
-    } else {
-      helpguideRef.current.style.height = `${currentStepRef.current.offsetHeight}px`
-      wrapperStepRef.current.style.transform = `translate3d(0, -${currentStepRef.current.offsetTop}px, 0)`
-    }
+  if (currentStepRef.current && wrapperStepRef.current && helpguideRef.current && isMobileScreen) {
+    helpguideRef.current.style.height = '100%'
+    wrapperStepRef.current.style.transform = `translate3d(-${currentStepRef.current.offsetLeft}px, 0, 0)`
+  }
+
+  if (currentStepRef.current && wrapperStepRef.current && helpguideRef.current && !isMobileScreen) {
+    helpguideRef.current.style.height = `${currentStepRef.current.offsetHeight}px`
+    wrapperStepRef.current.style.transform = `translate3d(0, -${currentStepRef.current.offsetTop}px, 0)`
   }
 }
 
@@ -62,13 +62,12 @@ export const caculateWrapperWith = ({
   total: number
   isMobileScreen: boolean
 }) => () => {
-  if (helpguideRef.current && wrapperStepRef.current) {
-    if (isMobileScreen) {
-      const wrapperWidth = helpguideRef.current.clientWidth * total
-      wrapperStepRef.current.style.width = `${wrapperWidth}px`
-    } else {
-      wrapperStepRef.current.style.width = '100%'
-    }
+  if (helpguideRef.current && wrapperStepRef.current && isMobileScreen) {
+    const wrapperWidth = helpguideRef.current.clientWidth * total
+    wrapperStepRef.current.style.width = `${wrapperWidth}px`
+  }
+  if (helpguideRef.current && wrapperStepRef.current && !isMobileScreen) {
+    wrapperStepRef.current.style.width = '100%'
   }
 }
 
