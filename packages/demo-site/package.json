@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://demo-site.reapit.com",
   "scripts": {
-    "release:dev": "node ../../scripts/release/release-s3.js demo-site reapit-demo-site-dev",
+    "release:dev": "node ../../scripts/release/release-dev.js demo-site reapit-demo-site-dev",
     "release:prod": "node ../../scripts/release/release-prod.js demo-site reapit-demo-site",
     "start:prod": "serve -d public -l 8080"
   },
