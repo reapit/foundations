@@ -48,7 +48,7 @@ describe('HelpGuide', () => {
     })
   })
 
-  describe('caculateStepChange', async () => {
+  describe('caculateStepChange', () => {
     const mockProps = {
       currentStepRef: {
         current: {
@@ -87,7 +87,9 @@ describe('HelpGuide', () => {
 
       if (currentStepRef.current && helpguideRef.current && wrapperStepRef.current) {
         const transform = `translate3d(-${currentStepRef.current.offsetLeft}px, 0, 0)`
+        helpguideRef.current.style.height = '100%'
         wrapperStepRef.current.style.transform = transform
+        expect(helpguideRef.current.style.height).toEqual('100%')
         expect(wrapperStepRef.current.style.transform).toEqual(transform)
       }
     })
