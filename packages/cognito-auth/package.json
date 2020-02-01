@@ -15,8 +15,7 @@
     "prepublish": "yarn test:ci && yarn build:prod",
     "prebuild": "rimraf dist && rimraf public",
     "build:prod": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
-    "release:npm": "node ./src/scripts/release-npm.js",
-    "check-version": "node ./src/scripts/check-version.js"
+    "release:prod": "node ../../scripts/release/release-npm.js @reapit/cognito-auth"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.34",
+  "version": "0.5.35",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "main": "dist/index.js",
   "umd:main": "dist/elements.umd.production.js",
@@ -15,8 +15,7 @@
     "build:prod": "rimraf dist && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c",
     "start:prod": "cross-env NODE_ENV=development tsdx watch",
     "start:dev": "start-storybook -p 6006",
-    "check-version": "node ./scripts/check-version.js",
-    "release:npm": "node scripts/release-npm.js"
+    "release:prod": "node ../../scripts/release/release-npm.js @reapit/elements"
   },
   "repository": {
     "type": "git",

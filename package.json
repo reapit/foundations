@@ -7,7 +7,8 @@
     "lint": "eslint --ext=jsx,ts,tsx packages --fix",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
     "release:dev": "lerna run release:dev --parallel",
-    "release:prod": "lerna run release:prod --parallel"
+    "release:prod": "lerna run release:prod --parallel",
+    "test-e2e:ci": "lerna run test-e2e:ci --parallel"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",

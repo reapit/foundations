@@ -16,7 +16,7 @@
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "release:dev": "node ../../scripts/release/release-s3.js geo-diary reapit-geo-diary-dev",
+    "release:dev": "node ../../scripts/release/release-dev.js geo-diary reapit-geo-diary-dev",
     "release:prod": "node ../../scripts/release/release-prod.js geo-diary reapit-geo-diary-prod"
   },
   "dependencies": {},
