@@ -4,9 +4,7 @@ const fs = require('fs')
 const cdnPath = `${process.cwd()}/src/cdn`
 const files = fs.readdirSync(cdnPath)
 
-const { EnvironmentPlugin } = require('webpack')
 const { PATHS } = require('./constants')
-const config = require(PATHS.config)
 
 // read all files in cdn folder folder
 const entries = files.reduce((entries, file) => {
@@ -37,7 +35,6 @@ module.exports = {
       useTypescriptIncrementalApi: true,
       memoryLimit: 4096,
     }),
-    new EnvironmentPlugin(config[process.env.REAPIT_ENV || 'LOCAL']),
   ],
   module: {
     rules: [

@@ -2,13 +2,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
 
-const { PATHS } = require(path.resolve(__dirname, '../../../scripts/webpack/constants'))
-const reapitConfig = require(PATHS.config)
-
 module.exports = async ({ config }) => {
-  // Map data in reapit-config to process.env
-  config.plugins.push(new webpack.EnvironmentPlugin(reapitConfig[process.env.REAPIT_ENV || 'LOCAL']))
-
   // Configurations copied from elements storybook configurations
   config.module.rules.push(
     {
