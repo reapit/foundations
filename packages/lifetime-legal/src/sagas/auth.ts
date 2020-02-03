@@ -15,7 +15,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
       yield put(authLoginFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(authLoginFailure())
   }
 }
@@ -25,7 +25,7 @@ export const doLogout = function*() {
     yield call(removeSession, COOKIE_SESSION_KEY_LTL_APP)
     yield call(redirectToLogout, process.env.COGNITO_CLIENT_ID_LTL_APP as string, `${window.location.origin}/login`)
   } catch (err) {
-    console.error(err.message)
+    logger(err)
   }
 }
 

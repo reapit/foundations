@@ -9,6 +9,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { appDetailRequestData } from '@/actions/app-detail'
+import { logger } from '@/utils/error-logger'
 
 export const submitRevision = function*({ data }: Action<CreateAppRevisionModel & { id: string }>) {
   yield put(submitRevisionSetFormState('SUBMITTING'))
@@ -68,7 +69,7 @@ export const submitRevision = function*({ data }: Action<CreateAppRevisionModel 
 
     yield put(submitRevisionSetFormState(status))
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',

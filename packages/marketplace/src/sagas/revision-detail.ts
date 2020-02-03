@@ -16,6 +16,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action, ReduxState } from '@/types/core'
 import { adminApprovalsDataFetch } from './admin-approvals'
+import { logger } from '@/utils/error-logger'
 
 export const revisionDetailDataFetch = function*({
   data: { appId, appRevisionId },
@@ -41,7 +42,7 @@ export const revisionDetailDataFetch = function*({
       yield put(revisionDetailFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -81,7 +82,7 @@ export const approveRevision = function*({ data: params }: Action<RevisionApprov
     }
     yield put(approveRevisionSetFormState(status))
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(approveRevisionSetFormState('ERROR'))
     yield put(
       errorThrownServer({
@@ -115,7 +116,7 @@ export const declineRevision = function*({ data: params }: Action<RevisionDeclin
     }
     yield put(declineRevisionSetFormState(status))
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(declineRevisionSetFormState('ERROR'))
     yield put(
       errorThrownServer({

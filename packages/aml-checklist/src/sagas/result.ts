@@ -21,6 +21,7 @@ export const resultFetch = function*(params: Action<ContactsParams>) {
     })
     yield put(resultReceiveData(responseContacts))
   } catch (err) {
+    logger(err)
     yield put(resultRequestDataFailure())
     yield put(
       errorThrownServer({

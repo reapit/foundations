@@ -17,7 +17,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
       yield put(authLoginFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(authLoginFailure())
   }
 }
@@ -34,7 +34,7 @@ export const doLogout = function*() {
       `${window.location.origin}${authRoute}`,
     )
   } catch (err) {
-    console.error(err.message)
+    logger(err)
   }
 }
 
@@ -43,7 +43,7 @@ export const clearAuth = function*() {
     yield call(removeSession)
     yield put(authLogoutSuccess())
   } catch (err) {
-    console.error(err.message)
+    logger(err)
   }
 }
 

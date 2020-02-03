@@ -48,7 +48,7 @@ export const appointmentDetailDataFetch = function*({ data: { id } }: Action<App
       yield put(appointmentDetailRequestDataFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(appointmentDetailRequestDataFailure())
     yield put(
       errorThrownServer({
@@ -78,7 +78,11 @@ export const cancelAppointmentRequest = function*() {
       yield put(appointmentsRequestData({ time: filterTime }))
     }
   } catch (error) {
+<<<<<<< HEAD
     console.error(error.message)
+=======
+    logger(error)
+>>>>>>> fix: #48 sentry log not capture error, add logger util in all apps
     yield put(
       errorThrownServer({
         type: 'SERVER',

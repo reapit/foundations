@@ -14,6 +14,7 @@ import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
 import { authLogoutSuccess } from '@/actions/auth'
 import Routes from '@/constants/routes'
 import { history } from '../core/router'
+import { logger } from '@/utils/error-logger'
 
 export const fetchDeveloperInfo = async (developerId: string | null | undefined) => {
   const response = await fetcher({
@@ -37,7 +38,7 @@ export const developerInformationFetch = function*() {
       yield put(requestDeveloperDataSuccess(response))
     }
   } catch (error) {
-    console.error(error)
+    logger(error)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -84,7 +85,7 @@ export const developerInfomationChange = function*({ data }: Action<DeveloperMod
       yield put(requestDeveloperDataSuccess(newResponse))
     }
   } catch (error) {
-    console.error(error)
+    logger(error)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -128,6 +129,7 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     yield put(authLogoutSuccess())
     yield history.replace(SUCCESS_ALERT_LOGIN_PAGE)
   } catch (error) {
+    logger(error)
     yield put(
       errorThrownServer({
         type: 'SERVER',

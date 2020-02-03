@@ -4,6 +4,7 @@ import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
+import { logger } from '@/utils/error-logger'
 
 export const homeDataFetch = function*() {
   yield put(homeLoading(true))
@@ -13,7 +14,7 @@ export const homeDataFetch = function*() {
 
     yield put(homeReceiveData({ data: response }))
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(homeRequestDataFailure())
     yield put(
       errorThrownServer({

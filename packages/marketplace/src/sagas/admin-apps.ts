@@ -15,6 +15,7 @@ import {
 import { selectAdminAppsData } from '@/selector/admin'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import api from './api'
+import { logger } from '@/utils/error-logger'
 
 export const adminAppsFetch = function*() {
   try {
@@ -22,6 +23,7 @@ export const adminAppsFetch = function*() {
     const response = yield call(api.fetchAdminApps, { params: queryParams })
     yield put(adminAppsReceiveData(response))
   } catch (err) {
+    logger(err)
     yield put(adminAppsRequestFailure())
     yield put(
       errorThrownServer({
@@ -61,6 +63,7 @@ export const adminAppsFeatured = function*({ data: { id, isFeatured } }) {
 
     yield put(adminAppsSetFormState('SUCCESS'))
   } catch (err) {
+    logger(err)
     yield put(adminAppsSetFormState('ERROR'))
     yield put(
       errorThrownServer({

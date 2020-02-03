@@ -5,6 +5,7 @@ import { Action } from '../types/core'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { DynamicLinkParams, navigateDynamicApp } from '@reapit/elements'
+import { logger } from '@/utils/error-logger'
 
 export const submitComplete = function*({
   data: { dynamicLinkParams },
@@ -15,7 +16,7 @@ export const submitComplete = function*({
     yield put(submitCompleteSetFormState('SUCCESS'))
     yield call(navigateDynamicApp, dynamicLinkParams)
   } catch (err) {
-    console.error(err)
+    logger(err)
     yield put(submitCompleteSetFormState('ERROR'))
     yield put(
       errorThrownServer({

@@ -16,7 +16,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
       yield put(authLoginFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(authLoginFailure())
   }
 }
@@ -27,7 +27,7 @@ export const doLogout = function*() {
     yield call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY)
     yield call(redirectToLogout, process.env.COGNITO_CLIENT_ID_GEO_DIARY as string, `${window.location.origin}/login`)
   } catch (err) {
-    console.error(err.message)
+    logger(err)
   }
 }
 

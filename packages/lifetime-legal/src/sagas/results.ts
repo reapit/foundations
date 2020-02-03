@@ -13,6 +13,7 @@ export const resultFetch = function*(params: Action<ContactsParams>) {
     const responseContacts = yield call(fetchContacts, { headers, params })
     yield put(resultReceiveData(responseContacts))
   } catch (err) {
+    logger(err)
     yield put(resultRequestDataFailure())
     yield put(
       errorThrownServer({

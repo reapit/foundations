@@ -9,6 +9,7 @@ import { errorThrownServer } from '../actions/error'
 import { SubmitAppArgs } from '@/actions/submit-app'
 import errorMessages from '../constants/error-messages'
 import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '@/utils/form/errors'
+import { logger } from '@/utils/error-logger'
 
 export type ImageUploaderReq = {
   name?: string
@@ -131,8 +132,8 @@ export const submitAppsDataFetch = function*() {
     yield put(submitAppReceiveData(scopes))
     yield put(categoriesReceiveData(categories))
   } catch (err) {
+    logger(err)
     yield put(submitAppLoading(false))
-    console.error(err.message)
     yield put(
       errorThrownServer({
         type: 'SERVER',

@@ -12,6 +12,7 @@ import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 import { selectClientId } from '@/selector/client'
+import { logger } from '@/utils/error-logger'
 
 export const installedAppsDataFetch = function*({ data: page }) {
   yield put(installedAppsLoading(true))
@@ -29,7 +30,7 @@ export const installedAppsDataFetch = function*({ data: page }) {
       yield put(installedAppsRequestDataFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',

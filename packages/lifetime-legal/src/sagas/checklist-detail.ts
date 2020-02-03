@@ -25,6 +25,7 @@ import {
   createIdentityCheck,
   uploadImage,
 } from './api'
+import { logger } from '@/utils/error-logger'
 
 export const checklistDetailDataFetch = function*({ data: id }) {
   yield put(checklistDetailLoading(true))
@@ -37,6 +38,7 @@ export const checklistDetailDataFetch = function*({ data: id }) {
     yield put(contactReceiveData(contact))
     yield put(identityCheckReceiveData(idCheck))
   } catch (err) {
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -79,7 +81,7 @@ export const updateChecklistDetail = function*({ data: { metadata, ...rest } }: 
       yield put(checklistDetailLoading(false))
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -145,7 +147,7 @@ export const updateAddressHistory = function*({
       yield put(checklistDetailLoading(false))
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -218,6 +220,7 @@ export const updatePrimaryId = function*({ data }: Action<IdentityDocumentModel>
     }
     yield put(checklistDetailLoading(false))
   } catch (err) {
+    logger(err)
     const result: ErrorData = {
       type: 'SERVER',
       message: errorMessages.DEFAULT_SERVER_ERROR,
@@ -275,6 +278,7 @@ export const updateSecondaryId = function*({ data }: Action<IdentityDocumentMode
     }
     yield put(checklistDetailLoading(false))
   } catch (err) {
+    logger(err)
     const result: ErrorData = {
       type: 'SERVER',
       message: errorMessages.DEFAULT_SERVER_ERROR,
@@ -327,6 +331,7 @@ export const updateAgentCheck = function*({ data }: any) {
       yield put(checklistDetailLoading(false))
     }
   } catch (error) {
+    logger(error)
     const result: ErrorData = {
       type: 'SERVER',
       message: errorMessages.DEFAULT_SERVER_ERROR,
