@@ -1,7 +1,11 @@
 const webpackBase = require('./webpack.base.dev')
+const { PATHS } = require('./constants')
 
 module.exports = {
-  ...webpackBase,
+  ...{
+    ...webpackBase,
+    entry: [...webpackBase.entry, PATHS.elementsIndexSass],
+  },
   module: {
     rules: [
       ...webpackBase.module.rules,

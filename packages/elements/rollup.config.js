@@ -1,6 +1,9 @@
 import scss from 'rollup-plugin-scss'
 import purify from 'purify-css'
 
+// import in rollup don't work with common.js
+const purifyOpions = require('./purifyOptions.js')
+
 export default [
   {
     input: 'src/styles/index.scss',
@@ -12,37 +15,7 @@ export default [
       scss({
         output: styles => {
           const content = ['./dist/elements.esm.js']
-          const options = {
-            output: 'dist/index.css',
-            minify: true,
-            whitelist: [
-              '*react-datepicker*',
-              '*mt*',
-              '*mb*',
-              '*ml*',
-              '*mr*',
-              '*mx*',
-              '*my*',
-              '*pt*',
-              '*pb*',
-              '*pl*',
-              '*pr*',
-              '*px*',
-              '*py*',
-              '*flex*',
-              '*justify*',
-              '*items-center*',
-              '*pin*',
-              '*absolute*',
-              '*relative*',
-              '*capitalize*',
-              'mw-100',
-            ],
-            // Uncomment this line if you want to see the CSS purified from the package
-            // rejected: true
-          }
-
-          purify(content, styles, options)
+          purify(content, styles, purifyOpions)
         },
       }),
     ],
