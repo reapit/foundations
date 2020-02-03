@@ -6,7 +6,7 @@ import {
   FlexContainerResponsive,
   Grid,
   GridItem,
-  GridFiveCol,
+  GridFourCol,
   GridThreeColItem,
   GridFourColItem,
   Level,
@@ -73,7 +73,7 @@ storiesOf('Layout', module)
     </FlexContainerResponsive>
   ))
   .add('GridFourColEightItems', () => (
-    <GridFiveCol>
+    <GridFourCol>
       <GridFourColItem>
         <Placeholder text="GridFourColItem1" />
       </GridFourColItem>
@@ -104,10 +104,10 @@ storiesOf('Layout', module)
       <GridFourColItem>
         <Placeholder text="GridFourColItem10" />
       </GridFourColItem>
-    </GridFiveCol>
+    </GridFourCol>
   ))
   .add('GridThreeColsSixItems', () => (
-    <GridFiveCol>
+    <GridFourCol>
       <GridThreeColItem>
         <Placeholder text="GridThreeColItem1" />
       </GridThreeColItem>
@@ -126,7 +126,7 @@ storiesOf('Layout', module)
       <GridThreeColItem>
         <Placeholder text="GridThreeColItem6" />
       </GridThreeColItem>
-    </GridFiveCol>
+    </GridFourCol>
   ))
   .add('Grid', () => (
     <Grid>

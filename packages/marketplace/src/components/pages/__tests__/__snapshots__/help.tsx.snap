@@ -26,7 +26,7 @@ exports[`HelpPage should match a snapshot 1`] = `
           Welcome Guide
         </Component>
         <p>
-          Need a little help? Have a look through the Welcome Guide, which we’ve put 
+          Need a little help? Have a look through the Welcome Guide, which we’ve put
       together to help you navigate through your Developer portal.
         </p>
         <p>
@@ -63,7 +63,7 @@ exports[`HelpPage should match a snapshot 1`] = `
           Request a Feature
         </Component>
         <p>
-          Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will 
+          Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
       look at all requests carefully however, we cannot guarantee all will be implemented.
         </p>
         <p>
@@ -136,7 +136,7 @@ exports[`HelpPage should match a snapshot 1`] = `
           Roadmap
         </Component>
         <p>
-          Want to see what we are building or check on the progress of your feature requests? 
+          Want to see what we are building or check on the progress of your feature requests?
       You can see our product roadmap milestones here. 
         </p>
         <p>
@@ -213,7 +213,7 @@ exports[`renderHelpItems should match snapshot 1`] = `
         Welcome Guide
       </Unknown>
       <p>
-        Need a little help? Have a look through the Welcome Guide, which we’ve put 
+        Need a little help? Have a look through the Welcome Guide, which we’ve put
       together to help you navigate through your Developer portal.
       </p>
       <p>
@@ -248,7 +248,7 @@ exports[`renderHelpItems should match snapshot 1`] = `
         Request a Feature
       </Unknown>
       <p>
-        Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will 
+        Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
       look at all requests carefully however, we cannot guarantee all will be implemented.
       </p>
       <p>
@@ -317,7 +317,7 @@ exports[`renderHelpItems should match snapshot 1`] = `
         Roadmap
       </Unknown>
       <p>
-        Want to see what we are building or check on the progress of your feature requests? 
+        Want to see what we are building or check on the progress of your feature requests?
       You can see our product roadmap milestones here. 
       </p>
       <p>
