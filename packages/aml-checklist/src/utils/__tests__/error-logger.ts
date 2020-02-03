@@ -23,9 +23,10 @@ describe('logger', () => {
     logger(error)
     expect(Sentry.captureException).toHaveBeenCalledWith(error)
   })
-})
-it('should call console.err on development', () => {
-  process.env.NODE_ENV = 'development'
-  logger(error)
-  expect(spy).toHaveBeenCalledWith(error)
+
+  it('should call console.err on development', () => {
+    process.env.NODE_ENV = 'development'
+    logger(error)
+    expect(spy).toHaveBeenCalledWith(error)
+  })
 })
