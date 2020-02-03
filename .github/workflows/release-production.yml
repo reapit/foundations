@@ -37,9 +37,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Install AWS CLI
+      - name: Install Global Dependencies
         run: |
-          yarn global add aws-cli
+          yarn global add aws-cli serverless
 
       - name: Set up workspace experimental
         run: |
