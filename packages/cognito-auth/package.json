@@ -2,32 +2,37 @@
   "name": "@reapit/cognito-auth",
   "version": "2.0.14",
   "description": "Simple wrapper around AWS Cognito for basic authentication flow",
-  "main": "dist/index.js",
-  "umd:main": "dist/cognito-auth.umd.production.js",
-  "module": "dist/cognito-auth.esm.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "prepublish": "yarn test:ci && yarn build:prod",
-    "prebuild": "rimraf dist && rimraf public",
-    "build:prod": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
-    "release:prod": "node ../../scripts/release/release-npm.js @reapit/cognito-auth"
+  "keywords": [],
+  "homepage": "https://github.com/reapit/foundations#readme",
+  "bugs": {
+    "url": "https://github.com/reapit/foundations/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reapit/foundations.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/reapit/foundations/issues"
+  "author": "",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "umd:main": "dist/cognito-auth.umd.production.js",
+  "module": "dist/cognito-auth.esm.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build:prod": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
+    "prebuild": "rimraf dist && rimraf public",
+    "prepublish": "yarn test:ci && yarn build:prod",
+    "release:prod": "node ../../scripts/release/release-npm.js @reapit/cognito-auth",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose"
   },
-  "homepage": "https://github.com/reapit/foundations#readme",
-  "dependencies": {},
+  "dependencies": {
+    "amazon-cognito-identity-js": "~3.0.13",
+    "cors": "^2.8.5",
+    "hardtack": "^4.1.2",
+    "jsonwebtoken": "^8.5.1"
+  },
   "devDependencies": {}
 }
