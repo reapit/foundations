@@ -16,7 +16,7 @@ import {
   FormSection,
   FormHeading,
   FormSubHeading,
-  GridFiveCol,
+  GridFourCol,
   GridFourColItem,
   LevelRight,
   SelectBox,
@@ -373,7 +373,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         dataTest="submit-app-summary"
                         labelText="Summary"
                         name="summary"
-                        placeholder={`A short strapline summary for your app 
+                        placeholder={`A short strapline summary for your app
                           listing. Must be between 50 and 150 characters`}
                       />
                     </GridItem>
@@ -383,7 +383,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         dataTest="submit-app-description"
                         labelText="Description"
                         name="description"
-                        placeholder={`A detailed description for your app listing. 
+                        placeholder={`A detailed description for your app listing.
                           Must be between 150 and 1000 characters`}
                       />
                     </GridItem>
@@ -396,7 +396,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                     installed apps pages. You can also select a minimum of one and up to five screenshots of your
                     application, that will appear in a carousel in the details view of your app listing.
                   </FormSubHeading>
-                  <GridFiveCol>
+                  <GridFourCol>
                     <GridFourColItem>
                       <div className="control">
                         <label className="label">Icon</label>
@@ -469,7 +469,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         />
                       </div>
                     </GridFourColItem>
-                  </GridFiveCol>
+                  </GridFourCol>
                 </FormSection>
                 <FormSection>
                   <FormHeading>Marketplace Status</FormHeading>
@@ -543,7 +543,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                     </a>{' '}
                     before progressing.
                   </FormSubHeading>
-                  <GridFiveCol>{renderScopesCheckbox(scopes)}</GridFiveCol>
+                  <GridFourCol>{renderScopesCheckbox(scopes)}</GridFourCol>
                 </FormSection>
                 <FormSection>
                   <LevelRight>

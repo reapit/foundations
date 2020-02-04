@@ -56,7 +56,7 @@ export const AppNavContainer: React.SFC<LayoutProps> = ({ children, className = 
   <div className={`app-nav-container ${className}`}>{children}</div>
 )
 
-export const GridFiveCol: React.SFC<LayoutProps> = ({ children, className = '' }) => (
+export const GridFourCol: React.SFC<LayoutProps> = ({ children, className = '' }) => (
   <div className={`columns is-multiline ${className}`}>{children}</div>
 )
 
