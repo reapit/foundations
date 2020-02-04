@@ -6,7 +6,7 @@ import {
   Loader,
   H3,
   InfoType,
-  GridFiveCol,
+  GridFourCol,
   PaginationProps,
   Section,
   Pagination,
@@ -50,7 +50,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
             : 'We are unable to find any Apps that match your search criteria. Please try again.'}
         </Helper>
       ) : (
-        <GridFiveCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
+        <GridFourCol className={` ${loading ? styles.contentIsLoading : ''}`} data-test="app-list-container">
           {list.map(app => (
             <WrapperContainer key={app.id}>
               <AppCard
@@ -74,7 +74,7 @@ export const AppList: React.FunctionComponent<AppListProps> = ({
               />
             </WrapperContainer>
           ))}
-        </GridFiveCol>
+        </GridFourCol>
       )}
 
       {loading && <Loader body />}

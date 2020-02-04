@@ -1,7 +1,7 @@
 import * as React from 'react'
 import initChatBot from '../../scripts/chat-bot'
 import { history } from '@/core/router'
-import { H3, Button, GridFiveCol, GridFourColItem, H4, FlexContainerBasic } from '@reapit/elements'
+import { H3, Button, GridFourCol, GridFourColItem, H4, FlexContainerBasic } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { HelpLinks } from '@/constants/help-links'
 import styles from '@/styles/pages/help.scss?mod'
@@ -46,7 +46,7 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
   {
     imgSrc: welcomeImg,
     header: 'Welcome Guide',
-    text: `Need a little help? Have a look through the Welcome Guide, which we’ve put 
+    text: `Need a little help? Have a look through the Welcome Guide, which we’ve put
       together to help you navigate through your Developer portal.`,
     buttonText: 'VIEW',
     buttonOnClick: handleGotoWelcomeGuide,
@@ -54,7 +54,7 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
   {
     imgSrc: requestEndpointImg,
     header: 'Request a Feature',
-    text: `Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will 
+    text: `Use this form to request a feature in either the Marketplace or Foundations API. Please note, we will
       look at all requests carefully however, we cannot guarantee all will be implemented.`,
     buttonText: 'REQUEST',
     buttonOnClick: handleRequestEndpoint,
@@ -70,7 +70,7 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
   {
     imgSrc: roadmapImg,
     header: 'Roadmap',
-    text: `Want to see what we are building or check on the progress of your feature requests? 
+    text: `Want to see what we are building or check on the progress of your feature requests?
       You can see our product roadmap milestones here. `,
     buttonText: 'VIEW',
     buttonOnClick: handleViewRoadmap,
@@ -86,7 +86,7 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
 ]
 
 export const renderHelpItems = (items: HelpItem[]): React.ReactNode => (
-  <GridFiveCol className={styles.wrapListItems}>
+  <GridFourCol className={styles.wrapListItems}>
     {items.map(({ imgSrc, header, text, buttonText, buttonOnClick }) => (
       <GridFourColItem className={styles.item} key={header}>
         <FlexContainerBasic className={styles.wrapBoxContent} flexColumn centerContent hasPadding>
@@ -111,7 +111,7 @@ export const renderHelpItems = (items: HelpItem[]): React.ReactNode => (
         </FlexContainerBasic>
       </GridFourColItem>
     ))}
-  </GridFiveCol>
+  </GridFourCol>
 )
 
 export interface HelpMappedProps {
