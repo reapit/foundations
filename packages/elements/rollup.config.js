@@ -1,7 +1,7 @@
 import scss from 'rollup-plugin-scss'
 import purify from 'purify-css'
 
-// import in rollup don't work with common.js
+// import in rollup doesn't work with common.js
 const purifyOpions = require('./purifyOptions.js')
 
 export default [
