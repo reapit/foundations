@@ -4,6 +4,8 @@ const fs = require('fs')
 const cdnPath = `${process.cwd()}/src/cdn`
 const files = fs.readdirSync(cdnPath)
 
+const { PATHS } = require('./constants')
+
 // read all files in cdn folder folder
 const entries = files.reduce((entries, file) => {
   const extName = path.extname(file)
@@ -16,7 +18,6 @@ const entries = files.reduce((entries, file) => {
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
-const { PATHS } = require('./constants')
 
 module.exports = {
   context: process.cwd(),
