@@ -50,12 +50,12 @@ exports[`LayoutComponents should match a snapshot for Grid 1`] = `
 </div>
 `;
 
-exports[`LayoutComponents should match a snapshot for GridFiveCol 1`] = `
+exports[`LayoutComponents should match a snapshot for GridFourCol 1`] = `
 <div
   className="columns is-multiline "
 >
   <Component
-    text="GridFiveCol"
+    text="GridFourCol"
   />
 </div>
 `;

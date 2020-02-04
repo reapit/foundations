@@ -11,7 +11,7 @@ import {
   Pagination,
   FlexContainerBasic,
   isMobile,
-  GridFiveCol,
+  GridFourCol,
   GridFourColItem,
   Helper,
   infoText,
@@ -52,13 +52,13 @@ export const ListDesktopScreen = ({
   loading,
   onCardClick,
 }: Pick<InstalledAppListProps, 'list' | 'loading' | 'onCardClick'>) => (
-  <GridFiveCol className={` ${loading ? installedAppListStyles.contentIsLoading : ''}`} data-test="app-list-container">
+  <GridFourCol className={` ${loading ? installedAppListStyles.contentIsLoading : ''}`} data-test="app-list-container">
     {list.map(app => (
       <GridFourColItem key={app.id}>
         <InstalledAppCard key={app.id} app={app} onClick={onClickHandler(onCardClick, app)} />
       </GridFourColItem>
     ))}
-  </GridFiveCol>
+  </GridFourCol>
 )
 
 export const InstalledAppList: React.FC<InstalledAppListProps> = ({
