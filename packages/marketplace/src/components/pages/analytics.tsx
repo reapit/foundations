@@ -1,34 +1,17 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import {
-  Table,
-  FlexContainerBasic,
-  H3,
-  H5,
-  SubTitleH5,
-  SelectBox,
-  SelectBoxOptions,
-  Formik,
-  Form,
-  Loader,
-  toLocalTime,
-  Pagination,
-  setQueryParams,
-} from '@reapit/elements'
+import { Table, FlexContainerBasic, H3, H4, Loader, toLocalTime, Pagination } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-import { AppSummaryModel, InstallationModel, PagedResultInstallationModel_ } from '@reapit/foundations-ts-definitions'
+import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { DeveloperState } from '@/reducers/developer'
 import { AppInstallationsState } from '@/reducers/app-installations'
-import { fetchInstallations } from '@/sagas/app-installations'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
-import { AppDetailState } from '@/reducers/app-detail'
-import { RouteComponentProps, withRouter } from 'react-router'
-import Routes from '@/constants/routes'
-import { Dispatch } from 'redux'
-import { appDetailRequestData } from '@/actions/app-detail'
+import { withRouter } from 'react-router'
+import styles from '@/styles/pages/analytics.scss?mod'
 
-const COLUMNS = [
+export const installationTableColumn = [
+  { Header: 'App Name', accessor: 'appName' },
   {
     Header: 'Client',
     accessor: 'client',
@@ -46,145 +29,150 @@ const COLUMNS = [
 ]
 
 export interface AnalyticsPageMappedProps {
-  appsOfDeveloper?: DeveloperState
-  appInstallations?: AppInstallationsState | null
-  appDetail: AppDetailState
+  developer: DeveloperState
+  installations: AppInstallationsState
 }
 
 export interface AnalyticsPageMappedActions {
   requestAppDetailData: (data) => void
 }
 
-export type AnalyticsPageProps = AnalyticsPageMappedProps &
-  AnalyticsPageMappedActions &
-  RouteComponentProps<{ page: any }>
-
-export const transformListAppToSelectBoxOptions = (app: AppSummaryModel) => {
-  return { label: app.name ?? 'Error', value: app.id ?? 'Error' }
+export interface InstallationModelWithAppName extends InstallationModel {
+  appName?: string
 }
 
-export const transformAppInstalationsToTableColumsCompatible = (appName?: string) => (
-  appInstalls: InstallationModel,
-) => {
-  return { ...appInstalls, appName }
-}
+export type AnalyticsPageProps = AnalyticsPageMappedProps
 
-export const handleSubmit = (history, appId, pageNumber = 1) => {
-  const query = setQueryParams({ appId }) ? `?${setQueryParams({ appId })}` : ''
-  history.push(`${Routes.DEVELOPER_ANALYTICS}/${pageNumber}${query}`)
-}
-
-export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({
-  appInstallations,
-  appsOfDeveloper,
-  appDetail,
-  requestAppDetailData,
-}) => {
-  // const pageNumber = match.params.page ? Number(match.params.page) : 1
-  const [appId, setAppId] = React.useState<string>('')
-  const [pageNumber, setPageNumber] = React.useState<number>(1)
-  const [installations, setInstallations] = React.useState<PagedResultInstallationModel_>()
-  const [fetchingInstallations, setFetchingInstallations] = React.useState<boolean>(false)
-
-  React.useEffect(() => {
-    if (appId) {
-      setFetchingInstallations(true)
-      requestAppDetailData({ id: appId })
-      fetchInstallations({ appId: [appId], pageNumber, pageSize: INSTALLATIONS_PER_PAGE }).then(response => {
-        const isOnWrongPage = pageNumber > Math.ceil(response.totalCount / response.pageSize)
-        const notEmptyData = response.totalCount > 0
-        setFetchingInstallations(false)
-        if (isOnWrongPage && notEmptyData) {
-          setPageNumber(1)
-        } else {
-          setInstallations(response)
-        }
-      })
-    } else {
-      setInstallations({})
+export const handleMapAppNameToInstallation = (
+  installationsAppDataArray: InstallationModel[],
+  developerDataArray: AppSummaryModel[],
+) => (): InstallationModelWithAppName[] =>
+  installationsAppDataArray.map(installation => {
+    const app = developerDataArray.find(app => app.id === installation.appId)
+    return {
+      ...installation,
+      appName: app?.name,
     }
-  }, [appId, pageNumber])
+  })
 
-  if (appInstallations?.loading || !appInstallations?.installationsAppData) {
+export const handleUseMemoData = (
+  installationsAppDataArrayWithName: InstallationModelWithAppName[],
+  pageNumber: number,
+) => (): InstallationModelWithAppName[] => {
+  // sort by date installed
+  const sortedInstallationsAppDataArray = [...installationsAppDataArrayWithName].sort((a, b) => {
+    if (!a.created || !b.created) {
+      return 0
+    }
+    const dateA = new Date(a.created).getTime()
+    const dateB = new Date(b.created).getTime()
+    return dateA < dateB ? 1 : -1
+  })
+  const slicedInstallationAppDataArray = sortedInstallationsAppDataArray.slice(
+    (pageNumber - 1) * INSTALLATIONS_PER_PAGE,
+    pageNumber * INSTALLATIONS_PER_PAGE,
+  )
+  return slicedInstallationAppDataArray
+}
+
+export const handleCountCurrentInstallationForEachApp = (
+  installationAppDataArrayWithName: InstallationModelWithAppName[],
+  developerDataArray: AppSummaryModel[],
+) => () => {
+  // count for each app in installation
+  const appHasInstallation = installationAppDataArrayWithName.reduce((prevValue, { appName, terminatesOn }) => {
+    if (!appName || terminatesOn) {
+      return prevValue
+    }
+    const newValue = { ...prevValue }
+    if (prevValue[appName]) {
+      newValue[appName]++
+      return newValue
+    }
+    newValue[appName] = 1
+    return newValue
+  }, {})
+  // app with no installation will show 0
+  const appNoInstallation = developerDataArray.reduce((prevValue, { name }) => {
+    if (!name) {
+      return prevValue
+    }
+    const newValue = { ...prevValue }
+    newValue[name] = 0
+    return newValue
+  }, {})
+  return {
+    ...appNoInstallation,
+    ...appHasInstallation,
+  }
+}
+
+export const handleSetPageNumber = setPageNumber => (pageNumber: number) => setPageNumber(pageNumber)
+
+export const InstallationTable: React.FC<{ installations: AppInstallationsState; developer: DeveloperState }> = ({
+  installations,
+  developer,
+}) => {
+  const [pageNumber, setPageNumber] = React.useState<number>(1)
+
+  const installationAppDataArray = installations.installationsAppData?.data ?? []
+  const developerDataArray = developer.developerData?.data?.data ?? []
+
+  const installationAppDataArrayWithName = React.useMemo(
+    handleMapAppNameToInstallation(installationAppDataArray, developerDataArray),
+    [installationAppDataArray, developerDataArray],
+  )
+  const appCountEntries = React.useMemo(
+    handleCountCurrentInstallationForEachApp(installationAppDataArrayWithName, developerDataArray),
+    [installationAppDataArrayWithName, developerDataArray],
+  )
+  const memoizedData = React.useMemo(handleUseMemoData(installationAppDataArrayWithName, pageNumber), [
+    installationAppDataArray,
+    developerDataArray,
+    pageNumber,
+  ])
+  return (
+    <div>
+      <H4>Installations</H4>
+      <p>The installations table below shows the individuals per client with a total number of installations per app</p>
+      <div className={styles.totalCount}>
+        {Object.entries(appCountEntries).map(([appName, count]) => (
+          <p key={appName}>
+            Total current Installation for <strong>{appName}</strong>: {count}
+          </p>
+        ))}
+      </div>
+      <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
+      <br />
+      <Pagination
+        pageNumber={pageNumber}
+        onChange={handleSetPageNumber(setPageNumber)}
+        pageSize={INSTALLATIONS_PER_PAGE}
+        totalCount={installations.installationsAppData?.totalCount}
+      />
+    </div>
+  )
+}
+
+export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer }) => {
+  if (installations.loading || !installations.installationsAppData || developer.loading || !developer.developerData) {
     return <Loader />
   }
 
   return (
     <ErrorBoundary>
-      <FlexContainerBasic hasPadding flexColumn>
-        <H3>Analytics</H3>
-        <H5>Total number of installations: {appInstallations.installationsAppData.totalCount}</H5>
-        <SubTitleH5>To see specific installations please select an App from the list below:</SubTitleH5>
-        <Formik
-          initialValues={{ appId }}
-          onSubmit={values => {
-            setAppId(values.appId)
-          }}
-        >
-          {({ submitForm }) => (
-            <>
-              <Form onChange={() => submitForm()}>
-                <div style={{ width: 'max-content', maxWidth: '40%', marginBottom: '1rem' }}>
-                  <SelectBox
-                    id="appId"
-                    labelText=""
-                    name="appId"
-                    options={
-                      appsOfDeveloper?.developerData?.data?.data?.map<SelectBoxOptions>(
-                        transformListAppToSelectBoxOptions,
-                      ) ?? []
-                    }
-                  />
-                </div>
-
-                {fetchingInstallations ? (
-                  <Loader />
-                ) : (
-                  installations?.data && (
-                    <>
-                      <Table
-                        scrollable
-                        columns={COLUMNS}
-                        data={
-                          installations?.data?.map(
-                            transformAppInstalationsToTableColumsCompatible(appDetail?.appDetailData?.data?.name),
-                          ) ?? []
-                        }
-                        loading={false}
-                      />
-                      <br />
-                      <Pagination
-                        pageNumber={pageNumber}
-                        onChange={pageNumber => {
-                          setPageNumber(pageNumber)
-                        }}
-                        pageSize={INSTALLATIONS_PER_PAGE}
-                        totalCount={installations?.totalCount}
-                      />
-                      <H5>
-                        Total number of installations for {appDetail?.appDetailData?.data?.name}:{' '}
-                        {installations?.totalCount}
-                      </H5>
-                    </>
-                  )
-                )}
-              </Form>
-            </>
-          )}
-        </Formik>
+      <FlexContainerBasic hasPadding flexColumn className={styles.wrapAnalytics}>
+        <H3>Dashboard</H3>
+        <hr className={styles.hr} />
+        <InstallationTable installations={installations} developer={developer} />
       </FlexContainerBasic>
     </ErrorBoundary>
   )
 }
 
 export const mapStateToProps: (state: ReduxState) => AnalyticsPageMappedProps = state => ({
-  appInstallations: state.installations,
-  appsOfDeveloper: state.developer,
-  appDetail: state.appDetail,
+  installations: state.installations,
+  developer: state.developer,
 })
 
-export const mapDispatchToProps = (dispatch: Dispatch) => ({
-  requestAppDetailData: data => dispatch(appDetailRequestData(data)),
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AnalyticsPage))
+export default withRouter(connect(mapStateToProps)(AnalyticsPage))
