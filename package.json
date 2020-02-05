@@ -3,11 +3,12 @@
   "private": true,
   "scripts": {
     "build": "lerna run build:prod --parallel",
-    "test": "lerna run test:ci --parallel",
-    "lint": "eslint --ext=jsx,ts,tsx packages --fix",
+    "build-storybook": "lerna run build-storybook --parallel",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
+    "lint": "eslint --ext=jsx,ts,tsx packages --fix",
     "release:dev": "lerna run release:dev --parallel",
     "release:prod": "lerna run release:prod --parallel",
+    "test": "lerna run test:ci --parallel",
     "test-e2e:ci": "lerna run test-e2e:ci --parallel"
   },
   "dependencies": {
