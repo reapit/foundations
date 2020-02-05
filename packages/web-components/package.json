@@ -1,37 +1,32 @@
 {
   "name": "@reapit/web-components",
   "version": "0.0.4",
+  "homepage": "https://github.com/reapit/foundations",
+  "bugs": {
+    "url": "https://github.com/reapit/foundations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reapit/foundations.git"
+  },
+  "license": "MIT",
   "files": [
     "pidist-npm/**/*"
   ],
   "main": "dist-npm/index.js",
   "types": "dist-npm/index.d.ts",
   "typings": "dist-npm/index.d.ts",
-  "homepage": "https://github.com/reapit/foundations",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/reapit/foundations.git"
-  },
-  "bugs": {
-    "url": "https://github.com/reapit/foundations/issues"
-  },
-  "dependencies": {},
-  "peerDependencies": {
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2"
-  },
   "scripts": {
     "build:cdn": "rimraf dist && rimraf dist-npm && webpack --color --mode production --config ../../scripts/webpack/webpack.cdn.js",
     "build:npm": "rimraf dist-npm && webpack --color --mode production --config ../../scripts/webpack/webpack.basic.js && yarn build:tsc",
-    "build:tsc": "tsc -p './tsconfig.json'",
     "build:prod": "yarn build:npm && yarn build:cdn",
-    "start:dev": "start-storybook -p 8080",
+    "build:tsc": "tsc -p './tsconfig.json'",
     "check-version": "node ./scripts/check-version.js",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "release:dev": "node ../../scripts/release/release-dev.js web-components reapit-web-components-dev",
-    "release:prod": "node ../../scripts/release/release-prod.js web-components reapit-web-components"
+    "release:prod": "node ../../scripts/release/release-prod.js web-components reapit-web-components",
+    "start:dev": "start-storybook -p 8080",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose"
   },
   "browserslist": {
     "production": [
@@ -45,7 +40,17 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "little-loader": "^0.2.0",
+    "lodash.merge": "^4.6.2",
+    "react-icons": "^3.7.0",
+    "styled-components": "^4.4.0"
+  },
   "devDependencies": {},
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  },
   "alias": {
     "@/*": "./src/*"
   }
