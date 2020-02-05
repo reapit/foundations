@@ -2,42 +2,60 @@
   "name": "@reapit/elements",
   "version": "0.5.35",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
-  "main": "dist/index.js",
-  "umd:main": "dist/elements.umd.production.js",
-  "module": "dist/elements.esm.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "build:prod": "rimraf dist && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c",
-    "start:prod": "cross-env NODE_ENV=development tsdx watch",
-    "start:dev": "start-storybook -p 6006",
-    "release:prod": "node ../../scripts/release/release-npm.js @reapit/elements"
+  "homepage": "https://github.com/reapit/foundations#readme",
+  "bugs": {
+    "url": "https://github.com/reapit/foundations/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reapit/foundations.git"
   },
-  "author": "Will McVay <wmcvay@reapit.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/reapit/foundations/issues"
-  },
-  "homepage": "https://github.com/reapit/foundations#readme",
-  "devDependencies": {},
-  "dependencies": {},
-  "peerDependencies": {
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-router": "^5.1.2",
-    "react-router-dom": "^5.1.2"
+  "author": "Will McVay <wmcvay@reapit.com>",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "umd:main": "dist/elements.umd.production.js",
+  "module": "dist/elements.esm.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build:prod": "rimraf dist && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c",
+    "release:prod": "node ../../scripts/release/release-npm.js @reapit/elements",
+    "start:dev": "start-storybook -p 6006",
+    "start:prod": "cross-env NODE_ENV=development tsdx watch",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 11"
-  ]
+  ],
+  "dependencies": {
+    "@storybook/theming": "^5.2.8",
+    "@types/papaparse": "^5.0.3",
+    "bulma": "^0.7.5",
+    "formik": "^2.0.4",
+    "hardtack": "^4.1.0",
+    "himalaya": "^1.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "papaparse": "^5.1.1",
+    "pell": "^1.0.6",
+    "prop-types": "^15.7.2",
+    "react-datasheet": "^1.4.0",
+    "react-datepicker": "^2.9.6",
+    "react-google-map": "^3.1.1",
+    "react-google-maps-loader": "^4.2.5",
+    "react-icons": "^3.7.0",
+    "react-table": "7.0.0-alpha.35",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
+  }
 }
