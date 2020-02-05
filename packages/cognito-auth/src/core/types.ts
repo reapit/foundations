@@ -7,13 +7,18 @@ export interface LoginParams {
   password: string
   loginType: LoginType
   mode: LoginMode
+  cognitoClientId: string
 }
 
 export interface RefreshParams {
-  refreshToken: string
-  userName: string
+  cognitoClientId: string
   loginType: LoginType
   mode: LoginMode
+  redirectUri: string | null
+  authorizationCode: string | null
+  refreshToken: string | null
+  userName: string | null
+  state: Object | null
 }
 
 export interface CoginitoIdentity {
@@ -61,19 +66,23 @@ export interface ChangePasswordParams {
   newPassword: string
   userName: string
   password: string
+  cognitoClientId: string
 }
 
 export interface ConfirmPasswordParams {
   userName: string
   newPassword: string
   verificationCode: string
+  cognitoClientId: string
 }
 
 export interface ConfirmRegistrationParams {
   userName: string
   verificationCode: string
+  cognitoClientId: string
 }
 
 export interface ResetPasswordParams {
   userName: string
+  cognitoClientId: string
 }

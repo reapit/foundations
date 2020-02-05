@@ -7,7 +7,11 @@
     "NPM_TOKEN": "",
     "GOOGLE_MAPS_API_KEY": "",
     "COGNITO_USERPOOL_ID": "",
-    "COGNITO_CLIENT_ID": "",
+    "COGNITO_OAUTH_URL": "",
+    "COGNITO_CLIENT_ID_MARKETPLACE": "",
+    "COGNITO_CLIENT_ID_GEO_DIARY": "",
+    "COGNITO_CLIENT_ID_AML_APP": "",
+    "COGNITO_CLIENT_ID_LTL_APP": "",
     "COGNITO_API_BASE_URL": "",
     "UPLOAD_FILE_BASE_URL": "",
     "SWAGGER_BASE_URL": "",
@@ -20,12 +24,10 @@
     "APPLICATION_URL": "",
     "RETRIES": 0,
     "CHATBOT_APP_ID": "",
-    "SENTRY_PROJECT_URL": {
-      "MARKETPLACE": "",
-      "GEO_DIARY": "",
-      "AML_APP": "",
-      "LTL_APP": ""
-    }
+    "SENTRY_PROJECT_URL_MARKETPLACE": "",
+    "SENTRY_PROJECT_URL_GEO_DIARY": "",
+    "SENTRY_PROJECT_URL_AML_APP": "",
+    "SENTRY_PROJECT_URL_LTL_APP": ""
   },
   "DEV": {
     "PLATFORM_BASE_URL": "",
@@ -35,7 +37,11 @@
     "NPM_TOKEN": "",
     "GOOGLE_MAPS_API_KEY": "",
     "COGNITO_USERPOOL_ID": "",
-    "COGNITO_CLIENT_ID": "",
+    "COGNITO_OAUTH_URL": "",
+    "COGNITO_CLIENT_ID_MARKETPLACE": "",
+    "COGNITO_CLIENT_ID_GEO_DIARY": "",
+    "COGNITO_CLIENT_ID_AML_APP": "",
+    "COGNITO_CLIENT_ID_LTL_APP": "",
     "COGNITO_API_BASE_URL": "",
     "UPLOAD_FILE_BASE_URL": "",
     "SWAGGER_BASE_URL": "",
@@ -48,12 +54,10 @@
     "APPLICATION_URL": "",
     "RETRIES": 0,
     "CHATBOT_APP_ID": "",
-    "SENTRY_PROJECT_URL": {
-      "MARKETPLACE": "",
-      "GEO_DIARY": "",
-      "AML_APP": "",
-      "LTL_APP": ""
-    }
+    "SENTRY_PROJECT_URL_MARKETPLACE": "",
+    "SENTRY_PROJECT_URL_GEO_DIARY": "",
+    "SENTRY_PROJECT_URL_AML_APP": "",
+    "SENTRY_PROJECT_URL_LTL_APP": ""
   },
   "PROD": {
     "PLATFORM_BASE_URL": "",
@@ -63,7 +67,11 @@
     "NPM_TOKEN": "",
     "GOOGLE_MAPS_API_KEY": "",
     "COGNITO_USERPOOL_ID": "",
-    "COGNITO_CLIENT_ID": "",
+    "COGNITO_OAUTH_URL": "",
+    "COGNITO_CLIENT_ID_MARKETPLACE": "",
+    "COGNITO_CLIENT_ID_GEO_DIARY": "",
+    "COGNITO_CLIENT_ID_AML_APP": "",
+    "COGNITO_CLIENT_ID_LTL_APP": "",
     "COGNITO_API_BASE_URL": "",
     "UPLOAD_FILE_BASE_URL": "",
     "SWAGGER_BASE_URL": "",
@@ -76,12 +84,10 @@
     "APPLICATION_URL": "",
     "RETRIES": 0,
     "CHATBOT_APP_ID": "",
-    "SENTRY_PROJECT_URL": {
-      "MARKETPLACE": "",
-      "GEO_DIARY": "",
-      "AML_APP": "",
-      "LTL_APP": ""
-    }
+    "SENTRY_PROJECT_URL_MARKETPLACE": "",
+    "SENTRY_PROJECT_URL_GEO_DIARY": "",
+    "SENTRY_PROJECT_URL_AML_APP": "",
+    "SENTRY_PROJECT_URL_LTL_APP": ""
   },
   "DEMO": {
     "PLATFORM_BASE_URL": "",
@@ -91,7 +97,11 @@
     "NPM_TOKEN": "",
     "GOOGLE_MAPS_API_KEY": "",
     "COGNITO_USERPOOL_ID": "",
-    "COGNITO_CLIENT_ID": "",
+    "COGNITO_OAUTH_URL": "",
+    "COGNITO_CLIENT_ID_MARKETPLACE": "",
+    "COGNITO_CLIENT_ID_GEO_DIARY": "",
+    "COGNITO_CLIENT_ID_AML_APP": "",
+    "COGNITO_CLIENT_ID_LTL_APP": "",
     "COGNITO_API_BASE_URL": "",
     "UPLOAD_FILE_BASE_URL": "",
     "SWAGGER_BASE_URL": "",
@@ -104,11 +114,9 @@
     "APPLICATION_URL": "",
     "RETRIES": 0,
     "CHATBOT_APP_ID": "",
-    "SENTRY_PROJECT_URL": {
-      "MARKETPLACE": "",
-      "GEO_DIARY": "",
-      "AML_APP": "",
-      "LTL_APP": ""
-    }
+    "SENTRY_PROJECT_URL_MARKETPLACE": "",
+    "SENTRY_PROJECT_URL_GEO_DIARY": "",
+    "SENTRY_PROJECT_URL_AML_APP": "",
+    "SENTRY_PROJECT_URL_LTL_APP": ""
   }
 }

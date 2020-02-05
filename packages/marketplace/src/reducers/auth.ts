@@ -9,7 +9,7 @@ import {
   authChangeLoginType,
   toggleFirstLogin,
 } from '../actions/auth'
-import { LoginSession, RefreshParams, getSessionCookie, LoginType } from '@reapit/cognito-auth'
+import { LoginSession, RefreshParams, LoginType } from '@reapit/cognito-auth'
 
 export interface AuthState {
   error: boolean
@@ -20,14 +20,12 @@ export interface AuthState {
 }
 
 export const defaultState = (): AuthState => {
-  const refreshSession = getSessionCookie()
-
   return {
     error: false,
     loginSession: null,
     firstLogin: false,
-    loginType: refreshSession ? refreshSession.loginType : 'CLIENT',
-    refreshSession,
+    loginType: 'CLIENT',
+    refreshSession: null,
   }
 }
 

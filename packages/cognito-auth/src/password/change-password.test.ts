@@ -13,6 +13,7 @@ describe('changePassword', () => {
       userName: 'will@mail.com',
       password: 'password',
       newPassword: 'newPassword',
+      cognitoClientId: 'someCognitoClientId',
     } as ChangePasswordParams
 
     mockedPasswordService.mockImplementation(() => 'SUCCESS')
@@ -21,7 +22,7 @@ describe('changePassword', () => {
 
   it('should call the error handler correctly if params are missing', async () => {
     console.error = jest.fn()
-    const params = { userName: '', password: '', newPassword: '' } as ChangePasswordParams
+    const params = { userName: '', password: '', newPassword: '', cognitoClientId: '' } as ChangePasswordParams
     const error = new Error(errorStrings.USERNAME_PASSWORD_NEWPASSWORD_REQUIRED)
     mockedPasswordService.mockImplementation(() => 'SUCCESS')
     await changePassword(params)
@@ -36,6 +37,7 @@ describe('changePassword', () => {
       userName: 'will@mail.com',
       password: 'password',
       newPassword: 'newPassword',
+      cognitoClientId: 'someCognitoClientId',
     } as ChangePasswordParams
 
     const error = new Error('API FAILED')

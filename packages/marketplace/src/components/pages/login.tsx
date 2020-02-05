@@ -60,7 +60,7 @@ export const handleUseEffect = ({ setIsSubmitting, error }) => () => {
 
 export const onSubmitHandler = ({ setIsSubmitting, loginType, mode, login }) => values => {
   setIsSubmitting(true)
-  login({ ...values, loginType, mode })
+  login({ ...values, loginType, mode, cognitoClientId: process.env.COGNITO_CLIENT_ID_MARKETPLACE as string })
 }
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {

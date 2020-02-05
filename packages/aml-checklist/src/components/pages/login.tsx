@@ -34,7 +34,12 @@ export const onSubmitHandler = ({ setIsSubmitting, login }) => (values: LoginFor
   const { email, password } = values
 
   setIsSubmitting(true)
-  login({ userName: email, password, loginType: LOGIN_TYPE.CLIENT } as LoginParams)
+  login({
+    userName: email,
+    password,
+    loginType: LOGIN_TYPE.CLIENT,
+    cognitoClientId: process.env.COGNITO_CLIENT_ID_AML_APP as string,
+  } as LoginParams)
 }
 
 export const renderForm = ({ isSubmitting, error }) => () => {

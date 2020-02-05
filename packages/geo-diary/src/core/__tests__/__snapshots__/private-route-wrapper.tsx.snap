@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PrivateRouter should match a snapshot 1`] = `
-<Redirect
-  to="/login"
-/>
-`;
+exports[`PrivateRouter should match a snapshot 1`] = `""`;
 
 exports[`PrivateRouter should match a snapshot for desktop login 1`] = `
 <Component

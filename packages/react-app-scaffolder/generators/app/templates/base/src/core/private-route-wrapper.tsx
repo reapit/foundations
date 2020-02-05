@@ -1,11 +1,10 @@
 import * as React from 'react'
-import { Redirect, RouteComponentProps } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
-import Routes from '../constants/routes'
 import { Loader, AppNavContainer, Section } from '@reapit/elements'
-import { RefreshParams, getTokenFromQueryString } from '@reapit/cognito-auth'
+import { RefreshParams, getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import { authSetRefreshSession } from '../actions/auth'
 import { Dispatch } from 'redux'
 import { withRouter } from 'react-router'
@@ -31,19 +30,20 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   setRefreshSession,
   children,
   location,
-  isDesktopMode,
   hasSession,
 }) => {
-  const desktopLogin = getTokenFromQueryString(location.search)
+  const cognitoClientId = 'process.env.COGNITO_CLIENT_ID'
+  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId)
 
-  if (desktopLogin && !isDesktopMode) {
-    setRefreshSession(desktopLogin)
+  if (refreshParams && !hasSession) {
+    setRefreshSession(refreshParams)
+    return null
   }
 
   if (!hasSession) {
-    return <Redirect to={Routes.LOGIN} />
+    redirectToOAuth(cognitoClientId)
+    return null
   }
-
   return (
     <AppNavContainer>
       <Menu />

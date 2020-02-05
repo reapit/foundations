@@ -4,8 +4,8 @@ import { LoginParams, LoginSession } from '../core/types'
 import { deserializeIdToken, checkHasIdentityId, setSessionCookie } from '../utils/cognito'
 
 export const loginUserSession = async (params: LoginParams): Promise<Partial<LoginSession> | undefined> => {
-  const { userName, password } = params
-  const paramsValid = userName && password
+  const { userName, password, cognitoClientId } = params
+  const paramsValid = userName && password && cognitoClientId
   try {
     if (!paramsValid) {
       throw new Error(errorStrings.USERNAME_PASSWORD_REQUIRED)

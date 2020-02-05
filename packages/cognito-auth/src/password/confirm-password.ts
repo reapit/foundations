@@ -3,8 +3,8 @@ import { confirmPasswordService } from '../services/password/confirm-password'
 import { ConfirmPasswordParams } from '../core/types'
 
 export const confirmPassword = async (params: ConfirmPasswordParams): Promise<string | undefined> => {
-  const { verificationCode, newPassword, userName } = params
-  const paramsValid = verificationCode && newPassword && userName
+  const { verificationCode, newPassword, userName, cognitoClientId } = params
+  const paramsValid = verificationCode && newPassword && userName && cognitoClientId
   try {
     if (!paramsValid) {
       throw new Error(errorStrings.USERNAME_CODE_NEWPASSWORD_REQUIRED)

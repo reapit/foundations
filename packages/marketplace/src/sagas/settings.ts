@@ -107,7 +107,12 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     const email = yield select(selectDeveloperEmail)
     /* rename for compatible reason */
     const { currentPassword: password, password: newPassword } = data
-    const response = yield call(changePassword, { userName: email, password, newPassword })
+    const response = yield call(changePassword, {
+      userName: email,
+      password,
+      newPassword,
+      cognitoClientId: 'cognitoClientId',
+    })
     const isCallAPISuccess = response === 'SUCCESS'
     if (!isCallAPISuccess) {
       throw new Error('Server error')

@@ -1,7 +1,7 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authSetRefreshSession } from '@/actions/auth'
-import { RefreshParams, LoginSession, getSessionCookie } from '@reapit/cognito-auth'
+import { RefreshParams, LoginSession } from '@reapit/cognito-auth'
 
 export interface AuthState {
   error: boolean
@@ -9,12 +9,10 @@ export interface AuthState {
   refreshSession: RefreshParams | null
 }
 export const defaultState = (): AuthState => {
-  const refreshSession = getSessionCookie()
-
   return {
     error: false,
     loginSession: null,
-    refreshSession: refreshSession && refreshSession.loginType === 'CLIENT' ? refreshSession : null,
+    refreshSession: null,
   }
 }
 

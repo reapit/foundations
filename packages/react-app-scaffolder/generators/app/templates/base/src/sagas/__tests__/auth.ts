@@ -22,7 +22,7 @@ jest.mock('../../core/router', () => ({
 
 describe('auth sagas', () => {
   describe('login submit', () => {
-    const loginParams: LoginParams = { loginType: 'CLIENT', userName: 'bob@acme.com', password: 'xxxxxx', mode: 'WEB' }
+    const loginParams: LoginParams = { loginType: 'CLIENT', userName: 'bob@acme.com', password: 'xxxxxx', mode: 'WEB', cognitoClientId: 'cognitoClientId' }
     const action: Action<LoginParams> = {
       type: ActionTypes.AUTH_LOGIN as ActionType,
       data: loginParams,

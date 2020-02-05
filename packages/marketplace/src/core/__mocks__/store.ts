@@ -23,7 +23,11 @@ export const mockRefreshParams: RefreshParams = {
   userName: 'bob@acme.com',
   loginType: 'CLIENT',
   refreshToken: 'MOCK_REFRESH_TOKEN',
-  mode: 'WEB'
+  mode: 'WEB',
+  cognitoClientId: 'cognitoClientId',
+  authorizationCode: null,
+  redirectUri: null,
+  state: null,
 }
 
 export default {

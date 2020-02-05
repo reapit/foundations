@@ -3,10 +3,10 @@ import { resetPasswordService } from '../services/password/reset-password'
 import { ResetPasswordParams } from '../core/types'
 
 export const resetPassword = async (params: ResetPasswordParams): Promise<Object | undefined> => {
-  const { userName } = params
-
+  const { userName, cognitoClientId } = params
+  const paramsValid = cognitoClientId && userName
   try {
-    if (!userName) {
+    if (!paramsValid) {
       throw new Error(errorStrings.USERNAME_REQUIRED)
     }
     return await resetPasswordService(params)

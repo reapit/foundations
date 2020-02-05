@@ -6,9 +6,10 @@ export const confirmPasswordService = async ({
   verificationCode,
   userName,
   newPassword,
+  cognitoClientId,
 }: ConfirmPasswordParams): Promise<string> => {
   return new Promise((resolve, reject) => {
-    const cognitoUser = getNewUser(userName)
+    const cognitoUser = getNewUser(userName, cognitoClientId)
 
     cognitoUser.confirmPassword(verificationCode, newPassword, {
       onSuccess: () => {
