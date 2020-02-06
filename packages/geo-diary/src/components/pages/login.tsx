@@ -31,9 +31,13 @@ export type LoginProps = LoginMappedActions & LoginMappedProps & RouteComponentP
 
 export const onSubmitHandler = (setIsSubmitting: any, login: any) => (values: LoginFormValues) => {
   const { email, password } = values
-
   setIsSubmitting(true)
-  login({ userName: email, password, loginType: LOGIN_TYPE.CLIENT } as LoginParams)
+  login({
+    userName: email,
+    password,
+    loginType: LOGIN_TYPE.CLIENT,
+    cognitoClientId: process.env.COGNITO_CLIENT_ID_GEO_DIARY as string,
+  } as LoginParams)
 }
 
 export const renderForm = ({ isSubmitting, error }) => () => (

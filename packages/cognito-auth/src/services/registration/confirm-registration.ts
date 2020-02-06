@@ -5,9 +5,10 @@ import errorStrings from '../../constants/error-strings'
 export const confirmRegistrationService = async ({
   verificationCode,
   userName,
+  cognitoClientId,
 }: ConfirmRegistrationParams): Promise<string> => {
   return new Promise((resolve, reject) => {
-    const cognitoUser = getNewUser(userName)
+    const cognitoUser = getNewUser(userName, cognitoClientId)
 
     cognitoUser.confirmRegistration(verificationCode, true, err => {
       if (err) {

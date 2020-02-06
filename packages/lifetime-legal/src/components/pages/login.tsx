@@ -69,7 +69,12 @@ export const onSubmitHandler = (setIsSubmitting: any, login: any) => (values: Lo
   const { email, password } = values
 
   setIsSubmitting(true)
-  login({ userName: email, password, loginType: LOGIN_TYPE.CLIENT } as LoginParams)
+  login({
+    userName: email,
+    password,
+    loginType: LOGIN_TYPE.CLIENT,
+    cognitoClientId: process.env.COGNITO_CLIENT_ID_LTL_APP as string,
+  } as LoginParams)
 }
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {

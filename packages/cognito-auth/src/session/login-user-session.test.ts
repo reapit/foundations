@@ -12,7 +12,11 @@ const mockedSessionService = loginUserSessionService as jest.Mock
 describe('user session getters', () => {
   describe('loginUserSession', () => {
     it('should call the success handler correctly on success', async () => {
-      const params = { userName: 'will@mail.com', password: 'password' } as LoginParams
+      const params = {
+        userName: 'will@mail.com',
+        password: 'password',
+        cognitoClientId: 'someCognitoClientId',
+      } as LoginParams
 
       mockedSessionService.mockImplementation(() => 'SUCCESS')
       expect(await loginUserSession(params)).toEqual('SUCCESS')
@@ -20,7 +24,7 @@ describe('user session getters', () => {
 
     it('should call the error handler correctly if params are missing', async () => {
       console.error = jest.fn()
-      const params = { userName: '', password: '' } as LoginParams
+      const params = { userName: '', password: '', cognitoClientId: '' } as LoginParams
       const error = new Error(errorStrings.USERNAME_PASSWORD_REQUIRED)
       mockedSessionService.mockImplementation(() => 'SUCCESS')
       await loginUserSession(params)
@@ -30,7 +34,11 @@ describe('user session getters', () => {
 
     it('should call the error handler correctly if service thows an error', async () => {
       console.error = jest.fn()
-      const params = { userName: 'will@mail.com', password: 'password' } as LoginParams
+      const params = {
+        userName: 'will@mail.com',
+        password: 'password',
+        cognitoClientId: 'someCognitoClientId',
+      } as LoginParams
 
       const error = new Error('API FAILED')
       mockedSessionService.mockImplementation(() => {

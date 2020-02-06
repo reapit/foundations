@@ -54,6 +54,10 @@ describe('auth actions', () => {
       refreshToken: 'REFRESH_TOKEN',
       userName: 'bob@acme.com',
       mode: 'DESKTOP' as LoginMode,
+      cognitoClientId: 'cognitoClientId',
+      authorizationCode: null,
+      redirectUri: null,
+      state: null,
     }
     expect(authSetRefreshSession.type).toEqual(ActionTypes.AUTH_SET_REFRESH_SESSION)
     expect(authSetRefreshSession(refreshParams).data).toEqual(refreshParams)

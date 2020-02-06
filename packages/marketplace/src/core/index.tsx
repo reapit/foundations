@@ -10,7 +10,7 @@ import ToastMessage from '../components/ui/toast-message'
 import { PortalProvider } from '@reapit/elements'
 
 if (process.env.NODE_ENV === 'production') {
-  Sentry.init({ dsn: (process.env.SENTRY_PROJECT_URL as any).MARKETPLACE })
+  Sentry.init({ dsn: process.env.SENTRY_PROJECT_URL_MARKETPLACE })
 }
 
 const rootElement = document.querySelector('#root') as Element

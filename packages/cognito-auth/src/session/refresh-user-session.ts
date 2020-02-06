@@ -1,17 +1,21 @@
 import errorStrings from '../constants/error-strings'
-import { refreshUserSessionService } from '../services/session/refresh-user-session'
+import { tokenRefreshUserSessionService, codeRefreshUserSessionService } from '../services/session/refresh-user-session'
 import { RefreshParams, LoginSession } from '../core/types'
 import { deserializeIdToken, checkHasIdentityId, setSessionCookie } from '../utils/cognito'
 
-export const refreshUserSession = async (params: RefreshParams): Promise<Partial<LoginSession> | undefined> => {
-  const { userName, refreshToken } = params
-  const paramsValid = userName && refreshToken
+export const refreshUserSession = async (params: RefreshParams): Promise<Partial<LoginSession> | undefined | void> => {
+  const { userName, refreshToken, cognitoClientId, authorizationCode, redirectUri } = params
+
   try {
-    if (!paramsValid) {
-      throw new Error(errorStrings.REFRESH_TOKEN_PASSWORD_REQUIRED)
+    if (userName && refreshToken && cognitoClientId) {
+      return await tokenRefreshUserSessionService(userName, refreshToken, cognitoClientId)
     }
-    const session = await refreshUserSessionService(params)
-    return session
+
+    if (authorizationCode && redirectUri && cognitoClientId) {
+      return await codeRefreshUserSessionService(authorizationCode, redirectUri, cognitoClientId)
+    }
+
+    throw new Error(errorStrings.REFRESH_TOKEN_PASSWORD_REQUIRED)
   } catch (err) {
     console.error(`${errorStrings.REFRESH_SESSION_FAILED}, ${err}`)
   }
@@ -19,7 +23,7 @@ export const refreshUserSession = async (params: RefreshParams): Promise<Partial
 
 export const setRefreshSession = async (params: RefreshParams): Promise<LoginSession | null> => {
   const { userName, loginType, mode } = params
-  const refreshedSession: Partial<LoginSession> | undefined = await refreshUserSession(params)
+  const refreshedSession: Partial<LoginSession> | undefined | void = await refreshUserSession(params)
   const loginIdentity = refreshedSession && deserializeIdToken(refreshedSession)
   if (loginIdentity && checkHasIdentityId(loginType, loginIdentity)) {
     const loginSession = {

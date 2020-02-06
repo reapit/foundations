@@ -115,7 +115,12 @@ describe('settings', () => {
     it('should call API success', () => {
       const clone = gen.clone()
       expect(clone.next('abc@gmail.com').value).toEqual(
-        call(changePassword, { password: '123', newPassword: '456', userName: 'abc@gmail.com' }),
+        call(changePassword, {
+          password: '123',
+          newPassword: '456',
+          userName: 'abc@gmail.com',
+          cognitoClientId: 'cognitoClientId',
+        }),
       )
       expect(clone.next('SUCCESS').value).toEqual(
         put(
@@ -135,7 +140,12 @@ describe('settings', () => {
     it('should fail if API response !== "SUCCESS" ', () => {
       const clone = gen.clone()
       expect(clone.next('abc@gmail.com').value).toEqual(
-        call(changePassword, { password: '123', newPassword: '456', userName: 'abc@gmail.com' }),
+        call(changePassword, {
+          password: '123',
+          newPassword: '456',
+          userName: 'abc@gmail.com',
+          cognitoClientId: 'cognitoClientId',
+        }),
       )
       expect(clone.next('FAIL').value).toEqual(
         put(

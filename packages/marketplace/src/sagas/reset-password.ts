@@ -15,6 +15,7 @@ export const developerResetPassword = function*({ data }: Action<ResetPasswordPa
       newPassword: data.password,
       userName: data.email,
       verificationCode: data.verificationCode,
+      cognitoClientId: process.env.COGNITO_CLIENT_ID_MARKETPLACE as string,
     })
     const isSuccess = response === 'SUCCESS'
     if (isSuccess) {

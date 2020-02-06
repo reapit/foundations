@@ -93,14 +93,30 @@ export const mockRefreshParams: RefreshParams = {
   userName: 'bob@acme.com',
   loginType: 'CLIENT',
   refreshToken: 'MOCK_REFRESH_TOKEN',
-  mode: 'WEB'
+  mode: 'WEB',
+  cognitoClientId: 'SOME_CLIENT_ID',
+  authorizationCode: null,
+  redirectUri: null,
+  state: null
+}
+
+export const mockRefreshParamsCode: RefreshParams = {
+  userName: 'bob@acme.com',
+  loginType: 'CLIENT',
+  refreshToken: null,
+  mode: 'WEB',
+  cognitoClientId: 'SOME_CLIENT_ID',
+  authorizationCode: 'SOME_CODE',
+  redirectUri: 'SOME_URI',
+  state: {}
 }
 
 export const mockLoginParams: LoginParams = {
   userName: 'bob@acme.com',
   loginType: 'CLIENT',
   password: 'Password123',
-  mode: 'WEB'
+  mode: 'WEB',
+  cognitoClientId: 'SOME_CLIENT_ID'
 }
 
 export const refreshCognitoSession = jest.fn(() => mockLoginSession)

@@ -12,6 +12,17 @@ export function getAuthRouteByLoginType(loginType: LoginType) {
   }
 }
 
+export function getDefaultRouteByLoginType(loginType: LoginType) {
+  switch (loginType) {
+    case 'ADMIN':
+      return `${window.location.origin}${Routes.ADMIN_APPROVALS}`
+    case 'DEVELOPER':
+      return `${window.location.origin}${Routes.DEVELOPER_MY_APPS}`
+    default:
+      return `${window.location.origin}${Routes.INSTALLED_APPS}`
+  }
+}
+
 export function getLoginTypeByPath(path: string) {
   switch (path) {
     case Routes.ADMIN_LOGIN:

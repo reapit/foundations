@@ -11,9 +11,12 @@ import { resetPassword } from '@reapit/cognito-auth'
 jest.mock('@reapit/cognito-auth')
 
 describe('requestForgotPassword', () => {
+  process.env.COGNITO_CLIENT_ID_MARKETPLACE = 'cognitoClientId'
   const gen = cloneableGenerator(requestForgotPassword)({ data: 'abc@gmail.com' })
   expect(gen.next().value).toEqual(put(forgotPasswordLoading(true)))
-  expect(gen.next().value).toEqual(call(resetPassword, { userName: 'abc@gmail.com' }))
+  expect(gen.next().value).toEqual(
+    call(resetPassword, { userName: 'abc@gmail.com', cognitoClientId: 'cognitoClientId' }),
+  )
 
   it('should call API success', () => {
     const clone = gen.clone()

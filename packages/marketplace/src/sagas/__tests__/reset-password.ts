@@ -13,6 +13,7 @@ import { confirmPassword } from '@reapit/cognito-auth'
 jest.mock('@reapit/cognito-auth')
 
 describe('developerResetPassword', () => {
+  process.env.COGNITO_CLIENT_ID_MARKETPLACE = 'cognitoClientId'
   const gen = cloneableGenerator(developerResetPassword)({
     type: 'RESET_PASSWORD',
     data: { password: '123', email: '123@gmail.com', verificationCode: '123', confirmPassword: '123' },
@@ -21,7 +22,12 @@ describe('developerResetPassword', () => {
 
   it('should call API success', () => {
     const clone = gen.clone()
-    const body = { newPassword: '123', userName: '123@gmail.com', verificationCode: '123' }
+    const body = {
+      newPassword: '123',
+      userName: '123@gmail.com',
+      verificationCode: '123',
+      cognitoClientId: 'cognitoClientId',
+    }
     expect(clone.next().value).toEqual(call(confirmPassword, body))
     expect(clone.next('SUCCESS').value).toEqual(history.push(`${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`))
     expect(clone.next().value).toEqual(put(resetPasswordLoading(false)))
@@ -30,7 +36,12 @@ describe('developerResetPassword', () => {
 
   it('should do nothing and set loading to false when message is not SUCCESS', () => {
     const clone = gen.clone()
-    const body = { newPassword: '123', userName: '123@gmail.com', verificationCode: '123' }
+    const body = {
+      newPassword: '123',
+      userName: '123@gmail.com',
+      verificationCode: '123',
+      cognitoClientId: 'cognitoClientId',
+    }
     expect(clone.next().value).toEqual(call(confirmPassword, body))
     expect(clone.next(undefined).value).toEqual(put(resetPasswordLoading(false)))
     expect(clone.next().done).toEqual(true)
@@ -38,7 +49,12 @@ describe('developerResetPassword', () => {
 
   it('should call API fail', () => {
     const clone = gen.clone()
-    const body = { newPassword: '123', userName: '123@gmail.com', verificationCode: '123' }
+    const body = {
+      newPassword: '123',
+      userName: '123@gmail.com',
+      verificationCode: '123',
+      cognitoClientId: 'cognitoClientId',
+    }
     expect(clone.next().value).toEqual(call(confirmPassword, body))
     // @ts-ignore
     expect(clone.throw(new Error('123')).value).toEqual(

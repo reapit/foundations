@@ -46,7 +46,13 @@ export const mockLoginSession = {
 } as LoginSession
 
 describe('login submit', () => {
-  const loginParams: LoginParams = { loginType: 'CLIENT', userName: 'bob@acme.com', password: 'xxxxxx', mode: 'WEB' }
+  const loginParams: LoginParams = {
+    loginType: 'CLIENT',
+    userName: 'bob@acme.com',
+    password: 'xxxxxx',
+    mode: 'WEB',
+    cognitoClientId: 'cognitoClientId',
+  }
   const action: Action<LoginParams> = {
     type: ActionTypes.AUTH_LOGIN as ActionType,
     data: loginParams,

@@ -10,7 +10,7 @@ import store from './store'
 import { register } from './service-worker'
 
 if (process.env.NODE_ENV === 'production') {
-  Sentry.init({ dsn: (process.env.SENTRY_PROJECT_URL as any).GEO_DIARY })
+  Sentry.init({ dsn: process.env.SENTRY_PROJECT_URL_GEO_DIARY })
 }
 
 const rootElement = document.querySelector('#root') as Element

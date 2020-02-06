@@ -4,7 +4,6 @@ import { CognitoUserPool, CognitoUser, CognitoUserSession } from 'amazon-cognito
 import { LoginSession, RefreshParams, LoginType, LoginIdentity, CoginitoIdentity } from '../core/types'
 
 export const COOKIE_SESSION_KEY = 'reapit-marketplace-session'
-export const COOKIE_DOMAIN_WHITELIST = ['.reapit.com', 'localhost']
 export const COOKIE_EXPIRY = new Date(Date.now() + 2629800000).toUTCString() // 1month from now
 export const TOKEN_EXPIRY = Math.round(new Date().getTime() / 1000) + 60 // 1 minute from now
 /**
@@ -19,15 +18,10 @@ export const getLoginSession = (session: CognitoUserSession): Partial<LoginSessi
   refreshToken: session.getRefreshToken().getToken(),
 })
 
-/**
- * Convenience method to return a new CognitoUser with user identifier.
- * The COGNITO_USERPOOL_ID and COGNITO_USERPOOL_ID are in the .env file in dev and set in the
- * AWS console as env variables in prod.
- */
-export const getNewUser = (userName: string) => {
+export const getNewUser = (userName: string, cognitoClientId: string) => {
   const poolData = {
     UserPoolId: process.env.COGNITO_USERPOOL_ID as string,
-    ClientId: process.env.COGNITO_CLIENT_ID as string,
+    ClientId: cognitoClientId,
   }
   const userPool = new CognitoUserPool(poolData)
   const userData = {
@@ -37,27 +31,23 @@ export const getNewUser = (userName: string) => {
   return new CognitoUser(userData)
 }
 
-export const setSessionCookie = (session: LoginSession, href = window.location.href): void => {
-  const whitelistedHost = COOKIE_DOMAIN_WHITELIST.filter(item => href.includes(item))[0]
-
-  if (whitelistedHost) {
-    const { userName, refreshToken, loginType, mode } = session
-    hardtack.set(
-      COOKIE_SESSION_KEY,
-      JSON.stringify({
-        refreshToken,
-        loginType,
-        userName,
-        mode,
-      }),
-      {
-        path: '/',
-        domain: whitelistedHost,
-        expires: COOKIE_EXPIRY,
-        samesite: 'lax',
-      },
-    )
-  }
+export const setSessionCookie = (session: LoginSession): void => {
+  const { userName, refreshToken, loginType, mode } = session
+  hardtack.set(
+    COOKIE_SESSION_KEY,
+    JSON.stringify({
+      refreshToken,
+      loginType,
+      userName,
+      mode,
+    }),
+    {
+      path: '/',
+      domain: window.location.host,
+      expires: COOKIE_EXPIRY,
+      samesite: 'lax',
+    },
+  )
 }
 
 export const getSessionCookie = (): RefreshParams | null => {
@@ -72,17 +62,27 @@ export const getSessionCookie = (): RefreshParams | null => {
   }
 }
 
-export const getTokenFromQueryString = (queryString: string, loginType: LoginType = 'CLIENT'): RefreshParams | null => {
+export const getTokenFromQueryString = (
+  queryString: string,
+  cognitoClientId: string,
+  loginType: LoginType = 'CLIENT',
+  redirectUri: string = window.location.origin,
+): RefreshParams | null => {
   const params = new URLSearchParams(queryString)
-  const refreshToken = params.get('desktopToken')
-  const userName = params.get('username')
+  const authorizationCode = params.get('code')
+  const state = params.get('state')
+  const mode = state && state.includes('') ? 'DESKTOP' : 'WEB'
 
-  if (refreshToken && userName) {
+  if (authorizationCode) {
     return {
-      refreshToken,
-      userName,
+      cognitoClientId,
+      authorizationCode,
+      redirectUri,
+      state,
+      refreshToken: null,
+      userName: null,
       loginType,
-      mode: 'DESKTOP',
+      mode,
     }
   }
 
@@ -116,3 +116,9 @@ export const checkHasIdentityId = (loginType: LoginType, loginIdentity: LoginIde
   (loginType === 'CLIENT' && !!loginIdentity.clientId) ||
   (loginType === 'DEVELOPER' && !!loginIdentity.developerId) ||
   (loginType === 'ADMIN' && !!loginIdentity.adminId)
+
+export const redirectToOAuth = (congitoClientId: string, redirectUri: string = window.location.origin): void => {
+  window.location.href =
+    `${process.env.COGNITO_OAUTH_URL}/authorize?response` +
+    `_type=code&client_id=${congitoClientId}&redirect_uri=${redirectUri}`
+}
