@@ -60,3 +60,4 @@ jobs:
       - name: Release Develop
         run: |
           yarn release:dev --since origin/master^1 --parallel
+          
