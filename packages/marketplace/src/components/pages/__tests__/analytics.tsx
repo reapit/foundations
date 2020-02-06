@@ -1,361 +1,538 @@
 import * as React from 'react'
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 import {
   AnalyticsPage,
-  transformListAppToSelectBoxOptions,
-  transformAppInstalationsToTableColumsCompatible,
-  handleSubmit,
+  InstallationTable,
+  handleSetPageNumber,
+  installationTableColumn,
+  handleMapAppNameToInstallation,
+  handleUseMemoData,
+  handleCountCurrentInstallationForEachApp,
+  sortAppByDateInstalled,
+  countAppHasInstallation,
+  countAppNoInstallation,
 } from '../analytics'
 import { installationsStub } from '@/sagas/__stubs__/installations'
-import { mockLoginSession, mockRefreshParams } from '@/core/__mocks__/store'
-import { AnalyticsPageProps, mapStateToProps, mapDispatchToProps } from '@/components/pages/analytics'
+import { mapStateToProps } from '@/components/pages/analytics'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
-import { appDetailDataStub } from '@/sagas/__stubs__/app-detail'
-import { defaultAppAuthState } from '@/reducers/app-detail'
-import { RouteComponentProps, StaticContext } from 'react-router'
-import Routes from '@/constants/routes'
+import { DeveloperState } from '@/reducers/developer'
+import { AppInstallationsState } from '@/reducers/app-installations'
 
+jest.mock('@reapit/elements', () => ({
+  ...jest.requireActual('@reapit/elements'),
+  toLocalTime: jest.fn().mockReturnValue('localtime'),
+}))
 jest.mock('../../../core/store')
 
-const routerProps = appId =>
-  ({
-    match: {
-      params: {
-        page: '2',
-      },
-    },
-    location: {
-      search: `page=1${appId ? `&appId=${appId}` : ''}`,
-    },
-  } as RouteComponentProps<any, StaticContext, any>)
+const developer = {
+  developerData: appsDataStub,
+  loading: false,
+} as DeveloperState
 
-const mockProps = (
-  appId,
-  appInstallations,
-  appInstallationsLoading,
-  appsOfDeveloper,
-  appsOfDeveloperLoading,
-  appDetail,
-  appDetailLoading,
-) =>
-  ({
-    appInstallations: {
-      installationsAppData: appInstallations,
-      formState: 'SUCCESS',
-      loading: appInstallationsLoading,
-    },
-    appsOfDeveloper: {
-      developerData: {
-        data: appsOfDeveloper,
-        scopes: [],
-      },
-      formState: 'SUCCESS',
-      isVisible: true,
-      loading: appsOfDeveloperLoading,
-    },
-    appDetail: {
-      appDetailData: appDetail,
-      authentication: defaultAppAuthState,
-      error: false,
-      isStale: false,
-      loading: appDetailLoading,
-    },
-    requestAppDetailData: jest.fn(),
-    ...routerProps(appId),
-  } as AnalyticsPageProps)
+const installations = {
+  loading: false,
+  installationsAppData: {
+    ...installationsStub,
+  },
+} as AppInstallationsState
 
-describe('Analytics', () => {
-  it('should match a snapshot when appInstallations loading false', () => {
-    expect(
-      shallow(
-        <AnalyticsPage
-          {...mockProps(
-            appDetailDataStub.data.id,
-            installationsStub,
-            false,
-            appsDataStub.data,
-            false,
-            appDetailDataStub,
-            false,
-          )}
-        />,
-      ),
-    ).toMatchSnapshot()
+describe('AnalyticsPage', () => {
+  it('should match snapshot', () => {
+    expect(shallow(<AnalyticsPage installations={installations} developer={developer} />)).toMatchSnapshot()
   })
 
-  it('should match a snapshot when appInstallations loading true', () => {
+  it('should match when loading', () => {
+    const installationsLoading = { ...installations, loading: true }
+    const developerLoading = { ...developer, loading: true }
     expect(
-      mount(
-        <AnalyticsPage
-          {...mockProps(
-            appDetailDataStub.data.id,
-            installationsStub,
-            true,
-            appsDataStub.data,
-            false,
-            appDetailDataStub,
-            false,
-          )}
-        />,
-      ),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot when appInstallations data null', () => {
-    expect(
-      mount(
-        <AnalyticsPage
-          {...mockProps(appDetailDataStub.data.id, null, false, appsDataStub.data, false, appDetailDataStub, false)}
-        />,
-      ),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot when appsOfDeveloper loading true', () => {
-    expect(
-      shallow(
-        <AnalyticsPage
-          {...mockProps(
-            appDetailDataStub.data.id,
-            installationsStub,
-            false,
-            appsDataStub.data,
-            true,
-            appDetailDataStub,
-            false,
-          )}
-        />,
-      ),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot when appsOfDeveloper loading false', () => {
-    expect(
-      shallow(
-        <AnalyticsPage
-          {...mockProps(
-            appDetailDataStub.data.id,
-            installationsStub,
-            false,
-            appsDataStub.data,
-            false,
-            appDetailDataStub,
-            false,
-          )}
-        />,
-      ),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot when appsOfDeveloper data undefined', () => {
-    expect(
-      shallow(
-        <AnalyticsPage
-          {...mockProps(
-            appDetailDataStub.data.id,
-            installationsStub,
-            false,
-            appsDataStub.data,
-            false,
-            appDetailDataStub,
-            false,
-          )}
-        />,
-      ),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot when app detail loading true', () => {
-    expect(
-      shallow(
-        <AnalyticsPage
-          {...mockProps(
-            appDetailDataStub.data.id,
-            installationsStub,
-            false,
-            appsDataStub.data,
-            false,
-            appDetailDataStub,
-            true,
-          )}
-        />,
-      ),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot when app detail loading false', () => {
-    expect(
-      shallow(
-        <AnalyticsPage
-          {...mockProps(
-            appDetailDataStub.data.id,
-            installationsStub,
-            false,
-            appsDataStub.data,
-            false,
-            appDetailDataStub,
-            false,
-          )}
-        />,
-      ),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot when app detail data undefined', () => {
-    expect(
-      shallow(
-        <AnalyticsPage
-          {...mockProps(appDetailDataStub.data.id, installationsStub, false, appsDataStub.data, false, undefined, true)}
-        />,
-      ),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot when no appId params', () => {
-    expect(
-      shallow(
-        <AnalyticsPage
-          {...mockProps(undefined, installationsStub, false, appsDataStub.data, false, appDetailDataStub, false)}
-        />,
-      ),
+      shallow(<AnalyticsPage installations={installationsLoading} developer={developerLoading} />),
     ).toMatchSnapshot()
   })
 })
 
 describe('mapStateToProps', () => {
+  it('should return correct value', () => {
+    expect(mapStateToProps({ installations, developer } as ReduxState)).toEqual({ installations, developer })
+  })
+})
+
+describe('InstallationTable', () => {
+  it('should match snapshot', () => {
+    expect(shallow(<InstallationTable installations={installations} developer={developer} />)).toMatchSnapshot()
+  })
+
+  it('should match with null installationsAppData', () => {
+    const installationsWithoutData = { ...installations, installationsAppData: null }
+    expect(
+      shallow(<InstallationTable installations={installationsWithoutData} developer={developer} />),
+    ).toMatchSnapshot()
+  })
+
+  it('should match with null developerData', () => {
+    const developerWithoutData = { ...developer, developerData: null }
+    expect(
+      shallow(<InstallationTable installations={installations} developer={developerWithoutData} />),
+    ).toMatchSnapshot()
+  })
+})
+
+describe('handleSetPageNumber', () => {
+  it('should call setPageNumber', () => {
+    const setPageNumber = jest.fn()
+    const fn = handleSetPageNumber(setPageNumber)
+    fn(1)
+    expect(setPageNumber).toHaveBeenCalledWith(1)
+  })
+})
+
+describe('installationTableColumn', () => {
+  it('should call accessor', () => {
+    installationTableColumn.forEach(({ Header, accessor }) => {
+      if (typeof accessor === 'function') {
+        if (Header === 'Date of installation') {
+          const result = accessor({ created: 'date' })
+          expect(result).toEqual('localtime')
+        }
+        if (Header === 'Date of Uninstallation') {
+          expect(accessor({ created: 'date', terminatesOn: 'terminated date' })).toEqual('localtime')
+          expect(accessor({})).toEqual('')
+        }
+      }
+    })
+  })
+})
+
+describe('handleMapAppNameToInstallation', () => {
+  const installationsArray = [
+    {
+      id: 'b3c2f644-3241-4298-b320-b0398ff492f9',
+      appId: '062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+      created: '2019-12-03T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
+  const developerDataArray = [
+    {
+      id: '062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+      developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+      name: 'test',
+      summary:
+        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
+        'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
+      developer: "Pete's Proptech World Ltd",
+      homePage: 'http://google.com/abc',
+      iconUri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
+          action: 'GET',
+        },
+        {
+          rel: 'developer',
+          href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
   it('should return correctly', () => {
-    const mockState = {
-      installations: {
-        installationsAppData: {
-          ...installationsStub,
-          data: [],
-        },
-        formState: 'SUCCESS',
-        loading: true,
-      },
-      developer: {
-        developerData: {
-          data: appsDataStub.data,
-          scopes: [],
-        },
-        formState: 'SUCCESS',
-        isVisible: true,
-        loading: false,
-      },
-      auth: {
-        error: false,
-        loginType: 'DEVELOPER',
-        refreshSession: mockRefreshParams,
-        loginSession: mockLoginSession,
-      },
-      appDetail: {
-        appDetailData: appDetailDataStub,
-        authentication: defaultAppAuthState,
-        error: false,
-        isStale: false,
-        loading: false,
-      },
-    } as Partial<ReduxState>
+    const fn = handleMapAppNameToInstallation(installationsArray, developerDataArray)
+    const result = fn()
+    expect(result).toEqual([{ ...installationsArray[0], appName: 'test' }])
+  })
 
-    const output = {
-      appInstallations: {
-        installationsAppData: {
-          ...installationsStub,
-          data: [],
-        },
-        formState: 'SUCCESS',
-        loading: true,
-      },
-      appsOfDeveloper: {
-        developerData: {
-          data: appsDataStub.data,
-          scopes: [],
-        },
-        formState: 'SUCCESS',
-        isVisible: true,
-        loading: false,
-      },
-      appDetail: {
-        appDetailData: appDetailDataStub,
-        authentication: defaultAppAuthState,
-        error: false,
-        isStale: false,
-        loading: false,
-      },
-    }
-    const result = mapStateToProps(mockState as ReduxState)
-    expect(result).toEqual(output)
+  it('should return correctly when not found app in developerDataArray', () => {
+    const fn = handleMapAppNameToInstallation(installationsArray, [{ ...developerDataArray[0], id: 'fake id' }])
+    const result = fn()
+    expect(result).toEqual(installationsArray)
   })
 })
 
-describe('mapDispatchToProps', () => {
-  it('should run dispatch', () => {
-    const mockDispatch = jest.fn()
-
-    const result = mapDispatchToProps(mockDispatch)
-    result.requestAppDetailData({ id: 'id' })
-
-    expect(mockDispatch).toBeCalled()
+describe('handleUseMemoData', () => {
+  const installationAppDataArrayWithName = [
+    {
+      appName: 'app2',
+      id: 'id2',
+      appId: 'id2',
+      created: '2019-12-02T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      appName: 'app1',
+      id: 'b3c2f644-3241-4298-b320-b0398ff492f9',
+      appId: 'id1',
+      created: '2019-12-03T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
+  it('should return correctly', () => {
+    const fn = handleUseMemoData(installationAppDataArrayWithName, 1)
+    const result = fn()
+    expect(result).toEqual([installationAppDataArrayWithName[1], installationAppDataArrayWithName[0]])
+  })
+  it('should return correctly when reorder', () => {
+    const fn = handleUseMemoData([installationAppDataArrayWithName[1], installationAppDataArrayWithName[0]], 1)
+    const result = fn()
+    expect(result).toEqual([installationAppDataArrayWithName[1], installationAppDataArrayWithName[0]])
+  })
+  it('should return correctly when created undefined', () => {
+    const fn = handleUseMemoData(
+      [installationAppDataArrayWithName[0], { ...installationAppDataArrayWithName[1], created: undefined }],
+      1,
+    )
+    const result = fn()
+    expect(result).toEqual([
+      installationAppDataArrayWithName[0],
+      { ...installationAppDataArrayWithName[1], created: undefined },
+    ])
   })
 })
 
-describe('transformListAppToSelectBoxOptions', () => {
-  it('should transform normally', () => {
-    const list = appsDataStub.data.data!
-    const selectBoxOptions = list?.map(transformListAppToSelectBoxOptions)
-    list?.forEach((original, index) => {
-      const transformed = selectBoxOptions[index]
-      expect(transformed.label).toBe(original.name)
-      expect(transformed.value).toBe(original.id)
-    })
-  })
-
-  it('should transform the label into "Error"', () => {
-    const list = appsDataStub.data.data!.map(app => ({ ...app, name: undefined, id: undefined }))
-    const selectBoxOptions = list?.map(transformListAppToSelectBoxOptions)
-    list?.forEach((original, index) => {
-      const transformed = selectBoxOptions[index]
-      expect(transformed.label).toBe('Error')
-      expect(transformed.value).toBe('Error')
-    })
+describe('handleCountCurrentInstallationForEachApp', () => {
+  const installationAppDataArrayWithName = [
+    {
+      terminatesOn: '2019-12-05T05:33:20',
+      appName: 'app2',
+      id: 'id2',
+      appId: 'id2',
+      created: '2019-12-02T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      appName: 'app1',
+      id: 'id2',
+      appId: 'id2',
+      created: '2019-12-02T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      appName: 'app1',
+      id: 'b3c2f644-3241-4298-b320-b0398ff492f9',
+      appId: 'id1',
+      created: '2019-12-03T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
+  const developerDataArray = [
+    {
+      id: 'id1',
+      developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+      name: 'app2',
+      summary:
+        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
+        'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
+      developer: "Pete's Proptech World Ltd",
+      homePage: 'http://google.com/abc',
+      iconUri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
+          action: 'GET',
+        },
+        {
+          rel: 'developer',
+          href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      id: 'id1',
+      developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+      summary:
+        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
+        'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
+      developer: "Pete's Proptech World Ltd",
+      homePage: 'http://google.com/abc',
+      iconUri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
+          action: 'GET',
+        },
+        {
+          rel: 'developer',
+          href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
+  it('should return correctly', () => {
+    const fn = handleCountCurrentInstallationForEachApp(installationAppDataArrayWithName, developerDataArray)
+    const result = fn()
+    expect(result).toEqual({ app1: 2, app2: 0 })
   })
 })
 
-describe('transformAppInstalationsToTableColumsCompatible', () => {
-  const appName = 'App Name Test'
-  const list = installationsStub.data!
-  const transformed = list.map(transformAppInstalationsToTableColumsCompatible(appName))
-  transformed.forEach(installations => {
-    expect(installations.appName).toBe(appName)
+describe('sortAppByDateInstalled', () => {
+  const installationAppDataArrayWithName = [
+    {
+      appName: 'app2',
+      id: 'id2',
+      appId: 'id2',
+      created: '2019-12-02T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      appName: 'app1',
+      id: 'b3c2f644-3241-4298-b320-b0398ff492f9',
+      appId: 'id1',
+      created: '2019-12-03T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
+
+  it('should return correctly', () => {
+    const result = sortAppByDateInstalled(installationAppDataArrayWithName)
+    expect(result).toEqual([installationAppDataArrayWithName[1], installationAppDataArrayWithName[0]])
+  })
+
+  it('should return correctly when reorder', () => {
+    const result = sortAppByDateInstalled([installationAppDataArrayWithName[1], installationAppDataArrayWithName[0]])
+    expect(result).toEqual([installationAppDataArrayWithName[1], installationAppDataArrayWithName[0]])
+  })
+
+  it('should return correctly when created undefined', () => {
+    const result = sortAppByDateInstalled([
+      installationAppDataArrayWithName[0],
+      { ...installationAppDataArrayWithName[1], created: undefined },
+    ])
+    expect(result).toEqual([
+      installationAppDataArrayWithName[0],
+      { ...installationAppDataArrayWithName[1], created: undefined },
+    ])
   })
 })
 
-describe('handleSubmit', () => {
-  it('should run correctly', () => {
-    const mockHistory = {
-      push: jest.fn(str => str),
-    }
-
-    handleSubmit(mockHistory, 'appId', 1)
-    expect(mockHistory.push).toHaveBeenCalledWith(`${Routes.DEVELOPER_ANALYTICS}/1?appId=appId`)
+describe('countAppHasInstallation', () => {
+  const installationAppDataArrayWithName = [
+    {
+      terminatesOn: '2019-12-05T05:33:20',
+      appName: 'app2',
+      id: 'id2',
+      appId: 'id2',
+      created: '2019-12-02T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      appName: 'app1',
+      id: 'id2',
+      appId: 'id2',
+      created: '2019-12-02T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      appName: 'app1',
+      id: 'b3c2f644-3241-4298-b320-b0398ff492f9',
+      appId: 'id1',
+      created: '2019-12-03T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
+  it('should return correctly', () => {
+    const result = countAppHasInstallation(installationAppDataArrayWithName)
+    expect(result).toEqual({ app1: 2 })
   })
+})
 
-  it('should run correctly', () => {
-    const mockHistory = {
-      push: jest.fn(str => str),
-    }
-
-    handleSubmit(mockHistory, '', 1)
-    expect(mockHistory.push).toHaveBeenCalledWith(`${Routes.DEVELOPER_ANALYTICS}/1`)
-  })
-
-  it('should run correctly', () => {
-    const mockHistory = {
-      push: jest.fn(str => str),
-    }
-
-    handleSubmit(mockHistory, '')
-    expect(mockHistory.push).toHaveBeenCalledWith(`${Routes.DEVELOPER_ANALYTICS}/1`)
+describe('countAppNoInstallation', () => {
+  const developerDataArray = [
+    {
+      id: 'id1',
+      developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+      name: 'app2',
+      summary:
+        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
+        'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
+      developer: "Pete's Proptech World Ltd",
+      homePage: 'http://google.com/abc',
+      iconUri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
+          action: 'GET',
+        },
+        {
+          rel: 'developer',
+          href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      id: 'id1',
+      developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+      summary:
+        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
+        'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
+      developer: "Pete's Proptech World Ltd",
+      homePage: 'http://google.com/abc',
+      iconUri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
+          action: 'GET',
+        },
+        {
+          rel: 'developer',
+          href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
+  it('should return correctly', () => {
+    const result = countAppNoInstallation(developerDataArray)
+    expect(result).toEqual({ app2: 0 })
   })
 })

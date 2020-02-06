@@ -1,571 +1,331 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Analytics should match a snapshot when app detail data undefined 1`] = `
+exports[`AnalyticsPage should match snapshot 1`] = `
 <Connect(ErrorBoundary)>
   <Component
     flexColumn={true}
     hasPadding={true}
   >
     <Component>
-      Analytics
+      Dashboard
     </Component>
-    <Component>
-      Total number of installations: 
-      1
-    </Component>
-    <Component>
-      To see specific installations please select an App from the list below:
-    </Component>
-    <Formik
-      initialValues={
+    <hr />
+    <Component
+      developer={
         Object {
-          "appId": "",
-        }
-      }
-      onSubmit={[Function]}
-    >
-      <Component />
-    </Formik>
-  </Component>
-</Connect(ErrorBoundary)>
-`;
-
-exports[`Analytics should match a snapshot when app detail loading false 1`] = `
-<Connect(ErrorBoundary)>
-  <Component
-    flexColumn={true}
-    hasPadding={true}
-  >
-    <Component>
-      Analytics
-    </Component>
-    <Component>
-      Total number of installations: 
-      1
-    </Component>
-    <Component>
-      To see specific installations please select an App from the list below:
-    </Component>
-    <Formik
-      initialValues={
-        Object {
-          "appId": "",
-        }
-      }
-      onSubmit={[Function]}
-    >
-      <Component />
-    </Formik>
-  </Component>
-</Connect(ErrorBoundary)>
-`;
-
-exports[`Analytics should match a snapshot when app detail loading true 1`] = `
-<Connect(ErrorBoundary)>
-  <Component
-    flexColumn={true}
-    hasPadding={true}
-  >
-    <Component>
-      Analytics
-    </Component>
-    <Component>
-      Total number of installations: 
-      1
-    </Component>
-    <Component>
-      To see specific installations please select an App from the list below:
-    </Component>
-    <Formik
-      initialValues={
-        Object {
-          "appId": "",
-        }
-      }
-      onSubmit={[Function]}
-    >
-      <Component />
-    </Formik>
-  </Component>
-</Connect(ErrorBoundary)>
-`;
-
-exports[`Analytics should match a snapshot when appInstallations data null 1`] = `
-<Component
-  appDetail={
-    Object {
-      "appDetailData": Object {
-        "data": Object {
-          "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
-      pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
-      sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
-      elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
-      at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
-      proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co",
-          "developer": "Pete's Proptech World Ltd",
-          "homePage": "http://myawesomeproptechproduct.io",
-          "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
-          "media": Array [
-            Object {
-              "description": "Application Icon",
-              "type": "icon",
-              "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
-            },
-            Object {
-              "description": "Application Image",
-              "type": "image",
-              "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
-            },
-            Object {
-              "description": "Application Image",
-              "type": "image",
-              "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
-            },
-          ],
-          "name": "Peter's Properties",
-          "scopes": Array [
-            Object {
-              "description": "Read data about developers",
-              "name": "Marketplace/developers.read",
-            },
-            Object {
-              "description": "Write data about developers",
-              "name": "Marketplace/developers.write",
-            },
-          ],
-          "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
-          "supportEmail": "support@reapit.com",
-          "telephone": "0113 288 2900",
-        },
-      },
-      "authentication": Object {
-        "code": "",
-        "loading": false,
-      },
-      "error": false,
-      "isStale": false,
-      "loading": false,
-    }
-  }
-  appInstallations={
-    Object {
-      "formState": "SUCCESS",
-      "installationsAppData": null,
-      "loading": false,
-    }
-  }
-  appsOfDeveloper={
-    Object {
-      "developerData": Object {
-        "data": Object {
-          "data": Array [
-            Object {
-              "developer": "Pete's Proptech World Ltd",
-              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-              "homePage": "http://google.com/abc",
-              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
-              "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-              "links": Array [
+          "developerData": Object {
+            "data": Object {
+              "data": Array [
                 Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                  "rel": "self",
+                  "developer": "Pete's Proptech World Ltd",
+                  "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                  "homePage": "http://google.com/abc",
+                  "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
+                  "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
+                  "links": Array [
+                    Object {
+                      "action": "GET",
+                      "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
+                      "rel": "self",
+                    },
+                    Object {
+                      "action": "GET",
+                      "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                      "rel": "developer",
+                    },
+                  ],
+                  "name": "test",
+                  "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
                 },
                 Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                  "rel": "developer",
+                  "developer": "Pete's Proptech World Ltd",
+                  "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                  "homePage": "http://www.contoso.com/path",
+                  "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
+                  "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
+                  "links": Array [
+                    Object {
+                      "action": "GET",
+                      "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
+                      "rel": "self",
+                    },
+                    Object {
+                      "action": "GET",
+                      "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
+                      "rel": "developer",
+                    },
+                  ],
+                  "name": "asd",
+                  "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
                 },
               ],
-              "name": "test",
-              "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
+              "pageCount": 2,
+              "pageNumber": 1,
+              "pageSize": 2,
+              "totalCount": 6,
             },
-            Object {
-              "developer": "Pete's Proptech World Ltd",
-              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-              "homePage": "http://www.contoso.com/path",
-              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
-              "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-              "links": Array [
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                  "rel": "self",
-                },
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                  "rel": "developer",
-                },
-              ],
-              "name": "asd",
-              "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
-            },
-          ],
-          "pageCount": 2,
-          "pageNumber": 1,
-          "pageSize": 2,
-          "totalCount": 6,
-        },
-        "scopes": Array [],
-      },
-      "formState": "SUCCESS",
-      "isVisible": true,
-      "loading": false,
-    }
-  }
-  location={
-    Object {
-      "search": "page=1&appId=9b6fd5f7-2c15-483d-b925-01b650538e52",
-    }
-  }
-  match={
-    Object {
-      "params": Object {
-        "page": "2",
-      },
-    }
-  }
-  requestAppDetailData={[MockFunction]}
->
-  <Component>
-    <div
-      className="loader-spinner body"
-      data-test=""
-    >
-      <div />
-      <div />
-      <div />
-      <div />
-    </div>
-  </Component>
-</Component>
-`;
-
-exports[`Analytics should match a snapshot when appInstallations loading false 1`] = `
-<Connect(ErrorBoundary)>
-  <Component
-    flexColumn={true}
-    hasPadding={true}
-  >
-    <Component>
-      Analytics
-    </Component>
-    <Component>
-      Total number of installations: 
-      1
-    </Component>
-    <Component>
-      To see specific installations please select an App from the list below:
-    </Component>
-    <Formik
-      initialValues={
-        Object {
-          "appId": "",
+          },
+          "loading": false,
         }
       }
-      onSubmit={[Function]}
-    >
-      <Component />
-    </Formik>
-  </Component>
-</Connect(ErrorBoundary)>
-`;
-
-exports[`Analytics should match a snapshot when appInstallations loading true 1`] = `
-<Component
-  appDetail={
-    Object {
-      "appDetailData": Object {
-        "data": Object {
-          "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
-      pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
-      sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
-      elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
-      at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
-      proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co",
-          "developer": "Pete's Proptech World Ltd",
-          "homePage": "http://myawesomeproptechproduct.io",
-          "id": "9b6fd5f7-2c15-483d-b925-01b650538e52",
-          "media": Array [
-            Object {
-              "description": "Application Icon",
-              "type": "icon",
-              "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/7d88729f-2366-4561-9d5c-282615f3946b.jpeg",
-            },
-            Object {
-              "description": "Application Image",
-              "type": "image",
-              "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
-            },
-            Object {
-              "description": "Application Image",
-              "type": "image",
-              "uri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
-            },
-          ],
-          "name": "Peter's Properties",
-          "scopes": Array [
-            Object {
-              "description": "Read data about developers",
-              "name": "Marketplace/developers.read",
-            },
-            Object {
-              "description": "Write data about developers",
-              "name": "Marketplace/developers.write",
-            },
-          ],
-          "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
-          "supportEmail": "support@reapit.com",
-          "telephone": "0113 288 2900",
-        },
-      },
-      "authentication": Object {
-        "code": "",
-        "loading": false,
-      },
-      "error": false,
-      "isStale": false,
-      "loading": false,
-    }
-  }
-  appInstallations={
-    Object {
-      "formState": "SUCCESS",
-      "installationsAppData": Object {
-        "data": Array [
-          Object {
-            "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-            "client": "DXX",
-            "created": "2019-12-03T05:33:20",
-            "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
-            "links": Array [
+      installations={
+        Object {
+          "installationsAppData": Object {
+            "data": Array [
               Object {
-                "action": "GET",
-                "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
-                "rel": "self",
-              },
-              Object {
-                "action": "GET",
-                "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-                "rel": "app",
+                "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+                "client": "DXX",
+                "created": "2019-12-03T05:33:20",
+                "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
+                "links": Array [
+                  Object {
+                    "action": "GET",
+                    "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
+                    "rel": "self",
+                  },
+                  Object {
+                    "action": "GET",
+                    "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+                    "rel": "app",
+                  },
+                ],
+                "status": "Active",
               },
             ],
-            "status": "Active",
+            "pageCount": 1,
+            "pageNumber": 1,
+            "pageSize": 15,
+            "totalCount": 1,
           },
-        ],
-        "pageCount": 1,
-        "pageNumber": 1,
-        "pageSize": 15,
-        "totalCount": 1,
-      },
-      "loading": true,
+          "loading": false,
+        }
+      }
+    />
+  </Component>
+</Connect(ErrorBoundary)>
+`;
+
+exports[`AnalyticsPage should match when loading 1`] = `<Component />`;
+
+exports[`InstallationTable should match snapshot 1`] = `
+<div>
+  <Component>
+    Installations
+  </Component>
+  <p>
+    The installations table below shows the individuals per client with a total number of installations per app
+  </p>
+  <div>
+    <p
+      key="test"
+    >
+      Total current installation for 
+      <strong>
+        test
+      </strong>
+      : 
+      0
+    </p>
+    <p
+      key="asd"
+    >
+      Total current installation for 
+      <strong>
+        asd
+      </strong>
+      : 
+      0
+    </p>
+  </div>
+  <Component
+    bordered={true}
+    columns={
+      Array [
+        Object {
+          "Header": "App Name",
+          "accessor": "appName",
+        },
+        Object {
+          "Header": "Client",
+          "accessor": "client",
+        },
+        Object {
+          "Header": "Date of installation",
+          "accessor": [Function],
+        },
+        Object {
+          "Header": "Date of Uninstallation",
+          "accessor": [Function],
+        },
+      ]
     }
-  }
-  appsOfDeveloper={
-    Object {
-      "developerData": Object {
-        "data": Object {
-          "data": Array [
+    data={
+      Array [
+        Object {
+          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+          "appName": undefined,
+          "client": "DXX",
+          "created": "2019-12-03T05:33:20",
+          "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
+          "links": Array [
             Object {
-              "developer": "Pete's Proptech World Ltd",
-              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-              "homePage": "http://google.com/abc",
-              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png",
-              "id": "09043eb8-9e5e-4650-b7f1-f0cb62699027",
-              "links": Array [
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027",
-                  "rel": "self",
-                },
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                  "rel": "developer",
-                },
-              ],
-              "name": "test",
-              "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
+              "action": "GET",
+              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
+              "rel": "self",
             },
             Object {
-              "developer": "Pete's Proptech World Ltd",
-              "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-              "homePage": "http://www.contoso.com/path",
-              "iconUri": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/1d38c5ec-e3c0-4138-9fe0-e77bce4034d1.octet-stream",
-              "id": "261da083-cee2-4f5c-a18f-8f9375f1f5af",
-              "links": Array [
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/apps/261da083-cee2-4f5c-a18f-8f9375f1f5af",
-                  "rel": "self",
-                },
-                Object {
-                  "action": "GET",
-                  "href": "http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb",
-                  "rel": "developer",
-                },
-              ],
-              "name": "asd",
-              "summary": "asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCwWwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2",
+              "action": "GET",
+              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+              "rel": "app",
             },
           ],
-          "pageCount": 2,
-          "pageNumber": 1,
-          "pageSize": 2,
-          "totalCount": 6,
+          "status": "Active",
         },
-        "scopes": Array [],
-      },
-      "formState": "SUCCESS",
-      "isVisible": true,
-      "loading": false,
+      ]
     }
-  }
-  location={
-    Object {
-      "search": "page=1&appId=9b6fd5f7-2c15-483d-b925-01b650538e52",
-    }
-  }
-  match={
-    Object {
-      "params": Object {
-        "page": "2",
-      },
-    }
-  }
-  requestAppDetailData={[MockFunction]}
->
+    loading={false}
+    scrollable={true}
+  />
+  <br />
+  <Component
+    onChange={[Function]}
+    pageNumber={1}
+    pageSize={5}
+    totalCount={1}
+  />
+</div>
+`;
+
+exports[`InstallationTable should match with null developerData 1`] = `
+<div>
   <Component>
-    <div
-      className="loader-spinner body"
-      data-test=""
-    >
-      <div />
-      <div />
-      <div />
-      <div />
-    </div>
+    Installations
   </Component>
-</Component>
+  <p>
+    The installations table below shows the individuals per client with a total number of installations per app
+  </p>
+  <div />
+  <Component
+    bordered={true}
+    columns={
+      Array [
+        Object {
+          "Header": "App Name",
+          "accessor": "appName",
+        },
+        Object {
+          "Header": "Client",
+          "accessor": "client",
+        },
+        Object {
+          "Header": "Date of installation",
+          "accessor": [Function],
+        },
+        Object {
+          "Header": "Date of Uninstallation",
+          "accessor": [Function],
+        },
+      ]
+    }
+    data={
+      Array [
+        Object {
+          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+          "appName": undefined,
+          "client": "DXX",
+          "created": "2019-12-03T05:33:20",
+          "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
+          "links": Array [
+            Object {
+              "action": "GET",
+              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
+              "rel": "self",
+            },
+            Object {
+              "action": "GET",
+              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+              "rel": "app",
+            },
+          ],
+          "status": "Active",
+        },
+      ]
+    }
+    loading={false}
+    scrollable={true}
+  />
+  <br />
+  <Component
+    onChange={[Function]}
+    pageNumber={1}
+    pageSize={5}
+    totalCount={1}
+  />
+</div>
 `;
 
-exports[`Analytics should match a snapshot when appsOfDeveloper data undefined 1`] = `
-<Connect(ErrorBoundary)>
-  <Component
-    flexColumn={true}
-    hasPadding={true}
-  >
-    <Component>
-      Analytics
-    </Component>
-    <Component>
-      Total number of installations: 
-      1
-    </Component>
-    <Component>
-      To see specific installations please select an App from the list below:
-    </Component>
-    <Formik
-      initialValues={
-        Object {
-          "appId": "",
-        }
-      }
-      onSubmit={[Function]}
-    >
-      <Component />
-    </Formik>
+exports[`InstallationTable should match with null installationsAppData 1`] = `
+<div>
+  <Component>
+    Installations
   </Component>
-</Connect(ErrorBoundary)>
-`;
-
-exports[`Analytics should match a snapshot when appsOfDeveloper loading false 1`] = `
-<Connect(ErrorBoundary)>
-  <Component
-    flexColumn={true}
-    hasPadding={true}
-  >
-    <Component>
-      Analytics
-    </Component>
-    <Component>
-      Total number of installations: 
-      1
-    </Component>
-    <Component>
-      To see specific installations please select an App from the list below:
-    </Component>
-    <Formik
-      initialValues={
-        Object {
-          "appId": "",
-        }
-      }
-      onSubmit={[Function]}
+  <p>
+    The installations table below shows the individuals per client with a total number of installations per app
+  </p>
+  <div>
+    <p
+      key="test"
     >
-      <Component />
-    </Formik>
-  </Component>
-</Connect(ErrorBoundary)>
-`;
-
-exports[`Analytics should match a snapshot when appsOfDeveloper loading true 1`] = `
-<Connect(ErrorBoundary)>
-  <Component
-    flexColumn={true}
-    hasPadding={true}
-  >
-    <Component>
-      Analytics
-    </Component>
-    <Component>
-      Total number of installations: 
-      1
-    </Component>
-    <Component>
-      To see specific installations please select an App from the list below:
-    </Component>
-    <Formik
-      initialValues={
-        Object {
-          "appId": "",
-        }
-      }
-      onSubmit={[Function]}
+      Total current installation for 
+      <strong>
+        test
+      </strong>
+      : 
+      0
+    </p>
+    <p
+      key="asd"
     >
-      <Component />
-    </Formik>
-  </Component>
-</Connect(ErrorBoundary)>
-`;
-
-exports[`Analytics should match a snapshot when no appId params 1`] = `
-<Connect(ErrorBoundary)>
+      Total current installation for 
+      <strong>
+        asd
+      </strong>
+      : 
+      0
+    </p>
+  </div>
   <Component
-    flexColumn={true}
-    hasPadding={true}
-  >
-    <Component>
-      Analytics
-    </Component>
-    <Component>
-      Total number of installations: 
-      1
-    </Component>
-    <Component>
-      To see specific installations please select an App from the list below:
-    </Component>
-    <Formik
-      initialValues={
+    bordered={true}
+    columns={
+      Array [
         Object {
-          "appId": "",
-        }
-      }
-      onSubmit={[Function]}
-    >
-      <Component />
-    </Formik>
-  </Component>
-</Connect(ErrorBoundary)>
+          "Header": "App Name",
+          "accessor": "appName",
+        },
+        Object {
+          "Header": "Client",
+          "accessor": "client",
+        },
+        Object {
+          "Header": "Date of installation",
+          "accessor": [Function],
+        },
+        Object {
+          "Header": "Date of Uninstallation",
+          "accessor": [Function],
+        },
+      ]
+    }
+    data={Array []}
+    loading={false}
+    scrollable={true}
+  />
+  <br />
+  <Component
+    onChange={[Function]}
+    pageNumber={1}
+    pageSize={5}
+    totalCount={0}
+  />
+</div>
 `;

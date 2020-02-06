@@ -1,6 +1,7 @@
 import routeDispatcher from '../route-dispatcher'
 import store from '../../core/store'
 import Routes from '../../constants/routes'
+import { GET_ALL_PAGE_SIZE } from '../../constants/paginator'
 import { RouteValue } from '../../types/core'
 import { clientRequestData } from '../../actions/client'
 import { developerRequestData } from '../../actions/developer'
@@ -74,13 +75,9 @@ describe('routeDispatcher', () => {
     expect(store.dispatch).toHaveBeenCalledWith(requestDeveloperData())
   })
 
-  it('should dispatch to appInstallationsRequestData for the analytics route', async () => {
+  it('should dispatch to appInstallationsRequestData & developerRequestData for the analytics route', async () => {
     await routeDispatcher(Routes.DEVELOPER_ANALYTICS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(appInstallationsRequestData({}))
-  })
-
-  it('should dispatch to appInstallationsRequestData for the analytics paginate route', async () => {
-    await routeDispatcher(Routes.DEVELOPER_ANALYTICS as RouteValue)
-    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ page: 1 }))
+    expect(store.dispatch).toHaveBeenCalledWith(appInstallationsRequestData({ pageSize: GET_ALL_PAGE_SIZE }))
+    expect(store.dispatch).toHaveBeenCalledWith(developerRequestData({ appsPerPage: GET_ALL_PAGE_SIZE, page: 1 }))
   })
 })

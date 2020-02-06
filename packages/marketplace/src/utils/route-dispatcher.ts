@@ -2,6 +2,7 @@ import { AdminDevManagementRequestDataValues } from './../actions/admin-dev-mana
 import { appDetailRequestData } from './../actions/app-detail'
 import { RouteValue, StringMap } from '../types/core'
 import Routes from '../constants/routes'
+import { GET_ALL_PAGE_SIZE } from '../constants/paginator'
 import store from '../core/store'
 import { clientRequestData } from '../actions/client'
 import { myAppsRequestData } from '../actions/my-apps'
@@ -46,8 +47,10 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.DEVELOPER_ANALYTICS_PAGINATE:
     case Routes.DEVELOPER_ANALYTICS:
-      store.dispatch(appInstallationsRequestData({}))
-      store.dispatch(developerRequestData({ page: 1, appsPerPage: 9999 }))
+      // Need to fetch all apps to count Total current installations for each app
+      store.dispatch(appInstallationsRequestData({ pageSize: GET_ALL_PAGE_SIZE }))
+      // Fetch all apps to map app name to installations
+      store.dispatch(developerRequestData({ page: 1, appsPerPage: GET_ALL_PAGE_SIZE }))
       if (appId) {
         const clientId = selectClientId(store.state)
         store.dispatch(appDetailRequestData({ id: appId, clientId }))
