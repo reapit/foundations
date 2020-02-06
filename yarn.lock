@@ -4837,6 +4837,15 @@ amazon-cognito-identity-js@^3.0.13:
     crypto-js "^3.1.9-1"
     js-cookie "^2.1.4"
 
+amazon-cognito-identity-js@~3.0.13:
+  version "3.0.16"
+  resolved "https://registry.yarnpkg.com/amazon-cognito-identity-js/-/amazon-cognito-identity-js-3.0.16.tgz#472bf84df54fadaf5f732e2fec0a2623c9853841"
+  integrity sha512-Kh+lmLmDi1ejKN7IXhNA/rGDlrry8f1zShF0ZWALayYVMQSrTtppDbob4l9wvzUhsH3t/8FPkeRr5iv/2hZDMw==
+  dependencies:
+    buffer "4.9.1"
+    crypto-js "^3.1.9-1"
+    js-cookie "^2.1.4"
+
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
@@ -11438,7 +11447,7 @@ har-validator@~5.1.0:
     ajv "^6.5.5"
     har-schema "^2.0.0"
 
-hardtack@^4.1.2:
+hardtack@^4.1.0, hardtack@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/hardtack/-/hardtack-4.1.2.tgz#e1084ae9fbb8a479d86888d607d2a71fc7444d9a"
   integrity sha512-WR1Ch+BlmLsTECRQemRtskQX60JJkIKwelctq/ON1XZEVtXwHpqvZjWmqB/2zCdX161o3cRO3Yvyc/s6enOmOA==
@@ -20898,7 +20907,7 @@ styled-components@^2.4.0:
     stylis "^3.4.0"
     supports-color "^3.2.3"
 
-styled-components@^4.4.1:
+styled-components@^4.4.0, styled-components@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.4.1.tgz#e0631e889f01db67df4de576fedaca463f05c2f2"
   integrity sha512-RNqj14kYzw++6Sr38n7197xG33ipEOktGElty4I70IKzQF1jzaD1U4xQ+Ny/i03UUhHlC5NWEO+d8olRCDji6g==
