@@ -34,6 +34,8 @@ import ActionTypes from '@/constants/action-types'
 import { selectUserCode } from '@/selectors/auth'
 import { fetchContact, fetchIdentityCheck, updateContact, updateIdentityCheck } from '../api'
 
+jest.mock('../../core/store')
+
 const mockHeaders = {
   Authorization: '123',
 }

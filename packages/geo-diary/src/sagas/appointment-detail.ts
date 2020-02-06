@@ -78,7 +78,7 @@ export const cancelAppointmentRequest = function*() {
       yield put(appointmentsRequestData({ time: filterTime }))
     }
   } catch (error) {
-    console.error(error)
+    console.error(error.message)
     yield put(
       errorThrownServer({
         type: 'SERVER',

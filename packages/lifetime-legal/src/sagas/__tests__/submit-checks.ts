@@ -7,6 +7,12 @@ import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { history } from '@/core/router'
 import routes from '@/constants/routes'
 
+jest.mock('../../core/router.tsx', () => ({
+  history: {
+    push: jest.fn(),
+  },
+}))
+
 describe('submit-check post data', () => {
   const id = 'MKC16000098"'
   const action: Action<string> = {

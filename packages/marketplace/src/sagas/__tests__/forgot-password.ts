@@ -8,7 +8,13 @@ import { history } from '@/core/router'
 import Routes from '@/constants/routes'
 import { resetPassword } from '@reapit/cognito-auth'
 
+jest.mock('@reapit/elements')
 jest.mock('@reapit/cognito-auth')
+jest.mock('../../core/router', () => ({
+  history: {
+    push: jest.fn(),
+  },
+}))
 
 describe('requestForgotPassword', () => {
   process.env.COGNITO_CLIENT_ID_MARKETPLACE = 'cognitoClientId'
