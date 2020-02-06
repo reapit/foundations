@@ -136,7 +136,6 @@ export const InstallationTable: React.FC<{ installations: AppInstallationsState;
   )
   const memoizedData = React.useMemo(handleUseMemoData(installationAppDataArrayWithName, pageNumber), [
     installationAppDataArray,
-    developerDataArray,
     pageNumber,
   ])
   return (
