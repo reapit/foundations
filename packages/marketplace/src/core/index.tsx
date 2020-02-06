@@ -10,14 +10,12 @@ import ToastMessage from '../components/ui/toast-message'
 import { PortalProvider } from '@reapit/elements'
 import ReactGA from 'react-ga'
 
-const { NODE_ENV, MARKETPLACE_GOOGLE_ANALYTICS_KEY, SENTRY_PROJECT_URL } = process.env
-
-if (NODE_ENV !== 'development' && SENTRY_PROJECT_URL) {
-  Sentry.init({ dsn: (SENTRY_PROJECT_URL as any).MARKETPLACE })
+if (process.env.NODE_ENV !== 'development' && process.env.SENTRY_PROJECT_URL_MARKETPLACE) {
+  Sentry.init({ dsn: process.env.SENTRY_PROJECT_URL_MARKETPLACE })
 }
 
-if (NODE_ENV !== 'development' && MARKETPLACE_GOOGLE_ANALYTICS_KEY) {
-  ReactGA.initialize(MARKETPLACE_GOOGLE_ANALYTICS_KEY)
+if (process.env.NODE_ENV !== 'development' && process.env.MARKETPLACE_GOOGLE_ANALYTICS_KEY) {
+  ReactGA.initialize(process.env.MARKETPLACE_GOOGLE_ANALYTICS_KEY)
   ReactGA.pageview(window.location.pathname + window.location.search)
 }
 
