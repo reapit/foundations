@@ -2,7 +2,6 @@ import hardtack from 'hardtack'
 import jwt from 'jsonwebtoken'
 import { CognitoUserPool, CognitoUser, CognitoUserSession } from 'amazon-cognito-identity-js'
 import { LoginSession, RefreshParams, LoginType, LoginIdentity, CoginitoIdentity } from '../core/types'
-// import { LoginMode } from '@reapit/cognito-auth'
 
 export const COOKIE_SESSION_KEY = 'reapit-marketplace-session'
 export const COOKIE_EXPIRY = new Date(Date.now() + 2629800000).toUTCString() // 1month from now

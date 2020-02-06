@@ -3,6 +3,9 @@ import { getNewUser, getLoginSession } from '../../utils/cognito'
 import errorStrings from '../../constants/error-strings'
 import { fetcher } from '@reapit/elements'
 
+const TIME_NOW = Math.round(new Date().getTime() / 1000)
+const ONE_MINUTE_SECS = 60
+
 export const tokenRefreshUserSessionService = async (
   userName: string,
   refreshToken: string,
@@ -40,9 +43,9 @@ export const codeRefreshUserSessionService = async (
   })
 
   if (session) {
-    // Expire time from API, less a minute to allow for latency
     const { expires_in, access_token, refresh_token, id_token } = session
-    const tokenExpiry = Math.round(new Date().getTime() / 1000) + (expires_in - 60)
+    // Expire time from API, less a minute to allow for latency
+    const tokenExpiry = TIME_NOW + expires_in - ONE_MINUTE_SECS
     return {
       accessToken: access_token,
       accessTokenExpiry: tokenExpiry,
