@@ -265,3 +265,11 @@
     margin-top: 0;
   }
 }
+
+.tag:not(body) {
+  background-color: transparent;
+}
+
+span.number.token {
+  all: unset;
+}
