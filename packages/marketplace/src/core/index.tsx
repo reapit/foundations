@@ -8,9 +8,17 @@ import store from './store'
 import Toast from '../components/ui/toast'
 import ToastMessage from '../components/ui/toast-message'
 import { PortalProvider } from '@reapit/elements'
+import ReactGA from 'react-ga'
 
-if (process.env.NODE_ENV === 'production') {
-  Sentry.init({ dsn: process.env.SENTRY_PROJECT_URL_MARKETPLACE })
+const { NODE_ENV, MARKETPLACE_GOOGLE_ANALYTICS_KEY, SENTRY_PROJECT_URL } = process.env
+
+if (NODE_ENV !== 'development' && SENTRY_PROJECT_URL) {
+  Sentry.init({ dsn: (SENTRY_PROJECT_URL as any).MARKETPLACE })
+}
+
+if (NODE_ENV !== 'development' && MARKETPLACE_GOOGLE_ANALYTICS_KEY) {
+  ReactGA.initialize(MARKETPLACE_GOOGLE_ANALYTICS_KEY)
+  ReactGA.pageview(window.location.pathname + window.location.search)
 }
 
 const rootElement = document.querySelector('#root') as Element
