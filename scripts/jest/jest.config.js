@@ -15,11 +15,9 @@ module.exports = {
   snapshotSerializers: ['enzyme-to-json/serializer'],
   verbose: false,
   bail: 1,
-  projects: [
-    '<rootDir>/jest.config.js',
-  ],
+  projects: ['<rootDir>/jest.config.js'],
   transform: {
-    '^.+\\.svg$': '<rootDir>/../../scripts/jest/svg-transform.js'
+    '^.+\\.svg$': '<rootDir>/../../scripts/jest/svg-transform.js',
   },
   globalSetup: '<rootDir>/../../scripts/jest/jest-global.js',
   coverageThreshold: {
@@ -30,4 +28,5 @@ module.exports = {
       statements: 90,
     },
   },
+  coverageReporters: ['json-summary', 'text', 'lcov'],
 }

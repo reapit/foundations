@@ -17,7 +17,8 @@
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
     "release:dev": "node ../../scripts/release/release-dev.js aml-checklist reapit-aml-checklist-dev",
-    "release:prod": "node ../../scripts/release/release-prod.js aml-checklist reapit-aml-checklist-prod"
+    "release:prod": "node ../../scripts/release/release-prod.js aml-checklist reapit-aml-checklist-prod",
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
   "dependencies": {},
   "devDependencies": {}
