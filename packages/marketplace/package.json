@@ -16,7 +16,8 @@
     "release:dev": "node ../../scripts/release/release-dev.js marketplace reapit-app-store",
     "release:prod": "node ../../scripts/release/release-prod.js marketplace reapit-app-store-prod",
     "test-e2e:dev": "cypress open --project './src/tests'",
-    "test-e2e:ci": "yarn start:prod && cypress run --project './src/tests'"
+    "test-e2e:ci": "yarn start:prod && cypress run --project './src/tests'",
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
   "dependencies": {},
   "devDependencies": {},

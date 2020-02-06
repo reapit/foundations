@@ -26,7 +26,8 @@
     "prepublish": "yarn test:ci && yarn build:prod",
     "release:prod": "node ../../scripts/release/release-npm.js @reapit/cognito-auth",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose"
+    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
   "dependencies": {
     "amazon-cognito-identity-js": "~3.0.13",
