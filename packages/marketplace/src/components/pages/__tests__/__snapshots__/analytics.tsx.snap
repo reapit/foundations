@@ -119,7 +119,7 @@ exports[`InstallationTable should match snapshot 1`] = `
     <p
       key="test"
     >
-      Total current Installation for 
+      Total current installation for 
       <strong>
         test
       </strong>
@@ -129,7 +129,7 @@ exports[`InstallationTable should match snapshot 1`] = `
     <p
       key="asd"
     >
-      Total current Installation for 
+      Total current installation for 
       <strong>
         asd
       </strong>
@@ -276,7 +276,7 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
     <p
       key="test"
     >
-      Total current Installation for 
+      Total current installation for 
       <strong>
         test
       </strong>
@@ -286,7 +286,7 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
     <p
       key="asd"
     >
-      Total current Installation for 
+      Total current installation for 
       <strong>
         asd
       </strong>
