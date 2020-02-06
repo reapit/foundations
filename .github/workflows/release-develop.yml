@@ -36,86 +36,27 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-
       - name: Install Global Dependencies
         run: |
           yarn global add aws-cli serverless
-
       - name: Set up workspace experimental
         run: |
           yarn config set workspaces-experimental true
-
       - name: Install dependencies
         run: |
           yarn
-
       - name: Lint
         run: |
           yarn lint
-
       - name: Fetch config
         run: |
           yarn fetch-config
-
       - name: Build
         run: |
           yarn build --since origin/master^1 --parallel
-
       - name: Test
         run: |
           yarn test --since origin/master^1 --parallel
-
       - name: Release Develop
         run: |
           yarn release:dev --since origin/master^1 --parallel
-
-  deploy_story_book:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checks out repository to $GITHUB_WORKSPACE
-        uses: actions/checkout@v1
-
-      - name: Setup Node Environement
-        uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
-
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v1
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Set up workspace experimental
-        run: |
-          yarn config set workspaces-experimental true
-
-      - name: Install dependencies
-        run: |
-          yarn
-
-      - name: Lint
-        run: |
-          yarn lint
-
-      - name: Fetch config
-        run: |
-          yarn fetch-config
-
-      - name: Build storybook
-        run: |
-          yarn build-storybook --since origin/master^1 --parallel
-
-      - name: deploy story book to GH pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          GITHUB_TOKEN: $GITHUB_TOKEN
-          BASE_BRANCH: master # The branch the action should deploy from.
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: out # The folder the action should deploy.
-

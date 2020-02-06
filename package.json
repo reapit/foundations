@@ -3,7 +3,6 @@
   "private": true,
   "scripts": {
     "build": "lerna run build:prod --parallel",
-    "build-storybook": "lerna run build-storybook --parallel",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
     "lint": "eslint --ext=jsx,ts,tsx packages --fix",
     "release:dev": "lerna run release:dev --parallel",
@@ -28,6 +27,7 @@
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "formik": "^2.0.4",
+    "gh-pages": "^2.2.0",
     "graphql": "^14.5.8",
     "graphql-depth-limit": "^1.1.0",
     "graphql-type-json": "^0.3.1",
