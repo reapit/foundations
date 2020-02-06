@@ -45,6 +45,7 @@
     "react-datasheet": "^1.4.0",
     "react-datepicker": "^2.9.6",
     "react-dom": "^16.12.0",
+    "react-ga": "^2.7.0",
     "react-google-map": "^3.1.1",
     "react-google-maps-loader": "^4.2.5",
     "react-icons": "^3.7.0",
