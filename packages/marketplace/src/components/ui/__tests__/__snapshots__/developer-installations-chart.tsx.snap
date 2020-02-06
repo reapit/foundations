@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperInstallationsChart should match a snapshot 1`] = `
+<div>
+  <Component>
+    Installations
+  </Component>
+  <Line
+    data={
+      Object {
+        "datasets": Array [
+          Object {
+            "backgroundColor": "rgba(75,192,192,0.4)",
+            "borderCapStyle": "butt",
+            "borderColor": "rgba(75,192,192,1)",
+            "borderDash": Array [],
+            "borderDashOffset": 0,
+            "borderJoinStyle": "miter",
+            "data": Array [
+              2,
+              0,
+              0,
+              1,
+            ],
+            "fill": false,
+            "lineTension": 0.1,
+            "pointBackgroundColor": "#fff",
+            "pointBorderColor": "rgba(75,192,192,1)",
+            "pointBorderWidth": 1,
+            "pointHitRadius": 10,
+            "pointHoverBackgroundColor": "rgba(75,192,192,1)",
+            "pointHoverBorderColor": "rgba(220,220,220,1)",
+            "pointHoverBorderWidth": 2,
+            "pointHoverRadius": 5,
+            "pointRadius": 1,
+          },
+        ],
+        "labels": Array [
+          "31/01/2020",
+          "01/02/2020",
+          "02/02/2020",
+          "03/02/2020",
+        ],
+      }
+    }
+    options={
+      Object {
+        "legend": null,
+        "tooltips": Object {
+          "callbacks": Object {
+            "label": [Function],
+          },
+          "mode": "label",
+        },
+      }
+    }
+  />
+</div>
+`;

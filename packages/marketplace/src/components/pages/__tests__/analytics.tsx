@@ -18,6 +18,7 @@ import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import { DeveloperState } from '@/reducers/developer'
 import { AppInstallationsState } from '@/reducers/app-installations'
+import { installedAppsStub } from '@/components/ui/__stubs__/developer-installations-chart-data'
 
 jest.mock('@reapit/elements', () => ({
   ...jest.requireActual('@reapit/elements'),
@@ -58,21 +59,37 @@ describe('mapStateToProps', () => {
 })
 
 describe('InstallationTable', () => {
+  const installedApps = handleMapAppNameToInstallation(installedAppsStub, appsDataStub.data.data || [])()
+
   it('should match snapshot', () => {
-    expect(shallow(<InstallationTable installations={installations} developer={developer} />)).toMatchSnapshot()
+    expect(
+      shallow(<InstallationTable installedApps={installedApps} installations={installations} developer={developer} />),
+    ).toMatchSnapshot()
   })
 
   it('should match with null installationsAppData', () => {
     const installationsWithoutData = { ...installations, installationsAppData: null }
     expect(
-      shallow(<InstallationTable installations={installationsWithoutData} developer={developer} />),
+      shallow(
+        <InstallationTable
+          installedApps={installedApps}
+          installations={installationsWithoutData}
+          developer={developer}
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
   it('should match with null developerData', () => {
     const developerWithoutData = { ...developer, developerData: null }
     expect(
-      shallow(<InstallationTable installations={installations} developer={developerWithoutData} />),
+      shallow(
+        <InstallationTable
+          installedApps={installedApps}
+          installations={installations}
+          developer={developerWithoutData}
+        />,
+      ),
     ).toMatchSnapshot()
   })
 })
