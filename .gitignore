@@ -48,6 +48,7 @@ dist-cdn/
 .Trashes
 ehthumbs.db
 Thumbs.db
+.temp
 
 .rts2_cache*
 storybook-static
