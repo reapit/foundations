@@ -50,12 +50,17 @@ export const updateContact = async ({ contactId, headers, contact }) => {
 }
 
 export const uploadImage = async ({ name, imageData, headers }) => {
+  // The fileuploader is not a Platform API. As such, api version header will throw if not deleted
+  const headersWithoutVersion = {
+    ...headers,
+  }
+  delete headersWithoutVersion['api-version']
   try {
     const responseUploadImage = await fetcher({
       url: '/',
       api: process.env.UPLOAD_FILE_BASE_URL as string,
       method: 'POST',
-      headers: headers,
+      headers: headersWithoutVersion,
       body: {
         name,
         imageData,
