@@ -8,7 +8,7 @@ import store from './store'
 import '../styles/index.scss'
 
 if (process.env.NODE_ENV === 'production') {
-  Sentry.init({ dsn: (process.env.SENTRY_PROJECT_URL as any).LTL_APP })
+  Sentry.init({ dsn: process.env.SENTRY_PROJECT_URL_LTL_APP })
 }
 
 const rootElement = document.querySelector('#root') as Element

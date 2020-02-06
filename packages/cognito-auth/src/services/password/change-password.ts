@@ -7,6 +7,7 @@ export const changePasswordService = async ({
   password,
   userName,
   newPassword,
+  cognitoClientId,
 }: ChangePasswordParams): Promise<string> => {
   return new Promise((resolve, reject) => {
     const authenticationData = {
@@ -14,7 +15,7 @@ export const changePasswordService = async ({
       Password: password,
     }
     const authenticationDetails = new AuthenticationDetails(authenticationData)
-    const cognitoUser = getNewUser(userName)
+    const cognitoUser = getNewUser(userName, cognitoClientId)
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: () => {
         cognitoUser.changePassword(password, newPassword, (err, result) => {

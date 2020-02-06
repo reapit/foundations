@@ -4,7 +4,11 @@ import Routes from '@/constants/routes'
 import { confirmRegistration } from '@reapit/cognito-auth'
 
 export const handleUseEffect = ({ userName, verificationCode, replace }) => () => {
-  confirmRegistration({ userName, verificationCode })
+  confirmRegistration({
+    userName,
+    verificationCode,
+    cognitoClientId: process.env.COGNITO_CLIENT_ID_MARKETPLACE as string,
+  })
     .then(() => {
       replace(`${Routes.DEVELOPER_LOGIN}?isSuccess=1`)
     })

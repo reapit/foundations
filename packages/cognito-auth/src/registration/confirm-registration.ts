@@ -3,8 +3,8 @@ import { confirmRegistrationService } from '../services/registration/confirm-reg
 import { ConfirmRegistrationParams } from '../core/types'
 
 export const confirmRegistration = async (params: ConfirmRegistrationParams): Promise<string | undefined> => {
-  const { verificationCode, userName } = params
-  const paramsValid = verificationCode && userName
+  const { verificationCode, userName, cognitoClientId } = params
+  const paramsValid = verificationCode && userName && cognitoClientId
 
   try {
     if (!paramsValid) {

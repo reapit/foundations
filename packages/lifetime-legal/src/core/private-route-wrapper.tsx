@@ -1,12 +1,11 @@
 import * as React from 'react'
-import { Redirect, RouteComponentProps } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import Routes from '../constants/routes'
 import { ReduxState } from '@/types/core'
 import { selectUserLoginStatus } from '@/selectors/auth'
 import { Loader, AppNavContainer } from '@reapit/elements'
-import { RefreshParams, getTokenFromQueryString } from '@reapit/cognito-auth'
+import { RefreshParams, getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
 import { authSetRefreshSession } from '../actions/auth'
 import Menu from '@/components/ui/menu'
@@ -20,7 +19,6 @@ export interface PrivateRouteWrapperConnectActions {
 
 export interface PrivateRouteWrapperConnectState {
   hasSession: boolean
-  isDesktopMode: boolean
 }
 
 export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
@@ -34,17 +32,19 @@ export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
   children,
   hasSession,
-  isDesktopMode,
   setRefreshSession,
 }: PrivateRouteWrapperProps) => {
-  const desktopLogin = getTokenFromQueryString(location.search)
+  const cognitoClientId = process.env.COGNITO_CLIENT_ID_LTL_APP as string
+  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId)
 
-  if (desktopLogin && !isDesktopMode) {
-    setRefreshSession(desktopLogin)
+  if (refreshParams && !hasSession) {
+    setRefreshSession(refreshParams)
+    return null
   }
 
   if (!hasSession) {
-    return <Redirect to={Routes.LOGIN} />
+    redirectToOAuth(cognitoClientId)
+    return null
   }
 
   return (
@@ -59,7 +59,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
   hasSession: selectUserLoginStatus(state),
-  isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({

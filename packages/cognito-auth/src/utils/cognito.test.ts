@@ -9,6 +9,7 @@ import {
   tokenExpired,
   checkHasIdentityId,
   COOKIE_EXPIRY,
+  redirectToOAuth,
 } from './cognito'
 import { mockCognitoUserSession, mockLoginSession } from '../__mocks__/cognito-session'
 import hardtack from 'hardtack'
@@ -46,18 +47,18 @@ describe('Session utils', () => {
 
   describe('getNewUser', () => {
     it('should correctly return a CognitoUser instance', () => {
-      const cognitoUser = getNewUser('bob@acme.com')
+      const cognitoUser = getNewUser('bob@acme.com', 'SOME_ID')
       expect(typeof cognitoUser.refreshSession).toEqual('function')
       expect(typeof cognitoUser.authenticateUser).toEqual('function')
     })
   })
 
   describe('setSessionCookie', () => {
-    it('should set a refresh cookie if host is in the whitelist array', () => {
-      const validHost = 'https://something.reapit.com'
+    it('should set a refresh cookie', () => {
+      window.location.host = 'some.host'
       hardtack.set = jest.fn()
 
-      setSessionCookie(mockLoginSession, validHost)
+      setSessionCookie(mockLoginSession)
 
       expect(hardtack.set).toHaveBeenCalledWith(
         COOKIE_SESSION_KEY,
@@ -69,20 +70,11 @@ describe('Session utils', () => {
         }),
         {
           path: '/',
-          domain: '.reapit.com',
+          domain: 'some.host',
           expires: COOKIE_EXPIRY,
           samesite: 'lax',
         },
       )
-    })
-
-    it('should not set a refresh cookie if host is not in the whitelist array', () => {
-      const inValidHost = 'https://something.com'
-      hardtack.set = jest.fn()
-
-      setSessionCookie(mockLoginSession, inValidHost)
-
-      expect(hardtack.set).not.toHaveBeenCalled()
     })
   })
 
@@ -108,18 +100,26 @@ describe('Session utils', () => {
 
   describe('getTokenFromQueryString', () => {
     it('should correctly return RefreshParams for desktop mode', () => {
-      const validQuery = '?username=wmcvay@reapit.com&desktopToken=TOKEN'
-      expect(getTokenFromQueryString(validQuery)).toEqual({
-        refreshToken: 'TOKEN',
-        userName: 'wmcvay@reapit.com',
+      const validQuery = '?code=TOKEN&state=isDesktop'
+      ;(window.location as any).origin = 'some.origin'
+      const cognitoClientId = 'cognitoClientId'
+
+      expect(getTokenFromQueryString(validQuery, cognitoClientId)).toEqual({
         loginType: 'CLIENT',
         mode: 'DESKTOP',
+        cognitoClientId,
+        authorizationCode: 'TOKEN',
+        redirectUri: 'some.origin',
+        state: 'isDesktop',
+        refreshToken: null,
+        userName: null,
       })
     })
 
     it('should correctly return null for an invalid string', () => {
       const invalidQuery = '?somerandomquery=wmcvay@reapit.com&somerandomtoken=TOKEN'
-      expect(getTokenFromQueryString(invalidQuery)).toBe(null)
+      const cognitoClientId = 'cognitoClientId'
+      expect(getTokenFromQueryString(invalidQuery, cognitoClientId)).toBe(null)
     })
   })
 
@@ -190,6 +190,17 @@ describe('Session utils', () => {
         clientId: null,
       } as LoginIdentity
       expect(checkHasIdentityId(loginType, loginIdentity)).toBe(false)
+    })
+  })
+
+  describe('redirectToOAuth', () => {
+    it('should redirect to the OAuth endpoint for authorize', () => {
+      window.location.href = ''
+      process.env.COGNITO_OAUTH_URL = ''
+      redirectToOAuth('cognitoClientId', 'redirectUri')
+      expect(window.location.href).toEqual(
+        '/authorize?response_type=code&client_id=cognitoClientId&redirect_uri=redirectUri',
+      )
     })
   })
 

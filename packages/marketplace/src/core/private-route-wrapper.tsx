@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { Redirect, RouteComponentProps } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
 import { Loader, Section, FlexContainerBasic, AppNavContainer } from '@reapit/elements'
-import { LoginType, RefreshParams, getTokenFromQueryString } from '@reapit/cognito-auth'
+import { LoginType, RefreshParams, getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
 import { withRouter } from 'react-router'
 import { authSetRefreshSession } from '../actions/auth'
-import { getAuthRouteByLoginType } from '@/utils/auth-route'
+import { getDefaultRouteByLoginType } from '@/utils/auth-route'
 
 const { Suspense } = React
 
@@ -34,19 +34,20 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   hasSession,
   loginType,
   location,
-  isDesktopMode,
 }) => {
-  const desktopToken = getTokenFromQueryString(location.search)
+  const route = getDefaultRouteByLoginType(loginType)
+  const cognitoClientId = process.env.COGNITO_CLIENT_ID_MARKETPLACE as string
+  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, loginType, route)
 
-  if (desktopToken && !isDesktopMode) {
-    setRefreshSession(desktopToken)
+  if (refreshParams && !hasSession) {
+    setRefreshSession(refreshParams)
     return null
   }
 
   if (!hasSession) {
-    const route = getAuthRouteByLoginType(loginType)
     console.log('no session, route', route)
-    return <Redirect to={route} />
+    redirectToOAuth(cognitoClientId, route)
+    return null
   }
 
   return (
@@ -69,7 +70,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
-  loginType: state?.auth?.loginSession?.loginType || 'CLIENT',
+  loginType: state?.auth?.loginSession?.loginType ?? 'CLIENT',
   isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
 })
 

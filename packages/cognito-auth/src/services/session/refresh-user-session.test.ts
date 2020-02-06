@@ -1,17 +1,33 @@
-import { refreshUserSessionService } from './refresh-user-session'
+import { tokenRefreshUserSessionService, codeRefreshUserSessionService } from './refresh-user-session'
 import { mockCognitoUserSession } from '../../__mocks__/cognito-session'
 import { getLoginSession } from '../../utils/cognito'
-import { RefreshParams } from '../../core/types'
 
 jest.mock('amazon-cognito-identity-js', () => require('../../__mocks__/cognito-session').mockCognito)
+jest.mock('@reapit/elements', () => ({
+  fetcher: () => ({
+    expires_in: 3600,
+    access_token: 'SOME_TOKEN',
+    refresh_token: 'SOME_TOKEN',
+    id_token: 'SOME_TOKEN',
+  }),
+}))
 
-describe('cognitoRefreshSession', () => {
-  it('should return a CognitoUserSession', async () => {
-    expect(
-      await refreshUserSessionService({
-        userName: 'bob@acme.com',
-        refreshToken: 'MOCK_REFRESH_TOKEN',
-      } as RefreshParams),
-    ).toEqual(getLoginSession(mockCognitoUserSession))
+describe('tokenRefreshUserSessionService', () => {
+  it('should return a LoginSession', async () => {
+    expect(await tokenRefreshUserSessionService('bob@acme.com', 'MOCK_REFRESH_TOKEN', 'someCognitoClientId')).toEqual(
+      getLoginSession(mockCognitoUserSession),
+    )
+  })
+})
+
+describe('codeRefreshUserSessionService', () => {
+  it('should return a LoginSession', async () => {
+    expect(await codeRefreshUserSessionService('authCode', 'redirectUri', 'someCognitoClientId')).toEqual({
+      accessToken: 'SOME_TOKEN',
+      accessTokenExpiry: 1570750731,
+      idToken: 'SOME_TOKEN',
+      idTokenExpiry: 1570750731,
+      refreshToken: 'SOME_TOKEN',
+    })
   })
 })

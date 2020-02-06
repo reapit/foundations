@@ -11,34 +11,33 @@ module.exports = (on, config) => {
     webpackOptions: {
       resolve: {
         extensions: ['.ts', '.tsx', '.js'],
-         modules: [
-            /* assuming that one up is where your node_modules sit,
+        modules: [
+          /* assuming that one up is where your node_modules sit,
               relative to the currently executing script
             */
-            path.join(__dirname, '../../../../node_modules')
-          ]
+          path.join(__dirname, '../../../../node_modules'),
+        ],
       },
       module: {
         rules: [
           {
             test: /\.tsx?$/,
             loader: 'ts-loader',
-            options: { transpileOnly: true, configFile: tsConfigPath }
-          }
-        ]
+            options: { transpileOnly: true, configFile: tsConfigPath },
+          },
+        ],
       },
       plugins: [
         /**
          * This plugin mapped all data in the field named "paths" of tsconfig.json to webpack alias
          */
         new ResolveTSPathsToWebpackAlias({
-          tsconfig: tsConfigPath
+          tsconfig: tsConfigPath,
         }),
-      ]
-    }
+      ],
+    },
   }
   on('file:preprocessor', wp(options))
-
 
   // Retries plugin
   require('cypress-plugin-retries/lib/plugin')(on)
@@ -46,20 +45,20 @@ module.exports = (on, config) => {
   // Load ENV from config manager
   const reapitEnv = process.env.REAPIT_ENV || 'LOCAL'
 
-
   if (typeof reapitConfig !== 'object') {
-    throw new Error('reapit-config.json\'s content is invalid. Its type should be an object')
+    throw new Error("reapit-config.json's content is invalid. Its type should be an object")
   }
 
   const reapitConfigMatchedEnv = reapitConfig[reapitEnv]
-  const isReaptConfigMatchedEnvInvalid = !reapitConfigMatchedEnv && typeof reapitConfigMatchedEnv !== 'object' 
-  
+  const isReaptConfigMatchedEnvInvalid = !reapitConfigMatchedEnv && typeof reapitConfigMatchedEnv !== 'object'
+
   if (isReaptConfigMatchedEnvInvalid) {
     throw new Error(`Config of key '${reapitEnv}' is invalid. Its type should be object`)
   }
 
-  const isApplicationUrlInvalid = !reapitConfigMatchedEnv.APPLICATION_URL && typeof reapitConfigMatchedEnv.APPLICATION_URL !== 'string'
-  if (isApplicationUrlInvalid)  {
+  const isApplicationUrlInvalid =
+    !reapitConfigMatchedEnv.APPLICATION_URL && typeof reapitConfigMatchedEnv.APPLICATION_URL !== 'string'
+  if (isApplicationUrlInvalid) {
     throw new Error(`Value of config key '${reapitEnv}'.'APPLICATION_URL' is invaid. Its type should be string`)
   }
 

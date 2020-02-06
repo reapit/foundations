@@ -2,9 +2,9 @@ import { getNewUser } from '../../utils/cognito'
 import { ResetPasswordParams } from '../../core/types'
 import errorStrings from '../../constants/error-strings'
 
-export const resetPasswordService = async ({ userName }: ResetPasswordParams): Promise<Object> => {
+export const resetPasswordService = async ({ userName, cognitoClientId }: ResetPasswordParams): Promise<Object> => {
   return new Promise((resolve, reject) => {
-    const cognitoUser = getNewUser(userName)
+    const cognitoUser = getNewUser(userName, cognitoClientId)
 
     cognitoUser.forgotPassword({
       onSuccess: data => {

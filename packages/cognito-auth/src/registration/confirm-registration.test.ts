@@ -9,7 +9,11 @@ const mockedPasswordService = confirmRegistrationService as jest.Mock
 
 describe('confirmRegistration', () => {
   it('should call the success handler correctly on success', async () => {
-    const params = { userName: 'will@mail.com', verificationCode: 'verificationCode' } as ConfirmRegistrationParams
+    const params = {
+      userName: 'will@mail.com',
+      verificationCode: 'verificationCode',
+      cognitoClientId: 'someCognitoClientId',
+    } as ConfirmRegistrationParams
 
     mockedPasswordService.mockImplementation(() => 'SUCCESS')
     expect(await confirmRegistration(params)).toEqual('SUCCESS')
@@ -17,7 +21,12 @@ describe('confirmRegistration', () => {
 
   it('should call the error handler correctly if params are missing', async () => {
     console.error = jest.fn()
-    const params = { userName: '', newPassword: '', verificationCode: '' } as ConfirmRegistrationParams
+    const params = {
+      userName: '',
+      newPassword: '',
+      verificationCode: '',
+      cognitoClientId: '',
+    } as ConfirmRegistrationParams
     const error = new Error(errorStrings.USERNAME_CODE_REQUIRED)
     mockedPasswordService.mockImplementation(() => 'SUCCESS')
     await confirmRegistration(params)
@@ -27,7 +36,11 @@ describe('confirmRegistration', () => {
 
   it('should call the error handler correctly if service thows an error', async () => {
     console.error = jest.fn()
-    const params = { userName: 'will@mail.com', verificationCode: 'verificationCode' } as ConfirmRegistrationParams
+    const params = {
+      userName: 'will@mail.com',
+      verificationCode: 'verificationCode',
+      cognitoClientId: 'someCognitoClientId',
+    } as ConfirmRegistrationParams
 
     const error = new Error('API FAILED')
     mockedPasswordService.mockImplementation(() => {

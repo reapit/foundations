@@ -4,8 +4,13 @@ jest.mock('amazon-cognito-identity-js', () => require('../../__mocks__/cognito-s
 
 describe('changePasswordService', () => {
   it('should return a success message', async () => {
-    expect(await changePasswordService({ userName: 'bob@acme.com', password: 'xxxx', newPassword: 'xxxxx' })).toEqual(
-      'SUCCESS',
-    )
+    expect(
+      await changePasswordService({
+        userName: 'bob@acme.com',
+        password: 'xxxx',
+        newPassword: 'xxxxx',
+        cognitoClientId: 'someCognitoClientId',
+      }),
+    ).toEqual('SUCCESS')
   })
 })
