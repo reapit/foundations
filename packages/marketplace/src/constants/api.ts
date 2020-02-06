@@ -18,4 +18,5 @@ export const URLS = {
   scopes: '/scopes',
   categories: '/categories',
   docs: '/docs',
+  statistics: '/statistics',
 }

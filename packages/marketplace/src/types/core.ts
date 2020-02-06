@@ -19,6 +19,7 @@ import { SettingsState } from '@/reducers/settings'
 import { AdminAppsState } from '@/reducers/admin-apps'
 import { ResetPasswordState } from '@/reducers/reset-password'
 import { AppInstallationsState } from '@/reducers/app-installations'
+import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 import { NotificationMessageState } from '@/reducers/notification-message'
 import { AdminStatsState } from '@/reducers/admin-stats'
 
@@ -79,6 +80,7 @@ export interface ReduxState {
   settings: SettingsState
   resetPassword: ResetPasswordState
   installations: AppInstallationsState
+  appUsageStats: AppUsageStatsState
   noticationMessage: NotificationMessageState
   adminStats: AdminStatsState
 }
