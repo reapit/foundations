@@ -8,6 +8,9 @@ import {
   handleMapAppNameToInstallation,
   handleUseMemoData,
   handleCountCurrentInstallationForEachApp,
+  sortAppByDateInstalled,
+  countAppHasInstallation,
+  countAppNoInstallation,
 } from '../analytics'
 import { installationsStub } from '@/sagas/__stubs__/installations'
 import { mapStateToProps } from '@/components/pages/analytics'
@@ -341,5 +344,195 @@ describe('handleCountCurrentInstallationForEachApp', () => {
     const fn = handleCountCurrentInstallationForEachApp(installationAppDataArrayWithName, developerDataArray)
     const result = fn()
     expect(result).toEqual({ app1: 2, app2: 0 })
+  })
+})
+
+describe('sortAppByDateInstalled', () => {
+  const installationAppDataArrayWithName = [
+    {
+      appName: 'app2',
+      id: 'id2',
+      appId: 'id2',
+      created: '2019-12-02T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      appName: 'app1',
+      id: 'b3c2f644-3241-4298-b320-b0398ff492f9',
+      appId: 'id1',
+      created: '2019-12-03T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
+
+  it('should return correctly', () => {
+    const result = sortAppByDateInstalled(installationAppDataArrayWithName)
+    expect(result).toEqual([installationAppDataArrayWithName[1], installationAppDataArrayWithName[0]])
+  })
+
+  it('should return correctly when reorder', () => {
+    const result = sortAppByDateInstalled([installationAppDataArrayWithName[1], installationAppDataArrayWithName[0]])
+    expect(result).toEqual([installationAppDataArrayWithName[1], installationAppDataArrayWithName[0]])
+  })
+
+  it('should return correctly when created undefined', () => {
+    const result = sortAppByDateInstalled([
+      installationAppDataArrayWithName[0],
+      { ...installationAppDataArrayWithName[1], created: undefined },
+    ])
+    expect(result).toEqual([
+      installationAppDataArrayWithName[0],
+      { ...installationAppDataArrayWithName[1], created: undefined },
+    ])
+  })
+})
+
+describe('countAppHasInstallation', () => {
+  const installationAppDataArrayWithName = [
+    {
+      terminatesOn: '2019-12-05T05:33:20',
+      appName: 'app2',
+      id: 'id2',
+      appId: 'id2',
+      created: '2019-12-02T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      appName: 'app1',
+      id: 'id2',
+      appId: 'id2',
+      created: '2019-12-02T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      appName: 'app1',
+      id: 'b3c2f644-3241-4298-b320-b0398ff492f9',
+      appId: 'id1',
+      created: '2019-12-03T05:33:20',
+      client: 'DXX',
+      status: 'Active',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9',
+          action: 'GET',
+        },
+        {
+          rel: 'app',
+          href: 'http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
+  it('should return correctly', () => {
+    const result = countAppHasInstallation(installationAppDataArrayWithName)
+    expect(result).toEqual({ app1: 2 })
+  })
+})
+
+describe('countAppNoInstallation', () => {
+  const developerDataArray = [
+    {
+      id: 'id1',
+      developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+      name: 'app2',
+      summary:
+        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
+        'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
+      developer: "Pete's Proptech World Ltd",
+      homePage: 'http://google.com/abc',
+      iconUri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
+          action: 'GET',
+        },
+        {
+          rel: 'developer',
+          href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+          action: 'GET',
+        },
+      ],
+    },
+    {
+      id: 'id1',
+      developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+      summary:
+        'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
+        'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
+      developer: "Pete's Proptech World Ltd",
+      homePage: 'http://google.com/abc',
+      iconUri: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/d10e790c-2bf2-40ae-9c43-82c1534bde31.png',
+      links: [
+        {
+          rel: 'self',
+          href: 'http://platformdemo.reapit.net/marketplace/apps/09043eb8-9e5e-4650-b7f1-f0cb62699027',
+          action: 'GET',
+        },
+        {
+          rel: 'developer',
+          href: 'http://platformdemo.reapit.net/marketplace/developers/28c9ea52-7f73-4814-9e00-4e3714b8adeb',
+          action: 'GET',
+        },
+      ],
+    },
+  ]
+  it('should return correctly', () => {
+    const result = countAppNoInstallation(developerDataArray)
+    expect(result).toEqual({ app2: 0 })
   })
 })

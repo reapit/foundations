@@ -325,6 +325,7 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
     onChange={[Function]}
     pageNumber={1}
     pageSize={5}
+    totalCount={0}
   />
 </div>
 `;

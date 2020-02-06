@@ -55,12 +55,10 @@ export const handleMapAppNameToInstallation = (
     }
   })
 
-export const handleUseMemoData = (
+export const sortAppByDateInstalled = (
   installationsAppDataArrayWithName: InstallationModelWithAppName[],
-  pageNumber: number,
-) => (): InstallationModelWithAppName[] => {
-  // sort by date installed
-  const sortedInstallationsAppDataArray = [...installationsAppDataArrayWithName].sort(
+): InstallationModelWithAppName[] => {
+  const newAppData = [...installationsAppDataArrayWithName].sort(
     (a: InstallationModelWithAppName, b: InstallationModelWithAppName) => {
       if (!a.created || !b.created) {
         return 0
@@ -70,6 +68,14 @@ export const handleUseMemoData = (
       return dateA < dateB ? 1 : -1
     },
   )
+  return newAppData
+}
+
+export const handleUseMemoData = (
+  installationsAppDataArrayWithName: InstallationModelWithAppName[],
+  pageNumber: number,
+) => (): InstallationModelWithAppName[] => {
+  const sortedInstallationsAppDataArray = sortAppByDateInstalled(installationsAppDataArrayWithName)
   const slicedInstallationAppDataArray = sortedInstallationsAppDataArray.slice(
     (pageNumber - 1) * INSTALLATIONS_PER_PAGE,
     pageNumber * INSTALLATIONS_PER_PAGE,
@@ -78,15 +84,13 @@ export const handleUseMemoData = (
 }
 
 /**
- * Count installations for each app
+ * Count installations for each app has installation
  * E.g. return {appName1: 1, appName2: 0, appName3: 15}
  */
-export const handleCountCurrentInstallationForEachApp = (
-  installationAppDataArrayWithName: InstallationModelWithAppName[],
-  developerDataArray: AppSummaryModel[],
-) => (): { [appName: string]: number } => {
-  // count for each app in installation
-  const appHasInstallation = installationAppDataArrayWithName.reduce((prevValue, { appName, terminatesOn }) => {
+export const countAppHasInstallation = (
+  installationsAppDataArrayWithName: InstallationModelWithAppName[],
+): { [appName: string]: number } =>
+  installationsAppDataArrayWithName.reduce((prevValue, { appName, terminatesOn }) => {
     if (!appName || terminatesOn) {
       return prevValue
     }
@@ -99,8 +103,11 @@ export const handleCountCurrentInstallationForEachApp = (
     return newValue
   }, {}) as { [appName: string]: number }
 
-  // app with no installation will show 0
-  const appNoInstallation: { [name: string]: number } = developerDataArray.reduce((prevValue, { name }) => {
+/**
+ * All app in here will show 0 because it's not installed
+ */
+export const countAppNoInstallation = (developerDataArray: AppSummaryModel[]): { [appName: string]: number } =>
+  developerDataArray.reduce((prevValue, { name }) => {
     if (!name) {
       return prevValue
     }
@@ -109,6 +116,12 @@ export const handleCountCurrentInstallationForEachApp = (
     return newValue
   }, {}) as { [appName: string]: number }
 
+export const handleCountCurrentInstallationForEachApp = (
+  installationAppDataArrayWithName: InstallationModelWithAppName[],
+  developerDataArray: AppSummaryModel[],
+) => (): { [appName: string]: number } => {
+  const appHasInstallation = countAppHasInstallation(installationAppDataArrayWithName)
+  const appNoInstallation = countAppNoInstallation(developerDataArray)
   return {
     ...appNoInstallation,
     ...appHasInstallation,
@@ -155,7 +168,7 @@ export const InstallationTable: React.FC<{ installations: AppInstallationsState;
         pageNumber={pageNumber}
         onChange={handleSetPageNumber(setPageNumber)}
         pageSize={INSTALLATIONS_PER_PAGE}
-        totalCount={installations.installationsAppData?.totalCount}
+        totalCount={installations.installationsAppData?.totalCount ?? 0}
       />
     </div>
   )
