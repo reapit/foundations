@@ -9,6 +9,7 @@ import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-defin
 import { DeveloperState } from '@/reducers/developer'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
+import AppUsageStats from '@/components/ui/app-usage-stats/app-usage-stats'
 import { withRouter } from 'react-router'
 import styles from '@/styles/pages/analytics.scss?mod'
 
@@ -152,6 +153,8 @@ export const InstallationTable: React.FC<{
   ])
   return (
     <div>
+      <AppUsageStats />
+
       <H4>Installations</H4>
       <p>
         The installations table below shows the individual installations per client with a total number of installations

@@ -18,6 +18,7 @@ import appCategories from '../reducers/app-categories'
 import settingsReducer from '../reducers/settings'
 import adminApps from '../reducers/admin-apps'
 import appInstallationsReducer from '../reducers/app-installations'
+import appUsageStatsReducer from '../reducers/app-usage-stats'
 import { ReduxState } from '../types/core'
 import createSagaMiddleware from 'redux-saga'
 import { fork, all } from '@redux-saga/core/effects'
@@ -25,6 +26,7 @@ import authSagas from '../sagas/auth'
 import clientSagas from '../sagas/client'
 import appDetailSagas from '../sagas/app-detail'
 import installedAppsSagas from '../sagas/installed-apps'
+import appUsageStatsSagas from '../sagas/app-usage-stats'
 import myAppsSagas from '../sagas/my-apps'
 import developerSagas from '../sagas/developer'
 import submitAppSagas from '../sagas/submit-app'
@@ -82,6 +84,7 @@ export class Store {
     settings: settingsReducer,
     resetPassword: resetPasswordReducer,
     installations: appInstallationsReducer,
+    appUsageStats: appUsageStatsReducer,
     noticationMessage,
     adminStats: adminStatsReducer,
   })
@@ -91,6 +94,7 @@ export class Store {
       fork(authSagas),
       fork(clientSagas),
       fork(installedAppsSagas),
+      fork(appUsageStatsSagas),
       fork(myAppsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
