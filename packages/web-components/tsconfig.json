@@ -4,6 +4,7 @@
     "baseUrl": "./",
     "outDir": "dist-npm",
     "declaration": true,
+    "sourceRoot": "/",
     "declarationDir": "dist-npm",
     "moduleResolution": "node",
     "paths": {

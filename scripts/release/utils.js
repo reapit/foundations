@@ -1,21 +1,42 @@
 #!/usr/bin/env node
 const { execSync } = require('child_process')
+const spawn = require('child_process').spawnSync
 const Octokit = require('@octokit/rest')
 
 const removeUnuseChar = value => {
   return value.replace(/(\r\n\t|\n|\r\t)/gm, '')
 }
 
+function runCommand(cmd, args) {
+  const resultObj = spawn(cmd, args)
+  const { stdout, stderr } = resultObj
+
+  if (stderr.length !== 0) {
+    throw new Error(stderr.toString().trim())
+  }
+
+  return stdout.toString().trim()
+}
+
+const getRef = () => {
+  return runCommand('git', ['rev-parse', '--short', 'HEAD'])
+}
+
+const getHashOfCommitTagged = () => {
+  return runCommand('git', ['rev-list', '--tags', '--max-count=1'])
+}
+
 const getVersionTag = () => {
-  const tagName = execSync('git describe --always --tags $(git rev-list --tags --max-count=1)').toString()
-  const tagNameArr = removeUnuseChar(tagName).split('_')
-  const PACKAGE_NAME_INDEX = 0
-  const VERSION_INDEX = 1
-  const packageName = tagNameArr[PACKAGE_NAME_INDEX]
-  const version = tagNameArr[VERSION_INDEX]
-  return {
-    packageName,
-    version,
+  try {
+    const tagName = runCommand('git', ['describe', '--tags', getHashOfCommitTagged()])
+    const tagNameArr = removeUnuseChar(tagName).split('_')
+    const PACKAGE_NAME_INDEX = 0
+    const VERSION_INDEX = 1
+    const packageName = tagNameArr[PACKAGE_NAME_INDEX]
+    const version = tagNameArr[VERSION_INDEX]
+    return { packageName, version }
+  } catch (e) {
+    return { packageName: '', version: getRef() }
   }
 }
 

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "typeRoots": ["./src/core/definitions.d.ts", "node_modules/@types", "../../node_modules/@types"],
     "baseUrl": "./",
+    "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
       "@reapit/cognito-auth": ["../cognito-auth/src"],

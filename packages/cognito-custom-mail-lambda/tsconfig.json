@@ -4,7 +4,8 @@
     "target": "es6",
     "module": "commonjs",
     "noEmit": false,
-    "outDir": "dist"
+    "outDir": "dist",
+    "sourceRoot": "/"
   },
   "include": ["src"]
 }
