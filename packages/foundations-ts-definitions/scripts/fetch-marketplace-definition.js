@@ -7,7 +7,6 @@ const fs = require('fs')
 const path = require('path')
 const sw2dts = require('sw2dts')
 const prettifyCode = require('./format-code')
-const constants = require('../constants/api')
 
 // TODO - Should be fetched from reapit-config.json
 const BASE_URL = 'https://dev.platformmarketplace.reapit.net'
@@ -18,7 +17,7 @@ const apiSchema = [
     endpoint: `${BASE_URL}/swagger/v1/swagger.json`,
     headers: {
       'X-Api-Key': process.env.MARKETPLACE_API_KEY_DEV,
-      'api-version': constants.API_VERSION,
+      'api-version': 'latest',
     },
   },
 ]
