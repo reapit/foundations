@@ -1,0 +1,24 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.1",
+  "description": "<%= description %>",
+  "main": "./src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+<%= repo %>"
+  },
+  "author": "<%= author %>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "webpack --color --mode production --config ./src/scripts/webpack-prod.js",
+    "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
+    "start": "node ./public/index.js smb",
+    "test": "jest --coverage --silent",
+    "test:ci": "jest --coverage --silent --detectOpenHandles --forceExit"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
