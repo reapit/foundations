@@ -18,7 +18,6 @@ import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import { DeveloperState } from '@/reducers/developer'
 import { AppInstallationsState } from '@/reducers/app-installations'
-import { installedAppsStub } from '@/components/ui/__stubs__/developer-installations-chart-data'
 
 jest.mock('@reapit/elements', () => ({
   ...jest.requireActual('@reapit/elements'),
@@ -59,7 +58,10 @@ describe('mapStateToProps', () => {
 })
 
 describe('InstallationTable', () => {
-  const installedApps = handleMapAppNameToInstallation(installedAppsStub, appsDataStub.data.data || [])()
+  const installedApps = handleMapAppNameToInstallation(
+    installations.installationsAppData?.data || [],
+    appsDataStub.data.data || [],
+  )()
 
   it('should match snapshot', () => {
     expect(

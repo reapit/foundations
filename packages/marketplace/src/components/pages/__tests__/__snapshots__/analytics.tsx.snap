@@ -221,51 +221,11 @@ exports[`InstallationTable should match snapshot 1`] = `
     data={
       Array [
         Object {
-          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c3",
-          "appName": undefined,
-          "client": "DXX",
-          "created": "2020-02-03T01:49:57",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f3",
-          "links": Array [
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
-              "rel": "self",
-            },
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-              "rel": "app",
-            },
-          ],
-          "status": "Active",
-        },
-        Object {
-          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c2",
-          "appName": undefined,
-          "client": "DXX",
-          "created": "2020-01-31T12:57:12",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f2",
-          "links": Array [
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
-              "rel": "self",
-            },
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-              "rel": "app",
-            },
-          ],
-          "status": "Active",
-        },
-        Object {
           "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
           "appName": undefined,
           "client": "DXX",
-          "created": "2020-01-31T12:57:12",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f1",
+          "created": "2019-12-03T05:33:20",
+          "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
           "links": Array [
             Object {
               "action": "GET",
@@ -329,51 +289,11 @@ exports[`InstallationTable should match with null developerData 1`] = `
     data={
       Array [
         Object {
-          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c3",
-          "appName": undefined,
-          "client": "DXX",
-          "created": "2020-02-03T01:49:57",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f3",
-          "links": Array [
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
-              "rel": "self",
-            },
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-              "rel": "app",
-            },
-          ],
-          "status": "Active",
-        },
-        Object {
-          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c2",
-          "appName": undefined,
-          "client": "DXX",
-          "created": "2020-01-31T12:57:12",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f2",
-          "links": Array [
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
-              "rel": "self",
-            },
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-              "rel": "app",
-            },
-          ],
-          "status": "Active",
-        },
-        Object {
           "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
           "appName": undefined,
           "client": "DXX",
-          "created": "2020-01-31T12:57:12",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f1",
+          "created": "2019-12-03T05:33:20",
+          "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
           "links": Array [
             Object {
               "action": "GET",
@@ -458,51 +378,11 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
     data={
       Array [
         Object {
-          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c3",
-          "appName": undefined,
-          "client": "DXX",
-          "created": "2020-02-03T01:49:57",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f3",
-          "links": Array [
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
-              "rel": "self",
-            },
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-              "rel": "app",
-            },
-          ],
-          "status": "Active",
-        },
-        Object {
-          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c2",
-          "appName": undefined,
-          "client": "DXX",
-          "created": "2020-01-31T12:57:12",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f2",
-          "links": Array [
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
-              "rel": "self",
-            },
-            Object {
-              "action": "GET",
-              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
-              "rel": "app",
-            },
-          ],
-          "status": "Active",
-        },
-        Object {
           "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
           "appName": undefined,
           "client": "DXX",
-          "created": "2020-01-31T12:57:12",
-          "id": "b3c2f644-3241-4298-b320-b0398ff492f1",
+          "created": "2019-12-03T05:33:20",
+          "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
           "links": Array [
             Object {
               "action": "GET",
