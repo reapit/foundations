@@ -11,6 +11,41 @@ exports[`AnalyticsPage should match snapshot 1`] = `
     </Component>
     <hr />
     <Component
+      isMultiLine={true}
+    >
+      <Component>
+        <DeveloperInstallationsChart
+          data={
+            Array [
+              Object {
+                "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+                "appName": undefined,
+                "client": "DXX",
+                "created": "2019-12-03T05:33:20",
+                "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
+                "links": Array [
+                  Object {
+                    "action": "GET",
+                    "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
+                    "rel": "self",
+                  },
+                  Object {
+                    "action": "GET",
+                    "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+                    "rel": "app",
+                  },
+                ],
+                "status": "Active",
+              },
+            ]
+          }
+        />
+      </Component>
+      <Component>
+        <DeveloperTrafficChart />
+      </Component>
+    </Component>
+    <Component
       developer={
         Object {
           "developerData": Object {
@@ -100,6 +135,30 @@ exports[`AnalyticsPage should match snapshot 1`] = `
           "loading": false,
         }
       }
+      installedApps={
+        Array [
+          Object {
+            "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+            "appName": undefined,
+            "client": "DXX",
+            "created": "2019-12-03T05:33:20",
+            "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
+            "links": Array [
+              Object {
+                "action": "GET",
+                "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
+                "rel": "self",
+              },
+              Object {
+                "action": "GET",
+                "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+                "rel": "app",
+              },
+            ],
+            "status": "Active",
+          },
+        ]
+      }
     />
   </Component>
 </Connect(ErrorBoundary)>
@@ -113,7 +172,7 @@ exports[`InstallationTable should match snapshot 1`] = `
     Installations
   </Component>
   <p>
-    The installations table below shows the individuals per client with a total number of installations per app
+    The installations table below shows the individual installations per client with a total number of installations per app
   </p>
   <div>
     <p
@@ -202,7 +261,7 @@ exports[`InstallationTable should match with null developerData 1`] = `
     Installations
   </Component>
   <p>
-    The installations table below shows the individuals per client with a total number of installations per app
+    The installations table below shows the individual installations per client with a total number of installations per app
   </p>
   <div />
   <Component
@@ -270,7 +329,7 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
     Installations
   </Component>
   <p>
-    The installations table below shows the individuals per client with a total number of installations per app
+    The installations table below shows the individual installations per client with a total number of installations per app
   </p>
   <div>
     <p
@@ -316,7 +375,30 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
         },
       ]
     }
-    data={Array []}
+    data={
+      Array [
+        Object {
+          "appId": "062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+          "appName": undefined,
+          "client": "DXX",
+          "created": "2019-12-03T05:33:20",
+          "id": "b3c2f644-3241-4298-b320-b0398ff492f9",
+          "links": Array [
+            Object {
+              "action": "GET",
+              "href": "http://dev.platformmarketplace.reapit.net/installations/b3c2f644-3241-4298-b320-b0398ff492f9",
+              "rel": "self",
+            },
+            Object {
+              "action": "GET",
+              "href": "http://dev.platformmarketplace.reapit.net/apps/062a376c-f5a3-46a0-a64b-e4bc6e5af2c1",
+              "rel": "app",
+            },
+          ],
+          "status": "Active",
+        },
+      ]
+    }
     loading={false}
     scrollable={true}
   />
