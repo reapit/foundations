@@ -11,6 +11,7 @@ exports[`InstalledAppList should match a snappshot ListDesktopScreen 1`] = `
     <InstalledAppCard
       app={
         Object {
+          "created": "2020-02-02T10:45:57",
           "developer": "Pete's Proptech World Ltd",
           "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
           "homePage": "http://google.com/abc",
@@ -42,6 +43,7 @@ exports[`InstalledAppList should match a snappshot ListDesktopScreen 1`] = `
     <InstalledAppCard
       app={
         Object {
+          "created": "2020-02-02T10:45:57",
           "developer": "Pete's Proptech World Ltd",
           "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
           "homePage": "http://www.contoso.com/path",
@@ -77,6 +79,7 @@ exports[`InstalledAppList should match a snappshot ListMobileScreen 1`] = `
   <InstalledAppCard
     app={
       Object {
+        "created": "2020-02-02T10:45:57",
         "developer": "Pete's Proptech World Ltd",
         "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
         "homePage": "http://google.com/abc",
@@ -104,6 +107,7 @@ exports[`InstalledAppList should match a snappshot ListMobileScreen 1`] = `
   <InstalledAppCard
     app={
       Object {
+        "created": "2020-02-02T10:45:57",
         "developer": "Pete's Proptech World Ltd",
         "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
         "homePage": "http://www.contoso.com/path",
@@ -143,6 +147,7 @@ exports[`InstalledAppList should match a snapshot 1`] = `
     list={
       Array [
         Object {
+          "created": "2020-02-02T10:45:57",
           "developer": "Pete's Proptech World Ltd",
           "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
           "homePage": "http://google.com/abc",
@@ -164,6 +169,7 @@ exports[`InstalledAppList should match a snapshot 1`] = `
           "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
         },
         Object {
+          "created": "2020-02-02T10:45:57",
           "developer": "Pete's Proptech World Ltd",
           "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
           "homePage": "http://www.contoso.com/path",
@@ -212,6 +218,7 @@ exports[`InstalledAppList should match a snapshot when use empty infoType 1`] = 
     list={
       Array [
         Object {
+          "created": "2020-02-02T10:45:57",
           "developer": "Pete's Proptech World Ltd",
           "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
           "homePage": "http://google.com/abc",
@@ -233,6 +240,7 @@ exports[`InstalledAppList should match a snapshot when use empty infoType 1`] = 
           "summary": "nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsicr8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz",
         },
         Object {
+          "created": "2020-02-02T10:45:57",
           "developer": "Pete's Proptech World Ltd",
           "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
           "homePage": "http://www.contoso.com/path",

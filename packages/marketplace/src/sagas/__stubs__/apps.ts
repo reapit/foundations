@@ -7,6 +7,7 @@ export const appsDataStub: { data: PagedResultAppSummaryModel_ } = {
         id: '09043eb8-9e5e-4650-b7f1-f0cb62699027',
         developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
         name: 'test',
+        created: '2020-02-02T10:45:57',
         summary:
           'nXXT2zaK807ysWgy8F0WEhIYRP3TgosAtfuiLtQCImoSx0kynxbIF0nkGHU36Oz13kM3DG0Bcsic' +
           'r8L6eWFKLBg4axlmiOEWcvwHAbBP9LRvoFkCl58k1wjhOExnpaZItEyOT1AXVKv8PE44aMGtVz',
@@ -31,6 +32,7 @@ export const appsDataStub: { data: PagedResultAppSummaryModel_ } = {
         id: '261da083-cee2-4f5c-a18f-8f9375f1f5af',
         developerId: '28c9ea52-7f73-4814-9e00-4e3714b8adeb',
         name: 'asd',
+        created: '2020-02-02T10:45:57',
         summary:
           'asdQiiAJTmXGxPin7pwUiCsepZWXz1EJS71eGlvgPKH4hpE6J8DRDpzP2kDdOwpQPr4aHCCw' +
           'WwxBJwzARLa7wMpJh5J61GhmQjLfKZkcDd47L9WEfQYVYAj0DTPJP0BuUMAAg2',

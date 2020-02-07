@@ -9,9 +9,10 @@ import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-defin
 import { DeveloperState } from '@/reducers/developer'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
-import AppUsageStats from '@/components/ui/app-usage-stats/app-usage-stats'
 import { withRouter } from 'react-router'
 import styles from '@/styles/pages/analytics.scss?mod'
+import DeveloperTrafficTable from '../ui/developer-traffic-table'
+import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 
 export const installationTableColumn = [
   { Header: 'App Name', accessor: 'appName' },
@@ -34,6 +35,7 @@ export const installationTableColumn = [
 export interface AnalyticsPageMappedProps {
   developer: DeveloperState
   installations: AppInstallationsState
+  appUsageStats: AppUsageStatsState
 }
 
 export interface AnalyticsPageMappedActions {
@@ -153,8 +155,6 @@ export const InstallationTable: React.FC<{
   ])
   return (
     <div>
-      <AppUsageStats />
-
       <H4>Installations</H4>
       <p>
         The installations table below shows the individual installations per client with a total number of installations
@@ -179,8 +179,15 @@ export const InstallationTable: React.FC<{
   )
 }
 
-export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer }) => {
-  if (installations.loading || !installations.installationsAppData || developer.loading || !developer.developerData) {
+export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer, appUsageStats }) => {
+  if (
+    installations.loading ||
+    !installations.installationsAppData ||
+    developer.loading ||
+    !developer.developerData ||
+    appUsageStats.loading ||
+    !appUsageStats.appUsageStatsData
+  ) {
     return <Loader />
   }
 
@@ -205,6 +212,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
             <DeveloperTrafficChart />
           </GridItem>
         </Grid>
+        <DeveloperTrafficTable stats={appUsageStats.appUsageStatsData} apps={developer.developerData.data} />
         <InstallationTable
           installedApps={installationAppDataArrayWithName}
           installations={installations}
@@ -218,6 +226,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
 export const mapStateToProps: (state: ReduxState) => AnalyticsPageMappedProps = state => ({
   installations: state.installations,
   developer: state.developer,
+  appUsageStats: state.appUsageStats,
 })
 
 export default withRouter(connect(mapStateToProps)(AnalyticsPage))
