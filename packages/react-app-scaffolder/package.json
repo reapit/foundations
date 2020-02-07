@@ -1,5 +1,5 @@
 {
-  "name": "@reapit/react-app-scaffolder",
+  "name": "@reapit/generator-react-app-scaffolder",
   "version": "0.0.1",
   "description": "An opinionated gnerator for scaffolding TypeScript React Redux apps",
   "keywords": [
@@ -20,7 +20,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "scaffold": "../../node_modules/.bin/yo ./generators/app --force"
+    "scaffold": "./node_modules/.bin/yosay ./generators/app --force"
   },
   "dependencies": {
     "merge-package-json": "^0.1.3",
