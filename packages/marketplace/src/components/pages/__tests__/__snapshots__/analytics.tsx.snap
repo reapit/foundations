@@ -172,7 +172,7 @@ exports[`InstallationTable should match snapshot 1`] = `
     Installations
   </Component>
   <p>
-    The installations table below shows the individuals per client with a total number of installations per app
+    The installations table below shows the individual installations per client with a total number of installations per app
   </p>
   <div>
     <p
@@ -261,7 +261,7 @@ exports[`InstallationTable should match with null developerData 1`] = `
     Installations
   </Component>
   <p>
-    The installations table below shows the individuals per client with a total number of installations per app
+    The installations table below shows the individual installations per client with a total number of installations per app
   </p>
   <div />
   <Component
@@ -329,7 +329,7 @@ exports[`InstallationTable should match with null installationsAppData 1`] = `
     Installations
   </Component>
   <p>
-    The installations table below shows the individuals per client with a total number of installations per app
+    The installations table below shows the individual installations per client with a total number of installations per app
   </p>
   <div>
     <p

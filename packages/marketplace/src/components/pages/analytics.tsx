@@ -153,7 +153,10 @@ export const InstallationTable: React.FC<{
   return (
     <div>
       <H4>Installations</H4>
-      <p>The installations table below shows the individuals per client with a total number of installations per app</p>
+      <p>
+        The installations table below shows the individual installations per client with a total number of installations
+        per app
+      </p>
       <div className={styles.totalCount}>
         {Object.entries(appCountEntries).map(([appName, count]) => (
           <p key={appName}>
