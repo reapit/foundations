@@ -58,21 +58,40 @@ describe('mapStateToProps', () => {
 })
 
 describe('InstallationTable', () => {
+  const installedApps = handleMapAppNameToInstallation(
+    installations.installationsAppData?.data || [],
+    appsDataStub.data.data || [],
+  )()
+
   it('should match snapshot', () => {
-    expect(shallow(<InstallationTable installations={installations} developer={developer} />)).toMatchSnapshot()
+    expect(
+      shallow(<InstallationTable installedApps={installedApps} installations={installations} developer={developer} />),
+    ).toMatchSnapshot()
   })
 
   it('should match with null installationsAppData', () => {
     const installationsWithoutData = { ...installations, installationsAppData: null }
     expect(
-      shallow(<InstallationTable installations={installationsWithoutData} developer={developer} />),
+      shallow(
+        <InstallationTable
+          installedApps={installedApps}
+          installations={installationsWithoutData}
+          developer={developer}
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
   it('should match with null developerData', () => {
     const developerWithoutData = { ...developer, developerData: null }
     expect(
-      shallow(<InstallationTable installations={installations} developer={developerWithoutData} />),
+      shallow(
+        <InstallationTable
+          installedApps={installedApps}
+          installations={installations}
+          developer={developerWithoutData}
+        />,
+      ),
     ).toMatchSnapshot()
   })
 })

@@ -37,6 +37,7 @@
     "little-loader": "^0.2.0",
     "localforage": "^1.7.3",
     "lodash.merge": "^4.6.2",
+    "lodash.orderby": "^4.6.0",
     "papaparse": "^5.1.1",
     "pell": "^1.0.6",
     "prop-types": "^15.7.2",
