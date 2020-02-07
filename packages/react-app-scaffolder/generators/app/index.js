@@ -295,6 +295,11 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
+        name: 'redux',
+        message: 'Would you like Redux?',
+      },
+      {
+        type: 'confirm',
         name: 'azure',
         message: 'Would you like an Azure Pipeline?',
         default: false,
