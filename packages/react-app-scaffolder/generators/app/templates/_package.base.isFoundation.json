@@ -11,6 +11,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
@@ -22,4 +23,16 @@
   },
   "dependencies": {},
   "devDependencies": {}
+=======
+    "build": "webpack --color --mode production --config ./src/scripts/webpack-prod.js",
+    "dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
+    "start": "node ./public/index.js smb",
+    "test": "jest --coverage --silent",
+    "test:ci": "jest --coverage --silent --detectOpenHandles --forceExit"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+>>>>>>> temp
 }

@@ -289,6 +289,11 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
+        name: 'redux',
+        message: 'Would you like Redux?',
+      },
+      {
+        type: 'confirm',
         name: 'azure',
         message: 'Would you like an Azure Pipeline?',
         default: false,
@@ -330,7 +335,8 @@ module.exports = class extends Generator {
      * isFoundation ->./package/{appName}
      * else current path
      */
-    if (true) {
+
+    if (this.answers.isFoundation) {
       this.packagePath = path.resolve(__dirname, `../../../${this.answers.name}`)
       /**
        * create directory if not
