@@ -32,7 +32,6 @@ export const appoinmentsStub: ExtendedAppointmentModel[] = [
         line3: 'Old Haversham',
         line4: 'Milton Keynes',
         postcode: 'MK19 7DZ',
-        country: 'GB',
         geolocation: {
           latitude: 52.079532,
           longitude: -0.790871,
@@ -58,7 +57,6 @@ export const appoinmentsStub: ExtendedAppointmentModel[] = [
         line3: 'Old Haversham',
         line4: 'Milton Keynes',
         postcode: 'MK19 7DZ',
-        country: 'GB',
         geolocation: {
           latitude: 52.079532,
           longitude: -0.790871,

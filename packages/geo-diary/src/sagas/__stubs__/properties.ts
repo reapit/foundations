@@ -14,7 +14,6 @@ export const propertyStub: PropertyModel = {
     line3: 'string',
     line4: 'string',
     postcode: 'string',
-    country: 'string',
     geolocation: {
       latitude: 0,
       longitude: 0,

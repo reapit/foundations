@@ -1,6 +1,13 @@
 {
   "version": "0.1.0",
   "configurations": [
+  {
+    "name": "Attach to Chrome",
+    "port": 9222,
+    "request": "attach",
+    "type": "pwa-chrome",
+    "webRoot": "${workspaceFolder}"
+  },
     {
       "type": "browser-preview",
       "request": "launch",

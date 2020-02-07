@@ -6,10 +6,8 @@ import {
   renderAddress,
   renderCheckMark,
   renderCommunicationDetail,
-  renderCommunicationType,
   mapStateToProps,
   mapDispatchToProps,
-  renderHrefLink,
   filterLoggedInUser,
   getAdditionalAttendees,
   getApplicantAttendees,
@@ -292,71 +290,26 @@ describe('AppointmentModal', () => {
   })
 
   describe('renderCommunicationDetail', () => {
-    it('should match snapshot', () => {
-      const input = [
-        {
-          label: 'E-Mail',
-          detail: 'chase.maclean@reapitestates.net',
-        },
-      ]
+    it('should match snapshot for commuication details', () => {
+      const input = {
+        homePhone: '070000000',
+        workPhone: '070000000',
+        mobilePhone: '070000000',
+        email: 'chase.maclean@reapitestates.net',
+      }
       const data = renderCommunicationDetail(input)
       const wrapper = shallow(<div>{data}</div>)
       expect(wrapper).toMatchSnapshot()
     })
-    it('should show when have comminicationDetail', () => {
-      const input = [
-        {
-          label: 'E-Mail',
-          detail: 'chase.maclean@reapitestates.net',
-        },
-      ]
+
+    it('should match snapshot for empty commuication details', () => {
+      const input = {}
       const data = renderCommunicationDetail(input)
-      expect(data).not.toBeNull()
-    })
-    it('should return null when doesnt have', () => {
-      const input = undefined
-      const data = renderCommunicationDetail(input)
-      expect(data).toBeNull()
+      const wrapper = shallow(<div>{data}</div>)
+      expect(wrapper).toMatchSnapshot()
     })
   })
 
-  describe('renderCommunicationType', () => {
-    it('should match snapshot', () => {
-      const input = 'E-Mail'
-      const data = renderCommunicationType(input)
-      const wrapper = shallow(<div>{data}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-    it('should return <TiMail />', () => {
-      const input = 'E-Mail'
-      const data = renderCommunicationType(input)
-      const wrapper = shallow(<div>{data}</div>)
-      expect(wrapper.find('TiMail')).toHaveLength(1)
-    })
-    it('should return <TiHome />', () => {
-      const input = 'Home'
-      const data = renderCommunicationType(input)
-      const wrapper = shallow(<div>{data}</div>)
-      expect(wrapper.find('TiHome')).toHaveLength(1)
-    })
-    it('should return <TiDevicePhone />', () => {
-      const input = 'Mobile'
-      const data = renderCommunicationType(input)
-      const wrapper = shallow(<div>{data}</div>)
-      expect(wrapper.find('TiDevicePhone')).toHaveLength(1)
-    })
-    it('should return <TiHome />', () => {
-      const input = 'Work'
-      const data = renderCommunicationType(input)
-      const wrapper = shallow(<div>{data}</div>)
-      expect(wrapper.find('TiPhoneOutline')).toHaveLength(1)
-    })
-    it('should return null', () => {
-      const input = ''
-      const data = renderCommunicationType(input)
-      expect(data).toBeNull()
-    })
-  })
   describe('mapStateToProps', () => {
     it('should run correctly', () => {
       // @ts-ignore: only pick neccessary props
@@ -389,32 +342,18 @@ describe('AppointmentModal', () => {
         appointmentTypes: [],
         loginMode: 'DESKTOP',
         attendee: {
-          contacts: [
-            {
-              communicationDetails: [
-                {
-                  detail: '01632 963403',
-                  label: 'Home',
-                },
-                {
-                  detail: '07700 903403',
-                  label: 'Mobile',
-                },
-                {
-                  detail: '020 7946 3403',
-                  label: 'Work',
-                },
-                {
-                  detail: 'kgeddes225@rpsfiction.net',
-                  label: 'E-Mail',
-                },
-              ],
-              id: 'BED16000217',
-              name: 'Ms Kali Geddes',
-            },
-          ],
           id: 'BED160186',
           type: 'applicant',
+          contacts: [
+            {
+              id: 'BED16000217',
+              name: 'Ms Kali Geddes',
+              homePhone: '01632 963403',
+              mobilePhone: '07700 903403',
+              workPhone: '020 7946 3403',
+              email: 'kgeddes225@rpsfiction.net',
+            },
+          ],
         },
         negotiators: [
           {
@@ -478,20 +417,7 @@ describe('AppointmentModal', () => {
       expect(mockDispatch).toBeCalled()
     })
   })
-  describe('renderHrefLink', () => {
-    it('should run correctly and return mailto', () => {
-      const input = 'E-Mail'
-      const output = 'mailto:'
-      const result = renderHrefLink(input)
-      expect(result).toEqual(output)
-    })
-    it('should run correctly and return tel:', () => {
-      const input = 'Home'
-      const output = 'tel:'
-      const result = renderHrefLink(input)
-      expect(result).toEqual(output)
-    })
-  })
+
   describe('filterLoggedInUser', () => {
     it('should run and filter correctly 1', () => {
       const input = [

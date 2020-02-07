@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from '../capitalizeFirstLetter'
+import { capitalizeFirstLetter } from '../capitalize-first-letter'
 
 describe('capitalizeFirstLetter', () => {
   it('runs correctly', () => {

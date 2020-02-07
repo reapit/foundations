@@ -23,7 +23,7 @@ import { selectOnlineStatus } from '@/selectors/online'
 import { selectUserCode } from '@/selectors/auth'
 import { AppointmentRequestParams } from '@/actions/appointments'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
+import { sortAppoinmentsByStartTime } from '@/utils/sort-appointments-by-start-time'
 import utc from 'dayjs/plugin/utc'
 import { fetchAppointmentMetadata } from './api'
 

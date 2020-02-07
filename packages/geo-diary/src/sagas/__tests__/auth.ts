@@ -1,24 +1,22 @@
 import authSagas, { doLogin, doLogout, loginListen, logoutListen } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { put, all, takeLatest, call } from '@redux-saga/core/effects'
-import { authLogoutSuccess, authLoginSuccess, authLoginFailure } from '../../actions/auth'
-import { history } from '../../core/router'
-import Routes from '../../constants/routes'
+import { authLoginSuccess, authLoginFailure } from '../../actions/auth'
 import { Action, ActionType } from '@/types/core'
 import { mockLoginSession } from '@/utils/__mocks__/session'
 import errorMessages from '@/constants/error-messages'
-import { LoginParams, setUserSession, removeSession } from '@reapit/cognito-auth'
+import { LoginParams, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
+import store from '@/core/store'
 
 jest.mock('../../utils/session')
-jest.mock('../../core/store', () => ({
-  persistor: {
-    purge: jest.fn(),
-  },
+jest.mock('@/core/store', () => ({
+  purgeStore: jest.fn(),
 }))
-jest.mock('../../core/router', () => ({
-  history: {
-    push: jest.fn(),
-  },
+
+jest.mock('@reapit/cognito-auth', () => ({
+  setUserSession: jest.fn(),
+  removeSession: jest.fn(),
+  redirectToLogout: jest.fn(),
 }))
 
 describe('auth sagas', () => {
@@ -53,17 +51,17 @@ describe('auth sagas', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSession))
+
+      expect(gen.next()).toEqual(call(store.purgeStore))
+
+      expect(gen.next()).toEqual(call(removeSession))
       gen.next()
-      expect(history.push).toHaveBeenCalledTimes(1)
-      expect(history.push).toHaveBeenLastCalledWith(Routes.LOGIN)
-      expect(gen.next().value).toEqual(put(authLogoutSuccess()))
+      expect(redirectToLogout).toHaveBeenCalledTimes(1)
       expect(gen.next().done).toBe(true)
     })
 
     it('on logout fail', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSession))
       gen.next(gen.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value)
       expect(gen.next().done).toBe(true)
     })
