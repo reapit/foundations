@@ -1,6 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu should match a snapshot 1`] = `
+<<<<<<< HEAD
 <ContextProvider
   value={
     Object {
@@ -19,4 +20,43 @@ exports[`Menu should match a snapshot 1`] = `
     }
   />
 </ContextProvider>
+=======
+<Memo()
+  defaultActiveKey="LOGO"
+  location={
+    Object {
+      "pathname": "/client",
+    }
+  }
+  menu={
+    Array [
+      Object {
+        "icon": <ReapitLogo
+          className="nav-item-icon"
+        />,
+        "key": "LOGO",
+        "type": "LOGO",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaCloud
+          className="nav-item-icon"
+        />,
+        "key": "APPS",
+        "title": "Apps",
+        "type": "PRIMARY",
+      },
+      Object {
+        "callback": [Function],
+        "icon": <FaSignOutAlt
+          className="nav-item-icon"
+        />,
+        "key": "LOGOUT",
+        "title": "Logout",
+        "type": "SECONDARY",
+      },
+    ]
+  }
+/>
+>>>>>>> temp
 `;

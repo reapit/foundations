@@ -1,7 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should match a snapshot 1`] = `
+<<<<<<< HEAD
 <Provider>
+=======
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+>>>>>>> temp
   <Component />
 </Provider>
 `;

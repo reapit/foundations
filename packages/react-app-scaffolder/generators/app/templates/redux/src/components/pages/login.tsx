@@ -10,8 +10,18 @@ import Routes from '@/constants/routes'
 import { LOGIN_TYPE } from '@/constants/auth'
 import { Input, Button, H1, Level, Alert, isEmail } from '@reapit/elements'
 import { LoginParams } from '@reapit/cognito-auth'
+<<<<<<< HEAD
 <% if (stylesSolution == 'sass') { %>import loginStyles from '@/styles/pages/login.scss?mod'<%}%>
 <% if (stylesSolution == 'styledComponents') { %>import { Container, Wrapper, ImageContainer } from './__styles__/login'<%}%>
+=======
+
+<% if (styledComponents) { %>
+import { Container, Wrapper, ImageContainer } from './__styles__/login'
+<% } else { %>
+import loginStyles from '@/styles/pages/login.scss?mod'
+<% } %>
+
+>>>>>>> temp
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 
 export interface LoginMappedActions {
@@ -61,7 +71,14 @@ export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginF
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { hasSession, error, login } = props
+<<<<<<< HEAD
   <% if (stylesSolution == 'sass') { %>const { disabled, wrapper, container, image } = loginStyles<%}%>
+=======
+    <% if (!styledComponents) { %>
+    const { disabled, wrapper, container, image } = loginStyles
+        <% } %>
+
+>>>>>>> temp
           React.useEffect(() => {
             if (error) {
               setIsSubmitting(false)
@@ -73,6 +90,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   }
 
   return (
+<<<<<<< HEAD
     <% if (stylesSolution == 'sass') { %><div className={container}>
       <div className={`${wrapper} ${isSubmitting && disabled}`}>
         <H1 isCentered>Sign in</H1>
@@ -82,6 +100,18 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
       <Wrapper disabled={isSubmitting}>
         <H1 isCentered>Sign in</H1>
         <p className="pb-8">Welcome to <%= name %></p><%}%>
+=======
+    <% if (styledComponents) { %>
+    <Container>
+      <Wrapper disabled={isSubmitting}>
+        <% } else { %>
+          <div className={container}>
+            <div className={`${wrapper} ${isSubmitting && disabled}`}>
+              <% } %>
+
+          <H1 isCentered>Sign in</H1>
+              <p className="pb-8">Welcome to <%= name %></p>
+>>>>>>> temp
 
               <Formik
                 validate={validate}
@@ -117,6 +147,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                 )}
               />
 
+<<<<<<< HEAD
               <% if (stylesSolution == 'sass') { %>
                 </div>
       
@@ -133,6 +164,25 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
                 </ImageContainer>
               </Container>
               <%}%>
+=======
+              <% if (styledComponents) { %>
+                <ImageContainer>
+                  <img src={logoImage} alt="Reapit Graphic" />
+                </ImageContainer>
+                <% } else { %>
+                  <div className={image}>
+                    <img src={logoImage} alt="Reapit Graphic" />
+                  </div>
+                  <% } %>
+
+              <% if (styledComponents) { %>
+              </Wrapper>
+          </Container>
+          <% } else { %>
+      </div>
+    </div>
+    <% } %>
+>>>>>>> temp
 
   )
 }
