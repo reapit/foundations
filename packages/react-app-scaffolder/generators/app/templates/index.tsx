@@ -6,7 +6,7 @@ import store from './store'
 
 <% if (redux) { %>
 import store from './store'
-import { Provider } from 'react-redux'
+  import { Provider } from 'react-redux'
 <% } %>
 
 <% if (graphql) { %>
@@ -16,34 +16,42 @@ import { ApolloProvider } from '@apollo/react-hooks'
 <% if (!styledComponents) { %>
 import '@/styles/index.scss'
 <% } else { %>
-import globalCss from 'raw-loader!@reapit/elements/dist/index.css'
-const GlobalStyle = createGlobalStyle`
+import { createGlobalStyle } from 'styled-components'
+  import globalCss from 'raw-loader!@reapit/elements/dist/index.css'
+  const GlobalStyle = createGlobalStyle`
   ${globalCss};
   body {
     background-color: unset;
   }
 `
-<% } %>
+    <% } %>
 
 const rootElement = document.querySelector('#root') as Element
 
 const App = () => (
-  <% if (styledComponents) { %>
-  <GlobalStyle />
-  <% } %>
-  <% if (graphql) { %>
-  <ApolloProvider client={client}>
-  <% } %>
-  <% if (redux) { %>
-  <Provider store={store.reduxStore}>
-  <% } %>
-    <Router />
-  <% if (redux) { %>
-  </Provider>
-  <% } %>
-  <% if (graphql) { %>
-    </ApolloProvider>
-  <% } %>
+  <>
+    <% if (graphql) { %>
+      <ApolloProvider client={client}>
+        <% } %>
+
+      <% if (redux) { %>
+          <Provider store={store.reduxStore}>
+            <% } %>
+
+      <% if (styledComponents) { %>
+              <GlobalStyle />
+              <% } %>
+
+      <Router />
+
+            <% if (redux) { %>
+    </Provider>
+          <% } %>
+
+    <% if (graphql) { %>
+      </ApolloProvider>
+      <% } %>
+  </>
 )
 
 if (rootElement) {
