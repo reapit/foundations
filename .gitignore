@@ -57,3 +57,8 @@ out*
 package-lock.json
 .env
 invite-developers.js
+<<<<<<< HEAD
+=======
+
+app-name
+>>>>>>> temp

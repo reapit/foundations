@@ -1,0 +1,19 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.1",
+  "description": "<%= description %>",
+  "main": "./src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+<%= repo %>"
+  },
+  "author": "<%= author %>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
+    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

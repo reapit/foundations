@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Authenticated should match a snapshot 1`] = `
+<Connect(ErrorBoundary)>
+  <FlexContainerBasic
+    hasPadding={true}
+  >
+    <FlexContainerResponsive
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <H3>
+        Welcome To Reapit Elements
+      </H3>
+      <SubTitleH5>
+        You are now authenticated against our sandbox data
+      </SubTitleH5>
+    </FlexContainerResponsive>
+  </FlexContainerBasic>
+</Connect(ErrorBoundary)>
+`;
