@@ -9,17 +9,17 @@ const ONE_MINUTE_SECS = 60
 export const tokenRefreshUserSessionService = async (
   userName: string,
   refreshToken: string,
-  congitoClientId: string,
+  cognitoClientId: string,
 ): Promise<Partial<LoginSession>> => {
   return new Promise((resolve, reject) => {
     const refreshTokenObject = {
       getToken: () => refreshToken,
     }
-    const cognitoUser = getNewUser(userName, congitoClientId)
+    const cognitoUser = getNewUser(userName, cognitoClientId)
 
     cognitoUser.refreshSession(refreshTokenObject, (err, session) => {
       if (!err && session) {
-        return resolve(getLoginSession(session))
+        return resolve({ ...getLoginSession(session), cognitoClientId })
       }
       return reject(`${errorStrings.TOKEN_REFRESH_SESSION_SERVICE_ERROR} ${JSON.stringify(err)}`)
     })
@@ -29,14 +29,14 @@ export const tokenRefreshUserSessionService = async (
 export const codeRefreshUserSessionService = async (
   authorizationCode: string,
   redirectUri: string,
-  congitoClientId: string,
+  cognitoClientId: string,
   loginType: LoginType = 'CLIENT',
 ): Promise<Partial<LoginSession>> => {
   const session = await fetcher({
     method: 'POST',
     api: process.env.COGNITO_OAUTH_URL as string,
     url:
-      `/token?grant_type=authorization_code&client_id=${congitoClientId}` +
+      `/token?grant_type=authorization_code&client_id=${cognitoClientId}` +
       `&code=${authorizationCode}&redirect_uri=${redirectUri}&state=${loginType}`,
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -53,6 +53,7 @@ export const codeRefreshUserSessionService = async (
       idToken: id_token,
       idTokenExpiry: tokenExpiry,
       refreshToken: refresh_token,
+      cognitoClientId,
     }
   }
 

@@ -32,7 +32,7 @@ export const getNewUser = (userName: string, cognitoClientId: string) => {
 }
 
 export const setSessionCookie = (session: LoginSession, identifier: string = COOKIE_SESSION_KEY): void => {
-  const { userName, refreshToken, loginType, mode } = session
+  const { userName, refreshToken, loginType, mode, cognitoClientId } = session
   hardtack.set(
     identifier,
     JSON.stringify({
@@ -40,6 +40,7 @@ export const setSessionCookie = (session: LoginSession, identifier: string = COO
       loginType,
       userName,
       mode,
+      cognitoClientId,
     }),
     {
       path: '/',

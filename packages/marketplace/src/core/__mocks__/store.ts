@@ -8,6 +8,7 @@ export const mockLoginSession: LoginSession = {
   accessToken: 'MOCK_ACCESS_TOKEN',
   idToken: 'MOCK_ID_TOKEN',
   idTokenExpiry: 2,
+  cognitoClientId: 'SOME_CLIENT_ID',
   mode: 'WEB',
   loginIdentity: {
     email: 'bob@acme.com',
