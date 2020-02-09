@@ -23,7 +23,7 @@ export const fetchAppUsageStats = async (data: AppUsageStatsParams) => {
   return response
 }
 
-export const appUsageStatsSaga = function*({ data }) {
+export const appUsageStatsSaga = function*({ data }: Action<AppUsageStatsParams>) {
   try {
     const response = yield call(fetchAppUsageStats, { ...data })
     yield put(appUsageStatsReceiveData(response))

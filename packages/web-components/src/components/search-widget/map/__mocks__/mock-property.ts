@@ -12,7 +12,7 @@ export const property: PropertyModel = {
     line3: 'London',
     line4: '',
     postcode: 'N19 4JF',
-    country: 'GB',
+    countryId: 'GB',
     geolocation: {
       latitude: 51.56449,
       longitude: -0.121057

@@ -36,35 +36,28 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-
       - name: Install Global Dependencies
         run: |
           yarn global add aws-cli serverless
-
       - name: Set up workspace experimental
         run: |
           yarn config set workspaces-experimental true
-
       - name: Install dependencies
         run: |
           yarn
-
       - name: Lint
         run: |
           yarn lint
-
       - name: Fetch config
         run: |
           yarn fetch-config
-
       - name: Build
         run: |
           yarn build --since origin/master^1 --parallel
-
       - name: Test
         run: |
           yarn test --since origin/master^1 --parallel
-
       - name: Release Develop
         run: |
           yarn release:dev --since origin/master^1 --parallel
+          

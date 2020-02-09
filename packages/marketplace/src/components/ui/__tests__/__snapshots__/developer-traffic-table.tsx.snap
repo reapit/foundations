@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeveloperTrafficTable should match a snapshot 1`] = `
+<div>
+  <Component>
+    Traffic
+  </Component>
+  <p>
+    The traffic table below shows all API calls made against each of your applications since the date your app was created
+  </p>
+  <Component
+    bordered={true}
+    columns={
+      Array [
+        Object {
+          "Header": "App Name",
+          "accessor": "appName",
+        },
+        Object {
+          "Header": "Date Created",
+          "accessor": [Function],
+        },
+        Object {
+          "Header": "Total API Calls",
+          "accessor": "requests",
+        },
+      ]
+    }
+    data={
+      Array [
+        Object {
+          "appName": "test",
+          "created": "2020-02-02T10:45:57",
+          "requests": 5,
+        },
+        Object {
+          "appName": "asd",
+          "created": "2020-02-02T10:45:57",
+          "requests": 0,
+        },
+      ]
+    }
+    loading={false}
+    scrollable={true}
+  />
+</div>
+`;

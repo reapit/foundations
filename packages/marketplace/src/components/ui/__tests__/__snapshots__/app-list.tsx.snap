@@ -18,6 +18,7 @@ exports[`AppList should match a snapshot 1`] = `
       <AppCard
         app={
           Object {
+            "created": "2020-02-02T10:45:57",
             "developer": "Pete's Proptech World Ltd",
             "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
             "homePage": "http://google.com/abc",
@@ -49,6 +50,7 @@ exports[`AppList should match a snapshot 1`] = `
       <AppCard
         app={
           Object {
+            "created": "2020-02-02T10:45:57",
             "developer": "Pete's Proptech World Ltd",
             "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
             "homePage": "http://www.contoso.com/path",
@@ -104,6 +106,7 @@ exports[`AppList should match a snapshot when use empty infoType 1`] = `
       <AppCard
         app={
           Object {
+            "created": "2020-02-02T10:45:57",
             "developer": "Pete's Proptech World Ltd",
             "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
             "homePage": "http://google.com/abc",
@@ -135,6 +138,7 @@ exports[`AppList should match a snapshot when use empty infoType 1`] = `
       <AppCard
         app={
           Object {
+            "created": "2020-02-02T10:45:57",
             "developer": "Pete's Proptech World Ltd",
             "developerId": "28c9ea52-7f73-4814-9e00-4e3714b8adeb",
             "homePage": "http://www.contoso.com/path",

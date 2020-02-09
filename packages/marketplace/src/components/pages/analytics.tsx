@@ -1,15 +1,18 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Table, FlexContainerBasic, H3, H4, Loader, toLocalTime, Pagination } from '@reapit/elements'
+import { Table, FlexContainerBasic, H3, H4, Loader, toLocalTime, Pagination, Grid, GridItem } from '@reapit/elements'
+import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
+import DeveloperTrafficChart from '@/components/ui/developer-traffic-chart'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { DeveloperState } from '@/reducers/developer'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
-import AppUsageStats from '@/components/ui/app-usage-stats/app-usage-stats'
 import { withRouter } from 'react-router'
 import styles from '@/styles/pages/analytics.scss?mod'
+import DeveloperTrafficTable from '../ui/developer-traffic-table'
+import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 
 export const installationTableColumn = [
   { Header: 'App Name', accessor: 'appName' },
@@ -32,6 +35,7 @@ export const installationTableColumn = [
 export interface AnalyticsPageMappedProps {
   developer: DeveloperState
   installations: AppInstallationsState
+  appUsageStats: AppUsageStatsState
 }
 
 export interface AnalyticsPageMappedActions {
@@ -131,33 +135,31 @@ export const handleCountCurrentInstallationForEachApp = (
 
 export const handleSetPageNumber = setPageNumber => (pageNumber: number) => setPageNumber(pageNumber)
 
-export const InstallationTable: React.FC<{ installations: AppInstallationsState; developer: DeveloperState }> = ({
-  installations,
-  developer,
-}) => {
+export const InstallationTable: React.FC<{
+  installedApps: InstallationModelWithAppName[]
+  installations: AppInstallationsState
+  developer: DeveloperState
+}> = ({ installedApps, installations, developer }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
   const installationAppDataArray = installations.installationsAppData?.data ?? []
   const developerDataArray = developer.developerData?.data?.data ?? []
 
-  const installationAppDataArrayWithName = React.useMemo(
-    handleMapAppNameToInstallation(installationAppDataArray, developerDataArray),
-    [installationAppDataArray, developerDataArray],
-  )
-  const appCountEntries = React.useMemo(
-    handleCountCurrentInstallationForEachApp(installationAppDataArrayWithName, developerDataArray),
-    [installationAppDataArrayWithName, developerDataArray],
-  )
-  const memoizedData = React.useMemo(handleUseMemoData(installationAppDataArrayWithName, pageNumber), [
+  const appCountEntries = React.useMemo(handleCountCurrentInstallationForEachApp(installedApps, developerDataArray), [
+    installedApps,
+    developerDataArray,
+  ])
+  const memoizedData = React.useMemo(handleUseMemoData(installedApps, pageNumber), [
     installationAppDataArray,
     pageNumber,
   ])
   return (
     <div>
-      <AppUsageStats />
-
       <H4>Installations</H4>
-      <p>The installations table below shows the individuals per client with a total number of installations per app</p>
+      <p>
+        The installations table below shows the individual installations per client with a total number of installations
+        per app
+      </p>
       <div className={styles.totalCount}>
         {Object.entries(appCountEntries).map(([appName, count]) => (
           <p key={appName}>
@@ -177,17 +179,45 @@ export const InstallationTable: React.FC<{ installations: AppInstallationsState;
   )
 }
 
-export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer }) => {
-  if (installations.loading || !installations.installationsAppData || developer.loading || !developer.developerData) {
+export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer, appUsageStats }) => {
+  if (
+    installations.loading ||
+    !installations.installationsAppData ||
+    developer.loading ||
+    !developer.developerData ||
+    appUsageStats.loading ||
+    !appUsageStats.appUsageStatsData
+  ) {
     return <Loader />
   }
 
+  const installationAppDataArray = installations.installationsAppData?.data ?? []
+  const developerDataArray = developer.developerData?.data?.data ?? []
+
+  const installationAppDataArrayWithName = React.useMemo(
+    handleMapAppNameToInstallation(installationAppDataArray, developerDataArray),
+    [installationAppDataArray, developerDataArray],
+  )
+  console.log('appUsageStats', appUsageStats)
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn className={styles.wrapAnalytics}>
         <H3>Dashboard</H3>
         <hr className={styles.hr} />
-        <InstallationTable installations={installations} developer={developer} />
+        <Grid isMultiLine>
+          <GridItem>
+            <DeveloperInstallationsChart data={installationAppDataArrayWithName} />
+          </GridItem>
+          <GridItem>
+            <DeveloperTrafficChart stats={appUsageStats.appUsageStatsData} apps={developer.developerData.data} />
+          </GridItem>
+        </Grid>
+        <DeveloperTrafficTable stats={appUsageStats.appUsageStatsData} apps={developer.developerData.data} />
+        <InstallationTable
+          installedApps={installationAppDataArrayWithName}
+          installations={installations}
+          developer={developer}
+        />
       </FlexContainerBasic>
     </ErrorBoundary>
   )
@@ -196,6 +226,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
 export const mapStateToProps: (state: ReduxState) => AnalyticsPageMappedProps = state => ({
   installations: state.installations,
   developer: state.developer,
+  appUsageStats: state.appUsageStats,
 })
 
 export default withRouter(connect(mapStateToProps)(AnalyticsPage))

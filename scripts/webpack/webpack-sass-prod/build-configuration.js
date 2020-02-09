@@ -1,24 +1,13 @@
-const webpackBase = require('./webpack.base.prod')
-// const path = require('path')
-// const glob = require('glob')
+const webpackBase = require('../webpack.base.prod')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-// const PurgecssWhitelister = require('purgecss-whitelister')
-// const { PATHS } = require('./purgecss-loader')
-// TODO: #102 Had to comment out as could not find a way to purge
-// raw sass from elements project
-// const PurgecssLoader = {
-//   loader: './purgecss-loader.js',
-//   options: {
-//     paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`),
-//     whitelistPatterns: [/^(slick)/, /^(modal)/],
-//     whitelist: PurgecssWhitelister([
-//       // Insert glob to purge Elements CSS here
-//     ]),
-//   },
-// }
+const path = require('path')
+const buildCssFilePath = path.resolve(__dirname, './.temp/index.css')
 
 module.exports = {
-  ...webpackBase,
+  ...{
+    ...webpackBase,
+    entry: [...webpackBase.entry, buildCssFilePath],
+  },
   plugins: [
     ...webpackBase.plugins,
     new MiniCssExtractPlugin({
