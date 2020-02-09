@@ -1,6 +1,6 @@
 import MockDate from 'mockdate'
 import { put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
-import { setUserSession, removeSession, LoginParams, LoginSession } from '@reapit/cognito-auth'
+import { setUserSession, removeSession, LoginParams, LoginSession, redirectToLogout } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { getCookieString, setCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
@@ -18,9 +18,9 @@ import authSagas, {
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
 import { authLoginSuccess, authLogoutSuccess, authLoginFailure, toggleFirstLogin } from '../../actions/auth'
-import { history } from '../../core/router'
 import Routes from '../../constants/routes'
 import { ActionType } from '../../types/core'
+import { COOKIE_SESSION_KEY_MARKETPLACE } from '../../constants/api'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({
@@ -77,11 +77,14 @@ describe('auth thunks', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSession))
-      gen.next()
-      expect(history.push).toHaveBeenCalledTimes(1)
-      expect(history.push).toHaveBeenLastCalledWith(Routes.CLIENT_LOGIN)
-      expect(gen.next().value).toEqual(put(authLogoutSuccess()))
+      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE))
+      expect(gen.next().value).toEqual(
+        call(
+          redirectToLogout,
+          process.env.COGNITO_CLIENT_ID_MARKETPLACE as string,
+          `${window.location.origin}${Routes.CLIENT_LOGIN}`,
+        ),
+      )
       expect(gen.next().done).toBe(true)
     })
   })

@@ -1,4 +1,4 @@
-import { sortAppoinmentsByStartTime } from '../sortAppoinmentsByStartTime'
+import { sortAppoinmentsByStartTime } from '../sort-appointments-by-start-time'
 import { appoinmentsStub } from '../__stubs__/appointments'
 
 describe('sortAppoinmentsByStartTime', () => {

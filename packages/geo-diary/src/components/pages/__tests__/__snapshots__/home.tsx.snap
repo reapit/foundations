@@ -69,7 +69,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "",
                 "buildingNumber": "56",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 52.079532,
                   "longitude": -0.790871,
@@ -108,7 +107,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "Cornerways",
                 "buildingNumber": "68",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 52.135071,
                   "longitude": -0.45936,
@@ -147,7 +145,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "The Pines",
                 "buildingNumber": "34",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 51.924759,
                   "longitude": -0.929362,
@@ -186,7 +183,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "Wayside",
                 "buildingNumber": "",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 51.989592,
                   "longitude": -1.06774,
@@ -271,7 +267,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "",
                 "buildingNumber": "56",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 52.079532,
                   "longitude": -0.790871,
@@ -356,7 +351,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "The Cottage",
                 "buildingNumber": "",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 52.29491,
                   "longitude": -0.512901,
@@ -418,7 +412,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "",
                 "buildingNumber": "49",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 52.188155,
                   "longitude": -0.604618,
@@ -457,7 +450,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "",
                 "buildingNumber": "39",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 52.044516,
                   "longitude": -0.689953,
@@ -496,7 +488,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "The Firs",
                 "buildingNumber": "",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 52.105969,
                   "longitude": -0.353784,
@@ -535,7 +526,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "Wayside",
                 "buildingNumber": "",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 51.989592,
                   "longitude": -1.06774,
@@ -574,7 +564,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "The Homestead",
                 "buildingNumber": "57",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 52.135071,
                   "longitude": -0.45936,
@@ -613,7 +602,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "",
                 "buildingNumber": "54",
-                "country": "GB",
                 "geolocation": Object {
                   "latitude": 52.161384,
                   "longitude": -0.461113,
@@ -652,7 +640,6 @@ exports[`Home should match a snapshot 1`] = `
               "address": Object {
                 "buildingName": "",
                 "buildingNumber": "8",
-                "country": "",
                 "geolocation": Object {
                   "latitude": 52.04681,
                   "longitude": -0.710721,
@@ -718,7 +705,6 @@ exports[`Home should match a snapshot 1`] = `
             "address": Object {
               "buildingName": "",
               "buildingNumber": "56",
-              "country": "GB",
               "geolocation": Object {
                 "latitude": 52.079532,
                 "longitude": -0.790871,

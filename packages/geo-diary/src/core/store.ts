@@ -98,6 +98,10 @@ export class Store {
     window.addEventListener('offline', () => this.dispatch({ type: ActionTypes.OFFLINE }))
   }
 
+  async purgeStore() {
+    Store.instance.persistor.purge()
+  }
+
   hotModuleReloading() {
     const hotModule = (module as any).hot
 

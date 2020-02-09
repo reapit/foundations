@@ -21,7 +21,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Old Haversham',
             line4: 'Milton Keynes',
             postcode: 'MK19 7DZ',
-            country: 'GB',
             geolocation: {
               latitude: 52.079532,
               longitude: -0.790871,
@@ -60,7 +59,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Bedfordshire',
             line4: '',
             postcode: 'MK40 3PD',
-            country: 'GB',
             geolocation: {
               latitude: 52.135071,
               longitude: -0.45936,
@@ -99,7 +97,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Buckingham',
             line4: 'Buckinghamshire',
             postcode: 'MK18 2LZ',
-            country: 'GB',
             geolocation: {
               latitude: 51.924759,
               longitude: -0.929362,
@@ -138,7 +135,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Buckinghamshire',
             line4: '',
             postcode: 'MK18 4AG',
-            country: 'GB',
             geolocation: {
               latitude: 51.989592,
               longitude: -1.06774,
@@ -223,7 +219,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Old Haversham',
             line4: 'Milton Keynes',
             postcode: 'MK19 7DZ',
-            country: 'GB',
             geolocation: {
               latitude: 52.079532,
               longitude: -0.790871,
@@ -308,7 +303,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Bedfordshire',
             line4: '',
             postcode: 'MK44 1AQ',
-            country: 'GB',
             geolocation: {
               latitude: 52.29491,
               longitude: -0.512901,
@@ -370,7 +364,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Bedford',
             line4: 'Bedfordshire',
             postcode: 'MK43 7LU',
-            country: 'GB',
             geolocation: {
               latitude: 52.188155,
               longitude: -0.604618,
@@ -409,7 +402,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Milton Keynes',
             line4: 'Buckinghamshire',
             postcode: 'MK10 7BP',
-            country: 'GB',
             geolocation: {
               latitude: 52.044516,
               longitude: -0.689953,
@@ -448,7 +440,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Bedfordshire',
             line4: '',
             postcode: 'SG18 9AW',
-            country: 'GB',
             geolocation: {
               latitude: 52.105969,
               longitude: -0.353784,
@@ -487,7 +478,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Buckinghamshire',
             line4: '',
             postcode: 'MK18 4AG',
-            country: 'GB',
             geolocation: {
               latitude: 51.989592,
               longitude: -1.06774,
@@ -526,7 +516,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Bedfordshire',
             line4: '',
             postcode: 'MK40 3PD',
-            country: 'GB',
             geolocation: {
               latitude: 52.135071,
               longitude: -0.45936,
@@ -565,7 +554,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Bedfordshire',
             line4: '',
             postcode: 'MK41 7UJ',
-            country: 'GB',
             geolocation: {
               latitude: 52.161384,
               longitude: -0.461113,
@@ -604,7 +592,6 @@ export const appointmentsDataStub: AppointmentsData = {
             line3: 'Milton Keynes',
             line4: '',
             postcode: 'MK10 9FS',
-            country: '',
             geolocation: {
               latitude: 52.04681,
               longitude: -0.710721,
