@@ -1,4 +1,4 @@
-import { LoginSession } from '../../core/types'
+import { LoginSession, LoginType } from '../../core/types'
 import { getNewUser, getLoginSession } from '../../utils/cognito'
 import errorStrings from '../../constants/error-strings'
 import { fetcher } from '@reapit/elements'
@@ -30,13 +30,14 @@ export const codeRefreshUserSessionService = async (
   authorizationCode: string,
   redirectUri: string,
   congitoClientId: string,
+  loginType: LoginType = 'CLIENT',
 ): Promise<Partial<LoginSession>> => {
   const session = await fetcher({
     method: 'POST',
     api: process.env.COGNITO_OAUTH_URL as string,
     url:
       `/token?grant_type=authorization_code&client_id=${congitoClientId}` +
-      `&code=${authorizationCode}&redirect_uri=${redirectUri}`,
+      `&code=${authorizationCode}&redirect_uri=${redirectUri}&state=${loginType}`,
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },

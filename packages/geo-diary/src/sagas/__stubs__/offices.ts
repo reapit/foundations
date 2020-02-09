@@ -7,7 +7,6 @@ export const officeStub: OfficeModel = {
   name: 'string',
   manager: 'string',
   address: {
-    type: 'string',
     buildingName: 'string',
     buildingNumber: 'string',
     line1: 'string',

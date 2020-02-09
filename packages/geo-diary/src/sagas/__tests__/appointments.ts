@@ -4,7 +4,7 @@ import appointmentsSagas, {
   getStartAndEndDate,
 } from '@/sagas/appointments'
 import { ListItemModel } from '@reapit/foundations-ts-definitions'
-import { sortAppoinmentsByStartTime } from '@/utils/sortAppoinmentsByStartTime'
+import { sortAppoinmentsByStartTime } from '@/utils/sort-appointments-by-start-time'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call, select } from '@redux-saga/core/effects'
 import {

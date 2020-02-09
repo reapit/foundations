@@ -20,7 +20,6 @@ import {
   FlexContainerResponsive,
 } from '@reapit/elements'
 import {
-  AppointmentAttendeeCommunicationModel,
   ListItemModel,
   AppointmentAttendeeModel,
   NegotiatorModel,
@@ -30,10 +29,11 @@ import {
 import { ReduxState, ExtendedAppointmentModel } from '@/types/core'
 import { appointmentDetailHideModal, showHideConfirmModal } from '@/actions/appointment-detail'
 import styles from '@/styles/ui/appoinments-detail.scss?mod'
-import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
+import { capitalizeFirstLetter } from '@/utils/capitalize-first-letter'
 import { getAttendeeEntityType } from '@/utils/get-attendee-entity-type'
 import ConfirmContent from './confirm-content'
 import { LoginMode } from '@reapit/cognito-auth'
+import { IconListItem } from '../../../../../elements/src/components/IconList/index'
 
 const { appointmentDetailTextContainer } = styles
 
@@ -50,50 +50,39 @@ interface GetHeaderParams {
   type?: ListItemModel | null
 }
 
-export const renderCommunicationType = (communicationLabel: string | undefined) => {
-  switch (communicationLabel) {
-    case 'E-Mail':
-      return <TiMail className="icon-list-icon" />
-    case 'Home':
-      return <TiHome className="icon-list-icon" />
-    case 'Mobile':
-      return <TiDevicePhone className="icon-list-icon" />
-    case 'Work':
-      return <TiPhoneOutline className="icon-list-icon" />
-    default:
-      return null
-  }
-}
+export const renderCommunicationDetail = (communicationDetails: AppointmentContactModel) => {
+  const { homePhone, workPhone, mobilePhone, email } = communicationDetails
+  const items: IconListItem[] = []
 
-export const renderHrefLink = (communicationLabel: string | undefined) => {
-  switch (communicationLabel) {
-    case 'E-Mail':
-      return 'mailto:'
-    default:
-      return 'tel:'
+  if (homePhone) {
+    items.push({
+      icon: <TiHome className="icon-list-icon" />,
+      text: <a href={`tel:${homePhone}`}>{homePhone}</a>,
+    })
   }
-}
 
-export const renderCommunicationDetail = (
-  communicationDetails: AppointmentAttendeeCommunicationModel[] | undefined,
-) => {
-  if (!communicationDetails) {
-    return null
+  if (workPhone) {
+    items.push({
+      icon: <TiPhoneOutline className="icon-list-icon" />,
+      text: <a href={`tel:${workPhone}`}>{workPhone}</a>,
+    })
   }
-  return (
-    <IconList
-      items={communicationDetails.map((communicationDetail: AppointmentAttendeeCommunicationModel) => {
-        return {
-          icon: renderCommunicationType(communicationDetail.label),
-          text: (
-            <a href={`${renderHrefLink(communicationDetail.label)}${communicationDetail.detail}`}>
-              {communicationDetail.detail}
-            </a>
-          ),
-        }
-      })}
-    />
-  )
+
+  if (mobilePhone) {
+    items.push({
+      icon: <TiDevicePhone className="icon-list-icon" />,
+      text: <a href={`tel:${mobilePhone}`}>{mobilePhone}</a>,
+    })
+  }
+
+  if (email) {
+    items.push({
+      icon: <TiMail className="icon-list-icon" />,
+      text: <a href={`mailto:${email}`}>{email}</a>,
+    })
+  }
+
+  return <IconList items={items} />
 }
 
 export const renderCheckMark = (isConfirmed: boolean | undefined) => {
@@ -235,7 +224,7 @@ export const renderAttendee = (attendee: AppointmentAttendeeModel, loginMode: Lo
                   <p>{contact?.name}</p>
                 </AcLink>
               </div>
-              {renderCommunicationDetail(contact?.communicationDetails || [])}
+              {renderCommunicationDetail(contact)}
             </p>
           </div>
         )

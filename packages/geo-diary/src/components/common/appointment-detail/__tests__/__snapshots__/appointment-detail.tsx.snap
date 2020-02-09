@@ -60,7 +60,7 @@ exports[`AppointmentModal AppointmentModal should render correctly 1`] = `
         }
       >
         <p>
-          42, Mill Road, Sharnbrook, Bedford, Bedfordshire, MK44 1NX, GB
+          42, Mill Road, Sharnbrook, Bedford, Bedfordshire, MK44 1NX
         </p>
       </Component>
     </div>
@@ -156,11 +156,41 @@ exports[`AppointmentModal renderCheckMark should match snapshot 1`] = `
 </div>
 `;
 
-exports[`AppointmentModal renderCommunicationDetail should match snapshot 1`] = `
+exports[`AppointmentModal renderCommunicationDetail should match snapshot for commuication details 1`] = `
 <div>
   <Component
     items={
       Array [
+        Object {
+          "icon": <TiHome
+            className="icon-list-icon"
+          />,
+          "text": <a
+            href="tel:070000000"
+          >
+            070000000
+          </a>,
+        },
+        Object {
+          "icon": <TiPhoneOutline
+            className="icon-list-icon"
+          />,
+          "text": <a
+            href="tel:070000000"
+          >
+            070000000
+          </a>,
+        },
+        Object {
+          "icon": <TiDevicePhone
+            className="icon-list-icon"
+          />,
+          "text": <a
+            href="tel:070000000"
+          >
+            070000000
+          </a>,
+        },
         Object {
           "icon": <TiMail
             className="icon-list-icon"
@@ -177,10 +207,10 @@ exports[`AppointmentModal renderCommunicationDetail should match snapshot 1`] = 
 </div>
 `;
 
-exports[`AppointmentModal renderCommunicationType should match snapshot 1`] = `
+exports[`AppointmentModal renderCommunicationDetail should match snapshot for empty commuication details 1`] = `
 <div>
-  <TiMail
-    className="icon-list-icon"
+  <Component
+    items={Array []}
   />
 </div>
 `;

@@ -31,10 +31,10 @@ export const getNewUser = (userName: string, cognitoClientId: string) => {
   return new CognitoUser(userData)
 }
 
-export const setSessionCookie = (session: LoginSession): void => {
+export const setSessionCookie = (session: LoginSession, identifier: string = COOKIE_SESSION_KEY): void => {
   const { userName, refreshToken, loginType, mode } = session
   hardtack.set(
-    COOKIE_SESSION_KEY,
+    identifier,
     JSON.stringify({
       refreshToken,
       loginType,
@@ -43,16 +43,16 @@ export const setSessionCookie = (session: LoginSession): void => {
     }),
     {
       path: '/',
-      domain: window.location.host,
+      domain: window.location.hostname,
       expires: COOKIE_EXPIRY,
       samesite: 'lax',
     },
   )
 }
 
-export const getSessionCookie = (): RefreshParams | null => {
+export const getSessionCookie = (identifier: string = COOKIE_SESSION_KEY): RefreshParams | null => {
   try {
-    const session = hardtack.get(COOKIE_SESSION_KEY)
+    const session = hardtack.get(identifier)
     if (session) {
       return JSON.parse(session) as RefreshParams
     }
@@ -71,7 +71,7 @@ export const getTokenFromQueryString = (
   const params = new URLSearchParams(queryString)
   const authorizationCode = params.get('code')
   const state = params.get('state')
-  const mode = state && state.includes('') ? 'DESKTOP' : 'WEB'
+  const mode = state && state.includes('DESKTOP') ? 'DESKTOP' : 'WEB'
 
   if (authorizationCode) {
     return {
@@ -117,8 +117,32 @@ export const checkHasIdentityId = (loginType: LoginType, loginIdentity: LoginIde
   (loginType === 'DEVELOPER' && !!loginIdentity.developerId) ||
   (loginType === 'ADMIN' && !!loginIdentity.adminId)
 
-export const redirectToOAuth = (congitoClientId: string, redirectUri: string = window.location.origin): void => {
+export const redirectToOAuth = (
+  congitoClientId: string,
+  redirectUri: string = window.location.origin,
+  loginType: LoginType = 'CLIENT',
+): void => {
   window.location.href =
-    `${process.env.COGNITO_OAUTH_URL}/authorize?response` +
-    `_type=code&client_id=${congitoClientId}&redirect_uri=${redirectUri}`
+    `${process.env.COGNITO_OAUTH_URL}/authorize?` +
+    `response_type=code&client_id=${congitoClientId}&redirect_uri=${redirectUri}&state=${loginType}`
+}
+
+export const redirectToLogin = (
+  congitoClientId: string,
+  redirectUri: string = window.location.origin,
+  loginType: LoginType = 'CLIENT',
+): void => {
+  window.location.href =
+    `${process.env.COGNITO_OAUTH_URL}/login?` +
+    `response_type=code&client_id=${congitoClientId}&redirect_uri=${redirectUri}&state=${loginType}`
+}
+
+export const redirectToLogout = (
+  congitoClientId: string,
+  redirectUri: string = window.location.origin,
+  loginType: LoginType = 'CLIENT',
+): void => {
+  window.location.href =
+    `${process.env.COGNITO_OAUTH_URL}/logout?` +
+    `client_id=${congitoClientId}&logout_uri=${redirectUri}&state=${loginType}`
 }

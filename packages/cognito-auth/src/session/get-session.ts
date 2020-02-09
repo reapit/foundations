@@ -1,10 +1,11 @@
 import { LoginSession, RefreshParams } from '../core/types'
-import { tokenExpired, getSessionCookie } from '../utils/cognito'
+import { tokenExpired, getSessionCookie, COOKIE_SESSION_KEY } from '../utils/cognito'
 import { setRefreshSession } from './refresh-user-session'
 
 export const getSession = async (
   loginSession: LoginSession | null,
   refreshSession: RefreshParams | null,
+  cookieSessionKey: string = COOKIE_SESSION_KEY,
 ): Promise<LoginSession | null> => {
   const sessionExpired = loginSession && tokenExpired(loginSession.accessTokenExpiry)
 
@@ -13,8 +14,8 @@ export const getSession = async (
   }
 
   try {
-    const sessionToRefresh = refreshSession || getSessionCookie()
-    const refreshedSession = sessionToRefresh && (await setRefreshSession(sessionToRefresh))
+    const sessionToRefresh = refreshSession || getSessionCookie(cookieSessionKey)
+    const refreshedSession = sessionToRefresh && (await setRefreshSession(sessionToRefresh, cookieSessionKey))
 
     if (refreshedSession) {
       return refreshedSession

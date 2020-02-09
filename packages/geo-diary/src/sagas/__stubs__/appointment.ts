@@ -30,7 +30,6 @@ export const appointmentDataStub: ExtendedAppointmentModel = {
       line3: 'Bedford',
       line4: 'Bedfordshire',
       postcode: 'MK44 1NX',
-      country: 'GB',
       geolocation: {
         latitude: 52.223253,
         longitude: -0.532454,
@@ -57,24 +56,10 @@ export const appointmentDataStub: ExtendedAppointmentModel = {
       {
         id: 'BED16000217',
         name: 'Ms Kali Geddes',
-        communicationDetails: [
-          {
-            label: 'Home',
-            detail: '01632 963403',
-          },
-          {
-            label: 'Mobile',
-            detail: '07700 903403',
-          },
-          {
-            label: 'Work',
-            detail: '020 7946 3403',
-          },
-          {
-            label: 'E-Mail',
-            detail: 'kgeddes225@rpsfiction.net',
-          },
-        ],
+        homePhone: '01632 963403',
+        mobilePhone: '07700 903403',
+        workPhone: '020 7946 3403',
+        email: 'kgeddes225@rpsfiction.net',
       },
     ],
   },
