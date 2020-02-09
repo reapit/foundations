@@ -4,7 +4,7 @@ import { RefreshParams, LoginSession } from '../core/types'
 import { deserializeIdToken, checkHasIdentityId, setSessionCookie, COOKIE_SESSION_KEY } from '../utils/cognito'
 
 export const refreshUserSession = async (params: RefreshParams): Promise<Partial<LoginSession> | undefined | void> => {
-  const { userName, refreshToken, cognitoClientId, authorizationCode, redirectUri } = params
+  const { userName, refreshToken, cognitoClientId, authorizationCode, redirectUri, loginType } = params
 
   try {
     if (userName && refreshToken && cognitoClientId) {
@@ -12,7 +12,7 @@ export const refreshUserSession = async (params: RefreshParams): Promise<Partial
     }
 
     if (authorizationCode && redirectUri && cognitoClientId) {
-      return await codeRefreshUserSessionService(authorizationCode, redirectUri, cognitoClientId)
+      return await codeRefreshUserSessionService(authorizationCode, redirectUri, cognitoClientId, loginType)
     }
 
     throw new Error(errorStrings.REFRESH_TOKEN_PASSWORD_REQUIRED)

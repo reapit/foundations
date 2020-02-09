@@ -9,6 +9,7 @@ import { Dispatch } from 'redux'
 import { withRouter } from 'react-router'
 import { authSetRefreshSession } from '../actions/auth'
 import { getDefaultRouteByLoginType } from '@/utils/auth-route'
+import { getCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 
 const { Suspense } = React
 
@@ -35,9 +36,14 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   loginType,
   location,
 }) => {
-  const route = getDefaultRouteByLoginType(loginType)
+  const params = new URLSearchParams(location.search)
+  const state = params.get('state')
+  const type =
+    state && state.includes('ADMIN') ? 'ADMIN' : state && state.includes('DEVELOPER') ? 'DEVELOPER' : loginType
+  const firstLoginCookie = getCookieString(COOKIE_FIRST_TIME_LOGIN)
+  const route = getDefaultRouteByLoginType(type, firstLoginCookie)
   const cognitoClientId = process.env.COGNITO_CLIENT_ID_MARKETPLACE as string
-  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, loginType, route)
+  const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, type, route)
 
   if (refreshParams && !hasSession) {
     setRefreshSession(refreshParams)
@@ -46,7 +52,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   if (!hasSession) {
     console.log('no session, route', route)
-    redirectToOAuth(cognitoClientId, route)
+    redirectToOAuth(cognitoClientId, route, type)
     return null
   }
 

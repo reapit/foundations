@@ -25,8 +25,19 @@
   }
 
   h1,
-  p {
+  p, img {
     text-align: center;
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 200px;
+    display: block;
+  }
+
+  button, .tabsContainer {
+    margin: 0 auto 2rem auto;
+    max-width: 400px;
   }
 
   @media screen and (max-width: 900px) {

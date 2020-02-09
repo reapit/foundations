@@ -4,14 +4,10 @@ import { Redirect } from 'react-router-dom'
 import { ReduxState } from '@/types/core'
 import Routes from '@/constants/routes'
 import { Level, Button } from '@reapit/elements'
-import { LoginParams, redirectToLogin } from '@reapit/cognito-auth'
+import { redirectToLogin } from '@reapit/cognito-auth'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
-
-export interface LoginMappedActions {
-  login: (params: LoginParams) => void
-}
 
 export interface LoginProps {
   hasSession: boolean
@@ -30,7 +26,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
 
   return (
     <div className={container}>
-      <div className={`${wrapper}`}>
+      <div className={wrapper}>
         <Level>
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>

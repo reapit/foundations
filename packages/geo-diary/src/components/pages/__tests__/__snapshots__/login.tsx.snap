@@ -2,9 +2,7 @@
 
 exports[`Login should match a snapshot 1`] = `
 <div>
-  <div
-    className="undefined"
-  >
+  <div>
     <Component>
       <img
         alt="Reapit Connect Graphic"

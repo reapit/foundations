@@ -102,7 +102,7 @@ describe('Session utils', () => {
 
   describe('getTokenFromQueryString', () => {
     it('should correctly return RefreshParams for desktop mode', () => {
-      const validQuery = '?code=TOKEN&state=isDesktop'
+      const validQuery = '?code=TOKEN&state=DEVELOPER,DESKTOP'
       ;(window.location as any).origin = 'some.origin'
       const cognitoClientId = 'cognitoClientId'
 
@@ -112,7 +112,7 @@ describe('Session utils', () => {
         cognitoClientId,
         authorizationCode: 'TOKEN',
         redirectUri: 'some.origin',
-        state: 'isDesktop',
+        state: 'DEVELOPER,DESKTOP',
         refreshToken: null,
         userName: null,
       })
@@ -199,9 +199,9 @@ describe('Session utils', () => {
     it('should redirect to the OAuth endpoint for authorize', () => {
       window.location.href = ''
       process.env.COGNITO_OAUTH_URL = ''
-      redirectToOAuth('cognitoClientId', 'redirectUri')
+      redirectToOAuth('cognitoClientId', 'redirectUri', 'DEVELOPER')
       expect(window.location.href).toEqual(
-        '/authorize?response_type=code&client_id=cognitoClientId&redirect_uri=redirectUri',
+        '/authorize?response_type=code&client_id=cognitoClientId&redirect_uri=redirectUri&state=DEVELOPER',
       )
     })
   })
@@ -210,9 +210,9 @@ describe('Session utils', () => {
     it('should redirect to the OAuth endpoint for login', () => {
       window.location.href = ''
       process.env.COGNITO_OAUTH_URL = ''
-      redirectToLogin('cognitoClientId', 'redirectUri')
+      redirectToLogin('cognitoClientId', 'redirectUri', 'DEVELOPER')
       expect(window.location.href).toEqual(
-        '/login?response_type=code&client_id=cognitoClientId&redirect_uri=redirectUri',
+        '/login?response_type=code&client_id=cognitoClientId&redirect_uri=redirectUri&state=DEVELOPER',
       )
     })
   })
@@ -221,8 +221,8 @@ describe('Session utils', () => {
     it('should redirect to the OAuth endpoint for logout', () => {
       window.location.href = ''
       process.env.COGNITO_OAUTH_URL = ''
-      redirectToLogout('cognitoClientId', 'redirectUri')
-      expect(window.location.href).toEqual('/logout?client_id=cognitoClientId&logout_uri=redirectUri')
+      redirectToLogout('cognitoClientId', 'redirectUri', 'DEVELOPER')
+      expect(window.location.href).toEqual('/logout?client_id=cognitoClientId&logout_uri=redirectUri&state=DEVELOPER')
     })
   })
 

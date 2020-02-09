@@ -71,7 +71,7 @@ export const getTokenFromQueryString = (
   const params = new URLSearchParams(queryString)
   const authorizationCode = params.get('code')
   const state = params.get('state')
-  const mode = state && state.includes('') ? 'DESKTOP' : 'WEB'
+  const mode = state && state.includes('DESKTOP') ? 'DESKTOP' : 'WEB'
 
   if (authorizationCode) {
     return {
@@ -117,19 +117,32 @@ export const checkHasIdentityId = (loginType: LoginType, loginIdentity: LoginIde
   (loginType === 'DEVELOPER' && !!loginIdentity.developerId) ||
   (loginType === 'ADMIN' && !!loginIdentity.adminId)
 
-export const redirectToOAuth = (congitoClientId: string, redirectUri: string = window.location.origin): void => {
+export const redirectToOAuth = (
+  congitoClientId: string,
+  redirectUri: string = window.location.origin,
+  loginType: LoginType = 'CLIENT',
+): void => {
   window.location.href =
     `${process.env.COGNITO_OAUTH_URL}/authorize?` +
-    `response_type=code&client_id=${congitoClientId}&redirect_uri=${redirectUri}`
+    `response_type=code&client_id=${congitoClientId}&redirect_uri=${redirectUri}&state=${loginType}`
 }
 
-export const redirectToLogin = (congitoClientId: string, redirectUri: string = window.location.origin): void => {
+export const redirectToLogin = (
+  congitoClientId: string,
+  redirectUri: string = window.location.origin,
+  loginType: LoginType = 'CLIENT',
+): void => {
   window.location.href =
     `${process.env.COGNITO_OAUTH_URL}/login?` +
-    `response_type=code&client_id=${congitoClientId}&redirect_uri=${redirectUri}`
+    `response_type=code&client_id=${congitoClientId}&redirect_uri=${redirectUri}&state=${loginType}`
 }
 
-export const redirectToLogout = (congitoClientId: string, redirectUri: string = window.location.origin): void => {
+export const redirectToLogout = (
+  congitoClientId: string,
+  redirectUri: string = window.location.origin,
+  loginType: LoginType = 'CLIENT',
+): void => {
   window.location.href =
-    `${process.env.COGNITO_OAUTH_URL}/logout?` + `client_id=${congitoClientId}&logout_uri=${redirectUri}`
+    `${process.env.COGNITO_OAUTH_URL}/logout?` +
+    `client_id=${congitoClientId}&logout_uri=${redirectUri}&state=${loginType}`
 }
