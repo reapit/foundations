@@ -1,44 +1,53 @@
-import { AppUsageStatsModel } from '@reapit/foundations-ts-definitions'
+import { AppUsageStatsModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
+import orderBy from 'lodash.orderby'
+import { toLocalTime } from '@reapit/elements'
 
-export const getAppUsageStatsChartData = (appUsageStats: AppUsageStatsModel[] = []) => {
-  const appUsageStatsGroupedByDate = appUsageStats.reduce((accumulator, currentValue) => {
-    const { appId, usage } = currentValue
-    if (!usage || !appId) {
-      return {}
-    }
-    usage.forEach(usageByDate => {
-      const { date, requests } = usageByDate
-      if (!date) {
-        return
-      }
-      if (!accumulator[date]) {
-        accumulator[date] = {
-          [appId]: {
-            appId,
-            requests,
-          },
-          totalRequests: requests,
+export const getAppUsageStatsChartData = (appUsageStats?: AppUsageStatsModel[], developerApps?: AppSummaryModel[]) => {
+  const appUsageStatsGroupedByDate = appUsageStats?.reduce((accumulator, currentValue) => {
+    const { appId, usage } = currentValue || {}
+    const developerApp = developerApps?.find(app => app.id === appId)
+    if (developerApp && developerApp.id) {
+      const { id: developerAppId, name: developerAppName } = developerApp
+      usage?.forEach(usageByDate => {
+        const { date, requests } = usageByDate
+        if (!date) {
+          return null
         }
-      } else {
-        accumulator[date] = {
-          ...accumulator[date],
-          ...{
-            [appId]: {
-              appId,
+        const formattedDate = toLocalTime(date, 'DD/MM/YYYY')
+        if (!accumulator[formattedDate]) {
+          accumulator[formattedDate] = {
+            [developerAppId]: {
+              appName: developerAppName,
               requests,
             },
-          },
-          totalRequests: accumulator[date].totalRequests + requests,
+            date: new Date(date),
+            totalRequests: requests,
+          }
+        } else {
+          accumulator[formattedDate] = {
+            ...accumulator[formattedDate],
+            ...{
+              [developerAppId]: {
+                appName: developerAppName,
+                requests,
+              },
+            },
+            date: new Date(date),
+            totalRequests: accumulator[formattedDate].totalRequests + requests,
+          }
         }
-      }
-    })
+      })
+    }
     return accumulator
   }, {})
 
-  const labels = Object.keys(appUsageStatsGroupedByDate)
-  const data = Object.values(appUsageStatsGroupedByDate).map(item => {
-    return item.totalRequests
-  })
+  if (!appUsageStatsGroupedByDate || Object.keys(appUsageStatsGroupedByDate).length === 0) {
+    return null
+  }
+
+  const orderedAppUsageStats = orderBy(appUsageStatsGroupedByDate, ['date'], ['asc'])
+  const labels = orderedAppUsageStats.map(item => toLocalTime(item.date, 'DD/MM/YYYY'))
+  const data = orderedAppUsageStats.map(item => item.totalRequests)
 
   return {
     labels,
@@ -54,16 +63,14 @@ export const getChartOptions = data => {
       mode: 'label',
       callbacks: {
         label: function(tooltipItem) {
-          console.log('TCL: tooltipItem', tooltipItem)
           const appUsage = data[tooltipItem.label]
           if (!appUsage) {
             return 'No Data'
           }
-          console.log('TCL: appUsage', appUsage)
           return Object.values(appUsage)
-            .filter((app: any) => app.appId)
+            .filter((app: any) => app.appName)
             .map((app: any) => {
-              return `${app.appId}: ${app.requests}`
+              return `${app.appName}: ${app.requests}`
             })
         },
       },
@@ -76,7 +83,6 @@ export const getChartConfig = (labels: string[], data: number[]) => {
     labels,
     datasets: [
       {
-        label: 'My First dataset',
         fill: false,
         lineTension: 0.1,
         backgroundColor: 'rgba(75,192,192,0.4)',

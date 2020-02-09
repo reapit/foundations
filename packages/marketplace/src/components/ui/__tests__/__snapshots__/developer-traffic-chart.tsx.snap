@@ -17,16 +17,9 @@ exports[`DeveloperTrafficChart should match a snapshot 1`] = `
             "borderDashOffset": 0,
             "borderJoinStyle": "miter",
             "data": Array [
-              65,
-              59,
-              80,
-              81,
-              23,
-              55,
-              40,
+              5,
             ],
             "fill": false,
-            "label": "My First dataset",
             "lineTension": 0.1,
             "pointBackgroundColor": "#fff",
             "pointBorderColor": "rgba(75,192,192,1)",
@@ -40,14 +33,19 @@ exports[`DeveloperTrafficChart should match a snapshot 1`] = `
           },
         ],
         "labels": Array [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
+          "15/11/2019",
         ],
+      }
+    }
+    options={
+      Object {
+        "legend": null,
+        "tooltips": Object {
+          "callbacks": Object {
+            "label": [Function],
+          },
+          "mode": "label",
+        },
       }
     }
   />
