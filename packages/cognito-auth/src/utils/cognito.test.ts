@@ -10,10 +10,12 @@ import {
   checkHasIdentityId,
   COOKIE_EXPIRY,
   redirectToOAuth,
+  redirectToLogin,
 } from './cognito'
 import { mockCognitoUserSession, mockLoginSession } from '../__mocks__/cognito-session'
 import hardtack from 'hardtack'
 import { LoginIdentity } from '../core/types'
+import { redirectToLogout } from '@reapit/cognito-auth'
 
 jest.mock('amazon-cognito-identity-js', () => require('../__mocks__/cognito-session').mockCognito)
 
@@ -55,7 +57,7 @@ describe('Session utils', () => {
 
   describe('setSessionCookie', () => {
     it('should set a refresh cookie', () => {
-      window.location.host = 'some.host'
+      window.location.hostname = 'some.host'
       hardtack.set = jest.fn()
 
       setSessionCookie(mockLoginSession)
@@ -201,6 +203,26 @@ describe('Session utils', () => {
       expect(window.location.href).toEqual(
         '/authorize?response_type=code&client_id=cognitoClientId&redirect_uri=redirectUri',
       )
+    })
+  })
+
+  describe('redirectToLogin', () => {
+    it('should redirect to the OAuth endpoint for login', () => {
+      window.location.href = ''
+      process.env.COGNITO_OAUTH_URL = ''
+      redirectToLogin('cognitoClientId', 'redirectUri')
+      expect(window.location.href).toEqual(
+        '/login?response_type=code&client_id=cognitoClientId&redirect_uri=redirectUri',
+      )
+    })
+  })
+
+  describe('redirectToLogout', () => {
+    it('should redirect to the OAuth endpoint for logout', () => {
+      window.location.href = ''
+      process.env.COGNITO_OAUTH_URL = ''
+      redirectToLogout('cognitoClientId', 'redirectUri')
+      expect(window.location.href).toEqual('/logout?client_id=cognitoClientId&logout_uri=redirectUri')
     })
   })
 

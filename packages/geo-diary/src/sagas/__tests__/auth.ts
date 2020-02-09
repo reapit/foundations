@@ -7,6 +7,7 @@ import { mockLoginSession } from '@/utils/__mocks__/session'
 import errorMessages from '@/constants/error-messages'
 import { LoginParams, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
 import store from '@/core/store'
+import { COOKIE_SESSION_KEY_GEO_DIARY } from '../../constants/api'
 
 jest.mock('../../utils/session')
 jest.mock('@/core/store', () => ({
@@ -52,16 +53,17 @@ describe('auth sagas', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
 
-      expect(gen.next()).toEqual(call(store.purgeStore))
-
-      expect(gen.next()).toEqual(call(removeSession))
-      gen.next()
-      expect(redirectToLogout).toHaveBeenCalledTimes(1)
+      expect(gen.next().value).toEqual(call(store.purgeStore))
+      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY))
+      expect(gen.next().value).toEqual(
+        call(redirectToLogout, process.env.COGNITO_CLIENT_ID_GEO_DIARY as string, `${window.location.origin}/login`),
+      )
       expect(gen.next().done).toBe(true)
     })
 
     it('on logout fail', () => {
       const gen = doLogout()
+      expect(gen.next().value).toEqual(call(store.purgeStore))
       gen.next(gen.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value)
       expect(gen.next().done).toBe(true)
     })

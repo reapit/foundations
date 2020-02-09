@@ -4,14 +4,14 @@ import { COOKIE_SESSION_KEY } from '../utils/cognito'
 
 describe('removeSession', () => {
   it('should remove a session cookie for a valid host', () => {
-    window.location.host = 'something.reapit.com'
+    window.location.hostname = 'something.reapit.com'
     hardtack.remove = jest.fn()
 
     removeSession()
 
     expect(hardtack.remove).toHaveBeenCalledWith(COOKIE_SESSION_KEY, {
       path: '/',
-      domain: window.location.host,
+      domain: window.location.hostname,
     })
   })
 })
