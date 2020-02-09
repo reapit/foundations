@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { match } from 'react-router'
-import { shallow, mount, render } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import { getMockRouterProps } from '@/utils/mock-helper'
 import {
   SubmitApp,
@@ -54,10 +54,8 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
-
   it('should show when fetch data loading', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -79,11 +77,9 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
     const wrapper = mount(<SubmitApp {...props} />)
     expect(wrapper.find(Loader)).toHaveLength(1)
   })
-
   it('should match submit revision form snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -115,10 +111,8 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
-
   it('should match snapshot when there are two app images', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -150,15 +144,12 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
-    const wrapper = render(<SubmitApp {...props} />)
+    const wrapper = shallow(<SubmitApp {...props} />)
     const screenshot1Value = wrapper.find('#screenshot1+span+span>a') // see css selectors
     const screenshot2Value = wrapper.find('#screenshot2+span+span>a') // see css selectors
-
     expect(screenshot1Value).toBeDefined()
     expect(screenshot2Value).toBeDefined()
   })
-
   it('should match submit revision form when appDetailState is loading snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -190,10 +181,8 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
-
   it('should match submit revision form when appDetailState is having errors snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -225,10 +214,8 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
-
   it('should match submit revision form when appDetailState is having null snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -260,10 +247,8 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
-
   it('should match submit app successfully snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -291,10 +276,8 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
-
   it('should match submit revision successfully snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -326,10 +309,8 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
     expect(shallow(<SubmitApp {...props} />)).toMatchSnapshot()
   })
-
   it('should show enough scope checkbox', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -357,11 +338,9 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
     const wrapper = mount(<SubmitApp {...props} />)
     expect(wrapper.find(Checkbox)).toHaveLength(2)
   })
-
   it('should go back to my apps page if click "Back To Apps" when editing an app', () => {
     const mockHistory = mockRouterProps.history
     const props: SubmitAppProps = {
@@ -391,14 +370,12 @@ describe('DeveloperSubmitApp', () => {
       location: mockRouterProps.location,
       categories: appCategorieStub?.data || [],
     }
-
     const wrapper = mount(<SubmitApp {...props} />)
     const goBackButton = wrapper.findWhere(n => n.type() === 'button' && n.text().toLowerCase() === 'back to apps')
     goBackButton.simulate('click')
     expect(props.history.push).toBeCalled()
   })
 })
-
 describe('renderScopesCheckbox run correctly', () => {
   it('when renderScopesCheckBox have scope', () => {
     const scopes = [
@@ -408,32 +385,27 @@ describe('renderScopesCheckbox run correctly', () => {
     const checkboxes = renderScopesCheckbox(scopes)
     expect(checkboxes).toHaveLength(2)
   })
-
   it('when renderScopesCheckBox have scope', () => {
     const scopes = [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
     const checkboxes = renderScopesCheckbox(scopes)
     expect(checkboxes).toHaveLength(1)
   })
-
   it('when renderScopesCheckBox have no scopes', () => {
     const scopes = undefined
     const checkboxes = renderScopesCheckbox(scopes)
     expect(checkboxes).toHaveLength(0)
   })
-
   it('when renderScopesCheckBox have [] scopes', () => {
     const scopes = []
     const checkboxes = renderScopesCheckbox(scopes)
     expect(checkboxes).toHaveLength(0)
   })
-
   it('when renderScopesCheckBox have null scopes', () => {
     const scopes = []
     const checkboxes = renderScopesCheckbox(scopes)
     expect(checkboxes).toHaveLength(0)
   })
 })
-
 describe('handleSubmitApp', () => {
   const paramsBase = {
     appId: 'appId',
@@ -445,9 +417,7 @@ describe('handleSubmitApp', () => {
   }
   const appModel = {}
   const actions = {} as any
-
   afterEach(() => jest.clearAllMocks())
-
   it('should call setShouldShowError when not agree', () => {
     const params = { ...paramsBase }
     const spy = jest.spyOn(params, 'setShouldShowError')
@@ -455,7 +425,6 @@ describe('handleSubmitApp', () => {
     fn(appModel, actions)
     expect(spy).toHaveBeenCalledWith(true)
   })
-
   it('should call submitApp when dont have appId', () => {
     const params = { ...paramsBase, appId: null, isAgreedTerms: true }
     const spy = jest.spyOn(params, 'submitApp')
@@ -471,7 +440,6 @@ describe('handleSubmitApp', () => {
     expect(spy).toHaveBeenCalledTimes(1)
   })
 })
-
 describe('handleClickOpenModal', () => {
   it('should call preventDefault and setTermModalIsOpen', () => {
     const eventMock = {
@@ -484,7 +452,6 @@ describe('handleClickOpenModal', () => {
     expect(setTermModalIsOpen).toHaveBeenCalledWith(true)
   })
 })
-
 describe('handleCloseModal', () => {
   it('should call setTermModalIsOpen', () => {
     const setTermModalIsOpen = jest.fn()
@@ -492,7 +459,6 @@ describe('handleCloseModal', () => {
     expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
   })
 })
-
 describe('handleAcceptTerms', () => {
   it('should call setIsAgreedTerms and setTermModalIsOpen', () => {
     const setTermModalIsOpen = jest.fn()
@@ -502,7 +468,6 @@ describe('handleAcceptTerms', () => {
     expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
   })
 })
-
 describe('handleDeclineTerms', () => {
   it('should call preventDefault and setTermModalIsOpen', () => {
     const setTermModalIsOpen = jest.fn()
