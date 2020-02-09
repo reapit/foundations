@@ -26,7 +26,7 @@ export const defaultState = (): AuthState => {
     error: false,
     loginSession: null,
     firstLogin: false,
-    loginType: 'CLIENT',
+    loginType: refreshSession ? refreshSession.loginType : 'CLIENT',
     refreshSession,
   }
 }

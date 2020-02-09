@@ -69,6 +69,7 @@ describe('Session utils', () => {
           loginType: mockLoginSession.loginType,
           userName: mockLoginSession.userName,
           mode: 'WEB',
+          cognitoClientId: 'SOME_CLIENT_ID',
         }),
         {
           path: '/',

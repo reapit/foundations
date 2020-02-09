@@ -14,9 +14,10 @@ jest.mock('@reapit/elements', () => ({
 
 describe('tokenRefreshUserSessionService', () => {
   it('should return a LoginSession', async () => {
-    expect(await tokenRefreshUserSessionService('bob@acme.com', 'MOCK_REFRESH_TOKEN', 'someCognitoClientId')).toEqual(
-      getLoginSession(mockCognitoUserSession),
-    )
+    expect(await tokenRefreshUserSessionService('bob@acme.com', 'MOCK_REFRESH_TOKEN', 'someCognitoClientId')).toEqual({
+      ...getLoginSession(mockCognitoUserSession),
+      cognitoClientId: 'someCognitoClientId',
+    })
   })
 })
 
@@ -28,6 +29,7 @@ describe('codeRefreshUserSessionService', () => {
       idToken: 'SOME_TOKEN',
       idTokenExpiry: 1570750731,
       refreshToken: 'SOME_TOKEN',
+      cognitoClientId: 'someCognitoClientId',
     })
   })
 })
