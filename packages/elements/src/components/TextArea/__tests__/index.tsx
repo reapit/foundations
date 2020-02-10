@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme'
 import { TextArea, TextAreaProps } from '../index'
 import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
+import { act } from 'react-dom/test-utils'
 
 const props: TextAreaProps = {
   id: 'username',
@@ -15,7 +16,7 @@ describe('Input', () => {
     expect(toJson(shallow(<TextArea {...props} />))).toMatchSnapshot()
   })
 
-  it('should work when integrating with Formik', () => {
+  it('should work when integrating with Formik', async () => {
     const wrapper = mount(
       <Formik initialValues={{ username: '' }} onSubmit={jest.fn()}>
         {() => (
@@ -26,12 +27,15 @@ describe('Input', () => {
       </Formik>,
     )
     expect(wrapper.find('label')).toHaveLength(1)
-    wrapper.find('textarea').simulate('change', {
-      target: {
-        value: 'abcxyz',
-        name: 'username',
-      },
+    await act(async () => {
+      wrapper.find('textarea').simulate('change', {
+        target: {
+          value: 'abcxyz',
+          name: 'username',
+        },
+      })
     })
+    wrapper.update()
     expect(wrapper.find('textarea').prop('value')).toEqual('abcxyz')
   })
 

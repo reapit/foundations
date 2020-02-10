@@ -33,7 +33,7 @@ export const FileInput = ({
   inputProps,
   required = false,
 }: FileInputProps) => {
-  const [fileUrl, setFileName] = useState()
+  const [fileUrl, setFileName] = useState<string>()
   const inputFile = React.useRef<HTMLInputElement>(null)
 
   return (

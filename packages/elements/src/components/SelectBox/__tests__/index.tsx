@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme'
 import { SelectBox, SelectBoxOptions, SelectBoxProps } from '../index'
 import { Formik, Form, FormikErrors } from 'formik'
 import toJson from 'enzyme-to-json'
+import { act } from 'react-dom/test-utils'
 
 const mockedOptions: SelectBoxOptions[] = [
   { label: 'a', value: 'a' },
@@ -66,17 +67,16 @@ describe('SelectBox', () => {
   })
 
   describe('should work when integrating with Formik', () => {
-    it('Render error correctly', done => {
+    it('Render error correctly', async () => {
       const wrapper = mount(<ErrorFomrikComponent />)
       const select = wrapper.find('select')
-      select.simulate('focus')
-      select.simulate('change', { target: { name: 'demo', value: 'b' } })
-      select.simulate('blur', { target: { name: 'demo', value: 'b' } })
-      select.update()
-      setTimeout(() => {
-        expect(wrapper.find('select').props().value).toBe('b')
-        done()
-      }, 100)
+      await act(async () => {
+        select.simulate('change', { target: { name: 'demo', value: 'b' } })
+      })
+
+      wrapper.update()
+
+      expect(wrapper.find('select').props().value).toBe('b')
     })
   })
 
@@ -86,18 +86,19 @@ describe('SelectBox', () => {
     expect(label.text()).toBe('Demo')
   })
 
-  it('Map value correctly from formik', done => {
+  it('Map value correctly from formik', async () => {
     const wrapper = createFormikWrapper()
 
-    wrapper.find('select').simulate('change', {
-      target: {
-        value: 'a',
-      },
+    await act(async () => {
+      wrapper.find('select').simulate('change', {
+        target: {
+          name: 'demo',
+          value: 'a',
+        },
+      })
     })
-    setTimeout(() => {
-      expect(wrapper.find('select').prop('value')).toEqual('a')
-    }, 1)
-    done()
+    wrapper.update()
+    expect(wrapper.find('select').prop('value')).toEqual('a')
   })
 
   afterEach(() => {

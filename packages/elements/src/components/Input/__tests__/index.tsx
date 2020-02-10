@@ -5,6 +5,7 @@ import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
 import { FaSearch } from 'react-icons/fa'
 import { fieldValidateRequire } from '../../../utils/validators'
+import { act } from 'react-dom/test-utils'
 
 const props: InputProps = {
   id: 'username',
@@ -42,7 +43,7 @@ describe('Input', () => {
     expect(toJson(shallow(<Input {...requiredInputProps} />))).toMatchSnapshot()
   })
 
-  it('should work when integrating with Formik', () => {
+  it('should work when integrating with Formik', async () => {
     const wrapper = mount(
       <Formik initialValues={{ username: '' }} onSubmit={jest.fn()}>
         {() => (
@@ -53,12 +54,15 @@ describe('Input', () => {
       </Formik>,
     )
     expect(wrapper.find('label')).toHaveLength(1)
-    wrapper.find('input').simulate('change', {
-      target: {
-        value: 'abcxyz',
-        name: 'username',
-      },
+    await act(async () => {
+      wrapper.find('input').simulate('change', {
+        target: {
+          value: 'abcxyz',
+          name: 'username',
+        },
+      })
     })
+    wrapper.update()
     expect(wrapper.find('input').prop('value')).toEqual('abcxyz')
   })
 

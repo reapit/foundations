@@ -75,7 +75,7 @@ describe('submit-app post data', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     // @ts-ignore
-    expect(clone.throw(new Error('')).value).toEqual(put(submitAppSetFormState('ERROR')))
+    expect(clone.throw(new Error('Call API Failed')).value).toEqual(put(submitAppSetFormState('ERROR')))
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({
@@ -121,7 +121,7 @@ describe('submit-app fetch data', () => {
   test('api call fail', () => {
     const clone = gen.clone()
     // @ts-ignore
-    expect(clone.throw(new Error('')).value).toEqual(put(submitAppLoading(false)))
+    expect(clone.throw(new Error('Call API Failed')).value).toEqual(put(submitAppLoading(false)))
     expect(clone.next().value).toEqual(
       put(
         errorThrownServer({

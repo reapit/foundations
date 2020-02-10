@@ -45,6 +45,7 @@ exports[`SettingsPage should match snapshot 2`] = `
       <Component>
         <Component>
           <Component
+            dataTest="logout-btn"
             onClick={[MockFunction]}
             type="button"
             variant="primary"
