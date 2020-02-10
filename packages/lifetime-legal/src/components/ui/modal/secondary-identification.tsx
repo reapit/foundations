@@ -1,38 +1,31 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch, compose } from 'redux'
-// @ts-ignore #49 Breaking changes to API
-import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import Identification, {
   IdentificationFormValues,
   IDENTIFICATION_FORM_DEFAULT_VALUES,
 } from '@/components/ui/forms/identification'
 import { checkListDetailSecondaryIdUpdateData } from '@/actions/checklist-detail'
 import { ReduxState } from '@/types/core'
-import {
-  selectCheckListDetailContact,
-  selectCheckListDetailSecondaryId,
-  selectCheckListDetailIsSubmitting,
-  selectCheckListDetailSecondaryIdUrl,
-  selectCheckListDetailIdCheck,
-} from '@/selectors/checklist-detail'
+import { selectContact, selectSecondaryId, selectIsSubmitting, selectIdentityCheck } from '@/selectors/checklist-detail'
 import { isCompletedPrimaryID } from '@reapit/elements'
 
 export type SecondaryIdentificationProps = DispatchProps & {
   contactModel: ContactModel
-  idCheck: ContactIdentityCheckModel
+  identityCheck: IdentityCheckModel
   initFormValues: any
   loading: boolean
 }
 
 export const SecondaryIdentification: React.FC<SecondaryIdentificationProps> = ({
   contactModel,
-  idCheck,
+  identityCheck,
   initFormValues,
   loading,
   updateIdentification,
 }: SecondaryIdentificationProps) => {
-  const isDisabled = !isCompletedPrimaryID(idCheck)
+  const isDisabled = !isCompletedPrimaryID(identityCheck)
   return (
     <Identification
       loading={loading}
@@ -45,29 +38,28 @@ export const SecondaryIdentification: React.FC<SecondaryIdentificationProps> = (
 }
 
 export const mapStateToProps = (state: ReduxState) => {
-  const isSubmitting = selectCheckListDetailIsSubmitting(state)
-  const contactModel = selectCheckListDetailContact(state)
-  const secondaryIdDocument = selectCheckListDetailSecondaryId(state)
-  const secondaryIdUrl = selectCheckListDetailSecondaryIdUrl(state)
-  const idCheck = selectCheckListDetailIdCheck(state)
+  const isSubmitting = selectIsSubmitting(state)
+  const contactModel = selectContact(state)
+  const secondaryIdDocument = selectSecondaryId(state)
+  const identityCheck = selectIdentityCheck(state)
 
   let initFormValues = IDENTIFICATION_FORM_DEFAULT_VALUES
 
   if (secondaryIdDocument) {
-    const { typeId, expiry, details } = secondaryIdDocument
+    const { typeId, expiry, details, documentId } = secondaryIdDocument
 
     initFormValues = {
       typeId: typeId || '',
-      expiry: expiry ? new Date(expiry) : undefined,
-      details: details,
-      fileUrl: secondaryIdUrl,
+      expiry: expiry ? new Date(expiry) : null,
+      details: details || '',
+      documentId: documentId || '',
     } as IdentificationFormValues
   }
 
   return {
     loading: isSubmitting,
     contactModel,
-    idCheck,
+    identityCheck,
     initFormValues,
   }
 }

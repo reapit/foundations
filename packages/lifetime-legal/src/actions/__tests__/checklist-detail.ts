@@ -1,5 +1,6 @@
 import ActionTypes from '@/constants/action-types'
-import { contact, idCheck } from '@/sagas/__stubs__/contact'
+import { contact } from '@/sagas/__stubs__/contact'
+import { identityCheck } from '@/sagas/__stubs__/identity-check'
 import {
   checklistDetailRequestData,
   contactReceiveData,
@@ -20,7 +21,7 @@ describe('checklist-detail actions', () => {
   })
   it('should create a identityCheckReceiveData action', () => {
     expect(identityCheckReceiveData.type).toEqual(ActionTypes.CHECKLIST_DETAIL_RECEIVE_ID_CHECK_DATA)
-    expect(identityCheckReceiveData(idCheck).data).toEqual(idCheck)
+    expect(identityCheckReceiveData(identityCheck).data).toEqual(identityCheck)
   })
   it('should create a checkListDetailSubmitForm action', () => {
     expect(checkListDetailSubmitForm.type).toEqual(ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM)

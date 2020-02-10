@@ -9,7 +9,7 @@ export const fetchContact = async ({ contactId, headers }) => {
       url: `${URLS.contacts}/${contactId}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers,
+      headers,
     })
     return response
   } catch (err) {
@@ -24,7 +24,7 @@ export const fetchContacts = async ({ headers, params }) => {
       url: `${URLS.contacts}/?${setQueryParams({ ...params.data, pageSize: CONTACTS_PER_PAGE })}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers,
+      headers,
     })
     return response
   } catch (error) {
@@ -39,7 +39,7 @@ export const updateContact = async ({ contactId, headers, contact }) => {
       url: `${URLS.contacts}/${contactId}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
-      headers: headers,
+      headers,
       body: contact,
     })
     return response
@@ -79,7 +79,7 @@ export const fetchIdentityCheck = async ({ headers, contactId }) => {
       url: `${URLS.idChecks}?ContactId=${contactId}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers,
+      headers,
     })
     const newResponse = {
       ...response,
@@ -94,14 +94,14 @@ export const fetchIdentityCheck = async ({ headers, contactId }) => {
   }
 }
 
-export const updateIdentityCheck = async ({ identityChecks, headers }) => {
-  const newIdentityChecks = changeTimeZoneUTCForIdentityCheck(identityChecks)
+export const updateIdentityCheck = async ({ identityCheck, headers }) => {
+  const newIdentityChecks = changeTimeZoneUTCForIdentityCheck(identityCheck)
   try {
     const response = await fetcher({
-      url: `${URLS.idChecks}/${identityChecks.id}`,
+      url: `${URLS.idChecks}/${identityCheck.id}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
-      headers: headers,
+      headers,
       body: newIdentityChecks,
     })
     return response
@@ -118,7 +118,7 @@ export const createIdentityCheck = async ({ identityChecks, headers }) => {
       url: URLS.idChecks,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'POST',
-      headers: headers,
+      headers,
       body: newIdentityChecks,
     })
     return response
@@ -134,7 +134,7 @@ export const fetchIdentityDocumentTypes = async ({ headers }) => {
       url: `${URLS.configuration}/identityDocumentTypes`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'GET',
-      headers: headers,
+      headers,
     })
     return response
   } catch (err) {

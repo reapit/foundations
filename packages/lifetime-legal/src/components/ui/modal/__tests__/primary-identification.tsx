@@ -4,6 +4,7 @@ import { contact } from '@/sagas/__stubs__/contact'
 import { PrimaryIdentification, mapStateToProps, mapDispatchToProps } from '../primary-identification'
 import { ReduxState } from '@/types/core'
 import { IDENTIFICATION_FORM_DEFAULT_VALUES } from '../../forms/identification'
+import { identityCheck } from '@/sagas/__stubs__/identity-check'
 describe('PrimaryIdentification', () => {
   describe('PrimaryIdentification', () => {
     it('should match snapshot', () => {
@@ -26,7 +27,7 @@ describe('PrimaryIdentification', () => {
           isSubmitting: false,
           checklistDetailData: {
             contact,
-            idCheck: null,
+            idCheck: identityCheck,
           },
         },
         auth: {
@@ -39,7 +40,12 @@ describe('PrimaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: contact,
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
+        initFormValues: {
+          details: '1231231',
+          documentId: '',
+          expiry: new Date('2020-01-14'),
+          typeId: 'CI',
+        },
       }
       expect(result).toEqual(expected)
     })

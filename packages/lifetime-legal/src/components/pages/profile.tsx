@@ -16,7 +16,7 @@ import AddressInformation from '@/components/ui/modal/address-information'
 import AgentCheck from '@/components/ui/modal/agent-check'
 import PrimaryIdentification from '@/components/ui/modal/primary-identification'
 import SecondaryIdentification from '@/components/ui/modal/secondary-identification'
-import { selectCheckListDetailContact, selectCheckListDetailStatus } from '@/selectors/checklist-detail'
+import { selectContact, selectStatus } from '@/selectors/checklist-detail'
 import { ChecklistStatus } from '@/reducers/checklist-detail'
 import { STEPS } from '@/constants/section'
 
@@ -134,8 +134,8 @@ export const Profile = ({ submitChecksFormState, submitChecks, loading, contact,
 const mapStateToProps = (state: ReduxState): ProfileMappedProps => ({
   submitChecksFormState: state.submitChecks.formState,
   loading: !!state?.checklistDetail?.loading,
-  contact: selectCheckListDetailContact(state),
-  status: selectCheckListDetailStatus(state),
+  contact: selectContact(state),
+  status: selectStatus(state),
   loginMode: state?.auth?.refreshSession?.mode || 'WEB',
 })
 

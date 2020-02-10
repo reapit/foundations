@@ -1,12 +1,11 @@
 import { IdentificationFormValues } from '@/components/ui/forms/identification'
-// @ts-ignore #49 Breaking changes to API
-import { ContactModel, ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { actionCreator } from '../utils/actions'
 import ActionTypes from '../constants/action-types'
 
 export type CheckListDetailReceiveDataParams = {
   contact: ContactModel
-  idCheck: ContactIdentityCheckModel | null
+  idCheck: IdentityCheckModel | null
 }
 
 export const checklistDetailRequestData = actionCreator<string>(ActionTypes.CHECKLIST_DETAIL_REQUEST_DATA)
@@ -18,7 +17,7 @@ export const checkListDetailUpdateDataLoading = actionCreator<boolean>(ActionTyp
 
 export const checklistDetailLoading = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_LOADING)
 export const contactReceiveData = actionCreator<ContactModel>(ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT_DATA)
-export const identityCheckReceiveData = actionCreator<ContactIdentityCheckModel | null>(
+export const identityCheckReceiveData = actionCreator<IdentityCheckModel | null>(
   ActionTypes.CHECKLIST_DETAIL_RECEIVE_ID_CHECK_DATA,
 )
 export const checkListDetailSubmitForm = actionCreator<boolean>(ActionTypes.CHECKLIST_DETAIL_SUBMIT_FORM)

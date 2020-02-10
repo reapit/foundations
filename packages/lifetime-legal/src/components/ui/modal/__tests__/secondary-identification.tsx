@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { contact, idCheck } from '@/sagas/__stubs__/contact'
+import { contact } from '@/sagas/__stubs__/contact'
+import { identityCheck } from '@/sagas/__stubs__/identity-check'
 import { SecondaryIdentification, mapStateToProps, mapDispatchToProps } from '../secondary-identification'
 import { ReduxState } from '@/types/core'
 import { IDENTIFICATION_FORM_DEFAULT_VALUES } from '../../forms/identification'
@@ -11,7 +12,7 @@ describe('SecondaryIdentification', () => {
         contactModel: contact,
         initFormValues: {},
         loading: false,
-        idCheck: idCheck,
+        identityCheck: identityCheck,
         updateIdentification: jest.fn(),
       }
       const wrapper = shallow(<SecondaryIdentification {...mockProps} />)
@@ -27,7 +28,7 @@ describe('SecondaryIdentification', () => {
           isSubmitting: false,
           checklistDetailData: {
             contact,
-            idCheck: null,
+            idCheck: identityCheck,
           },
         },
         auth: {
@@ -40,8 +41,13 @@ describe('SecondaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: contact,
-        initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
-        idCheck: {},
+        initFormValues: {
+          details: '12312312',
+          documentId: '',
+          expiry: new Date('2020-01-29'),
+          typeId: 'BC',
+        },
+        identityCheck: identityCheck,
       }
       expect(result).toEqual(expected)
     })
@@ -53,7 +59,7 @@ describe('SecondaryIdentification', () => {
       const expected = {
         loading: false,
         contactModel: {},
-        idCheck: {},
+        identityCheck: {},
         initFormValues: IDENTIFICATION_FORM_DEFAULT_VALUES,
       }
       expect(result).toEqual(expected)

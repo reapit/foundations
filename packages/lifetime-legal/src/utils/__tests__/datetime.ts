@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { DATE_TIME_FORMAT, toLocalTime, toUTCTime } from '@reapit/elements'
 import MockDate from 'mockdate'
-import { idCheck } from '@/sagas/__stubs__/contact'
+import { identityCheck } from '@/sagas/__stubs__/identity-check'
 import { changeTimeZoneLocalForIdentityCheck, changeTimeZoneUTCForIdentityCheck } from '../datetime'
 
 describe('daytime', () => {
@@ -9,17 +9,19 @@ describe('daytime', () => {
     const TIME_OFFSET = 0
     MockDate.set(1570747191389, TIME_OFFSET)
     it('should run correctly', () => {
-      const result = changeTimeZoneLocalForIdentityCheck(idCheck)
-      const documents = idCheck.documents?.map(document => {
-        return {
-          ...document,
-          expiry: toLocalTime(document.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
-        }
-      })
+      const result = changeTimeZoneLocalForIdentityCheck(identityCheck)
+      const { identityDocument1, identityDocument2 } = identityCheck
       expect(result).toEqual({
-        ...idCheck,
-        checkDate: '2019-10-19T02:52:10+00:00',
-        documents,
+        ...identityCheck,
+        checkDate: '2020-01-13T03:00:00+00:00',
+        identityDocument1: {
+          ...identityDocument1,
+          expiry: toLocalTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+        },
+        identityDocument2: {
+          ...identityDocument2,
+          expiry: toLocalTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+        },
       })
     })
     MockDate.reset()
@@ -30,17 +32,19 @@ describe('daytime', () => {
     MockDate.set(1570747191389, TIME_OFFSET)
 
     it('should run correctly', () => {
-      const documents = idCheck.documents?.map(document => {
-        return {
-          ...document,
-          expiry: toUTCTime(document.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
-        }
-      })
-      const result = changeTimeZoneUTCForIdentityCheck(idCheck)
+      const { identityDocument1, identityDocument2 } = identityCheck
+      const result = changeTimeZoneUTCForIdentityCheck(identityCheck)
       expect(result).toEqual({
-        ...idCheck,
-        checkDate: '2019-10-19T02:52:10+00:00',
-        documents,
+        ...identityCheck,
+        checkDate: '2020-01-13T03:00:00+00:00',
+        identityDocument1: {
+          ...identityDocument1,
+          expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+        },
+        identityDocument2: {
+          ...identityDocument2,
+          expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+        },
       })
     })
     MockDate.reset()

@@ -1,46 +1,43 @@
 import dayjs from 'dayjs'
 import { toUTCTime, toLocalTime, DATE_TIME_FORMAT } from '@reapit/elements'
-// @ts-ignore #49 Breaking changes to API
-import { ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 
 /**
  * This function created by backend required parse time to UTC before submit
- * @param identityChecks is ContactIdentityCheckModel
+ * @param identityChecks is IdentityCheckModel
  */
-export const changeTimeZoneLocalForIdentityCheck = (
-  identityChecks: ContactIdentityCheckModel,
-): ContactIdentityCheckModel => {
-  const documents = identityChecks.documents?.map(document => {
-    return {
-      ...document,
-      expiry: toLocalTime(document.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
-    }
-  })
-  const newIdentityChecks = {
+export const changeTimeZoneLocalForIdentityCheck = (identityChecks: IdentityCheckModel): IdentityCheckModel => {
+  const { identityDocument1, identityDocument2 } = identityChecks
+  return {
     ...identityChecks,
-    documents,
+    identityDocument1: {
+      ...identityDocument1,
+      expiry: toLocalTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+    },
+    identityDocument2: {
+      ...identityDocument2,
+      expiry: toLocalTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+    },
     checkDate: toLocalTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
   }
-  return newIdentityChecks
 }
 
 /**
  * This function created by backend required parse time to UTC before submit
- * @param identityChecks is ContactIdentityCheckModel
+ * @param identityChecks is IdentityCheckModel
  */
-export const changeTimeZoneUTCForIdentityCheck = (
-  identityChecks: ContactIdentityCheckModel,
-): ContactIdentityCheckModel => {
-  const documents = identityChecks.documents?.map(document => {
-    return {
-      ...document,
-      expiry: toUTCTime(document.expiry as dayjs.ConfigType),
-    }
-  })
-  const newIdentityChecks = {
+export const changeTimeZoneUTCForIdentityCheck = (identityChecks: IdentityCheckModel): IdentityCheckModel => {
+  const { identityDocument1, identityDocument2 } = identityChecks
+  return {
     ...identityChecks,
-    documents,
+    identityDocument1: {
+      ...identityDocument1,
+      expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType),
+    },
+    identityDocument2: {
+      ...identityDocument2,
+      expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType),
+    },
     checkDate: toUTCTime(identityChecks.checkDate as dayjs.ConfigType),
   }
-  return newIdentityChecks
 }

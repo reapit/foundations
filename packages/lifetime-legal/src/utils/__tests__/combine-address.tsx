@@ -3,8 +3,8 @@ import { combineAdress } from '../combine-address'
 
 describe('combineAddress', () => {
   it('should run correctly', () => {
-    const result = combineAdress(contact.addresses)
-    const expected = ' Tilbrook Farm Station Road Bow Brickhill Milton Keynes Buckinghamshire MK17 9JU'
+    const result = combineAdress(contact.primaryAddress)
+    const expected = '1 123 Harcourt Close Leighton Buzzard Bedfordshire 123123 LU7 2ST'
     expect(result).toEqual(expected)
   })
 })

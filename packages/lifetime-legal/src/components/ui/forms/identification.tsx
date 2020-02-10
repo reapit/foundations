@@ -8,14 +8,14 @@ export type IdentificationFormValues = {
   typeId: string
   details: string
   expiry?: Date | null
-  fileUrl?: string
+  documentId?: string
 }
 
 export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentificationFormValues = {
   typeId: '',
   details: '',
   expiry: null,
-  fileUrl: '',
+  documentId: '',
 }
 
 export type IdentificationProps = {
@@ -38,8 +38,8 @@ export const renderFormHandler = ({ contactModel, loading, disabled = false }) =
         <Input id="details" name="details" type="text" placeholder="ID Reference" labelText="ID Reference" />
         <DatePicker id="expiry" name="expiry" labelText="Expiry Date" />
         <CameraImageInput
-          id="fileUrl"
-          name="fileUrl"
+          id="documentId"
+          name="documentId"
           labelText="Upload file"
           allowClear={true}
           inputProps={{ disabled: disabled }}

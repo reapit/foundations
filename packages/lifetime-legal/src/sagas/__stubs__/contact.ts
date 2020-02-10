@@ -1,110 +1,64 @@
+import { ContactModel } from '@reapit/foundations-ts-definitions'
+
 export const contact = {
-  id: 'MKC16000098',
-  created: '2019-05-12T17:05:19',
-  title: 'Ms',
-  forename: 'Saoirse',
-  surname: 'Chadwick',
+  id: 'MKC16000007',
+  created: '2019-03-27T12:31:21.0000000Z',
+  modified: '2020-01-14T09:55:50.0000000Z',
+  title: 'Mr',
+  forename: 'Carson',
+  surname: 'Philip',
+  dateOfBirth: '2019-11-22',
   active: true,
   marketingConsent: 'notAsked',
-  identityCheck: 'unchecked',
-  communications: [
-    {
-      label: 'Home',
-      detail: '01632 961556',
-    },
-    {
-      label: 'Mobile',
-      detail: '07700 901556',
-    },
-    {
-      label: 'Work',
-      detail: '020 7946 1556',
-    },
-    {
-      label: 'E-Mail',
-      detail: 'schadwick512@rpsfiction.net',
-    },
-  ],
-  addresses: [
-    {
-      type: 'primary',
-      buildingName: 'Tilbrook Farm',
-      buildingNumber: '',
-      line1: 'Station Road',
-      line2: 'Bow Brickhill',
-      line3: 'Milton Keynes',
-      line4: 'Buckinghamshire',
-      postcode: 'MK17 9JU',
-      countryId: '',
-    },
-  ],
-  relationships: [
-    {
-      id: 'RMK',
-      type: 'negotiator',
-    },
-    {
-      id: 'MKC',
-      type: 'office',
-    },
-  ],
-  metadata: {
-    primaryId: [
-      {
-        documents: [
-          {
-            typeId: 'CR',
-            expiry: '2019-10-15T10:00:00Z',
-            details: '1123',
-            fileUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg',
-          },
-        ],
-      },
-    ],
-    secondaryId: [
-      {
-        documents: [
-          {
-            typeId: 'PP',
-            expiry: '2019-10-10T00:00:00Z',
-            details: '123',
-            fileUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg',
-          },
-        ],
-      },
-    ],
-    addresses: [
-      {
-        documentImage: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg',
-        year: '1911',
-        month: '6',
-        documentType: 'Current Benefits Agency letter',
-      },
-    ],
+  identityCheck: 'pending',
+  source: '',
+  homePhone: '01632 968347',
+  workPhone: '020 7946 8347',
+  mobilePhone: '07700 908347',
+  email: 'cphilip133@rpsfiction.net',
+  primaryAddress: {
+    type: 'primary',
+    buildingName: '123',
+    buildingNumber: '1',
+    line1: 'Harcourt Close',
+    line2: 'Leighton Buzzard',
+    line3: 'Bedfordshire',
+    line4: '123123',
+    postcode: 'LU7 2ST',
+    countryId: 'GB',
   },
-}
-
-export const idCheck = {
-  id: 'RPT19000010',
-  contactId: 'MKC11001623',
-  created: '0001-01-01T00:00:00',
-  modified: '2019-10-19T02:52:10',
-  checkDate: '2019-10-19T02:52:10',
-  status: 'pending',
-  negotiatorId: 'DAC',
-  documents: [
-    {
-      typeId: 'RF',
-      expiry: '2019-10-24T09:51:48',
-      details: '2131231',
-    },
-  ],
-  metadata: {
-    secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
-    referralType: 'Vendor Compliance',
-    timeSelection: '10:00',
-    clientType: 'Individual',
-    placeMeet: 'Home Address',
-    isUKResident: 'Yes',
+  secondaryAddress: {
+    type: 'secondary',
+    buildingName: '123',
+    buildingNumber: '1',
+    line1: 'Harcourt Close',
+    line2: 'Leighton Buzzard',
+    line3: 'Bedfordshire',
+    line4: '123123',
+    postcode: 'LU7 2ST',
+    countryId: 'GB',
   },
-}
+  workAddress: '',
+  officeIds: ['MKC'],
+  negotiatorIds: ['RMK'],
+  metadata: {},
+  _eTag: '9CBE436919C6BE89A8642BC70A7CFAEE',
+  _links: {
+    self: {
+      href: '/contacts/MKC16000007',
+    },
+    documents: {
+      href: '/documents/?ownerType=contact&ownerId=MKC16000007',
+    },
+    identityChecks: {
+      href: '/identityChecks/?contactId=MKC16000007',
+    },
+    offices: {
+      href: '/offices/?id=MKC',
+    },
+    negotiators: {
+      href: '/negotiators/?id=RMK',
+    },
+  },
+  _embedded: {},
+} as ContactModel
