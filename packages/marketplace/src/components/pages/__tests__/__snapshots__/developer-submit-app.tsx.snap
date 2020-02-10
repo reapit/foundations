@@ -26,6 +26,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
           "iconImageUrl": "",
           "launchUri": "",
           "name": "",
+          "redirectUris": "",
           "scopes": Array [],
           "screen1ImageUrl": "",
           "screen2ImageUrl": "",
@@ -85,6 +86,7 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
           "isListed": undefined,
           "launchUri": undefined,
           "name": "Peter's Properties",
+          "redirectUris": "",
           "scopes": Array [
             "Marketplace/developers.read",
             "Marketplace/developers.write",

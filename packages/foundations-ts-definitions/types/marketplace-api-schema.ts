@@ -68,6 +68,10 @@ export interface AppDetailModel {
    */
   launchUri?: string
   /**
+   * Gets the app revisions redirect uri (or uris) where a user will be redirected to immediately after a successful authentication
+   */
+  redirectUris?: string[]
+  /**
    * Gets the date the app was installed for a specific client
    */
   installedOn?: string // date-time
@@ -349,6 +353,10 @@ export interface CreateAppModel {
    * Sets the apps launch uri
    */
   launchUri?: string
+   /**
+   * Sets the apps uri where a user will be redirected to immediately after a successful authentication. Multiple URIs can be passed as a comma separated list
+   */
+  redirectUris?: string[]
   /**
    * Sets the unique identifer of the developer registering the app
    */

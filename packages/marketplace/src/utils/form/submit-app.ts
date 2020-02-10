@@ -1,5 +1,6 @@
-import { CreateAppModel } from '@reapit/foundations-ts-definitions'
 import { validateRequire, validateEmail } from '@reapit/elements'
+import { CustomCreateAppModel } from '@/components/pages/developer-submit-app'
+import { isValidRedirectUrls } from '@/utils/validate'
 
 export type SubmitAppFormErrorKeys =
   | 'name'
@@ -12,9 +13,10 @@ export type SubmitAppFormErrorKeys =
   | 'summary'
   | 'screen1ImageUrl'
   | 'authFlow'
+  | 'redirectUris'
 
-export const validate = (values: CreateAppModel) => {
-  let errors = validateRequire<CreateAppModel, SubmitAppFormErrorKeys>({
+export const validate = (values: CustomCreateAppModel) => {
+  let errors = validateRequire<CustomCreateAppModel, SubmitAppFormErrorKeys>({
     values,
     currentErrors: {},
     keys: [
@@ -28,6 +30,7 @@ export const validate = (values: CreateAppModel) => {
       'summary',
       'screen1ImageUrl',
       'authFlow',
+      'redirectUris',
     ],
   })
 
@@ -36,6 +39,10 @@ export const validate = (values: CreateAppModel) => {
     currentErrors: errors,
     keys: ['supportEmail'],
   })
+
+  if (values.redirectUris && !isValidRedirectUrls(values.redirectUris)) {
+    errors.redirectUris = 'Invalid redirect uri(s)'
+  }
 
   return errors
 }
