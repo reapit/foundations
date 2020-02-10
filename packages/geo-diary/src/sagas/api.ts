@@ -111,7 +111,10 @@ export const updateAppointment = async ({ id, ...rest }: ExtendedAppointmentMode
     url: `${URLS.appointments}/${id}`,
     api: process.env.PLATFORM_API_BASE_URL as string,
     method: 'PATCH',
-    headers: headers,
+    headers: {
+      ...headers,
+      ['If-Match']: rest._eTag || '',
+    },
     body: rest,
   })
   return response
