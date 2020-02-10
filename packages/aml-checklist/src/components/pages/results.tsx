@@ -34,8 +34,9 @@ export const generateColumns = history => () => {
     const addressKeys = ['buildingName', 'buildingNumber', 'line1', 'line2']
     const filteredAddressEntries = Object.entries(primaryAddress)
       .filter(([key, value]) => addressKeys.includes(key) && value)
-      .map(([value]) => value)
+      .map(([, value]) => value)
       .join(', ')
+
     return (
       <div>
         <span>{filteredAddressEntries}</span>

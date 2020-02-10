@@ -1,30 +1,39 @@
 export const identities = {
   _embedded: [
     {
-      id: 'RPT19000114',
-      contactId: 'MKC19000013',
-      created: '0001-01-01T00:00:00',
-      modified: '2019-11-01T15:28:09',
-      checkDate: '0001-01-01T00:00:00',
+      id: 'RPT19000104',
+      contactId: 'AYL19000001',
+      created: '0001-01-01T00:00:00.0000000',
+      modified: '2019-12-13T05:41:45.0000000Z',
+      checkDate: '0001-01-01T00:00:00.0000000',
       status: 'pass',
       negotiatorId: 'LJW',
-      document1: {
-        typeId: 'DL',
-        expiry: '2019-11-14T00:00:00',
-        details: 'adwqr',
+      identityDocument1: {
+        documentId: 'SOME_ID',
+        typeId: 'TX',
+        expiry: '2020-02-07',
+        details: 'Hshs',
       },
-      metadata: {
-        primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC19000013-adwqr.png',
+      identityDocument2: {
+        documentId: 'SOME_ID',
+        typeId: 'CI',
+        expiry: '2019-12-21',
+        details: 'a',
       },
+      metadata: {},
+      _eTag: '"51F8EECB09FB89903C42CAB63E3D5D0C"',
       _links: {
         self: {
-          href: '/identityChecks/RPT19000114',
+          href: '/identityChecks/RPT19000104',
         },
         contact: {
-          href: '/contacts/MKC19000013',
+          href: '/contacts/AYL19000001',
         },
-        identityDocument1Type: {
-          href: '/configuration/identityDocumentTypes/DL',
+        documentType1: {
+          href: '/configuration/identityDocumentTypes/TX',
+        },
+        documentType2: {
+          href: '/configuration/identityDocumentTypes/CI',
         },
       },
     },
@@ -35,16 +44,10 @@ export const identities = {
   totalCount: 1,
   _links: {
     self: {
-      href:
-        '/identityChecks/?PageNumber=1&PageSize=50&ContactId=MKC19000013&ContactId=BED16000182' +
-        '&ContactId=MKC16000060&ContactId=BED16000099&ContactId=MKC16000011&ContactId=MKC15000909&' +
-        'ContactId=BUC15000679&ContactId=BED15002235&ContactId=BED15002208&ContactId=BED15001889',
+      href: '/identityChecks/?PageNumber=1&PageSize=50&ContactId=AYL19000001',
     },
     first: {
-      href:
-        '/identityChecks/?PageNumber=1&PageSize=50&ContactId=MKC19000013&ContactId=BED16000182' +
-        '&ContactId=MKC16000060&ContactId=BED16000099&ContactId=MKC16000011&ContactId=MKC15000909&' +
-        'ContactId=BUC15000679&ContactId=BED15002235&ContactId=BED15002208&ContactId=BED15001889',
+      href: '/identityChecks/?PageNumber=1&PageSize=50&ContactId=AYL19000001',
     },
   },
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { storiesOf } from '@storybook/react'
+
 import {
   isCompletedAddress,
   isCompletedAgentCheck,
@@ -10,144 +11,108 @@ import {
   isCompletedSecondaryID,
 } from './completed-sections'
 
-export const contact = {
-  id: 'MKC16000098',
-  created: '2019-05-12T17:05:19',
-  title: 'Ms',
-  forename: 'Saoirse',
-  surname: 'Chadwick',
+import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
+
+export const contact: ContactModel = {
+  id: 'AYL19000001',
+  created: '2019-10-31T14:19:51.0000000Z',
+  modified: '2019-12-31T10:52:29.0000000Z',
+  title: 'Mrs',
+  forename: 'H',
+  surname: 'Phillips',
+  dateOfBirth: '2019-12-12',
   active: true,
-  marketingConsent: 'notAsked',
-  identityCheck: 'unchecked',
-  communications: [
-    {
-      label: 'Home',
-      detail: '01632 961556',
+  marketingConsent: 'grant',
+  identityCheck: 'pass',
+  source: {
+    id: 'id',
+    type: 'type',
+  },
+  homePhone: 'asd',
+  workPhone: 'asd',
+  mobilePhone: 'asd',
+  email: 'sad@gmail.com',
+  primaryAddress: {
+    type: 'primary',
+    buildingName: 'aa',
+    buildingNumber: '37',
+    line1: 'Kingsway Place',
+    line2: 'London',
+    line3: 'a',
+    line4: 'a',
+    postcode: 'EC1R 0LU',
+    countryId: 'GB',
+  },
+  secondaryAddress: {
+    type: 'secondary',
+    buildingName: 'cuong',
+    buildingNumber: '1',
+    line1: 'Line1',
+    line2: 'Line2',
+    line3: 'Line3',
+    line4: 'Line4',
+    postcode: 'EC1R 0LU',
+    countryId: 'GB',
+  },
+  officeIds: ['AYL'],
+  negotiatorIds: ['FGM'],
+  _eTag: '"B4D9A5B8EB0D128024E91616FB4B701B"',
+  _links: {
+    self: {
+      href: '/contacts/AYL19000001',
     },
-    {
-      label: 'Mobile',
-      detail: '07700 901556',
+    documents: {
+      href: '/documents/?ownerType=contact&ownerId=AYL19000001',
     },
-    {
-      label: 'Work',
-      detail: '020 7946 1556',
+    identityChecks: {
+      href: '/identityChecks/?contactId=AYL19000001',
     },
-    {
-      label: 'E-Mail',
-      detail: 'schadwick512@rpsfiction.net',
+    offices: {
+      href: '/offices/?id=AYL',
     },
-  ],
-  addresses: [
-    {
-      type: 'primary',
-      buildingName: 'Tilbrook Farm',
-      buildingNumber: '',
-      line1: 'Station Road',
-      line2: 'Bow Brickhill',
-      line3: 'Milton Keynes',
-      line4: 'Buckinghamshire',
-      postcode: 'MK17 9JU',
-      countryId: '',
-    },
-  ],
-  relationships: [
-    {
-      id: 'RMK',
-      type: 'negotiator',
-    },
-    {
-      id: 'MKC',
-      type: 'office',
-    },
-  ],
-  metadata: {
-    addresses: [
-      {
-        documentImage: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg',
-        year: '1911',
-        month: '6',
-        documentType: 'Current Benefits Agency letter',
-      },
-    ],
-    primaryId: [
-      {
-        documents: [
-          {
-            typeId: 'CR',
-            expiry: '2019-10-15T10:00:00Z',
-            details: '1123',
-            fileUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg',
-          },
-        ],
-      },
-    ],
-    secondaryId: [
-      {
-        documents: [
-          {
-            typeId: 'PP',
-            expiry: '2019-10-10T00:00:00Z',
-            details: '123',
-            fileUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg',
-          },
-        ],
-      },
-    ],
-    declarationRisk: {
-      type: 'Normal',
-      reason: 'reason',
-      declarationForm: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png',
-      riskAssessmentForm: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/testname12345.png',
+    negotiators: {
+      href: '/negotiators/?id=FGM',
     },
   },
+  metadata: {},
 }
 
-export const idCheck = {
-  id: 'AYL19000004',
-  contactId: 'AYL19000002',
-  created: '2019-10-14T15:23:21',
-  modified: '2019-10-22T09:46:24',
-  checkDate: '2019-10-14T15:23:17',
+export const idCheck: IdentityCheckModel = {
+  id: 'RPT19000104',
+  contactId: 'AYL19000001',
+  created: '0001-01-01T00:00:00.0000000',
+  modified: '2019-12-13T05:41:45.0000000Z',
+  checkDate: '0001-01-01T00:00:00.0000000',
   status: 'pass',
   negotiatorId: 'LJW',
-  documents: [
-    {
-      typeId: 'PP',
-      expiry: '2019-12-05T16:44:00',
-      details: 'This is a test',
-    },
-    {
-      typeId: 'ER',
-      expiry: '2019-12-05T16:44:00',
-      details: 'This is a test',
-    },
-  ],
-  metadata: {
-    primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000002-This is a test.jpg',
-    secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000002-secondary test.jpg',
+  identityDocument1: {
+    documentId: 'SOME_ID',
+    typeId: 'TX',
+    expiry: '2020-02-07',
+    details: 'Hshs',
   },
-  links: [
-    {
-      rel: 'self',
-      href: 'http://reapit.cloud.tyk.io/AYL19000002/identityChecks/AYL19000004',
-      action: 'GET',
+  identityDocument2: {
+    documentId: 'SOME_ID',
+    typeId: 'CI',
+    expiry: '2019-12-21',
+    details: 'a',
+  },
+  _eTag: '"51F8EECB09FB89903C42CAB63E3D5D0C"',
+  _links: {
+    self: {
+      href: '/identityChecks/RPT19000104',
     },
-    {
-      rel: 'contact',
-      href: 'http://reapit.cloud.tyk.io/AYL19000002',
-      action: 'GET',
+    contact: {
+      href: '/contacts/AYL19000001',
     },
-    {
-      rel: 'idDocumentType',
-      href: 'https://reapit.cloud.tyk.io/configuration/identityDocumentTypes/PP',
-      action: 'GET',
+    documentType1: {
+      href: '/configuration/identityDocumentTypes/TX',
     },
-    {
-      rel: 'idDocumentType',
-      href: 'https://reapit.cloud.tyk.io/configuration/identityDocumentTypes/ER',
-      action: 'GET',
+    documentType2: {
+      href: '/configuration/identityDocumentTypes/CI',
     },
-  ],
+  },
+  metadata: {},
 }
 
 storiesOf('CompletedSections', module)

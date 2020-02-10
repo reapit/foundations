@@ -4,15 +4,20 @@ import { Button, Input, DatePicker, CameraImageInput, Formik, Form } from '@reap
 import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 
-export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentModel = {
+export interface IdentityDocumentForm extends IdentityDocumentModel {
+  fileUrl: string
+}
+
+export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentForm = {
   typeId: '',
   details: '',
   expiry: '',
+  fileUrl: '',
 }
 
 export type IdentificationProps = {
   contact: ContactModel | null
-  initFormValues: IdentityDocumentModel
+  initFormValues: IdentityDocumentForm
   loading: boolean
   disabled?: boolean
   onSaveHandler: (values: any) => void
@@ -20,9 +25,13 @@ export type IdentificationProps = {
   onPrevHandler: () => void
 }
 
-export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandler, disabled = false }) => ({
-  values,
-}) => {
+export const renderFormHandler = ({
+  contact,
+  loading,
+  onNextHandler,
+  onPrevHandler,
+  disabled = false,
+}: IdentificationProps) => ({ values }) => {
   const id = contact?.id || ''
   return (
     <>
@@ -69,21 +78,13 @@ export const renderFormHandler = ({ contact, loading, onNextHandler, onPrevHandl
   )
 }
 
-export const onSubmitHandler = (onSaveHandler: (formValues: IdentityDocumentModel) => void) => (
-  formValues: IdentityDocumentModel,
+export const onSubmitHandler = (onSaveHandler: (formValues: IdentityDocumentForm) => void) => (
+  formValues: IdentityDocumentForm,
 ) => onSaveHandler(formValues)
 
-export const Identification: React.FC<IdentificationProps> = ({
-  loading,
-  contact,
-  disabled,
-  initFormValues,
-  onSaveHandler,
-  onNextHandler,
-  onPrevHandler,
-}) => (
-  <Formik initialValues={initFormValues} onSubmit={onSubmitHandler(onSaveHandler)}>
-    {renderFormHandler({ contact, loading, onNextHandler, onPrevHandler, disabled })}
+export const Identification: React.FC<IdentificationProps> = props => (
+  <Formik initialValues={props.initFormValues} onSubmit={onSubmitHandler(props.onSaveHandler)}>
+    {renderFormHandler(props)}
   </Formik>
 )
 

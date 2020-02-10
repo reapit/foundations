@@ -5,14 +5,14 @@ exports[` 1`] = `
   <Formik
     initialValues={
       Object {
-        "dateOfBirth": 1986-06-30T00:00:00.000Z,
-        "email": "hrees927@rpsfiction.net",
-        "forename": "Holly",
-        "homePhone": "01632 968608",
-        "mobilePhone": "07700 908608",
-        "surname": "Rees",
-        "title": "Msss",
-        "workPhone": "020 7946 8608",
+        "dateOfBirth": 2019-12-12T00:00:00.000Z,
+        "email": "sad@gmail.com",
+        "forename": "H",
+        "homePhone": "asd",
+        "mobilePhone": "asd",
+        "surname": "Phillips",
+        "title": "Mrs",
+        "workPhone": "asd",
       }
     }
     onSubmit={[MockFunction]}
@@ -100,7 +100,7 @@ exports[`profile renderForm should match snapshot 1`] = `
             <span
               className="ml-1"
             >
-              MKC13000122
+              AYL19000001
             </span>
           </div>
         </div>
@@ -212,7 +212,7 @@ exports[`profile renderForm should match snapshot 2`] = `
             <span
               className="ml-1"
             >
-              MKC13000122
+              AYL19000001
             </span>
           </div>
         </div>

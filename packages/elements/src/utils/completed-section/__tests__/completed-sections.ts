@@ -6,18 +6,19 @@ import {
   isCompletedSecondaryID,
   isCompletedAgentCheck,
 } from '../completed-sections'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 
 describe('completed-sections', () => {
   it('isCompletedProfile', () => {
     ;[
-      [undefined, false],
+      [null, false],
       [
         {
           title: 'Mr',
           surname: 'A',
           forename: 'B',
           dateOfBirth: '04/04/1996',
-          communications: [{ label: 'Mobile', value: '0123456789' }],
+          mobilePhone: '0123456789',
         },
         true,
       ],
@@ -25,12 +26,12 @@ describe('completed-sections', () => {
         {
           title: 'Mr',
           forename: 'B',
-          communications: [{ label: 'Mobile', value: '0123456789' }],
+          mobilePhone: '0123456789',
         },
         false,
       ],
     ].forEach(([params, expected]) => {
-      const result = isCompletedProfile(params)
+      const result = isCompletedProfile(params as ContactModel)
       expect(result).toBe(expected)
     })
   })
@@ -45,18 +46,16 @@ describe('completed-sections', () => {
         checkDate: '2019-10-19T02:52:10',
         status: 'pending',
         negotiatorId: 'DAC',
-        documents: [
-          {
-            typeId: 'RF',
-            expiry: '2019-10-24T09:51:48',
-            details: '2131231',
-          },
-          {
-            typeId: 'RF',
-            expiry: '2019-10-24T09:51:48',
-            details: '2131231',
-          },
-        ],
+        identityDocument1: {
+          typeId: 'RF',
+          expiry: '2019-10-24T09:51:48',
+          details: '2131231',
+        },
+        identityDocument2: {
+          typeId: 'RF',
+          expiry: '2019-10-24T09:51:48',
+          details: '2131231',
+        },
         metadata: {
           primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
           secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
@@ -74,13 +73,11 @@ describe('completed-sections', () => {
         checkDate: '2019-10-19T02:52:10',
         status: 'pending',
         negotiatorId: 'DAC',
-        documents: [
-          {
-            typeId: 'RF',
-            expiry: '2019-10-24T09:51:48',
-            details: '2131231',
-          },
-        ],
+        identityDocument1: {
+          typeId: 'RF',
+          expiry: '2019-10-24T09:51:48',
+          details: '2131231',
+        },
         metadata: {
           primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
         },
@@ -97,13 +94,11 @@ describe('completed-sections', () => {
         checkDate: '2019-10-19T02:52:10',
         status: 'pending',
         negotiatorId: 'DAC',
-        documents: [
-          {
-            typeId: 'RF',
-            expiry: '2019-10-24T09:51:48',
-            details: '2131231',
-          },
-        ],
+        identityDocument1: {
+          typeId: 'RF',
+          expiry: '2019-10-24T09:51:48',
+          details: '2131231',
+        },
         metadata: {
           secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
         },
@@ -120,7 +115,6 @@ describe('completed-sections', () => {
         checkDate: '2019-10-19T02:52:10',
         status: 'pending',
         negotiatorId: 'DAC',
-        documents: [],
         metadata: {},
       }
       const result = isCompletedPrimaryID(mockIdentityCheck)
@@ -149,13 +143,11 @@ describe('completed-sections', () => {
         checkDate: '2019-10-19T02:52:10',
         status: 'pending',
         negotiatorId: 'DAC',
-        documents: [
-          {
-            typeId: 'RF',
-            expiry: '2019-10-24T09:51:48',
-            details: undefined,
-          },
-        ],
+        identityDocument1: {
+          typeId: 'RF',
+          expiry: '2019-10-24T09:51:48',
+          details: undefined,
+        },
         metadata: {
           secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
         },
@@ -173,13 +165,6 @@ describe('completed-sections', () => {
         checkDate: '2019-10-19T02:52:10',
         status: 'pending',
         negotiatorId: 'DAC',
-        documents: [
-          {
-            typeId: undefined,
-            expiry: undefined,
-            details: undefined,
-          },
-        ],
         metadata: {
           secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
         },
@@ -193,7 +178,7 @@ describe('completed-sections', () => {
       expect(result).toEqual(false)
     })
     it('should return false', () => {
-      const mockIdentityCheck = undefined
+      const mockIdentityCheck = null
       const result = isCompletedPrimaryID(mockIdentityCheck)
       expect(result).toEqual(false)
     })
@@ -206,7 +191,7 @@ describe('completed-sections', () => {
       expect(result).toEqual(false)
     })
     it('should return false', () => {
-      const mockIdentityCheck = undefined
+      const mockIdentityCheck = null
       const result = isCompletedSecondaryID(mockIdentityCheck)
       expect(result).toEqual(false)
     })
@@ -219,18 +204,17 @@ describe('completed-sections', () => {
         checkDate: '2019-10-19T02:52:10',
         status: 'pending',
         negotiatorId: 'DAC',
-        documents: [
-          {
-            typeId: 'RF',
-            expiry: '2019-10-24T09:51:48',
-            details: '2131231',
-          },
-          {
-            typeId: 'RF',
-            expiry: '2019-10-24T09:51:48',
-            details: '2131231',
-          },
-        ],
+        identityDocument1: {
+          typeId: 'RF',
+          expiry: '2019-10-24T09:51:48',
+          details: '2131231',
+        },
+        identityDocument2: {
+          typeId: 'RF',
+          expiry: '2019-10-24T09:51:48',
+          details: '2131231',
+        },
+
         metadata: {
           primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
           secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
@@ -249,13 +233,11 @@ describe('completed-sections', () => {
         checkDate: '2019-10-19T02:52:10',
         status: 'pending',
         negotiatorId: 'DAC',
-        documents: [
-          {
-            typeId: 'RF',
-            expiry: '2019-10-24T09:51:48',
-            details: '2131231',
-          },
-        ],
+        identityDocument2: {
+          typeId: 'RF',
+          expiry: '2019-10-24T09:51:48',
+          details: '2131231',
+        },
         metadata: {
           secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
         },
@@ -294,13 +276,12 @@ describe('completed-sections', () => {
       [undefined, false],
       [
         {
-          addresses: [
-            {
-              line1: 'A',
-              line3: 'B',
-              postcode: '700000',
-            },
-          ],
+          primaryAddress: {
+            line1: 'A',
+            line3: 'B',
+            postcode: '700000',
+          },
+
           metadata: {
             addresses: [
               {
@@ -315,19 +296,18 @@ describe('completed-sections', () => {
       ],
       [
         {
-          addresses: [
-            {
-              line1: 'A',
-              line3: 'B',
-              postcode: '700000',
-            },
-          ],
+          primaryAddress: {
+            line1: 'A',
+            line3: 'B',
+            postcode: '700000',
+          },
+
           metadata: {},
         },
         false,
       ],
     ].forEach(([params, expected]) => {
-      const result = isCompletedAddress(params)
+      const result = isCompletedAddress(params as ContactModel)
       expect(result).toBe(expected)
     })
   })
@@ -370,7 +350,7 @@ describe('completed-sections', () => {
         false,
       ],
     ].forEach(([params, expected]) => {
-      const result = isCompletedDeclarationRisk(params)
+      const result = isCompletedDeclarationRisk(params as ContactModel)
       expect(result).toBe(expected)
     })
   })
@@ -471,13 +451,12 @@ describe('completed-sections', () => {
       checkDate: '2019-10-19T02:52:10',
       status: 'pending',
       negotiatorId: 'DAC',
-      documents: [
-        {
-          typeId: 'RF',
-          expiry: '2019-10-24T09:51:48',
-          details: '2131231',
-        },
-      ],
+      identityDocument1: {
+        typeId: 'RF',
+        expiry: '2019-10-24T09:51:48',
+        details: '2131231',
+      },
+
       metadata: {
         secondaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC11001623-2131231.jpg',
       },
