@@ -8,7 +8,7 @@ exports[`UpdateStatus should match snapshot 1`] = `
      out of 
     5
      sections for contact 
-    Msss Holly Rees
+    Mrs H Phillips
     . Please now select one of the following options in order to continue
   </p>
   <div>
@@ -24,7 +24,7 @@ exports[`UpdateStatus should match snapshot 1`] = `
       dynamicLinkParams={
         Object {
           "appMode": "WEB",
-          "entityCode": "MKC13000122",
+          "entityCode": "AYL19000001",
           "entityType": "contacts",
         }
       }

@@ -64,12 +64,16 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
 
 export const updateChecklist = async ({ contact, headers }) => {
   try {
+    const { _eTag, ...otherData } = contact
     const response = await fetcher({
       url: `${URLS.contacts}/${contact.id}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
-      headers: headers,
-      body: contact,
+      headers: {
+        ...headers,
+        'If-Match': _eTag,
+      },
+      body: otherData,
     })
     return response
   } catch (err) {
@@ -104,12 +108,16 @@ export const uploadImage = async ({ name, imageData, headers }) => {
 
 export const updateIdentityCheck = async ({ identityChecks, headers }) => {
   try {
-    const formatedIdentityChecks = changeTimeZoneUTCForIdentityCheck(identityChecks)
+    const { _eTag, ...otherData } = identityChecks
+    const formatedIdentityChecks = changeTimeZoneUTCForIdentityCheck(otherData)
     const response = await fetcher({
       url: `${URLS.idChecks}/${identityChecks.id}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
-      headers: headers,
+      headers: {
+        ...headers,
+        'If-Match': _eTag,
+      },
       body: formatedIdentityChecks,
     })
     return response
@@ -341,7 +349,7 @@ export const onUpdateDeclarationAndRisk = function*({
 
 // TODO: should write test for api call func
 export const fetchDataPepSearch = async ({ name, headers }) => {
-  console.log({ name, headers })
+  console.log(name, headers)
   try {
     // TODO: Duong Pham will replace by fetch API when API ready
     const result = await new Promise(resolve => {
@@ -394,7 +402,7 @@ export const updateSecondaryId = function*({
     const headers = yield call(initAuthorizedRequestHeaders)
     const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
-    const secondaryIdUrl = idCheck?.metadata?.secondaryIdUrl
+    const secondaryIdUrl = idCheck?.metadata?.secondaryIdUrl || identityChecks.fileUrl
     const uploaderDocument: FileUploaderResponse = isBase64(identityChecks && secondaryIdUrl)
       ? yield call(uploadImage, {
           headers,
@@ -404,16 +412,16 @@ export const updateSecondaryId = function*({
       : null
 
     const currentPrimaryIdUrl = idCheck?.metadata?.primaryIdUrl
-    const { document1, document2 } = idCheck || {}
+
     delete idCheck?.metadata?.secondaryIdUrl
 
     const baseValues = {
       metadata: {
         primaryIdUrl: currentPrimaryIdUrl,
-        secondaryIdUrl: uploaderDocument ? uploaderDocument.Url : secondaryIdUrl,
+        secondaryIdUrl: uploaderDocument ? uploaderDocument.Url : idCheck?.metadata?.secondaryIdUrl,
       },
-      document1,
-      document2,
+      identityDocument1: idCheck?.identityDocument1,
+      identityDocument2: idCheck?.identityDocument2 || identityChecks,
     } as IdentityCheckModel
 
     if (idCheck) {
@@ -465,8 +473,9 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
     const headers = yield call(initAuthorizedRequestHeaders)
     const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
-    const primaryIdUrl = idCheck?.metadata?.primaryIdUrl
-    const uploaderDocument: FileUploaderResponse = isBase64(identityChecks && primaryIdUrl)
+    const primaryIdUrl = idCheck?.metadata?.primaryFileUrl || identityChecks.fileUrl
+
+    const uploaderDocument: FileUploaderResponse = isBase64(primaryIdUrl)
       ? yield call(uploadImage, {
           headers,
           name: `${contact.id}-${identityChecks.details}`,
@@ -475,16 +484,16 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
       : null
 
     const currentSecondaryIdUrl = idCheck?.metadata?.secondaryIdUrl
-    const { document1, document2 } = idCheck || {}
+
     delete idCheck?.metadata?.primaryIdUrl
 
     const baseValues = {
       metadata: {
-        primaryIdUrl: uploaderDocument ? uploaderDocument.Url : primaryIdUrl,
+        primaryIdUrl: uploaderDocument ? uploaderDocument.Url : idCheck?.metadata?.primaryIdUrl,
         secondaryIdUrl: currentSecondaryIdUrl,
       },
-      document1,
-      document2,
+      identityDocument1: idCheck?.identityDocument1 || identityChecks,
+      identityDocument2: idCheck?.identityDocument2,
     } as IdentityCheckModel
 
     if (idCheck) {

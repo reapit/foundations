@@ -72,7 +72,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Primary ID',
         description: () => {
-          const { typeId, details, expiry } = idCheck?.document1 || {}
+          const { typeId, details, expiry } = idCheck?.identityDocument1 || {}
           return (
             <div>
               {typeId && <p>Type: {idTypes[typeId] || typeId}</p>}
@@ -86,7 +86,7 @@ export const ReportContainer: React.FC<ReportContainerProps> = ({ contact, idChe
       {
         section: 'Secondary ID',
         description: () => {
-          const { typeId, details, expiry } = idCheck?.document2 || {}
+          const { typeId, details, expiry } = idCheck?.identityDocument2 || {}
           return (
             <div>
               {typeId && <p>Type: {idTypes[typeId] || typeId}</p>}

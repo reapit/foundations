@@ -608,48 +608,28 @@ exports[`AddressInformation should match snapshot 1`] = `
   <Formik
     initialValues={
       Object {
-        "metadata": Object {
-          "addresses": Array [
-            Object {
-              "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png",
-              "documentType": "Bank / Building Society / Statement",
-              "month": "2",
-              "year": "2",
-            },
-            Object {
-              "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/previous-7-Larch Cottage-LU7 0PX(1).jpg",
-              "documentType": "Credit Card Statements from main provider",
-              "month": "1",
-              "year": "3",
-            },
-          ],
-          "declarationRisk": Object {
-            "reason": "Test",
-            "riskAssessmentForm": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png",
-            "type": "Simplified",
-          },
-        },
+        "metadata": Object {},
         "primaryAddress": Object {
-          "buildingName": "Larch Cottage",
-          "buildingNumber": "12",
+          "buildingName": "aa",
+          "buildingNumber": "37",
           "countryId": "GB",
-          "line1": "High Street North",
-          "line2": "Stewkley",
-          "line3": "Leighton Buzzard",
-          "line4": "Buckinghamshire",
-          "postcode": "LU7 0EP",
-          "type": "home",
+          "line1": "Kingsway Place",
+          "line2": "London",
+          "line3": "a",
+          "line4": "a",
+          "postcode": "EC1R 0LU",
+          "type": "primary",
         },
         "secondaryAddress": Object {
-          "buildingName": "Larch Cottage",
-          "buildingNumber": "7",
-          "countryId": "",
-          "line1": "Ledburn",
-          "line2": "Leighton Buzzard",
-          "line3": "Buckinghamshire",
-          "line4": "",
-          "postcode": "LU7 0PX",
-          "type": "previous",
+          "buildingName": "cuong",
+          "buildingNumber": "1",
+          "countryId": "GB",
+          "line1": "Line1",
+          "line2": "Line2",
+          "line3": "Line3",
+          "line4": "Line4",
+          "postcode": "EC1R 0LU",
+          "type": "secondary",
         },
       }
     }

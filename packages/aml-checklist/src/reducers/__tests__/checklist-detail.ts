@@ -114,14 +114,14 @@ describe('home reducer', () => {
   it('should mark personal details not completed because missing date of birth', () => {
     const newState = checklistReducer(undefined, {
       type: ActionTypes.CHECKLIST_DETAIL_RECEIVE_CONTACT as ActionType,
-      data: contact,
+      data: { ...contact, dateOfBirth: undefined },
     })
 
     const expected: ChecklistDetailState = {
       ...defaultState,
       loading: false,
       checklistDetailData: {
-        contact: contact,
+        contact: { ...contact, dateOfBirth: undefined },
         idCheck: null,
       },
       status: {
@@ -150,8 +150,7 @@ describe('home reducer', () => {
       },
       status: {
         ...updateCheckListDetailFormStatus({ contact, idCheck: null }),
-        // need to update isCompletedProfile in elementstrue
-        profile: false,
+        profile: true,
       },
     }
 
