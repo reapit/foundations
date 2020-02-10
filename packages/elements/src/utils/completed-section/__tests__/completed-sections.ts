@@ -39,7 +39,7 @@ describe('completed-sections', () => {
     })
 
     it('should run correctly', () => {
-      const params = undefined
+      const params = null
       const result = isCompletedProfile(params)
       expect(result).toBeFalsy()
     })

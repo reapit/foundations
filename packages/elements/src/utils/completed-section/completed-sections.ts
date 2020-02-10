@@ -1,6 +1,6 @@
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 
-export const isCompletedProfile = (contact?: ContactModel) => {
+export const isCompletedProfile = (contact: ContactModel | null) => {
   const isValidProfile =
     contact?.title &&
     contact?.surname &&
@@ -13,7 +13,7 @@ export const isCompletedProfile = (contact?: ContactModel) => {
   return !!isValidProfile
 }
 
-export const isCompletedPrimaryID = (identityCheck?: IdentityCheckModel) => {
+export const isCompletedPrimaryID = (identityCheck: IdentityCheckModel | null) => {
   const isValidIdentityCheck =
     identityCheck?.identityDocument1?.details &&
     identityCheck?.identityDocument1?.documentId &&
@@ -22,7 +22,7 @@ export const isCompletedPrimaryID = (identityCheck?: IdentityCheckModel) => {
   return !!isValidIdentityCheck
 }
 
-export const isCompletedSecondaryID = (identityCheck?: IdentityCheckModel) => {
+export const isCompletedSecondaryID = (identityCheck: IdentityCheckModel | null) => {
   const isValidIdentityCheck =
     identityCheck?.identityDocument2?.details &&
     identityCheck?.identityDocument2?.documentId &&
@@ -31,7 +31,7 @@ export const isCompletedSecondaryID = (identityCheck?: IdentityCheckModel) => {
   return !!isValidIdentityCheck
 }
 
-export const isCompletedAddress = (contact?: ContactModel) => {
+export const isCompletedAddress = (contact: ContactModel | null) => {
   const isValidPrimaryAddress =
     contact?.primaryAddress?.buildingName &&
     contact?.primaryAddress?.buildingNumber &&
@@ -54,7 +54,7 @@ export const isCompletedAddress = (contact?: ContactModel) => {
   return !!isValidPrimaryAddress && !!isValidSecondaryAddress
 }
 
-export const isCompletedDeclarationRisk = (contact: ContactModel) => {
+export const isCompletedDeclarationRisk = (contact: ContactModel | null) => {
   const isValidContactWithDecrationRisk =
     contact?.metadata?.declarationRisk?.reason &&
     contact?.metadata?.declarationRisk?.type &&
@@ -63,7 +63,7 @@ export const isCompletedDeclarationRisk = (contact: ContactModel) => {
   return !!isValidContactWithDecrationRisk
 }
 
-export const isCompletedAgentCheck = (identityCheck: any) => {
+export const isCompletedAgentCheck = (identityCheck: IdentityCheckModel | null) => {
   const isValidAgentCheck =
     identityCheck?.metadata?.referralType &&
     identityCheck?.metadata?.timeSelection &&

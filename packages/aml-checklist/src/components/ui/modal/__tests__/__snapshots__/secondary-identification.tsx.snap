@@ -71,7 +71,7 @@ exports[`SecondaryIdentification SecondaryIdentification should match snapshot 1
       "workPhone": "asd",
     }
   }
-  disabled={true}
+  disabled={false}
   initFormValues={Object {}}
   loading={false}
   onNextHandler={[MockFunction]}
