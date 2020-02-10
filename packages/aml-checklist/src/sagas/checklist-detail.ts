@@ -64,12 +64,16 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
 
 export const updateChecklist = async ({ contact, headers }) => {
   try {
+    const { _eTag, ...otherData } = contact
     const response = await fetcher({
       url: `${URLS.contacts}/${contact.id}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
-      headers: headers,
-      body: contact,
+      headers: {
+        ...headers,
+        'If-Match': _eTag,
+      },
+      body: otherData,
     })
     return response
   } catch (err) {
@@ -104,12 +108,16 @@ export const uploadImage = async ({ name, imageData, headers }) => {
 
 export const updateIdentityCheck = async ({ identityChecks, headers }) => {
   try {
-    const formatedIdentityChecks = changeTimeZoneUTCForIdentityCheck(identityChecks)
+    const { _eTag, ...otherData } = identityChecks
+    const formatedIdentityChecks = changeTimeZoneUTCForIdentityCheck(otherData)
     const response = await fetcher({
       url: `${URLS.idChecks}/${identityChecks.id}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
-      headers: headers,
+      headers: {
+        ...headers,
+        'If-Match': _eTag,
+      },
       body: formatedIdentityChecks,
     })
     return response
@@ -404,7 +412,7 @@ export const updateSecondaryId = function*({
       : null
 
     const currentPrimaryIdUrl = idCheck?.metadata?.primaryIdUrl
-    const { document1, document2 } = idCheck || {}
+    const { identityDocument1, identityDocument2 } = idCheck || {}
     delete idCheck?.metadata?.secondaryIdUrl
 
     const baseValues = {
@@ -412,8 +420,8 @@ export const updateSecondaryId = function*({
         primaryIdUrl: currentPrimaryIdUrl,
         secondaryIdUrl: uploaderDocument ? uploaderDocument.Url : secondaryIdUrl,
       },
-      document1,
-      document2,
+      identityDocument1,
+      identityDocument2,
     } as IdentityCheckModel
 
     if (idCheck) {
@@ -475,7 +483,7 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
       : null
 
     const currentSecondaryIdUrl = idCheck?.metadata?.secondaryIdUrl
-    const { document1, document2 } = idCheck || {}
+    const { identityDocument1, identityDocument2 } = idCheck || {}
     delete idCheck?.metadata?.primaryIdUrl
 
     const baseValues = {
@@ -483,8 +491,8 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
         primaryIdUrl: uploaderDocument ? uploaderDocument.Url : primaryIdUrl,
         secondaryIdUrl: currentSecondaryIdUrl,
       },
-      document1,
-      document2,
+      identityDocument1,
+      identityDocument2,
     } as IdentityCheckModel
 
     if (idCheck) {

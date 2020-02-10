@@ -7,24 +7,24 @@ import { IdentityCheckModel } from '@reapit/foundations-ts-definitions'
  * @param identityChecks is IdentityCheckModel
  */
 export const changeTimeZoneLocalForIdentityCheck = (identityChecks: IdentityCheckModel): IdentityCheckModel => {
-  const { document1, document2 } = identityChecks
-  const newDocument1 = document1
+  const { identityDocument1, identityDocument2 } = identityChecks
+  const newDocument1 = identityDocument1
     ? {
-        ...document1,
-        expiry: toLocalTime(document1.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
+        ...identityDocument1,
+        expiry: toLocalTime(identityDocument1.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
     : undefined
 
-  const newDocument2 = document2
+  const newDocument2 = identityDocument2
     ? {
-        ...document2,
-        expiry: toLocalTime(document2.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
+        ...identityDocument2,
+        expiry: toLocalTime(identityDocument2.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
     : undefined
   const newIdentityChecks = {
     ...identityChecks,
-    document1: newDocument1,
-    document2: newDocument2,
+    identityDocument1: newDocument1,
+    identityDocument2: newDocument2,
     checkDate: toLocalTime(identityChecks.checkDate as ConfigType, DATE_TIME_FORMAT.RFC3339),
   }
   return newIdentityChecks
@@ -35,25 +35,25 @@ export const changeTimeZoneLocalForIdentityCheck = (identityChecks: IdentityChec
  * @param identityChecks is IdentityCheckModel
  */
 export const changeTimeZoneUTCForIdentityCheck = (identityChecks: IdentityCheckModel): IdentityCheckModel => {
-  const { document1, document2 } = identityChecks
-  const newDocument1 = document1
+  const { identityDocument1, identityDocument2 } = identityChecks
+  const newDocument1 = identityDocument1
     ? {
-        ...document1,
-        expiry: toUTCTime(document1.expiry as ConfigType),
+        ...identityDocument1,
+        expiry: toUTCTime(identityDocument1.expiry as ConfigType),
       }
     : undefined
 
-  const newDocument2 = document2
+  const newDocument2 = identityDocument2
     ? {
-        ...document2,
-        expiry: toUTCTime(document2.expiry as ConfigType),
+        ...identityDocument2,
+        expiry: toUTCTime(identityDocument2.expiry as ConfigType),
       }
     : undefined
 
   const newIdentityChecks = {
     ...identityChecks,
-    document1: newDocument1,
-    document2: newDocument2,
+    identityDocument1: newDocument1,
+    identityDocument2: newDocument2,
     checkDate: toUTCTime(identityChecks.checkDate as ConfigType),
   }
   return newIdentityChecks

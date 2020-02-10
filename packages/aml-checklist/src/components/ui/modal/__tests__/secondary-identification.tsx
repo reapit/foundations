@@ -34,7 +34,7 @@ describe('SecondaryIdentification', () => {
         },
       } as ReduxState
       const result = mapStateToProps(mockState)
-      const { typeId, expiry, details } = idCheck.document2
+      const { typeId, expiry, details } = idCheck.identityDocument2
       const expected = {
         loading: false,
         contact: contact,

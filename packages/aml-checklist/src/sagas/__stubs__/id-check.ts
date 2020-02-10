@@ -1,24 +1,25 @@
 export const idCheck = {
   id: 'RPT19000104',
   contactId: 'AYL19000001',
-  created: '0001-01-01T00:00:00',
-  modified: '2019-12-13T05:41:45',
-  checkDate: '0001-01-01T00:00:00',
+  created: '0001-01-01T00:00:00.0000000',
+  modified: '2019-12-13T05:41:45.0000000Z',
+  checkDate: '0001-01-01T00:00:00.0000000',
   status: 'pass',
   negotiatorId: 'LJW',
-  document1: {
+  identityDocument1: {
+    documentId: null,
     typeId: 'TX',
-    expiry: '2020-02-07T00:00:00',
+    expiry: '2020-02-07',
     details: 'Hshs',
   },
-  document2: {
+  identityDocument2: {
+    documentId: null,
     typeId: 'CI',
-    expiry: '2019-12-21T00:00:00',
+    expiry: '2019-12-21',
     details: 'a',
   },
-  metadata: {
-    primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
-  },
+  metadata: null,
+  _eTag: '"51F8EECB09FB89903C42CAB63E3D5D0C"',
   _links: {
     self: {
       href: '/identityChecks/RPT19000104',
@@ -26,11 +27,12 @@ export const idCheck = {
     contact: {
       href: '/contacts/AYL19000001',
     },
-    identityDocument1Type: {
+    documentType1: {
       href: '/configuration/identityDocumentTypes/TX',
     },
-    identityDocument2Type: {
+    documentType2: {
       href: '/configuration/identityDocumentTypes/CI',
     },
   },
+  _embedded: null,
 }

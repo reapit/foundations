@@ -9,7 +9,6 @@ import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/a
 import { queryParams } from '@/utils/query-params'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { mapIdentitiesToContacts } from '@/utils/map-identities-to-contacts'
 
 export const resultFetch = function*(params: Action<ContactsParams>) {
   try {
@@ -20,16 +19,7 @@ export const resultFetch = function*(params: Action<ContactsParams>) {
       method: 'GET',
       headers,
     })
-    const listContactId = responseContacts._embedded.map(({ id }) => id)
-    /* fetch all identities which have contactId in listContactId */
-    const responseIdentities = yield call(fetcher, {
-      url: `${URLS.idChecks}/?${queryParams({ ContactId: [...listContactId] })}`,
-      api: process.env.PLATFORM_API_BASE_URL as string,
-      method: 'GET',
-      headers,
-    })
-    const responseContactsWithStatus = mapIdentitiesToContacts(responseContacts, responseIdentities)
-    yield put(resultReceiveData(responseContactsWithStatus))
+    yield put(resultReceiveData(responseContacts))
   } catch (err) {
     yield put(resultRequestDataFailure())
     yield put(

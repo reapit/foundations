@@ -61,7 +61,7 @@ describe('checklist-detail', () => {
         primaryAddress: contact.primaryAddress,
         secondaryAddress: contact.secondaryAddress,
         headers: mockHeaders,
-        addressesMeta: contact.metadata.addresses,
+        addressesMeta: contact.metadata?.addresses,
       } as any
       const result = mapArrAddressToUploadImageFunc(mockParams)
       expect(result).toEqual([null, null])
@@ -71,7 +71,7 @@ describe('checklist-detail', () => {
         primaryAddress: undefined,
         secondaryAddress: contact.secondaryAddress,
         headers: mockHeaders,
-        addressesMeta: contact.metadata.addresses,
+        addressesMeta: contact.metadata?.addresses,
       }
       const result = mapArrAddressToUploadImageFunc(mockParams)
       expect(result).toEqual([])
@@ -81,13 +81,13 @@ describe('checklist-detail', () => {
   describe('mapAddressToMetaData', () => {
     it('should run correctly', () => {
       const mockParams = {
-        addressesMeta: contact.metadata.addresses,
+        addressesMeta: contact.metadata?.addresses,
         responseUpload: [
           { Url: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png' },
         ],
       }
       const result = mapAddressToMetaData(mockParams)
-      expect(result).toEqual(contact.metadata.addresses)
+      expect(result).toEqual(contact.metadata?.addresses)
     })
     it('should return []', () => {
       const mockParams = {
@@ -406,8 +406,8 @@ describe('checklist-detail', () => {
           primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
           secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png',
         },
-        document1: idCheck.document1,
-        document2: idCheck.document2,
+        identityDocument1: idCheck.identityDocument1,
+        identityDocument2: idCheck.identityDocument2,
       }
       expect(clone.next(contact as any).value).toEqual(
         call(updateIdentityCheck, {
@@ -463,8 +463,8 @@ describe('checklist-detail', () => {
           primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
           secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png',
         },
-        document1: idCheck.document1,
-        document2: idCheck.document2,
+        identityDocument1: idCheck.identityDocument1,
+        identityDocument2: idCheck.identityDocument2,
       }
       expect(clone.next(contact as any).value).toEqual(
         call(updateIdentityCheck, {

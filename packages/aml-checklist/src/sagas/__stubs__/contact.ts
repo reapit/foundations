@@ -1,116 +1,106 @@
-export const contact = {
-  id: 'MKC13000122',
-  created: '2017-01-10T11:33:37.0000000Z',
-  modified: '2020-01-21T14:04:50.0000000Z',
-  title: 'Msss',
-  forename: 'Holly',
-  surname: 'Rees',
-  dateOfBirth: '1986-06-30',
+import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
+
+export const contact: ContactModel = {
+  id: 'AYL19000001',
+  created: '2019-10-31T14:19:51.0000000Z',
+  modified: '2019-12-31T10:52:29.0000000Z',
+  title: 'Mrs',
+  forename: 'H',
+  surname: 'Phillips',
+  dateOfBirth: '2019-12-12',
   active: true,
-  marketingConsent: 'notAsked',
+  marketingConsent: 'grant',
+  identityCheck: 'pass',
   source: {
-    id: '',
-    type: '',
+    id: 'id',
+    type: 'type',
   },
-  homePhone: '01632 968608',
-  workPhone: '020 7946 8608',
-  mobilePhone: '07700 908608',
-  email: 'hrees927@rpsfiction.net',
+  homePhone: 'asd',
+  workPhone: 'asd',
+  mobilePhone: 'asd',
+  email: 'sad@gmail.com',
   primaryAddress: {
-    type: 'home',
-    buildingName: 'Larch Cottage',
-    buildingNumber: '12',
-    line1: 'High Street North',
-    line2: 'Stewkley',
-    line3: 'Leighton Buzzard',
-    line4: 'Buckinghamshire',
-    postcode: 'LU7 0EP',
+    type: 'primary',
+    buildingName: 'aa',
+    buildingNumber: '37',
+    line1: 'Kingsway Place',
+    line2: 'London',
+    line3: 'a',
+    line4: 'a',
+    postcode: 'EC1R 0LU',
     countryId: 'GB',
   },
   secondaryAddress: {
-    type: 'previous',
-    buildingName: 'Larch Cottage',
-    buildingNumber: '7',
-    line1: 'Ledburn',
-    line2: 'Leighton Buzzard',
-    line3: 'Buckinghamshire',
-    line4: '',
-    postcode: 'LU7 0PX',
-    countryId: '',
+    type: 'secondary',
+    buildingName: 'cuong',
+    buildingNumber: '1',
+    line1: 'Line1',
+    line2: 'Line2',
+    line3: 'Line3',
+    line4: 'Line4',
+    postcode: 'EC1R 0LU',
+    countryId: 'GB',
   },
-  officeIds: ['MKC'],
-  negotiatorIds: ['JPB'],
-  metadata: {
-    addresses: [
-      {
-        documentImage:
-          'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png',
-        year: '2',
-        month: '2',
-        documentType: 'Bank / Building Society / Statement',
-      },
-      {
-        documentImage:
-          'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/previous-7-Larch Cottage-LU7 0PX(1).jpg',
-        year: '3',
-        month: '1',
-        documentType: 'Credit Card Statements from main provider',
-      },
-    ],
-    declarationRisk: {
-      reason: 'Test',
-      type: 'Simplified',
-      riskAssessmentForm:
-        'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png',
-    },
-  },
+  workAddress: null,
+  officeIds: ['AYL'],
+  negotiatorIds: ['FGM'],
+  metadata: null,
+  _eTag: '"B4D9A5B8EB0D128024E91616FB4B701B"',
   _links: {
     self: {
-      href: '/contacts/MKC13000122',
+      href: '/contacts/AYL19000001',
     },
     documents: {
-      href: '/documents/?OwnerType=contact&OwnerId=MKC13000122',
+      href: '/documents/?ownerType=contact&ownerId=AYL19000001',
     },
     identityChecks: {
-      href: '/identityChecks/?ContactId=MKC13000122',
+      href: '/identityChecks/?contactId=AYL19000001',
+    },
+    offices: {
+      href: '/offices/?id=AYL',
+    },
+    negotiators: {
+      href: '/negotiators/?id=FGM',
     },
   },
+  _embedded: null,
 }
 
-export const idCheck = {
-  id: 'RPT19000083',
-  contactId: 'MKC13000122',
-  created: '0001-01-01T00:00:00',
-  modified: '2020-01-21T03:39:53',
-  checkDate: '0001-01-01T00:00:00',
+export const idCheck: IdentityCheckModel = {
+  id: 'RPT19000104',
+  contactId: 'AYL19000001',
+  created: '0001-01-01T00:00:00.0000000',
+  modified: '2019-12-13T05:41:45.0000000Z',
+  checkDate: '0001-01-01T00:00:00.0000000',
   status: 'pass',
   negotiatorId: 'LJW',
-  document1: {
-    typeId: 'PP',
-    expiry: '2020-07-03T23:00:00',
-    details: '123123',
+  identityDocument1: {
+    documentId: null,
+    typeId: 'TX',
+    expiry: '2020-02-07',
+    details: 'Hshs',
   },
-  document2: {
-    typeId: 'BB',
-    expiry: '2020-01-12T00:00:00',
-    details: 'ID Reference',
+  identityDocument2: {
+    documentId: null,
+    typeId: 'CI',
+    expiry: '2019-12-21',
+    details: 'a',
   },
-  metadata: {
-    primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
-    secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png',
-  },
+  metadata: null,
+  _eTag: '"51F8EECB09FB89903C42CAB63E3D5D0C"',
   _links: {
     self: {
-      href: '/identityChecks/RPT19000083',
+      href: '/identityChecks/RPT19000104',
     },
     contact: {
-      href: '/contacts/MKC13000122',
+      href: '/contacts/AYL19000001',
     },
-    identityDocument1Type: {
-      href: '/configuration/identityDocumentTypes/PP',
+    documentType1: {
+      href: '/configuration/identityDocumentTypes/TX',
     },
-    identityDocument2Type: {
-      href: '/configuration/identityDocumentTypes/BB',
+    documentType2: {
+      href: '/configuration/identityDocumentTypes/CI',
     },
   },
+  _embedded: null,
 }
