@@ -203,7 +203,10 @@ describe('checklist-detail', () => {
           contact: {
             primaryAddress: contact.primaryAddress,
             secondaryAddress: contact.secondaryAddress,
-            metadata: contact.metadata,
+            metadata: contact.metadata || {
+              primaryIdUrl: undefined,
+              secondaryIdUrl: undefined,
+            },
           },
         } as ContactModel,
       })
@@ -244,7 +247,10 @@ describe('checklist-detail', () => {
           contact: {
             primaryAddress: contact.primaryAddress,
             secondaryAddress: contact.secondaryAddress,
-            metadata: contact.metadata,
+            metadata: contact.metadata || {
+              primaryIdUrl: undefined,
+              secondaryIdUrl: undefined,
+            },
           },
         } as ContactModel,
       })
@@ -281,7 +287,14 @@ describe('checklist-detail', () => {
   describe('checklist-detail onUpdateDeclarationAndRisk', () => {
     describe('onHideModal', () => {
       const gen = cloneableGenerator(onUpdateDeclarationAndRisk as any)({
-        data: { contact: { metadata: contact.metadata } },
+        data: {
+          contact: {
+            metadata: contact.metadata || {
+              primaryIdUrl: undefined,
+              secondaryIdUrl: undefined,
+            },
+          },
+        },
       })
       expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -315,7 +328,15 @@ describe('checklist-detail', () => {
     })
     describe('onNextSection', () => {
       const gen = cloneableGenerator(onUpdateDeclarationAndRisk as any)({
-        data: { contact: { metadata: contact.metadata }, nextSection: 'nextSection' },
+        data: {
+          contact: {
+            metadata: contact.metadata || {
+              primaryIdUrl: undefined,
+              secondaryIdUrl: undefined,
+            },
+          },
+          nextSection: 'nextSection',
+        },
       })
       expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -402,9 +423,9 @@ describe('checklist-detail', () => {
     test('api call success', () => {
       const clone = gen.clone()
       const baseValues = {
-        metadata: {
-          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
-          secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png',
+        metadata: contact.metadata || {
+          primaryIdUrl: undefined,
+          secondaryIdUrl: undefined,
         },
         identityDocument1: idCheck.identityDocument1,
         identityDocument2: idCheck.identityDocument2,
@@ -459,9 +480,9 @@ describe('checklist-detail', () => {
     test('api call success', () => {
       const clone = gen.clone()
       const baseValues = {
-        metadata: {
-          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
-          secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png',
+        metadata: idCheck.metadata || {
+          primaryIdUrl: undefined,
+          secondaryIdUrl: undefined,
         },
         identityDocument1: idCheck.identityDocument1,
         identityDocument2: idCheck.identityDocument2,

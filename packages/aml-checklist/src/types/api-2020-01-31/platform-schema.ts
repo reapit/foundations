@@ -1371,7 +1371,7 @@ export interface ContactModel {
      * Gets the ISO-3166 country code associated with the address
      */
     countryId?: string
-  } | null
+  }
   /**
    * Gets a collection of office ids that are related to this contact
    */
@@ -1385,7 +1385,7 @@ export interface ContactModel {
    */
   metadata?: {
     [name: string]: any
-  } | null
+  }
   /**
    * The ETag for the current version of this contact. Used for managing update concurrency
    */
@@ -1397,7 +1397,7 @@ export interface ContactModel {
   }
   readonly _embedded?: {
     [name: string]: any
-  } | null
+  }
 }
 /**
  * Model representing the details of a contacts source
@@ -3489,7 +3489,7 @@ export interface IdentityCheckModel {
     /**
      * Gets the unique identifier of the document
      */
-    documentId?: string | null
+    documentId?: string
     /**
      * Gets the id of the document type that describes this document
      */
@@ -3502,7 +3502,7 @@ export interface IdentityCheckModel {
      * Gets the textual details of the identity document (eg. passport number)
      */
     details?: string
-  } | null
+  }
   /**
    * Gets the details of document two that has been provided for this identity check
    */
@@ -3510,7 +3510,7 @@ export interface IdentityCheckModel {
     /**
      * Gets the unique identifier of the document
      */
-    documentId?: string | null
+    documentId?: string
     /**
      * Gets the id of the document type that describes this document
      */
@@ -3523,13 +3523,13 @@ export interface IdentityCheckModel {
      * Gets the textual details of the identity document (eg. passport number)
      */
     details?: string
-  } | null
+  }
   /**
    * Gets a listing of additional metadata that has been set against this identity check
    */
   metadata?: {
     [name: string]: any
-  } | null
+  }
   /**
    * The ETag for the current version of this identity check. Used for managing update concurrency
    */
@@ -3541,7 +3541,7 @@ export interface IdentityCheckModel {
   }
   readonly _embedded?: {
     [name: string]: any
-  } | null
+  }
 }
 export interface IdentityChecks {
   PageNumber?: number
