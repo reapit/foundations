@@ -2,12 +2,7 @@ import * as React from 'react'
 import { Line } from 'react-chartjs-2'
 import { H4 } from '@reapit/elements'
 import { InstallationModelWithAppName } from '@/components/pages/analytics'
-import {
-  groupInstalledAppsByDate,
-  getChartData,
-  groupAppsByNameAndCount,
-  formatChartLabel,
-} from '@/utils/developer-analytics'
+import { groupInstalledAppsByDate, getChartData, groupAppsByNameAndCount } from '@/utils/developer-analytics'
 
 export interface DeveloperInstallationsChartProps {
   data: Array<InstallationModelWithAppName>
@@ -23,7 +18,9 @@ export const getChartOptions = data => {
           const installedApps = data[tooltipItem.label]
           if (installedApps.length === 0) return 'No App'
           const apps = groupAppsByNameAndCount(installedApps)
-          return formatChartLabel(apps)
+          return Object.values(apps)
+            .map(app => `${app.name}: ${app.count}`)
+            .join('\n')
         },
       },
     },
