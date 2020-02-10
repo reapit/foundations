@@ -1,11 +1,10 @@
 import { ContactAddressModel } from '@reapit/foundations-ts-definitions'
 
-export const combineAdress = (addresses: ContactAddressModel[] | undefined): string => {
+export const combineAdress = (address: ContactAddressModel | undefined): string => {
   let addressCombined = ''
-  if (!addresses || (addresses && addresses.length === 0)) {
+  if (!address) {
     return addressCombined
   }
-  const address = addresses[0]
   if (address.buildingNumber) {
     addressCombined = addressCombined.concat(`${address.buildingNumber}`)
   }

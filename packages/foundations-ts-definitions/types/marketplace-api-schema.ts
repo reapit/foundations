@@ -165,6 +165,10 @@ export interface AppRevisionModel {
    */
   launchUri?: string
   /**
+   * Gets the app revisions redirect uri (or uris) where a user will be redirected to immediately after a successful authentication
+   */
+  redirectUris?: string[]
+  /**
    * Gets the listed status of the app revision
    */
   isListed?: boolean
@@ -257,6 +261,36 @@ export interface AppSummaryModel {
    * Gets the links associated to this model
    */
   readonly links?: LinkModel[]
+}
+/**
+ * Representation of app usage for a specific day
+ */
+export interface AppUsageStatsByDateModel {
+  /**
+   * The date the usage is recorded for
+   */
+  date?: string // date-time
+  /**
+   * The number of requests made by this app on this day
+   */
+  requests?: number // int64
+}
+/**
+ * Representation of a specific apps usage
+ */
+export interface AppUsageStatsModel {
+  /**
+   * The unique app identifier
+   */
+  appId?: string // uuid
+  /**
+   * The total number of requests from this app over the period given
+   */
+  requestsForPeriod?: number // int64
+  /**
+   * Daily breakdown of requests made by this app
+   */
+  usage?: AppUsageStatsByDateModel[]
 }
 /**
  * Approval representation
@@ -357,6 +391,7 @@ export interface CreateAppModel {
    * Sets the apps uri where a user will be redirected to immediately after a successful authentication. Multiple URIs can be passed as a comma separated list
    */
   redirectUris?: string[]
+
   /**
    * Sets the unique identifer of the developer registering the app
    */
@@ -474,6 +509,10 @@ export interface CreateAppRevisionModel {
    * Sets the apps launch uri
    */
   launchUri?: string
+  /**
+   * Sets the apps uri where a user will be redirected to immediately after a successful authentication. Multiple URIs can be passed as a comma separated list
+   */
+  redirectUris?: string[]
   /**
    * Sets the listed status of the app
    * When false, the app will not be visible in marketplace app listings
@@ -853,4 +892,25 @@ export interface UpdateDeveloperModel {
    * Sets the flag specifying if the developer is inactive
    */
   isInactive?: boolean
+}
+/**
+ * Representations of an apps statistics
+ */
+export interface UsageStatsModel {
+  /**
+   * The date to retrieve app statistics from
+   */
+  dateFrom?: string // date-time
+  /**
+   * The date to retrieve app statistics until
+   */
+  dateTo?: string // date-time
+  /**
+   * The total number of requests across all apps given
+   */
+  totalRequestsForPeriod?: number // int64
+  /**
+   * Breakdown of the individual apps usage
+   */
+  appUsage?: AppUsageStatsModel[]
 }

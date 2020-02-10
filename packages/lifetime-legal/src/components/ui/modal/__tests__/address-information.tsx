@@ -6,7 +6,6 @@ import {
   AddressInformation,
   renderForm,
   handleMoreThreeYear,
-  renderExtraForm,
   mapStateToProps,
   mapDispatchToProps,
   AddressInput,
@@ -35,7 +34,8 @@ describe('AddressInformation', () => {
 
   it('renderForm', () => {
     const mockProps = {
-      addresses: contact.addresses,
+      primaryAddress: contact.primaryAddress,
+      secondaryAddress: contact.secondaryAddress,
       isShowMoreThreeYearInput: true,
       setShowMoreThreeYearInput: jest.fn(),
       isSubmitting: false,
@@ -53,41 +53,6 @@ describe('AddressInformation', () => {
     const fn = handleMoreThreeYear(mockProps)
     fn()
     expect(mockProps.setShowMoreThreeYearInput).toBeCalledWith(!mockProps.isShowMoreThreeYearInput)
-  })
-  describe('renderExtraForm', () => {
-    it('should match Snapshot', () => {
-      const mockProps = {
-        isShowMoreThreeYearInput: true,
-        values: contact.addresses[0],
-        index: 0,
-        setFieldValue: jest.fn(),
-      }
-      const component = renderExtraForm(mockProps)
-      const wrapper = shallow(<div>{component}</div>)
-      expect(wrapper).toMatchSnapshot()
-    })
-    it('should return component', () => {
-      const mockProps = {
-        isShowMoreThreeYearInput: true,
-        values: contact.addresses[0],
-        index: 0,
-        setFieldValue: jest.fn(),
-      }
-      const component = renderExtraForm(mockProps)
-      const wrapper = shallow(<div>{component}</div>)
-      expect(wrapper.find('[data-test="address-input"]')).toHaveLength(1)
-    })
-    it('should not return component', () => {
-      const mockProps = {
-        isShowMoreThreeYearInput: false,
-        values: contact.addresses[0],
-        index: 0,
-        setFieldValue: jest.fn(),
-      }
-      const component = renderExtraForm(mockProps)
-      const wrapper = shallow(<div>{component}</div>)
-      expect(wrapper.find('[data-test="address-input"]')).toHaveLength(0)
-    })
   })
 
   describe('mapStateToProps', () => {
@@ -126,17 +91,18 @@ describe('AddressInformation', () => {
     it('should render correctly', () => {
       const mockDispatch = jest.fn()
       const { onHandleSubmit } = mapDispatchToProps(mockDispatch)
-      onHandleSubmit(contact.addresses)
+      onHandleSubmit({
+        primaryAddress: contact.primaryAddress,
+        secondaryAddress: contact.secondaryAddress,
+        metadata: contact.metadata,
+      })
       expect(mockDispatch).toBeCalled()
     })
   })
 
   describe('AddressInput', () => {
     it('should render correctly', () => {
-      const mockProps = {
-        index: 0,
-      }
-      const wrapper = shallow(<AddressInput {...mockProps} />)
+      const wrapper = shallow(<AddressInput addressType="primaryAddress" />)
       expect(wrapper).toMatchSnapshot()
     })
   })

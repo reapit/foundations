@@ -1,13 +1,14 @@
-import { contact, idCheck } from '../__stubs__/contact'
+import { contact } from '../__stubs__/contact'
+import { identityCheck } from '../__stubs__/identity-check'
 import { identityTypes } from '../__stubs__/identity-types'
 
 jest.mock('../api', () => ({
   fetchContact: jest.fn().mockResolvedValue(contact),
-  fetchIdentityCheck: jest.fn().mockResolvedValue(idCheck),
+  fetchIdentityCheck: jest.fn().mockResolvedValue(identityCheck),
   uploadImage: jest.fn().mockResolvedValue({ Url: 'mockUrl' }),
   updateContact: jest.fn().mockResolvedValue(contact),
-  updateIdentityCheck: jest.fn().mockResolvedValue(idCheck),
-  createIdentityCheck: jest.fn().mockResolvedValue(idCheck),
+  updateIdentityCheck: jest.fn().mockResolvedValue(identityCheck),
+  createIdentityCheck: jest.fn().mockResolvedValue(identityCheck),
   fetchIdentityDocumentTypes: jest.fn().mockResolvedValue(identityTypes),
 }))
 
@@ -44,7 +45,7 @@ describe('checklist-detail', () => {
         contactId: '1',
       }
       const result = await fetchIdentityCheck(mockParams)
-      expect(result).toEqual(idCheck)
+      expect(result).toEqual(identityCheck)
     })
   })
 
@@ -76,11 +77,11 @@ describe('checklist-detail', () => {
     it('should return resolve', async () => {
       const mockParams = {
         contactId: 'test',
-        identityChecks: idCheck,
+        identityCheck,
         headers: mockHeaders,
       }
       const result = await updateIdentityCheck(mockParams)
-      expect(result).toEqual(idCheck)
+      expect(result).toEqual(identityCheck)
     })
   })
 
@@ -88,11 +89,11 @@ describe('checklist-detail', () => {
     it('should return resolve', async () => {
       const mockParams = {
         contactId: 'test',
-        identityChecks: idCheck,
+        identityChecks: identityCheck,
         headers: mockHeaders,
       }
       const result = await createIdentityCheck(mockParams)
-      expect(result).toEqual(idCheck)
+      expect(result).toEqual(identityCheck)
     })
   })
 

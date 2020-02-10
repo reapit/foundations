@@ -8,7 +8,7 @@ import { Pagination, Table, Button, H3, Info, H6, FlexContainerResponsive, FlexC
 import { resultRequestData, ContactsParams } from '@/actions/results'
 import Routes from '@/constants/routes'
 import styles from '@/styles/pages/results.scss?mod'
-import { ContactModel } from '@reapit/foundations-ts-definitions'
+import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 
 export interface ResultMappedActions {
   fetchContacts: (params: ContactsParams) => void
@@ -34,7 +34,9 @@ export const handleRedirectToRow = (history, row) => () => history.push(`${Route
 
 export type RowProps = {
   row: {
-    original: ContactModel
+    original: ContactModel & {
+      identityCheck: IdentityCheckModel
+    }
   }
 }
 
@@ -44,8 +46,7 @@ export const renderAddress = ({ row }: RowProps) => {
     buildingNumber,
     line1,
     line2,
-    // @ts-ignore #49 Breaking changes to API
-  }))(row?.original?.addresses?.[0] || {})
+  }))(row?.original?.primaryAddress || {})
 
   return (
     <div>
@@ -59,8 +60,7 @@ export const renderAddress = ({ row }: RowProps) => {
 }
 
 export const renderPostCode = ({ row }: RowProps) => {
-  // @ts-ignore #49 Breaking changes to API
-  const postcode = row?.original?.addresses?.[0]?.postcode
+  const postcode = row?.original?.primaryAddress?.postcode
   return (
     <div>
       <span>{postcode}</span>
@@ -69,7 +69,6 @@ export const renderPostCode = ({ row }: RowProps) => {
 }
 
 export const renderStatus = ({ row }: RowProps) => {
-  // @ts-ignore #49 Breaking changes to API
   const checkValue = row.original.identityCheck
   return (
     <div>
