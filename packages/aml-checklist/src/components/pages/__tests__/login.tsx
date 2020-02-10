@@ -1,25 +1,19 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import {
-  Login,
-  LoginProps,
-  renderForm,
-  onSubmitHandler,
-  LoginFormValues,
-  mapStateToProps,
-  mapDispatchToProps,
-  resetSubmitting,
-} from '@/components/pages/login'
+import { Login, LoginProps, mapStateToProps } from '@/components/pages/login'
 import { ReduxState } from '@/types/core'
-import { LoginParams } from '@reapit/cognito-auth'
+import { redirectToLogin } from '@reapit/cognito-auth'
+import { Button } from '@reapit/elements'
 
 const props = (hasSession: boolean): LoginProps => ({
-  error: false,
   hasSession,
-  login: jest.fn(),
   // @ts-ignore: just pick the needed props for the test
   history: {},
 })
+
+jest.mock('@reapit/cognito-auth', () => ({
+  redirectToLogin: jest.fn(),
+}))
 
 describe('Login', () => {
   it('should match a snapshot', () => {
@@ -30,36 +24,19 @@ describe('Login', () => {
     expect(shallow(<Login {...props(true)} />)).toMatchSnapshot()
   })
 
-  describe('renderForm', () => {
-    it('should match a snapshot when ERROR true', () => {
-      const fn = renderForm({ isSubmitting: false, error: true })()
-      expect(fn).toMatchSnapshot()
-    })
+  describe('loginHandler', () => {
+    it('should correctly call redirect on click', () => {
+      const props: LoginProps = {
+        hasSession: false,
+      }
+      const wrapper = shallow(<Login {...props} />)
 
-    it('should match a snapshot when ERROR true', () => {
-      const fn = renderForm({ isSubmitting: false, error: false })()
-      expect(fn).toMatchSnapshot()
-    })
-  })
+      wrapper
+        .find(Button)
+        .first()
+        .simulate('click')
 
-  describe('onSubmitHandler', () => {
-    const mockProps = {
-      setIsSubmitting: jest.fn(),
-      login: jest.fn(),
-    }
-    const mockValues = {} as LoginFormValues
-    it('should run correctly', () => {
-      onSubmitHandler(mockProps)(mockValues)
-      expect(mockProps.setIsSubmitting).toBeCalledWith(true)
-      expect(mockProps.login).toBeCalledWith({ ...mockValues, loginType: 'CLIENT' })
-    })
-  })
-
-  describe('resetSubmitting', () => {
-    const setIsSubmitting = jest.fn()
-    it('should run correctly', () => {
-      resetSubmitting(true, setIsSubmitting)()
-      expect(setIsSubmitting).toBeCalledWith(false)
+      expect(redirectToLogin).toHaveBeenCalledTimes(1)
     })
   })
 
@@ -70,23 +47,26 @@ describe('Login', () => {
         auth: {
           refreshSession: null,
           loginSession: null,
-          error: false,
         },
       } as ReduxState
       const result = mapStateToProps(mockState)
       expect(result).toEqual({
         hasSession: false,
-        error: false,
       })
     })
-  })
 
-  describe('mapDispatchToProps', () => {
-    it('should render correctly', () => {
-      const mockDispatch = jest.fn()
-      const { login } = mapDispatchToProps(mockDispatch)
-      login({} as LoginParams)
-      expect(mockDispatch).toBeCalled()
+    it('should run correctly', () => {
+      // @ts-ignore: only pick necessary props
+      const mockState = {
+        auth: {
+          refreshSession: {},
+          loginSession: null,
+        },
+      } as ReduxState
+      const result = mapStateToProps(mockState)
+      expect(result).toEqual({
+        hasSession: true,
+      })
     })
   })
 })
