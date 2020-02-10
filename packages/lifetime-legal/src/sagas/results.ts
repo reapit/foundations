@@ -5,17 +5,13 @@ import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/actions/results'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { mapIdentitiesToContacts } from '@/utils/map-identities-to-contacts'
-import { fetchContacts, fetchIdentitiesCheck } from './api'
+import { fetchContacts } from './api'
 
 export const resultFetch = function*(params: Action<ContactsParams>) {
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
     const responseContacts = yield call(fetchContacts, { headers, params })
-    const listContactId = responseContacts._embedded.map(({ id }) => id)
-    const responseIdentities = yield call(fetchIdentitiesCheck, { headers, listContactId })
-    const responseContactsWithStatus = mapIdentitiesToContacts(responseContacts, responseIdentities)
-    yield put(resultReceiveData(responseContactsWithStatus))
+    yield put(resultReceiveData(responseContacts))
   } catch (err) {
     yield put(resultRequestDataFailure())
     yield put(

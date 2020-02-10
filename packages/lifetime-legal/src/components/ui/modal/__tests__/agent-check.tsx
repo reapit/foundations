@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { renderOptions, AgentCheck, renderForm, mapStateToProps, mapDispatchToProps } from '../agent-check'
-import { idCheck } from '@/sagas/__stubs__/contact'
+import { identityCheck } from '@/sagas/__stubs__/identity-check'
 import { ReduxState } from '@/types/core'
 
 describe('agent-check', () => {
@@ -23,7 +23,7 @@ describe('agent-check', () => {
         isSubmitting: true,
         onPrevHandler: jest.fn(),
         onHandleSubmit: jest.fn(),
-        idCheck,
+        identityCheck: identityCheck,
         isDisabledSubmit: false,
       }
       const wrapper = shallow(<AgentCheck {...mockProps} />)
@@ -50,14 +50,14 @@ describe('agent-check', () => {
         checklistDetail: {
           isSubmitting: true,
           checklistDetailData: {
-            idCheck,
+            idCheck: identityCheck,
           },
         },
       } as ReduxState
       const expected = {
         isSubmitting: true,
         isDisabledSubmit: false,
-        idCheck,
+        identityCheck: identityCheck,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)
@@ -70,14 +70,14 @@ describe('agent-check', () => {
         checklistDetail: {
           isSubmitting: true,
           checklistDetailData: {
-            idCheck,
+            idCheck: identityCheck,
           },
         },
       } as any
       const expected = {
         isSubmitting: true,
         isDisabledSubmit: false,
-        idCheck,
+        identityCheck: identityCheck,
       }
       const result = mapStateToProps(mockState)
       expect(result).toEqual(expected)

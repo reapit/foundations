@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Input, DatePicker, Formik, Form } from '@reapit/elements'
-// @ts-ignore #49 Breaking changes to API
-import { ContactCommunicationModel, ContactAddressModel, ContactModel } from '@reapit/foundations-ts-definitions'
+import { ContactAddressModel, ContactModel } from '@reapit/foundations-ts-definitions'
 
 export const renderForm = () => () => {
   return (
@@ -9,37 +8,18 @@ export const renderForm = () => () => {
       <Input type="text" labelText="Name" id="name" name="name" />
       <DatePicker labelText="Date Of Birth" id="dateOfBirth" name="dateOfBirth" />
       <Input type="text" labelText="Address" id="address" name="address" />
-      <Input type="text" labelText="Home" id="home" name="home" />
-      <Input type="text" labelText="Mobile" id="mobile" name="mobile" />
+      <Input type="text" labelText="Home" id="homePhone" name="homePhone" />
+      <Input type="text" labelText="Mobile" id="mobilePhone" name="mobilePhone" />
       <Input type="email" labelText="Email" id="email" name="email" />
     </Form>
   )
 }
 
-export const filterCommunication = (
-  communications: ContactCommunicationModel[] | undefined,
-  type: 'Home' | 'Mobile' | 'Work' | 'E-Mail',
-) => {
-  if (!communications) {
-    return null
-  }
-  const newCommunication: ContactCommunicationModel | undefined = communications.find(
-    (communication: ContactCommunicationModel) => {
-      return communication.label === type
-    },
-  )
-  if (newCommunication) {
-    return newCommunication.detail
-  }
-  return null
-}
-
-export const combineAdress = (addresses: ContactAddressModel[] | undefined): string => {
+export const combineAdress = (address: ContactAddressModel | undefined): string => {
   let addressCombined = ''
-  if (!addresses || (addresses && addresses.length === 0)) {
+  if (!address) {
     return addressCombined
   }
-  const address = addresses[0]
   if (address.buildingNumber) {
     addressCombined = addressCombined.concat(`${address.buildingNumber}`)
   }
@@ -92,17 +72,13 @@ export const PersonalDetails = ({ contact }: PersonalDetailsProps) => {
         initialValues={{
           name: `${contact.title} ${contact.forename} ${contact.surname}`,
           dateOfBirth: contact.dateOfBirth ? new Date(contact.dateOfBirth) : null,
-          // @ts-ignore #49 Breaking changes to API
-          address: combineAdress(contact.addresses),
-          // @ts-ignore #49 Breaking changes to API
-          home: filterCommunication(contact.communications, 'Home'),
-          // @ts-ignore #49 Breaking changes to API
-          mobile: filterCommunication(contact.communications, 'Mobile'),
-          // @ts-ignore #49 Breaking changes to API
-          email: filterCommunication(contact.communications, 'E-Mail'),
+          address: combineAdress(contact.primaryAddress),
+          homePhone: contact.homePhone,
+          mobilePhone: contact.mobilePhone,
+          email: contact.email,
         }}
         onSubmit={values => {
-          console.log(values)
+          console.log(values) // TODO: will check this one again
         }}
       >
         {renderForm()}
@@ -114,7 +90,7 @@ export const PersonalDetails = ({ contact }: PersonalDetailsProps) => {
           variant="primary"
           onClick={() => {
             return null
-          }}
+          }} // TODO: will check this one again
         >
           Submit
         </Button>

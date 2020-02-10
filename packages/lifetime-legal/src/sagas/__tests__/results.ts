@@ -5,21 +5,17 @@ import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/a
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 import { contacts } from '../__stubs__/contacts'
-import { identities } from '../__stubs__/identities'
 import { errorThrownServer } from '@/actions/error'
 import errorMessages from '@/constants/error-messages'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
-import { mapIdentitiesToContacts } from '../../utils/map-identities-to-contacts'
-import { fetchContacts, fetchIdentitiesCheck } from '../api'
+import { fetchContacts } from '../api'
+import { API_VERSION } from '@/constants/api'
 
 jest.mock('../../core/store')
 
-jest.mock('../../utils/map-identities-to-contacts', () => ({
-  mapIdentitiesToContacts: jest.fn().mockReturnValue('mappedData'),
-}))
-
 const mockHeaders = {
   Authorization: '123',
+  'api-version': API_VERSION,
 }
 
 const params: Action<ContactsParams> = {
@@ -37,12 +33,7 @@ describe('result fetch data', () => {
 
   it('api call sucessfully', () => {
     const clone = gen.clone()
-    const listContactId = contacts._embedded.map(({ id }) => id)
-    expect(clone.next(contacts as any).value).toEqual(
-      call(fetchIdentitiesCheck, { headers: mockHeaders, listContactId }),
-    )
-    expect(clone.next(identities).value).toEqual(put(resultReceiveData('mappedData' as any)))
-    expect(mapIdentitiesToContacts).toHaveBeenCalledWith(contacts, identities)
+    expect(clone.next(contacts).value).toEqual(put(resultReceiveData(contacts)))
     expect(clone.next().done).toEqual(true)
   })
 

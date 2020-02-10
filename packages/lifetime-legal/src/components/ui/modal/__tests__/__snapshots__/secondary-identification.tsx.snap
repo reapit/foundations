@@ -4,89 +4,70 @@ exports[`SecondaryIdentification SecondaryIdentification should match snapshot 1
 <Component
   contactModel={
     Object {
-      "active": true,
-      "addresses": Array [
-        Object {
-          "buildingName": "Tilbrook Farm",
-          "buildingNumber": "",
-          "countryId": "",
-          "line1": "Station Road",
-          "line2": "Bow Brickhill",
-          "line3": "Milton Keynes",
-          "line4": "Buckinghamshire",
-          "postcode": "MK17 9JU",
-          "type": "primary",
+      "_eTag": "9CBE436919C6BE89A8642BC70A7CFAEE",
+      "_embedded": Object {},
+      "_links": Object {
+        "documents": Object {
+          "href": "/documents/?ownerType=contact&ownerId=MKC16000007",
         },
-      ],
-      "communications": Array [
-        Object {
-          "detail": "01632 961556",
-          "label": "Home",
+        "identityChecks": Object {
+          "href": "/identityChecks/?contactId=MKC16000007",
         },
-        Object {
-          "detail": "07700 901556",
-          "label": "Mobile",
+        "negotiators": Object {
+          "href": "/negotiators/?id=RMK",
         },
-        Object {
-          "detail": "020 7946 1556",
-          "label": "Work",
+        "offices": Object {
+          "href": "/offices/?id=MKC",
         },
-        Object {
-          "detail": "schadwick512@rpsfiction.net",
-          "label": "E-Mail",
+        "self": Object {
+          "href": "/contacts/MKC16000007",
         },
-      ],
-      "created": "2019-05-12T17:05:19",
-      "forename": "Saoirse",
-      "id": "MKC16000098",
-      "identityCheck": "unchecked",
-      "marketingConsent": "notAsked",
-      "metadata": Object {
-        "addresses": Array [
-          Object {
-            "documentImage": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/primary-176cde-123-N19 4JF.jpg",
-            "documentType": "Current Benefits Agency letter",
-            "month": "6",
-            "year": "1911",
-          },
-        ],
-        "primaryId": Array [
-          Object {
-            "documents": Array [
-              Object {
-                "details": "1123",
-                "expiry": "2019-10-15T10:00:00Z",
-                "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-1123.jpg",
-                "typeId": "CR",
-              },
-            ],
-          },
-        ],
-        "secondaryId": Array [
-          Object {
-            "documents": Array [
-              Object {
-                "details": "123",
-                "expiry": "2019-10-10T00:00:00Z",
-                "fileUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/MKC16000007-123(2).jpg",
-                "typeId": "PP",
-              },
-            ],
-          },
-        ],
       },
-      "relationships": Array [
-        Object {
-          "id": "RMK",
-          "type": "negotiator",
-        },
-        Object {
-          "id": "MKC",
-          "type": "office",
-        },
+      "active": true,
+      "created": "2019-03-27T12:31:21.0000000Z",
+      "dateOfBirth": "2019-11-22",
+      "email": "cphilip133@rpsfiction.net",
+      "forename": "Carson",
+      "homePhone": "01632 968347",
+      "id": "MKC16000007",
+      "identityCheck": "pending",
+      "marketingConsent": "notAsked",
+      "metadata": Object {},
+      "mobilePhone": "07700 908347",
+      "modified": "2020-01-14T09:55:50.0000000Z",
+      "negotiatorIds": Array [
+        "RMK",
       ],
-      "surname": "Chadwick",
-      "title": "Ms",
+      "officeIds": Array [
+        "MKC",
+      ],
+      "primaryAddress": Object {
+        "buildingName": "123",
+        "buildingNumber": "1",
+        "countryId": "GB",
+        "line1": "Harcourt Close",
+        "line2": "Leighton Buzzard",
+        "line3": "Bedfordshire",
+        "line4": "123123",
+        "postcode": "LU7 2ST",
+        "type": "primary",
+      },
+      "secondaryAddress": Object {
+        "buildingName": "123",
+        "buildingNumber": "1",
+        "countryId": "GB",
+        "line1": "Harcourt Close",
+        "line2": "Leighton Buzzard",
+        "line3": "Bedfordshire",
+        "line4": "123123",
+        "postcode": "LU7 2ST",
+        "type": "secondary",
+      },
+      "source": "",
+      "surname": "Philip",
+      "title": "Mr",
+      "workAddress": "",
+      "workPhone": "020 7946 8347",
     }
   }
   disabled={true}

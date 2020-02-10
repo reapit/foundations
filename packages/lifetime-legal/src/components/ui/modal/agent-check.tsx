@@ -2,8 +2,7 @@ import React from 'react'
 import { SelectBox, DatePicker, SelectBoxOptions, Button, Input, RadioSelect, Formik, Form } from '@reapit/elements'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
-// @ts-ignore #49 Breaking changes to API
-import { ContactIdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { Dispatch } from 'redux'
 import { checkListDetailAgentCheckUpdateData } from '@/actions/checklist-detail'
 
@@ -150,10 +149,10 @@ export type AgentCheckProps = DispatchProps & StateProps
 export const AgentCheck: React.FC<AgentCheckProps> = ({
   isSubmitting,
   onHandleSubmit,
-  idCheck,
+  identityCheck,
   isDisabledSubmit,
 }: AgentCheckProps) => {
-  const agentCheck = idCheck?.metadata || {}
+  const agentCheck = identityCheck?.metadata || {}
   return (
     <Formik
       initialValues={{
@@ -168,16 +167,15 @@ export const AgentCheck: React.FC<AgentCheckProps> = ({
 
 export type StateProps = {
   isSubmitting: boolean
-  idCheck: ContactIdentityCheckModel
+  identityCheck: IdentityCheckModel
   isDisabledSubmit: boolean
 }
 
 export const mapStateToProps = (state: ReduxState): StateProps => {
-  const MINIMUM_DOCUMENT = 1
   return {
     isSubmitting: state?.checklistDetail?.isSubmitting || false,
-    idCheck: state?.checklistDetail?.checklistDetailData?.idCheck || {},
-    isDisabledSubmit: (state?.checklistDetail?.checklistDetailData?.idCheck?.documents || []).length < MINIMUM_DOCUMENT,
+    identityCheck: state?.checklistDetail?.checklistDetailData?.idCheck || {},
+    isDisabledSubmit: !state?.checklistDetail?.checklistDetailData?.idCheck?.identityDocument1,
   }
 }
 

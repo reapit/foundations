@@ -132,15 +132,15 @@ export interface ApplicantContactAddressModel {
   countryId?: string
 }
 /**
- * A summarised view of the details of a contact associated to an applicant
+ * A summarised view of the details of a contact or company associated to an applicant
  */
 export interface ApplicantContactModel {
   /**
-   * The unique identifier of the contact
+   * The unique identifier of the contact or company
    */
   id?: string
   /**
-   * The name of the contact
+   * The name of the contact or company
    */
   name?: string
   /**
@@ -148,23 +148,23 @@ export interface ApplicantContactModel {
    */
   type?: string
   /**
-   * The home phone number of the contact
+   * The home phone number of the contact or company
    */
   homePhone?: string
   /**
-   * The work phone number of the contact
+   * The work phone number of the contact or company
    */
   workPhone?: string
   /**
-   * The mobile phone number of the contact
+   * The mobile phone number of the contact or company
    */
   mobilePhone?: string
   /**
-   * The email address of the contact
+   * The email address of the contact or company
    */
   email?: string
   /**
-   * The primary address of the contact
+   * The primary address of the contact or company
    */
   primaryAddress?: {
     /**
@@ -201,6 +201,9 @@ export interface ApplicantContactModel {
     countryId?: string
   }
 }
+/**
+ * Representation of a relationship between an applicant and a contact or company
+ */
 export interface ApplicantContactRelationshipModel {
   /**
    * The unique identifier of the applicant relationship
@@ -219,11 +222,11 @@ export interface ApplicantContactRelationshipModel {
    */
   applicantId?: string
   /**
-   * The type of related entity
+   * The type of related entity (contact/company)
    */
   associatedType?: string
   /**
-   * The unique identifier of the related entity
+   * The unique identifier of the related contact or company
    */
   associatedId?: string
   /**
@@ -290,7 +293,7 @@ export interface ApplicantModel {
    */
   marketingMode?: string
   /**
-   * The ISO-4217 currency code that relates to monetary amounts specified by this applicant
+   * The ISO-4217 currency code that relates to monetary amounts specified by the applicant
    */
   currency?: string
   /**
@@ -310,11 +313,11 @@ export interface ApplicantModel {
    */
   nextCall?: string // date-time
   /**
-   * The unique identifier of the department that the applicant requirements are associated with. This applicant will only match to properties with the same value
+   * The unique identifier of the department that the applicant requirements are associated with. The applicant will only match to properties with the same value
    */
   departmentId?: string
   /**
-   * The unique identifier of the solicitor associated to this applicant
+   * The unique identifier of the solicitor associated to the applicant
    */
   solicitorId?: string
   /**
@@ -366,11 +369,11 @@ export interface ApplicantModel {
    */
   bathroomsMax?: number // int32
   /**
-   * The applicants location type (areas/addresses/none)
+   * The applicant's location type (areas/addresses/none)
    */
   locationType?: string
   /**
-   * The applicants location options
+   * The applicant's location options
    */
   locationOptions?: string[]
   /**
@@ -446,36 +449,36 @@ export interface ApplicantModel {
     amount?: number // double
   }
   /**
-   * Gets the applicants source information
+   * The source of the applicant
    */
   source?: {
     /**
-     * Gets the unique identifier of the applicants source
+     * The unique identifier of the applicant's source
      */
     id?: string
     /**
-     * Gets the applicants source type
+     * The source type (office/source)
      */
     type?: string
   }
   /**
-   * A collection of office unique identifiers that are associated to the applicant. The first identifier listed is considered to be the primary office
+   * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
-   * A collection of negotiator unique identifiers that are associated to the applicant. The first identifier listed is considered to be the primary negotiator
+   * A collection of unique identifiers of negotiators attached to the applicant. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
   /**
-   * A collection of summarised contacts attached to the applicant. The first contact listed is considered to be the primary contact
+   * A collection of contacts and/or companies associated to the applicant. The first item in the collection is considered the primary relationship
    */
   related?: {
     /**
-     * The unique identifier of the contact
+     * The unique identifier of the contact or company
      */
     id?: string
     /**
-     * The name of the contact
+     * The name of the contact or company
      */
     name?: string
     /**
@@ -483,23 +486,23 @@ export interface ApplicantModel {
      */
     type?: string
     /**
-     * The home phone number of the contact
+     * The home phone number of the contact or company
      */
     homePhone?: string
     /**
-     * The work phone number of the contact
+     * The work phone number of the contact or company
      */
     workPhone?: string
     /**
-     * The mobile phone number of the contact
+     * The mobile phone number of the contact or company
      */
     mobilePhone?: string
     /**
-     * The email address of the contact
+     * The email address of the contact or company
      */
     email?: string
     /**
-     * The primary address of the contact
+     * The primary address of the contact or company
      */
     primaryAddress?: {
       /**
@@ -537,13 +540,13 @@ export interface ApplicantModel {
     }
   }[]
   /**
-   * A listing of app specific metadata that has been set against this applicant
+   * App specific metadata that has been set against the applicant
    */
   metadata?: {
     [name: string]: any
   }
   /**
-   * The ETag for the current version of this applicant. Used for managing update concurrency
+   * The ETag for the current version of the applicant. Used for managing update concurrency
    */
   readonly _eTag?: string
   readonly _links?: {
@@ -585,21 +588,21 @@ export interface ApplicantRentingModel {
   furnishing?: string[]
 }
 /**
- * Model representing the details of a applicants source
+ * An applicant's source of enquiry
  */
 export interface ApplicantSourceModel {
   /**
-   * Gets the unique identifier of the applicants source
+   * The unique identifier of the applicant's source
    */
   id?: string
   /**
-   * Gets the applicants source type
+   * The source type (office/source)
    */
   type?: string
 }
 export interface Applicants {
-  PageNumber?: number
   PageSize?: number
+  PageNumber?: number
   SortBy?: string
   Id?: string[]
   NegotiatorId?: string[]
@@ -651,30 +654,30 @@ export interface Applicants {
     | 'townhouse'
     | 'developmentPlot'
   )[]
-  MarketingMode?: ('buying' | 'renting')[]
+  MarketingMode?: ('selling' | 'letting' | 'sellingAndLetting')[]
 }
 /**
- * Represents an appointments attendee.
+ * An appointment attendee
  */
 export interface AppointmentAttendeeModel {
   /**
-   * The unique identifier of the attendee.
+   * The unique identifier of the attendee
    */
   id?: string
   /**
-   * The type of attendee.
+   * The type of attendee
    */
   type?: string
   /**
-   * The contacts of this attendee.
+   * A collection of contacts relating to the attendee
    */
   contacts?: {
     /**
-     * The identifier of the contact.
+     * The unique identifier of the contact
      */
     id?: string
     /**
-     * The name of the contact.
+     * The name of the contact
      */
     name?: string
     /**
@@ -696,15 +699,15 @@ export interface AppointmentAttendeeModel {
   }[]
 }
 /**
- * Represents an appointments contact.
+ * A summarised view of the details of a contact associated to an appointment attendee
  */
 export interface AppointmentContactModel {
   /**
-   * The identifier of the contact.
+   * The unique identifier of the contact
    */
   id?: string
   /**
-   * The name of the contact.
+   * The name of the contact
    */
   name?: string
   /**
@@ -725,121 +728,117 @@ export interface AppointmentContactModel {
   email?: string
 }
 /**
- * Represents appointment follow up data.
+ * Follow up information relating to an appointment
  */
 export interface AppointmentFollowUpModel {
   /**
-   * The date when the appointment should be followed up on.
+   * The date when the appointment should be followed up
    */
   due?: string // date-time
   /**
-   * The unique identifier of a pre-defined follow up response type.
+   * The unique identifier of a pre-defined follow up response type
    */
   responseId?: string
   /**
-   * The internal follow up notes to be stored against the appointment.
+   * Free text internal follow up notes to be stored against the appointment
    */
   notes?: string
 }
 /**
- * Represents a calendar appointment.
+ * Representation of a calendar appointment
  */
 export interface AppointmentModel {
   /**
-   * The appointments unique identifier.
+   * The unique identifier of the appointment
    */
   id?: string
   /**
-   * The datetime when the appointment was created.
+   * The date and time when the appointment was created
    */
   created?: string // date-time
   /**
-   * The date and time when the appointment was last modified.
+   * The date and time when the appointment was last modified
    */
   modified?: string // date-time
   /**
-   * The date and time when the appointment will start.
+   * The date and time when the appointment will start
    */
   start?: string // date-time
   /**
-   * The date and time when the appointment will end.
+   * The date and time when the appointment will end
    */
   end?: string // date-time
   /**
-   * The type of appointment.
+   * The unique identifier of the appointment type
    */
   typeId?: string
   /**
-   * The appointment description.
+   * A free text description about the appointment
    */
   description?: string
   /**
-   * The directions to the appointment location.
-   */
-  directions?: string
-  /**
-   * A flag denoting whether or not the appointment recurs.
+   * A flag denoting whether or not the appointment recurs
    */
   recurring?: boolean
   /**
-   * A flag denoting whether or not the appointment is cancelled.
+   * A flag denoting whether or not the appointment has been cancelled
    */
   cancelled?: boolean
   /**
-   * The appointments follow up information.
+   * Follow up information relating to the appointment
    */
   followUp?: {
     /**
-     * The date when the appointment should be followed up on.
+     * The date when the appointment should be followed up
      */
     due?: string // date-time
     /**
-     * The unique identifier of a pre-defined follow up response type.
+     * The unique identifier of a pre-defined follow up response type
      */
     responseId?: string
     /**
-     * The internal follow up notes to be stored against the appointment.
+     * Free text internal follow up notes to be stored against the appointment
      */
     notes?: string
   }
   /**
-   * The unique identifier of the property related to the appointment.
+   * The unique identifier of the property related to the appointment
    */
   propertyId?: string
   /**
-   * The identifier of the person that organised the appointment.
+   * The unique identifier of the negotiator that organised the appointment
    */
   organiserId?: string
   /**
-   * A collection of negotiators related to the appointment.
+   * A collection of unique identifiers of negotiators attached to the appointment
    */
   negotiatorIds?: string[]
   /**
-   * A collection of offices related to the appointment.
+   * A collection of unique identifiers of offices attached to the appointment
    */
   officeIds?: string[]
   /**
-   * A collection of attendees who are requested to attend the appointment.
+   * An appointment attendee
    */
   attendee?: {
     /**
-     * The unique identifier of the attendee.
+     * The unique identifier of the attendee
      */
     id?: string
     /**
-     * The type of attendee.
+     * The type of attendee
      */
     type?: string
     /**
-     * The contacts of this attendee.
+     * A collection of contacts relating to the attendee
      */
     contacts?: {
       /**
-       * The identifier of the contact.
+       * The unique identifier of the contact
        */
       id?: string
       /**
-       * The name of the contact.
+       * The name of the contact
        */
       name?: string
       /**
@@ -861,29 +860,29 @@ export interface AppointmentModel {
     }[]
   }
   /**
-   * A flag denoting whether or not the appointment is accompanied.
+   * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
    */
   accompanied?: boolean
   /**
-   * A flag denoting whether or not the negotiator is confirmed.
+   * A flag denoting whether or not the main negotiator has confirmed their attendance
    */
   negotiatorConfirmed?: boolean
   /**
-   * A flag denoting whether or not the attendee is confirmed.
+   * A flag denoting whether or not the attendee has confirmed their attendance
    */
   attendeeConfirmed?: boolean
   /**
-   * A flag denoting whether or not the property is confirmed.
+   * A flag denoting whether or not the property and/or property's vendor has confirmed their attendance
    */
   propertyConfirmed?: boolean
   /**
-   * A listing of additional metadata that has been set against this appointment.
+   * App specific metadata that has been set against the appointment
    */
   metadata?: {
     [name: string]: any
   }
   /**
-   * The ETag for the current version of this appointment. Used for managing update concurrency.
+   * The ETag for the current version of the appointment. Used for managing update concurrency
    */
   readonly _eTag?: string
   readonly _links?: {
@@ -896,8 +895,8 @@ export interface AppointmentModel {
   }
 }
 export interface Appointments {
-  PageNumber?: number
   PageSize?: number
+  PageNumber?: number
   SortBy?: string
   Id?: string[]
   TypeId?: string[]
@@ -911,45 +910,48 @@ export interface Appointments {
   IncludeCancelled?: boolean
   IncludeUnconfirmed?: boolean
 }
+/**
+ * Representation of an area that properties reside in, or applicants are looking to buy/rent in
+ */
 export interface AreaModel {
   /**
-   * Gets the unique identifier
+   * The unique identifier of the area
    */
   id?: string
   /**
-   * Gets the date and time that the contact was created
+   * The date and time when the area was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the contact was last modified
+   * The date and time when the area was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the areas name
+   * The name of the area
    */
   name?: string
   /**
-   * Gets the areas active flag
+   * A flag denoting whether the area can currently be selected against properties and applicants
    */
   active?: boolean
   /**
-   * Gets the areas type (postcodes/polygon/group)
+   * The type of area (postcodes/polygon/group)
    */
   type?: string
   /**
-   * Gets the areas location details (Postcodes, Group names or Lat Longs)
+   * The location details (comma delimited list of postcodes, group ids or lat/long coordinate groups)
    */
   area?: string[]
   /**
-   * Gets the departments linked to this area
+   * A collection of unique identifiers of departments associated to the area
    */
   departmentIds?: string[]
   /**
-   * Gets the offices linked to this area
+   * A collection of unique identifiers of offices associated to the area
    */
   officeIds?: string[]
   /**
-   * The ETag for the current version of this area. Used for managing update concurrency
+   * The ETag for the current version of the area. Used for managing update concurrency
    */
   readonly _eTag?: string
   readonly _links?: {
@@ -962,8 +964,8 @@ export interface AreaModel {
   }
 }
 export interface Areas {
-  PageNumber?: number
   PageSize?: number
+  PageNumber?: number
   SortBy?: string
   Id?: string[]
   DepartmentId?: string[]
@@ -972,8 +974,8 @@ export interface Areas {
   Active?: boolean
 }
 export interface Companies {
-  PageNumber?: number
   PageSize?: number
+  PageNumber?: number
   SortBy?: string
   Id?: string[]
   Address?: string
@@ -984,84 +986,84 @@ export interface Companies {
   CreatedTo?: string
 }
 /**
- * Model representing the physical address of a building or premise
+ * Representation of the physical address of a building or premise
  */
 export interface CompanyAddressModel {
   /**
-   * Gets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Gets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Gets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Gets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Gets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Gets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Gets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Gets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
   country?: string
 }
 /**
- * Model representing the details of a company
+ * Representation of a company
  */
 export interface CompanyModel {
   /**
-   * Gets the unique identifier
+   * The unique identifier of the company
    */
   id?: string
   /**
-   * Gets the date and time that the company was created
+   * The date and time when the company was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the company was last modified
+   * The date and time when the company was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the name of the company
+   * The name of the company
    */
   name?: string
   /**
-   * Gets the branch of the company
+   * The branch name of the company
    */
   branch?: string
   /**
-   * Gets the notes stored against the company
+   * A free text field containing notes that describe the company's business or service offering
    */
   notes?: string
   /**
-   * Gets a flag to indicate if this company has been marked as active
+   * A flag determining whether or not the company is currently active
    */
   active?: boolean
   /**
-   * Gets a flag to indicate if this company is vat registered
+   * A flag determining whether or not the company is VAT registered
    */
   vatRegistered?: boolean
   /**
-   * Gets a list of type ids
+   * A collection of unique identifiers of company types that categorise the type of business the company operates
    */
   typeIds?: string[]
   /**
-   * Gets the supplier type id
+   * The unique identifier of a supplier type, if the company is a supplier
    */
   supplierTypeId?: string
   /**
@@ -1077,50 +1079,50 @@ export interface CompanyModel {
    */
   email?: string
   /**
-   * Gets the address for this company
+   * The address of the company
    */
   address?: {
     /**
-     * Gets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Gets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Gets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Gets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Gets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Gets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Gets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Gets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
     country?: string
   }
   /**
-   * Gets a listing of additional metadata that has been set against this company
+   * App specific metadata that has been set against the company
    */
   metadata?: {
     [name: string]: any
   }
   /**
-   * The ETag for the current version of this company. Used for managing update concurrency
+   * The ETag for the current version of the company. Used for managing update concurrency
    */
   readonly _eTag?: string
   readonly _links?: {
@@ -1136,100 +1138,100 @@ export interface ConfigurationCompanyTypes {
   Id?: string[]
 }
 /**
- * Model representing the physical address of a building or premise
+ * Representation of the physical address of a building or premise
  */
 export interface ContactAddressModel {
   /**
-   * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
+   * The type of address (primary/secondary/home/work/forwarding/company/previous)
    */
   type?: string
   /**
-   * Gets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Gets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Gets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Gets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Gets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Gets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Gets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Gets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides in
    */
   countryId?: string
 }
 /**
- * Model representing the details of a person
+ * Representation of an individual contact
  */
 export interface ContactModel {
   /**
-   * Gets the unique identifier
+   * The unique identifier of the contact
    */
   id?: string
   /**
-   * Gets the date and time that the contact was created
+   * The date and time when the contact was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the contact was last modified
+   * The date and time when the contact was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the title of this contact (eg. Mr, Mrs, Miss, Dr)
+   * The contact's title  (eg. Mr, Mrs, Miss, Dr)
    */
   title?: string
   /**
-   * Gets the forename of this contact
+   * The contact's forename
    */
   forename?: string
   /**
-   * Gets the surname of this contact
+   * The contact's surname
    */
   surname?: string
   /**
-   * Gets the date of birth of this contact
+   * The contact's date of birth
    */
   dateOfBirth?: string // date-time
   /**
-   * Gets a flag to indicate if this contact has been marked as active
+   * A flag determining whether or not the contact is currently active
    */
   active?: boolean
   /**
-   * Gets the marketing consent status of this contact (grant/deny/notAsked)
+   * The marketing consent status of the contact (grant/deny/notAsked)
    */
   marketingConsent?: string
   /**
-   * Gets the status of the last identity check performed against this contact (pass/fail/pending/cancelled/warnings/unchecked)
+   * The status of the last identity check performed against the contact (pass/fail/pending/cancelled/warnings/unchecked)
    */
   identityCheck?: string
   /**
-   * Gets the contacts source information
+   * The source of the contact
    */
   source?: {
     /**
-     * Gets the unique identifier of the contacts source
+     * The unique identifier of the source of the contact
      */
     id?: string
     /**
-     * Gets the contacts source type
+     * The source type (office/source)
      */
     type?: string
   }
@@ -1250,144 +1252,144 @@ export interface ContactModel {
    */
   email?: string
   /**
-   * Gets the contacts primary address
+   * The primary address of the contact
    */
   primaryAddress?: {
     /**
-     * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Gets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Gets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Gets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Gets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Gets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Gets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Gets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Gets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides in
      */
     countryId?: string
   }
   /**
-   * Gets the contacts secondary address
+   * The secondary address of the contact
    */
   secondaryAddress?: {
     /**
-     * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Gets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Gets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Gets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Gets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Gets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Gets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Gets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Gets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides in
      */
     countryId?: string
   }
   /**
-   * Gets the contacts work address
+   * The work address of the contact
    */
   workAddress?: {
     /**
-     * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Gets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Gets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Gets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Gets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Gets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Gets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Gets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Gets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides in
      */
     countryId?: string
   }
   /**
-   * Gets a collection of office ids that are related to this contact
+   * A collection of unique identifiers of offices attached to the contact
    */
   officeIds?: string[]
   /**
-   * Gets a collection of negotiator ids that are related to this contact
+   * A collection of unique identifiers of negotiators attached to the contact
    */
   negotiatorIds?: string[]
   /**
-   * Gets a listing of additional metadata that has been set against this contact
+   * App specific metadata that has been set against the contact
    */
   metadata?: {
     [name: string]: any
   }
   /**
-   * The ETag for the current version of this contact. Used for managing update concurrency
+   * The ETag for the current version of the contact. Used for managing update concurrency
    */
   readonly _eTag?: string
   readonly _links?: {
@@ -1400,31 +1402,31 @@ export interface ContactModel {
   }
 }
 /**
- * Model representing the details of a contacts source
+ * Representation of a contact's source
  */
 export interface ContactSourceModel {
   /**
-   * Gets the unique identifier of the contacts source
+   * The unique identifier of the source of the contact
    */
   id?: string
   /**
-   * Gets the contacts source type
+   * The source type (office/source)
    */
   type?: string
 }
 export interface Contacts {
-  PageNumber?: number
   PageSize?: number
+  PageNumber?: number
   SortBy?: string
   Id?: string[]
   NegotiatorId?: string[]
   OfficeId?: string[]
   Address?: string
-  IdentityCheck?: string
   Name?: string
   Active?: boolean
   CreatedFrom?: string
   CreatedTo?: string
+  IdentityCheck?: ('pass' | 'fail' | 'pending' | 'warnings' | 'unchecked')[]
   MarketingConsent?: ('grant' | 'deny' | 'notAsked')[]
 }
 /**
@@ -1441,11 +1443,11 @@ export interface CreateApplicantBuyingModel {
   priceTo?: number // int32
 }
 /**
- * A relationship between the applicant and a contact
+ * Request body used to create a relationship between an applicant and a contact or company
  */
 export interface CreateApplicantContactRelationshipModel {
   /**
-   * The unique identifier of the contact to create a relationship with
+   * The unique identifier of the contact or company to create a relationship with
    */
   associatedId?: string
   /**
@@ -1484,97 +1486,97 @@ export interface CreateApplicantInternalAreaModel {
   amount?: number // double
 }
 /**
- * Representation of an applicant
+ * Request body used to create a new applicant
  * example:
  * [object Object]
  */
 export interface CreateApplicantModel {
   /**
-   * Sets the marketing mode relating to the buyer (buying / renting)
+   * Indicates whether the applicant is look to buy or rent a property (buying/renting)
    */
   marketingMode?: string
   /**
-   * Sets a flag determining whether or not the applicant is actively looking for property
+   * A flag determining whether or not the applicant is actively looking for a property
    */
   active?: boolean
   /**
-   * Gets the applicant requirement notes
+   * A free text field describing any adhoc buying or renting requirements
    */
   notes?: string
   /**
-   * Sets the date and time that the applicant was last contacted
+   * The date when the applicant was last contacted
    */
   lastCall?: string // date-time
   /**
-   * Sets the date and time that the applicant is next due to be contacted
+   * The date when the applicant is next due to be contacted
    */
   nextCall?: string // date-time
   /**
-   * Sets the id of the department that the applicant requirements are associated with
+   * The unique identifier of the department that the applicant requirements are associated with. The applicant will only match to properties with the same value
    */
   departmentId?: string
   /**
-   * Sets the unique idenfitier of the applicants solicitor
+   * The unique identifier of the solicitor associated to the applicant
    */
   solicitorId?: string
   /**
-   * Sets the property type requirements
+   * A list of property type requirements taken from the full listing of the associated department
    */
   type?: string[]
   /**
-   * Sets the property style requirements
+   * A list of property style requirements taken from the full listing of the associated department
    */
   style?: string[]
   /**
-   * Sets the property situation requirements
+   * A list of property situation requirements taken from the full listing of the associated department
    */
   situation?: string[]
   /**
-   * Sets the property parking requirements
+   * A list of property parking requirements taken from the full listing of the associated department
    */
   parking?: string[]
   /**
-   * Sets the property age requirements
+   * A list of property age requirements taken from the full listing of the associated department
    */
   age?: string[]
   /**
-   * Sets the property locality requirements
+   * A list of property locality requirements taken from the full listing of the associated department
    */
   locality?: string[]
   /**
-   * Sets the minimum number of bedrooms the applicant requires
+   * The minimum number of bedrooms the applicant requires
    */
   bedroomsMin?: number // int32
   /**
-   * Sets the maximum number of bedrooms the applicant requires
+   * The maximum number of bedrooms the applicant requires
    */
   bedroomsMax?: number // int32
   /**
-   * Sets the minimum number of reception rooms the applicant requires
+   * The minimum number of reception rooms the applicant requires
    */
   receptionsMin?: number // int32
   /**
-   * Sets the maximum number of reception rooms the applicant requires
+   * The maximum number of reception rooms the applicant requires
    */
   receptionsMax?: number // int32
   /**
-   * Sets the minimum number of bathrooms the applicant requires
+   * The minimum number of bathrooms the applicant requires
    */
   bathroomsMin?: number // int32
   /**
-   * Sets the maximum number of bathrooms the applicant requires
+   * The maximum number of bathrooms the applicant requires
    */
   bathroomsMax?: number // int32
   /**
-   * Sets the applicants location type (areas/addresses/none)
+   * The applicant's location type (areas/addresses/none)
    */
   locationType?: string
   /**
-   * Sets the applicants location options
+   * The applicant's location options
    */
   locationOptions?: string[]
   /**
-   * Sets the sales specific requirements, if the applicant is looking to buy
+   * The details specific to applicants with a marketingMode of buying
    */
   buying?: {
     /**
@@ -1587,7 +1589,7 @@ export interface CreateApplicantModel {
     priceTo?: number // int32
   }
   /**
-   * Sets the letting specific requirements, if the applicant is looking to rent
+   * The details specific to applicants with a marketingMode of renting
    */
   renting?: {
     /**
@@ -1611,12 +1613,12 @@ export interface CreateApplicantModel {
      */
     rentFrequency?: string
     /**
-     * Sets the applicants furnishing requirements
+     * A list of property furnishing requirements taken from the full listing of the associated department
      */
     furnishing?: string[]
   }
   /**
-   * Sets the applicant's external area requirements
+   * The applicant's outdoor space requirements
    */
   externalArea?: {
     /**
@@ -1633,7 +1635,7 @@ export interface CreateApplicantModel {
     amountTo?: number // double
   }
   /**
-   * Sets the applicant's internal area requirements
+   * The applicant's indoor space requirements
    */
   internalArea?: {
     /**
@@ -1646,33 +1648,32 @@ export interface CreateApplicantModel {
     amount?: number // double
   }
   /**
-   * Sets the applicants source
+   * The source of the applicant
    */
   source?: {
     /**
-     * Sets the unique identifier of the applicants source
+     * The unique identifier of the applicant's source
      */
     id?: string
     /**
-     * Sets the applicants source type
+     * The source type (office/source)
      */
     type?: string
   }
   /**
-   * Sets a collection of office ids that are related to this applicant
+   * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
-   * Sets a collection of negotiator ids that are related to this applicant
+   * A collection of unique identifiers of negotiators attached to the applicant. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
   /**
-   * Sets the collection of new or existing contact entities that
-   * should be attached to the new applicant
+   * A collection of contacts and/or companies associated to the applicant. The first item in the collection is considered the primary relationship
    */
   related?: {
     /**
-     * The unique identifier of the contact to create a relationship with
+     * The unique identifier of the contact or company to create a relationship with
      */
     associatedId?: string
     /**
@@ -1681,7 +1682,7 @@ export interface CreateApplicantModel {
     associatedType?: string
   }[]
   /**
-   * Sets a JSON fragment to attach to this applicant as metadata
+   * App specific metadata to set against the applicant
    */
   metadata?: {
     [name: string]: any
@@ -1712,249 +1713,252 @@ export interface CreateApplicantRentingModel {
    */
   rentFrequency?: string
   /**
-   * Sets the applicants furnishing requirements
+   * A list of property furnishing requirements taken from the full listing of the associated department
    */
   furnishing?: string[]
 }
 /**
- * Model used for creating a applicants source
+ * An applicant's source of enquiry
  */
 export interface CreateApplicantSourceModel {
   /**
-   * Sets the unique identifier of the applicants source
+   * The unique identifier of the applicant's source
    */
   id?: string
   /**
-   * Sets the applicants source type
+   * The source type (office/source)
    */
   type?: string
 }
 /**
- * Represents an appointments attendee.
+ * Represents an external attendee on an appointment
  */
 export interface CreateAppointmentAttendeeModel {
   /**
-   * The identifier of the attendee.
+   * The unique identifier of the attendee
    */
   id?: string
   /**
-   * The type of attendee.
+   * The type of attendee (applicant/contact/landlord/tenant)
    */
   type?: string
 }
 /**
- * Represents a calendar appointment.
+ * Request body used to create a new calendar appointment
+ * example:
+ * [object Object]
  */
 export interface CreateAppointmentModel {
   /**
-   * The date and time when the appointment will start.
+   * The date and time when the appointment will start
    */
   start?: string // date-time
   /**
-   * The date and time when the appointment will end.
+   * The date and time when the appointment will end
    */
   end?: string // date-time
   /**
-   * The date and time when the appointment should be followed up on.
+   * The date and time when the appointment should be followed up
    */
   followUpOn?: string // date-time
   /**
-   * The type of appointment.
+   * The unique identifier of the appointment type
    */
   typeId?: string
   /**
-   * The appointment description.
+   * A free text description about the appointment
    */
   description?: string
   /**
-   * The id of the person that organised the appointment.
+   * The unique identifier of the negotiator that organised the appointment
    */
   organiserId?: string
   /**
-   * The negotiator ids to link the appointment too.
+   * A collection of unique identifiers of negotiators attached to the appointment
    */
   negotiatorIds?: string[]
   /**
-   * The office ids to link the appointment too.
+   * A collection of unique identifiers of offices attached to the appointment
    */
   officeIds?: string[]
   /**
-   * The details of the attendee of the appointment.
+   * Details of the external appointment attendee
    */
   attendee?: {
     /**
-     * The identifier of the attendee.
+     * The unique identifier of the attendee
      */
     id?: string
     /**
-     * The type of attendee.
+     * The type of attendee (applicant/contact/landlord/tenant)
      */
     type?: string
   }
   /**
-   * The property identifier that the appointment takes place at.
+   * The unique identifier of the property related to the appointment
    */
   propertyId?: string
   /**
-   * The flag to specify if the appointment is accompanied.
+   * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
    */
   accompanied?: boolean
   /**
-   * The flag to specify if the negotiator is confirmed.
+   * A flag denoting whether or not the main negotiator has confirmed their attendance
    */
   negotiatorConfirmed?: boolean
   /**
-   * The flag to specify if the attendee is confirmed.
+   * A flag denoting whether or not the attendee has confirmed their attendance
    */
   attendeeConfirmed?: boolean
   /**
-   * Sets the flag to specify if the property is confirmed.
+   * A flag denoting whether or not the property and/or property's vendor has confirmed their attendance
    */
   propertyConfirmed?: boolean
   /**
-   * The recurrence pattern for this appointment.
+   * Details of the recurrence pattern for the appointment
    */
   recurrence?: {
     /**
-     * The numeric value for often this appointment will recur.
+     * The numeric value denoting how often the appointment will recur
      */
     interval?: number // int32
     /**
-     * The type of unit that the interval will apply to.
+     * The type of unit that the `interval` applies to
      */
     type?: string
     /**
-     * The date and time when the appointment will continue to recur until.
+     * The date and time when the recurrence will stop
      */
     until?: string // date-time
   }
   /**
-   * A JSON fragment to attach to this appointment as metadata.
+   * App specific metadata to set against the appointment
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Represents the recurrence details of a new appointment.
+ * Details of an appointment's recurrence pattern
  */
 export interface CreateAppointmentRecurrenceModel {
   /**
-   * The numeric value for often this appointment will recur.
+   * The numeric value denoting how often the appointment will recur
    */
   interval?: number // int32
   /**
-   * The type of unit that the interval will apply to.
+   * The type of unit that the `interval` applies to
    */
   type?: string
   /**
-   * The date and time when the appointment will continue to recur until.
+   * The date and time when the recurrence will stop
    */
   until?: string // date-time
 }
 /**
+ * Request body used to create a new area
  * example:
  * [object Object]
  */
 export interface CreateAreaModel {
   /**
-   * Sets the areas name
+   * The name of the area
    */
   name?: string
   /**
-   * Sets the areas type
+   * The type of area (postcodes/polygon/group)
    */
   type?: string
   /**
-   * Sets the areas area information
+   * The location details (comma delimited list of postcodes, group ids or lat/long coordinate groups)
    */
   area?: string[]
   /**
-   * Sets the areas related deparments
+   * A collection of unique identifiers of departments associated to the area
    */
   departmentIds?: string[]
   /**
-   * Sets the areas related offices
+   * A collection of unique identifiers of offices associated to the area
    */
   officeIds?: string[]
   /**
-   * Sets the areas parent id
+   * The unique identifier of the parent area, if the area should be registered as a child area/group in an existing area group
    */
   parentId?: string
 }
 /**
- * Model to create a company address
+ * Request body to set the address of a new company
  */
 export interface CreateCompanyAddressModel {
   /**
-   * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+   * The type of address (primary/secondary/home/work/forwarding/company/previous)
    */
   type?: string
   /**
-   * Sets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Sets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Sets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Sets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Sets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Sets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Sets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Sets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
   countryId?: string
 }
 /**
- * Model to create a company
+ * Request body used to create a new company
  * example:
  * [object Object]
  */
 export interface CreateCompanyModel {
   /**
-   * Sets the companies name
+   * The name of the company
    */
   name?: string
   /**
-   * Sets the companies branch
+   * The branch name of the company
    */
   branch?: string
   /**
-   * Sets the companies notes
+   * A free text field containing notes that describe the company's business or service offering
    */
   notes?: string
   /**
-   * Sets the active flag against the company
+   * A flag determining whether or not the company is currently active
    */
   active?: boolean
   /**
-   * Sets the vat registered flag against the company
+   * A flag determining whether or not the company is VAT registered
    */
   vatRegistered?: boolean
   /**
-   * Sets the companies list of type ids
+   * A collection of unique identifiers of company types that categorise the type of business the company operates
    */
   typeIds?: string[]
   /**
-   * Sets the supplier type id
+   * The unique identifier of a supplier type, if the company is a supplier
    */
   supplierTypeId?: string
   /**
@@ -1970,134 +1974,134 @@ export interface CreateCompanyModel {
    */
   email?: string
   /**
-   * Sets the address of the company
+   * The address of the company
    */
   address?: {
     /**
-     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
     countryId?: string
   }
   /**
-   * Sets a JSON fragment to attach to this company as metadata
+   * App specific metadata to set against the company
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model to create a contact address
+ * Request body used to set an address against a new contact
  */
 export interface CreateContactAddressModel {
   /**
-   * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+   * The type of address (primary/secondary/home/work/forwarding/company/previous)
    */
   type?: string
   /**
-   * Sets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Sets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Sets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Sets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Sets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Sets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Sets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Sets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides in
    */
   countryId?: string
 }
 /**
- * Model to create a new contact record
+ * Request body used to create a new contact
  * example:
  * [object Object]
  */
 export interface CreateContactModel {
   /**
-   * Sets the title of this contact (eg. Mr, Mrs, Miss, Dr)
+   * The contact's title  (eg. Mr, Mrs, Miss, Dr)
    */
   title?: string
   /**
-   * Sets the forename of this contact
+   * The contact's forename
    */
   forename?: string
   /**
-   * Sets the surname of this contact
+   * The contact's surname
    */
   surname?: string
   /**
-   * Sets the date of birth of this contact
+   * The contact's date of birth
    */
   dateOfBirth?: string // date-time
   /**
-   * Sets a flag to indicate if this contact has been marked as active (default true)
+   * A flag determining whether or not the contact is currently active
    */
   active?: boolean
   /**
-   * Sets the marketing consent status of this contact (grant/deny/notAsked)
+   * The marketing consent status of the contact (grant/deny/notAsked)
    */
   marketingConsent?: string
   /**
-   * Sets the contacts source
+   * The source of the contact
    */
   source?: {
     /**
-     * Sets the unique identifier of the contacts source
+     * The unique identifier of the source of the contact
      */
     id?: string
     /**
-     * Sets the contacts source type
+     * The source type (office/source)
      */
     type?: string
   }
@@ -2118,362 +2122,361 @@ export interface CreateContactModel {
    */
   email?: string
   /**
-   * Sets a collection of office ids that are related to this contact
+   * A collection of unique identifiers of offices attached to the contact
    */
   officeIds?: string[]
   /**
-   * Sets a collection of negotiator ids that are related to this contact
+   * A collection of unique identifiers of negotiators attached to the contact
    */
   negotiatorIds?: string[]
   /**
-   * Sets the contacts primary address
+   * The primary address of the contact
    */
   primaryAddress?: {
     /**
-     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides in
      */
     countryId?: string
   }
   /**
-   * Sets the contacts secondary address
+   * The secondary address of the contact
    */
   secondaryAddress?: {
     /**
-     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides in
      */
     countryId?: string
   }
   /**
-   * Sets the contacts work address
+   * The work address of the contact
    */
   workAddress?: {
     /**
-     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides in
      */
     countryId?: string
   }
   /**
-   * Sets a JSON fragment to attach to this contact as metadata
+   * App specific metadata to set against the contact
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model used for creating a contacts source
+ * Request body used to set the source of a new contact
  */
 export interface CreateContactSourceModel {
   /**
-   * Sets the unique identifier of the contacts source
+   * The unique identifier of the source of the contact
    */
   id?: string
   /**
-   * Sets the contacts source type
+   * The source type (office/source)
    */
   type?: string
 }
 /**
- * Model used for creating a new document
+ * Request body used to create a new document
  * example:
  * [object Object]
  */
 export interface CreateDocumentModel {
   /**
-   * Sets the type of entity that this document is associated with
+   * The type of entity that the document is associated with (appliance/applicant/bankStatement/batch/certificate/contact/depositCertificate/estate/estateUnit/idCheck/keySet/landlord/nominalTransaction/property/tenancy/tenancyCheck/tenancyRenewal/worksOrder)
    */
   associatedType?: string
   /**
-   * Sets the Id of the entity that this document is associated with
+   * The unique identifier of the entity that the document is associated with
    */
   associatedId?: string
   /**
-   * Sets the Id of the document type
+   * The unique identifier of the type of document
    */
   typeId?: string
   /**
-   * Sets the filename assigned to the document
+   * The filename of the document
    */
   name?: string
   /**
-   * Sets the base64 binary content of the file
+   * The base64 encoded document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
    */
   fileData?: string
 }
 /**
- * Model to create an identity check
+ * Request body used to create a new contact identity check
  * example:
  * [object Object]
  */
 export interface CreateIdentityCheckModel {
   /**
-   * Sets the id of the contact to create the identity check against
+   * The unique identifier of the contact associated to the identity check
    */
   contactId?: string
   /**
-   * Sets the date that the identity check was performed
-   * Note that this can be different to the date that the check was created
+   * The date when the identity check was performed. This may differ to the date when the check was created
    */
   checkDate?: string // date-time
   /**
-   * Sets the status of this identity check  (pass/fail/pending/cancelled/warnings/unchecked)
+   * The current status of the identity check (pass/fail/pending/cancelled/warnings/unchecked)
    */
   status?: string
   /**
-   * Sets the id of the negotiator that performed the identity check
-   * Note that this can be different to the negotiator that created the check
+   * The unique identifier of the negotiator that initiated the identity check
    */
   negotiatorId?: string
   /**
-   * Sets the details of document one that have been provided for this identity check
+   * The details of the first document that was provided as part of the identity check
    */
   identityDocument1?: {
     /**
-     * Sets the id of the document type that describes this document
+     * The unique identifier of the type of identity document provided
      */
     typeId?: string
     /**
-     * Sets the date that this document expires
+     * The date when the document expires and becomes invalid
      */
     expiry?: string // date-time
     /**
-     * Sets the textual details of the identity document (eg. passport number)
+     * Details regarding the identity document (eg. passport number)
      */
     details?: string
     /**
-     * Sets the base64 binary content of the file
+     * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
      */
     fileData?: string
     /**
-     * Sets the filename assigned to the document
+     * The filename to store the document as
      */
     name?: string
   }
   /**
-   * Sets the details of document two that have been provided for this identity check
+   * The details of the second document that was provided as part of the identity check
    */
   identityDocument2?: {
     /**
-     * Sets the id of the document type that describes this document
+     * The unique identifier of the type of identity document provided
      */
     typeId?: string
     /**
-     * Sets the date that this document expires
+     * The date when the document expires and becomes invalid
      */
     expiry?: string // date-time
     /**
-     * Sets the textual details of the identity document (eg. passport number)
+     * Details regarding the identity document (eg. passport number)
      */
     details?: string
     /**
-     * Sets the base64 binary content of the file
+     * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
      */
     fileData?: string
     /**
-     * Sets the filename assigned to the document
+     * The filename to store the document as
      */
     name?: string
   }
   /**
-   * Sets a JSON fragment to attach to this identity check as metadata
+   * App specific metadata to set against the identity check
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model to create an identity check document
+ * Request body to attach an identity document to a new contact identity check
  */
 export interface CreateIdentityDocumentModel {
   /**
-   * Sets the id of the document type that describes this document
+   * The unique identifier of the type of identity document provided
    */
   typeId?: string
   /**
-   * Sets the date that this document expires
+   * The date when the document expires and becomes invalid
    */
   expiry?: string // date-time
   /**
-   * Sets the textual details of the identity document (eg. passport number)
+   * Details regarding the identity document (eg. passport number)
    */
   details?: string
   /**
-   * Sets the base64 binary content of the file
+   * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
    */
   fileData?: string
   /**
-   * Sets the filename assigned to the document
+   * The filename to store the document as
    */
   name?: string
 }
 /**
- * A model used to create a new relationship between a landlord and an existing contact
+ * Request body used to create a new relationship between a landlord and a contact or company
  */
 export interface CreateLandlordContactRelationshipModel {
   /**
-   * Sets the entity id to create a relationship with. (Contact or Company)
+   * The unique identifier of the contact or company to create a relationship with
    */
   associatedId?: string
   /**
-   * Sets the entity type to create a relationship with. (Contact or Company)
+   * The type of relationship to create (contact/company)
    */
   associatedType?: string
 }
 /**
- * Request body to create a landlord
+ * Request body used to create a new landlord
+ * example:
+ * [object Object]
  */
 export interface CreateLandlordModel {
   /**
-   * Sets the active flag against this landlord
+   * A flag determining whether or not the landlord is currently active
    */
   active?: boolean
   /**
-   * Sets the unique idenfitier of the landlords solicitor
+   * The unique identifier of the company acting as the landlord's solicitor
    */
   solicitorId?: string
   /**
-   * Sets the office id that is associated to this landlord
+   * The unique identifier of the office that is associated to the landlord
    */
   officeId?: string
   /**
-   * Sets the landlords source
+   * The source of the landlord
    */
   source?: {
     /**
-     * Sets the unique identifier of the landlords source
+     * The unique identifier of the source of the landlord
      */
     id?: string
     /**
-     * Sets the landlords source type
+     * The source type (office/source)
      */
     type?: string
   }
   /**
-   * Sets the collection of new or existing contact entities the
-   * should be attached to the new landlord
+   * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
    */
   related?: {
     /**
-     * Sets the entity id to create a relationship with. (Contact or Company)
+     * The unique identifier of the contact or company to create a relationship with
      */
     associatedId?: string
     /**
-     * Sets the entity type to create a relationship with. (Contact or Company)
+     * The type of relationship to create (contact/company)
      */
     associatedType?: string
   }[]
   /**
-   * Sets a JSON fragment to attach to this landlord as metadata
+   * App specific metadata that to set against the landlord
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model used for creating a landlords source
+ * Request body used to set the source of a new landlord
  */
 export interface CreateLandlordSourceModel {
   /**
-   * Sets the unique identifier of the landlords source
+   * The unique identifier of the source of the landlord
    */
   id?: string
   /**
-   * Sets the landlords source type
+   * The source type (office/source)
    */
   type?: string
 }
@@ -2484,10 +2487,6 @@ export interface CreateLandlordSourceModel {
  */
 export interface CreateNegotiatorModel {
   /**
-   * The unique identifier of the negotiator
-   */
-  id?: string
-  /**
    * The name of the negotiator
    */
   name?: string
@@ -2496,7 +2495,7 @@ export interface CreateNegotiatorModel {
    */
   jobTitle?: string
   /**
-   * Flag denoting whether or not the negotiator is active
+   * A flag determining whether or not the negotiator is active
    */
   active?: boolean
   /**
@@ -2523,49 +2522,49 @@ export interface CreateNegotiatorModel {
   }
 }
 /**
- * Model to create an offer
+ * Request body used to create a new offer
  * example:
  * [object Object]
  */
 export interface CreateOfferModel {
   /**
-   * Sets the id of the applicant associated to the offer
+   * The unique identifier of the applicant associated to the offer
    */
   applicantId?: string
   /**
-   * Sets the id of the property associated to the offer
+   * The unique identifier of the property associated to the offer
    */
   propertyId?: string
   /**
-   * Sets the id of the negotiator associated to the offer
+   * The unique identifier of the negotiator associated to the offer
    */
   negotiatorId?: string
   /**
-   * Sets the date the offer was made
+   * The date when the offer was made
    */
   date?: string // date-time
   /**
-   * Sets the amount the offer was for
+   * The monetary amount of the offer
    */
   amount?: number // double
   /**
-   * Sets the status of the offer
+   * The current status of the offer (pending/withdrawn/rejected/accepted/noteOfInterest)
    */
   status?: string
   /**
-   * Sets the requested inclusions of the offer
+   * A free text field describing items that should be included in the sale
    */
   inclusions?: string
   /**
-   * Sets the requested exclusions of the offer
+   * A free text field describing items that are explicitly excluded from the sale
    */
   exclusions?: string
   /**
-   * Sets the conditions of the offer
+   * A free text field describing any other conditions set by either party that relate to the sale
    */
   conditions?: string
   /**
-   * Sets a JSON fragment to attach to this offer as metadata
+   * App specific metadata to set against the offer
    */
   metadata?: {
     [name: string]: any
@@ -2610,12 +2609,10 @@ export interface CreateOfficeAddressModel {
 }
 /**
  * Request body used to create a new office
+ * example:
+ * [object Object]
  */
 export interface CreateOfficeModel {
-  /**
-   * The unique identifier of the office
-   */
-  id?: string
   /**
    * The name of the office
    */
@@ -2788,7 +2785,7 @@ export interface CreatePropertyGeolocationModel {
  */
 export interface CreatePropertyImageModel {
   /**
-   * The base64 binary content of the file, including mime type
+   * The base64 encoded file content, prefixed with the content type (eg. data:image/jpeg;base64,VGVzdCBmaWxl)
    */
   data?: string
   /**
@@ -2856,6 +2853,8 @@ export interface CreatePropertyLettingModel {
 }
 /**
  * Request body used to create a new property
+ * example:
+ * [object Object]
  */
 export interface CreatePropertyModel {
   /**
@@ -3226,7 +3225,7 @@ export interface CreateSourceModel {
   departmentIds?: string[]
 }
 /**
- * Representation of a task, which can also be an internal message
+ * Request body used to create a new task, which can also be an internal message
  * example:
  * [object Object]
  */
@@ -3287,51 +3286,51 @@ export interface CreateTaskModel {
   }
 }
 /**
- * Model representing a department
+ * Representation of a department
  */
 export interface DepartmentModel {
   /**
-   * Gets the unique department identifier
+   * The unique identifier of the department
    */
   id?: string
   /**
-   * Gets the date and time the department was created
+   * The date and time when the department was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time the department was last modified
+   * The date and time when the department was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the name of the department
+   * The name of the department
    */
   name?: string
   /**
-   * Gets a list of property type values that will be accepted by other services
+   * A collection of property type values that will be accepted by other services
    */
   typeOptions?: string[]
   /**
-   * Gets a list of property style values that will be accepted by other services
+   * A collection of property style values that will be accepted by other services
    */
   styleOptions?: string[]
   /**
-   * Gets a list of property situation values that will be accepted by other services
+   * A collection of property situation values that will be accepted by other services
    */
   situationOptions?: string[]
   /**
-   * Gets a list of property parking values that will be accepted by other services
+   * A collection of property parking values that will be accepted by other services
    */
   parkingOptions?: string[]
   /**
-   * Gets a list of property age values that will be accepted by other services
+   * A collection of property age values that will be accepted by other services
    */
   ageOptions?: string[]
   /**
-   * Gets a list of property locality values that will be accepted by other services
+   * A collection of property locality values that will be accepted by other services
    */
   localityOptions?: string[]
   /**
-   * The ETag for the current version of this department. Used for managing update concurrency
+   * The ETag for the current version of the department. Used for managing update concurrency
    */
   readonly _eTag?: string
   readonly _links?: {
@@ -3344,45 +3343,45 @@ export interface DepartmentModel {
   }
 }
 export interface Departments {
+  PageSize?: number
+  PageNumber?: number
   Id?: string[]
   Name?: string
-  PageNumber?: number
-  PageSize?: number
 }
 /**
- * Model representing a Document
+ * Representation of a document
  */
 export interface DocumentModel {
   /**
-   * Gets the unique identifier
+   * The unique identifier of the document
    */
   id?: string
   /**
-   * Gets the datetime when the document was created
+   * The date and time when the document was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the document was last modified
+   * The date and time when the document was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the type of entity that this document is associated with
+   * The type of entity that the document is associated with
    */
   associatedType?: string
   /**
-   * Gets the Id of the entity that this document is associated with
+   * The unique identifier of the entity that the document is associated with
    */
   associatedId?: string
   /**
-   * Gets the Id of the document type
+   * The unique identifier of the type of document
    */
   typeId?: string
   /**
-   * Gets the filename assigned to the document
+   * The filename of the document
    */
   name?: string
   /**
-   * The ETag for the current version of this contact. Used for managing update concurrency
+   * The ETag for the current version of the document. Used for managing update concurrency
    */
   readonly _eTag?: string
   readonly _links?: {
@@ -3395,8 +3394,8 @@ export interface DocumentModel {
   }
 }
 export interface Documents {
-  PageNumber?: number
   PageSize?: number
+  PageNumber?: number
   SortBy?: string
   Id?: string[]
   AssociatedId?: string[]
@@ -3449,89 +3448,87 @@ export interface FileResult {
   enableRangeProcessing?: boolean
 }
 /**
- * Represents an attempt to verify an individual contacts identity
+ * Representation of a contact identity check
  */
 export interface IdentityCheckModel {
   /**
-   * Gets the unique identifier
+   * The unique identifier of the identity check
    */
   id?: string
   /**
-   * Gets the unique identifier of the contact associated to the id check
+   * The unique identifier of the contact associated to the identity check
    */
   contactId?: string
   /**
-   * Gets the date and time that the identity check was created
+   * The date and time when the identity check was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the identity check was last modified
+   * The date and time when the identity check was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the date that the identity check was performed
-   * Note that this can be different to the date that the check was created
+   * The date when the identity check was performed. This may differ to the date when the check was created
    */
   checkDate?: string // date-time
   /**
-   * Gets the status of this identity check  (pass/fail/pending/cancelled/warnings/unchecked)
+   * The current status of the identity check (pass/fail/pending/cancelled/warnings/unchecked)
    */
   status?: string
   /**
-   * Gets the id of the negotiator that performed the identity check
-   * Note that this can be different to the negotiator that created the check
+   * The unique identifier of the negotiator that initiated the identity check
    */
   negotiatorId?: string
   /**
-   * Gets the details of document one that has been provided for this identity check
+   * The details of the first document that was provided as part of the identity check
    */
   identityDocument1?: {
     /**
-     * Gets the unique identifier of the document
+     * The unique identifier of the identity document
      */
     documentId?: string
     /**
-     * Gets the id of the document type that describes this document
+     * The unique identifier of the type of identity document provided
      */
     typeId?: string
     /**
-     * Gets the date that this document expires
+     * The date when the document expires and becomes invalid
      */
     expiry?: string // date-time
     /**
-     * Gets the textual details of the identity document (eg. passport number)
+     * Details regarding the identity document (eg. passport number)
      */
     details?: string
   }
   /**
-   * Gets the details of document two that has been provided for this identity check
+   * The details of the second document that was provided as part of the identity check
    */
   identityDocument2?: {
     /**
-     * Gets the unique identifier of the document
+     * The unique identifier of the identity document
      */
     documentId?: string
     /**
-     * Gets the id of the document type that describes this document
+     * The unique identifier of the type of identity document provided
      */
     typeId?: string
     /**
-     * Gets the date that this document expires
+     * The date when the document expires and becomes invalid
      */
     expiry?: string // date-time
     /**
-     * Gets the textual details of the identity document (eg. passport number)
+     * Details regarding the identity document (eg. passport number)
      */
     details?: string
   }
   /**
-   * Gets a listing of additional metadata that has been set against this identity check
+   * App specific metadata that has been set against the identity check
    */
   metadata?: {
     [name: string]: any
   }
   /**
-   * The ETag for the current version of this identity check. Used for managing update concurrency
+   * The ETag for the current version of the identity check. Used for managing update concurrency
    */
   readonly _eTag?: string
   readonly _links?: {
@@ -3544,49 +3541,49 @@ export interface IdentityCheckModel {
   }
 }
 export interface IdentityChecks {
-  PageNumber?: number
   PageSize?: number
+  PageNumber?: number
   SortBy?: string
   Id?: string[]
   ContactId?: string[]
   NegotiatorId?: string[]
   Status?: string[]
-  CheckDateTo?: string
   CheckDateFrom?: string
-  CreatedTo?: string
+  CheckDateTo?: string
   CreatedFrom?: string
+  CreatedTo?: string
   pageNumber?: number
   pageSize?: number
 }
 /**
- * Represents the details of a document added to an identity check
+ * Representation of a single identity document that was provided as part of a contact identity check (eg. passport)
  */
 export interface IdentityDocumentModel {
   /**
-   * Gets the unique identifier of the document
+   * The unique identifier of the identity document
    */
   documentId?: string
   /**
-   * Gets the id of the document type that describes this document
+   * The unique identifier of the type of identity document provided
    */
   typeId?: string
   /**
-   * Gets the date that this document expires
+   * The date when the document expires and becomes invalid
    */
   expiry?: string // date-time
   /**
-   * Gets the textual details of the identity document (eg. passport number)
+   * Details regarding the identity document (eg. passport number)
    */
   details?: string
 }
 /**
- * Create (OR update) a relationship between the applicant and a contact
+ * Request body used to create or update a relationship between an applicant and a contact or company
  * example:
  * [object Object]
  */
 export interface InsertApplicantContactRelationshipModel {
   /**
-   * The unique identifier of the contact to create a relationship with
+   * The unique identifier of the contact or company to create a relationship with
    */
   associatedId?: string
   /**
@@ -3599,11 +3596,13 @@ export interface InsertApplicantContactRelationshipModel {
   isMain?: boolean
 }
 /**
- * Create (OR update) a relationship between the landlord and a contact
+ * Request body used to create or update a relationship between a landlord and a contact or company
+ * example:
+ * [object Object]
  */
 export interface InsertLandlordContactRelationshipModel {
   /**
-   * The unique identifier of the contact to create a relationship with
+   * The unique identifier of the contact or company to create a relationship with
    */
   associatedId?: string
   /**
@@ -3616,11 +3615,13 @@ export interface InsertLandlordContactRelationshipModel {
   isMain?: boolean
 }
 /**
- * Request body used to create or edit a relationship between the vendor and a contact
+ * Request body used to create or update a relationship between a vendor and a contact or company
+ * example:
+ * [object Object]
  */
 export interface InsertVendorContactRelationshipModel {
   /**
-   * The unique identifier of the contact to create a relationship with
+   * The unique identifier of the contact or company to create a relationship with
    */
   associatedId?: string
   /**
@@ -3633,56 +3634,56 @@ export interface InsertVendorContactRelationshipModel {
   isMain?: boolean
 }
 /**
- * Model representing the physical address of a building or premise
+ * Representation of the physical address of a building or premise
  */
 export interface LandlordContactAddressModel {
   /**
-   * Gets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Gets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Gets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Gets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Gets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Gets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Gets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Gets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
   countryId?: string
 }
 /**
- * Model representing the details of a contact relationship associated with a landlord entity
+ * A summarised view of the details of a contact associated to a landlord
  */
 export interface LandlordContactModel {
   /**
-   * Gets the unique identifier of the contact
+   * The unique identifier of the contact
    */
   id?: string
   /**
-   * Gets the name of this contact or company
+   * The name of the contact
    */
   name?: string
   /**
-   * Gets the type of this contact (Contact/Company)
+   * The type of the contact (contact/company)
    */
   type?: string
   /**
@@ -3702,93 +3703,139 @@ export interface LandlordContactModel {
    */
   email?: string
   /**
-   * Gets the primary address of the contact
+   * The primary address of the contact
    */
   primaryAddress?: {
     /**
-     * Gets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Gets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Gets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Gets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Gets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Gets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Gets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Gets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
     countryId?: string
   }
 }
-export interface LandlordModel {
+/**
+ * Representation of relationship between a landlord and a contact or company
+ */
+export interface LandlordContactRelationshipModel {
+  /**
+   * The unique identifier of the landlord relationship
+   */
   id?: string
   /**
-   * Gets the datetime when the landlord was created
+   * The unique identifier of the landlord
+   */
+  landlordId?: string
+  /**
+   * The date and time when the relationship was created
    */
   created?: string // date-time
   /**
-   * Gets the date and time that the landlord was last modified
+   * The date and time when the relationship was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the active flag
+   * The type of related entity (contact/company)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the related contact or company
+   */
+  associatedId?: string
+  /**
+   * A flag denoting whether or not the relationship should be regarded as the main relationship for the parent landlord entity
+   */
+  isMain?: boolean
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
+ * Representation of a landlord
+ */
+export interface LandlordModel {
+  /**
+   * The unique identifier of the landlord
+   */
+  id?: string
+  /**
+   * The date and time when the landlord was created
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the landlord was last modified
+   */
+  modified?: string // date-time
+  /**
+   * A flag determining whether or not the landlord is currently active
    */
   active?: boolean
   /**
-   * Gets the unique identifier of the landlords solicitor
+   * The unique identifier of the company acting as the landlord's solicitor
    */
   solicitorId?: string
   /**
-   * Gets the office id that is associated to this landlord
+   * The unique identifier of the office that is associated to the landlord
    */
   officeId?: string
   /**
-   * Gets the landlords source information
+   * The source of the landlord
    */
   source?: {
     /**
-     * Gets the unique identifier of the landlords source
+     * The unique identifier of the source of the landlord
      */
     id?: string
     /**
-     * Gets the landlords source type
+     * The source type (office/source)
      */
     type?: string
   }
   /**
-   * Gets a collection of contact entities attached to this landlord
-   * The primary contact will always appear first in the collection
+   * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
    */
   related?: {
     /**
-     * Gets the unique identifier of the contact
+     * The unique identifier of the contact
      */
     id?: string
     /**
-     * Gets the name of this contact or company
+     * The name of the contact
      */
     name?: string
     /**
-     * Gets the type of this contact (Contact/Company)
+     * The type of the contact (contact/company)
      */
     type?: string
     /**
@@ -3808,51 +3855,51 @@ export interface LandlordModel {
      */
     email?: string
     /**
-     * Gets the primary address of the contact
+     * The primary address of the contact
      */
     primaryAddress?: {
       /**
-       * Gets the building name
+       * The building name
        */
       buildingName?: string
       /**
-       * Gets the building number
+       * The building number
        */
       buildingNumber?: string
       /**
-       * Gets the first line of the address
+       * The first line of the address
        */
       line1?: string
       /**
-       * Gets the second line of the address
+       * The second line of the address
        */
       line2?: string
       /**
-       * Gets the third line of the address
+       * The third line of the address
        */
       line3?: string
       /**
-       * Gets the fourth line of the address
+       * The fourth line of the address
        */
       line4?: string
       /**
-       * Gets the postcode
+       * The postcode
        */
       postcode?: string
       /**
-       * Gets the ISO-3166 country code associated with the address
+       * The ISO-3166 country code that the address resides within
        */
       countryId?: string
     }
   }[]
   /**
-   * Gets a listing of additional metadata that has been set against this landlord
+   * App specific metadata that has been set against the landlord
    */
   metadata?: {
     [name: string]: any
   }
   /**
-   * The ETag for the current version of this landlord. Used for managing update concurrency
+   * The ETag for the current version of the landlord. Used for managing update concurrency
    */
   readonly _eTag?: string
   readonly _links?: {
@@ -3865,21 +3912,21 @@ export interface LandlordModel {
   }
 }
 /**
- * Model representing the details of a landlords source
+ * Representation of a landlord's source
  */
 export interface LandlordSourceModel {
   /**
-   * Gets the unique identifier of the landlords source
+   * The unique identifier of the source of the landlord
    */
   id?: string
   /**
-   * Gets the landlords source type
+   * The source type (office/source)
    */
   type?: string
 }
 export interface Landlords {
-  PageNumber?: number
   PageSize?: number
+  PageNumber?: number
   SortBy?: string
   Id?: string[]
   Active?: boolean
@@ -3891,13 +3938,16 @@ export interface Landlords {
 export interface LinkModel {
   href?: string
 }
+/**
+ * Representation of a configuration item
+ */
 export interface ListItemModel {
   /**
-   * The unique identifier
+   * The unique identifier of the list item
    */
   id?: string
   /**
-   * The text value corresponding to the id
+   * The textual value for the list item
    */
   value?: string
 }
@@ -3926,7 +3976,7 @@ export interface NegotiatorModel {
    */
   jobTitle?: string
   /**
-   * Flag denoting whether or not the negotiator is active
+   * A flag determining whether or not the negotiator is active
    */
   active?: boolean
   /**
@@ -3946,7 +3996,7 @@ export interface NegotiatorModel {
    */
   email?: string
   /**
-   * App specific metadata to set against the negotiator
+   * App specific metadata that has been set against the negotiator
    */
   metadata?: {
     [name: string]: any
@@ -3973,56 +4023,56 @@ export interface Negotiators {
   Name?: string
 }
 /**
- * Model representing the physical address of a building or premise
+ * Representation of the physical address of a building or premise
  */
 export interface OfferContactAddressModel {
   /**
-   * Gets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Gets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Gets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Gets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Gets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Gets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Gets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Gets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides in
    */
   countryId?: string
 }
 /**
- * Model representing the details of a contact relationship associated with an offer entity
+ * A summarised view of the details of a contact associated to an offer
  */
 export interface OfferContactModel {
   /**
-   * Gets the unique identifier of the contact
+   * The unique identifier of the contact
    */
   id?: string
   /**
-   * Gets the name of this contact or company
+   * The name of the contact
    */
   name?: string
   /**
-   * Gets the type of this contact (contact/company)
+   * The type of the contact (contact/company)
    */
   type?: string
   /**
@@ -4042,114 +4092,113 @@ export interface OfferContactModel {
    */
   email?: string
   /**
-   * Gets the primary address of the contact
+   * The primary address of the contact
    */
   primaryAddress?: {
     /**
-     * Gets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Gets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Gets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Gets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Gets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Gets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Gets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Gets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides in
      */
     countryId?: string
   }
 }
 /**
- * Model to retrieve offer details
+ * Representation of an offer
  */
 export interface OfferModel {
   /**
-   * Gets the unique identifier of the offer
+   * The unique identifier of the offer
    */
   id?: string
   /**
-   * Gets the date the offer was created
+   * The the date and time when the offer was created
    */
   created?: string // date-time
   /**
-   * Gets the date the offer was last modified
+   * The date and time when the offer was last modified
    */
   modified?: string // date-time
   /**
-   * Gets the currency that applies to monetary amounts exposed in the model
+   * The currency that applies to monetary amounts exposed in the model
    */
   currency?: string
   /**
-   * Gets the id of the applicant associated to the offer
+   * The unique identifier of the applicant associated to the offer
    */
   applicantId?: string
   /**
-   * Gets the id of the property associated to the offer
+   * The unique identifier of the property associated to the offer
    */
   propertyId?: string
   /**
-   * Gets the id of the negotiator associated to the offer
+   * The unique identifier of the negotiator associated to the offer
    */
   negotiatorId?: string
   /**
-   * Gets the date the offer was made
+   * The date when the offer was made
    */
   date?: string // date-time
   /**
-   * Gets the amount the offer was for
+   * The monetary amount of the offer
    */
   amount?: number // double
   /**
-   * Gets the status of the offer
+   * The current status of the offer (pending/withdrawn/rejected/accepted/noteOfInterest)
    */
   status?: string
   /**
-   * Gets the requested inclusions of the offer
+   * A free text field describing items that should be included in the sale
    */
   inclusions?: string
   /**
-   * Gets the requested exclusions of the offer
+   * A free text field describing items that are explicitly excluded from the sale
    */
   exclusions?: string
   /**
-   * Gets the conditions of the offer
+   * A free text field describing any other conditions set by either party that relate to the sale
    */
   conditions?: string
   /**
-   * Gets a collection of contact entities attached to this offer
-   * The primary contact will always appear first in the collection
+   * A collection of contacts associated to the offer
    */
   related?: {
     /**
-     * Gets the unique identifier of the contact
+     * The unique identifier of the contact
      */
     id?: string
     /**
-     * Gets the name of this contact or company
+     * The name of the contact
      */
     name?: string
     /**
-     * Gets the type of this contact (contact/company)
+     * The type of the contact (contact/company)
      */
     type?: string
     /**
@@ -4169,51 +4218,51 @@ export interface OfferModel {
      */
     email?: string
     /**
-     * Gets the primary address of the contact
+     * The primary address of the contact
      */
     primaryAddress?: {
       /**
-       * Gets the building name
+       * The building name
        */
       buildingName?: string
       /**
-       * Gets the building number
+       * The building number
        */
       buildingNumber?: string
       /**
-       * Gets the first line of the address
+       * The first line of the address
        */
       line1?: string
       /**
-       * Gets the second line of the address
+       * The second line of the address
        */
       line2?: string
       /**
-       * Gets the third line of the address
+       * The third line of the address
        */
       line3?: string
       /**
-       * Gets the fourth line of the address
+       * The fourth line of the address
        */
       line4?: string
       /**
-       * Gets the postcode
+       * The postcode
        */
       postcode?: string
       /**
-       * Gets the ISO-3166 country code associated with the address
+       * The ISO-3166 country code that the address resides in
        */
       countryId?: string
     }
   }[]
   /**
-   * Gets a listing of additional metadata that has been set against this offer
+   * App specific metadata that has been set against the offer
    */
   metadata?: {
     [name: string]: any
   }
   /**
-   * The ETag for the current version of this offer. Used for managing update concurrency
+   * The ETag for the current version of the offer. Used for managing update concurrency
    */
   readonly _eTag?: string
   readonly _links?: {
@@ -4226,8 +4275,8 @@ export interface OfferModel {
   }
 }
 export interface Offers {
-  PageNumber?: number
   PageSize?: number
+  PageNumber?: number
   SortBy?: string
   Id?: string[]
   ApplicantId?: string[]
@@ -4373,6 +4422,55 @@ export interface Offices {
   Address?: string
   Name?: string
 }
+export interface PagedResultApplicantContactRelationshipModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the applicant relationship
+     */
+    id?: string
+    /**
+     * The date and time when the relationship was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the applicant
+     */
+    applicantId?: string
+    /**
+     * The type of related entity (contact/company)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related contact or company
+     */
+    associatedId?: string
+    /**
+     * A flag denoting whether or not this relationship should be regarded as the main relationship for the parent applicant entity
+     */
+    isMain?: boolean
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
 export interface PagedResultApplicantModel_ {
   _embedded?: {
     /**
@@ -4392,7 +4490,7 @@ export interface PagedResultApplicantModel_ {
      */
     marketingMode?: string
     /**
-     * The ISO-4217 currency code that relates to monetary amounts specified by this applicant
+     * The ISO-4217 currency code that relates to monetary amounts specified by the applicant
      */
     currency?: string
     /**
@@ -4412,11 +4510,11 @@ export interface PagedResultApplicantModel_ {
      */
     nextCall?: string // date-time
     /**
-     * The unique identifier of the department that the applicant requirements are associated with. This applicant will only match to properties with the same value
+     * The unique identifier of the department that the applicant requirements are associated with. The applicant will only match to properties with the same value
      */
     departmentId?: string
     /**
-     * The unique identifier of the solicitor associated to this applicant
+     * The unique identifier of the solicitor associated to the applicant
      */
     solicitorId?: string
     /**
@@ -4468,11 +4566,11 @@ export interface PagedResultApplicantModel_ {
      */
     bathroomsMax?: number // int32
     /**
-     * The applicants location type (areas/addresses/none)
+     * The applicant's location type (areas/addresses/none)
      */
     locationType?: string
     /**
-     * The applicants location options
+     * The applicant's location options
      */
     locationOptions?: string[]
     /**
@@ -4548,28 +4646,1004 @@ export interface PagedResultApplicantModel_ {
       amount?: number // double
     }
     /**
-     * Gets the applicants source information
+     * The source of the applicant
      */
     source?: {
       /**
-       * Gets the unique identifier of the applicants source
+       * The unique identifier of the applicant's source
        */
       id?: string
       /**
-       * Gets the applicants source type
+       * The source type (office/source)
        */
       type?: string
     }
     /**
-     * A collection of office unique identifiers that are associated to the applicant. The first identifier listed is considered to be the primary office
+     * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
      */
     officeIds?: string[]
     /**
-     * A collection of negotiator unique identifiers that are associated to the applicant. The first identifier listed is considered to be the primary negotiator
+     * A collection of unique identifiers of negotiators attached to the applicant. The first item in the collection is considered the primary negotiator
      */
     negotiatorIds?: string[]
     /**
-     * A collection of summarised contacts attached to the applicant. The first contact listed is considered to be the primary contact
+     * A collection of contacts and/or companies associated to the applicant. The first item in the collection is considered the primary relationship
+     */
+    related?: {
+      /**
+       * The unique identifier of the contact or company
+       */
+      id?: string
+      /**
+       * The name of the contact or company
+       */
+      name?: string
+      /**
+       * The type of the contact (company/contact)
+       */
+      type?: string
+      /**
+       * The home phone number of the contact or company
+       */
+      homePhone?: string
+      /**
+       * The work phone number of the contact or company
+       */
+      workPhone?: string
+      /**
+       * The mobile phone number of the contact or company
+       */
+      mobilePhone?: string
+      /**
+       * The email address of the contact or company
+       */
+      email?: string
+      /**
+       * The primary address of the contact or company
+       */
+      primaryAddress?: {
+        /**
+         * The building name
+         */
+        buildingName?: string
+        /**
+         * The building number
+         */
+        buildingNumber?: string
+        /**
+         * The first line of the address
+         */
+        line1?: string
+        /**
+         * The second line of the address
+         */
+        line2?: string
+        /**
+         * The third line of the address
+         */
+        line3?: string
+        /**
+         * The fourth line of the address
+         */
+        line4?: string
+        /**
+         * The postcode
+         */
+        postcode?: string
+        /**
+         * The ISO-3166 country code that the address resides within
+         */
+        countryId?: string
+      }
+    }[]
+    /**
+     * App specific metadata that has been set against the applicant
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the applicant. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultAppointmentModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the appointment
+     */
+    id?: string
+    /**
+     * The date and time when the appointment was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the appointment was last modified
+     */
+    modified?: string // date-time
+    /**
+     * The date and time when the appointment will start
+     */
+    start?: string // date-time
+    /**
+     * The date and time when the appointment will end
+     */
+    end?: string // date-time
+    /**
+     * The unique identifier of the appointment type
+     */
+    typeId?: string
+    /**
+     * A free text description about the appointment
+     */
+    description?: string
+    /**
+     * A flag denoting whether or not the appointment recurs
+     */
+    recurring?: boolean
+    /**
+     * A flag denoting whether or not the appointment has been cancelled
+     */
+    cancelled?: boolean
+    /**
+     * Follow up information relating to the appointment
+     */
+    followUp?: {
+      /**
+       * The date when the appointment should be followed up
+       */
+      due?: string // date-time
+      /**
+       * The unique identifier of a pre-defined follow up response type
+       */
+      responseId?: string
+      /**
+       * Free text internal follow up notes to be stored against the appointment
+       */
+      notes?: string
+    }
+    /**
+     * The unique identifier of the property related to the appointment
+     */
+    propertyId?: string
+    /**
+     * The unique identifier of the negotiator that organised the appointment
+     */
+    organiserId?: string
+    /**
+     * A collection of unique identifiers of negotiators attached to the appointment
+     */
+    negotiatorIds?: string[]
+    /**
+     * A collection of unique identifiers of offices attached to the appointment
+     */
+    officeIds?: string[]
+    /**
+     * An appointment attendee
+     */
+    attendee?: {
+      /**
+       * The unique identifier of the attendee
+       */
+      id?: string
+      /**
+       * The type of attendee
+       */
+      type?: string
+      /**
+       * A collection of contacts relating to the attendee
+       */
+      contacts?: {
+        /**
+         * The unique identifier of the contact
+         */
+        id?: string
+        /**
+         * The name of the contact
+         */
+        name?: string
+        /**
+         * The home phone number of the contact
+         */
+        homePhone?: string
+        /**
+         * The work phone number of the contact
+         */
+        workPhone?: string
+        /**
+         * The mobile phone number of the contact
+         */
+        mobilePhone?: string
+        /**
+         * The email address of the contact
+         */
+        email?: string
+      }[]
+    }
+    /**
+     * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
+     */
+    accompanied?: boolean
+    /**
+     * A flag denoting whether or not the main negotiator has confirmed their attendance
+     */
+    negotiatorConfirmed?: boolean
+    /**
+     * A flag denoting whether or not the attendee has confirmed their attendance
+     */
+    attendeeConfirmed?: boolean
+    /**
+     * A flag denoting whether or not the property and/or property's vendor has confirmed their attendance
+     */
+    propertyConfirmed?: boolean
+    /**
+     * App specific metadata that has been set against the appointment
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the appointment. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultAreaModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the area
+     */
+    id?: string
+    /**
+     * The date and time when the area was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the area was last modified
+     */
+    modified?: string // date-time
+    /**
+     * The name of the area
+     */
+    name?: string
+    /**
+     * A flag denoting whether the area can currently be selected against properties and applicants
+     */
+    active?: boolean
+    /**
+     * The type of area (postcodes/polygon/group)
+     */
+    type?: string
+    /**
+     * The location details (comma delimited list of postcodes, group ids or lat/long coordinate groups)
+     */
+    area?: string[]
+    /**
+     * A collection of unique identifiers of departments associated to the area
+     */
+    departmentIds?: string[]
+    /**
+     * A collection of unique identifiers of offices associated to the area
+     */
+    officeIds?: string[]
+    /**
+     * The ETag for the current version of the area. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultCompanyModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the company
+     */
+    id?: string
+    /**
+     * The date and time when the company was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the company was last modified
+     */
+    modified?: string // date-time
+    /**
+     * The name of the company
+     */
+    name?: string
+    /**
+     * The branch name of the company
+     */
+    branch?: string
+    /**
+     * A free text field containing notes that describe the company's business or service offering
+     */
+    notes?: string
+    /**
+     * A flag determining whether or not the company is currently active
+     */
+    active?: boolean
+    /**
+     * A flag determining whether or not the company is VAT registered
+     */
+    vatRegistered?: boolean
+    /**
+     * A collection of unique identifiers of company types that categorise the type of business the company operates
+     */
+    typeIds?: string[]
+    /**
+     * The unique identifier of a supplier type, if the company is a supplier
+     */
+    supplierTypeId?: string
+    /**
+     * The work phone number of the company
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the company
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the company
+     */
+    email?: string
+    /**
+     * The address of the company
+     */
+    address?: {
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides within
+       */
+      country?: string
+    }
+    /**
+     * App specific metadata that has been set against the company
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the company. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultContactModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the contact
+     */
+    id?: string
+    /**
+     * The date and time when the contact was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the contact was last modified
+     */
+    modified?: string // date-time
+    /**
+     * The contact's title  (eg. Mr, Mrs, Miss, Dr)
+     */
+    title?: string
+    /**
+     * The contact's forename
+     */
+    forename?: string
+    /**
+     * The contact's surname
+     */
+    surname?: string
+    /**
+     * The contact's date of birth
+     */
+    dateOfBirth?: string // date-time
+    /**
+     * A flag determining whether or not the contact is currently active
+     */
+    active?: boolean
+    /**
+     * The marketing consent status of the contact (grant/deny/notAsked)
+     */
+    marketingConsent?: string
+    /**
+     * The status of the last identity check performed against the contact (pass/fail/pending/cancelled/warnings/unchecked)
+     */
+    identityCheck?: string
+    /**
+     * The source of the contact
+     */
+    source?: {
+      /**
+       * The unique identifier of the source of the contact
+       */
+      id?: string
+      /**
+       * The source type (office/source)
+       */
+      type?: string
+    }
+    /**
+     * The home phone number of the contact
+     */
+    homePhone?: string
+    /**
+     * The work phone number of the contact
+     */
+    workPhone?: string
+    /**
+     * The mobile phone number of the contact
+     */
+    mobilePhone?: string
+    /**
+     * The email address of the contact
+     */
+    email?: string
+    /**
+     * The primary address of the contact
+     */
+    primaryAddress?: {
+      /**
+       * The type of address (primary/secondary/home/work/forwarding/company/previous)
+       */
+      type?: string
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides in
+       */
+      countryId?: string
+    }
+    /**
+     * The secondary address of the contact
+     */
+    secondaryAddress?: {
+      /**
+       * The type of address (primary/secondary/home/work/forwarding/company/previous)
+       */
+      type?: string
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides in
+       */
+      countryId?: string
+    }
+    /**
+     * The work address of the contact
+     */
+    workAddress?: {
+      /**
+       * The type of address (primary/secondary/home/work/forwarding/company/previous)
+       */
+      type?: string
+      /**
+       * The building name
+       */
+      buildingName?: string
+      /**
+       * The building number
+       */
+      buildingNumber?: string
+      /**
+       * The first line of the address
+       */
+      line1?: string
+      /**
+       * The second line of the address
+       */
+      line2?: string
+      /**
+       * The third line of the address
+       */
+      line3?: string
+      /**
+       * The fourth line of the address
+       */
+      line4?: string
+      /**
+       * The postcode
+       */
+      postcode?: string
+      /**
+       * The ISO-3166 country code that the address resides in
+       */
+      countryId?: string
+    }
+    /**
+     * A collection of unique identifiers of offices attached to the contact
+     */
+    officeIds?: string[]
+    /**
+     * A collection of unique identifiers of negotiators attached to the contact
+     */
+    negotiatorIds?: string[]
+    /**
+     * App specific metadata that has been set against the contact
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the contact. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultDepartmentModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the department
+     */
+    id?: string
+    /**
+     * The date and time when the department was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the department was last modified
+     */
+    modified?: string // date-time
+    /**
+     * The name of the department
+     */
+    name?: string
+    /**
+     * A collection of property type values that will be accepted by other services
+     */
+    typeOptions?: string[]
+    /**
+     * A collection of property style values that will be accepted by other services
+     */
+    styleOptions?: string[]
+    /**
+     * A collection of property situation values that will be accepted by other services
+     */
+    situationOptions?: string[]
+    /**
+     * A collection of property parking values that will be accepted by other services
+     */
+    parkingOptions?: string[]
+    /**
+     * A collection of property age values that will be accepted by other services
+     */
+    ageOptions?: string[]
+    /**
+     * A collection of property locality values that will be accepted by other services
+     */
+    localityOptions?: string[]
+    /**
+     * The ETag for the current version of the department. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultDocumentModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the document
+     */
+    id?: string
+    /**
+     * The date and time when the document was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the document was last modified
+     */
+    modified?: string // date-time
+    /**
+     * The type of entity that the document is associated with
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the entity that the document is associated with
+     */
+    associatedId?: string
+    /**
+     * The unique identifier of the type of document
+     */
+    typeId?: string
+    /**
+     * The filename of the document
+     */
+    name?: string
+    /**
+     * The ETag for the current version of the document. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultIdentityCheckModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the identity check
+     */
+    id?: string
+    /**
+     * The unique identifier of the contact associated to the identity check
+     */
+    contactId?: string
+    /**
+     * The date and time when the identity check was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the identity check was last modified
+     */
+    modified?: string // date-time
+    /**
+     * The date when the identity check was performed. This may differ to the date when the check was created
+     */
+    checkDate?: string // date-time
+    /**
+     * The current status of the identity check (pass/fail/pending/cancelled/warnings/unchecked)
+     */
+    status?: string
+    /**
+     * The unique identifier of the negotiator that initiated the identity check
+     */
+    negotiatorId?: string
+    /**
+     * The details of the first document that was provided as part of the identity check
+     */
+    identityDocument1?: {
+      /**
+       * The unique identifier of the identity document
+       */
+      documentId?: string
+      /**
+       * The unique identifier of the type of identity document provided
+       */
+      typeId?: string
+      /**
+       * The date when the document expires and becomes invalid
+       */
+      expiry?: string // date-time
+      /**
+       * Details regarding the identity document (eg. passport number)
+       */
+      details?: string
+    }
+    /**
+     * The details of the second document that was provided as part of the identity check
+     */
+    identityDocument2?: {
+      /**
+       * The unique identifier of the identity document
+       */
+      documentId?: string
+      /**
+       * The unique identifier of the type of identity document provided
+       */
+      typeId?: string
+      /**
+       * The date when the document expires and becomes invalid
+       */
+      expiry?: string // date-time
+      /**
+       * Details regarding the identity document (eg. passport number)
+       */
+      details?: string
+    }
+    /**
+     * App specific metadata that has been set against the identity check
+     */
+    metadata?: {
+      [name: string]: any
+    }
+    /**
+     * The ETag for the current version of the identity check. Used for managing update concurrency
+     */
+    readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultLandlordContactRelationshipModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the landlord relationship
+     */
+    id?: string
+    /**
+     * The unique identifier of the landlord
+     */
+    landlordId?: string
+    /**
+     * The date and time when the relationship was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     */
+    modified?: string // date-time
+    /**
+     * The type of related entity (contact/company)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related contact or company
+     */
+    associatedId?: string
+    /**
+     * A flag denoting whether or not the relationship should be regarded as the main relationship for the parent landlord entity
+     */
+    isMain?: boolean
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultLandlordModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the landlord
+     */
+    id?: string
+    /**
+     * The date and time when the landlord was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the landlord was last modified
+     */
+    modified?: string // date-time
+    /**
+     * A flag determining whether or not the landlord is currently active
+     */
+    active?: boolean
+    /**
+     * The unique identifier of the company acting as the landlord's solicitor
+     */
+    solicitorId?: string
+    /**
+     * The unique identifier of the office that is associated to the landlord
+     */
+    officeId?: string
+    /**
+     * The source of the landlord
+     */
+    source?: {
+      /**
+       * The unique identifier of the source of the landlord
+       */
+      id?: string
+      /**
+       * The source type (office/source)
+       */
+      type?: string
+    }
+    /**
+     * A collection of contacts and/or companies associated to the landlord. The first item in the collection is considered the primary relationship
      */
     related?: {
       /**
@@ -4581,7 +5655,7 @@ export interface PagedResultApplicantModel_ {
        */
       name?: string
       /**
-       * The type of the contact (company/contact)
+       * The type of the contact (contact/company)
        */
       type?: string
       /**
@@ -4639,944 +5713,13 @@ export interface PagedResultApplicantModel_ {
       }
     }[]
     /**
-     * A listing of app specific metadata that has been set against this applicant
+     * App specific metadata that has been set against the landlord
      */
     metadata?: {
       [name: string]: any
     }
     /**
-     * The ETag for the current version of this applicant. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultAppointmentModel_ {
-  _embedded?: {
-    /**
-     * The appointments unique identifier.
-     */
-    id?: string
-    /**
-     * The datetime when the appointment was created.
-     */
-    created?: string // date-time
-    /**
-     * The date and time when the appointment was last modified.
-     */
-    modified?: string // date-time
-    /**
-     * The date and time when the appointment will start.
-     */
-    start?: string // date-time
-    /**
-     * The date and time when the appointment will end.
-     */
-    end?: string // date-time
-    /**
-     * The type of appointment.
-     */
-    typeId?: string
-    /**
-     * The appointment description.
-     */
-    description?: string
-    /**
-     * The directions to the appointment location.
-     */
-    directions?: string
-    /**
-     * A flag denoting whether or not the appointment recurs.
-     */
-    recurring?: boolean
-    /**
-     * A flag denoting whether or not the appointment is cancelled.
-     */
-    cancelled?: boolean
-    /**
-     * The appointments follow up information.
-     */
-    followUp?: {
-      /**
-       * The date when the appointment should be followed up on.
-       */
-      due?: string // date-time
-      /**
-       * The unique identifier of a pre-defined follow up response type.
-       */
-      responseId?: string
-      /**
-       * The internal follow up notes to be stored against the appointment.
-       */
-      notes?: string
-    }
-    /**
-     * The unique identifier of the property related to the appointment.
-     */
-    propertyId?: string
-    /**
-     * The identifier of the person that organised the appointment.
-     */
-    organiserId?: string
-    /**
-     * A collection of negotiators related to the appointment.
-     */
-    negotiatorIds?: string[]
-    /**
-     * A collection of offices related to the appointment.
-     */
-    officeIds?: string[]
-    /**
-     * A collection of attendees who are requested to attend the appointment.
-     */
-    attendee?: {
-      /**
-       * The unique identifier of the attendee.
-       */
-      id?: string
-      /**
-       * The type of attendee.
-       */
-      type?: string
-      /**
-       * The contacts of this attendee.
-       */
-      contacts?: {
-        /**
-         * The identifier of the contact.
-         */
-        id?: string
-        /**
-         * The name of the contact.
-         */
-        name?: string
-        /**
-         * The home phone number of the contact
-         */
-        homePhone?: string
-        /**
-         * The work phone number of the contact
-         */
-        workPhone?: string
-        /**
-         * The mobile phone number of the contact
-         */
-        mobilePhone?: string
-        /**
-         * The email address of the contact
-         */
-        email?: string
-      }[]
-    }
-    /**
-     * A flag denoting whether or not the appointment is accompanied.
-     */
-    accompanied?: boolean
-    /**
-     * A flag denoting whether or not the negotiator is confirmed.
-     */
-    negotiatorConfirmed?: boolean
-    /**
-     * A flag denoting whether or not the attendee is confirmed.
-     */
-    attendeeConfirmed?: boolean
-    /**
-     * A flag denoting whether or not the property is confirmed.
-     */
-    propertyConfirmed?: boolean
-    /**
-     * A listing of additional metadata that has been set against this appointment.
-     */
-    metadata?: {
-      [name: string]: any
-    }
-    /**
-     * The ETag for the current version of this appointment. Used for managing update concurrency.
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultAreaModel_ {
-  _embedded?: {
-    /**
-     * Gets the unique identifier
-     */
-    id?: string
-    /**
-     * Gets the date and time that the contact was created
-     */
-    created?: string // date-time
-    /**
-     * Gets the date and time that the contact was last modified
-     */
-    modified?: string // date-time
-    /**
-     * Gets the areas name
-     */
-    name?: string
-    /**
-     * Gets the areas active flag
-     */
-    active?: boolean
-    /**
-     * Gets the areas type (postcodes/polygon/group)
-     */
-    type?: string
-    /**
-     * Gets the areas location details (Postcodes, Group names or Lat Longs)
-     */
-    area?: string[]
-    /**
-     * Gets the departments linked to this area
-     */
-    departmentIds?: string[]
-    /**
-     * Gets the offices linked to this area
-     */
-    officeIds?: string[]
-    /**
-     * The ETag for the current version of this area. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultCompanyModel_ {
-  _embedded?: {
-    /**
-     * Gets the unique identifier
-     */
-    id?: string
-    /**
-     * Gets the date and time that the company was created
-     */
-    created?: string // date-time
-    /**
-     * Gets the date and time that the company was last modified
-     */
-    modified?: string // date-time
-    /**
-     * Gets the name of the company
-     */
-    name?: string
-    /**
-     * Gets the branch of the company
-     */
-    branch?: string
-    /**
-     * Gets the notes stored against the company
-     */
-    notes?: string
-    /**
-     * Gets a flag to indicate if this company has been marked as active
-     */
-    active?: boolean
-    /**
-     * Gets a flag to indicate if this company is vat registered
-     */
-    vatRegistered?: boolean
-    /**
-     * Gets a list of type ids
-     */
-    typeIds?: string[]
-    /**
-     * Gets the supplier type id
-     */
-    supplierTypeId?: string
-    /**
-     * The work phone number of the company
-     */
-    workPhone?: string
-    /**
-     * The mobile phone number of the company
-     */
-    mobilePhone?: string
-    /**
-     * The email address of the company
-     */
-    email?: string
-    /**
-     * Gets the address for this company
-     */
-    address?: {
-      /**
-       * Gets the building name
-       */
-      buildingName?: string
-      /**
-       * Gets the building number
-       */
-      buildingNumber?: string
-      /**
-       * Gets the first line of the address
-       */
-      line1?: string
-      /**
-       * Gets the second line of the address
-       */
-      line2?: string
-      /**
-       * Gets the third line of the address
-       */
-      line3?: string
-      /**
-       * Gets the fourth line of the address
-       */
-      line4?: string
-      /**
-       * Gets the postcode
-       */
-      postcode?: string
-      /**
-       * Gets the ISO-3166 country code associated with the address
-       */
-      country?: string
-    }
-    /**
-     * Gets a listing of additional metadata that has been set against this company
-     */
-    metadata?: {
-      [name: string]: any
-    }
-    /**
-     * The ETag for the current version of this company. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultContactModel_ {
-  _embedded?: {
-    /**
-     * Gets the unique identifier
-     */
-    id?: string
-    /**
-     * Gets the date and time that the contact was created
-     */
-    created?: string // date-time
-    /**
-     * Gets the date and time that the contact was last modified
-     */
-    modified?: string // date-time
-    /**
-     * Gets the title of this contact (eg. Mr, Mrs, Miss, Dr)
-     */
-    title?: string
-    /**
-     * Gets the forename of this contact
-     */
-    forename?: string
-    /**
-     * Gets the surname of this contact
-     */
-    surname?: string
-    /**
-     * Gets the date of birth of this contact
-     */
-    dateOfBirth?: string // date-time
-    /**
-     * Gets a flag to indicate if this contact has been marked as active
-     */
-    active?: boolean
-    /**
-     * Gets the marketing consent status of this contact (grant/deny/notAsked)
-     */
-    marketingConsent?: string
-    /**
-     * Gets the status of the last identity check performed against this contact (pass/fail/pending/cancelled/warnings/unchecked)
-     */
-    identityCheck?: string
-    /**
-     * Gets the contacts source information
-     */
-    source?: {
-      /**
-       * Gets the unique identifier of the contacts source
-       */
-      id?: string
-      /**
-       * Gets the contacts source type
-       */
-      type?: string
-    }
-    /**
-     * The home phone number of the contact
-     */
-    homePhone?: string
-    /**
-     * The work phone number of the contact
-     */
-    workPhone?: string
-    /**
-     * The mobile phone number of the contact
-     */
-    mobilePhone?: string
-    /**
-     * The email address of the contact
-     */
-    email?: string
-    /**
-     * Gets the contacts primary address
-     */
-    primaryAddress?: {
-      /**
-       * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
-       */
-      type?: string
-      /**
-       * Gets the building name
-       */
-      buildingName?: string
-      /**
-       * Gets the building number
-       */
-      buildingNumber?: string
-      /**
-       * Gets the first line of the address
-       */
-      line1?: string
-      /**
-       * Gets the second line of the address
-       */
-      line2?: string
-      /**
-       * Gets the third line of the address
-       */
-      line3?: string
-      /**
-       * Gets the fourth line of the address
-       */
-      line4?: string
-      /**
-       * Gets the postcode
-       */
-      postcode?: string
-      /**
-       * Gets the ISO-3166 country code associated with the address
-       */
-      countryId?: string
-    }
-    /**
-     * Gets the contacts secondary address
-     */
-    secondaryAddress?: {
-      /**
-       * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
-       */
-      type?: string
-      /**
-       * Gets the building name
-       */
-      buildingName?: string
-      /**
-       * Gets the building number
-       */
-      buildingNumber?: string
-      /**
-       * Gets the first line of the address
-       */
-      line1?: string
-      /**
-       * Gets the second line of the address
-       */
-      line2?: string
-      /**
-       * Gets the third line of the address
-       */
-      line3?: string
-      /**
-       * Gets the fourth line of the address
-       */
-      line4?: string
-      /**
-       * Gets the postcode
-       */
-      postcode?: string
-      /**
-       * Gets the ISO-3166 country code associated with the address
-       */
-      countryId?: string
-    }
-    /**
-     * Gets the contacts work address
-     */
-    workAddress?: {
-      /**
-       * Gets the type of address (primary/secondary/home/work/forwarding/company/previous)
-       */
-      type?: string
-      /**
-       * Gets the building name
-       */
-      buildingName?: string
-      /**
-       * Gets the building number
-       */
-      buildingNumber?: string
-      /**
-       * Gets the first line of the address
-       */
-      line1?: string
-      /**
-       * Gets the second line of the address
-       */
-      line2?: string
-      /**
-       * Gets the third line of the address
-       */
-      line3?: string
-      /**
-       * Gets the fourth line of the address
-       */
-      line4?: string
-      /**
-       * Gets the postcode
-       */
-      postcode?: string
-      /**
-       * Gets the ISO-3166 country code associated with the address
-       */
-      countryId?: string
-    }
-    /**
-     * Gets a collection of office ids that are related to this contact
-     */
-    officeIds?: string[]
-    /**
-     * Gets a collection of negotiator ids that are related to this contact
-     */
-    negotiatorIds?: string[]
-    /**
-     * Gets a listing of additional metadata that has been set against this contact
-     */
-    metadata?: {
-      [name: string]: any
-    }
-    /**
-     * The ETag for the current version of this contact. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultDepartmentModel_ {
-  _embedded?: {
-    /**
-     * Gets the unique department identifier
-     */
-    id?: string
-    /**
-     * Gets the date and time the department was created
-     */
-    created?: string // date-time
-    /**
-     * Gets the date and time the department was last modified
-     */
-    modified?: string // date-time
-    /**
-     * Gets the name of the department
-     */
-    name?: string
-    /**
-     * Gets a list of property type values that will be accepted by other services
-     */
-    typeOptions?: string[]
-    /**
-     * Gets a list of property style values that will be accepted by other services
-     */
-    styleOptions?: string[]
-    /**
-     * Gets a list of property situation values that will be accepted by other services
-     */
-    situationOptions?: string[]
-    /**
-     * Gets a list of property parking values that will be accepted by other services
-     */
-    parkingOptions?: string[]
-    /**
-     * Gets a list of property age values that will be accepted by other services
-     */
-    ageOptions?: string[]
-    /**
-     * Gets a list of property locality values that will be accepted by other services
-     */
-    localityOptions?: string[]
-    /**
-     * The ETag for the current version of this department. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultDocumentModel_ {
-  _embedded?: {
-    /**
-     * Gets the unique identifier
-     */
-    id?: string
-    /**
-     * Gets the datetime when the document was created
-     */
-    created?: string // date-time
-    /**
-     * Gets the date and time that the document was last modified
-     */
-    modified?: string // date-time
-    /**
-     * Gets the type of entity that this document is associated with
-     */
-    associatedType?: string
-    /**
-     * Gets the Id of the entity that this document is associated with
-     */
-    associatedId?: string
-    /**
-     * Gets the Id of the document type
-     */
-    typeId?: string
-    /**
-     * Gets the filename assigned to the document
-     */
-    name?: string
-    /**
-     * The ETag for the current version of this contact. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultIdentityCheckModel_ {
-  _embedded?: {
-    /**
-     * Gets the unique identifier
-     */
-    id?: string
-    /**
-     * Gets the unique identifier of the contact associated to the id check
-     */
-    contactId?: string
-    /**
-     * Gets the date and time that the identity check was created
-     */
-    created?: string // date-time
-    /**
-     * Gets the date and time that the identity check was last modified
-     */
-    modified?: string // date-time
-    /**
-     * Gets the date that the identity check was performed
-     * Note that this can be different to the date that the check was created
-     */
-    checkDate?: string // date-time
-    /**
-     * Gets the status of this identity check  (pass/fail/pending/cancelled/warnings/unchecked)
-     */
-    status?: string
-    /**
-     * Gets the id of the negotiator that performed the identity check
-     * Note that this can be different to the negotiator that created the check
-     */
-    negotiatorId?: string
-    /**
-     * Gets the details of document one that has been provided for this identity check
-     */
-    identityDocument1?: {
-      /**
-       * Gets the unique identifier of the document
-       */
-      documentId?: string
-      /**
-       * Gets the id of the document type that describes this document
-       */
-      typeId?: string
-      /**
-       * Gets the date that this document expires
-       */
-      expiry?: string // date-time
-      /**
-       * Gets the textual details of the identity document (eg. passport number)
-       */
-      details?: string
-    }
-    /**
-     * Gets the details of document two that has been provided for this identity check
-     */
-    identityDocument2?: {
-      /**
-       * Gets the unique identifier of the document
-       */
-      documentId?: string
-      /**
-       * Gets the id of the document type that describes this document
-       */
-      typeId?: string
-      /**
-       * Gets the date that this document expires
-       */
-      expiry?: string // date-time
-      /**
-       * Gets the textual details of the identity document (eg. passport number)
-       */
-      details?: string
-    }
-    /**
-     * Gets a listing of additional metadata that has been set against this identity check
-     */
-    metadata?: {
-      [name: string]: any
-    }
-    /**
-     * The ETag for the current version of this identity check. Used for managing update concurrency
-     */
-    readonly _eTag?: string
-    readonly _links?: {
-      [name: string]: {
-        href?: string
-      }
-    }
-    readonly _embedded?: {
-      [name: string]: any
-    }
-  }[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: {
-      href?: string
-    }
-  }
-}
-export interface PagedResultLandlordModel_ {
-  _embedded?: {
-    id?: string
-    /**
-     * Gets the datetime when the landlord was created
-     */
-    created?: string // date-time
-    /**
-     * Gets the date and time that the landlord was last modified
-     */
-    modified?: string // date-time
-    /**
-     * Gets the active flag
-     */
-    active?: boolean
-    /**
-     * Gets the unique identifier of the landlords solicitor
-     */
-    solicitorId?: string
-    /**
-     * Gets the office id that is associated to this landlord
-     */
-    officeId?: string
-    /**
-     * Gets the landlords source information
-     */
-    source?: {
-      /**
-       * Gets the unique identifier of the landlords source
-       */
-      id?: string
-      /**
-       * Gets the landlords source type
-       */
-      type?: string
-    }
-    /**
-     * Gets a collection of contact entities attached to this landlord
-     * The primary contact will always appear first in the collection
-     */
-    related?: {
-      /**
-       * Gets the unique identifier of the contact
-       */
-      id?: string
-      /**
-       * Gets the name of this contact or company
-       */
-      name?: string
-      /**
-       * Gets the type of this contact (Contact/Company)
-       */
-      type?: string
-      /**
-       * The home phone number of the contact
-       */
-      homePhone?: string
-      /**
-       * The work phone number of the contact
-       */
-      workPhone?: string
-      /**
-       * The mobile phone number of the contact
-       */
-      mobilePhone?: string
-      /**
-       * The email address of the contact
-       */
-      email?: string
-      /**
-       * Gets the primary address of the contact
-       */
-      primaryAddress?: {
-        /**
-         * Gets the building name
-         */
-        buildingName?: string
-        /**
-         * Gets the building number
-         */
-        buildingNumber?: string
-        /**
-         * Gets the first line of the address
-         */
-        line1?: string
-        /**
-         * Gets the second line of the address
-         */
-        line2?: string
-        /**
-         * Gets the third line of the address
-         */
-        line3?: string
-        /**
-         * Gets the fourth line of the address
-         */
-        line4?: string
-        /**
-         * Gets the postcode
-         */
-        postcode?: string
-        /**
-         * Gets the ISO-3166 country code associated with the address
-         */
-        countryId?: string
-      }
-    }[]
-    /**
-     * Gets a listing of additional metadata that has been set against this landlord
-     */
-    metadata?: {
-      [name: string]: any
-    }
-    /**
-     * The ETag for the current version of this landlord. Used for managing update concurrency
+     * The ETag for the current version of the landlord. Used for managing update concurrency
      */
     readonly _eTag?: string
     readonly _links?: {
@@ -5621,7 +5764,7 @@ export interface PagedResultNegotiatorModel_ {
      */
     jobTitle?: string
     /**
-     * Flag denoting whether or not the negotiator is active
+     * A flag determining whether or not the negotiator is active
      */
     active?: boolean
     /**
@@ -5641,7 +5784,7 @@ export interface PagedResultNegotiatorModel_ {
      */
     email?: string
     /**
-     * App specific metadata to set against the negotiator
+     * App specific metadata that has been set against the negotiator
      */
     metadata?: {
       [name: string]: any
@@ -5672,72 +5815,71 @@ export interface PagedResultNegotiatorModel_ {
 export interface PagedResultOfferModel_ {
   _embedded?: {
     /**
-     * Gets the unique identifier of the offer
+     * The unique identifier of the offer
      */
     id?: string
     /**
-     * Gets the date the offer was created
+     * The the date and time when the offer was created
      */
     created?: string // date-time
     /**
-     * Gets the date the offer was last modified
+     * The date and time when the offer was last modified
      */
     modified?: string // date-time
     /**
-     * Gets the currency that applies to monetary amounts exposed in the model
+     * The currency that applies to monetary amounts exposed in the model
      */
     currency?: string
     /**
-     * Gets the id of the applicant associated to the offer
+     * The unique identifier of the applicant associated to the offer
      */
     applicantId?: string
     /**
-     * Gets the id of the property associated to the offer
+     * The unique identifier of the property associated to the offer
      */
     propertyId?: string
     /**
-     * Gets the id of the negotiator associated to the offer
+     * The unique identifier of the negotiator associated to the offer
      */
     negotiatorId?: string
     /**
-     * Gets the date the offer was made
+     * The date when the offer was made
      */
     date?: string // date-time
     /**
-     * Gets the amount the offer was for
+     * The monetary amount of the offer
      */
     amount?: number // double
     /**
-     * Gets the status of the offer
+     * The current status of the offer (pending/withdrawn/rejected/accepted/noteOfInterest)
      */
     status?: string
     /**
-     * Gets the requested inclusions of the offer
+     * A free text field describing items that should be included in the sale
      */
     inclusions?: string
     /**
-     * Gets the requested exclusions of the offer
+     * A free text field describing items that are explicitly excluded from the sale
      */
     exclusions?: string
     /**
-     * Gets the conditions of the offer
+     * A free text field describing any other conditions set by either party that relate to the sale
      */
     conditions?: string
     /**
-     * Gets a collection of contact entities attached to this offer
-     * The primary contact will always appear first in the collection
+     * A collection of contacts associated to the offer
      */
     related?: {
       /**
-       * Gets the unique identifier of the contact
+       * The unique identifier of the contact
        */
       id?: string
       /**
-       * Gets the name of this contact or company
+       * The name of the contact
        */
       name?: string
       /**
-       * Gets the type of this contact (contact/company)
+       * The type of the contact (contact/company)
        */
       type?: string
       /**
@@ -5757,51 +5899,51 @@ export interface PagedResultOfferModel_ {
        */
       email?: string
       /**
-       * Gets the primary address of the contact
+       * The primary address of the contact
        */
       primaryAddress?: {
         /**
-         * Gets the building name
+         * The building name
          */
         buildingName?: string
         /**
-         * Gets the building number
+         * The building number
          */
         buildingNumber?: string
         /**
-         * Gets the first line of the address
+         * The first line of the address
          */
         line1?: string
         /**
-         * Gets the second line of the address
+         * The second line of the address
          */
         line2?: string
         /**
-         * Gets the third line of the address
+         * The third line of the address
          */
         line3?: string
         /**
-         * Gets the fourth line of the address
+         * The fourth line of the address
          */
         line4?: string
         /**
-         * Gets the postcode
+         * The postcode
          */
         postcode?: string
         /**
-         * Gets the ISO-3166 country code associated with the address
+         * The ISO-3166 country code that the address resides in
          */
         countryId?: string
       }
     }[]
     /**
-     * Gets a listing of additional metadata that has been set against this offer
+     * App specific metadata that has been set against the offer
      */
     metadata?: {
       [name: string]: any
     }
     /**
-     * The ETag for the current version of this offer. Used for managing update concurrency
+     * The ETag for the current version of the offer. Used for managing update concurrency
      */
     readonly _eTag?: string
     readonly _links?: {
@@ -6448,6 +6590,55 @@ export interface PagedResultTaskModel_ {
     }
   }
 }
+export interface PagedResultVendorContactRelationshipModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the vendor relationship
+     */
+    id?: string
+    /**
+     * The unique identifier of the vendor
+     */
+    vendorId?: string
+    /**
+     * The date and time when the relationship was created
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     */
+    modified?: string // date-time
+    /**
+     * The type of related entity (contact/company)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related contact or company
+     */
+    associatedId?: string
+    /**
+     * A flag denoting whether or not this relationship should be regarded as the main relationship for the parent vendor entity
+     */
+    isMain?: boolean
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
 export interface PagedResultVendorModel_ {
   _embedded?: {
     /**
@@ -6496,15 +6687,15 @@ export interface PagedResultVendorModel_ {
       type?: string
     }
     /**
-     * A collection of contacts associated to the vendor
+     * A collection of contacts and/or companies associated to the vendor. The first item in the collection is considered the primary relationship
      */
     related?: {
       /**
-       * The unique identifier of the contact
+       * The unique identifier of the contact or company
        */
       id?: string
       /**
-       * The name of the contact
+       * The name of the contact or company
        */
       name?: string
       /**
@@ -6512,23 +6703,23 @@ export interface PagedResultVendorModel_ {
        */
       type?: string
       /**
-       * The home phone number of the contact
+       * The home phone number of the contact or company
        */
       homePhone?: string
       /**
-       * The work phone number of the contact
+       * The work phone number of the contact or company
        */
       workPhone?: string
       /**
-       * The mobile phone number of the contact
+       * The mobile phone number of the contact or company
        */
       mobilePhone?: string
       /**
-       * The email address of the contact
+       * The email address of the contact or company
        */
       email?: string
       /**
-       * The primary address of the contact
+       * The primary address of the contact or company
        */
       primaryAddress?: {
         /**
@@ -6566,11 +6757,11 @@ export interface PagedResultVendorModel_ {
       }
     }[]
     /**
-     * The unique identifier of the negotiator attached to the vendor
+     * The unique identifier of the negotiator attached to the vendor. The first item in the collection is considered the primary negotiator
      */
     negotiatorId?: string
     /**
-     * A collection of unique identifiers of offices attached to the vendor
+     * A collection of unique identifiers of offices attached to the vendor. The first item in the collection is considered the primary office
      */
     officeIds?: string[]
     /**
@@ -6604,14 +6795,6 @@ export interface PagedResultVendorModel_ {
 }
 export interface PagingLinkModel {
   href?: string
-}
-export interface ProblemDetails {
-  [name: string]: any
-  type?: string
-  title?: string
-  status?: number // int32
-  detail?: string
-  instance?: string
 }
 export interface Properties {
   PageSize?: number
@@ -6853,7 +7036,7 @@ export interface PropertyImages {
   SortBy?: string
   Id?: string[]
   PropertyId?: string[]
-  Type?: string[]
+  Type?: ('photograph' | 'map' | 'floorPlan' | 'epc')[]
 }
 /**
  * Representation of the internal dimensions of a property
@@ -7507,97 +7690,97 @@ export interface UpdateApplicantInternalAreaModel {
   amount?: number // double
 }
 /**
- * Representation of an applicant
+ * Request body used to update an existing applicant
  * example:
  * [object Object]
  */
 export interface UpdateApplicantModel {
   /**
-   * Sets the marketing mode relating to the buyer (buying / renting)
+   * Indicates whether the applicant is look to buy or rent a property (buying/renting)
    */
   marketingMode?: string
   /**
-   * Sets a flag determining whether or not the applicant is actively looking for property
+   * A flag determining whether or not the applicant is actively looking for a property
    */
   active?: boolean
   /**
-   * Gets the applicant requirement notes
+   * A free text field describing any adhoc buying or renting requirements
    */
   notes?: string
   /**
-   * Sets the date and time that the applicant was last contacted
+   * The date when the applicant was last contacted
    */
   lastCall?: string // date-time
   /**
-   * Sets the date and time that the applicant is next due to be contacted
+   * The date when the applicant is next due to be contacted
    */
   nextCall?: string // date-time
   /**
-   * Sets the id of the department that the applicant requirements are associated with
+   * The unique identifier of the department that the applicant requirements are associated with. The applicant will only match to properties with the same value
    */
   departmentId?: string
   /**
-   * Sets the unique idenfitier of the applicants solicitor
+   * The unique identifier of the solicitor associated to the applicant
    */
   solicitorId?: string
   /**
-   * Sets the property type requirements
+   * A list of property type requirements taken from the full listing of the associated department
    */
   type?: string[]
   /**
-   * Sets the property style requirements
+   * A list of property style requirements taken from the full listing of the associated department
    */
   style?: string[]
   /**
-   * Sets the property situation requirements
+   * A list of property situation requirements taken from the full listing of the associated department
    */
   situation?: string[]
   /**
-   * Sets the property parking requirements
+   * A list of property parking requirements taken from the full listing of the associated department
    */
   parking?: string[]
   /**
-   * Sets the property age requirements
+   * A list of property age requirements taken from the full listing of the associated department
    */
   age?: string[]
   /**
-   * Sets the property locality requirements
+   * A list of property locality requirements taken from the full listing of the associated department
    */
   locality?: string[]
   /**
-   * Sets the minimum number of bedrooms the applicant requires
+   * The minimum number of bedrooms the applicant requires
    */
   bedroomsMin?: number // int32
   /**
-   * Sets the maximum number of bedrooms the applicant requires
+   * The maximum number of bedrooms the applicant requires
    */
   bedroomsMax?: number // int32
   /**
-   * Sets the minimum number of reception rooms the applicant requires
+   * The minimum number of reception rooms the applicant requires
    */
   receptionsMin?: number // int32
   /**
-   * Sets the maximum number of reception rooms the applicant requires
+   * The maximum number of reception rooms the applicant requires
    */
   receptionsMax?: number // int32
   /**
-   * Sets the minimum number of bathrooms the applicant requires
+   * The minimum number of bathrooms the applicant requires
    */
   bathroomsMin?: number // int32
   /**
-   * Sets the maximum number of bathrooms the applicant requires
+   * The maximum number of bathrooms the applicant requires
    */
   bathroomsMax?: number // int32
   /**
-   * Sets the applicants location type (areas/addresses/none)
+   * The applicant's location type (areas/addresses/none)
    */
   locationType?: string
   /**
-   * Sets the applicants location options
+   * The applicant's location options
    */
   locationOptions?: string[]
   /**
-   * Sets the sales specific requirements, if the applicant is looking to buy
+   * The details specific to applicants with a marketingMode of buying
    */
   buying?: {
     /**
@@ -7610,7 +7793,7 @@ export interface UpdateApplicantModel {
     priceTo?: number // int32
   }
   /**
-   * Sets the letting specific requirements, if the applicant is looking to rent
+   * The details specific to applicants with a marketingMode of renting
    */
   renting?: {
     /**
@@ -7634,12 +7817,12 @@ export interface UpdateApplicantModel {
      */
     rentFrequency?: string
     /**
-     * Sets the applicants furnishing requirements
+     * A list of property furnishing requirements taken from the full listing of the associated department
      */
     furnishing?: string[]
   }
   /**
-   * Sets the applicant's external area requirements
+   * The applicant's outdoor space requirements
    */
   externalArea?: {
     /**
@@ -7656,7 +7839,7 @@ export interface UpdateApplicantModel {
     amountTo?: number // double
   }
   /**
-   * Sets the applicant's internal area requirements
+   * The applicant's indoor space requirements
    */
   internalArea?: {
     /**
@@ -7669,28 +7852,28 @@ export interface UpdateApplicantModel {
     amount?: number // double
   }
   /**
-   * Sets the applicants source
+   * The source of the applicant
    */
   source?: {
     /**
-     * Sets the unique identifier of the applicants source
+     * The unique identifier of the applicant's source
      */
     id?: string
     /**
-     * Sets the applicants source type
+     * The source type (office/source)
      */
     type?: string
   }
   /**
-   * Sets a collection of office ids that are related to this applicant
+   * A collection of unique identifiers of offices attached to the applicant. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**
-   * Sets a collection of negotiator ids that are related to this applicant
+   * A collection of unique identifiers of negotiators attached to the applicant. The first item in the collection is considered the primary negotiator
    */
   negotiatorIds?: string[]
   /**
-   * Sets a JSON fragment to attach to this applicant as metadata
+   * App specific metadata to set against the applicant
    */
   metadata?: {
     [name: string]: any
@@ -7721,37 +7904,37 @@ export interface UpdateApplicantRentingModel {
    */
   rentFrequency?: string
   /**
-   * Sets the applicants furnishing requirements
+   * A list of property furnishing requirements taken from the full listing of the associated department
    */
   furnishing?: string[]
 }
 /**
- * Model used for creating a applicants source
+ * An applicant's source of enquiry
  */
 export interface UpdateApplicantSourceModel {
   /**
-   * Sets the unique identifier of the applicants source
+   * The unique identifier of the applicant's source
    */
   id?: string
   /**
-   * Sets the applicants source type
+   * The source type (office/source)
    */
   type?: string
 }
 /**
- * Represents an attendee on an appointment.
+ * Represents an external attendee on an appointment
  */
 export interface UpdateAppointmentAttendeeModel {
   /**
-   * The identifier of the attendee.
+   * The unique identifier of the attendee
    */
   id?: string
   /**
-   * The type of attendee.
+   * The type of attendee (applicant/contact/landlord/tenant)
    */
   type?: string
   /**
-   * A flag denoting whether or not the attendee has confirmed their attendance to the appointment.
+   * A flag denoting whether or not the attendee has confirmed their attendance
    */
   confirmed?: boolean
 }
@@ -7760,241 +7943,243 @@ export interface UpdateAppointmentAttendeeModel {
  */
 export interface UpdateAppointmentFollowUpModel {
   /**
-   * The unique identifier of a pre-defined follow up response type.
+   * The unique identifier of a pre-defined follow up response type
    */
   responseId?: string
   /**
-   * The internal follow up notes to be stored against the appointment.
+   * The internal follow up notes to be stored against the appointment
    */
   notes?: string
 }
 /**
- * Represents a calendar entry.
+ * Request body used to update an existing calendar appointment
+ * example:
+ * [object Object]
  */
 export interface UpdateAppointmentModel {
   /**
-   * The date and time when the appointment will start.
+   * The date and time when the appointment will start
    */
   start?: string // date-time
   /**
-   * The date and time when the appointment will end.
+   * The date and time when the appointment will end
    */
   end?: string // date-time
   /**
-   * The type of appointment.
-   */
-  typeId?: string
-  /**
-   * The date and time when the appointment should be followed up on.
+   * The date and time when the appointment should be followed up
    */
   followUpOn?: string // date-time
   /**
-   * The appointment description.
+   * The unique identifier of the appointment type
+   */
+  typeId?: string
+  /**
+   * A free text description about the appointment
    */
   description?: string
   /**
-   * The property identifier that the appointment takes place at.
+   * The unique identifier of the property related to the appointment
    */
   propertyId?: string
   /**
-   * The id of the person that organised the appointment.
+   * The unique identifier of the negotiator that organised the appointment
    */
   organiserId?: string
   /**
-   * The flag that determines if this appointment is cancelled.
+   * A flag denoting whether or not the appointment has been cancelled
    */
   cancelled?: boolean
   /**
-   * The negotiator ids to link the appointment too.
+   * A collection of unique identifiers of negotiators attached to the appointment
    */
   negotiatorIds?: string[]
   /**
-   * The office ids to link the appointment too.
+   * A collection of unique identifiers of offices attached to the appointment
    */
   officeIds?: string[]
   /**
-   * The details of the attendee of the appointment.
+   * Details of the external appointment attendee
    */
   attendee?: {
     /**
-     * The identifier of the attendee.
+     * The unique identifier of the attendee
      */
     id?: string
     /**
-     * The type of attendee.
+     * The type of attendee (applicant/contact/landlord/tenant)
      */
     type?: string
     /**
-     * A flag denoting whether or not the attendee has confirmed their attendance to the appointment.
+     * A flag denoting whether or not the attendee has confirmed their attendance
      */
     confirmed?: boolean
   }
   /**
-   * The flag to specify if the appointment is accompanied.
+   * A flag denoting whether or not the appointment will be accompanied by one or more negotiators
    */
   accompanied?: boolean
   /**
-   * The flag to specify if the negotiator is confirmed.
+   * A flag denoting whether or not the main negotiator has confirmed their attendance
    */
   negotiatorConfirmed?: boolean
   /**
-   * The flag to specify if the attendee is confirmed.
+   * A flag denoting whether or not the attendee has confirmed their attendance
    */
   attendeeConfirmed?: boolean
   /**
-   * The flag to specify if the property is confirmed.
+   * A flag denoting whether or not the property and/or property's vendor has confirmed their attendance
    */
   propertyConfirmed?: boolean
   /**
-   * The details of the appointments follow up.
+   * Details added when the appointment has been followed up
    */
   followUp?: {
     /**
-     * The unique identifier of a pre-defined follow up response type.
+     * The unique identifier of a pre-defined follow up response type
      */
     responseId?: string
     /**
-     * The internal follow up notes to be stored against the appointment.
+     * The internal follow up notes to be stored against the appointment
      */
     notes?: string
   }
   /**
-   * The recurrence pattern for this appointment.
+   * Details of the recurrence pattern for the appointment
    */
   recurrence?: {
     /**
-     * The type of unit that the interval will apply to.
+     * The type of unit that the `interval` applies to
      */
     type?: string
     /**
-     * The numeric value for how often the appointment will recur.
+     * The numeric value denoting how often the appointment will recur
      */
     interval?: number // int32
     /**
-     * The date and time when the appointment will continue to recur until.
+     * The date and time when the recurrence will stop
      */
     until?: string // date-time
   }
   /**
-   * Sets a JSON fragment to attach to this appointment as metadata.
+   * App specific metadata to set against the appointment
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Represents the recurrence details of an appointment.
+ * Details of an appointment's recurrence pattern
  */
 export interface UpdateAppointmentRecurrenceModel {
   /**
-   * The type of unit that the interval will apply to.
+   * The type of unit that the `interval` applies to
    */
   type?: string
   /**
-   * The numeric value for how often the appointment will recur.
+   * The numeric value denoting how often the appointment will recur
    */
   interval?: number // int32
   /**
-   * The date and time when the appointment will continue to recur until.
+   * The date and time when the recurrence will stop
    */
   until?: string // date-time
 }
 /**
- * Model to update an area
+ * Request body used to update an existing area
  * example:
  * [object Object]
  */
 export interface UpdateAreaModel {
   /**
-   * Sets the areas name
+   * The name of the area
    */
   name?: string
   /**
-   * Sets the areas area information
+   * The location details (comma delimited list of postcodes, group ids or lat/long coordinate groups)
    */
   area?: string[]
   /**
-   * Sets the areas related deparments
+   * A collection of unique identifiers of departments associated to the area
    */
   departmentIds?: string[]
   /**
-   * Sets the areas related offices
+   * A collection of unique identifiers of offices associated to the area
    */
   officeIds?: string[]
 }
 /**
- * Model to update a company address
+ * Request body to set the address of an existing company
  */
 export interface UpdateCompanyAddressModel {
   /**
-   * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+   * The type of address (primary/secondary/home/work/forwarding/company/previous)
    */
   type?: string
   /**
-   * Sets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Sets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Sets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Sets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Sets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Sets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Sets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Sets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the address resides within
    */
   countryId?: string
 }
 /**
- * Model to update a company
+ * Request body used to update an existing company
  * example:
  * [object Object]
  */
 export interface UpdateCompanyModel {
   /**
-   * Sets the companies name
+   * The name of the company
    */
   name?: string
   /**
-   * Sets the companies branch
+   * The branch name of the company
    */
   branch?: string
   /**
-   * Sets the companies notes
+   * A free text field containing notes that describe the company's business or service offering
    */
   notes?: string
   /**
-   * Sets the active flag against the company
+   * A flag determining whether or not the company is currently active
    */
   active?: boolean
   /**
-   * Sets the vat registered flag against the company
+   * A flag determining whether or not the company is VAT registered
    */
   vatRegistered?: boolean
   /**
-   * Sets the companies list of type ids
+   * A collection of unique identifiers of company types that categorise the type of business the company operates
    */
   typeIds?: string[]
   /**
-   * Sets the supplier type id
+   * The unique identifier of a supplier type, if the company is a supplier
    */
   supplierTypeId?: string
   /**
@@ -8010,134 +8195,134 @@ export interface UpdateCompanyModel {
    */
   email?: string
   /**
-   * Sets the address of the company
+   * The address of the company
    */
   address?: {
     /**
-     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the address resides within
      */
     countryId?: string
   }
   /**
-   * Sets a JSON fragment to attach to this company as metadata
+   * App specific metadata to set against the company
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model to update a contact address
+ * Request body used to update an address on an existing contact
  */
 export interface UpdateContactAddressModel {
   /**
-   * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+   * The type of address (primary/secondary/home/work/forwarding/company/previous)
    */
   type?: string
   /**
-   * Sets the building name
+   * The building name
    */
   buildingName?: string
   /**
-   * Sets the building number
+   * The building number
    */
   buildingNumber?: string
   /**
-   * Sets the first line of the address
+   * The first line of the address
    */
   line1?: string
   /**
-   * Sets the second line of the address
+   * The second line of the address
    */
   line2?: string
   /**
-   * Sets the third line of the address
+   * The third line of the address
    */
   line3?: string
   /**
-   * Sets the fourth line of the address
+   * The fourth line of the address
    */
   line4?: string
   /**
-   * Sets the postcode
+   * The postcode
    */
   postcode?: string
   /**
-   * Sets the ISO-3166 country code associated with the address
+   * The ISO-3166 country code that the adderess resides in
    */
   countryId?: string
 }
 /**
- * Model to update a contact record
+ * Request body used to update an existing contact
  * example:
  * [object Object]
  */
 export interface UpdateContactModel {
   /**
-   * Sets the title of this contact (eg. Mr, Mrs, Miss, Dr)
+   * The contact's title  (eg. Mr, Mrs, Miss, Dr)
    */
   title?: string
   /**
-   * Sets the forename of this contact
+   * The contact's forename
    */
   forename?: string
   /**
-   * Sets the surname of this contact
+   * The contact's surname
    */
   surname?: string
   /**
-   * Sets the date of birth of this contact
+   * The contact's date of birth
    */
   dateOfBirth?: string // date-time
   /**
-   * Sets a flag to indicate if this contact has been marked as active
+   * A flag determining whether or not the contact is currently active
    */
   active?: boolean
   /**
-   * Sets the marketing consent status of this contact (grant/deny/notAsked)
+   * The marketing consent status of the contact (grant/deny/notAsked)
    */
   marketingConsent?: string
   /**
-   * Sets the contacts source
+   * The source of the contact
    */
   source?: {
     /**
-     * Sets the unique identifier of the contacts source
+     * The unique identifier of the source of the contact
      */
     id?: string
     /**
-     * Sets the contacts source type
+     * The source type (office/source)
      */
     type?: string
   }
@@ -8158,318 +8343,319 @@ export interface UpdateContactModel {
    */
   email?: string
   /**
-   * Gets a collection of office ids that are related to this contact
+   * A collection of unique identifiers of offices attached to the contact
    */
   officeIds?: string[]
   /**
-   * Sets a collection of negotiator ids that are related to this contact
+   * A collection of unique identifiers of negotiators attached to the contact
    */
   negotiatorIds?: string[]
   /**
-   * Sets the contacts primary address
+   * The primary address of the contact
    */
   primaryAddress?: {
     /**
-     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the adderess resides in
      */
     countryId?: string
   }
   /**
-   * Sets the contacts secondary address
+   * The secondary address of the contact
    */
   secondaryAddress?: {
     /**
-     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the adderess resides in
      */
     countryId?: string
   }
   /**
-   * Sets the contacts work address
+   * The work address of the contact
    */
   workAddress?: {
     /**
-     * Sets the type of address (primary/secondary/home/work/forwarding/company/previous)
+     * The type of address (primary/secondary/home/work/forwarding/company/previous)
      */
     type?: string
     /**
-     * Sets the building name
+     * The building name
      */
     buildingName?: string
     /**
-     * Sets the building number
+     * The building number
      */
     buildingNumber?: string
     /**
-     * Sets the first line of the address
+     * The first line of the address
      */
     line1?: string
     /**
-     * Sets the second line of the address
+     * The second line of the address
      */
     line2?: string
     /**
-     * Sets the third line of the address
+     * The third line of the address
      */
     line3?: string
     /**
-     * Sets the fourth line of the address
+     * The fourth line of the address
      */
     line4?: string
     /**
-     * Sets the postcode
+     * The postcode
      */
     postcode?: string
     /**
-     * Sets the ISO-3166 country code associated with the address
+     * The ISO-3166 country code that the adderess resides in
      */
     countryId?: string
   }
   /**
-   * Sets a JSON fragment to attach to this contact as metadata
+   * App specific metadata to set against the contact
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model used for creating a contacts source
+ * Request body used to update the source of an existing contact
  */
 export interface UpdateContactSourceModel {
   /**
-   * Sets the unique identifier of the contacts source
+   * The unique identifier of the source of the contact
    */
   id?: string
   /**
-   * Sets the contacts source type
+   * The source type (office/source)
    */
   type?: string
 }
 /**
+ * Request body used to update an existing document
  * example:
  * [object Object]
  */
 export interface UpdateDocumentModel {
   /**
-   * Sets the Id of the document type
+   * The unique identifier of the type of document
    */
   typeId?: string
   /**
-   * Sets the filename assigned to the document
+   * The filename of the document
    */
   name?: string
 }
 /**
- * Model to update an existing identity check
+ * Request body used to update an exist contact identity check
  * example:
  * [object Object]
  */
 export interface UpdateIdentityCheckModel {
   /**
-   * Sets the date that the identity check was performed
-   * Note that this can be different to the date that the check was created
+   * The date when the identity check was performed. This may differ to the date when the check was created
    */
   checkDate?: string // date-time
   /**
-   * Sets the status of this identity check  (pass/fail/pending/cancelled/warnings/unchecked)
+   * The current status of the identity check (pass/fail/pending/cancelled/warnings/unchecked)
    */
   status?: string
   /**
-   * Sets the id of the negotiator that performed the identity check
-   * Note that this can be different to the negotiator that created the check
+   * The unique identifier of the negotiator that initiated the identity check
    */
   negotiatorId?: string
   /**
-   * Sets the details of document one that have been provided for this identity check
+   * The details of the first document that was provided as part of the identity check
    */
   identityDocument1?: {
     /**
-     * Sets the id of the document type that describes this document
+     * The unique identifier of the type of identity document provided
      */
     typeId?: string
     /**
-     * Sets the date that this document expires
+     * The date when the document expires and becomes invalid
      */
     expiry?: string // date-time
     /**
-     * Sets the textual details of the identity document (eg. passport number)
+     * Details regarding the identity document (eg. passport number)
      */
     details?: string
     /**
-     * Sets the base64 binary content of the file
+     * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
      */
     fileData?: string
     /**
-     * Sets the filename assigned to the document
+     * The filename to store the document as
      */
     name?: string
   }
   /**
-   * Sets the details of document two that have been provided for this identity check
+   * The details of the second document that was provided as part of the identity check
    */
   identityDocument2?: {
     /**
-     * Sets the id of the document type that describes this document
+     * The unique identifier of the type of identity document provided
      */
     typeId?: string
     /**
-     * Sets the date that this document expires
+     * The date when the document expires and becomes invalid
      */
     expiry?: string // date-time
     /**
-     * Sets the textual details of the identity document (eg. passport number)
+     * Details regarding the identity document (eg. passport number)
      */
     details?: string
     /**
-     * Sets the base64 binary content of the file
+     * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
      */
     fileData?: string
     /**
-     * Sets the filename assigned to the document
+     * The filename to store the document as
      */
     name?: string
   }
   /**
-   * Sets a JSON fragment to attach to this identity check as metadata
+   * App specific metadata to set against the identity check
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model to update an identity document
+ * Request body to update an identity document attached to an existing contact identity check
  */
 export interface UpdateIdentityDocumentModel {
   /**
-   * Sets the id of the document type that describes this document
+   * The unique identifier of the type of identity document provided
    */
   typeId?: string
   /**
-   * Sets the date that this document expires
+   * The date when the document expires and becomes invalid
    */
   expiry?: string // date-time
   /**
-   * Sets the textual details of the identity document (eg. passport number)
+   * Details regarding the identity document (eg. passport number)
    */
   details?: string
   /**
-   * Sets the base64 binary content of the file
+   * The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
    */
   fileData?: string
   /**
-   * Sets the filename assigned to the document
+   * The filename to store the document as
    */
   name?: string
 }
 /**
- * Request body to update a landlord
+ * Request body used to update an existing landlord
+ * example:
+ * [object Object]
  */
 export interface UpdateLandlordModel {
   /**
-   * Sets the active flag against this landlord
+   * A flag determining whether or not the landlord is currently active
    */
   active?: boolean
   /**
-   * Sets the unique idenfitier of the landlords solicitor
+   * The unique identifier of the company acting as the landlord's solicitor
    */
   solicitorId?: string
   /**
-   * Sets the office id that is associated to this landlord
+   * The unique identifier of the office that is associated to the landlord
    */
   officeId?: string
   /**
-   * Sets the landlords source
+   * The source of the landlord
    */
   source?: {
     /**
-     * Sets the unique identifier of the landlords source
+     * The unique identifier of the source of the landlord
      */
     id?: string
     /**
-     * Sets the landlords source type
+     * The source type (office/source)
      */
     type?: string
   }
   /**
-   * Sets a JSON fragment to attach to this landlord as metadata
+   * App specific metadata that to set against the landlord
    */
   metadata?: {
     [name: string]: any
   }
 }
 /**
- * Model used for updating a landlords source
+ * Request body used to update the source of an existing landlord
  */
 export interface UpdateLandlordSourceModel {
   /**
-   * Sets the unique identifier of the landlords source
+   * The unique identifier of the source of the landlord
    */
   id?: string
   /**
-   * Sets the landlords source type
+   * The source type (office/source)
    */
   type?: string
 }
@@ -8488,7 +8674,7 @@ export interface UpdateNegotiatorModel {
    */
   jobTitle?: string
   /**
-   * Flag denoting whether or not the negotiator is active
+   * A flag determining whether or not the negotiator is active
    */
   active?: boolean
   /**
@@ -8511,41 +8697,41 @@ export interface UpdateNegotiatorModel {
   }
 }
 /**
- * Model to update an offer
+ * Request body used to update an existing offer
  * example:
  * [object Object]
  */
 export interface UpdateOfferModel {
   /**
-   * Sets the id of the negotiator associated to the offer
+   * The unique identifier of the negotiator associated to the offer
    */
   negotiatorId?: string
   /**
-   * Sets the date the offer was made
+   * The date when the offer was made
    */
   date?: string // date-time
   /**
-   * Sets the amount the offer was for
+   * The monetary amount of the offer
    */
   amount?: number // double
   /**
-   * Sets the status of the offer
+   * The current status of the offer (pending/withdrawn/rejected/accepted/noteOfInterest)
    */
   status?: string
   /**
-   * Sets the requested inclusions of the offer
+   * A free text field describing items that should be included in the sale
    */
   inclusions?: string
   /**
-   * Sets the requested exclusions of the offer
+   * A free text field describing items that are explicitly excluded from the sale
    */
   exclusions?: string
   /**
-   * Sets the conditions of the offer
+   * A free text field describing any other conditions set by either party that relate to the sale
    */
   conditions?: string
   /**
-   * Sets a JSON fragment to attach to this offer as metadata
+   * App specific metadata to set against the offer
    */
   metadata?: {
     [name: string]: any
@@ -8590,6 +8776,8 @@ export interface UpdateOfficeAddressModel {
 }
 /**
  * Request body used to update an existing office
+ * example:
+ * [object Object]
  */
 export interface UpdateOfficeModel {
   /**
@@ -8824,6 +9012,8 @@ export interface UpdatePropertyLettingModel {
 }
 /**
  * Request body used to update an existing property
+ * example:
+ * [object Object]
  */
 export interface UpdatePropertyModel {
   /**
@@ -9152,7 +9342,7 @@ export interface UpdateSourceModel {
   departmentIds?: string[]
 }
 /**
- * Representation of a task, which can also be an internal message
+ * Request body used to update an existing task, which can also be an internal message
  * example:
  * [object Object]
  */
@@ -9296,15 +9486,15 @@ export interface VendorContactAddressModel {
   countryId?: string
 }
 /**
- * A summarised view of the details of a contact associated to a vendor
+ * A summarised view of the details of a contact or company associated to a vendor
  */
 export interface VendorContactModel {
   /**
-   * The unique identifier of the contact
+   * The unique identifier of the contact or company
    */
   id?: string
   /**
-   * The name of the contact
+   * The name of the contact or company
    */
   name?: string
   /**
@@ -9312,23 +9502,23 @@ export interface VendorContactModel {
    */
   type?: string
   /**
-   * The home phone number of the contact
+   * The home phone number of the contact or company
    */
   homePhone?: string
   /**
-   * The work phone number of the contact
+   * The work phone number of the contact or company
    */
   workPhone?: string
   /**
-   * The mobile phone number of the contact
+   * The mobile phone number of the contact or company
    */
   mobilePhone?: string
   /**
-   * The email address of the contact
+   * The email address of the contact or company
    */
   email?: string
   /**
-   * The primary address of the contact
+   * The primary address of the contact or company
    */
   primaryAddress?: {
     /**
@@ -9363,6 +9553,47 @@ export interface VendorContactModel {
      * The ISO-3166 country code that the address resides within
      */
     countryId?: string
+  }
+}
+/**
+ * Representation of a relationship between a vendor and a contact or company
+ */
+export interface VendorContactRelationshipModel {
+  /**
+   * The unique identifier of the vendor relationship
+   */
+  id?: string
+  /**
+   * The unique identifier of the vendor
+   */
+  vendorId?: string
+  /**
+   * The date and time when the relationship was created
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the relationship was last modified
+   */
+  modified?: string // date-time
+  /**
+   * The type of related entity (contact/company)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the related contact or company
+   */
+  associatedId?: string
+  /**
+   * A flag denoting whether or not this relationship should be regarded as the main relationship for the parent vendor entity
+   */
+  isMain?: boolean
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
   }
 }
 /**
@@ -9415,15 +9646,15 @@ export interface VendorModel {
     type?: string
   }
   /**
-   * A collection of contacts associated to the vendor
+   * A collection of contacts and/or companies associated to the vendor. The first item in the collection is considered the primary relationship
    */
   related?: {
     /**
-     * The unique identifier of the contact
+     * The unique identifier of the contact or company
      */
     id?: string
     /**
-     * The name of the contact
+     * The name of the contact or company
      */
     name?: string
     /**
@@ -9431,23 +9662,23 @@ export interface VendorModel {
      */
     type?: string
     /**
-     * The home phone number of the contact
+     * The home phone number of the contact or company
      */
     homePhone?: string
     /**
-     * The work phone number of the contact
+     * The work phone number of the contact or company
      */
     workPhone?: string
     /**
-     * The mobile phone number of the contact
+     * The mobile phone number of the contact or company
      */
     mobilePhone?: string
     /**
-     * The email address of the contact
+     * The email address of the contact or company
      */
     email?: string
     /**
-     * The primary address of the contact
+     * The primary address of the contact or company
      */
     primaryAddress?: {
       /**
@@ -9485,11 +9716,11 @@ export interface VendorModel {
     }
   }[]
   /**
-   * The unique identifier of the negotiator attached to the vendor
+   * The unique identifier of the negotiator attached to the vendor. The first item in the collection is considered the primary negotiator
    */
   negotiatorId?: string
   /**
-   * A collection of unique identifiers of offices attached to the vendor
+   * A collection of unique identifiers of offices attached to the vendor. The first item in the collection is considered the primary office
    */
   officeIds?: string[]
   /**

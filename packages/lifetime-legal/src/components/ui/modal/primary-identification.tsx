@@ -8,12 +8,7 @@ import Identification, {
   IDENTIFICATION_FORM_DEFAULT_VALUES,
 } from '@/components/ui/forms/identification'
 import { checkListDetailPrimaryIdUpdateData } from '@/actions/checklist-detail'
-import {
-  selectCheckListDetailContact,
-  selectCheckListDetailPrimaryId,
-  selectCheckListDetailIsSubmitting,
-  selectCheckListDetailPrimaryIdUrl,
-} from '@/selectors/checklist-detail'
+import { selectContact, selectPrimaryId, selectIsSubmitting } from '@/selectors/checklist-detail'
 
 export type PrimaryIdentificationProps = DispatchProps & {
   contactModel: ContactModel
@@ -36,21 +31,20 @@ export const PrimaryIdentification = ({
 )
 
 export const mapStateToProps = (state: ReduxState) => {
-  const isSubmitting = selectCheckListDetailIsSubmitting(state)
-  const contactModel = selectCheckListDetailContact(state)
-  const primaryIdDocument = selectCheckListDetailPrimaryId(state)
-  const primaryIdUrl = selectCheckListDetailPrimaryIdUrl(state)
+  const isSubmitting = selectIsSubmitting(state)
+  const contactModel = selectContact(state)
+  const primaryIdDocument = selectPrimaryId(state)
 
   let initFormValues = IDENTIFICATION_FORM_DEFAULT_VALUES
 
   if (primaryIdDocument) {
-    const { typeId, expiry, details } = primaryIdDocument
+    const { typeId, expiry, details, documentId } = primaryIdDocument
 
     initFormValues = {
       typeId: typeId || '',
       expiry: expiry ? new Date(expiry) : null,
-      details: details,
-      fileUrl: primaryIdUrl,
+      details: details || '',
+      documentId: documentId || '',
     } as IdentificationFormValues
   }
 
