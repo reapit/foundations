@@ -18,14 +18,27 @@
   width: 33.33%;
   padding: 1rem;
   pointer-events: auto;
+  padding: 2rem;
 
   &.disabled {
     pointer-events: none;
   }
 
   h1,
+  img,
   p {
     text-align: center;
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 250px;
+    display: block;
+  }
+
+  button {
+    margin: 0 auto;
+    max-width: 400px;
   }
 
   @media screen and (max-width: 900px) {
@@ -33,7 +46,7 @@
   }
 
   @media screen and (min-width: 1200px) {
-    padding: 0 3rem;
+    padding: 3rem;
   }
 }
 
@@ -45,5 +58,4 @@
 
 .wrapper-border {
   padding: 1.5rem;
-  border: 2px solid #23a4de;
 }

@@ -25,8 +25,20 @@
   }
 
   h1,
+  img,
   p {
     text-align: center;
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 200px;
+    display: block;
+  }
+
+  button {
+    margin: 0 auto;
+    max-width: 400px;
   }
 
   @media screen and (max-width: 900px) {
