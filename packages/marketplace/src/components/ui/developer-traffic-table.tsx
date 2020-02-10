@@ -34,7 +34,7 @@ export const generateUsageStatsColumns = () => () => {
 
     {
       Header: 'Date Created',
-      accessor: row => toLocalTime(row.created),
+      accessor: row => toLocalTime(row.created, 'DD/MM/YYYY'),
     },
     {
       Header: 'Total API Calls',
