@@ -18,7 +18,6 @@ import { checkFirstTimeLogin } from '@/actions/auth'
 import { adminAppsRequestData } from '@/actions/admin-apps'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { selectClientId } from '@/selector/client'
-import { selectDeveloperId } from '@/selector/developer'
 import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
@@ -50,10 +49,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
     case Routes.DEVELOPER_ANALYTICS_PAGINATE:
     case Routes.DEVELOPER_ANALYTICS: {
       // Need to fetch statistics to traffic table
-      const developerId = selectDeveloperId(store.state)
-      if (developerId) {
-        store.dispatch(appUsageStatsRequestData({ id: [developerId] }))
-      }
+      store.dispatch(appUsageStatsRequestData({}))
       // Need to fetch all apps to count Total current installations for each app
       store.dispatch(appInstallationsRequestData({ pageSize: GET_ALL_PAGE_SIZE }))
       // Fetch all apps to map app name to installations
