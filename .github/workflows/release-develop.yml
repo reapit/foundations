@@ -53,11 +53,10 @@ jobs:
           yarn fetch-config
       - name: Build
         run: |
-          yarn build --since origin/master^1 --parallel
+          yarn build --parallel
       - name: Test
         run: |
-          yarn test --since origin/master^1 --parallel
+          yarn test --parallel
       - name: Release Develop
         run: |
-          yarn release:dev --since origin/master^1 --parallel
-          
+          yarn release:dev --parallel
