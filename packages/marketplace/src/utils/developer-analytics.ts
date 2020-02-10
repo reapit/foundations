@@ -95,20 +95,3 @@ export const groupAppsByNameAndCount = (apps: InstallationModelWithDateObject[])
 
   return result
 }
-
-/**
- * Format label for chart tooltip
- * For example if input data look like
- * {
- *  "appId of app 1" : { name: "App 1", count : 2 },
- * "appId of app 2" : { name: "App 2", count : 1 },
- * }
- * will be return the result
- * App 1: 2
- * App 2: 1
- *
- * @param apps groupped app by name and count
- */
-export const formatChartLabel = (apps: GrouppedAppsByNameAndCount): string => {
-  return Object.keys(apps).reduce((pre: string, cur: string) => `\n${apps[cur].name}:${apps[cur].count}`, '')
-}
