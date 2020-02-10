@@ -2,7 +2,7 @@
   "name": "demo-site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://demo-site.reapit.com",
+  "homepage": "https://demo-site.reapit.cloud",
   "scripts": {
     "release:dev": "node ../../scripts/release/release-dev.js demo-site reapit-demo-site-dev",
     "release:prod": "node ../../scripts/release/release-prod.js demo-site reapit-demo-site",

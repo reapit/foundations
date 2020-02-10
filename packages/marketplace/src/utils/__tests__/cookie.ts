@@ -15,13 +15,13 @@ describe('cookie utils', () => {
 
   describe('setCookieString', () => {
     it('should set a cookie if host is in the whitelist array', () => {
-      const validHost = 'https://something.reapit.com'
+      const validHost = 'https://something.reapit.cloud'
       hardtack.set = jest.fn()
       const now = new Date()
       setCookieString(COOKIE_FIRST_TIME_LOGIN, now, validHost)
       expect(hardtack.set).toHaveBeenCalledWith(COOKIE_FIRST_TIME_LOGIN, now, {
         path: '/',
-        domain: '.reapit.com',
+        domain: '.reapit.cloud',
         samesite: 'lax',
       })
     })

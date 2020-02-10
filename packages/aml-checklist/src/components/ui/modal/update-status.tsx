@@ -63,7 +63,10 @@ export const UpdateStatus: React.FC<UpdateStatusProps> = ({
           type="button"
           variant="primary"
           onClick={() => {
-            window.location.href = `https://dev.lifetime-legal-app.reapit.com/profile/${id}`
+            window.location.href =
+              window.location.href.includes('dev') || window.location.href.includes('localhost')
+                ? `https://dev.lifetime-legal-app.reapit.cloud/profile/${id}`
+                : `https://lifetime-legal-app.reapit.cloud/profile/${id}`
           }}
         >
           Refer to Lifetime Legal
