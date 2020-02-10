@@ -21,7 +21,7 @@ export const identityCheck = {
     details: '12312312',
   },
   metadata: {},
-  _eTag: '385DCC877457FA81A5780A4467CE3E5B',
+  _eTag: '"385DCC877457FA81A5780A4467CE3E5B"',
   _links: {
     self: {
       href: '/identityChecks/RPT20000004',

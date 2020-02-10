@@ -37,7 +37,7 @@ jest.mock('../../core/store')
 
 const mockHeaders = {
   Authorization: '123',
-  'If-Match': '9CBE436919C6BE89A8642BC70A7CFAEE',
+  'If-Match': '"385DCC877457FA81A5780A4467CE3E5B"',
 }
 
 describe('check-list detail', () => {
@@ -80,7 +80,11 @@ describe('check-list detail', () => {
     expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
     expect(gen.next(mockHeaders).value).toEqual(select(selectContact))
     expect(gen.next(contact).value).toEqual(
-      call(updateContact, { contactId: contact.id, headers: mockHeaders, contact: contact }),
+      call(updateContact, {
+        contactId: contact.id,
+        headers: { ...mockHeaders, 'If-Match': '"9CBE436919C6BE89A8642BC70A7CFAEE"' },
+        contact: contact,
+      }),
     )
     test('api call success', () => {
       const clone = gen.clone()
@@ -117,7 +121,9 @@ describe('check-list detail', () => {
     })
     expect(gen.next().value).toEqual(put(checkListDetailSubmitForm(true)))
     expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
-    expect(gen.next(mockHeaders).value).toEqual(select(selectContact))
+    expect(gen.next({ ...mockHeaders, 'If-Match': '"9CBE436919C6BE89A8642BC70A7CFAEE"' }).value).toEqual(
+      select(selectContact),
+    )
 
     test('api call success', () => {
       const clone = gen.clone()
@@ -128,10 +134,19 @@ describe('check-list detail', () => {
         metadata: contact.metadata,
       }
       expect(clone.next(contact).value).toEqual(
-        call(updateContact, { contactId: contact.id, contact: newContact, headers: mockHeaders }),
+        call(updateContact, {
+          contactId: contact.id,
+          contact: newContact,
+          headers: { ...mockHeaders, 'If-Match': '"9CBE436919C6BE89A8642BC70A7CFAEE"' },
+        }),
       )
       expect(clone.next(true).value).toEqual(put(checklistDetailLoading(true)))
-      expect(clone.next().value).toEqual(call(fetchContact, { contactId: contact.id, headers: mockHeaders }))
+      expect(clone.next().value).toEqual(
+        call(fetchContact, {
+          contactId: contact.id,
+          headers: { ...mockHeaders, 'If-Match': '"9CBE436919C6BE89A8642BC70A7CFAEE"' },
+        }),
+      )
       expect(clone.next(contact).value).toEqual(put(contactReceiveData(contact)))
       expect(clone.next().value).toEqual(put(checklistDetailLoading(false)))
       expect(clone.next().value).toEqual(put(checkListDetailSubmitForm(false)))
@@ -147,7 +162,11 @@ describe('check-list detail', () => {
         metadata: contact.metadata,
       }
       expect(clone.next(contact).value).toEqual(
-        call(updateContact, { contactId: contact.id, contact: newContact, headers: mockHeaders }),
+        call(updateContact, {
+          contactId: contact.id,
+          contact: newContact,
+          headers: { ...mockHeaders, 'If-Match': '"9CBE436919C6BE89A8642BC70A7CFAEE"' },
+        }),
       )
       // @ts-ignore
       expect(clone.throw(new Error(errorMessages.DEFAULT_SERVER_ERROR)).value).toEqual(
@@ -185,10 +204,12 @@ describe('checklist-detail updatePrimaryId', () => {
         headers: mockHeaders,
         identityCheck: {
           id: 'RPT20000004',
-          typeId: '123',
-          details: '123',
-          expiry: new Date('2019-10-15T10:00:00Z'),
-          documentId: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
+          identityDocument1: {
+            typeId: '123',
+            details: '123',
+            expiry: new Date('2019-10-15T10:00:00Z'),
+            documentId: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
+          },
         },
       }),
     )
@@ -235,10 +256,12 @@ describe('checklist-detail updateSecondaryId', () => {
         headers: mockHeaders,
         identityCheck: {
           id: 'RPT20000004',
-          typeId: '123',
-          details: '123',
-          expiry: new Date('2019-10-15T10:00:00Z'),
-          documentId: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
+          identityDocument2: {
+            typeId: '123',
+            details: '123',
+            expiry: new Date('2019-10-15T10:00:00Z'),
+            documentId: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
+          },
         },
       }),
     )
