@@ -92,10 +92,7 @@ export const AppointmentListComponent = ({
 
         let renderETAButton: React.ReactNode = null
         if (displayETAButton) {
-          const tel = (nextAppointment?.attendeeWithMobile?.communicationDetails || []).filter(
-            ({ label }) => label === 'Mobile',
-          )[0].detail
-
+          const tel = nextAppointment?.attendeeWithMobile?.mobilePhone || ''
           const name = nextAppointment?.attendeeWithMobile?.name || ''
           const negName = nextAppointment?.currentNegotiator?.name || ''
           const duration = nextAppointment?.durationText

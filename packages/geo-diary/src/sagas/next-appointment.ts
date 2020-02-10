@@ -77,10 +77,10 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
         const userCode = yield select(selectUserCode)
 
         const attendeeWithMobile = appointment.attendee?.contacts?.filter(attendee => {
-          if (!attendee.communicationDetails) {
+          if (!attendee.mobilePhone) {
             return false
           }
-          return attendee.communicationDetails.findIndex(({ label }) => label === 'Mobile') > -1
+          return attendee
         })[0]
 
         const currentNegotiator = getLoggedInUser(appointment.negotiators, userCode)
@@ -101,7 +101,7 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
         )
       }
     } catch (err) {
-      console.log(err)
+      console.error(err.message)
       yield put(nextAppointmentClear())
     }
   } else {

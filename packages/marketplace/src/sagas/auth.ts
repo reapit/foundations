@@ -2,11 +2,11 @@ import { takeLatest, put, call, all, fork } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { authLoginSuccess, authLoginFailure, authLogoutSuccess, toggleFirstLogin } from '../actions/auth'
 import { Action } from '@/types/core.ts'
-import { history } from '../core/router'
-import { LoginSession, LoginParams, setUserSession, removeSession } from '@reapit/cognito-auth'
+import { LoginSession, LoginParams, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
 import store from '../core/store'
 import { getAuthRouteByLoginType } from '@/utils/auth-route'
 import { getCookieString, setCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
+import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
@@ -26,9 +26,13 @@ export const doLogout = function*() {
   try {
     const loginType = store?.state?.auth?.loginSession?.loginType || 'CLIENT'
     const authRoute = getAuthRouteByLoginType(loginType)
-    yield call(removeSession)
-    yield history.push(authRoute)
-    yield put(authLogoutSuccess())
+
+    yield call(removeSession, COOKIE_SESSION_KEY_MARKETPLACE)
+    yield call(
+      redirectToLogout,
+      process.env.COGNITO_CLIENT_ID_MARKETPLACE as string,
+      `${window.location.origin}${authRoute}`,
+    )
   } catch (err) {
     console.error(err.message)
   }

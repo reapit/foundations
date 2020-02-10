@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import { FileInput, FileInputProps } from '../index'
-import { Formik } from 'formik'
+import { Formik, Form } from 'formik'
 import toJson from 'enzyme-to-json'
+import { act } from 'react-dom/test-utils'
 
 const props: FileInputProps = {
   name: 'test',
@@ -32,42 +33,28 @@ describe('FileInput', () => {
     expect(label.text()).toBe('test')
   })
 
-  it('should render error correctly', done => {
-    // setup
-    let waitUntilFormSubmittedResolver: any = null
-
-    let submitForm
-
-    // formik submit function was asynchronous
-    let onSubmit = values => {
-      waitUntilFormSubmittedResolver(values)
-    }
-
+  it('should render error correctly', async () => {
     const Wrapper = () => (
-      <Formik validate={() => ({ test: 'test' })} initialValues={{ test: '' }} onSubmit={onSubmit}>
-        {({ handleSubmit }) => {
-          submitForm = handleSubmit
-
-          // force form vaidate to test
-          return <FileInput id="test" labelText="test" name="test" />
-        }}
+      <Formik validate={() => ({ test: 'test' })} initialValues={{ test: '' }} onSubmit={jest.fn()}>
+        {() => (
+          <Form>
+            <FileInput id="test" labelText="test" name="test" />
+          </Form>
+        )}
       </Formik>
     )
 
-    // trigger upload even
     const wrapper = mount(<Wrapper />)
 
-    submitForm()
+    // onSubmit
+    await act(async () => {
+      wrapper.find('form').simulate('submit', { preventDefault: () => {} })
+    })
 
-    // validate function of is asynchornous and non blocking. use setimeout to push assertion
-    // function into event loop queue
-    setTimeout(() => {
-      wrapper.update()
-      const error = wrapper.find('.has-text-danger')
-      console.log(error.at(0).html())
+    wrapper.update()
 
-      done()
-    }, 1)
+    const error = wrapper.find('.has-text-danger')
+    expect(error).toHaveLength(1)
   })
 
   it('should convert to base64 data correctly', done => {

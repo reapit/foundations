@@ -12,12 +12,14 @@ export function getAuthRouteByLoginType(loginType: LoginType) {
   }
 }
 
-export function getDefaultRouteByLoginType(loginType: LoginType) {
+export function getDefaultRouteByLoginType(loginType: LoginType, firstLoginCookie?: string | undefined) {
   switch (loginType) {
     case 'ADMIN':
       return `${window.location.origin}${Routes.ADMIN_APPROVALS}`
     case 'DEVELOPER':
-      return `${window.location.origin}${Routes.DEVELOPER_MY_APPS}`
+      return !firstLoginCookie
+        ? `${window.location.origin}${Routes.DEVELOPER_WELCOME}`
+        : `${window.location.origin}${Routes.DEVELOPER_MY_APPS}`
     default:
       return `${window.location.origin}${Routes.INSTALLED_APPS}`
   }

@@ -30,7 +30,7 @@ describe('SettingsPage', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  xit('should respond to logout request', () => {
+  it('should respond to logout request', () => {
     const mockProps: SettingsPageProps = {
       email: 'test@gmail.com',
       developerInfo: developerStub,
@@ -41,10 +41,8 @@ describe('SettingsPage', () => {
     }
     const wrapper = shallow(<SettingsPage {...mockProps} />)
 
-    wrapper
-      .find('button')
-      .first()
-      .simulate('click')
+    wrapper.find('[dataTest="logout-btn"]').simulate('click')
+
     expect(mockProps.logout).toHaveBeenCalledTimes(1)
   })
 

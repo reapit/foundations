@@ -16,7 +16,7 @@ export const mockCognitoUserSession = {
       getJwtToken: () => 'MOCK_ID_TOKEN',
       getExpiration: () => 1
     } as any),
-  isValid: () => true
+  isValid: () => true,
 } as CognitoUserSession
 
 export const mockLoginSession: LoginSession = {
@@ -28,6 +28,7 @@ export const mockLoginSession: LoginSession = {
   idToken: 'MOCK_ID_TOKEN',
   idTokenExpiry: 2,
   mode: 'WEB',
+  cognitoClientId: 'SOME_CLIENT_ID',
   loginIdentity: {
     email: 'bob@acme.com',
     developerId: 'SOME_DEV_ID',

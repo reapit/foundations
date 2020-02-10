@@ -60,6 +60,7 @@ export interface LoginSession {
   loginType: LoginType
   loginIdentity: LoginIdentity
   mode: LoginMode
+  cognitoClientId: string
 }
 
 export interface ChangePasswordParams {

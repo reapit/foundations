@@ -51,7 +51,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
           </Grid>
           <FormSection>
             <LevelRight>
-              <Button variant="primary" type="button" onClick={logout}>
+              <Button dataTest="logout-btn" variant="primary" type="button" onClick={logout}>
                 Logout
               </Button>
             </LevelRight>

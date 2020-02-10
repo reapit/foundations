@@ -25,6 +25,14 @@ import Routes from '@/constants/routes'
 import { authLogoutSuccess } from '@/actions/auth'
 import { showNotificationMessage } from '@/actions/notification-message'
 
+jest.mock('@reapit/elements')
+jest.mock('../../core/router', () => ({
+  history: {
+    push: jest.fn(),
+    replace: jest.fn(),
+  },
+}))
+
 describe('settings', () => {
   describe('developerInformationFetch', () => {
     const gen = cloneableGenerator(developerInformationFetch)()

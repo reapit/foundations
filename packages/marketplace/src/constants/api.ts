@@ -1,9 +1,12 @@
 import { StringMap } from '../types/core'
+import { COOKIE_SESSION_KEY } from '@reapit/cognito-auth'
 
 export const MARKETPLACE_HEADERS = {
   'Content-Type': 'application/json',
   'X-Api-Key': process.env.MARKETPLACE_API_KEY as string,
 } as StringMap
+
+export const COOKIE_SESSION_KEY_MARKETPLACE = `${COOKIE_SESSION_KEY}-marketplace`
 
 export const COGNITO_HEADERS = {
   'Content-Type': 'application/json',

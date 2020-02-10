@@ -1,106 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login renderForm should match snapshot 1`] = `
-<div>
-  <Form
-    data-test="login-form"
-  >
-    <Component
-      dataTest="login-email"
-      id="email"
-      labelText="Email"
-      name="email"
-      placeholder="name@address.com"
-      type="email"
-    />
-    <Component
-      dataTest="login-password"
-      id="password"
-      labelText="Password"
-      name="password"
-      placeholder="Enter your password"
-      type="password"
-    />
-    <Component>
-      <Component
-        disabled={true}
-        loading={true}
-        type="submit"
-        variant="primary"
-      >
-        Login
-      </Component>
-    </Component>
-  </Form>
-</div>
-`;
-
-exports[`Login renderForm should match snapshot 2`] = `
-<div>
-  <Form
-    data-test="login-form"
-  >
-    <Component
-      dataTest="login-email"
-      id="email"
-      labelText="Email"
-      name="email"
-      placeholder="name@address.com"
-      type="email"
-    />
-    <Component
-      dataTest="login-password"
-      id="password"
-      labelText="Password"
-      name="password"
-      placeholder="Enter your password"
-      type="password"
-    />
-    <Component>
-      <Component
-        disabled={false}
-        loading={false}
-        type="submit"
-        variant="primary"
-      >
-        Login
-      </Component>
-    </Component>
-    <Component
-      message="Login failed, user credentials not recognised"
-      type="danger"
-    />
-  </Form>
-</div>
-`;
-
 exports[`Login should match a snapshot 1`] = `
 <div>
-  <div
-    className="undefined false"
-  >
-    <Component
-      isCentered={true}
-    >
-      Sign in
+  <div>
+    <Component>
+      <img
+        alt="Reapit Connect Graphic"
+        src=""
+      />
     </Component>
     <p
       className="pb-8"
     >
-      Welcome to GEO Diary
+      Welcome to Geo Diary
     </p>
-    <Formik
-      initialValues={
-        Object {
-          "email": "",
-          "password": "",
-        }
-      }
-      onSubmit={[Function]}
-      validate={[Function]}
-    >
-      <Component />
-    </Formik>
+    <Component>
+      <Component
+        disabled={false}
+        fullWidth={true}
+        loading={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Login
+      </Component>
+    </Component>
   </div>
   <div>
     <img

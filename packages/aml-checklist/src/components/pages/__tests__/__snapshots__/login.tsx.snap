@@ -1,102 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login renderForm should match a snapshot when ERROR true 1`] = `
-<Form
-  data-test="login-form"
->
-  <Unknown
-    dataTest="login-email"
-    id="email"
-    labelText="Email"
-    name="email"
-    placeholder="name@address.com"
-    type="email"
-  />
-  <Unknown
-    dataTest="login-password"
-    id="password"
-    labelText="Password"
-    name="password"
-    placeholder="Enter your password"
-    type="password"
-  />
-  <Unknown>
-    <Unknown
-      disabled={false}
-      loading={false}
-      type="submit"
-      variant="primary"
-    >
-      Login
-    </Unknown>
-  </Unknown>
-  <Unknown
-    message="Login failed, user credentials not recognised"
-    type="danger"
-  />
-</Form>
-`;
-
-exports[`Login renderForm should match a snapshot when ERROR true 2`] = `
-<Form
-  data-test="login-form"
->
-  <Unknown
-    dataTest="login-email"
-    id="email"
-    labelText="Email"
-    name="email"
-    placeholder="name@address.com"
-    type="email"
-  />
-  <Unknown
-    dataTest="login-password"
-    id="password"
-    labelText="Password"
-    name="password"
-    placeholder="Enter your password"
-    type="password"
-  />
-  <Unknown>
-    <Unknown
-      disabled={false}
-      loading={false}
-      type="submit"
-      variant="primary"
-    >
-      Login
-    </Unknown>
-  </Unknown>
-</Form>
-`;
-
 exports[`Login should match a snapshot 1`] = `
 <div>
-  <div
-    className="undefined false"
-  >
-    <Component
-      isCentered={true}
-    >
-      Sign in
+  <div>
+    <Component>
+      <img
+        alt="Reapit Connect Graphic"
+        src=""
+      />
     </Component>
     <p
       className="pb-8"
     >
       Welcome to Reapit Online Check List
     </p>
-    <Formik
-      initialValues={
-        Object {
-          "email": "",
-          "password": "",
-        }
-      }
-      onSubmit={[Function]}
-      validate={[Function]}
-    >
-      <Component />
-    </Formik>
+    <Component>
+      <Component
+        disabled={false}
+        fullWidth={true}
+        loading={false}
+        onClick={[Function]}
+        type="button"
+        variant="primary"
+      >
+        Login
+      </Component>
+    </Component>
   </div>
   <div>
     <img

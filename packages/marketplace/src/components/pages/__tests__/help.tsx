@@ -44,25 +44,22 @@ describe('handleGotoWelcomeGuide', () => {
 
 describe('handleReportBug', () => {
   it('should called with correct props', () => {
-    const spy = jest.spyOn(window, 'open')
     handleReportBug()
-    expect(spy).toHaveBeenCalledWith(HelpLinks.BUG_REPORT, '_blank')
+    expect(window.open).toHaveBeenCalledWith(HelpLinks.BUG_REPORT, '_blank')
   })
 })
 
 describe('handleRequestEndpoint', () => {
   it('should called with correct props', () => {
-    const spy = jest.spyOn(window, 'open')
     handleRequestEndpoint()
-    expect(spy).toHaveBeenCalledWith(HelpLinks.API_REQUEST, '_blank')
+    expect(window.open).toHaveBeenCalledWith(HelpLinks.API_REQUEST, '_blank')
   })
 })
 
 describe('handleViewRoadmap', () => {
   it('should called with correct props', () => {
-    const spy = jest.spyOn(window, 'open')
     handleViewRoadmap()
-    expect(spy).toHaveBeenCalledWith(HelpLinks.ROADMAP, '_blank')
+    expect(window.open).toHaveBeenCalledWith(HelpLinks.ROADMAP, '_blank')
   })
 })
 
