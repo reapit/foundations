@@ -505,8 +505,8 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                     This secret will be unique per app and would typically be the flow for machine-to-machine server
                     side apps.{' '}
                     <strong>
-                      It is fundementally insecure to expose this secret on the client side and doing so will result in
-                      your app being rejected.
+                      It is fundamentally insecure to expose this secret on the client side and doing so will result in
+                      your app being rejected.{' '}
                     </strong>
                     For more on authentication please read the docs{' '}
                     <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank" rel="noopener noreferrer">
@@ -534,7 +534,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                   <FormHeading>Permissions</FormHeading>
                   <FormSubHeading>
                     To access a client&apos;s data, you will need to specify the entities you need access to on a read
-                    or write basis. You should be familar with these entities from the sandbox. When the user installs
+                    or write basis. You should be familiar with these entities from the sandbox. When the user installs
                     your application, they will have to consent to your usage based on these permissions. If you do not
                     have the correct permissions on an entity basis, your app will receive a 403 error. For more on
                     scopes please read the docs{' '}
