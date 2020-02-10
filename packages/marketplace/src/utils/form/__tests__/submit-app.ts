@@ -1,10 +1,10 @@
 import errorMessages from '@/constants/error-messages'
-import { CreateAppModel } from '@reapit/foundations-ts-definitions'
+import { CustomCreateAppModel } from '@/components/pages/developer-submit-app'
 import { validate } from '../submit-app'
 
 describe('submitAppValidation', () => {
   it('validate require all field', () => {
-    const input: CreateAppModel = {
+    const input: CustomCreateAppModel = {
       screen4ImageUrl: '',
       screen3ImageUrl: '',
       screen2ImageUrl: '',
@@ -18,6 +18,7 @@ describe('submitAppValidation', () => {
       description: '',
       summary: '',
       scopes: [],
+      redirectUris: '',
     }
 
     const validateRequiredKeys = [
@@ -30,6 +31,7 @@ describe('submitAppValidation', () => {
       'description',
       'screen1ImageUrl',
       'summary',
+      'redirectUris',
     ]
 
     const output = {}
@@ -41,7 +43,7 @@ describe('submitAppValidation', () => {
   })
 
   it('validate email field support email', () => {
-    const input: CreateAppModel = {
+    const input: CustomCreateAppModel = {
       screen4ImageUrl: 'test',
       screen3ImageUrl: 'test',
       screen2ImageUrl: 'test',
@@ -55,6 +57,7 @@ describe('submitAppValidation', () => {
       description: 'test',
       summary: 'test',
       scopes: [],
+      redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
     }
 
     expect(validate(input)).toEqual({
@@ -62,8 +65,31 @@ describe('submitAppValidation', () => {
     })
   })
 
+  it('validate redirect uri(s) field ', () => {
+    const input: CustomCreateAppModel = {
+      screen4ImageUrl: 'test',
+      screen3ImageUrl: 'test',
+      screen2ImageUrl: 'test',
+      screen1ImageUrl: 'test',
+      name: 'test',
+      telephone: 'test',
+      supportEmail: 'tester@gmail.com',
+      launchUri: 'test',
+      iconImageUrl: 'test',
+      homePage: 'test',
+      description: 'test',
+      summary: 'test',
+      scopes: [],
+      redirectUris: 'http://google.com,https://twitter.com,http://localhost:8080',
+    }
+
+    expect(validate(input)).toEqual({
+      redirectUris: 'Invalid redirect uri(s)',
+    })
+  })
+
   it('return empty object it everything is valid', () => {
-    const input: CreateAppModel = {
+    const input: CustomCreateAppModel = {
       screen4ImageUrl: 'test',
       screen3ImageUrl: 'test',
       screen2ImageUrl: 'test',
@@ -77,6 +103,7 @@ describe('submitAppValidation', () => {
       description: 'test',
       summary: 'test',
       scopes: [],
+      redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
     }
 
     expect(validate(input)).toEqual({})

@@ -1,4 +1,4 @@
-import { isEmail } from '../validate'
+import { isEmail, isValidHttpsUrl, isValidRedirectUrls } from '../validate'
 
 describe('isEmail', () => {
   it('valid email test', () => {
@@ -29,5 +29,29 @@ describe('isEmail', () => {
       'wrong()[]",:;<>@@gmail.com',
       '"wrong()[]",:;<>@@gmail.com',
     ].forEach(email => expect(isEmail(email)).toBeFalsy())
+  })
+})
+
+describe('isValidHttpsUrl', () => {
+  it('valid https url test', () => {
+    ;['https://www.google.com', 'https://www.googlee.com'].forEach(url => expect(isValidHttpsUrl(url)).toBeTruthy())
+  })
+
+  it('invalid https url test', () => {
+    ;['http://google.com', 'htt://www.google.com'].forEach(url => expect(isValidHttpsUrl(url)).toBeFalsy())
+  })
+})
+
+describe('isValidRedirectUrls', () => {
+  it('valid redirect url test', () => {
+    ;['https://www.google.com,http://localhost:8080', 'https://www.googlee.com,https://www.facebook.com'].forEach(url =>
+      expect(isValidRedirectUrls(url)).toBeTruthy(),
+    )
+  })
+
+  it('invalid https url test', () => {
+    ;['http://google.com,htt:google.ck', 'htt://www.google.com,ftp://www.google.com'].forEach(url =>
+      expect(isValidRedirectUrls(url)).toBeFalsy(),
+    )
   })
 })
