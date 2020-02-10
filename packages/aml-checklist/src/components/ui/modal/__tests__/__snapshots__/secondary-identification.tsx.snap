@@ -5,7 +5,6 @@ exports[`SecondaryIdentification SecondaryIdentification should match snapshot 1
   contact={
     Object {
       "_eTag": "\\"B4D9A5B8EB0D128024E91616FB4B701B\\"",
-      "_embedded": null,
       "_links": Object {
         "documents": Object {
           "href": "/documents/?ownerType=contact&ownerId=AYL19000001",
@@ -32,7 +31,7 @@ exports[`SecondaryIdentification SecondaryIdentification should match snapshot 1
       "id": "AYL19000001",
       "identityCheck": "pass",
       "marketingConsent": "grant",
-      "metadata": null,
+      "metadata": Object {},
       "mobilePhone": "asd",
       "modified": "2019-12-31T10:52:29.0000000Z",
       "negotiatorIds": Array [
@@ -69,7 +68,6 @@ exports[`SecondaryIdentification SecondaryIdentification should match snapshot 1
       },
       "surname": "Phillips",
       "title": "Mrs",
-      "workAddress": null,
       "workPhone": "asd",
     }
   }

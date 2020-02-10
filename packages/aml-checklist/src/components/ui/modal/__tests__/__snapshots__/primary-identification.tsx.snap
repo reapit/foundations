@@ -5,7 +5,6 @@ exports[`PrimaryIdentification PrimaryIdentification should match snapshot 1`] =
   contact={
     Object {
       "_eTag": "\\"B4D9A5B8EB0D128024E91616FB4B701B\\"",
-      "_embedded": null,
       "_links": Object {
         "documents": Object {
           "href": "/documents/?ownerType=contact&ownerId=AYL19000001",
@@ -32,7 +31,7 @@ exports[`PrimaryIdentification PrimaryIdentification should match snapshot 1`] =
       "id": "AYL19000001",
       "identityCheck": "pass",
       "marketingConsent": "grant",
-      "metadata": null,
+      "metadata": Object {},
       "mobilePhone": "asd",
       "modified": "2019-12-31T10:52:29.0000000Z",
       "negotiatorIds": Array [
@@ -52,14 +51,23 @@ exports[`PrimaryIdentification PrimaryIdentification should match snapshot 1`] =
         "postcode": "EC1R 0LU",
         "type": "primary",
       },
-      "secondaryAddress": null,
+      "secondaryAddress": Object {
+        "buildingName": "cuong",
+        "buildingNumber": "1",
+        "countryId": "GB",
+        "line1": "Line1",
+        "line2": "Line2",
+        "line3": "Line3",
+        "line4": "Line4",
+        "postcode": "EC1R 0LU",
+        "type": "secondary",
+      },
       "source": Object {
         "id": "id",
         "type": "type",
       },
       "surname": "Phillips",
       "title": "Mrs",
-      "workAddress": null,
       "workPhone": "asd",
     }
   }

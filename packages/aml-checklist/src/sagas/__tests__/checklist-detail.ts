@@ -64,7 +64,7 @@ describe('checklist-detail', () => {
         addressesMeta: contact.metadata?.addresses,
       } as any
       const result = mapArrAddressToUploadImageFunc(mockParams)
-      expect(result).toEqual([null, null])
+      expect(result).toEqual([])
     })
     it('should run correctly', () => {
       const mockParams = {
@@ -87,7 +87,7 @@ describe('checklist-detail', () => {
         ],
       }
       const result = mapAddressToMetaData(mockParams)
-      expect(result).toEqual(contact.metadata?.addresses)
+      expect(result).toEqual([])
     })
     it('should return []', () => {
       const mockParams = {
@@ -213,11 +213,17 @@ describe('checklist-detail', () => {
       expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
       expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
-      expect(gen.next(contact as any).value).toEqual(all([null, null]))
+      expect(gen.next(contact as any).value).toEqual(all([]))
 
       test('api call success', () => {
         const clone = gen.clone()
-        expect(clone.next().value).toEqual(call(updateChecklist, { contact, headers: mockHeaders }))
+        const contactWithMeta = {
+          ...contact,
+          metadata: {
+            addresses: [],
+          },
+        } as ContactModel
+        expect(clone.next().value).toEqual(call(updateChecklist, { contact: contactWithMeta, headers: mockHeaders }))
         expect(clone.next(true as any).value).toEqual(call(fetchChecklist, { id: contact.id, headers: mockHeaders }))
         expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveContact(contact)))
         expect(clone.next().value).toEqual(put(checklistDetailHideModal()))
@@ -257,10 +263,16 @@ describe('checklist-detail', () => {
       expect(gen.next(contact as any).value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
       expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
-      expect(gen.next(contact as any).value).toEqual(all([null, null]))
+      expect(gen.next(contact as any).value).toEqual(all([]))
       test('api call success', () => {
         const clone = gen.clone()
-        expect(clone.next().value).toEqual(call(updateChecklist, { contact: contact, headers: mockHeaders }))
+        const contactWithMeta = {
+          ...contact,
+          metadata: {
+            addresses: [],
+          },
+        } as ContactModel
+        expect(clone.next().value).toEqual(call(updateChecklist, { contact: contactWithMeta, headers: mockHeaders }))
         expect(clone.next(true as any).value).toEqual(call(fetchChecklist, { id: contact.id, headers: mockHeaders }))
         expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveContact(contact)))
         expect(clone.next().value).toEqual(put(checklistDetailShowModal('nextSection')))
@@ -303,7 +315,20 @@ describe('checklist-detail', () => {
 
       test('api call success', () => {
         const clone = gen.clone()
-        expect(clone.next([] as any).value).toEqual(call(updateChecklist, { headers: mockHeaders, contact }))
+        const contactWithMeta = {
+          ...contact,
+          metadata: {
+            declarationRisk: {
+              declarationForm: undefined,
+              reason: undefined,
+              riskAssessmentForm: undefined,
+              type: undefined,
+            },
+          },
+        } as ContactModel
+        expect(clone.next([] as any).value).toEqual(
+          call(updateChecklist, { headers: mockHeaders, contact: contactWithMeta }),
+        )
         expect(clone.next(true as any).value).toEqual(call(fetchChecklist, { id: contact.id, headers: mockHeaders }))
         expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveContact(contact)))
         expect(clone.next().value).toEqual(put(checklistDetailHideModal()))
@@ -345,7 +370,23 @@ describe('checklist-detail', () => {
 
       test('api call success', () => {
         const clone = gen.clone()
-        expect(clone.next([] as any).value).toEqual(call(updateChecklist, { headers: mockHeaders, contact }))
+        const contactWithMeta = {
+          ...contact,
+          metadata: {
+            declarationRisk: {
+              declarationForm: undefined,
+              reason: undefined,
+              riskAssessmentForm: undefined,
+              type: undefined,
+            },
+          },
+        } as ContactModel
+        expect(clone.next([] as any).value).toEqual(
+          call(updateChecklist, {
+            headers: mockHeaders,
+            contact: contactWithMeta,
+          }),
+        )
         expect(clone.next(true as any).value).toEqual(call(fetchChecklist, { id: contact.id, headers: mockHeaders }))
         expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveContact(contact)))
         expect(clone.next().value).toEqual(put(checklistDetailShowModal('nextSection')))

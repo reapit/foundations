@@ -4,13 +4,15 @@ import { contact } from '@/sagas/__stubs__/contact'
 import { PrimaryIdentification, mapStateToProps, mapDispatchToProps } from '../primary-identification'
 import { ReduxState } from '@/types/core'
 import { idCheck } from '@/sagas/__stubs__/id-check'
+import { IdentityDocumentForm } from '../../forms/identification'
+
 describe('PrimaryIdentification', () => {
   describe('PrimaryIdentification', () => {
     it('should match snapshot', () => {
       const mockProps = {
         contact: contact,
         identityCheckModel: null,
-        initFormValues: {},
+        initFormValues: {} as IdentityDocumentForm,
         loading: false,
         updateIdentification: jest.fn(),
         onNextHandler: jest.fn(),
@@ -34,15 +36,15 @@ describe('PrimaryIdentification', () => {
         },
       } as ReduxState
       const result = mapStateToProps(mockState)
-      const { typeId, expiry, details } = idCheck.identityDocument1
+
       const expected = {
         loading: false,
         contact: contact,
         initFormValues: {
-          typeId,
-          details,
-          expiry: new Date(expiry),
-          fileUrl: idCheck.metadata.primaryIdUrl,
+          typeId: idCheck.identityDocument1?.typeId,
+          details: idCheck.identityDocument1?.details,
+          expiry: new Date(idCheck.identityDocument1?.expiry as string),
+          fileUrl: (idCheck.metadata as any).primaryIdUrl || '',
         },
       }
       expect(result).toEqual(expected)
@@ -58,7 +60,7 @@ describe('PrimaryIdentification', () => {
         initFormValues: {
           details: '',
           expiry: '',
-          fileUrl: undefined,
+          fileUrl: '',
           typeId: '',
         },
       }

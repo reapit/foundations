@@ -9,18 +9,18 @@ export const identities = {
       status: 'pass',
       negotiatorId: 'LJW',
       identityDocument1: {
-        documentId: null,
+        documentId: 'SOME_ID',
         typeId: 'TX',
         expiry: '2020-02-07',
         details: 'Hshs',
       },
       identityDocument2: {
-        documentId: null,
+        documentId: 'SOME_ID',
         typeId: 'CI',
         expiry: '2019-12-21',
         details: 'a',
       },
-      metadata: null,
+      metadata: {},
       _eTag: '"51F8EECB09FB89903C42CAB63E3D5D0C"',
       _links: {
         self: {
@@ -36,7 +36,6 @@ export const identities = {
           href: '/configuration/identityDocumentTypes/CI',
         },
       },
-      _embedded: null,
     },
   ],
   pageNumber: 1,

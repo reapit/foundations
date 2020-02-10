@@ -442,7 +442,7 @@ export const responseContactsWithStatus = {
   _embedded: [
     {
       id: 'MKC19000013',
-      identityCheck: 'pass',
+      identityCheck: undefined,
       created: '2019-07-30T10:06:43.0000000Z',
       modified: '2019-10-30T10:27:58.0000000Z',
       title: 'Dan',

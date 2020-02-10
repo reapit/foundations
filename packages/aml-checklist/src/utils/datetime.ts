@@ -36,6 +36,7 @@ export const changeTimeZoneLocalForIdentityCheck = (identityChecks: IdentityChec
  */
 export const changeTimeZoneUTCForIdentityCheck = (identityChecks: IdentityCheckModel): IdentityCheckModel => {
   const { identityDocument1, identityDocument2 } = identityChecks
+
   const newDocument1 = identityDocument1
     ? {
         ...identityDocument1,

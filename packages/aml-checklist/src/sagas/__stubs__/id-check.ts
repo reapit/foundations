@@ -1,4 +1,6 @@
-export const idCheck = {
+import { IdentityCheckModel } from '@reapit/foundations-ts-definitions'
+
+export const idCheck: IdentityCheckModel = {
   id: 'RPT19000104',
   contactId: 'AYL19000001',
   created: '0001-01-01T00:00:00.0000000',
@@ -7,18 +9,18 @@ export const idCheck = {
   status: 'pass',
   negotiatorId: 'LJW',
   identityDocument1: {
-    documentId: null,
+    documentId: 'SOME_ID',
     typeId: 'TX',
     expiry: '2020-02-07',
     details: 'Hshs',
   },
   identityDocument2: {
-    documentId: null,
+    documentId: 'SOME_ID',
     typeId: 'CI',
     expiry: '2019-12-21',
     details: 'a',
   },
-  metadata: null,
+  metadata: {},
   _eTag: '"51F8EECB09FB89903C42CAB63E3D5D0C"',
   _links: {
     self: {
@@ -34,5 +36,4 @@ export const idCheck = {
       href: '/configuration/identityDocumentTypes/CI',
     },
   },
-  _embedded: null,
 }

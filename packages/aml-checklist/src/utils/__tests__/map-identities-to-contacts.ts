@@ -1,6 +1,7 @@
 import { contacts, responseContactsWithStatus } from '@/sagas/__stubs__/contacts'
 import { identities } from '@/sagas/__stubs__/identities'
 import { mapIdentitiesToContacts } from '../map-identities-to-contacts'
+import { PagedResultIdentityCheckModel_ } from '@reapit/foundations-ts-definitions'
 
 describe('mapIdentitiesToContacts', () => {
   it('should return correct value', () => {

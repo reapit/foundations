@@ -608,20 +608,7 @@ exports[`AddressInformation should match snapshot 1`] = `
   <Formik
     initialValues={
       Object {
-        "metadata": Object {
-          "addresses": Array [
-            Object {
-              "documentType": "",
-              "month": "",
-              "year": "",
-            },
-            Object {
-              "documentType": "",
-              "month": "",
-              "year": "",
-            },
-          ],
-        },
+        "metadata": Object {},
         "primaryAddress": Object {
           "buildingName": "aa",
           "buildingNumber": "37",
