@@ -4,11 +4,7 @@ import { usePortal } from '../use-portal'
 import { PortalProvider } from '../portal-provider'
 
 export const renderWithPortalProvider = ui => {
-  return (
-    <PortalProvider>
-      <body>{ui}</body>
-    </PortalProvider>
-  )
+  return <PortalProvider>{ui}</PortalProvider>
 }
 
 const App: React.FunctionComponent<any> = () => {

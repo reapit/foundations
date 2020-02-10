@@ -28,7 +28,6 @@ describe('Map', () => {
   let markerCallBack = jest.fn()
   let mockCurrentLocation: any = null
   let mockBounds: any = null
-  const mockAlert = jest.spyOn(window, 'alert')
   let mockMarker: any = null
   let mockMarkers: any[] = []
   const mockMarkerComponent = () => <div>Test</div>
@@ -113,7 +112,7 @@ describe('Map', () => {
       const mockResponse = {}
       const mockStatus = 'ERROR'
       fn(mockResponse, mockStatus)
-      expect(mockAlert).toBeCalled()
+      expect(window.alert).toBeCalled()
     })
   })
 

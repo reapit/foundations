@@ -2,6 +2,7 @@ import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import { DatePicker, DatePickerProps, CustomInput } from '../index'
 import { Formik, Form } from 'formik'
+import { act } from 'react-dom/test-utils'
 
 jest.unmock('dayjs')
 
@@ -31,7 +32,7 @@ describe('Date-time picker', () => {
     })
   })
 
-  it('should map value correctly from textbox to formik', done => {
+  it('should map value correctly from textbox to formik', async () => {
     const submitCallback = jest.fn()
     const mockEvent = {
       target: {
@@ -49,18 +50,20 @@ describe('Date-time picker', () => {
         }}
       </Formik>,
     )
+
     const input = wrapper.find('input')
-    input.simulate('change', mockEvent)
+
+    await act(async () => {
+      input.simulate('change', mockEvent)
+    })
 
     // onChange
     const form = wrapper.find('form')
-    form.simulate('submit')
-
-    setTimeout(() => {
-      wrapper.update()
-      expect(submitCallback.mock.calls[0][0]).toMatchObject({ test: '1997-11-22T00:00:00' })
-      done()
-    }, 100)
+    await act(async () => {
+      form.simulate('submit')
+    })
+    wrapper.update()
+    expect(submitCallback.mock.calls[0][0]).toMatchObject({ test: '1997-11-22T00:00:00' })
   })
 
   describe('should map value correctly from formik to text box', () => {

@@ -435,6 +435,14 @@ Object.defineProperty(window, 'getComputedStyle', {
   }),
 })
 
+Object.defineProperty(window, 'open', {
+  value: jest.fn(),
+})
+
+Object.defineProperty(window, 'alert', {
+  value: jest.fn(),
+})
+
 // browserMock.js
 Object.defineProperty(document, 'currentScript', {
   value: (document.createElement('div').id = 'coordinate-0-0'),
