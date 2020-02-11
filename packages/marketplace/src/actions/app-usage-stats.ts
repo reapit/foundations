@@ -4,7 +4,7 @@ import ActionTypes from '../constants/action-types'
 const { APP_USAGE_STATS_REQUEST_DATA, APP_USAGE_STATS_RECEIVE_DATA, APP_USAGE_STATS_REQUEST_DATA_FAILURE } = ActionTypes
 
 export interface AppUsageStatsParams {
-  id?: string[]
+  appId?: string[]
   dateFrom?: string
   dateTo?: string
 }

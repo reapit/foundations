@@ -17,7 +17,7 @@ jest.mock('@reapit/elements')
 const params = {
   type: 'APP_USAGE_STATS_REQUEST_DATA' as ActionType,
   data: {
-    id: ['1'],
+    appId: ['1'],
   },
 }
 

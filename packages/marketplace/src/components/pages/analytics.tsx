@@ -198,7 +198,6 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
     handleMapAppNameToInstallation(installationAppDataArray, developerDataArray),
     [installationAppDataArray, developerDataArray],
   )
-  console.log('appUsageStats', appUsageStats)
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn className={styles.wrapAnalytics}>
