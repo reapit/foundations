@@ -25,6 +25,9 @@
     "url": "https://github.com/reapit/foundations/issues"
   },
   "homepage": "https://github.com/reapit/foundations#readme",
-  "dependencies": {},
+  "dependencies": {
+    "aws-lambda": "^1.0.5",
+    "ejs": "^3.0.1"
+  },
   "devDependencies": {}
 }

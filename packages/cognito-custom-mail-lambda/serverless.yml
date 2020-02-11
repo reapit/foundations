@@ -34,7 +34,7 @@ package:
 
 functions:
   cognitoCustomMailerHandler:
-    handler: public/app.cognitoCustomMailerHandler
+    handler: dist/app.cognitoCustomMailerHandler
     events:
       - cognitoUserPool:
         pool: ${self:custom.${self:provider.stage}.COGNITO_USERPOOL_ID}
