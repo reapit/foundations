@@ -2,6 +2,11 @@ import { AppUsageStatsModel, AppSummaryModel } from '@reapit/foundations-ts-defi
 import orderBy from 'lodash.orderby'
 import { toLocalTime } from '@reapit/elements'
 
+export interface AppTooltipLabel {
+  appName: string
+  requests: number
+}
+
 export const getAppUsageStatsChartData = (appUsageStats?: AppUsageStatsModel[], developerApps?: AppSummaryModel[]) => {
   const appUsageStatsGroupedByDate = appUsageStats?.reduce((accumulator, currentValue) => {
     const { appId, usage } = currentValue || {}
@@ -64,13 +69,13 @@ export const getChartOptions = data => {
       mode: 'label',
       callbacks: {
         label: function(tooltipItem) {
-          const appUsage = data[tooltipItem.label]
+          const appUsage: [AppTooltipLabel] = data[tooltipItem.label]
           if (!appUsage) {
             return 'No Data'
           }
           return Object.values(appUsage)
-            .filter((app: any) => app.appName)
-            .map((app: any) => {
+            .filter((app: AppTooltipLabel) => app.appName)
+            .map((app: AppTooltipLabel) => {
               return `${app.appName}: ${app.requests}`
             })
         },
