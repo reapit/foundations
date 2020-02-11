@@ -3,8 +3,10 @@ import { Button, Modal, ModalProps } from '@reapit/elements'
 
 export type TermsAndConditionsModalProps = {
   onAccept: () => void
-  onDecline: () => void
+  onDecline?: () => void
   text?: string
+  withDecline?: boolean
+  tapOutsideToDissmiss?: boolean
 } & Pick<ModalProps, 'visible' | 'afterClose'>
 
 const placeholderText = `
@@ -23,17 +25,22 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
   onAccept,
   onDecline,
   text = placeholderText,
+  withDecline = true,
+  tapOutsideToDissmiss = true,
 }) => {
   return (
     <Modal
       title="Terms and Conditions"
       visible={visible}
       afterClose={afterClose}
+      tapOutsideToDissmiss={tapOutsideToDissmiss}
       footerItems={
         <>
-          <Button variant="secondary" type="button" onClick={onDecline}>
-            Decline
-          </Button>
+          {withDecline && (
+            <Button variant="secondary" type="button" onClick={onDecline}>
+              Decline
+            </Button>
+          )}
           <Button dataTest="buttonAcceptTermsAndConditions" variant="primary" type="button" onClick={onAccept}>
             Accept
           </Button>
