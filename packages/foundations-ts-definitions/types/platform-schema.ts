@@ -1422,12 +1422,12 @@ export interface Contacts {
   NegotiatorId?: string[]
   OfficeId?: string[]
   Address?: string
+  IdentityCheck?: string
   Name?: string
+  MarketingConsent?: string
   Active?: boolean
   CreatedFrom?: string
   CreatedTo?: string
-  IdentityCheck?: ('pass' | 'fail' | 'pending' | 'warnings' | 'unchecked')[]
-  MarketingConsent?: ('grant' | 'deny' | 'notAsked')[]
 }
 /**
  * The details specific to applicants with a marketingMode of buying
