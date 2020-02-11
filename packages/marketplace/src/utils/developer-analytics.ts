@@ -41,6 +41,9 @@ export const groupInstalledAppsByDate = (apps: InstallationModelWithAppName[]): 
   const orderedApps: InstallationModelWithDateObject[] = orderBy(formatedApps, ['createdDate'], ['asc'])
   const tmpgrouppedApps = {}
   let tmpApp: InstallationModelWithDateObject, tmpLabel
+  if (orderedApps.length === 0) {
+    return grouppedApps
+  }
   for (let i = 0; i < orderedApps.length; i++) {
     tmpApp = orderedApps[i]
     tmpLabel = dayjs(tmpApp.createdDate).format('DD/MM/YYYY')

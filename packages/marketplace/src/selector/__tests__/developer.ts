@@ -19,7 +19,7 @@ describe('selectDeveloperId', () => {
   })
 
   it('should run correctly and return undefined', () => {
-    const input = {} as ReduxState
+    const input = { auth: {} } as ReduxState
     const result = selectDeveloperId(input)
     expect(result).toEqual(undefined)
   })

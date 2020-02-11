@@ -1,4 +1,8 @@
 import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import { fork, all } from '@redux-saga/core/effects'
+import { ReduxState } from '../types/core'
+
 import auth from '../reducers/auth'
 import client from '../reducers/client'
 import installedApps from '../reducers/installed-apps'
@@ -18,13 +22,14 @@ import appCategories from '../reducers/app-categories'
 import settingsReducer from '../reducers/settings'
 import adminApps from '../reducers/admin-apps'
 import appInstallationsReducer from '../reducers/app-installations'
-import { ReduxState } from '../types/core'
-import createSagaMiddleware from 'redux-saga'
-import { fork, all } from '@redux-saga/core/effects'
+import appUsageStatsReducer from '../reducers/app-usage-stats'
+import adminStatsReducer from '../reducers/admin-stats'
+
 import authSagas from '../sagas/auth'
 import clientSagas from '../sagas/client'
 import appDetailSagas from '../sagas/app-detail'
 import installedAppsSagas from '../sagas/installed-apps'
+import appUsageStatsSagas from '../sagas/app-usage-stats'
 import myAppsSagas from '../sagas/my-apps'
 import developerSagas from '../sagas/developer'
 import submitAppSagas from '../sagas/submit-app'
@@ -43,7 +48,6 @@ import resetPasswordSagas from '../sagas/reset-password'
 import appInstallationsSagas from '../sagas/app-installations'
 import noticationMessage from '../reducers/notification-message'
 import adminStatsSaga from '../sagas/admin-stats'
-import adminStatsReducer from '../reducers/admin-stats'
 
 export class Store {
   static _instance: Store
@@ -82,6 +86,7 @@ export class Store {
     settings: settingsReducer,
     resetPassword: resetPasswordReducer,
     installations: appInstallationsReducer,
+    appUsageStats: appUsageStatsReducer,
     noticationMessage,
     adminStats: adminStatsReducer,
   })
@@ -91,6 +96,7 @@ export class Store {
       fork(authSagas),
       fork(clientSagas),
       fork(installedAppsSagas),
+      fork(appUsageStatsSagas),
       fork(myAppsSagas),
       fork(developerSagas),
       fork(appDetailSagas),
