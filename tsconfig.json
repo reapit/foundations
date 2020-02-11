@@ -13,7 +13,9 @@
     "strict": true,
     "target": "es2020",
     "typeRoots": ["./node_modules/@types"],
-    "types": ["jest", "node", "react"]
+    "types": ["jest", "node", "react"],
+    "sourceMap": true,
+    "inlineSources": true
   },
   "exclude": ["public", "dist", "scripts", "node_modules", "coverage"]
 }

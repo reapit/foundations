@@ -10,8 +10,11 @@ import ToastMessage from '../components/ui/toast-message'
 import { PortalProvider } from '@reapit/elements'
 import ReactGA from 'react-ga'
 
-if (process.env.NODE_ENV !== 'development' && process.env.SENTRY_PROJECT_URL_MARKETPLACE) {
-  Sentry.init({ dsn: process.env.SENTRY_PROJECT_URL_MARKETPLACE })
+if (process.env.NODE_ENV === 'production') {
+  Sentry.init({
+    release: process.env.APP_VERSION,
+    dsn: process.env.SENTRY_PROJECT_URL_MARKETPLACE,
+  })
 }
 
 if (process.env.NODE_ENV !== 'development' && process.env.MARKETPLACE_GOOGLE_ANALYTICS_KEY) {
