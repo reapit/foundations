@@ -118,6 +118,7 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
               },
             ],
             "labels": Array [
+              "03/10/2019",
               "04/10/2019",
               "05/10/2019",
               "06/10/2019",
@@ -125,7 +126,6 @@ exports[`Admin Stats setArea APPS should match snapshot 1`] = `
               "08/10/2019",
               "09/10/2019",
               "10/10/2019",
-              "11/10/2019",
             ],
           }
         }
@@ -253,6 +253,7 @@ exports[`Admin Stats setArea DEVELOPRES should match snapshot 1`] = `
               },
             ],
             "labels": Array [
+              "03/10/2019",
               "04/10/2019",
               "05/10/2019",
               "06/10/2019",
@@ -260,7 +261,6 @@ exports[`Admin Stats setArea DEVELOPRES should match snapshot 1`] = `
               "08/10/2019",
               "09/10/2019",
               "10/10/2019",
-              "11/10/2019",
             ],
           }
         }
@@ -388,6 +388,7 @@ exports[`Admin Stats setArea INSTALLATIONS should match snapshot 1`] = `
               },
             ],
             "labels": Array [
+              "03/10/2019",
               "04/10/2019",
               "05/10/2019",
               "06/10/2019",
@@ -395,7 +396,6 @@ exports[`Admin Stats setArea INSTALLATIONS should match snapshot 1`] = `
               "08/10/2019",
               "09/10/2019",
               "10/10/2019",
-              "11/10/2019",
             ],
           }
         }
@@ -600,7 +600,6 @@ exports[`Admin Stats setRange MONTH should match snapshot 1`] = `
                   0,
                   0,
                   0,
-                  0,
                 ],
                 "fill": false,
                 "label": "Apps",
@@ -627,7 +626,6 @@ exports[`Admin Stats setRange MONTH should match snapshot 1`] = `
               "08/10/2019",
               "09/10/2019",
               "10/10/2019",
-              "11/10/2019",
             ],
           }
         }
@@ -755,6 +753,7 @@ exports[`Admin Stats setRange WEEK should match snapshot 1`] = `
               },
             ],
             "labels": Array [
+              "03/10/2019",
               "04/10/2019",
               "05/10/2019",
               "06/10/2019",
@@ -762,7 +761,6 @@ exports[`Admin Stats setRange WEEK should match snapshot 1`] = `
               "08/10/2019",
               "09/10/2019",
               "10/10/2019",
-              "11/10/2019",
             ],
           }
         }
@@ -890,6 +888,7 @@ exports[`Admin Stats should match snapshot 1`] = `
               },
             ],
             "labels": Array [
+              "03/10/2019",
               "04/10/2019",
               "05/10/2019",
               "06/10/2019",
@@ -897,7 +896,6 @@ exports[`Admin Stats should match snapshot 1`] = `
               "08/10/2019",
               "09/10/2019",
               "10/10/2019",
-              "11/10/2019",
             ],
           }
         }

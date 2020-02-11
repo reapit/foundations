@@ -12,6 +12,7 @@ import {
   handleCloseModal,
   handleAcceptTerms,
   handleDeclineTerms,
+  CustomCreateAppModel,
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
@@ -415,7 +416,7 @@ describe('handleSubmitApp', () => {
     isAgreedTerms: false,
     setShouldShowError: jest.fn(),
   }
-  const appModel = {}
+  const appModel = { redirectUris: '' } as CustomCreateAppModel
   const actions = {} as any
   afterEach(() => jest.clearAllMocks())
   it('should call setShouldShowError when not agree', () => {

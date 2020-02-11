@@ -19,12 +19,12 @@ exports[`AMLProgressBar AMLProgressBar should match snapshot 1`] = `
                   dynamicLinkParams={
                     Object {
                       "appMode": "WEB",
-                      "entityCode": "MKC13000122",
+                      "entityCode": "AYL19000001",
                       "entityType": "contacts",
                     }
                   }
                 >
-                  Msss Holly Rees
+                  Mrs H Phillips
                 </Component>
               </Component>
               <Component />

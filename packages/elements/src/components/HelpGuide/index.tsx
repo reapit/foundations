@@ -133,7 +133,7 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
 
   return (
     <HelpGuideContextProvider value={value}>
-      <FlexContainerBasic hasPadding centerContent flexColumn={isMobileScreen}>
+      <FlexContainerBasic hasPadding flexColumn={isMobileScreen}>
         {renderTimeline({ total, currentIndex, isMobileScreen, goTo })}
         <div ref={helpguideRef} className="helpguide">
           <div ref={wrapperStepRef} className="helpguide-wrapper">
@@ -155,18 +155,18 @@ export const HelpGuide = ({ children, current, isLoading = false }: HelpGuidePro
 
 function HelpGuideStep({ component: Component, render, heading, subHeading, graphic }: HelpGuideStepProps) {
   return (
-    <FlexContainerBasic className="items-center justify-between">
-      <div className="helpguide-content">
-        <H3>{heading}</H3>
-        <SubTitleH6>{subHeading}</SubTitleH6>
-        <div className="flex">{Component ? <Component /> : render ? render : null}</div>
-      </div>
-      {!isMobile() && graphic && (
-        <div className="helpguide-wrapper-graphic">
-          <div className="helpguide-graphic">{graphic}</div>
-        </div>
-      )}
-    </FlexContainerBasic>
+    <div className="helpguide-content">
+      <H3>{heading}</H3>
+      <SubTitleH6>{subHeading}</SubTitleH6>
+      <FlexContainerBasic className="relative">
+        <div className="helpguide-component">{Component ? <Component /> : render ? render : null}</div>
+        {!isMobile() && graphic && (
+          <div className="helpguide-wrapper-graphic">
+            <div className="helpguide-graphic">{graphic}</div>
+          </div>
+        )}
+      </FlexContainerBasic>
+    </div>
   )
 }
 

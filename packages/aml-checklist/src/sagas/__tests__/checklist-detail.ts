@@ -61,17 +61,17 @@ describe('checklist-detail', () => {
         primaryAddress: contact.primaryAddress,
         secondaryAddress: contact.secondaryAddress,
         headers: mockHeaders,
-        addressesMeta: contact.metadata.addresses,
+        addressesMeta: contact.metadata?.addresses,
       } as any
       const result = mapArrAddressToUploadImageFunc(mockParams)
-      expect(result).toEqual([null, null])
+      expect(result).toEqual([])
     })
     it('should run correctly', () => {
       const mockParams = {
         primaryAddress: undefined,
         secondaryAddress: contact.secondaryAddress,
         headers: mockHeaders,
-        addressesMeta: contact.metadata.addresses,
+        addressesMeta: contact.metadata?.addresses,
       }
       const result = mapArrAddressToUploadImageFunc(mockParams)
       expect(result).toEqual([])
@@ -81,13 +81,13 @@ describe('checklist-detail', () => {
   describe('mapAddressToMetaData', () => {
     it('should run correctly', () => {
       const mockParams = {
-        addressesMeta: contact.metadata.addresses,
+        addressesMeta: contact.metadata?.addresses,
         responseUpload: [
           { Url: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png' },
         ],
       }
       const result = mapAddressToMetaData(mockParams)
-      expect(result).toEqual(contact.metadata.addresses)
+      expect(result).toEqual([])
     })
     it('should return []', () => {
       const mockParams = {
@@ -203,18 +203,27 @@ describe('checklist-detail', () => {
           contact: {
             primaryAddress: contact.primaryAddress,
             secondaryAddress: contact.secondaryAddress,
-            metadata: contact.metadata,
+            metadata: contact.metadata || {
+              primaryIdUrl: undefined,
+              secondaryIdUrl: undefined,
+            },
           },
         } as ContactModel,
       })
       expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
       expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
-      expect(gen.next(contact as any).value).toEqual(all([null, null]))
+      expect(gen.next(contact as any).value).toEqual(all([]))
 
       test('api call success', () => {
         const clone = gen.clone()
-        expect(clone.next().value).toEqual(call(updateChecklist, { contact, headers: mockHeaders }))
+        const contactWithMeta = {
+          ...contact,
+          metadata: {
+            addresses: [],
+          },
+        } as ContactModel
+        expect(clone.next().value).toEqual(call(updateChecklist, { contact: contactWithMeta, headers: mockHeaders }))
         expect(clone.next(true as any).value).toEqual(call(fetchChecklist, { id: contact.id, headers: mockHeaders }))
         expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveContact(contact)))
         expect(clone.next().value).toEqual(put(checklistDetailHideModal()))
@@ -244,17 +253,26 @@ describe('checklist-detail', () => {
           contact: {
             primaryAddress: contact.primaryAddress,
             secondaryAddress: contact.secondaryAddress,
-            metadata: contact.metadata,
+            metadata: contact.metadata || {
+              primaryIdUrl: undefined,
+              secondaryIdUrl: undefined,
+            },
           },
         } as ContactModel,
       })
       expect(gen.next(contact as any).value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
       expect(gen.next(mockHeaders as any).value).toEqual(select(selectCheckListDetailContact))
-      expect(gen.next(contact as any).value).toEqual(all([null, null]))
+      expect(gen.next(contact as any).value).toEqual(all([]))
       test('api call success', () => {
         const clone = gen.clone()
-        expect(clone.next().value).toEqual(call(updateChecklist, { contact: contact, headers: mockHeaders }))
+        const contactWithMeta = {
+          ...contact,
+          metadata: {
+            addresses: [],
+          },
+        } as ContactModel
+        expect(clone.next().value).toEqual(call(updateChecklist, { contact: contactWithMeta, headers: mockHeaders }))
         expect(clone.next(true as any).value).toEqual(call(fetchChecklist, { id: contact.id, headers: mockHeaders }))
         expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveContact(contact)))
         expect(clone.next().value).toEqual(put(checklistDetailShowModal('nextSection')))
@@ -281,7 +299,14 @@ describe('checklist-detail', () => {
   describe('checklist-detail onUpdateDeclarationAndRisk', () => {
     describe('onHideModal', () => {
       const gen = cloneableGenerator(onUpdateDeclarationAndRisk as any)({
-        data: { contact: { metadata: contact.metadata } },
+        data: {
+          contact: {
+            metadata: contact.metadata || {
+              primaryIdUrl: undefined,
+              secondaryIdUrl: undefined,
+            },
+          },
+        },
       })
       expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -290,7 +315,20 @@ describe('checklist-detail', () => {
 
       test('api call success', () => {
         const clone = gen.clone()
-        expect(clone.next([] as any).value).toEqual(call(updateChecklist, { headers: mockHeaders, contact }))
+        const contactWithMeta = {
+          ...contact,
+          metadata: {
+            declarationRisk: {
+              declarationForm: undefined,
+              reason: undefined,
+              riskAssessmentForm: undefined,
+              type: undefined,
+            },
+          },
+        } as ContactModel
+        expect(clone.next([] as any).value).toEqual(
+          call(updateChecklist, { headers: mockHeaders, contact: contactWithMeta }),
+        )
         expect(clone.next(true as any).value).toEqual(call(fetchChecklist, { id: contact.id, headers: mockHeaders }))
         expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveContact(contact)))
         expect(clone.next().value).toEqual(put(checklistDetailHideModal()))
@@ -315,7 +353,15 @@ describe('checklist-detail', () => {
     })
     describe('onNextSection', () => {
       const gen = cloneableGenerator(onUpdateDeclarationAndRisk as any)({
-        data: { contact: { metadata: contact.metadata }, nextSection: 'nextSection' },
+        data: {
+          contact: {
+            metadata: contact.metadata || {
+              primaryIdUrl: undefined,
+              secondaryIdUrl: undefined,
+            },
+          },
+          nextSection: 'nextSection',
+        },
       })
       expect(gen.next().value).toEqual(put(checklistDetailSubmitForm(true)))
       expect(gen.next().value).toEqual(call(initAuthorizedRequestHeaders))
@@ -324,7 +370,23 @@ describe('checklist-detail', () => {
 
       test('api call success', () => {
         const clone = gen.clone()
-        expect(clone.next([] as any).value).toEqual(call(updateChecklist, { headers: mockHeaders, contact }))
+        const contactWithMeta = {
+          ...contact,
+          metadata: {
+            declarationRisk: {
+              declarationForm: undefined,
+              reason: undefined,
+              riskAssessmentForm: undefined,
+              type: undefined,
+            },
+          },
+        } as ContactModel
+        expect(clone.next([] as any).value).toEqual(
+          call(updateChecklist, {
+            headers: mockHeaders,
+            contact: contactWithMeta,
+          }),
+        )
         expect(clone.next(true as any).value).toEqual(call(fetchChecklist, { id: contact.id, headers: mockHeaders }))
         expect(clone.next(contact as any).value).toEqual(put(checklistDetailReceiveContact(contact)))
         expect(clone.next().value).toEqual(put(checklistDetailShowModal('nextSection')))
@@ -402,12 +464,12 @@ describe('checklist-detail', () => {
     test('api call success', () => {
       const clone = gen.clone()
       const baseValues = {
-        metadata: {
-          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
-          secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png',
+        metadata: contact.metadata || {
+          primaryIdUrl: undefined,
+          secondaryIdUrl: undefined,
         },
-        document1: idCheck.document1,
-        document2: idCheck.document2,
+        identityDocument1: idCheck.identityDocument1,
+        identityDocument2: idCheck.identityDocument2,
       }
       expect(clone.next(contact as any).value).toEqual(
         call(updateIdentityCheck, {
@@ -459,12 +521,12 @@ describe('checklist-detail', () => {
     test('api call success', () => {
       const clone = gen.clone()
       const baseValues = {
-        metadata: {
-          primaryIdUrl: 'https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/AYL19000001-testst.png',
-          secondaryIdUrl: 'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/MKC13000122-ID Reference.png',
+        metadata: idCheck.metadata || {
+          primaryIdUrl: undefined,
+          secondaryIdUrl: undefined,
         },
-        document1: idCheck.document1,
-        document2: idCheck.document2,
+        identityDocument1: idCheck.identityDocument1,
+        identityDocument2: idCheck.identityDocument2,
       }
       expect(clone.next(contact as any).value).toEqual(
         call(updateIdentityCheck, {

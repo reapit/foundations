@@ -7,116 +7,124 @@ describe('datetime', () => {
   describe('changeTimeZoneLocalForIdentityCheck', () => {
     it('should run correctly', () => {
       const result = changeTimeZoneLocalForIdentityCheck(idCheck)
-      const document1 = {
-        ...idCheck.document1,
+      const identityDocument1 = {
+        ...idCheck.identityDocument1,
 
-        expiry: toLocalTime(idCheck.document1.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
+        expiry: toLocalTime(idCheck.identityDocument1?.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
-      const document2 = {
-        ...idCheck.document2,
+      const identityDocument2 = {
+        ...idCheck.identityDocument2,
 
-        expiry: toLocalTime(idCheck.document2.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
+        expiry: toLocalTime(idCheck.identityDocument2?.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
       expect(result).toEqual({
         ...idCheck,
-        checkDate: toLocalTime(idCheck.checkDate, DATE_TIME_FORMAT.RFC3339),
-        document1,
-        document2,
+        checkDate: toLocalTime(idCheck.checkDate as string, DATE_TIME_FORMAT.RFC3339),
+        identityDocument1,
+        identityDocument2,
       })
     })
 
-    it('should run correctly with undefined document1', () => {
-      const result = changeTimeZoneLocalForIdentityCheck({ ...idCheck, document1: undefined })
-      const document2 = {
-        ...idCheck.document2,
+    it('should run correctly with undefined identityDocument1', () => {
+      const result = changeTimeZoneLocalForIdentityCheck({ ...idCheck, identityDocument1: undefined })
+      const identityDocument2 = {
+        ...idCheck.identityDocument2,
 
-        expiry: toLocalTime(idCheck.document2.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
+        expiry: toLocalTime(idCheck.identityDocument2?.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
       expect(result).toEqual({
         ...idCheck,
-        checkDate: toLocalTime(idCheck.checkDate, DATE_TIME_FORMAT.RFC3339),
-        document1: undefined,
-        document2,
+        checkDate: toLocalTime(idCheck.checkDate as string, DATE_TIME_FORMAT.RFC3339),
+        identityDocument1: undefined,
+        identityDocument2,
       })
     })
-    it('should run correctly with undefined document2', () => {
-      const result = changeTimeZoneLocalForIdentityCheck({ ...idCheck, document2: undefined })
-      const document1 = {
-        ...idCheck.document1,
+    it('should run correctly with undefined identityDocument2', () => {
+      const result = changeTimeZoneLocalForIdentityCheck({ ...idCheck, identityDocument2: undefined })
+      const identityDocument1 = {
+        ...idCheck.identityDocument1,
 
-        expiry: toLocalTime(idCheck.document1.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
+        expiry: toLocalTime(idCheck.identityDocument1?.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
       expect(result).toEqual({
         ...idCheck,
-        checkDate: toLocalTime(idCheck.checkDate, DATE_TIME_FORMAT.RFC3339),
-        document1,
-        document2: undefined,
+        checkDate: toLocalTime(idCheck.checkDate as string, DATE_TIME_FORMAT.RFC3339),
+        identityDocument1,
+        identityDocument2: undefined,
       })
     })
-    it('should run correctly with both document1 and document2 undefined', () => {
-      const result = changeTimeZoneLocalForIdentityCheck({ ...idCheck, document1: undefined, document2: undefined })
+    it('should run correctly with both identityDocument1 and identityDocument2 undefined', () => {
+      const result = changeTimeZoneLocalForIdentityCheck({
+        ...idCheck,
+        identityDocument1: undefined,
+        identityDocument2: undefined,
+      })
       expect(result).toEqual({
         ...idCheck,
-        checkDate: toLocalTime(idCheck.checkDate, DATE_TIME_FORMAT.RFC3339),
-        document1: undefined,
-        document2: undefined,
+        checkDate: toLocalTime(idCheck.checkDate as string, DATE_TIME_FORMAT.RFC3339),
+        identityDocument1: undefined,
+        identityDocument2: undefined,
       })
     })
   })
 
   describe('changeTimeZoneUTCForIdentityCheck', () => {
     it('should run correctly', () => {
-      const document1 = {
-        ...idCheck.document1,
-        expiry: toUTCTime(idCheck.document1.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
+      const identityDocument1 = {
+        ...idCheck.identityDocument1,
+        expiry: toUTCTime(idCheck.identityDocument1?.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
-      const document2 = {
-        ...idCheck.document2,
-        expiry: toUTCTime(idCheck.document2.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
+      const identityDocument2 = {
+        ...idCheck.identityDocument2,
+        expiry: toUTCTime(idCheck.identityDocument2?.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
       const result = changeTimeZoneUTCForIdentityCheck(idCheck)
       expect(result).toEqual({
         ...idCheck,
-        checkDate: toUTCTime(idCheck.checkDate),
-        document1,
-        document2,
+        checkDate: toUTCTime(idCheck.checkDate as string),
+        identityDocument1,
+        identityDocument2,
       })
     })
 
-    it('should run correctly with undefined document1', () => {
-      const document2 = {
-        ...idCheck.document2,
-        expiry: toUTCTime(idCheck.document2.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
+    it('should run correctly with undefined identityDocument1', () => {
+      const identityDocument2 = {
+        ...idCheck.identityDocument2,
+        expiry: toUTCTime(idCheck.identityDocument2?.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
-      const result = changeTimeZoneUTCForIdentityCheck({ ...idCheck, document1: undefined })
+      const result = changeTimeZoneUTCForIdentityCheck({ ...idCheck, identityDocument1: undefined })
       expect(result).toEqual({
         ...idCheck,
-        checkDate: toUTCTime(idCheck.checkDate),
-        document1: undefined,
-        document2,
+        checkDate: toUTCTime(idCheck.checkDate as string),
+        identityDocument1: undefined,
+        identityDocument2,
       })
     })
 
-    it('should run correctly with undefined document2', () => {
-      const document1 = {
-        ...idCheck.document1,
-        expiry: toUTCTime(idCheck.document1.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
+    it('should run correctly with undefined identityDocument2', () => {
+      const identityDocument1 = {
+        ...idCheck.identityDocument1,
+        expiry: toUTCTime(idCheck.identityDocument1?.expiry as ConfigType, DATE_TIME_FORMAT.RFC3339),
       }
-      const result = changeTimeZoneUTCForIdentityCheck({ ...idCheck, document2: undefined })
+      const result = changeTimeZoneUTCForIdentityCheck({ ...idCheck, identityDocument2: undefined })
       expect(result).toEqual({
         ...idCheck,
-        checkDate: toUTCTime(idCheck.checkDate),
-        document2: undefined,
-        document1,
+        checkDate: toUTCTime(idCheck.checkDate as string),
+        identityDocument2: undefined,
+        identityDocument1,
       })
     })
-    it('should run correctly with both document1 and document2 undefined', () => {
-      const result = changeTimeZoneUTCForIdentityCheck({ ...idCheck, document1: undefined, document2: undefined })
+    it('should run correctly with both identityDocument1 and identityDocument2 undefined', () => {
+      const result = changeTimeZoneUTCForIdentityCheck({
+        ...idCheck,
+        identityDocument1: undefined,
+        identityDocument2: undefined,
+      })
       expect(result).toEqual({
         ...idCheck,
-        checkDate: toUTCTime(idCheck.checkDate),
-        document1: undefined,
-        document2: undefined,
+        checkDate: toUTCTime(idCheck.checkDate as string),
+        identityDocument1: undefined,
+        identityDocument2: undefined,
       })
     })
   })

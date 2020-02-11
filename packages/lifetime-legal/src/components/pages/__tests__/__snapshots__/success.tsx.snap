@@ -38,7 +38,7 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is PEN
         dynamicLinkParams={
           Object {
             "appMode": "WEB",
-            "entityCode": "MKC16000098",
+            "entityCode": "MKC16000007",
             "entityType": "contacts",
             "webRoute": "/",
           }
@@ -89,7 +89,7 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUB
         dynamicLinkParams={
           Object {
             "appMode": "WEB",
-            "entityCode": "MKC16000098",
+            "entityCode": "MKC16000007",
             "entityType": "contacts",
             "webRoute": "/",
           }
@@ -140,7 +140,7 @@ exports[`SuccessPage should match a snapshot when submitCompleteFormState is SUC
         dynamicLinkParams={
           Object {
             "appMode": "WEB",
-            "entityCode": "MKC16000098",
+            "entityCode": "MKC16000007",
             "entityType": "contacts",
             "webRoute": "/",
           }

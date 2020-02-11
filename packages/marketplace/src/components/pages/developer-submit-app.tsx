@@ -43,6 +43,8 @@ import { selectCategories } from '../../selector/app-categories'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
 import { TermsAndConditionsModal } from '../ui/terms-and-conditions-modal'
 
+export type CustomCreateAppModel = Omit<CreateAppModel, 'redirectUris'> & { redirectUris?: string }
+
 export interface SubmitAppMappedActions {
   submitApp: (
     appModel: CreateAppModel,
@@ -99,6 +101,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       isListed,
       isDirectApi,
       scopes: appScopes,
+      redirectUris = [],
     } = appDetail
 
     const icon = (media || []).filter(({ order }) => order === 0)[0]
@@ -124,6 +127,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       isListed,
       isDirectApi,
       scopes: appScopes ? appScopes.map(item => item.name) : [],
+      redirectUris: redirectUris.join(','),
       ...images,
     }
   } else {
@@ -145,6 +149,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       summary: '',
       developerId,
       scopes: [],
+      redirectUris: '',
     }
   }
 
@@ -158,18 +163,22 @@ export const handleSubmitApp = ({
   setSubmitError,
   isAgreedTerms,
   setShouldShowError,
-}) => (appModel: CreateAppModel, actions: FormikHelpers<CreateAppModel>) => {
+}) => (appModel: CustomCreateAppModel, actions: FormikHelpers<CustomCreateAppModel>) => {
   if (!isAgreedTerms) {
     setShouldShowError(true)
     return
   }
   if (!appId) {
-    submitApp(appModel, actions, setSubmitError)
+    submitApp(
+      { ...appModel, redirectUris: appModel.redirectUris ? appModel.redirectUris.split(',') : [] },
+      actions,
+      setSubmitError,
+    )
   } else {
     if (appModel.authFlow) {
       delete appModel.authFlow
     }
-    submitRevision(appId, appModel)
+    submitRevision(appId, { ...appModel, redirectUris: appModel.redirectUris ? appModel.redirectUris.split(',') : [] })
   }
 }
 
@@ -368,13 +377,26 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                   </Grid>
                   <Grid>
                     <GridItem>
+                      <Input
+                        dataTest="submit-app-redirect-uri"
+                        type="text"
+                        labelText="Redirect URI(s)"
+                        id="redirectUris"
+                        name="redirectUris"
+                        placeholder="Enter your callback URI’s. For multiple URI's, separate using a comma. HTTPS only other than for http://localhost"
+                      />
+                    </GridItem>
+                  </Grid>
+                  <Grid>
+                    <GridItem>
                       <TextArea
                         id="summary"
                         dataTest="submit-app-summary"
                         labelText="Summary"
                         name="summary"
-                        placeholder={`A short strapline summary for your app
-                          listing. Must be between 50 and 150 characters`}
+                        placeholder={
+                          'A short strapline summary for your app listing. Must be between 50 and 150 characters'
+                        }
                       />
                     </GridItem>
                     <GridItem>
@@ -383,8 +405,9 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         dataTest="submit-app-description"
                         labelText="Description"
                         name="description"
-                        placeholder={`A detailed description for your app listing.
-                          Must be between 150 and 1000 characters`}
+                        placeholder={
+                          'A detailed description for your app listing. Must be between 150 and 1000 characters'
+                        }
                       />
                     </GridItem>
                   </Grid>

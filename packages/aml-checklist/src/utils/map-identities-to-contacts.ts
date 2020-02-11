@@ -5,7 +5,14 @@ export const mapIdentitiesToContacts = (
   responseIdentities: PagedResultIdentityCheckModel_,
 ) => {
   // For each contact, find the first identity in the list, take status and set as identityCheck
-  const responseContactsEmbeddedWithStatus = responseContacts._embedded?.map(({ id, ...rest }) => {
+  const responseContactsEmbeddedWithStatus = responseContacts._embedded?.map(({ id, identityCheck, ...rest }) => {
+    if (identityCheck) {
+      return {
+        id,
+        identityCheck,
+        ...rest,
+      }
+    }
     const identity = responseIdentities._embedded?.find(({ contactId }) => contactId === id)
 
     return {

@@ -1,7 +1,10 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import Identification, { IDENTIFICATION_FORM_DEFAULT_VALUES } from '@/components/ui/forms/identification'
+import Identification, {
+  IDENTIFICATION_FORM_DEFAULT_VALUES,
+  IdentityDocumentForm,
+} from '@/components/ui/forms/identification'
 import { checklistDetailShowModal, checklistDetailSecondaryIdUpdateData } from '@/actions/checklist-detail'
 import { STEPS } from '@/components/ui/modal/modal'
 import { ReduxState } from '@/types/core'
@@ -63,7 +66,7 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
       expiry: expiry ? new Date(expiry) : undefined,
       details: details,
       fileUrl: secondaryIdUrl,
-    } as IdentityDocumentModel
+    } as IdentityDocumentForm
   }
 
   return {
@@ -75,13 +78,13 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
 }
 
 export type DispatchProps = {
-  updateIdentification: (formValues: IdentityDocumentModel) => void
+  updateIdentification: (formValues: IdentityDocumentForm) => void
   onPrevHandler: () => void
   onNextHandler: (values: any) => () => void
 }
 
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  updateIdentification: (values: IdentityDocumentModel) =>
+  updateIdentification: (values: IdentityDocumentForm) =>
     dispatch(checklistDetailSecondaryIdUpdateData({ identityChecks: values })),
   onPrevHandler: () => dispatch(checklistDetailShowModal(STEPS.PRIMARY_IDENTIFICATION)),
   onNextHandler: (values: any) => () =>

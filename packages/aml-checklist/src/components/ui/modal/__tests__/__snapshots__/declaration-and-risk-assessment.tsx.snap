@@ -5,27 +5,7 @@ exports[`DeclarationAndRiskAssessment should match snapshot 1`] = `
   <Formik
     initialValues={
       Object {
-        "metadata": Object {
-          "addresses": Array [
-            Object {
-              "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/home-12-Larch Cottage-LU7 0EP.png",
-              "documentType": "Bank / Building Society / Statement",
-              "month": "2",
-              "year": "2",
-            },
-            Object {
-              "documentImage": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/previous-7-Larch Cottage-LU7 0PX(1).jpg",
-              "documentType": "Credit Card Statements from main provider",
-              "month": "1",
-              "year": "3",
-            },
-          ],
-          "declarationRisk": Object {
-            "reason": "Test",
-            "riskAssessmentForm": "https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-Test(1).png",
-            "type": "Simplified",
-          },
-        },
+        "metadata": Object {},
       }
     }
     onSubmit={[MockFunction]}

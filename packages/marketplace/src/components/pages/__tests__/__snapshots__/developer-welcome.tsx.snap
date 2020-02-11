@@ -24,7 +24,6 @@ exports[`DeveloperWelcomeMessage Documentation step should match a snapshot 1`] 
   }
 >
   <Component
-    centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
@@ -81,7 +80,6 @@ exports[`DeveloperWelcomeMessage Managing step should match a snapshot 1`] = `
   }
 >
   <Component
-    centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
@@ -138,7 +136,6 @@ exports[`DeveloperWelcomeMessage Submitting step should match a snapshot 1`] = `
   }
 >
   <Component
-    centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
@@ -195,7 +192,6 @@ exports[`DeveloperWelcomeMessage Support step should match a snapshot 1`] = `
   }
 >
   <Component
-    centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
@@ -252,7 +248,6 @@ exports[`DeveloperWelcomeMessage Welcome step should match a snapshot 1`] = `
   }
 >
   <Component
-    centerContent={true}
     flexColumn={false}
     hasPadding={true}
   >
@@ -289,81 +284,74 @@ exports[`DeveloperWelcomeMessage should match a snapshot 1`] = `
 <Component
   className="welcome-container"
   flexColumn={true}
+  hasBackground={true}
   hasPadding={true}
 >
   <Component>
-    <Component
-      flexColumn={true}
-      hasBackground={true}
-      hasPadding={true}
-    >
-      <Component>
-        <HelpGuideStep
-          component={[Function]}
-          graphic={
-            <img
-              alt="step-1"
-              src=""
-            />
-          }
-          heading="Welcome to Reapit Foundations"
-          id="step-1"
-          subHeading="Let’s get started."
+    <HelpGuideStep
+      component={[Function]}
+      graphic={
+        <img
+          alt="step-1"
+          src=""
         />
-        <HelpGuideStep
-          component={[Function]}
-          graphic={
-            <img
-              alt="step-2"
-              src=""
-            />
-          }
-          heading="Documentation"
-          id="step-2"
-          subHeading="We’ve got you covered."
+      }
+      heading="Welcome to Reapit Foundations"
+      id="step-1"
+      subHeading="Let’s get started."
+    />
+    <HelpGuideStep
+      component={[Function]}
+      graphic={
+        <img
+          alt="step-2"
+          src=""
         />
-        <HelpGuideStep
-          component={[Function]}
-          graphic={
-            <img
-              alt="step-3"
-              src=""
-            />
-          }
-          heading="Submitting an App"
-          id="step-3"
-          subHeading="Nearly there."
+      }
+      heading="Documentation"
+      id="step-2"
+      subHeading="We’ve got you covered."
+    />
+    <HelpGuideStep
+      component={[Function]}
+      graphic={
+        <img
+          alt="step-3"
+          src=""
         />
-        <HelpGuideStep
-          component={[Function]}
-          graphic={
-            <img
-              alt="step-4"
-              src=""
-            />
-          }
-          heading="Managing your App"
-          id="step-4"
-          subHeading="Installations and changes."
+      }
+      heading="Submitting an App"
+      id="step-3"
+      subHeading="Nearly there."
+    />
+    <HelpGuideStep
+      component={[Function]}
+      graphic={
+        <img
+          alt="step-4"
+          src=""
         />
-        <HelpGuideStep
-          graphic={
-            <img
-              alt="step-5"
-              src=""
-            />
-          }
-          heading="On going support"
-          id="step-5"
-          render={
-            <Unknown
-              onAccept={[MockFunction]}
-            />
-          }
-          subHeading="We’re here to help."
+      }
+      heading="Managing your App"
+      id="step-4"
+      subHeading="Installations and changes."
+    />
+    <HelpGuideStep
+      graphic={
+        <img
+          alt="step-5"
+          src=""
         />
-      </Component>
-    </Component>
+      }
+      heading="On going support"
+      id="step-5"
+      render={
+        <Unknown
+          onAccept={[MockFunction]}
+        />
+      }
+      subHeading="We’re here to help."
+    />
   </Component>
 </Component>
 `;

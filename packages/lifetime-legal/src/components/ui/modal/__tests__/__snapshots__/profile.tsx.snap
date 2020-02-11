@@ -5,14 +5,14 @@ exports[` 1`] = `
   <Formik
     initialValues={
       Object {
-        "dateOfBirth": null,
-        "email": "schadwick512@rpsfiction.net",
-        "forename": "Saoirse",
-        "home": "01632 961556",
-        "mobile": "07700 901556",
-        "surname": "Chadwick",
-        "title": "Ms",
-        "work": "020 7946 1556",
+        "dateOfBirth": 2019-11-22T00:00:00.000Z,
+        "email": "cphilip133@rpsfiction.net",
+        "forename": "Carson",
+        "homePhone": "01632 968347",
+        "mobilePhone": "07700 908347",
+        "surname": "Philip",
+        "title": "Mr",
+        "workPhone": "020 7946 8347",
       }
     }
     onSubmit={[MockFunction]}

@@ -1,22 +1,15 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import {
-  FlexContainerBasic,
-  Content,
-  FlexContainerResponsive,
-  useHelpGuideContext,
-  HelpGuide,
-  Button,
-} from '@reapit/elements'
+import { FlexContainerResponsive, useHelpGuideContext, HelpGuide, Button } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 import { userAcceptTermAndCondition } from '@/actions/auth'
 import styles from '@/styles/pages/developer-welcome.scss?mod'
-import Step1 from '@/assets/images/Step-1.jpg'
-import Step2 from '@/assets/images/Step-2.jpg'
-import Step3 from '@/assets/images/Step-3.jpg'
-import Step4 from '@/assets/images/Step-4.jpg'
-import Step5 from '@/assets/images/Step-5.jpg'
+import Step1 from '@/assets/images/step-1.png'
+import Step2 from '@/assets/images/step-2.png'
+import Step3 from '@/assets/images/step-3.png'
+import Step4 from '@/assets/images/step-4.png'
+import Step5 from '@/assets/images/step-5.png'
 
 export interface DevelopeWelcomeMappedActions {
   userAcceptTermAndCondition: () => void
@@ -166,49 +159,45 @@ export const handleChangeSteps = (goTo: () => void) => () => {
 
 export const DeveloperWelcomeMessage: React.FC<DeveloperWelcomeMessageProps> = ({ userAcceptTermAndCondition }) => {
   return (
-    <FlexContainerBasic className="welcome-container" flexColumn hasPadding>
-      <Content>
-        <FlexContainerResponsive flexColumn hasBackground hasPadding>
-          <HelpGuide>
-            <HelpGuide.Step
-              id="step-1"
-              component={Welcome}
-              heading="Welcome to Reapit Foundations"
-              subHeading="Let’s get started."
-              graphic={<img className={styles.graphic} alt="step-1" src={Step1} />}
-            />
-            <HelpGuide.Step
-              id="step-2"
-              component={Documentation}
-              heading="Documentation"
-              subHeading="We’ve got you covered."
-              graphic={<img className={styles.graphic} alt="step-2" src={Step2} />}
-            />
-            <HelpGuide.Step
-              id="step-3"
-              component={Submitting}
-              heading="Submitting an App"
-              subHeading="Nearly there."
-              graphic={<img className={styles.graphic} alt="step-3" src={Step3} />}
-            />
-            <HelpGuide.Step
-              id="step-4"
-              component={Managing}
-              heading="Managing your App"
-              subHeading="Installations and changes."
-              graphic={<img className={styles.graphic} alt="step-4" src={Step4} />}
-            />
-            <HelpGuide.Step
-              id="step-5"
-              render={<Support onAccept={userAcceptTermAndCondition} />}
-              heading="On going support"
-              subHeading="We’re here to help."
-              graphic={<img className={styles.graphic} alt="step-5" src={Step5} />}
-            />
-          </HelpGuide>
-        </FlexContainerResponsive>
-      </Content>
-    </FlexContainerBasic>
+    <FlexContainerResponsive className="welcome-container" flexColumn hasBackground hasPadding>
+      <HelpGuide>
+        <HelpGuide.Step
+          id="step-1"
+          component={Welcome}
+          heading="Welcome to Reapit Foundations"
+          subHeading="Let’s get started."
+          graphic={<img className={styles.graphic} alt="step-1" src={Step1} />}
+        />
+        <HelpGuide.Step
+          id="step-2"
+          component={Documentation}
+          heading="Documentation"
+          subHeading="We’ve got you covered."
+          graphic={<img className={styles.graphic} alt="step-2" src={Step2} />}
+        />
+        <HelpGuide.Step
+          id="step-3"
+          component={Submitting}
+          heading="Submitting an App"
+          subHeading="Nearly there."
+          graphic={<img className={styles.graphic} alt="step-3" src={Step3} />}
+        />
+        <HelpGuide.Step
+          id="step-4"
+          component={Managing}
+          heading="Managing your App"
+          subHeading="Installations and changes."
+          graphic={<img className={styles.graphic} alt="step-4" src={Step4} />}
+        />
+        <HelpGuide.Step
+          id="step-5"
+          render={<Support onAccept={userAcceptTermAndCondition} />}
+          heading="On going support"
+          subHeading="We’re here to help."
+          graphic={<img className={styles.graphic} alt="step-5" src={Step5} />}
+        />
+      </HelpGuide>
+    </FlexContainerResponsive>
   )
 }
 

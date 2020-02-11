@@ -10,12 +10,13 @@ import {
 } from '../pep-search'
 import { ReduxState } from '@/types/core'
 import { contact } from '@/sagas/__stubs__/contact'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 
 describe('pep-search', () => {
   describe('PepSearch', () => {
     it('should match snapshot', () => {
       const mockProps = {
-        contact: contact,
+        contact: contact as ContactModel,
         handleSubmit: jest.fn(),
         onPrevHandler: jest.fn(),
         onNextHandler: jest.fn(),
@@ -82,7 +83,7 @@ describe('pep-search', () => {
         onPrevHandler: jest.fn(),
         onNextHandler: jest.fn(),
         isSubmitting: false,
-        pepSearchStatus: { MKC13000122: { param: 'a', result: [], time: '1' } },
+        pepSearchStatus: { AYL19000001: { param: 'a', result: [], time: '1' } },
         contact: contact,
       }
       const component = renderForm(mockProps)()

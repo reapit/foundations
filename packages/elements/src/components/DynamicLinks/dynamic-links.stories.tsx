@@ -20,7 +20,7 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
       queryParams: {
         id: '516060af-ea0a-4384-8465-28befc6f34b3',
       },
-      webRoute: 'https://dev.geo-diary-app.reapit.com',
+      webRoute: 'https://dev.geo-diary-app.reapit.cloud',
     },
     description: 'Launch (eg Geo Diary) in desktop from existing app',
     expectedLink: 'agencycloud://apps?id=516060af-ea0a-4384-8465-28befc6f34b3',
@@ -32,10 +32,10 @@ export const dynamicLinkScenarios: DynamicLinkScenario[] = [
       queryParams: {
         id: '516060af-ea0a-4384-8465-28befc6f34b3',
       },
-      webRoute: 'https://dev.geo-diary-app.reapit.com',
+      webRoute: 'https://dev.geo-diary-app.reapit.cloud',
     },
     description: 'Launch app (eg Geo Diary) in web mode from existing app',
-    expectedLink: 'https://dev.geo-diary-app.reapit.com',
+    expectedLink: 'https://dev.geo-diary-app.reapit.cloud',
   },
   {
     dynamicLinkParams: {

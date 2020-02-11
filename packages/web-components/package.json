@@ -19,15 +19,15 @@
   "scripts": {
     "build:cdn": "rimraf dist && rimraf dist-npm && webpack --color --mode production --config ../../scripts/webpack/webpack.cdn.js",
     "build:npm": "rimraf dist-npm && webpack --color --mode production --config ../../scripts/webpack/webpack.basic.js && yarn build:tsc",
-    "build:prod": "yarn build:npm && yarn build:cdn",
+    "build:prod": "echo 'disabling for now yarn build:npm && yarn build:cdn'",
     "build:tsc": "tsc -p './tsconfig.json'",
     "check-version": "node ./scripts/check-version.js",
-    "release:dev": "node ../../scripts/release/release-dev.js web-components reapit-web-components-dev",
-    "release:prod": "node ../../scripts/release/release-prod.js web-components reapit-web-components",
+    "release:dev": "echo 'disabling for now node ../../scripts/release/release-dev.js web-components reapit-web-components-dev'",
+    "release:prod": "echo 'disabling for now node ../../scripts/release/release-prod.js web-components reapit-web-components'",
     "start:dev": "start-storybook -p 8080",
-    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "test:ci": "echo 'disabling for now cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit'",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
+    "test:update-badges": "echo 'disabling for now yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges'"
   },
   "browserslist": {
     "production": [

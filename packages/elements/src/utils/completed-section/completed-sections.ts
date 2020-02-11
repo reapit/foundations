@@ -1,81 +1,74 @@
-// TODO: will replace any type
-export const isCompletedProfile = (contact: any) => {
-  if (!contact) {
-    return false
-  }
-  const { title, surname, forename, dateOfBirth, communications } = contact
-  if (title && surname && forename && dateOfBirth && communications) {
-    return communications.some((item: any) => item.label === 'Mobile' || item.label === 'Home')
-  }
-  return false
+import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
+
+export const isCompletedProfile = (contact: ContactModel | null) => {
+  const isValidProfile =
+    contact?.title &&
+    contact?.surname &&
+    contact?.forename &&
+    contact?.dateOfBirth &&
+    contact?.homePhone &&
+    contact?.workPhone &&
+    contact?.mobilePhone &&
+    contact?.email
+  return !!isValidProfile
 }
 
-export const isCompletedPrimaryID = (identityCheck: any) => {
-  const isValidIdentityCheck = identityCheck && identityCheck.metadata && identityCheck.documents
-  if (!isValidIdentityCheck) {
-    return false
-  }
-  const { documents, metadata } = identityCheck
-  const { primaryIdUrl } = metadata
-  if (primaryIdUrl && documents[0]) {
-    if (documents[0].typeId && documents[0].expiry && documents[0].details) {
-      return true
-    }
-  }
-  return false
+export const isCompletedPrimaryID = (identityCheck: IdentityCheckModel | null) => {
+  const isValidIdentityCheck =
+    identityCheck?.identityDocument1?.details &&
+    identityCheck?.identityDocument1?.documentId &&
+    identityCheck?.identityDocument1?.expiry &&
+    identityCheck?.identityDocument1?.typeId
+  return !!isValidIdentityCheck
 }
 
-export const isCompletedSecondaryID = (identityCheck: any) => {
-  const isValidIdentityCheck = identityCheck && identityCheck.metadata && identityCheck.documents
-  if (!isValidIdentityCheck) {
-    return false
-  }
-  const { documents, metadata } = identityCheck
-  const { primaryIdUrl, secondaryIdUrl } = metadata
-  const isHavePrimaryId = primaryIdUrl && secondaryIdUrl && documents[1]
-  if (isHavePrimaryId) {
-    if (documents[1].typeId && documents[1].expiry && documents[1].details) {
-      return true
-    }
-  }
-  const isNotHavePrimaryId = !primaryIdUrl && secondaryIdUrl && documents[0]
-  if (isNotHavePrimaryId) {
-    if (documents[0].typeId && documents[0].expiry && documents[0].details) {
-      return true
-    }
-  }
-
-  return false
+export const isCompletedSecondaryID = (identityCheck: IdentityCheckModel | null) => {
+  const isValidIdentityCheck =
+    identityCheck?.identityDocument2?.details &&
+    identityCheck?.identityDocument2?.documentId &&
+    identityCheck?.identityDocument2?.expiry &&
+    identityCheck?.identityDocument2?.typeId
+  return !!isValidIdentityCheck
 }
 
-export const isCompletedAddress = (contact: any) => {
-  if (!contact) {
-    return false
+export const isCompletedAddress = (contact: ContactModel | null) => {
+  const isValidPrimaryAddress =
+    contact?.primaryAddress?.buildingName &&
+    contact?.primaryAddress?.buildingNumber &&
+    contact?.primaryAddress?.countryId &&
+    contact?.primaryAddress?.line1 &&
+    contact?.primaryAddress?.line2 &&
+    contact?.primaryAddress?.line3 &&
+    contact?.primaryAddress?.line4
+  const isValidSecondaryAddress =
+    contact?.secondaryAddress?.buildingName &&
+    contact?.secondaryAddress?.buildingNumber &&
+    contact?.secondaryAddress?.countryId &&
+    contact?.secondaryAddress?.line1 &&
+    contact?.secondaryAddress?.line2 &&
+    contact?.secondaryAddress?.line3 &&
+    contact?.secondaryAddress?.line4
+  if (contact?.primaryAddress && !contact?.secondaryAddress) {
+    return !!isValidPrimaryAddress
   }
-  const { addresses, metadata } = contact
-  if (addresses && metadata && metadata.addresses) {
-    return (
-      addresses.some((item: any) => item.line1 && item.line3 && item.postcode) &&
-      metadata.addresses.some((item: any) => item.year && item.month && item.documentImage)
-    )
-  }
-  return false
+  return !!isValidPrimaryAddress && !!isValidSecondaryAddress
 }
 
-export const isCompletedDeclarationRisk = (contact: any) => {
-  const isValidContactWithDecrationRisk = contact && contact.metadata && contact.metadata.declarationRisk
-  if (!isValidContactWithDecrationRisk) {
-    return false
-  }
-  const { reason, type, declarationForm, riskAssessmentForm } = contact.metadata.declarationRisk
-  return Boolean(reason && type && (declarationForm || riskAssessmentForm))
+export const isCompletedDeclarationRisk = (contact: ContactModel | null) => {
+  const isValidContactWithDecrationRisk =
+    contact?.metadata?.declarationRisk?.reason &&
+    contact?.metadata?.declarationRisk?.type &&
+    (contact?.metadata?.declarationRisk?.declarationForm || contact?.metadata?.declarationRisk?.riskAssessmentForm)
+
+  return !!isValidContactWithDecrationRisk
 }
 
-export const isCompletedAgentCheck = (identityCheck: any) => {
-  const isValidAgentCheck = identityCheck && identityCheck.metadata
-  if (!isValidAgentCheck) {
-    return false
-  }
-  const { referralType, timeSelection, clientType, placeMeet, isUKResident } = identityCheck.metadata
-  return Boolean(referralType && timeSelection && clientType && placeMeet && isUKResident)
+export const isCompletedAgentCheck = (identityCheck: IdentityCheckModel | null) => {
+  const isValidAgentCheck =
+    identityCheck?.metadata?.referralType &&
+    identityCheck?.metadata?.timeSelection &&
+    identityCheck?.metadata?.clientType &&
+    identityCheck?.metadata?.placeMeet &&
+    identityCheck?.metadata?.isUKResident
+  return !!isValidAgentCheck
 }

@@ -11,7 +11,6 @@ export const appointmentDataStub: ExtendedAppointmentModel = {
   end: '2020-01-10T10:40:01',
   typeId: 'VW',
   description: "It has windows, a roof and doors - it's basically a house.",
-  directions: 'SW',
   recurring: false,
   cancelled: false,
   followUp: {

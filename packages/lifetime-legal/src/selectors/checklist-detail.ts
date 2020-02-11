@@ -1,36 +1,27 @@
 import { ReduxState } from '@/types/core'
 import { defaultStatus } from '@/reducers/checklist-detail'
-// @ts-ignore #49 Breaking changes to API
-import { ContactIdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
+import { IdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
 
-export const selectCheckListDetailStatus = (state: ReduxState) => {
+export const selectStatus = (state: ReduxState) => {
   return state?.checklistDetail?.status || defaultStatus
 }
 
-export const selectCheckListDetailContact = (state: ReduxState): ContactModel => {
+export const selectContact = (state: ReduxState): ContactModel => {
   return state?.checklistDetail?.checklistDetailData?.contact || {}
 }
 
-export const selectCheckListDetailIdCheck = (state: ReduxState): ContactIdentityCheckModel => {
+export const selectIdentityCheck = (state: ReduxState): IdentityCheckModel => {
   return state?.checklistDetail?.checklistDetailData?.idCheck || {}
 }
 
-export const selectCheckListDetailPrimaryIdUrl = (state: ReduxState) => {
-  return state?.checklistDetail?.checklistDetailData?.idCheck?.metadata?.primaryIdUrl
+export const selectPrimaryId = (state: ReduxState) => {
+  return state?.checklistDetail?.checklistDetailData?.idCheck?.identityDocument1 || {}
 }
 
-export const selectCheckListDetailSecondaryIdUrl = (state: ReduxState) => {
-  return state?.checklistDetail?.checklistDetailData?.idCheck?.metadata?.secondaryIdUrl
+export const selectSecondaryId = (state: ReduxState) => {
+  return state?.checklistDetail?.checklistDetailData?.idCheck?.identityDocument2 || {}
 }
 
-export const selectCheckListDetailPrimaryId = (state: ReduxState) => {
-  return state?.checklistDetail?.checklistDetailData?.idCheck?.documents?.[0]
-}
-
-export const selectCheckListDetailSecondaryId = (state: ReduxState) => {
-  return state?.checklistDetail?.checklistDetailData?.idCheck?.documents?.[1]
-}
-
-export const selectCheckListDetailIsSubmitting = (state: ReduxState) => {
+export const selectIsSubmitting = (state: ReduxState) => {
   return state?.checklistDetail?.isSubmitting || false
 }
