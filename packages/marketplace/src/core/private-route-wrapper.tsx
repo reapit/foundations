@@ -57,7 +57,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (loginType && location.pathname === '/') {
-    const path = getDefaultPathByLoginType(loginType)
+    const path = getDefaultPathByLoginType(loginType, firstLoginCookie)
     return <Redirect to={path} />
   }
 
