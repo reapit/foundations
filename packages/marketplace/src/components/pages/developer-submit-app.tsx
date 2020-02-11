@@ -43,7 +43,10 @@ import { selectCategories } from '../../selector/app-categories'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
 import { TermsAndConditionsModal } from '../ui/terms-and-conditions-modal'
 
-export type CustomCreateAppModel = Omit<CreateAppModel, 'redirectUris'> & { redirectUris?: string }
+export type CustomCreateAppModel = Omit<CreateAppModel, 'redirectUris' | 'signoutUris'> & {
+  redirectUris?: string
+  signoutUris?: string
+}
 
 export interface SubmitAppMappedActions {
   submitApp: (
@@ -102,6 +105,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       isDirectApi,
       scopes: appScopes,
       redirectUris = [],
+      signoutUris = [],
     } = appDetail
 
     const icon = (media || []).filter(({ order }) => order === 0)[0]
@@ -128,6 +132,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       isDirectApi,
       scopes: appScopes ? appScopes.map(item => item.name) : [],
       redirectUris: redirectUris.join(','),
+      signoutUris: signoutUris.join(','),
       ...images,
     }
   } else {
@@ -150,6 +155,7 @@ export const generateInitialValues = (appDetail: AppDetailModel | null, develope
       developerId,
       scopes: [],
       redirectUris: '',
+      signoutUris: '',
     }
   }
 
@@ -170,7 +176,11 @@ export const handleSubmitApp = ({
   }
   if (!appId) {
     submitApp(
-      { ...appModel, redirectUris: appModel.redirectUris ? appModel.redirectUris.split(',') : [] },
+      {
+        ...appModel,
+        redirectUris: appModel.redirectUris ? appModel.redirectUris.split(',') : [],
+        signoutUris: appModel.signoutUris ? appModel.signoutUris.split(',') : [],
+      },
       actions,
       setSubmitError,
     )
@@ -178,7 +188,11 @@ export const handleSubmitApp = ({
     if (appModel.authFlow) {
       delete appModel.authFlow
     }
-    submitRevision(appId, { ...appModel, redirectUris: appModel.redirectUris ? appModel.redirectUris.split(',') : [] })
+    submitRevision(appId, {
+      ...appModel,
+      redirectUris: appModel.redirectUris ? appModel.redirectUris.split(',') : [],
+      signoutUris: appModel.signoutUris ? appModel.signoutUris.split(',') : [],
+    })
   }
 }
 
@@ -384,6 +398,18 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         id="redirectUris"
                         name="redirectUris"
                         placeholder="Enter your callback URI’s. For multiple URI's, separate using a comma. HTTPS only other than for http://localhost"
+                      />
+                    </GridItem>
+                  </Grid>
+                  <Grid>
+                    <GridItem>
+                      <Input
+                        dataTest="submit-app-signout-uris"
+                        type="text"
+                        labelText="Sign Out URI(s)"
+                        id="signoutUris"
+                        name="signoutUris"
+                        placeholder="Enter the URI that your application should navigate to when a user logs out. For multiple URI's, separate using a comma. HTTPS other than for http://localhost"
                       />
                     </GridItem>
                   </Grid>
