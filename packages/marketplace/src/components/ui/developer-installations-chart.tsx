@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { Line } from 'react-chartjs-2'
-import { H4 } from '@reapit/elements'
+import { H4, Loader } from '@reapit/elements'
 import { InstallationModelWithAppName } from '@/components/pages/analytics'
 import { groupInstalledAppsByDate, getChartData, groupAppsByNameAndCount } from '@/utils/developer-analytics'
 
 export interface DeveloperInstallationsChartProps {
   data: Array<InstallationModelWithAppName>
+  loading?: boolean
 }
 
 export const getChartOptions = data => {
@@ -27,7 +28,7 @@ export const getChartOptions = data => {
   }
 }
 
-const DeveloperInstallationsChart = ({ data }: DeveloperInstallationsChartProps) => {
+const DeveloperInstallationsChart = ({ data, loading }: DeveloperInstallationsChartProps) => {
   const grouppedAppsByDate = groupInstalledAppsByDate(data)
   const labels = Object.keys(grouppedAppsByDate)
 
@@ -59,8 +60,14 @@ const DeveloperInstallationsChart = ({ data }: DeveloperInstallationsChartProps)
 
   return (
     <div>
-      <H4>Installations</H4>
-      <Line data={chartData} options={getChartOptions(grouppedAppsByDate)} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <H4>Installations</H4>
+          <Line data={chartData} options={getChartOptions(grouppedAppsByDate)} />
+        </>
+      )}
     </div>
   )
 }

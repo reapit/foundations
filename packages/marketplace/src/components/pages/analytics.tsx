@@ -11,6 +11,8 @@ import { AppInstallationsState } from '@/reducers/app-installations'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import { withRouter } from 'react-router'
 import styles from '@/styles/pages/analytics.scss?mod'
+import DeveloperTrafficTable from '../ui/developer-traffic-table'
+import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 
 export const installationTableColumn = [
   { Header: 'App Name', accessor: 'appName' },
@@ -33,6 +35,7 @@ export const installationTableColumn = [
 export interface AnalyticsPageMappedProps {
   developer: DeveloperState
   installations: AppInstallationsState
+  appUsageStats: AppUsageStatsState
 }
 
 export interface AnalyticsPageMappedActions {
@@ -136,7 +139,8 @@ export const InstallationTable: React.FC<{
   installedApps: InstallationModelWithAppName[]
   installations: AppInstallationsState
   developer: DeveloperState
-}> = ({ installedApps, installations, developer }) => {
+  loading?: boolean
+}> = ({ installedApps, installations, developer, loading }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
   const installationAppDataArray = installations.installationsAppData?.data ?? []
@@ -152,34 +156,47 @@ export const InstallationTable: React.FC<{
   ])
   return (
     <div>
-      <H4>Installations</H4>
-      <p>
-        The installations table below shows the individual installations per client with a total number of installations
-        per app
-      </p>
-      <div className={styles.totalCount}>
-        {Object.entries(appCountEntries).map(([appName, count]) => (
-          <p key={appName}>
-            Total current installation for <strong>{appName}</strong>: {count}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <H4>Installations</H4>
+          <p>
+            The installations table below shows the individual installations per client with a total number of
+            installations per app
           </p>
-        ))}
-      </div>
-      <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
-      <br />
-      <Pagination
-        pageNumber={pageNumber}
-        onChange={handleSetPageNumber(setPageNumber)}
-        pageSize={INSTALLATIONS_PER_PAGE}
-        totalCount={installations.installationsAppData?.totalCount ?? 0}
-      />
+          <div className={styles.totalCount}>
+            {Object.entries(appCountEntries).map(([appName, count]) => (
+              <p key={appName}>
+                Total current installation for <strong>{appName}</strong>: {count}
+              </p>
+            ))}
+          </div>
+          <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
+          <br />
+          <Pagination
+            pageNumber={pageNumber}
+            onChange={handleSetPageNumber(setPageNumber)}
+            pageSize={INSTALLATIONS_PER_PAGE}
+            totalCount={installations.installationsAppData?.totalCount ?? 0}
+          />
+        </>
+      )}
     </div>
   )
 }
 
-export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer }) => {
-  if (installations.loading || !installations.installationsAppData || developer.loading || !developer.developerData) {
-    return <Loader />
-  }
+export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer, appUsageStats }) => {
+  // if (
+  //   installations.loading ||
+  //   !installations.installationsAppData ||
+  //   developer.loading ||
+  //   !developer.developerData ||
+  //   appUsageStats.loading ||
+  //   !appUsageStats.appUsageStatsData
+  // ) {
+  //   return <Loader />
+  // }
 
   const installationAppDataArray = installations.installationsAppData?.data ?? []
   const developerDataArray = developer.developerData?.data?.data ?? []
@@ -189,6 +206,11 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
     [installationAppDataArray, developerDataArray],
   )
 
+  const appUsageStatsLoading = appUsageStats.loading
+  const appUsageStatsData = appUsageStats.appUsageStatsData || {}
+  const developerAppsData = developer?.developerData?.data || {}
+  const installationsAppLoading = installations.loading
+
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn className={styles.wrapAnalytics}>
@@ -196,16 +218,18 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
         <hr className={styles.hr} />
         <Grid isMultiLine>
           <GridItem>
-            <DeveloperInstallationsChart data={installationAppDataArrayWithName} />
+            <DeveloperInstallationsChart data={installationAppDataArrayWithName} loading={installationsAppLoading} />
           </GridItem>
           <GridItem>
-            <DeveloperTrafficChart />
+            <DeveloperTrafficChart stats={appUsageStatsData} apps={developerAppsData} loading={appUsageStatsLoading} />
           </GridItem>
         </Grid>
+        <DeveloperTrafficTable stats={appUsageStatsData} apps={developerAppsData} loading={appUsageStatsLoading} />
         <InstallationTable
           installedApps={installationAppDataArrayWithName}
           installations={installations}
           developer={developer}
+          loading={installationsAppLoading}
         />
       </FlexContainerBasic>
     </ErrorBoundary>
@@ -215,6 +239,7 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
 export const mapStateToProps: (state: ReduxState) => AnalyticsPageMappedProps = state => ({
   installations: state.installations,
   developer: state.developer,
+  appUsageStats: state.appUsageStats,
 })
 
 export default withRouter(connect(mapStateToProps)(AnalyticsPage))
