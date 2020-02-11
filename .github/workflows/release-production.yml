@@ -3,7 +3,7 @@ name: Release production
 on:
   push:
     tags:
-    - '*'
+      - '*'
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -68,4 +68,4 @@ jobs:
 
       - name: Release Production
         run: |
-          yarn release:prod
+          yarn run release:prod

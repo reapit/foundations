@@ -1,26 +1,20 @@
 {
   "name": "@reapit/foundations-ts-definitions",
   "version": "0.0.18",
+  "license": "MIT",
   "files": [
     "types/*"
   ],
   "main": "./types/index.ts",
-  "peerDependencies": {
-  },
-  "license": "MIT",
   "scripts": {
-    "fetch:platform": "node './scripts/fetch-platform-definition.js'",
-    "fetch:marketPlace": "node './scripts/fetch-marketplace-definition.js'",
-    "fetch:definition": "rimraf types && mkdir types && yarn fetch:platform && yarn fetch:marketPlace && yarn create-index-file",
-    "create-index-file": "node './scripts/create-index-file.js'",
-    "handle-cronjob": "node ./scripts/handle-cronjob.js"
-  },
-  "dependencies": {
+    "release:prod": "node ../../scripts/foundations-ts-definitions/release-npm.js foundations-ts-definitions"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "dependencies": {},
+  "peerDependencies": {}
 }
