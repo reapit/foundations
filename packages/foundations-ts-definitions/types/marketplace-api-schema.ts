@@ -387,11 +387,10 @@ export interface CreateAppModel {
    * Sets the apps launch uri
    */
   launchUri?: string
-   /**
-   * Sets the apps uri where a user will be redirected to immediately after a successful authentication. Multiple URIs can be passed as a comma separated list
-   */
+  /**
+  * Sets the apps uri where a user will be redirected to immediately after a successful authentication. Multiple URIs can be passed as a comma separated list
+  */
   redirectUris?: string[]
-
   /**
    * Sets the unique identifer of the developer registering the app
    */
