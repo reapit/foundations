@@ -14,7 +14,6 @@ import {
   selectCheckListDetailIsSubmitting,
 } from '@/selectors/checklist-detail'
 import { ContactModel } from '@reapit/foundations-ts-definitions'
-import { selectCheckListDetailPrimaryIdUrl } from '../../../selectors/checklist-detail'
 
 export type PrimaryIdentiticationProps = DispatchProps & StateProps
 
@@ -46,18 +45,17 @@ export const mapStateToProps = (state: ReduxState): StateProps => {
   const isSubmitting = selectCheckListDetailIsSubmitting(state)
   const contact = selectCheckListDetailContact(state)
   const primaryIdDocument = selectCheckListDetailPrimaryId(state)
-  const primaryIdUrl = selectCheckListDetailPrimaryIdUrl(state)
 
   let initFormValues = IDENTIFICATION_FORM_DEFAULT_VALUES
   const DEFAULT_TYPE = ''
   if (primaryIdDocument) {
-    const { typeId, expiry, details } = primaryIdDocument
+    const { typeId, expiry, details, documentId } = primaryIdDocument
 
     initFormValues = {
       typeId: typeId || DEFAULT_TYPE,
       expiry: expiry ? new Date(expiry) : '',
-      details: details,
-      fileUrl: primaryIdUrl || '',
+      details: details || '',
+      documentId: documentId || '',
     } as IdentityDocumentForm
   }
 

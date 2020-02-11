@@ -33,14 +33,14 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED fa
     />
     <Component
       allowClear={true}
-      id="fileUrl"
+      id="documentId"
       inputProps={
         Object {
           "disabled": false,
         }
       }
       labelText="Upload File"
-      name="fileUrl"
+      name="documentId"
       required={true}
     />
     <div
@@ -134,14 +134,14 @@ exports[`Identification renderFormHandler should match snapshot when DISABLED tr
     />
     <Component
       allowClear={true}
-      id="fileUrl"
+      id="documentId"
       inputProps={
         Object {
           "disabled": true,
         }
       }
       labelText="Upload File"
-      name="fileUrl"
+      name="documentId"
       required={true}
     />
     <div

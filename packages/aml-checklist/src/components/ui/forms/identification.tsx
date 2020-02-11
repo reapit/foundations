@@ -5,14 +5,14 @@ import SelectIdentity from '@/components/ui/inputs/select-identity'
 import styles from '@/styles/pages/checklist-detail.scss?mod'
 
 export interface IdentityDocumentForm extends IdentityDocumentModel {
-  fileUrl: string
+  documentId: string
 }
 
 export const IDENTIFICATION_FORM_DEFAULT_VALUES: IdentityDocumentForm = {
   typeId: '',
   details: '',
   expiry: '',
-  fileUrl: '',
+  documentId: '',
 }
 
 export type IdentificationProps = {
@@ -43,8 +43,8 @@ export const renderFormHandler = ({
         <Input id="details" name="details" type="text" placeholder="ID Reference" required labelText="ID Reference" />
         <DatePicker id="expiry" name="expiry" labelText="Expiry Date" required />
         <CameraImageInput
-          id="fileUrl"
-          name="fileUrl"
+          id="documentId"
+          name="documentId"
           labelText="Upload File"
           allowClear={true}
           inputProps={{ disabled: disabled }}

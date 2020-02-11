@@ -43,6 +43,7 @@ describe('SecondaryIdentification', () => {
           typeId: idCheck.identityDocument2?.typeId,
           details: idCheck.identityDocument2?.details,
           expiry: new Date(idCheck.identityDocument2?.expiry as string),
+          documentId: 'SOME_ID',
         },
       }
       expect(result).toEqual(expected)
@@ -59,7 +60,7 @@ describe('SecondaryIdentification', () => {
         initFormValues: {
           details: '',
           expiry: '',
-          fileUrl: '',
+          documentId: '',
           typeId: '',
         },
       }

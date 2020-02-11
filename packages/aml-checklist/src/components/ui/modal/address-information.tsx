@@ -60,8 +60,6 @@ export const handleMoreThreeYear = ({ setShowMoreThreeYearInput, isShowMoreThree
 }
 
 export const AddressInput = ({ addressType }) => {
-  // To get/set from metadata
-  const addressMetadataIndex = addressType === 'primaryAddress' ? 0 : 1
   return (
     <div key={addressType}>
       <Input type="hidden" labelText="Type" id={`${addressType}[type]`} name={`${addressType}[type]`} />
@@ -91,28 +89,28 @@ export const AddressInput = ({ addressType }) => {
       <SelectBox
         labelText="Number of Years at Address"
         options={renderYearOptions()}
-        id={`metadata.addresses[${addressMetadataIndex}][year]`}
-        name={`metadata.addresses[${addressMetadataIndex}][year]`}
+        id={`metadata.${addressType}[year]`}
+        name={`metadata.${addressType}[year]`}
         required
       />
       <SelectBox
         labelText="Number of Months at Address"
-        id={`metadata.addresses[${addressMetadataIndex}][month]`}
-        name={`metadata.addresses[${addressMetadataIndex}][month]`}
+        id={`metadata.${addressType}[month]`}
+        name={`metadata.${addressType}[month]`}
         options={optionsMonth}
         required
       />
       <SelectBox
         labelText="Document Type"
-        id={`metadata.addresses[${addressMetadataIndex}][documentType]`}
-        name={`metadata.addresses[${addressMetadataIndex}][documentType]`}
+        id={`metadata.${addressType}[documentType]`}
+        name={`metadata.${addressType}[documentType]`}
         options={optionsDocumentType}
         required
       />
       <CameraImageInput
         labelText="Upload file"
-        id={`metadata.addresses[${addressMetadataIndex}][documentImage]`}
-        name={`metadata.addresses[${addressMetadataIndex}][documentImage]`}
+        id={`metadata.${addressType}[documentImage]`}
+        name={`metadata.${addressType}[documentImage]`}
         allowClear={true}
         required
       />
@@ -201,9 +199,6 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
 }) => {
   const [isShowMoreThreeYearInput, setShowMoreThreeYearInput] = React.useState(false)
   const { primaryAddress, secondaryAddress } = contact
-  const metadata = contact.metadata || {
-    addresses: generateMetadata(secondaryAddress),
-  }
 
   return (
     <div>
@@ -211,7 +206,7 @@ export const AddressInformation: React.FC<AddressInformationProps> = ({
         initialValues={{
           primaryAddress,
           secondaryAddress,
-          metadata,
+          metadata: contact.metadata,
         }}
         onSubmit={onHandleSubmit}
       >
@@ -249,6 +244,7 @@ export type DispatchProps = {
 export const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
   return {
     onHandleSubmit: (values: any) => {
+      console.log({ values })
       dispatch(updateAddressHistory({ contact: values }))
     },
     onNextHandler: (values: any) => () =>
