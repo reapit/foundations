@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H4, Alert } from '@reapit/elements'
+import { H4, Alert, Loader } from '@reapit/elements'
 import { Line } from 'react-chartjs-2'
 import { UsageStatsModel, PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 import { getAppUsageStatsChartData, getChartConfig, getChartOptions } from '@/utils/app-usage-stats.ts'
@@ -7,9 +7,10 @@ import { getAppUsageStatsChartData, getChartConfig, getChartOptions } from '@/ut
 export type DeveloperTrafficChartProps = {
   stats: UsageStatsModel
   apps: PagedResultAppSummaryModel_
+  loading?: Boolean | false
 }
 
-export const DeveloperTrafficChart: React.FC<DeveloperTrafficChartProps> = ({ stats, apps }) => {
+export const DeveloperTrafficChart: React.FC<DeveloperTrafficChartProps> = ({ stats, apps, loading }) => {
   const { appUsage } = stats || {}
   const appUsageStatsChartData = getAppUsageStatsChartData(appUsage, apps.data)
   if (!appUsageStatsChartData) {
@@ -21,8 +22,14 @@ export const DeveloperTrafficChart: React.FC<DeveloperTrafficChartProps> = ({ st
   const chartOptions = getChartOptions(appUsageStatsGroupedByDate)
   return (
     <div>
-      <H4>Traffic (API Count)</H4>
-      <Line data={chartData} options={chartOptions} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          <H4>Traffic (API Count)</H4>
+          <Line data={chartData} options={chartOptions} />
+        </div>
+      )}
     </div>
   )
 }

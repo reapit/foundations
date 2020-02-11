@@ -139,7 +139,8 @@ export const InstallationTable: React.FC<{
   installedApps: InstallationModelWithAppName[]
   installations: AppInstallationsState
   developer: DeveloperState
-}> = ({ installedApps, installations, developer }) => {
+  loading?: boolean
+}> = ({ installedApps, installations, developer, loading }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
   const installationAppDataArray = installations.installationsAppData?.data ?? []
@@ -155,41 +156,47 @@ export const InstallationTable: React.FC<{
   ])
   return (
     <div>
-      <H4>Installations</H4>
-      <p>
-        The installations table below shows the individual installations per client with a total number of installations
-        per app
-      </p>
-      <div className={styles.totalCount}>
-        {Object.entries(appCountEntries).map(([appName, count]) => (
-          <p key={appName}>
-            Total current installation for <strong>{appName}</strong>: {count}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <H4>Installations</H4>
+          <p>
+            The installations table below shows the individual installations per client with a total number of
+            installations per app
           </p>
-        ))}
-      </div>
-      <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
-      <br />
-      <Pagination
-        pageNumber={pageNumber}
-        onChange={handleSetPageNumber(setPageNumber)}
-        pageSize={INSTALLATIONS_PER_PAGE}
-        totalCount={installations.installationsAppData?.totalCount ?? 0}
-      />
+          <div className={styles.totalCount}>
+            {Object.entries(appCountEntries).map(([appName, count]) => (
+              <p key={appName}>
+                Total current installation for <strong>{appName}</strong>: {count}
+              </p>
+            ))}
+          </div>
+          <Table bordered scrollable columns={installationTableColumn} data={memoizedData} loading={false} />
+          <br />
+          <Pagination
+            pageNumber={pageNumber}
+            onChange={handleSetPageNumber(setPageNumber)}
+            pageSize={INSTALLATIONS_PER_PAGE}
+            totalCount={installations.installationsAppData?.totalCount ?? 0}
+          />
+        </>
+      )}
     </div>
   )
 }
 
 export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer, appUsageStats }) => {
-  if (
-    installations.loading ||
-    !installations.installationsAppData ||
-    developer.loading ||
-    !developer.developerData ||
-    appUsageStats.loading ||
-    !appUsageStats.appUsageStatsData
-  ) {
-    return <Loader />
-  }
+  // if (
+  //   installations.loading ||
+  //   !installations.installationsAppData ||
+  //   developer.loading ||
+  //   !developer.developerData ||
+  //   appUsageStats.loading ||
+  //   !appUsageStats.appUsageStatsData
+  // ) {
+  //   return <Loader />
+  // }
 
   const installationAppDataArray = installations.installationsAppData?.data ?? []
   const developerDataArray = developer.developerData?.data?.data ?? []
@@ -198,6 +205,12 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
     handleMapAppNameToInstallation(installationAppDataArray, developerDataArray),
     [installationAppDataArray, developerDataArray],
   )
+
+  const appUsageStatsLoading = appUsageStats.loading
+  const appUsageStatsData = appUsageStats.appUsageStatsData || {}
+  const developerAppsData = developer?.developerData?.data || {}
+  const installationsAppLoading = installations.loading
+
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding flexColumn className={styles.wrapAnalytics}>
@@ -205,17 +218,18 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
         <hr className={styles.hr} />
         <Grid isMultiLine>
           <GridItem>
-            <DeveloperInstallationsChart data={installationAppDataArrayWithName} />
+            <DeveloperInstallationsChart data={installationAppDataArrayWithName} loading={installationsAppLoading} />
           </GridItem>
           <GridItem>
-            <DeveloperTrafficChart stats={appUsageStats.appUsageStatsData} apps={developer.developerData.data} />
+            <DeveloperTrafficChart stats={appUsageStatsData} apps={developerAppsData} loading={appUsageStatsLoading} />
           </GridItem>
         </Grid>
-        <DeveloperTrafficTable stats={appUsageStats.appUsageStatsData} apps={developer.developerData.data} />
+        <DeveloperTrafficTable stats={appUsageStatsData} apps={developerAppsData} loading={appUsageStatsLoading} />
         <InstallationTable
           installedApps={installationAppDataArrayWithName}
           installations={installations}
           developer={developer}
+          loading={installationsAppLoading}
         />
       </FlexContainerBasic>
     </ErrorBoundary>
