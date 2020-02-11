@@ -8,6 +8,11 @@ const props: DeveloperTrafficChartProps = {
   stats: usageStatsDataStub,
 }
 
+const multipeAppStatsprops: DeveloperTrafficChartProps = {
+  apps: appsDataStub.data,
+  stats: usageStatsForMultipleAppsDataStub,
+}
+
 describe('DeveloperTrafficChart', () => {
   describe('getAppUsageStatsChartData', () => {
     it('should run correctly with stats for 1 app', () => {
@@ -28,11 +33,11 @@ describe('DeveloperTrafficChart', () => {
     })
 
     it('should run correctly with stats for multiple apps', () => {
-      const { stats, apps } = props
+      const { stats, apps } = multipeAppStatsprops
       const result = getAppUsageStatsChartData(stats.appUsage, apps.data)
       const expected = {
-        labels: ['09/02/2020', '01/02/2020', '05/02/2020'],
-        data: [5],
+        labels: ['01/02/2020', '05/02/2020', '09/02/2020'],
+        data: [8, 0, 5],
         appUsageStatsGroupedByDate: {
           '09/02/2020': {
             '09043eb8-9e5e-4650-b7f1-f0cb62699027': { appName: 'test', requests: 2 },
@@ -46,7 +51,7 @@ describe('DeveloperTrafficChart', () => {
             date: new Date('2020-02-01T09:18:23.957Z'),
             totalRequests: 8,
           },
-          '02/05/2020': {
+          '05/02/2020': {
             '09043eb8-9e5e-4650-b7f1-f0cb62699027': { appName: 'test', requests: 0 },
             '261da083-cee2-4f5c-a18f-8f9375f1f5af': { appName: 'asd', requests: 0 },
             date: new Date('2020-02-05T09:18:23.957Z'),
