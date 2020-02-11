@@ -93,6 +93,7 @@
     "@cypress/webpack-preprocessor": "^4.1.1",
     "@octokit/rest": "^16.38.1",
     "@redux-saga/testing-utils": "^1.0.5",
+    "@sentry/webpack-plugin": "^1.10.0",
     "@storybook/addon-actions": "^5.2.6",
     "@storybook/addon-docs": "^5.2.6",
     "@storybook/addon-info": "^5.2.6",
