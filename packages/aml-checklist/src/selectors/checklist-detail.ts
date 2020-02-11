@@ -17,14 +17,6 @@ export const selectCheckListDetailIdCheck = (state: ReduxState) => {
   return state?.checklistDetail?.checklistDetailData?.idCheck || null
 }
 
-export const selectCheckListDetailPrimaryIdUrl = (state: ReduxState) => {
-  return state?.checklistDetail?.checklistDetailData?.idCheck?.metadata?.primaryIdUrl
-}
-
-export const selectCheckListDetailSecondaryIdUrl = (state: ReduxState) => {
-  return state?.checklistDetail?.checklistDetailData?.idCheck?.metadata?.secondaryIdUrl
-}
-
 export const selectCheckListDetailPrimaryId = (state: ReduxState) => {
   return state?.checklistDetail?.checklistDetailData?.idCheck?.identityDocument1
 }

@@ -18,12 +18,12 @@ import { ErrorData } from '@/reducers/error'
 import store from '@/core/store'
 import dayjs from 'dayjs'
 import {
-  uploadImage,
   fetchContact,
   fetchIdentityCheck,
   updateContact,
   updateIdentityCheck,
   createIdentityCheck,
+  uploadImage,
 } from './api'
 
 export const checklistDetailDataFetch = function*({ data: id }) {
@@ -100,25 +100,45 @@ export const updateAddressHistory = function*({
 }: UpdateAddressHistoryParams) {
   yield put(checkListDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
-  const contact: ContactModel = yield select(selectContact)
+  const currentContact: ContactModel = yield select(selectContact)
   try {
     const newContact = {
-      id: contact.id,
+      id: currentContact.id,
+      _eTag: currentContact._eTag,
       primaryAddress,
       secondaryAddress,
       metadata: {
-        ...contact.metadata,
+        ...currentContact.metadata,
         ...metadata,
       },
+    } as any
+
+    if (isBase64(metadata?.primaryAddress?.documentImage)) {
+      const primaryAddressDocumentUrl = yield call(uploadImage, {
+        headers,
+        name: `${currentContact.id}-primary-address-id`,
+        imageData: metadata?.primaryAddress?.documentImage,
+      })
+      newContact.metadata.primaryAddress.documentImage = primaryAddressDocumentUrl?.Url
     }
+
+    if (isBase64(metadata?.secondaryAddress?.documentImage)) {
+      const secondaryAddressDocumentUrl = yield call(uploadImage, {
+        headers,
+        name: `${currentContact.id}-secondary-address-id`,
+        imageData: metadata?.secondaryAddress?.documentImage,
+      })
+      newContact.metadata.secondaryAddress.documentImage = secondaryAddressDocumentUrl?.Url
+    }
+
     const responseUpdate = yield call(updateContact, {
-      contactId: contact.id,
+      contactId: currentContact.id,
       contact: newContact,
-      headers: { ...headers, 'If-Match': contact._eTag },
+      headers: { ...headers, 'If-Match': currentContact._eTag },
     })
     if (responseUpdate) {
       yield put(checklistDetailLoading(true))
-      const responseContact = yield call(fetchContact, { contactId: contact.id, headers })
+      const responseContact = yield call(fetchContact, { contactId: currentContact.id, headers })
       if (responseContact) {
         yield put(contactReceiveData(responseContact))
       }
@@ -141,43 +161,50 @@ export type FileUploaderResponse = {
   Url: string
 }
 
-export const updateSecondaryId = function*({ data }: Action<IdentityDocumentModel>) {
+export const getFileExtensions = (data: string | undefined) => {
+  if (!isBase64(data) || !data) {
+    return ''
+  }
+  const base64ArrayData = data.split('/')
+  const extensionArray = base64ArrayData?.[1]?.split(';')
+  const extension = extensionArray[0]
+  return extension
+}
+
+export const updatePrimaryId = function*({ data }: Action<IdentityDocumentModel>) {
   yield put(checkListDetailSubmitForm(true))
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
     const identityCheck: IdentityCheckModel | null = yield select(selectIdentityCheck)
     const contact: ContactModel = yield select(selectContact)
-    let uploaderDocument: FileUploaderResponse | null = null
+    const fileData = data.documentId
+    const newIdentityDocument = {
+      typeId: data.typeId,
+      expiry: data.expiry,
+      details: data.details,
+    } as any
     if (isBase64(data.documentId)) {
-      uploaderDocument = yield call(uploadImage, {
-        headers,
-        name: `${contact.id}-${data.details}`,
-        imageData: data.documentId,
-      })
+      const extension = getFileExtensions(fileData)
+      newIdentityDocument.fileData = fileData
+      newIdentityDocument.name = `${contact.id}-${data.typeId}.${extension}`
     }
-    // Update identityCheck
+    // Updated if existed
     if (identityCheck) {
       yield call(updateIdentityCheck, {
         headers: { ...headers, 'If-Match': identityCheck._eTag },
         identityCheck: {
           id: identityCheck.id,
-          identityDocument2: {
-            ...data,
-            documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
-          },
+          identityDocument1: newIdentityDocument,
         },
       })
     }
-    // Create IdentityCheck If not existed
+    // Create if not existed
     if (!identityCheck) {
       yield call(createIdentityCheck, {
         headers,
         identityChecks: {
           contactId: contact.id,
-          identityDocument2: {
-            ...data,
-            documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
-          },
+          identityDocument1: newIdentityDocument,
           status: 'pending',
           checkDate: toUTCTime(dayjs().startOf('day')),
           negotiatorId: selectUserCode(store.state),
@@ -201,43 +228,40 @@ export const updateSecondaryId = function*({ data }: Action<IdentityDocumentMode
   }
 }
 
-export const updatePrimaryId = function*({ data }: Action<IdentityDocumentModel>) {
+export const updateSecondaryId = function*({ data }: Action<IdentityDocumentModel>) {
   yield put(checkListDetailSubmitForm(true))
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
     const identityCheck: IdentityCheckModel | null = yield select(selectIdentityCheck)
     const contact: ContactModel = yield select(selectContact)
-    let uploaderDocument: FileUploaderResponse | null = null
+    const fileData = data.documentId
+    const newIdentityDocument = {
+      typeId: data.typeId,
+      expiry: data.expiry,
+      details: data.details,
+    } as any
     if (isBase64(data.documentId)) {
-      uploaderDocument = yield call(uploadImage, {
-        headers,
-        name: `${contact.id}-${data.details}`,
-        imageData: data.documentId,
-      })
+      const extension = getFileExtensions(fileData)
+      newIdentityDocument.fileData = fileData
+      newIdentityDocument.name = `${contact.id}-${data.typeId}.${extension}`
     }
-    // Updated if existed
+    // Update identityCheck
     if (identityCheck) {
       yield call(updateIdentityCheck, {
         headers: { ...headers, 'If-Match': identityCheck._eTag },
         identityCheck: {
           id: identityCheck.id,
-          identityDocument1: {
-            ...data,
-            documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
-          },
+          identityDocument2: newIdentityDocument,
         },
       })
     }
-    // Create if not existed
+    // Create IdentityCheck If not existed
     if (!identityCheck) {
       yield call(createIdentityCheck, {
         headers,
         identityChecks: {
           contactId: contact.id,
-          identityDocument1: {
-            ...data,
-            documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
-          },
+          identityDocument2: newIdentityDocument,
           status: 'pending',
           checkDate: toUTCTime(dayjs().startOf('day')),
           negotiatorId: selectUserCode(store.state),

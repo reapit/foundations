@@ -39,11 +39,11 @@ describe('daytime', () => {
         checkDate: '2020-01-13',
         identityDocument1: {
           ...identityDocument1,
-          expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.DATE_FORMAT_1),
+          expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
         },
         identityDocument2: {
           ...identityDocument2,
-          expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.DATE_FORMAT_1),
+          expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
         },
       })
     })

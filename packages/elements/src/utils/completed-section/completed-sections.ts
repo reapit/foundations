@@ -33,21 +33,28 @@ export const isCompletedSecondaryID = (identityCheck?: IdentityCheckModel | null
 
 export const isCompletedAddress = (contact?: ContactModel | null) => {
   const isValidPrimaryAddress =
-    contact?.primaryAddress?.buildingName &&
-    contact?.primaryAddress?.buildingNumber &&
-    contact?.primaryAddress?.countryId &&
-    contact?.primaryAddress?.line1 &&
-    contact?.primaryAddress?.line2 &&
-    contact?.primaryAddress?.line3 &&
-    contact?.primaryAddress?.line4
+    !!contact?.primaryAddress?.buildingName &&
+    !!contact?.primaryAddress?.buildingNumber &&
+    !!contact?.primaryAddress?.line1 &&
+    !!contact?.primaryAddress?.line2 &&
+    !!contact?.primaryAddress?.line3 &&
+    !!contact?.primaryAddress?.line4 &&
+    !!contact?.metadata?.primaryAddress?.year &&
+    !!contact?.metadata?.primaryAddress?.month &&
+    !!contact?.metadata?.primaryAddress?.documentType &&
+    !!contact?.metadata?.primaryAddress?.documentImage
   const isValidSecondaryAddress =
-    contact?.secondaryAddress?.buildingName &&
-    contact?.secondaryAddress?.buildingNumber &&
-    contact?.secondaryAddress?.countryId &&
-    contact?.secondaryAddress?.line1 &&
-    contact?.secondaryAddress?.line2 &&
-    contact?.secondaryAddress?.line3 &&
-    contact?.secondaryAddress?.line4
+    !!contact?.secondaryAddress?.buildingName &&
+    !!contact?.secondaryAddress?.buildingNumber &&
+    !!contact?.secondaryAddress?.line1 &&
+    !!contact?.secondaryAddress?.line2 &&
+    !!contact?.secondaryAddress?.line3 &&
+    !!contact?.secondaryAddress?.line4 &&
+    !!contact?.metadata?.secondaryAddress?.year &&
+    !!contact?.metadata?.secondaryAddress?.month &&
+    !!contact?.metadata?.secondaryAddress?.documentType &&
+    !!contact?.metadata?.secondaryAddress?.documentImage
+
   if (contact?.primaryAddress && !contact?.secondaryAddress) {
     return !!isValidPrimaryAddress
   }

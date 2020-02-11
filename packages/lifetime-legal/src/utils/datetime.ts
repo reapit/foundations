@@ -18,7 +18,7 @@ export const changeTimeZoneLocalForIdentityCheck = (identityChecks: IdentityChec
       ...identityDocument2,
       expiry: toLocalTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
     },
-    checkDate: toLocalTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.DATE_FORMAT_1),
+    checkDate: toLocalTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
   }
 }
 
@@ -32,12 +32,12 @@ export const changeTimeZoneUTCForIdentityCheck = (identityChecks: IdentityCheckM
     ...identityChecks,
     identityDocument1: {
       ...identityDocument1,
-      expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.DATE_FORMAT_1),
+      expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
     },
     identityDocument2: {
       ...identityDocument2,
-      expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.DATE_FORMAT_1),
+      expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
     },
-    checkDate: toUTCTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.DATE_FORMAT_1),
+    checkDate: toUTCTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
   }
 }

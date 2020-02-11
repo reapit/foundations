@@ -20,7 +20,30 @@ export const idCheck: IdentityCheckModel = {
     expiry: '2019-12-21',
     details: 'a',
   },
-  metadata: {},
+  metadata: {
+    secondaryAddress: {
+      year: '7',
+      month: '5',
+      documentType: 'Recent Utility Bill – Gas, Electricity, Water, Telephone (Not mobile phones)',
+      documentImage:
+        'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/BED14000165-secondary-address-id(1).png',
+    },
+    primaryAddress: {
+      documentType: 'Current Full UK Driving Licence',
+      month: '6',
+      year: '10',
+      documentImage:
+        'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/BED14000165-primary-address-id(1).png',
+    },
+    declarationRisk: {
+      reason: '123',
+      type: 'Simplified',
+      declarationForm:
+        'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/declaration-Simplified-123(1).png',
+      riskAssessmentForm:
+        'https://reapit-dev-app-store-media.s3.eu-west-2.amazonaws.com/riskAssessment-Simplified-123(1).png',
+    },
+  },
   _eTag: '"51F8EECB09FB89903C42CAB63E3D5D0C"',
   _links: {
     self: {
