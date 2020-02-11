@@ -6,38 +6,39 @@ export const getAppUsageStatsChartData = (appUsageStats?: AppUsageStatsModel[], 
   const appUsageStatsGroupedByDate = appUsageStats?.reduce((accumulator, currentValue) => {
     const { appId, usage } = currentValue || {}
     const developerApp = developerApps?.find(app => app.id === appId)
-    if (developerApp && developerApp.id) {
-      const { id: developerAppId, name: developerAppName } = developerApp
-      usage?.forEach(usageByDate => {
-        const { date, requests } = usageByDate
-        if (!date) {
-          return null
+    if (!developerApp?.id) {
+      return accumulator
+    }
+    const { id: developerAppId, name: developerAppName } = developerApp
+    usage?.forEach(usageByDate => {
+      const { date, requests } = usageByDate
+      if (!date) {
+        return null
+      }
+      const formattedDate = toLocalTime(date, 'DD/MM/YYYY')
+      if (!accumulator[formattedDate]) {
+        accumulator[formattedDate] = {
+          [developerAppId]: {
+            appName: developerAppName,
+            requests,
+          },
+          date: new Date(date),
+          totalRequests: requests,
         }
-        const formattedDate = toLocalTime(date, 'DD/MM/YYYY')
-        if (!accumulator[formattedDate]) {
-          accumulator[formattedDate] = {
+      } else {
+        accumulator[formattedDate] = {
+          ...accumulator[formattedDate],
+          ...{
             [developerAppId]: {
               appName: developerAppName,
               requests,
             },
-            date: new Date(date),
-            totalRequests: requests,
-          }
-        } else {
-          accumulator[formattedDate] = {
-            ...accumulator[formattedDate],
-            ...{
-              [developerAppId]: {
-                appName: developerAppName,
-                requests,
-              },
-            },
-            date: new Date(date),
-            totalRequests: accumulator[formattedDate].totalRequests + requests,
-          }
+          },
+          date: new Date(date),
+          totalRequests: accumulator[formattedDate].totalRequests + requests,
         }
-      })
-    }
+      }
+    })
     return accumulator
   }, {})
 
