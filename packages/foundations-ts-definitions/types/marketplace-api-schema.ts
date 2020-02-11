@@ -72,6 +72,10 @@ export interface AppDetailModel {
    */
   redirectUris?: string[]
   /**
+   * Sets the apps logout uris. 
+   */
+  signoutUris?: string[]
+  /**
    * Gets the date the app was installed for a specific client
    */
   installedOn?: string // date-time
@@ -391,6 +395,10 @@ export interface CreateAppModel {
    * Sets the apps uri where a user will be redirected to immediately after a successful authentication. Multiple URIs can be passed as a comma separated list
    */
   redirectUris?: string[]
+  /**
+   * Sets the apps logout uris. 
+   */
+  signoutUris?: string[]
   /**
    * Sets the unique identifer of the developer registering the app
    */
