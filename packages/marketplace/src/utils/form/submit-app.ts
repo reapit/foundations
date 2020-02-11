@@ -14,6 +14,7 @@ export type SubmitAppFormErrorKeys =
   | 'screen1ImageUrl'
   | 'authFlow'
   | 'redirectUris'
+  | 'signoutUris'
 
 export const validate = (values: CustomCreateAppModel) => {
   let errors = validateRequire<CustomCreateAppModel, SubmitAppFormErrorKeys>({
@@ -31,6 +32,7 @@ export const validate = (values: CustomCreateAppModel) => {
       'screen1ImageUrl',
       'authFlow',
       'redirectUris',
+      'signoutUris',
     ],
   })
 
@@ -42,6 +44,10 @@ export const validate = (values: CustomCreateAppModel) => {
 
   if (values.redirectUris && !isValidRedirectUrls(values.redirectUris)) {
     errors.redirectUris = 'Invalid redirect uri(s)'
+  }
+
+  if (values.signoutUris && !isValidRedirectUrls(values.signoutUris)) {
+    errors.signoutUris = 'Invalid sign out uri(s)'
   }
 
   return errors

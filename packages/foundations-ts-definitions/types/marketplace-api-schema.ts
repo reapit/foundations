@@ -72,6 +72,10 @@ export interface AppDetailModel {
    */
   redirectUris?: string[]
   /**
+   * Gets the app revisions signout uri (or uris) where a user will be redirected to immediately after a successful logout
+   */
+  signoutUris?: string[]
+  /**
    * Gets the date the app was installed for a specific client
    */
   installedOn?: string // date-time
@@ -168,6 +172,10 @@ export interface AppRevisionModel {
    * Gets the app revisions redirect uri (or uris) where a user will be redirected to immediately after a successful authentication
    */
   redirectUris?: string[]
+  /**
+   * Gets the app revisions signout uri (or uris) where a user will be redirected to immediately after a successful logout
+   */
+  signoutUris?: string[]
   /**
    * Gets the listed status of the app revision
    */
@@ -387,10 +395,14 @@ export interface CreateAppModel {
    * Sets the apps launch uri
    */
   launchUri?: string
-   /**
-   * Sets the apps uri where a user will be redirected to immediately after a successful authentication. Multiple URIs can be passed as a comma separated list
+  /**
+   * Sets the apps uri where a user will be redirected to immediately after a successful authentication. Multiple URIs can be passed in the array
    */
   redirectUris?: string[]
+  /**
+   * Set the apps uri where a user will be redirected to immediately after a session is logged out. Multiple URIs can be passed in the array
+   */
+  signoutUris?: string[]
   /**
    * Sets the unique identifer of the developer registering the app
    */
@@ -509,9 +521,13 @@ export interface CreateAppRevisionModel {
    */
   launchUri?: string
   /**
-   * Sets the apps uri where a user will be redirected to immediately after a successful authentication. Multiple URIs can be passed as a comma separated list
+   * Sets the apps uri where a user will be redirected to immediately after a successful authentication. Multiple URIs can be passed in the array
    */
   redirectUris?: string[]
+  /**
+   * Set the apps uri where a user will be redirected to immediately after a session is logged out. Multiple URIs can be passed in the array
+   */
+  signoutUris?: string[]
   /**
    * Sets the listed status of the app
    * When false, the app will not be visible in marketplace app listings
