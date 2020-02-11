@@ -7,6 +7,7 @@ export const DATE_TIME_FORMAT = {
   RFC3339: 'YYYY-MM-DDTHH:mm:ssZ',
   DATE_FORMAT: 'DD MMM YYYY',
   DATE_TIME_FORMAT: 'DD MMM YYYY HH:mm',
+  DATE_FORMAT_1: 'YYYY-MM-DD',
 }
 
 export function getTime(date: dayjs.ConfigType, is24HourTime: boolean = false) {

@@ -13,7 +13,7 @@ describe('daytime', () => {
       const { identityDocument1, identityDocument2 } = identityCheck
       expect(result).toEqual({
         ...identityCheck,
-        checkDate: '2020-01-13T03:00:00+00:00',
+        checkDate: '2020-01-13',
         identityDocument1: {
           ...identityDocument1,
           expiry: toLocalTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
@@ -36,14 +36,14 @@ describe('daytime', () => {
       const result = changeTimeZoneUTCForIdentityCheck(identityCheck)
       expect(result).toEqual({
         ...identityCheck,
-        checkDate: '2020-01-13T03:00:00+00:00',
+        checkDate: '2020-01-13',
         identityDocument1: {
           ...identityDocument1,
-          expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+          expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.DATE_FORMAT_1),
         },
         identityDocument2: {
           ...identityDocument2,
-          expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+          expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.DATE_FORMAT_1),
         },
       })
     })

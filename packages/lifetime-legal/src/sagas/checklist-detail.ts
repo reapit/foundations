@@ -158,11 +158,13 @@ export const updateSecondaryId = function*({ data }: Action<IdentityDocumentMode
     // Update identityCheck
     if (identityCheck) {
       yield call(updateIdentityCheck, {
-        headers,
+        headers: { ...headers, 'If-Match': identityCheck._eTag },
         identityCheck: {
           id: identityCheck.id,
-          ...data,
-          documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
+          identityDocument2: {
+            ...data,
+            documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
+          },
         },
       })
     }
@@ -172,8 +174,10 @@ export const updateSecondaryId = function*({ data }: Action<IdentityDocumentMode
         headers,
         identityChecks: {
           contactId: contact.id,
-          ...data,
-          documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
+          identityDocument2: {
+            ...data,
+            documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
+          },
           status: 'pending',
           checkDate: toUTCTime(dayjs().startOf('day')),
           negotiatorId: selectUserCode(store.state),
@@ -214,11 +218,13 @@ export const updatePrimaryId = function*({ data }: Action<IdentityDocumentModel>
     // Updated if existed
     if (identityCheck) {
       yield call(updateIdentityCheck, {
-        headers,
+        headers: { ...headers, 'If-Match': identityCheck._eTag },
         identityCheck: {
           id: identityCheck.id,
-          ...data,
-          documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
+          identityDocument1: {
+            ...data,
+            documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
+          },
         },
       })
     }
@@ -228,8 +234,10 @@ export const updatePrimaryId = function*({ data }: Action<IdentityDocumentModel>
         headers,
         identityChecks: {
           contactId: contact.id,
-          ...data,
-          documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
+          identityDocument1: {
+            ...data,
+            documentId: uploaderDocument ? uploaderDocument.Url : data.documentId,
+          },
           status: 'pending',
           checkDate: toUTCTime(dayjs().startOf('day')),
           negotiatorId: selectUserCode(store.state),
@@ -269,7 +277,10 @@ export const updateAgentCheck = function*({ data }: any) {
           ...data,
         },
       }
-      responseUpdate = yield call(updateIdentityCheck, { identityCheck: newIdentityCheck, headers })
+      responseUpdate = yield call(updateIdentityCheck, {
+        identityCheck: newIdentityCheck,
+        headers: { ...headers, 'If-Match': identityCheck._eTag },
+      })
     }
     if (!identityCheck) {
       const newIdCheck = {

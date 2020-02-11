@@ -1,6 +1,6 @@
 import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 
-export const isCompletedProfile = (contact: ContactModel | null) => {
+export const isCompletedProfile = (contact?: ContactModel | null) => {
   const isValidProfile =
     contact?.title &&
     contact?.surname &&
@@ -13,7 +13,7 @@ export const isCompletedProfile = (contact: ContactModel | null) => {
   return !!isValidProfile
 }
 
-export const isCompletedPrimaryID = (identityCheck: IdentityCheckModel | null) => {
+export const isCompletedPrimaryID = (identityCheck?: IdentityCheckModel | null) => {
   const isValidIdentityCheck =
     identityCheck?.identityDocument1?.details &&
     identityCheck?.identityDocument1?.documentId &&
@@ -22,7 +22,7 @@ export const isCompletedPrimaryID = (identityCheck: IdentityCheckModel | null) =
   return !!isValidIdentityCheck
 }
 
-export const isCompletedSecondaryID = (identityCheck: IdentityCheckModel | null) => {
+export const isCompletedSecondaryID = (identityCheck?: IdentityCheckModel | null) => {
   const isValidIdentityCheck =
     identityCheck?.identityDocument2?.details &&
     identityCheck?.identityDocument2?.documentId &&
@@ -31,7 +31,7 @@ export const isCompletedSecondaryID = (identityCheck: IdentityCheckModel | null)
   return !!isValidIdentityCheck
 }
 
-export const isCompletedAddress = (contact: ContactModel | null) => {
+export const isCompletedAddress = (contact?: ContactModel | null) => {
   const isValidPrimaryAddress =
     contact?.primaryAddress?.buildingName &&
     contact?.primaryAddress?.buildingNumber &&

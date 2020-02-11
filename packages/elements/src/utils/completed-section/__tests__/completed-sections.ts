@@ -39,7 +39,7 @@ describe('completed-sections', () => {
     })
 
     it('should run correctly', () => {
-      const params = null
+      const params = undefined
       const result = isCompletedProfile(params)
       expect(result).toBeFalsy()
     })
@@ -216,6 +216,118 @@ describe('completed-sections', () => {
       }
       const result = isCompletedAddress(params)
       expect(result).toBeTruthy()
+    })
+
+    it('should run correctly', () => {
+      const params = {
+        id: 'BED16000182',
+        created: '2019-04-18T06:56:07.0000000Z',
+        title: 'Ms',
+        forename: 'Cerys',
+        surname: 'Haldane',
+        active: true,
+        marketingConsent: 'notAsked',
+        source: {
+          id: '',
+          type: '',
+        },
+        homePhone: '01632 963892',
+        workPhone: '020 7946 3892',
+        mobilePhone: '07700 903892',
+        email: 'chaldane836@rpsfiction.net',
+        primaryAddress: {
+          type: 'primary',
+          buildingName: '123',
+          buildingNumber: '102',
+          line1: 'Holwelbury Road',
+          line2: '123',
+          line3: '123',
+          line4: '123',
+          postcode: 'SG5 3FL',
+          countryId: 'GB',
+        },
+        secondaryAddress: {
+          type: 'secondary',
+          buildingName: '123',
+          buildingNumber: '102',
+          line1: 'Holwelbury Road',
+          line2: '123',
+          line3: '123',
+          line4: '123',
+          postcode: 'SG5 3FL',
+          countryId: 'GB',
+        },
+        officeIds: ['BED'],
+        negotiatorIds: ['JWB'],
+        _links: {
+          self: {
+            href: '/contacts/BED16000182',
+          },
+          documents: {
+            href: '/documents/?OwnerType=contact&OwnerId=BED16000182',
+          },
+          identityChecks: {
+            href: '/identityChecks/?ContactId=BED16000182',
+          },
+        },
+      }
+      const result = isCompletedAddress(params)
+      expect(result).toBeTruthy()
+    })
+
+    it('should run correctly', () => {
+      const params = {
+        id: 'BED16000182',
+        created: '2019-04-18T06:56:07.0000000Z',
+        title: 'Ms',
+        forename: 'Cerys',
+        surname: 'Haldane',
+        active: true,
+        marketingConsent: 'notAsked',
+        source: {
+          id: '',
+          type: '',
+        },
+        homePhone: '01632 963892',
+        workPhone: '020 7946 3892',
+        mobilePhone: '07700 903892',
+        email: 'chaldane836@rpsfiction.net',
+        primaryAddress: {
+          type: 'primary',
+          buildingName: '123',
+          buildingNumber: '102',
+          line1: 'Holwelbury Road',
+          line2: '123',
+          line3: '123',
+          line4: '123',
+          postcode: 'SG5 3FL',
+          countryId: 'GB',
+        },
+        secondaryAddress: {
+          type: 'secondary',
+          buildingName: '123',
+          buildingNumber: '102',
+          line1: 'Holwelbury Road',
+          line4: '123',
+          postcode: 'SG5 3FL',
+          countryId: 'GB',
+        },
+        officeIds: ['BED'],
+        negotiatorIds: ['JWB'],
+        _links: {
+          self: {
+            href: '/contacts/BED16000182',
+          },
+          documents: {
+            href: '/documents/?OwnerType=contact&OwnerId=BED16000182',
+          },
+          identityChecks: {
+            href: '/identityChecks/?ContactId=BED16000182',
+          },
+        },
+      }
+      const result = isCompletedAddress(params)
+      expect(result).toBeFalsy()
     })
   })
 
