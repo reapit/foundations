@@ -37,3 +37,14 @@ export function getLoginTypeByPath(path: string) {
       return 'CLIENT'
   }
 }
+
+export function getDefaultPathByLoginType(loginType: LoginType) {
+  switch (loginType) {
+    case 'ADMIN':
+      return Routes.ADMIN_APPROVALS
+    case 'DEVELOPER':
+      return Routes.DEVELOPER_MY_APPS
+    default:
+      return Routes.INSTALLED_APPS
+  }
+}
