@@ -76,7 +76,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
       <Menu />
       <TermsAndConditionsModal
         visible={!isTermAccepted}
-        withDecline={false}
         onAccept={setTermsAcceptedWithCookie}
         tapOutsideToDissmiss={false}
       />

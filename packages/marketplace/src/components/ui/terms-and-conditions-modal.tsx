@@ -5,7 +5,6 @@ export type TermsAndConditionsModalProps = {
   onAccept: () => void
   onDecline?: () => void
   text?: string
-  withDecline?: boolean
   tapOutsideToDissmiss?: boolean
 } & Pick<ModalProps, 'visible' | 'afterClose'>
 
@@ -25,7 +24,6 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
   onAccept,
   onDecline,
   text = placeholderText,
-  withDecline = true,
   tapOutsideToDissmiss = true,
 }) => {
   return (
@@ -36,7 +34,7 @@ export const TermsAndConditionsModal: React.FunctionComponent<TermsAndConditions
       tapOutsideToDissmiss={tapOutsideToDissmiss}
       footerItems={
         <>
-          {withDecline && (
+          {onDecline && (
             <Button variant="secondary" type="button" onClick={onDecline}>
               Decline
             </Button>
