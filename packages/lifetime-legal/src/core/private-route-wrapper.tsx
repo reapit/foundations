@@ -61,7 +61,7 @@ const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => 
   hasSession: selectUserLoginStatus(state),
 })
 
-const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({
+export const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({
   setRefreshSession: refreshParams => dispatch(authSetRefreshSession(refreshParams)),
 })
 

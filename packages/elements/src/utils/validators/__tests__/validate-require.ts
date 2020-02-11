@@ -62,4 +62,9 @@ describe('fieldValidateRequire', () => {
     const value = ''
     expect(fieldValidateRequire(value)).toStrictEqual(errorMessages.FIELD_REQUIRED)
   })
+
+  it('work correctly', () => {
+    const value = '123'
+    expect(fieldValidateRequire(value)).toBeNull()
+  })
 })

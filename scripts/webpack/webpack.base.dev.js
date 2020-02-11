@@ -6,6 +6,7 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { PATHS } = require('./constants')
+const { getVersionTag } = require('../release/utils')
 const config = require(PATHS.config)
 
 module.exports = {
@@ -26,7 +27,11 @@ module.exports = {
       title: 'TypeScript',
       excludeWarnings: false,
     }),
-    new EnvironmentPlugin(config[process.env.REAPIT_ENV || 'LOCAL']),
+    new EnvironmentPlugin({
+      ...config[process.env.REAPIT_ENV || 'LOCAL'],
+      APP_VERSION:
+        process.env.REAPIT_ENV === 'LOCAL' ? JSON.stringify('LOCAL') : JSON.stringify(getVersionTag().version),
+    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: PATHS.template,

@@ -42,7 +42,7 @@ export const contact = {
   officeIds: ['MKC'],
   negotiatorIds: ['RMK'],
   metadata: {},
-  _eTag: '9CBE436919C6BE89A8642BC70A7CFAEE',
+  _eTag: '"9CBE436919C6BE89A8642BC70A7CFAEE"',
   _links: {
     self: {
       href: '/contacts/MKC16000007',

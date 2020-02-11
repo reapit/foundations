@@ -4,7 +4,7 @@ exports[`PrimaryIdentification PrimaryIdentification should match snapshot 1`] =
 <Component
   contactModel={
     Object {
-      "_eTag": "9CBE436919C6BE89A8642BC70A7CFAEE",
+      "_eTag": "\\"9CBE436919C6BE89A8642BC70A7CFAEE\\"",
       "_embedded": Object {},
       "_links": Object {
         "documents": Object {

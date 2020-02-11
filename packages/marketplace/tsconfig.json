@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
+    "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
       "@reapit/cognito-auth": ["../cognito-auth/src"],

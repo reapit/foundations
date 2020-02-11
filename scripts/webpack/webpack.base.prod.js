@@ -5,7 +5,9 @@ const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const { EnvironmentPlugin } = require('webpack')
+const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { PATHS } = require('./constants')
+const { getVersionTag } = require('../release/utils')
 const config = require(PATHS.config)
 
 module.exports = {
@@ -61,7 +63,11 @@ module.exports = {
         windows: false,
       },
     }),
-    new EnvironmentPlugin(config[process.env.REAPIT_ENV || 'DEV']),
+    new EnvironmentPlugin({
+      ...config[process.env.REAPIT_ENV || 'DEV'],
+      APP_VERSION:
+        process.env.REAPIT_ENV === 'LOCAL' ? JSON.stringify('LOCAL') : JSON.stringify(getVersionTag().version),
+    }),
     new HashedModuleIdsPlugin(),
     new GenerateSW({
       clientsClaim: true,
@@ -69,6 +75,12 @@ module.exports = {
       navigateFallback: '/index.html',
       cacheId: process.cwd(),
       cleanupOutdatedCaches: true,
+    }),
+    new SentryWebpackPlugin({
+      include: '.',
+      ignoreFile: '.sentrycliignore',
+      ignore: ['node_modules', 'webpack.config.js'],
+      configFile: 'sentry.properties',
     }),
   ],
   module: {
