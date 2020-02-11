@@ -18,7 +18,7 @@ import {
   UpdateIdentityCheckParams,
 } from '../actions/checklist-detail'
 import errorMessages from '../constants/error-messages'
-import { ContactModel, ContactAddressModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { ContactModel, IdentityCheckModel } from '@reapit/foundations-ts-definitions'
 import { selectUserCode } from '../selectors/auth'
 import store from '@/core/store'
 import { handlePepSearchStatus } from '@/utils/pep-search'
@@ -144,39 +144,6 @@ export const createIdentityCheck = async ({ identityChecks, headers }) => {
   }
 }
 
-export const mapArrAddressToUploadImageFunc = ({ primaryAddress, secondaryAddress, headers, addressesMeta }) => {
-  if (!primaryAddress || !secondaryAddress || !addressesMeta) {
-    return []
-  }
-  return [primaryAddress, secondaryAddress].map((address: ContactAddressModel, index) => {
-    if (!isBase64(addressesMeta && addressesMeta[index] && addressesMeta[index].documentImage)) {
-      return null
-    }
-    return uploadImage({
-      headers,
-      name: `${address.type}-${address.buildingNumber}-${address.buildingName}-${address.postcode}`,
-      imageData: addressesMeta[index].documentImage,
-    })
-  })
-}
-
-export const mapAddressToMetaData = ({ addressesMeta, responseUpload }) => {
-  if (!addressesMeta) {
-    return []
-  }
-  return addressesMeta.map((addressMeta, index) => {
-    return {
-      documentImage:
-        responseUpload && responseUpload[index] && responseUpload[index].Url
-          ? responseUpload[index].Url
-          : addressMeta.documentImage,
-      year: addressMeta.year,
-      month: addressMeta.month,
-      documentType: addressMeta.documentType,
-    }
-  })
-}
-
 export const fetchInitialData = function*({ data: id }) {
   yield put(checklistDetailLoading(true))
   const headers = yield call(initAuthorizedRequestHeaders)
@@ -249,20 +216,34 @@ export const onUpdateAddressHistory = function*({
 }: OnUpdateAddressHistoryParams) {
   yield put(checklistDetailSubmitForm(true))
   const headers = yield call(initAuthorizedRequestHeaders)
+  const currentContact = yield select(selectCheckListDetailContact)
   try {
-    const currentContact = yield select(selectCheckListDetailContact)
-    const addressesMeta = metadata && metadata.addresses
-    const uploadImageFunc = mapArrAddressToUploadImageFunc({ headers, primaryAddress, secondaryAddress, addressesMeta })
-    const responseUpload = yield all(uploadImageFunc)
-    const addressMeta = mapAddressToMetaData({ addressesMeta, responseUpload })
     const newContact = {
-      ...currentContact,
+      id: currentContact.id,
+      _eTag: currentContact._eTag,
       primaryAddress,
       secondaryAddress,
       metadata: {
         ...currentContact.metadata,
-        addresses: addressMeta,
+        ...metadata,
       },
+    } as any
+    if (isBase64(metadata?.primaryAddress?.documentImage)) {
+      const primaryAddressDocumentUrl = yield call(uploadImage, {
+        headers,
+        name: `${currentContact.id}-primary-address-id`,
+        imageData: metadata?.primaryAddress?.documentImage,
+      })
+      newContact.metadata.primaryAddress.documentImage = primaryAddressDocumentUrl?.Url
+    }
+
+    if (isBase64(metadata?.secondaryAddress?.documentImage)) {
+      const secondaryAddressDocumentUrl = yield call(uploadImage, {
+        headers,
+        name: `${currentContact.id}-secondary-address-id`,
+        imageData: metadata?.secondaryAddress?.documentImage,
+      })
+      newContact.metadata.secondaryAddress.documentImage = secondaryAddressDocumentUrl?.Url
     }
     const responseUpdate = yield call(updateChecklist, { contact: newContact, headers })
     if (responseUpdate) {
@@ -393,50 +374,49 @@ export type FileUploaderResponse = {
   Url: string
 }
 
-export const updateSecondaryId = function*({
-  data: { nextSection, identityChecks },
-}: Action<UpdateIdentityCheckParams>) {
+export const getFileExtensions = (data: string | undefined) => {
+  if (!isBase64(data) || !data) {
+    return ''
+  }
+  const base64ArrayData = data.split('/')
+  const extensionArray = base64ArrayData?.[1]?.split(';')
+  const extension = extensionArray[0]
+  return extension
+}
+
+export const updatePrimaryId = function*({ data: { nextSection, identityChecks } }: Action<UpdateIdentityCheckParams>) {
   yield put(checklistDetailSubmitForm(true))
 
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
     const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
-    const secondaryIdUrl = idCheck?.metadata?.secondaryIdUrl || identityChecks.fileUrl
-    const uploaderDocument: FileUploaderResponse = isBase64(identityChecks && secondaryIdUrl)
-      ? yield call(uploadImage, {
-          headers,
-          name: `${contact.id}-${identityChecks.details}`,
-          imageData: secondaryIdUrl,
-        })
-      : null
-
-    const currentPrimaryIdUrl = idCheck?.metadata?.primaryIdUrl
-
-    delete idCheck?.metadata?.secondaryIdUrl
-
-    const baseValues = {
-      metadata: {
-        primaryIdUrl: currentPrimaryIdUrl,
-        secondaryIdUrl: uploaderDocument ? uploaderDocument.Url : idCheck?.metadata?.secondaryIdUrl,
-      },
-      identityDocument1: idCheck?.identityDocument1,
-      identityDocument2: idCheck?.identityDocument2 || identityChecks,
-    } as IdentityCheckModel
-
+    const fileData = identityChecks.documentId
+    const newIdentityDocument = {
+      typeId: identityChecks.typeId,
+      expiry: identityChecks.expiry,
+      details: identityChecks.details,
+    } as any
+    if (isBase64(identityChecks.documentId)) {
+      const extension = getFileExtensions(fileData)
+      newIdentityDocument.fileData = fileData
+      newIdentityDocument.name = `${contact.id}-${identityChecks.typeId}-${identityChecks.details}.${extension}`
+    }
     if (idCheck) {
       yield call(updateIdentityCheck, {
         headers,
         identityChecks: {
-          ...idCheck,
-          ...baseValues,
+          id: idCheck.id,
+          _eTag: idCheck._eTag,
+          identityDocument1: newIdentityDocument,
         },
       })
-    } else {
+    }
+    if (!idCheck) {
       yield call(createIdentityCheck, {
         headers,
         identityChecks: {
-          ...baseValues,
+          identityDocument1: newIdentityDocument,
           contactId: contact.id,
           status: 'pending',
           checkDate: dayjs()
@@ -466,49 +446,41 @@ export const updateSecondaryId = function*({
   }
 }
 
-export const updatePrimaryId = function*({ data: { nextSection, identityChecks } }: Action<UpdateIdentityCheckParams>) {
+export const updateSecondaryId = function*({
+  data: { nextSection, identityChecks },
+}: Action<UpdateIdentityCheckParams>) {
   yield put(checklistDetailSubmitForm(true))
 
   try {
     const headers = yield call(initAuthorizedRequestHeaders)
     const idCheck: IdentityCheckModel | null = yield select(selectCheckListDetailIdCheck)
     const contact: ContactModel = yield select(selectCheckListDetailContact)
-    const primaryIdUrl = idCheck?.metadata?.primaryFileUrl || identityChecks.fileUrl
-
-    const uploaderDocument: FileUploaderResponse = isBase64(primaryIdUrl)
-      ? yield call(uploadImage, {
-          headers,
-          name: `${contact.id}-${identityChecks.details}`,
-          imageData: primaryIdUrl,
-        })
-      : null
-
-    const currentSecondaryIdUrl = idCheck?.metadata?.secondaryIdUrl
-
-    delete idCheck?.metadata?.primaryIdUrl
-
-    const baseValues = {
-      metadata: {
-        primaryIdUrl: uploaderDocument ? uploaderDocument.Url : idCheck?.metadata?.primaryIdUrl,
-        secondaryIdUrl: currentSecondaryIdUrl,
-      },
-      identityDocument1: idCheck?.identityDocument1 || identityChecks,
-      identityDocument2: idCheck?.identityDocument2,
-    } as IdentityCheckModel
+    const fileData = identityChecks.documentId
+    const newIdentityDocument = {
+      typeId: identityChecks.typeId,
+      expiry: identityChecks.expiry,
+      details: identityChecks.details,
+    } as any
+    if (isBase64(identityChecks.documentId)) {
+      const extension = getFileExtensions(fileData)
+      newIdentityDocument.fileData = fileData
+      newIdentityDocument.name = `${contact.id}-${identityChecks.typeId}-${identityChecks.details}.${extension}`
+    }
 
     if (idCheck) {
       yield call(updateIdentityCheck, {
         headers,
         identityChecks: {
-          ...idCheck,
-          ...baseValues,
+          id: idCheck.id,
+          _eTag: idCheck._eTag,
+          identityDocument2: newIdentityDocument,
         },
       })
     } else {
       yield call(createIdentityCheck, {
         headers,
         identityChecks: {
-          ...baseValues,
+          identityDocument2: newIdentityDocument,
           contactId: contact.id,
           status: 'pending',
           checkDate: dayjs()

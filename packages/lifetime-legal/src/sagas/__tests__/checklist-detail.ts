@@ -129,6 +129,7 @@ describe('check-list detail', () => {
       const clone = gen.clone()
       const newContact = {
         id: contact.id,
+        _eTag: '"9CBE436919C6BE89A8642BC70A7CFAEE"',
         primaryAddress: contact.primaryAddress,
         secondaryAddress: contact.secondaryAddress,
         metadata: contact.metadata,
@@ -157,6 +158,7 @@ describe('check-list detail', () => {
       const clone = gen.clone()
       const newContact = {
         id: contact.id,
+        _eTag: '"9CBE436919C6BE89A8642BC70A7CFAEE"',
         primaryAddress: contact.primaryAddress,
         secondaryAddress: contact.secondaryAddress,
         metadata: contact.metadata,
@@ -208,7 +210,6 @@ describe('checklist-detail updatePrimaryId', () => {
             typeId: '123',
             details: '123',
             expiry: new Date('2019-10-15T10:00:00Z'),
-            documentId: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
           },
         },
       }),
@@ -260,7 +261,6 @@ describe('checklist-detail updateSecondaryId', () => {
             typeId: '123',
             details: '123',
             expiry: new Date('2019-10-15T10:00:00Z'),
-            documentId: 'data:image/jpeg;base64,/9j/4S/+RXhpZgAATU0AKgAAAA',
           },
         },
       }),

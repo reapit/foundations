@@ -215,7 +215,7 @@ describe('completed-sections', () => {
         },
       }
       const result = isCompletedAddress(params)
-      expect(result).toBeTruthy()
+      expect(result).toBeFalsy()
     })
 
     it('should run correctly', () => {
@@ -272,7 +272,7 @@ describe('completed-sections', () => {
         },
       }
       const result = isCompletedAddress(params)
-      expect(result).toBeTruthy()
+      expect(result).toBeFalsy()
     })
 
     it('should run correctly', () => {

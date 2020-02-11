@@ -44,7 +44,7 @@ describe('PrimaryIdentification', () => {
           typeId: idCheck.identityDocument1?.typeId,
           details: idCheck.identityDocument1?.details,
           expiry: new Date(idCheck.identityDocument1?.expiry as string),
-          fileUrl: (idCheck.metadata as any).primaryIdUrl || '',
+          documentId: 'SOME_ID',
         },
       }
       expect(result).toEqual(expected)
@@ -60,7 +60,7 @@ describe('PrimaryIdentification', () => {
         initFormValues: {
           details: '',
           expiry: '',
-          fileUrl: '',
+          documentId: '',
           typeId: '',
         },
       }

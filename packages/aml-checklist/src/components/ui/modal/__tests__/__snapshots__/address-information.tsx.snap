@@ -56,9 +56,9 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     type="text"
   />
   <Component
-    id="metadata.addresses[0][year]"
+    id="metadata.primaryAddress[year]"
     labelText="Number of Years at Address"
-    name="metadata.addresses[0][year]"
+    name="metadata.primaryAddress[year]"
     options={
       Array [
         Object {
@@ -466,9 +466,9 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     required={true}
   />
   <Component
-    id="metadata.addresses[0][month]"
+    id="metadata.primaryAddress[month]"
     labelText="Number of Months at Address"
-    name="metadata.addresses[0][month]"
+    name="metadata.primaryAddress[month]"
     options={
       Array [
         Object {
@@ -524,9 +524,9 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
     required={true}
   />
   <Component
-    id="metadata.addresses[0][documentType]"
+    id="metadata.primaryAddress[documentType]"
     labelText="Document Type"
-    name="metadata.addresses[0][documentType]"
+    name="metadata.primaryAddress[documentType]"
     options={
       Array [
         Object {
@@ -595,9 +595,9 @@ exports[`AddressInformation AddressInput should render correctly 1`] = `
   />
   <Component
     allowClear={true}
-    id="metadata.addresses[0][documentImage]"
+    id="metadata.primaryAddress[documentImage]"
     labelText="Upload file"
-    name="metadata.addresses[0][documentImage]"
+    name="metadata.primaryAddress[documentImage]"
     required={true}
   />
 </div>
