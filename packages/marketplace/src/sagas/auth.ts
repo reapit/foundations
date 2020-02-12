@@ -1,12 +1,25 @@
-import { takeLatest, put, call, all, fork } from '@redux-saga/core/effects'
+import { takeLatest, put, call, all, fork, select } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
-import { authLoginSuccess, authLoginFailure, authLogoutSuccess, toggleFirstLogin } from '../actions/auth'
+import {
+  authLoginSuccess,
+  authLoginFailure,
+  authLogoutSuccess,
+  toggleFirstLogin,
+  setTermsAcceptedState,
+} from '../actions/auth'
 import { Action } from '@/types/core.ts'
 import { LoginSession, LoginParams, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
 import store from '../core/store'
 import { getAuthRouteByLoginType } from '@/utils/auth-route'
-import { getCookieString, setCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
+import {
+  getCookieString,
+  setCookieString,
+  COOKIE_FIRST_TIME_LOGIN,
+  COOKIE_TERMS_ACCEPTED,
+  COOKIE_MAX_AGE_INFINITY,
+} from '@/utils/cookie'
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
+import { selectLoginType } from '@/selector/auth'
 import { logger } from 'logger'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
@@ -61,6 +74,22 @@ export const setFirstTimeLogin = function*() {
   yield put(toggleFirstLogin(false))
 }
 
+export const checkTermsAcceptedWithCookieHelper = function*() {
+  const loginType = yield select(selectLoginType)
+  // for now only check when login as developer
+  if (loginType === 'DEVELOPER') {
+    const isTermAccepted = yield call(getCookieString, COOKIE_TERMS_ACCEPTED)
+    yield put(setTermsAcceptedState(!!isTermAccepted))
+  }
+}
+
+export const setTermsAcceptedWithCookieHelper = function*({ data: isAccepted }) {
+  if (isAccepted) {
+    yield call(setCookieString, COOKIE_TERMS_ACCEPTED, new Date(), COOKIE_MAX_AGE_INFINITY)
+  }
+  yield put(setTermsAcceptedState(isAccepted))
+}
+
 export const loginListen = function*() {
   yield takeLatest(ActionTypes.AUTH_LOGIN, doLogin)
 }
@@ -81,6 +110,14 @@ export const setFirstLoginListen = function*() {
   yield takeLatest(ActionTypes.USER_ACCEPT_TERM_AND_CONDITION, setFirstTimeLogin)
 }
 
+export const checkTermsAcceptedListen = function*() {
+  yield takeLatest(ActionTypes.CHECK_TERM_ACCEPTED_WITH_COOKIE, checkTermsAcceptedWithCookieHelper)
+}
+
+export const setTermsAcceptedListen = function*() {
+  yield takeLatest<Action<boolean>>(ActionTypes.SET_TERMS_ACCEPTED_WITH_COOKIE, setTermsAcceptedWithCookieHelper)
+}
+
 const authSaga = function*() {
   yield all([
     fork(loginListen),
@@ -88,6 +125,8 @@ const authSaga = function*() {
     fork(clearAuthListen),
     fork(checkFirstTimeLoginListen),
     fork(setFirstLoginListen),
+    fork(checkTermsAcceptedListen),
+    fork(setTermsAcceptedListen),
   ])
 }
 
