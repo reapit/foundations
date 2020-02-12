@@ -52,6 +52,9 @@ export function closestTo(dateCompare: dayjs.ConfigType, datesArray: Array<dayjs
 }
 
 export function toUTCTime(value: dayjs.ConfigType, format: string | undefined = DATE_TIME_FORMAT.RFC3339): string {
+  if (!value) {
+    return ''
+  }
   const date = dayjs(value)
   return date.utc().format(format)
 }
