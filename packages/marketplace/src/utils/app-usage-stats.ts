@@ -48,7 +48,7 @@ export const getAppUsageStatsChartData = (appUsageStats?: AppUsageStatsModel[], 
   }, {})
 
   if (!appUsageStatsGroupedByDate || Object.keys(appUsageStatsGroupedByDate).length === 0) {
-    return null
+    return {}
   }
 
   const orderedAppUsageStats = orderBy(appUsageStatsGroupedByDate, ['date'], ['asc'])

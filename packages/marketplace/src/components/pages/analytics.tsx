@@ -1,18 +1,21 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { Table, FlexContainerBasic, H3, H4, Loader, toLocalTime, Pagination, Grid, GridItem } from '@reapit/elements'
-import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
-import DeveloperTrafficChart from '@/components/ui/developer-traffic-chart'
+import orderBy from 'lodash.orderby'
+import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
 import { ReduxState } from '@/types/core'
+import { AppUsageStatsState } from '@/reducers/app-usage-stats'
+import { appUsageStatsRequestData, AppUsageStatsParams } from '@/actions/app-usage-stats'
 import { InstallationModel, AppSummaryModel } from '@reapit/foundations-ts-definitions'
 import { DeveloperState } from '@/reducers/developer'
 import { AppInstallationsState } from '@/reducers/app-installations'
 import { INSTALLATIONS_PER_PAGE } from '@/constants/paginator'
 import { withRouter } from 'react-router'
 import styles from '@/styles/pages/analytics.scss?mod'
+import DeveloperInstallationsChart from '@/components/ui/developer-installations-chart'
+import DeveloperTrafficChart from '@/components/ui/developer-traffic-chart'
 import DeveloperTrafficTable from '../ui/developer-traffic-table'
-import { AppUsageStatsState } from '@/reducers/app-usage-stats'
 
 export const installationTableColumn = [
   { Header: 'App Name', accessor: 'appName' },
@@ -39,14 +42,14 @@ export interface AnalyticsPageMappedProps {
 }
 
 export interface AnalyticsPageMappedActions {
-  requestAppDetailData: (data) => void
+  loadStats: (params: AppUsageStatsParams) => void
 }
 
 export interface InstallationModelWithAppName extends InstallationModel {
   appName?: string
 }
 
-export type AnalyticsPageProps = AnalyticsPageMappedProps
+export type AnalyticsPageProps = AnalyticsPageMappedProps & AnalyticsPageMappedActions
 
 export const handleMapAppNameToInstallation = (
   installationsAppDataArray: InstallationModel[],
@@ -143,17 +146,14 @@ export const InstallationTable: React.FC<{
 }> = ({ installedApps, installations, developer, loading }) => {
   const [pageNumber, setPageNumber] = React.useState<number>(1)
 
-  const installationAppDataArray = installations.installationsAppData?.data ?? []
   const developerDataArray = developer.developerData?.data?.data ?? []
 
   const appCountEntries = React.useMemo(handleCountCurrentInstallationForEachApp(installedApps, developerDataArray), [
     installedApps,
     developerDataArray,
   ])
-  const memoizedData = React.useMemo(handleUseMemoData(installedApps, pageNumber), [
-    installationAppDataArray,
-    pageNumber,
-  ])
+  const memoizedData = React.useMemo(handleUseMemoData(installedApps, pageNumber), [installedApps, pageNumber])
+
   return (
     <div>
       {loading ? (
@@ -186,18 +186,7 @@ export const InstallationTable: React.FC<{
   )
 }
 
-export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer, appUsageStats }) => {
-  // if (
-  //   installations.loading ||
-  //   !installations.installationsAppData ||
-  //   developer.loading ||
-  //   !developer.developerData ||
-  //   appUsageStats.loading ||
-  //   !appUsageStats.appUsageStatsData
-  // ) {
-  //   return <Loader />
-  // }
-
+export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer, appUsageStats, loadStats }) => {
   const installationAppDataArray = installations.installationsAppData?.data ?? []
   const developerDataArray = developer.developerData?.data?.data ?? []
 
@@ -205,6 +194,20 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
     handleMapAppNameToInstallation(installationAppDataArray, developerDataArray),
     [installationAppDataArray, developerDataArray],
   )
+
+  const fetchAppUsageStatsData = React.useCallback(() => {
+    const orderedInstallationsByDate: InstallationModel[] = orderBy(installationAppDataArray, ['created'], ['asc'])
+    const firstInstallationDate = orderedInstallationsByDate[0]
+    if (firstInstallationDate) {
+      loadStats({
+        dateFrom: firstInstallationDate.created,
+      })
+    }
+  }, [installationAppDataArray, loadStats])
+
+  React.useEffect(() => {
+    fetchAppUsageStatsData()
+  }, [fetchAppUsageStatsData])
 
   const appUsageStatsLoading = appUsageStats.loading
   const appUsageStatsData = appUsageStats.appUsageStatsData || {}
@@ -242,4 +245,8 @@ export const mapStateToProps: (state: ReduxState) => AnalyticsPageMappedProps = 
   appUsageStats: state.appUsageStats,
 })
 
-export default withRouter(connect(mapStateToProps)(AnalyticsPage))
+export const mapDispatchToProps = (dispatch: Dispatch): AnalyticsPageMappedActions => ({
+  loadStats: (params: AppUsageStatsParams) => dispatch(appUsageStatsRequestData(params)),
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AnalyticsPage))

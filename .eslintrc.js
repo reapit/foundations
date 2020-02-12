@@ -27,7 +27,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
   ignorePatterns: [
     '__mocks__/',
     'node_modules/',
@@ -64,6 +64,8 @@ module.exports = {
     indent: 0,
     // Disabling as we are validating types with TypeScript not PropTypes
     'react/prop-types': 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
   },
   settings: {
     react: {

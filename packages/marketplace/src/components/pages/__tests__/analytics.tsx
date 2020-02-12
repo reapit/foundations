@@ -43,10 +43,19 @@ const appUsageStats: AppUsageStatsState = {
   appUsageStatsData: {},
 }
 
+const loadStats = jest.fn()
+
 describe('AnalyticsPage', () => {
   it('should match snapshot', () => {
     expect(
-      shallow(<AnalyticsPage installations={installations} developer={developer} appUsageStats={appUsageStats} />),
+      shallow(
+        <AnalyticsPage
+          installations={installations}
+          developer={developer}
+          appUsageStats={appUsageStats}
+          loadStats={loadStats}
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -59,6 +68,7 @@ describe('AnalyticsPage', () => {
           installations={installationsLoading}
           developer={developerLoading}
           appUsageStats={appUsageStats}
+          loadStats={loadStats}
         />,
       ),
     ).toMatchSnapshot()

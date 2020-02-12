@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { UsageStatsModel, PagedResultAppSummaryModel_, AppUsageStatsModel } from '@reapit/foundations-ts-definitions'
-import { H4, Table, toLocalTime, Alert, Loader } from '@reapit/elements'
+import { H4, Table, toLocalTime, Loader } from '@reapit/elements'
 
 export interface DeveloperAppTrafficProps {
   stats: UsageStatsModel
@@ -45,7 +45,7 @@ export const generateUsageStatsColumns = () => () => {
 }
 
 const DeveloperTrafficTable: React.FC<DeveloperAppTrafficProps> = ({ stats, apps, loading }) => {
-  const usageStatsData = useMemo(generateUsageStatsData({ apps, stats }), [stats, apps])
+  const usageStatsData = useMemo(generateUsageStatsData({ apps, stats }), [stats, apps]) || []
   const usageStatsColumns = useMemo(generateUsageStatsColumns(), [usageStatsData])
   return (
     <div>
@@ -58,11 +58,7 @@ const DeveloperTrafficTable: React.FC<DeveloperAppTrafficProps> = ({ stats, apps
             The traffic table below shows all API calls made against each of your applications since the date your app
             was created
           </p>
-          {usageStatsData && usageStatsData.length > 0 ? (
-            <Table bordered scrollable columns={usageStatsColumns} data={usageStatsData} loading={false} />
-          ) : (
-            <Alert message="You currently have no apps usage stats " type="info" />
-          )}
+          <Table bordered scrollable columns={usageStatsColumns} data={usageStatsData} loading={false} />
         </>
       )}
     </div>

@@ -18,7 +18,6 @@ import { checkFirstTimeLogin } from '@/actions/auth'
 import { adminAppsRequestData } from '@/actions/admin-apps'
 import { appInstallationsRequestData } from '@/actions/app-installations'
 import { selectClientId } from '@/selector/client'
-import { appUsageStatsRequestData } from '@/actions/app-usage-stats'
 
 const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: string) => {
   await getAccessToken()
@@ -48,8 +47,6 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       break
     case Routes.DEVELOPER_ANALYTICS_PAGINATE:
     case Routes.DEVELOPER_ANALYTICS: {
-      // Need to fetch statistics to traffic table
-      store.dispatch(appUsageStatsRequestData({}))
       // Need to fetch all apps to count Total current installations for each app
       store.dispatch(appInstallationsRequestData({ pageSize: GET_ALL_PAGE_SIZE }))
       // Fetch all apps to map app name to installations
