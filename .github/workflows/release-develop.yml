@@ -39,7 +39,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install Global Dependencies
         run: |
-          yarn global add aws-cli serverless
+          yarn global add aws-cli serverless@1.59.3
       - name: Set up workspace experimental
         run: |
           yarn config set workspaces-experimental true
