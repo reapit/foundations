@@ -6,15 +6,10 @@
     "paths": {
       "@/*": ["src/*"],
       "@reapit/cognito-auth": ["../cognito-auth/src"],
-      "@reapit/elements": ["../elements/src"]
+      "@reapit/elements": ["../elements/src"],
+      "logger": ["../../scripts/logger/sentry-logger.ts"]
     }
   },
   "include": ["src"],
-  "exclude": [
-    "public",
-    "dist",
-    "node_modules",
-    "src/tests/coverage",
-    "src/tests/cypress"
-  ]
+  "exclude": ["public", "dist", "node_modules", "src/tests/coverage", "src/tests/cypress"]
 }

@@ -9,7 +9,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { CreateAppRevisionModel } from '@reapit/foundations-ts-definitions'
 import { appDetailRequestData } from '@/actions/app-detail'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const submitRevision = function*({ data }: Action<CreateAppRevisionModel & { id: string }>) {
   yield put(submitRevisionSetFormState('SUBMITTING'))

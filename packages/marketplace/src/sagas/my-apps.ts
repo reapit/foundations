@@ -8,7 +8,7 @@ import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { selectClientId } from '@/selector/client'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const myAppsDataFetch = function*({ data: page }) {
   yield put(myAppsLoading(true))

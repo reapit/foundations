@@ -9,7 +9,7 @@ import { fetcher, setQueryParams } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { Area } from '@/components/pages/admin-stats'
 import { getDateRange } from '@/utils/admin-stats'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const adminStatsDataFetch = function*({ data }) {
   try {

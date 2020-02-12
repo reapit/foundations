@@ -2,7 +2,7 @@ import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from '@/constants/api'
 import { changeTimeZoneUTCForIdentityCheck, changeTimeZoneLocalForIdentityCheck } from '@/utils/datetime'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const fetchContact = async ({ contactId, headers }) => {
   try {

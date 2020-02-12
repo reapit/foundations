@@ -15,7 +15,7 @@ import {
 import { selectAdminAppsData } from '@/selector/admin'
 import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import api from './api'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const adminAppsFetch = function*() {
   try {

@@ -5,7 +5,7 @@ import Routes from '@/constants/routes'
 import { Action } from '@/types/core'
 import { forgotPasswordLoading } from '@/actions/forgot-password'
 import { resetPassword } from '@reapit/cognito-auth'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const requestForgotPassword = function*({ data: email }) {
   yield put(forgotPasswordLoading(true))

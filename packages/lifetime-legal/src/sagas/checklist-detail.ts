@@ -25,7 +25,7 @@ import {
   createIdentityCheck,
   uploadImage,
 } from './api'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const checklistDetailDataFetch = function*({ data: id }) {
   yield put(checklistDetailLoading(true))

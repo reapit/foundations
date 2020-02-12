@@ -12,7 +12,7 @@ import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { INSTALLED_APPS_PERPAGE } from '@/constants/paginator'
 import { selectClientId } from '@/selector/client'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const installedAppsDataFetch = function*({ data: page }) {
   yield put(installedAppsLoading(true))

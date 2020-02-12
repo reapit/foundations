@@ -7,7 +7,7 @@ import { errorThrownServer } from '@/actions/error'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
 import { confirmPassword } from '@reapit/cognito-auth'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const developerResetPassword = function*({ data }: Action<ResetPasswordParams>) {
   yield put(resetPasswordLoading(true))

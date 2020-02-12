@@ -15,7 +15,7 @@ import { Action } from '../types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { selectDeveloperId } from '@/selector/developer'
 import { DeveloperItem, DeveloperRequestParams } from '@/reducers/developer'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const developerDataFetch = function*({ data }) {
   yield put(developerLoading(true))

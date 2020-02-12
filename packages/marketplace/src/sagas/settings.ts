@@ -14,7 +14,7 @@ import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
 import { authLogoutSuccess } from '@/actions/auth'
 import Routes from '@/constants/routes'
 import { history } from '../core/router'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const fetchDeveloperInfo = async (developerId: string | null | undefined) => {
   const response = await fetcher({

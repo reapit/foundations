@@ -25,7 +25,7 @@ import { handlePepSearchStatus } from '@/utils/pep-search'
 import dayjs from 'dayjs'
 import { ID_STATUS } from '@/components/ui/modal/modal'
 import { changeTimeZoneLocalForIdentityCheck, changeTimeZoneUTCForIdentityCheck } from '@/utils/datetime'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {

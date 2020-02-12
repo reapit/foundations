@@ -11,7 +11,7 @@ import errorMessages from '@/constants/error-messages'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const developerSetStatusRequestSaga = function*({ data: dev }) {
   try {

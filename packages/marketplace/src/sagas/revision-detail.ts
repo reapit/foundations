@@ -16,7 +16,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action, ReduxState } from '@/types/core'
 import { adminApprovalsDataFetch } from './admin-approvals'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const revisionDetailDataFetch = function*({
   data: { appId, appRevisionId },

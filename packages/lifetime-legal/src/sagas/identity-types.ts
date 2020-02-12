@@ -6,7 +6,7 @@ import { errorThrownServer } from '../actions/error'
 import { identityTypesReceiveData, identityTypesRequestFailure } from '../actions/identity-types'
 import errorMessages from '../constants/error-messages'
 import { fetchIdentityDocumentTypes } from './api'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const identityTypesDataFetch = function*() {
   const headers = yield call(initAuthorizedRequestHeaders)

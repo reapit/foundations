@@ -11,7 +11,7 @@ import { Action } from '@/types/core'
 import { selectClientId, selectFeaturedApps } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import { ClientItem, ClientParams } from '@/reducers/client'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const clientDataFetch = function*({ data }) {
   yield put(clientLoading(true))

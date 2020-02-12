@@ -9,7 +9,7 @@ import { errorThrownServer } from '../actions/error'
 import { SubmitAppArgs } from '@/actions/submit-app'
 import errorMessages from '../constants/error-messages'
 import { getApiErrorsFromResponse, ApiFormErrorsResponse } from '@/utils/form/errors'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export type ImageUploaderReq = {
   name?: string

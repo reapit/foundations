@@ -7,7 +7,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import api from './api'
 import { adminAppsReceiveData } from '@/actions/admin-apps'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {
   try {

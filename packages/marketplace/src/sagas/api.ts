@@ -1,7 +1,7 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const fetchAdminApps = async ({ params }) => {
   try {

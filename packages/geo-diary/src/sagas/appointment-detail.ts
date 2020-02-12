@@ -17,6 +17,7 @@ import { AppointmentDetailRequestParams } from '@/actions/appointment-detail'
 import { selectAppointmentDetail } from '@/selectors/appointment-detail'
 import { selectAppointmentsFilterTime, selectAppointmentWithId } from '@/selectors/appointments'
 import { fetchAppointment, updateAppointment } from './api'
+import { logger } from 'logger'
 
 export const appointmentDetailDataFetch = function*({ data: { id } }: Action<AppointmentDetailRequestParams>) {
   yield put(appointmentDetailShowModal())
@@ -78,11 +79,7 @@ export const cancelAppointmentRequest = function*() {
       yield put(appointmentsRequestData({ time: filterTime }))
     }
   } catch (error) {
-<<<<<<< HEAD
-    console.error(error.message)
-=======
     logger(error)
->>>>>>> fix: #48 sentry log not capture error, add logger util in all apps
     yield put(
       errorThrownServer({
         type: 'SERVER',

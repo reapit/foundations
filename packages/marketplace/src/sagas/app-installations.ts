@@ -15,7 +15,7 @@ import {
 } from '@/actions/app-installations'
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { selectDeveloperId } from '@/selector/developer'
-import { logger } from '@/utils/error-logger'
+import { logger } from 'logger'
 
 export const fetchInstallations = async (data: InstallationParams) => {
   const response = await fetcher({
