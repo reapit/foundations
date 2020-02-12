@@ -6,9 +6,9 @@ import Menu from '@/components/ui/menu'
 import { Loader, Section, FlexContainerBasic, AppNavContainer } from '@reapit/elements'
 import { LoginType, RefreshParams, getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
-import { withRouter } from 'react-router'
+import { withRouter, Redirect } from 'react-router'
 import { authSetRefreshSession } from '../actions/auth'
-import { getDefaultRouteByLoginType } from '@/utils/auth-route'
+import { getDefaultRouteByLoginType, getDefaultPathByLoginType } from '@/utils/auth-route'
 import { getCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 
 const { Suspense } = React
@@ -56,6 +56,11 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     return null
   }
 
+  if (loginType && location.pathname === '/') {
+    const path = getDefaultPathByLoginType(loginType, firstLoginCookie)
+    return <Redirect to={path} />
+  }
+
   return (
     <AppNavContainer>
       <Menu />
@@ -76,7 +81,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
-  loginType: state?.auth?.loginSession?.loginType ?? 'CLIENT',
+  loginType: state.auth.loginType,
   isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
 })
 
