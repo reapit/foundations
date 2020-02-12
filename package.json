@@ -1,9 +1,13 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": ["packages/*"],
+    "nohoist": [
+      "**/cognito-custom-mail-lambda",
+      "**/cognito-custom-mail-lambda/**"
+    ]
+  },
   "scripts": {
     "build": "lerna run build:prod --parallel",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
