@@ -1,5 +1,5 @@
 const Octokit = require('@octokit/rest')
-const { execSync } = require('child_process')
+const { runCommand } = require('../../../scripts/release/utils')
 const fs = require('fs')
 const path = require('path')
 const { GITHUB_TOKEN } = process.env
@@ -15,7 +15,7 @@ module.exports = async () => {
 
   try {
     // https://stackoverflow.com/questions/9110478/how-to-find-the-hash-of-branch-in-git
-    const currentHeadSHA = execSync('git rev-parse HEAD')
+    const currentHeadSHA = runCommand('git', ['rev-parse', 'HEAD'])
     const splittedGithubRepositoryParts = process.env.GITHUB_REPOSITORY.split('/')
     const ownerName = splittedGithubRepositoryParts[0]
     const repositoryName = splittedGithubRepositoryParts[1]

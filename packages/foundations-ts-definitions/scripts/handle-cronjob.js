@@ -1,8 +1,7 @@
-const { execSync } = require('child_process')
-
+const { runCommand } = require('../../../scripts/release/utils')
 const bumpVersion = require('./bump-version')
 const releaseMaster = require('./release-master')
-const gitStatus = execSync('git status -s').toString()
+const gitStatus = runCommand('git', ['status', '-s'])
 
 // const { npm_package_version, GITHUB_TOKEN, GITHUB_ACTOR, GITHUB_REPOSITORY } = process.env
 

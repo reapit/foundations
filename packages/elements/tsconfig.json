@@ -6,9 +6,12 @@
     "moduleResolution": "node",
     "types": ["jest", "node", "react"],
     "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/cognito-auth": ["../cognito-auth/src"]
+    },
     "lib": ["es2015", "es2017", "dom", "es5", "es6", "esnext"],
     "outDir": "public",
-    "rootDir": "src",
     "sourceRoot": "/"
   },
   "include": ["src"]

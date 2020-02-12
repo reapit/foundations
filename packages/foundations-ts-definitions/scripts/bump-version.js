@@ -1,16 +1,13 @@
-const { execSync } = require('child_process')
 const semver = require('semver')
 const fs = require('fs')
 const path = require('path')
+const { runCommand } = require('../../../scripts/release/utils')
 
 const { npm_package_name } = process.env
 const packageJsonPath = path.resolve(__dirname, '../package.json')
 
 module.exports = () => {
-  const remotePackageVersionStdOut = execSync(`yarn info ${npm_package_name} version`)
-    .toString()
-    .trim()
-    .split('\n')
+  const remotePackageVersionStdOut = runCommand('yarn', ['info', npm_package_name, 'version']).split('\n')
   let remotePackageVersion = ''
 
   // Ex of remotePackageVersionStdOut: ['0.0.0']
@@ -38,12 +35,12 @@ module.exports = () => {
   parsedPackageJsonContent.version = bumpedVersion
   fs.writeFileSync(packageJsonPath, JSON.stringify(parsedPackageJsonContent, null, 2))
 
-  execSync(`git remote add sshOrigin git@github.com:${process.env.GITHUB_REPOSITORY}.git`)
-  execSync('git config --global user.email "GithubActions@email.com"')
-  execSync('git config --global user.name "Github Actions"')
+  runCommand('git', ['remote', 'add', 'sshOrigin', `git@github.com:${process.env.GITHUB_REPOSITORY}.git`])
+  runCommand('git', ['config', '--global', 'user.email', '"GithubActions@email.com"'])
+  runCommand('git', ['config', '--global', 'user.name', '"Github Actions"'])
 
-  execSync('git add .')
-  execSync(`git commit -m 'Update TypeScript definition - version: ${bumpedVersion}'`)
-  execSync('yarn publish')
-  execSync('git push -u sshOrigin HEAD:master')
+  runCommand('git', ['add', '.'])
+  runCommand('git', ['commit', '-m', `"Update TypeScript definition - version: ${bumpedVersion}"`])
+  runCommand('yarn', ['publish'])
+  runCommand('git', ['push', '-u', 'sshOrigin', 'HEAD:master'])
 }
