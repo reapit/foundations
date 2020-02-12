@@ -6,7 +6,7 @@ const removeUnuseChar = value => {
   return value.replace(/(\r\n\t|\n|\r\t)/gm, '')
 }
 
-function runCommand(cmd, args) {
+const runCommand = (cmd, args) => {
   const resultObj = spawn(cmd, args)
   const { stdout, stderr } = resultObj
 
@@ -137,4 +137,5 @@ module.exports = {
   getPreviousTag,
   formatReleaseNote,
   editReleaseNote,
+  runCommand,
 }
