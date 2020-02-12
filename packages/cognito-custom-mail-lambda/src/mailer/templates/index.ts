@@ -6,3 +6,6 @@ export const forgotPasswordTemplate = async (data: ForgottenPasswordTemplatePara
 
 export const confirmRegistrationTemplate = async (data: ConfirmPasswordTemplateParams) =>
   ejs.renderFile(`${__dirname}/ejs/confirm-registration.ejs`, data)
+
+export const adminUserInviteTemplate = async (data: ConfirmPasswordTemplateParams) =>
+  ejs.renderFile(`${__dirname}/ejs/admin-user-invite.ejs`, data)
