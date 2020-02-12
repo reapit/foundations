@@ -89,7 +89,7 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
 
     yield put(submitAppSetFormState('SUCCESS'))
   } catch (err) {
-    console.error(err.message)
+    logger(err)
 
     if (err instanceof FetchError) {
       const response = err.response as any

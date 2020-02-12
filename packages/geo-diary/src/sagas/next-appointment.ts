@@ -102,7 +102,7 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
         )
       }
     } catch (err) {
-      console.error(err.message)
+      logger(err)
       yield put(nextAppointmentClear())
     }
   } else {

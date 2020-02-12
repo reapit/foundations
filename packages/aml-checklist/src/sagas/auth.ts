@@ -4,6 +4,7 @@ import ActionTypes from '@/constants/action-types'
 import { authLoginSuccess, authLoginFailure } from '@/actions/auth'
 import { LoginParams, LoginSession, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY_AML_APP } from '../constants/api'
+import { logger } from 'logger'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
