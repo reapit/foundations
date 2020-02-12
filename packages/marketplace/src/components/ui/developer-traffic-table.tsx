@@ -44,9 +44,21 @@ export const generateUsageStatsColumns = () => () => {
   ]
 }
 
+export const calculateTotalRequest = (usageStatsData: AppUsageStats[]) => {
+  return usageStatsData.reduce((previousValue, currentValue) => {
+    const requests = currentValue.requests || 0
+    return previousValue + requests
+  }, 0)
+}
+
 const DeveloperTrafficTable: React.FC<DeveloperAppTrafficProps> = ({ stats, apps, loading }) => {
   const usageStatsData = useMemo(generateUsageStatsData({ apps, stats }), [stats, apps]) || []
   const usageStatsColumns = useMemo(generateUsageStatsColumns(), [usageStatsData])
+
+  const renderTotalRequest = () => {
+    return <H4 className="is-pulled-right">Total API Calls: {calculateTotalRequest(usageStatsData)}</H4>
+  }
+
   return (
     <div>
       {loading ? (
@@ -59,6 +71,7 @@ const DeveloperTrafficTable: React.FC<DeveloperAppTrafficProps> = ({ stats, apps
             was created
           </p>
           <Table bordered scrollable columns={usageStatsColumns} data={usageStatsData} loading={false} />
+          {renderTotalRequest()}
         </>
       )}
     </div>
