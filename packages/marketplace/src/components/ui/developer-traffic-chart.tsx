@@ -23,16 +23,10 @@ export const DeveloperTrafficChart: React.FC<DeveloperTrafficChartProps> = ({ st
     const chartData = getChartConfig(labels, data)
     const chartOptions = getChartOptions(appUsageStatsGroupedByDate)
     return (
-      <div>
-        {loading ? (
-          <Loader />
-        ) : (
-          <div>
-            <H4>Traffic (API Count)</H4>
-            <Line data={chartData} options={chartOptions} />
-          </div>
-        )}
-      </div>
+      <>
+        <H4>Traffic (API Count)</H4>
+        <Line data={chartData} options={chartOptions} />
+      </>
     )
   }
 
