@@ -15,6 +15,7 @@ import { Action } from '../types/core'
 import { APPS_PER_PAGE } from '@/constants/paginator'
 import { selectDeveloperId } from '@/selector/developer'
 import { DeveloperItem, DeveloperRequestParams } from '@/reducers/developer'
+import { logger } from 'logger'
 
 export const developerDataFetch = function*({ data }) {
   yield put(developerLoading(true))
@@ -52,7 +53,7 @@ export const developerDataFetch = function*({ data }) {
       yield put(developerRequestDataFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -76,7 +77,7 @@ export const developerCreate = function*({ data }: Action<CreateDeveloperModel>)
     const status = regResponse ? 'SUCCESS' : 'ERROR'
     yield put(developerSetFormState(status))
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(developerSetFormState('ERROR'))
     yield put(
       errorThrownServer({

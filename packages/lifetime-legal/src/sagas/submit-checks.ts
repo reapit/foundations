@@ -6,6 +6,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import routes from '@/constants/routes'
 import { history } from '@/core/router'
+import { logger } from 'logger'
 
 export const submitCheck = function*({ data: id }: Action<string>) {
   yield put(submitChecksSetFormState('SUBMITTING'))
@@ -14,7 +15,7 @@ export const submitCheck = function*({ data: id }: Action<string>) {
     yield put(submitChecksSetFormState('SUCCESS'))
     yield history.push(routes.PROFILE_SUCCESS.replace(':id', id))
   } catch (err) {
-    console.error(err)
+    logger(err)
     yield put(submitChecksSetFormState('ERROR'))
     yield put(
       errorThrownServer({

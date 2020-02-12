@@ -25,6 +25,7 @@ import { handlePepSearchStatus } from '@/utils/pep-search'
 import dayjs from 'dayjs'
 import { ID_STATUS } from '@/components/ui/modal/modal'
 import { changeTimeZoneLocalForIdentityCheck, changeTimeZoneUTCForIdentityCheck } from '@/utils/datetime'
+import { logger } from 'logger'
 
 export const fetchChecklist = async ({ id, headers }) => {
   try {
@@ -36,7 +37,7 @@ export const fetchChecklist = async ({ id, headers }) => {
     })
     return response
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     return err
   }
 }
@@ -57,7 +58,7 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
     }
     return newResponse?._embedded?.[0] || null
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     return err
   }
 }
@@ -77,7 +78,7 @@ export const updateChecklist = async ({ contact, headers }) => {
     })
     return response
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     return err
   }
 }
@@ -101,7 +102,7 @@ export const uploadImage = async ({ name, imageData, headers }) => {
     })
     return response
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     return err
   }
 }
@@ -122,7 +123,7 @@ export const updateIdentityCheck = async ({ identityChecks, headers }) => {
     })
     return response
   } catch (err) {
-    console.error(err)
+    logger(err)
     return err
   }
 }
@@ -139,7 +140,7 @@ export const createIdentityCheck = async ({ identityChecks, headers }) => {
     })
     return response
   } catch (err) {
-    console.error(err)
+    logger(err)
     return err
   }
 }
@@ -155,6 +156,7 @@ export const fetchInitialData = function*({ data: id }) {
     yield put(checklistDetailReceiveContact(contact))
     yield put(checklistDetailReceiveIdentityCheck(identityChecks))
   } catch (err) {
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -192,7 +194,7 @@ export const onUpdateChecklist = function*({
       }
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -256,7 +258,7 @@ export const onUpdateAddressHistory = function*({
       }
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -316,7 +318,7 @@ export const onUpdateDeclarationAndRisk = function*({
       }
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -340,7 +342,7 @@ export const fetchDataPepSearch = async ({ name, headers }) => {
     })
     return result
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     return err
   }
 }
@@ -358,7 +360,7 @@ export const pepSearch = function*({ data }) {
       yield put(checklistDetailShowModal(data.nextSection))
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -436,6 +438,7 @@ export const updatePrimaryId = function*({ data: { nextSection, identityChecks }
       yield put(checklistDetailHideModal())
     }
   } catch (err) {
+    logger(err)
     const result: ErrorData = {
       type: 'SERVER',
       message: errorMessages.DEFAULT_SERVER_ERROR,
@@ -500,6 +503,7 @@ export const updateSecondaryId = function*({
       yield put(checklistDetailHideModal())
     }
   } catch (err) {
+    logger(err)
     const result: ErrorData = {
       type: 'SERVER',
       message: errorMessages.DEFAULT_SERVER_ERROR,

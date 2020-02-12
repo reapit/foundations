@@ -2,6 +2,7 @@ import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from '@/constants/api'
 import { changeTimeZoneUTCForIdentityCheck, changeTimeZoneLocalForIdentityCheck } from '@/utils/datetime'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
+import { logger } from 'logger'
 
 export const fetchContact = async ({ contactId, headers }) => {
   try {
@@ -13,7 +14,7 @@ export const fetchContact = async ({ contactId, headers }) => {
     })
     return response
   } catch (err) {
-    console.error(err)
+    logger(err)
     throw new Error(err)
   }
 }
@@ -28,7 +29,7 @@ export const fetchContacts = async ({ headers, params }) => {
     })
     return response
   } catch (error) {
-    console.error(error)
+    logger(error)
     throw new Error(error)
   }
 }
@@ -44,7 +45,7 @@ export const updateContact = async ({ contactId, headers, contact }) => {
     })
     return response
   } catch (err) {
-    console.error(err)
+    logger(err)
     throw new Error(err)
   }
 }
@@ -65,7 +66,7 @@ export const fetchIdentityCheck = async ({ headers, contactId }) => {
     }
     return newResponse?._embedded?.[0] || null
   } catch (err) {
-    console.error(err)
+    logger(err)
     throw new Error(err)
   }
 }
@@ -82,7 +83,7 @@ export const updateIdentityCheck = async ({ identityCheck, headers }) => {
     })
     return response
   } catch (err) {
-    console.error(err)
+    logger(err)
     throw new Error(err)
   }
 }
@@ -99,7 +100,7 @@ export const createIdentityCheck = async ({ identityChecks, headers }) => {
     })
     return response
   } catch (err) {
-    console.error(err)
+    logger(err)
     throw new Error(err)
   }
 }
@@ -114,7 +115,7 @@ export const fetchIdentityDocumentTypes = async ({ headers }) => {
     })
     return response
   } catch (err) {
-    console.error(err)
+    logger(err)
     throw new Error(err)
   }
 }
@@ -129,7 +130,7 @@ export const fetchIdentitiesCheck = async ({ headers, listContactId }) => {
     })
     return response
   } catch (err) {
-    console.error(err)
+    logger(err)
     throw new Error(err)
   }
 }

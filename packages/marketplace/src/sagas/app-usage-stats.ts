@@ -10,6 +10,7 @@ import {
   appUsageStatsReceiveData,
   appUsageStatsRequestDataFailure,
 } from '@/actions/app-usage-stats'
+import { logger } from 'logger'
 
 const { APP_USAGE_STATS_REQUEST_DATA } = ActionTypes
 
@@ -28,6 +29,7 @@ export const appUsageStatsSaga = function*({ data }: Action<AppUsageStatsParams>
     const response = yield call(fetchAppUsageStats, { ...data })
     yield put(appUsageStatsReceiveData(response))
   } catch (err) {
+    logger(err)
     yield put(appUsageStatsRequestDataFailure())
     yield put(
       errorThrownServer({

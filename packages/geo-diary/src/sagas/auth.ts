@@ -5,6 +5,7 @@ import { authLoginSuccess, authLoginFailure } from '@/actions/auth'
 import { LoginParams, LoginSession, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY_GEO_DIARY } from '../constants/api'
 import store from '@/core/store'
+import { logger } from 'logger'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
@@ -16,7 +17,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
       yield put(authLoginFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(authLoginFailure())
   }
 }
@@ -27,7 +28,7 @@ export const doLogout = function*() {
     yield call(removeSession, COOKIE_SESSION_KEY_GEO_DIARY)
     yield call(redirectToLogout, process.env.COGNITO_CLIENT_ID_GEO_DIARY as string, `${window.location.origin}/login`)
   } catch (err) {
-    console.error(err.message)
+    logger(err)
   }
 }
 

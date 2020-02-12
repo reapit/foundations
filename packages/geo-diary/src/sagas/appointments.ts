@@ -26,6 +26,7 @@ import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { sortAppoinmentsByStartTime } from '@/utils/sort-appointments-by-start-time'
 import utc from 'dayjs/plugin/utc'
 import { fetchAppointmentMetadata } from './api'
+import { logger } from 'logger'
 
 dayjs.extend(utc)
 
@@ -134,7 +135,7 @@ export const appointmentsDataFetch = function*({ data: { time } }: Action<Appoin
       yield put(appointmentsRequestDataFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',

@@ -15,6 +15,7 @@ import {
 } from '@/actions/app-installations'
 import { selectLoggedUserEmail, selectClientId } from '@/selector/client'
 import { selectDeveloperId } from '@/selector/developer'
+import { logger } from 'logger'
 
 export const fetchInstallations = async (data: InstallationParams) => {
   const response = await fetcher({
@@ -56,6 +57,7 @@ export const installationsSaga = function*({ data }) {
     const response = yield call(fetchInstallations, { ...data, developerId })
     yield put(appInstallationsReceiveData(response))
   } catch (err) {
+    logger(err)
     yield put(appInstallationsRequestDataFailure())
     yield put(
       errorThrownServer({
@@ -80,6 +82,7 @@ export const appInstallSaga = function*({ data }) {
     yield call(fetchInstallApp, { data, clientId, email })
     yield put(appInstallationsSetFormState('SUCCESS'))
   } catch (err) {
+    logger(err)
     yield put(appInstallationsSetFormState('ERROR'))
     yield put(
       errorThrownServer({
@@ -98,6 +101,7 @@ export const appUninstallSaga = function*({ data }) {
     yield call(fetchUninstallApp, { data, email })
     yield put(appInstallationsSetFormState('SUCCESS'))
   } catch (err) {
+    logger(err)
     yield put(appInstallationsSetFormState('ERROR'))
     yield put(
       errorThrownServer({

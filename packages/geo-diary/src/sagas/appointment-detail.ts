@@ -17,6 +17,7 @@ import { AppointmentDetailRequestParams } from '@/actions/appointment-detail'
 import { selectAppointmentDetail } from '@/selectors/appointment-detail'
 import { selectAppointmentsFilterTime, selectAppointmentWithId } from '@/selectors/appointments'
 import { fetchAppointment, updateAppointment } from './api'
+import { logger } from 'logger'
 
 export const appointmentDetailDataFetch = function*({ data: { id } }: Action<AppointmentDetailRequestParams>) {
   yield put(appointmentDetailShowModal())
@@ -48,7 +49,7 @@ export const appointmentDetailDataFetch = function*({ data: { id } }: Action<App
       yield put(appointmentDetailRequestDataFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(appointmentDetailRequestDataFailure())
     yield put(
       errorThrownServer({
@@ -78,7 +79,7 @@ export const cancelAppointmentRequest = function*() {
       yield put(appointmentsRequestData({ time: filterTime }))
     }
   } catch (error) {
-    console.error(error.message)
+    logger(error)
     yield put(
       errorThrownServer({
         type: 'SERVER',

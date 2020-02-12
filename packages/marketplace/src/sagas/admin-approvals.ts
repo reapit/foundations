@@ -11,6 +11,7 @@ import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
 import { fetcher } from '@reapit/elements'
 import { Action } from '@/types/core'
+import { logger } from 'logger'
 
 export const adminApprovalsDataFetch = function*({ data: page }) {
   yield put(adminApprovalsLoading(true))
@@ -28,7 +29,7 @@ export const adminApprovalsDataFetch = function*({ data: page }) {
       yield put(adminApprovalsRequestDataFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
