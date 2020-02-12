@@ -1,9 +1,9 @@
 service: cognito-mailer
-custom: ${file(./env.yml)}
+custom: ${file(../../reapit-config.json)}
 provider:
   name: aws
   runtime: nodejs10.x
-  stage: ${opt:stage, 'dev'}
+  stage: ${opt:stage, 'DEV'}
   region: eu-west-2
   deploymentBucket:
     name: cognito.mailer.${self:provider.stage}
@@ -34,7 +34,7 @@ package:
 
 functions:
   cognitoCustomMailerHandler:
-    handler: public/app.cognitoCustomMailerHandler
+    handler: dist/app.cognitoCustomMailerHandler
     events:
       - cognitoUserPool:
         pool: ${self:custom.${self:provider.stage}.COGNITO_USERPOOL_ID}

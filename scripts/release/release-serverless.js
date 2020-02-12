@@ -12,7 +12,7 @@ const releaseServerless = async () => {
   }
 
   if (packageName === packageNameOnTag) {
-    execSync('cross-env CI=true serverless deploy --stage prod')
+    execSync('cross-env CI=true serverless deploy --stage PROD')
     const previousTag = getPreviousTag({ packageName: packageNameOnTag })
 
     await editReleaseNote({ packageName: packageNameOnTag, version, previousTag })
