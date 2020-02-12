@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const { execSync } = require('child_process')
 const spawn = require('child_process').spawnSync
 const Octokit = require('@octokit/rest')
 
@@ -41,7 +40,15 @@ const getVersionTag = () => {
 }
 
 const getPreviousTag = ({ packageName }) => {
-  const tagName = execSync(`git describe --always --tags $(git rev-list --tags) | grep ${packageName}`).toString()
+  const tagName = runCommand('git', [
+    'describe',
+    '--always',
+    '--tags',
+    '$(git rev-list --tags)',
+    '|',
+    'grep',
+    packageName,
+  ])
   const tagNameArr = tagName.split('\n')
   const PREVIOUS_TAG_INDEX = 1
   if (tagNameArr[PREVIOUS_TAG_INDEX]) {
@@ -101,7 +108,7 @@ monitor: https://sentry.io/organizations/reapit-ltd/projects/`
 
 const editReleaseNote = async ({ packageName, version, previousTag }) => {
   try {
-    const commitLog = execSync(`git log ${packageName}_${version}...${previousTag}`).toString()
+    const commitLog = runCommand('git', ['log', `${packageName}_${version}...${previousTag}`])
     const token = process.env.GITHUB_TOKEN
     const octokit = new Octokit({ auth: token })
     const latestRelease = await octokit.repos.getReleaseByTag({

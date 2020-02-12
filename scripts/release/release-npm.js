@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-const { execSync } = require('child_process')
-const { getPreviousTag, editReleaseNote, getVersionTag } = require('./utils')
+const { getPreviousTag, editReleaseNote, getVersionTag, runCommand } = require('./utils')
 
 const releaseServerless = async () => {
   const [, , ...args] = process.argv
@@ -12,7 +11,7 @@ const releaseServerless = async () => {
   }
 
   if (packageName === packageNameOnTag) {
-    execSync('npm publish')
+    runCommand('npm', ['publish'])
     const previousTag = getPreviousTag({ packageName: packageNameOnTag })
 
     await editReleaseNote({ packageName: packageNameOnTag, version, previousTag })
