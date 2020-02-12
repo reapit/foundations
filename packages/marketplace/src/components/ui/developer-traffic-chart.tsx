@@ -13,25 +13,30 @@ export type DeveloperTrafficChartProps = {
 export const DeveloperTrafficChart: React.FC<DeveloperTrafficChartProps> = ({ stats, apps, loading }) => {
   const { appUsage } = stats || {}
   const appUsageStatsChartData = getAppUsageStatsChartData(appUsage, apps.data)
-  if (!appUsageStatsChartData) {
-    return <Alert message="You currently have no apps usage stats " type="info" />
+
+  function renderChart() {
+    if (!appUsageStatsChartData) {
+      return <Alert message="You currently have no apps usage stats " type="info" />
+    }
+
+    const { labels, data, appUsageStatsGroupedByDate } = appUsageStatsChartData
+    const chartData = getChartConfig(labels, data)
+    const chartOptions = getChartOptions(appUsageStatsGroupedByDate)
+    return (
+      <div>
+        {loading ? (
+          <Loader />
+        ) : (
+          <div>
+            <H4>Traffic (API Count)</H4>
+            <Line data={chartData} options={chartOptions} />
+          </div>
+        )}
+      </div>
+    )
   }
 
-  const { labels, data, appUsageStatsGroupedByDate } = appUsageStatsChartData
-  const chartData = getChartConfig(labels, data)
-  const chartOptions = getChartOptions(appUsageStatsGroupedByDate)
-  return (
-    <div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <div>
-          <H4>Traffic (API Count)</H4>
-          <Line data={chartData} options={chartOptions} />
-        </div>
-      )}
-    </div>
-  )
+  return <div>{loading ? <Loader /> : renderChart()}</div>
 }
 
 export default DeveloperTrafficChart
