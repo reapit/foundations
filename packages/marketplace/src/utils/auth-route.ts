@@ -29,11 +29,20 @@ export function getLoginTypeByPath(path: string) {
   switch (path) {
     case Routes.ADMIN_LOGIN:
       return 'ADMIN'
-      break
     case Routes.DEVELOPER_LOGIN:
       return 'DEVELOPER'
-      break
     default:
       return 'CLIENT'
+  }
+}
+
+export function getDefaultPathByLoginType(loginType: LoginType, firstLoginCookie?: string) {
+  switch (loginType) {
+    case 'ADMIN':
+      return Routes.ADMIN_APPROVALS
+    case 'DEVELOPER':
+      return !firstLoginCookie ? Routes.DEVELOPER_WELCOME : Routes.DEVELOPER_MY_APPS
+    default:
+      return Routes.INSTALLED_APPS
   }
 }
