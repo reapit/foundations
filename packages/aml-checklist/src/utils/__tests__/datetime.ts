@@ -13,7 +13,7 @@ describe('daytime', () => {
       const { identityDocument1, identityDocument2 } = idCheck
       expect(result).toEqual({
         ...idCheck,
-        checkDate: '1-01-01',
+        checkDate: '1-01-01T00:00:00+00:00',
         identityDocument1: {
           ...identityDocument1,
           expiry: toLocalTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
