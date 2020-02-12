@@ -14,6 +14,7 @@ import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
+import { logger } from 'logger'
 
 export const fetchAppDetail = async ({ clientId, id }) => {
   const response = await fetcher({
@@ -37,7 +38,7 @@ export const appDetailDataFetch = function*({ data }: Action<AppDetailParams>) {
       yield put(appDetailFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -70,7 +71,7 @@ export const requestAuthCode = function*({ data: id }: Action<string>) {
       )
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(requestAuthenticationFailure())
     yield put(
       errorThrownServer({

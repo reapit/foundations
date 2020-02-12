@@ -40,10 +40,12 @@ export class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
       type: 'COMPONENT',
       message: errorMessages.DEFAULT_COMPONENT_ERROR,
     })
-    Sentry.withScope(scope => {
-      scope.setExtras(info)
-      Sentry.captureException(error)
-    })
+    if (process.env.NODE_ENV === 'production') {
+      Sentry.withScope(scope => {
+        scope.setExtras(info)
+        Sentry.captureException(error)
+      })
+    }
   }
 
   render() {

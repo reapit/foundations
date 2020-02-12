@@ -7,6 +7,7 @@ import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import api from './api'
 import { adminAppsReceiveData } from '@/actions/admin-apps'
+import { logger } from 'logger'
 
 export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {
   try {
@@ -19,6 +20,7 @@ export const appDeleteRequestSaga = function*({ data: appId }: Action<string>) {
     }
     yield put(appDeleteRequestSuccess())
   } catch (err) {
+    logger(err)
     yield put(appDeleteRequestFailure())
     yield put(
       errorThrownServer({

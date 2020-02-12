@@ -12,6 +12,7 @@ import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { REVISIONS_PER_PAGE } from '@/constants/paginator'
+import { logger } from 'logger'
 
 export const adminDevManagementRequestDataHandler = function*({ data: { page, queryString } }) {
   yield put(adminDevManagementLoading(true))
@@ -34,6 +35,7 @@ export const adminDevManagementRequestDataHandler = function*({ data: { page, qu
       yield put(adminDevManagementRequestDataFailure())
     }
   } catch (err) {
+    logger(err)
     yield put(adminDevManagementRequestDataFailure(err.message))
     yield put(
       errorThrownServer({

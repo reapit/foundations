@@ -7,6 +7,7 @@ import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { errorThrownServer } from '../actions/error'
 import { identityTypesReceiveData, identityTypesRequestFailure } from '../actions/identity-types'
 import errorMessages from '../constants/error-messages'
+import { logger } from 'logger'
 
 export const identityTypesDataFetch = function*() {
   const headers = yield call(initAuthorizedRequestHeaders)
@@ -19,6 +20,7 @@ export const identityTypesDataFetch = function*() {
     })
     yield put(identityTypesReceiveData(response))
   } catch (err) {
+    logger(err)
     yield put(identityTypesRequestFailure())
     yield put(
       errorThrownServer({

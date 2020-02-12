@@ -7,6 +7,7 @@ import store from '../core/store'
 import { getAuthRouteByLoginType } from '@/utils/auth-route'
 import { getCookieString, setCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
+import { logger } from 'logger'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
@@ -17,7 +18,7 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
       yield put(authLoginFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(authLoginFailure())
   }
 }
@@ -34,7 +35,7 @@ export const doLogout = function*() {
       `${window.location.origin}${authRoute}`,
     )
   } catch (err) {
-    console.error(err.message)
+    logger(err)
   }
 }
 
@@ -43,7 +44,7 @@ export const clearAuth = function*() {
     yield call(removeSession)
     yield put(authLogoutSuccess())
   } catch (err) {
-    console.error(err.message)
+    logger(err)
   }
 }
 
