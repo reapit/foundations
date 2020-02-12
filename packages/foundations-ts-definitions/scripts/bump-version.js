@@ -7,10 +7,7 @@ const { npm_package_name } = process.env
 const packageJsonPath = path.resolve(__dirname, '../package.json')
 
 module.exports = () => {
-  const remotePackageVersionStdOut = runCommand('yarn', ['info', npm_package_name, 'version'])
-    .toString()
-    .trim()
-    .split('\n')
+  const remotePackageVersionStdOut = runCommand('yarn', ['info', npm_package_name, 'version']).split('\n')
   let remotePackageVersion = ''
 
   // Ex of remotePackageVersionStdOut: ['0.0.0']
