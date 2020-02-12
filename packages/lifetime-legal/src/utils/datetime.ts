@@ -8,18 +8,23 @@ import { IdentityCheckModel } from '@reapit/foundations-ts-definitions'
  */
 export const changeTimeZoneLocalForIdentityCheck = (identityChecks: IdentityCheckModel): IdentityCheckModel => {
   const { identityDocument1, identityDocument2 } = identityChecks
-  return {
+  const newIdentity = {
     ...identityChecks,
-    identityDocument1: {
+    checkDate: toLocalTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
+  }
+  if (identityDocument1) {
+    newIdentity.identityDocument1 = {
       ...identityDocument1,
       expiry: toLocalTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
-    },
-    identityDocument2: {
+    }
+  }
+  if (identityDocument2) {
+    newIdentity.identityDocument2 = {
       ...identityDocument2,
       expiry: toLocalTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.RFC3339),
-    },
-    checkDate: toLocalTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
+    }
   }
+  return newIdentity
 }
 
 /**
@@ -28,16 +33,21 @@ export const changeTimeZoneLocalForIdentityCheck = (identityChecks: IdentityChec
  */
 export const changeTimeZoneUTCForIdentityCheck = (identityChecks: IdentityCheckModel): IdentityCheckModel => {
   const { identityDocument1, identityDocument2 } = identityChecks
-  return {
+  const newIdentity = {
     ...identityChecks,
-    identityDocument1: {
-      ...identityDocument1,
-      expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
-    },
-    identityDocument2: {
-      ...identityDocument2,
-      expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
-    },
     checkDate: toUTCTime(identityChecks.checkDate as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
   }
+  if (identityDocument1) {
+    newIdentity.identityDocument1 = {
+      ...identityDocument1,
+      expiry: toUTCTime(identityDocument1?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
+    }
+  }
+  if (identityDocument2) {
+    newIdentity.identityDocument2 = {
+      ...identityDocument2,
+      expiry: toUTCTime(identityDocument2?.expiry as dayjs.ConfigType, DATE_TIME_FORMAT.YYYY_MM_DD),
+    }
+  }
+  return newIdentity
 }
