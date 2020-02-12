@@ -1,7 +1,9 @@
 {
   "LOCAL": {
+    "REAPIT_ENV": "",
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
+    "MARKET_PLACE_URL": "",
     "MARKETPLACE_API_KEY": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
@@ -30,8 +32,10 @@
     "SENTRY_PROJECT_URL_LTL_APP": ""
   },
   "DEV": {
+    "REAPIT_ENV": "",
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
+    "MARKET_PLACE_URL": "",
     "MARKETPLACE_API_KEY": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
@@ -60,8 +64,10 @@
     "SENTRY_PROJECT_URL_LTL_APP": ""
   },
   "PROD": {
+    "REAPIT_ENV": "",
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
+    "MARKET_PLACE_URL": "",
     "MARKETPLACE_API_KEY": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
@@ -90,8 +96,10 @@
     "SENTRY_PROJECT_URL_LTL_APP": ""
   },
   "DEMO": {
+    "REAPIT_ENV": "",
     "PLATFORM_BASE_URL": "",
     "MARKETPLACE_BASE_URL": "",
+    "MARKET_PLACE_URL": "",
     "MARKETPLACE_API_KEY": "",
     "NODE_ENV": "",
     "NPM_TOKEN": "",
