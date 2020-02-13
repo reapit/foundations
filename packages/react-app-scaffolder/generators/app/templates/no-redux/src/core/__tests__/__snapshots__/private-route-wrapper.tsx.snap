@@ -1,13 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PrivateRouter should match a snapshot 1`] = `
-<Redirect
-  to="/login"
-/>
+<ContextProvider
+  value={
+    Object {
+      "loginSession": null,
+      "logout": [Function],
+      "refreshSession": null,
+      "setRefreshSession": [Function],
+    }
+  }
+>
+  <Component
+    location={
+      Object {
+        "search": "/client/apps?username=wmcvay@reapit.com&desktopToken=TOKEN",
+      }
+    }
+    path="/"
+  />
+</ContextProvider>
 `;
 
 exports[`PrivateRouter should match a snapshot for desktop login 1`] = `
-<Redirect
-  to="/login"
-/>
+<ContextProvider
+  value={
+    Object {
+      "loginSession": null,
+      "logout": [Function],
+      "refreshSession": null,
+      "setRefreshSession": [Function],
+    }
+  }
+>
+  <Component
+    location={
+      Object {
+        "search": "",
+      }
+    }
+    path="/"
+  />
+</ContextProvider>
 `;
