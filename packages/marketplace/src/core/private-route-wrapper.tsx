@@ -8,7 +8,7 @@ import { Loader, Section, FlexContainerBasic, AppNavContainer } from '@reapit/el
 import { LoginType, RefreshParams, getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
 import { Dispatch } from 'redux'
 import { withRouter, Redirect } from 'react-router'
-import { getDefaultRouteByLoginType, getDefaultPathByLoginType } from '@/utils/auth-route'
+import { getDefaultRouteByLoginType, getAuthRouteByLoginType } from '@/utils/auth-route'
 import { authSetRefreshSession, checkTermsAcceptedWithCookie, setTermsAcceptedWithCookie } from '../actions/auth'
 import { getCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 
@@ -47,13 +47,17 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   const params = new URLSearchParams(location.search)
   const state = params.get('state')
-  const type =
-    state && state.includes('ADMIN') ? 'ADMIN' : state && state.includes('DEVELOPER') ? 'DEVELOPER' : loginType
+  const type = state && state.includes('ADMIN') ? 'ADMIN' : state && state.includes('CLIENT') ? 'CLIENT' : loginType
 
   const firstLoginCookie = getCookieString(COOKIE_FIRST_TIME_LOGIN)
   const route = getDefaultRouteByLoginType(type, firstLoginCookie)
   const cognitoClientId = process.env.COGNITO_CLIENT_ID_MARKETPLACE as string
   const refreshParams = getTokenFromQueryString(location.search, cognitoClientId, type, route)
+
+  if (type && location.pathname === '/') {
+    const path = getAuthRouteByLoginType(type)
+    return <Redirect to={path} />
+  }
 
   if (refreshParams && !hasSession) {
     setRefreshSession(refreshParams)
@@ -64,11 +68,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
     console.log('no session, route', route)
     redirectToOAuth(cognitoClientId, route, type)
     return null
-  }
-
-  if (loginType && location.pathname === '/') {
-    const path = getDefaultPathByLoginType(loginType, firstLoginCookie)
-    return <Redirect to={path} />
   }
 
   return (

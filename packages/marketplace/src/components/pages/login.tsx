@@ -10,7 +10,7 @@ import Routes from '../../constants/routes'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import { withRouter, RouteComponentProps } from 'react-router'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
-import { getLoginTypeByPath, getDefaultRouteByLoginType } from '@/utils/auth-route'
+import { getLoginTypeByPath, getDefaultPathByLoginType, getDefaultRouteByLoginType } from '@/utils/auth-route'
 import { getCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 import connectImage from '@/assets/images/reapit-connect.png'
 
@@ -54,12 +54,13 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   authChangeLoginType(currentLoginType)
 
   const firstLoginCookie = getCookieString(COOKIE_FIRST_TIME_LOGIN)
-  const redirectRoute = getDefaultRouteByLoginType(loginType, firstLoginCookie)
 
   if (hasSession) {
+    const redirectRoute = getDefaultPathByLoginType(loginType, firstLoginCookie)
     return <Redirect to={redirectRoute} />
   }
   const loginHandler = () => {
+    const redirectRoute = getDefaultRouteByLoginType(loginType, firstLoginCookie)
     redirectToLogin(process.env.COGNITO_CLIENT_ID_MARKETPLACE as string, redirectRoute, loginType)
   }
 
