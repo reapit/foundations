@@ -15,7 +15,7 @@ const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
-        <Route path={Routes.HOME} exact component={HomePage} fetcher />
+        <Route path={Routes.HOME} exact component={HomePage} />
         <Route path={Routes.LOGIN} component={LoginPage} />
         <PrivateRouteWrapper path="/">
           <Switch>

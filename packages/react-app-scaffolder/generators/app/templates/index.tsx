@@ -1,12 +1,14 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import Router from './router'
-import { Provider } from 'react-redux'
-import store from './store'
 
 <% if (redux) { %>
 import store from './store'
   import { Provider } from 'react-redux'
+<% } %>
+
+<% if (noRedux) { %>
+  import { AuthProvider } from '@/context/authContext'
 <% } %>
 
 <% if (graphql) { %>
@@ -32,25 +34,33 @@ const App = () => (
   <>
     <% if (graphql) { %>
       <ApolloProvider client={client}>
-        <% } %>
+    <% } %>
 
-      <% if (redux) { %>
-          <Provider store={store.reduxStore}>
-            <% } %>
+    <% if (redux) { %>
+      <Provider store={store.reduxStore}>
+    <% } %>
 
-      <% if (styledComponents) { %>
-              <GlobalStyle />
-              <% } %>
+    <% if (noRedux) { %>
+      <AuthProvider>
+    <% } %>
 
       <Router />
 
-            <% if (redux) { %>
-    </Provider>
-          <% } %>
+    <% if (noRedux) { %>
+      </AuthProvider>
+    <% } %>
+
+    <% if (redux) { %>
+      </Provider>
+    <% } %>
 
     <% if (graphql) { %>
       </ApolloProvider>
-      <% } %>
+    <% } %>
+
+    <% if (stylesSolution === 'styledComponents') { %>
+      <GlobalStyle />
+    <% } %>
   </>
 )
 

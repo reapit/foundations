@@ -154,7 +154,7 @@ module.exports = class extends Generator {
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
       const { name, repo, description, author, isFoundation, stylesSolution } = this.answers
-      const { redux, graphql } = this
+      const { redux, graphql, noRedux } = this
       const configFiles = ['jest.config.js']
 
       /**
@@ -211,18 +211,21 @@ module.exports = class extends Generator {
       this.log({
         name,
         redux,
+        noRedux,
         graphql,
         stylesSolution: stylesSolution === 'sass' ? 'Sass/CSS' : 'Styled Components',
       })
       this.fs.copyTpl(this.templatePath(this.projectTypePath), this.destinationPath('./'), {
         name,
         redux,
+        noRedux,
         graphql,
         stylesSolution,
       })
 
       this.fs.copyTpl(this.templatePath('./index.tsx'), this.destinationPath('./src/core/index.tsx'), {
         redux,
+        noRedux,
         graphql,
         stylesSolution,
       })
@@ -306,6 +309,7 @@ module.exports = class extends Generator {
 
     if (stateManagementStyle === 'No Redux') {
       this.projectTypePath = 'no-redux'
+      this.noRedux = true
     }
 
     if (stateManagementStyle === 'Apollo GraphQL') {
