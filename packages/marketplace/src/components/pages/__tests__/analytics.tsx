@@ -1,4 +1,5 @@
 import * as React from 'react'
+import dayjs from 'dayjs'
 import { shallow } from 'enzyme'
 import {
   AnalyticsPage,
@@ -13,7 +14,7 @@ import {
   countAppNoInstallation,
 } from '../analytics'
 import { installationsStub } from '@/sagas/__stubs__/installations'
-import { mapStateToProps } from '@/components/pages/analytics'
+import { mapStateToProps, mapDispatchToProps } from '@/components/pages/analytics'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import { DeveloperState } from '@/reducers/developer'
@@ -82,6 +83,17 @@ describe('mapStateToProps', () => {
       developer,
       appUsageStats,
     })
+  })
+})
+
+describe('mapDispatchToProps', () => {
+  it('should render correctly', () => {
+    const mockDispatch = jest.fn()
+    const { loadStats } = mapDispatchToProps(mockDispatch)
+    loadStats({
+      dateFrom: dayjs().toISOString(),
+    })
+    expect(mockDispatch).toBeCalled()
   })
 })
 
