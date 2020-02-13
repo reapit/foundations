@@ -16,7 +16,6 @@ exports[`Router should match a snapshot 1`] = `
         "hash": "",
         "pathname": "/",
         "search": "",
-        "state": undefined,
       },
       "push": [Function],
       "replace": [Function],
@@ -37,7 +36,6 @@ exports[`Router should match a snapshot 1`] = `
           }
         }
         exact={true}
-        fetcher={true}
         path="/"
       />
       <Route
@@ -51,11 +49,11 @@ exports[`Router should match a snapshot 1`] = `
         }
         path="/login"
       />
-      <withRouter(Connect(Component))
+      <withRouter()
         path="/"
       >
         <Switch>
-          <Connect(Component)
+          <Component
             allow="CLIENT"
             component={
               Object {
@@ -68,7 +66,7 @@ exports[`Router should match a snapshot 1`] = `
             path="/authenticated"
           />
         </Switch>
-      </withRouter(Connect(Component))>
+      </withRouter()>
       <Redirect
         to="/login"
       />
