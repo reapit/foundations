@@ -46,7 +46,6 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
   if (!data) {
     return null
   }
-
   const {
     id,
     media = [],
@@ -59,6 +58,7 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
     isListed,
     isDirectApi,
     authFlow,
+    externalId,
   } = data
   const icon = media.filter(({ type }) => type === 'icon')[0]
   const carouselImages = media.filter(({ type }) => type === 'image')
@@ -111,8 +111,8 @@ export const AppDetail: React.FunctionComponent<AppDetailProps> = ({
               <>
                 <p className={styles.appInfo}>App Information</p>
                 <div key="app-id" className={styles.appInfoRow}>
-                  <p className={styles.appInfoProperty}>App ID:</p>
-                  <p>{id}</p>
+                  <p className={styles.appInfoProperty}>Client ID:</p>
+                  <p>{externalId}</p>
                 </div>
                 <div key="app-listed" className={styles.appInfoRow}>
                   <p className={styles.appInfoProperty}>Status:</p>
