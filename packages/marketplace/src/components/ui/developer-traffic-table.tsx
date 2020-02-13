@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { UsageStatsModel, PagedResultAppSummaryModel_, AppUsageStatsModel } from '@reapit/foundations-ts-definitions'
 import { H4, Table, toLocalTime, Loader } from '@reapit/elements'
+import styles from '@/styles/pages/analytics.scss?mod'
 
 export interface DeveloperAppTrafficProps {
   stats: UsageStatsModel
@@ -44,7 +45,10 @@ export const generateUsageStatsColumns = () => () => {
   ]
 }
 
-export const calculateTotalRequest = (usageStatsData: AppUsageStats[]) => {
+export const calculateTotalRequest = (usageStatsData?: AppUsageStats[]) => {
+  if (!usageStatsData) {
+    return 0
+  }
   return usageStatsData.reduce((previousValue, currentValue) => {
     const requests = currentValue.requests || 0
     return previousValue + requests
@@ -56,7 +60,11 @@ const DeveloperTrafficTable: React.FC<DeveloperAppTrafficProps> = ({ stats, apps
   const usageStatsColumns = useMemo(generateUsageStatsColumns(), [usageStatsData])
 
   const renderTotalRequest = () => {
-    return <H4 className="is-pulled-right">Total API Calls: {calculateTotalRequest(usageStatsData)}</H4>
+    return (
+      <H4 className={`${styles.totalCount} is-pulled-right`}>
+        Total API Calls: {calculateTotalRequest(usageStatsData)}
+      </H4>
+    )
   }
 
   return (
@@ -66,7 +74,7 @@ const DeveloperTrafficTable: React.FC<DeveloperAppTrafficProps> = ({ stats, apps
       ) : (
         <>
           <H4>Traffic</H4>
-          <p>
+          <p className="is-italic">
             The traffic table below shows all API calls made against each of your applications since the date your app
             was created
           </p>

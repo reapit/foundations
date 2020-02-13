@@ -1,6 +1,17 @@
 import * as React from 'react'
 import ErrorBoundary from '@/components/hocs/error-boundary'
-import { Table, FlexContainerBasic, H3, H4, Loader, toLocalTime, Pagination, Grid, GridItem } from '@reapit/elements'
+import {
+  Table,
+  FlexContainerBasic,
+  H3,
+  H4,
+  Loader,
+  toLocalTime,
+  Pagination,
+  Grid,
+  GridItem,
+  FlexContainerResponsive,
+} from '@reapit/elements'
 import orderBy from 'lodash.orderby'
 import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
@@ -161,14 +172,14 @@ export const InstallationTable: React.FC<{
       ) : (
         <>
           <H4>Installations</H4>
-          <p>
+          <p className="is-italic">
             The installations table below shows the individual installations per client with a total number of
             installations per app
           </p>
           <div className={styles.totalCount}>
             {Object.entries(appCountEntries).map(([appName, count]) => (
               <p key={appName}>
-                Total current installation for <strong>{appName}</strong>: {count}
+                Total current installations for <strong>{appName}</strong>: {count}
               </p>
             ))}
           </div>
@@ -216,24 +227,30 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
 
   return (
     <ErrorBoundary>
-      <FlexContainerBasic hasPadding flexColumn className={styles.wrapAnalytics}>
-        <H3>Dashboard</H3>
-        <hr className={styles.hr} />
-        <Grid isMultiLine>
-          <GridItem>
-            <DeveloperInstallationsChart data={installationAppDataArrayWithName} loading={installationsAppLoading} />
-          </GridItem>
-          <GridItem>
-            <DeveloperTrafficChart stats={appUsageStatsData} apps={developerAppsData} loading={appUsageStatsLoading} />
-          </GridItem>
-        </Grid>
-        <DeveloperTrafficTable stats={appUsageStatsData} apps={developerAppsData} loading={appUsageStatsLoading} />
-        <InstallationTable
-          installedApps={installationAppDataArrayWithName}
-          installations={installations}
-          developer={developer}
-          loading={installationsAppLoading}
-        />
+      <FlexContainerBasic hasPadding flexColumn>
+        <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.wrapAnalytics}>
+          <H3>Dashboard</H3>
+          <hr className={styles.hr} />
+          <Grid isMultiLine>
+            <GridItem>
+              <DeveloperInstallationsChart data={installationAppDataArrayWithName} loading={installationsAppLoading} />
+            </GridItem>
+            <GridItem>
+              <DeveloperTrafficChart
+                stats={appUsageStatsData}
+                apps={developerAppsData}
+                loading={appUsageStatsLoading}
+              />
+            </GridItem>
+          </Grid>
+          <DeveloperTrafficTable stats={appUsageStatsData} apps={developerAppsData} loading={appUsageStatsLoading} />
+          <InstallationTable
+            installedApps={installationAppDataArrayWithName}
+            installations={installations}
+            developer={developer}
+            loading={installationsAppLoading}
+          />
+        </FlexContainerResponsive>
       </FlexContainerBasic>
     </ErrorBoundary>
   )

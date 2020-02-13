@@ -5,7 +5,9 @@ exports[`DeveloperTrafficTable should match a snapshot 1`] = `
   <Component>
     Traffic
   </Component>
-  <p>
+  <p
+    className="is-italic"
+  >
     The traffic table below shows all API calls made against each of your applications since the date your app was created
   </p>
   <Component
@@ -43,5 +45,11 @@ exports[`DeveloperTrafficTable should match a snapshot 1`] = `
     loading={false}
     scrollable={true}
   />
+  <Component
+    className="undefined is-pulled-right"
+  >
+    Total API Calls: 
+    5
+  </Component>
 </div>
 `;

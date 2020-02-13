@@ -4,6 +4,7 @@ import DeveloperTrafficTable, {
   DeveloperAppTrafficProps,
   generateUsageStatsData,
   AppUsageStats,
+  calculateTotalRequest,
 } from '../developer-traffic-table'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { usageStatsDataStub } from '@/sagas/__stubs__/app-usage-stats'
@@ -39,6 +40,18 @@ describe('DeveloperTrafficTable', () => {
       }
       const result = generateUsageStatsData(props)()
       expect(result).toEqual(undefined)
+    })
+  })
+
+  describe('calculate total api request', () => {
+    it('should run correctly', () => {
+      const props = {
+        apps: appsDataStub.data,
+        stats: usageStatsDataStub,
+      }
+      const usageStatsData = generateUsageStatsData(props)()
+      const result = calculateTotalRequest(usageStatsData)
+      expect(result).toEqual(5)
     })
   })
 })

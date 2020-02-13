@@ -39,12 +39,13 @@ module.exports = {
     'platform-schema.ts',
   ],
   rules: {
-    'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
     semi: ['error', 'never'],
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used' }],
     '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error', {
+      'endOfLine': 'auto'
+    }],
     'max-len': ['error', { code: 120, ignoreUrls: true }],
     'no-confusing-arrow': ['error', { allowParens: false }],
     'no-mixed-operators': [
