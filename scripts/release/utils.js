@@ -66,7 +66,7 @@ const appendCommitInfo = ({ releaseNote, commitLogArr }) => {
   let newReleaseNote = releaseNote
   const COMMIT_INDEX = 0
   const COMMIT_AUTHOR_INDEX = 1
-  releaseNote = releaseNote.concat(`
+  newReleaseNote = newReleaseNote.concat(`
 - ${commitLogArr[COMMIT_INDEX]} | ${
     commitLogArr[COMMIT_AUTHOR_INDEX]
       ? commitLogArr[COMMIT_AUTHOR_INDEX].replace('Author: ', '')
@@ -78,7 +78,7 @@ const appendCommitInfo = ({ releaseNote, commitLogArr }) => {
 const appendCommitMessage = ({ releaseNote, commitLogArr }) => {
   let newReleaseNote = releaseNote
   for (let i = 4; i < commitLogArr.length; i++) {
-    newReleaseNote = releaseNote.concat(
+    newReleaseNote = newReleaseNote.concat(
       `${commitLogArr[i] ? commitLogArr[i].replace('\n').replace(/\s{2,}/g, '') : ''}`,
     )
   }
