@@ -11,9 +11,7 @@ import { errorThrownServer } from '@/actions/error'
 import { showNotificationMessage } from '@/actions/notification-message'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { selectDeveloperId, selectDeveloperEmail } from '@/selector/developer'
-import { authLogoutSuccess } from '@/actions/auth'
-import Routes from '@/constants/routes'
-import { history } from '../core/router'
+import { authLogout } from '@/actions/auth'
 import { logger } from 'logger'
 
 export const fetchDeveloperInfo = async (developerId: string | null | undefined) => {
@@ -108,11 +106,12 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     const email = yield select(selectDeveloperEmail)
     /* rename for compatible reason */
     const { currentPassword: password, password: newPassword } = data
+    const cognitoClientId = process.env.COGNITO_CLIENT_ID_MARKETPLACE || ''
     const response = yield call(changePassword, {
       userName: email,
       password,
       newPassword,
-      cognitoClientId: 'cognitoClientId',
+      cognitoClientId,
     })
     const isCallAPISuccess = response === 'SUCCESS'
     if (!isCallAPISuccess) {
@@ -124,10 +123,8 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
         message: messages.CHANGE_SAVE_SUCCESSFULLY,
       }),
     )
-    const SUCCESS_ALERT_LOGIN_PAGE = `${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`
     yield call(removeSession)
-    yield put(authLogoutSuccess())
-    yield history.replace(SUCCESS_ALERT_LOGIN_PAGE)
+    yield put(authLogout())
   } catch (error) {
     logger(error)
     yield put(
