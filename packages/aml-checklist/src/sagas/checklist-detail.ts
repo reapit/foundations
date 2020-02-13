@@ -24,7 +24,11 @@ import store from '@/core/store'
 import { handlePepSearchStatus } from '@/utils/pep-search'
 import dayjs from 'dayjs'
 import { ID_STATUS } from '@/components/ui/modal/modal'
-import { changeTimeZoneLocalForIdentityCheck, changeTimeZoneUTCForIdentityCheck } from '@/utils/datetime'
+import {
+  changeTimeZoneLocalForIdentityCheck,
+  changeTimeZoneUTCForIdentityCheck,
+  formatDateForContact,
+} from '@/utils/datetime'
 import { logger } from 'logger'
 
 export const fetchChecklist = async ({ id, headers }) => {
@@ -65,7 +69,8 @@ export const fetchIdentityCheck = async ({ contactId, headers }) => {
 
 export const updateChecklist = async ({ contact, headers }) => {
   try {
-    const { _eTag, ...otherData } = contact
+    const formattedContact = formatDateForContact(contact)
+    const { _eTag, ...otherData } = formattedContact
     const response = await fetcher({
       url: `${URLS.contacts}/${contact.id}`,
       api: process.env.PLATFORM_API_BASE_URL as string,

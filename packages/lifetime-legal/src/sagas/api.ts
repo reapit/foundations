@@ -1,6 +1,10 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS } from '@/constants/api'
-import { changeTimeZoneUTCForIdentityCheck, changeTimeZoneLocalForIdentityCheck } from '@/utils/datetime'
+import {
+  changeTimeZoneUTCForIdentityCheck,
+  changeTimeZoneLocalForIdentityCheck,
+  formatDateForContact,
+} from '@/utils/datetime'
 import { CONTACTS_PER_PAGE } from '@/constants/paginator'
 import { logger } from 'logger'
 
@@ -36,12 +40,13 @@ export const fetchContacts = async ({ headers, params }) => {
 
 export const updateContact = async ({ contactId, headers, contact }) => {
   try {
+    const formattedContact = formatDateForContact(contact)
     const response = await fetcher({
       url: `${URLS.contacts}/${contactId}`,
       api: process.env.PLATFORM_API_BASE_URL as string,
       method: 'PATCH',
       headers,
-      body: contact,
+      body: formattedContact,
     })
     return response
   } catch (err) {
