@@ -10,7 +10,8 @@ import Routes from '@/constants/routes'
 import { LOGIN_TYPE } from '@/constants/auth'
 import { Input, Button, H1, Level, Alert, isEmail } from '@reapit/elements'
 import { LoginParams } from '@reapit/cognito-auth'
-import loginStyles from '@/styles/pages/login.scss?mod'
+<% if (stylesSolution == 'sass') { %>import loginStyles from '@/styles/pages/login.scss?mod'<%}%>
+<% if (stylesSolution == 'styledComponents') { %>import { Container, Wrapper, ImageContainer } from './__styles__/login'<%}%>
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 
 export interface LoginMappedActions {
@@ -60,7 +61,7 @@ export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginF
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { hasSession, error, login } = props
-  const { disabled, wrapper, container, image } = loginStyles
+  <% if (stylesSolution == 'sass') { %>const { disabled, wrapper, container, image } = loginStyles<%}%>
 
   React.useEffect(() => {
     if (error) {
@@ -73,10 +74,15 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   }
 
   return (
-    <div className={container}>
+    <% if (stylesSolution == 'sass') { %><div className={container}>
       <div className={`${wrapper} ${isSubmitting && disabled}`}>
         <H1 isCentered>Sign in</H1>
-        <p className="pb-8">Welcome to <%= name %></p>
+        <p className="pb-8">Welcome to <%= name %></p><%}%>
+    
+    <% if (stylesSolution == 'styledComponents') { %><Container>
+      <Wrapper disabled={isSubmitting}>
+        <H1 isCentered>Sign in</H1>
+        <p className="pb-8">Welcome to <%= name %></p><%}%>    
 
         <Formik
           validate={validate}
@@ -111,12 +117,23 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
             </Form>
           )}
         />
-      </div>
 
-      <div className={image}>
-        <img src={logoImage} alt="Reapit Graphic" />
+        <% if (stylesSolution == 'sass') { %>
+          </div>
+
+        <div className={image}>
+          <img src={logoImage} alt="Reapit Graphic" />
+        </div>
       </div>
-    </div>
+        <%}%>
+        <% if (stylesSolution == 'styledComponents') { %>
+          </Wrapper>
+
+          <ImageContainer>
+            <img src={logoImage} alt="Reapit Graphic" />
+          </ImageContainer>
+        </Container>
+        <%}%>
   )
 }
 
