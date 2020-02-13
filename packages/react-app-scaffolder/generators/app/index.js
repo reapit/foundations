@@ -60,44 +60,12 @@ module.exports = class extends Generator {
   _addStyleSolution() {
     const { stylesSolution, name, isFoundation } = this.answers
 
-    /**
-     * use styled components
-     */
-    if (stylesSolution === 'styledComponents') {
-      this.fs.copy(this.templatePath('styled-components/**/src/**/*'), this.destinationPath())
-    }
-    /**
-     * use scss Copy base styles
-     */
+
     if (stylesSolution === 'sass') {
-      this.fs.copy(
-        this.templatePath('sass/_purgecss-loader.js'),
-        this.destinationPath(`./src/scripts/purgecss-loader.js`),
-      )
-      this.fs.copy(
-        this.templatePath('sass/_purgecss-loader.js'),
-        this.destinationPath(`./src/scripts/purgecss-loader.js`),
-      )
-      this.fs.copy(this.templatePath('./css'), this.destinationPath('./src/'))
+      this.fs.copy(this.templatePath('./base-is-sass/**/*'), this.destinationPath('./'))
+    } else {
+      this.fs.copy(this.templatePath('./base-is-not-sass/**/*'), this.destinationPath('./'))
     }
-
-    /**
-     * interpolate by styling solution
-     * pages that need a different styled-components version
-     */
-    ;['login'].forEach(page => {
-      /**
-       * Delete the file to be interpolated
-       * Else we will get a conflict message which is annoying
-       */
-      this.fs.delete(this.destinationPath(`/src/components/pages/${page}.tsx`))
-
-      this.fs.copyTpl(
-        this.templatePath(`${this.projectTypePath}/src/components/pages/${page}.tsx`),
-        this.destinationPath(`./src/components/pages/${page}.tsx`),
-        { stylesSolution, name },
-      )
-    })
   }
 
   _addAzure() {
@@ -145,12 +113,6 @@ module.exports = class extends Generator {
         author,
         isFoundation,
       })
-
-      if (stylesSolution === 'sass') {
-        this.fs.copy(this.templatePath('./base-is-sass/**/*'), this.destinationPath('./'))
-      } else {
-        this.fs.copy(this.templatePath('./base-is-not-sass/**/*'), this.destinationPath('./'))
-      }
 
       if (isFoundation) {
         // Any any additional base files specialized for non-foundation project will need to uncomment this like

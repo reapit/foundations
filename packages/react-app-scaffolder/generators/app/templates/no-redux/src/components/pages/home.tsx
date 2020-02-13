@@ -1,19 +1,10 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { RouteComponentProps } from 'react-router'
 import { Link } from 'react-router-dom'
 import { H3, FlexContainerBasic, FlexContainerResponsive, SubTitleH5 } from '@reapit/elements'
-import { ReduxState } from '@/types/core'
-import { HomeState } from '@/reducers/home'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 
-export interface HomeMappedActions {}
-
-export interface HomeMappedProps {
-  homeState: HomeState
-}
-
-export type HomeProps = HomeMappedActions & HomeMappedProps & RouteComponentProps<{ page?: any }>
+export type HomeProps = RouteComponentProps
 
 export const Home: React.FunctionComponent<HomeProps> = () => {
   return (

@@ -2,6 +2,7 @@
 
 exports[`App should match a snapshot 1`] = `
 <<<<<<< HEAD
+<<<<<<< HEAD
 <Provider>
 =======
 <Provider
@@ -16,6 +17,9 @@ exports[`App should match a snapshot 1`] = `
   }
 >
 >>>>>>> temp
+=======
+<Provider>
+>>>>>>> de461f29... chore: #227: scaffolder option no redux (#268)
   <Component />
 </Provider>
 `;

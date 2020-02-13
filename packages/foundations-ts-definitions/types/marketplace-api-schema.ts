@@ -564,10 +564,6 @@ export interface CreateDeveloperModel {
    */
   name?: string
   /**
-   * Sets the password the developer uses to log in
-   */
-  password?: string
-  /**
    * Sets the company to which this developer is acting on behalf of
    */
   companyName?: string

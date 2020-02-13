@@ -28,7 +28,7 @@ export const generateMenuConfig = (
         key: 'APPS',
         icon: <FaCloud className="nav-item-icon" />,
         callback: () =>
-          (window.location.href = !window.location.href.includes('dev')
+          (window.location.href = !window.location.href.includes('dev') || window.location.href.includes('localhost')
             ? 'https://marketplace.reapit.cloud/client/installed'
             : 'https://dev.marketplace.reapit.cloud/client/installed'),
         type: 'PRIMARY',

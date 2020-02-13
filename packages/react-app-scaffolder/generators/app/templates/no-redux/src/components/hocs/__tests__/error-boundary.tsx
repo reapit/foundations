@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { ErrorBoundary, ErrorState } from '../error-boundary'
+import { ErrorBoundary } from '../error-boundary'
 
 const Component: React.FC = () => <div>I am a component!</div>
 Component.displayName = 'Component'

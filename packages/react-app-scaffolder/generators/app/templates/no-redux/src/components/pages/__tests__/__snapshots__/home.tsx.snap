@@ -2,6 +2,7 @@
 
 exports[`Home should match a snapshot 1`] = `
 <<<<<<< HEAD
+<<<<<<< HEAD
 <ErrorBoundary>
   <Component
     hasBackground={true}
@@ -16,10 +17,19 @@ exports[`Home should match a snapshot 1`] = `
   >
     <FlexContainerResponsive
 >>>>>>> temp
+=======
+<ErrorBoundary>
+  <Component
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <Component
+>>>>>>> de461f29... chore: #227: scaffolder option no redux (#268)
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
     >
+<<<<<<< HEAD
 <<<<<<< HEAD
       <Component>
         Welcome To Reapit Elements
@@ -31,6 +41,12 @@ exports[`Home should match a snapshot 1`] = `
       </H3>
       <SubTitleH5>
 >>>>>>> temp
+=======
+      <Component>
+        Welcome To Reapit Elements
+      </Component>
+      <Component>
+>>>>>>> de461f29... chore: #227: scaffolder option no redux (#268)
         Click 
         <Link
           to="/login"
@@ -39,14 +55,20 @@ exports[`Home should match a snapshot 1`] = `
         </Link>
          to login
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> de461f29... chore: #227: scaffolder option no redux (#268)
       </Component>
     </Component>
   </Component>
 </ErrorBoundary>
+<<<<<<< HEAD
 =======
       </SubTitleH5>
     </FlexContainerResponsive>
   </FlexContainerBasic>
 </Connect(ErrorBoundary)>
 >>>>>>> temp
+=======
+>>>>>>> de461f29... chore: #227: scaffolder option no redux (#268)
 `;
