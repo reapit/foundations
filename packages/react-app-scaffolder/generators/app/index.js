@@ -238,7 +238,7 @@ module.exports = class extends Generator {
           author,
         })
       } else {
-        this.fs.copyTpl(this.templatePath('_package.base.isFoundation.json'), this.destinationPath('./package.json'), {
+        this.fs.copyTpl(this.templatePath('_package.base.is-foundation.json'), this.destinationPath('./package.json'), {
           name,
           repo,
           description,
