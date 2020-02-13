@@ -2,6 +2,7 @@
 
 ![Pull Request](https://github.com/reapit/foundations/workflows/Pull%20Request/badge.svg)
 ![Release develop](https://github.com/reapit/foundations/workflows/Release%20develop/badge.svg)
+![Release production](https://github.com/reapit/foundations/workflows/Release%20production/badge.svg)
 
 This is the repository for the Reapit Foundations API, Marketplace, cloud applications and tooling.
 
