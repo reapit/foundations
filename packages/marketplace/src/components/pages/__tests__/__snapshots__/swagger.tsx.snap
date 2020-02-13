@@ -12,6 +12,7 @@ exports[`Swagger should match a snapshot 1`] = `
       <SwaggerUI
         docExpansion="none"
         onComplete={[Function]}
+        requestInterceptor={[Function]}
       />
     </div>
     <Component
