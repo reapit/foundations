@@ -57,5 +57,8 @@ out*
 package-lock.json
 .env
 invite-developers.js
+<<<<<<< HEAD
 
 app-name
+=======
+>>>>>>> chore: #116 #117 update ts-definition pipeline, scripts (#226)
