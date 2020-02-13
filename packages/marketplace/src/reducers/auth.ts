@@ -29,7 +29,7 @@ export const defaultState = (): AuthState => {
     loginSession: null,
     firstLogin: false,
     isTermAccepted: true,
-    loginType: refreshSession ? refreshSession.loginType : 'CLIENT',
+    loginType: refreshSession ? refreshSession.loginType : 'DEVELOPER',
     refreshSession,
   }
 }
