@@ -67,13 +67,13 @@ module.exports = class extends Generator {
   }
 
   _addWebpack() {
-    const { sass, name, isFoundation } = this.answers
+    const { stylesSolution, name, isFoundation } = this.answers
 
     if (isFoundation) {
       return
     }
 
-    if (sass) {
+    if (stylesSolution === 'sass') {
       this.fs.copy(this.templatePath('sass/_webpack-dev.sass.js'), this.destinationPath('./src/scripts/webpack-dev.js'))
       this.fs.copy(
         this.templatePath('sass/_webpack-prod.sass.js'),
@@ -85,43 +85,35 @@ module.exports = class extends Generator {
     }
   }
 
-  _addSass() {
-    const { sass, name, isFoundation } = this.answers
-
-    if (!sass) {
-      return
-    }
-
-    if (!isFoundation) {
-      this._mergePackageJson('sass/_package.sass.json')
-    }
-
-    this.fs.copy(
-      this.templatePath('sass/_purgecss-loader.js'),
-      this.destinationPath(`./src/scripts/purgecss-loader.js`),
-    )
-    this.fs.copy(
-      this.templatePath('sass/_purgecss-loader.js'),
-      this.destinationPath(`./src/scripts/purgecss-loader.js`),
-    )
-  }
-
   _addStyleSolution() {
-    const { styledComponents, name, isFoundation } = this.answers
+    const { stylesSolution, name, isFoundation } = this.answers
 
-    if (styledComponents) {
+    /**
+     * use styled components
+     */
+    if (stylesSolution === 'styledComponents') {
       if (!isFoundation) {
         this._mergePackageJson('styled-components/_package.styled-components.json')
       }
-
       this.fs.copy(this.templatePath('styled-components/**/src/**/*'), this.destinationPath())
     }
-
     /**
-     * Copy base styles
+     * use scss Copy base styles
      */
-    if (!styledComponents) {
-      this.fs.copy(this.templatePath('./css'), this.destinationPath())
+    if (stylesSolution === 'sass') {
+      if (!isFoundation) {
+        this._mergePackageJson('sass/_package.sass.json')
+      }
+
+      this.fs.copy(
+        this.templatePath('sass/_purgecss-loader.js'),
+        this.destinationPath(`./src/scripts/purgecss-loader.js`),
+      )
+      this.fs.copy(
+        this.templatePath('sass/_purgecss-loader.js'),
+        this.destinationPath(`./src/scripts/purgecss-loader.js`),
+      )
+      this.fs.copy(this.templatePath('./css'), this.destinationPath('./src/'))
     }
 
     /**
@@ -129,6 +121,10 @@ module.exports = class extends Generator {
      * pages that need a different styled-components version
      */
     ;['login'].forEach(page => {
+      this.log({
+        message: 'loop file',
+        file: page,
+      })
       /**
        * Delete the file to be interpolated
        * Else we will get a conflict message which is annoying
@@ -138,7 +134,7 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath(`${this.projectTypePath}/src/components/pages/${page}.tsx`),
         this.destinationPath(`./src/components/pages/${page}.tsx`),
-        { styledComponents, name },
+        { stylesSolution, name },
       )
     })
   }
@@ -157,7 +153,7 @@ module.exports = class extends Generator {
 
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
-      const { name, repo, description, author, isFoundation, styledComponents } = this.answers
+      const { name, repo, description, author, isFoundation, stylesSolution } = this.answers
       const { redux, graphql } = this
       const configFiles = ['jest.config.js']
 
@@ -216,25 +212,24 @@ module.exports = class extends Generator {
         name,
         redux,
         graphql,
-        styledComponents,
+        stylesSolution: stylesSolution === 'sass' ? 'Sass/CSS' : 'Styled Components',
       })
       this.fs.copyTpl(this.templatePath(this.projectTypePath), this.destinationPath('./'), {
         name,
         redux,
         graphql,
-        styledComponents,
+        stylesSolution,
       })
 
       this.fs.copyTpl(this.templatePath('./index.tsx'), this.destinationPath('./src/core/index.tsx'), {
         redux,
         graphql,
-        styledComponents,
+        stylesSolution,
       })
 
       this.fs.commit([], () => {
         this._addWebpack()
         this._addStyleSolution()
-        this._addSass()
         this._addAzure()
         this.fs.commit([], () => {
           this._installAndExport()
@@ -278,14 +273,10 @@ module.exports = class extends Generator {
         default: true,
       },
       {
-        type: 'confirm',
-        name: 'styledComponents',
-        message: 'Would you like Styled Components?',
-      },
-      {
-        type: 'confirm',
-        name: 'sass',
-        message: 'Would you like Sass/CSS?',
+        type: 'list',
+        name: 'stylesSolution',
+        message: 'Pick project styles solution',
+        choices: ['Styled Components', 'Sass/CSS'],
       },
       {
         type: 'list',
@@ -307,7 +298,7 @@ module.exports = class extends Generator {
       },
     ])
 
-    const { stateManagementStyle } = this.answers
+    const { stateManagementStyle, stylesSolution } = this.answers
     if (stateManagementStyle === 'Redux') {
       this.projectTypePath = 'redux'
       this.redux = true
@@ -320,6 +311,14 @@ module.exports = class extends Generator {
     if (stateManagementStyle === 'Apollo GraphQL') {
       this.projectTypePath = 'apollo'
       this.graphql = true
+    }
+
+    if (stylesSolution === 'Styled Components') {
+      this.answers.stylesSolution = 'styledComponents'
+    }
+
+    if (stylesSolution === 'Sass/CSS') {
+      this.answers.stylesSolution = 'sass'
     }
 
     /**

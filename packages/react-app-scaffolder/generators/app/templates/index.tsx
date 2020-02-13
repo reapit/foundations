@@ -13,7 +13,7 @@ import store from './store'
 import { ApolloProvider } from '@apollo/react-hooks'
 <% } %>
 
-<% if (!styledComponents) { %>
+<% if (stylesSolution == 'sass') { %>
 import '@/styles/index.scss'
 <% } else { %>
 import { createGlobalStyle } from 'styled-components'
