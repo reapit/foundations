@@ -3505,8 +3505,6 @@ export interface UpdateDeveloperModel {
    */
   isInactive?: boolean
 }
-<<<<<<< Updated upstream
-=======
 /**
  * Representations of an apps statistics
  */
