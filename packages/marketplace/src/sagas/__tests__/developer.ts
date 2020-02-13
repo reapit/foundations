@@ -91,7 +91,7 @@ describe('developer fetch data', () => {
 })
 
 describe('developer create', () => {
-  const params: CreateDeveloperModel = { name: '123', password: '123' }
+  const params: CreateDeveloperModel = { name: '123' }
   const gen = cloneableGenerator(developerCreate as any)({ data: params })
   expect(gen.next().value).toEqual(put(developerSetFormState('SUBMITTING')))
   expect(gen.next().value).toEqual(

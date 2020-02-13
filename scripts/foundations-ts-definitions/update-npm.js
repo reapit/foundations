@@ -1,18 +1,21 @@
 const semver = require('semver')
+const { runCommand } = require('../release/utils')
 const fs = require('fs')
 const path = require('path')
-const { runCommand } = require('../../../scripts/release/utils')
-
-const { npm_package_name } = process.env
-const packageJsonPath = path.resolve(__dirname, '../package.json')
+const { FOUNDATION_ROOT_FOLDER, PACKAGE_NAME } = require('./constants')
+const packageJsonPath = path.resolve(FOUNDATION_ROOT_FOLDER, './package.json')
 
 module.exports = () => {
-  const remotePackageVersionStdOut = runCommand('yarn', ['info', npm_package_name, 'version']).split('\n')
+  const remotePackageVersionStdOut = runCommand('yarn', [
+    'info',
+    '@reapit/foundations-ts-definitions',
+    'version',
+  ]).split('\n')
   let remotePackageVersion = ''
 
   // Ex of remotePackageVersionStdOut: ['0.0.0']
   const errrRemotePackageVersionStdOutInvalid = new Error(
-    `Response of command: "yarn info ${npm_package_name} version" is invalid`,
+    `Response of command: "yarn info ${PACKAGE_NAME} version" is invalid`,
   )
   const isRemotePackageVersionStdOutValid =
     !remotePackageVersionStdOut || !typeof Array.isArray(remotePackageVersionStdOut)
@@ -34,13 +37,4 @@ module.exports = () => {
   let parsedPackageJsonContent = JSON.parse(packageJsonContent)
   parsedPackageJsonContent.version = bumpedVersion
   fs.writeFileSync(packageJsonPath, JSON.stringify(parsedPackageJsonContent, null, 2))
-
-  runCommand('git', ['remote', 'add', 'sshOrigin', `git@github.com:${process.env.GITHUB_REPOSITORY}.git`])
-  runCommand('git', ['config', '--global', 'user.email', '"GithubActions@email.com"'])
-  runCommand('git', ['config', '--global', 'user.name', '"Github Actions"'])
-
-  runCommand('git', ['add', '.'])
-  runCommand('git', ['commit', '-m', `"Update TypeScript definition - version: ${bumpedVersion}"`])
-  runCommand('yarn', ['publish'])
-  runCommand('git', ['push', '-u', 'sshOrigin', 'HEAD:master'])
 }

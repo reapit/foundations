@@ -1,12 +1,10 @@
 const prettier = require('prettier')
+const prettierBaseConfig = require('../../.prettierrc.js')
 
 module.exports = content => {
   const formatContent = prettier.format(content, {
-    singleQuote: true,
-    printWidth: 120,
-    semi: false,
     parser: 'typescript',
-    tabWidth: 2,
+    ...prettierBaseConfig,
   })
 
   return formatContent

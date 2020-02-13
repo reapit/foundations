@@ -1,0 +1,45 @@
+name: Check for Typescript definition update
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: '0 0 1-31 * *'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checks out repository to $GITHUB_WORKSPACE
+        uses: actions/checkout@v1
+
+      - name: Setup Node Environement
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: build-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            build-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Integrate Git credential
+        uses: webfactory/ssh-agent@v0.1.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Fetch latest definition
+        run: yarn workspace @reapit/foundations-ts-definitions fetch-definition
+
+      - name: If definition is changed then bump minor npm package, publish and push commit to master
+        run: yarn workspace @reapit/foundations-ts-definitions handle-cron-job
+
+env:
+  NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

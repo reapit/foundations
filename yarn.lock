@@ -2973,6 +2973,11 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@reapit/foundations-ts-definitions@2020-02-13":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@reapit/foundations-ts-definitions/-/foundations-ts-definitions-0.0.31.tgz#57141878d9f40e1ee94cd4fdafa03703a43aade9"
+  integrity sha512-BxC/ivbIhPgja9KcIa55T4k0LzKW5FNu9f+CS1W8Ifq8yQXJ1uT3rWsXGxIs0FJHgZjnuxD8/+xuJwqZH81jKg==
+
 "@redux-saga/core@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@redux-saga/core/-/core-1.1.3.tgz#3085097b57a4ea8db5528d58673f20ce0950f6a4"
