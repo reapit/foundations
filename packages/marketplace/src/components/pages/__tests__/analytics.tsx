@@ -12,9 +12,12 @@ import {
   sortAppByDateInstalled,
   countAppHasInstallation,
   countAppNoInstallation,
+  handleFetchAppUsageStatsDataUseCallback,
+  handleFetchAppUsageStatsDataUseEffect,
+  mapStateToProps,
+  mapDispatchToProps,
 } from '../analytics'
 import { installationsStub } from '@/sagas/__stubs__/installations'
-import { mapStateToProps, mapDispatchToProps } from '@/components/pages/analytics'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import { DeveloperState } from '@/reducers/developer'
@@ -94,6 +97,24 @@ describe('mapDispatchToProps', () => {
       dateFrom: dayjs().toISOString(),
     })
     expect(mockDispatch).toBeCalled()
+  })
+})
+
+describe('handleFetchAppUsageStatsDataUseCallback', () => {
+  it('should run correctly', () => {
+    const installationAppData = installationsStub.data || []
+    const fn = handleFetchAppUsageStatsDataUseCallback(installationAppData, loadStats)
+    fn()
+    expect(loadStats).toBeCalled()
+  })
+})
+
+describe('handleFetchAppUsageStatsDataUseEffect', () => {
+  it('should run correctly', () => {
+    const mockFunction = jest.fn()
+    const fn = handleFetchAppUsageStatsDataUseEffect(mockFunction)
+    fn()
+    expect(mockFunction).toBeCalled()
   })
 })
 

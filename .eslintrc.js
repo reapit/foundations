@@ -65,7 +65,7 @@ module.exports = {
     indent: 0,
     // Disabling as we are validating types with TypeScript not PropTypes
     'react/prop-types': 0,
-    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/rules-of-hooks": "warn",
     "react-hooks/exhaustive-deps": "warn",
   },
   settings: {

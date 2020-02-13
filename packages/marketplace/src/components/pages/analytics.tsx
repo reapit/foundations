@@ -197,6 +197,27 @@ export const InstallationTable: React.FC<{
   )
 }
 
+export const handleFetchAppUsageStatsDataUseCallback = (
+  installationAppDataArray: InstallationModel[],
+  loadStats: (params: AppUsageStatsParams) => void,
+) => {
+  return () => {
+    const orderedInstallationsByDate: InstallationModel[] = orderBy(installationAppDataArray, ['created'], ['asc'])
+    const firstInstallationDate = orderedInstallationsByDate[0]
+    if (firstInstallationDate) {
+      loadStats({
+        dateFrom: firstInstallationDate.created,
+      })
+    }
+  }
+}
+
+export const handleFetchAppUsageStatsDataUseEffect = (fetchAppUsageStatsData: () => void) => {
+  return () => {
+    fetchAppUsageStatsData()
+  }
+}
+
 export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer, appUsageStats, loadStats }) => {
   const installationAppDataArray = installations.installationsAppData?.data ?? []
   const developerDataArray = developer.developerData?.data?.data ?? []
@@ -206,19 +227,12 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
     [installationAppDataArray, developerDataArray],
   )
 
-  const fetchAppUsageStatsData = React.useCallback(() => {
-    const orderedInstallationsByDate: InstallationModel[] = orderBy(installationAppDataArray, ['created'], ['asc'])
-    const firstInstallationDate = orderedInstallationsByDate[0]
-    if (firstInstallationDate) {
-      loadStats({
-        dateFrom: firstInstallationDate.created,
-      })
-    }
-  }, [installationAppDataArray, loadStats])
+  const fetchAppUsageStatsData = React.useCallback(
+    handleFetchAppUsageStatsDataUseCallback(installationAppDataArray, loadStats),
+    [installationAppDataArray, loadStats],
+  )
 
-  React.useEffect(() => {
-    fetchAppUsageStatsData()
-  }, [fetchAppUsageStatsData])
+  React.useEffect(handleFetchAppUsageStatsDataUseEffect(fetchAppUsageStatsData), [fetchAppUsageStatsData])
 
   const appUsageStatsLoading = appUsageStats.loading
   const appUsageStatsData = appUsageStats.appUsageStatsData || {}
