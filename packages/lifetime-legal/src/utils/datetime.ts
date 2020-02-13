@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import { toUTCTime, toLocalTime, DATE_TIME_FORMAT } from '@reapit/elements'
-import { IdentityCheckModel } from '@reapit/foundations-ts-definitions'
+import { IdentityCheckModel, ContactModel } from '@reapit/foundations-ts-definitions'
 
 /**
  * This function created by backend required parse time to UTC before submit
@@ -50,4 +50,11 @@ export const changeTimeZoneUTCForIdentityCheck = (identityChecks: IdentityCheckM
     }
   }
   return newIdentity
+}
+
+export const formatDateForContact = (contact: ContactModel) => {
+  return {
+    ...contact,
+    dateOfBirth: dayjs(contact.dateOfBirth).format(DATE_TIME_FORMAT.YYYY_MM_DD),
+  }
 }
