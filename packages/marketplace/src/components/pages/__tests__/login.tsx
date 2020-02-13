@@ -16,6 +16,7 @@ const props: LoginProps = {
 
 describe('Login', () => {
   it('should match a snapshot', () => {
+    process.env.REAPIT_ENV = 'DEV'
     expect(shallow(<Login {...props} />)).toMatchSnapshot()
   })
 
