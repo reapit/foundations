@@ -56,9 +56,6 @@ elements/public
 out*
 package-lock.json
 .env
-<<<<<<< HEAD
 invite-developers.js
-=======
->>>>>>> temp
 
 app-name
