@@ -2541,8 +2541,10 @@ export interface CreateOfferModel {
   negotiatorId?: string
   /**
    * The date when the offer was made
+   * example:
+   * 2019-08-14
    */
-  date?: string // date-time
+  date?: string // date
   /**
    * The monetary amount of the offer
    */
@@ -2824,16 +2826,22 @@ export interface CreatePropertyInternalAreaModel {
 export interface CreatePropertyLettingModel {
   /**
    * The date the property was marked as to let
+   * example:
+   * 2019-08-14
    */
-  instructed?: string // date-time
+  instructed?: string // date
   /**
    * The date the property is available from
+   * example:
+   * 2019-08-14
    */
-  availableFrom?: string // date-time
+  availableFrom?: string // date
   /**
    * The date the property is available to
+   * example:
+   * 2019-08-14
    */
-  availableTo?: string // date-time
+  availableTo?: string // date
   /**
    * The rent being charged for the property
    */
@@ -3016,8 +3024,10 @@ export interface CreatePropertyModel {
   selling?: {
     /**
      * The date that the property was marked as for sale
+     * example:
+     * 2019-08-14
      */
-    instructed?: string // date-time
+    instructed?: string // date
     /**
      * The marketing price of the property
      */
@@ -3040,8 +3050,10 @@ export interface CreatePropertyModel {
       type?: string
       /**
        * The tenure expiration date
+       * example:
+       * 2019-08-14
        */
-      expiry?: string // date-time
+      expiry?: string // date
     }
   }
   /**
@@ -3050,16 +3062,22 @@ export interface CreatePropertyModel {
   letting?: {
     /**
      * The date the property was marked as to let
+     * example:
+     * 2019-08-14
      */
-    instructed?: string // date-time
+    instructed?: string // date
     /**
      * The date the property is available from
+     * example:
+     * 2019-08-14
      */
-    availableFrom?: string // date-time
+    availableFrom?: string // date
     /**
      * The date the property is available to
+     * example:
+     * 2019-08-14
      */
-    availableTo?: string // date-time
+    availableTo?: string // date
     /**
      * The rent being charged for the property
      */
@@ -3160,8 +3178,10 @@ export interface CreatePropertyRoomModel {
 export interface CreatePropertySellingModel {
   /**
    * The date that the property was marked as for sale
+   * example:
+   * 2019-08-14
    */
-  instructed?: string // date-time
+  instructed?: string // date
   /**
    * The marketing price of the property
    */
@@ -3184,8 +3204,10 @@ export interface CreatePropertySellingModel {
     type?: string
     /**
      * The tenure expiration date
+     * example:
+     * 2019-08-14
      */
-    expiry?: string // date-time
+    expiry?: string // date
   }
 }
 /**
@@ -3198,8 +3220,10 @@ export interface CreatePropertyTenureModel {
   type?: string
   /**
    * The tenure expiration date
+   * example:
+   * 2019-08-14
    */
-  expiry?: string // date-time
+  expiry?: string // date
 }
 /**
  * Request body used to create a new source of business
@@ -3547,13 +3571,13 @@ export interface IdentityChecks {
   Id?: string[]
   ContactId?: string[]
   NegotiatorId?: string[]
-  Status?: string[]
   CheckDateFrom?: string
   CheckDateTo?: string
   CreatedFrom?: string
   CreatedTo?: string
   pageNumber?: number
   pageSize?: number
+  Status?: ('unknown' | 'unchecked' | 'pending' | 'fail' | 'cancelled' | 'warnings' | 'pass')[]
 }
 /**
  * Representation of a single identity document that was provided as part of a contact identity check (eg. passport)
@@ -3953,6 +3977,8 @@ export interface ListItemModel {
 }
 /**
  * Representation of a negotiator
+ * example:
+ * 2019-08-14T12:30:02.0000000Z
  */
 export interface NegotiatorModel {
   /**
@@ -3961,10 +3987,14 @@ export interface NegotiatorModel {
   id?: string
   /**
    * The date and time when the negotiator was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
    */
   created?: string // date-time
   /**
    * The date and time when the negotiator was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
    */
   modified?: string // date-time
   /**
@@ -4131,6 +4161,8 @@ export interface OfferContactModel {
 }
 /**
  * Representation of an offer
+ * example:
+ * 2019-08-14T12:30:02.0000000Z
  */
 export interface OfferModel {
   /**
@@ -4139,10 +4171,14 @@ export interface OfferModel {
   id?: string
   /**
    * The the date and time when the offer was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
    */
   created?: string // date-time
   /**
    * The date and time when the offer was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
    */
   modified?: string // date-time
   /**
@@ -4163,8 +4199,10 @@ export interface OfferModel {
   negotiatorId?: string
   /**
    * The date when the offer was made
+   * example:
+   * 2019-08-14
    */
-  date?: string // date-time
+  date?: string // date
   /**
    * The monetary amount of the offer
    */
@@ -4328,6 +4366,8 @@ export interface OfficeAddressModel {
 }
 /**
  * Representation of an office
+ * example:
+ * 2019-08-14T12:30:02.0000000Z
  */
 export interface OfficeModel {
   /**
@@ -4336,10 +4376,14 @@ export interface OfficeModel {
   id?: string
   /**
    * The date and time when the office was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
    */
   created?: string // date-time
   /**
    * The date and time when the office was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
    */
   modified?: string // date-time
   /**
@@ -5749,10 +5793,14 @@ export interface PagedResultNegotiatorModel_ {
     id?: string
     /**
      * The date and time when the negotiator was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
      */
     created?: string // date-time
     /**
      * The date and time when the negotiator was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
      */
     modified?: string // date-time
     /**
@@ -5820,10 +5868,14 @@ export interface PagedResultOfferModel_ {
     id?: string
     /**
      * The the date and time when the offer was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
      */
     created?: string // date-time
     /**
      * The date and time when the offer was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
      */
     modified?: string // date-time
     /**
@@ -5844,8 +5896,10 @@ export interface PagedResultOfferModel_ {
     negotiatorId?: string
     /**
      * The date when the offer was made
+     * example:
+     * 2019-08-14
      */
-    date?: string // date-time
+    date?: string // date
     /**
      * The monetary amount of the offer
      */
@@ -5973,10 +6027,14 @@ export interface PagedResultOfficeModel_ {
     id?: string
     /**
      * The date and time when the office was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
      */
     created?: string // date-time
     /**
      * The date and time when the office was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
      */
     modified?: string // date-time
     /**
@@ -6126,10 +6184,14 @@ export interface PagedResultPropertyModel_ {
     id?: string
     /**
      * The date and time when the property was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
      */
     created?: string // date-time
     /**
      * The date and time when the property was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
      */
     modified?: string // date-time
     /**
@@ -6303,8 +6365,10 @@ export interface PagedResultPropertyModel_ {
     selling?: {
       /**
        * The date that the property was marked as for sale
+       * example:
+       * 2019-08-14
        */
-      instructed?: string // date-time
+      instructed?: string // date
       /**
        * The marketing price of the property
        */
@@ -6327,8 +6391,10 @@ export interface PagedResultPropertyModel_ {
         type?: string
         /**
          * The tenure expiration date
+         * example:
+         * 2019-08-14
          */
-        expiry?: string // date-time
+        expiry?: string // date
       }
       /**
        * The unique identifier of the vendor selling the property
@@ -6341,16 +6407,22 @@ export interface PagedResultPropertyModel_ {
     letting?: {
       /**
        * The date the property was marked as to let
+       * example:
+       * 2019-08-14
        */
-      instructed?: string // date-time
+      instructed?: string // date
       /**
        * The date the property is next available from
+       * example:
+       * 2019-08-14
        */
-      availableFrom?: string // date-time
+      availableFrom?: string // date
       /**
        * The date the property is available to
+       * example:
+       * 2019-08-14
        */
-      availableTo?: string // date-time
+      availableTo?: string // date
       /**
        * The rent being charged for the property
        */
@@ -7061,16 +7133,22 @@ export interface PropertyInternalAreaModel {
 export interface PropertyLettingModel {
   /**
    * The date the property was marked as to let
+   * example:
+   * 2019-08-14
    */
-  instructed?: string // date-time
+  instructed?: string // date
   /**
    * The date the property is next available from
+   * example:
+   * 2019-08-14
    */
-  availableFrom?: string // date-time
+  availableFrom?: string // date
   /**
    * The date the property is available to
+   * example:
+   * 2019-08-14
    */
-  availableTo?: string // date-time
+  availableTo?: string // date
   /**
    * The rent being charged for the property
    */
@@ -7094,6 +7172,8 @@ export interface PropertyLettingModel {
 }
 /**
  * Representation of a property
+ * example:
+ * 2019-08-14T12:30:02.0000000Z
  */
 export interface PropertyModel {
   /**
@@ -7102,10 +7182,14 @@ export interface PropertyModel {
   id?: string
   /**
    * The date and time when the property was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
    */
   created?: string // date-time
   /**
    * The date and time when the property was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
    */
   modified?: string // date-time
   /**
@@ -7279,8 +7363,10 @@ export interface PropertyModel {
   selling?: {
     /**
      * The date that the property was marked as for sale
+     * example:
+     * 2019-08-14
      */
-    instructed?: string // date-time
+    instructed?: string // date
     /**
      * The marketing price of the property
      */
@@ -7303,8 +7389,10 @@ export interface PropertyModel {
       type?: string
       /**
        * The tenure expiration date
+       * example:
+       * 2019-08-14
        */
-      expiry?: string // date-time
+      expiry?: string // date
     }
     /**
      * The unique identifier of the vendor selling the property
@@ -7317,16 +7405,22 @@ export interface PropertyModel {
   letting?: {
     /**
      * The date the property was marked as to let
+     * example:
+     * 2019-08-14
      */
-    instructed?: string // date-time
+    instructed?: string // date
     /**
      * The date the property is next available from
+     * example:
+     * 2019-08-14
      */
-    availableFrom?: string // date-time
+    availableFrom?: string // date
     /**
      * The date the property is available to
+     * example:
+     * 2019-08-14
      */
-    availableTo?: string // date-time
+    availableTo?: string // date
     /**
      * The rent being charged for the property
      */
@@ -7435,8 +7529,10 @@ export interface PropertyRoomModel {
 export interface PropertySellingModel {
   /**
    * The date that the property was marked as for sale
+   * example:
+   * 2019-08-14
    */
-  instructed?: string // date-time
+  instructed?: string // date
   /**
    * The marketing price of the property
    */
@@ -7459,8 +7555,10 @@ export interface PropertySellingModel {
     type?: string
     /**
      * The tenure expiration date
+     * example:
+     * 2019-08-14
      */
-    expiry?: string // date-time
+    expiry?: string // date
   }
   /**
    * The unique identifier of the vendor selling the property
@@ -7477,8 +7575,10 @@ export interface PropertyTenureModel {
   type?: string
   /**
    * The tenure expiration date
+   * example:
+   * 2019-08-14
    */
-  expiry?: string // date-time
+  expiry?: string // date
 }
 /**
  * Representation of a source of business
@@ -8708,8 +8808,10 @@ export interface UpdateOfferModel {
   negotiatorId?: string
   /**
    * The date when the offer was made
+   * example:
+   * 2019-08-14
    */
-  date?: string // date-time
+  date?: string // date
   /**
    * The monetary amount of the offer
    */
@@ -8983,16 +9085,22 @@ export interface UpdatePropertyInternalAreaModel {
 export interface UpdatePropertyLettingModel {
   /**
    * The date the property was marked as to let
+   * example:
+   * 2019-08-14
    */
-  instructed?: string // date-time
+  instructed?: string // date
   /**
    * The date the property is next available from
+   * example:
+   * 2019-08-14
    */
-  availableFrom?: string // date-time
+  availableFrom?: string // date
   /**
    * The date the property is available to
+   * example:
+   * 2019-08-14
    */
-  availableTo?: string // date-time
+  availableTo?: string // date
   /**
    * The rent being charged for the property
    */
@@ -9167,8 +9275,10 @@ export interface UpdatePropertyModel {
   selling?: {
     /**
      * The date that the property was marked as for sale
+     * example:
+     * 2019-08-14
      */
-    instructed?: string // date-time
+    instructed?: string // date
     /**
      * The marketing price of the property
      */
@@ -9191,8 +9301,10 @@ export interface UpdatePropertyModel {
       type?: string
       /**
        * The tenure expiration date
+       * example:
+       * 2019-08-14
        */
-      expiry?: string // date-time
+      expiry?: string // date
     }
   }
   /**
@@ -9201,16 +9313,22 @@ export interface UpdatePropertyModel {
   letting?: {
     /**
      * The date the property was marked as to let
+     * example:
+     * 2019-08-14
      */
-    instructed?: string // date-time
+    instructed?: string // date
     /**
      * The date the property is next available from
+     * example:
+     * 2019-08-14
      */
-    availableFrom?: string // date-time
+    availableFrom?: string // date
     /**
      * The date the property is available to
+     * example:
+     * 2019-08-14
      */
-    availableTo?: string // date-time
+    availableTo?: string // date
     /**
      * The rent being charged for the property
      */
@@ -9277,8 +9395,10 @@ export interface UpdatePropertyModel {
 export interface UpdatePropertySellingModel {
   /**
    * The date that the property was marked as for sale
+   * example:
+   * 2019-08-14
    */
-  instructed?: string // date-time
+  instructed?: string // date
   /**
    * The marketing price of the property
    */
@@ -9301,8 +9421,10 @@ export interface UpdatePropertySellingModel {
     type?: string
     /**
      * The tenure expiration date
+     * example:
+     * 2019-08-14
      */
-    expiry?: string // date-time
+    expiry?: string // date
   }
 }
 /**
@@ -9315,8 +9437,10 @@ export interface UpdatePropertyTenureModel {
   type?: string
   /**
    * The tenure expiration date
+   * example:
+   * 2019-08-14
    */
-  expiry?: string // date-time
+  expiry?: string // date
 }
 /**
  * Request body used to update an existing source of business

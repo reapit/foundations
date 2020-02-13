@@ -20,7 +20,9 @@
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@reapit/foundations-ts-definitions": "2020-02-13"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",

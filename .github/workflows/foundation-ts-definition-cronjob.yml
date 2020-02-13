@@ -35,11 +35,10 @@ jobs:
         run: yarn install
 
       - name: Fetch latest definition
-        run: yarn fetch-definition
+        run: yarn workspace @reapit/foundations-ts-definitions fetch-definition
 
       - name: If definition is changed then bump minor npm package, publish and push commit to master
-        run: |
-          yarn handle-cron-job
+        run: yarn workspace @reapit/foundations-ts-definitions handle-cron-job
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}

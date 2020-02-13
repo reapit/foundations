@@ -11,8 +11,6 @@
   "scripts": {
     "build": "lerna run build:prod --parallel",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
-    "fetch-definition": "node './scripts/foundations-ts-definitions/fetch-definition.js'",
-    "handle-cron-job": "node './scripts/foundations-ts-definitions/handle-cronjob.js'",
     "lint": "eslint --ext=jsx,ts,tsx packages --fix",
     "release:dev": "lerna run release:dev --parallel",
     "release:prod": "lerna run release:prod --parallel",
