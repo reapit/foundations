@@ -19,7 +19,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && lerna run test:update-badges --since HEAD^ && git add .",
+      "pre-commit": "lint-staged && lerna run test:update-badges --since HEAD && git add .",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
