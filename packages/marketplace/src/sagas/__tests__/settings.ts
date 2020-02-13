@@ -20,9 +20,7 @@ import errorMessages from '@/constants/error-messages'
 import messages from '@/constants/messages'
 import { developerStub } from '../__stubs__/developer'
 import { removeSession, changePassword } from '@reapit/cognito-auth'
-import { history } from '../../core/router'
-import Routes from '@/constants/routes'
-import { authLogoutSuccess } from '@/actions/auth'
+import { authLogout } from '@/actions/auth'
 import { showNotificationMessage } from '@/actions/notification-message'
 
 jest.mock('@reapit/elements')
@@ -127,7 +125,7 @@ describe('settings', () => {
           password: '123',
           newPassword: '456',
           userName: 'abc@gmail.com',
-          cognitoClientId: 'cognitoClientId',
+          cognitoClientId: process.env.COGNITO_CLIENT_ID_MARKETPLACE || '',
         }),
       )
       expect(clone.next('SUCCESS').value).toEqual(
@@ -139,8 +137,7 @@ describe('settings', () => {
         ),
       )
       expect(clone.next().value).toEqual(call(removeSession))
-      expect(clone.next().value).toEqual(put(authLogoutSuccess()))
-      expect(clone.next().value).toEqual(history.replace(`${Routes.DEVELOPER_LOGIN}?isChangePasswordSuccess=1`))
+      expect(clone.next().value).toEqual(put(authLogout()))
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
     })
@@ -152,7 +149,7 @@ describe('settings', () => {
           password: '123',
           newPassword: '456',
           userName: 'abc@gmail.com',
-          cognitoClientId: 'cognitoClientId',
+          cognitoClientId: process.env.COGNITO_CLIENT_ID_MARKETPLACE || '',
         }),
       )
       expect(clone.next('FAIL').value).toEqual(
