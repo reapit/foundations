@@ -157,6 +157,34 @@ Get
           <h4
             className="mb-2"
           >
+            Redirect URIs
+          </h4>
+          <DiffViewer
+            changedString=""
+            currentString=""
+            type="words"
+          />
+        </div>
+        <div
+          className="mb-3"
+        >
+          <h4
+            className="mb-2"
+          >
+            Signout URIs
+          </h4>
+          <DiffViewer
+            changedString=""
+            currentString=""
+            type="words"
+          />
+        </div>
+        <div
+          className="mb-3"
+        >
+          <h4
+            className="mb-2"
+          >
             Read data about developers
           </h4>
           <DiffCheckbox
