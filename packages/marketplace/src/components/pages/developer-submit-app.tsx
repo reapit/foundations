@@ -167,13 +167,13 @@ export const handleSubmitApp = ({
   submitApp,
   submitRevision,
   setSubmitError,
-  isAgreedTerms,
-  setShouldShowError,
+  // isAgreedTerms,
+  // setShouldShowError,
 }) => (appModel: CustomCreateAppModel, actions: FormikHelpers<CustomCreateAppModel>) => {
-  if (!isAgreedTerms) {
-    setShouldShowError(true)
-    return
-  }
+  // if (!isAgreedTerms) {
+  //   setShouldShowError(true)
+  //   return
+  // }
   if (!appId) {
     submitApp(
       {
@@ -233,11 +233,11 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
   let formState
   let appId
   /* terms state */
-  const [termModalIsOpen, setTermModalIsOpen] = React.useState<boolean>(false)
-  const [isAgreedTerms, setIsAgreedTerms] = React.useState<boolean>(false)
-  const [shouldShowError, setShouldShowError] = React.useState<boolean>(false)
+  // const [termModalIsOpen, setTermModalIsOpen] = React.useState<boolean>(false)
+  // const [isAgreedTerms, setIsAgreedTerms] = React.useState<boolean>(false)
+  // const [shouldShowError, setShouldShowError] = React.useState<boolean>(false)
   /* toggle checked input */
-  const handleOnChangeAgree = setIsAgreedTerms.bind(null, prev => !prev)
+  // const handleOnChangeAgree = setIsAgreedTerms.bind(null, prev => !prev)
 
   const [submitError, setSubmitError] = React.useState<string>()
   const goBackToApps = getGoBackToAppsFunc({ history })
@@ -315,8 +315,8 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
             submitApp,
             submitRevision,
             setSubmitError,
-            isAgreedTerms,
-            setShouldShowError,
+            // isAgreedTerms,
+            // setShouldShowError,
           })}
         >
           {({ setFieldValue, values }) => {
@@ -598,7 +598,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                   <LevelRight>
                     {submitError && <H6 className="has-text-danger mr-5">{submitError}</H6>}
                     <Grid>
-                      <GridItem>
+                      {/* <GridItem>
                         <FlexContainerBasic
                           className={`${styles['terms-submit-app']}`}
                           centerContent={false}
@@ -627,7 +627,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                           onDecline={handleDeclineTerms(setIsAgreedTerms, setTermModalIsOpen)}
                           afterClose={handleCloseModal(setTermModalIsOpen)}
                         />
-                      </GridItem>
+                      </GridItem> */}
 
                       <GridItem>
                         {!isSubmitApp && (
@@ -649,12 +649,12 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                   </LevelRight>
                 </FormSection>
 
-                {shouldShowError && (
+                {/* {shouldShowError && (
                   <Alert
                     message="Please indicate that you have read and agree to the terms and conditions"
                     type="danger"
                   />
-                )}
+                )} */}
                 <Input
                   dataTest="submit-app-developer-id"
                   type="hidden"
