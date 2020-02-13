@@ -11,6 +11,7 @@ import { Action } from '@/types/core'
 import { selectClientId, selectFeaturedApps } from '@/selector/client'
 import { selectCategories } from '@/selector/app-categories'
 import { ClientItem, ClientParams } from '@/reducers/client'
+import { logger } from 'logger'
 
 export const clientDataFetch = function*({ data }) {
   yield put(clientLoading(true))
@@ -69,7 +70,7 @@ export const clientDataFetch = function*({ data }) {
       yield put(clientRequestDataFailure())
     }
   } catch (err) {
-    console.error(err.message)
+    logger(err)
     yield put(
       errorThrownServer({
         type: 'SERVER',

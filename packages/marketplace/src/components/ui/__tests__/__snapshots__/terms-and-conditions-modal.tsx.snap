@@ -21,6 +21,7 @@ exports[`Menu should match a snapshot 1`] = `
       </Unknown>
     </React.Fragment>
   }
+  tapOutsideToDissmiss={true}
   title="Terms and Conditions"
   visible={true}
 >

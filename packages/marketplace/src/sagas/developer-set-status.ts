@@ -11,6 +11,7 @@ import errorMessages from '@/constants/error-messages'
 import { fetcher } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
+import { logger } from 'logger'
 
 export const developerSetStatusRequestSaga = function*({ data: dev }) {
   try {
@@ -30,6 +31,7 @@ export const developerSetStatusRequestSaga = function*({ data: dev }) {
 
     yield put(developerSetStatusRequestSuccess())
   } catch (err) {
+    logger(err)
     yield put(developerSetStatusRequestFailure())
     yield put(
       errorThrownServer({

@@ -1,9 +1,15 @@
 import MockDate from 'mockdate'
-import { put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
+import { select, put, all, takeLatest, call, fork } from '@redux-saga/core/effects'
 import { setUserSession, removeSession, LoginParams, LoginSession, redirectToLogout } from '@reapit/cognito-auth'
 import { Action } from '@/types/core'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
-import { getCookieString, setCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
+import {
+  getCookieString,
+  setCookieString,
+  COOKIE_FIRST_TIME_LOGIN,
+  COOKIE_TERMS_ACCEPTED,
+  COOKIE_MAX_AGE_INFINITY,
+} from '@/utils/cookie'
 import authSagas, {
   doLogin,
   doLogout,
@@ -15,12 +21,23 @@ import authSagas, {
   setFirstTimeLogin,
   checkFirstTimeLoginListen,
   checkFirstTimeLogin,
+  setTermsAcceptedWithCookieHelper,
+  checkTermsAcceptedWithCookieHelper,
+  checkTermsAcceptedListen,
+  setTermsAcceptedListen,
 } from '../auth'
 import ActionTypes from '../../constants/action-types'
-import { authLoginSuccess, authLogoutSuccess, authLoginFailure, toggleFirstLogin } from '../../actions/auth'
+import {
+  authLoginSuccess,
+  authLogoutSuccess,
+  authLoginFailure,
+  toggleFirstLogin,
+  setTermsAcceptedState,
+} from '../../actions/auth'
 import Routes from '../../constants/routes'
 import { ActionType } from '../../types/core'
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../../constants/api'
+import { selectLoginType } from '@/selector/auth'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/router', () => ({
@@ -30,6 +47,25 @@ jest.mock('../../core/router', () => ({
 }))
 jest.mock('../../core/store')
 jest.mock('@reapit/cognito-auth')
+
+/* mock to make new Date() a consistent value */
+const RealDate = Date
+
+function mockDate() {
+  global.Date = class extends RealDate {
+    constructor() {
+      super()
+      return new RealDate('2017-06-13T04:41:20') as Date
+    }
+  } as any
+}
+
+beforeEach(() => {
+  mockDate()
+})
+afterEach(() => {
+  global.Date = RealDate
+})
 
 export const mockLoginSession = {
   userName: 'bob@acme.com',
@@ -143,6 +179,8 @@ describe('auth thunks', () => {
           fork(clearAuthListen),
           fork(checkFirstTimeLoginListen),
           fork(setFirstLoginListen),
+          fork(checkTermsAcceptedListen),
+          fork(setTermsAcceptedListen),
         ]),
       )
       expect(gen.next().done).toBe(true)
@@ -175,6 +213,59 @@ describe('auth thunks', () => {
       const gen = cloneableGenerator(checkFirstTimeLogin)()
       expect(gen.next().value).toEqual(call(getCookieString, COOKIE_FIRST_TIME_LOGIN))
       expect(gen.next().value).toEqual(put(toggleFirstLogin(true)))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('checkTermsAcceptedWithCookie', () => {
+    it('should run correctly with developer login type', () => {
+      const gen = cloneableGenerator(checkTermsAcceptedWithCookieHelper)()
+      expect(gen.next().value).toEqual(select(selectLoginType))
+      expect(gen.next('DEVELOPER').value).toEqual(call(getCookieString, COOKIE_TERMS_ACCEPTED))
+      expect(gen.next('2019-12-18T16:30:00').value).toEqual(put(setTermsAcceptedState(true)))
+      expect(gen.next().done).toBe(true)
+    })
+
+    it('should run correctly with other login type', () => {
+      const gen = cloneableGenerator(checkTermsAcceptedWithCookieHelper)()
+      expect(gen.next().value).toEqual(select(selectLoginType))
+      expect(gen.next('CLIENT').done).toBe(true)
+    })
+  })
+
+  describe('setTermsAcceptedWithCookieHelper', () => {
+    it('should run correctly with true', () => {
+      const gen = cloneableGenerator(setTermsAcceptedWithCookieHelper)({ data: true })
+      expect(gen.next().value).toEqual(
+        call(setCookieString, COOKIE_TERMS_ACCEPTED, new Date(), COOKIE_MAX_AGE_INFINITY),
+      )
+      expect(gen.next().value).toEqual(put(setTermsAcceptedState(true)))
+      expect(gen.next().done).toBe(true)
+    })
+
+    it('should run correctly with false', () => {
+      const gen = cloneableGenerator(setTermsAcceptedWithCookieHelper)({ data: false })
+      expect(gen.next().value).toEqual(put(setTermsAcceptedState(false)))
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('checkTermsAcceptedListen', () => {
+    it('should run correctly', () => {
+      const gen = checkTermsAcceptedListen()
+      expect(gen.next().value).toEqual(
+        takeLatest(ActionTypes.CHECK_TERM_ACCEPTED_WITH_COOKIE, checkTermsAcceptedWithCookieHelper),
+      )
+      expect(gen.next().done).toBe(true)
+    })
+  })
+
+  describe('setTermsAcceptedListen', () => {
+    it('should run correctly', () => {
+      const gen = setTermsAcceptedListen()
+      expect(gen.next().value).toEqual(
+        takeLatest<Action<boolean>>(ActionTypes.SET_TERMS_ACCEPTED_WITH_COOKIE, setTermsAcceptedWithCookieHelper),
+      )
       expect(gen.next().done).toBe(true)
     })
   })

@@ -6,6 +6,7 @@ import { nextAppointmentValidateSuccess, nextAppointmentClear } from '@/actions/
 import { selectUserCode } from '@/selectors/auth'
 import { Action } from '@/types/core'
 import { getLoggedInUser } from '../components/common/appointment-detail/appointment-detail'
+import { logger } from 'logger'
 
 type Position = {
   lat: number
@@ -101,7 +102,7 @@ export const validateNextAppointment = function*({ data: travelMode }: Action<st
         )
       }
     } catch (err) {
-      console.error(err.message)
+      logger(err)
       yield put(nextAppointmentClear())
     }
   } else {

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-const { execSync } = require('child_process')
-const { getPreviousTag, editReleaseNote, getVersionTag } = require('./utils')
+const { getPreviousTag, editReleaseNote, getVersionTag, runCommand } = require('./utils')
 
 const releaseServerless = async () => {
   const [, , ...args] = process.argv
@@ -12,7 +11,7 @@ const releaseServerless = async () => {
   }
 
   if (packageName === packageNameOnTag) {
-    execSync('cross-env CI=true serverless deploy --stage prod')
+    runCommand('cross-env', ['CI=true', 'serverless', 'deploy', '--stage', 'prod'])
     const previousTag = getPreviousTag({ packageName: packageNameOnTag })
 
     await editReleaseNote({ packageName: packageNameOnTag, version, previousTag })

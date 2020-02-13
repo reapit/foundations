@@ -20,7 +20,7 @@ export interface ModalProps {
 
 export interface ModalHeaderProps {
   title: string
-  afterClose: () => void
+  afterClose?: () => void
 }
 
 export const ModalFooter: React.SFC<{ footerItems: React.ReactNode }> = ({ footerItems }) => (
@@ -34,15 +34,17 @@ export const ModalBody: React.SFC<{ body: React.ReactNode }> = ({ body }) => (
 export const ModalHeader: React.SFC<ModalHeaderProps> = ({ title, afterClose }) => (
   <header className="modal-card-head">
     <h4 className="modal-card-title is-4">{title}</h4>
-    <button
-      className="delete"
-      aria-label="close"
-      data-test="modal-close-button"
-      onClick={event => {
-        event.preventDefault()
-        afterClose && afterClose()
-      }}
-    />
+    {afterClose && (
+      <button
+        className="delete"
+        aria-label="close"
+        data-test="modal-close-button"
+        onClick={event => {
+          event.preventDefault()
+          afterClose && afterClose()
+        }}
+      />
+    )}
   </header>
 )
 
@@ -92,7 +94,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
             ) : (
               <>
                 {HeaderComponent && <HeaderComponent />}
-                {!HeaderComponent && afterClose && title && <ModalHeader title={title} afterClose={afterClose} />}
+                {!HeaderComponent && title && <ModalHeader title={title} afterClose={afterClose} />}
                 {children && <ModalBody body={children} />}
                 {footerItems && <ModalFooter footerItems={footerItems} />}
               </>

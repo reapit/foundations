@@ -1,6 +1,7 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
 import { APPS_PER_PAGE } from '@/constants/paginator'
+import { logger } from 'logger'
 
 export const fetchAdminApps = async ({ params }) => {
   try {
@@ -15,7 +16,7 @@ export const fetchAdminApps = async ({ params }) => {
     })
     return response
   } catch (error) {
-    console.error(error)
+    logger(error)
     throw new Error(error)
   }
 }
@@ -30,7 +31,7 @@ export const deleteApp = async ({ appId }) => {
     })
     return response
   } catch (error) {
-    console.error(error)
+    logger(error)
     throw new Error(error)
   }
 }

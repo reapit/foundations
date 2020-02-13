@@ -14,7 +14,7 @@
           <p>Some text</p>
           <p>Some text</p>
           <div style="text-align: center;">
-            <a style="border: solid thin #0061a8;padding: 10px;background-color: #0061a8;color: white;z-index: 1;text-decoration: none; font-style: normal;" href=<%= `https://dev.marketplace.reapit.com/register/confirm?userName=${userName}&verificationCode={####}` %>>CTA</a>
+            <a style="border: solid thin #0061a8;padding: 10px;background-color: #0061a8;color: white;z-index: 1;text-decoration: none; font-style: normal;" href=<%= `https://dev.marketplace.reapit.cloud/register/confirm?userName=${userName}&verificationCode={####}` %>>CTA</a>
           </div>
           <p>Some text</p>
           <br />
@@ -22,8 +22,9 @@
           <p>Reapit Team</p>
         </div>
       </article>
-      <%-include('forgotten-password', {userName: 'tanphamhaiduong@gmail.com', verificationCode: '123', url: 'https://dev.marketplace.reapit.com/developer/reset-password'}) %>
-      <%-include('confirm-registration', {userName: 'tanphamhaiduong@gmail.com', verificationCode: '123', url: 'https://dev.marketplace.reapit.com/register/confirm'}) %>
+      <%-include('forgotten-password', {userName: 'tanphamhaiduong@gmail.com', verificationCode: '123', url: 'https://dev.marketplace.reapit.cloud/developer/reset-password'}) %>
+      <%-include('confirm-registration', {userName: 'tanphamhaiduong@gmail.com', verificationCode: '123', url: 'https://dev.marketplace.reapit.cloud/register/confirm'}) %>
+      <%-include('admin-user-invite', {userName: 'tanphamhaiduong@gmail.com', verificationCode: '123'}, 'https://dev.marketplace.reapit.cloud/developer/login') %>
     </main>
   </body>
 </html>

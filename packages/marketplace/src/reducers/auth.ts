@@ -8,6 +8,7 @@ import {
   authSetRefreshSession,
   authChangeLoginType,
   toggleFirstLogin,
+  setTermsAcceptedState,
 } from '../actions/auth'
 import { LoginSession, RefreshParams, LoginType, getSessionCookie } from '@reapit/cognito-auth'
 import { COOKIE_SESSION_KEY_MARKETPLACE } from '../constants/api'
@@ -18,6 +19,7 @@ export interface AuthState {
   loginType: LoginType
   loginSession: LoginSession | null
   refreshSession: RefreshParams | null
+  isTermAccepted: boolean
 }
 
 export const defaultState = (): AuthState => {
@@ -26,6 +28,7 @@ export const defaultState = (): AuthState => {
     error: false,
     loginSession: null,
     firstLogin: false,
+    isTermAccepted: true,
     loginType: refreshSession ? refreshSession.loginType : 'CLIENT',
     refreshSession,
   }
@@ -83,6 +86,12 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
     }
   }
 
+  if (isType(action, setTermsAcceptedState)) {
+    return {
+      ...state,
+      isTermAccepted: action.data,
+    }
+  }
   return state
 }
 

@@ -6,6 +6,7 @@ import { Action } from '@/types/core'
 import { resultReceiveData, resultRequestDataFailure, ContactsParams } from '@/actions/results'
 import { initAuthorizedRequestHeaders } from '@/utils/api'
 import { fetchContacts } from './api'
+import { logger } from 'logger'
 
 export const resultFetch = function*(params: Action<ContactsParams>) {
   try {
@@ -13,6 +14,7 @@ export const resultFetch = function*(params: Action<ContactsParams>) {
     const responseContacts = yield call(fetchContacts, { headers, params })
     yield put(resultReceiveData(responseContacts))
   } catch (err) {
+    logger(err)
     yield put(resultRequestDataFailure())
     yield put(
       errorThrownServer({

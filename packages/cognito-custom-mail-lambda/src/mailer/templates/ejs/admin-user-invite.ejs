@@ -1,0 +1,25 @@
+<article style="font-family: Arial, Helvetica, sans-serif;margin:0px;background-color:white;line-height: 1.5rem;">
+  <img style="width: 100%;" src="https://reapit-s3-policy-test.s3.eu-west-2.amazonaws.com/public/image-20191122-114228.png" />
+  <h1 style="text-align: center;font-size: 34px; font-style: normal;">Verify your account</h1>
+  <div style="padding:0 20px 20px 50px;">
+    <p>Hi <%= userName %>,</p>
+    <br />
+    <p>Welcome to Reapit Foundations.</p>
+    <br />
+    <p>Please see below your temporary username and password. When you click the login link, you will be re-directed to a screen where you will be asked to change your password.</p>
+    <br />
+    <p><strong>User Name: {username}</strong></p>
+    <p><strong>Password: {####}</strong></p>
+    <br />
+    <div style="text-align: left;">
+      <a style="border: solid thin #0061a8;padding: 10px;background-color: #0061a8;color: white;z-index: 1;text-decoration: none; font-style: normal;" href=<%= `${url}` %>>LOGIN</a>
+    </div>
+    <br />
+    <p>When you have changed your password, you will be asked to log in and will be re-directed to the developer portal.</p>
+    <br />
+    <p>We look forward to seeing what you build!</p>
+    <br />
+    <p>Best Regards,</p>
+    <p>Reapit Team</p>
+  </div>
+</article>

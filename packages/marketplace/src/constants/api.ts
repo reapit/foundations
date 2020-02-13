@@ -16,7 +16,6 @@ export const URLS = {
   developers: '/developers',
   apps: '/apps',
   approvals: '/approvals',
-  swagger: '/prod/swaggerdocs',
   installations: '/installations',
   scopes: '/scopes',
   categories: '/categories',
