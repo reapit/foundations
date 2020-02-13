@@ -21,6 +21,8 @@ const diffStringList: { [k in keyof AppRevisionModel]: string } = {
   telephone: 'Telephone',
   summary: 'Summary',
   description: 'Description',
+  redirectUris: 'Redirect URIs',
+  signoutUris: 'Signout URIs',
 }
 
 type DiffMediaModel = {
@@ -124,6 +126,16 @@ export const AdminApprovalModalInner: React.FunctionComponent<AdminApprovalModal
                       changedString={revision.category?.name || ''}
                       type="words"
                     />
+                  </div>
+                )
+              }
+              if (['redirectUris', 'signoutUris'].includes(key)) {
+                const currentString = Array.isArray(app[key]) ? app[key].join(' ') : ''
+                const changedString = Array.isArray(revision[key]) ? revision[key].join(' ') : ''
+                return (
+                  <div className="mb-3" key={key}>
+                    <h4 className="mb-2">{diffStringList[key]}</h4>
+                    <DiffViewer currentString={currentString} changedString={changedString} type="words" />
                   </div>
                 )
               } else {
