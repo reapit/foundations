@@ -2,7 +2,12 @@ import dayjs from 'dayjs'
 import { DATE_TIME_FORMAT, toLocalTime, toUTCTime } from '@reapit/elements'
 import MockDate from 'mockdate'
 import { idCheck } from '@/sagas/__stubs__/id-check'
-import { changeTimeZoneLocalForIdentityCheck, changeTimeZoneUTCForIdentityCheck } from '../datetime'
+import {
+  changeTimeZoneLocalForIdentityCheck,
+  changeTimeZoneUTCForIdentityCheck,
+  formatDateForContact,
+} from '../datetime'
+import { ContactModel } from '@reapit/foundations-ts-definitions'
 
 describe('daytime', () => {
   describe('changeTimeZoneLocalForIdentityCheck', () => {
@@ -48,5 +53,18 @@ describe('daytime', () => {
       })
     })
     MockDate.reset()
+  })
+
+  describe('formatDateForContact', () => {
+    it('should run correctly', () => {
+      const contact = {
+        otherData: 'data',
+        dateOfBirth: '2020-02-13T11:14:40+00:00',
+      } as ContactModel
+      expect(formatDateForContact(contact)).toEqual({
+        otherData: 'data',
+        dateOfBirth: '2020-02-13',
+      })
+    })
   })
 })
