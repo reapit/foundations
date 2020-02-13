@@ -33,7 +33,7 @@ exports[`AppDetailModalInner should match a snapshot 1`] = `
           </p>
           <div>
             <p>
-              App ID:
+              Client ID:
             </p>
             <p />
           </div>
