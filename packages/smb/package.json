@@ -20,5 +20,7 @@
     "release:prod": "node ../../scripts/release/release-prod.js smb reapit-smb-prod"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@reapit/foundations-ts-definitions": "2020-02-13"
+  }
 }

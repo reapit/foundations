@@ -1,6 +1,3 @@
-require('dotenv').config({
-  path: '../src/constants/.env',
-})
 require('isomorphic-fetch')
 
 const fs = require('fs')
@@ -8,15 +5,10 @@ const path = require('path')
 const sw2dts = require('sw2dts')
 const prettifyCode = require('./format-code')
 
-const apiSchema = [
-  {
-    definitionFile: path.resolve(__dirname, '../types/platform-schema.ts'),
-    endpoint: 'https://dev.platform.reapit.net/docs',
-    headers: {
-      'api-version': 'latest',
-    },
-  },
-]
+const { FOUNDATION_TYPES_FOLDER } = require('./constants')
+const config = require(path.resolve(__dirname, '../../reapit-config.json'))
+const configDev = config['DEV']
+const { PLATFORM_API_BASE_URL } = configDev
 
 // Fetch definitions for a given schema
 const fetchDefinitionsForSchema = async schemaConfig => {
@@ -38,7 +30,7 @@ const fetchDefinitionsForSchema = async schemaConfig => {
     const formatDefinitions = prettifyCode(cookedDefinitions)
 
     // Write interfaces to file
-    fs.writeFile(
+    fs.writeFileSync(
       definitionFile,
       formatDefinitions,
 
@@ -58,9 +50,16 @@ const fetchDefinitionsForSchema = async schemaConfig => {
 }
 
 // Fetch definitions for all schemas
-;(async () => {
+module.exports = async apiVersion => {
+  const apiSchema = [
+    {
+      definitionFile: path.resolve(FOUNDATION_TYPES_FOLDER, './platform-schema.ts'),
+      endpoint: `${PLATFORM_API_BASE_URL}/docs`,
+      headers: {
+        'api-version': apiVersion,
+      },
+    },
+  ]
+
   return Promise.all(apiSchema.map(fetchDefinitionsForSchema))
-})().catch(err => {
-  console.error(JSON.stringify(err.message))
-  process.exit(1)
-})
+}
