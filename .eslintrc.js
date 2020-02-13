@@ -27,7 +27,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
   ignorePatterns: [
     '__mocks__/',
     'node_modules/',
@@ -39,12 +39,13 @@ module.exports = {
     'platform-schema.ts',
   ],
   rules: {
-    'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
     semi: ['error', 'never'],
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used' }],
     '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error', {
+      'endOfLine': 'auto'
+    }],
     'max-len': ['error', { code: 120, ignoreUrls: true }],
     'no-confusing-arrow': ['error', { allowParens: false }],
     'no-mixed-operators': [
@@ -64,6 +65,8 @@ module.exports = {
     indent: 0,
     // Disabling as we are validating types with TypeScript not PropTypes
     'react/prop-types': 0,
+    "react-hooks/rules-of-hooks": 0,
+    "react-hooks/exhaustive-deps": 0,
   },
   settings: {
     react: {

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import dayjs from 'dayjs'
 import { shallow } from 'enzyme'
 import {
   AnalyticsPage,
@@ -11,9 +12,12 @@ import {
   sortAppByDateInstalled,
   countAppHasInstallation,
   countAppNoInstallation,
+  handleFetchAppUsageStatsDataUseCallback,
+  handleFetchAppUsageStatsDataUseEffect,
+  mapStateToProps,
+  mapDispatchToProps,
 } from '../analytics'
 import { installationsStub } from '@/sagas/__stubs__/installations'
-import { mapStateToProps } from '@/components/pages/analytics'
 import { appsDataStub } from '@/sagas/__stubs__/apps'
 import { ReduxState } from '@/types/core'
 import { DeveloperState } from '@/reducers/developer'
@@ -43,10 +47,19 @@ const appUsageStats: AppUsageStatsState = {
   appUsageStatsData: {},
 }
 
+const loadStats = jest.fn()
+
 describe('AnalyticsPage', () => {
   it('should match snapshot', () => {
     expect(
-      shallow(<AnalyticsPage installations={installations} developer={developer} appUsageStats={appUsageStats} />),
+      shallow(
+        <AnalyticsPage
+          installations={installations}
+          developer={developer}
+          appUsageStats={appUsageStats}
+          loadStats={loadStats}
+        />,
+      ),
     ).toMatchSnapshot()
   })
 
@@ -59,6 +72,7 @@ describe('AnalyticsPage', () => {
           installations={installationsLoading}
           developer={developerLoading}
           appUsageStats={appUsageStats}
+          loadStats={loadStats}
         />,
       ),
     ).toMatchSnapshot()
@@ -72,6 +86,35 @@ describe('mapStateToProps', () => {
       developer,
       appUsageStats,
     })
+  })
+})
+
+describe('mapDispatchToProps', () => {
+  it('should render correctly', () => {
+    const mockDispatch = jest.fn()
+    const { loadStats } = mapDispatchToProps(mockDispatch)
+    loadStats({
+      dateFrom: dayjs().toISOString(),
+    })
+    expect(mockDispatch).toBeCalled()
+  })
+})
+
+describe('handleFetchAppUsageStatsDataUseCallback', () => {
+  it('should run correctly', () => {
+    const installationAppData = installationsStub.data || []
+    const fn = handleFetchAppUsageStatsDataUseCallback(installationAppData, loadStats)
+    fn()
+    expect(loadStats).toBeCalled()
+  })
+})
+
+describe('handleFetchAppUsageStatsDataUseEffect', () => {
+  it('should run correctly', () => {
+    const mockFunction = jest.fn()
+    const fn = handleFetchAppUsageStatsDataUseEffect(mockFunction)
+    fn()
+    expect(mockFunction).toBeCalled()
   })
 })
 
