@@ -33,7 +33,7 @@ const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
 const Router = () => {
   const isReapitEnvProd = process.env.REAPIT_ENV === 'PROD'
   const paths = [Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]
-  if (isReapitEnvProd) {
+  if (!isReapitEnvProd) {
     paths.push(Routes.CLIENT_LOGIN)
   }
   return (

@@ -32,6 +32,7 @@ exports[`Router should match a snapshot 1`] = `
           Array [
             "/developer/login",
             "/admin/login",
+            "/client/login",
           ]
         }
         render={[Function]}
