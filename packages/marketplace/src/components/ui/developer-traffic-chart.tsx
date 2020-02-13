@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { H4, Alert, Loader } from '@reapit/elements'
+import { H4, Loader } from '@reapit/elements'
 import { Line } from 'react-chartjs-2'
 import { UsageStatsModel, PagedResultAppSummaryModel_ } from '@reapit/foundations-ts-definitions'
 import { getAppUsageStatsChartData, getChartConfig, getChartOptions } from '@/utils/app-usage-stats.ts'
@@ -15,10 +15,6 @@ export const DeveloperTrafficChart: React.FC<DeveloperTrafficChartProps> = ({ st
   const appUsageStatsChartData = getAppUsageStatsChartData(appUsage, apps.data)
 
   function renderChart() {
-    if (!appUsageStatsChartData) {
-      return <Alert message="You currently have no apps usage stats " type="info" />
-    }
-
     const { labels, data, appUsageStatsGroupedByDate } = appUsageStatsChartData
     const chartData = getChartConfig(labels, data)
     const chartOptions = getChartOptions(appUsageStatsGroupedByDate)
