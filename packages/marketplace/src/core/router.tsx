@@ -30,12 +30,14 @@ const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
 const RegisterConfirm = React.lazy(() => import('../components/pages/register-confirm'))
 const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
 
+const reapitEnv = process.env.REAPIT_ENV || 'LOCAL'
+const isReapitEnvProd = reapitEnv === 'PROD'
 const Router = () => (
   <BrowserRouter history={history}>
     <React.Suspense fallback={null}>
       <Switch>
         <Route
-          path={[Routes.CLIENT_LOGIN, Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]}
+          path={[Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN, ...(isReapitEnvProd ? [] : [Routes.CLIENT_LOGIN])]}
           exact
           render={() => <Login />}
         />
