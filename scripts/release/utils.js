@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const spawn = require('child_process').spawnSync
+const execSync = require('child_process').execSync
 const Octokit = require('@octokit/rest')
 
 const removeUnuseChar = value => {
@@ -13,7 +14,6 @@ const runCommand = (cmd, args) => {
   if (stderr.length !== 0) {
     throw new Error(stderr.toString().trim())
   }
-
   return stdout.toString().trim()
 }
 
@@ -40,28 +40,33 @@ const getVersionTag = () => {
 }
 
 const getPreviousTag = ({ packageName }) => {
-  const tagName = runCommand('git', [
-    'describe',
-    '--always',
-    '--tags',
-    '$(git rev-list --tags)',
-    '|',
-    'grep',
-    packageName,
-  ])
-  const tagNameArr = tagName.split('\n')
-  const PREVIOUS_TAG_INDEX = 1
-  if (tagNameArr[PREVIOUS_TAG_INDEX]) {
-    tagNameArr[PREVIOUS_TAG_INDEX]
+  try {
+    const tagNameWithRef = execSync(
+      `git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | grep ${packageName} | tail -n 2`,
+    ).toString()
+    const tagNameArrWithRef = tagNameWithRef.split('\n')
+    // tagNameArrWithRef return with format refs/tags/packageName_v1.0.2
+    const PREVIOUS_TAG_WITH_REF_INDEX = 0
+    if (tagNameArrWithRef[PREVIOUS_TAG_WITH_REF_INDEX]) {
+      const tagNameArr = tagNameArrWithRef[PREVIOUS_TAG_WITH_REF_INDEX].split('/')
+      const PREVIOUS_TAG_INDEX = 2
+      if (tagNameArr[PREVIOUS_TAG_INDEX]) {
+        // tagName return with format packageName_v1.0.2
+        const tagName = tagNameArr[PREVIOUS_TAG_INDEX]
+        return tagName
+      }
+    }
+    return ''
+  } catch (err) {
+    console.error(err)
   }
-  return ''
 }
 
 const appendCommitInfo = ({ releaseNote, commitLogArr }) => {
   let newReleaseNote = releaseNote
   const COMMIT_INDEX = 0
   const COMMIT_AUTHOR_INDEX = 1
-  releaseNote = releaseNote.concat(`
+  newReleaseNote = newReleaseNote.concat(`
 - ${commitLogArr[COMMIT_INDEX]} | ${
     commitLogArr[COMMIT_AUTHOR_INDEX]
       ? commitLogArr[COMMIT_AUTHOR_INDEX].replace('Author: ', '')
@@ -73,7 +78,7 @@ const appendCommitInfo = ({ releaseNote, commitLogArr }) => {
 const appendCommitMessage = ({ releaseNote, commitLogArr }) => {
   let newReleaseNote = releaseNote
   for (let i = 4; i < commitLogArr.length; i++) {
-    newReleaseNote = releaseNote.concat(
+    newReleaseNote = newReleaseNote.concat(
       `${commitLogArr[i] ? commitLogArr[i].replace('\n').replace(/\s{2,}/g, '') : ''}`,
     )
   }
