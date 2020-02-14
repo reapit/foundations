@@ -1,39 +1,44 @@
 const Generator = require('yeoman-generator')
 const { promisify } = require('util')
+const process = require('process')
 const exec = promisify(require('child_process').exec)
+const spawn = require('child_process').spawn
+const { execSync } = require('child_process')
 const path = require('path')
 const fs = require('fs')
-const mergePackageJson = require('merge-package-json')
 const yosay = require('yosay')
+const { constantCase } = require('change-case')
 
 module.exports = class extends Generator {
-  // Private methods as denoted by an underscore do not get called by Yeoman in the genetator lifecycle
-
   _installAndExport() {
-    this.fs.commit([], async () => {
-      setTimeout(() => {
-        this.log(yosay('Installing dependencies... this may take a minute!'))
-      }, 100)
+    return new Promise(async (resolve, reject) => {
+      const { isFoundation } = this.answers
 
-      const workingDir = path.resolve(process.cwd(), this.answers.name)
+      this.log(yosay('Installing dependencies... this may take a minute!'))
 
-      await exec(`cd ../ && mv ${workingDir} ./`)
-      await exec(`cd ../${this.answers.name} && yarn`)
-      await exec(`cd ../${this.answers.name} && yarn prettier ./package.json --write`)
+      if (!isFoundation) {
+        await exec(`yarn`)
+      }
 
+      const prettierConfigPath = path.resolve(__dirname, '../../../../.prettierrc.js')
+      await exec(`yarn prettier --write ./package.json`)
+      await exec(`yarn prettier '**/*.ts' '**/*.tsx' --write`)
       this.log(yosay('App installed successfully!'))
 
       this._pushToGithub()
 
       this.log(
         yosay(`
-        Compiling your app now - server shortly available at http://localhost:8080
-        To run your app again in dev mode, exit this process and execute:
-        cd ../${this.answers.name} && yarn dev
-      `),
+          Compiling your app now - server shortly available at http://localhost:8080
+        `),
       )
 
-      await exec(`cd ../${this.answers.name} && yarn dev`)
+      spawn('yarn', ['start:dev'], { maxBuffer: 1024 * 2048 })
+        .stdout.on('data', data => this.log(data.toString()))
+        .on('error', err => {
+          this.log(err)
+          reject(err)
+        })
     })
   }
 
@@ -42,99 +47,31 @@ module.exports = class extends Generator {
     if (repo && githubPush) {
       this.log(yosay('Pushing your app to Github...'))
 
-      await exec(`cd ../${name} && git init`)
-      await exec(`cd ../${name} && git remote add origin ${repo}`)
+      await exec(`git init`)
+      await exec(`git remote add origin ${repo}`)
 
-      await exec(`cd ../${name} && git add . && git commit -m "Initial commit" && git push origin master`)
+      await exec(`git add . && git commit -m "Project . - Initial commit" && git push origin master`)
 
       this.log(yosay('Successfully pushed app to Github!'))
     }
     return true
   }
 
-  _mergePackageJson(additionalPackages) {
-    const current = this.destinationPath(`${this.answers.name}/package.json`)
-    const dst = fs.readFileSync(current)
-    const src = fs.readFileSync(this.templatePath(additionalPackages))
+  _addStyleSolution() {
+    const { stylesSolution, name, isFoundation } = this.answers
 
-    const output = mergePackageJson(dst, src)
-    fs.writeFileSync(current, output)
-  }
 
-  _addWebpack() {
-    const { sass, name } = this.answers
-    if (sass) {
-      this.fs.copy(
-        this.templatePath('sass/_webpack-dev.sass.js'),
-        this.destinationPath(`${name}/src/scripts/webpack-dev.js`),
-      )
-      this.fs.copy(
-        this.templatePath('sass/_webpack-prod.sass.js'),
-        this.destinationPath(`${name}/src/scripts/webpack-prod.js`),
-      )
+    if (stylesSolution === 'sass') {
+      this.fs.copy(this.templatePath('./base-is-sass/**/*'), this.destinationPath('./'))
     } else {
-      this.fs.copy(this.templatePath('_webpack-dev.js'), this.destinationPath(`${name}/src/scripts/webpack-dev.js`))
-      this.fs.copy(this.templatePath('_webpack-prod.js'), this.destinationPath(`${name}/src/scripts/webpack-prod.js`))
-    }
-  }
-
-  _addSass() {
-    const { sass, name } = this.answers
-    if (sass) {
-      this._mergePackageJson('sass/_package.sass.json')
-
-      this.fs.copy(
-        this.templatePath('sass/_purgecss-loader.js'),
-        this.destinationPath(`${name}/src/scripts/purgecss-loader.js`),
-      )
-      this.fs.copy(
-        this.templatePath('sass/_purgecss-loader.js'),
-        this.destinationPath(`${name}/src/scripts/purgecss-loader.js`),
-      )
-      this.fs.copy(this.templatePath('sass/styles'), this.destinationPath(`${name}/src/styles`))
-    }
-  }
-
-  _addStyledComponents() {
-    const { styledComponents, name } = this.answers
-    if (styledComponents) {
-      this._mergePackageJson('styled-components/_package.styled-components.json')
-
-      this.fs.copy(
-        this.templatePath('styled-components/src/core/index.tsx'),
-        this.destinationPath(`${name}/src/core/index.tsx`),
-      )
-      this.fs.copy(
-        this.templatePath('styled-components/src/core/__tests__/__snapshots__/index.tsx.snap'),
-        this.destinationPath(`${name}/src/core/__tests__/__snapshots__/index.tsx.snap`),
-      )
-
-        // pages that need a different styled-components version
-        ;['login'].forEach(page => {
-          this.fs.copyTpl(
-            this.templatePath(`styled-components/src/components/pages/${page}.tsx`),
-            this.destinationPath(`${name}/src/components/pages/${page}.tsx`),
-            { name },
-          )
-          this.fs.copy(
-            this.templatePath(`styled-components/src/components/pages/__styles__/${page}.ts`),
-            this.destinationPath(`${name}/src/components/pages/__styles__/${page}.ts`),
-          )
-          this.fs.copyTpl(
-            this.templatePath(`styled-components/src/components/pages/__tests__/__snapshots__/${page}.tsx.snap`),
-            this.destinationPath(`${name}/src/components/pages/__tests__/__snapshots__/${page}.tsx.snap`),
-            {
-              name,
-            },
-          )
-        })
+      this.fs.copy(this.templatePath('./base-is-not-sass/**/*'), this.destinationPath('./'))
     }
   }
 
   _addAzure() {
     const { name, azure } = this.answers
     if (azure) {
-      this.fs.copy(this.templatePath('azure/_azure-pipelines.yml'), this.destinationPath(`${name}/azure-pipelines.yml`))
+      this.fs.copy(this.templatePath('redu'), this.destinationPath(`./azure-pipelines.yml`))
     }
   }
 
@@ -143,46 +80,91 @@ module.exports = class extends Generator {
     this.log(yosay('Welcome to Reapit App Scaffolder!'))
   }
 
-  writeBaseFiles() {
-    const { name, repo, description, author, graphql } = this.answers
-    const configFiles = ['jest.config.js']
+  async writeBaseFiles() {
+    return new Promise((resolve, reject) => {
+      const { name, repo, description, author, isFoundation, stylesSolution } = this.answers
+      const { redux, graphql } = this
 
-    this.fs.copyTpl(this.templatePath('_README.md'), this.destinationPath(`${name}/README.md`), {
-      name,
-    })
+      /**
+       * settings destination path
+       * for non isFoundation: it will be the folder where the scaffolder is executed
+       * for isFoundation: we have to deter
+       */
 
-    this.fs.copyTpl(this.templatePath('_package.base.json'), this.destinationPath(`${name}/package.json`), {
-      name,
-      repo,
-      description,
-      author,
-    })
-    this.fs.copyTpl(this.templatePath('_index.html'), this.destinationPath(`${name}/public/index.html`), {
-      name,
-    })
-
-    this.fs.copyTpl(this.templatePath('_tsconfig.json'), this.destinationPath(`${name}/tsconfig.json`))
-
-    if (graphql) {
-      configFiles.forEach(item => {
-        this.fs.copy(this.templatePath(`apollo/${item}`), this.destinationPath(`${name}/${item}`))
+      this.fs.copyTpl(this.templatePath('_README.md'), this.destinationPath('./README.md'), {
+        name,
       })
 
-      this.fs.copyTpl(this.templatePath('apollo'), this.destinationPath(`${name}`), { name })
-    } else {
-      configFiles.forEach(item => {
-        this.fs.copy(this.templatePath(`base/${item}`), this.destinationPath(`${name}/${item}`))
+      this.fs.copyTpl(this.templatePath('./base'), this.destinationPath('./'), {
+        name,
+        nameInConstantCase: constantCase(name),
+        redux,
+        graphql,
+        stylesSolution,
       })
 
-      this.fs.copyTpl(this.templatePath('base'), this.destinationPath(`${name}`), { name })
-    }
+      this.fs.copyTpl(this.templatePath('_package.json'), this.destinationPath('package.json'), {
+        name,
+        redux,
+        graphql,
+        stylesSolution,
+        description,
+        repo,
+        author,
+        isFoundation,
+      })
 
-    this.fs.commit([], () => {
-      this._addWebpack()
-      this._addStyledComponents()
-      this._addSass()
-      this._addAzure()
-      this._installAndExport()
+      if (isFoundation) {
+        // Any any additional base files specialized for non-foundation project will need to uncomment this like
+        // Select recursively dot files
+        // glob isn't really smart at the moment. In the future, when need to add non dot files, uncomment this
+        // this.fs.copyTpl(this.templatePath('./base-is-foundation/**/.*'), this.destinationPath('./'), {
+        //   name,
+        //   repo,
+        //   description,
+        //   author,
+        // })
+        this.fs.copyTpl(this.templatePath('./base-is-foundation/*'), this.destinationPath('./'), {
+          name,
+          repo,
+          description,
+          author,
+        })
+      } else {
+        this.fs.copyTpl(this.templatePath('./base-is-not-foundation/**/.*'), this.destinationPath('./'), {
+          name,
+          repo,
+          description,
+          author,
+        })
+        this.fs.copyTpl(this.templatePath('./base-is-not-foundation/**/*'), this.destinationPath('./'), {
+          name,
+          nameInConstantCase: constantCase(name),
+          repo,
+          description,
+          author,
+        })
+      }
+
+      this.fs.copyTpl(this.templatePath(this.projectTypePath), this.destinationPath('./'), {
+        name,
+        nameInConstantCase: constantCase(name),
+        redux,
+        graphql,
+        stylesSolution,
+        graphql,
+        stylesSolution,
+      })
+
+      this.fs.commit([], () => {
+        this._addStyleSolution()
+        this._addAzure()
+        this.fs.commit([], () => {
+          this._installAndExport()
+            .then(resolve)
+            .catch(reject)
+        })
+      })
     })
   }
 
@@ -214,19 +196,21 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
-        name: 'graphql',
-        message: 'Would you like to use graphql?',
+        name: 'isFoundation',
+        message: 'Is this project for internal use (mono-repo)',
         default: false,
       },
       {
-        type: 'confirm',
-        name: 'styledComponents',
-        message: 'Would you like Styled Components?',
+        type: 'list',
+        name: 'stylesSolution',
+        message: 'Pick project styles solution',
+        choices: ['Styled Components', 'Sass/CSS'],
       },
       {
-        type: 'confirm',
-        name: 'sass',
-        message: 'Would you like Sass/CSS?',
+        type: 'list',
+        name: 'stateManagementStyle',
+        message: 'Pick project type',
+        choices: ['Redux', 'No Redux'],
       },
       {
         type: 'confirm',
@@ -241,5 +225,49 @@ module.exports = class extends Generator {
         default: false,
       },
     ])
+
+    const { stateManagementStyle, stylesSolution } = this.answers
+    if (stateManagementStyle === 'Redux') {
+      this.projectTypePath = 'redux'
+      this.redux = true
+    }
+
+    if (stateManagementStyle === 'No Redux') {
+      this.projectTypePath = 'no-redux'
+      this.redux = false
+    }
+
+    if (stateManagementStyle === 'Apollo GraphQL') {
+      this.projectTypePath = 'apollo'
+      this.graphql = true
+    }
+
+    if (stylesSolution === 'Styled Components') {
+      this.answers.stylesSolution = 'styledComponents'
+    }
+
+    if (stylesSolution === 'Sass/CSS') {
+      this.answers.stylesSolution = 'sass'
+    }
+
+    /**
+     * Destination path
+     * isFoundation ->./package/{appName}
+     * else current path
+     */
+    if (this.answers.isFoundation) {
+      this.packagePath = path.resolve(__dirname, `../../../${this.answers.name}`)
+      /**
+       * create directory if not
+       */
+      if (!fs.existsSync(this.packagePath)) {
+        fs.mkdirSync(this.packagePath)
+      }
+      /**
+       * change destination path, cwd to package path
+       */
+      process.chdir(this.packagePath)
+      this.destinationRoot(this.packagePath)
+    }
   }
 }

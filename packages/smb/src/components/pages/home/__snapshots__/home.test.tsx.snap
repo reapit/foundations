@@ -16045,7 +16045,7 @@ query CONTACTS($pageSize: Int!, $pageNumber: Int!) {
                   className="title is-3  "
                   id=""
                 >
-                  Welcome To Reapit Elements
+                  Welcome To Reapit Foundations
                 </h3>
               </Component>
               <Component>
@@ -32113,7 +32113,7 @@ query CONTACTS($pageSize: Int!, $pageNumber: Int!) {
                   className="title is-3  "
                   id=""
                 >
-                  Welcome To Reapit Elements
+                  Welcome To Reapit Foundations
                 </h3>
               </Component>
               <Component>
