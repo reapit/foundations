@@ -117,12 +117,7 @@ export const developerPasswordChange = function*({ data }: Action<ChangePassword
     if (!isCallAPISuccess) {
       throw new Error('Server error')
     }
-    yield put(
-      showNotificationMessage({
-        variant: 'info',
-        message: messages.CHANGE_SAVE_SUCCESSFULLY,
-      }),
-    )
+    localStorage.setItem('isPasswordChanged', 'true')
     yield call(removeSession)
     yield put(authLogout())
   } catch (error) {

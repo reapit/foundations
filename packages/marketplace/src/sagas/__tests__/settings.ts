@@ -128,15 +128,7 @@ describe('settings', () => {
           cognitoClientId: process.env.COGNITO_CLIENT_ID_MARKETPLACE || '',
         }),
       )
-      expect(clone.next('SUCCESS').value).toEqual(
-        put(
-          showNotificationMessage({
-            variant: 'info',
-            message: messages.CHANGE_SAVE_SUCCESSFULLY,
-          }),
-        ),
-      )
-      expect(clone.next().value).toEqual(call(removeSession))
+      expect(clone.next('SUCCESS').value).toEqual(call(removeSession))
       expect(clone.next().value).toEqual(put(authLogout()))
       expect(clone.next().value).toEqual(put(settingShowLoading(false)))
       expect(clone.next().done).toEqual(true)
