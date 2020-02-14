@@ -2882,7 +2882,6 @@ export interface AppSummaryModel {
   readonly links?: LinkModel[]
 }
 /**
-<<<<<<< Updated upstream
 =======
  * Representation of app usage for a specific day
  */

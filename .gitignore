@@ -57,11 +57,3 @@ out*
 package-lock.json
 .env
 invite-developers.js
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-app-name
->>>>>>> temp
-=======
->>>>>>> chore: #244 Update base files of the scaffolder
