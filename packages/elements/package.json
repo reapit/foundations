@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.35",
+  "version": "0.5.36",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -38,6 +38,7 @@
     "@types/papaparse": "^5.0.3",
     "bulma": "^0.7.5",
     "formik": "^2.0.4",
+    "gh-pages": "^2.2.0",
     "hardtack": "^4.1.0",
     "himalaya": "^1.1.0",
     "jsonwebtoken": "^8.5.1",
