@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const { getPreviousTag, editReleaseNote, getVersionTag, runCommand } = require('./utils')
+const execSync = require('child_process').execSync
 
 const releaseNpm = async () => {
   const [, , ...args] = process.argv
@@ -12,6 +13,8 @@ const releaseNpm = async () => {
   }
 
   if (packageName === packageNameOnTag) {
+    execSync(`git config --global user.email "${process.env.GITHUB_ACTOR}@email.com"`)
+    execSync(`git config --global user.name "${process.env.GITHUB_ACTOR}"`)
     runCommand('yarn', ['publish'])
     const previousTag = getPreviousTag({ packageName: packageNameOnTag })
     if (packageName === 'elements') {
