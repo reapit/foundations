@@ -1661,6 +1661,7 @@ exports[`Login Login should match a snapshot 1`] = `
                         <input
                           className="input is-primary"
                           data-test="login-email"
+                          disabled={false}
                           id="userName"
                           name="userName"
                           onBlur={[Function]}
@@ -1701,6 +1702,7 @@ exports[`Login Login should match a snapshot 1`] = `
                         <input
                           className="input is-primary"
                           data-test="login-password"
+                          disabled={false}
                           id="password"
                           name="password"
                           onBlur={[Function]}

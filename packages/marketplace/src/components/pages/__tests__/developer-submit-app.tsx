@@ -440,6 +440,109 @@ describe('handleSubmitApp', () => {
     fn(appModel, actions)
     expect(spy).toHaveBeenCalledTimes(1)
   })
+
+  it('should call submitApp with correct params when !appId and authFlow = clientCredentials', () => {
+    const params = {
+      appId: undefined,
+      submitApp: jest.fn(),
+      submitRevision: jest.fn(),
+      setSubmitError: jest.fn(),
+      isAgreedTerms: true,
+      setShouldShowError: jest.fn(),
+    }
+    const appModel = {
+      authFlow: 'clientCredentials',
+      redirectUris: 'https://google.com',
+      signoutUris: 'https://google.com',
+    } as CustomCreateAppModel
+    const actions = {} as any
+    const spySubmitApp = jest.spyOn(params, 'submitApp')
+    const spySetSubmitError = jest.spyOn(params, 'setSubmitError')
+    const fn = handleSubmitApp(params)
+    fn(appModel, actions)
+    expect(spySubmitApp).toHaveBeenCalledWith(
+      {
+        authFlow: 'clientCredentials',
+      },
+      actions,
+      spySetSubmitError,
+    )
+  })
+
+  it('should call submitApp with correct params when !appId and authFlow = authorisationCode', () => {
+    const params = {
+      appId: undefined,
+      submitApp: jest.fn(),
+      submitRevision: jest.fn(),
+      setSubmitError: jest.fn(),
+      isAgreedTerms: true,
+      setShouldShowError: jest.fn(),
+    }
+    const appModel = {
+      authFlow: 'authorisationCode',
+      redirectUris: 'https://google.com',
+      signoutUris: 'https://google.com',
+    } as CustomCreateAppModel
+    const actions = {} as any
+    const spySubmitApp = jest.spyOn(params, 'submitApp')
+    const spySetSubmitError = jest.spyOn(params, 'setSubmitError')
+    const fn = handleSubmitApp(params)
+    fn(appModel, actions)
+    expect(spySubmitApp).toHaveBeenCalledWith(
+      {
+        ...appModel,
+        redirectUris: ['https://google.com'],
+        signoutUris: ['https://google.com'],
+      },
+      actions,
+      spySetSubmitError,
+    )
+  })
+
+  it('should call submitRevision with correct params when have appId and authFlow = clientCredentials', () => {
+    const params = {
+      appId: 'id1',
+      submitApp: jest.fn(),
+      submitRevision: jest.fn(),
+      setSubmitError: jest.fn(),
+      isAgreedTerms: true,
+      setShouldShowError: jest.fn(),
+    }
+    const appModel = {
+      authFlow: 'clientCredentials',
+      redirectUris: 'https://google.com',
+      signoutUris: 'https://google.com',
+    } as CustomCreateAppModel
+    const actions = {} as any
+    const spySubmitRevision = jest.spyOn(params, 'submitRevision')
+    const fn = handleSubmitApp(params)
+    fn(appModel, actions)
+    expect(spySubmitRevision).toHaveBeenCalledWith('id1', {})
+  })
+
+  it('should call submitRevision with correct params when have appId and authFlow = authorisationCode', () => {
+    const params = {
+      appId: 'id1',
+      submitApp: jest.fn(),
+      submitRevision: jest.fn(),
+      setSubmitError: jest.fn(),
+      isAgreedTerms: true,
+      setShouldShowError: jest.fn(),
+    }
+    const appModel = {
+      authFlow: 'authorisationCode',
+      redirectUris: 'https://google.com',
+      signoutUris: 'https://google.com',
+    } as CustomCreateAppModel
+    const actions = {} as any
+    const spySubmitRevision = jest.spyOn(params, 'submitRevision')
+    const fn = handleSubmitApp(params)
+    fn(appModel, actions)
+    expect(spySubmitRevision).toHaveBeenCalledWith('id1', {
+      redirectUris: ['https://google.com'],
+      signoutUris: ['https://google.com'],
+    })
+  })
 })
 describe('handleClickOpenModal', () => {
   it('should call preventDefault and setTermModalIsOpen', () => {
