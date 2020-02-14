@@ -1,37 +1,32 @@
-const path = require('path')
-const glob = require('glob')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const Dotenv = require('dotenv-webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
+const { GenerateSW } = require('workbox-webpack-plugin')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
-
-const PATHS = {
-  src: path.join(__dirname, '../..', 'src')
-}
+const { EnvironmentPlugin } = require('webpack')
+const { PATHS } = require('./constants')
 
 module.exports = {
   context: process.cwd(),
-  entry: './src/core/index.tsx',
+  entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', PATHS.entryWeb],
   output: {
-    path: path.join(process.cwd(), 'public', 'dist'),
-    filename: '[name].[hash].js'
+    path: PATHS.output,
+    filename: '[name].[hash].js',
   },
   plugins: [
     new ResolveTSPathsToWebpackAlias({
-      tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json')
+      tsconfig: PATHS.tsConfig,
     }),
     new ForkTsCheckerWebpackPlugin({
       async: false,
       useTypescriptIncrementalApi: true,
-      memoryLimit: 4096
+      memoryLimit: 4096,
     }),
     new HtmlWebpackPlugin({
       hash: true,
       inject: true,
-      template: 'public/index.html',
+      template: PATHS.template,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -42,11 +37,11 @@ module.exports = {
         keepClosingSlash: true,
         minifyJS: true,
         minifyCSS: true,
-        minifyURLs: true
-      }
+        minifyURLs: true,
+      },
     }),
     new FaviconsWebpackPlugin({
-      logo: './public/logo.png',
+      logo: PATHS.logo,
       emitStats: false,
       persistentCache: true,
       inject: true,
@@ -62,23 +57,44 @@ module.exports = {
         opengraph: false,
         twitter: false,
         yandex: false,
-        windows: false
-      }
+        windows: false,
+      },
     }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'disabled',
-      generateStatsFile: true
+    new HashedModuleIdsPlugin(),
+    new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+      navigateFallback: '/index.html',
+      cacheId: process.cwd(),
+      cleanupOutdatedCaches: true,
     }),
-    new Dotenv({
-      path: path.join(process.cwd(), 'src', 'constants', '.env')
-    }),
-    new HashedModuleIdsPlugin()
   ],
   module: {
     rules: [
       {
         test: /.tsx?$/,
-        use: [{ loader: 'ts-loader', options: { transpileOnly: true } }]
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    useBuiltIns: 'entry',
+                    corejs: '3',
+                    targets: {
+                      esmodules: true,
+                      chrome: '58',
+                      ie: '11',
+                    },
+                  },
+                ],
+              ],
+            },
+          },
+          { loader: 'ts-loader', options: { transpileOnly: true } },
+        ],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
@@ -86,23 +102,28 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: '/assets'
-          }
-        }
-      }
-    ]
+            outputPath: '/assets',
+          },
+        },
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        use: 'graphql-tag/loader',
+      },
+    ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      '@': path.resolve(__dirname, 'src/')
-    }
+      '@': `${PATHS.src}/`,
+    },
   },
   optimization: {
     nodeEnv: 'production',
     splitChunks: {
-      chunks: 'all'
-    }
+      chunks: 'all',
+    },
   },
   stats: {
     cached: false,
@@ -110,6 +131,6 @@ module.exports = {
     chunks: false,
     chunkModules: false,
     chunkOrigins: false,
-    modules: false
-  }
+    modules: false,
+  },
 }

@@ -3,38 +3,34 @@ const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-web
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const Dotenv = require('dotenv-webpack')
-
+const { EnvironmentPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
+const { PATHS } = require('./constants')
 
 module.exports = {
   context: process.cwd(),
-  entry: './src/core/index.tsx',
+  entry: PATHS.entryWeb,
   output: {
-    path: path.join(process.cwd(), 'public', 'dist'),
-    filename: '[name].[hash].js'
+    path: PATHS.output,
+    filename: '[name].[hash].js',
   },
   plugins: [
     new ResolveTSPathsToWebpackAlias({
-      tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json')
+      tsconfig: PATHS.tsConfig,
     }),
     new ForkTsCheckerWebpackPlugin({
-      tslint: true,
-      useTypescriptIncrementalApi: true
+      useTypescriptIncrementalApi: true,
     }),
     new ForkTsCheckerNotifierWebpackPlugin({
       title: 'TypeScript',
-      excludeWarnings: false
-    }),
-    new Dotenv({
-      path: path.join(process.cwd(), 'src', 'constants', '.env')
+      excludeWarnings: false,
     }),
     new HtmlWebpackPlugin({
       inject: true,
-      template: 'public/index.html'
+      template: PATHS.template,
     }),
     new FaviconsWebpackPlugin({
-      logo: './public/logo.png',
+      logo: PATHS.logo,
       emitStats: false,
       persistentCache: true,
       inject: true,
@@ -50,9 +46,9 @@ module.exports = {
         opengraph: false,
         twitter: false,
         yandex: false,
-        windows: false
-      }
-    })
+        windows: false,
+      },
+    }),
   ],
   module: {
     rules: [
@@ -61,31 +57,32 @@ module.exports = {
         use: [
           {
             loader: 'ts-loader',
-            options: { transpileOnly: true }
-          }
-        ]
+            options: { transpileOnly: true },
+          },
+        ],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
         use: {
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]'
-          }
-        }
-      }
-    ]
+            name: '[name].[ext]',
+          },
+        },
+      },
+    ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      '@': path.resolve(__dirname, 'src/')
-    }
+      react: require.resolve('react'),
+      'react-dom': require.resolve('react-dom'),
+      'react-router': require.resolve('react-router'),
+      'react-router-dom': require.resolve('react-router-dom'),
+    },
   },
   devtool: 'inline-source-map',
   devServer: {
-    open: true,
-    openPage: 'login',
     clientLogLevel: 'warning',
     historyApiFallback: true,
     stats: {
@@ -94,13 +91,13 @@ module.exports = {
       chunks: false,
       chunkModules: false,
       chunkOrigins: false,
-      modules: false
-    }
+      modules: false,
+    },
   },
   optimization: {
     nodeEnv: 'development',
     splitChunks: {
-      chunks: 'all'
-    }
-  }
+      chunks: 'all',
+    },
+  },
 }

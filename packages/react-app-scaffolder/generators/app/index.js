@@ -73,20 +73,20 @@ module.exports = class extends Generator {
       return
     }
 
+<<<<<<< HEAD
     if (stylesSolution === 'sass') {
       this.fs.copy(this.templatePath('sass/_webpack-dev.sass.js'), this.destinationPath('./src/scripts/webpack-dev.js'))
+=======
+    if (sass) {
+>>>>>>> update
       this.fs.copy(
-        this.templatePath('sass/_webpack-prod.sass.js'),
-        this.destinationPath('./src/scripts/webpack-prod.js'),
+        this.templatePath('base-is-sass'),
+        this.destinationPath(),
       )
     } else {
       this.fs.copy(
-        this.templatePath('base-is-not-sass/_webpack-dev.js'),
-        this.destinationPath('./src/scripts/webpack-dev.js'),
-      )
-      this.fs.copy(
-        this.templatePath('base-is-not-sass/_webpack-prod.js'),
-        this.destinationPath('./src/scripts/webpack-prod.js'),
+        this.templatePath('base-is-not-sass'),
+        this.destinationPath(),
       )
     }
   }
@@ -148,7 +148,14 @@ module.exports = class extends Generator {
   _addAzure() {
     const { name, azure } = this.answers
     if (azure) {
-      this.fs.copy(this.templatePath('azure/_azure-pipelines.yml'), this.destinationPath(`./azure-pipelines.yml`))
+      this.fs.copy(this.templatePath('redu'), this.destinationPath(`./azure-pipelines.yml`))
+    }
+  }
+
+  _addRedux() {
+    const { name, redux, isFoundation } = this.answers
+    if (redux && isFoundation) {
+      this._mergePackageJson('redux/_package.redux.json')
     }
   }
 
@@ -159,9 +166,14 @@ module.exports = class extends Generator {
 
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
+<<<<<<< HEAD
       const { name, repo, description, author, isFoundation, stylesSolution } = this.answers
       const { redux, graphql, noRedux } = this
       const configFiles = ['jest.config.js']
+=======
+      const { name, repo, description, author, isFoundation, styledComponents } = this.answers
+      const { redux, graphql } = this
+>>>>>>> update
 
       /**
        * settings destination path
@@ -171,10 +183,6 @@ module.exports = class extends Generator {
 
       this.fs.copyTpl(this.templatePath('_README.md'), this.destinationPath('./README.md'), {
         name,
-      })
-
-      configFiles.forEach(item => {
-        this.fs.copy(this.templatePath(`${this.projectTypePath}/${item}`), this.destinationPath(`./${item}`))
       })
 
       this.fs.copyTpl(this.templatePath('./base'), this.destinationPath('./'), {
@@ -266,6 +274,7 @@ module.exports = class extends Generator {
         this._addSass()
 >>>>>>> temp
         this._addAzure()
+        this._addRedux()
         this.fs.commit([], () => {
           this._installAndExport()
             .then(resolve)

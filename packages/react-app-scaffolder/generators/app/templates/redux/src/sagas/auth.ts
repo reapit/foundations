@@ -1,10 +1,9 @@
 import { takeLatest, put, call, all } from '@redux-saga/core/effects'
-import { history } from '@/core/router'
-import { Action } from '@/types/core'
-import Routes from '@/constants/routes'
+import { Action } from '@/types/core.ts'
 import ActionTypes from '@/constants/action-types'
-import { authLoginSuccess, authLoginFailure, authLogoutSuccess } from '@/actions/auth'
-import { LoginSession, LoginParams, setUserSession, removeSession } from '@reapit/cognito-auth'
+import { authLoginSuccess, authLoginFailure } from '@/actions/auth'
+import { LoginParams, LoginSession, setUserSession, removeSession, redirectToLogout } from '@reapit/cognito-auth'
+import { COOKIE_SESSION_KEY_AML_APP } from '../constants/api'
 
 export const doLogin = function*({ data }: Action<LoginParams>) {
   try {
@@ -23,9 +22,8 @@ export const doLogin = function*({ data }: Action<LoginParams>) {
 
 export const doLogout = function*() {
   try {
-    yield call(removeSession)
-    yield history.push(Routes.LOGIN)
-    yield put(authLogoutSuccess())
+    yield call(removeSession, COOKIE_SESSION_KEY_AML_APP)
+    yield call(redirectToLogout, process.env.COGNITO_CLIENT_ID_AML_APP as string, `${window.location.origin}/login`)
   } catch (err) {
     console.error(err.message)
   }

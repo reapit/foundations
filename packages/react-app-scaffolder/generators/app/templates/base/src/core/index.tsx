@@ -1,6 +1,10 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import Router from './router'
+<<<<<<< HEAD
+=======
+import { Provider } from 'react-redux'
+>>>>>>> update
 
 <% if (redux) { %>
 import store from './store'

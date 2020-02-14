@@ -9,11 +9,16 @@ import { authLogin } from '@/actions/auth'
 import Routes from '@/constants/routes'
 import { LOGIN_TYPE } from '@/constants/auth'
 import { Input, Button, H1, Level, Alert, isEmail } from '@reapit/elements'
+<<<<<<< HEAD
 import { LoginParams } from '@reapit/cognito-auth'
 <<<<<<< HEAD
 <% if (stylesSolution == 'sass') { %>import loginStyles from '@/styles/pages/login.scss?mod'<%}%>
 <% if (stylesSolution == 'styledComponents') { %>import { Container, Wrapper, ImageContainer } from './__styles__/login'<%}%>
 =======
+=======
+import { redirectToLogin } from '@reapit/cognito-auth'
+import { Button } from '@reapit/elements'
+>>>>>>> update
 
 <% if (styledComponents) { %>
 import { Container, Wrapper, ImageContainer } from './__styles__/login'
@@ -68,12 +73,18 @@ export const onSubmitHandler = (setIsSubmitting: any, login: any, values: LoginF
   login({ userName: email, password, loginType: LOGIN_TYPE.CLIENT, cognitoClientId: 'process.env.COGNITO_CLIENT_ID' } as LoginParams)
 }
 
+const loginHandler = () => redirectToLogin(process.env.COGNITO_CLIENT_ID as string, `${window.location.origin}`)
+
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
+<<<<<<< HEAD
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const { hasSession, error, login } = props
 <<<<<<< HEAD
   <% if (stylesSolution == 'sass') { %>const { disabled, wrapper, container, image } = loginStyles<%}%>
 =======
+=======
+  const { hasSession } = props
+>>>>>>> update
     <% if (!styledComponents) { %>
     const { disabled, wrapper, container, image } = loginStyles
         <% } %>
@@ -113,39 +124,11 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
               <p className="pb-8">Welcome to <%= name %></p>
 >>>>>>> temp
 
-              <Formik
-                validate={validate}
-                initialValues={{ email: '', password: '' } as LoginFormValues}
-                onSubmit={values => onSubmitHandler(setIsSubmitting, login, values)}
-                render={() => (
-                  <Form data-test="login-form">
-                    <Input
-                      dataTest="login-email"
-                      type="email"
-                      labelText="Email"
-                      id="email"
-                      name="email"
-                      placeholder="name@address.com"
-                    />
-                    <Input
-                      dataTest="login-password"
-                      type="password"
-                      labelText="Password"
-                      id="password"
-                      name="password"
-                      placeholder="Enter your password"
-                    />
-
-                    <Level>
-                      <Button type="submit" loading={isSubmitting} variant="primary" disabled={isSubmitting}>
-                        Login
-                  </Button>
-                    </Level>
-
-                    {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
-                  </Form>
-                )}
-              />
+        <Level>
+          <Button type="button" onClick={loginHandler} loading={false} variant="primary" disabled={false} fullWidth>
+            Login
+          </Button>
+        </Level>
 
 <<<<<<< HEAD
               <% if (stylesSolution == 'sass') { %>
@@ -192,8 +175,4 @@ const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
   error: state.auth.error
 })
 
-const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
-  login: (params: LoginParams) => dispatch(authLogin(params))
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))
+export default withRouter(connect(mapStateToProps, {})(Login))

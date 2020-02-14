@@ -7,8 +7,11 @@ const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const { EnvironmentPlugin } = require('webpack')
 const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { PATHS } = require('./constants')
+<<<<<<< Updated upstream
 const { getVersionTag } = require('../release/utils')
 const config = require(PATHS.config)
+=======
+>>>>>>> Stashed changes
 
 module.exports = {
   context: process.cwd(),
