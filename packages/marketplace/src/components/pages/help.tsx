@@ -10,6 +10,8 @@ import requestEndpointImg from '@/assets/images/help/request-endpoint.jpg'
 import reportBugImg from '@/assets/images/help/report-bugs.jpg'
 import liveChatImg from '@/assets/images/help/live-chat.jpg'
 import roadmapImg from '@/assets/images/help/time-line.jpg'
+import whatNewImg from '@/assets/images/help/what-new.png'
+
 import { LoginIdentity } from '@reapit/cognito-auth'
 import { ReduxState } from '../../types/core'
 import { connect } from 'react-redux'
@@ -82,6 +84,14 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
       'If you need any support, we are here to help. Why not talk to one of our Developers or Product Owners directly.',
     buttonText: 'START CHAT',
     buttonOnClick: () => handleFaq(loginIdentity),
+  },
+  {
+    imgSrc: whatNewImg,
+    header: 'What’s New',
+    text: `We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+      new features and fixes have been released.`,
+    buttonText: 'VIEW',
+    buttonOnClick: () => {},
   },
 ]
 

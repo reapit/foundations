@@ -10,8 +10,8 @@ import {
   handleSubmitApp,
   handleClickOpenModal,
   handleCloseModal,
-  handleAcceptTerms,
-  handleDeclineTerms,
+  // handleAcceptTerms,
+  // handleDeclineTerms,
   CustomCreateAppModel,
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
@@ -413,19 +413,19 @@ describe('handleSubmitApp', () => {
     submitApp: jest.fn(),
     submitRevision: jest.fn(),
     setSubmitError: jest.fn(),
-    isAgreedTerms: false,
-    setShouldShowError: jest.fn(),
+    // isAgreedTerms: false,
+    // setShouldShowError: jest.fn(),
   }
   const appModel = { redirectUris: '' } as CustomCreateAppModel
   const actions = {} as any
   afterEach(() => jest.clearAllMocks())
-  it('should call setShouldShowError when not agree', () => {
-    const params = { ...paramsBase }
-    const spy = jest.spyOn(params, 'setShouldShowError')
-    const fn = handleSubmitApp(params)
-    fn(appModel, actions)
-    expect(spy).toHaveBeenCalledWith(true)
-  })
+  // it('should call setShouldShowError when not agree', () => {
+  //   const params = { ...paramsBase }
+  //   const spy = jest.spyOn(params, 'setShouldShowError')
+  //   const fn = handleSubmitApp(params)
+  //   fn(appModel, actions)
+  //   expect(spy).toHaveBeenCalledWith(true)
+  // })
   it('should call submitApp when dont have appId', () => {
     const params = { ...paramsBase, appId: null, isAgreedTerms: true }
     const spy = jest.spyOn(params, 'submitApp')
@@ -460,21 +460,21 @@ describe('handleCloseModal', () => {
     expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
   })
 })
-describe('handleAcceptTerms', () => {
-  it('should call setIsAgreedTerms and setTermModalIsOpen', () => {
-    const setTermModalIsOpen = jest.fn()
-    const setIsAgreedTerms = jest.fn()
-    handleAcceptTerms(setIsAgreedTerms, setTermModalIsOpen)()
-    expect(setIsAgreedTerms).toHaveBeenCalledWith(true)
-    expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
-  })
-})
-describe('handleDeclineTerms', () => {
-  it('should call preventDefault and setTermModalIsOpen', () => {
-    const setTermModalIsOpen = jest.fn()
-    const setIsAgreedTerms = jest.fn()
-    handleDeclineTerms(setIsAgreedTerms, setTermModalIsOpen)()
-    expect(setIsAgreedTerms).toHaveBeenCalledWith(false)
-    expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
-  })
-})
+// describe('handleAcceptTerms', () => {
+//   it('should call setIsAgreedTerms and setTermModalIsOpen', () => {
+//     const setTermModalIsOpen = jest.fn()
+//     const setIsAgreedTerms = jest.fn()
+//     handleAcceptTerms(setIsAgreedTerms, setTermModalIsOpen)()
+//     expect(setIsAgreedTerms).toHaveBeenCalledWith(true)
+//     expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
+//   })
+// })
+// describe('handleDeclineTerms', () => {
+//   it('should call preventDefault and setTermModalIsOpen', () => {
+//     const setTermModalIsOpen = jest.fn()
+//     const setIsAgreedTerms = jest.fn()
+//     handleDeclineTerms(setIsAgreedTerms, setTermModalIsOpen)()
+//     expect(setIsAgreedTerms).toHaveBeenCalledWith(false)
+//     expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
+//   })
+// })
