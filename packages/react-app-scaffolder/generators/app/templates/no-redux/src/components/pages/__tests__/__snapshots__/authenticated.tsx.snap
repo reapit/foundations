@@ -1,15 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Authenticated should match a snapshot 1`] = `
+<<<<<<< HEAD
+<<<<<<< HEAD
 <ErrorBoundary>
   <Component
     hasPadding={true}
   >
     <Component
+=======
+<Connect(ErrorBoundary)>
+  <FlexContainerBasic
+    hasPadding={true}
+  >
+    <FlexContainerResponsive
+>>>>>>> temp
+=======
+<ErrorBoundary>
+  <Component
+    hasPadding={true}
+  >
+    <Component
+>>>>>>> de461f29... chore: #227: scaffolder option no redux (#268)
       flexColumn={true}
       hasBackground={true}
       hasPadding={true}
     >
+<<<<<<< HEAD
+<<<<<<< HEAD
       <Component>
         Welcome To Reapit Elements
       </Component>
@@ -19,4 +37,25 @@ exports[`Authenticated should match a snapshot 1`] = `
     </Component>
   </Component>
 </ErrorBoundary>
+=======
+      <H3>
+=======
+      <Component>
+>>>>>>> de461f29... chore: #227: scaffolder option no redux (#268)
+        Welcome To Reapit Elements
+      </Component>
+      <Component>
+        You are now authenticated against our sandbox data
+<<<<<<< HEAD
+      </SubTitleH5>
+    </FlexContainerResponsive>
+  </FlexContainerBasic>
+</Connect(ErrorBoundary)>
+>>>>>>> temp
+=======
+      </Component>
+    </Component>
+  </Component>
+</ErrorBoundary>
+>>>>>>> de461f29... chore: #227: scaffolder option no redux (#268)
 `;

@@ -11,7 +11,8 @@ export const Home: React.FunctionComponent<HomeProps> = () => {
     <ErrorBoundary>
       <FlexContainerBasic hasPadding hasBackground>
         <FlexContainerResponsive flexColumn hasPadding hasBackground>
-          <H3>Welcome To Reapit Elements</H3>
+          <H3>Welcome To Reapit Foundations</H3>
+
           <SubTitleH5>
             Click <Link to="/login">here</Link> to login
           </SubTitleH5>

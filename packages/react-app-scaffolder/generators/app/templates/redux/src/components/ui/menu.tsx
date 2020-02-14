@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, RouteComponentProps } from 'react-router'
-import { Menu as Sidebar, MenuConfig, LoginMode, ReapitLogo } from '@reapit/elements'
+import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import { authLogout } from '@/actions/auth'
+import {LoginMode} from '@reapit/cognito-auth'
 import { Location } from 'history'
 import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
 import { ReduxState } from '../../types/core'
@@ -27,9 +28,9 @@ export const generateMenuConfig = (
         key: 'APPS',
         icon: <FaCloud className="nav-item-icon" />,
         callback: () =>
-          (window.location.href = !window.location.href.includes('dev')
-            ? 'https://marketplace.reapit.com/client/installed'
-            : 'https://dev.marketplace.reapit.com/client/installed'),
+          (window.location.href = !window.location.href.includes('dev') || window.location.href.includes('localhost')
+            ? 'https://marketplace.reapit.cloud/client/installed'
+            : 'https://dev.marketplace.reapit.cloud/client/installed'),
         type: 'PRIMARY',
       },
       {
