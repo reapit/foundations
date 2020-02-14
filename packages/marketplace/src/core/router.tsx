@@ -30,92 +30,103 @@ const AdminAppsPage = React.lazy(() => import('../components/pages/admin-apps'))
 const RegisterConfirm = React.lazy(() => import('../components/pages/register-confirm'))
 const AdminStats = React.lazy(() => import('../components/pages/admin-stats'))
 
-const reapitEnv = process.env.REAPIT_ENV || 'LOCAL'
-const isReapitEnvProd = reapitEnv === 'PROD'
-const Router = () => (
-  <BrowserRouter history={history}>
-    <React.Suspense fallback={null}>
-      <Switch>
-        <Route
-          path={[Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN, ...(isReapitEnvProd ? [] : [Routes.CLIENT_LOGIN])]}
-          exact
-          render={() => <Login />}
-        />
-        <Route path={Routes.DEVELOPER_RESET_PASSWORD} component={ResetPassword} />
-        {/* <Route path={Routes.REGISTER} exact component={Register} /> */}
-        <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
-        <Route path={Routes.FORGOT_PASSWORD} component={ForgotPassword} />
-        <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
-        <PrivateRouteWrapper path="/">
-          <Switch>
-            <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS_PAGINATE} component={InstalledApps} fetcher />
-            <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
-            <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={MyApps} fetcher />
-            <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher exact />
-            <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
+const Router = () => {
+  const isReapitEnvProd = process.env.REAPIT_ENV === 'PROD'
+  const paths = [Routes.DEVELOPER_LOGIN, Routes.ADMIN_LOGIN]
+  if (!isReapitEnvProd) {
+    paths.push(Routes.CLIENT_LOGIN)
+  }
+  return (
+    <BrowserRouter history={history}>
+      <React.Suspense fallback={null}>
+        <Switch>
+          <Route path={paths} exact render={() => <Login />} />
+          <Route path={Routes.DEVELOPER_RESET_PASSWORD} component={ResetPassword} />
+          {/* <Route path={Routes.REGISTER} exact component={Register} /> */}
+          <Route path={Routes.REGISTER_CONFIRM} exact component={RegisterConfirm} />
+          <Route path={Routes.FORGOT_PASSWORD} component={ForgotPassword} />
+          <Route path={Routes.FOUR_O_FOUR} exact render={() => <Info infoType="404" />} />
+          <PrivateRouteWrapper path="/">
+            <Switch>
+              <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS_PAGINATE} component={InstalledApps} fetcher />
+              <PrivateRoute allow="CLIENT" path={Routes.INSTALLED_APPS} component={InstalledApps} fetcher exact />
+              <PrivateRoute allow="CLIENT" path={Routes.MY_APPS_PAGINATE} component={MyApps} fetcher />
+              <PrivateRoute allow="CLIENT" path={Routes.MY_APPS} component={MyApps} fetcher exact />
+              <PrivateRoute allow="CLIENT" path={Routes.CLIENT} component={Client} exact fetcher />
 
-            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />
-            <PrivateRoute
-              allow="DEVELOPER"
-              path={Routes.DEVELOPER_MY_APPS_PAGINATE}
-              component={DeveloperHome}
-              exact
-              fetcher
-            />
-            <PrivateRoute
-              allow="DEVELOPER"
-              path={Routes.DEVELOPER_MY_APPS_EDIT}
-              component={DeveloperSubmitApp}
-              exact
-              fetcher
-            />
-            <PrivateRoute allow="DEVELOPER" path={Routes.SUBMIT_APP} fetcher component={DeveloperSubmitApp} />
-            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} exact component={ApiDocsPage} />
-            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_SWAGGER} exact component={SwaggerPage} />
-            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ELEMENTS} exact component={ElementsPage} />
-            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ANALYTICS} fetcher exact component={AnalyticsPage} />
-            <PrivateRoute
-              allow="DEVELOPER"
-              path={Routes.DEVELOPER_ANALYTICS_PAGINATE}
-              fetcher
-              exact
-              component={AnalyticsPage}
-            />
-            <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
-            <PrivateRoute
-              allow="DEVELOPER"
-              path={Routes.DEVELOPER_WELCOME}
-              fetcher
-              exact
-              component={DeveloperWelcomePage}
-            />
-            <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_HELP} exact fetcher component={HelpPage} />
+              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_MY_APPS} component={DeveloperHome} exact fetcher />
+              <PrivateRoute
+                allow="DEVELOPER"
+                path={Routes.DEVELOPER_MY_APPS_PAGINATE}
+                component={DeveloperHome}
+                exact
+                fetcher
+              />
+              <PrivateRoute
+                allow="DEVELOPER"
+                path={Routes.DEVELOPER_MY_APPS_EDIT}
+                component={DeveloperSubmitApp}
+                exact
+                fetcher
+              />
+              <PrivateRoute allow="DEVELOPER" path={Routes.SUBMIT_APP} fetcher component={DeveloperSubmitApp} />
+              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_API_DOCS} exact component={ApiDocsPage} />
+              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_SWAGGER} exact component={SwaggerPage} />
+              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_ELEMENTS} exact component={ElementsPage} />
+              <PrivateRoute
+                allow="DEVELOPER"
+                path={Routes.DEVELOPER_ANALYTICS}
+                fetcher
+                exact
+                component={AnalyticsPage}
+              />
+              <PrivateRoute
+                allow="DEVELOPER"
+                path={Routes.DEVELOPER_ANALYTICS_PAGINATE}
+                fetcher
+                exact
+                component={AnalyticsPage}
+              />
+              <PrivateRoute allow="DEVELOPER" path={Routes.SETTINGS} fetcher exact component={SettingsPage} />
+              <PrivateRoute
+                allow="DEVELOPER"
+                path={Routes.DEVELOPER_WELCOME}
+                fetcher
+                exact
+                component={DeveloperWelcomePage}
+              />
+              <PrivateRoute allow="DEVELOPER" path={Routes.DEVELOPER_HELP} exact fetcher component={HelpPage} />
 
-            <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
-            <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS_PAGINATE} component={AdminApprovalsPage} fetcher />
-            <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} fetcher exact />
-            <PrivateRoute
-              allow="ADMIN"
-              path={Routes.ADMIN_DEV_MANAGEMENT}
-              component={AdminDevManagementPage}
-              exact
-              fetcher
-            />
-            <PrivateRoute
-              allow="ADMIN"
-              path={Routes.ADMIN_DEV_MANAGEMENT_PAGINATE}
-              component={AdminDevManagementPage}
-              exact
-              fetcher
-            />
-            <PrivateRoute allow="ADMIN" path={Routes.ADMIN_STATS} component={AdminStats} exact fetcher />
-            <Route render={() => <Info infoType="404" />} />
-          </Switch>
-        </PrivateRouteWrapper>
-        <Redirect to={Routes.CLIENT_LOGIN} />
-      </Switch>
-    </React.Suspense>
-  </BrowserRouter>
-)
-
+              <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPROVALS} component={AdminApprovalsPage} exact fetcher />
+              <PrivateRoute
+                allow="ADMIN"
+                path={Routes.ADMIN_APPROVALS_PAGINATE}
+                component={AdminApprovalsPage}
+                fetcher
+              />
+              <PrivateRoute allow="ADMIN" path={Routes.ADMIN_APPS} component={AdminAppsPage} fetcher exact />
+              <PrivateRoute
+                allow="ADMIN"
+                path={Routes.ADMIN_DEV_MANAGEMENT}
+                component={AdminDevManagementPage}
+                exact
+                fetcher
+              />
+              <PrivateRoute
+                allow="ADMIN"
+                path={Routes.ADMIN_DEV_MANAGEMENT_PAGINATE}
+                component={AdminDevManagementPage}
+                exact
+                fetcher
+              />
+              <PrivateRoute allow="ADMIN" path={Routes.ADMIN_STATS} component={AdminStats} exact fetcher />
+              <Route render={() => <Info infoType="404" />} />
+            </Switch>
+          </PrivateRouteWrapper>
+          <Redirect to={Routes.CLIENT_LOGIN} />
+        </Switch>
+      </React.Suspense>
+    </BrowserRouter>
+  )
+}
 export default Router

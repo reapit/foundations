@@ -1,7 +1,9 @@
-#!/usr/bin/env node
-const { getPreviousTag, editReleaseNote, getVersionTag, runCommand } = require('./utils')
+const { execSync } = require('child_process')
+const { getPreviousTag, editReleaseNote, getVersionTag } = require('../release/utils')
+const publishTimeStampTag = require('./publish-time-stamp-tag')
+const { FOUNDATION_ROOT_FOLDER } = require('./constants')
 
-const releaseNpm = async () => {
+const releaseProd = async () => {
   const [, , ...args] = process.argv
   const packageName = args[0]
   const { version, packageName: packageNameOnTag } = getVersionTag()
@@ -12,14 +14,14 @@ const releaseNpm = async () => {
   }
 
   if (packageName === packageNameOnTag) {
-    runCommand('yarn', ['publish'])
+    // release npm
+    execSync(`cd ${FOUNDATION_ROOT_FOLDER} && yarn publish`)
+    publishTimeStampTag()
+
     const previousTag = getPreviousTag({ packageName: packageNameOnTag })
-    if (packageName === '@reapit/elements') {
-      runCommand('gh-pages', ['-d', 'out'])
-    }
 
     await editReleaseNote({ packageName: packageNameOnTag, version, previousTag })
   }
 }
 
-releaseNpm()
+releaseProd()
