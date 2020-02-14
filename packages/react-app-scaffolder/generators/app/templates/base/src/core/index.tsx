@@ -1,17 +1,13 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import Router from './router'
-<<<<<<< HEAD
-=======
-import { Provider } from 'react-redux'
->>>>>>> update
 
 <% if (redux) { %>
 import store from './store'
   import { Provider } from 'react-redux'
 <% } %>
 
-<% if (noRedux) { %>
+<% if (!redux) { %>
   import { AuthProvider } from '@/context/authContext'
 <% } %>
 
@@ -44,13 +40,13 @@ const App = () => (
       <Provider store={store.reduxStore}>
     <% } %>
 
-    <% if (noRedux) { %>
+    <% if (!redux) { %>
       <AuthProvider>
     <% } %>
 
       <Router />
 
-    <% if (noRedux) { %>
+    <% if (!redux) { %>
       </AuthProvider>
     <% } %>
 

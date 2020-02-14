@@ -1,11 +1,27 @@
 const path = require('path')
-const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-webpack-plugin')
+const glob = require('glob')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const Dotenv = require('dotenv-webpack')
-
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
+const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const PurgecssWhitelister = require('purgecss-whitelister')
+const readReapitConfig = require('./read-reapit-config')
+
+const PATHS = {
+  src: path.join(__dirname, '../..', 'src')
+}
+
+const PurgecssLoader = {
+  loader: path.resolve('./src/scripts/purgecss-loader.js'),
+  options: {
+    paths: glob.sync(`${PATHS.src}/**/*.{ts,tsx}`),
+    whitelist: PurgecssWhitelister(['node_modules/@reapit/elements/dist/*.css'])
+  }
+}
 
 module.exports = {
   context: process.cwd(),
@@ -19,19 +35,26 @@ module.exports = {
       tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json')
     }),
     new ForkTsCheckerWebpackPlugin({
-      tslint: true,
-      useTypescriptIncrementalApi: true
-    }),
-    new ForkTsCheckerNotifierWebpackPlugin({
-      title: 'TypeScript',
-      excludeWarnings: false
-    }),
-    new Dotenv({
-      path: path.join(process.cwd(), 'src', 'constants', '.env')
+      async: false,
+      useTypescriptIncrementalApi: true,
+      memoryLimit: 4096
     }),
     new HtmlWebpackPlugin({
+      hash: true,
       inject: true,
-      template: 'public/index.html'
+      template: 'public/index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      }
     }),
     new FaviconsWebpackPlugin({
       logo: './public/logo.png',
@@ -52,31 +75,44 @@ module.exports = {
         yandex: false,
         windows: false
       }
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true
+    }),
+    new EnvironmentPlugin(readReapitConfig()),
+    new HashedModuleIdsPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[hash].css'
     })
   ],
   module: {
     rules: [
       {
         test: /.tsx?$/,
-        use: [
-          {
-            loader: 'ts-loader',
-            options: { transpileOnly: true }
-          }
-        ]
+        use: [{ loader: 'ts-loader', options: { transpileOnly: true } }]
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
         use: {
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]'
+            name: '[name].[ext]',
+            outputPath: '/assets'
           }
         }
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.(css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          }
+        ]
       },
       {
         test: /\.(sass|scss)$/,
@@ -84,40 +120,40 @@ module.exports = {
           {
             resourceQuery: /\?mod$/,
             use: [
-              {
-                loader: 'style-loader'
-              },
+              MiniCssExtractPlugin.loader,
               {
                 loader: 'css-loader',
                 options: {
+                  importLoaders: 1,
                   modules: {
-                    localIdentName: '[name]-[local]-[hash:base64:5]'
+                    localIdentName: '[hash:base64:5]'
                   },
                   localsConvention: 'camelCase'
                 }
               },
+              PurgecssLoader,
               {
                 loader: 'sass-loader',
                 options: {
-                  sourceMap: true,
-                  includePaths: ['node_modules']
+                  sourceMap: false
                 }
               }
             ]
           },
           {
             use: [
+              MiniCssExtractPlugin.loader,
               {
-                loader: 'style-loader'
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 1
+                }
               },
-              {
-                loader: 'css-loader'
-              },
+              PurgecssLoader,
               {
                 loader: 'sass-loader',
                 options: {
-                  sourceMap: true,
-                  includePaths: ['node_modules']
+                  sourceMap: false
                 }
               }
             ]
@@ -132,16 +168,8 @@ module.exports = {
       '@': path.resolve(__dirname, 'src/')
     }
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    open: true,
-    openPage: 'login',
-    clientLogLevel: 'warning',
-    historyApiFallback: true,
-    stats: 'errors-only'
-  },
   optimization: {
-    nodeEnv: 'development',
+    nodeEnv: 'production',
     splitChunks: {
       chunks: 'all'
     }

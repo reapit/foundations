@@ -1,7 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login should match a snapshot 1`] = `
-<<<<<<< HEAD
 <ContextProvider
   value={
     Object {
@@ -14,39 +13,4 @@ exports[`Login should match a snapshot 1`] = `
 >
   <Component />
 </ContextProvider>
-=======
-<styled.div>
-  <styled.div
-    disabled={false}
-  >
-    <H1
-      isCentered={true}
-    >
-      Sign in
-    </H1>
-    <p
-      className="pb-8"
-    >
-      Welcome to <%= name %>
-    </p>
-    <Formik
-      initialValues={
-        Object {
-          "email": "",
-          "password": "",
-        }
-      }
-      onSubmit={[Function]}
-      render={[Function]}
-      validate={[Function]}
-    />
-  </styled.div>
-  <styled.div>
-    <img
-      alt="Reapit Graphic"
-      src=""
-    />
-  </styled.div>
-</styled.div>
->>>>>>> temp
 `;

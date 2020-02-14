@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
-const { PATHS } = require('./constants')
+const readReapitConfig = require('./read-reapit-config')
+const {PATHS} = require('./constants')
 
 module.exports = {
   context: process.cwd(),
@@ -49,6 +50,7 @@ module.exports = {
         windows: false,
       },
     }),
+    new EnvironmentPlugin(readReapitConfig()),
   ],
   module: {
     rules: [

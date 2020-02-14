@@ -1,10 +1,20 @@
-import { createStore, applyMiddleware, compose, combineReducers, Store as ReduxStore, Dispatch } from 'redux'
+import {
+  createStore,
+  applyMiddleware,
+  compose,
+  combineReducers,
+  Store as ReduxStore,
+  Dispatch,
+  Reducer,
+  CombinedState,
+  AnyAction,
+} from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { all, fork } from '@redux-saga/core/effects'
 import home from '../reducers/home'
 import error from '../reducers/error'
 import auth from '@/reducers/auth'
-import { ReduxState } from '../types/core'
+import { ReduxState, Action } from '../types/core'
 import homeSagas from '../sagas/home'
 import authSagas from '@/sagas/auth'
 
@@ -27,7 +37,7 @@ export class Store {
     error,
     home,
     auth,
-  })
+  }) as Reducer<CombinedState<ReduxState>, Action<any> | AnyAction>
 
   static sagas = function*() {
     yield all([fork(homeSagas), fork(authSagas)])

@@ -1,7 +1,7 @@
-import { RouteValue } from '@/types/core'
+import { RouteValue, StringMap } from '@/types/core'
 import { getAccessToken } from '@/utils/session'
 
-const routeDispatcher = async (route: RouteValue) => {
+const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
   await getAccessToken()
 
   switch (route) {

@@ -1103,8 +1103,6 @@ export interface AppSummaryModel {
   readonly links?: LinkModel[]
 }
 /**
-<<<<<<< Updated upstream
-=======
  * Representation of app usage for a specific day
  */
 export interface AppUsageStatsByDateModel {
@@ -1135,7 +1133,6 @@ export interface AppUsageStatsModel {
   usage?: AppUsageStatsByDateModel[]
 }
 /**
->>>>>>> Stashed changes
  * Approval representation
  */
 export interface ApprovalModel {
@@ -1727,8 +1724,6 @@ export interface UpdateDeveloperModel {
    */
   isInactive?: boolean
 }
-<<<<<<< Updated upstream
-=======
 /**
  * Representations of an apps statistics
  */
@@ -1750,4 +1745,3 @@ export interface UsageStatsModel {
    */
   appUsage?: AppUsageStatsModel[]
 }
->>>>>>> Stashed changes

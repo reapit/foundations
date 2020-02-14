@@ -1,7 +1,8 @@
 import { Action } from '@/types/core'
 import { isType } from '@/utils/actions'
 import { authLogin, authLoginFailure, authLoginSuccess, authLogoutSuccess, authSetRefreshSession } from '@/actions/auth'
-import { RefreshParams, LoginSession } from '@reapit/cognito-auth'
+import { RefreshParams, LoginSession, getSessionCookie } from '@reapit/cognito-auth'
+import { COOKIE_SESSION_KEY } from '../constants/api'
 
 export interface AuthState {
   error: boolean
@@ -10,10 +11,11 @@ export interface AuthState {
 }
 
 export const defaultState = (): AuthState => {
+  const refreshSession = getSessionCookie(COOKIE_SESSION_KEY)
   return {
     error: false,
     loginSession: null,
-    refreshSession: null,
+    refreshSession,
   }
 }
 
@@ -41,7 +43,10 @@ const authReducer = (state: AuthState = defaultState(), action: Action<any>): Au
   }
 
   if (isType(action, authLogoutSuccess)) {
-    return defaultState()
+    return {
+      ...defaultState(),
+      refreshSession: null,
+    }
   }
 
   if (isType(action, authSetRefreshSession)) {

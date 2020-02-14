@@ -2,10 +2,11 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
-const { GenerateSW } = require('workbox-webpack-plugin')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const { EnvironmentPlugin } = require('webpack')
 const { PATHS } = require('./constants')
+const path = require('path')
+const readReapitConfig = require('./read-reapit-config')
 
 module.exports = {
   context: process.cwd(),
@@ -61,13 +62,7 @@ module.exports = {
       },
     }),
     new HashedModuleIdsPlugin(),
-    new GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-      navigateFallback: '/index.html',
-      cacheId: process.cwd(),
-      cleanupOutdatedCaches: true,
-    }),
+    new EnvironmentPlugin(readReapitConfig()),
   ],
   module: {
     rules: [

@@ -1,6 +1,6 @@
 {
   "name": "@reapit/cognito-auth",
-  "version": "2.0.15",
+  "version": "2.0.17",
   "description": "Simple wrapper around AWS Cognito for basic authentication flow",
   "keywords": [],
   "homepage": "https://github.com/reapit/foundations#readme",
@@ -19,7 +19,8 @@
   "main": "dist/index.js",
   "umd:main": "dist/cognito-auth.umd.production.js",
   "module": "dist/cognito-auth.esm.js",
-  "typings": "dist/index.d.ts",
+  "typings": "dist/cognito-auth/src/index.d.ts",
+  "types": "dist/cognito-auth/src/index.d.ts",
   "scripts": {
     "build:prod": "cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd",
     "release:prod": "node ../../scripts/release/release-npm.js @reapit/cognito-auth",

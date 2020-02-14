@@ -1,31 +1,13 @@
 import * as React from 'react'
-<<<<<<< HEAD
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { ErrorBoundary, ErrorState } from '../error-boundary'
-=======
-import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import { ErrorBoundary, ErrorState } from '../error-boundary'
-import errorMessages from '../../../constants/error-messages'
-import { ErrorData } from '../../../reducers/error'
-
-jest.mock('../../../utils/route-dispatcher')
->>>>>>> temp
 
 const Component: React.FC = () => <div>I am a component!</div>
 Component.displayName = 'Component'
 
 const props = {
   children: Component,
-<<<<<<< HEAD
-=======
-  errorThrownComponent: jest.fn(),
-  componentError: {
-    type: 'COMPONENT',
-    message: errorMessages.DEFAULT_COMPONENT_ERROR,
-  } as ErrorData,
->>>>>>> temp
 }
 
 describe('ErrorBoundary', () => {
@@ -41,29 +23,6 @@ describe('ErrorBoundary', () => {
     expect(toJson(component)).toMatchSnapshot()
   })
 
-<<<<<<< HEAD
-=======
-  it('should call the errorThrownComponent and sets the state to hasFailed when it catches', () => {
-    ;(console.error as any) = jest.fn()
-    const DangerousChild = (props: { someProp?: false }) => {
-      if (!props.someProp) {
-        throw new Error('Catch me if you can')
-      }
-      return <div />
-    }
-    const newPops = { ...props, children: <DangerousChild /> }
-
-    const component = mount(<ErrorBoundary {...newPops} />)
-    expect(DangerousChild).toThrow()
-    expect(newPops.errorThrownComponent).toHaveBeenCalledTimes(1)
-    expect(newPops.errorThrownComponent).toHaveBeenCalledWith({
-      type: 'COMPONENT',
-      message: errorMessages.DEFAULT_COMPONENT_ERROR,
-    })
-    expect((component.state() as ErrorState).hasFailed).toBe(true)
-  })
-
->>>>>>> temp
   afterEach(() => {
     jest.restoreAllMocks()
   })

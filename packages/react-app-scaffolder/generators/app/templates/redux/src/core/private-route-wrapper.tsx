@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
-import { ReduxState } from '@/types/core'
-import { selectUserLoginStatus } from '@/selectors/auth'
-import { Loader, AppNavContainer } from '@reapit/elements'
-import { RefreshParams, getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
-import { Dispatch } from 'redux'
-import { authSetRefreshSession } from '../actions/auth'
+import { ReduxState } from 'src/types/core'
 import Menu from '@/components/ui/menu'
+import { Loader, AppNavContainer, Section } from '@reapit/elements'
+import { RefreshParams, getTokenFromQueryString } from '@reapit/cognito-auth'
+import { authSetRefreshSession } from '../actions/auth'
+import { Dispatch } from 'redux'
+import { withRouter } from 'react-router'
+import { redirectToOAuth } from '@reapit/cognito-auth'
 
 const { Suspense } = React
 
@@ -18,22 +18,23 @@ export interface PrivateRouteWrapperConnectActions {
 
 export interface PrivateRouteWrapperConnectState {
   hasSession: boolean
+  isDesktopMode: boolean
 }
 
 export type PrivateRouteWrapperProps = PrivateRouteWrapperConnectState &
   PrivateRouteWrapperConnectActions &
   RouteComponentProps & {
     path: string
-  } & {
-    children: React.ReactNode | React.ReactNodeArray
   }
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
-  children,
-  hasSession,
   setRefreshSession,
-}: PrivateRouteWrapperProps) => {
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_LTL_APP as string
+  children,
+  location,
+  isDesktopMode,
+  hasSession,
+}) => {
+  const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string
   const refreshParams = getTokenFromQueryString(location.search, cognitoClientId)
 
   if (refreshParams && !hasSession) {
@@ -48,16 +49,23 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
 
   return (
     <AppNavContainer>
-      <div>
-        <Menu />
-      </div>
-      <Suspense fallback={<Loader body />}>{children}</Suspense>
+      <Menu />
+      <Suspense
+        fallback={
+          <Section>
+            <Loader />
+          </Section>
+        }
+      >
+        {children}
+      </Suspense>
     </AppNavContainer>
   )
 }
 
 const mapStateToProps = (state: ReduxState): PrivateRouteWrapperConnectState => ({
-  hasSession: selectUserLoginStatus(state),
+  hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
+  isDesktopMode: state?.auth?.refreshSession?.mode === 'DESKTOP',
 })
 
 const mapDispatchToProps = (dispatch: Dispatch): PrivateRouteWrapperConnectActions => ({

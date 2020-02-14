@@ -5,7 +5,7 @@ import { LoginParams, setUserSession, removeSession, redirectToLogout } from '@r
 import { Action, ActionType } from '@/types/core'
 import { mockLoginSession } from '../../utils/__mocks__/session'
 import { authLoginSuccess, authLoginFailure } from '@/actions/auth'
-import { COOKIE_SESSION_KEY_AML_APP } from '../../constants/api'
+import { COOKIE_SESSION_KEY } from '../../constants/api'
 
 jest.mock('../../utils/session')
 jest.mock('../../core/store.ts')
@@ -53,9 +53,9 @@ describe('auth sagas', () => {
   describe('authLogout', () => {
     it('should redirect to login page', () => {
       const gen = doLogout()
-      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY_AML_APP))
+      expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY))
       expect(gen.next().value).toEqual(
-        call(redirectToLogout, process.env.COGNITO_CLIENT_ID_AML_APP as string, `${window.location.origin}/login`),
+        call(redirectToLogout, process.env.process.env.COGNITO_CLIENT_ID_<%= name %> as string, `${window.location.origin}/login`),
       )
       expect(gen.next().done).toBe(true)
     })
