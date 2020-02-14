@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": ["dom", "es2015", "es2017", "es2018", "es2019", "es2020", "es5", "es6", "es7", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noImplicitAny": false,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",
+    "strict": true,
+    "target": "es2020",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["jest", "node", "react"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "public",
+    "dist",
+    "scripts",
+    "node_modules",
+    "coverage",
+    "public",
+    "dist",
+    "./webpack.config.js",
+    "node_modules",
+    "src/tests/coverage"
+  ],
+  "include": ["src"]
+}

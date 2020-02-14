@@ -1,18 +1,13 @@
-import { StringMap } from '../types/core'
+import { StringMap } from '@/types/core'
+import { COOKIE_SESSION_KEY as COGNITIO_COOKIE_SESSION_KEY } from '@reapit/cognito-auth'
 
-export const PLATFORM_HEADERS = {
-  'Content-Type': 'application/json',
-  Authorization: process.env.PLATFORM_API_KEY,
-} as StringMap
-
-export const COGNITO_HEADERS = {
+export const CONTACTS_HEADERS = {
   'Content-Type': 'application/json',
 } as StringMap
 
 export const API_VERSION = '2020-01-31'
 
-export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
+export const COOKIE_SESSION_KEY = `${COGNITIO_COOKIE_SESSION_KEY}-aml-app`
 
 export const URLS = {
-  developerCreate: '/home',
 }
