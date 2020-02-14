@@ -525,7 +525,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                   <FormSubHeading>
                     This section refers to the listing status in the Marketplace. If your App is an external application
                     i.e. it is just an API feed app or is a web application that exists out of the Marketplace
-                    ecosystem, please select, &ldquo;Direct API&rdquo; Your app will still need to be listed in the
+                    ecosystem, please select, &ldquo;Direct API&rdquo;. Your app will still need to be listed in the
                     Marketplace and installed by clients so they can grant permissions however, it will not appear as a
                     launchable app for users from the Marketplace. It is a hard requirement that launchable apps conform
                     closely to our &ldquo;Elements&rdquo;, brand guidelines so if your app does not, please also select
@@ -548,11 +548,11 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                   <FormSubHeading>
                     Please select an authentication flow for your application.{' '}
                     <strong>You can only do this once when you submit your app.</strong> You should always select
-                    &ldquo;User Session&rdquo; for client side authenticated apps. In this case, your users will have to
-                    login and you will need to attach a Bearer token to your API Authorization headers. If you select
-                    &ldquo;Client Secret&rdquo; we will provide you with a secret token to include in your API requests.
-                    This secret will be unique per app and would typically be the flow for machine-to-machine server
-                    side apps.{' '}
+                    &ldquo;Authorisation Code&rdquo; for client side authenticated apps. In this case, your users will
+                    have to login and you will need to attach a Bearer token to your API Authorization headers. If you
+                    select &ldquo;Client Credentials&rdquo; we will provide you with a secret token to include in your
+                    API requests. This secret will be unique per app and would typically be the flow for
+                    machine-to-machine server side apps.{' '}
                     <strong>
                       It is fundamentally insecure to expose this secret on the client side and doing so will result in
                       your app being rejected.{' '}
@@ -570,8 +570,8 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         state={values['authFlow']}
                         disabled={!isSubmitApp}
                         options={[
-                          { label: 'USER SESSION', value: 'authorisationCode' },
-                          { label: 'CLIENT SECRET', value: 'clientCredentials' },
+                          { label: 'Authorisation Code', value: 'authorisationCode' },
+                          { label: 'Client Credentials', value: 'clientCredentials' },
                         ]}
                         name="authFlow"
                         id="authFlow"
