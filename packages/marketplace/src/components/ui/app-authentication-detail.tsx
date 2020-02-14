@@ -66,7 +66,7 @@ export const AppAuthenticationDetail: React.FunctionComponent<AppAuthenticationD
       <div className={appDetailStyles.appInfoRow}>
         <p className={appDetailStyles.appInfoProperty}>Authentication:</p>
         <a href="#" onClick={handleShowAuthCode} className={styles.btnShowAuthentication}>
-          Show Client Secret
+          Show Client Credentials
         </a>
       </div>
       {loading && <Loader body={false} />}
