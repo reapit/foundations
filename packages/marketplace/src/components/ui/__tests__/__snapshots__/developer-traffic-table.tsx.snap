@@ -49,7 +49,7 @@ exports[`DeveloperTrafficTable should match a snapshot 1`] = `
     scrollable={true}
   />
   <div
-    className="undefined is-pulled-right"
+    className="undefined"
   >
     <Component
       className="undefined is-pulled-left"
