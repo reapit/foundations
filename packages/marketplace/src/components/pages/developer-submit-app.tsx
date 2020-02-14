@@ -174,6 +174,15 @@ export const handleSubmitApp = ({
   //   setShouldShowError(true)
   //   return
   // }
+  const { redirectUris, signoutUris, ...otherData } = appModel
+  const appToSubmit =
+    appModel.authFlow === 'clientCredentials'
+      ? otherData
+      : {
+          ...otherData,
+          redirectUris: redirectUris ? redirectUris.split(',') : [],
+          signoutUris: signoutUris ? signoutUris.split(',') : [],
+        }
   if (!appId) {
     submitApp(appToSubmit, actions, setSubmitError)
   } else {
