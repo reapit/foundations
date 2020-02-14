@@ -17,23 +17,27 @@ export type SubmitAppFormErrorKeys =
   | 'signoutUris'
 
 export const validate = (values: CustomCreateAppModel) => {
+  const keysRequiredClientCredentials: SubmitAppFormErrorKeys[] = [
+    'name',
+    'telephone',
+    'supportEmail',
+    'launchUri',
+    'iconImageUrl',
+    'homePage',
+    'description',
+    'summary',
+    'screen1ImageUrl',
+    'authFlow',
+  ]
+  const keysRequiredAuthorizationCode: SubmitAppFormErrorKeys[] = [
+    ...keysRequiredClientCredentials,
+    'redirectUris',
+    'signoutUris',
+  ]
   let errors = validateRequire<CustomCreateAppModel, SubmitAppFormErrorKeys>({
     values,
     currentErrors: {},
-    keys: [
-      'name',
-      'telephone',
-      'supportEmail',
-      'launchUri',
-      'iconImageUrl',
-      'homePage',
-      'description',
-      'summary',
-      'screen1ImageUrl',
-      'authFlow',
-      'redirectUris',
-      'signoutUris',
-    ],
+    keys: values.authFlow === 'clientCredentials' ? keysRequiredClientCredentials : keysRequiredAuthorizationCode,
   })
 
   errors = validateEmail({
@@ -41,6 +45,12 @@ export const validate = (values: CustomCreateAppModel) => {
     currentErrors: errors,
     keys: ['supportEmail'],
   })
+
+  // only validating redirectUris and signoutUris when authFlow === 'authorisationCode
+
+  if (values.authFlow === 'clientCredentials') {
+    return errors
+  }
 
   if (values.redirectUris && !isValidRedirectUrls(values.redirectUris)) {
     errors.redirectUris = 'Invalid redirect uri(s)'

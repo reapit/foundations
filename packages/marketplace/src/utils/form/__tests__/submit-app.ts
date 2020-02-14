@@ -20,6 +20,7 @@ describe('submitAppValidation', () => {
       scopes: [],
       redirectUris: '',
       signoutUris: '',
+      authFlow: '',
     }
 
     const validateRequiredKeys = [
@@ -34,6 +35,7 @@ describe('submitAppValidation', () => {
       'summary',
       'redirectUris',
       'signoutUris',
+      'authFlow',
     ]
 
     const output = {}
@@ -61,6 +63,7 @@ describe('submitAppValidation', () => {
       scopes: [],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
       signoutUris: 'http://localhost:8080',
+      authFlow: 'authorisationCode',
     }
 
     expect(validate(input)).toEqual({
@@ -85,6 +88,7 @@ describe('submitAppValidation', () => {
       scopes: [],
       redirectUris: 'http://google.com,https://twitter.com,http://localhost:8080',
       signoutUris: 'http://localhost:8080',
+      authFlow: 'authorisationCode',
     }
 
     expect(validate(input)).toEqual({
@@ -109,6 +113,7 @@ describe('submitAppValidation', () => {
       scopes: [],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
       signoutUris: 'https://localhost:8080',
+      authFlow: 'authorisationCode',
     }
 
     expect(validate(input)).toEqual({
@@ -133,6 +138,30 @@ describe('submitAppValidation', () => {
       scopes: [],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
       signoutUris: 'http://localhost:8080',
+      authFlow: 'authorisationCode',
+    }
+
+    expect(validate(input)).toEqual({})
+  })
+
+  it('dont validate signoutUris & redirectUris if authFlow = clientCredentials', () => {
+    const input: CustomCreateAppModel = {
+      screen4ImageUrl: 'test',
+      screen3ImageUrl: 'test',
+      screen2ImageUrl: 'test',
+      screen1ImageUrl: 'test',
+      name: 'test',
+      telephone: 'test',
+      supportEmail: 'test@test.com',
+      launchUri: 'test',
+      iconImageUrl: 'test',
+      homePage: 'test',
+      description: 'test',
+      summary: 'test',
+      scopes: [],
+      redirectUris: 'not valid',
+      signoutUris: 'not valid',
+      authFlow: 'clientCredentials',
     }
 
     expect(validate(input)).toEqual({})

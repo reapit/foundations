@@ -12,6 +12,7 @@ export interface InputProps {
   dataTest?: string
   rightIcon?: React.ReactNode
   required?: boolean
+  disabled?: boolean
 }
 
 export const Input = ({
@@ -23,6 +24,7 @@ export const Input = ({
   placeholder = '',
   rightIcon,
   required = false,
+  disabled = false,
 }: InputProps) => (
   <Field name={name} validate={required ? fieldValidateRequire : null}>
     {({ field, meta }: FieldProps<string | number>) => {
@@ -38,6 +40,7 @@ export const Input = ({
               </label>
             )}
             <input
+              disabled={disabled}
               data-test={dataTest}
               type={type}
               id={id}
