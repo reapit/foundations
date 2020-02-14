@@ -2,7 +2,9 @@
   "name": "root",
   "private": true,
   "workspaces": {
-    "packages": ["packages/*"],
+    "packages": [
+      "packages/*"
+    ],
     "nohoist": [
       "**/cognito-custom-mail-lambda",
       "**/cognito-custom-mail-lambda/**"
@@ -48,7 +50,6 @@
     "diff": "^4.0.1",
     "express": "^4.17.1",
     "formik": "^2.0.4",
-    "gh-pages": "^2.2.0",
     "graphql": "^14.5.8",
     "graphql-depth-limit": "^1.1.0",
     "graphql-type-json": "^0.3.1",
