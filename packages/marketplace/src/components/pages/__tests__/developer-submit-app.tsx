@@ -10,8 +10,8 @@ import {
   handleSubmitApp,
   handleClickOpenModal,
   handleCloseModal,
-  handleAcceptTerms,
-  handleDeclineTerms,
+  // handleAcceptTerms,
+  // handleDeclineTerms,
   CustomCreateAppModel,
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
