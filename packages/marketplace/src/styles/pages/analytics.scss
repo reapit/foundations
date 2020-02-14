@@ -12,3 +12,8 @@
   font-size: 1rem;
   margin: 1rem 0;
 }
+.totalApiCountWrapper {
+  @media (min-width: 480px) {
+    width: 300px;
+  }
+}

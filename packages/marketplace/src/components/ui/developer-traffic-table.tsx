@@ -41,6 +41,9 @@ export const generateUsageStatsColumns = () => () => {
     {
       Header: 'Total API Calls',
       accessor: 'requests',
+      columnProps: {
+        width: 300,
+      },
     },
   ]
 }
@@ -61,9 +64,11 @@ const DeveloperTrafficTable: React.FC<DeveloperAppTrafficProps> = ({ stats, apps
 
   const renderTotalRequest = () => {
     return (
-      <H4 className={`${styles.totalCount} is-pulled-right`}>
-        Total API Calls: {calculateTotalRequest(usageStatsData)}
-      </H4>
+      <div className={`${styles.totalApiCountWrapper} is-pulled-right`}>
+        <H4 className={`${styles.totalCount} is-pulled-left`}>
+          Total API Calls: {calculateTotalRequest(usageStatsData)}
+        </H4>
+      </div>
     )
   }
 
