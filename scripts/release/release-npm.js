@@ -14,7 +14,7 @@ const releaseNpm = async () => {
   if (packageName === packageNameOnTag) {
     runCommand('yarn', ['publish'])
     const previousTag = getPreviousTag({ packageName: packageNameOnTag })
-    if (packageName === '@reapit/elements') {
+    if (packageName === 'elements') {
       runCommand('gh-pages', ['-d', 'out'])
     }
 
