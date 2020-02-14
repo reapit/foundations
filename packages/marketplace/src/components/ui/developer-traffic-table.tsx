@@ -64,7 +64,7 @@ const DeveloperTrafficTable: React.FC<DeveloperAppTrafficProps> = ({ stats, apps
 
   const renderTotalRequest = () => {
     return (
-      <div className={`${styles.totalApiCountWrapper} is-pulled-right`}>
+      <div className={`${styles.totalApiCountWrapper}`}>
         <H4 className={`${styles.totalCount} is-pulled-left`}>
           Total API Calls: {calculateTotalRequest(usageStatsData)}
         </H4>

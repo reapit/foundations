@@ -4,6 +4,7 @@ module.exports = {
   minify: true,
   whitelist: [
     '*react-datepicker*',
+    '*is*',
     '*mt*',
     '*mb*',
     '*ml*',
