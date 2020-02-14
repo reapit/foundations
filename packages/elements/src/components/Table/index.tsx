@@ -61,8 +61,11 @@ export const Table = ({
               prepareRow(row) || (
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell, index) => {
+                    const {
+                      column: { columnProps },
+                    } = cell
                     return (
-                      <td key={index} {...cell.getCellProps()}>
+                      <td key={index} {...cell.getCellProps()} {...columnProps}>
                         {cell.render('Cell')}
                       </td>
                     )

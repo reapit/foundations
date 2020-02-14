@@ -25,6 +25,9 @@ exports[`DeveloperTrafficTable should match a snapshot 1`] = `
         Object {
           "Header": "Total API Calls",
           "accessor": "requests",
+          "columnProps": Object {
+            "width": 300,
+          },
         },
       ]
     }
@@ -45,11 +48,15 @@ exports[`DeveloperTrafficTable should match a snapshot 1`] = `
     loading={false}
     scrollable={true}
   />
-  <Component
+  <div
     className="undefined is-pulled-right"
   >
-    Total API Calls: 
-    5
-  </Component>
+    <Component
+      className="undefined is-pulled-left"
+    >
+      Total API Calls: 
+      5
+    </Component>
+  </div>
 </div>
 `;
