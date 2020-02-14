@@ -41,7 +41,7 @@ import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-rev
 import DeveloperSubmitAppSuccessfully from './developer-submit-app-successfully'
 import { selectCategories } from '../../selector/app-categories'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
-import { TermsAndConditionsModal } from '../ui/terms-and-conditions-modal'
+// import { TermsAndConditionsModal } from '../ui/terms-and-conditions-modal'
 
 export type CustomCreateAppModel = Omit<CreateAppModel, 'redirectUris' | 'signoutUris'> & {
   redirectUris?: string

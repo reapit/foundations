@@ -88,8 +88,8 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
   {
     imgSrc: whatNewImg,
     header: 'What’s New',
-    text:
-      'We are constantly working to improve your experience with the Foundations Platform. Have a look to see what new features and fixes have been released.',
+    text: `We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+      new features and fixes have been released.`,
     buttonText: 'VIEW',
     buttonOnClick: () => {},
   },
