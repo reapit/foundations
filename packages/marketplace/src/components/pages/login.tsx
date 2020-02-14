@@ -13,8 +13,11 @@ import logoImage from '@/assets/images/reapit-graphic.jpg'
 import { getLoginTypeByPath, getDefaultPathByLoginType, getDefaultRouteByLoginType } from '@/utils/auth-route'
 import { getCookieString, COOKIE_FIRST_TIME_LOGIN } from '@/utils/cookie'
 import connectImage from '@/assets/images/reapit-connect.png'
+import { showNotificationMessage } from '@/actions/notification-message'
+import messages from '@/constants/messages'
 
 export interface LoginMappedActions {
+  showNotiAfterPasswordChanged: () => void
   authChangeLoginType: (loginType: string) => void
 }
 
@@ -47,13 +50,19 @@ export const tabConfigs = ({ loginType, history }: LoginProps): TabConfig[] => [
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   const reapitEnv = process.env.REAPIT_ENV || 'LOCAL'
   const isReapitEnvProd = reapitEnv === 'PROD'
-  const { hasSession, loginType, location, authChangeLoginType } = props
+  const isPasswordChanged = localStorage.getItem('isPasswordChanged') === 'true'
+  const { hasSession, loginType, location, authChangeLoginType, showNotiAfterPasswordChanged } = props
   const { wrapper, container, image, tabsContainer /* , register */ } = loginStyles
 
   const currentLoginType = getLoginTypeByPath(location.pathname)
   authChangeLoginType(currentLoginType)
 
   const firstLoginCookie = getCookieString(COOKIE_FIRST_TIME_LOGIN)
+
+  if (isPasswordChanged) {
+    showNotiAfterPasswordChanged()
+    localStorage.removeItem('isPasswordChanged')
+  }
 
   if (hasSession) {
     const redirectRoute = getDefaultPathByLoginType(loginType, firstLoginCookie)
@@ -103,6 +112,8 @@ export const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
 })
 
 export const mapDispatchToProps = (dispatch: Dispatch): LoginMappedActions => ({
+  showNotiAfterPasswordChanged: () =>
+    dispatch(showNotificationMessage({ variant: 'info', message: messages.PASSWORD_CHANGED_SUCCESSFULLY })),
   authChangeLoginType: (loginType: string) => dispatch(authChangeLoginType(loginType as LoginType)),
 })
 
