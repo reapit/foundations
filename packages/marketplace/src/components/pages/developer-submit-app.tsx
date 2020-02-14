@@ -175,24 +175,12 @@ export const handleSubmitApp = ({
   //   return
   // }
   if (!appId) {
-    submitApp(
-      {
-        ...appModel,
-        redirectUris: appModel.redirectUris ? appModel.redirectUris.split(',') : [],
-        signoutUris: appModel.signoutUris ? appModel.signoutUris.split(',') : [],
-      },
-      actions,
-      setSubmitError,
-    )
+    submitApp(appToSubmit, actions, setSubmitError)
   } else {
-    if (appModel.authFlow) {
-      delete appModel.authFlow
+    if (appToSubmit.authFlow) {
+      delete appToSubmit.authFlow
     }
-    submitRevision(appId, {
-      ...appModel,
-      redirectUris: appModel.redirectUris ? appModel.redirectUris.split(',') : [],
-      signoutUris: appModel.signoutUris ? appModel.signoutUris.split(',') : [],
-    })
+    submitRevision(appId, appToSubmit)
   }
 }
 
@@ -391,30 +379,6 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                   </Grid>
                   <Grid>
                     <GridItem>
-                      <Input
-                        dataTest="submit-app-redirect-uri"
-                        type="text"
-                        labelText="Redirect URI(s)"
-                        id="redirectUris"
-                        name="redirectUris"
-                        placeholder="Enter your callback URI’s. For multiple URI's, separate using a comma. HTTPS only other than for http://localhost"
-                      />
-                    </GridItem>
-                  </Grid>
-                  <Grid>
-                    <GridItem>
-                      <Input
-                        dataTest="submit-app-signout-uris"
-                        type="text"
-                        labelText="Sign Out URI(s)"
-                        id="signoutUris"
-                        name="signoutUris"
-                        placeholder="Enter the URI that your application should navigate to when a user logs out. For multiple URI's, separate using a comma. HTTPS other than for http://localhost"
-                      />
-                    </GridItem>
-                  </Grid>
-                  <Grid>
-                    <GridItem>
                       <TextArea
                         id="summary"
                         dataTest="submit-app-summary"
@@ -438,6 +402,68 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                     </GridItem>
                   </Grid>
                 </FormSection>
+                <FormSection>
+                  <FormHeading>AUTHENTICATION FLOW</FormHeading>
+                  <FormSubHeading>
+                    Please select an authentication flow for your application.{' '}
+                    <strong>You can only do this once when you submit your app.</strong> You should always select
+                    &ldquo;User Session&rdquo; for client side authenticated apps. In this case, your users will have to
+                    login and you will need to attach a Bearer token to your API Authorization headers. If you select
+                    &ldquo;Client Secret&rdquo; we will provide you with a secret token to include in your API requests.
+                    This secret will be unique per app and would typically be the flow for machine-to-machine server
+                    side apps.{' '}
+                    <strong>
+                      It is fundamentally insecure to expose this secret on the client side and doing so will result in
+                      your app being rejected.{' '}
+                    </strong>
+                    For more on authentication please read the docs{' '}
+                    <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank" rel="noopener noreferrer">
+                      here
+                    </a>{' '}
+                    before progressing.
+                  </FormSubHeading>
+                  <Grid>
+                    <GridItem>
+                      <RadioSelect
+                        setFieldValue={setFieldValue}
+                        state={values['authFlow']}
+                        disabled={!isSubmitApp}
+                        options={[
+                          { label: 'AUTHORIZATION CODE (Reapit Connect)', value: 'authorisationCode' },
+                          { label: 'CLIENT CREDENTIALS', value: 'clientCredentials' },
+                        ]}
+                        name="authFlow"
+                        id="authFlow"
+                      />
+                    </GridItem>
+                  </Grid>
+                </FormSection>
+                <Grid>
+                  <GridItem>
+                    <Input
+                      disabled={values['authFlow'] === 'clientCredentials'}
+                      dataTest="submit-app-redirect-uri"
+                      type="text"
+                      labelText="Redirect URI(s)"
+                      id="redirectUris"
+                      name="redirectUris"
+                      placeholder="Enter your callback URI’s. For multiple URI's, separate using a comma. HTTPS only other than for http://localhost"
+                    />
+                  </GridItem>
+                </Grid>
+                <Grid>
+                  <GridItem>
+                    <Input
+                      disabled={values['authFlow'] === 'clientCredentials'}
+                      dataTest="submit-app-signout-uris"
+                      type="text"
+                      labelText="Sign Out URI(s)"
+                      id="signoutUris"
+                      name="signoutUris"
+                      placeholder="Enter the URI that your application should navigate to when a user logs out. For multiple URI's, separate using a comma. HTTPS other than for http://localhost"
+                    />
+                  </GridItem>
+                </Grid>
                 <FormSection>
                   <FormHeading>Images</FormHeading>
                   <FormSubHeading>
@@ -541,42 +567,6 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         <Checkbox name="isListed" labelText="Is Listed" id="isListed" />
                       </GridItem>
                     )}
-                  </Grid>
-                </FormSection>
-                <FormSection>
-                  <FormHeading>AUTHENTICATION FLOW</FormHeading>
-                  <FormSubHeading>
-                    Please select an authentication flow for your application.{' '}
-                    <strong>You can only do this once when you submit your app.</strong> You should always select
-                    &ldquo;Authorisation Code&rdquo; for client side authenticated apps. In this case, your users will
-                    have to login and you will need to attach a Bearer token to your API Authorization headers. If you
-                    select &ldquo;Client Credentials&rdquo; we will provide you with a secret token to include in your
-                    API requests. This secret will be unique per app and would typically be the flow for
-                    machine-to-machine server side apps.{' '}
-                    <strong>
-                      It is fundamentally insecure to expose this secret on the client side and doing so will result in
-                      your app being rejected.{' '}
-                    </strong>
-                    For more on authentication please read the docs{' '}
-                    <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank" rel="noopener noreferrer">
-                      here
-                    </a>{' '}
-                    before progressing.
-                  </FormSubHeading>
-                  <Grid>
-                    <GridItem>
-                      <RadioSelect
-                        setFieldValue={setFieldValue}
-                        state={values['authFlow']}
-                        disabled={!isSubmitApp}
-                        options={[
-                          { label: 'Authorisation Code', value: 'authorisationCode' },
-                          { label: 'Client Credentials', value: 'clientCredentials' },
-                        ]}
-                        name="authFlow"
-                        id="authFlow"
-                      />
-                    </GridItem>
                   </Grid>
                 </FormSection>
                 <FormSection>
