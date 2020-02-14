@@ -1,15 +1,15 @@
 {
   "name": "@reapit/foundations-ts-definitions",
-  "version": "0.0.38",
+  "version": "0.0.39",
   "license": "MIT",
   "files": [
     "types/*"
   ],
   "main": "./types/index.ts",
   "scripts": {
-    "release:prod": "node ../../scripts/foundations-ts-definitions/release-npm.js foundations-ts-definitions",
     "fetch-definition": "node '../../scripts/foundations-ts-definitions/fetch-definition.js'",
     "handle-cron-job": "node '../../scripts/foundations-ts-definitions/handle-cronjob.js'",
+    "release:prod": "node ../../scripts/foundations-ts-definitions/release-npm.js foundations-ts-definitions",
     "test:update-badges": "echo 'not implmented'"
   },
   "lint-staged": {
