@@ -189,6 +189,43 @@ exports[`HelpPage should match a snapshot 1`] = `
         </p>
       </Component>
     </Component>
+    <Component
+      key="What’s New"
+    >
+      <Component
+        centerContent={true}
+        flexColumn={true}
+        hasPadding={true}
+      >
+        <div>
+          <img
+            alt="What’s New"
+            src=""
+          />
+        </div>
+        <Component
+          isCentered={true}
+        >
+          What’s New
+        </Component>
+        <p>
+          We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+      new features and fixes have been released.
+        </p>
+        <p>
+          <Component
+            disabled={false}
+            fullWidth={false}
+            loading={false}
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            VIEW
+          </Component>
+        </p>
+      </Component>
+    </Component>
   </Component>
 </div>
 `;
@@ -364,6 +401,41 @@ exports[`renderHelpItems should match snapshot 1`] = `
           variant="primary"
         >
           START CHAT
+        </Unknown>
+      </p>
+    </Unknown>
+  </Unknown>
+  <Unknown>
+    <Unknown
+      centerContent={true}
+      flexColumn={true}
+      hasPadding={true}
+    >
+      <div>
+        <img
+          alt="What’s New"
+          src=""
+        />
+      </div>
+      <Unknown
+        isCentered={true}
+      >
+        What’s New
+      </Unknown>
+      <p>
+        We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
+      new features and fixes have been released.
+      </p>
+      <p>
+        <Unknown
+          disabled={false}
+          fullWidth={false}
+          loading={false}
+          onClick={[Function]}
+          type="button"
+          variant="primary"
+        >
+          VIEW
         </Unknown>
       </p>
     </Unknown>
