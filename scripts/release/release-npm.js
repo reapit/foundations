@@ -13,6 +13,7 @@ const releaseNpm = async () => {
   }
 
   if (packageName === packageNameOnTag) {
+    execSync('git config --global url.ssh://git@github.com/.insteadOf https://github.com/')
     execSync(`git config --global user.email "${process.env.GITHUB_ACTOR}@email.com"`)
     execSync(`git config --global user.name "${process.env.GITHUB_ACTOR}"`)
     runCommand('yarn', ['publish'])
