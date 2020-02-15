@@ -9,7 +9,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap) => {
 
   switch (route) {
     case Routes.HOME:
-      store.dispatch authenticatedRequestData())
+      store.dispatch(authenticatedRequestData())
       break
     default:
       console.error('Route not found, nothing to fetch')
