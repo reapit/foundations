@@ -1,6 +1,7 @@
 import { getAccessToken } from '../session'
 import { authLogout, authLoginSuccess } from '@/actions/auth'
 import { getSession, LoginSession, RefreshParams } from '@reapit/cognito-auth'
+import {COOKIE_SESSION_KEY} from '@/constants/api'
 
 import store from '@/core/store'
 
@@ -22,7 +23,7 @@ describe('session utils', () => {
       store.state.auth.refreshSession = null
       ;(getSession as jest.Mock).mockResolvedValueOnce(null)
       const returnValue = await getAccessToken()
-      expect(getSession).toHaveBeenCalledWith(store.state.auth.loginSession, store.state.auth.refreshSession)
+      expect(getSession).toHaveBeenCalledWith(store.state.auth.loginSession, store.state.auth.refreshSession, COOKIE_SESSION_KEY)
       expect(store.dispatch).toHaveBeenCalledWith(authLogout())
       expect(returnValue).toBeNull()
     })
@@ -34,7 +35,7 @@ describe('session utils', () => {
       ;(getSession as jest.Mock).mockResolvedValueOnce(mockGetSessionReturnValue)
       const returnValue = await getAccessToken()
 
-      expect(getSession).toHaveBeenCalledWith(store.state.auth.loginSession, store.state.auth.refreshSession)
+      expect(getSession).toHaveBeenCalledWith(store.state.auth.loginSession, store.state.auth.refreshSession, COOKIE_SESSION_KEY)
       expect(store.dispatch).toHaveBeenCalledWith(authLoginSuccess(mockGetSessionReturnValue))
       expect(returnValue).toEqual(mockGetSessionReturnValue.accessToken)
     })

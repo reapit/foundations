@@ -8,7 +8,7 @@
     "NPM_TOKEN": "",
     "COGNITO_USERPOOL_ID": "eu-west-2_hbt0B7yys",
     "COGNITO_OAUTH_URL": "https://dev.connect.reapit.cloud",
-    "COGNITO_CLIENT_ID_<%= nameInConstantCase %>": "",
+    "COGNITO_CLIENT_ID_<%= nameInConstantCase %>": "<%= clientId %>",
     "SWAGGER_BASE_URL": "https://dev.platform.reapit.cloud/docs",
     "APPLICATION_URL": "http://localhost:8080"
   }

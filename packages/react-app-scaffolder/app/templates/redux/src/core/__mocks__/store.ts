@@ -1,4 +1,9 @@
 export default {
   dispatch: jest.fn(),
-  state: {}
+  state: {
+    auth: {
+      loginSession: null,
+      refreshSession: null
+    }
+  },
 }

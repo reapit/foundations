@@ -1,4 +1,4 @@
-import homeSagas, { homeDataFetch, homeDataListen } from '../home'
+import homeSagas, { homeDataFetch, homeDataListen } from '../authenticated'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
 import { homeLoading, homeReceiveData, homeRequestDataFailure } from '@/actions/home'

@@ -82,7 +82,7 @@ module.exports = class extends Generator {
 
   async writeBaseFiles() {
     return new Promise((resolve, reject) => {
-      const { name, repo, description, author, isFoundation, stylesSolution } = this.answers
+      const { name, repo, description, author, isFoundation, stylesSolution, clientId } = this.answers
       const { redux, graphql } = this
 
       /**
@@ -92,6 +92,14 @@ module.exports = class extends Generator {
        */
 
       this.fs.copyTpl(this.templatePath('_README.md'), this.destinationPath('./README.md'), {
+        name,
+      })
+
+      this.fs.copyTpl(this.templatePath('_jest.config.js'), this.destinationPath('./jest.config.js'), {
+        name,
+      })
+
+      this.fs.copyTpl(this.templatePath('_gitignore'), this.destinationPath('./.gitignore'), {
         name,
       })
 
@@ -131,18 +139,13 @@ module.exports = class extends Generator {
           author,
         })
       } else {
-        this.fs.copyTpl(this.templatePath('./base-is-not-foundation/**/.*'), this.destinationPath('./'), {
-          name,
-          repo,
-          description,
-          author,
-        })
         this.fs.copyTpl(this.templatePath('./base-is-not-foundation/**/*'), this.destinationPath('./'), {
           name,
           nameInConstantCase: constantCase(name),
           repo,
           description,
           author,
+          clientId,
         })
       }
 
@@ -193,6 +196,12 @@ module.exports = class extends Generator {
         name: 'author',
         message: 'Enter the author of the project',
         default: 'Author',
+      },
+      {
+        type: 'input',
+        name: 'clientId',
+        message: 'Enter the client id for your app (you will need to submit a template app to do this)',
+        default: '',
       },
       // {
       //   type: 'confirm',
