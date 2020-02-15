@@ -55,7 +55,7 @@ describe('auth sagas', () => {
       const gen = doLogout()
       expect(gen.next().value).toEqual(call(removeSession, COOKIE_SESSION_KEY))
       expect(gen.next().value).toEqual(
-        call(redirectToLogout, process.env.process.env.COGNITO_CLIENT_ID_<%= name %> as string, `${window.location.origin}/login`),
+        call(redirectToLogout, process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string, `${window.location.origin}/login`),
       )
       expect(gen.next().done).toBe(true)
     })

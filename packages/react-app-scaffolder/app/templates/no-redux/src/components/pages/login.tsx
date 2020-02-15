@@ -17,7 +17,7 @@ export const Login: React.FunctionComponent = () => {
   const hasSession = !!loginSession && !!refreshSession
 
   if (hasSession) {
-    return <Redirect to={Routes.AUTHENTICATED} />
+    return <Redirect to={Routes.HOME} />
   }
 
   return (

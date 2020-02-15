@@ -52,7 +52,7 @@ export interface LoginProps {
   hasSession: boolean
 }
 
-const loginHandler = () => redirectToLogin(process.env.COGNITO_CLIENT_ID_<%= name %> as string, `${window.location.origin}`)
+const loginHandler = () => redirectToLogin(process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string, `${window.location.origin}`)
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
   <% if (stylesSolution == 'sass') { %>const { disabled, wrapper, container, image } = loginStyles<%}%>
@@ -60,7 +60,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   const { hasSession } = props
 
   if (hasSession) {
-    return <Redirect to={Routes.AUTHENTICATED} />
+    return <Redirect to={Routes.HOME} />
   }
 
   return (
