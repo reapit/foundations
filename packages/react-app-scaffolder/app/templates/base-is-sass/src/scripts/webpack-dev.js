@@ -8,8 +8,6 @@ const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const readReapitConfig = require('./read-reapit-config')
 const { PATHS } = require('./constants')
 
-const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
-
 module.exports = {
   context: process.cwd(),
   entry: './src/core/index.tsx',
@@ -135,10 +133,16 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     open: true,
-    openPage: 'login',
     clientLogLevel: 'warning',
     historyApiFallback: true,
-    stats: 'errors-only',
+    stats: {
+      cached: false,
+      cachedAssets: false,
+      chunks: false,
+      chunkModules: false,
+      chunkOrigins: false,
+      modules: false,
+    },
   },
   optimization: {
     nodeEnv: 'development',

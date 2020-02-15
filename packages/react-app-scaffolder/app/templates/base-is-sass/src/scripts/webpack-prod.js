@@ -3,8 +3,6 @@ const glob = require('glob')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-const Dotenv = require('dotenv-webpack')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -74,10 +72,6 @@ module.exports = {
         yandex: false,
         windows: false
       }
-    }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'disabled',
-      generateStatsFile: true
     }),
     new EnvironmentPlugin(readReapitConfig()),
     new HashedModuleIdsPlugin(),

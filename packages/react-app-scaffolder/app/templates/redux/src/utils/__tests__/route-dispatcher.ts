@@ -5,7 +5,7 @@ import { RouteValue } from '../../types/core'
 import { authenticatedRequestData } from '../../actions/authenticated'
 
 jest.mock('../../core/store')
-jest.mock('../../sagas/home')
+jest.mock('../../sagas/authenticated')
 
 describe('routeDispatcher', () => {
   it('should dispatch to authenticatedRequestData for the home route', async () => {

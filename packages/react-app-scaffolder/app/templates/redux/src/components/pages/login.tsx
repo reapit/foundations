@@ -31,7 +31,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
 
   return (
     <% if (stylesSolution == 'sass') { %><div className={container}>
-      <div className={`${wrapper} ${isSubmitting && disabled}`}>
+      <div className={wrapper}>
         <Level>
           <img src={connectImage} alt="Reapit Connect Graphic" />
         </Level>
