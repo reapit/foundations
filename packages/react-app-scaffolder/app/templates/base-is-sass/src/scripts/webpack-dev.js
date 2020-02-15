@@ -3,8 +3,10 @@ const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-web
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const { EnvironmentPlugin } = require('webpack')
+const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const readReapitConfig = require('./read-reapit-config')
-const {PATHS} = require('./constants')
+const { PATHS } = require('./constants')
 
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 
@@ -13,24 +15,23 @@ module.exports = {
   entry: './src/core/index.tsx',
   output: {
     path: path.join(process.cwd(), 'public', 'dist'),
-    filename: '[name].[hash].js'
+    filename: '[name].[hash].js',
   },
   plugins: [
     new ResolveTSPathsToWebpackAlias({
-      tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json')
+      tsconfig: path.resolve(__dirname, '../..', 'tsconfig.json'),
     }),
     new ForkTsCheckerWebpackPlugin({
-      tslint: true,
-      useTypescriptIncrementalApi: true
+      useTypescriptIncrementalApi: true,
     }),
     new ForkTsCheckerNotifierWebpackPlugin({
       title: 'TypeScript',
-      excludeWarnings: false
+      excludeWarnings: false,
     }),
     new EnvironmentPlugin(readReapitConfig()),
     new HtmlWebpackPlugin({
       inject: true,
-      template: 'public/index.html'
+      template: 'public/index.html',
     }),
     new FaviconsWebpackPlugin({
       logo: './public/logo.png',
@@ -49,9 +50,9 @@ module.exports = {
         opengraph: false,
         twitter: false,
         yandex: false,
-        windows: false
-      }
-    })
+        windows: false,
+      },
+    }),
   ],
   module: {
     rules: [
@@ -60,22 +61,22 @@ module.exports = {
         use: [
           {
             loader: 'ts-loader',
-            options: { transpileOnly: true }
-          }
-        ]
+            options: { transpileOnly: true },
+          },
+        ],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
         use: {
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]'
-          }
-        }
+            name: '[name].[ext]',
+          },
+        },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(sass|scss)$/,
@@ -84,52 +85,52 @@ module.exports = {
             resourceQuery: /\?mod$/,
             use: [
               {
-                loader: 'style-loader'
+                loader: 'style-loader',
               },
               {
                 loader: 'css-loader',
                 options: {
                   modules: {
-                    localIdentName: '[name]-[local]-[hash:base64:5]'
+                    localIdentName: '[name]-[local]-[hash:base64:5]',
                   },
-                  localsConvention: 'camelCase'
-                }
+                  localsConvention: 'camelCase',
+                },
               },
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  includePaths: ['node_modules']
-                }
-              }
-            ]
+                  includePaths: ['node_modules'],
+                },
+              },
+            ],
           },
           {
             use: [
               {
-                loader: 'style-loader'
+                loader: 'style-loader',
               },
               {
-                loader: 'css-loader'
+                loader: 'css-loader',
               },
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  includePaths: ['node_modules']
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ]
+                  includePaths: ['node_modules'],
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass'],
     alias: {
-      '@': path.resolve(__dirname, 'src/')
-    }
+      '@': path.resolve(__dirname, 'src/'),
+    },
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -137,12 +138,12 @@ module.exports = {
     openPage: 'login',
     clientLogLevel: 'warning',
     historyApiFallback: true,
-    stats: 'errors-only'
+    stats: 'errors-only',
   },
   optimization: {
     nodeEnv: 'development',
     splitChunks: {
-      chunks: 'all'
-    }
-  }
+      chunks: 'all',
+    },
+  },
 }

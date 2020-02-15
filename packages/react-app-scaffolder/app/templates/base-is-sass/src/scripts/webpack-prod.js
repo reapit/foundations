@@ -10,10 +10,9 @@ const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssWhitelister = require('purgecss-whitelister')
 const readReapitConfig = require('./read-reapit-config')
+const { EnvironmentPlugin } = require('webpack')
+const { PATHS } = require('./constants')
 
-const PATHS = {
-  src: path.join(__dirname, '../..', 'src')
-}
 
 const PurgecssLoader = {
   loader: path.resolve('./src/scripts/purgecss-loader.js'),
