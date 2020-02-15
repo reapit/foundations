@@ -4,49 +4,15 @@ import { Redirect } from 'react-router-dom'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReduxState } from '@/types/core'
 import Routes from '@/constants/routes'
-import { Button, H1, Level, isEmail } from '@reapit/elements'
+import { Button, Level, isEmail } from '@reapit/elements'
 import { LoginParams } from '@reapit/cognito-auth'
+import connectImage from '@/assets/images/reapit-connect.png'
 <% if (stylesSolution == 'sass') { %>import loginStyles from '@/styles/pages/login.scss?mod'<%}%>
 <% if (stylesSolution == 'styledComponents') { %>import { Container, Wrapper, ImageContainer } from './__styles__/login'<%}%>
 
 import { redirectToLogin } from '@reapit/cognito-auth'
 
 import logoImage from '@/assets/images/reapit-graphic.jpg'
-
-
-export interface LoginMappedActions {
-  login: (params: LoginParams) => void
-}
-
-export interface LoginMappedProps {
-  hasSession: boolean
-}
-
-export interface LoginFormValues {
-  email: string
-  password: string
-}
-
-export interface LoginFormError {
-  email?: string
-  password?: string
-}
-
-export function validate(values: LoginFormValues) {
-  let errors = {} as LoginFormError
-
-  if (!values.email) {
-    errors.email = 'Required'
-  } else if (!isEmail(values.email)) {
-    errors.email = 'Invalid email address'
-  }
-
-  if (!values.password) {
-    errors.password = 'Required'
-  }
-
-  return errors
-}
 
 export interface LoginProps {
   hasSession: boolean
@@ -66,14 +32,17 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   return (
     <% if (stylesSolution == 'sass') { %><div className={container}>
       <div className={`${wrapper} ${isSubmitting && disabled}`}>
-        <H1 isCentered>Sign in</H1>
+        <Level>
+          <img src={connectImage} alt="Reapit Connect Graphic" />
+        </Level>
         <p className="pb-8">Welcome to <%= name %></p><%}%>
 
     <% if (stylesSolution == 'styledComponents') { %><Container>
       <Wrapper>
-        <H1 isCentered>Sign in</H1>
+        <Level>
+          <img src={connectImage} alt="Reapit Connect Graphic" />
+        </Level>
         <p className="pb-8">Welcome to <%= name %></p><%}%>
-
         <Level>
           <Button type="button" onClick={loginHandler} loading={false} variant="primary" disabled={false} fullWidth>
             Login
@@ -100,7 +69,7 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
   )
 }
 
-export const mapStateToProps = (state: ReduxState): LoginMappedProps => ({
+export const mapStateToProps = (state: ReduxState): LoginProps => ({
   hasSession: !!state.auth.loginSession || !!state.auth.refreshSession,
 })
 

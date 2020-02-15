@@ -2,10 +2,11 @@ import * as React from 'react'
 import { Redirect } from 'react-router-dom'
 
 import Routes from '@/constants/routes'
-import { Button, H1, Level } from '@reapit/elements'
+import { Button, Level } from '@reapit/elements'
 <% if (stylesSolution == 'sass') { %>import loginStyles from '@/styles/pages/login.scss?mod'<%}%>
 <% if (stylesSolution == 'styledComponents') { %>import { Container, Wrapper, ImageContainer } from './__styles__/login'<%}%>
 import logoImage from '@/assets/images/reapit-graphic.jpg'
+import connectImage from '@/assets/images/reapit-connect.png'
 import { useAuthContext } from '@/context/authContext'
 import { redirectToOAuth } from '@reapit/cognito-auth'
 
@@ -23,12 +24,16 @@ export const Login: React.FunctionComponent = () => {
   return (
     <% if (stylesSolution == 'sass') { %><div className={container}>
       <div className={wrapper}>
-        <H1 isCentered>Sign in</H1>
+        <Level>
+          <img src={connectImage} alt="Reapit Connect Graphic" />
+        </Level>
         <p className="pb-8">Welcome to <%= name %></p><%}%>
 
     <% if (stylesSolution == 'styledComponents') { %><Container>
       <Wrapper>
-        <H1 isCentered>Sign in</H1>
+        <Level>
+          <img src={connectImage} alt="Reapit Connect Graphic" />
+        </Level>
         <p className="pb-8">Welcome to <%= name %></p><%}%>
 
         <Level>

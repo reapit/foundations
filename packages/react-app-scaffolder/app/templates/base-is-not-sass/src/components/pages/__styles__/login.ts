@@ -4,9 +4,10 @@ export const Container = styled.div`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: row;
+  background-color: $white;
 
   @media screen and (max-width: 900px) {
     flex-direction: column-reverse;
@@ -20,9 +21,21 @@ export const Wrapper = styled.div<{ disabled?: boolean }>`
   pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
 
   h1,
-  p {
+  p, img {
     text-align: center;
   }
+
+  img {
+    margin: 0 auto;
+    max-width: 200px;
+    display: block;
+  }
+
+  button {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
 
   @media screen and (max-width: 900px) {
     width: 100%;
