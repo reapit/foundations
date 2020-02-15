@@ -1,4 +1,4 @@
-const { runCommand } = require('../../../scripts/release/utils')
+const { runCommand } = require('../../scripts/release/utils')
 const gitStatus = runCommand('git', ['status', '-s'])
 const updateNPM = require('./update-npm')
 const releaseGithub = require('./release-github')
