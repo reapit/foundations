@@ -1,0 +1,15 @@
+{
+  "LOCAL": {
+    "REAPIT_ENV": "LOCAL",
+    "PLATFORM_API_BASE_URL": "https://dev.platform.reapit.cloud",
+    "MARKETPLACE_API_BASE_URL": "https://dev.platformmarketplace.reapit.cloud",
+    "MARKET_PLACE_URL": "https://dev.marketplace.reapit.cloud",
+    "NODE_ENV": "development",
+    "NPM_TOKEN": "",
+    "COGNITO_USERPOOL_ID": "eu-west-2_hbt0B7yys",
+    "COGNITO_OAUTH_URL": "https://dev.connect.reapit.cloud",
+    "COGNITO_CLIENT_ID_<%= nameInConstantCase %>": "",
+    "SWAGGER_BASE_URL": "https://dev.platform.reapit.cloud/docs",
+    "APPLICATION_URL": "http://localhost:8080"
+  }
+}

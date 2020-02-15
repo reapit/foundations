@@ -7,7 +7,7 @@ export const CONTACTS_HEADERS = {
 
 export const API_VERSION = '2020-01-31'
 
-export const COOKIE_SESSION_KEY = `${COGNITIO_COOKIE_SESSION_KEY}-aml-app`
+export const COOKIE_SESSION_KEY = `${COGNITIO_COOKIE_SESSION_KEY}-<%= name %>`
 
 export const URLS = {
 }

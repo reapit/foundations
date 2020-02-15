@@ -194,12 +194,12 @@ module.exports = class extends Generator {
         message: 'Enter the author of the project',
         default: 'Author',
       },
-      {
-        type: 'confirm',
-        name: 'isFoundation',
-        message: 'Is this project for internal use (mono-repo)',
-        default: false,
-      },
+      // {
+      //   type: 'confirm',
+      //   name: 'isFoundation',
+      //   message: 'Is this project for internal use (mono-repo)',
+      //   default: false,
+      // },
       {
         type: 'list',
         name: 'stylesSolution',
@@ -212,12 +212,12 @@ module.exports = class extends Generator {
         message: 'Pick project type',
         choices: ['Redux', 'No Redux'],
       },
-      {
-        type: 'confirm',
-        name: 'azure',
-        message: 'Would you like an Azure Pipeline?',
-        default: false,
-      },
+      // {
+      //   type: 'confirm',
+      //   name: 'azure',
+      //   message: 'Would you like an Azure Pipeline?',
+      //   default: false,
+      // },
       {
         type: 'confirm',
         name: 'githubPush',
@@ -225,6 +225,9 @@ module.exports = class extends Generator {
         default: false,
       },
     ])
+
+    this.answers.isFoundation = false
+    this.answers.azure = false
 
     const { stateManagementStyle, stylesSolution } = this.answers
     if (stateManagementStyle === 'Redux') {
