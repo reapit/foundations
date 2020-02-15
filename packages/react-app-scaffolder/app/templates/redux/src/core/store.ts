@@ -11,11 +11,11 @@ import {
 } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { all, fork } from '@redux-saga/core/effects'
-import home from '../reducers/home'
+import authenticated from '../reducers/authenticated'
 import error from '../reducers/error'
 import auth from '@/reducers/auth'
 import { ReduxState, Action } from '../types/core'
-import homeSagas from '../sagas/home'
+import authenticatedSagas from '../sagas/authenticated'
 import authSagas from '@/sagas/auth'
 
 export class Store {
@@ -35,12 +35,12 @@ export class Store {
 
   static reducers = combineReducers({
     error,
-    home,
+    authenticated,
     auth,
   }) as Reducer<CombinedState<ReduxState>, Action<any> | AnyAction>
 
   static sagas = function*() {
-    yield all([fork(homeSagas), fork(authSagas)])
+    yield all([fork(authenticatedSagas), fork(authSagas)])
   }
 
   static composeEnhancers =

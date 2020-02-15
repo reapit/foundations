@@ -2,7 +2,7 @@ import routeDispatcher from '../route-dispatcher'
 import store from '../../core/store'
 import Routes from '../../constants/routes'
 import { RouteValue } from '../../types/core'
-import { homeRequestData } from '../../actions/home'
+import { homeRequestData } from '../../actions/authenticated'
 
 jest.mock('../../core/store')
 jest.mock('../../sagas/home')

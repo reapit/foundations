@@ -1,4 +1,4 @@
-import { homeLoading, homeReceiveData, homeRequestDataFailure } from '../actions/home'
+import { homeLoading, homeReceiveData, homeRequestDataFailure } from '../actions/authenticated'
 import { put, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
