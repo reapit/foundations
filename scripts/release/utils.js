@@ -12,8 +12,10 @@ const runCommand = (cmd, args) => {
   const { stdout, stderr } = resultObj
 
   if (stderr.length !== 0) {
+    console.error(stderr.toString().trim())
     throw new Error(stderr.toString().trim())
   }
+  console.log(stdout.toString().trim())
   return stdout.toString().trim()
 }
 
