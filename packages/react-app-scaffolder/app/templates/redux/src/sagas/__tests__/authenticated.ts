@@ -1,38 +1,38 @@
-import homeSagas, { homeDataFetch, homeDataListen } from '../authenticated'
+import authenticatedSagas, { authenticatedDataFetch, authenticatedDataListen } from '../authenticated'
 import ActionTypes from '@/constants/action-types'
 import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
-import { homeLoading, homeReceiveData, homeRequestDataFailure } from '@/actions/home'
+import { authenticatedLoading, authenticatedReceiveData, authenticatedRequestDataFailure } from '@/actions/authenticated'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 
-describe('home fetch data', () => {
-  const gen = cloneableGenerator(homeDataFetch)()
+describe('authenticated fetch data', () => {
+  const gen = cloneableGenerator(authenticatedDataFetch)()
 
-  expect(gen.next().value).toEqual(put(homeLoading(true)))
+  expect(gen.next().value).toEqual(put(authenticatedLoading(true)))
   expect(gen.next().value).toEqual(true)
 
   test('api call success', () => {
     const clone = gen.clone()
-    expect(clone.next().value).toEqual(put(homeReceiveData({})))
+    expect(clone.next().value).toEqual(put(authenticatedReceiveData({})))
     expect(clone.next().done).toBe(true)
   })
 })
 
-describe('home sagas', () => {
-  describe('homeListen', () => {
+describe('authenticated sagas', () => {
+  describe('authenticatedListen', () => {
     it('should request data when called', () => {
-      const gen = homeDataListen()
+      const gen = authenticatedDataListen()
 
-      expect(gen.next().value).toEqual(takeLatest<Action<number>>(ActionTypes.HOME_REQUEST_DATA, homeDataFetch))
+      expect(gen.next().value).toEqual(takeLatest<Action<number>>(ActionTypes.AUTHENTICATED_REQUEST_DATA, authenticatedDataFetch))
       expect(gen.next().done).toBe(true)
     })
   })
 
-  describe('homeSagas', () => {
+  describe('authenticatedSagas', () => {
     it('should listen data request', () => {
-      const gen = homeSagas()
+      const gen = authenticatedSagas()
 
-      expect(gen.next().value).toEqual(all([fork(homeDataListen)]))
+      expect(gen.next().value).toEqual(all([fork(authenticatedDataListen)]))
       expect(gen.next().done).toBe(true)
     })
   })

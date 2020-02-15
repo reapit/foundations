@@ -9,12 +9,12 @@ import {
 
 export interface AuthenticatedState {
   loading: boolean
-  homeData: {} | null
+  authenticatedData: {} | null
 }
 
 export const defaultState: AuthenticatedState = {
   loading: false,
-  homeData: null,
+  authenticatedData: null,
 }
 
 const authenticatedReducer = (state: AuthenticatedState = defaultState, action: Action<any>): AuthenticatedState => {
@@ -29,7 +29,7 @@ const authenticatedReducer = (state: AuthenticatedState = defaultState, action: 
     return {
       ...state,
       loading: false,
-      homeData: action.data || null,
+      authenticatedData: action.data || null,
     }
   }
 
@@ -37,7 +37,7 @@ const authenticatedReducer = (state: AuthenticatedState = defaultState, action: 
     return {
       ...state,
       loading: false,
-      homeData: action.data,
+      authenticatedData: action.data,
     }
   }
 

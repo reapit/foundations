@@ -1,20 +1,20 @@
-import { homeLoading, homeReceiveData, homeRequestDataFailure } from '../actions/authenticated'
+import { authenticatedLoading, authenticatedReceiveData, authenticatedRequestDataFailure } from '../actions/authenticated'
 import { put, fork, takeLatest, all } from '@redux-saga/core/effects'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { Action } from '@/types/core'
 
-export const homeDataFetch = function*() {
-  yield put(homeLoading(true))
+export const authenticatedDataFetch = function*() {
+  yield put(authenticatedLoading(true))
 
   try {
     const response = yield true // Your fetch module here
 
-    yield put(homeReceiveData({ data: response }))
+    yield put(authenticatedReceiveData({ data: response }))
   } catch (err) {
     console.error(err.message)
-    yield put(homeRequestDataFailure())
+    yield put(authenticatedRequestDataFailure())
     yield put(
       errorThrownServer({
         type: 'SERVER',
@@ -24,12 +24,12 @@ export const homeDataFetch = function*() {
   }
 }
 
-export const homeDataListen = function*() {
-  yield takeLatest<Action<number>>(ActionTypes.HOME_REQUEST_DATA, homeDataFetch)
+export const authenticatedDataListen = function*() {
+  yield takeLatest<Action<number>>(ActionTypes.AUTHENTICATED_REQUEST_DATA, authenticatedDataFetch)
 }
 
-const homeSagas = function*() {
-  yield all([fork(homeDataListen)])
+const authenticatedSagas = function*() {
+  yield all([fork(authenticatedDataListen)])
 }
 
-export default homeSagas
+export default authenticatedSagas
