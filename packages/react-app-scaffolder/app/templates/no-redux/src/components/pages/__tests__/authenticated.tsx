@@ -1,12 +1,19 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { Authenticated, AuthenticatedProps } from '../authenticated'
+import { Login } from '../login'
+import { AuthProvider } from '@/context/auth-context'
 
-const props: AuthenticatedProps = {}
-
-describe('Authenticated', () => {
+describe('Login', () => {
   it('should match a snapshot', () => {
-    expect(toJson(shallow(<Authenticated {...props} />))).toMatchSnapshot()
+    expect(
+      toJson(
+        shallow(
+          <AuthProvider>
+            <Login />
+          </AuthProvider>,
+        ),
+      ),
+    ).toMatchSnapshot()
   })
 })

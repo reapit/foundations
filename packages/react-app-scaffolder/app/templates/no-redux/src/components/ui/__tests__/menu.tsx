@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Menu, MenuProps, generateMenuConfig } from '../menu'
 import toJson from 'enzyme-to-json'
-import { AuthProvider } from '@/context/authContext'
+import { AuthProvider } from '@/context/auth-context'
 
 const props: MenuProps = {
   // @ts-ignore: ignore to fullfil the definition of RouteComponentProps

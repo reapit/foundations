@@ -8,7 +8,7 @@ import store from './store'
 <% } %>
 
 <% if (!redux) { %>
-  import { AuthProvider } from '@/context/authContext'
+  import { AuthProvider } from '@/context/auth-context'
 <% } %>
 
 <% if (graphql) { %>

@@ -12,6 +12,7 @@ export interface PrivateRouteProps extends PrivateRouteConnectProps {
   allow: LoginType | LoginType[]
   component: React.FunctionComponent
   exact?: boolean
+  fetcher?: boolean
 }
 
 export const PrivateRoute = ({ component, allow, loginType = 'CLIENT', ...rest }: PrivateRouteProps & RouteProps) => {

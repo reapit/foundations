@@ -4,7 +4,7 @@ import { Menu as Sidebar, MenuConfig, ReapitLogo } from '@reapit/elements'
 import { Location } from 'history'
 import { FaSignOutAlt, FaCloud } from 'react-icons/fa'
 import { LoginMode } from '@reapit/cognito-auth'
-import { useAuthContext } from '@/context/authContext'
+import { useAuthContext } from '@/context/auth-context'
 
 export const generateMenuConfig = (
   logoutCallback: () => void,

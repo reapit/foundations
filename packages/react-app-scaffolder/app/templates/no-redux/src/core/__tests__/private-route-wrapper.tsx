@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
-import { AuthProvider } from '@/context/authContext'
+import { AuthProvider } from '@/context/auth-context'
 
 const props: PrivateRouteWrapperProps = {
   path: '/',

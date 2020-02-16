@@ -7,15 +7,17 @@ import { Button, Level } from '@reapit/elements'
 <% if (stylesSolution == 'styledComponents') { %>import { Container, Wrapper, ImageContainer } from './__styles__/login'<%}%>
 import logoImage from '@/assets/images/reapit-graphic.jpg'
 import connectImage from '@/assets/images/reapit-connect.png'
-import { useAuthContext } from '@/context/authContext'
-import { redirectToOAuth } from '@reapit/cognito-auth'
+import { useAuthContext } from '@/context/auth-context'
+import { redirectToLogin } from '@reapit/cognito-auth'
 
 export const Login: React.FunctionComponent = () => {
-  const cognitoClientId = 'process.env.COGNITO_CLIENT_ID'
+  const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string
+  const loginHandler = () => redirectToLogin(cognitoClientId, `${window.location.origin}`)
+
   <% if (stylesSolution == 'sass') { %>const { wrapper, container, image } = loginStyles<%}%>
 
   const { loginSession, refreshSession } = useAuthContext()
-  const hasSession = !!loginSession && !!refreshSession
+  const hasSession = loginSession || refreshSession
 
   if (hasSession) {
     return <Redirect to={Routes.HOME} />
@@ -37,7 +39,7 @@ export const Login: React.FunctionComponent = () => {
         <p className="pb-8">Welcome to <%= name %></p><%}%>
 
         <Level>
-          <Button fullWidth type="submit" variant="primary" onClick={() => redirectToOAuth(cognitoClientId)}>
+          <Button fullWidth type="submit" variant="primary" onClick={loginHandler}>
             Login
           </Button>
         </Level>
