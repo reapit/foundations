@@ -7,7 +7,9 @@
     ],
     "nohoist": [
       "**/cognito-custom-mail-lambda",
-      "**/cognito-custom-mail-lambda/**"
+      "**/cognito-custom-mail-lambda/**",
+      "**/react-app-scaffolder",
+      "**/react-app-scaffolder/**"
     ]
   },
   "scripts": {
@@ -183,7 +185,6 @@
     "lerna": "^3.19.0",
     "lint-staged": "^9.5.0",
     "loader-utils": "^1.2.3",
-    "merge-package-json": "^0.1.3",
     "mini-css-extract-plugin": "^0.7.0",
     "mockdate": "^2.0.5",
     "node-sass": "^4.12.0",
@@ -220,9 +221,6 @@
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1",
     "whatwg-fetch": "^3.0.0",
-    "workbox-webpack-plugin": "^4.3.1",
-    "yeoman-generator": "^4.0.1",
-    "yo": "^3.1.1",
-    "yosay": "^2.0.2"
+    "workbox-webpack-plugin": "^4.3.1"
   }
 }

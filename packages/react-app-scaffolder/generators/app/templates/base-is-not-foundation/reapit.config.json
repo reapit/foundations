@@ -1,5 +1,0 @@
-{
-  "LOCAL": {
-    "COGNITO_CLIENT_ID_<%= nameInConstantCase %>": ""
-  }
-}
