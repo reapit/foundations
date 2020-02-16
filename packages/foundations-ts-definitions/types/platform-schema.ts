@@ -1,87 +1,4 @@
 /**
- * Model for exposing error details to API consumers
- */
-export interface ApiErrorModel {
-  /**
-   * The Http StatusCode associated with this error event
-   */
-  statusCode?:
-    | 'Continue'
-    | 'SwitchingProtocols'
-    | 'Processing'
-    | 'EarlyHints'
-    | 'OK'
-    | 'Created'
-    | 'Accepted'
-    | 'NonAuthoritativeInformation'
-    | 'NoContent'
-    | 'ResetContent'
-    | 'PartialContent'
-    | 'MultiStatus'
-    | 'AlreadyReported'
-    | 'IMUsed'
-    | 'MultipleChoices'
-    | 'Ambiguous'
-    | 'MovedPermanently'
-    | 'Moved'
-    | 'Found'
-    | 'Redirect'
-    | 'SeeOther'
-    | 'RedirectMethod'
-    | 'NotModified'
-    | 'UseProxy'
-    | 'Unused'
-    | 'TemporaryRedirect'
-    | 'RedirectKeepVerb'
-    | 'PermanentRedirect'
-    | 'BadRequest'
-    | 'Unauthorized'
-    | 'PaymentRequired'
-    | 'Forbidden'
-    | 'NotFound'
-    | 'MethodNotAllowed'
-    | 'NotAcceptable'
-    | 'ProxyAuthenticationRequired'
-    | 'RequestTimeout'
-    | 'Conflict'
-    | 'Gone'
-    | 'LengthRequired'
-    | 'PreconditionFailed'
-    | 'RequestEntityTooLarge'
-    | 'RequestUriTooLong'
-    | 'UnsupportedMediaType'
-    | 'RequestedRangeNotSatisfiable'
-    | 'ExpectationFailed'
-    | 'MisdirectedRequest'
-    | 'UnprocessableEntity'
-    | 'Locked'
-    | 'FailedDependency'
-    | 'UpgradeRequired'
-    | 'PreconditionRequired'
-    | 'TooManyRequests'
-    | 'RequestHeaderFieldsTooLarge'
-    | 'UnavailableForLegalReasons'
-    | 'InternalServerError'
-    | 'NotImplemented'
-    | 'BadGateway'
-    | 'ServiceUnavailable'
-    | 'GatewayTimeout'
-    | 'HttpVersionNotSupported'
-    | 'VariantAlsoNegotiates'
-    | 'InsufficientStorage'
-    | 'LoopDetected'
-    | 'NotExtended'
-    | 'NetworkAuthenticationRequired'
-  /**
-   * The date and time that this error event occurred
-   */
-  dateTime?: string // date-time
-  /**
-   * The detailed information regarding this error event
-   */
-  description?: string
-}
-/**
  * The details specific to applicants with a marketingMode of buying
  */
 export interface ApplicantBuyingModel {
@@ -1224,6 +1141,8 @@ export interface ContactAddressModel {
 }
 /**
  * Representation of an individual contact
+ * example:
+ * 2019-08-14T12:30:02.0000000Z
  */
 export interface ContactModel {
   /**
@@ -1232,10 +1151,14 @@ export interface ContactModel {
   id?: string
   /**
    * The date and time when the contact was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
    */
   created?: string // date-time
   /**
    * The date and time when the contact was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
    */
   modified?: string // date-time
   /**
@@ -1252,8 +1175,10 @@ export interface ContactModel {
   surname?: string
   /**
    * The contact's date of birth
+   * example:
+   * 2019-08-14
    */
-  dateOfBirth?: string // date-time
+  dateOfBirth?: string // date
   /**
    * A flag determining whether or not the contact is currently active
    */
@@ -2148,8 +2073,10 @@ export interface CreateContactModel {
   surname?: string
   /**
    * The contact's date of birth
+   * example:
+   * 2019-08-14
    */
-  dateOfBirth?: string // date-time
+  dateOfBirth?: string // date
   /**
    * A flag determining whether or not the contact is currently active
    */
@@ -5304,10 +5231,14 @@ export interface PagedResultContactModel_ {
     id?: string
     /**
      * The date and time when the contact was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
      */
     created?: string // date-time
     /**
      * The date and time when the contact was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
      */
     modified?: string // date-time
     /**
@@ -5324,8 +5255,10 @@ export interface PagedResultContactModel_ {
     surname?: string
     /**
      * The contact's date of birth
+     * example:
+     * 2019-08-14
      */
-    dateOfBirth?: string // date-time
+    dateOfBirth?: string // date
     /**
      * A flag determining whether or not the contact is currently active
      */
@@ -8649,8 +8582,10 @@ export interface UpdateContactModel {
   surname?: string
   /**
    * The contact's date of birth
+   * example:
+   * 2019-08-14
    */
-  dateOfBirth?: string // date-time
+  dateOfBirth?: string // date
   /**
    * A flag determining whether or not the contact is currently active
    */
