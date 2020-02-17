@@ -16,10 +16,9 @@ export const Login: React.FunctionComponent = () => {
 
   <% if (stylesSolution == 'sass') { %>const { wrapper, container, image } = loginStyles<%}%>
 
-  const { loginSession, refreshSession } = useAuthContext()
-  const hasSession = loginSession || refreshSession
+  const { loginSession } = useAuthContext()
 
-  if (hasSession) {
+  if (loginSession) {
     return <Redirect to={Routes.HOME} />
   }
 
