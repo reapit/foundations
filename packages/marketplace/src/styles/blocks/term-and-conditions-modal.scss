@@ -1,0 +1,33 @@
+@import '../base/colors.scss';
+
+.title {
+  text-align: center;
+}
+
+.parent {
+  list-style-type: none;
+  counter-reset: item;
+  margin: 0;
+  padding: 0;
+}
+
+.parent > .child {
+  display: table;
+  counter-increment: item;
+  margin-bottom: 0.6em;
+
+  &:before {
+    font-weight: 700;
+    color: $black;
+    content: counters(item, '.');
+    display: table-cell;
+    padding-right: 2em;
+  }
+}
+
+.child .parent > .child {
+  margin: 0;
+  &:before {
+    content: counters(item, '.') ' ';
+  }
+}
