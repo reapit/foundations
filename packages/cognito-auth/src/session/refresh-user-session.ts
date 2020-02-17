@@ -1,7 +1,7 @@
 import errorStrings from '../constants/error-strings'
 import { tokenRefreshUserSessionService, codeRefreshUserSessionService } from '../services/session/refresh-user-session'
 import { RefreshParams, LoginSession } from '../core/types'
-import { deserializeIdToken, checkHasIdentityId, setSessionCookie, COOKIE_SESSION_KEY } from '../utils/cognito'
+import { deserializeIdToken, setSessionCookie, COOKIE_SESSION_KEY } from '../utils/cognito'
 
 export const refreshUserSession = async (params: RefreshParams): Promise<Partial<LoginSession> | undefined | void> => {
   const { userName, refreshToken, cognitoClientId, authorizationCode, redirectUri, loginType } = params
@@ -28,11 +28,11 @@ export const setRefreshSession = async (
   const { userName, loginType, mode } = params
   const refreshedSession: Partial<LoginSession> | undefined | void = await refreshUserSession(params)
   const loginIdentity = refreshedSession && deserializeIdToken(refreshedSession)
-  if (loginIdentity && checkHasIdentityId(loginType, loginIdentity)) {
+  if (loginIdentity) {
     const loginSession = {
       ...refreshedSession,
       loginType: loginType ? loginType : 'CLIENT',
-      userName: userName ? userName : loginIdentity.email,
+      userName: userName ? userName : (loginIdentity && loginIdentity?.email) || '',
       mode: mode ? mode : 'WEB',
       loginIdentity,
     } as LoginSession

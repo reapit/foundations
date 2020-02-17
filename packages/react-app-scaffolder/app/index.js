@@ -103,6 +103,14 @@ module.exports = class extends Generator {
         name,
       })
 
+      this.fs.copyTpl(this.templatePath('_eslintrc.js'), this.destinationPath('./.eslintrc.js), {
+        name,
+      })
+
+      this.fs.copyTpl(this.templatePath('_prettierrc.js'), this.destinationPath('./.prettierrc.js), {
+        name,
+      })
+
       this.fs.copyTpl(this.templatePath('./base'), this.destinationPath('./'), {
         name,
         nameInConstantCase: constantCase(name),

@@ -54,6 +54,7 @@ export const codeRefreshUserSessionService = async (
       idTokenExpiry: tokenExpiry,
       refreshToken: refresh_token,
       cognitoClientId,
+      loginType,
     }
   }
 
