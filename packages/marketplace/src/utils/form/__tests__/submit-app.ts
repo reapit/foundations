@@ -55,9 +55,9 @@ describe('submitAppValidation', () => {
       name: 'test',
       telephone: 'test',
       supportEmail: 'invalid email',
-      launchUri: 'test',
+      launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
-      homePage: 'test',
+      homePage: 'http://localhost:8000',
       description: 'test',
       summary: 'test',
       scopes: [],
@@ -80,9 +80,9 @@ describe('submitAppValidation', () => {
       name: 'test',
       telephone: 'test',
       supportEmail: 'tester@gmail.com',
-      launchUri: 'test',
+      launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
-      homePage: 'test',
+      homePage: 'http://localhost:8000',
       description: 'test',
       summary: 'test',
       scopes: [],
@@ -105,9 +105,9 @@ describe('submitAppValidation', () => {
       name: 'test',
       telephone: 'test',
       supportEmail: 'tester@gmail.com',
-      launchUri: 'test',
+      launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
-      homePage: 'test',
+      homePage: 'http://localhost:8000',
       description: 'test',
       summary: 'test',
       scopes: [],
@@ -121,6 +121,56 @@ describe('submitAppValidation', () => {
     })
   })
 
+  it('validate home page field ', () => {
+    const input: CustomCreateAppModel = {
+      screen4ImageUrl: 'test',
+      screen3ImageUrl: 'test',
+      screen2ImageUrl: 'test',
+      screen1ImageUrl: 'test',
+      name: 'test',
+      telephone: 'test',
+      supportEmail: 'tester@gmail.com',
+      launchUri: 'http://localhost:8000',
+      iconImageUrl: 'test',
+      homePage: 'test',
+      description: 'test',
+      summary: 'test',
+      scopes: [],
+      redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
+      signoutUris: 'https://google.com,https://twitter.com,http://localhost:8080',
+      authFlow: 'authorisationCode',
+    }
+
+    expect(validate(input)).toEqual({
+      homePage: 'Invalid Home Page URL',
+    })
+  })
+
+  it('validate launch uri field ', () => {
+    const input: CustomCreateAppModel = {
+      screen4ImageUrl: 'test',
+      screen3ImageUrl: 'test',
+      screen2ImageUrl: 'test',
+      screen1ImageUrl: 'test',
+      name: 'test',
+      telephone: 'test',
+      supportEmail: 'tester@gmail.com',
+      launchUri: 'test',
+      iconImageUrl: 'test',
+      homePage: 'http://localhost:8000',
+      description: 'test',
+      summary: 'test',
+      scopes: [],
+      redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
+      signoutUris: 'https://google.com,https://twitter.com,http://localhost:8080',
+      authFlow: 'authorisationCode',
+    }
+
+    expect(validate(input)).toEqual({
+      launchUri: 'Invalid Launch URI',
+    })
+  })
+
   it('return empty object it everything is valid', () => {
     const input: CustomCreateAppModel = {
       screen4ImageUrl: 'test',
@@ -130,9 +180,9 @@ describe('submitAppValidation', () => {
       name: 'test',
       telephone: 'test',
       supportEmail: 'test@test.com',
-      launchUri: 'test',
+      launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
-      homePage: 'test',
+      homePage: 'http://localhost:8000',
       description: 'test',
       summary: 'test',
       scopes: [],
@@ -153,9 +203,9 @@ describe('submitAppValidation', () => {
       name: 'test',
       telephone: 'test',
       supportEmail: 'test@test.com',
-      launchUri: 'test',
+      launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
-      homePage: 'test',
+      homePage: 'http://localhost:8000',
       description: 'test',
       summary: 'test',
       scopes: [],
