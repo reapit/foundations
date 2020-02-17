@@ -378,33 +378,18 @@ describe('DeveloperSubmitApp', () => {
   })
 })
 describe('renderScopesCheckbox run correctly', () => {
-  it('when renderScopesCheckBox have scope', () => {
+  it('should match snapshot when have scopes', () => {
     const scopes = [
       { name: 'AgencyCloud/properties.read', description: 'Read data about properties' },
       { name: 'AgencyCloud/properties.write', description: 'Write data about developers' },
     ]
-    const checkboxes = renderScopesCheckbox(scopes)
-    expect(checkboxes).toHaveLength(2)
+    const checkboxes = renderScopesCheckbox(scopes, undefined)
+    expect(checkboxes).toMatchSnapshot()
   })
-  it('when renderScopesCheckBox have scope', () => {
-    const scopes = [{ name: 'AgencyCloud/properties.read', description: 'Read data about properties' }]
-    const checkboxes = renderScopesCheckbox(scopes)
-    expect(checkboxes).toHaveLength(1)
-  })
-  it('when renderScopesCheckBox have no scopes', () => {
-    const scopes = undefined
-    const checkboxes = renderScopesCheckbox(scopes)
-    expect(checkboxes).toHaveLength(0)
-  })
-  it('when renderScopesCheckBox have [] scopes', () => {
+  it('should match snapshot when have errorScope', () => {
     const scopes = []
-    const checkboxes = renderScopesCheckbox(scopes)
-    expect(checkboxes).toHaveLength(0)
-  })
-  it('when renderScopesCheckBox have null scopes', () => {
-    const scopes = []
-    const checkboxes = renderScopesCheckbox(scopes)
-    expect(checkboxes).toHaveLength(0)
+    const checkboxes = renderScopesCheckbox(scopes, 'error stringa')
+    expect(checkboxes).toMatchSnapshot()
   })
 })
 describe('handleSubmitApp', () => {

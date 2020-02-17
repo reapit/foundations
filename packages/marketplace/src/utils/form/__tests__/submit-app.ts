@@ -17,7 +17,7 @@ describe('submitAppValidation', () => {
       homePage: '',
       description: '',
       summary: '',
-      scopes: [],
+      scopes: ['scope1'],
       redirectUris: '',
       signoutUris: '',
       authFlow: '',
@@ -60,7 +60,7 @@ describe('submitAppValidation', () => {
       homePage: 'test',
       description: 'test',
       summary: 'test',
-      scopes: [],
+      scopes: ['scope1'],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
       signoutUris: 'http://localhost:8080',
       authFlow: 'authorisationCode',
@@ -85,7 +85,7 @@ describe('submitAppValidation', () => {
       homePage: 'test',
       description: 'test',
       summary: 'test',
-      scopes: [],
+      scopes: ['scope1'],
       redirectUris: 'http://google.com,https://twitter.com,http://localhost:8080',
       signoutUris: 'http://localhost:8080',
       authFlow: 'authorisationCode',
@@ -110,7 +110,7 @@ describe('submitAppValidation', () => {
       homePage: 'test',
       description: 'test',
       summary: 'test',
-      scopes: [],
+      scopes: ['scope1'],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
       signoutUris: 'https://localhost:8080',
       authFlow: 'authorisationCode',
@@ -135,7 +135,7 @@ describe('submitAppValidation', () => {
       homePage: 'test',
       description: 'test',
       summary: 'test',
-      scopes: [],
+      scopes: ['scope1'],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
       signoutUris: 'http://localhost:8080',
       authFlow: 'authorisationCode',
@@ -158,12 +158,56 @@ describe('submitAppValidation', () => {
       homePage: 'test',
       description: 'test',
       summary: 'test',
-      scopes: [],
+      scopes: ['scope1'],
       redirectUris: 'not valid',
       signoutUris: 'not valid',
       authFlow: 'clientCredentials',
     }
 
     expect(validate(input)).toEqual({})
+  })
+  it('should validate scopes if authFlow = clientCredentials', () => {
+    const input: CustomCreateAppModel = {
+      screen4ImageUrl: 'test',
+      screen3ImageUrl: 'test',
+      screen2ImageUrl: 'test',
+      screen1ImageUrl: 'test',
+      name: 'test',
+      telephone: 'test',
+      supportEmail: 'test@test.com',
+      launchUri: 'test',
+      iconImageUrl: 'test',
+      homePage: 'test',
+      description: 'test',
+      summary: 'test',
+      scopes: ['scope1', 'scope2'],
+      redirectUris: 'not valid',
+      signoutUris: 'not valid',
+      authFlow: 'clientCredentials',
+    }
+
+    expect(validate(input)).toEqual({})
+  })
+  it('should run correctly with invalid scopes if authFlow = clientCredentials', () => {
+    const input: CustomCreateAppModel = {
+      screen4ImageUrl: 'test',
+      screen3ImageUrl: 'test',
+      screen2ImageUrl: 'test',
+      screen1ImageUrl: 'test',
+      name: 'test',
+      telephone: 'test',
+      supportEmail: 'test@test.com',
+      launchUri: 'test',
+      iconImageUrl: 'test',
+      homePage: 'test',
+      description: 'test',
+      summary: 'test',
+      scopes: [],
+      redirectUris: 'not valid',
+      signoutUris: 'not valid',
+      authFlow: 'clientCredentials',
+    }
+
+    expect(validate(input)).toEqual({ scopes: 'At least one Permission is required' })
   })
 })
