@@ -45,8 +45,8 @@ export const generateMenuConfig = (
 export type MenuProps = RouteComponentProps
 
 export const Menu: React.FunctionComponent<MenuProps> = ({ location }) => {
-  const { refreshSession, logout } = useAuthContext()
-  const mode = refreshSession?.mode || 'WEB'
+  const { logout } = useAuthContext()
+  const mode = 'WEB'
   const menuConfigs = generateMenuConfig(logout, location, mode)
   return <Sidebar {...menuConfigs} location={location} />
 }
