@@ -1,3 +1,7 @@
 # Demo Site
 
-For detailed documentation [visit here](https://wmcvay.gitbook.io/reapit-foundations/open-source/packages/demo-site).
+A simple HTML app for deploying Reapit Web Components.
+
+Under active development pre-alpha.
+
+For detailed documentation [visit here](https://foundations-documentation.reapit.cloud/open-source/packages#demo-site).
