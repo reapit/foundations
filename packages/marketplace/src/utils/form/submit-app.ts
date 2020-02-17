@@ -15,9 +15,10 @@ export type SubmitAppFormErrorKeys =
   | 'authFlow'
   | 'redirectUris'
   | 'signoutUris'
+  | 'scopes'
 
 export const validate = (values: CustomCreateAppModel) => {
-  const keysRequiredClientCredentials: SubmitAppFormErrorKeys[] = [
+  const keysRequiredBase: SubmitAppFormErrorKeys[] = [
     'name',
     'telephone',
     'supportEmail',
@@ -29,11 +30,8 @@ export const validate = (values: CustomCreateAppModel) => {
     'screen1ImageUrl',
     'authFlow',
   ]
-  const keysRequiredAuthorizationCode: SubmitAppFormErrorKeys[] = [
-    ...keysRequiredClientCredentials,
-    'redirectUris',
-    'signoutUris',
-  ]
+  const keysRequiredClientCredentials: SubmitAppFormErrorKeys[] = [...keysRequiredBase, 'scopes']
+  const keysRequiredAuthorizationCode: SubmitAppFormErrorKeys[] = [...keysRequiredBase, 'redirectUris', 'signoutUris']
   let errors = validateRequire<CustomCreateAppModel, SubmitAppFormErrorKeys>({
     values,
     currentErrors: {},
@@ -49,6 +47,10 @@ export const validate = (values: CustomCreateAppModel) => {
   // only validating redirectUris and signoutUris when authFlow === 'authorisationCode
 
   if (values.authFlow === 'clientCredentials') {
+    const { scopes: scopesValues } = values
+    if (Array.isArray(scopesValues) && scopesValues.length === 0) {
+      errors.scopes = 'At least one Permission is required'
+    }
     return errors
   }
 
