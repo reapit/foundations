@@ -8,6 +8,10 @@ export function isValidHttpsUrl(url: string) {
   return /^\s*(https:\/\/)([a-z\d-]{1,63}\.)*[a-z\d-]{1,255}\.[a-z]{2,6}\s*/.test(url)
 }
 
+export function whiteListLocalhostAndIsValidUrl(url: string) {
+  return isValidHttpsUrl(url) || /http?:\/\/localhost/.test(url)
+}
+
 export function isValidRedirectUrls(urls: string) {
   return urls
     .split(',')
