@@ -1,4 +1,4 @@
-import { isEmail, isValidHttpsUrl, isValidRedirectUrls } from '../validate'
+import { isEmail, isValidHttpsUrl, isValidRedirectUrls, whiteListLocalhostAndIsValidUrl } from '../validate'
 
 describe('isEmail', () => {
   it('valid email test', () => {
@@ -52,6 +52,20 @@ describe('isValidRedirectUrls', () => {
   it('invalid https url test', () => {
     ;['http://google.com,htt:google.ck', 'htt://www.google.com,ftp://www.google.com'].forEach(url =>
       expect(isValidRedirectUrls(url)).toBeFalsy(),
+    )
+  })
+})
+
+describe('whiteListLocalhostAndIsValidUrl', () => {
+  it('valid url test', () => {
+    ;['https://www.google.com', 'http://localhost:8080'].forEach(url =>
+      expect(whiteListLocalhostAndIsValidUrl(url)).toBeTruthy(),
+    )
+  })
+
+  it('invalid url test', () => {
+    ;['invalid url test', 'htt://www.google.com'].forEach(url =>
+      expect(whiteListLocalhostAndIsValidUrl(url)).toBeFalsy(),
     )
   })
 })

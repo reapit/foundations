@@ -380,7 +380,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         labelText="Home page"
                         id="homePage"
                         name="homePage"
-                        placeholder="Your company homepage"
+                        placeholder="Your company homepage. HTTP:// or HTTPS://"
                       />
                     </GridItem>
                     <GridItem>
@@ -390,7 +390,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         labelText="Launch URI"
                         id="launch Url"
                         name="launchUri"
-                        placeholder="The launch page for your app"
+                        placeholder="The launch page for your app. HTTP:// or HTTPS://"
                       />
                     </GridItem>
                   </Grid>

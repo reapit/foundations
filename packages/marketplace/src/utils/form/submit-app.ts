@@ -1,6 +1,6 @@
 import { validateRequire, validateEmail } from '@reapit/elements'
 import { CustomCreateAppModel } from '@/components/pages/developer-submit-app'
-import { isValidRedirectUrls } from '@/utils/validate'
+import { isValidRedirectUrls, whiteListLocalhostAndIsValidUrl } from '@/utils/validate'
 
 export type SubmitAppFormErrorKeys =
   | 'name'
@@ -60,6 +60,14 @@ export const validate = (values: CustomCreateAppModel) => {
 
   if (values.signoutUris && !isValidRedirectUrls(values.signoutUris)) {
     errors.signoutUris = 'Invalid sign out uri(s)'
+  }
+
+  if (values.homePage && !whiteListLocalhostAndIsValidUrl(values.homePage)) {
+    errors.homePage = 'Invalid Home Page URL'
+  }
+
+  if (values.launchUri && !whiteListLocalhostAndIsValidUrl(values.launchUri)) {
+    errors.launchUri = 'Invalid Launch URI'
   }
 
   return errors
