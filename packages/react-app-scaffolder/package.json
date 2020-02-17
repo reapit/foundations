@@ -21,7 +21,7 @@
   "main": "index.js",
   "scripts": {
     "scaffold": "yo ./app --force",
-    "release:prod": "node ../../scripts/release/release-npm.js @reapit/generator-react-app-scaffolder"
+    "release:prod": "node ../../scripts/release/release-npm.js react-app-scaffolder"
   },
   "dependencies": {
     "merge-package-json": "^0.1.3",
