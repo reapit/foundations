@@ -1,32 +1,49 @@
-import * as React from 'react'
-import { withRouter, RouteComponentProps } from 'react-router-dom'
-import Menu from '@/components/ui/menu'
-import { Loader, AppNavContainer, Section } from '@reapit/elements'
-import { RefreshParams, getTokenFromQueryString, redirectToOAuth } from '@reapit/cognito-auth'
-import { useAuthContext } from '@/context/auth-context'
+import * as React from "react";
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import Menu from "@/components/ui/menu";
+import { Loader, AppNavContainer, Section } from "@reapit/elements";
+import {
+  RefreshParams,
+  getTokenFromQueryString,
+  redirectToOAuth,
+  getSessionCookie
+} from "@reapit/cognito-auth";
+import { useAuthContext } from "@/context/auth-context";
+import { COOKIE_SESSION_KEY } from '../constants/api';
 
-const { Suspense } = React
+const { Suspense } = React;
 
 export type PrivateRouteWrapperProps = RouteComponentProps & {
-  path: string
-}
+  path: string;
+};
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children, location }) => {
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string
-  const refreshParams: RefreshParams | null = getTokenFromQueryString(location.search, cognitoClientId)
+export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({
+  children,
+  location
+}) => {
+  const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string;
+  const cookieParams = getSessionCookie(COOKIE_SESSION_KEY)
+  const urlParams: RefreshParams | null = getTokenFromQueryString(
+    location.search,
+    cognitoClientId
+  );
+  const refreshParams = cookieParams ? cookieParams : urlParams
+  const { loginSession, getLoginSession, fetching } = useAuthContext();
 
-  const { loginSession, refreshSession, setRefreshSession } = useAuthContext()
-  const hasSession = loginSession || refreshSession
-
-  if (refreshParams && !hasSession) {
-    setRefreshSession(refreshParams)
+  if (!loginSession && !fetching && !refreshParams) {
+    const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string;
+    redirectToOAuth(cognitoClientId);
     return null
   }
 
-  if (!hasSession) {
-    redirectToOAuth(cognitoClientId)
-    return null
+  if (!loginSession && refreshParams) {
+    getLoginSession(refreshParams)
+  } 
+
+  if (!loginSession) {
+    return null;
   }
+
   return (
     <AppNavContainer>
       <Menu />
@@ -40,7 +57,7 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
         {children}
       </Suspense>
     </AppNavContainer>
-  )
-}
+  );
+};
 
-export default withRouter(PrivateRouteWrapper)
+export default withRouter(PrivateRouteWrapper);

@@ -12,8 +12,6 @@ const props: PrivateRouteWrapperProps = {
   },
 }
 
-// @ts-ignore:
-const desktopProps: PrivateRouteWrapperProps = { ...props, location: { search: '' } }
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
@@ -22,18 +20,6 @@ describe('PrivateRouter', () => {
         shallow(
           <AuthProvider>
             <PrivateRouteWrapper {...props} />
-          </AuthProvider>,
-        ),
-      ),
-    ).toMatchSnapshot()
-  })
-
-  it('should match a snapshot for desktop login', () => {
-    expect(
-      toJson(
-        shallow(
-          <AuthProvider>
-            <PrivateRouteWrapper {...desktopProps} />
           </AuthProvider>,
         ),
       ),

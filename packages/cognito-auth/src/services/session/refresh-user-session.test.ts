@@ -23,13 +23,14 @@ describe('tokenRefreshUserSessionService', () => {
 
 describe('codeRefreshUserSessionService', () => {
   it('should return a LoginSession', async () => {
-    expect(await codeRefreshUserSessionService('authCode', 'redirectUri', 'someCognitoClientId')).toEqual({
+    expect(await codeRefreshUserSessionService('authCode', 'redirectUri', 'someCognitoClientId', 'DEVELOPER')).toEqual({
       accessToken: 'SOME_TOKEN',
       accessTokenExpiry: 1570750731,
       idToken: 'SOME_TOKEN',
       idTokenExpiry: 1570750731,
       refreshToken: 'SOME_TOKEN',
       cognitoClientId: 'someCognitoClientId',
+      loginType: 'DEVELOPER',
     })
   })
 })
