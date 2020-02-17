@@ -122,18 +122,7 @@ exports[`DeveloperSubmitApp should match submit revision form when appDetailStat
 
 exports[`DeveloperSubmitApp should match submit revision successfully snapshot 1`] = `""`;
 
-exports[`renderScopesCheckbox run correctly should match snapshot when have errorScope 1`] = `
-<React.Fragment>
-  <div
-    className="has-text-danger has-text-right undefined"
-    data-test="input-error"
-  >
-    error stringa
-  </div>
-</React.Fragment>
-`;
-
-exports[`renderScopesCheckbox run correctly should match snapshot when have scopes 1`] = `
+exports[`renderScopesCheckbox run correctly should match snapshot when has scopes 1`] = `
 <React.Fragment>
   <Unknown>
     <Unknown
@@ -151,5 +140,16 @@ exports[`renderScopesCheckbox run correctly should match snapshot when have scop
       value="AgencyCloud/properties.write"
     />
   </Unknown>
+</React.Fragment>
+`;
+
+exports[`renderScopesCheckbox run correctly should match snapshot when have errorScope 1`] = `
+<React.Fragment>
+  <div
+    className="has-text-danger has-text-right undefined"
+    data-test="input-error"
+  >
+    error string
+  </div>
 </React.Fragment>
 `;

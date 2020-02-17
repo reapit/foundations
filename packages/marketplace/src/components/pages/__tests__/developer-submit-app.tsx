@@ -378,7 +378,7 @@ describe('DeveloperSubmitApp', () => {
   })
 })
 describe('renderScopesCheckbox run correctly', () => {
-  it('should match snapshot when have scopes', () => {
+  it('should match snapshot when has scopes', () => {
     const scopes = [
       { name: 'AgencyCloud/properties.read', description: 'Read data about properties' },
       { name: 'AgencyCloud/properties.write', description: 'Write data about developers' },
@@ -388,7 +388,7 @@ describe('renderScopesCheckbox run correctly', () => {
   })
   it('should match snapshot when have errorScope', () => {
     const scopes = []
-    const checkboxes = renderScopesCheckbox(scopes, 'error stringa')
+    const checkboxes = renderScopesCheckbox(scopes, 'error string')
     expect(checkboxes).toMatchSnapshot()
   })
 })
