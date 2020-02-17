@@ -69,21 +69,29 @@ export interface SubmitAppMappedProps {
 
 export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps & RouteComponentProps<{ appid?: string }>
 
-export const renderScopesCheckbox = (scopes: ScopeModel[] = []) =>
-  scopes.map((item: ScopeModel) => {
-    // TODO - short term hack to remove temporary scopes from API response
-    if (
-      item.name !== 'Marketplace/developers.read' &&
-      item.name !== 'Marketplace/developers.write' &&
-      item.name !== 'TestResourceServer/test.scope'
-    ) {
-      return (
-        <GridFourColItem key={item.name}>
-          <Checkbox name="scopes" labelText={item.description || ''} id={item.name || ''} value={item.name} />
-        </GridFourColItem>
-      )
-    }
-  })
+export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: string) => (
+  <>
+    {scopes.map((item: ScopeModel) => {
+      // TODO - short term hack to remove temporary scopes from API response
+      if (
+        item.name !== 'Marketplace/developers.read' &&
+        item.name !== 'Marketplace/developers.write' &&
+        item.name !== 'TestResourceServer/test.scope'
+      ) {
+        return (
+          <GridFourColItem key={item.name}>
+            <Checkbox name="scopes" labelText={item.description || ''} id={item.name || ''} value={item.name} />
+          </GridFourColItem>
+        )
+      }
+    })}
+    {errorScope && (
+      <div className={`has-text-danger has-text-right ${styles.errorScope}`} data-test="input-error">
+        {errorScope}
+      </div>
+    )}
+  </>
+)
 
 export const generateInitialValues = (appDetail: AppDetailModel | null, developerId: string | null) => {
   let initialValues
@@ -316,7 +324,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
             // setShouldShowError,
           })}
         >
-          {({ setFieldValue, values }) => {
+          {({ setFieldValue, values, errors }) => {
             return (
               <Form noValidate={true}>
                 <FormSection data-test="submit-app-form">
@@ -591,7 +599,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                     </a>{' '}
                     before progressing.
                   </FormSubHeading>
-                  <GridFourCol>{renderScopesCheckbox(scopes)}</GridFourCol>
+                  <GridFourCol>{renderScopesCheckbox(scopes, errors.scopes)}</GridFourCol>
                 </FormSection>
                 <FormSection>
                   <LevelRight>
