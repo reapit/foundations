@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmitAppReadDocModal should match snapshot with minimal props 1`] = `
+<Component
+  footerItems={
+    <React.Fragment>
+      <Unknown
+        type="button"
+        variant="primary"
+      >
+        YES, CONTINUE
+      </Unknown>
+      <Unknown
+        type="button"
+        variant="primary"
+      >
+        NO, VIEW DOCS
+      </Unknown>
+    </React.Fragment>
+  }
+  tapOutsideToDissmiss={[MockFunction]}
+  title="Important"
+  visible={true}
+>
+  Before continuing with registering your app, we strongly advise that you read the step to step guide on how best to complete the following form. Please confirm if have read the documentation?
+</Component>
+`;
+
+exports[`SubmitAppReadDocModal should match snapshot with some additional props 1`] = `
+<Component
+  footerItems={
+    <React.Fragment>
+      <Unknown
+        onClick={[MockFunction]}
+        type="button"
+        variant="primary"
+      >
+        YES, CONTINUE
+      </Unknown>
+      <Unknown
+        onClick={[MockFunction]}
+        type="button"
+        variant="primary"
+      >
+        NO, VIEW DOCS
+      </Unknown>
+    </React.Fragment>
+  }
+  tapOutsideToDissmiss={true}
+  title="title"
+  visible={true}
+>
+  Before continuing with registering your app, we strongly advise that you read the step to step guide on how best to complete the following form. Please confirm if have read the documentation?
+</Component>
+`;
