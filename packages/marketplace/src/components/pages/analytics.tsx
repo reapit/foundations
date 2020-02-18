@@ -63,16 +63,17 @@ export interface InstallationModelWithAppName extends InstallationModel {
 export type AnalyticsPageProps = AnalyticsPageMappedProps & AnalyticsPageMappedActions
 
 export const handleMapAppNameToInstallation = (
-  installationsAppDataArray: InstallationModel[],
-  developerDataArray: AppSummaryModel[],
-) => (): InstallationModelWithAppName[] =>
-  installationsAppDataArray.map(installation => {
+  installationsAppDataArray: InstallationModel[] = [],
+  developerDataArray: AppSummaryModel[] = [],
+) => (): InstallationModelWithAppName[] => {
+  return installationsAppDataArray.map(installation => {
     const app = developerDataArray.find(app => app.id === installation.appId)
     return {
       ...installation,
       appName: app?.name,
     }
   })
+}
 
 export const sortAppByDateInstalled = (
   installationsAppDataArrayWithName: InstallationModelWithAppName[],
@@ -198,17 +199,15 @@ export const InstallationTable: React.FC<{
 }
 
 export const handleFetchAppUsageStatsDataUseCallback = (
-  installationAppDataArray: InstallationModel[],
+  installationAppDataArray: InstallationModel[] = [],
   loadStats: (params: AppUsageStatsParams) => void,
 ) => {
   return () => {
     const orderedInstallationsByDate: InstallationModel[] = orderBy(installationAppDataArray, ['created'], ['asc'])
     const firstInstallationDate = orderedInstallationsByDate[0]
-    if (firstInstallationDate) {
-      loadStats({
-        dateFrom: firstInstallationDate.created,
-      })
-    }
+    loadStats({
+      dateFrom: firstInstallationDate?.created,
+    })
   }
 }
 
@@ -219,8 +218,8 @@ export const handleFetchAppUsageStatsDataUseEffect = (fetchAppUsageStatsData: ()
 }
 
 export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, developer, appUsageStats, loadStats }) => {
-  const installationAppDataArray = installations.installationsAppData?.data ?? []
-  const developerDataArray = developer.developerData?.data?.data ?? []
+  const installationAppDataArray = installations.installationsAppData?.data
+  const developerDataArray = developer.developerData?.data?.data
 
   const installationAppDataArrayWithName = React.useMemo(
     handleMapAppNameToInstallation(installationAppDataArray, developerDataArray),
