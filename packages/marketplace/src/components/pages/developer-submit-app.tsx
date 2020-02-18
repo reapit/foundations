@@ -27,6 +27,7 @@ import {
   H6,
   RadioSelect,
   FlexContainerResponsive,
+  Helper,
 } from '@reapit/elements'
 
 import { validate } from '@/utils/form/submit-app'
@@ -365,6 +366,18 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
               return (
                 <Form noValidate={true}>
                   <FormSection data-test="submit-app-form">
+                    <Helper>
+                      For more information on how to complete this form, please view our &quot;Step-by-step&quot; guide
+                      <a
+                        className={linkStyles.link}
+                        href="https://foundations-documentation.reapit.cloud/developer-portal"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {' '}
+                        here
+                      </a>
+                    </Helper>
                     <FormHeading>App Listing</FormHeading>
                     <FormSubHeading>
                       The section below relates to the fields that comprise the listing of your application as it will
@@ -460,19 +473,16 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                     <FormHeading>AUTHENTICATION FLOW</FormHeading>
                     <FormSubHeading>
                       Please select an authentication flow for your application.{' '}
-                      <strong>You can only do this once when you submit your app.</strong> You should always select
-                      &ldquo;User Session&rdquo; for client side authenticated apps. In this case, your users will have
-                      to login and you will need to attach a Bearer token to your API Authorization headers. If you
-                      select &ldquo;Client Secret&rdquo; we will provide you with a secret token to include in your API
-                      requests. This secret will be unique per app and would typically be the flow for
-                      machine-to-machine server side apps.{' '}
-                      <strong>
-                        It is fundamentally insecure to expose this secret on the client side and doing so will result
-                        in your app being rejected.{' '}
-                      </strong>
+                      <strong>You can only do this once when you submit your app</strong>. If your application is{' '}
+                      <strong>user facing</strong>, you should select &quot;Authorization Code&quot;. This will allow
+                      you to use our hosted authentication service, Reapit Connect. If you are developing a{' '}
+                      <strong>server-side machine to machine</strong> application such as a feed to another system, you
+                      should select &quot;Client Credentials&quot;.{' '}
+                      <strong>This flow must not be used for applications without a server-side component</strong>. For
+                      more information on authentication, see our platform documentation{' '}
                       <a
                         className={linkStyles.link}
-                        href={'https://foundations-documentation.reapit.cloud/api/web#cognito-auth'}
+                        href="https://foundations-documentation.reapit.cloud/api/api-documentation#authentication"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
