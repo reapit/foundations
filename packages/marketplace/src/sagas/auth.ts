@@ -70,7 +70,7 @@ export const checkFirstTimeLogin = function*() {
 }
 
 export const setFirstTimeLogin = function*() {
-  yield call(setCookieString, COOKIE_FIRST_TIME_LOGIN, new Date())
+  yield call(setCookieString, COOKIE_FIRST_TIME_LOGIN, new Date(), COOKIE_MAX_AGE_INFINITY)
   yield put(toggleFirstLogin(false))
 }
 

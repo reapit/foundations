@@ -244,7 +244,11 @@ export const handleSubmitModalContinue = setIsSubmitModalOpen => () => {
 }
 
 export const handleSubmitModalViewDocs = () => {
-  window.location.assign(DOCS_LINKS.DEVELOPER_PORTAL)
+  const newTab = window.open(DOCS_LINKS.DEVELOPER_PORTAL, '_blank')
+
+  if (newTab) {
+    newTab.focus()
+  }
 }
 
 const getGoBackToAppsFunc = ({ history }: Pick<RouteComponentProps, 'history'>) =>
@@ -274,7 +278,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
   // const handleOnChangeAgree = setIsAgreedTerms.bind(null, prev => !prev)
 
   // submit modal state
-  const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(false)
+  const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(!getCookieString(COOKIE_FIRST_SUBMIT))
 
   const [submitError, setSubmitError] = React.useState<string>()
   const goBackToApps = getGoBackToAppsFunc({ history })
@@ -367,14 +371,14 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                 <Form noValidate={true}>
                   <FormSection data-test="submit-app-form">
                     <Helper>
-                      For more information on how to complete this form, please view our &quot;Step-by-step&quot; guide
+                      For more information on how to complete this form, please view our &quot;Step-by-step&quot;
+                      guide&nbsp;
                       <a
                         className={linkStyles.link}
                         href="https://foundations-documentation.reapit.cloud/developer-portal"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {' '}
                         here
                       </a>
                     </Helper>
@@ -440,7 +444,7 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                           labelText="Launch URI"
                           id="launch Url"
                           name="launchUri"
-                          placeholder="The launch page for your app. HTTP:// or HTTPS://"
+                          placeholder="The launch page for your app. HTTPS only other than for http://localhost"
                         />
                       </GridItem>
                     </Grid>

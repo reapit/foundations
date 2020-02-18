@@ -201,7 +201,9 @@ describe('auth thunks', () => {
       const TIME_OFFSET = 0
       MockDate.set('2019-12-18T16:30:00', TIME_OFFSET)
       const gen = cloneableGenerator(setFirstTimeLogin)()
-      expect(gen.next().value).toEqual(call(setCookieString, COOKIE_FIRST_TIME_LOGIN, new Date()))
+      expect(gen.next().value).toEqual(
+        call(setCookieString, COOKIE_FIRST_TIME_LOGIN, new Date(), COOKIE_MAX_AGE_INFINITY),
+      )
       expect(gen.next().value).toEqual(put(toggleFirstLogin(false)))
       expect(gen.next().done).toBe(true)
       MockDate.reset()
