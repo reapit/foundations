@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 const path = require('path')
-const { getPreviousTag, editReleaseNote, getVersionTag, runCommand, getRef } = require('./utils')
+const { getPreviousTag, editReleaseNote, getVersionTag, runCommand } = require('./utils')
 
 const releaseProd = async () => {
-  runCommand('git', ['checkout', getRef()])
   const [, , ...args] = process.argv
   const packageName = args[0]
   const bucketName = args[1]

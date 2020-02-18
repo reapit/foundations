@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-const { getPreviousTag, editReleaseNote, getVersionTag, runCommand, getRef } = require('./utils')
+const { getPreviousTag, editReleaseNote, getVersionTag, runCommand } = require('./utils')
 const execSync = require('child_process').execSync
 
 const releaseNpm = async () => {
-  runCommand('git', ['checkout', getRef()])
   const [, , ...args] = process.argv
   const packageName = args[0]
   const { version, packageName: packageNameOnTag } = getVersionTag()
