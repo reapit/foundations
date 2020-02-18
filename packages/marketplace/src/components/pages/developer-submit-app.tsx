@@ -470,8 +470,12 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                         It is fundamentally insecure to expose this secret on the client side and doing so will result
                         in your app being rejected.{' '}
                       </strong>
-                      For more on authentication please read the docs{' '}
-                      <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank" rel="noopener noreferrer">
+                      <a
+                        className={linkStyles.link}
+                        href={`${Routes.DEVELOPER_API_DOCS}#authorization`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         here
                       </a>{' '}
                       before progressing.
@@ -632,7 +636,12 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                       installs your application, they will have to consent to your usage based on these permissions. If
                       you do not have the correct permissions on an entity basis, your app will receive a 403 error. For
                       more on scopes please read the docs{' '}
-                      <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank" rel="noopener noreferrer">
+                      <a
+                        className={linkStyles.link}
+                        href={`${Routes.DEVELOPER_API_DOCS}#authorization`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         here
                       </a>{' '}
                       before progressing.
