@@ -13,10 +13,21 @@ import {
   // handleAcceptTerms,
   // handleDeclineTerms,
   CustomCreateAppModel,
+  handleSubmitModalContinue,
+  handleSubmitModalViewDocs,
+  handleBeforeSubmit,
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
 import { Loader, Checkbox } from '@reapit/elements'
+import MockDate from 'mockdate'
+import DOCS_LINKS from '@/constants/docs-links'
+import { getCookieString, setCookieString, COOKIE_MAX_AGE_INFINITY, COOKIE_FIRST_SUBMIT } from '@/utils/cookie'
+
+jest.mock('@/utils/cookie', () => ({
+  getCookieString: jest.fn(),
+  setCookieString: jest.fn(),
+}))
 
 const submitAppMappedActionsProps: SubmitAppMappedActions = {
   submitApp: jest.fn(),
@@ -548,6 +559,62 @@ describe('handleCloseModal', () => {
     expect(setTermModalIsOpen).toHaveBeenCalledWith(false)
   })
 })
+
+describe('handleSubmitModalContinue', () => {
+  const mockDateString = '2020-02-18'
+
+  beforeAll(() => {
+    MockDate.set(new Date(mockDateString))
+  })
+  afterAll(() => {
+    MockDate.reset()
+  })
+  it('should call setIsSubmitModalOpen & setCookieString', () => {
+    const setIsSubmitModalOpen = jest.fn()
+    const fn = handleSubmitModalContinue(setIsSubmitModalOpen)
+    fn()
+    expect(setIsSubmitModalOpen).toHaveBeenCalledWith(false)
+    expect(setCookieString).toHaveBeenCalledWith(COOKIE_FIRST_SUBMIT, mockDateString, COOKIE_MAX_AGE_INFINITY)
+  })
+})
+
+describe('handleSubmitModalViewDocs', () => {
+  const { location } = window
+
+  beforeAll(() => {
+    delete window.location
+    window.location = { assign: jest.fn() } as any
+  })
+
+  afterAll(() => {
+    window.location = location
+  })
+  it('should call window.location.assign', () => {
+    const spy = jest.spyOn(window.location, 'assign')
+    handleSubmitModalViewDocs()
+    expect(spy).toHaveBeenCalledWith(DOCS_LINKS.DEVELOPER_PORTAL)
+  })
+})
+
+describe('handleBeforeSubmit', () => {
+  it('should call setIsSubmitModalOpen when !firstSubmitCookie', () => {
+    ;(getCookieString as any).mockImplementation(() => null)
+    const validateFunction = jest.fn()
+    const setIsSubmitModalOpen = jest.fn()
+    const fn = handleBeforeSubmit(validateFunction, setIsSubmitModalOpen)
+    const result = fn({ key: 'val' } as CustomCreateAppModel)
+    expect(result).toEqual({ message: 'firstSubmit' })
+  })
+  it('should return validateFunc when firstSubmitCookie', () => {
+    ;(getCookieString as any).mockImplementation(() => '2020-01-01')
+    const validateFunction = jest.fn()
+    const setIsSubmitModalOpen = jest.fn()
+    const fn = handleBeforeSubmit(validateFunction, setIsSubmitModalOpen)
+    const result = fn({ key: 'val' } as CustomCreateAppModel)
+    expect(result).toEqual(validateFunction({ key: 'val' }))
+  })
+})
+
 // describe('handleAcceptTerms', () => {
 //   it('should call setIsAgreedTerms and setTermModalIsOpen', () => {
 //     const setTermModalIsOpen = jest.fn()
