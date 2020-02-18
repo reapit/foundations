@@ -1,4 +1,5 @@
 export const HelpLinks = {
+  WHATS_NEW: 'https://foundations-documentation.reapit.cloud/whats-new',
   BUG_REPORT:
     'https://github.com/reapit/foundations/issues/new?labels=bug&projects=reapit/foundations/2&body=Summary:%0d%0dSteps%20to%20reproduce:%0d%0dExpected%20Results:%0d%0dActual%20Results',
   API_REQUEST:

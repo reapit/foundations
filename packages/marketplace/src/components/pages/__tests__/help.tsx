@@ -10,6 +10,7 @@ import {
   helpItems,
   renderHelpItems,
   handleViewRoadmap,
+  handleWhatsNew,
 } from '../help'
 import Routes from '@/constants/routes'
 import { history } from '@/core/router'
@@ -60,6 +61,13 @@ describe('handleViewRoadmap', () => {
   it('should called with correct props', () => {
     handleViewRoadmap()
     expect(window.open).toHaveBeenCalledWith(HelpLinks.ROADMAP, '_blank')
+  })
+})
+
+describe('handleWhatsNew', () => {
+  it('should called with correct props', () => {
+    handleWhatsNew()
+    expect(window.open).toHaveBeenCalledWith(HelpLinks.WHATS_NEW, '_blank')
   })
 })
 
