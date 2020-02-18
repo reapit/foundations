@@ -10,6 +10,7 @@ import Step2 from '@/assets/images/step-2.png'
 import Step3 from '@/assets/images/step-3.png'
 import Step4 from '@/assets/images/step-4.png'
 import Step5 from '@/assets/images/step-5.png'
+import linkStyles from '@/styles/elements/link.scss?mod'
 
 export interface DevelopeWelcomeMappedActions {
   userAcceptTermAndCondition: () => void
@@ -50,17 +51,24 @@ export const Documentation = () => {
       <p className="mb-5">
         <p>
           <strong>
-            <a href={Routes.DEVELOPER_SWAGGER}>APIs</a>
+            <a className={linkStyles.link} href={Routes.DEVELOPER_SWAGGER}>
+              APIs
+            </a>
           </strong>
         </p>
         Our interactive documentation allows you to easily experiment with our API’s with a &lsquo;Try it now&rsquo;
         function to quickly build requests and inspect responses. To try it yourself and to see what data is available,
-        click <a href={Routes.DEVELOPER_SWAGGER}>here</a>.
+        click{' '}
+        <a className={linkStyles.link} href={Routes.DEVELOPER_SWAGGER}>
+          here
+        </a>
+        .
       </p>
       <p className="mb-5">
         <p>
           <strong>
             <a
+              className={linkStyles.link}
               target="_blank"
               rel="noopener noreferrer"
               href={'https://foundations-documentation.reapit.cloud/api/web#elements'}
@@ -71,6 +79,7 @@ export const Documentation = () => {
         </p>
         Also included within your account are Reapit{' '}
         <a
+          className={linkStyles.link}
           target="_blank"
           rel="noopener noreferrer"
           href={'https://foundations-documentation.reapit.cloud/api/web#elements'}
@@ -149,8 +158,11 @@ export const Support = ({ onAccept }) => {
       <p className="mb-5">
         You are currently logged into our alpha release of Reapit Foundations and we are continuing to update, add
         additional features and any address issues that may appear. In the meantime, if you you would like to request a
-        feature or report a bug, this can be done from the <a href={Routes.DEVELOPER_HELP}>‘Help’</a> section on the
-        left.
+        feature or report a bug, this can be done from the{' '}
+        <a className={linkStyles.link} href={Routes.DEVELOPER_HELP}>
+          ‘Help’
+        </a>{' '}
+        section on the left.
       </p>
       <p className="mb-5">
         We are excited to be working with and hope to see your application in the Marketplace soon.
