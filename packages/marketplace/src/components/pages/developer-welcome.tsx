@@ -49,19 +49,36 @@ export const Documentation = () => {
       </p>
       <p className="mb-5">
         <p>
-          <strong>APIs</strong>
+          <strong>
+            <a href={Routes.DEVELOPER_SWAGGER}>APIs</a>
+          </strong>
         </p>
         Our interactive documentation allows you to easily experiment with our API’s with a &lsquo;Try it now&rsquo;
         function to quickly build requests and inspect responses. To try it yourself and to see what data is available,
-        click here.
+        click <a href={Routes.DEVELOPER_SWAGGER}>here</a>.
       </p>
       <p className="mb-5">
         <p>
-          <strong>Elements</strong>
+          <strong>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={'https://foundations-documentation.reapit.cloud/api/web#elements'}
+            >
+              Elements
+            </a>
+          </strong>
         </p>
-        Also included within your account are Reapit &lsquo;Elements&rsquo;. Providing a host of components which have
-        been tested to work with a mobile or desktop application and allows you to build your Apps in compliance with
-        our Reapit Brand Guidelines.
+        Also included within your account are Reapit{' '}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={'https://foundations-documentation.reapit.cloud/api/web#elements'}
+        >
+          &lsquo;Elements&rsquo;
+        </a>
+        . Providing a host of components which have been tested to work with a mobile or desktop application and allows
+        you to build your Apps in compliance with our Reapit Brand Guidelines.
       </p>
       <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
@@ -132,7 +149,8 @@ export const Support = ({ onAccept }) => {
       <p className="mb-5">
         You are currently logged into our alpha release of Reapit Foundations and we are continuing to update, add
         additional features and any address issues that may appear. In the meantime, if you you would like to request a
-        feature or report a bug, this can be done from the ‘Help’ section on the left.
+        feature or report a bug, this can be done from the <a href={Routes.DEVELOPER_HELP}>‘Help’</a> section on the
+        left.
       </p>
       <p className="mb-5">
         We are excited to be working with and hope to see your application in the Marketplace soon.

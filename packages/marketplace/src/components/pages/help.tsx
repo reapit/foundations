@@ -32,6 +32,10 @@ export const handleViewRoadmap = () => {
   window.open(HelpLinks.ROADMAP, '_blank')
 }
 
+export const handleWhatsNew = () => {
+  window.open(HelpLinks.WHATS_NEW, '_blank')
+}
+
 export const handleFaq = (loginIdentity?: LoginIdentity) => {
   initChatBot(loginIdentity)
 }
@@ -91,7 +95,7 @@ export const helpItems = (loginIdentity?: LoginIdentity): HelpItem[] => [
     text: `We are constantly working to improve your experience with the Foundations Platform. Have a look to see what
       new features and fixes have been released.`,
     buttonText: 'VIEW',
-    buttonOnClick: () => {},
+    buttonOnClick: handleWhatsNew,
   },
 ]
 
