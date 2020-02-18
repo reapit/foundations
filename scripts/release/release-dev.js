@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 const path = require('path')
-const { runCommand } = require('./utils')
+const { runCommand, getRef } = require('./utils')
 
 const releaseDev = () => {
+  runCommand('git', ['checkout', getRef()])
   const [, , ...args] = process.argv
   const packageName = args[0]
   const bucketName = args[1]
