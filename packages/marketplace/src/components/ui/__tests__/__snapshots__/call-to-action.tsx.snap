@@ -28,3 +28,39 @@ exports[`CallToAction should match a snapshot 1`] = `
   </Component>
 </div>
 `;
+
+exports[`CallToAction should match snapshot with footerItems 1`] = `
+<div
+  className=""
+  data-test=""
+>
+  <Component
+    className="mb-0"
+    message="Test"
+    type="success"
+  />
+  <Component
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <p />
+    <Component>
+      <Component
+        onClick={[MockFunction]}
+        type="button"
+        variant="primary"
+      >
+        My Apps
+      </Component>
+      <Component
+        onClick={[MockFunction]}
+        type="button"
+        variant="primary"
+      >
+        Submit another app
+      </Component>
+    </Component>
+  </Component>
+</div>
+`;

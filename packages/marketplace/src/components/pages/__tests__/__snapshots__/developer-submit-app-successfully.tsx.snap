@@ -12,31 +12,56 @@ exports[`DeveloperSubmitAppSuccessfully renders correctly 1`] = `
     hasPadding={true}
   >
     <CallToAction
-      buttonDataTest="submit-another-button"
-      buttonText="Submit Another App"
       dataTest="submit-success-section"
+      footerItems={
+        <React.Fragment>
+          <Unknown
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            My Apps
+          </Unknown>
+          <Unknown
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            Submit another app
+          </Unknown>
+        </React.Fragment>
+      }
       isCard={true}
-      onButtonClick={[Function]}
       title="Success"
     >
       <p>
-        Your App has been submitted successfully.
+        Your App has now been registered and can be accessed by clicking on ‘My Apps’ below.
       </p>
       <br />
       <p>
-        For it to be available on the Marketplace, you will need to make it ‘Listed’. To do this, click ‘Apps’ from the menu bar, open your submitted App and click ‘Edit Details’, simply tick the ‘Is Listed’ checkbox.
+        You will be directed to the ‘My Apps’ page where you will be able to access the ‘Client ID’ of you App (required for authentication) and or make any changes to your App by clicking ‘Edit Details’.
       </p>
       <br />
       <p>
-        You can also use this section to make any additional changes. Once you are ready to proceed, click ‘Submit App’. Our Administration department will then review the details you have submitted. Whilst this review is taking place, this App will be marked as ‘Pending Revision’ and you will not be able to make any further changes.
+        <strong>
+          Currently, your App is only visible to you
+        </strong>
+         and will not be available in the Marketplace until you have made it ‘Listed’. When you are ready to do this, click on ‘Edit Detail’ and tick the ‘Is Listed’ check box located in the ‘Marketplace Status’ section.
       </p>
       <br />
       <p>
-        You can check the status of any submissions by accessing ‘Apps’ from the menu bar.
+        <strong>
+          Please note:
+        </strong>
+         Any changes you make now to your App (included making it ‘Listed’) will require approval. These are called ‘Revisions’. All revisions will be sent to our Admin department and whilst your App is being reviewed, you will not be able to make any further changes and the App will be marked as ‘Pending Revision’.
       </p>
       <br />
       <p>
-        For any help or support, please visit the ‘Help’ page.
+        Once you have ‘Listed’ your application, and any revisions have been approved, your app will be live in the Marketplace and available for install by customers.
+      </p>
+      <br />
+      <p>
+        For any issues or support, please visit the ‘Help’ page.
       </p>
       <br />
     </CallToAction>

@@ -50,7 +50,8 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
 
 exports[`DeveloperSubmitApp should match submit app successfully snapshot 1`] = `
 <Component
-  onClickHandler={[Function]}
+  onGoBackToApps={[Function]}
+  onSubmitAnotherApp={[Function]}
 />
 `;
 

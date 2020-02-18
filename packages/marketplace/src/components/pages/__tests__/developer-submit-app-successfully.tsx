@@ -8,7 +8,8 @@ import {
 describe('DeveloperSubmitAppSuccessfully', () => {
   it('renders correctly', () => {
     const props: DeveloperSubmitAppSuccessfullyProps = {
-      onClickHandler: () => jest.fn(),
+      onGoBackToApps: jest.fn(),
+      onSubmitAnotherApp: jest.fn(),
     }
 
     expect(shallow(<DeveloperSubmitAppSuccessfully {...props} />)).toMatchSnapshot()
