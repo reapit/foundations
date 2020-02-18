@@ -1,51 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DeveloperSubmitApp should match a snapshot 1`] = `
-<Component
-  className=" undefined"
-  data-test="app-input-form"
-  flexColumn={true}
-  hasPadding={true}
->
+<Fragment>
   <Component
+    className=" undefined"
+    data-test="app-input-form"
     flexColumn={true}
-    hasBackground={true}
     hasPadding={true}
   >
-    <Component>
-      Submit App
-    </Component>
-    <Formik
-      initialValues={
-        Object {
-          "authFlow": "",
-          "categoryId": "",
-          "description": "",
-          "developerId": "",
-          "homePage": "",
-          "iconImageUrl": "",
-          "launchUri": "",
-          "name": "",
-          "redirectUris": "",
-          "scopes": Array [],
-          "screen1ImageUrl": "",
-          "screen2ImageUrl": "",
-          "screen3ImageUrl": "",
-          "screen4ImageUrl": "",
-          "screen5ImageUrl": "",
-          "signoutUris": "",
-          "summary": "",
-          "supportEmail": "",
-          "telephone": "",
-        }
-      }
-      onSubmit={[Function]}
-      validate={[Function]}
+    <Component
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
     >
-      <Component />
-    </Formik>
+      <Component>
+        Submit App
+      </Component>
+      <Formik
+        initialValues={
+          Object {
+            "authFlow": "",
+            "categoryId": "",
+            "description": "",
+            "developerId": "",
+            "homePage": "",
+            "iconImageUrl": "",
+            "launchUri": "",
+            "name": "",
+            "redirectUris": "",
+            "scopes": Array [],
+            "screen1ImageUrl": "",
+            "screen2ImageUrl": "",
+            "screen3ImageUrl": "",
+            "screen4ImageUrl": "",
+            "screen5ImageUrl": "",
+            "signoutUris": "",
+            "summary": "",
+            "supportEmail": "",
+            "telephone": "",
+          }
+        }
+        onSubmit={[Function]}
+        validate={[Function]}
+      >
+        <Component />
+      </Formik>
+    </Component>
   </Component>
-</Component>
+  <Component
+    onContinueClick={[Function]}
+    onViewDocClick={[Function]}
+    visible={false}
+  />
+</Fragment>
 `;
 
 exports[`DeveloperSubmitApp should match submit app successfully snapshot 1`] = `
@@ -56,58 +63,65 @@ exports[`DeveloperSubmitApp should match submit app successfully snapshot 1`] = 
 `;
 
 exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
-<Component
-  className=" undefined"
-  data-test="app-input-form"
-  flexColumn={true}
-  hasPadding={true}
->
+<Fragment>
   <Component
+    className=" undefined"
+    data-test="app-input-form"
     flexColumn={true}
-    hasBackground={true}
     hasPadding={true}
   >
-    <Component>
-      Edit App
-    </Component>
-    <Formik
-      initialValues={
-        Object {
-          "authFlow": undefined,
-          "categoryId": "",
-          "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
+    <Component
+      flexColumn={true}
+      hasBackground={true}
+      hasPadding={true}
+    >
+      <Component>
+        Edit App
+      </Component>
+      <Formik
+        initialValues={
+          Object {
+            "authFlow": undefined,
+            "categoryId": "",
+            "description": "enim facilisis gravida neque convallis a cras semper auctor neque vitae tempus quam 
       pellentesque nec nam aliquam sem et tortor consequat id porta nibh venenatis cras 
       sed felis eget velit aliquet sagittis id consectetur purus ut faucibus pulvinar 
       elementum integer enim neque volutpat ac tincidunt vitae semper quis lectus nulla 
       at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet 
       proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum co",
-          "developerId": undefined,
-          "homePage": "http://myawesomeproptechproduct.io",
-          "iconImageUrl": "",
-          "isDirectApi": undefined,
-          "isListed": undefined,
-          "launchUri": undefined,
-          "name": "Peter's Properties",
-          "redirectUris": "",
-          "scopes": Array [
-            "Marketplace/developers.read",
-            "Marketplace/developers.write",
-          ],
-          "screen1ImageUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
-          "screen2ImageUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
-          "signoutUris": "",
-          "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
-          "supportEmail": "support@reapit.com",
-          "telephone": "0113 288 2900",
+            "developerId": undefined,
+            "homePage": "http://myawesomeproptechproduct.io",
+            "iconImageUrl": "",
+            "isDirectApi": undefined,
+            "isListed": undefined,
+            "launchUri": undefined,
+            "name": "Peter's Properties",
+            "redirectUris": "",
+            "scopes": Array [
+              "Marketplace/developers.read",
+              "Marketplace/developers.write",
+            ],
+            "screen1ImageUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/c4a36706-aa44-47f9-9fb6-9053eef4e581.png",
+            "screen2ImageUrl": "https://reapit-app-store-app-media.s3.eu-west-2.amazonaws.com/65bd3b97-e78c-41cd-b75f-e06e1d2f00df.png",
+            "signoutUris": "",
+            "summary": "vitae elementum curabitur vitae nunc sed velit eget gravida cum sociis natoque!!",
+            "supportEmail": "support@reapit.com",
+            "telephone": "0113 288 2900",
+          }
         }
-      }
-      onSubmit={[Function]}
-      validate={[Function]}
-    >
-      <Component />
-    </Formik>
+        onSubmit={[Function]}
+        validate={[Function]}
+      >
+        <Component />
+      </Formik>
+    </Component>
   </Component>
-</Component>
+  <Component
+    onContinueClick={[Function]}
+    onViewDocClick={[Function]}
+    visible={false}
+  />
+</Fragment>
 `;
 
 exports[`DeveloperSubmitApp should match submit revision form when appDetailState is having errors snapshot 1`] = `

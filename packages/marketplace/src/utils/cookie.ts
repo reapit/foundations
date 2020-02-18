@@ -6,6 +6,7 @@ export const COOKIE_FIRST_TIME_LOGIN = 'reapit-first-login-complete'
 
 export const COOKIE_FIRST_TIME_LOGIN_DEVELOPER = 'reapit-developer-first-login-complete'
 export const COOKIE_TERMS_ACCEPTED = 'reapit-term-accepted'
+export const COOKIE_FIRST_SUBMIT = 'reapit-read-docs'
 
 export const COOKIE_DOMAIN_WHITELIST = ['.reapit.cloud', 'localhost']
 
