@@ -210,6 +210,10 @@ export interface AppSummaryModel {
    */
   id?: string // uuid
   /**
+   * Gets external client id of this application
+   */
+  externalId?: string
+  /**
    * Gets the date and time the app was originally registered on the marketplace
    */
   created?: string // date-time
@@ -257,6 +261,10 @@ export interface AppSummaryModel {
    * Gets the time stamp of the installed date
    */
   installedOn?: string // date-time
+  /**
+   * Gets the application authorisation flow type (authorisationCode/clientCredentials)
+   */
+  authFlow?: string
   /**
    * Gets the Uri at which the app is launched
    */
