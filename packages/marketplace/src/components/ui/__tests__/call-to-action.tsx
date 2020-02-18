@@ -13,6 +13,23 @@ describe('CallToAction', () => {
     expect(shallow(<CallToAction {...props} />)).toMatchSnapshot()
   })
 
+  it('should match snapshot with footerItems', () => {
+    const props: CallToActionCardProps = {
+      title: 'Test',
+      footerItems: (
+        <>
+          <Button variant="primary" type="button" onClick={jest.fn()}>
+            My Apps
+          </Button>
+          <Button variant="primary" type="button" onClick={jest.fn()}>
+            Submit another app
+          </Button>
+        </>
+      ),
+    }
+    expect(shallow(<CallToAction {...props} />)).toMatchSnapshot()
+  })
+
   it('should allow custom className', () => {
     const wrapper = shallow(<CallToAction {...props} className="addition" />)
     expect(wrapper.find('.addition')).toHaveLength(1)
