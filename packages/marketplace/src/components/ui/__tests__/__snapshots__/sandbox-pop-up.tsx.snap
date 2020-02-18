@@ -3,8 +3,7 @@
 exports[`SandboxPopUp should match snapshot with default 1`] = `
 <div>
   <Component
-    message="Data in the dev portal APIs is sandbox and is regularly refreshed. You should not 
-    use these feeds for production apps, they are for development purposes only."
+    message="This is a sandbox environment, with anonymised test data and isolated from production"
     onCloseToast={[Function]}
     variant="info"
     visible={false}

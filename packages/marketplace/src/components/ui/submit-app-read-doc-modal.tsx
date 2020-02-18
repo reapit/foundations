@@ -31,8 +31,8 @@ export const SubmitAppReadDocModal: React.FC<SubmitAppReadDocModalProps> = ({
       }
       {...rest}
     >
-      Before continuing with registering your app, we strongly advise that you read the step to step guide on how best
-      to complete the following form. Please confirm if have read the documentation?
+      Before continuing with registering your app, we strongly advise that you read the &quot;Step-by-step&quot; guide
+      on how best to complete the following form. Please confirm if have read the documentation?
     </Modal>
   )
 }
