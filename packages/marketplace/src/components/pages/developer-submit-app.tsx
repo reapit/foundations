@@ -41,6 +41,7 @@ import { submitRevisionSetFormState, submitRevision } from '@/actions/submit-rev
 import DeveloperSubmitAppSuccessfully from './developer-submit-app-successfully'
 import { selectCategories } from '../../selector/app-categories'
 import styles from '@/styles/pages/developer-submit-app.scss?mod'
+import linkStyles from '@/styles/elements/link.scss?mod'
 
 export type CustomCreateAppModel = Omit<CreateAppModel, 'redirectUris' | 'signoutUris'> & {
   redirectUris?: string
@@ -433,7 +434,12 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                       your app being rejected.{' '}
                     </strong>
                     For more on authentication please read the docs{' '}
-                    <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank" rel="noopener noreferrer">
+                    <a
+                      className={linkStyles.link}
+                      href={`${Routes.DEVELOPER_API_DOCS}#authorization`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       here
                     </a>{' '}
                     before progressing.
@@ -593,7 +599,12 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                     your application, they will have to consent to your usage based on these permissions. If you do not
                     have the correct permissions on an entity basis, your app will receive a 403 error. For more on
                     scopes please read the docs{' '}
-                    <a href={`${Routes.DEVELOPER_API_DOCS}#authorization`} target="_blank" rel="noopener noreferrer">
+                    <a
+                      className={linkStyles.link}
+                      href={`${Routes.DEVELOPER_API_DOCS}#authorization`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       here
                     </a>{' '}
                     before progressing.

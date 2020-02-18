@@ -23,13 +23,28 @@ const getRef = () => {
   return runCommand('git', ['rev-parse', '--short', 'HEAD'])
 }
 
-const getHashOfCommitTagged = () => {
-  return runCommand('git', ['rev-list', '--tags', '--max-count=1'])
+const removeRefsPrefix = tagNameWithRef => {
+  const tagNameArrWithRef = tagNameWithRef.split('\n')
+  // tagNameArrWithRef return with format refs/tags/packageName_v1.0.2
+  const PREVIOUS_TAG_WITH_REF_INDEX = 0
+  if (tagNameArrWithRef[PREVIOUS_TAG_WITH_REF_INDEX]) {
+    const tagNameArr = tagNameArrWithRef[PREVIOUS_TAG_WITH_REF_INDEX].split('/')
+    const PREVIOUS_TAG_INDEX = 2
+    if (tagNameArr[PREVIOUS_TAG_INDEX]) {
+      // tagName return with format packageName_v1.0.2
+      const tagName = tagNameArr[PREVIOUS_TAG_INDEX]
+      return tagName
+    }
+  }
+  return ''
 }
 
 const getVersionTag = () => {
   try {
-    const tagName = runCommand('git', ['describe', '--tags', getHashOfCommitTagged()])
+    const tagNameWithRef = execSync(
+      "git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | tail -n 1",
+    ).toString()
+    const tagName = removeRefsPrefix(tagNameWithRef)
     const tagNameArr = removeUnuseChar(tagName).split('_')
     const PACKAGE_NAME_INDEX = 0
     const VERSION_INDEX = 1
@@ -46,19 +61,7 @@ const getPreviousTag = ({ packageName }) => {
     const tagNameWithRef = execSync(
       `git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | grep ${packageName} | tail -n 2`,
     ).toString()
-    const tagNameArrWithRef = tagNameWithRef.split('\n')
-    // tagNameArrWithRef return with format refs/tags/packageName_v1.0.2
-    const PREVIOUS_TAG_WITH_REF_INDEX = 0
-    if (tagNameArrWithRef[PREVIOUS_TAG_WITH_REF_INDEX]) {
-      const tagNameArr = tagNameArrWithRef[PREVIOUS_TAG_WITH_REF_INDEX].split('/')
-      const PREVIOUS_TAG_INDEX = 2
-      if (tagNameArr[PREVIOUS_TAG_INDEX]) {
-        // tagName return with format packageName_v1.0.2
-        const tagName = tagNameArr[PREVIOUS_TAG_INDEX]
-        return tagName
-      }
-    }
-    return ''
+    return removeRefsPrefix(tagNameWithRef)
   } catch (err) {
     console.error(err)
   }
@@ -145,4 +148,5 @@ module.exports = {
   formatReleaseNote,
   editReleaseNote,
   runCommand,
+  getRef,
 }
