@@ -6,13 +6,14 @@ type CTAType = 'success' | 'danger'
 export interface CallToActionCardProps {
   type?: CTAType
   className?: string
-  buttonText: string
+  buttonText?: string
   title: string
   isCard?: boolean
   isCenter?: boolean
   onButtonClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
   dataTest?: string
   buttonDataTest?: string
+  footerItems?: React.ReactNode
 }
 
 const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
@@ -24,15 +25,20 @@ const CallToAction: React.FunctionComponent<CallToActionCardProps> = ({
   dataTest = '',
   buttonDataTest = '',
   className = '',
+  footerItems,
 }) => (
   <div className={className} data-test={dataTest}>
     <Alert className="mb-0" type={type} message={title} />
     <FlexContainerBasic hasPadding hasBackground flexColumn>
       <p>{children}</p>
       <LevelRight>
-        <Button dataTest={buttonDataTest} variant="primary" type="button" onClick={onButtonClick as () => void}>
-          {buttonText}
-        </Button>
+        {footerItems ? (
+          footerItems
+        ) : (
+          <Button dataTest={buttonDataTest} variant="primary" type="button" onClick={onButtonClick as () => void}>
+            {buttonText}
+          </Button>
+        )}
       </LevelRight>
     </FlexContainerBasic>
   </div>

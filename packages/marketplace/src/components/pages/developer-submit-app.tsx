@@ -290,7 +290,12 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
   const submitRevisionSuccessfully = isSubmitRevision && isSuccessed
 
   if (submitAppSuccessfully) {
-    return <DeveloperSubmitAppSuccessfully onClickHandler={() => submitAppSetFormState('PENDING')} />
+    return (
+      <DeveloperSubmitAppSuccessfully
+        onGoBackToApps={goBackToApps}
+        onSubmitAnotherApp={() => submitAppSetFormState('PENDING')}
+      />
+    )
   }
 
   if (submitRevisionSuccessfully) {

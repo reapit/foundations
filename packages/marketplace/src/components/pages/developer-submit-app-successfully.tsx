@@ -1,39 +1,60 @@
 import * as React from 'react'
-import { FlexContainerResponsive } from '@reapit/elements'
+import { FlexContainerResponsive, Button } from '@reapit/elements'
 import CallToAction from '../ui/call-to-action'
 import styles from '@/styles/pages/developer-submit-app-successfully.scss?mod'
 
 export interface DeveloperSubmitAppSuccessfullyProps {
-  onClickHandler: () => void
+  onGoBackToApps: () => void
+  onSubmitAnotherApp: () => void
 }
-export const DeveloperSubmitAppSuccessfully: React.FC<DeveloperSubmitAppSuccessfullyProps> = ({ onClickHandler }) => (
+export const DeveloperSubmitAppSuccessfully: React.FC<DeveloperSubmitAppSuccessfullyProps> = ({
+  onGoBackToApps,
+  onSubmitAnotherApp,
+}) => (
   <FlexContainerResponsive hasPadding flexColumn centerContent className={styles.wrapDeveloperSuccess}>
     <FlexContainerResponsive flexColumn hasBackground hasPadding>
       <CallToAction
-        dataTest="submit-success-section"
-        onButtonClick={onClickHandler}
-        title="Success"
-        buttonText="Submit Another App"
-        buttonDataTest="submit-another-button"
         isCard
+        title="Success"
+        dataTest="submit-success-section"
+        footerItems={
+          <>
+            <Button variant="primary" type="button" onClick={onGoBackToApps}>
+              My Apps
+            </Button>
+            <Button variant="primary" type="button" onClick={onSubmitAnotherApp}>
+              Submit another app
+            </Button>
+          </>
+        }
       >
-        <p>Your App has been submitted successfully.</p>
+        <p>Your App has now been registered and can be accessed by clicking on &lsquo;My Apps&rsquo; below.</p>
         <br />
         <p>
-          For it to be available on the Marketplace, you will need to make it ‘Listed’. To do this, click ‘Apps’ from
-          the menu bar, open your submitted App and click ‘Edit Details’, simply tick the ‘Is Listed’ checkbox.
+          You will be directed to the &lsquo;My Apps&rsquo; page where you will be able to access the &lsquo;Client
+          ID&rsquo; of you App (required for authentication) and or make any changes to your App by clicking &lsquo;Edit
+          Details&rsquo;.
         </p>
         <br />
         <p>
-          You can also use this section to make any additional changes. Once you are ready to proceed, click ‘Submit
-          App’. Our Administration department will then review the details you have submitted. Whilst this review is
-          taking place, this App will be marked as ‘Pending Revision’ and you will not be able to make any further
-          changes.
+          <strong>Currently, your App is only visible to you</strong> and will not be available in the Marketplace until
+          you have made it &lsquo;Listed&rsquo;. When you are ready to do this, click on &lsquo;Edit Detail&rsquo; and
+          tick the &lsquo;Is Listed&rsquo; check box located in the &lsquo;Marketplace Status&rsquo; section.
         </p>
         <br />
-        <p>You can check the status of any submissions by accessing ‘Apps’ from the menu bar.</p>
+        <p>
+          <strong>Please note:</strong> Any changes you make now to your App (included making it &lsquo;Listed&rsquo;)
+          will require approval. These are called &lsquo;Revisions&rsquo;. All revisions will be sent to our Admin
+          department and whilst your App is being reviewed, you will not be able to make any further changes and the App
+          will be marked as &lsquo;Pending Revision&rsquo;.
+        </p>
         <br />
-        <p>For any help or support, please visit the ‘Help’ page.</p>
+        <p>
+          Once you have &lsquo;Listed&rsquo; your application, and any revisions have been approved, your app will be
+          live in the Marketplace and available for install by customers.
+        </p>
+        <br />
+        <p>For any issues or support, please visit the &lsquo;Help&rsquo; page.</p>
 
         <br />
       </CallToAction>
