@@ -41,10 +41,7 @@ const removeRefsPrefix = tagNameWithRef => {
 
 const getVersionTag = () => {
   try {
-    const tagNameWithRef = execSync(
-      "git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | tail -n 1",
-    ).toString()
-    const tagName = removeRefsPrefix(tagNameWithRef)
+    const tagName = process.env.RELEASE_VERSION
     const tagNameArr = removeUnuseChar(tagName).split('_')
     const PACKAGE_NAME_INDEX = 0
     const VERSION_INDEX = 1
