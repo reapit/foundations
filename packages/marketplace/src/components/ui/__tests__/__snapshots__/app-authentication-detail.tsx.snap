@@ -10,7 +10,7 @@ exports[`AppAuthenticationDetail should match a snapshot 1`] = `
       href="#"
       onClick={[Function]}
     >
-      Show Client Credentials
+      Show Secret
     </a>
   </div>
 </Fragment>

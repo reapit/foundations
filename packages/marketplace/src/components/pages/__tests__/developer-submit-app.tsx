@@ -590,9 +590,9 @@ describe('handleSubmitModalViewDocs', () => {
     window.location = location
   })
   it('should call window.location.assign', () => {
-    const spy = jest.spyOn(window.location, 'assign')
+    const spy = jest.spyOn(window, 'open')
     handleSubmitModalViewDocs()
-    expect(spy).toHaveBeenCalledWith(DOCS_LINKS.DEVELOPER_PORTAL)
+    expect(spy).toHaveBeenCalledWith(DOCS_LINKS.DEVELOPER_PORTAL, '_blank')
   })
 })
 

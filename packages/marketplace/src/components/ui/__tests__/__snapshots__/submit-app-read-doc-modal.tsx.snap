@@ -22,7 +22,7 @@ exports[`SubmitAppReadDocModal should match snapshot with minimal props 1`] = `
   title="Important"
   visible={true}
 >
-  Before continuing with registering your app, we strongly advise that you read the step to step guide on how best to complete the following form. Please confirm if have read the documentation?
+  Before continuing with registering your app, we strongly advise that you read the "Step-by-step" guide on how best to complete the following form. Please confirm if have read the documentation?
 </Component>
 `;
 
@@ -50,6 +50,6 @@ exports[`SubmitAppReadDocModal should match snapshot with some additional props 
   title="title"
   visible={true}
 >
-  Before continuing with registering your app, we strongly advise that you read the step to step guide on how best to complete the following form. Please confirm if have read the documentation?
+  Before continuing with registering your app, we strongly advise that you read the "Step-by-step" guide on how best to complete the following form. Please confirm if have read the documentation?
 </Component>
 `;

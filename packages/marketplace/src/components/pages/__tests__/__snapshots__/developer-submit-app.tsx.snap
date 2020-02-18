@@ -50,7 +50,7 @@ exports[`DeveloperSubmitApp should match a snapshot 1`] = `
   <Component
     onContinueClick={[Function]}
     onViewDocClick={[Function]}
-    visible={false}
+    visible={true}
   />
 </Fragment>
 `;
@@ -119,7 +119,7 @@ exports[`DeveloperSubmitApp should match submit revision form snapshot 1`] = `
   <Component
     onContinueClick={[Function]}
     onViewDocClick={[Function]}
-    visible={false}
+    visible={true}
   />
 </Fragment>
 `;

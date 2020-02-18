@@ -10,8 +10,7 @@ export const popUp = (setOpen, loading) => () => {
 
 export const SandboxPopUp = ({
   loading = false,
-  message = `Data in the dev portal APIs is sandbox and is regularly refreshed. You should not 
-    use these feeds for production apps, they are for development purposes only.`,
+  message = 'This is a sandbox environment, with anonymised test data and isolated from production',
 }) => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false)
   const setOpen = React.useCallback(setIsOpen.bind(null, true), [setIsOpen])

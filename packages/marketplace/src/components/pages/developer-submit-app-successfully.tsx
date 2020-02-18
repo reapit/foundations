@@ -2,6 +2,8 @@ import * as React from 'react'
 import { FlexContainerResponsive, Button } from '@reapit/elements'
 import CallToAction from '../ui/call-to-action'
 import styles from '@/styles/pages/developer-submit-app-successfully.scss?mod'
+import { Link } from 'react-router-dom'
+import Routes from '@/constants/routes'
 
 export interface DeveloperSubmitAppSuccessfullyProps {
   onGoBackToApps: () => void
@@ -32,8 +34,8 @@ export const DeveloperSubmitAppSuccessfully: React.FC<DeveloperSubmitAppSuccessf
         <br />
         <p>
           You will be directed to the &lsquo;My Apps&rsquo; page where you will be able to access the &lsquo;Client
-          ID&rsquo; of you App (required for authentication) and or make any changes to your App by clicking &lsquo;Edit
-          Details&rsquo;.
+          ID&rsquo; of your App (required for authentication) and or make any changes to your App by clicking
+          &lsquo;Edit Details&rsquo;.
         </p>
         <br />
         <p>
@@ -43,7 +45,7 @@ export const DeveloperSubmitAppSuccessfully: React.FC<DeveloperSubmitAppSuccessf
         </p>
         <br />
         <p>
-          <strong>Please note:</strong> Any changes you make now to your App (included making it &lsquo;Listed&rsquo;)
+          <strong>Please note:</strong> Any changes you make now to your App (including making it &lsquo;Listed&rsquo;)
           will require approval. These are called &lsquo;Revisions&rsquo;. All revisions will be sent to our Admin
           department and whilst your App is being reviewed, you will not be able to make any further changes and the App
           will be marked as &lsquo;Pending Revision&rsquo;.
@@ -54,7 +56,9 @@ export const DeveloperSubmitAppSuccessfully: React.FC<DeveloperSubmitAppSuccessf
           live in the Marketplace and available for install by customers.
         </p>
         <br />
-        <p>For any issues or support, please visit the &lsquo;Help&rsquo; page.</p>
+        <p>
+          For any issues or support, please visit the <Link to={Routes.DEVELOPER_HELP}>&lsquo;Help&rsquo;</Link> page.
+        </p>
 
         <br />
       </CallToAction>

@@ -39,7 +39,7 @@ exports[`DeveloperSubmitAppSuccessfully renders correctly 1`] = `
       </p>
       <br />
       <p>
-        You will be directed to the ‘My Apps’ page where you will be able to access the ‘Client ID’ of you App (required for authentication) and or make any changes to your App by clicking ‘Edit Details’.
+        You will be directed to the ‘My Apps’ page where you will be able to access the ‘Client ID’ of your App (required for authentication) and or make any changes to your App by clicking ‘Edit Details’.
       </p>
       <br />
       <p>
@@ -53,7 +53,7 @@ exports[`DeveloperSubmitAppSuccessfully renders correctly 1`] = `
         <strong>
           Please note:
         </strong>
-         Any changes you make now to your App (included making it ‘Listed’) will require approval. These are called ‘Revisions’. All revisions will be sent to our Admin department and whilst your App is being reviewed, you will not be able to make any further changes and the App will be marked as ‘Pending Revision’.
+         Any changes you make now to your App (including making it ‘Listed’) will require approval. These are called ‘Revisions’. All revisions will be sent to our Admin department and whilst your App is being reviewed, you will not be able to make any further changes and the App will be marked as ‘Pending Revision’.
       </p>
       <br />
       <p>
@@ -61,7 +61,13 @@ exports[`DeveloperSubmitAppSuccessfully renders correctly 1`] = `
       </p>
       <br />
       <p>
-        For any issues or support, please visit the ‘Help’ page.
+        For any issues or support, please visit the 
+        <Link
+          to="/developer/help"
+        >
+          ‘Help’
+        </Link>
+         page.
       </p>
       <br />
     </CallToAction>
