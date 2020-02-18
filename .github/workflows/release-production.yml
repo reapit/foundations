@@ -19,8 +19,17 @@ jobs:
   release_production:
     runs-on: ubuntu-latest
     steps:
-      - name: checks out repository to $GITHUB_WORKSPACE
+      - name: Set RELEASE_VERSION to process.env
+        run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF:10}
+
+      - name: Release version
+        run: echo $RELEASE_VERSION
+
+      - name: Checks out repository to $GITHUB_WORKSPACE
         uses: actions/checkout@v1
+
+      - name: Checkout to RELEASE_VERSION
+        run: git checkout $RELEASE_VERSION
 
       - name: Setup Node Environement
         uses: actions/setup-node@v1
