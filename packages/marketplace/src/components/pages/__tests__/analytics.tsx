@@ -102,8 +102,8 @@ describe('mapDispatchToProps', () => {
 
 describe('handleFetchAppUsageStatsDataUseCallback', () => {
   it('should run correctly', () => {
-    const installationAppData = installationsStub.data || []
-    const fn = handleFetchAppUsageStatsDataUseCallback(installationAppData, loadStats)
+    const developerAppData = appsDataStub.data.data || []
+    const fn = handleFetchAppUsageStatsDataUseCallback(developerAppData, loadStats)
     fn()
     expect(loadStats).toBeCalled()
   })

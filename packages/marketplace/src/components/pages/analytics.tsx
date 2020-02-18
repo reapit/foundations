@@ -199,14 +199,14 @@ export const InstallationTable: React.FC<{
 }
 
 export const handleFetchAppUsageStatsDataUseCallback = (
-  installationAppDataArray: InstallationModel[] = [],
+  developerAppDataArray: AppSummaryModel[] = [],
   loadStats: (params: AppUsageStatsParams) => void,
 ) => {
   return () => {
-    const orderedInstallationsByDate: InstallationModel[] = orderBy(installationAppDataArray, ['created'], ['asc'])
-    const firstInstallationDate = orderedInstallationsByDate[0]
+    const orderredDeveloperAppDataArray = orderBy(developerAppDataArray, ['created'], ['asc'])
+    const firstCreatedApp = orderredDeveloperAppDataArray[0]
     loadStats({
-      dateFrom: firstInstallationDate?.created,
+      dateFrom: firstCreatedApp?.created,
     })
   }
 }
@@ -227,8 +227,8 @@ export const AnalyticsPage: React.FC<AnalyticsPageProps> = ({ installations, dev
   )
 
   const fetchAppUsageStatsData = React.useCallback(
-    handleFetchAppUsageStatsDataUseCallback(installationAppDataArray, loadStats),
-    [installationAppDataArray, loadStats],
+    handleFetchAppUsageStatsDataUseCallback(developerDataArray, loadStats),
+    [developerDataArray, loadStats],
   )
 
   React.useEffect(handleFetchAppUsageStatsDataUseEffect(fetchAppUsageStatsData), [fetchAppUsageStatsData])
