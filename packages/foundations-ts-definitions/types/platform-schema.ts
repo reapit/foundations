@@ -685,8 +685,6 @@ export interface AppointmentFollowUpModel {
 }
 /**
  * Representation of a calendar appointment
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface AppointmentModel {
   /**
@@ -1723,7 +1721,7 @@ export interface CreateAppointmentAttendeeModel {
 /**
  * Request body used to create a new calendar appointment
  * example:
- * 2019-08-14T12:30:02.0000000Z
+ * [object Object]
  */
 export interface CreateAppointmentModel {
   /**
@@ -1739,11 +1737,11 @@ export interface CreateAppointmentModel {
    */
   end?: string // date-time
   /**
-   * The date and time when the appointment should be followed up
+   * The date when the appointment should be followed up
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14
    */
-  followUpOn?: string // date-time
+  followUpOn?: string // date
   /**
    * The unique identifier of the appointment type
    */
@@ -1799,8 +1797,6 @@ export interface CreateAppointmentModel {
   propertyConfirmed?: boolean
   /**
    * Details of the recurrence pattern for the appointment
-   * example:
-   * 2019-08-14T12:30:02.0000000Z
    */
   recurrence?: {
     /**
@@ -1827,8 +1823,6 @@ export interface CreateAppointmentModel {
 }
 /**
  * Details of an appointment's recurrence pattern
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface CreateAppointmentRecurrenceModel {
   /**
@@ -8219,7 +8213,7 @@ export interface UpdateAppointmentFollowUpModel {
 /**
  * Request body used to update an existing calendar appointment
  * example:
- * 2019-08-14T12:30:02.0000000Z
+ * [object Object]
  */
 export interface UpdateAppointmentModel {
   /**
@@ -8235,11 +8229,11 @@ export interface UpdateAppointmentModel {
    */
   end?: string // date-time
   /**
-   * The date and time when the appointment should be followed up
+   * The date when the appointment should be followed up
    * example:
-   * 2019-08-14T12:30:02.0000000Z
+   * 2019-08-14
    */
-  followUpOn?: string // date-time
+  followUpOn?: string // date
   /**
    * The unique identifier of the appointment type
    */
@@ -8316,8 +8310,6 @@ export interface UpdateAppointmentModel {
   }
   /**
    * Details of the recurrence pattern for the appointment
-   * example:
-   * 2019-08-14T12:30:02.0000000Z
    */
   recurrence?: {
     /**
@@ -8344,8 +8336,6 @@ export interface UpdateAppointmentModel {
 }
 /**
  * Details of an appointment's recurrence pattern
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface UpdateAppointmentRecurrenceModel {
   /**
