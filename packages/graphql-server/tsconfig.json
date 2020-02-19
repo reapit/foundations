@@ -9,10 +9,17 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "typeRoots": ["./node_modules/@types"]
   },
   "include": ["./src/**/*"],
 
-  "exclude": ["./public", "./dist", "./node_modules", "./src/tests/coverage"]
+  "exclude": [
+    "./public",
+    "./dist",
+    "./node_modules",
+    "./src/tests/coverage",
+    "./src/**/*.test.ts",
+    "./src/**/__mocks__"
+  ]
 }
