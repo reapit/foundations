@@ -115,7 +115,7 @@ monitor: https://sentry.io/organizations/reapit-ltd/projects/`
 
 const editReleaseNote = async ({ packageName, version, previousTag }) => {
   try {
-    const commitLog = runCommand('git', ['log', `${packageName}_${version}...${previousTag}`])
+    const commitLog = runCommand('git', ['log', `${packageName}_${version}...${previousTag}`, '.'])
     const token = process.env.GITHUB_TOKEN
     const octokit = new Octokit({ auth: token })
     const latestRelease = await octokit.repos.getReleaseByTag({
