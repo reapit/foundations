@@ -57,3 +57,6 @@ out*
 package-lock.json
 .env
 invite-developers.js
+
+# eslint cache
+.eslintcache
