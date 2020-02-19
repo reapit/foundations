@@ -14,6 +14,30 @@
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@reapit/cognito-auth": "2.0.19",
+    "@reapit/elements": "0.5.38",
+    "apollo-server": "^2.9.16",
+    "dataloader": "^2.0.0",
+    "express": "^4.17.1",
+    "graphql": "^14.5.8",
+    "graphql-depth-limit": "^1.1.0",
+    "graphql-import": "^0.7.1",
+    "graphql-type-json": "^0.3.1",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/graphql-depth-limit": "^1.1.2",
+    "@types/graphql-type-json": "^0.3.2",
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.2",
+    "@types/node-fetch": "^2.5.4",
+    "@types/uuid": "^3.4.6",
+    "concurrently": "^5.0.1",
+    "graphql-import": "^0.7.1",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.5.4",
+    "tsdx": "^0.11.0"
+  }
 }

@@ -1,0 +1,22 @@
+# dependencies
+/node_modules
+/packages/*/node_modules
+
+# testing
+/coverage
+/packages/*/src/tests/coverage
+
+# production
+/packages/*/build
+/packages/*/dist
+/packages/*/public/dist
+
+.cache/
+coverage/
+dist-npm/
+dist-cdn/
+
+storybook-static
+elements/public
+out*
+invite-developers.js

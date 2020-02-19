@@ -9,7 +9,9 @@
       "**/cognito-custom-mail-lambda",
       "**/cognito-custom-mail-lambda/**",
       "**/react-app-scaffolder",
-      "**/react-app-scaffolder/**"
+      "**/react-app-scaffolder/**",
+      "**/graphql-server",
+      "**/graphql-server/**"
     ]
   },
   "scripts": {
