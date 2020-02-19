@@ -24,8 +24,8 @@ export const Welcome = () => {
     <div>
       <p className="mb-5">
         Thank you for registering as a Reapit Foundations Developer. Within this portal, you will have access to
-        detailed documentation on all our API’s, full access to Reapit elements and Sandbox data. All available to
-        assist you in building and listing your apps on the Marketplace.
+        detailed documentation on all our APIs, full access to Reapit elements and Sandbox data. All available to assist
+        you in building and listing your apps on the Marketplace.
       </p>
       <p className="mb-5">
         We understand how important it is to have the right tools to enable you to produce the best applications for
@@ -56,7 +56,7 @@ export const Documentation = () => {
             </a>
           </strong>
         </p>
-        Our interactive documentation allows you to easily experiment with our API’s with a &lsquo;Try it now&rsquo;
+        Our interactive documentation allows you to easily experiment with our APIs with a &lsquo;Try it now&rsquo;
         function to quickly build requests and inspect responses. To try it yourself and to see what data is available,
         click{' '}
         <a className={linkStyles.link} href={Routes.DEVELOPER_SWAGGER}>
@@ -104,8 +104,8 @@ export const Submitting = () => {
   return (
     <div>
       <p className="mb-5">
-        Once you are ready to go, you’ll need to submit your App. Using the &lsquo;Submit App&rsquo; option on the left,
-        you will need to tell us about your Application, such as what permissions it requires, the type of
+        Once you are ready to go, you will need to submit your App. Using the &lsquo;Submit App&rsquo; option on the
+        left, you will need to tell us about your Application, such as what permissions it requires, the type of
         authentication, description & screenshots and support contact details.
       </p>
       <p className="mb-5">
@@ -113,7 +113,7 @@ export const Submitting = () => {
         are marketing. Each section on the ‘Submit App’ form will explain what is required and what you need to provide.
       </p>
       <p className="mb-5">
-        Once you have submitted your App and you are ready for it to be published on the Marketplace, you will need
+        Once you have submitted your App and you are ready for it to be published on the Marketplace, you will need to
         change the status to &lsquo;Listed&rsquo;. This can be done by editing your App from the &lsquo;Apps&rsquo;
         page. Any changes, including &lsquo;Listing&rsquo; your application will need to be approved by our Admin team.
       </p>
@@ -157,7 +157,7 @@ export const Support = ({ onAccept }) => {
     <div>
       <p className="mb-5">
         You are currently logged into our alpha release of Reapit Foundations and we are continuing to update, add
-        additional features and any address issues that may appear. In the meantime, if you you would like to request a
+        additional features and address any issues that may appear. In the meantime, if you would like to request a
         feature or report a bug, this can be done from the{' '}
         <a className={linkStyles.link} href={Routes.DEVELOPER_HELP}>
           ‘Help’
@@ -165,7 +165,7 @@ export const Support = ({ onAccept }) => {
         section on the left.
       </p>
       <p className="mb-5">
-        We are excited to be working with and hope to see your application in the Marketplace soon.
+        We are excited to be working with you and hope to see your application in the Marketplace soon.
       </p>
       <Button type="button" variant="primary" onClick={handleChangeSteps(goPrev)}>
         Prev
