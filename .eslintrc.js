@@ -37,15 +37,21 @@ module.exports = {
     'react-app-scaffolder/',
     'marketplace-api-schema.ts',
     'platform-schema.ts',
+    'packages/*/build',
+    'packages/*/dist',
+    'packages/*/public/dist',
   ],
   rules: {
     quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
     semi: ['error', 'never'],
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used' }],
     '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
-    'prettier/prettier': ['error', {
-      'endOfLine': 'auto'
-    }],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'max-len': ['error', { code: 120, ignoreUrls: true }],
     'no-confusing-arrow': ['error', { allowParens: false }],
     'no-mixed-operators': [
@@ -65,8 +71,8 @@ module.exports = {
     indent: 0,
     // Disabling as we are validating types with TypeScript not PropTypes
     'react/prop-types': 0,
-    "react-hooks/rules-of-hooks": 0,
-    "react-hooks/exhaustive-deps": 0,
+    'react-hooks/rules-of-hooks': 0,
+    'react-hooks/exhaustive-deps': 0,
   },
   settings: {
     react: {
