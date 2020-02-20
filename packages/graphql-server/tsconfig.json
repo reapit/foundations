@@ -9,7 +9,12 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./node_modules/@types"],
+    "paths": {
+      "@/*": ["src/*"],
+      "@reapit/elements": ["../elements/src"],
+      "logger": ["../../scripts/logger/sentry-logger.ts"]
+    }
   },
   "include": ["./src/**/*"],
 
