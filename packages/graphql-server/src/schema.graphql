@@ -19,6 +19,8 @@ type Query {
     sortBy: String,
     identityCheck: [String!],
     marketingConsent: [String!],
+    createdFrom: String,
+    createdTo: String,
   ): Contacts!
 
   # contact-identity-check
@@ -44,10 +46,17 @@ type Mutation {
     dateOfBirth: String,
     active: Boolean,
     marketingConsent: String,
+    source: ContactSource,
+    homePhone: String,
+    workPhone: String,
+    mobilePHone: String,
+    email: String,
     communications: [ContactCommunicationInput!],
     officeIds: [String!],
     negotiatorIds: [String!],
-    addresses: [ContactAddressInput!],
+    primaryAddress: [ContactAddress!],
+    secondaryAddress: [ContactAddress!],
+    workAddress: [ContactAddress!],
     metadata: JSON,
   ): Contact!
 
@@ -59,10 +68,17 @@ type Mutation {
     dateOfBirth: String,
     active: Boolean,
     marketingConsent: String,
+    source: ContactSource,
+    homePhone: String,
+    workPhone: String,
+    mobilePHone: String,
+    email: String,
     communications: [ContactCommunicationInput!],
     officeIds: [String!],
     negotiatorIds: [String!],
-    addresses: [ContactAddressInput!],
+    primaryAddress: [ContactAddress!],
+    secondaryAddress: [ContactAddress!],
+    workAddress: [ContactAddress!],
     metadata: JSON,
   ): Contact!
 
