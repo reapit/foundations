@@ -1,4 +1,4 @@
-import reducer, { defaultState as getDefaultState, AuthState } from '../auth'
+import reducer, { defaultState as getDefaultState } from '../auth'
 import { ActionType } from '../../types/core'
 import ActionTypes from '../../constants/action-types'
 
@@ -6,7 +6,10 @@ const defaultState = getDefaultState()
 
 describe('auth reducer', () => {
   it('should return default state if action not matched', () => {
-    const newState = reducer(undefined, { type: 'UNKNOWN' as ActionType, data: undefined })
+    const newState = reducer(undefined, {
+      type: 'UNKNOWN' as ActionType,
+      data: undefined,
+    })
     expect(newState).toEqual(defaultState)
   })
 
@@ -58,7 +61,12 @@ describe('auth reducer', () => {
   })
 
   it('authSetRefreshSession', () => {
-    const data = { refreshToken: '', userName: '', loginType: 'CLIENT', mode: 'WEB' }
+    const data = {
+      refreshToken: '',
+      userName: '',
+      loginType: 'CLIENT',
+      mode: 'WEB',
+    }
     const newState = reducer(undefined, {
       type: ActionTypes.AUTH_SET_REFRESH_SESSION as ActionType,
       data,
