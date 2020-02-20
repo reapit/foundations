@@ -9,20 +9,4 @@ export const createArgStub: CreateNegotiatorModel = {
   mobilePhone: null,
   email: 'abel.robertson@reapitestates.net',
   metadata: {},
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  _eTag: '"10109C0209C684789B72FFC53730E31C"',
-  _links: {
-    self: {
-      href: '/negotiators/MGL',
-    },
-    office: {
-      href: '/offices/NPG',
-    },
-  },
-  _embedded: null,
->>>>>>> feat: #371 Implement resolver for graphql server: negotiator services
-=======
->>>>>>> feat: #371 Update type for objects and functions
 }
