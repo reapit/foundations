@@ -3,7 +3,7 @@ import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
 import errors from '../../errors'
 import { ServerContext } from '../../app'
-import { GetContactByIdArgs, CreateContactArgs, GetContactsArgs } from './contact'
+import { GetContactByIdArgs, CreateContactArgs, GetContactsArgs, UpdateContactArgs } from './contact'
 
 export const queryContact = (_: any, args: GetContactByIdArgs, context: ServerContext) => {
   const traceId = context.traceId
@@ -33,4 +33,14 @@ export const createContact = (_: any, args: CreateContactArgs, context: ServerCo
     return errors.generateAuthenticationError(context.traceId)
   }
   return contactServices.createContact(args, context)
+}
+
+export const updateContact = (_: any, args: UpdateContactArgs, context: ServerContext) => {
+  const traceId = context.traceId
+  logger.info('updateContact', { traceId, args })
+  const isPermit = checkPermission(context)
+  if (!isPermit) {
+    return errors.generateAuthenticationError(context.traceId)
+  }
+  return contactServices.updateContact(args, context)
 }

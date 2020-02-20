@@ -1,7 +1,7 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
-import { GetContactByIdArgs, CreateContactArgs, GetContactsArgs } from './contact'
+import { GetContactByIdArgs, CreateContactArgs, UpdateContactArgs, GetContactsArgs } from './contact'
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 
@@ -54,8 +54,49 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
   }
 }
 
-// TODO: will call create contact API
-export const callCreateContactAPI = async (contact: CreateContactArgs) => {
-  logger.info('createContact', { contact })
-  return {}
+export const callCreateContactAPI = async (args: CreateContactArgs, context: ServerContext) => {
+  const traceId = context.traceId
+  try {
+    logger.info('callCreateContactAPI', { traceId, args })
+    const headers = {
+      Authorization: context.authorization,
+      'Content-Type': 'application/json',
+      'api-version': API_VERSION,
+    }
+    const createResponse = await fetcher({
+      url: URLS.contacts,
+      api: REAPIT_API_BASE_URL,
+      method: 'POST',
+      headers,
+      body: args,
+    })
+    return createResponse
+  } catch (error) {
+    logger.error('callCreateContactAPI', { traceId, error })
+    return errors.generateUserInputError(traceId)
+  }
+}
+
+export const callUpdateContactAPI = async (args: UpdateContactArgs, context: ServerContext) => {
+  const traceId = context.traceId
+  try {
+    logger.info('callUpdateContactAPI', { traceId, args })
+    const headers = {
+      Authorization: context.authorization,
+      'Content-Type': 'application/json',
+      'api-version': API_VERSION,
+      'If-Match': args._eTag,
+    }
+    const updateResponse = await fetcher({
+      url: `${URLS.contacts}/${args.id}`,
+      api: REAPIT_API_BASE_URL,
+      method: 'PATCH',
+      headers,
+      body: args,
+    })
+    return updateResponse
+  } catch (error) {
+    logger.error('callUpdateContactAPI', { traceId, error })
+    return errors.generateUserInputError(traceId)
+  }
 }

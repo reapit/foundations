@@ -1,7 +1,7 @@
 import logger from '../../logger'
 import { ServerContext } from '../../app'
-import { GetContactByIdArgs, CreateContactArgs, GetContactsArgs } from './contact'
-import { callGetContactByIdAPI, callGetContactsAPI, callCreateContactAPI } from './api'
+import { GetContactByIdArgs, CreateContactArgs, UpdateContactArgs, GetContactsArgs } from './contact'
+import { callGetContactByIdAPI, callGetContactsAPI, callCreateContactAPI, callUpdateContactAPI } from './api'
 
 export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
 export const CONTACTS_PER_PAGE = 10
@@ -27,14 +27,22 @@ export const getContacts = (args: GetContactsArgs, context: ServerContext) => {
 export const createContact = (args: CreateContactArgs, context: ServerContext) => {
   const traceId = context.traceId
   logger.info('createContact', { traceId, args })
-  const contact = callCreateContactAPI(args)
+  const contact = callCreateContactAPI(args, context)
+  return contact
+}
+
+export const updateContact = (args: UpdateContactArgs, context: ServerContext) => {
+  const traceId = context.traceId
+  logger.info('updateContact', { traceId, args })
+  const contact = callUpdateContactAPI(args, context)
   return contact
 }
 
 const contactServices = {
   getContactById,
-  createContact,
   getContacts,
+  createContact,
+  updateContact,
 }
 
 export default contactServices

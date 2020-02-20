@@ -11,11 +11,6 @@ type ContactAddress {
   countryId: String
 }
 
-type ContactCommunication {
-  label: String
-  detail: String
-}
-
 type ContactSource {
   id: String
   type: String
@@ -32,7 +27,6 @@ type Contact {
   active: Boolean
   marketingConsent: String
   identityCheck: String
-  communications: [ContactCommunication!]
   source: ContactSource
   homePhone: String
   workPhone: String
@@ -59,10 +53,6 @@ type Contacts {
 }
 
 # Input Types
-input ContactCommunicationInput {
-  label: String
-  detail: String
-}
 
 input ContactAddressInput {
   type: String
@@ -74,4 +64,9 @@ input ContactAddressInput {
   line4: String
   postcode: String
   countryId: String
+}
+
+input ContactSourceInput {
+  id: String
+  type: String
 }
