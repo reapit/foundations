@@ -1,0 +1,179 @@
+"""
+Request body used to create a new negotiator
+"""
+input CreateNegotiatorModelInput {
+  """
+  The name of the negotiator
+  """
+  name: String
+
+  """
+  The job title of the negotiator
+  """
+  jobTitle: String
+
+  """
+  A flag determining whether or not the negotiator is active
+  """
+  active: Boolean
+
+  """
+  The unique identifier of the office that the negotiator is attached to
+  """
+  officeId: String
+
+  """
+  The work phone number of the negotiator
+  """
+  workPhone: String
+
+  """
+  The mobile phone number of the negotiator
+  """
+  mobilePhone: String
+
+  """
+  The email address of the negotiator
+  """
+  email: String
+
+  """
+  App specific metadata to set against the negotiator
+  """
+  metadata: JSON
+}
+
+scalar JSON
+
+# type Mutation {
+#   CreateNegotiator(model: CreateNegotiatorModelInput): JSON!
+#   UpdateNegotiator(id: String!, model: UpdateNegotiatorModelInput): JSON!
+# }
+
+"""
+Representation of a negotiator
+"""
+type NegotiatorModel {
+  """
+  The unique identifier of the negotiator
+  """
+  id: String
+
+  """
+  The date and time when the negotiator was created
+  """
+  created: String
+
+  """
+  The date and time when the negotiator was last modified
+  """
+  modified: String
+
+  """
+  The name of the negotiator
+  """
+  name: String
+
+  """
+  The job title of the negotiator
+  """
+  jobTitle: String
+
+  """
+  A flag determining whether or not the negotiator is active
+  """
+  active: Boolean
+
+  """
+  The unique identifier of the office that the negotiator is attached to
+  """
+  officeId: String
+
+  """
+  The work phone number of the negotiator
+  """
+  workPhone: String
+
+  """
+  The mobile phone number of the negotiator
+  """
+  mobilePhone: String
+
+  """
+  The email address of the negotiator
+  """
+  email: String
+
+  """
+  App specific metadata that has been set against the negotiator
+  """
+  metadata: JSON
+
+  """
+  The ETag for the current version of the negotiator. Used for managing update concurrency
+  """
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResult_NegotiatorModel_ {
+  _embedded: [NegotiatorModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+# type Query {
+#   GetNegotiators(
+#     PageSize: Int
+#     PageNumber: Int
+#     SortBy: String
+#     Id: [String!]
+#     OfficeId: [String!]
+#     Name: String
+#   ): PagedResult_NegotiatorModel_!
+#   GetNegotiatorById(id: String!): NegotiatorModel!
+# }
+
+"""
+Request body used to update an existing negotiator
+"""
+input UpdateNegotiatorModelInput {
+  """
+  The name of the negotiator
+  """
+  name: String
+
+  """
+  The job title of the negotiator
+  """
+  jobTitle: String
+
+  """
+  A flag determining whether or not the negotiator is active
+  """
+  active: Boolean
+
+  """
+  The work phone number of the negotiator
+  """
+  workPhone: String
+
+  """
+  The mobile phone number of the negotiator
+  """
+  mobilePhone: String
+
+  """
+  The email address of the negotiator
+  """
+  email: String
+
+  """
+  App specific metadata to set against the negotiator
+  """
+  metadata: JSON
+}
