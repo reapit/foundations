@@ -14,7 +14,7 @@ export default function createContext<P, V>(useValue: (props: P) => V) {
   const useContext = () => {
     const value = React.useContext(Context)
     if (value === NO_PROVIDER) {
-      throw new Error('useContext must be inside a Provider with a value')
+      console.error('useContext must be inside a Provider with a value')
     }
     return value
   }
