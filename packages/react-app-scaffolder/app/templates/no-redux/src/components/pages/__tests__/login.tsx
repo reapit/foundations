@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import { Login } from '../login'
 import * as AuthContext from '@/context/auth-context'
 import { redirectToLogin } from '@reapit/cognito-auth'
+import { Button } from '@reapit/elements'
 
 jest.mock('../../../context/auth-context.tsx')
 jest.mock('@reapit/cognito-auth', () => ({
@@ -47,7 +48,7 @@ describe('Login', () => {
 
     const wrapper = shallow(<Login />)
 
-    wrapper.find('[dataTest="login-button"]').simulate('click')
+    wrapper.find(Button).simulate('click')
 
     expect(redirectToLogin).toBeCalledWith(
       process.env.COGNITO_CLIENT_ID_APP_NAME as string,

@@ -18,7 +18,9 @@ export const Wrapper = styled.div<{ disabled?: boolean }>`
   background-color: #fff;
   width: 33.33%;
   padding: 1rem;
-  pointer-events: ${props => (props.disabled ? 'none' : 'auto')};
+  pointer-events: ${props => {
+    return props.disabled ? 'none' : 'auto'
+  }};
 
   h1,
   p, img {
