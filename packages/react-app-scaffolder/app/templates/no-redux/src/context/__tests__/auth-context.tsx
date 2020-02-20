@@ -1,5 +1,6 @@
+import * as React from 'react'
 import { renderHook, act } from '@testing-library/react-hooks'
-import { useAuth } from '../auth-context'
+import { useAuthContext, AuthProvider } from '../auth-context'
 import { RefreshParams, removeSession, redirectToLogout } from '@reapit/cognito-auth'
 
 jest.mock('@reapit/cognito-auth', () => ({
@@ -21,7 +22,8 @@ const refreshParams: RefreshParams = {
 
 describe('auth-context', () => {
   it('getLoginSession should run correctly', async () => {
-    const { result, waitForNextUpdate } = renderHook(() => useAuth())
+    const wrapper: React.FC = ({ children }) => <AuthProvider>{children}</AuthProvider>
+    const { result, waitForNextUpdate } = renderHook(() => useAuthContext(), { wrapper })
 
     act(() => {
       result.current.getLoginSession(refreshParams)
@@ -35,8 +37,9 @@ describe('auth-context', () => {
     expect(result.current.loginSession).toBe(undefined)
   })
 
-  it('logout should run correctly', () => {
-    const { result } = renderHook(() => useAuth())
+  it('logout should run correctly', async () => {
+    const wrapper: React.FC = ({ children }) => <AuthProvider>{children}</AuthProvider>
+    const { result } = renderHook(() => useAuthContext(), { wrapper })
 
     act(() => {
       result.current.logout()

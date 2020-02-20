@@ -1,11 +1,10 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { withRouter } from 'react-router'
 import { ReduxState } from '@/types/core'
 import Routes from '@/constants/routes'
-import { Button, Level, isEmail } from '@reapit/elements'
-import { LoginParams } from '@reapit/cognito-auth'
+import { Button, Level } from '@reapit/elements'
 import connectImage from '@/assets/images/reapit-connect.png'
 <% if (stylesSolution == 'sass') { %>import loginStyles from '@/styles/pages/login.scss?mod'<%}%>
 <% if (stylesSolution == 'styledComponents') { %>import { Container, Wrapper, ImageContainer } from './__styles__/login'<%}%>
@@ -21,7 +20,7 @@ export interface LoginProps {
 const loginHandler = () => redirectToLogin(process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string, `${window.location.origin}`)
 
 export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) => {
-  <% if (stylesSolution == 'sass') { %>const { disabled, wrapper, container, image } = loginStyles<%}%>
+  <% if (stylesSolution == 'sass') { %>const { wrapper, container, image } = loginStyles<%}%>
 
   const { hasSession } = props
 

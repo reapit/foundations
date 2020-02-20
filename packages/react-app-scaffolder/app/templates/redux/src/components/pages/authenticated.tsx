@@ -31,6 +31,6 @@ export const mapStateToProps = (state: ReduxState): AuthenticatedMappedProps => 
   authenticatedState: state.authenticated,
 })
 
-export const mapDispatchToProps = (_dispatch: any): AuthenticatedMappedActions => ({})
+export const mapDispatchToProps = (): AuthenticatedMappedActions => ({})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authenticated)
