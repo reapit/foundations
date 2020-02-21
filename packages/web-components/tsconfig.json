@@ -8,7 +8,7 @@
     "declarationDir": "dist-npm",
     "moduleResolution": "node",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["archive/src/*"],
       "@reapit/cognito-auth": ["../cognito-auth/src"]
     },
     "plugins": [
@@ -18,7 +18,7 @@
       }
     ],
     "resolveJsonModule": true,
-    "rootDirs": ["src"],
+    "rootDirs": ["archive/src"],
     "skipLibCheck": true,
     "target": "es5"
   }

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom'
-import { SearchWidget } from '@/components/search-widget'
+import { SearchWidget } from 'poc-archive/src/components/search-widget'
 ;(window as any).initReapitSearchWidget = ({
   theme = {},
   containerID = 'reapit-search-widget',

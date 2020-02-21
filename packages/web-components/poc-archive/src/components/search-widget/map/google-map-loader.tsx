@@ -1,6 +1,6 @@
 import React from 'react'
 import load from 'little-loader'
-import { queryParams, Params } from '@/utils/query-params'
+import { queryParams, Params } from 'poc-archive/src/utils/query-params'
 
 const GOOGLE_MAP_PLACES_API = 'https://maps.googleapis.com/maps/api/js'
 

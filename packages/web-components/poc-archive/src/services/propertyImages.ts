@@ -1,6 +1,6 @@
-import { getAccessToken } from '@/utils/get-access-token'
+import { getAccessToken } from 'poc-archive/src/utils/get-access-token'
 import { PropertyModel, PropertyImageModel } from '@reapit/foundations-ts-definitions'
-import { IMAGE_API_URL } from '@/constants'
+import { IMAGE_API_URL } from 'poc-archive/src/constants'
 
 export const getPropertyImages = async (result: PropertyModel[]) => {
   const propertyIds = result.map((property: PropertyModel) => property?.id)

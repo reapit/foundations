@@ -8,9 +8,9 @@ import { SearchResult } from './search-result'
 import { context } from './context'
 import { GoogleMap } from './map/google-map'
 import { createPortal } from 'react-dom'
-import scrollIntoView from '@/utils/scroll-into-view'
-import { getPropertiesForSale, getPropertiesToRent } from '@/services/properties'
-import { getPropertyImages } from '@/services/propertyImages'
+import scrollIntoView from 'poc-archive/src/utils/scroll-into-view'
+import { getPropertiesForSale, getPropertiesToRent } from 'poc-archive/src/services/properties'
+import { getPropertyImages } from 'poc-archive/src/services/propertyImages'
 
 const SearchResultTextContainer = styled.h1`
   color: ${props => props.theme.colors.searchResult};

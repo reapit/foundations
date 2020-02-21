@@ -1,6 +1,6 @@
 import { useSearchStore } from '../search-store'
 import { renderHook, act } from '@testing-library/react-hooks'
-import data from './mock-search-store.json'
+import data from './mock-search-store.json.js.js'
 
 describe('useSearchStore', () => {
   it('handles start fetching', () => {
