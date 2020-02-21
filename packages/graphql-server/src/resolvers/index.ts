@@ -5,8 +5,8 @@ import { login } from './auth/resolvers'
 
 export const resolvers = {
   Query: {
-    contact: queryContact,
-    contacts: queryContacts,
+    getContact: queryContact,
+    getContacts: queryContacts,
   },
   Mutation: {
     login,

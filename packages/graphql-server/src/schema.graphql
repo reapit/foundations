@@ -4,11 +4,11 @@
 
 type Query {
   # contact
-  contact(
+  getContact(
     id: String!,
   ): Contact!
 
-  contacts(
+  getContacts(
     name: String,
     address: String,
     negotiatorId: [String!],
@@ -42,20 +42,20 @@ type Mutation {
   createContact(
     title: String,
     forename: String,
-    surname: String,
+    surname: String!,
     dateOfBirth: String,
     active: Boolean,
-    marketingConsent: String,
+    marketingConsent: String!,
     source: ContactSourceInput,
     homePhone: String,
     workPhone: String,
     mobilePhone: String,
     email: String,
-    officeIds: [String!],
-    negotiatorIds: [String!],
-    primaryAddress: [ContactAddressInput!],
-    secondaryAddress: [ContactAddressInput!],
-    workAddress: [ContactAddressInput!],
+    officeIds: [String!]!,
+    negotiatorIds: [String!]!,
+    primaryAddress: ContactAddressInput!,
+    secondaryAddress: ContactAddressInput,
+    workAddress: ContactAddressInput,
     metadata: JSON,
   ): Boolean
 
@@ -63,22 +63,22 @@ type Mutation {
     id: String!,
     title: String,
     forename: String,
-    surname: String,
+    surname: String!,
     dateOfBirth: String,
     active: Boolean,
-    marketingConsent: String,
+    marketingConsent: String!,
     source: ContactSourceInput,
     homePhone: String,
     workPhone: String,
     mobilePhone: String,
     email: String,
-    officeIds: [String!],
-    negotiatorIds: [String!],
-    primaryAddress: [ContactAddressInput!],
-    secondaryAddress: [ContactAddressInput!],
-    workAddress: [ContactAddressInput!],
+    officeIds: [String!]!,
+    negotiatorIds: [String!]!,
+    primaryAddress: ContactAddressInput!,
+    secondaryAddress: ContactAddressInput,
+    workAddress: ContactAddressInput,
     metadata: JSON,
-    _eTag: String,
+    _eTag: String!,
   ): Contact!
 
   # contact-identity-check

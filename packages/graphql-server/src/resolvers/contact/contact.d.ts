@@ -7,7 +7,7 @@ export type Source = {
   type: String
 }
 
-export type Addresses = {
+export type Address = {
   type: String
   buildingName: String
   buildingNumber: String
@@ -33,9 +33,9 @@ export type CreateContactArgs = {
   email?: string
   officeIds: string[]
   negotiatorIds: string[]
-  primaryAddress: Addresses[]
-  secondaryAddress: Addresses[]
-  workAddress: Addresses[]
+  primaryAddress: Address
+  secondaryAddress: Address
+  workAddress: Address
   metadata: MetaData
 }
 
@@ -54,9 +54,9 @@ export type UpdateContactArgs = {
   email?: string
   officeIds: string[]
   negotiatorIds: string[]
-  primaryAddress: Addresses[]
-  secondaryAddress: Addresses[]
-  workAddress: Addresses[]
+  primaryAddress: Address
+  secondaryAddress: Address
+  workAddress: Address
   metadata: MetaData
   _eTag: string
 }

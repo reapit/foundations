@@ -1,48 +1,51 @@
-import { CreateContactArgs } from "../contact";
+import { CreateContactArgs } from '../contact';
 
 export const mockCreateArgs = {
-  id: 'MKC16000098',
-  created: '2019-04-23T16:05:19.0000000Z',
-  modified: null,
-  title: 'Ms',
-  forename: 'Saoirse',
-  surname: 'Chadwick',
-  dateOfBirth: '1986-06-30',
+  title: 'Mr',
+  forename: 'John',
+  surname: 'Smith',
+  dateOfBirth: '1992-08-12',
   active: true,
-  marketingConsent: 'notAsked',
-  identityCheck: 'unchecked',
-  communications: [
-    {
-      detail: '01632 961556',
-      label: 'Home',
-    },
-    {
-      detail: '07700 901556',
-      label: 'Mobile',
-    },
-    {
-      detail: '020 7946 1556',
-      label: 'Work',
-    },
-    {
-      detail: 'schadwick512@rpsfiction.net',
-      label: 'E-Mail',
-    },
+  marketingConsent: 'grant',
+  source: {
+    id: 'SOL',
+    type: 'office'
+  },
+  homePhone: '01234 567890',
+  workPhone: null,
+  mobilePhone: '07890 123456',
+  email: 'example@email.com',
+  officeIds: [
+    'OXF'
   ],
-  addresses: [
-    {
-      type: 'primary',
-      line1: 'Station Road',
-      line2: 'Bow Brickhill',
-      line3: 'Milton Keynes',
-      line4: 'Buckinghamshire',
-      postcode: 'MK17 9JU',
-      countryId: '',
-      buildingName: 'Tilbrook Farm',
-      buildingNumber: '',
-    },
+  negotiatorIds: [
+    'JAS'
   ],
-  officeIds: ['MKC'],
-  negotiatorIds: ['RMK'],
-  metadata: {},
+  primaryAddress: {
+    type: 'primary',
+    buildingName: '',
+    buildingNumber: '15',
+    line1: 'Example street',
+    line2: 'Solihull',
+    line3: 'West Midlands',
+    line4: '',
+    postcode: 'B91 2XX',
+    countryId: 'GB'
+  },
+  secondaryAddress: null,
+  workAddress: {
+    type: 'work',
+    buildingName: '',
+    buildingNumber: '44',
+    line1: 'Test street',
+    line2: 'Shirley',
+    line3: 'West Midlands',
+    line4: '',
+    postcode: 'B90 1ZZ',
+    countryId: 'GB'
+  },
+  metadata: {
+    CustomField1: 'CustomValue1',
+    CustomField2: 'CustomValue2'
+  }
 } as CreateContactArgs

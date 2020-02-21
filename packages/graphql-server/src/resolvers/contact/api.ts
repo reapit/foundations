@@ -87,14 +87,20 @@ export const callUpdateContactAPI = async (args: UpdateContactArgs, context: Ser
       'api-version': API_VERSION,
       'If-Match': args._eTag,
     }
-    const updateResponse = await fetcher({
+    await fetcher({
       url: `${URLS.contacts}/${args.id}`,
       api: REAPIT_API_BASE_URL,
       method: 'PATCH',
       headers,
       body: args,
     })
-    return updateResponse
+    const contact = callGetContactByIdAPI(
+      {
+        id: args.id,
+      },
+      context,
+    )
+    return contact
   } catch (error) {
     logger.error('callUpdateContactAPI', { traceId, error })
     return errors.generateUserInputError(traceId)

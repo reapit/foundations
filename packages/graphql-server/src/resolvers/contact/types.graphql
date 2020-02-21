@@ -32,9 +32,9 @@ type Contact {
   workPhone: String
   mobilePhone: String
   email: String
-  primaryAddress: [ContactAddress!]
-  secondaryAddress: [ContactAddress!]
-  workAddress: [ContactAddress!]
+  primaryAddress: ContactAddress!
+  secondaryAddress: ContactAddress
+  workAddress: ContactAddress
   officeIds: [String!]
   negotiatorIds: [String!]
   metadata: JSON
