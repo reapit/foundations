@@ -5,7 +5,10 @@ import * as Sentry from '@sentry/browser'
  */
 export const logger = (error: Error) => {
   if (process.env.NODE_ENV === 'production') {
-    Sentry.captureException(error)
+    Sentry.withScope(scope => {
+      scope.setExtra('Error', { error: JSON.stringify(error) })
+      Sentry.captureException(error)
+    })
   } else {
     console.error(error)
   }
