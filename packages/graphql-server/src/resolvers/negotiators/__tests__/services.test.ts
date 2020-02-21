@@ -1,9 +1,10 @@
 import { Negotiators } from '@reapit/foundations-ts-definitions'
 import { GetNegotiatorByIdArgs } from '../negotiator'
-import { getNegotiatorById, getNegotiators, updateNegotiator } from '../services'
+import { getNegotiatorById, getNegotiators, createNegotiator, updateNegotiator } from '../services'
 import { mockContext } from '../../../__mocks__/context'
 import { negotiatorStub } from '../__mocks__/negotiator'
 import { negotiatorsStub } from '../__mocks__/negotiators'
+import { createArgStub } from '../__mocks__/create-arg'
 import { updateArgStub } from '../__mocks__/update-arg'
 
 jest.mock('../api', () => ({
