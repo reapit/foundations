@@ -2,24 +2,9 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "dist-npm",
-    "declaration": true,
-    "sourceRoot": "/",
-    "declarationDir": "dist-npm",
-    "moduleResolution": "node",
     "paths": {
-      "@/*": ["archive/src/*"],
-      "@reapit/cognito-auth": ["../cognito-auth/src"]
+      "@/*": ["src/*"]
     },
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin",
-        "validate": false
-      }
-    ],
-    "resolveJsonModule": true,
-    "rootDirs": ["archive/src"],
-    "skipLibCheck": true,
-    "target": "es5"
-  }
+  },
+  "include": ["src/**/*"],
 }

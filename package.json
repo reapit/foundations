@@ -8,6 +8,8 @@
     "nohoist": [
       "**/cognito-custom-mail-lambda",
       "**/cognito-custom-mail-lambda/**",
+      "**/web-components",
+      "**/web-components/**",
       "**/react-app-scaffolder",
       "**/react-app-scaffolder/**"
     ]
