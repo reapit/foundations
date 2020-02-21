@@ -22,10 +22,10 @@ export type Address = {
 export type CreateContactArgs = {
   title?: string
   forename?: string
-  surname?: string
+  surname: string
   dateOfBirth?: string
   active?: boolean
-  marketingConsent?: 'grant' | 'deny' | 'notAsked'
+  marketingConsent: 'grant' | 'deny' | 'notAsked'
   source?: Source
   homePhone?: string
   workPhone?: string
@@ -34,19 +34,19 @@ export type CreateContactArgs = {
   officeIds: string[]
   negotiatorIds: string[]
   primaryAddress: Address
-  secondaryAddress: Address
-  workAddress: Address
-  metadata: MetaData
+  secondaryAddress?: Address
+  workAddress?: Address
+  metadata?: MetaData
 }
 
 export type UpdateContactArgs = {
   id: string
   title?: string
   forename?: string
-  surname?: string
+  surname: string
   dateOfBirth?: string
   active?: boolean
-  marketingConsent?: 'grant' | 'deny' | 'notAsked'
+  marketingConsent: 'grant' | 'deny' | 'notAsked'
   source?: Source
   homePhone?: string
   workPhone?: string
@@ -55,9 +55,9 @@ export type UpdateContactArgs = {
   officeIds: string[]
   negotiatorIds: string[]
   primaryAddress: Address
-  secondaryAddress: Address
-  workAddress: Address
-  metadata: MetaData
+  secondaryAddress?: Address
+  workAddress?: Address
+  metadata?: MetaData
   _eTag: string
 }
 
