@@ -22,10 +22,10 @@ type Contact {
   modified: String
   title: String
   forename: String
-  surname: String
+  surname: String!
   dateOfBirth: String
   active: Boolean
-  marketingConsent: String
+  marketingConsent: String!
   identityCheck: String
   source: ContactSource
   homePhone: String
@@ -35,8 +35,8 @@ type Contact {
   primaryAddress: ContactAddress!
   secondaryAddress: ContactAddress
   workAddress: ContactAddress
-  officeIds: [String!]
-  negotiatorIds: [String!]
+  officeIds: [String!]!
+  negotiatorIds: [String!]!
   metadata: JSON
   _eTag: String
   _links: JSON

@@ -38,7 +38,7 @@ type Query {
 }
 
 type Mutation {
-  # contact
+  # The response of createContact will temporarily be boolean type until BE team fixs the API
   createContact(
     title: String,
     forename: String,
