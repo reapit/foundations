@@ -1,96 +1,100 @@
 #import Contact, Contacts from "./resolvers/contact/types.graphql"
-#import ContactIdentityCheck,ContactIdentityChecks from "./resolvers/contact-identity-check/types.graphql"
+#import IdentityCheck,IdentityChecks,Status from "./resolvers/identity-check/types.graphql"
 #import LoginIdentity, LoginMode, LoginType, Token from './resolvers/auth/types.graphql'
 
 type Query {
   # contact
   contact(
-    id: String!,
+    id: String!
   ): Contact!
 
   contacts(
-    name: String,
-    address: String,
-    negotiatorId: [String!],
-    officeId: [String!],
-    active: Boolean,
-    pageNumber: Int,
-    pageSize: Int,
-    sortBy: String,
-    identityCheck: [String!],
-    marketingConsent: [String!],
+    name: String
+    address: String
+    negotiatorId: [String!]
+    officeId: [String!]
+    active: Boolean
+    pageNumber: Int
+    pageSize: Int
+    sortBy: String
+    identityCheck: [String!]
+    marketingConsent: [String!]
   ): Contacts!
 
   # contact-identity-check
-  contactIdentityCheck(
-    id: String!,
-    checkId: String!,
-  ): ContactIdentityCheck!
+  getIdentityCheck(
+    id: String!
+  ): IdentityCheck!
 
-  contactIdentityChecks(
-    id: String!,
-    pageNumber: Int,
-    pageSize: Int,
-  ): ContactIdentityChecks!
+  getIdentityChecks(
+    ids: [String]
+    contactId: String
+    pageNumber: Int!
+    pageSize: Int!
+    status: Status
+    negotiatorId: String
+  ): IdentityChecks!
 
 }
 
 type Mutation {
   # contact
   createContact(
-    title: String,
-    forename: String,
-    surname: String,
-    dateOfBirth: String,
-    active: Boolean,
-    marketingConsent: String,
-    communications: [ContactCommunicationInput!],
-    officeIds: [String!],
-    negotiatorIds: [String!],
-    addresses: [ContactAddressInput!],
-    metadata: JSON,
+    title: String
+    forename: String
+    surname: String
+    dateOfBirth: String
+    active: Boolean
+    marketingConsent: String
+    communications: [ContactCommunicationInput!]
+    officeIds: [String!]
+    negotiatorIds: [String!]
+    addresses: [ContactAddressInput!]
+    metadata: JSON
   ): Contact!
 
   updateContact(
-    id: String!,
-    title: String,
-    forename: String,
-    surname: String,
-    dateOfBirth: String,
-    active: Boolean,
-    marketingConsent: String,
-    communications: [ContactCommunicationInput!],
-    officeIds: [String!],
-    negotiatorIds: [String!],
-    addresses: [ContactAddressInput!],
-    metadata: JSON,
+    id: String!
+    title: String
+    forename: String
+    surname: String
+    dateOfBirth: String
+    active: Boolean
+    marketingConsent: String
+    communications: [ContactCommunicationInput!]
+    officeIds: [String!]
+    negotiatorIds: [String!]
+    addresses: [ContactAddressInput!]
+    metadata: JSON
+    _eTag: String!
   ): Contact!
 
-  # contact-identity-check
-  createContactIdentityCheck(
-    contactId: String!,
-    checkDate: String,
-    status: String,
-    negotiatorId: String,
-    documents: [ContactIdentityDocumentInput!],
-    metadata: JSON,
-  ): ContactIdentityCheck!
+  # identity-check
+  createIdentityCheck(
+    contactId: String!
+    checkDate: String!
+    status: String!
+    negotiatorId: String!
+    identityDocument1: DocumentInput!
+    identityDocument2: DocumentInput
+    metadata: JSON
+  ): IdentityCheck!
 
   updateIdentityCheck(
-    id: String!,
-    contactId: String!,
-    checkDate: String,
-    status: String,
-    negotiatorId: String,
-    documents: [ContactIdentityDocumentInput!],
-    metadata: JSON,
-  ): ContactIdentityCheck!
+    id: String!
+    checkDate: String!
+    status: String!
+    negotiatorId: String!
+    identityDocument1: DocumentInput!
+    identityDocument2: DocumentInput
+    metadata: JSON
+  ): IdentityCheck!
 
   login(
-    userName: String!,
-    password: String!,
-    loginType: LoginType!,
-    mode: LoginMode!,
+    userName: String!
+    password: String!
+    loginType: LoginType!
+    mode: LoginMode!
   ): Token
 }
 

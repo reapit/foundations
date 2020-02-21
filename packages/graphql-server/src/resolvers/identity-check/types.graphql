@@ -1,0 +1,53 @@
+
+# Types
+type Document {
+  typeId: String!
+  expiry: String!
+  details: String!
+  _links: JSON
+  _embedded: JSON
+}
+
+enum Status {
+  unknow
+  uncheck
+  pending
+  fail
+  cancelled
+  warnings
+  pass
+
+}
+
+type IdentityCheck {
+  id: String!
+  contactId: String!
+  created: String!
+  modified: String!
+  checkDate: String!
+  status: String!
+  negotiatorId: String!
+  identityDocument1: Document
+  identityDocument2: Document
+  metadata: JSON
+  _links: JSON
+  _embedded: JSON
+  _eTag: String!
+}
+
+type IdentityChecks {
+  _embedded: [IdentityCheck!]
+  pageNumber: Int!
+  pageSize: Int!
+  pageCount: Int!
+  totalCount: Int!
+  _links: JSON
+}
+
+input DocumentInput {
+  typeId: String!
+  expiry: String!
+  details: String!
+  fileData: String
+  name: String
+}

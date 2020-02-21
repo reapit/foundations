@@ -9,7 +9,7 @@ export const callLoginAPI = async (loginParams: LoginParams, context: ServerCont
     const loginSession: Partial<LoginSession | undefined> = await loginUserSession(loginParams)
     return loginSession
   } catch (error) {
-    logger.error('callLoginAPI', error)
+    logger.error('callLoginAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
   }
 }
