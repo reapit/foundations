@@ -28,7 +28,8 @@ export const getNegotiators = (args: Negotiators, context: ServerContext): Promi
   return negotiators
 }
 
-export const createNegotiator = (args: CreateNegotiatorModel, context: ServerContext): Promise<NegotiatorModel> => {
+// temporary return boolean value. Will be update after disscussion
+export const createNegotiator = (args: CreateNegotiatorModel, context: ServerContext): Promise<Boolean> => {
   const traceId = context.traceId
   logger.info('createNegotiator', { traceId, args })
   const negotiator = callCreateNegotiatorAPI(args, context)

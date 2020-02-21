@@ -11,7 +11,7 @@ import errors from '../../errors'
 import { ServerContext } from '../../app'
 import { GetNegotiatorByIdArgs, UpdateNegotiatorArgs } from './negotiator'
 
-export const queryNegotiator = (
+export const queryNegotiatorById = (
   _: any,
   args: GetNegotiatorByIdArgs,
   context: ServerContext,
@@ -50,7 +50,7 @@ export const createNegotiator = (
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId) as any
   }
-  return negotiatorServices.createNegotiator(args, context)
+  return negotiatorServices.createNegotiator(args, context) as any
 }
 
 export const updateNegotiator = (

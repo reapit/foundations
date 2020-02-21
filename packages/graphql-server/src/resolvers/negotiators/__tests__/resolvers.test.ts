@@ -1,5 +1,5 @@
 import { Negotiators } from '@reapit/foundations-ts-definitions'
-import { queryNegotiators, queryNegotiator, updateNegotiator } from '../resolvers'
+import { queryNegotiators, queryNegotiatorById, updateNegotiator } from '../resolvers'
 import { GetNegotiatorByIdArgs } from '../negotiator'
 import { mockContext } from '../../../__mocks__/context'
 import { negotiatorStub } from '../__mocks__/negotiator'
@@ -16,13 +16,13 @@ jest.mock('../services', () => ({
 }))
 
 describe('negotiator resolvers', () => {
-  describe('queryNegotiator', () => {
+  describe('queryNegotiatorById', () => {
     it('should run correctly', () => {
       const mockArgs = {
         id: 'MGL',
       } as GetNegotiatorByIdArgs
       const output = negotiatorStub
-      const result = queryNegotiator({}, mockArgs, mockContext)
+      const result = queryNegotiatorById({}, mockArgs, mockContext)
       expect(result).toEqual(output)
     })
 
@@ -31,7 +31,7 @@ describe('negotiator resolvers', () => {
         id: 'MGL',
       } as GetNegotiatorByIdArgs
       const output = errors.generateAuthenticationError(mockContext.traceId)
-      const result = queryNegotiator({}, mockArgs, { ...mockContext, authorization: '' })
+      const result = queryNegotiatorById({}, mockArgs, { ...mockContext, authorization: '' })
       expect(result).toEqual(output)
     })
   })
@@ -59,13 +59,13 @@ describe('negotiator resolvers', () => {
   describe('updateNegotiator', () => {
     it('should run correctly', () => {
       const output = negotiatorStub
-      const result = updateNegotiator({}, { id: 'MGL', model: updateArgStub }, mockContext)
+      const result = updateNegotiator({}, updateArgStub, mockContext)
       expect(result).toEqual(output)
     })
 
     it('should return errors', () => {
       const output = errors.generateAuthenticationError(mockContext.traceId)
-      const result = updateNegotiator({}, { id: 'MGL', model: updateArgStub }, { ...mockContext, authorization: '' })
+      const result = updateNegotiator({}, updateArgStub, { ...mockContext, authorization: '' })
       expect(result).toEqual(output)
     })
   })

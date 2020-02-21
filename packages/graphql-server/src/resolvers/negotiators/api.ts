@@ -65,10 +65,11 @@ export const callGetNegotiatorsAPI = async (
   }
 }
 
+// temporary return boolean value. Will be update after disscussion
 export const callCreateNegotiatorAPI = async (
   args: CreateNegotiatorModel,
   context: ServerContext,
-): Promise<NegotiatorModel> => {
+): Promise<Boolean> => {
   const traceId = context.traceId
   try {
     logger.info('callCreateNegotiatorAPI', { args, traceId })
@@ -77,17 +78,17 @@ export const callCreateNegotiatorAPI = async (
       'Content-Type': 'application/json',
       'api-version': API_VERSION,
     }
-    const createResponse = await fetcher({
+    await fetcher({
       url: `${URLS.negotiators}`,
       api: REAPIT_API_BASE_URL,
       method: 'POST',
       headers,
       body: args,
     })
-    return createResponse
+    return true
   } catch (error) {
     logger.error('callCreateNegotiatorAPI', { traceId, error })
-    return errors.generateUserInputError(traceId)
+    return errors.generateUserInputError(traceId) as any
   }
 }
 
@@ -108,7 +109,7 @@ export const callUpdateNegotiatorAPI = async (
       api: REAPIT_API_BASE_URL,
       method: 'PATCH',
       headers,
-      body: args.model,
+      body: args,
     })
 
     const getResponse = await fetcher({

@@ -45,11 +45,6 @@ input CreateNegotiatorModelInput {
 
 scalar JSON
 
-# type Mutation {
-#   CreateNegotiator(model: CreateNegotiatorModelInput): JSON!
-#   UpdateNegotiator(id: String!, model: UpdateNegotiatorModelInput): JSON!
-# }
-
 """
 Representation of a negotiator
 """
@@ -126,22 +121,14 @@ type PagedResult_NegotiatorModel_ {
   _links: JSON
 }
 
-# type Query {
-#   GetNegotiators(
-#     PageSize: Int
-#     PageNumber: Int
-#     SortBy: String
-#     Id: [String!]
-#     OfficeId: [String!]
-#     Name: String
-#   ): PagedResult_NegotiatorModel_!
-#   GetNegotiatorById(id: String!): NegotiatorModel!
-# }
-
 """
 Request body used to update an existing negotiator
 """
 input UpdateNegotiatorModelInput {
+  """
+  The unique identifier of the negotiator
+  """
+  id: String!
   """
   The name of the negotiator
   """
