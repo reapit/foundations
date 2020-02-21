@@ -6,7 +6,7 @@ import * as Sentry from '@sentry/browser'
 export const logger = (error: Error) => {
   if (process.env.NODE_ENV === 'production') {
     Sentry.withScope(scope => {
-      scope.setExtra('Error message', JSON.stringify(error))
+      scope.setExtra('Error', { error: JSON.stringify(error) })
       Sentry.captureException(error)
     })
   } else {
