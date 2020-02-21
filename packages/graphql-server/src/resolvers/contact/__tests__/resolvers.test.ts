@@ -4,7 +4,6 @@ import { mockContext } from '../../../__mocks__/context'
 import { contact } from '../__mocks__/contact'
 import { contacts } from '../__mocks__/contacts'
 import { mockCreateArgs } from '../__mocks__/create-args'
-
 import { mockUpdateArgs } from '../__mocks__/update-args'
 import errors from '../../../errors'
 

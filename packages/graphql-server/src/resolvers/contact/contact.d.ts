@@ -26,6 +26,7 @@ export type CreateContactArgs = {
   dateOfBirth?: string
   active?: boolean
   marketingConsent: 'grant' | 'deny' | 'notAsked'
+  identityCheck: string
   source?: Source
   homePhone?: string
   workPhone?: string
@@ -47,6 +48,7 @@ export type UpdateContactArgs = {
   dateOfBirth?: string
   active?: boolean
   marketingConsent: 'grant' | 'deny' | 'notAsked'
+  identityCheck: string
   source?: Source
   homePhone?: string
   workPhone?: string
