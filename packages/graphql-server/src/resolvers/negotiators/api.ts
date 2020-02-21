@@ -1,7 +1,13 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
+import {
+  NegotiatorModel,
+  Negotiators,
+  CreateNegotiatorModel,
+  PagedResultNegotiatorModel_,
+} from '@reapit/foundations-ts-definitions'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
-import { GetNegotiatorByIdArgs, GetNegotiatorsArgs, CreateNegotiatorArgs, UpdateNegotiatorArgs } from './negotiator'
+import { GetNegotiatorByIdArgs, UpdateNegotiatorArgs } from './negotiator'
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 
@@ -11,7 +17,10 @@ export const URLS = {
   negotiators: '/negotiators',
 }
 
-export const callGetNegotiatorByIdAPI = async (args: GetNegotiatorByIdArgs, context: ServerContext) => {
+export const callGetNegotiatorByIdAPI = async (
+  args: GetNegotiatorByIdArgs,
+  context: ServerContext,
+): Promise<NegotiatorModel> => {
   const traceId = context.traceId
   try {
     logger.info('callGetNegotiatorByIdAPI', { traceId, args })
@@ -27,12 +36,15 @@ export const callGetNegotiatorByIdAPI = async (args: GetNegotiatorByIdArgs, cont
     })
     return getResponse
   } catch (error) {
-    logger.error('callGetNegotiatorByIdAPI', error)
+    logger.error('callGetNegotiatorByIdAPI', { traceId, error })
     return errors.generateUserInputError(traceId)
   }
 }
 
-export const callGetNegotiatorsAPI = async (args: GetNegotiatorsArgs, context: ServerContext) => {
+export const callGetNegotiatorsAPI = async (
+  args: Negotiators,
+  context: ServerContext,
+): Promise<PagedResultNegotiatorModel_> => {
   const traceId = context.traceId
   logger.info('callGetNegotiatorsAPI', { args, traceId })
   try {
@@ -48,12 +60,15 @@ export const callGetNegotiatorsAPI = async (args: GetNegotiatorsArgs, context: S
     })
     return response
   } catch (error) {
-    logger.error('callGetContactsAPI', error)
-    return errors.generateUserInputError(traceId)
+    logger.error('callGetNegotiatorsAPI', { traceId, error })
+    return errors.generateUserInputError(traceId) as any
   }
 }
 
-export const callCreateNegotiatorAPI = async (args: CreateNegotiatorArgs, context: ServerContext) => {
+export const callCreateNegotiatorAPI = async (
+  args: CreateNegotiatorModel,
+  context: ServerContext,
+): Promise<NegotiatorModel> => {
   const traceId = context.traceId
   try {
     logger.info('callCreateNegotiatorAPI', { args, traceId })
@@ -76,7 +91,10 @@ export const callCreateNegotiatorAPI = async (args: CreateNegotiatorArgs, contex
   }
 }
 
-export const callUpdateNegotiatorAPI = async (args: UpdateNegotiatorArgs, context: ServerContext) => {
+export const callUpdateNegotiatorAPI = async (
+  args: UpdateNegotiatorArgs,
+  context: ServerContext,
+): Promise<NegotiatorModel> => {
   const traceId = context.traceId
   try {
     logger.info('callUpdateNegotiatorAPI', { args, traceId })
@@ -85,14 +103,25 @@ export const callUpdateNegotiatorAPI = async (args: UpdateNegotiatorArgs, contex
       'Content-Type': 'application/json',
       'api-version': API_VERSION,
     }
-    const updateResponse = await fetcher({
+    await fetcher({
       url: `${URLS.negotiators}/${args.id}`,
       api: REAPIT_API_BASE_URL,
-      method: 'POST',
+      method: 'PATCH',
       headers,
       body: args.model,
     })
-    return updateResponse
+
+    const getResponse = await fetcher({
+      url: `${URLS.negotiators}/${args.id}`,
+      api: REAPIT_API_BASE_URL,
+      method: 'GET',
+      headers: {
+        Authorization: context.authorization,
+        'Content-Type': 'application/json',
+        'api-version': API_VERSION,
+      },
+    })
+    return getResponse
   } catch (error) {
     logger.error('callUpdateNegotiatorAPI', { traceId, error })
     return errors.generateUserInputError(traceId)

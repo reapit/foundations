@@ -1,4 +1,6 @@
-export const negotiatorsStub = {
+import { PagedResultNegotiatorModel_ } from '@reapit/foundations-ts-definitions'
+
+export const negotiatorsStub: PagedResultNegotiatorModel_ = {
   pageSize: 2,
   pageNumber: 1,
   pageCount: 2,
