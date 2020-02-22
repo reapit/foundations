@@ -7717,8 +7717,6 @@ export interface PropertyTenureModel {
 }
 /**
  * Representation of a source of business
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface SourceModel {
   /**
