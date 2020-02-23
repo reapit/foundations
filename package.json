@@ -11,7 +11,9 @@
       "**/web-components",
       "**/web-components/**",
       "**/react-app-scaffolder",
-      "**/react-app-scaffolder/**"
+      "**/react-app-scaffolder/**",
+      "**/svelte",
+      "**/svelte/**"
     ]
   },
   "scripts": {

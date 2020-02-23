@@ -1,14 +1,17 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte'
   import { writable } from 'svelte/store'
-  import { myStore } from './store'
-  import Counter from './Counter.svelte'
+  import { myStore } from '../store'
+  import Counter from './counter.svelte'
+
   const count = writable(100)
   const unsubscribe = count.subscribe(value => console.log('count', value))
+
   export let name: string
   onMount(() => {
     console.log('App mounted')
   })
+
   onDestroy(() => {
     unsubscribe()
   })

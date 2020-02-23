@@ -13,7 +13,7 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/react',
-    'prettier/standard',
+    'prettier/standard'
   ],
   globals: {
     Atomics: 'readonly',
@@ -27,7 +27,13 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks', 'svelte3'],
+  overrides: [
+    {
+      files: ['**/*.svelte'],
+      processor: 'svelte3/svelte3'
+    }
+  ],
   ignorePatterns: [
     'node_modules/',
     'setup-tests.ts',
