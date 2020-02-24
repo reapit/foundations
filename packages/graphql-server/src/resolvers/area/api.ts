@@ -88,22 +88,23 @@ export const callCreateAreaAPI = async (args: CreateAreaArgs, context: ServerCon
 
 export const callUpdateArea = async (args: UpdateAreaArgs, context: ServerContext): UpdateAreaReturn => {
   const traceId = context.traceId
-  logger.info('callCreateAreaAPI', { args, traceId })
+  logger.info('callUpdateArea', { args, traceId })
   try {
     const response = await fetcher({
-      url: `${URLS.areas}`,
+      url: `${URLS.areas}/${args.id}`,
       api: REAPIT_API_BASE_URL,
       method: 'PATCH',
       headers: {
         Authorization: context.authorization,
         'Content-Type': 'application/json',
         'api-version': API_VERSION,
+        'If-Match': args._eTag,
       },
       body: args,
     })
     return response
   } catch (error) {
-    logger.error('callCreateAreaAPI', JSON.stringify(error))
+    logger.error('callUpdateArea', JSON.stringify(error))
     return errors.generateUserInputError(traceId)
   }
 }

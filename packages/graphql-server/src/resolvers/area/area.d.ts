@@ -69,7 +69,7 @@ export interface GetAreasArgs {
   active?: boolean
 }
 export type CreateAreaArgs = CreateAreaModel
-export type UpdateAreaArgs = { id: string } & UpdateAreaModel
+export type UpdateAreaArgs = { id: string; _eTag?: string } & UpdateAreaModel
 
 /* return type */
 export type GetAreaByIdReturn = Promise<AreaModel | UserInputError>

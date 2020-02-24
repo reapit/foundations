@@ -12,31 +12,33 @@ import {
 } from './area'
 import { callGetAreasAPI, callCreateAreaAPI, callGetAreaByIdAPI, callUpdateArea } from './api'
 
-export const getAreaById = (args: GetAreaByIdArgs, context: ServerContext): GetAreaByIdReturn => {
+export const getAreaById = async (args: GetAreaByIdArgs, context: ServerContext): GetAreaByIdReturn => {
   const traceId = context.traceId
   logger.info('getAreaById', { traceId, args })
-  const area = callGetAreaByIdAPI(args, context)
+  const area = await callGetAreaByIdAPI(args, context)
   return area
 }
 
-export const getAreas = (args: GetAreasArgs, context: ServerContext): GetAreasReturn => {
+export const getAreas = async (args: GetAreasArgs, context: ServerContext): GetAreasReturn => {
   const traceId = context.traceId
   logger.info('getAreas', { traceId, args })
-  const areas = callGetAreasAPI(args, context)
+  const areas = await callGetAreasAPI(args, context)
   return areas
 }
 
-export const createArea = (args: CreateAreaArgs, context: ServerContext): CreateAreaReturn => {
+export const createArea = async (args: CreateAreaArgs, context: ServerContext): CreateAreaReturn => {
   const traceId = context.traceId
   logger.info('createArea', { traceId, args })
-  const createResult = callCreateAreaAPI(args, context)
+  const createResult = await callCreateAreaAPI(args, context)
   return createResult
 }
 
-export const updateArea = (args: UpdateAreaArgs, context: ServerContext): UpdateAreaReturn => {
+export const updateArea = async (args: UpdateAreaArgs, context: ServerContext): UpdateAreaReturn => {
+  // Get eTag from current area
+  const { _eTag } = await callGetAreaByIdAPI({ id: args.id }, context)
   const traceId = context.traceId
   logger.info('updateArea', { traceId, args })
-  const updateResult = callUpdateArea(args, context)
+  const updateResult = await callUpdateArea({ ...args, _eTag }, context)
   return updateResult
 }
 
