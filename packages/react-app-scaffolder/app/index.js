@@ -2,7 +2,7 @@ const Generator = require('yeoman-generator')
 const { promisify } = require('util')
 const process = require('process')
 const exec = promisify(require('child_process').exec)
-const spawn = require('child_process').spawn
+const spawn = require('cross-spawn')
 const { execSync } = require('child_process')
 const path = require('path')
 const fs = require('fs')
@@ -22,7 +22,7 @@ module.exports = class extends Generator {
 
       const prettierConfigPath = path.resolve(__dirname, '../../../../.prettierrc.js')
       await exec(`yarn prettier --write ./package.json`)
-      await exec(`yarn prettier '**/*.ts' '**/*.tsx' --write`)
+      await exec(`yarn prettier "**/*.ts" "**/*.tsx" --write`)
       this.log(yosay('App installed successfully!'))
 
       this._pushToGithub()
