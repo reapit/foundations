@@ -90,6 +90,7 @@ export const callUpdateArea = async (args: UpdateAreaArgs, context: ServerContex
   const traceId = context.traceId
   logger.info('callUpdateArea', { args, traceId })
   try {
+    const { _eTag, ...payload } = args
     const response = await fetcher({
       url: `${URLS.areas}/${args.id}`,
       api: REAPIT_API_BASE_URL,
@@ -98,9 +99,9 @@ export const callUpdateArea = async (args: UpdateAreaArgs, context: ServerContex
         Authorization: context.authorization,
         'Content-Type': 'application/json',
         'api-version': API_VERSION,
-        'If-Match': args._eTag,
+        'If-Match': _eTag,
       },
-      body: args,
+      body: payload,
     })
     return response
   } catch (error) {
