@@ -4,12 +4,9 @@ import commonjs from '@rollup/plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 import typescript from '@wessberg/rollup-plugin-ts'
-import buble from '@rollup/plugin-buble';
 import babel from 'rollup-plugin-babel'
-// import path from 'path'
 
 const svelteOptions = require('./svelte.config')
-
 const production = !process.env.ROLLUP_WATCH
 
 export default {
@@ -30,16 +27,11 @@ export default {
     }),
     resolve({
       browser: true,
-      // rootDir: path.join(process.cwd(), '../..'),
       dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/'),
-      // customResolveOptions: {
-      //   moduleDirectory: '../../node_modules',
-      // },
     }),
     commonjs(),
     typescript(),
     !production && livereload('public'),
-    buble({target: { ie: 11 }}),
     babel({
       extensions: ['.js', '.mjs', '.html', '.svelte'],
       runtimeHelpers: true,
@@ -56,15 +48,6 @@ export default {
           },
         ],
       ],
-      // plugins: [
-      //   '@babel/plugin-syntax-dynamic-import',
-      //   [
-      //     '@babel/plugin-transform-runtime',
-      //     {
-      //       useESModules: true,
-      //     },
-      //   ],
-      // ],
     }),
     production && terser(),
   ],
