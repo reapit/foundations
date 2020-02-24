@@ -102,6 +102,9 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
     const errorDescription = err?.response?.description
     if (errorDescription) {
       formErrors[FIELD_ERROR_DESCRIPTION] = errorDescription
+    }
+
+    if (formErrors && Object.keys(formErrors).length > 0) {
       yield call(actions.setErrors, formErrors)
     }
 
