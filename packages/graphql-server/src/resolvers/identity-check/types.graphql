@@ -1,53 +1,266 @@
+"""Request body used to create a new contact identity check"""
+input CreateIdentityCheckModelInput {
+  """The unique identifier of the contact associated to the identity check"""
+  contactId: String
 
-# Types
-type Document {
-  typeId: String!
-  expiry: String!
-  details: String!
-  _links: JSON
-  _embedded: JSON
-}
+  """
+  The date when the identity check was performed. This may differ to the date when the check was created
+  """
+  checkDate: String
 
-enum Status {
-  unknow
-  uncheck
-  pending
-  fail
-  cancelled
-  warnings
-  pass
+  """
+  The current status of the identity check (pass/fail/pending/cancelled/warnings/unchecked)
+  """
+  status: String
 
-}
+  """
+  The unique identifier of the negotiator that initiated the identity check
+  """
+  negotiatorId: String
 
-type IdentityCheck {
-  id: String!
-  contactId: String!
-  created: String!
-  modified: String!
-  checkDate: String!
-  status: String!
-  negotiatorId: String!
-  identityDocument1: Document
-  identityDocument2: Document
+  """
+  The details of the first document that was provided as part of the identity check
+  """
+  identityDocument1: CreateIdentityCheckModelInput_identityDocument1Input
+
+  """
+  The details of the second document that was provided as part of the identity check
+  """
+  identityDocument2: CreateIdentityCheckModelInput_identityDocument2Input
+
+  """App specific metadata to set against the identity check"""
   metadata: JSON
-  _links: JSON
-  _embedded: JSON
-  _eTag: String!
 }
 
-type IdentityChecks {
-  _embedded: [IdentityCheck!]
-  pageNumber: Int!
-  pageSize: Int!
-  pageCount: Int!
-  totalCount: Int!
-  _links: JSON
-}
+"""
+The details of the first document that was provided as part of the identity check
+"""
+input CreateIdentityCheckModelInput_identityDocument1Input {
+  """The unique identifier of the type of identity document provided"""
+  typeId: String
 
-input DocumentInput {
-  typeId: String!
-  expiry: String!
-  details: String!
+  """The date when the document expires and becomes invalid"""
+  expiry: String
+
+  """Details regarding the identity document (eg. passport number)"""
+  details: String
+
+  """
+  The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
+  """
   fileData: String
+
+  """The filename to store the document as"""
   name: String
 }
+
+"""
+The details of the second document that was provided as part of the identity check
+"""
+input CreateIdentityCheckModelInput_identityDocument2Input {
+  """The unique identifier of the type of identity document provided"""
+  typeId: String
+
+  """The date when the document expires and becomes invalid"""
+  expiry: String
+
+  """Details regarding the identity document (eg. passport number)"""
+  details: String
+
+  """
+  The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
+  """
+  fileData: String
+
+  """The filename to store the document as"""
+  name: String
+}
+
+"""Representation of a contact identity check"""
+type IdentityCheckModel {
+  """The unique identifier of the identity check"""
+  id: String
+
+  """The unique identifier of the contact associated to the identity check"""
+  contactId: String
+
+  """The date and time when the identity check was created"""
+  created: String
+
+  """The date and time when the identity check was last modified"""
+  modified: String
+
+  """
+  The date when the identity check was performed. This may differ to the date when the check was created
+  """
+  checkDate: String
+
+  """
+  The current status of the identity check (pass/fail/pending/cancelled/warnings/unchecked)
+  """
+  status: String
+
+  """
+  The unique identifier of the negotiator that initiated the identity check
+  """
+  negotiatorId: String
+
+  """
+  The details of the first document that was provided as part of the identity check
+  """
+  identityDocument1: IdentityCheckModel_identityDocument1
+
+  """
+  The details of the second document that was provided as part of the identity check
+  """
+  identityDocument2: IdentityCheckModel_identityDocument2
+
+  """App specific metadata that has been set against the identity check"""
+  metadata: JSON
+
+  """
+  The ETag for the current version of the identity check. Used for managing update concurrency
+  """
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+"""
+The details of the first document that was provided as part of the identity check
+"""
+type IdentityCheckModel_identityDocument1 {
+  """The unique identifier of the identity document"""
+  documentId: String
+
+  """The unique identifier of the type of identity document provided"""
+  typeId: String
+
+  """The date when the document expires and becomes invalid"""
+  expiry: String
+
+  """Details regarding the identity document (eg. passport number)"""
+  details: String
+}
+
+"""
+The details of the second document that was provided as part of the identity check
+"""
+type IdentityCheckModel_identityDocument2 {
+  """The unique identifier of the identity document"""
+  documentId: String
+
+  """The unique identifier of the type of identity document provided"""
+  typeId: String
+
+  """The date when the document expires and becomes invalid"""
+  expiry: String
+
+  """Details regarding the identity document (eg. passport number)"""
+  details: String
+}
+
+scalar JSON
+
+type Mutation {
+  CreateIdentityCheck(model: CreateIdentityCheckModelInput): JSON!
+  UpdateIdentityCheck(id: String!, model: UpdateIdentityCheckModelInput): JSON!
+}
+
+type PagedResult_IdentityCheckModel_ {
+  _embedded: [IdentityCheckModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type Query {
+  GetIdChecks(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], ContactId: [String!], NegotiatorId: [String!], CheckDateFrom: String, CheckDateTo: String, CreatedFrom: String, CreatedTo: String, pageNumber: Int, pageSize: Int, Status: [String!]): PagedResult_IdentityCheckModel_!
+  GetIdCheckById(id: String!): IdentityCheckModel!
+}
+
+"""Request body used to update an exist contact identity check"""
+input UpdateIdentityCheckModelInput {
+  """The unique identifier of the identity check"""
+  id: String
+
+  """
+  The date when the identity check was performed. This may differ to the date when the check was created
+  """
+  checkDate: String
+
+  """
+  The current status of the identity check (pass/fail/pending/cancelled/warnings/unchecked)
+  """
+  status: String
+
+  """
+  The unique identifier of the negotiator that initiated the identity check
+  """
+  negotiatorId: String
+
+  """
+  The details of the first document that was provided as part of the identity check
+  """
+  identityDocument1: UpdateIdentityCheckModelInput_identityDocument1Input
+
+  """
+  The details of the second document that was provided as part of the identity check
+  """
+  identityDocument2: UpdateIdentityCheckModelInput_identityDocument2Input
+
+  """App specific metadata to set against the identity check"""
+  metadata: JSON
+
+  """
+  The ETag for the current version of the identity check. Used for managing update concurrency
+  """
+  _eTag: String
+}
+
+"""
+The details of the first document that was provided as part of the identity check
+"""
+input UpdateIdentityCheckModelInput_identityDocument1Input {
+  """The unique identifier of the type of identity document provided"""
+  typeId: String
+
+  """The date when the document expires and becomes invalid"""
+  expiry: String
+
+  """Details regarding the identity document (eg. passport number)"""
+  details: String
+
+  """
+  The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
+  """
+  fileData: String
+
+  """The filename to store the document as"""
+  name: String
+}
+
+"""
+The details of the second document that was provided as part of the identity check
+"""
+input UpdateIdentityCheckModelInput_identityDocument2Input {
+  """The unique identifier of the type of identity document provided"""
+  typeId: String
+
+  """The date when the document expires and becomes invalid"""
+  expiry: String
+
+  """Details regarding the identity document (eg. passport number)"""
+  details: String
+
+  """
+  The base64 encoded identity document content, prefixed with the content type (eg. data:text/plain;base64,VGVzdCBmaWxl)
+  """
+  fileData: String
+
+  """The filename to store the document as"""
+  name: String
+}
+

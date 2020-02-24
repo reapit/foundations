@@ -1,10 +1,13 @@
-import { createIdentityCheck, getIdentityCheckById, getIdentityChecks, updateIdentityCheck } from '../services'
 import {
-  CreateIdentityCheckArgs,
-  GetIdentityCheckByIdArgs,
-  GetIdentityChecksArgs,
-  UpdateIdentityCheckArgs,
-} from '../identity-check'
+  createIdentityCheck,
+  getIdentityCheckById,
+  getIdentityChecks,
+  updateIdentityCheck,
+  GetIdentityCheckByIdModel,
+  GetIdentityChecksModel,
+  UpdateIdentityCheckExtend,
+} from '../services'
+import { CreateIdentityCheckModel } from '../../../types'
 import { mockContext } from '../../../__mocks__/context'
 import { identityCheck } from '../__mocks__/identity-check'
 import { identityChecks } from '../__mocks__/identity-checks'
@@ -19,7 +22,7 @@ jest.mock('../api', () => ({
 describe('contact-identity-check services', () => {
   describe('getIdentityCheckById', () => {
     it('should run correctly', () => {
-      const mockArgs = { id: '123' } as GetIdentityCheckByIdArgs
+      const mockArgs = { id: '123' } as GetIdentityCheckByIdModel
       const output = identityCheck
       const result = getIdentityCheckById(mockArgs, mockContext)
       expect(result).toEqual(output)
@@ -35,7 +38,7 @@ describe('contact-identity-check services', () => {
         pageSize: 2,
         ids: ['1', '2'],
         status: 'unknow',
-      } as GetIdentityChecksArgs
+      } as GetIdentityChecksModel
       const output = identityChecks
       const result = getIdentityChecks(mockArgs, mockContext)
       expect(result).toEqual(output)
@@ -52,7 +55,7 @@ describe('contact-identity-check services', () => {
         identityDocument1: {},
         identityDocument2: {},
         metadata: {},
-      } as CreateIdentityCheckArgs
+      } as CreateIdentityCheckModel
       const result = createIdentityCheck(mockArgs, mockContext)
       expect(result).toEqual(true)
     })
@@ -68,7 +71,7 @@ describe('contact-identity-check services', () => {
         identityDocument1: {},
         identityDocument2: {},
         metadata: {},
-      } as UpdateIdentityCheckArgs
+      } as UpdateIdentityCheckExtend
       const result = updateIdentityCheck(mockArgs, mockContext)
       expect(result).toEqual(identityCheck)
     })

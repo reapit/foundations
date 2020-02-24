@@ -1,4 +1,6 @@
-export const identityChecks = {
+import { PagedResultIdentityCheckModel_, DocumentModel } from '../../../types'
+
+export const identityChecks: PagedResultIdentityCheckModel_ = {
   _embedded: [
     {
       id: 'RPT19000104',
@@ -13,13 +15,13 @@ export const identityChecks = {
         typeId: 'TX',
         expiry: '2020-02-07',
         details: 'Hshs',
-      },
+      } as DocumentModel,
       identityDocument2: {
         documentId: 'SOME_ID',
         typeId: 'CI',
         expiry: '2019-12-21',
         details: 'a',
-      },
+      } as DocumentModel,
       metadata: {},
       _eTag: '"51F8EECB09FB89903C42CAB63E3D5D0C"',
       _links: {

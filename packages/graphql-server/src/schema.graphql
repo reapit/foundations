@@ -1,5 +1,5 @@
 #import Contact, Contacts from "./resolvers/contact/types.graphql"
-#import IdentityCheck,IdentityChecks,Status from "./resolvers/identity-check/types.graphql"
+#import CreateIdentityCheckModelInput, CreateIdentityCheckModelInput_identityDocument1Input, CreateIdentityCheckModelInput_identityDocument2Input, IdentityCheckModel, IdentityCheckModel_identityDocument1, IdentityCheckModel_identityDocument2, PagedResult_IdentityCheckModel_, UpdateIdentityCheckModelInput, UpdateIdentityCheckModelInput_identityDocument1Input, UpdateIdentityCheckModelInput_identityDocument2Input from "./resolvers/identity-check/types.graphql"
 #import LoginIdentity, LoginMode, LoginType, Token from './resolvers/auth/types.graphql'
 
 type Query {
@@ -22,19 +22,8 @@ type Query {
   ): Contacts!
 
   # contact-identity-check
-  getIdentityCheck(
-    id: String!
-  ): IdentityCheck!
-
-  getIdentityChecks(
-    ids: [String]
-    contactId: String
-    pageNumber: Int!
-    pageSize: Int!
-    status: Status
-    negotiatorId: String
-  ): IdentityChecks!
-
+  GetIdChecks(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], ContactId: [String!], NegotiatorId: [String!], CheckDateFrom: String, CheckDateTo: String, CreatedFrom: String, CreatedTo: String, pageNumber: Int, pageSize: Int, Status: [String!]): PagedResult_IdentityCheckModel_!
+  GetIdCheckById(id: String!): IdentityCheckModel!
 }
 
 type Mutation {
@@ -69,26 +58,8 @@ type Mutation {
     _eTag: String!
   ): Contact!
 
-  # identity-check
-  createIdentityCheck(
-    contactId: String!
-    checkDate: String!
-    status: String!
-    negotiatorId: String!
-    identityDocument1: DocumentInput!
-    identityDocument2: DocumentInput
-    metadata: JSON
-  ): IdentityCheck!
-
-  updateIdentityCheck(
-    id: String!
-    checkDate: String!
-    status: String!
-    negotiatorId: String!
-    identityDocument1: DocumentInput!
-    identityDocument2: DocumentInput
-    metadata: JSON
-  ): IdentityCheck!
+  CreateIdentityCheck(model: CreateIdentityCheckModelInput): JSON!
+  UpdateIdentityCheck(id: String!, model: UpdateIdentityCheckModelInput): JSON!
 
   login(
     userName: String!

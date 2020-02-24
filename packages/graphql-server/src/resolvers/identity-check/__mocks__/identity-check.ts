@@ -1,4 +1,6 @@
-export const identityCheck = {
+import { IdentityCheckModel } from '../../../types'
+
+export const identityCheck: IdentityCheckModel = {
   id: 'RPT19000104',
   contactId: 'AYL19000001',
   created: '0001-01-01T00:00:00.0000000',

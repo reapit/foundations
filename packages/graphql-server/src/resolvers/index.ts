@@ -3,7 +3,7 @@ import { queryContact, queryContacts } from './contact/resolvers'
 import {
   createIdentityCheck,
   queryIdentityChecks,
-  queryIdentityCheck,
+  queryIdentityCheckById,
   updateIdentityCheck,
 } from './identity-check/resolvers'
 import { login } from './auth/resolvers'
@@ -12,13 +12,13 @@ export const resolvers = {
   Query: {
     contact: queryContact,
     contacts: queryContacts,
-    getIdentityCheck: queryIdentityCheck,
-    getIdentityChecks: queryIdentityChecks,
+    GetIdCheckById: queryIdentityCheckById,
+    GetIdChecks: queryIdentityChecks,
   },
   Mutation: {
     login,
-    createIdentityCheck,
-    updateIdentityCheck,
+    CreateIdentityCheck: createIdentityCheck,
+    UpdateIdentityCheck: updateIdentityCheck,
   },
   JSON: GraphQLJSON,
 }

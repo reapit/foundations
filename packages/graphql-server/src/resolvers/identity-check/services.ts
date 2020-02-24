@@ -1,9 +1,9 @@
 import {
-  CreateIdentityCheckArgs,
-  UpdateIdentityCheckArgs,
-  GetIdentityCheckByIdArgs,
-  GetIdentityChecksArgs,
-} from './identity-check'
+  IdentityCheckModel,
+  CreateIdentityCheckModel,
+  UpdateIdentityCheckModel,
+  PagedResultIdentityCheckModel_,
+} from '../../types'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
 import {
@@ -12,29 +12,60 @@ import {
   callGetIdentityCheckByIdAPI,
   callGetIdentityChecksAPI,
 } from './api'
+import { AuthenticationError, UserInputError } from 'apollo-server'
 
-export const getIdentityCheckById = (args: GetIdentityCheckByIdArgs, context: ServerContext) => {
+export type GetIdentityCheckByIdModel = {
+  id: string
+}
+
+export const getIdentityCheckById = (
+  args: GetIdentityCheckByIdModel,
+  context: ServerContext,
+): Promise<IdentityCheckModel | UserInputError> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('getIdentityCheckById', { traceId, args })
   const identityCheck = callGetIdentityCheckByIdAPI(args, context)
   return identityCheck
 }
 
-export const getIdentityChecks = (args: GetIdentityChecksArgs, context: ServerContext) => {
+export type GetIdentityChecksModel = {
+  negotiatorId?: string
+  contactId?: string
+  pageNumber: number
+  pageSize: number
+  ids?: string[]
+  status?: 'unknow' | 'uncheck' | 'pending' | 'fail' | 'cancelled' | 'warnings' | 'pass'
+}
+
+export const getIdentityChecks = (
+  args: GetIdentityChecksModel,
+  context: ServerContext,
+): Promise<PagedResultIdentityCheckModel_ | UserInputError> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('getIdentityChecks', { traceId, args })
   const identityChecks = callGetIdentityChecksAPI(args, context)
   return identityChecks
 }
 
-export const createIdentityCheck = (args: CreateIdentityCheckArgs, context: ServerContext) => {
+export const createIdentityCheck = (
+  args: CreateIdentityCheckModel,
+  context: ServerContext,
+): Promise<IdentityCheckModel | UserInputError> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('createIdentityCheck', { traceId, args })
   const identityCheck = callCreateIdentityCheckAPI(args, context)
   return identityCheck
 }
 
-export const updateIdentityCheck = (args: UpdateIdentityCheckArgs, context: ServerContext) => {
+export type UpdateIdentityCheckExtend = UpdateIdentityCheckModel & {
+  id: string
+  _eTag: string
+}
+
+export const updateIdentityCheck = (
+  args: UpdateIdentityCheckExtend,
+  context: ServerContext,
+): Promise<IdentityCheckModel | UserInputError> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('updateIdentityCheck', { traceId, args })
   const identityCheck = callUpdateIdentityCheckAPI(args, context)

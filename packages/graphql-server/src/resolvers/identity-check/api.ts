@@ -1,25 +1,24 @@
 import { fetcher } from '@reapit/elements'
 import qs from 'query-string'
-import {
-  CreateIdentityCheckArgs,
-  UpdateIdentityCheckArgs,
-  GetIdentityCheckByIdArgs,
-  GetIdentityChecksArgs,
-} from './identity-check'
+import { IdentityCheckModel, CreateIdentityCheckModel, PagedResultIdentityCheckModel_ } from '../../types'
+import { GetIdentityCheckByIdModel, GetIdentityChecksModel, UpdateIdentityCheckExtend } from './services'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 import { callGetContactByIdAPI } from '../contact/api'
+import { UserInputError } from 'apollo-server'
 
 export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.cloud'
 
 export const URLS = {
-  contacts: '/contacts',
   identityChecks: '/identityChecks',
 }
 
-export const callGetIdentityChecksAPI = async (args: GetIdentityChecksArgs, context: ServerContext) => {
+export const callGetIdentityChecksAPI = async (
+  args: GetIdentityChecksModel,
+  context: ServerContext,
+): Promise<PagedResultIdentityCheckModel_ | UserInputError> => {
   const traceId = context.traceId
   try {
     logger.info('callGetIdentityChecksAPI', { traceId, args })
@@ -35,7 +34,7 @@ export const callGetIdentityChecksAPI = async (args: GetIdentityChecksArgs, cont
       api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers,
-      body: args,
+      body: {},
     })
     return response
   } catch (error) {
@@ -44,10 +43,13 @@ export const callGetIdentityChecksAPI = async (args: GetIdentityChecksArgs, cont
   }
 }
 
-export const callGetIdentityCheckByIdAPI = async (args: GetIdentityCheckByIdArgs, context: ServerContext) => {
+export const callGetIdentityCheckByIdAPI = async (
+  args: GetIdentityCheckByIdModel,
+  context: ServerContext,
+): Promise<IdentityCheckModel | UserInputError> => {
   const traceId = context.traceId
   try {
-    logger.info('callGetIdentityCheckAPI', { traceId, args })
+    logger.info('callGetIdentityCheckByIdAPI', { traceId, args })
     const headers = {
       Authorization: context.authorization,
       'Content-Type': 'application/json',
@@ -58,16 +60,19 @@ export const callGetIdentityCheckByIdAPI = async (args: GetIdentityCheckByIdArgs
       api: REAPIT_API_BASE_URL,
       method: 'GET',
       headers,
-      body: args,
+      body: {},
     })
     return response
   } catch (error) {
-    logger.error('callGetIdentityCheckAPI', { traceId, error: JSON.stringify(error) })
+    logger.error('callGetIdentityCheckByIdAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
   }
 }
 
-export const callCreateIdentityCheckAPI = async (args: CreateIdentityCheckArgs, context: ServerContext) => {
+export const callCreateIdentityCheckAPI = async (
+  args: CreateIdentityCheckModel,
+  context: ServerContext,
+): Promise<IdentityCheckModel | UserInputError> => {
   const traceId = context.traceId
   try {
     logger.info('callCreateIdentityCheckAPI', { traceId, args })
@@ -95,7 +100,10 @@ export const callCreateIdentityCheckAPI = async (args: CreateIdentityCheckArgs, 
   }
 }
 
-export const callUpdateIdentityCheckAPI = async (args: UpdateIdentityCheckArgs, context: ServerContext) => {
+export const callUpdateIdentityCheckAPI = async (
+  args: UpdateIdentityCheckExtend,
+  context: ServerContext,
+): Promise<IdentityCheckModel | UserInputError> => {
   const traceId = context.traceId
   try {
     logger.info('callUpdateIdentityCheckAPI', { traceId, args })
