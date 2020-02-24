@@ -7,7 +7,13 @@ const ElementsPage: React.SFC = () => (
   <ErrorBoundary>
     <FlexContainerBasic flexColumn hasPadding>
       <FlexContainerBasic className="container">
-        <iframe style={{ border: 'none' }} src={IFRAME_URLS.elements} width="100%" height="100%" />
+        <iframe
+          style={{ border: 'none', height: 'auto' }}
+          scrolling="no"
+          src={IFRAME_URLS.elements}
+          width="100%"
+          height="100%"
+        />
       </FlexContainerBasic>
     </FlexContainerBasic>
   </ErrorBoundary>
