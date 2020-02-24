@@ -1,4 +1,5 @@
 import { fetcher, FetchError, isBase64 } from '@reapit/elements'
+import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 import { URLS, MARKETPLACE_HEADERS } from '../constants/api'
 import { submitAppSetFormState, submitAppLoading, submitAppReceiveData } from '../actions/submit-app'
 import { categoriesReceiveData } from '../actions/app-categories'
@@ -91,13 +92,17 @@ export const submitApp = function*({ data }: Action<SubmitAppArgs>) {
   } catch (err) {
     logger(err)
 
+    let formErrors: Record<string, string | string[]> | null = {}
     if (err instanceof FetchError) {
       const response = err.response as any
-      const formErrors = getApiErrorsFromResponse(response as ApiFormErrorsResponse)
+      const responseApiFormErrorResponse = response as ApiFormErrorsResponse
+      formErrors = getApiErrorsFromResponse(responseApiFormErrorResponse) || {}
+    }
 
-      if (formErrors) {
-        actions.setErrors(formErrors)
-      }
+    const errorDescription = err?.response?.description
+    if (errorDescription) {
+      formErrors[FIELD_ERROR_DESCRIPTION] = errorDescription
+      yield call(actions.setErrors, formErrors)
     }
 
     yield put(submitAppSetFormState('ERROR'))
