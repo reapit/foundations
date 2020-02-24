@@ -59,16 +59,12 @@ type NegotiatorModel {
 
   """App specific metadata that has been set against the negotiator"""
   metadata: JSON
-
-  """
-  The ETag for the current version of the negotiator. Used for managing update concurrency
-  """
   _eTag: String
   _links: JSON
   _embedded: JSON
 }
 
-type PagedResult_NegotiatorModel_ {
+type PagedResultNegotiatorModel {
   _embedded: [NegotiatorModel!]
   pageNumber: Int
   pageSize: Int

@@ -1,5 +1,3 @@
-import { UpdateNegotiatorModel } from '@reapit/foundations-ts-definitions'
-
 export type GetNegotiatorByIdArgs = {
   id: string
 }
