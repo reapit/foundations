@@ -20,9 +20,9 @@ module.exports = class extends Generator {
         await exec(`yarn`)
       }
 
-      const prettierConfigPath = path.resolve(__dirname, '../../../../.prettierrc.js')
+      const prettierConfigPath = path.resolve(__dirname, "../../../../.prettierrc.js")
       await exec(`yarn prettier --write ./package.json`)
-      await exec(`yarn prettier '**/*.ts' '**/*.tsx' --write`)
+      await exec(`yarn prettier "**/*.ts" "**/*.tsx" --write`)
       this.log(yosay('App installed successfully!'))
 
       this._pushToGithub()
@@ -62,16 +62,16 @@ module.exports = class extends Generator {
 
 
     if (stylesSolution === 'sass') {
-      this.fs.copy(this.templatePath('./base-is-sass/**/*'), this.destinationPath('./'))
+      this.fs.copy(this.templatePath("./base-is-sass/**/*"), this.destinationPath("./"))
     } else {
-      this.fs.copy(this.templatePath('./base-is-not-sass/**/*'), this.destinationPath('./'))
+      this.fs.copy(this.templatePath("./base-is-not-sass/**/*"), this.destinationPath("./"))
     }
   }
 
   _addAzure() {
     const { name, azure } = this.answers
     if (azure) {
-      this.fs.copy(this.templatePath('redu'), this.destinationPath(`./azure-pipelines.yml`))
+      this.fs.copy(this.templatePath("redu"), this.destinationPath(`./azure-pipelines.yml`))
     }
   }
 
@@ -91,27 +91,27 @@ module.exports = class extends Generator {
        * for isFoundation: we have to deter
        */
 
-      this.fs.copyTpl(this.templatePath('_README.md'), this.destinationPath('./README.md'), {
+      this.fs.copyTpl(this.templatePath("_README.md"), this.destinationPath("./README.md"), {
         name,
       })
 
-      this.fs.copyTpl(this.templatePath('_jest.config.js'), this.destinationPath('./jest.config.js'), {
+      this.fs.copyTpl(this.templatePath("_jest.config.js"), this.destinationPath("./jest.config.js"), {
         name,
       })
 
-      this.fs.copyTpl(this.templatePath('_gitignore'), this.destinationPath('./.gitignore'), {
+      this.fs.copyTpl(this.templatePath("_gitignore"), this.destinationPath("./.gitignore"), {
         name,
       })
 
-      this.fs.copyTpl(this.templatePath('_eslintrc.js'), this.destinationPath('./.eslintrc.js'), {
+      this.fs.copyTpl(this.templatePath("_eslintrc.js"), this.destinationPath("./.eslintrc.js"), {
         name,
       })
 
-      this.fs.copyTpl(this.templatePath('_prettierrc.js'), this.destinationPath('./.prettierrc.js'), {
+      this.fs.copyTpl(this.templatePath("_prettierrc.js"), this.destinationPath("./.prettierrc.js"), {
         name,
       })
 
-      this.fs.copyTpl(this.templatePath('./base'), this.destinationPath('./'), {
+      this.fs.copyTpl(this.templatePath("./base"), this.destinationPath("./"), {
         name,
         nameInConstantCase: constantCase(name),
         redux,
@@ -119,7 +119,7 @@ module.exports = class extends Generator {
         stylesSolution,
       })
 
-      this.fs.copyTpl(this.templatePath('_package.json'), this.destinationPath('package.json'), {
+      this.fs.copyTpl(this.templatePath("_package.json"), this.destinationPath("package.json"), {
         name,
         redux,
         graphql,
@@ -140,14 +140,14 @@ module.exports = class extends Generator {
         //   description,
         //   author,
         // })
-        this.fs.copyTpl(this.templatePath('./base-is-foundation/*'), this.destinationPath('./'), {
+        this.fs.copyTpl(this.templatePath("./base-is-foundation/*"), this.destinationPath("./"), {
           name,
           repo,
           description,
           author,
         })
       } else {
-        this.fs.copyTpl(this.templatePath('./base-is-not-foundation/**/*'), this.destinationPath('./'), {
+        this.fs.copyTpl(this.templatePath("./base-is-not-foundation/**/*"), this.destinationPath("./"), {
           name,
           nameInConstantCase: constantCase(name),
           repo,
@@ -157,7 +157,7 @@ module.exports = class extends Generator {
         })
       }
 
-      this.fs.copyTpl(this.templatePath(this.projectTypePath), this.destinationPath('./'), {
+      this.fs.copyTpl(this.templatePath(this.projectTypePath), this.destinationPath("./"), {
         name,
         nameInConstantCase: constantCase(name),
         redux,
