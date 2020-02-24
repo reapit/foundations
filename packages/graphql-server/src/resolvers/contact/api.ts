@@ -72,7 +72,7 @@ export const callCreateContactAPI = async (args: CreateContactArgs, context: Ser
     })
     return createResponse
   } catch (error) {
-    logger.error('callCreateContactAPI', { traceId, error })
+    logger.error('callCreateContactAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
   }
 }
@@ -102,7 +102,7 @@ export const callUpdateContactAPI = async (args: UpdateContactArgs, context: Ser
     )
     return contact
   } catch (error) {
-    logger.error('callUpdateContactAPI', { traceId, error })
+    logger.error('callUpdateContactAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
   }
 }

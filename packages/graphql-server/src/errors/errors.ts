@@ -14,13 +14,13 @@ export const errorMessages = {
 
 export const generateAuthenticationError = (traceId?: string) => {
   const error = new AuthenticationError(`${traceId || ''} - ${errorMessages.notAuthorized}`)
-  logger.info('generateAuthenticationError', { traceId, error })
+  logger.info('generateAuthenticationError', { traceId, error: JSON.stringify(error) })
   return error
 }
 
 export const generateUserInputError = (traceId?: string) => {
   const error = new UserInputError(`${traceId || ''} - ${errorMessages.unprocessableEntity}`)
-  logger.info('generateAuthenticationError', { traceId, error })
+  logger.info('generateAuthenticationError', { traceId, error: JSON.stringify(error) })
   return error
 }
 

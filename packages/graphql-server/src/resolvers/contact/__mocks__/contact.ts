@@ -1,3 +1,5 @@
+import { Contact } from '../contact.d';
+
 export const contact = {
   id: "RPT20000017",
   title: 'Mr',
@@ -57,4 +59,4 @@ export const contact = {
     },
   },
   _embedded: null,
-}
+} as Contact
