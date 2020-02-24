@@ -11,7 +11,9 @@ jest.mock('@reapit/elements', () => ({
 }))
 
 jest.mock('../../../logger')
-jest.mock('../../../errors')
+jest.mock('../../../errors', () => ({
+  generateUserInputError: jest.fn(() => 'user input value'),
+}))
 
 afterEach(() => {
   jest.resetAllMocks()
