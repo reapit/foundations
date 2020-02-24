@@ -1,3 +1,5 @@
+/* Sentry currently only work for Chrome, add polyfill for other browsers */
+import 'error-polyfill'
 import * as Sentry from '@sentry/browser'
 
 /**
