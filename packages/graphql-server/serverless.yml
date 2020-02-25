@@ -1,0 +1,39 @@
+service: graphql-server
+plugins:
+  - serverless-webpack
+custom:
+  env: ${file(../../reapit-config.json)}
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: graphql-server.${self:provider.stage}
+    blockPublicAccess: false
+  environment:
+    NODE_ENV: ${self:custom.env.${self:provider.stage}.NODE_ENV}
+    COGNITO_USERPOOL_ID: ${self:custom.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_USERPOOL_ID}
+    MARKET_PLACE_URL: ${self:custom.${file(./yml-helpers.js):provider.stage.uppercase}.MARKET_PLACE_URL}
+
+package:
+  include:
+    - dist/**
+    - node_modules/**
+    - package.json
+  exclude:
+    - error.log
+    - info.log
+    - jest.config.js
+    - nodemon.json
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+
+functions:
+  graphqlHandler:
+    handler: dist/index.graphqlHandler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'

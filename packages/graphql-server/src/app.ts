@@ -58,7 +58,7 @@ export const formatResponse = (
   return response || {}
 }
 
-const server = new ApolloServer({
+export const server = new ApolloServer({
   typeDefs: typeDefs,
   resolvers,
   formatError,
