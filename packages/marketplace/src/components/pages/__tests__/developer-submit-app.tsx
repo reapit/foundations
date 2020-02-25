@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 import { match } from 'react-router'
 import { shallow, mount } from 'enzyme'
 import { getMockRouterProps } from '@/utils/mock-helper'
@@ -16,6 +17,7 @@ import {
   handleSubmitModalContinue,
   handleSubmitModalViewDocs,
   handleBeforeSubmit,
+  renderErrors,
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
@@ -39,6 +41,42 @@ const submitAppMappedActionsProps: SubmitAppMappedActions = {
 const mockRouterProps = getMockRouterProps(null)
 
 describe('DeveloperSubmitApp', () => {
+  describe('renderErrors', () => {
+    it('should return null is error object is empty', () => {
+      const result = renderErrors({})
+      expect(result).toBeNull()
+    })
+    it('should errors correctly and not render FIELD_ERROR_DESCRIPTION', () => {
+      const Component = () =>
+        renderErrors({
+          field1: 'test',
+          field2: 'test',
+          fieldArr: ['test', 'test'],
+        })
+
+      const wrapper = mount(<Component />)
+
+      const fieldArr = wrapper.find('[data-test="fieldArr"]')
+      expect(fieldArr.text()).toBe('fieldArr: test, test')
+      const field1Node = wrapper.find('[data-test="field1"]')
+      expect(field1Node.text()).toBe('field1: test')
+      const field2Node = wrapper.find('[data-test="field2"]')
+      expect(field2Node.text()).toBe('field2: test')
+      const headingNode = wrapper.find('h6')
+      expect(headingNode.text()).toBe('The following validation errors have occurred:')
+    })
+    it('should render field render FIELD_ERROR_DESCRIPTION correctly', () => {
+      const Component = () =>
+        renderErrors({
+          [FIELD_ERROR_DESCRIPTION]: 'test-heading',
+        })
+
+      const wrapper = mount(<Component />)
+      const headingNode = wrapper.find('h6')
+      expect(headingNode.text()).toBe('test-heading')
+    })
+  })
+
   it('should match a snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -453,7 +491,6 @@ describe('handleSubmitApp', () => {
     } as CustomCreateAppModel
     const actions = {} as any
     const spySubmitApp = jest.spyOn(params, 'submitApp')
-    const spySetSubmitError = jest.spyOn(params, 'setSubmitError')
     const fn = handleSubmitApp(params)
     fn(appModel, actions)
     expect(spySubmitApp).toHaveBeenCalledWith(
@@ -461,7 +498,6 @@ describe('handleSubmitApp', () => {
         authFlow: 'clientCredentials',
       },
       actions,
-      spySetSubmitError,
     )
   })
 
@@ -481,7 +517,6 @@ describe('handleSubmitApp', () => {
     } as CustomCreateAppModel
     const actions = {} as any
     const spySubmitApp = jest.spyOn(params, 'submitApp')
-    const spySetSubmitError = jest.spyOn(params, 'setSubmitError')
     const fn = handleSubmitApp(params)
     fn(appModel, actions)
     expect(spySubmitApp).toHaveBeenCalledWith(
@@ -491,7 +526,6 @@ describe('handleSubmitApp', () => {
         signoutUris: ['https://google.com'],
       },
       actions,
-      spySetSubmitError,
     )
   })
 
