@@ -99,7 +99,7 @@
     "ts-loader": "^6.0.1",
     "ts-node": "^8.3.0",
     "ts-paths-to-webpack-alias": "^0.3.1",
-    "typescript": "^3.7.2",
+    "typescript": "3.7.2",
     "typescript-eslint": "^0.0.1-alpha.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.2",
