@@ -1,3 +1,13 @@
 .title {
   margin-bottom: 4rem;
 }
+
+.chart-wrap {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .chart-wrap {
+    width: 70%;
+  }
+}
