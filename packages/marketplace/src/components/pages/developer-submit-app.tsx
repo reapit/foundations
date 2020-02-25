@@ -86,9 +86,7 @@ export const renderErrors = (errors: Record<string, string | string[]>) => {
 
   return (
     <div className="has-text-danger">
-      <H6 className="has-text-danger mb-1">
-        {description ? `${description}:` : 'The following validation errors have occurred:'}
-      </H6>
+      <H6 className="has-text-danger mb-1">{description || 'The following validation errors have occurred:'}</H6>
       <div>
         {Object.keys(errors).map(key => {
           const value = errors[key]

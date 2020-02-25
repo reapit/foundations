@@ -73,7 +73,7 @@ describe('DeveloperSubmitApp', () => {
 
       const wrapper = mount(<Component />)
       const headingNode = wrapper.find('h6')
-      expect(headingNode.text()).toBe('test-heading:')
+      expect(headingNode.text()).toBe('test-heading')
     })
   })
 
