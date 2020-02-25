@@ -1,29 +1,17 @@
-import svelte from 'rollup-plugin-svelte'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 import typescript from '@wessberg/rollup-plugin-ts'
 import babel from 'rollup-plugin-babel'
+import replace from '@rollup/plugin-replace'
 
-const svelteOptions = require('./svelte.config')
 const production = !process.env.ROLLUP_WATCH
 
 export default {
-  input: 'src/search-widget/main.ts',
-  output: {
-    sourcemap: true,
-    format: 'iife',
-    name: 'app',
-    file: 'public/bundle.js',
-  },
   plugins: [
-    svelte({
-      ...svelteOptions,
-      dev: !production,
-      css: css => {
-        css.write('public/bundle.css')
-      },
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('development'),
     }),
     resolve({
       browser: true,
@@ -31,11 +19,15 @@ export default {
     }),
     commonjs(),
     typescript(),
-    !production && livereload('public'),
     babel({
-      extensions: ['.js', '.mjs', '.html', '.svelte'],
+      extensions: ['.js', '.ts', '.mjs', '.html', '.svelte'],
       runtimeHelpers: true,
-      exclude: ['node_modules/@babel/**', '../../node_modules/@babel/**', 'node_modules/core-js/**', '../../node_modules/core-js/**'],
+      exclude: [
+        'node_modules/@babel/**',
+        '../../node_modules/@babel/**',
+        'node_modules/core-js/**',
+        '../../node_modules/core-js/**',
+      ],
       presets: [
         [
           '@babel/preset-env',
@@ -49,6 +41,7 @@ export default {
         ],
       ],
     }),
+    !production && livereload('public'),
     production && terser(),
   ],
   watch: {

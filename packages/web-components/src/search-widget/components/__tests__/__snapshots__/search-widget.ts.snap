@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search-widget it matches a snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="css-h4w50h"
+    >
+      <div
+        class="css-yau5c8"
+      >
+        <h1
+          class="svelte-1ucbz36"
+        >
+          Hello!
+        </h1>
+         
+        <p>
+          <span
+            data-testid="count"
+          >
+            Count is 
+            0
+          </span>
+           
+          <button
+            data-testid="button"
+          >
+            Click me
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;

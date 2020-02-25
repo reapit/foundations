@@ -1,19 +1,35 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte'
-  import { writable } from 'svelte/store'
-  import { myStore } from '../store'
-  import Counter from './counter.svelte'
+  import { simpleStore, initializers } from '../core/store'
+  import { generateGlobalTheme } from '../../common/styles/theme'
+  import * as Styles from '../../common/styles/index'
 
-  const count = writable(100)
-  const unsubscribe = count.subscribe(value => console.log('count', value))
+  export let theme: Styles.InitializerTheme = {}
+  export let apiKey: string = ''
 
-  export let name: string
+  const { resetCSS } = Styles
+  const globalCSSTheme = generateGlobalTheme(theme)
+  const updateCount = () => simpleStore.update((current: number) => (current += 1))
+
+  const unsubscribeSimpleStore = simpleStore.subscribe(value => {
+    console.log('simpleStore', value)
+  })
+
+  const unsubscribeInitializers = initializers.subscribe(value => {
+    console.log('initializers', value)
+  })
+
   onMount(() => {
     console.log('App mounted')
+    initializers.update(() => ({
+      theme,
+      apiKey,
+    }))
   })
 
   onDestroy(() => {
-    unsubscribe()
+    unsubscribeSimpleStore()
+    unsubscribeInitializers()
   })
 </script>
 
@@ -23,10 +39,12 @@
   }
 </style>
 
-<h1>Hello {name}!</h1>
-<p>
-  <Counter />
-  <Counter value={1}>Counter 1</Counter>
-  <Counter bind:value={$count} step={3}>Counter 2</Counter>
-  <Counter bind:value={$myStore} step={5}>Counter 3</Counter>
-</p>
+<div class={resetCSS}>
+  <div class={globalCSSTheme}>
+    <h1>Hello!</h1>
+    <p>
+      <span data-testid="count">Count is {$simpleStore}</span>
+      <button data-testid="button" on:click={updateCount}>Click me</button>
+    </p>
+  </div>
+</div>
