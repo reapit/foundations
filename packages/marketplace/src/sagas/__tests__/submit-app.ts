@@ -5,6 +5,7 @@ import {
   submitAppDataFetchListen,
   submitAppsDataFetch,
 } from '../submit-app'
+import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 import ActionTypes from '@/constants/action-types'
 import errorMessages from '@/constants/error-messages'
 import { put, fork, all, call, takeLatest } from '@redux-saga/core/effects'
@@ -81,6 +82,27 @@ describe('submit-app post data', () => {
         errorThrownServer({
           type: 'SERVER',
           message: errorMessages.DEFAULT_SERVER_ERROR,
+        }),
+      ),
+    )
+    expect(clone.next().done).toBe(true)
+  })
+
+  test('api call fail when error response contains description field', () => {
+    const clone = gen.clone()
+    const err = new Error('Call API Failed')
+    // @ts-ignore
+    err.response = {
+      description: 'test',
+    }
+    // @ts-ignore
+    expect(clone.throw(err).value).toEqual(call(params.data.actions.setErrors, { [FIELD_ERROR_DESCRIPTION]: 'test' }))
+    expect(clone.next().value).toEqual(put(submitAppSetFormState('ERROR')))
+    expect(clone.next().value).toEqual(
+      put(
+        errorThrownServer({
+          type: 'SERVER',
+          message: 'test',
         }),
       ),
     )

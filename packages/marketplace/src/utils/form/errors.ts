@@ -6,6 +6,7 @@ export interface ApiFormError {
 export type ApiFormErrorsResponse =
   | {
       errors?: ApiFormError[] | null | undefined
+      description?: string
     }
   | null
   | undefined
