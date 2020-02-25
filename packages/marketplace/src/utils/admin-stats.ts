@@ -12,16 +12,14 @@ export const getDateRange = (range: Omit<Range, 'ALL'>): DateRange => {
       from: dayjs()
         .subtract(7, 'day')
         .toDate(),
-      to: new Date(),
+      to: dayjs().toDate(),
     }
   }
   if (range === 'MONTH') {
-    const now = new Date()
-    const firstDayOfMonth = new Date(now.getFullYear(), now.getMonth(), 1)
-
+    const now = dayjs()
     return {
-      from: firstDayOfMonth,
-      to: now,
+      from: now.subtract(1, 'M').toDate(),
+      to: now.toDate(),
     }
   }
   throw Error('Invalid range value')
@@ -104,3 +102,16 @@ export const getChartConfig = (labels: string[], data: number[], area: Area) => 
     },
   ],
 })
+
+export const getRangeName = (range: Range) => {
+  switch (range) {
+    case 'WEEK':
+      return 'Last Week'
+    case 'MONTH':
+      return 'Last Month'
+    case 'ALL':
+      return 'All Time'
+    default:
+      return ''
+  }
+}

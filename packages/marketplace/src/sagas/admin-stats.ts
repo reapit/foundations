@@ -1,5 +1,6 @@
 import { adminStatsReceiveData, adminStatsRequestFailure, AdminStatsRequestParams } from '../actions/admin-stats'
 import { put, fork, takeLatest, all, call } from '@redux-saga/core/effects'
+import dayjs from 'dayjs'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
@@ -11,6 +12,8 @@ import { Area } from '@/components/pages/admin-stats'
 import { getDateRange } from '@/utils/admin-stats'
 import { logger } from 'logger'
 
+export const MARKETPLACE_GOLIVE_DATE = '2020-02-14'
+
 export const adminStatsDataFetch = function*({ data }) {
   try {
     const { area, range } = data
@@ -20,6 +23,10 @@ export const adminStatsDataFetch = function*({ data }) {
       const dateRange = getDateRange(range)
       queryParams.RegisteredFrom = dateRange.from.toISOString()
       queryParams.RegisteredTo = dateRange.to.toISOString()
+    } else {
+      queryParams.RegisteredFrom = dayjs(MARKETPLACE_GOLIVE_DATE)
+        .toDate()
+        .toISOString()
     }
     const response = yield call(fetcher, {
       url: `${url}?${setQueryParams({
