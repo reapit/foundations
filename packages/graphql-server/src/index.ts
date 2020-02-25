@@ -1,7 +1,16 @@
-import serverless from 'serverless-http'
-import { Context, Handler } from 'aws-lambda'
-import { server } from './app'
+import { ApolloServer } from 'apollo-server-lambda'
+import { importSchema } from 'graphql-import'
+import resolvers from './resolvers'
 
-const app = serverless(server as any)
+const typeDefs = importSchema('./src/schema.graphql')
 
-export const graphqlHandler: Handler<any, any> = async (event: any, context: Context) => app(event, context)
+const server = new ApolloServer({
+  typeDefs: typeDefs,
+  resolvers,
+  playground: true,
+  introspection: true,
+})
+
+export const graphqlHandler = server.createHandler()
+
+export default graphqlHandler

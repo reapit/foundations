@@ -3,6 +3,14 @@ plugins:
   - serverless-webpack
 custom:
   env: ${file(../../reapit-config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
 
 provider:
   name: aws
@@ -13,16 +21,17 @@ provider:
     name: graphql-server.${self:provider.stage}
     blockPublicAccess: false
   environment:
-    NODE_ENV: ${self:custom.env.${self:provider.stage}.NODE_ENV}
-    COGNITO_USERPOOL_ID: ${self:custom.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_USERPOOL_ID}
-    MARKET_PLACE_URL: ${self:custom.${file(./yml-helpers.js):provider.stage.uppercase}.MARKET_PLACE_URL}
+    NODE_ENV: 'production'
+    COGNITO_USERPOOL_ID: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_USERPOOL_ID}
+    MARKETPLACE_API_BASE_URL: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.MARKETPLACE_API_BASE_URL}
 
 package:
+  individually: true
   include:
     - dist/**
-    - node_modules/**
-    - package.json
   exclude:
+    - package.json
+    - node_modules/**
     - error.log
     - info.log
     - jest.config.js
@@ -30,10 +39,11 @@ package:
     - serverless.yml
     - src/**
     - tsconfig.json
+    - yml-helpers.js
 
 functions:
   graphqlHandler:
-    handler: dist/index.graphqlHandler
+    handler: src/index.graphqlHandler
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
