@@ -5,7 +5,8 @@
     "paths": {
       "@/*": ["src/*"],
       "@reapit/cognito-auth": ["../cognito-auth/src"],
-      "@reapit/elements": ["../elements/src"]
+      "@reapit/elements": ["../elements/src"],
+      "@reapit/elements/*": ["../elements/*"]
     }
   },
   "include": ["src"],

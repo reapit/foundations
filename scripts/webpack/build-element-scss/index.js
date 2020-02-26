@@ -9,7 +9,7 @@ const purifyOptions = require(path.resolve(__dirname, '../../../packages/element
  * build css from scss imported from elements
  * then purge it by comparing it against all ts, tsx files in src/elements
  */
-const buildElementScss = async () => {
+exports.buildElementScss = async () => {
   const tempFolderPath = path.resolve(__dirname, './.temp')
   if (!fs.existsSync(tempFolderPath)) {
     fs.mkdirSync(tempFolderPath)
@@ -24,4 +24,4 @@ const buildElementScss = async () => {
   purifyCss(globElementSrc, css, purifyOptions)
 }
 
-module.exports = buildElementScss
+exports.buildCssFilePath = path.resolve(__dirname, './.temp/index.css')
