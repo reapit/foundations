@@ -37,6 +37,28 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      # Currently, actions/caches not support multiple paths https://github.com/actions/cache/issues/16
+      # Looks like they're working on it, let keep an eye on it
+      - uses: actions/cache@v1
+        with:
+          path: packages/aml-checklist/.webpack-cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+
+      - uses: actions/cache@v1
+        with:
+          path: packages/geo-diary/.webpack-cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+
+      - uses: actions/cache@v1
+        with:
+          path: packages/lifetime-legal/.webpack-cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+
+      - uses: actions/cache@v1
+        with:
+          path: packages/smb/.webpack-cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+
       - name: Set up workspace experimental
         run: |
           yarn config set workspaces-experimental true
@@ -66,4 +88,4 @@ jobs:
     steps:
       - uses: kentaro-m/auto-assign-action@v1.0.1
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
