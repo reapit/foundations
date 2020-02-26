@@ -65,7 +65,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   }
 
   if (!hasSession) {
-    console.log('no session, route', route)
     redirectToOAuth(cognitoClientId, route, type)
     return null
   }
