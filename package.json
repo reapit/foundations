@@ -19,7 +19,7 @@
     "lint:fix": "lerna run lint:fix --parallel --stream",
     "release:dev": "lerna run release:dev --parallel",
     "release:prod": "lerna run release:prod --parallel",
-    "test": "lerna run test:ci --parallel",
+    "test": "lerna run test:ci --parallel -- --runInBand",
     "test-e2e:ci": "lerna run test-e2e:ci --parallel"
   },
   "husky": {
