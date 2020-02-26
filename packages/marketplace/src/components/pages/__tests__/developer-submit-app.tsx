@@ -53,9 +53,13 @@ describe('DeveloperSubmitApp', () => {
           name: 'test',
           telephone: 'test',
           homePage: ['test', 'test'],
+          unknownField: 'test',
         })
 
       const wrapper = mount(<Component />)
+
+      const fieldUnknownNode = wrapper.find('[data-test="unknownField"]')
+      expect(fieldUnknownNode.text()).toBe('unknownField: test')
 
       const fieldHomePageNode = wrapper.find('[data-test="homePage"]')
       expect(fieldHomePageNode.text()).toBe(`${labelTextOfField['homePage']}: test, test`)
