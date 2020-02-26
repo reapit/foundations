@@ -4,16 +4,14 @@ import {
   Button,
   Grid,
   GridItem,
-  FlexContainerBasic,
   FormSection,
   FormHeading,
   FormSubHeading,
-  LevelRight,
-  FlexContainerResponsive,
   Formik,
   Form,
+  Content,
 } from '@reapit/elements'
-import styles from '@/styles/pages/admin-dev-management.scss?mod'
+import styles from '@/styles/pages/admin-apps.scss?mod'
 
 export interface AdminDevManagementFilterFormValues {
   name: string
@@ -29,34 +27,29 @@ export const AdminDevManagementFilterForm: React.FC<AdminDevManagementFilterForm
   filterValues,
   onSearch,
 }) => (
-  <FlexContainerBasic flexColumn className="pb-4">
-    <FlexContainerResponsive flexColumn hasBackground hasPadding className={styles.mx0}>
-      <Formik initialValues={filterValues} onSubmit={formValues => onSearch(formValues)}>
-        <Form noValidate={true}>
-          <FormSection>
-            <FormHeading>Developer Management Filter Form</FormHeading>
-            <FormSubHeading>Filter the result by Name and Company</FormSubHeading>
-            <Grid>
-              <GridItem>
-                <Input type="text" labelText="Name" id="name" name="name" />
-              </GridItem>
-              <GridItem>
-                <Input type="text" labelText="Company" id="company" name="company" />
-              </GridItem>
-            </Grid>
-          </FormSection>
-
-          <FormSection>
-            <LevelRight>
+  <Formik initialValues={filterValues} onSubmit={formValues => onSearch(formValues)}>
+    <Form noValidate={true}>
+      <FormSection>
+        <Content className={styles.contentBlock}>
+          <FormHeading>Developer Management Filter Form</FormHeading>
+          <FormSubHeading>Filter the result by Name and Company</FormSubHeading>
+          <Grid className="items-center">
+            <GridItem>
+              <Input type="text" labelText="Name" id="name" name="name" />
+            </GridItem>
+            <GridItem>
+              <Input type="text" labelText="Company" id="company" name="company" />
+            </GridItem>
+            <GridItem className="mt-4">
               <Button type="submit" variant="primary">
                 Search
               </Button>
-            </LevelRight>
-          </FormSection>
-        </Form>
-      </Formik>
-    </FlexContainerResponsive>
-  </FlexContainerBasic>
+            </GridItem>
+          </Grid>
+        </Content>
+      </FormSection>
+    </Form>
+  </Formik>
 )
 
 export default AdminDevManagementFilterForm

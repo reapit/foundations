@@ -8,7 +8,14 @@ export type AdminAppsFeaturedParams = {
   isFeatured: boolean
 }
 
-export const adminAppsRequestData = actionCreator<void>(ActionTypes.ADMIN_APPS_REQUEST_DATA)
+export type AdminAppsParams = {
+  pageNumber?: number
+  appName?: string
+  developerName?: string
+  companyName?: string
+}
+
+export const adminAppsRequestData = actionCreator<AdminAppsParams>(ActionTypes.ADMIN_APPS_REQUEST_DATA)
 export const adminAppsReceiveData = actionCreator<PagedResultAppSummaryModel_>(ActionTypes.ADMIN_APPS_RECEIVE_DATA)
 export const adminAppsRequestFailure = actionCreator<void>(ActionTypes.ADMIN_APPS_REQUEST_FAILURE)
 export const adminAppsRequestFeatured = actionCreator<AdminAppsFeaturedParams>(ActionTypes.ADMIN_APPS_REQUEST_FEATURED)

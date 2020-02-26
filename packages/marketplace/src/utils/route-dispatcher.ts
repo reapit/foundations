@@ -87,7 +87,7 @@ const routeDispatcher = async (route: RouteValue, params?: StringMap, search?: s
       store.dispatch(submitAppRequestData())
       break
     case Routes.ADMIN_APPS:
-      store.dispatch(adminAppsRequestData())
+      store.dispatch(adminAppsRequestData(getParamsFromPath(search || '')))
       break
     case Routes.SETTINGS:
       store.dispatch(requestDeveloperData())
