@@ -26,11 +26,12 @@ jobs:
         with:
           node-version: '10.x'
 
-      - name: Get yarn cache
+      - name: Get yarn cache location
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v1
+      - name: Get yarn cache
+        uses: actions/cache@v1
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
@@ -39,25 +40,36 @@ jobs:
 
       # Currently, actions/caches not support multiple paths https://github.com/actions/cache/issues/16
       # Looks like they're working on it, let keep an eye on it
-      - uses: actions/cache@v1
+      - name: Get marketplace build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/marketplace/.webpack-cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+
+      - name: Get aml-checklist build cache
+        uses: actions/cache@v1
         with:
           path: packages/aml-checklist/.webpack-cache
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
 
-      - uses: actions/cache@v1
+      - name: Get geo-diary build cache
+        uses: actions/cache@v1
         with:
           path: packages/geo-diary/.webpack-cache
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
 
-      - uses: actions/cache@v1
+      - name: Get lifetime-legal build cache
+        uses: actions/cache@v1
         with:
           path: packages/lifetime-legal/.webpack-cache
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
 
-      - uses: actions/cache@v1
+      - name: Get smb build cache
+        uses: actions/cache@v1
         with:
           path: packages/smb/.webpack-cache
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+      # End cache
 
       - name: Set up workspace experimental
         run: |
