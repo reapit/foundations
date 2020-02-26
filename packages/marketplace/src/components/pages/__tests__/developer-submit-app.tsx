@@ -18,6 +18,7 @@ import {
   handleSubmitModalViewDocs,
   handleBeforeSubmit,
   renderErrors,
+  labelTextOfField,
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
@@ -49,19 +50,22 @@ describe('DeveloperSubmitApp', () => {
     it('should errors correctly and not render FIELD_ERROR_DESCRIPTION', () => {
       const Component = () =>
         renderErrors({
-          field1: 'test',
-          field2: 'test',
-          fieldArr: ['test', 'test'],
+          name: 'test',
+          telephone: 'test',
+          homePage: ['test', 'test'],
         })
 
       const wrapper = mount(<Component />)
 
-      const fieldArr = wrapper.find('[data-test="fieldArr"]')
-      expect(fieldArr.text()).toBe('fieldArr: test, test')
-      const field1Node = wrapper.find('[data-test="field1"]')
-      expect(field1Node.text()).toBe('field1: test')
-      const field2Node = wrapper.find('[data-test="field2"]')
-      expect(field2Node.text()).toBe('field2: test')
+      const fieldHomePageNode = wrapper.find('[data-test="homePage"]')
+      expect(fieldHomePageNode.text()).toBe(`${labelTextOfField['homePage']}: test, test`)
+
+      const fieldNameNode = wrapper.find('[data-test="name"]')
+      expect(fieldNameNode.text()).toBe(`${labelTextOfField['name']}: test`)
+
+      const fieldTelephoneNode = wrapper.find('[data-test="telephone"]')
+      expect(fieldTelephoneNode.text()).toBe(`${labelTextOfField['telephone']}: test`)
+
       const headingNode = wrapper.find('h6')
       expect(headingNode.text()).toBe('The following validation errors have occurred:')
     })
