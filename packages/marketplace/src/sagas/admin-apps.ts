@@ -1,5 +1,4 @@
 import { put, fork, takeLatest, all, call, select } from '@redux-saga/core/effects'
-import qs from 'query-string'
 import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
@@ -17,10 +16,9 @@ import { AppDetailModel } from '@reapit/foundations-ts-definitions'
 import api from './api'
 import { logger } from 'logger'
 
-export const adminAppsFetch = function*() {
+export const adminAppsFetch = function*({ data }) {
   try {
-    const queryParams = qs.parse(window.location.search)
-    const response = yield call(api.fetchAdminApps, { params: queryParams })
+    const response = yield call(api.fetchAdminApps, { params: data })
     yield put(adminAppsReceiveData(response))
   } catch (err) {
     logger(err)
