@@ -5,7 +5,7 @@ import ActionTypes from '../constants/action-types'
 import { errorThrownServer } from '../actions/error'
 import errorMessages from '../constants/error-messages'
 import { URLS, MARKETPLACE_HEADERS } from '@/constants/api'
-import { APPS_PER_PAGE } from '@/constants/paginator'
+import { GET_ALL_PAGE_SIZE } from '@/constants/paginator'
 import { fetcher, setQueryParams } from '@reapit/elements'
 import { Action } from '@/types/core'
 import { Area } from '@/components/pages/admin-stats'
@@ -30,7 +30,7 @@ export const adminStatsDataFetch = function*({ data }) {
     }
     const response = yield call(fetcher, {
       url: `${url}?${setQueryParams({
-        pageSize: APPS_PER_PAGE,
+        pageSize: GET_ALL_PAGE_SIZE,
         ...queryParams,
       })}`,
       api: process.env.MARKETPLACE_API_BASE_URL as string,
