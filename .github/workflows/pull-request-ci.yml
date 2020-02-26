@@ -44,31 +44,31 @@ jobs:
         uses: actions/cache@v1
         with:
           path: packages/marketplace/.webpack-cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-marketplace
 
       - name: Get aml-checklist build cache
         uses: actions/cache@v1
         with:
           path: packages/aml-checklist/.webpack-cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-aml-checklist
 
       - name: Get geo-diary build cache
         uses: actions/cache@v1
         with:
           path: packages/geo-diary/.webpack-cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-geo-diary
 
       - name: Get lifetime-legal build cache
         uses: actions/cache@v1
         with:
           path: packages/lifetime-legal/.webpack-cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-lifetime-legal
 
       - name: Get smb build cache
         uses: actions/cache@v1
         with:
           path: packages/smb/.webpack-cache
-          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-smb
       # End cache
 
       - name: Set up workspace experimental
