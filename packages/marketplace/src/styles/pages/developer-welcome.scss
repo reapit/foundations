@@ -8,3 +8,9 @@
   margin: 0 auto;
   width: 100%;
 }
+
+.content {
+  @media (min-width: 769px) {
+    max-width: 375px;
+  }
+}
