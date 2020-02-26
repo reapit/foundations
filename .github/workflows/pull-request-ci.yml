@@ -89,11 +89,11 @@ jobs:
 
       - name: Build
         run: |
-          yarn build --parallel
+          yarn build
 
       - name: Test
         run: |
-          yarn test --parallel
+          yarn test
 
   add-reviews:
     runs-on: ubuntu-latest
