@@ -12,6 +12,7 @@ const hashFiles = require('../utils/hash-files')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 module.exports = {
+  mode: 'development',
   context: process.cwd(),
   entry: PATHS.entryWeb,
   output: {
