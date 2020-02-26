@@ -63,3 +63,4 @@ invite-developers.js
 
 # webpack cache
 .webpack-cache
+scripts/webpack/webpack-sass-prod/.temp/
