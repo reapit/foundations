@@ -4,14 +4,19 @@ exports[`AdminDevManagement should match a snapshot when LOADING false 1`] = `<C
 
 exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
 <Connect(ErrorBoundary)>
-  <Component>
+  <Component
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <Component>
+      App Management
+    </Component>
     <Component
-      className="mw-100"
-    >
-      <Component
-        filterValues={Object {}}
-        onSearch={[MockFunction]}
-      />
+      filterValues={Object {}}
+      onSearch={[MockFunction]}
+    />
+    <Component>
       <Component
         columns={
           Array [
@@ -50,10 +55,10 @@ exports[`AdminDevManagement should render blank Info when data is empty 1`] = `
         loading={false}
         scrollable={true}
       />
-      <Component
-        onChange={[MockFunction]}
-      />
     </Component>
+    <Component
+      onChange={[MockFunction]}
+    />
   </Component>
   <Connect(Component)
     afterClose={[Function]}

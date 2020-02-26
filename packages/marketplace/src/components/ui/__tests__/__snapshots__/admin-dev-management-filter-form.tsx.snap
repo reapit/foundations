@@ -1,55 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
-<Component
-  className="pb-4"
-  flexColumn={true}
+<Formik
+  initialValues={
+    Object {
+      "company": "company",
+      "name": "name",
+    }
+  }
+  onSubmit={[Function]}
 >
-  <Component
-    flexColumn={true}
-    hasBackground={true}
-    hasPadding={true}
+  <Form
+    noValidate={true}
   >
-    <Formik
-      initialValues={
-        Object {
-          "company": "company",
-          "name": "name",
-        }
-      }
-      onSubmit={[Function]}
-    >
-      <Form
-        noValidate={true}
-      >
+    <Component>
+      <Component>
         <Component>
-          <Component>
-            Developer Management Filter Form
-          </Component>
-          <Component>
-            Filter the result by Name and Company
-          </Component>
-          <Component>
-            <Component>
-              <Component
-                id="name"
-                labelText="Name"
-                name="name"
-                type="text"
-              />
-            </Component>
-            <Component>
-              <Component
-                id="company"
-                labelText="Company"
-                name="company"
-                type="text"
-              />
-            </Component>
-          </Component>
+          Developer Management Filter Form
         </Component>
         <Component>
+          Filter the result by Name and Company
+        </Component>
+        <Component
+          className="items-center"
+        >
           <Component>
+            <Component
+              id="name"
+              labelText="Name"
+              name="name"
+              type="text"
+            />
+          </Component>
+          <Component>
+            <Component
+              id="company"
+              labelText="Company"
+              name="company"
+              type="text"
+            />
+          </Component>
+          <Component
+            className="mt-4"
+          >
             <Component
               type="submit"
               variant="primary"
@@ -58,8 +51,8 @@ exports[`AdminDevManagementFilterForm should match a snapshot 1`] = `
             </Component>
           </Component>
         </Component>
-      </Form>
-    </Formik>
-  </Component>
-</Component>
+      </Component>
+    </Component>
+  </Form>
+</Formik>
 `;
