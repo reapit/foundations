@@ -8,6 +8,7 @@ const PATHS = {
   output: `${process.cwd()}/public/dist`,
   elementsSass: `${process.cwd()}/../elements/src/styles/**.scss`,
   elementsIndexSass: `${process.cwd()}/../elements/src/styles/index.scss`,
+  cacheWebpackDir: `${process.cwd()}/.webpack-cache`,
 }
 
 module.exports = {

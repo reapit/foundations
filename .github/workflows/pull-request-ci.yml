@@ -42,7 +42,9 @@ jobs:
         uses: actions/cache@v1
         with:
           path: scripts/jest/.jest-cache
-          key: ${{ runner.os }}-jest-cache
+          key: ${{ runner.os }}-jest-cache-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-jest-cache-
 
       # Currently, actions/caches does not support multiple paths https://github.com/actions/cache/issues/16
       # Looks like they're working on it, let's keep an eye on it

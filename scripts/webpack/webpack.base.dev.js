@@ -60,10 +60,12 @@ module.exports = {
       },
     }),
     new HardSourceWebpackPlugin({
-      cacheDirectory: path.join(process.cwd(), '.webpack-cache', 'hard-source/[confighash]'),
+      // each package has its own .webpack-cache
+      cacheDirectory: `${PATHS.cacheWebpackDir}/hard-source/[confighash]`,
       environmentHash: {
         root: path.join(__dirname, '../..'),
         directories: [],
+        // use yarn.lock at the root of the monorepo as hash, relative to this file
         files: ['yarn.lock'],
       },
     }),
@@ -76,7 +78,9 @@ module.exports = {
           {
             loader: 'cache-loader',
             options: {
-              cacheDirectory: path.join(process.cwd(), '.webpack-cache', 'cache-loader'),
+              // each package has its own .webpack-cache
+              cacheDirectory: `${PATHS.cacheWebpackDir}/cache-loader`,
+              // use yarn.lock at the root of the monorepo as hash, relative to this file
               cacheIdentifier: hashFiles([path.join(__dirname, '../..', 'yarn.lock')]),
             },
           },
