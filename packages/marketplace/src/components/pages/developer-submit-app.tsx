@@ -74,6 +74,22 @@ export interface SubmitAppMappedProps {
   categories: CategoryModel[]
 }
 
+export const labelTextOfField = {
+  name: 'Name',
+  supportEmail: 'Support email',
+  telephone: 'Telephone',
+  homePage: 'Home page',
+  launchUri: 'Launch URI',
+  summary: 'Summary',
+  description: 'Description',
+  redirectUris: 'Redirect URI(s)',
+  signoutUris: 'Sign Out URI(s)',
+  screen1ImageUrl: 'Screenshot 1',
+  iconImageUrl: 'Name',
+  scopes: 'Permissions',
+  authFlow: 'Authentication flow',
+}
+
 export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps & RouteComponentProps<{ appid?: string }>
 
 export const renderErrors = (errors: Record<string, string | string[]>) => {
@@ -98,14 +114,14 @@ export const renderErrors = (errors: Record<string, string | string[]>) => {
           if (typeof value === 'string') {
             return (
               <div data-test={key} key={key}>
-                {key}: {errors[key]}
+                {labelTextOfField[key] || key}: {errors[key]}
               </div>
             )
           }
 
           return (
             <div data-test={key} key={key}>
-              {key}: {(errors[key] as string[]).join(', ')}
+              {labelTextOfField[key] || key}: {(errors[key] as string[]).join(', ')}
             </div>
           )
         })}
