@@ -13,4 +13,3 @@ declare module '*.sass'
 declare module '*.jpg'
 declare module '*.png'
 
-declare module 'swagger-ui-react'

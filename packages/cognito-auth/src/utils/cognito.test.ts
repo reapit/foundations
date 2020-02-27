@@ -15,7 +15,7 @@ import {
 import { mockCognitoUserSession, mockLoginSession } from '../__mocks__/cognito-session'
 import hardtack from 'hardtack'
 import { LoginIdentity } from '../core/types'
-import { redirectToLogout } from '@reapit/cognito-auth'
+import { redirectToLogout } from './cognito'
 
 jest.mock('amazon-cognito-identity-js', () => require('../__mocks__/cognito-session').mockCognito)
 

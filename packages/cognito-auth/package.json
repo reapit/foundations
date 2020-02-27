@@ -35,5 +35,10 @@
     "hardtack": "^4.1.2",
     "jsonwebtoken": "^8.5.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@types/jsonwebtoken": "^8.3.5",
+    "compare-versions": "^3.5.1"
+  }
 }
