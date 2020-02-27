@@ -10,35 +10,48 @@ import { StringMap } from '../../types/core'
 
 export const handleOnComplete = setLoading => () => setLoading(false)
 
-export const fetchInterceptor = async (params: StringMap) => {
+export const fetchAccessToken = async (setAccessToken: React.Dispatch<React.SetStateAction<null | string>>) => {
+  const fetchedAccessToken = await getAccessToken()
+  setAccessToken(fetchedAccessToken)
+}
+
+export const fetchInterceptor = (params: StringMap, accessToken: string | null) => {
   if (params.url === process.env.SWAGGER_BASE_URL) {
     return params
   }
+
   return {
     ...params,
     headers: {
       'Content-Type': 'application/json',
       'api-version': 'latest',
-      Authorization: `Bearer ${await getAccessToken()}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   }
 }
 
 export const SwaggerPage: React.SFC = () => {
   const [loading, setLoading] = React.useState(true)
+  const [accessToken, setAccessToken] = React.useState()
+  const requestInterceptor = (params: StringMap) => fetchInterceptor(params, accessToken)
+
+  React.useEffect(() => {
+    fetchAccessToken(setAccessToken)
+  })
 
   return (
     <ErrorBoundary>
       <div className="swagger">
-        {loading && <Loader />}
+        {(loading || !accessToken) && <Loader />}
         <div className={`${loading ? 'swagger-loading' : ''}`}>
           <SwaggerUI
             url={process.env.SWAGGER_BASE_URL}
             onComplete={handleOnComplete(setLoading)}
             docExpansion="none"
-            requestInterceptor={fetchInterceptor}
+            requestInterceptor={requestInterceptor}
           />
         </div>
+
         <SandboxPopUp loading={loading} />
       </div>
     </ErrorBoundary>
