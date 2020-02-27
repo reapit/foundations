@@ -19,7 +19,7 @@ import { ApolloProvider } from '@apollo/react-hooks'
 import '@/styles/index.scss'
 <% } else { %>
 import { createGlobalStyle } from 'styled-components'
-  import globalCss from 'raw-loader!@reapit/elements/dist/index.css'
+import globalCss from 'raw-loader!@reapit/elements/dist/index.css'
   const GlobalStyle = createGlobalStyle`
   ${globalCss};
   body {

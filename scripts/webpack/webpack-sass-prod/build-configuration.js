@@ -1,7 +1,6 @@
 const webpackBase = require('../webpack.base.prod')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const path = require('path')
-const buildCssFilePath = path.resolve(__dirname, './.temp/index.css')
+const { buildCssFilePath } = require('../build-element-scss')
 
 module.exports = {
   ...{

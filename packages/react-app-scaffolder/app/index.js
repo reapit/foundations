@@ -20,7 +20,7 @@ module.exports = class extends Generator {
         await exec(`yarn`)
       }
 
-      const prettierConfigPath = path.resolve(__dirname, '../../../../.prettierrc.js')
+      const prettierConfigPath = path.resolve(__dirname, '../../../.prettierrc.js')
       await exec(`yarn prettier --write ./package.json`)
       await exec(`yarn prettier "**/*.ts" "**/*.tsx" --write`)
       this.log(yosay('App installed successfully!'))
@@ -117,6 +117,7 @@ module.exports = class extends Generator {
         redux,
         graphql,
         stylesSolution,
+        isFoundation
       })
 
       this.fs.copyTpl(this.templatePath('_package.json'), this.destinationPath('package.json'), {
@@ -211,12 +212,12 @@ module.exports = class extends Generator {
         message: 'Enter the client id for your app (you will need to submit a template app to do this)',
         default: '',
       },
-      // {
-      //   type: 'confirm',
-      //   name: 'isFoundation',
-      //   message: 'Is this project for internal use (mono-repo)',
-      //   default: false,
-      // },
+      {
+        type: 'confirm',
+        name: 'isFoundation',
+        message: 'Is this project for internal use (mono-repo)',
+        default: true,
+      },
       {
         type: 'list',
         name: 'stylesSolution',
@@ -243,7 +244,6 @@ module.exports = class extends Generator {
       },
     ])
 
-    this.answers.isFoundation = false
     this.answers.azure = false
 
     const { stateManagementStyle, stylesSolution } = this.answers
@@ -276,7 +276,7 @@ module.exports = class extends Generator {
      * else current path
      */
     if (this.answers.isFoundation) {
-      this.packagePath = path.resolve(__dirname, `../../../${this.answers.name}`)
+      this.packagePath = path.resolve(__dirname, `../../${this.answers.name}`)
       /**
        * create directory if not
        */
