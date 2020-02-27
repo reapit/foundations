@@ -1,5 +1,12 @@
 import { history } from '@/core/router'
-import { addQuery, removeQuery, getParamsFromPath, getParamValueFromPath, hasFilterParams } from '../client-url-params'
+import {
+  addQuery,
+  removeQuery,
+  getParamsFromPath,
+  getParamValueFromPath,
+  hasFilterParams,
+  stringifyObjectIntoQueryString,
+} from '../client-url-params'
 
 describe('addQuery', () => {
   it('should return correct route path', () => {
@@ -19,6 +26,16 @@ describe('removeQuery', () => {
   it("do nothing if url doesn't contain param", () => {
     const query = ['otherParam']
     expect(removeQuery(query)).toEqual('/client/apps?search=hello')
+  })
+})
+
+describe('stringifyObjectIntoQueryString', () => {
+  it('should run correctly', () => {
+    const params = {
+      name: 'test',
+      request: 5,
+    }
+    expect(stringifyObjectIntoQueryString(params)).toEqual('name=test&request=5')
   })
 })
 

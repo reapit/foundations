@@ -10,12 +10,12 @@ import {
   Alert,
 } from '@reapit/elements'
 import { withRouter, RouteComponentProps } from 'react-router'
-import queryString from 'query-string'
 import { ApolloError } from 'apollo-boost'
 import { ContactModel } from '@reapit/foundations-ts-definitions'
 import { useQuery } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import { CONTACTS } from './contacts.graphql'
+import { stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
 
 export type PagedResult = {
   _embedded?: ContactModel[]
@@ -121,7 +121,7 @@ export const renderContent = ({ loading, error, contacts, handleChangePage }: Re
 }
 
 export const handleChangePage = ({ history }) => (pageNumber: number) => {
-  const searchParams = queryString.stringify({
+  const searchParams = stringifyObjectIntoQueryString({
     page: pageNumber,
   })
   history.push({
@@ -130,7 +130,7 @@ export const handleChangePage = ({ history }) => (pageNumber: number) => {
 }
 
 export const Home: React.FC<RouteComponentProps> = ({ location, history }: RouteComponentProps) => {
-  const params = queryString.parse(location?.search)
+  const params = getParamsFromPath(location?.search)
   const page = Number(params?.page) || 1
   const { loading, error, data } = useQuery<ContactQueryResponse, ContactQueryParams>(CONTACTS, {
     variables: { pageSize: 10, pageNumber: page },
