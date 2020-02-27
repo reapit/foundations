@@ -1,3 +1,4 @@
+const path = require('path')
 const { defaults } = require('jest-config')
 
 module.exports = {
@@ -29,4 +30,5 @@ module.exports = {
     },
   },
   coverageReporters: ['json-summary', 'text', 'lcov'],
+  cacheDirectory: path.join(__dirname, '.jest-cache'),
 }

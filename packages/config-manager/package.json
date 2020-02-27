@@ -17,7 +17,8 @@
     "config-manager": "./src/cli.js"
   },
   "scripts": {
-    "release:prod": "node ../../scripts/release/release-npm.js @reapit/config-manager"
+    "release:prod": "node ../../scripts/release/release-npm.js @reapit/config-manager",
+    "lint": "eslint --cache --ext=js src"
   },
   "dependencies": {
     "aws-sdk": "^2.582.0"

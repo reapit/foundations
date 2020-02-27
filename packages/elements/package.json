@@ -20,13 +20,14 @@
   "module": "dist/elements.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build:prod": "rimraf dist && rimraf out && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c && build-storybook -o out",
+    "build:prod": "concurrently \"rimraf dist && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c\" \"rimraf out && build-storybook -o out\"",
     "release:prod": "node ../../scripts/release/release-npm.js elements",
     "start:dev": "start-storybook -p 6006",
     "start:prod": "cross-env NODE_ENV=development tsdx watch",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\""
   },
   "browserslist": [
     "> 1%",
