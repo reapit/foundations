@@ -54,8 +54,6 @@
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
-    "@types/papaparse": "^5.0.3",
-    "@types/jsonwebtoken": "^8.3.5",
     "@reapit/foundations-ts-definitions": "2020-02-13",
     "@storybook/addon-actions": "^5.2.6",
     "@storybook/addon-docs": "^5.2.6",
@@ -70,6 +68,8 @@
     "@storybook/storybook-deployer": "^2.8.1",
     "@storybook/theming": "^5.2.8",
     "@types/googlemaps": "^3.37.5",
+    "@types/jsonwebtoken": "^8.3.5",
+    "@types/papaparse": "^5.0.3",
     "rollup": "1.27.13",
     "rollup-plugin-scss": "^1.0.2"
   },
