@@ -202,7 +202,7 @@ exports[`Login Login should match a snapshot 1`] = `
               ],
               "kind": "Document",
               "loc": Object {
-                "end": 232,
+                "end": 226,
                 "source": Object {
                   "body": "mutation LOGIN($userName: String!, $password: String!, $loginType:LoginType!, $mode: LoginMode!) {
   login(userName: $userName, password: $password, loginType: $loginType, mode: $mode ){
@@ -413,7 +413,7 @@ exports[`Login Login should match a snapshot 1`] = `
             ],
             "kind": "Document",
             "loc": Object {
-              "end": 232,
+              "end": 226,
               "source": Object {
                 "body": "mutation LOGIN($userName: String!, $password: String!, $loginType:LoginType!, $mode: LoginMode!) {
   login(userName: $userName, password: $password, loginType: $loginType, mode: $mode ){
@@ -688,7 +688,7 @@ exports[`Login Login should match a snapshot 1`] = `
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 232,
+                        "end": 226,
                         "source": Object {
                           "body": "mutation LOGIN($userName: String!, $password: String!, $loginType:LoginType!, $mode: LoginMode!) {
   login(userName: $userName, password: $password, loginType: $loginType, mode: $mode ){
@@ -899,7 +899,7 @@ exports[`Login Login should match a snapshot 1`] = `
                     ],
                     "kind": "Document",
                     "loc": Object {
-                      "end": 232,
+                      "end": 226,
                       "source": Object {
                         "body": "mutation LOGIN($userName: String!, $password: String!, $loginType:LoginType!, $mode: LoginMode!) {
   login(userName: $userName, password: $password, loginType: $loginType, mode: $mode ){
@@ -1217,7 +1217,7 @@ exports[`Login Login should match a snapshot 1`] = `
                         ],
                         "kind": "Document",
                         "loc": Object {
-                          "end": 232,
+                          "end": 226,
                           "source": Object {
                             "body": "mutation LOGIN($userName: String!, $password: String!, $loginType:LoginType!, $mode: LoginMode!) {
   login(userName: $userName, password: $password, loginType: $loginType, mode: $mode ){
@@ -1428,7 +1428,7 @@ exports[`Login Login should match a snapshot 1`] = `
                       ],
                       "kind": "Document",
                       "loc": Object {
-                        "end": 232,
+                        "end": 226,
                         "source": Object {
                           "body": "mutation LOGIN($userName: String!, $password: String!, $loginType:LoginType!, $mode: LoginMode!) {
   login(userName: $userName, password: $password, loginType: $loginType, mode: $mode ){
