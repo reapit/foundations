@@ -36,7 +36,6 @@
   ],
   "dependencies": {
     "@storybook/theming": "^5.2.8",
-    "@types/papaparse": "^5.0.3",
     "bulma": "^0.7.5",
     "formik": "^2.0.4",
     "gh-pages": "^2.2.0",
@@ -55,7 +54,24 @@
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
-    "@reapit/foundations-ts-definitions": "2020-02-13"
+    "@reapit/foundations-ts-definitions": "2020-02-13",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-docs": "^5.2.6",
+    "@storybook/addon-info": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addon-storysource": "^5.2.6",
+    "@storybook/addon-viewport": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/cli": "^5.2.6",
+    "@storybook/preset-typescript": "^1.1.0",
+    "@storybook/react": "^5.2.6",
+    "@storybook/storybook-deployer": "^2.8.1",
+    "@storybook/theming": "^5.2.8",
+    "@types/googlemaps": "^3.37.5",
+    "@types/jsonwebtoken": "^8.3.5",
+    "@types/papaparse": "^5.0.3",
+    "rollup": "1.27.13",
+    "rollup-plugin-scss": "^1.0.2"
   },
   "peerDependencies": {
     "react": "^16.11.0",
