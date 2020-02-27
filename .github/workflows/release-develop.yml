@@ -62,3 +62,42 @@ jobs:
       - name: Release Develop
         run: |
           yarn release:dev
+
+      # write cache for reuse across branches, not using cache for building here
+      - name: Write jest cache
+        uses: actions/cache@v1
+        with:
+          path: scripts/jest/.jest-cache
+          key: ${{ runner.os }}-jest-cache-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-jest-cache-
+      - name: Write marketplace build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/marketplace/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-marketplace
+
+      - name: Write aml-checklist build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/aml-checklist/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-aml-checklist
+
+      - name: Write geo-diary build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/geo-diary/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-geo-diary
+
+      - name: Write lifetime-legal build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/lifetime-legal/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-lifetime-legal
+
+      - name: Write smb build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/smb/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-smb
+      # End cache
