@@ -8,8 +8,11 @@ const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
 const config = require(PATHS.config)
+const hashFiles = require('../utils/hash-files')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 module.exports = {
+  mode: 'development',
   context: process.cwd(),
   entry: PATHS.entryWeb,
   output: {
@@ -56,12 +59,31 @@ module.exports = {
         windows: false,
       },
     }),
+    new HardSourceWebpackPlugin({
+      // each package has its own .webpack-cache
+      cacheDirectory: `${PATHS.cacheWebpackDir}/hard-source/[confighash]`,
+      environmentHash: {
+        root: path.join(__dirname, '../..'),
+        directories: [],
+        // use yarn.lock at the root of the monorepo as hash, relative to this file
+        files: ['yarn.lock'],
+      },
+    }),
   ],
   module: {
     rules: [
       {
         test: /.tsx?$/,
         use: [
+          {
+            loader: 'cache-loader',
+            options: {
+              // each package has its own .webpack-cache
+              cacheDirectory: `${PATHS.cacheWebpackDir}/cache-loader`,
+              // use yarn.lock at the root of the monorepo as hash, relative to this file
+              cacheIdentifier: hashFiles([path.join(__dirname, '../..', 'yarn.lock')]),
+            },
+          },
           {
             loader: 'ts-loader',
             options: { transpileOnly: true },

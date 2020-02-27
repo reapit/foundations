@@ -26,16 +26,58 @@ jobs:
         with:
           node-version: '10.x'
 
-      - name: Get yarn cache
+      - name: Get yarn cache location
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - uses: actions/cache@v1
+      - name: Get yarn cache
+        uses: actions/cache@v1
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
+      - name: Get jest cache
+        uses: actions/cache@v1
+        with:
+          path: scripts/jest/.jest-cache
+          key: ${{ runner.os }}-jest-cache-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-jest-cache-
+
+      # Currently, actions/caches does not support multiple paths https://github.com/actions/cache/issues/16
+      # Looks like they're working on it, let's keep an eye on it
+      - name: Get marketplace build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/marketplace/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-marketplace
+
+      - name: Get aml-checklist build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/aml-checklist/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-aml-checklist
+
+      - name: Get geo-diary build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/geo-diary/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-geo-diary
+
+      - name: Get lifetime-legal build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/lifetime-legal/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-lifetime-legal
+
+      - name: Get smb build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/smb/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-smb
+      # End cache
 
       - name: Set up workspace experimental
         run: |
@@ -55,15 +97,15 @@ jobs:
 
       - name: Build
         run: |
-          yarn build --parallel
+          yarn build
 
       - name: Test
         run: |
-          yarn test --parallel
+          yarn test
 
   add-reviews:
     runs-on: ubuntu-latest
     steps:
       - uses: kentaro-m/auto-assign-action@v1.0.1
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
