@@ -16,7 +16,7 @@
     "build": "lerna run build:prod --parallel",
     "fetch-config": "yarn config-manager getSecret reapit-marketplace-app-config",
     "lint": "lerna run lint --parallel --stream",
-    "lint:fix": "lerna run lint:fix --parallel --stream",
+    "lint:fix": "lerna run --parallel --stream lint:fix --",
     "release:dev": "lerna run release:dev --parallel",
     "release:prod": "lerna run release:prod --parallel",
     "test": "lerna run test:ci --parallel -- --runInBand",
