@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
+    "build:prod": "node ../../scripts/webpack/webpack-sass-prod/index.js",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",

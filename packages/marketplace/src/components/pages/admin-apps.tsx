@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import qs from 'query-string'
 import { withRouter, RouteComponentProps } from 'react-router'
 import { ReduxState } from '@/types/core'
 import {
@@ -28,7 +27,7 @@ import { selectAdminAppsState } from '@/selector/admin'
 import { Dispatch, compose } from 'redux'
 import { adminAppsRequestFeatured, AdminAppsFeaturedParams } from '@/actions/admin-apps'
 import AppDeleteModal from '../ui/app-delete'
-import { addQuery } from '@/utils/client-url-params'
+import { addQuery, stringifyObjectIntoQueryString, getParamsFromPath } from '@/utils/client-url-params'
 
 export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal }) => () => {
   const FeaturedCell = ({ row, cell }) => {
@@ -156,7 +155,7 @@ export const handleOnSubmit = (history, pageNumber: number) => (formValues: Form
     }
     return newObj
   }, {})
-  const queryString = qs.stringify({ ...submitValues, pageNumber })
+  const queryString = stringifyObjectIntoQueryString({ ...submitValues, pageNumber })
   history.push(`apps?${queryString}`)
 }
 
@@ -172,7 +171,7 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
   history,
   location,
 }) => {
-  const queryParams = qs.parse(location.search) as any
+  const queryParams = getParamsFromPath(location.search) as any
   const pageNumber = parseInt(queryParams.pageNumber, 10) || 1
   const unfetched = !adminAppsState.adminAppsData
   const { loading } = adminAppsState

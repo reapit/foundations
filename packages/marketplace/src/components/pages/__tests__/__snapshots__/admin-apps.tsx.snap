@@ -74,7 +74,7 @@ exports[`AdminApps should match a snapshot when LOADING false 1`] = `
       <Formik
         initialValues={
           Object {
-            "page": "1",
+            "page": 1,
           }
         }
         onSubmit={[Function]}
@@ -220,7 +220,7 @@ exports[`AdminApps should match a snapshot when LOADING true 1`] = `
       <Formik
         initialValues={
           Object {
-            "page": "1",
+            "page": 1,
           }
         }
         onSubmit={[Function]}
