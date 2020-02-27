@@ -47,7 +47,10 @@
     "react-icons": "^3.7.0",
     "styled-components": "^4.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/little-loader": "^0.2.0",
+    "@types/lodash.merge": "^4.6.6"
+  },
   "peerDependencies": {
     "react": "^16.10.2",
     "react-dom": "^16.10.2"

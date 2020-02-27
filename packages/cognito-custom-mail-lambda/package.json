@@ -30,5 +30,8 @@
     "aws-lambda": "^1.0.5",
     "ejs": "^3.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.39",
+    "@types/ejs": "^2.7.0"
+  }
 }
