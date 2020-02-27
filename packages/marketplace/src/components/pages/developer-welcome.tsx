@@ -21,7 +21,7 @@ export type DeveloperWelcomeMessageProps = DevelopeWelcomeMappedActions
 export const Welcome = () => {
   const { goNext } = useHelpGuideContext()
   return (
-    <div>
+    <div className={styles.content}>
       <p className="mb-5">
         Thank you for registering as a Reapit Foundations Developer. Within this portal, you will have access to
         detailed documentation on all our APIs, full access to Reapit elements and Sandbox data. All available to assist
@@ -42,7 +42,7 @@ export const Documentation = () => {
   const { goNext, goPrev } = useHelpGuideContext()
 
   return (
-    <div>
+    <div className={styles.content}>
       <p className="mb-5">
         As Developers, we know detailed documentation and support is paramount when building any application. Therefore,
         we have created various sections to provide additional help and support. Each section can be accessed from the
@@ -102,7 +102,7 @@ export const Documentation = () => {
 export const Submitting = () => {
   const { goNext, goPrev } = useHelpGuideContext()
   return (
-    <div>
+    <div className={styles.content}>
       <p className="mb-5">
         Once you are ready to go, you will need to submit your App. Using the &lsquo;Submit App&rsquo; option on the
         left, you will need to tell us about your Application, such as what permissions it requires, the type of
@@ -130,7 +130,7 @@ export const Submitting = () => {
 export const Managing = () => {
   const { goNext, goPrev } = useHelpGuideContext()
   return (
-    <div>
+    <div className={styles.content}>
       <p className="mb-5">
         If you need to make a change to your App, such as update a screenshot, edit text, or request additional
         permissions, you can do so by clicking &lsquo;Edit App&rsquo; from the &lsquo;Apps&rsquo; page. Any change will
@@ -154,7 +154,7 @@ export const Managing = () => {
 export const Support = ({ onAccept }) => {
   const { goPrev } = useHelpGuideContext()
   return (
-    <div>
+    <div className={styles.content}>
       <p className="mb-5">
         You are currently logged into our alpha release of Reapit Foundations and we are continuing to update, add
         additional features and address any issues that may appear. In the meantime, if you would like to request a

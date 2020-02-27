@@ -10,12 +10,13 @@ import ErrorBoundary from '@/components/hocs/error-boundary'
 import {
   Pagination,
   Table,
-  FlexContainerResponsive,
   Button,
   Loader,
-  Section,
   setQueryParams,
   Helper,
+  FlexContainerBasic,
+  H3,
+  Content,
 } from '@reapit/elements'
 import Routes from '@/constants/routes'
 import AdminDevManagementFilterForm, {
@@ -25,7 +26,7 @@ import AdminSetDeveloperStatusModal from '@/components/ui/developer-set-status'
 import { DeveloperModel } from '@reapit/foundations-ts-definitions'
 import { adminDevManagementRequestData, AdminDevManagementRequestDataValues } from '@/actions/admin-dev-management'
 import qs from 'querystring'
-import styles from '@/styles/pages/admin-dev-management.scss?mod'
+import styles from '@/styles/pages/admin-apps.scss?mod'
 
 export interface AdminDevManagementMappedActions {
   fetchData: (requestdata: AdminDevManagementRequestDataValues) => void
@@ -110,7 +111,7 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
         <Helper variant="info">
           Unfortunately, there are no results that match your search criteria, please try again
         </Helper>
-        <Link className={styles.textCenter} to="/admin/dev-management">
+        <Link className="text-center" to="/admin/dev-management">
           <Button variant="primary" type="button">
             New Search
           </Button>
@@ -121,18 +122,19 @@ export const AdminDevManagement: React.FC<AdminDevManagementProps> = ({
 
   return (
     <ErrorBoundary>
-      <FlexContainerResponsive>
-        <Section className="mw-100">
-          <AdminDevManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
+      <FlexContainerBasic flexColumn hasBackground hasPadding>
+        <H3>App Management</H3>
+        <AdminDevManagementFilterForm filterValues={filterValues} onSearch={onSearch} />
+        <Content className={styles.contentBlock}>
           <Table scrollable={true} loading={false} data={data.data} columns={columns} />
-          <Pagination
-            onChange={onPageChange}
-            totalCount={data.totalCount}
-            pageSize={data.pageSize}
-            pageNumber={data.pageNumber}
-          />
-        </Section>
-      </FlexContainerResponsive>
+        </Content>
+        <Pagination
+          onChange={onPageChange}
+          totalCount={data.totalCount}
+          pageSize={data.pageSize}
+          pageNumber={data.pageNumber}
+        />
+      </FlexContainerBasic>
 
       <AdminSetDeveloperStatusModal
         visible={isSetStatusModalOpen}

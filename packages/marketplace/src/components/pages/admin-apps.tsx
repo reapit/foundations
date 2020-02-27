@@ -8,7 +8,6 @@ import {
   Pagination,
   Table,
   Button,
-  FlexContainerResponsive,
   Alert,
   Input,
   H3,
@@ -19,6 +18,8 @@ import {
   FormSection,
   FormHeading,
   FormSubHeading,
+  Content,
+  FlexContainerBasic,
 } from '@reapit/elements'
 import ErrorBoundary from '@/components/hocs/error-boundary'
 import { AdminAppsState } from '@/reducers/admin-apps'
@@ -27,6 +28,7 @@ import { selectAdminAppsState } from '@/selector/admin'
 import { Dispatch, compose } from 'redux'
 import { adminAppsRequestFeatured, AdminAppsFeaturedParams } from '@/actions/admin-apps'
 import AppDeleteModal from '../ui/app-delete'
+import { addQuery } from '@/utils/client-url-params'
 
 export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal }) => () => {
   const FeaturedCell = ({ row, cell }) => {
@@ -99,8 +101,8 @@ export const generateColumns = ({ onChangeFeatured, setDeleteModal, deleteModal 
 }
 
 export const refreshForm = (onSubmit, resetForm) => () => {
-  onSubmit({ appName: '', companyName: '', developerName: '' })
   resetForm()
+  onSubmit({ appName: '', companyName: '', developerName: '' })
 }
 
 export const renderForm = onSubmit => ({ values, resetForm }) => {
@@ -108,27 +110,29 @@ export const renderForm = onSubmit => ({ values, resetForm }) => {
   return (
     <Form>
       <FormSection>
-        <FormHeading>Admin Apps Filter Form</FormHeading>
-        <FormSubHeading>Filter the result by App, Developer and Company</FormSubHeading>
-        <Grid>
-          <GridItem className={styles.filterBlock}>
-            <Input type="text" name="appName" id="appName" labelText="App Name" />
-          </GridItem>
-          <GridItem className={styles.filterBlock}>
-            <Input type="text" name="developerName" id="developerName" labelText="Developer Name" />
-          </GridItem>
-          <GridItem className={styles.filterBlock}>
-            <Input type="text" name="companyName" id="companyName" labelText="Company Name" />
-          </GridItem>
-          <GridItem className={styles.filterButton}>
-            <Button type="submit" variant="primary" disabled={disabled}>
-              Search
-            </Button>
-            <Button type="button" variant="primary" onClick={refreshForm(onSubmit, resetForm)}>
-              Refresh
-            </Button>
-          </GridItem>
-        </Grid>
+        <Content className={styles.contentBlock}>
+          <FormHeading>Admin Apps Filter Form</FormHeading>
+          <FormSubHeading>Filter the result by App, Developer and Company</FormSubHeading>
+          <Grid>
+            <GridItem>
+              <Input type="text" name="appName" id="appName" labelText="App Name" />
+            </GridItem>
+            <GridItem>
+              <Input type="text" name="developerName" id="developerName" labelText="Developer Name" />
+            </GridItem>
+            <GridItem>
+              <Input type="text" name="companyName" id="companyName" labelText="Company Name" />
+            </GridItem>
+            <GridItem className={styles.filterButton}>
+              <Button type="submit" variant="primary" disabled={disabled}>
+                Search
+              </Button>
+              <Button type="button" variant="primary" onClick={refreshForm(onSubmit, resetForm)}>
+                Refresh
+              </Button>
+            </GridItem>
+          </Grid>
+        </Content>
       </FormSection>
     </Form>
   )
@@ -145,8 +149,19 @@ export type FormValues = {
 }
 
 export const handleOnSubmit = (history, pageNumber: number) => (formValues: FormValues) => {
-  const queryString = qs.stringify({ ...formValues, pageNumber })
+  const submitValues = Object.keys(formValues).reduce((newObj, key) => {
+    const value = formValues[key]
+    if (value) {
+      newObj[key] = value
+    }
+    return newObj
+  }, {})
+  const queryString = qs.stringify({ ...submitValues, pageNumber })
   history.push(`apps?${queryString}`)
+}
+
+export const handleChangePageNumber = history => (pageNumber: number) => {
+  history.push(addQuery({ pageNumber }))
 }
 
 export type AdminAppsProps = DispatchProps & StateProps
@@ -157,11 +172,11 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
   history,
   location,
 }) => {
+  const queryParams = qs.parse(location.search) as any
+  const pageNumber = parseInt(queryParams.pageNumber, 10) || 1
   const unfetched = !adminAppsState.adminAppsData
   const { loading } = adminAppsState
   const { data = [], totalCount, pageSize } = adminAppsState.adminAppsData || {}
-  const queryParams = qs.parse(location.search) as any
-  const [pageNumber, setPageNumber] = React.useState<number>(queryParams.pageNumber || 1)
   const [deleteModal, setDeleteModal] = React.useState({ visible: false, appId: '', appName: '', developerName: '' })
   const columns = React.useMemo(generateColumns({ onChangeFeatured, setDeleteModal, deleteModal }), [data])
 
@@ -171,27 +186,34 @@ export const AdminApps: React.FunctionComponent<AdminAppsProps> = ({
 
   return (
     <ErrorBoundary>
-      <FlexContainerResponsive flexColumn data-test="revision-list-container">
+      <FlexContainerBasic hasPadding flexColumn hasBackground data-test="revision-list-container">
         {loading && (
           <div className="pin absolute flex items-center justify-center">
             <Loader />
           </div>
         )}
         <div className="mb-5">
-          <H3>Admin Apps</H3>
+          <H3>App Management</H3>
           <Formik initialValues={queryParams} onSubmit={handleOnSubmit(history, pageNumber)}>
             {renderForm(handleOnSubmit(history, pageNumber))}
           </Formik>
         </div>
-        {!loading && !data.length ? (
-          <Alert message="You currently have no apps listed " type="info" />
-        ) : (
-          <div className="mb-5">
-            <Table scrollable={true} loading={false} data={data} columns={columns} />
-          </div>
-        )}
-        <Pagination onChange={setPageNumber} totalCount={totalCount} pageSize={pageSize} pageNumber={pageNumber} />
-      </FlexContainerResponsive>
+        <div className={styles.contentBlock}>
+          {!loading && !data.length ? (
+            <Alert message="You currently have no apps listed " type="info" />
+          ) : (
+            <div className="mb-5">
+              <Table scrollable={true} loading={false} data={data} columns={columns} />
+            </div>
+          )}
+        </div>
+        <Pagination
+          onChange={handleChangePageNumber(history)}
+          totalCount={totalCount}
+          pageSize={pageSize}
+          pageNumber={pageNumber}
+        />
+      </FlexContainerBasic>
       <AppDeleteModal
         appId={deleteModal.appId}
         appName={deleteModal.appName}

@@ -21,7 +21,9 @@ export function getDefaultRouteByLoginType(loginType: LoginType, firstLoginCooki
         ? `${window.location.origin}${Routes.DEVELOPER_WELCOME}`
         : `${window.location.origin}${Routes.DEVELOPER_MY_APPS}`
     default:
-      return `${window.location.origin}${Routes.INSTALLED_APPS}`
+      return !firstLoginCookie
+        ? `${window.location.origin}${Routes.CLIENT_WELCOME}`
+        : `${window.location.origin}${Routes.INSTALLED_APPS}`
   }
 }
 
@@ -43,6 +45,6 @@ export function getDefaultPathByLoginType(loginType: LoginType, firstLoginCookie
     case 'DEVELOPER':
       return !firstLoginCookie ? Routes.DEVELOPER_WELCOME : Routes.DEVELOPER_MY_APPS
     default:
-      return Routes.INSTALLED_APPS
+      return !firstLoginCookie ? Routes.CLIENT_WELCOME : Routes.INSTALLED_APPS
   }
 }

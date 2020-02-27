@@ -19,11 +19,17 @@ import api from '../api'
 
 jest.mock('@reapit/elements')
 
+const params = {
+  data: {
+    pageNumber: 1,
+  },
+}
+
 describe('adminAppsFetch', () => {
-  const gen = cloneableGenerator(adminAppsFetch)()
+  const gen = cloneableGenerator(adminAppsFetch)(params)
   expect(gen.next().value).toEqual(
     call(api.fetchAdminApps, {
-      params: {},
+      params: params.data,
     }),
   )
 
