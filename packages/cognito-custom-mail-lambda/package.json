@@ -9,7 +9,7 @@
   "scripts": {
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "build:prod": "rimraf dist && tsc --p tsconfig.json && cp -rf ./src/mailer/templates/ejs ./dist/mailer/templates/ejs",
+    "build:prod": "rimraf dist && tsc --p tsconfig.json && rimraf dist/mailer/templates/ejs && ncp ./src/mailer/templates/ejs ./dist/mailer/templates/ejs",
     "release:dev": "cross-env CI=true serverless deploy --stage dev",
     "release:prod": "node ../../scripts/release/release-serverless.js cognito-custom-mail-lambda",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",

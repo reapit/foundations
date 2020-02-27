@@ -191,6 +191,7 @@
     "loader-utils": "^1.2.3",
     "mini-css-extract-plugin": "^0.7.0",
     "mockdate": "^2.0.5",
+    "ncp": "^2.0.0",
     "node-sass": "^4.12.0",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
