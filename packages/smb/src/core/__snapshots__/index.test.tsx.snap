@@ -1561,7 +1561,7 @@ exports[`App should match a snapshot 1`] = `
         ],
         "kind": "Document",
         "loc": Object {
-          "end": 1872,
+          "end": 1963,
           "source": Object {
             "body": "type Query {
   # contact
