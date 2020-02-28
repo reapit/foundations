@@ -75,29 +75,28 @@ jobs:
         uses: actions/cache@v1
         with:
           path: packages/marketplace/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-marketplace
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-marketplace
 
       - name: Write aml-checklist build cache
         uses: actions/cache@v1
         with:
           path: packages/aml-checklist/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-aml-checklist
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-aml-checklist
 
       - name: Write geo-diary build cache
         uses: actions/cache@v1
         with:
           path: packages/geo-diary/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-geo-diary
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-geo-diary
 
       - name: Write lifetime-legal build cache
         uses: actions/cache@v1
         with:
           path: packages/lifetime-legal/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-lifetime-legal
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-lifetime-legal
 
       - name: Write smb build cache
         uses: actions/cache@v1
         with:
           path: packages/smb/.webpack-cache
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**')}}-smb
-      # End cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-smb
