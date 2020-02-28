@@ -21,13 +21,13 @@ afterEach(() => {
 
 describe('callGetAreaByIdAPI', () => {
   it('should return area when success', async () => {
-    ;(fetcher as any).mockImplementation(() => Promise.resolve(area))
+    ;(fetcher as jest.Mock).mockImplementation(() => Promise.resolve(area))
     const result = await callGetAreaByIdAPI({ id: area.id }, mockContext)
     expect(result).toEqual(area)
   })
 
   it('should catch when fail', async () => {
-    ;(fetcher as any).mockImplementation(() => Promise.reject('error'))
+    ;(fetcher as jest.Mock).mockImplementation(() => Promise.reject('error'))
     try {
       await callGetAreaByIdAPI({ id: area.id }, mockContext)
     } catch (error) {
@@ -38,13 +38,13 @@ describe('callGetAreaByIdAPI', () => {
 
 describe('callGetAreasAPI', () => {
   it('should return areas when success', async () => {
-    ;(fetcher as any).mockImplementation(() => Promise.resolve(areas))
+    ;(fetcher as jest.Mock).mockImplementation(() => Promise.resolve(areas))
     const result = await callGetAreasAPI({}, mockContext)
     expect(result).toEqual(areas)
   })
 
   it('should catch when fail', async () => {
-    ;(fetcher as any).mockImplementation(() => Promise.reject('error'))
+    ;(fetcher as jest.Mock).mockImplementation(() => Promise.reject('error'))
     try {
       await callGetAreasAPI({}, mockContext)
     } catch (error) {
@@ -55,13 +55,13 @@ describe('callGetAreasAPI', () => {
 
 describe('callCreateAreasAPI', () => {
   it('should return true when success', async () => {
-    ;(fetcher as any).mockImplementation(() => Promise.resolve(true))
+    ;(fetcher as jest.Mock).mockImplementation(() => Promise.resolve(true))
     const result = await callCreateAreaAPI(createAreaArgs, mockContext)
     expect(result).toEqual(true)
   })
 
   it('should catch when fail', async () => {
-    ;(fetcher as any).mockImplementation(() => Promise.reject('error'))
+    ;(fetcher as jest.Mock).mockImplementation(() => Promise.reject('error'))
     try {
       await callCreateAreaAPI(createAreaArgs, mockContext)
     } catch (error) {
@@ -72,13 +72,13 @@ describe('callCreateAreasAPI', () => {
 
 describe('callUpdateAreasAPI', () => {
   it('should return true when success', async () => {
-    ;(fetcher as any).mockImplementation(() => Promise.resolve(true))
+    ;(fetcher as jest.Mock).mockImplementation(() => Promise.resolve(true))
     const result = await callUpdateArea(updateAreaArgs, mockContext)
     expect(result).toEqual(true)
   })
 
   it('should catch when fail', async () => {
-    ;(fetcher as any).mockImplementation(() => Promise.reject('error'))
+    ;(fetcher as jest.Mock).mockImplementation(() => Promise.reject('error'))
     try {
       await callUpdateArea(updateAreaArgs, mockContext)
     } catch (error) {
