@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.38",
+  "version": "0.5.39",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -21,13 +21,13 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build:prod": "concurrently \"rimraf dist && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c\" \"rimraf out && build-storybook -o out\"",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "release:prod": "node ../../scripts/release/release-npm.js elements",
     "start:dev": "start-storybook -p 6006",
     "start:prod": "cross-env NODE_ENV=development tsdx watch",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
-    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\""
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
   },
   "browserslist": [
     "> 1%",
