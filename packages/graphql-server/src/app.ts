@@ -64,6 +64,7 @@ export const server = new ApolloServer({
   resolvers,
   formatError,
   context: handleContext,
+  uploads: false,
   validationRules: [depthLimit(10)],
   cors: {
     origin: '*',
