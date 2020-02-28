@@ -5,9 +5,7 @@
 
 type Query {
   # contact
-  contact(
-    id: String!
-  ): Contact!
+  contact(id: String!): Contact!
 
   contacts(
     name: String
@@ -23,7 +21,21 @@ type Query {
   ): Contacts!
 
   # contact-identity-check
-  GetIdChecks(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], ContactId: [String!], NegotiatorId: [String!], CheckDateFrom: String, CheckDateTo: String, CreatedFrom: String, CreatedTo: String, pageNumber: Int, pageSize: Int, Status: [String!]): PagedResult_IdentityCheckModel_!
+  GetIdChecks(
+    PageSize: Int
+    PageNumber: Int
+    SortBy: String
+    Id: [String!]
+    ContactId: [String!]
+    NegotiatorId: [String!]
+    CheckDateFrom: String
+    CheckDateTo: String
+    CreatedFrom: String
+    CreatedTo: String
+    pageNumber: Int
+    pageSize: Int
+    Status: [String!]
+  ): PagedResult_IdentityCheckModel_!
   GetIdCheckById(id: String!): IdentityCheckModel!
 
   area(id: String!): Area!
@@ -75,14 +87,6 @@ type Mutation {
   CreateIdentityCheck(model: CreateIdentityCheckModelInput): JSON!
   UpdateIdentityCheck(id: String!, model: UpdateIdentityCheckModelInput): JSON!
 
-  login(
-    userName: String!
-    password: String!
-    loginType: LoginType!
-    mode: LoginMode!
-  ): Token
-  ): Contact!
-
   createArea(
     name: String
     type: String
@@ -91,7 +95,6 @@ type Mutation {
     officeIds: [String]
     parentId: String
   ): Boolean!
-
   updateArea(id: String!, name: String, area: [String], departmentIds: [String], officeIds: [String]): Boolean!
 
   login(userName: String!, password: String!, loginType: LoginType!, mode: LoginMode!): Token
