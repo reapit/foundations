@@ -1,4 +1,4 @@
-import { CreateAreaArgs } from '../area'
+import { CreateAreaArgs } from '../types'
 
 export const createAreaArgs: CreateAreaArgs = {
   name: 'Birmingham',

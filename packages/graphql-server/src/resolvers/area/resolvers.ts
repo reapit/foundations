@@ -12,7 +12,7 @@ import {
   MutationCreateAreaReturn,
   UpdateAreaArgs,
   MutationUpdateAreaReturn,
-} from './area'
+} from './types'
 
 export const queryArea = (_: any, args: GetAreaByIdArgs, context: ServerContext): QueryAreaReturn => {
   const traceId = context.traceId

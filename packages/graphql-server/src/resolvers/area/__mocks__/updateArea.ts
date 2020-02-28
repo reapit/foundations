@@ -1,4 +1,4 @@
-import { UpdateAreaArgs } from '../area'
+import { UpdateAreaArgs } from '../types'
 
 export const updateAreaArgs: UpdateAreaArgs = {
   id: 'BMM',

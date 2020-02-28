@@ -11,7 +11,7 @@ import {
   CreateAreaReturn,
   UpdateAreaArgs,
   UpdateAreaReturn,
-} from './area'
+} from './types'
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 

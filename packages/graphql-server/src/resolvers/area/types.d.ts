@@ -1,58 +1,5 @@
 import { AuthenticationError, UserInputError } from 'apollo-server'
-
-export interface AreaModel {
-  id?: string
-  created?: string // date-time
-  modified?: string // date-time
-  name?: string
-  active?: boolean
-  type?: string
-  area?: string[]
-  departmentIds?: string[]
-  officeIds?: string[]
-  readonly _eTag?: string
-  readonly _links?: {
-    [name: string]: LinkModel
-  }
-  readonly _embedded?: {
-    [name: string]: {}
-  }
-}
-
-export interface CreateAreaModel {
-  name?: string
-  type?: string
-  area?: string[]
-  departmentIds?: string[]
-  officeIds?: string[]
-  parentId?: string
-}
-
-export interface LinkModel {
-  href?: string
-}
-
-export interface PagedResultAreaModel_ {
-  _embedded?: AreaModel[]
-  pageNumber?: number // int32
-  pageSize?: number // int32
-  pageCount?: number // int32
-  totalCount?: number // int32
-  _links?: {
-    [name: string]: PagingLinkModel
-  }
-}
-
-export interface PagingLinkModel {
-  href?: string
-}
-
-export interface UpdateAreaModel {
-  name?: string
-  area?: string[]
-  departmentIds?: string[]
-  officeIds?: string[]
-}
+import { AreaModel, CreateAreaModel, PagedResultAreaModel_, UpdateAreaModel } from '../../types'
 
 /* args type */
 export interface GetAreaByIdArgs {

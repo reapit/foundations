@@ -1,4 +1,4 @@
-import { AreaModel } from '../area'
+import { AreaModel } from '../../../types'
 
 export const area: AreaModel = {
   id: 'BMM',

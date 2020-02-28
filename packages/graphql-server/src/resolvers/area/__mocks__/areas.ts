@@ -1,4 +1,4 @@
-import { PagedResultAreaModel_ } from '../area'
+import { PagedResultAreaModel_ } from '../../../types'
 
 export const areas: PagedResultAreaModel_ = {
   _embedded: [

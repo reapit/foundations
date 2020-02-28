@@ -9,7 +9,7 @@ import {
   CreateAreaReturn,
   UpdateAreaArgs,
   UpdateAreaReturn,
-} from './area'
+} from './types'
 import { callGetAreasAPI, callCreateAreaAPI, callGetAreaByIdAPI, callUpdateArea } from './api'
 
 export const getAreaById = async (args: GetAreaByIdArgs, context: ServerContext): GetAreaByIdReturn => {
