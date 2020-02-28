@@ -45,5 +45,11 @@ functions:
   graphqlHandler:
     handler: src/index.graphqlHandler
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http:
+          path: v1/graphql
+          method: post
+          cors: true
+      - http:
+          path: v1/graphql
+          method: get
+          cors: true
