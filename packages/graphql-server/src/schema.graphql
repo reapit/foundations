@@ -1,96 +1,71 @@
 #import Contact, Contacts from "./resolvers/contact/types.graphql"
-#import ContactIdentityCheck,ContactIdentityChecks from "./resolvers/contact-identity-check/types.graphql"
+#import CreateIdentityCheckModelInput, CreateIdentityCheckModelInput_identityDocument1Input, CreateIdentityCheckModelInput_identityDocument2Input, IdentityCheckModel, IdentityCheckModel_identityDocument1, IdentityCheckModel_identityDocument2, PagedResult_IdentityCheckModel_, UpdateIdentityCheckModelInput, UpdateIdentityCheckModelInput_identityDocument1Input, UpdateIdentityCheckModelInput_identityDocument2Input from "./resolvers/identity-check/types.graphql"
 #import LoginIdentity, LoginMode, LoginType, Token from './resolvers/auth/types.graphql'
 
 type Query {
   # contact
   contact(
-    id: String!,
+    id: String!
   ): Contact!
 
   contacts(
-    name: String,
-    address: String,
-    negotiatorId: [String!],
-    officeId: [String!],
-    active: Boolean,
-    pageNumber: Int,
-    pageSize: Int,
-    sortBy: String,
-    identityCheck: [String!],
-    marketingConsent: [String!],
+    name: String
+    address: String
+    negotiatorId: [String!]
+    officeId: [String!]
+    active: Boolean
+    pageNumber: Int
+    pageSize: Int
+    sortBy: String
+    identityCheck: [String!]
+    marketingConsent: [String!]
   ): Contacts!
 
   # contact-identity-check
-  contactIdentityCheck(
-    id: String!,
-    checkId: String!,
-  ): ContactIdentityCheck!
-
-  contactIdentityChecks(
-    id: String!,
-    pageNumber: Int,
-    pageSize: Int,
-  ): ContactIdentityChecks!
-
+  GetIdChecks(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], ContactId: [String!], NegotiatorId: [String!], CheckDateFrom: String, CheckDateTo: String, CreatedFrom: String, CreatedTo: String, pageNumber: Int, pageSize: Int, Status: [String!]): PagedResult_IdentityCheckModel_!
+  GetIdCheckById(id: String!): IdentityCheckModel!
 }
 
 type Mutation {
   # contact
   createContact(
-    title: String,
-    forename: String,
-    surname: String,
-    dateOfBirth: String,
-    active: Boolean,
-    marketingConsent: String,
-    communications: [ContactCommunicationInput!],
-    officeIds: [String!],
-    negotiatorIds: [String!],
-    addresses: [ContactAddressInput!],
-    metadata: JSON,
+    title: String
+    forename: String
+    surname: String
+    dateOfBirth: String
+    active: Boolean
+    marketingConsent: String
+    communications: [ContactCommunicationInput!]
+    officeIds: [String!]
+    negotiatorIds: [String!]
+    addresses: [ContactAddressInput!]
+    metadata: JSON
   ): Contact!
 
   updateContact(
-    id: String!,
-    title: String,
-    forename: String,
-    surname: String,
-    dateOfBirth: String,
-    active: Boolean,
-    marketingConsent: String,
-    communications: [ContactCommunicationInput!],
-    officeIds: [String!],
-    negotiatorIds: [String!],
-    addresses: [ContactAddressInput!],
-    metadata: JSON,
+    id: String!
+    title: String
+    forename: String
+    surname: String
+    dateOfBirth: String
+    active: Boolean
+    marketingConsent: String
+    communications: [ContactCommunicationInput!]
+    officeIds: [String!]
+    negotiatorIds: [String!]
+    addresses: [ContactAddressInput!]
+    metadata: JSON
+    _eTag: String!
   ): Contact!
 
-  # contact-identity-check
-  createContactIdentityCheck(
-    contactId: String!,
-    checkDate: String,
-    status: String,
-    negotiatorId: String,
-    documents: [ContactIdentityDocumentInput!],
-    metadata: JSON,
-  ): ContactIdentityCheck!
-
-  updateIdentityCheck(
-    id: String!,
-    contactId: String!,
-    checkDate: String,
-    status: String,
-    negotiatorId: String,
-    documents: [ContactIdentityDocumentInput!],
-    metadata: JSON,
-  ): ContactIdentityCheck!
+  CreateIdentityCheck(model: CreateIdentityCheckModelInput): JSON!
+  UpdateIdentityCheck(id: String!, model: UpdateIdentityCheckModelInput): JSON!
 
   login(
-    userName: String!,
-    password: String!,
-    loginType: LoginType!,
-    mode: LoginMode!,
+    userName: String!
+    password: String!
+    loginType: LoginType!
+    mode: LoginMode!
   ): Token
 }
 
