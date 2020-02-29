@@ -859,8 +859,6 @@ export interface Appointments {
 }
 /**
  * Representation of an area that properties reside in, or applicants are looking to buy/rent in
- * example:
- * 2019-08-14T12:30:02.0000000Z
  */
 export interface AreaModel {
   /**
