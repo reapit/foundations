@@ -15,7 +15,7 @@ const { PATHS } = require('./constants')
 module.exports = {
   ...{
     ...webpackBase,
-    entry: [webpackBase.entry, PATHS.elementsIndexSass],
+    entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', webpackBase.entry, PATHS.elementsIndexSass],
   },
   module: {
     rules: [

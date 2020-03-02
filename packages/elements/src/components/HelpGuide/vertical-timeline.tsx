@@ -41,6 +41,9 @@ export const calculateElement = ({
   if (circleRef.current && activeRef.current && lineRef.current) {
     const circlePosY = caculateCircleRef({ activeRef, circleRef })
     circleRef.current.style.transform = `translateY(${circlePosY}px)`
+    if (window.matchMedia('(-ms-high-contrast:none)').matches) {
+      circleRef.current.style.transform = `translate(-20px, ${circlePosY}px)`
+    }
 
     const lineHeight = caculateLineRef({ activeRef })
     lineRef.current.style.height = `${lineHeight}px`
