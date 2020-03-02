@@ -5,9 +5,11 @@
 
 type Query {
   # contact
-  contact(id: String!): Contact!
+  GetContactById(
+    id: String!,
+  ): Contact!
 
-  contacts(
+  GetContacts(
     name: String
     address: String
     negotiatorId: [String!]
@@ -18,6 +20,8 @@ type Query {
     sortBy: String
     identityCheck: [String!]
     marketingConsent: [String!]
+    createdFrom: String,
+    createdTo: String,
   ): Contacts!
 
   # contact-identity-check
@@ -53,35 +57,47 @@ type Query {
 }
 
 type Mutation {
-  # contact
-  createContact(
-    title: String
-    forename: String
-    surname: String
-    dateOfBirth: String
-    active: Boolean
-    marketingConsent: String
-    communications: [ContactCommunicationInput!]
-    officeIds: [String!]
-    negotiatorIds: [String!]
-    addresses: [ContactAddressInput!]
-    metadata: JSON
-  ): Contact!
+  # The response of createContact will temporarily be boolean type until BE team fixs the API
+  CreateContact(
+    title: String,
+    forename: String,
+    surname: String!,
+    dateOfBirth: String,
+    active: Boolean,
+    marketingConsent: String!,
+    source: ContactSourceInput,
+    homePhone: String,
+    workPhone: String,
+    mobilePhone: String,
+    email: String,
+    officeIds: [String!]!,
+    negotiatorIds: [String!]!,
+    primaryAddress: ContactAddressInput!,
+    secondaryAddress: ContactAddressInput,
+    workAddress: ContactAddressInput,
+    metadata: JSON,
+  ): Boolean
 
-  updateContact(
-    id: String!
-    title: String
-    forename: String
-    surname: String
-    dateOfBirth: String
-    active: Boolean
-    marketingConsent: String
-    communications: [ContactCommunicationInput!]
-    officeIds: [String!]
-    negotiatorIds: [String!]
-    addresses: [ContactAddressInput!]
-    metadata: JSON
-    _eTag: String!
+  UpdateContact(
+    id: String!,
+    title: String,
+    forename: String,
+    surname: String!,
+    dateOfBirth: String,
+    active: Boolean,
+    marketingConsent: String!,
+    source: ContactSourceInput,
+    homePhone: String,
+    workPhone: String,
+    mobilePhone: String,
+    email: String,
+    officeIds: [String!]!,
+    negotiatorIds: [String!]!,
+    primaryAddress: ContactAddressInput!,
+    secondaryAddress: ContactAddressInput,
+    workAddress: ContactAddressInput,
+    metadata: JSON,
+    _eTag: String!,
   ): Contact!
 
   CreateIdentityCheck(model: CreateIdentityCheckModelInput): JSON!
