@@ -185,13 +185,15 @@ describe('appointment identity-check', () => {
     it('should run the happy case correctly', async done => {
       mockedFetcher.mockImplementation(() => identityCheck)
       const createIdentityCheckArgs = {
-        contactId: 'string',
-        checkDate: 'string',
-        status: 'pending',
-        negotiatorId: 'string',
-        identityDocument1: {},
-        identityDocument2: {},
-        metadata: {},
+        model: {
+          contactId: 'string',
+          checkDate: 'string',
+          status: 'pending',
+          negotiatorId: 'string',
+          identityDocument1: {},
+          identityDocument2: {},
+          metadata: {},
+        },
       } as CreateIdentityCheckArgs
       const result = await callCreateIdentityCheckAPI(createIdentityCheckArgs, mockContext)
 
@@ -223,13 +225,15 @@ describe('appointment identity-check', () => {
         throw mockedError
       })
       const createIdentityCheckArgs = {
-        contactId: 'string',
-        checkDate: 'string',
-        status: 'pending',
-        negotiatorId: 'string',
-        identityDocument1: {},
-        identityDocument2: {},
-        metadata: {},
+        model: {
+          contactId: 'string',
+          checkDate: 'string',
+          status: 'pending',
+          negotiatorId: 'string',
+          identityDocument1: {},
+          identityDocument2: {},
+          metadata: {},
+        },
       } as CreateIdentityCheckArgs
       const result = await callCreateIdentityCheckAPI(createIdentityCheckArgs, mockContext)
 
@@ -265,13 +269,15 @@ describe('appointment identity-check', () => {
       mockedFetcher.mockImplementation(() => identityCheck)
       const updateIdentityCheckArgs = {
         id: '123',
-        checkDate: 'string',
-        status: 'pending',
-        negotiatorId: 'string',
-        identityDocument1: {},
-        identityDocument2: {},
-        metadata: {},
-        _eTag: 'string',
+        model: {
+          checkDate: 'string',
+          status: 'pending',
+          negotiatorId: 'string',
+          identityDocument1: {},
+          identityDocument2: {},
+          metadata: {},
+          _eTag: 'string',
+        },
       } as UpdateIdentityCheckArgs
       const result = await callUpdateIdentityCheckAPI(updateIdentityCheckArgs, mockContext)
 
@@ -294,13 +300,15 @@ describe('appointment identity-check', () => {
       })
       const updateIdentityCheckArgs = {
         id: '123',
-        checkDate: 'string',
-        status: 'pending',
-        negotiatorId: 'string',
-        identityDocument1: {},
-        identityDocument2: {},
-        metadata: {},
-        _eTag: 'string',
+        model: {
+          checkDate: 'string',
+          status: 'pending',
+          negotiatorId: 'string',
+          identityDocument1: {},
+          identityDocument2: {},
+          metadata: {},
+          _eTag: 'string',
+        },
       } as UpdateIdentityCheckArgs
       const result = await callUpdateIdentityCheckAPI(updateIdentityCheckArgs, mockContext)
 
@@ -312,7 +320,7 @@ describe('appointment identity-check', () => {
           Authorization: mockContext.authorization,
           'Content-Type': 'application/json',
           'api-version': API_VERSION,
-          'If-Match': updateIdentityCheckArgs._eTag,
+          'If-Match': updateIdentityCheckArgs.model._eTag,
         },
         body: updateIdentityCheckArgs,
       })
