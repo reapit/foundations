@@ -1,13 +1,20 @@
 import { fetcher } from '@reapit/elements'
 import qs from 'query-string'
-import { IdentityCheckModel, CreateIdentityCheckModel, PagedResultIdentityCheckModel_ } from '../../types'
-import { GetIdentityCheckByIdModel, GetIdentityChecksModel, UpdateIdentityCheckExtend } from './services'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 import { callGetContactByIdAPI } from '../contact/api'
-import { UserInputError } from 'apollo-server'
+import {
+  GetIdentityChecksArgs,
+  GetIdentityCheckByIdArgs,
+  CreateIdentityCheckArgs,
+  UpdateIdentityCheckArgs,
+  GetIdentityCheckByIdReturn,
+  GetIdentityChecksReturn,
+  CreateIdentityCheckReturn,
+  UpdateIdentityCheckReturn,
+} from './identity-check'
 
 export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.cloud'
 
@@ -16,9 +23,9 @@ export const URLS = {
 }
 
 export const callGetIdentityChecksAPI = async (
-  args: GetIdentityChecksModel,
+  args: GetIdentityChecksArgs,
   context: ServerContext,
-): Promise<PagedResultIdentityCheckModel_ | UserInputError> => {
+): GetIdentityChecksReturn => {
   const traceId = context.traceId
   try {
     logger.info('callGetIdentityChecksAPI', { traceId, args })
@@ -44,9 +51,9 @@ export const callGetIdentityChecksAPI = async (
 }
 
 export const callGetIdentityCheckByIdAPI = async (
-  args: GetIdentityCheckByIdModel,
+  args: GetIdentityCheckByIdArgs,
   context: ServerContext,
-): Promise<IdentityCheckModel | UserInputError> => {
+): GetIdentityCheckByIdReturn => {
   const traceId = context.traceId
   try {
     logger.info('callGetIdentityCheckByIdAPI', { traceId, args })
@@ -70,9 +77,9 @@ export const callGetIdentityCheckByIdAPI = async (
 }
 
 export const callCreateIdentityCheckAPI = async (
-  args: CreateIdentityCheckModel,
+  args: CreateIdentityCheckArgs,
   context: ServerContext,
-): Promise<IdentityCheckModel | UserInputError> => {
+): CreateIdentityCheckReturn => {
   const traceId = context.traceId
   try {
     logger.info('callCreateIdentityCheckAPI', { traceId, args })
@@ -101,9 +108,9 @@ export const callCreateIdentityCheckAPI = async (
 }
 
 export const callUpdateIdentityCheckAPI = async (
-  args: UpdateIdentityCheckExtend,
+  args: UpdateIdentityCheckArgs,
   context: ServerContext,
-): Promise<IdentityCheckModel | UserInputError> => {
+): UpdateIdentityCheckReturn => {
   const traceId = context.traceId
   try {
     logger.info('callUpdateIdentityCheckAPI', { traceId, args })
