@@ -80,13 +80,15 @@ describe('contact-identity-check resolvers', () => {
   describe('createIdentityCheck', () => {
     it('should run correctly', () => {
       const mockArgs = {
-        contactId: 'string',
-        checkDate: 'string',
-        status: 'string',
-        negotiatorId: 'string',
-        identityDocument1: {},
-        identityDocument2: {},
-        metadata: {},
+        model: {
+          contactId: 'string',
+          checkDate: 'string',
+          status: 'string',
+          negotiatorId: 'string',
+          identityDocument1: {},
+          identityDocument2: {},
+          metadata: {},
+        },
       } as CreateIdentityCheckArgs
       const result = createIdentityCheck({}, mockArgs, mockContext)
       expect(result).toEqual(true)
@@ -94,13 +96,15 @@ describe('contact-identity-check resolvers', () => {
 
     it('should run correctly', () => {
       const mockArgs = {
-        contactId: 'string',
-        checkDate: 'string',
-        status: 'string',
-        negotiatorId: 'string',
-        identityDocument1: {},
-        identityDocument2: {},
-        metadata: {},
+        model: {
+          contactId: 'string',
+          checkDate: 'string',
+          status: 'string',
+          negotiatorId: 'string',
+          identityDocument1: {},
+          identityDocument2: {},
+          metadata: {},
+        },
       } as CreateIdentityCheckArgs
       const result = createIdentityCheck({}, mockArgs, { ...mockContext, authorization: '' })
       const output = errors.generateAuthenticationError(mockContext.traceId)
@@ -112,13 +116,15 @@ describe('contact-identity-check resolvers', () => {
     it('should run correctly', () => {
       const mockArgs = {
         id: 'string',
-        checkDate: 'string',
-        status: 'string',
-        negotiatorId: 'string',
-        identityDocument1: {},
-        identityDocument2: {},
-        metadata: {},
-        _eTag: '123',
+        model: {
+          checkDate: 'string',
+          status: 'string',
+          negotiatorId: 'string',
+          identityDocument1: {},
+          identityDocument2: {},
+          metadata: {},
+          _eTag: '123',
+        },
       } as UpdateIdentityCheckArgs
       const result = updateIdentityCheck({}, mockArgs, mockContext)
       expect(result).toEqual(identityCheck)
@@ -127,13 +133,15 @@ describe('contact-identity-check resolvers', () => {
     it('should run correctly', () => {
       const mockArgs = {
         id: 'string',
-        checkDate: 'string',
-        status: 'string',
-        negotiatorId: 'string',
-        identityDocument1: {},
-        identityDocument2: {},
-        metadata: {},
-        _eTag: '123',
+        model: {
+          checkDate: 'string',
+          status: 'string',
+          negotiatorId: 'string',
+          identityDocument1: {},
+          identityDocument2: {},
+          metadata: {},
+          _eTag: '123',
+        },
       } as UpdateIdentityCheckArgs
       const result = updateIdentityCheck({}, mockArgs, { ...mockContext, authorization: '' })
       const output = errors.generateAuthenticationError(mockContext.traceId)
