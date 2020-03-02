@@ -16,7 +16,7 @@ export const queryNegotiatorById = (
   _: any,
   args: GetNegotiatorByIdArgs,
   context: ServerContext,
-): Promise<NegotiatorModel> | AuthenticationError => {
+): Promise<NegotiatorModel | UserInputError> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('queryNegotiator', { traceId, args })
   const isPermit = checkPermission(context)
@@ -44,7 +44,7 @@ export const createNegotiator = (
   _: any,
   args: CreateNegotiatorModel,
   context: ServerContext,
-): Promise<NegotiatorModel> | AuthenticationError => {
+): Promise<NegotiatorModel | UserInputError> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('createNegotiator', { traceId, args })
   const isPermit = checkPermission(context)
@@ -58,7 +58,7 @@ export const updateNegotiator = (
   _: any,
   args: UpdateNegotiatorArgs,
   context: ServerContext,
-): Promise<NegotiatorModel> | AuthenticationError => {
+): Promise<NegotiatorModel | UserInputError> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('updateNegotiator', { traceId, args })
   const isPermit = checkPermission(context)

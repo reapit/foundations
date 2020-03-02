@@ -15,7 +15,10 @@ import {
   callUpdateNegotiatorAPI,
 } from './api'
 
-export const getNegotiatorById = (args: GetNegotiatorByIdArgs, context: ServerContext): Promise<NegotiatorModel> => {
+export const getNegotiatorById = (
+  args: GetNegotiatorByIdArgs,
+  context: ServerContext,
+): Promise<NegotiatorModel | UserInputError> => {
   const traceId = context.traceId
   logger.info('getNegotiatorById', { traceId, args })
   const negotiator = callGetNegotiatorByIdAPI(args, context)
@@ -32,14 +35,20 @@ export const getNegotiators = (
   return negotiators
 }
 
-export const createNegotiator = (args: CreateNegotiatorModel, context: ServerContext): Promise<NegotiatorModel> => {
+export const createNegotiator = (
+  args: CreateNegotiatorModel,
+  context: ServerContext,
+): Promise<NegotiatorModel | UserInputError> => {
   const traceId = context.traceId
   logger.info('createNegotiator', { traceId, args })
   const negotiator = callCreateNegotiatorAPI(args, context)
   return negotiator
 }
 
-export const updateNegotiator = (args: UpdateNegotiatorArgs, context: ServerContext): Promise<NegotiatorModel> => {
+export const updateNegotiator = (
+  args: UpdateNegotiatorArgs,
+  context: ServerContext,
+): Promise<NegotiatorModel | UserInputError> => {
   const traceId = context.traceId
   logger.info('updateNegotiator', { traceId, args })
   const negotiator = callUpdateNegotiatorAPI(args, context)

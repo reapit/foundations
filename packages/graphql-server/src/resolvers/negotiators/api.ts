@@ -21,7 +21,7 @@ export const URLS = {
 export const callGetNegotiatorByIdAPI = async (
   args: GetNegotiatorByIdArgs,
   context: ServerContext,
-): Promise<NegotiatorModel> => {
+): Promise<NegotiatorModel | UserInputError> => {
   const traceId = context.traceId
   try {
     logger.info('callGetNegotiatorByIdAPI', { traceId, args })
@@ -70,7 +70,7 @@ export const callGetNegotiatorsAPI = async (
 export const callCreateNegotiatorAPI = async (
   args: CreateNegotiatorModel,
   context: ServerContext,
-): Promise<NegotiatorModel> => {
+): Promise<NegotiatorModel | UserInputError> => {
   const traceId = context.traceId
   try {
     logger.info('callCreateNegotiatorAPI', { args, traceId })
@@ -101,7 +101,7 @@ export const callCreateNegotiatorAPI = async (
 export const callUpdateNegotiatorAPI = async (
   args: UpdateNegotiatorArgs,
   context: ServerContext,
-): Promise<NegotiatorModel> => {
+): Promise<NegotiatorModel | UserInputError> => {
   const traceId = context.traceId
   try {
     logger.info('callUpdateNegotiatorAPI', { args, traceId })
