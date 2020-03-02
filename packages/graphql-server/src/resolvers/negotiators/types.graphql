@@ -1,34 +1,74 @@
-# input CreateNegotiatorModelInput {
-#   name: String
-#   jobTitle: String
-#   active: Boolean
-#   officeId: String
-#   workPhone: String
-#   mobilePhone: String
-#   email: String
-#   metadata: JSON
-# }
-
-# scalar JSON
-
-type NegotiatorModel {
-  id: String
-  created: String
-  modified: String
+"""Request body used to create a new negotiator"""
+input CreateNegotiatorModelInput {
+  """The name of the negotiator"""
   name: String
+
+  """The job title of the negotiator"""
   jobTitle: String
+
+  """A flag determining whether or not the negotiator is active"""
   active: Boolean
+
+  """The unique identifier of the office that the negotiator is attached to"""
   officeId: String
+
+  """The work phone number of the negotiator"""
   workPhone: String
+
+  """The mobile phone number of the negotiator"""
   mobilePhone: String
+
+  """The email address of the negotiator"""
   email: String
+
+  """App specific metadata to set against the negotiator"""
   metadata: JSON
+}
+
+"""Representation of a negotiator"""
+type NegotiatorModel {
+  """The unique identifier of the negotiator"""
+  id: String
+
+  """The date and time when the negotiator was created"""
+  created: String
+
+  """The date and time when the negotiator was last modified"""
+  modified: String
+
+  """The name of the negotiator"""
+  name: String
+
+  """The job title of the negotiator"""
+  jobTitle: String
+
+  """A flag determining whether or not the negotiator is active"""
+  active: Boolean
+
+  """The unique identifier of the office that the negotiator is attached to"""
+  officeId: String
+
+  """The work phone number of the negotiator"""
+  workPhone: String
+
+  """The mobile phone number of the negotiator"""
+  mobilePhone: String
+
+  """The email address of the negotiator"""
+  email: String
+
+  """App specific metadata that has been set against the negotiator"""
+  metadata: JSON
+
+  """
+  The ETag for the current version of the negotiator. Used for managing update concurrency
+  """
   _eTag: String
   _links: JSON
   _embedded: JSON
 }
 
-type PagedResultNegotiatorModel {
+type PagedResult_NegotiatorModel_ {
   _embedded: [NegotiatorModel!]
   pageNumber: Int
   pageSize: Int
@@ -37,13 +77,27 @@ type PagedResultNegotiatorModel {
   _links: JSON
 }
 
-# input UpdateNegotiatorModelInput {
-#   id: String!
-#   name: String
-#   jobTitle: String
-#   active: Boolean
-#   workPhone: String
-#   mobilePhone: String
-#   email: String
-#   metadata: JSON
-# }
+"""Request body used to update an existing negotiator"""
+input UpdateNegotiatorModelInput {
+  """The name of the negotiator"""
+  name: String
+
+  """The job title of the negotiator"""
+  jobTitle: String
+
+  """A flag determining whether or not the negotiator is active"""
+  active: Boolean
+
+  """The work phone number of the negotiator"""
+  workPhone: String
+
+  """The mobile phone number of the negotiator"""
+  mobilePhone: String
+
+  """The email address of the negotiator"""
+  email: String
+
+  """App specific metadata to set against the negotiator"""
+  metadata: JSON
+}
+

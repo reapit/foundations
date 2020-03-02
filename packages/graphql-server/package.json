@@ -8,7 +8,8 @@
   "author": "reapit global",
   "main": "dist/index.js",
   "scripts": {
-    "build:prod-temporary-disable": "cross-env NODE_ENV=production rimraf dist && tsc --p tsconfig.json",
+    "build:prod": "cross-env NODE_ENV=production rimraf dist && tsc --p tsconfig.json",
+    "build:serverless": "serverless webpack --out dist --stage dev",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "release:dev": "serverless deploy --stage dev",
     "release:prod": "node ../../scripts/release/release-serverless.js graphql-server",
