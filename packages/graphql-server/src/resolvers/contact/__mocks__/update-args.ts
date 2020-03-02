@@ -1,7 +1,6 @@
+import { UpdateContactArgs } from '../types';
 
-import { ContactModel } from '../../../types'
-
-export const contact: ContactModel = {
+export const mockUpdateArgs: UpdateContactArgs = {
   id: "RPT20000017",
   title: 'Mr',
   forename: 'John',
@@ -50,14 +49,5 @@ export const contact: ContactModel = {
     CustomField1: 'CustomValue1',
     CustomField2: 'CustomValue2'
   },
-  _eTag: "\"E9510E0E57BEECE1F14A0550DDA8116D\"",
-  _links: {
-    self: {
-      href: '/contacts/MKC16000098',
-    },
-    idChecks: {
-      href: '/contacts/MKC16000098/identityChecks',
-    },
-  },
-  _embedded: null,
+  _eTag: "\"E9510E0E57BEECE1F14A0550DDA8116D\""
 }

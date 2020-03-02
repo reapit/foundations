@@ -1,7 +1,11 @@
 import { createIdentityCheck, queryIdentityChecks, queryIdentityCheckById, updateIdentityCheck } from '../resolvers'
 import { mockContext } from '../../../__mocks__/context'
-import { CreateIdentityCheckModel } from '../../../types'
-import { GetIdentityCheckByIdModel, GetIdentityChecksModel, UpdateIdentityCheckExtend } from '../services'
+import {
+  GetIdentityChecksArgs,
+  GetIdentityCheckByIdArgs,
+  UpdateIdentityCheckArgs,
+  CreateIdentityCheckArgs,
+} from '../identity-check'
 import errors from '../../../errors'
 import { identityCheck } from '../__mocks__/identity-check'
 import { identityChecks } from '../__mocks__/identity-checks'
@@ -23,7 +27,7 @@ describe('contact-identity-check resolvers', () => {
         pageSize: 2,
         ids: ['1', '2'],
         status: 'unknow',
-      } as GetIdentityChecksModel
+      } as GetIdentityChecksArgs
       const result = queryIdentityChecks({}, mockArgs, mockContext)
       expect(result).toEqual(identityChecks)
     })
@@ -36,7 +40,7 @@ describe('contact-identity-check resolvers', () => {
         pageSize: 2,
         ids: ['1', '2'],
         status: 'unknow',
-      } as GetIdentityChecksModel
+      } as GetIdentityChecksArgs
       const result = queryIdentityChecks({}, mockArgs, { ...mockContext, authorization: '' })
       const output = errors.generateAuthenticationError(mockContext.traceId)
       expect(result).toEqual(output)
@@ -45,13 +49,13 @@ describe('contact-identity-check resolvers', () => {
 
   describe('queryIdentityCheckById', () => {
     it('should run correctly', () => {
-      const mockArgs = { id: '123' } as GetIdentityCheckByIdModel
+      const mockArgs = { id: '123' } as GetIdentityCheckByIdArgs
       const result = queryIdentityCheckById({}, mockArgs, mockContext)
       expect(result).toEqual(identityCheck)
     })
 
     it('should run correctly', () => {
-      const mockArgs = { id: '123' } as GetIdentityCheckByIdModel
+      const mockArgs = { id: '123' } as GetIdentityCheckByIdArgs
       const result = queryIdentityCheckById({}, mockArgs, { ...mockContext, authorization: '' })
       const output = errors.generateAuthenticationError(mockContext.traceId)
       expect(result).toEqual(output)
@@ -60,13 +64,13 @@ describe('contact-identity-check resolvers', () => {
 
   describe('queryIdentityCheckById', () => {
     it('should run correctly', () => {
-      const mockArgs = { id: '123' } as GetIdentityCheckByIdModel
+      const mockArgs = { id: '123' } as GetIdentityCheckByIdArgs
       const result = queryIdentityCheckById({}, mockArgs, mockContext)
       expect(result).toEqual(identityCheck)
     })
 
     it('should run correctly', () => {
-      const mockArgs = { id: '123' } as GetIdentityCheckByIdModel
+      const mockArgs = { id: '123' } as GetIdentityCheckByIdArgs
       const result = queryIdentityCheckById({}, mockArgs, { ...mockContext, authorization: '' })
       const output = errors.generateAuthenticationError(mockContext.traceId)
       expect(result).toEqual(output)
@@ -83,7 +87,7 @@ describe('contact-identity-check resolvers', () => {
         identityDocument1: {},
         identityDocument2: {},
         metadata: {},
-      } as CreateIdentityCheckModel
+      } as CreateIdentityCheckArgs
       const result = createIdentityCheck({}, mockArgs, mockContext)
       expect(result).toEqual(true)
     })
@@ -97,7 +101,7 @@ describe('contact-identity-check resolvers', () => {
         identityDocument1: {},
         identityDocument2: {},
         metadata: {},
-      } as CreateIdentityCheckModel
+      } as CreateIdentityCheckArgs
       const result = createIdentityCheck({}, mockArgs, { ...mockContext, authorization: '' })
       const output = errors.generateAuthenticationError(mockContext.traceId)
       expect(result).toEqual(output)
@@ -115,7 +119,7 @@ describe('contact-identity-check resolvers', () => {
         identityDocument2: {},
         metadata: {},
         _eTag: '123',
-      } as UpdateIdentityCheckExtend
+      } as UpdateIdentityCheckArgs
       const result = updateIdentityCheck({}, mockArgs, mockContext)
       expect(result).toEqual(identityCheck)
     })
@@ -130,7 +134,7 @@ describe('contact-identity-check resolvers', () => {
         identityDocument2: {},
         metadata: {},
         _eTag: '123',
-      } as UpdateIdentityCheckExtend
+      } as UpdateIdentityCheckArgs
       const result = updateIdentityCheck({}, mockArgs, { ...mockContext, authorization: '' })
       const output = errors.generateAuthenticationError(mockContext.traceId)
       expect(result).toEqual(output)

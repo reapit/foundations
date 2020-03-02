@@ -1,14 +1,15 @@
 #import Contact, Contacts from "./resolvers/contact/types.graphql"
 #import CreateIdentityCheckModelInput, CreateIdentityCheckModelInput_identityDocument1Input, CreateIdentityCheckModelInput_identityDocument2Input, IdentityCheckModel, IdentityCheckModel_identityDocument1, IdentityCheckModel_identityDocument2, PagedResult_IdentityCheckModel_, UpdateIdentityCheckModelInput, UpdateIdentityCheckModelInput_identityDocument1Input, UpdateIdentityCheckModelInput_identityDocument2Input from "./resolvers/identity-check/types.graphql"
+#import Area, Areas from "./resolvers/area/types.graphql"
 #import LoginIdentity, LoginMode, LoginType, Token from './resolvers/auth/types.graphql'
 
 type Query {
   # contact
-  contact(
-    id: String!
+  GetContactById(
+    id: String!,
   ): Contact!
 
-  contacts(
+  GetContacts(
     name: String
     address: String
     negotiatorId: [String!]
@@ -19,54 +20,100 @@ type Query {
     sortBy: String
     identityCheck: [String!]
     marketingConsent: [String!]
+    createdFrom: String,
+    createdTo: String,
   ): Contacts!
 
   # contact-identity-check
-  GetIdChecks(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], ContactId: [String!], NegotiatorId: [String!], CheckDateFrom: String, CheckDateTo: String, CreatedFrom: String, CreatedTo: String, pageNumber: Int, pageSize: Int, Status: [String!]): PagedResult_IdentityCheckModel_!
+  GetIdChecks(
+    PageSize: Int
+    PageNumber: Int
+    SortBy: String
+    Id: [String!]
+    ContactId: [String!]
+    NegotiatorId: [String!]
+    CheckDateFrom: String
+    CheckDateTo: String
+    CreatedFrom: String
+    CreatedTo: String
+    pageNumber: Int
+    pageSize: Int
+    Status: [String!]
+  ): PagedResult_IdentityCheckModel_!
   GetIdCheckById(id: String!): IdentityCheckModel!
+
+  area(id: String!): Area!
+
+  areas(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String]
+    departmentId: [String]
+    officeId: [String]
+    name: String
+    active: Boolean
+  ): Areas!
 }
 
 type Mutation {
-  # contact
-  createContact(
-    title: String
-    forename: String
-    surname: String
-    dateOfBirth: String
-    active: Boolean
-    marketingConsent: String
-    communications: [ContactCommunicationInput!]
-    officeIds: [String!]
-    negotiatorIds: [String!]
-    addresses: [ContactAddressInput!]
-    metadata: JSON
-  ): Contact!
+  # The response of createContact will temporarily be boolean type until BE team fixs the API
+  CreateContact(
+    title: String,
+    forename: String,
+    surname: String!,
+    dateOfBirth: String,
+    active: Boolean,
+    marketingConsent: String!,
+    source: ContactSourceInput,
+    homePhone: String,
+    workPhone: String,
+    mobilePhone: String,
+    email: String,
+    officeIds: [String!]!,
+    negotiatorIds: [String!]!,
+    primaryAddress: ContactAddressInput!,
+    secondaryAddress: ContactAddressInput,
+    workAddress: ContactAddressInput,
+    metadata: JSON,
+  ): Boolean
 
-  updateContact(
-    id: String!
-    title: String
-    forename: String
-    surname: String
-    dateOfBirth: String
-    active: Boolean
-    marketingConsent: String
-    communications: [ContactCommunicationInput!]
-    officeIds: [String!]
-    negotiatorIds: [String!]
-    addresses: [ContactAddressInput!]
-    metadata: JSON
-    _eTag: String!
+  UpdateContact(
+    id: String!,
+    title: String,
+    forename: String,
+    surname: String!,
+    dateOfBirth: String,
+    active: Boolean,
+    marketingConsent: String!,
+    source: ContactSourceInput,
+    homePhone: String,
+    workPhone: String,
+    mobilePhone: String,
+    email: String,
+    officeIds: [String!]!,
+    negotiatorIds: [String!]!,
+    primaryAddress: ContactAddressInput!,
+    secondaryAddress: ContactAddressInput,
+    workAddress: ContactAddressInput,
+    metadata: JSON,
+    _eTag: String!,
   ): Contact!
 
   CreateIdentityCheck(model: CreateIdentityCheckModelInput): JSON!
   UpdateIdentityCheck(id: String!, model: UpdateIdentityCheckModelInput): JSON!
 
-  login(
-    userName: String!
-    password: String!
-    loginType: LoginType!
-    mode: LoginMode!
-  ): Token
+  createArea(
+    name: String
+    type: String
+    area: [String]
+    departmentIds: [String]
+    officeIds: [String]
+    parentId: String
+  ): Boolean!
+  updateArea(id: String!, name: String, area: [String], departmentIds: [String], officeIds: [String]): Boolean!
+
+  login(userName: String!, password: String!, loginType: LoginType!, mode: LoginMode!): Token
 }
 
 scalar JSON
