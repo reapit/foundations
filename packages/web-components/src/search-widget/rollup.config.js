@@ -2,7 +2,6 @@ import svelte from 'rollup-plugin-svelte'
 import baseConfig from '../../rollup.config.base'
 
 const svelteOptions = require('../../svelte.config')
-
 const production = !process.env.ROLLUP_WATCH
 
 export default {

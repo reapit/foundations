@@ -1,24 +1,23 @@
 export interface FetcherParams<T> {
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
-  api: string
   url: string
-  headers: { [key: string]: string }
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
+  headers?: { [key: string]: string }
   body?: T
 }
 
 export const defaultHeaders = {
   'api-version': '2020-02-18',
   'Content-Type': 'application/json',
+  'x-api-key': '',
 }
 
 export const fetcher = async <T, B>({
-  api,
   url,
-  method,
   body,
+  method = 'GET',
   headers = defaultHeaders,
 }: FetcherParams<B>): Promise<T | boolean | undefined> => {
-  const path = `${api}${url}`
+  const path = `${process.env.PLATFORM_API_BASE_URL}${url}`
 
   try {
     const res = await fetch(path, {

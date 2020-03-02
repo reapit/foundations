@@ -6,7 +6,7 @@
     "module": "ESNEXT",
     "strict": true,
     "moduleResolution": "node",
-    "types": ["svelte", "jest"],
+    "types": ["svelte", "jest", "node"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   }
