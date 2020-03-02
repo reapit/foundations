@@ -37,6 +37,13 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+      - name: Set up workspace experimental
+        run: |
+          yarn config set workspaces-experimental true
+
+      - name: Install dependencies
+        run: |
+          yarn
 
       - name: Get jest cache
         uses: actions/cache@v1
@@ -78,14 +85,6 @@ jobs:
           path: packages/smb/.webpack-cache
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-smb
       # End cache
-
-      - name: Set up workspace experimental
-        run: |
-          yarn config set workspaces-experimental true
-
-      - name: Install dependencies
-        run: |
-          yarn
 
       - name: Lint
         run: |
