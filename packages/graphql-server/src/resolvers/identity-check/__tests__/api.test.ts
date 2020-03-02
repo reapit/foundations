@@ -8,8 +8,6 @@ import errors from '../../../errors'
 import { mockContext } from '../../../__mocks__/context'
 import { identityChecks } from '../__mocks__/identity-checks'
 import { identityCheck } from '../__mocks__/identity-check'
-import { CreateIdentityCheckModel } from '../../../types'
-import { GetIdentityCheckByIdModel, GetIdentityChecksModel, UpdateIdentityCheckExtend } from '../services'
 import {
   callGetIdentityChecksAPI,
   callGetIdentityCheckByIdAPI,
@@ -19,6 +17,12 @@ import {
   REAPIT_API_BASE_URL,
 } from '../api'
 import { API_VERSION } from '../../../constants/api'
+import {
+  GetIdentityChecksArgs,
+  GetIdentityCheckByIdArgs,
+  UpdateIdentityCheckArgs,
+  CreateIdentityCheckArgs,
+} from '../identity-check'
 
 describe('appointment identity-check', () => {
   let mockedFetcher
@@ -43,7 +47,7 @@ describe('appointment identity-check', () => {
         contactId: '123',
         ids: ['123', '456'],
         status: 'unknow',
-      } as GetIdentityChecksModel
+      } as GetIdentityChecksArgs
       const result = await callGetIdentityChecksAPI(getIdentityChecksArgs, mockContext)
 
       expect(fetcher).toHaveBeenCalledWith({
@@ -80,7 +84,7 @@ describe('appointment identity-check', () => {
         contactId: '123',
         ids: ['123', '456'],
         status: 'unknow',
-      } as GetIdentityChecksModel
+      } as GetIdentityChecksArgs
       const result = await callGetIdentityChecksAPI(getIdentityChecksArgs, mockContext)
 
       expect(fetcher).toHaveBeenCalledWith({
@@ -115,7 +119,7 @@ describe('appointment identity-check', () => {
       mockedFetcher.mockImplementation(() => identityCheck)
       const getIdentityCheckByIdArgs = {
         id: '123',
-      } as GetIdentityCheckByIdModel
+      } as GetIdentityCheckByIdArgs
       const result = await callGetIdentityCheckByIdAPI(getIdentityCheckByIdArgs, mockContext)
 
       expect(fetcher).toHaveBeenCalledWith({
@@ -147,7 +151,7 @@ describe('appointment identity-check', () => {
       })
       const getIdentityCheckByIdArgs = {
         id: '123',
-      } as GetIdentityCheckByIdModel
+      } as GetIdentityCheckByIdArgs
       const result = await callGetIdentityCheckByIdAPI(getIdentityCheckByIdArgs, mockContext)
 
       expect(fetcher).toHaveBeenCalledWith({
@@ -188,7 +192,7 @@ describe('appointment identity-check', () => {
         identityDocument1: {},
         identityDocument2: {},
         metadata: {},
-      } as CreateIdentityCheckModel
+      } as CreateIdentityCheckArgs
       const result = await callCreateIdentityCheckAPI(createIdentityCheckArgs, mockContext)
 
       expect(fetcher).toHaveBeenCalledWith({
@@ -226,7 +230,7 @@ describe('appointment identity-check', () => {
         identityDocument1: {},
         identityDocument2: {},
         metadata: {},
-      } as CreateIdentityCheckModel
+      } as CreateIdentityCheckArgs
       const result = await callCreateIdentityCheckAPI(createIdentityCheckArgs, mockContext)
 
       expect(fetcher).toHaveBeenCalledWith({
@@ -268,7 +272,7 @@ describe('appointment identity-check', () => {
         identityDocument2: {},
         metadata: {},
         _eTag: 'string',
-      } as UpdateIdentityCheckExtend
+      } as UpdateIdentityCheckArgs
       const result = await callUpdateIdentityCheckAPI(updateIdentityCheckArgs, mockContext)
 
       expect(fetcher).toHaveBeenCalledTimes(2)
@@ -297,7 +301,7 @@ describe('appointment identity-check', () => {
         identityDocument2: {},
         metadata: {},
         _eTag: 'string',
-      } as UpdateIdentityCheckExtend
+      } as UpdateIdentityCheckArgs
       const result = await callUpdateIdentityCheckAPI(updateIdentityCheckArgs, mockContext)
 
       expect(fetcher).toHaveBeenCalledWith({
