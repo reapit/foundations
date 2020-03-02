@@ -1,4 +1,4 @@
-import {GetAppointmentsArgs} from '../appointments'
+import {GetAppointmentsArgs} from '../appointment'
 
 export const getAppointmentsArgs:GetAppointmentsArgs =  {
   "start": "2018-08-14T12:30:02.0000000Z",

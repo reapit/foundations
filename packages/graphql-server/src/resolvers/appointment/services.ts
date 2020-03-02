@@ -16,7 +16,7 @@ import {
   GetAppointmentByIdArgs,
   UpdateAppointmentArgs,
   CreateAppointmentArgs,
-} from './types'
+} from './appointment'
 
 export const updateAppointmentById = (args: UpdateAppointmentArgs, context: ServerContext): UpdateAppointmentReturn => {
   const traceId = context.traceId

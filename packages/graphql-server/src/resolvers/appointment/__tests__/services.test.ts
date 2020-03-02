@@ -1,4 +1,4 @@
-import { GetAppointmentByIdArgs } from '../appointments'
+import { GetAppointmentByIdArgs } from '../appointment'
 import { getAppointmentsArgs } from '../__mocks__/get-appointments-args'
 import { mockContext } from '../../../__mocks__/context'
 import { appointments } from '../__mocks__/appointments'

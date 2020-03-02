@@ -12,7 +12,7 @@ import {
   QueryAppointmentsReturn,
   MutationCreateAppointmentReturn,
   MutationUpdateAppointmentReturn,
-} from './types'
+} from './appointment'
 
 export const queryAppointment = (
   _: any,

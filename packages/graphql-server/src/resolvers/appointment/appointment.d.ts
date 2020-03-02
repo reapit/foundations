@@ -26,8 +26,8 @@ export type GetAppointmentByIdArgs = {
   id: string
 }
 
-export type CreateAppointmentArgs = CreateAppointmentModel
-export type UpdateAppointmentArgs = { id: string; _eTag?: string } & UpdateAppointmentModel
+export type CreateAppointmentArgs = { model: CreateAppointmentModel }
+export type UpdateAppointmentArgs = { id: string; _eTag: string } & { model: UpdateAppointmentModel }
 
 // api, service return types
 export type GetAppointmentByIdReturn = Promise<AppointmentModel | UserInputError>

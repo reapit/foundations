@@ -1,6 +1,6 @@
-import {GetAppointmentsResult} from '../appointments'
+import {PagedResultAppointmentModel_} from '../../../types'
 
-export const appointments:GetAppointmentsResult =  {
+export const appointments:PagedResultAppointmentModel_ =  {
   _embedded: [
     {
       id: 'OXF180001',

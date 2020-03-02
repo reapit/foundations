@@ -13,7 +13,7 @@ import {
   GetAppointmentsReturn,
   CreateAppointmentReturn,
   UpdateAppointmentReturn,
-} from './types'
+} from './appointment'
 
 export const URLS = {
   appointments: '/appointments',
@@ -27,7 +27,7 @@ export const callGetAppointmentsAPI = async (
   try {
     logger.info('callGetAppointmentsAPI', { traceId, args })
 
-    const createResponse = await fetcher({
+    const response = await fetcher({
       url: `${URLS.appointments}/?${setQueryParams(args)}`,
       api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
@@ -38,7 +38,7 @@ export const callGetAppointmentsAPI = async (
       },
       body: {},
     })
-    return createResponse
+    return response
   } catch (error) {
     logger.error('callGetAppointmentsAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
@@ -75,10 +75,12 @@ export const callUpdateAppointmentByIdAPI = async (
   const traceId = context.traceId
   logger.info('callUpdateAppointmentByIdAPI', { args, traceId })
   try {
+    console.log(args._eTag)
+
     await fetcher({
       url: `${URLS.appointments}/${args.id}`,
       api: process.env['PLATFORM_API_BASE_URL'],
-      body: args,
+      body: args.model,
       method: 'PATCH',
       headers: {
         authorization: context.authorization,
@@ -87,10 +89,11 @@ export const callUpdateAppointmentByIdAPI = async (
         'If-Match': args._eTag,
       },
     })
+
     const response = await fetcher({
       url: `${URLS.appointments}/${args.id}`,
       api: process.env['PLATFORM_API_BASE_URL'],
-      method: 'GET',
+      method: 'PATCH',
       headers: {
         authorization: context.authorization,
         'Content-Type': 'application/json',
@@ -99,6 +102,8 @@ export const callUpdateAppointmentByIdAPI = async (
     })
     return response
   } catch (error) {
+    console.log(error)
+
     logger.error('callUpdateAppointmentByIdAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
   }
@@ -120,10 +125,12 @@ export const callCreateAppointmentByAPI = async (
         'Content-Type': 'application/json',
         'api-version': API_VERSION,
       },
-      body: args,
+      body: args.model,
     })
     return true
   } catch (error) {
+    console.log(error)
+
     logger.error('callCreateAppointmentByAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
   }

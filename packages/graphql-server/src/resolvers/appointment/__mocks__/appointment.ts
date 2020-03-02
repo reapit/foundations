@@ -1,5 +1,5 @@
-import {Appointment} from '../appointments'
-export const appointment:Appointment = {
+import {AppointmentModel} from '../../../types'
+export const appointment:AppointmentModel = {
   id: 'OXF180001',
   created: '2018-12-12T12:30:23.0000000Z',
   modified: '2019-01-08T12:30:34.0000000Z',

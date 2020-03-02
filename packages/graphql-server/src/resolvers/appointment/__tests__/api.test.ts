@@ -153,7 +153,7 @@ describe('appointment apis', () => {
         expect(fetcher).nthCalledWith(1, {
           url: `${URLS.appointments}/${updateAppointmentArgs.id}`,
           api: process.env['PLATFORM_API_BASE_URL'],
-          body: updateAppointmentArgs,
+          body: updateAppointmentArgs.model,
           method: 'PATCH',
           headers: {
             authorization: mockContext.authorization,
@@ -166,12 +166,13 @@ describe('appointment apis', () => {
         expect(fetcher).nthCalledWith(2, {
           url: `${URLS.appointments}/${updateAppointmentArgs.id}`,
           api: process.env['PLATFORM_API_BASE_URL'],
-          method: 'GET',
+          method: 'PATCH',
           headers: {
             authorization: mockContext.authorization,
             'Content-Type': 'application/json',
             'api-version': API_VERSION,
           },
+          body: updateAppointmentArgs.model,
         })
 
         expect(result).toEqual(appointment)
@@ -193,7 +194,7 @@ describe('appointment apis', () => {
         expect(fetcher).nthCalledWith(1, {
           url: `${URLS.appointments}/${updateAppointmentArgs.id}`,
           api: process.env['PLATFORM_API_BASE_URL'],
-          body: updateAppointmentArgs,
+          body: updateAppointmentArgs.model,
           method: 'PATCH',
           headers: {
             authorization: mockContext.authorization,
@@ -226,7 +227,7 @@ describe('appointment apis', () => {
         expect(fetcher).toHaveBeenCalledWith({
           url: `${URLS.appointments}`,
           api: process.env['PLATFORM_API_BASE_URL'],
-          body: createAppointmentArgs,
+          body: createAppointmentArgs.model,
           method: 'POST',
           headers: {
             authorization: mockContext.authorization,
@@ -255,7 +256,7 @@ describe('appointment apis', () => {
         expect(fetcher).toHaveBeenCalledWith({
           url: `${URLS.appointments}`,
           api: process.env['PLATFORM_API_BASE_URL'],
-          body: createAppointmentArgs,
+          body: createAppointmentArgs.model,
           method: 'POST',
           headers: {
             authorization: mockContext.authorization,

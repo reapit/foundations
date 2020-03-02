@@ -7,7 +7,7 @@
 
 type Query {
   # appoinments
-  GetAppointments(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], TypeId: [String!], NegotiatorId: [String!], OfficeId: [String!], PropertyId: [String!], Start: String, End: String, IncludeCancelled: Boolean, IncludeUnconfirmed: Boolean): PagedResult_AppointmentModel_!
+  GetAppointments(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], TypeId: [String!], NegotiatorId: [String!], OfficeId: [String!], PropertyId: [String!], Start: String, End: String, IncludeCancelled: Boolean, IncludeUnconfirmed: Boolean): PagedResult_AppointmentModel_
   GetAppointmentById(id: String!): AppointmentModel!
 
   # contact
@@ -77,8 +77,8 @@ type Query {
 
 type Mutation {
   # appointments
-  createAppointment(model: CreateAppointmentModelInput): Boolean!
-  updateAppointment(id: String!, model: UpdateAppointmentModelInput): Boolean!
+  CreateAppointment(model: CreateAppointmentModelInput): Boolean!
+  UpdateAppointment(id: String!, _eTag:String, model: UpdateAppointmentModelInput): AppointmentModel!
 
   # contact
   createContact(

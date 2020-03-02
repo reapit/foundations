@@ -26,8 +26,8 @@ export const resolvers = {
     areas: queryAreas,
     GetNegotiatorById: queryNegotiatorById,
     GetNegotiators: queryNegotiators,
-    getAppointment: queryAppointment,
-    getAppointments: queryAppointments,
+    GetAppointments: queryAppointments,
+    GetAppointmentById: queryAppointment,
   },
   Mutation: {
     CreateIdentityCheck: createIdentityCheck,
@@ -38,8 +38,8 @@ export const resolvers = {
     UpdateContact: updateContact,
     CreateNegotiator: createNegotiator,
     UpdateNegotiator: updateNegotiator,
-    createAppointment: mutationCreateAppointment,
-    updateAppointment: mutationUpdateAppointment,
+    CreateAppointment: mutationCreateAppointment,
+    UpdateAppointment: mutationUpdateAppointment,
   },
   JSON: GraphQLJSON,
 }
