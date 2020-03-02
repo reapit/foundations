@@ -11,9 +11,9 @@ type ContactAddress {
   countryId: String
 }
 
-type ContactCommunication {
-  label: String
-  detail: String
+type ContactSource {
+  id: String
+  type: String
 }
 
 type Contact {
@@ -22,16 +22,23 @@ type Contact {
   modified: String
   title: String
   forename: String
-  surname: String
+  surname: String!
   dateOfBirth: String
   active: Boolean
-  marketingConsent: String
+  marketingConsent: String!
   identityCheck: String
-  communications: [ContactCommunication!]
-  addresses: [ContactAddress!]
-  officeIds: [String!]
-  negotiatorIds: [String!]
+  source: ContactSource
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: ContactAddress!
+  secondaryAddress: ContactAddress
+  workAddress: ContactAddress
+  officeIds: [String!]!
+  negotiatorIds: [String!]!
   metadata: JSON
+  _eTag: String
   _links: JSON
   _embedded: JSON
 }
@@ -46,10 +53,6 @@ type Contacts {
 }
 
 # Input Types
-input ContactCommunicationInput {
-  label: String
-  detail: String
-}
 
 input ContactAddressInput {
   type: String
@@ -61,4 +64,9 @@ input ContactAddressInput {
   line4: String
   postcode: String
   countryId: String
+}
+
+input ContactSourceInput {
+  id: String
+  type: String
 }

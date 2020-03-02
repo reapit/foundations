@@ -1,5 +1,5 @@
 import GraphQLJSON from 'graphql-type-json'
-import { queryContact, queryContacts } from './contact/resolvers'
+import { queryContact, queryContacts, createContact, updateContact } from './contact/resolvers'
 import {
   createIdentityCheck,
   queryIdentityChecks,
@@ -11,8 +11,8 @@ import { login } from './auth/resolvers'
 
 export const resolvers = {
   Query: {
-    contact: queryContact,
-    contacts: queryContacts,
+    GetContactById: queryContact,
+    GetContacts: queryContacts,
     GetIdCheckById: queryIdentityCheckById,
     GetIdChecks: queryIdentityChecks,
     area: queryArea,
@@ -24,6 +24,8 @@ export const resolvers = {
     UpdateIdentityCheck: updateIdentityCheck,
     createArea: mutationCreateArea,
     updateArea: mutationUpdateArea,
+    CreateContact: createContact,
+    UpdateContact: updateContact,
   },
   JSON: GraphQLJSON,
 }
