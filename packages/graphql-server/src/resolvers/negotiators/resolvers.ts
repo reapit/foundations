@@ -39,11 +39,8 @@ export const queryNegotiators = (
   return negotiatorServices.getNegotiators(args, context)
 }
 
-export const createNegotiator = (
-  _: any,
-  args: CreateNegotiatorModel,
-  context: ServerContext,
-): Promise<NegotiatorModel> => {
+// temporary return boolean value. Will be update after disscussion
+export const createNegotiator = (_: any, args: CreateNegotiatorModel, context: ServerContext): Promise<Boolean> => {
   const traceId = context.traceId
   logger.info('createNegotiator', { traceId, args })
   const isPermit = checkPermission(context)

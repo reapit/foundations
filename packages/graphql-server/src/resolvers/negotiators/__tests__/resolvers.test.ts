@@ -1,9 +1,10 @@
 import { Negotiators } from '@reapit/foundations-ts-definitions'
-import { queryNegotiators, queryNegotiatorById, updateNegotiator } from '../resolvers'
+import { queryNegotiators, queryNegotiatorById, createNegotiator, updateNegotiator } from '../resolvers'
 import { GetNegotiatorByIdArgs } from '../negotiator'
 import { mockContext } from '../../../__mocks__/context'
 import { negotiatorStub } from '../__mocks__/negotiator'
 import { negotiatorsStub } from '../__mocks__/negotiators'
+import { createArgStub } from '../__mocks__/create-arg'
 import { updateArgStub } from '../__mocks__/update-arg'
 
 import errors from '../../../errors'
@@ -11,7 +12,7 @@ import errors from '../../../errors'
 jest.mock('../services', () => ({
   getNegotiatorById: jest.fn(() => negotiatorStub),
   getNegotiators: jest.fn(() => negotiatorsStub),
-  createNegotiator: jest.fn(() => negotiatorStub),
+  createNegotiator: jest.fn(() => true),
   updateNegotiator: jest.fn(() => negotiatorStub),
 }))
 
@@ -52,6 +53,20 @@ describe('negotiator resolvers', () => {
       } as Negotiators
       const output = errors.generateAuthenticationError(mockContext.traceId)
       const result = queryNegotiators({}, mockArgs, { ...mockContext, authorization: '' })
+      expect(result).toEqual(output)
+    })
+  })
+
+  describe('createNegotiator', () => {
+    it('should run correctly', () => {
+      const output = true
+      const result = createNegotiator({}, createArgStub, mockContext)
+      expect(result).toEqual(output)
+    })
+
+    it('should return errors', () => {
+      const output = errors.generateAuthenticationError(mockContext.traceId)
+      const result = updateNegotiator({}, updateArgStub, { ...mockContext, authorization: '' })
       expect(result).toEqual(output)
     })
   })
