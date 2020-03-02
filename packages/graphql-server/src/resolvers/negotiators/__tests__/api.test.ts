@@ -163,7 +163,7 @@ describe('negotiator apis', () => {
         body: createArgStub,
       })
 
-      expect(result).toEqual(true)
+      expect(result).toEqual(negotiatorStub)
 
       expect(mockedLogInfo).toHaveBeenCalledWith('callCreateNegotiatorAPI', {
         args: createArgStub,
@@ -214,12 +214,13 @@ describe('negotiator apis', () => {
         expect(fetcher).nthCalledWith(1, {
           url: `${URLS.negotiators}/${updateArgStub.id}`,
           api: REAPIT_API_BASE_URL,
-          body: updateArgStub,
+          body: updateArgStub.model,
           method: 'PATCH',
           headers: {
             Authorization: mockContext.authorization,
             'Content-Type': 'application/json',
             'api-version': API_VERSION,
+            'If-Match': updateArgStub._eTag,
           },
         })
 
@@ -253,12 +254,13 @@ describe('negotiator apis', () => {
         expect(fetcher).nthCalledWith(1, {
           url: `${URLS.negotiators}/${updateArgStub.id}`,
           api: REAPIT_API_BASE_URL,
-          body: updateArgStub,
+          body: updateArgStub.model,
           method: 'PATCH',
           headers: {
             Authorization: mockContext.authorization,
             'Content-Type': 'application/json',
             'api-version': API_VERSION,
+            'If-Match': updateArgStub._eTag,
           },
         })
 

@@ -4,6 +4,7 @@ import {
   CreateNegotiatorModel,
   PagedResultNegotiatorModel_,
 } from '@reapit/foundations-ts-definitions'
+import { AuthenticationError, UserInputError } from 'apollo-server'
 import negotiatorServices from './services'
 import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
@@ -15,12 +16,12 @@ export const queryNegotiatorById = (
   _: any,
   args: GetNegotiatorByIdArgs,
   context: ServerContext,
-): Promise<NegotiatorModel> => {
+): Promise<NegotiatorModel> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('queryNegotiator', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId) as any
+    return errors.generateAuthenticationError(context.traceId)
   }
   return negotiatorServices.getNegotiatorById(args, context)
 }
@@ -29,37 +30,40 @@ export const queryNegotiators = (
   _: any,
   args: Negotiators,
   context: ServerContext,
-): Promise<PagedResultNegotiatorModel_> => {
+): Promise<PagedResultNegotiatorModel_ | UserInputError> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('queryNegotiators', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId) as any
+    return errors.generateAuthenticationError(context.traceId)
   }
   return negotiatorServices.getNegotiators(args, context)
 }
 
-// temporary return boolean value. Will be update after disscussion
-export const createNegotiator = (_: any, args: CreateNegotiatorModel, context: ServerContext): Promise<Boolean> => {
+export const createNegotiator = (
+  _: any,
+  args: CreateNegotiatorModel,
+  context: ServerContext,
+): Promise<NegotiatorModel> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('createNegotiator', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId) as any
+    return errors.generateAuthenticationError(context.traceId)
   }
-  return negotiatorServices.createNegotiator(args, context) as any
+  return negotiatorServices.createNegotiator(args, context)
 }
 
 export const updateNegotiator = (
   _: any,
   args: UpdateNegotiatorArgs,
   context: ServerContext,
-): Promise<NegotiatorModel> => {
+): Promise<NegotiatorModel> | AuthenticationError => {
   const traceId = context.traceId
   logger.info('updateNegotiator', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
-    return errors.generateAuthenticationError(context.traceId) as any
+    return errors.generateAuthenticationError(context.traceId)
   }
   return negotiatorServices.updateNegotiator(args, context)
 }

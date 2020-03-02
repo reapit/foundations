@@ -5,6 +5,7 @@ import {
   CreateNegotiatorModel,
   PagedResultNegotiatorModel_,
 } from '@reapit/foundations-ts-definitions'
+import { UserInputError } from 'apollo-server'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
 import { GetNegotiatorByIdArgs, UpdateNegotiatorArgs } from './negotiator'
@@ -44,7 +45,7 @@ export const callGetNegotiatorByIdAPI = async (
 export const callGetNegotiatorsAPI = async (
   args: Negotiators,
   context: ServerContext,
-): Promise<PagedResultNegotiatorModel_> => {
+): Promise<PagedResultNegotiatorModel_ | UserInputError> => {
   const traceId = context.traceId
   logger.info('callGetNegotiatorsAPI', { args, traceId })
   try {
@@ -61,7 +62,7 @@ export const callGetNegotiatorsAPI = async (
     return response
   } catch (error) {
     logger.error('callGetNegotiatorsAPI', { traceId, error })
-    return errors.generateUserInputError(traceId) as any
+    return errors.generateUserInputError(traceId)
   }
 }
 
@@ -69,7 +70,7 @@ export const callGetNegotiatorsAPI = async (
 export const callCreateNegotiatorAPI = async (
   args: CreateNegotiatorModel,
   context: ServerContext,
-): Promise<Boolean> => {
+): Promise<NegotiatorModel> => {
   const traceId = context.traceId
   try {
     logger.info('callCreateNegotiatorAPI', { args, traceId })
@@ -78,17 +79,22 @@ export const callCreateNegotiatorAPI = async (
       'Content-Type': 'application/json',
       'api-version': API_VERSION,
     }
-    await fetcher({
+    const createResponse = await fetcher({
       url: `${URLS.negotiators}`,
       api: REAPIT_API_BASE_URL,
       method: 'POST',
       headers,
       body: args,
     })
-    return true
+    return createResponse
+    // TODO this one will be replace when BE return id of the new identityCheck
+    // if (createResponse) {
+    //   const response = await callGetContactByIdAPI({ id: '1' }, context)
+    //   return response
+    // }
   } catch (error) {
     logger.error('callCreateNegotiatorAPI', { traceId, error })
-    return errors.generateUserInputError(traceId) as any
+    return errors.generateUserInputError(traceId)
   }
 }
 
@@ -103,13 +109,14 @@ export const callUpdateNegotiatorAPI = async (
       Authorization: context.authorization,
       'Content-Type': 'application/json',
       'api-version': API_VERSION,
+      'If-Match': args._eTag,
     }
     await fetcher({
       url: `${URLS.negotiators}/${args.id}`,
       api: REAPIT_API_BASE_URL,
       method: 'PATCH',
       headers,
-      body: args,
+      body: args.model,
     })
 
     const getResponse = await fetcher({

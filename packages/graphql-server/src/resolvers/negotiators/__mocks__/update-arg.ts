@@ -2,11 +2,6 @@ import { UpdateNegotiatorArgs } from '../negotiator'
 
 export const updateArgStub: UpdateNegotiatorArgs = {
   id: 'MLD',
-  name: 'Abel Robertson',
-  jobTitle: null,
-  active: true,
-  workPhone: null,
-  mobilePhone: null,
-  email: 'abel.robertson@reapitestates.net',
-  metadata: {},
+  model: { jobTitle: 'New Job' },
+  _eTag: '"85A9DB571DB893A5FB734105AFF6B464"',
 }

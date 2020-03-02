@@ -53,6 +53,17 @@ type Query {
     name: String
     active: Boolean
   ): Areas!
+
+  # negotiator
+  GetNegotiators(
+    PageSize: Int
+    PageNumber: Int
+    SortBy: String
+    Id: [String!]
+    OfficeId: [String!]
+    Name: String
+  ): PagedResult_NegotiatorModel_!
+  GetNegotiatorById(id: String!): NegotiatorModel!
 }
 
 type Mutation {

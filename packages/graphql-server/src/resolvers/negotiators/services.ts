@@ -4,6 +4,7 @@ import {
   CreateNegotiatorModel,
   PagedResultNegotiatorModel_,
 } from '@reapit/foundations-ts-definitions'
+import { UserInputError } from 'apollo-server'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
 import { GetNegotiatorByIdArgs, UpdateNegotiatorArgs } from './negotiator'
@@ -21,15 +22,17 @@ export const getNegotiatorById = (args: GetNegotiatorByIdArgs, context: ServerCo
   return negotiator
 }
 
-export const getNegotiators = (args: Negotiators, context: ServerContext): Promise<PagedResultNegotiatorModel_> => {
+export const getNegotiators = (
+  args: Negotiators,
+  context: ServerContext,
+): Promise<PagedResultNegotiatorModel_ | UserInputError> => {
   const traceId = context.traceId
   logger.info('getNegotiators', { traceId, args })
   const negotiators = callGetNegotiatorsAPI(args, context)
   return negotiators
 }
 
-// temporary return boolean value. Will be update after disscussion
-export const createNegotiator = (args: CreateNegotiatorModel, context: ServerContext): Promise<Boolean> => {
+export const createNegotiator = (args: CreateNegotiatorModel, context: ServerContext): Promise<NegotiatorModel> => {
   const traceId = context.traceId
   logger.info('createNegotiator', { traceId, args })
   const negotiator = callCreateNegotiatorAPI(args, context)
