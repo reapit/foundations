@@ -1,6 +1,6 @@
-import { UpdateContactArgs } from '../contact';
+import { UpdateContactArgs } from '../types';
 
-export const mockUpdateArgs = {
+export const mockUpdateArgs: UpdateContactArgs = {
   id: "RPT20000017",
   title: 'Mr',
   forename: 'John',
@@ -50,4 +50,4 @@ export const mockUpdateArgs = {
     CustomField2: 'CustomValue2'
   },
   _eTag: "\"E9510E0E57BEECE1F14A0550DDA8116D\""
-} as UpdateContactArgs
+}

@@ -1,6 +1,6 @@
-import { CreateContactArgs } from '../contact';
+import { CreateContactArgs } from '../types';
 
-export const mockCreateArgs = {
+export const mockCreateArgs: CreateContactArgs = {
   title: 'Mr',
   forename: 'John',
   surname: 'Smith',
@@ -48,4 +48,4 @@ export const mockCreateArgs = {
     CustomField1: 'CustomValue1',
     CustomField2: 'CustomValue2'
   }
-} as CreateContactArgs
+}

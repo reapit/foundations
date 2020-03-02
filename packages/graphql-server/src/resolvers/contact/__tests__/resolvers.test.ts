@@ -1,5 +1,5 @@
 import { queryContact, queryContacts, createContact, updateContact } from '../resolvers'
-import { GetContactByIdArgs, GetContactsArgs } from '../contact'
+import { GetContactByIdArgs, GetContactsArgs } from '../types'
 import { mockContext } from '../../../__mocks__/context'
 import { contact } from '../__mocks__/contact'
 import { contacts } from '../__mocks__/contacts'

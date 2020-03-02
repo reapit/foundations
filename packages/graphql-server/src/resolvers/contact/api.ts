@@ -1,7 +1,16 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
-import { GetContactByIdArgs, CreateContactArgs, UpdateContactArgs, GetContactsArgs } from './contact'
+import {
+  GetContactByIdArgs,
+  CreateContactArgs,
+  UpdateContactArgs,
+  GetContactsArgs,
+  GetContactByIdReturn,
+  GetContactsReturn,
+  CreateContactReturn,
+  UpdateContactReturn,
+} from './types'
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 
@@ -12,7 +21,7 @@ export const URLS = {
   identityChecks: '/identitychecks',
 }
 
-export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: ServerContext) => {
+export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: ServerContext): GetContactByIdReturn => {
   const traceId = context.traceId
   try {
     logger.info('callGetContactByIdAPI', { traceId, args })
@@ -33,7 +42,7 @@ export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: S
   }
 }
 
-export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerContext) => {
+export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerContext): GetContactsReturn => {
   const traceId = context.traceId
   logger.info('callGetContactsAPI', { args, traceId })
   try {
@@ -54,7 +63,7 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
   }
 }
 
-export const callCreateContactAPI = async (args: CreateContactArgs, context: ServerContext) => {
+export const callCreateContactAPI = async (args: CreateContactArgs, context: ServerContext): CreateContactReturn => {
   const traceId = context.traceId
   try {
     logger.info('callCreateContactAPI', { traceId, args })
@@ -77,7 +86,7 @@ export const callCreateContactAPI = async (args: CreateContactArgs, context: Ser
   }
 }
 
-export const callUpdateContactAPI = async (args: UpdateContactArgs, context: ServerContext) => {
+export const callUpdateContactAPI = async (args: UpdateContactArgs, context: ServerContext): UpdateContactReturn => {
   const traceId = context.traceId
   try {
     logger.info('callUpdateContactAPI', { traceId, args })

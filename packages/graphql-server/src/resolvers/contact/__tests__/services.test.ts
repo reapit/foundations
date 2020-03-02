@@ -1,4 +1,4 @@
-import { GetContactByIdArgs, GetContactsArgs } from '../contact'
+import { GetContactByIdArgs, GetContactsArgs } from '../types'
 import { getContactById, getContacts, createContact, updateContact } from '../services'
 import { mockContext } from '../../../__mocks__/context'
 import { contact } from '../__mocks__/contact'

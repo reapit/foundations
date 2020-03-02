@@ -1,6 +1,7 @@
-import { Contact } from '../contact.d';
 
-export const contact = {
+import { ContactModel } from '../../../types'
+
+export const contact: ContactModel = {
   id: "RPT20000017",
   title: 'Mr',
   forename: 'John',
@@ -59,4 +60,4 @@ export const contact = {
     },
   },
   _embedded: null,
-} as Contact
+}
