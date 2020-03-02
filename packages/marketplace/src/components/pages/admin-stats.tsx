@@ -16,7 +16,7 @@ import {
 import styles from '@/styles/pages/admin-stats.scss?mod'
 import { AdminStatsRequestParams, adminStatsRequestData } from '@/actions/admin-stats'
 import { Line } from 'react-chartjs-2'
-import { getChartData, getChartConfig } from '@/utils/admin-stats'
+import { getChartData, getChartConfig, getRangeName } from '@/utils/admin-stats'
 
 export type Area = 'APPS' | 'DEVELOPERS' | 'INSTALLATIONS'
 export type Range = 'WEEK' | 'MONTH' | 'ALL'
@@ -45,7 +45,11 @@ export const AdminStats: React.FC<AdminStatsProps> = (props: AdminStatsProps) =>
     if (range === 'ALL') {
       return <H4>Total: {totalCount}</H4>
     }
-    return <Line data={chartConfig} />
+    return (
+      <div className={styles['chart-wrap']}>
+        <Line data={chartConfig} />
+      </div>
+    )
   }
 
   return (
@@ -112,7 +116,7 @@ export const AdminStats: React.FC<AdminStatsProps> = (props: AdminStatsProps) =>
             </Button>
           </ButtonGroup>
           <H4>
-            Showing results for ‘{area}’ and ‘{range}’
+            Showing results for ‘{area}’ and ‘{getRangeName(range)}’
           </H4>
           {renderResult()}
         </FlexContainerResponsive>

@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
+    "build:prod": "node ../../scripts/webpack/webpack-sass-prod/index.js",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
@@ -17,11 +17,26 @@
     "release:prod": "node ../../scripts/release/release-prod.js marketplace reapit-app-store-prod",
     "test-e2e:dev": "cypress open --project './src/tests'",
     "test-e2e:ci": "yarn start:prod && cypress run --project './src/tests'",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx src\"",
+    "lint:fix": "eslint --cache --ext=ts,tsx src --fix"
   },
-  "dependencies": {},
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "diff": "^4.0.1",
+    "lodash.orderby": "^4.6.0",
+    "react-chartjs-2": "^2.8.0",
+    "react-ga": "^2.7.0",
+    "react-slick": "^0.24.0",
+    "swagger-ui-react": "^3.24.3"
+  },
   "devDependencies": {
-    "@reapit/foundations-ts-definitions": "2020-02-13"
+    "@cypress/webpack-preprocessor": "^4.1.1",
+    "@reapit/foundations-ts-definitions": "2020-02-13",
+    "@types/nanoid": "^2.1.0",
+    "cypress": "^3.8.0",
+    "cypress-file-upload": "^3.5.1",
+    "cypress-plugin-retries": "^1.5.2"
   },
   "husky": {
     "hooks": {

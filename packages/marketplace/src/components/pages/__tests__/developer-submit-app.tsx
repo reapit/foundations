@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 import { match } from 'react-router'
 import { shallow, mount } from 'enzyme'
 import { getMockRouterProps } from '@/utils/mock-helper'
@@ -16,6 +17,8 @@ import {
   handleSubmitModalContinue,
   handleSubmitModalViewDocs,
   handleBeforeSubmit,
+  renderErrors,
+  labelTextOfField,
 } from '../developer-submit-app'
 import { appDetailDataStub } from '../../../sagas/__stubs__/app-detail'
 import { appCategorieStub } from '../../../sagas/__stubs__/app-categories'
@@ -39,6 +42,49 @@ const submitAppMappedActionsProps: SubmitAppMappedActions = {
 const mockRouterProps = getMockRouterProps(null)
 
 describe('DeveloperSubmitApp', () => {
+  describe('renderErrors', () => {
+    it('should return null is error object is empty', () => {
+      const result = renderErrors({})
+      expect(result).toBeNull()
+    })
+    it('should errors correctly and not render FIELD_ERROR_DESCRIPTION', () => {
+      const Component = () =>
+        renderErrors({
+          name: 'test',
+          telephone: 'test',
+          homePage: ['test', 'test'],
+          unknownField: 'test',
+        })
+
+      const wrapper = mount(<Component />)
+
+      const fieldUnknownNode = wrapper.find('[data-test="unknownField"]')
+      expect(fieldUnknownNode.text()).toBe('unknownField: test')
+
+      const fieldHomePageNode = wrapper.find('[data-test="homePage"]')
+      expect(fieldHomePageNode.text()).toBe(`${labelTextOfField['homePage']}: test, test`)
+
+      const fieldNameNode = wrapper.find('[data-test="name"]')
+      expect(fieldNameNode.text()).toBe(`${labelTextOfField['name']}: test`)
+
+      const fieldTelephoneNode = wrapper.find('[data-test="telephone"]')
+      expect(fieldTelephoneNode.text()).toBe(`${labelTextOfField['telephone']}: test`)
+
+      const headingNode = wrapper.find('h6')
+      expect(headingNode.text()).toBe('The following validation errors have occurred:')
+    })
+    it('should render field render FIELD_ERROR_DESCRIPTION correctly', () => {
+      const Component = () =>
+        renderErrors({
+          [FIELD_ERROR_DESCRIPTION]: 'test-heading',
+        })
+
+      const wrapper = mount(<Component />)
+      const headingNode = wrapper.find('h6')
+      expect(headingNode.text()).toBe('test-heading')
+    })
+  })
+
   it('should match a snapshot', () => {
     const props: SubmitAppProps = {
       ...submitAppMappedActionsProps,
@@ -453,7 +499,6 @@ describe('handleSubmitApp', () => {
     } as CustomCreateAppModel
     const actions = {} as any
     const spySubmitApp = jest.spyOn(params, 'submitApp')
-    const spySetSubmitError = jest.spyOn(params, 'setSubmitError')
     const fn = handleSubmitApp(params)
     fn(appModel, actions)
     expect(spySubmitApp).toHaveBeenCalledWith(
@@ -461,7 +506,6 @@ describe('handleSubmitApp', () => {
         authFlow: 'clientCredentials',
       },
       actions,
-      spySetSubmitError,
     )
   })
 
@@ -481,7 +525,6 @@ describe('handleSubmitApp', () => {
     } as CustomCreateAppModel
     const actions = {} as any
     const spySubmitApp = jest.spyOn(params, 'submitApp')
-    const spySetSubmitError = jest.spyOn(params, 'setSubmitError')
     const fn = handleSubmitApp(params)
     fn(appModel, actions)
     expect(spySubmitApp).toHaveBeenCalledWith(
@@ -491,7 +534,6 @@ describe('handleSubmitApp', () => {
         signoutUris: ['https://google.com'],
       },
       actions,
-      spySetSubmitError,
     )
   })
 

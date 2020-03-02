@@ -42,6 +42,9 @@ describe('getDefaultRouteByLoginType', () => {
     expect(getDefaultRouteByLoginType('DEVELOPER', firstLoginCookie)).toEqual(
       `${window.location.origin}${Routes.DEVELOPER_WELCOME}`,
     )
+    expect(getDefaultRouteByLoginType('CLIENT', firstLoginCookie)).toEqual(
+      `${window.location.origin}${Routes.CLIENT_WELCOME}`,
+    )
   })
 })
 
@@ -56,5 +59,6 @@ describe('getDefaultPathByLoginType', () => {
   it('should return correct path DEVELOPER when not found firstLoginCookie', () => {
     const firstLoginCookie = undefined
     expect(getDefaultPathByLoginType('DEVELOPER', firstLoginCookie)).toEqual(Routes.DEVELOPER_WELCOME)
+    expect(getDefaultPathByLoginType('CLIENT', firstLoginCookie)).toEqual(Routes.CLIENT_WELCOME)
   })
 })

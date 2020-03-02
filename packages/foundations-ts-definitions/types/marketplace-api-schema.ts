@@ -100,6 +100,10 @@ export interface AppDetailModel {
    */
   isFeatured?: boolean
   /**
+   * Gets a flag determining whether or not the app is a web component
+   */
+  isWebComponent?: boolean
+  /**
    * Gets the status of whether the app has pending revisions
    */
   pendingRevisions?: boolean
@@ -427,6 +431,10 @@ export interface CreateAppModel {
    * Sets the flag determining whether or not the app will appear in the marketplace
    */
   isDirectApi?: boolean
+  /**
+   * Sets the flag determining whether or not the app is a web component
+   */
+  isWebComponent?: boolean
   /**
    * Sets the application authorisation flow type (authorisationCode/clientCredentials)
    */

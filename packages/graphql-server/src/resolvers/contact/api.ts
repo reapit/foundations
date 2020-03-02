@@ -28,7 +28,7 @@ export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: S
     })
     return getResponse
   } catch (error) {
-    logger.error('callGetContactByIdAPI', error)
+    logger.error('callGetContactByIdAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
   }
 }
@@ -49,7 +49,7 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
     })
     return response
   } catch (error) {
-    logger.error('callGetContactsAPI', error)
+    logger.error('callGetContactsAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
   }
 }

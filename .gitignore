@@ -5,7 +5,6 @@
 /.pnp
 .pnp.js
 /packages/*/
-/.webpack-cache
 
 # testing
 /coverage
@@ -61,3 +60,10 @@ invite-developers.js
 
 # eslint cache
 .eslintcache
+
+# webpack cache
+.webpack-cache
+scripts/webpack/webpack-sass-prod/.temp/*
+
+# jest cache
+scripts/jest/.jest-cache

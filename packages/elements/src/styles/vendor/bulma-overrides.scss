@@ -247,6 +247,11 @@
 .modal-card,
 .modal-content {
   margin: 0 auto;
+  .modal-card {
+    @media screen and (max-width: 768px) {
+      max-height: calc(100vh - 160px);
+    }
+  }
 }
 
 @media (max-width: 767px) {

@@ -10,14 +10,15 @@ import { importSchema } from 'graphql-import'
 import depthLimit from 'graphql-depth-limit'
 import resolvers from './resolvers'
 import logger from './logger'
-
 const typeDefs = importSchema('./src/schema.graphql')
 
-const envConfig = require(path.resolve(__dirname, '../../..', 'reapit-config.json'))
-const configs = envConfig[process.env.REAPIT_ENV || 'LOCAL']
+if (process.env.NODE_ENV === 'development') {
+  const envConfig = require(path.resolve(__dirname, '../../..', 'reapit-config.json'))
+  const configs = envConfig[process.env.REAPIT_ENV || 'LOCAL']
 
-for (const k in configs) {
-  process.env[k] = configs[k]
+  for (const k in configs) {
+    process.env[k] = configs[k]
+  }
 }
 
 export type ExpressContext = {
@@ -58,11 +59,12 @@ export const formatResponse = (
   return response || {}
 }
 
-const server = new ApolloServer({
+export const server = new ApolloServer({
   typeDefs: typeDefs,
   resolvers,
   formatError,
   context: handleContext,
+  uploads: false,
   validationRules: [depthLimit(10)],
   cors: {
     origin: '*',

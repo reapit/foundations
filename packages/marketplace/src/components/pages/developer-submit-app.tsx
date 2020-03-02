@@ -29,6 +29,7 @@ import {
   FlexContainerResponsive,
   Helper,
 } from '@reapit/elements'
+import { FIELD_ERROR_DESCRIPTION } from '@/constants/form'
 
 import { validate } from '@/utils/form/submit-app'
 import { connect } from 'react-redux'
@@ -73,7 +74,61 @@ export interface SubmitAppMappedProps {
   categories: CategoryModel[]
 }
 
+export const labelTextOfField = {
+  name: 'Name',
+  supportEmail: 'Support email',
+  telephone: 'Telephone',
+  homePage: 'Home page',
+  launchUri: 'Launch URI',
+  summary: 'Summary',
+  description: 'Description',
+  redirectUris: 'Redirect URI(s)',
+  signoutUris: 'Sign Out URI(s)',
+  screen1ImageUrl: 'Screenshot 1',
+  iconImageUrl: 'Icon',
+  scopes: 'Permissions',
+  authFlow: 'Authentication flow',
+}
+
 export type SubmitAppProps = SubmitAppMappedActions & SubmitAppMappedProps & RouteComponentProps<{ appid?: string }>
+
+export const renderErrors = (errors: Record<string, string | string[]>) => {
+  const isErrorsEmpty = typeof errors !== 'object' || Object.keys(errors).length === 0
+  if (isErrorsEmpty) {
+    return null
+  }
+
+  const description = errors[FIELD_ERROR_DESCRIPTION]
+
+  return (
+    <div className="has-text-danger">
+      <H6 className="has-text-danger mb-1">{description || 'The following validation errors have occurred:'}</H6>
+      <div>
+        {Object.keys(errors).map(key => {
+          const value = errors[key]
+
+          if (key === FIELD_ERROR_DESCRIPTION) {
+            return null
+          }
+
+          if (typeof value === 'string') {
+            return (
+              <div data-test={key} key={key}>
+                {labelTextOfField[key] || key}: {errors[key]}
+              </div>
+            )
+          }
+
+          return (
+            <div data-test={key} key={key}>
+              {labelTextOfField[key] || key}: {(errors[key] as string[]).join(', ')}
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
 
 export const renderScopesCheckbox = (scopes: ScopeModel[] = [], errorScope?: string) => (
   <>
@@ -180,7 +235,6 @@ export const handleSubmitApp = ({
   appId,
   submitApp,
   submitRevision,
-  setSubmitError,
   // isAgreedTerms,
   // setShouldShowError,
 }) => (appModel: CustomCreateAppModel, actions: FormikHelpers<CustomCreateAppModel>) => {
@@ -198,7 +252,7 @@ export const handleSubmitApp = ({
           signoutUris: signoutUris ? signoutUris.split(',') : [],
         }
   if (!appId) {
-    submitApp(appToSubmit, actions, setSubmitError)
+    submitApp(appToSubmit, actions)
   } else {
     if (appToSubmit.authFlow) {
       delete appToSubmit.authFlow
@@ -280,7 +334,6 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
   // submit modal state
   const [isSubmitModalOpen, setIsSubmitModalOpen] = React.useState<boolean>(!getCookieString(COOKIE_FIRST_SUBMIT))
 
-  const [submitError, setSubmitError] = React.useState<string>()
   const goBackToApps = getGoBackToAppsFunc({ history })
 
   const isSubmitRevision = Boolean(match.params && match.params.appid)
@@ -361,7 +414,6 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
               appId,
               submitApp,
               submitRevision,
-              setSubmitError,
               // isAgreedTerms,
               // setShouldShowError ,
             })}
@@ -653,8 +705,8 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                     <GridFourCol>{renderScopesCheckbox(scopes, errors.scopes)}</GridFourCol>
                   </FormSection>
                   <FormSection>
+                    {renderErrors((errors as unknown) as Record<string, string | string[]>)}
                     <LevelRight>
-                      {submitError && <H6 className="has-text-danger mr-5">{submitError}</H6>}
                       <Grid>
                         {/* <GridItem>
                         <FlexContainerBasic

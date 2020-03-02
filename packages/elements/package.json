@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "0.5.38",
+  "version": "0.5.39",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -20,7 +20,8 @@
   "module": "dist/elements.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build:prod": "rimraf dist && rimraf out && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c && build-storybook -o out",
+    "build:prod": "concurrently \"rimraf dist && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c\" \"rimraf out && build-storybook -o out\"",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
     "release:prod": "node ../../scripts/release/release-npm.js elements",
     "start:dev": "start-storybook -p 6006",
     "start:prod": "cross-env NODE_ENV=development tsdx watch",
@@ -35,7 +36,6 @@
   ],
   "dependencies": {
     "@storybook/theming": "^5.2.8",
-    "@types/papaparse": "^5.0.3",
     "bulma": "^0.7.5",
     "formik": "^2.0.4",
     "gh-pages": "^2.2.0",
@@ -54,7 +54,24 @@
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
-    "@reapit/foundations-ts-definitions": "2020-02-13"
+    "@reapit/foundations-ts-definitions": "2020-02-13",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-docs": "^5.2.6",
+    "@storybook/addon-info": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addon-storysource": "^5.2.6",
+    "@storybook/addon-viewport": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/cli": "^5.2.6",
+    "@storybook/preset-typescript": "^1.1.0",
+    "@storybook/react": "^5.2.6",
+    "@storybook/storybook-deployer": "^2.8.1",
+    "@storybook/theming": "^5.2.8",
+    "@types/googlemaps": "^3.37.5",
+    "@types/jsonwebtoken": "^8.3.5",
+    "@types/papaparse": "^5.0.3",
+    "rollup": "1.27.13",
+    "rollup-plugin-scss": "^1.0.2"
   },
   "peerDependencies": {
     "react": "^16.11.0",

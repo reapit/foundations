@@ -37,6 +37,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
       - name: Install Global Dependencies
         run: |
           yarn global add aws-cli serverless@1.59.3
@@ -54,10 +55,48 @@ jobs:
           yarn fetch-config
       - name: Build
         run: |
-          yarn build --parallel
+          yarn build
       - name: Test
         run: |
-          yarn test --parallel
+          yarn test
       - name: Release Develop
         run: |
-          yarn release:dev --parallel
+          yarn release:dev
+
+      # write cache for reuse across branches, not using cache for building here
+      - name: Write jest cache
+        uses: actions/cache@v1
+        with:
+          path: scripts/jest/.jest-cache
+          key: ${{ runner.os }}-jest-cache-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-jest-cache-
+      - name: Write marketplace build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/marketplace/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-marketplace
+
+      - name: Write aml-checklist build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/aml-checklist/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-aml-checklist
+
+      - name: Write geo-diary build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/geo-diary/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-geo-diary
+
+      - name: Write lifetime-legal build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/lifetime-legal/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-lifetime-legal
+
+      - name: Write smb build cache
+        uses: actions/cache@v1
+        with:
+          path: packages/smb/.webpack-cache
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-${{hashFiles('scripts/webpack/**/*.js')}}-smb

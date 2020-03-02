@@ -3,6 +3,10 @@
   margin-top: 1rem;
 }
 
-.filterBlock {
-  min-width: 300px;
+.contentBlock {
+  margin: 0 auto;
+  width: 100%;
+  @media screen and (min-width: 1025px) {
+    width: 70%;
+  }
 }

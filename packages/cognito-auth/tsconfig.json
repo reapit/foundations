@@ -6,18 +6,12 @@
     "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/cognito-auth": ["../cognito-auth/src"],
       "@reapit/elements": ["../elements/src"]
     },
+    "declaration": true,
     "declarationDir": "dist"
   },
 
   "include": ["src"],
-  "exclude": [
-    "public",
-    "dist",
-    "src/scripts",
-    "node_modules",
-    "src/tests/coverage"
-  ]
+  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage"]
 }

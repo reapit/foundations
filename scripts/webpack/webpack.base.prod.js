@@ -1,4 +1,3 @@
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
@@ -9,8 +8,12 @@ const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
 const config = require(PATHS.config)
+const hashFiles = require('../utils/hash-files')
+const path = require('path')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 module.exports = {
+  mode: 'production',
   context: process.cwd(),
   entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', PATHS.entryWeb],
   output: {
@@ -20,11 +23,6 @@ module.exports = {
   plugins: [
     new ResolveTSPathsToWebpackAlias({
       tsconfig: PATHS.tsConfig,
-    }),
-    new ForkTsCheckerWebpackPlugin({
-      async: false,
-      useTypescriptIncrementalApi: true,
-      memoryLimit: 4096,
     }),
     new HtmlWebpackPlugin({
       hash: true,
@@ -82,12 +80,32 @@ module.exports = {
       ignore: ['node_modules', 'webpack.config.js'],
       configFile: 'sentry.properties',
     }),
+    new HardSourceWebpackPlugin({
+      // each package has its own .webpack-cache
+      cacheDirectory: `${PATHS.cacheWebpackDir}/hard-source/[confighash]`,
+      environmentHash: {
+        root: path.join(__dirname, '../..'),
+        directories: [],
+        // use yarn.lock at the root of the monorepo as hash, relative to this file
+        files: ['yarn.lock'],
+      },
+    }),
   ],
   module: {
     rules: [
       {
         test: /.tsx?$/,
         use: [
+          {
+            loader: 'cache-loader',
+            options: {
+              // each package has its own .webpack-cache
+              cacheDirectory: `${PATHS.cacheWebpackDir}/cache-loader`,
+              // use yarn.lock at the root of the monorepo as hash, relative to this file
+              cacheIdentifier: hashFiles([path.join(__dirname, '../..', 'yarn.lock')]),
+            },
+          },
+          'thread-loader',
           {
             loader: 'babel-loader',
             options: {
@@ -107,18 +125,20 @@ module.exports = {
               ],
             },
           },
-          { loader: 'ts-loader', options: { transpileOnly: true } },
+          { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
         ],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: '/assets',
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: '/assets',
+            },
           },
-        },
+        ],
       },
       {
         test: /\.(graphql|gql)$/,

@@ -26,7 +26,8 @@
     "release:prod": "node ../../scripts/release/release-npm.js @reapit/cognito-auth",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges"
+    "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\""
   },
   "dependencies": {
     "amazon-cognito-identity-js": "~3.0.13",
@@ -34,5 +35,10 @@
     "hardtack": "^4.1.2",
     "jsonwebtoken": "^8.5.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@types/jsonwebtoken": "^8.3.5",
+    "compare-versions": "^3.5.1"
+  }
 }

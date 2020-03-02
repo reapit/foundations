@@ -1,3 +1,5 @@
+/* Sentry currently only work for Chrome, add polyfill for other browsers */
+import 'error-polyfill'
 import * as Sentry from '@sentry/browser'
 
 /**
@@ -5,7 +7,10 @@ import * as Sentry from '@sentry/browser'
  */
 export const logger = (error: Error) => {
   if (process.env.NODE_ENV === 'production') {
-    Sentry.captureException(error)
+    Sentry.withScope(scope => {
+      scope.setExtra('Error', { error: JSON.stringify(error) })
+      Sentry.captureException(error)
+    })
   } else {
     console.error(error)
   }

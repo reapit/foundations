@@ -17,6 +17,11 @@ export type SubmitAppFormErrorKeys =
   | 'signoutUris'
   | 'scopes'
 
+const MIN_DESCRIPTION_LENGTH = 150
+const MAX_DESCRIPTION_LENGTH = 1000
+const MIN_SUMMARY_LENGTH = 50
+const MAX_SUMMARY_LENGTH = 150
+
 export const validate = (values: CustomCreateAppModel) => {
   const keysRequiredBase: SubmitAppFormErrorKeys[] = [
     'name',
@@ -51,7 +56,6 @@ export const validate = (values: CustomCreateAppModel) => {
     if (Array.isArray(scopesValues) && scopesValues.length === 0) {
       errors.scopes = 'At least one Permission is required'
     }
-    return errors
   }
 
   if (values.redirectUris && !isValidRedirectUrls(values.redirectUris)) {
@@ -68,6 +72,21 @@ export const validate = (values: CustomCreateAppModel) => {
 
   if (values.launchUri && !whiteListLocalhostAndIsValidUrl(values.launchUri)) {
     errors.launchUri = 'Invalid Launch URI'
+  }
+
+  const isValidDescription =
+    values.description &&
+    MIN_DESCRIPTION_LENGTH <= values.description?.length &&
+    values.description?.length <= MAX_DESCRIPTION_LENGTH
+  if (!isValidDescription) {
+    errors.description = 'Must be between 150 and 1000 characters'
+  }
+
+  const isValidSummary =
+    values?.summary && MIN_SUMMARY_LENGTH <= values?.summary?.length && values.summary?.length <= MAX_SUMMARY_LENGTH
+
+  if (!isValidSummary) {
+    errors.summary = 'Must be between 50 and 150 characters'
   }
 
   return errors

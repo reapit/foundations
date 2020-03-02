@@ -14,7 +14,6 @@ export interface AuthenticatedMappedProps {
 export type AuthenticatedProps = AuthenticatedMappedActions & AuthenticatedMappedProps
 
 export const Authenticated: React.FunctionComponent<AuthenticatedProps> = ({ authenticatedState }) => {
-  console.log(authenticatedState)
   return (
     <ErrorBoundary>
       <FlexContainerBasic hasPadding>
@@ -31,6 +30,6 @@ export const mapStateToProps = (state: ReduxState): AuthenticatedMappedProps => 
   authenticatedState: state.authenticated,
 })
 
-export const mapDispatchToProps = (_dispatch: any): AuthenticatedMappedActions => ({})
+export const mapDispatchToProps = (): AuthenticatedMappedActions => ({})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authenticated)

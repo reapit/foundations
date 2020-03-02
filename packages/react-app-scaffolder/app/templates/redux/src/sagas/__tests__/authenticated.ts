@@ -1,7 +1,7 @@
 import authenticatedSagas, { authenticatedDataFetch, authenticatedDataListen } from '../authenticated'
 import ActionTypes from '@/constants/action-types'
-import { put, takeLatest, all, fork, call } from '@redux-saga/core/effects'
-import { authenticatedLoading, authenticatedReceiveData, authenticatedRequestDataFailure } from '@/actions/authenticated'
+import { put, takeLatest, all, fork } from '@redux-saga/core/effects'
+import { authenticatedLoading, authenticatedReceiveData } from '@/actions/authenticated'
 import { cloneableGenerator } from '@redux-saga/testing-utils'
 import { Action } from '@/types/core'
 

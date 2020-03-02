@@ -31,7 +31,6 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   setRefreshSession,
   children,
   location,
-  isDesktopMode,
   hasSession,
 }) => {
   const cognitoClientId = process.env.COGNITO_CLIENT_ID_<%= nameInConstantCase %> as string

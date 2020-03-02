@@ -26,7 +26,6 @@ const adminStatsReducer = (state: AdminStatsState = defaultState, action: Action
   }
 
   if (isType(action, adminStatsReceiveData)) {
-    console.log('xxx adminStatsReceiveData', action)
     return {
       ...state,
       loading: false,

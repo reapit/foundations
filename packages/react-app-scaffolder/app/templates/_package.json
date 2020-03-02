@@ -12,15 +12,21 @@
   "private": true,
   "scripts": {
     <% if (isFoundation) { %>
+    <% if (stylesSolution === 'styledComponents') { %>
+    "build:prod": "node '../../scripts/webpack/webpack-styled-components-prod.js'",
+    "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.base.dev.js",
+    <% } else { %>
     "build:prod": "node '../../scripts/webpack/webpack-sass-prod/index.js'",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ../../scripts/webpack/webpack.sass.dev.js",
-    "release:dev": "node ../../scripts/release/release-dev.js lifetime-legal reapit-<%= name %>-dev",
-    "release:prod": "node ../../scripts/release/release-prod.js lifetime-legal reapit-<%= name %>-dev"
+    <% } %>
+
+    "release:dev": "node ../../scripts/release/release-dev.js <%= name %> reapit-<%= name %>-dev",
+    "release:prod": "node ../../scripts/release/release-prod.js <%= name %> reapit-<%= name %>-dev",
     <% } else { %>
     "build:prod": "webpack --color --mode production --config './src/scripts/webpack-prod.js'",
     "start:dev": "webpack-dev-server --hot --progress --color --mode development --config ./src/scripts/webpack-dev.js",
-    "lint": "eslint --ext=jsx,ts,tsx packages --fix",
-    <% } %>
+    "lint": "eslint --ext=jsx,ts,tsx src --fix",
+  <% } %>
     "start:prod": "serve public/dist -s -l 8080",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
     "test:dev": "cross-env TZ=UTC jest --watch --verbose",
@@ -51,7 +57,7 @@
     <% if (stylesSolution === 'styledComponents') { %>
     ,"styled-components": "^4.3.2"
     <% } else { %>
-      
+
     <% } %>
   },
   "devDependencies": {
@@ -59,6 +65,7 @@
     "@babel/core": "^7.7.2",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
+    "@testing-library/react-hooks": "^2.0.3",
     "@types/enzyme": "^3.9.3",
     "@types/jest": "^24.0.13",
     "@types/node": "^12.0.2",
@@ -98,7 +105,7 @@
     "ts-loader": "^6.0.1",
     "ts-node": "^8.3.0",
     "ts-paths-to-webpack-alias": "^0.3.1",
-    "typescript": "^3.7.2",
+    "typescript": "3.7.2",
     "typescript-eslint": "^0.0.1-alpha.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.2",

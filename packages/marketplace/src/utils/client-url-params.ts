@@ -28,6 +28,12 @@ export const removeQuery = (queries: Array<string>): string => {
   return path
 }
 
+export const stringifyObjectIntoQueryString = (params: object) => {
+  return Object.keys(params)
+    .map(key => key + '=' + params[key])
+    .join('&')
+}
+
 export const getParamsFromPath = (search: string) => {
   const output = {} as Record<string, any>
   const params = new URLSearchParams(search)
