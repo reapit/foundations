@@ -7,7 +7,6 @@ import {
   updateIdentityCheck,
 } from './identity-check/resolvers'
 import { queryArea, queryAreas, mutationCreateArea, mutationUpdateArea } from './area/resolvers'
-import { login } from './auth/resolvers'
 
 export const resolvers = {
   Query: {
@@ -19,7 +18,6 @@ export const resolvers = {
     areas: queryAreas,
   },
   Mutation: {
-    login,
     CreateIdentityCheck: createIdentityCheck,
     UpdateIdentityCheck: updateIdentityCheck,
     createArea: mutationCreateArea,

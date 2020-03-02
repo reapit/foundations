@@ -1,7 +1,6 @@
 #import Contact, Contacts from "./resolvers/contact/types.graphql"
 #import CreateIdentityCheckModelInput, CreateIdentityCheckModelInput_identityDocument1Input, CreateIdentityCheckModelInput_identityDocument2Input, IdentityCheckModel, IdentityCheckModel_identityDocument1, IdentityCheckModel_identityDocument2, PagedResult_IdentityCheckModel_, UpdateIdentityCheckModelInput, UpdateIdentityCheckModelInput_identityDocument1Input, UpdateIdentityCheckModelInput_identityDocument2Input from "./resolvers/identity-check/types.graphql"
 #import Area, Areas from "./resolvers/area/types.graphql"
-#import LoginIdentity, LoginMode, LoginType, Token from './resolvers/auth/types.graphql'
 
 type Query {
   # contact
@@ -97,7 +96,6 @@ type Mutation {
   ): Boolean!
   updateArea(id: String!, name: String, area: [String], departmentIds: [String], officeIds: [String]): Boolean!
 
-  login(userName: String!, password: String!, loginType: LoginType!, mode: LoginMode!): Token
 }
 
 scalar JSON

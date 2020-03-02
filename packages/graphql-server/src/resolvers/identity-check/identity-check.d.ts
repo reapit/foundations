@@ -20,9 +20,14 @@ export type GetIdentityChecksArgs = {
   status?: 'unknow' | 'uncheck' | 'pending' | 'fail' | 'cancelled' | 'warnings' | 'pass'
 }
 
-export type CreateIdentityCheckArgs = CreateIdentityCheckModel
+export type CreateIdentityCheckArgs = {
+  model: CreateIdentityCheckModel
+}
 
-export type UpdateIdentityCheckArgs = { id: string; _eTag?: string } & UpdateIdentityCheckModel
+export type UpdateIdentityCheckArgs = {
+  id: string
+  model: UpdateIdentityCheckModel & { _eTag: string }
+}
 
 /* return type */
 export type GetIdentityCheckByIdReturn = Promise<IdentityCheckModel | UserInputError>
