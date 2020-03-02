@@ -6,6 +6,7 @@ import { contacts } from '../__mocks__/contacts'
 import { mockCreateArgs } from '../__mocks__/create-args'
 import { mockUpdateArgs } from '../__mocks__/update-args'
 
+jest.mock('../../../logger')
 jest.mock('../api', () => ({
   callGetContactByIdAPI: jest.fn(() => contact),
   callGetContactsAPI: jest.fn(() => contacts),

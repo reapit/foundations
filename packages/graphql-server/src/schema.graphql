@@ -5,11 +5,11 @@
 
 type Query {
   # contact
-  getContact(
+  GetContactById(
     id: String!,
   ): Contact!
 
-  getContacts(
+  GetContacts(
     name: String
     address: String
     negotiatorId: [String!]
@@ -58,7 +58,7 @@ type Query {
 
 type Mutation {
   # The response of createContact will temporarily be boolean type until BE team fixs the API
-  createContact(
+  CreateContact(
     title: String,
     forename: String,
     surname: String!,
@@ -78,7 +78,7 @@ type Mutation {
     metadata: JSON,
   ): Boolean
 
-  updateContact(
+  UpdateContact(
     id: String!,
     title: String,
     forename: String,

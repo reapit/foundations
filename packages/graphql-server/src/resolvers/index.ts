@@ -11,8 +11,8 @@ import { login } from './auth/resolvers'
 
 export const resolvers = {
   Query: {
-    getContact: queryContact,
-    getContacts: queryContacts,
+    GetContactById: queryContact,
+    GetContacts: queryContacts,
     GetIdCheckById: queryIdentityCheckById,
     GetIdChecks: queryIdentityChecks,
     area: queryArea,
@@ -24,8 +24,8 @@ export const resolvers = {
     UpdateIdentityCheck: updateIdentityCheck,
     createArea: mutationCreateArea,
     updateArea: mutationUpdateArea,
-    createContact,
-    updateContact,
+    CreateContact: createContact,
+    UpdateContact: updateContact,
   },
   JSON: GraphQLJSON,
 }

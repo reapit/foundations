@@ -7,6 +7,10 @@ import { mockCreateArgs } from '../__mocks__/create-args'
 import { mockUpdateArgs } from '../__mocks__/update-args'
 import errors from '../../../errors'
 
+jest.mock('../../../errors', () => ({
+  generateAuthenticationError: jest.fn(() => 'authentication error'),
+}))
+jest.mock('../../../logger')
 jest.mock('../services', () => ({
   getContactById: jest.fn(() => contact),
   getContacts: jest.fn(() => contacts),
