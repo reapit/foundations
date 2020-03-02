@@ -3,15 +3,22 @@ import { ServerContext } from '../../app'
 import { checkPermission } from '../../utils/check-permission'
 import errors from '../../errors'
 import identityCheckServices from '../identity-check/services'
-import { IdentityCheckModel, CreateIdentityCheckModel, PagedResultIdentityCheckModel_ } from '../../types'
-import { GetIdentityCheckByIdModel, GetIdentityChecksModel, UpdateIdentityCheckExtend } from './services'
-import { AuthenticationError, UserInputError } from 'apollo-server'
+import {
+  MutationUpdateIdentityCheckReturn,
+  MutationCreateIdentityCheckReturn,
+  QueryIdentityCheckReturn,
+  QueryIdentityChecksReturn,
+  GetIdentityCheckByIdArgs,
+  GetIdentityChecksArgs,
+  CreateIdentityCheckArgs,
+  UpdateIdentityCheckArgs,
+} from './identity-check'
 
 export const queryIdentityChecks = (
   _: any,
-  args: GetIdentityChecksModel,
+  args: GetIdentityChecksArgs,
   context: ServerContext,
-): Promise<PagedResultIdentityCheckModel_ | UserInputError> | AuthenticationError => {
+): QueryIdentityChecksReturn => {
   const traceId = context.traceId
   logger.info('queryIdentityChecks', { traceId, args })
   const isPermit = checkPermission(context)
@@ -23,9 +30,9 @@ export const queryIdentityChecks = (
 
 export const queryIdentityCheckById = (
   _: any,
-  args: GetIdentityCheckByIdModel,
+  args: GetIdentityCheckByIdArgs,
   context: ServerContext,
-): Promise<IdentityCheckModel | UserInputError> | AuthenticationError => {
+): QueryIdentityCheckReturn => {
   const traceId = context.traceId
   logger.info('queryIdentityCheck', { traceId, args })
   const isPermit = checkPermission(context)
@@ -37,9 +44,9 @@ export const queryIdentityCheckById = (
 
 export const createIdentityCheck = (
   _: any,
-  args: CreateIdentityCheckModel,
+  args: CreateIdentityCheckArgs,
   context: ServerContext,
-): Promise<IdentityCheckModel | UserInputError> | AuthenticationError => {
+): MutationCreateIdentityCheckReturn => {
   const traceId = context.traceId
   logger.info('createIdentityCheck', { traceId, args })
   const isPermit = checkPermission(context)
@@ -51,9 +58,9 @@ export const createIdentityCheck = (
 
 export const updateIdentityCheck = (
   _: any,
-  args: UpdateIdentityCheckExtend,
+  args: UpdateIdentityCheckArgs,
   context: ServerContext,
-): Promise<IdentityCheckModel | UserInputError> | AuthenticationError => {
+): MutationUpdateIdentityCheckReturn => {
   const traceId = context.traceId
   logger.info('updateIdentityCheck', { traceId, args })
   const isPermit = checkPermission(context)
