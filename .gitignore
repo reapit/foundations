@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-/packages/*/node_modules
+/packages/*/
+/.webpack-cache
 
 # testing
 /coverage
