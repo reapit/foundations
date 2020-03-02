@@ -1,6 +1,5 @@
-import { Negotiators } from '@reapit/foundations-ts-definitions'
 import { queryNegotiators, queryNegotiatorById, createNegotiator, updateNegotiator } from '../resolvers'
-import { GetNegotiatorByIdArgs } from '../negotiator'
+import { GetNegotiatorByIdArgs, GetNegotiatorsArgs } from '../negotiator'
 import { mockContext } from '../../../__mocks__/context'
 import { negotiatorStub } from '../__mocks__/negotiator'
 import { negotiatorsStub } from '../__mocks__/negotiators'
@@ -41,7 +40,7 @@ describe('negotiator resolvers', () => {
     it('should run correctly', () => {
       const mockArgs = {
         name: 'Abel Robertson',
-      } as Negotiators
+      } as GetNegotiatorsArgs
       const output = negotiatorsStub
       const result = queryNegotiators({}, mockArgs, mockContext)
       expect(result).toEqual(output)
@@ -50,7 +49,7 @@ describe('negotiator resolvers', () => {
     it('should return errors', () => {
       const mockArgs = {
         name: 'Abel Robertson',
-      } as Negotiators
+      } as GetNegotiatorsArgs
       const output = errors.generateAuthenticationError(mockContext.traceId)
       const result = queryNegotiators({}, mockArgs, { ...mockContext, authorization: '' })
       expect(result).toEqual(output)

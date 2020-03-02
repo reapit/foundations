@@ -1,14 +1,16 @@
 import { fetcher, setQueryParams } from '@reapit/elements'
-import {
-  NegotiatorModel,
-  Negotiators,
-  CreateNegotiatorModel,
-  PagedResultNegotiatorModel_,
-} from '@reapit/foundations-ts-definitions'
-import { UserInputError } from 'apollo-server'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
-import { GetNegotiatorByIdArgs, UpdateNegotiatorArgs } from './negotiator'
+import {
+  GetNegotiatorByIdArgs,
+  GetNegotiatorsArgs,
+  CreateNegotiatorArgs,
+  UpdateNegotiatorArgs,
+  GetNegotiatorByIdReturn,
+  GetNegotiatorsReturn,
+  CreateNegotiatorReturn,
+  UpdateNegotiatorReturn,
+} from './negotiator'
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 
@@ -21,7 +23,7 @@ export const URLS = {
 export const callGetNegotiatorByIdAPI = async (
   args: GetNegotiatorByIdArgs,
   context: ServerContext,
-): Promise<NegotiatorModel | UserInputError> => {
+): GetNegotiatorByIdReturn => {
   const traceId = context.traceId
   try {
     logger.info('callGetNegotiatorByIdAPI', { traceId, args })
@@ -42,10 +44,7 @@ export const callGetNegotiatorByIdAPI = async (
   }
 }
 
-export const callGetNegotiatorsAPI = async (
-  args: Negotiators,
-  context: ServerContext,
-): Promise<PagedResultNegotiatorModel_ | UserInputError> => {
+export const callGetNegotiatorsAPI = async (args: GetNegotiatorsArgs, context: ServerContext): GetNegotiatorsReturn => {
   const traceId = context.traceId
   logger.info('callGetNegotiatorsAPI', { args, traceId })
   try {
@@ -66,11 +65,10 @@ export const callGetNegotiatorsAPI = async (
   }
 }
 
-// temporary return boolean value. Will be update after disscussion
 export const callCreateNegotiatorAPI = async (
-  args: CreateNegotiatorModel,
+  args: CreateNegotiatorArgs,
   context: ServerContext,
-): Promise<NegotiatorModel | UserInputError> => {
+): CreateNegotiatorReturn => {
   const traceId = context.traceId
   try {
     logger.info('callCreateNegotiatorAPI', { args, traceId })
@@ -101,7 +99,7 @@ export const callCreateNegotiatorAPI = async (
 export const callUpdateNegotiatorAPI = async (
   args: UpdateNegotiatorArgs,
   context: ServerContext,
-): Promise<NegotiatorModel | UserInputError> => {
+): UpdateNegotiatorReturn => {
   const traceId = context.traceId
   try {
     logger.info('callUpdateNegotiatorAPI', { args, traceId })

@@ -1,13 +1,15 @@
-import {
-  NegotiatorModel,
-  Negotiators,
-  CreateNegotiatorModel,
-  PagedResultNegotiatorModel_,
-} from '@reapit/foundations-ts-definitions'
-import { UserInputError } from 'apollo-server'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
-import { GetNegotiatorByIdArgs, UpdateNegotiatorArgs } from './negotiator'
+import {
+  GetNegotiatorByIdArgs,
+  GetNegotiatorsArgs,
+  CreateNegotiatorArgs,
+  UpdateNegotiatorArgs,
+  GetNegotiatorByIdReturn,
+  GetNegotiatorsReturn,
+  CreateNegotiatorReturn,
+  UpdateNegotiatorReturn,
+} from './negotiator'
 import {
   callGetNegotiatorByIdAPI,
   callGetNegotiatorsAPI,
@@ -15,40 +17,28 @@ import {
   callUpdateNegotiatorAPI,
 } from './api'
 
-export const getNegotiatorById = (
-  args: GetNegotiatorByIdArgs,
-  context: ServerContext,
-): Promise<NegotiatorModel | UserInputError> => {
+export const getNegotiatorById = (args: GetNegotiatorByIdArgs, context: ServerContext): GetNegotiatorByIdReturn => {
   const traceId = context.traceId
   logger.info('getNegotiatorById', { traceId, args })
   const negotiator = callGetNegotiatorByIdAPI(args, context)
   return negotiator
 }
 
-export const getNegotiators = (
-  args: Negotiators,
-  context: ServerContext,
-): Promise<PagedResultNegotiatorModel_ | UserInputError> => {
+export const getNegotiators = (args: GetNegotiatorsArgs, context: ServerContext): GetNegotiatorsReturn => {
   const traceId = context.traceId
   logger.info('getNegotiators', { traceId, args })
   const negotiators = callGetNegotiatorsAPI(args, context)
   return negotiators
 }
 
-export const createNegotiator = (
-  args: CreateNegotiatorModel,
-  context: ServerContext,
-): Promise<NegotiatorModel | UserInputError> => {
+export const createNegotiator = (args: CreateNegotiatorArgs, context: ServerContext): CreateNegotiatorReturn => {
   const traceId = context.traceId
   logger.info('createNegotiator', { traceId, args })
   const negotiator = callCreateNegotiatorAPI(args, context)
   return negotiator
 }
 
-export const updateNegotiator = (
-  args: UpdateNegotiatorArgs,
-  context: ServerContext,
-): Promise<NegotiatorModel | UserInputError> => {
+export const updateNegotiator = (args: UpdateNegotiatorArgs, context: ServerContext): UpdateNegotiatorReturn => {
   const traceId = context.traceId
   logger.info('updateNegotiator', { traceId, args })
   const negotiator = callUpdateNegotiatorAPI(args, context)

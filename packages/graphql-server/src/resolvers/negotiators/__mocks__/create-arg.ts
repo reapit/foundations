@@ -1,6 +1,6 @@
-import { CreateNegotiatorModel } from '@reapit/foundations-ts-definitions'
+import { CreateNegotiatorArgs } from '../negotiator'
 
-export const createArgStub: CreateNegotiatorModel = {
+export const createArgStub: CreateNegotiatorArgs = {
   name: 'Abel Robertson',
   jobTitle: null,
   active: true,

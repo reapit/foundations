@@ -1,5 +1,4 @@
-import { Negotiators } from '@reapit/foundations-ts-definitions'
-import { GetNegotiatorByIdArgs } from '../negotiator'
+import { GetNegotiatorByIdArgs, GetNegotiatorsArgs } from '../negotiator'
 import { getNegotiatorById, getNegotiators, createNegotiator, updateNegotiator } from '../services'
 import { mockContext } from '../../../__mocks__/context'
 import { negotiatorStub } from '../__mocks__/negotiator'
@@ -28,7 +27,7 @@ describe('negotiator services', () => {
 
   describe('getNegotiators', () => {
     it('should run correctly', () => {
-      const mockArgs: Negotiators = {}
+      const mockArgs: GetNegotiatorsArgs = {}
       const result = getNegotiators(mockArgs, mockContext)
       const output = negotiatorsStub
       expect(result).toEqual(output)

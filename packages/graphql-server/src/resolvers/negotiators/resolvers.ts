@@ -1,22 +1,24 @@
-import {
-  NegotiatorModel,
-  Negotiators,
-  CreateNegotiatorModel,
-  PagedResultNegotiatorModel_,
-} from '@reapit/foundations-ts-definitions'
-import { AuthenticationError, UserInputError } from 'apollo-server'
 import negotiatorServices from './services'
 import { checkPermission } from '../../utils/check-permission'
 import logger from '../../logger'
 import errors from '../../errors'
 import { ServerContext } from '../../app'
-import { GetNegotiatorByIdArgs, UpdateNegotiatorArgs } from './negotiator'
+import {
+  GetNegotiatorByIdArgs,
+  GetNegotiatorsArgs,
+  CreateNegotiatorArgs,
+  UpdateNegotiatorArgs,
+  QueryNegotiatorByIdReturn,
+  QueryNegotiatorsReturn,
+  MutationCreateNegotiatorReturn,
+  MutationUpdateNegotiatorReturn,
+} from './negotiator'
 
 export const queryNegotiatorById = (
   _: any,
   args: GetNegotiatorByIdArgs,
   context: ServerContext,
-): Promise<NegotiatorModel | UserInputError> | AuthenticationError => {
+): QueryNegotiatorByIdReturn => {
   const traceId = context.traceId
   logger.info('queryNegotiator', { traceId, args })
   const isPermit = checkPermission(context)
@@ -26,11 +28,7 @@ export const queryNegotiatorById = (
   return negotiatorServices.getNegotiatorById(args, context)
 }
 
-export const queryNegotiators = (
-  _: any,
-  args: Negotiators,
-  context: ServerContext,
-): Promise<PagedResultNegotiatorModel_ | UserInputError> | AuthenticationError => {
+export const queryNegotiators = (_: any, args: GetNegotiatorsArgs, context: ServerContext): QueryNegotiatorsReturn => {
   const traceId = context.traceId
   logger.info('queryNegotiators', { traceId, args })
   const isPermit = checkPermission(context)
@@ -42,9 +40,9 @@ export const queryNegotiators = (
 
 export const createNegotiator = (
   _: any,
-  args: CreateNegotiatorModel,
+  args: CreateNegotiatorArgs,
   context: ServerContext,
-): Promise<NegotiatorModel | UserInputError> | AuthenticationError => {
+): MutationCreateNegotiatorReturn => {
   const traceId = context.traceId
   logger.info('createNegotiator', { traceId, args })
   const isPermit = checkPermission(context)
@@ -58,7 +56,7 @@ export const updateNegotiator = (
   _: any,
   args: UpdateNegotiatorArgs,
   context: ServerContext,
-): Promise<NegotiatorModel | UserInputError> | AuthenticationError => {
+): MutationUpdateNegotiatorReturn => {
   const traceId = context.traceId
   logger.info('updateNegotiator', { traceId, args })
   const isPermit = checkPermission(context)
