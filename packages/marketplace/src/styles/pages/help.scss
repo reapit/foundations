@@ -6,6 +6,9 @@
 }
 .wrapListItems {
   padding: 1rem;
+  @media all and (-ms-high-contrast:none) {
+    background-color: $white;
+  }
 }
 .item {
   padding: 1.5rem;
@@ -17,6 +20,9 @@
 .wrapImage {
   width: 100%;
   margin-bottom: 2rem;
+  @media all and (-ms-high-contrast:none) {
+    min-height: 218px;
+  }
 }
 .image {
   width: 100%;
@@ -25,6 +31,9 @@
 .text {
   flex-grow: 1;
   margin-bottom: 1.5rem;
+  @media all and (-ms-high-contrast:none) {
+    width: 100%;
+  }
 }
 .wrapButton {
   width: 100%;
