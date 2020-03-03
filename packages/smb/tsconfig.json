@@ -12,12 +12,5 @@
     }
   },
   "include": ["src"],
-  "exclude": [
-    "public",
-    "dist",
-    "src/scripts",
-    "node_modules",
-    "src/tests/coverage",
-    "src/tests/cypress"
-  ]
+  "exclude": ["public", "dist", "src/scripts", "node_modules", "src/tests/coverage", "src/tests/cypress"]
 }
