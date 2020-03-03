@@ -16,7 +16,6 @@ exports[`Router should match a snapshot 1`] = `
         "hash": "",
         "pathname": "/",
         "search": "",
-        "state": undefined,
       },
       "push": [Function],
       "replace": [Function],
@@ -38,16 +37,26 @@ exports[`Router should match a snapshot 1`] = `
         }
         path="/login"
       />
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.lazy),
-            "_ctor": [Function],
-            "_result": null,
-            "_status": -1,
-          }
-        }
+      <withRouter()
         path="/"
+      >
+        <Switch>
+          <Component
+            allow="CLIENT"
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
+            }
+            path="/"
+          />
+        </Switch>
+      </withRouter()>
+      <Redirect
+        to="/login"
       />
     </Switch>
   </Suspense>

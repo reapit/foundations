@@ -31,12 +31,8 @@
     "swagger-ui-react": "^3.24.3"
   },
   "devDependencies": {
-    "@cypress/webpack-preprocessor": "^4.1.1",
     "@reapit/foundations-ts-definitions": "2020-02-13",
-    "@types/nanoid": "^2.1.0",
-    "cypress": "^3.8.0",
-    "cypress-file-upload": "^3.5.1",
-    "cypress-plugin-retries": "^1.5.2"
+    "@types/nanoid": "^2.1.0"
   },
   "husky": {
     "hooks": {

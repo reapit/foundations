@@ -59,4 +59,4 @@ export const Menu: React.FC<MenuProps> = ({ logout, location, mode }: MenuProps)
   return <Sidebar {...menuConfigs} location={location} />
 }
 
-export default withRouter(Menu)
+export default withRouter(Menu) as any

@@ -30,7 +30,6 @@
   },
   "lint-staged": {
     "**/cypress/**/*.{ts,tsx}": [
-      "yarn lint:cypress",
       "git add"
     ],
     "packages/**/*.{ts,tsx,js}": [
@@ -75,6 +74,7 @@
     "@babel/core": "^7.7.2",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
+    "@cypress/webpack-preprocessor": "^4.1.1",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@octokit/rest": "^16.38.1",
@@ -101,6 +101,9 @@
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-styled-components": "^1.10.6",
     "babel-polyfill": "^6.26.0",
+    "cypress": "^3.8.0",
+    "cypress-file-upload": "^3.5.1",
+    "cypress-plugin-retries": "^1.5.2",
     "cache-loader": "^4.1.0",
     "compare-versions": "^3.5.1",
     "concurrently": "^5.1.0",
