@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 export type LoginType = 'CLIENT' | 'DEVELOPER'
 
 export interface PrivateRouteConnectProps {
-  loginType: LoginType
+  loginType?: LoginType
 }
 
 export interface PrivateRouteProps extends PrivateRouteConnectProps {
@@ -20,13 +20,14 @@ export const PrivateRoute = ({ component, allow, loginType = 'CLIENT', ...rest }
   return (
     <Route
       {...rest}
-      render={() => {
+      render={props => {
         if (!allowTypes.includes(loginType)) {
           return <Redirect to="/404" />
         }
+
         const Component = component
 
-        return <Component />
+        return <Component {...props} />
       }}
     />
   )

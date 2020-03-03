@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { getAccessToken } from '@/utils/session'
 
-import Swagger, { handleOnComplete, fetchInterceptor, fetchAccessToken } from '../swagger'
+import Swagger, { handleOnComplete, fetchInterceptor, fetchAccessToken, InterceptorParams } from '../swagger'
 
 jest.mock('../../../core/store')
 jest.mock('@/utils/session')
@@ -16,13 +16,16 @@ describe('Swagger', () => {
     process.env.SWAGGER_BASE_URL = 'https://some-url.com'
     const request = {
       url: 'https://some-other-url.com',
-    }
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    } as InterceptorParams
     const token = 'SOME_TOKEN'
     const result = fetchInterceptor(request, token)
     const output = {
       ...request,
       headers: {
-        'Content-Type': 'application/json',
+        ...request.headers,
         'api-version': 'latest',
         Authorization: `Bearer ${token}`,
       },
@@ -34,7 +37,10 @@ describe('Swagger', () => {
     process.env.SWAGGER_BASE_URL = 'https://some-url.com'
     const request = {
       url: process.env.SWAGGER_BASE_URL,
-    }
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    } as InterceptorParams
     const token = 'SOME_TOKEN'
     const result = await fetchInterceptor(request, token)
     expect(result).toEqual(request)

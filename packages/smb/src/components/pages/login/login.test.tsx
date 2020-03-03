@@ -1,57 +1,63 @@
 import * as React from 'react'
-import { mount } from 'enzyme'
-import { RouteComponentProps } from 'react-router'
-import { MockedProvider } from '@apollo/react-testing'
-import { getMockRouterProps } from '@/core/__mocks__/mock-router'
-import { loginParams, token } from '@/graphql/__mocks__/token'
-import Routes from '@/constants/routes'
-import { Login, handleOnSubmit, handleOnCompleted, LoginResponse } from './login'
-import LOGIN from './login.graphql'
+import { shallow } from 'enzyme'
+import { Login } from './login'
+import * as AuthContext from '@/context/auth-context'
+import { redirectToLogin } from '@reapit/cognito-auth'
+import { Button } from '@reapit/elements'
 
-const mockQueries = {
-  request: {
-    query: LOGIN,
-    variables: loginParams,
-  },
-  result: {
-    data: token,
+jest.mock('../../../context/auth-context.tsx')
+jest.mock('@reapit/cognito-auth', () => ({
+  redirectToLogin: jest.fn(),
+}))
+
+const contextValues: AuthContext.AuthContext = {
+  logout: jest.fn(),
+  getLoginSession: jest.fn(),
+  setAuthState: jest.fn(),
+  fetching: false,
+  loginSession: {
+    userName: '1',
+    accessToken: '1',
+    accessTokenExpiry: 1000,
+    idToken: '1',
+    idTokenExpiry: 1000,
+    refreshToken: 'string',
+    loginType: 'DEVELOPER',
+    loginIdentity: {
+      email: '1',
+      name: '1',
+      developerId: null,
+      clientId: null,
+      adminId: null,
+      userCode: null,
+    },
+    mode: 'WEB',
+    cognitoClientId: '1',
   },
 }
 
 describe('Login', () => {
-  describe('Login', () => {
-    it('should match a snapshot', () => {
-      const props = getMockRouterProps({ params: {}, search: '' }) as RouteComponentProps
-      const wrapper = mount(
-        <MockedProvider mocks={[mockQueries]} addTypename={true}>
-          <Login {...props} />
-        </MockedProvider>,
-      )
-      expect(wrapper).toMatchSnapshot()
-    })
+  it('should match a snapshot', () => {
+    jest.spyOn(AuthContext, 'useAuthContext').mockImplementation(() => ({ ...contextValues, loginSession: null }))
+
+    expect(shallow(<Login />)).toMatchSnapshot()
   })
 
-  describe('handleOnSubmit', () => {
-    it('should run correctly', () => {
-      const mockParams = {
-        login: jest.fn(),
-      }
-      const fn = handleOnSubmit(mockParams)
-      fn(loginParams)
-      expect(mockParams.login).toBeCalledWith({ variables: loginParams })
-    })
+  it('loginHandler should run correcly', () => {
+    jest.spyOn(AuthContext, 'useAuthContext').mockImplementation(() => ({ ...contextValues, loginSession: null }))
+
+    const wrapper = shallow(<Login />)
+
+    wrapper.find(Button).simulate('click')
+
+    expect(redirectToLogin).toBeCalledWith(
+      process.env.COGNITO_CLIENT_ID_APP_NAME as string,
+      `${window.location.origin}`,
+    )
   })
 
-  describe('handleOnCompleted', () => {
-    it('should run correctly', () => {
-      const mockParams = {
-        history: {
-          replace: jest.fn(),
-        },
-      }
-      const fn = handleOnCompleted(mockParams)
-      fn({ login: { ...token } } as LoginResponse)
-      expect(mockParams.history.replace).toBeCalledWith(Routes.HOME)
-    })
+  it('should match a snapshot with loginSession', () => {
+    jest.spyOn(AuthContext, 'useAuthContext').mockImplementation(() => contextValues)
+    expect(shallow(<Login />)).toMatchSnapshot()
   })
 })

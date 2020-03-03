@@ -8,6 +8,11 @@ import { SandboxPopUp } from '../ui/sandbox-pop-up'
 import { getAccessToken } from '@/utils/session'
 import { StringMap } from '../../types/core'
 
+export type InterceptorParams = {
+  url: string
+  headers: StringMap
+}
+
 export const handleOnComplete = setLoading => () => setLoading(false)
 
 export const fetchAccessToken = async (setAccessToken: React.Dispatch<React.SetStateAction<null | string>>) => {
@@ -15,7 +20,7 @@ export const fetchAccessToken = async (setAccessToken: React.Dispatch<React.SetS
   setAccessToken(fetchedAccessToken)
 }
 
-export const fetchInterceptor = (params: StringMap, accessToken: string | null) => {
+export const fetchInterceptor = (params: InterceptorParams, accessToken: string | null) => {
   if (params.url === process.env.SWAGGER_BASE_URL) {
     return params
   }
@@ -23,7 +28,7 @@ export const fetchInterceptor = (params: StringMap, accessToken: string | null) 
   return {
     ...params,
     headers: {
-      'Content-Type': 'application/json',
+      ...params.headers,
       'api-version': 'latest',
       Authorization: `Bearer ${accessToken}`,
     },
@@ -33,7 +38,7 @@ export const fetchInterceptor = (params: StringMap, accessToken: string | null) 
 export const SwaggerPage: React.SFC = () => {
   const [loading, setLoading] = React.useState(true)
   const [accessToken, setAccessToken] = React.useState()
-  const requestInterceptor = (params: StringMap) => fetchInterceptor(params, accessToken)
+  const requestInterceptor = (params: InterceptorParams) => fetchInterceptor(params, accessToken)
 
   React.useEffect(() => {
     fetchAccessToken(setAccessToken)

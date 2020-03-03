@@ -7,7 +7,7 @@ import {
   updateIdentityCheck,
 } from './identity-check/resolvers'
 import { queryArea, queryAreas, mutationCreateArea, mutationUpdateArea } from './area/resolvers'
-import { login } from './auth/resolvers'
+import { queryNegotiatorById, queryNegotiators, createNegotiator, updateNegotiator } from './negotiators/resolvers'
 
 export const resolvers = {
   Query: {
@@ -17,15 +17,18 @@ export const resolvers = {
     GetIdChecks: queryIdentityChecks,
     area: queryArea,
     areas: queryAreas,
+    GetNegotiatorById: queryNegotiatorById,
+    GetNegotiators: queryNegotiators,
   },
   Mutation: {
-    login,
     CreateIdentityCheck: createIdentityCheck,
     UpdateIdentityCheck: updateIdentityCheck,
     createArea: mutationCreateArea,
     updateArea: mutationUpdateArea,
     CreateContact: createContact,
     UpdateContact: updateContact,
+    CreateNegotiator: createNegotiator,
+    UpdateNegotiator: updateNegotiator,
   },
   JSON: GraphQLJSON,
 }

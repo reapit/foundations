@@ -118,7 +118,7 @@ export const callUpdateIdentityCheckAPI = async (
       Authorization: context.authorization,
       'Content-Type': 'application/json',
       'api-version': API_VERSION,
-      'If-Match': args._eTag,
+      'If-Match': args.model._eTag,
     }
     const updateResponse = await fetcher({
       url: `${URLS.identityChecks}/${args.id}`,

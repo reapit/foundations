@@ -4086,6 +4086,7 @@ export interface Negotiators {
   Id?: string[]
   OfficeId?: string[]
   Name?: string
+  Embed?: 'office'[]
 }
 /**
  * Representation of the physical address of a building or premise
@@ -4500,6 +4501,7 @@ export interface Offices {
   Id?: string[]
   Address?: string
   Name?: string
+  Embed?: 'negotiators'[]
 }
 export interface PagedResultApplicantContactRelationshipModel_ {
   _embedded?: {
