@@ -1,9 +1,9 @@
 const AWS = require('aws-sdk')
 const fs = require('fs')
-const { generateConfigTsDef } = require('./utils/generateConfigTsDef')
-const { handleFetchingSecretFail } = require('./utils/handleFetchingSecretFail')
 
-const { writeConfigInCWD } = require('./utils/writeConfigInCWD')
+const { generateConfigTsDef } = require('./utils/generate-config-ts-def')
+const { handleFetchingSecretFail } = require('./utils/handle-fetching-secret-fail')
+const { writeConfigInCWD } = require('./utils/write-config-in-cwd')
 
 const prompts = require('prompts')
 

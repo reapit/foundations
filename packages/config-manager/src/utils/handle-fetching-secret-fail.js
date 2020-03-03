@@ -1,5 +1,5 @@
-const { writeConfigInCWD } = require('./writeConfigInCWD')
-const { generateConfigTsDef } = require('./generateConfigTsDef')
+const { writeConfigInCWD } = require('./write-config-in-cwd')
+const { generateConfigTsDef } = require('./generate-config-ts-def')
 const fs = require('fs')
 
 const { REAPIT_BASE_CONFIG_PATH } = require('../paths')
