@@ -3,8 +3,8 @@ export default {
   state: {
     auth: {
       loginSession: '1',
-      desktopSession: '2'
+      desktopSession: '2',
     },
-    online: true
-  }
+    online: true,
+  },
 }

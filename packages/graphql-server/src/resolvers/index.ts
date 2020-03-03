@@ -9,6 +9,13 @@ import {
 import { queryArea, queryAreas, mutationCreateArea, mutationUpdateArea } from './area/resolvers'
 import { queryNegotiatorById, queryNegotiators, createNegotiator, updateNegotiator } from './negotiators/resolvers'
 
+import {
+  mutationCreateAppointment,
+  mutationUpdateAppointment,
+  queryAppointment,
+  queryAppointments,
+} from './appointment/resolvers'
+
 export const resolvers = {
   Query: {
     GetContactById: queryContact,
@@ -19,6 +26,8 @@ export const resolvers = {
     areas: queryAreas,
     GetNegotiatorById: queryNegotiatorById,
     GetNegotiators: queryNegotiators,
+    GetAppointments: queryAppointments,
+    GetAppointmentById: queryAppointment,
   },
   Mutation: {
     CreateIdentityCheck: createIdentityCheck,
@@ -29,6 +38,8 @@ export const resolvers = {
     UpdateContact: updateContact,
     CreateNegotiator: createNegotiator,
     UpdateNegotiator: updateNegotiator,
+    CreateAppointment: mutationCreateAppointment,
+    UpdateAppointment: mutationUpdateAppointment,
   },
   JSON: GraphQLJSON,
 }

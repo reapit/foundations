@@ -21,7 +21,7 @@ export const contacts: PagedResultContactModel_ = {
   },
   _embedded: [
     {
-      id: "RPT20000017",
+      id: 'RPT20000017',
       title: 'Mr',
       forename: 'John',
       surname: 'Smith',
@@ -30,18 +30,14 @@ export const contacts: PagedResultContactModel_ = {
       marketingConsent: 'grant',
       source: {
         id: 'SOL',
-        type: 'office'
+        type: 'office',
       },
       homePhone: '01234 567890',
       workPhone: null,
       mobilePhone: '07890 123456',
       email: 'example@email.com',
-      officeIds: [
-        'OXF'
-      ],
-      negotiatorIds: [
-        'JAS'
-      ],
+      officeIds: ['OXF'],
+      negotiatorIds: ['JAS'],
       primaryAddress: {
         type: 'primary',
         buildingName: '',
@@ -51,7 +47,7 @@ export const contacts: PagedResultContactModel_ = {
         line3: 'West Midlands',
         line4: '',
         postcode: 'B91 2XX',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       secondaryAddress: null,
       workAddress: {
@@ -63,13 +59,13 @@ export const contacts: PagedResultContactModel_ = {
         line3: 'West Midlands',
         line4: '',
         postcode: 'B90 1ZZ',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       metadata: {
         CustomField1: 'CustomValue1',
-        CustomField2: 'CustomValue2'
+        CustomField2: 'CustomValue2',
       },
-      _eTag: "\"E9510E0E57BEECE1F14A0550DDA8116D\"",
+      _eTag: '"E9510E0E57BEECE1F14A0550DDA8116D"',
       _links: {
         self: {
           href: '/contacts/MKC16000098',
@@ -81,7 +77,7 @@ export const contacts: PagedResultContactModel_ = {
       _embedded: null,
     },
     {
-      id: "RPT20000018",
+      id: 'RPT20000018',
       title: 'Mr',
       forename: 'John',
       surname: 'Smith b',
@@ -90,18 +86,14 @@ export const contacts: PagedResultContactModel_ = {
       marketingConsent: 'grant',
       source: {
         id: 'SOL',
-        type: 'office'
+        type: 'office',
       },
       homePhone: '01234 567890',
       workPhone: null,
       mobilePhone: '07890 123456',
       email: 'example@email.com',
-      officeIds: [
-        'OXF'
-      ],
-      negotiatorIds: [
-        'JAS'
-      ],
+      officeIds: ['OXF'],
+      negotiatorIds: ['JAS'],
       primaryAddress: {
         type: 'primary',
         buildingName: '',
@@ -111,7 +103,7 @@ export const contacts: PagedResultContactModel_ = {
         line3: 'West Midlands',
         line4: '',
         postcode: 'B91 2XX',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       secondaryAddress: null,
       workAddress: {
@@ -123,13 +115,13 @@ export const contacts: PagedResultContactModel_ = {
         line3: 'West Midlands',
         line4: '',
         postcode: 'B90 1ZZ',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       metadata: {
         CustomField1: 'CustomValue1',
-        CustomField2: 'CustomValue2'
+        CustomField2: 'CustomValue2',
       },
-      _eTag: "\"E9510E0E57BEECE1F14A0550DDA8116D\"",
+      _eTag: '"E9510E0E57BEECE1F14A0550DDA8116D"',
       _links: {
         self: {
           href: '/contacts/MKC16000098',
@@ -141,7 +133,7 @@ export const contacts: PagedResultContactModel_ = {
       _embedded: null,
     },
     {
-      id: "RPT20000019",
+      id: 'RPT20000019',
       title: 'Mr',
       forename: 'John',
       surname: 'Smith c',
@@ -150,18 +142,14 @@ export const contacts: PagedResultContactModel_ = {
       marketingConsent: 'grant',
       source: {
         id: 'SOL',
-        type: 'office'
+        type: 'office',
       },
       homePhone: '01234 567890',
       workPhone: null,
       mobilePhone: '07890 123456',
       email: 'example@email.com',
-      officeIds: [
-        'OXF'
-      ],
-      negotiatorIds: [
-        'JAS'
-      ],
+      officeIds: ['OXF'],
+      negotiatorIds: ['JAS'],
       primaryAddress: {
         type: 'primary',
         buildingName: '',
@@ -171,7 +159,7 @@ export const contacts: PagedResultContactModel_ = {
         line3: 'West Midlands',
         line4: '',
         postcode: 'B91 2XX',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       secondaryAddress: null,
       workAddress: {
@@ -183,13 +171,13 @@ export const contacts: PagedResultContactModel_ = {
         line3: 'West Midlands',
         line4: '',
         postcode: 'B90 1ZZ',
-        countryId: 'GB'
+        countryId: 'GB',
       },
       metadata: {
         CustomField1: 'CustomValue1',
-        CustomField2: 'CustomValue2'
+        CustomField2: 'CustomValue2',
       },
-      _eTag: "\"E9510E0E57BEECE1F14A0550DDA8116D\"",
+      _eTag: '"E9510E0E57BEECE1F14A0550DDA8116D"',
       _links: {
         self: {
           href: '/contacts/MKC16000098',
@@ -199,6 +187,6 @@ export const contacts: PagedResultContactModel_ = {
         },
       },
       _embedded: null,
-    }
+    },
   ],
 }

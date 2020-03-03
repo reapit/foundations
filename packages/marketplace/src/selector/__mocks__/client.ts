@@ -1,5 +1,6 @@
 import { ReduxState } from '@/types/core'
 
+/* eslint-disable */
 export const selectClientId = (state: ReduxState) => {
   return 1
 }
