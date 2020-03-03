@@ -10,5 +10,5 @@
       "logger": ["../../scripts/logger/sentry-logger.ts"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "../../reapt-config.d.ts"]
 }

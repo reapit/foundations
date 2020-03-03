@@ -1,8 +1,18 @@
 const AWS = require('aws-sdk')
 const fs = require('fs')
-const path = require('path')
 
-const reapitConfigInCWDPath = path.resolve(process.cwd(), './reapit-config.json')
+const { writeConfigInCWD } = require('./utils/writeConfigInCWD')
+const { generateConfigTsDef } = require('./utils/generateConfigTsDef')
+
+const prompts = require('prompts')
+
+const {
+  REAPIT_CONFIG_IN_CWD_PATH,
+  REAPIT_BASE_CONFIG_PATH,
+  TEMP_FOLDER,
+  TEMP_LOCAL_CONFIG_FILE,
+  TEMP_REMOTE_CONFIG_FILE,
+} = require('./paths')
 
 AWS.config.update({ region: 'eu-west-2' })
 
@@ -12,50 +22,174 @@ const createSecret = secretName => {
   secretsManager.createSecret(
     {
       Name: secretName,
-      SecretString: JSON.stringify(require(reapitConfigInCWDPath)),
+      SecretString: JSON.stringify(require(REAPIT_CONFIG_IN_CWD_PATH)),
     },
     (err, data) => {
       if (err) {
         return console.error(err, err.stack)
       }
+
       return console.log('Successfully created secret', data)
     },
   )
 }
 
-const updateSecret = secretName => {
-  secretsManager.updateSecret(
-    {
-      SecretId: secretName,
-      SecretString: JSON.stringify(require(reapitConfigInCWDPath)),
-    },
-    (err, data) => {
-      if (err) {
-        return console.error(err, err.stack)
-      }
-      return console.log('Successfully updated secret', data)
-    },
-  )
+const updateSecret = async secretName => {
+  try {
+    if (!fs.existsSync(TEMP_FOLDER)) {
+      fs.mkdirSync(TEMP_FOLDER)
+    }
+
+    // write secret string fetched from AWS to .temp/remote-config.json
+    const { SecretString } = await secretsManager
+      .getSecretValue({
+        SecretId: secretName,
+      })
+      .promise()
+    fs.writeFileSync(TEMP_REMOTE_CONFIG_FILE, SecretString)
+    console.log(`Your remote configuration have been saved to: ${TEMP_REMOTE_CONFIG_FILE}`)
+
+    // write secret string from root directory's reapit-config.json to .temp/remote-config.json
+    const localConfig = require(REAPIT_CONFIG_IN_CWD_PATH)
+    fs.writeFileSync(TEMP_LOCAL_CONFIG_FILE, JSON.stringify(localConfig))
+    console.log(`Your local configuration have been saved to: ${TEMP_LOCAL_CONFIG_FILE}`)
+
+    console.log(
+      // eslint-disable-next-line max-len
+      `Please review/update your changes in the local configuration files on the ".temp" folder located at ${TEMP_FOLDER}`,
+    )
+
+    await prompts({
+      type: 'text',
+      name: 'value',
+      message: 'Type "update" and hit <RETURN/ENTER> to confirm and submit your changes:',
+      // eslint-disable-next-line
+      validate: value => (value !== 'update' ? 'Invalid phrase' : true),
+    })
+
+    // submit config
+    const updatedConfig = require(TEMP_LOCAL_CONFIG_FILE)
+
+    const data = await secretsManager
+      .updateSecret({
+        SecretId: secretName,
+        SecretString: JSON.stringify(updatedConfig),
+      })
+      .promise()
+
+    return console.log('Successfully updated secret', data)
+  } catch (err) {
+    console.log('Something went wrong when updating configuration. Detailed error with stack trace is provided below:')
+    return console.log(err, err.stack)
+  }
+
+  // get remote config and write to remote-config.json. test case overwrite temp file. handle get secrey ok
+
+  // write local config to local-config.json. testcase over write tep ile
+  // display a prompt. test case invalid value
+  // prompt success update secrey. testcase upate ok
+  // secretsManager.updateSecret(
+  //   {
+  //     SecretId: secretName,
+  //     SecretString: JSON.stringify(require(REAPIT_CONFIG_IN_CWD_PATH)),
+  //   },
+  //   (err, data) => {
+  //     if (err) {
+  //       return console.error(err, err.stack)
+  //     }
+  //     return console.log('Successfully updated secret', data)
+  //   },
+  // )
 }
 
-const getSecret = secretName => {
+const getSecret = (secretName, reapitEnv = 'LOCAL', isGenerateConfigTsDef = false) => {
   secretsManager.getSecretValue(
     {
       SecretId: secretName,
     },
     (err, data) => {
       if (err) {
-        return console.log(err, err.stack)
-      }
+        console.log('Something went wrong when fetching config. Detailed error with stack trace is provided below:')
+        console.error(err, err.stack)
+        console.log('A base configuration file will be provided')
 
-      return fs.writeFile(reapitConfigInCWDPath, data.SecretString, 'utf8', err => {
-        if (err) {
-          console.error('An error occured while writing JSON Object to File.', err)
-          return console.error(err)
+        let config = ''
+        try {
+          config = fs.readFileSync(REAPIT_BASE_CONFIG_PATH)
+        } catch (err) {
+          console.log(
+            'Something went wrong when reading base configuration. Detailed error with stack trace is provided below:',
+          )
+          return console.error(err, err.stack)
         }
 
-        console.log('reapit-config.json has been saved - be sure to add to your .gitignore file')
-      })
+        if (isGenerateConfigTsDef) {
+          generateConfigTsDef(config)
+        }
+
+        return writeConfigInCWD(config)
+      }
+
+      try {
+        const config = data.SecretString
+        let parsedConfig = null
+        parsedConfig = JSON.parse(config)
+        const configMatchEnv = parsedConfig[reapitEnv]
+
+        if (!configMatchEnv) {
+          return console.log(`No config match ENV "${reapitEnv}"`)
+        }
+
+        if (isGenerateConfigTsDef) {
+          generateConfigTsDef(config)
+        }
+
+        return writeConfigInCWD(JSON.stringify({ [reapitEnv]: configMatchEnv }))
+      } catch (err) {
+        console.log(
+          'Something went wrong when parsing base configuration. Detailed error with stack trace is provided below:',
+        )
+        return console.log(err, err.stack)
+      }
+    },
+  )
+}
+
+const getAllSecrets = (secretName, isGenerateConfigTsDef = false) => {
+  secretsManager.getSecretValue(
+    {
+      SecretId: secretName,
+    },
+    (err, data) => {
+      if (err) {
+        console.log('Something went wrong when fetching config. Detailed error with stack trace is provided below:')
+        console.error(err, err.stack)
+        console.log('A base configuration file will be provided')
+
+        let config = ''
+        try {
+          config = fs.readFileSync(REAPIT_BASE_CONFIG_PATH)
+        } catch (err) {
+          console.log(
+            'Something went wrong when reading base configuration. Detailed error with stack trace is provided below:',
+          )
+          return console.error(err, err.stack)
+        }
+
+        if (isGenerateConfigTsDef) {
+          generateConfigTsDef(config)
+        }
+
+        return writeConfigInCWD(config)
+      }
+
+      const config = data.SecretString
+
+      if (isGenerateConfigTsDef) {
+        generateConfigTsDef(config)
+      }
+
+      return writeConfigInCWD(config)
     },
   )
 }
@@ -98,4 +232,4 @@ const setEnv = secretName => {
   )
 }
 
-module.exports = { getSecret, createSecret, updateSecret, deleteSecret, setEnv }
+module.exports = { getSecret, createSecret, updateSecret, deleteSecret, setEnv, getAllSecrets }

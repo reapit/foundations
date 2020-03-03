@@ -10,6 +10,6 @@
       "logger": ["../../scripts/logger/sentry-logger.ts"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "../../reapt-config.d.ts"],
   "exclude": ["public", "dist", "node_modules", "src/tests/coverage", "src/tests/cypress"]
 }
