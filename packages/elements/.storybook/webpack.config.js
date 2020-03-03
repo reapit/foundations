@@ -4,7 +4,29 @@ module.exports = ({ config }) => {
   config.module.rules.push(
     {
       test: /\.(ts|tsx)$/,
-      use: [require.resolve('awesome-typescript-loader'), require.resolve('react-docgen-typescript-loader')]
+      use: [
+        {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  useBuiltIns: 'entry',
+                  corejs: '3',
+                  targets: {
+                    esmodules: true,
+                    chrome: '58',
+                    ie: '11',
+                  },
+                },
+              ],
+            ],
+          },
+        },
+        { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
+        require.resolve('react-docgen-typescript-loader'),
+      ],
     },
     {
       test: /\.stories\.tsx?$/,
