@@ -1,13 +1,15 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import { Login } from './login'
+import toJson from 'enzyme-to-json'
+import { PrivateRouteWrapper, PrivateRouteWrapperProps } from '../private-route-wrapper'
 import * as AuthContext from '@/context/auth-context'
-import { redirectToLogin } from '@reapit/cognito-auth'
-import { Button } from '@reapit/elements'
 
-jest.mock('../../../context/auth-context.tsx')
+jest.mock('../../context/auth-context.tsx')
 jest.mock('@reapit/cognito-auth', () => ({
   redirectToLogin: jest.fn(),
+  getSessionCookie: jest.fn(),
+  getTokenFromQueryString: jest.fn(),
+  redirectToOAuth: jest.fn(),
 }))
 
 const contextValues: AuthContext.AuthContext = {
@@ -36,28 +38,22 @@ const contextValues: AuthContext.AuthContext = {
   },
 }
 
-describe('Login', () => {
+const props: PrivateRouteWrapperProps = {
+  path: '/',
+  // @ts-ignore: ignore to fullfil the definition of RouteComponentProps
+  location: {
+    search: '/client/apps?username=wmcvay@reapit.com&desktopToken=TOKEN',
+  },
+}
+
+describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
     jest.spyOn(AuthContext, 'useAuthContext').mockImplementation(() => ({ ...contextValues, loginSession: null }))
-
-    expect(shallow(<Login />)).toMatchSnapshot()
-  })
-
-  it('loginHandler should run correcly', () => {
-    jest.spyOn(AuthContext, 'useAuthContext').mockImplementation(() => ({ ...contextValues, loginSession: null }))
-
-    const wrapper = shallow(<Login />)
-
-    wrapper.find(Button).simulate('click')
-
-    expect(redirectToLogin).toBeCalledWith(
-      process.env.COGNITO_CLIENT_ID_APP_NAME as string,
-      `${window.location.origin}`,
-    )
+    expect(toJson(shallow(<PrivateRouteWrapper {...props} />))).toMatchSnapshot()
   })
 
   it('should match a snapshot with loginSession', () => {
-    jest.spyOn(AuthContext, 'useAuthContext').mockImplementation(() => contextValues)
-    expect(shallow(<Login />)).toMatchSnapshot()
+    jest.spyOn(AuthContext, 'useAuthContext').mockImplementation(() => ({ ...contextValues }))
+    expect(toJson(shallow(<PrivateRouteWrapper {...props} />))).toMatchSnapshot()
   })
 })

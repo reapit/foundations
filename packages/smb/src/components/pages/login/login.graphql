@@ -1,6 +1,0 @@
-mutation LOGIN($userName: String!, $password: String!, $loginType:LoginType!, $mode: LoginMode!) {
-  login(userName: $userName, password: $password, loginType: $loginType, mode: $mode ){
-    accessToken
-    refreshToken
-  }
-}

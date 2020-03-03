@@ -1,92 +1,45 @@
 import * as React from 'react'
-import { withRouter, RouteComponentProps } from 'react-router'
-import { Input, Button, H1, Level, Alert, Formik, Form } from '@reapit/elements'
-import loginStyles from '@/styles/pages/login.scss?mod'
-import logoImage from '@/assets/images/reapit-graphic.jpg'
+import { Redirect } from 'react-router-dom'
+
 import Routes from '@/constants/routes'
-import { useMutation, MutationHookOptions } from '@apollo/react-hooks'
-import LOGIN from './login.graphql'
-import { LoginParams } from '@reapit/cognito-auth'
+import { Button, Level } from '@reapit/elements'
 
-export type LoginFormValues = {
-  userName: string
-  password: string
-}
+import { Container, Wrapper, ImageContainer } from './style'
+import logoImage from '@/assets/images/reapit-graphic.jpg'
+import connectImage from '@/assets/images/reapit-connect.png'
+import { useAuthContext } from '@/context/auth-context'
+import { redirectToLogin } from '@reapit/cognito-auth'
 
-export type Token = {
-  accessToken: string
-  refreshToken: string
-}
+export const Login: React.FunctionComponent = () => {
+  const cognitoClientId = process.env.COGNITO_CLIENT_ID_APP_NAME as string
+  const loginHandler = () => redirectToLogin(cognitoClientId, `${window.location.origin}`)
 
-export type LoginResponse = {
-  login: Token
-}
+  const { loginSession } = useAuthContext()
 
-export const handleOnSubmit = ({ login }) => (values: LoginFormValues) => {
-  login({
-    variables: {
-      userName: values.userName,
-      password: values.password,
-      loginType: 'CLIENT',
-      mode: 'WEB',
-    } as LoginParams,
-  })
-}
-
-export const handleOnCompleted = ({ history }) => (data: LoginResponse) => {
-  const { refreshToken, accessToken } = data.login
-  localStorage.setItem('accessToken', `Bearer ${accessToken}`)
-  localStorage.setItem('refreshToken', `Bearer ${refreshToken}`)
-  history.replace(Routes.HOME)
-}
-
-export const Login: React.FC<RouteComponentProps> = ({ history }: RouteComponentProps) => {
-  const { wrapper, container, image } = loginStyles
-
-  const [login, { loading, error }] = useMutation<LoginResponse, LoginParams>(LOGIN, {
-    onCompleted: handleOnCompleted({ history }),
-  } as MutationHookOptions<LoginResponse, LoginParams>)
+  if (loginSession) {
+    return <Redirect to={Routes.HOME} />
+  }
 
   return (
-    <div className={container}>
-      <div className={`${wrapper}`}>
-        <H1 isCentered>Sign in</H1>
-        <p className="pb-8">Welcome to smb</p>
-        <Formik initialValues={{ userName: '', password: '' } as LoginFormValues} onSubmit={handleOnSubmit({ login })}>
-          <Form data-test="login-form">
-            <Input
-              required
-              dataTest="login-email"
-              type="email"
-              labelText="Email"
-              id="userName"
-              name="userName"
-              placeholder="Enter your user's name"
-            />
-            <Input
-              required
-              dataTest="login-password"
-              type="password"
-              labelText="Password"
-              id="password"
-              name="password"
-              placeholder="Enter your password"
-            />
-            <Level>
-              <Button type="submit" loading={loading} variant="primary" disabled={loading}>
-                Login
-              </Button>
-            </Level>
-            {error && <Alert message="Login failed, user credentials not recognised" type="danger" />}
-          </Form>
-        </Formik>
-      </div>
+    <Container>
+      <Wrapper>
+        <Level>
+          <img src={connectImage} alt="Reapit Connect Graphic" />
+        </Level>
+        <p className="pb-8">Welcome to SMB</p>
 
-      <div className={image}>
+        <Level>
+          <Button fullWidth type="submit" variant="primary" onClick={loginHandler}>
+            Login
+          </Button>
+        </Level>
+      </Wrapper>
+
+      <ImageContainer>
         <img src={logoImage} alt="Reapit Graphic" />
-      </div>
-    </div>
+      </ImageContainer>
+    </Container>
   )
 }
 
-export default withRouter(Login)
+export default Login
