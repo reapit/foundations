@@ -11,7 +11,7 @@
       "logger": ["../../scripts/logger/sentry-logger.ts"]
     }
   },
-  "include": ["src", "../../reapit-config.d.ts"],
+  "include": ["src"],
   "exclude": [
     "public",
     "dist",
