@@ -22,3 +22,26 @@ export function isValidRedirectUrls(urls: string) {
     .filter(url => !!url)
     .every(url => isValidHttpsUrl(url) || /http?:\/\/localhost/.test(url))
 }
+
+export function checkValidCustomScheme(url: string): boolean {
+  const result = url.match(/([a-zA-Z]+):\/\/(.+)/)
+  if (!result) {
+    return false
+  }
+  const [, protocol, link] = result
+  // allow http only for localhost
+  if (protocol === 'http') {
+    return link.indexOf('localhost') === 0
+  }
+
+  return !!protocol && !!link
+}
+
+export function isValidUrlWithCustomScheme(urls: string): boolean {
+  // remove all white-space and filter all empty urls
+  return urls
+    .replace(/\s/g, '')
+    .split(',')
+    .filter(url => url)
+    .every(url => checkValidCustomScheme(url))
+}
