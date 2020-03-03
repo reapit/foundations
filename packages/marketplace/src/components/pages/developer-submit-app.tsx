@@ -562,32 +562,46 @@ export const SubmitApp: React.FC<SubmitAppProps> = ({
                       </GridItem>
                     </Grid>
                   </FormSection>
-                  <Grid>
-                    <GridItem>
-                      <Input
-                        disabled={values['authFlow'] === 'clientCredentials'}
-                        dataTest="submit-app-redirect-uri"
-                        type="text"
-                        labelText="Redirect URI(s)"
-                        id="redirectUris"
-                        name="redirectUris"
-                        placeholder="Enter your callback URI’s. For multiple URI's, separate using a comma. HTTPS only other than for http://localhost"
-                      />
-                    </GridItem>
-                  </Grid>
-                  <Grid>
-                    <GridItem>
-                      <Input
-                        disabled={values['authFlow'] === 'clientCredentials'}
-                        dataTest="submit-app-signout-uris"
-                        type="text"
-                        labelText="Sign Out URI(s)"
-                        id="signoutUris"
-                        name="signoutUris"
-                        placeholder="Enter the URI that your application should navigate to when a user logs out. For multiple URI's, separate using a comma. HTTPS other than for http://localhost"
-                      />
-                    </GridItem>
-                  </Grid>
+                  <FormSection>
+                    <Grid>
+                      <GridItem>
+                        <FormHeading>Redirect URI(s)</FormHeading>
+                        <FormSubHeading>
+                          Please enter a Redirect URI(s) to define the route Reapit Connect is permitted to redirect to
+                          after a successful authentication. The following formats are supported: https://, http:// (for
+                          localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s,
+                          separate using a comma.
+                        </FormSubHeading>
+                        <Input
+                          disabled={values['authFlow'] === 'clientCredentials'}
+                          dataTest="submit-app-redirect-uri"
+                          type="text"
+                          id="redirectUris"
+                          name="redirectUris"
+                          placeholder="Enter your Redirect URI(s)"
+                        />
+                      </GridItem>
+                    </Grid>
+                    <Grid>
+                      <GridItem>
+                        <FormHeading>Sign Out URI(s)</FormHeading>
+                        <FormSubHeading>
+                          Please enter a Sign Out URI(s) to define the route Reapit Connect is permitted to redirect to
+                          after successfully logging out. The following formats are supported: https://, http:// (for
+                          localhost only) or your own custom URI schemes such as myapp://login. For multiple URI’s,
+                          separate using a comma.
+                        </FormSubHeading>
+                        <Input
+                          disabled={values['authFlow'] === 'clientCredentials'}
+                          dataTest="submit-app-signout-uris"
+                          type="text"
+                          id="signoutUris"
+                          name="signoutUris"
+                          placeholder="Enter your Sign Out URI(s)"
+                        />
+                      </GridItem>
+                    </Grid>
+                  </FormSection>
                   <FormSection>
                     <FormHeading>Images</FormHeading>
                     <FormSubHeading>
