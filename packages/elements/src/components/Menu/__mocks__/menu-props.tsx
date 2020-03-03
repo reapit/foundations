@@ -8,55 +8,55 @@ export const mockMenuProps: MenuConfig = {
   defaultActiveKey: 'APPS',
   mode: 'WEB',
   location: {
-    pathname: '/'
+    pathname: '/',
   } as Location<any>,
   menu: [
     {
       key: 'LOGO',
       icon: <ReapitLogo className="nav-item-icon" />,
-      type: 'LOGO'
+      type: 'LOGO',
     },
     {
       title: 'Apps',
       key: 'APPS',
       url: '/apps',
       icon: <FaCloud className="nav-item-icon" />,
-      type: 'PRIMARY'
+      type: 'PRIMARY',
     },
     {
       title: 'Installed',
       key: 'INSTALLED',
       url: '/installed',
       icon: <FaCloudDownloadAlt className="nav-item-icon" />,
-      type: 'PRIMARY'
+      type: 'PRIMARY',
     },
     {
       title: 'Submit',
       key: 'SUBMIT',
       url: '/submit',
       icon: <FaCloudUploadAlt className="nav-item-icon" />,
-      type: 'PRIMARY'
+      type: 'PRIMARY',
     },
     {
       title: 'Docs',
       key: 'DOCS',
       url: '/docs',
       icon: <FaReadme className="nav-item-icon" />,
-      type: 'PRIMARY'
+      type: 'PRIMARY',
     },
     {
       title: 'Settings',
       key: 'SETTINGS',
       url: '/settings',
       icon: <FaCog className="nav-item-icon" />,
-      type: 'PRIMARY'
+      type: 'PRIMARY',
     },
     {
       title: 'Logout',
       key: 'LOGOUT',
       callback: () => console.log('logging out'),
       icon: <FaSignOutAlt className="nav-item-icon" />,
-      type: 'SECONDARY'
-    }
-  ]
+      type: 'SECONDARY',
+    },
+  ],
 }

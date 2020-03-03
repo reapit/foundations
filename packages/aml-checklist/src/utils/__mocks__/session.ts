@@ -10,8 +10,8 @@ export const mockLoginSession = {
   loginIdentity: {
     developerId: 'SOME_DEV_ID',
     clientId: 'SOME_CLIENT_ID',
-    adminId: 'SOME_ADMIN_ID'
-  }
+    adminId: 'SOME_ADMIN_ID',
+  },
 } as LoginSession
 
 export const getAccessToken = jest.fn()
