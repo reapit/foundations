@@ -1,18 +1,13 @@
 const AWS = require('aws-sdk')
 const fs = require('fs')
+const { generateConfigTsDef } = require('./utils/generateConfigTsDef')
+const { handleFetchingSecretFail } = require('./utils/handleFetchingSecretFail')
 
 const { writeConfigInCWD } = require('./utils/writeConfigInCWD')
-const { generateConfigTsDef } = require('./utils/generateConfigTsDef')
 
 const prompts = require('prompts')
 
-const {
-  REAPIT_CONFIG_IN_CWD_PATH,
-  REAPIT_BASE_CONFIG_PATH,
-  TEMP_FOLDER,
-  TEMP_LOCAL_CONFIG_FILE,
-  TEMP_REMOTE_CONFIG_FILE,
-} = require('./paths')
+const { REAPIT_CONFIG_IN_CWD_PATH, TEMP_FOLDER, TEMP_LOCAL_CONFIG_FILE, TEMP_REMOTE_CONFIG_FILE } = require('./paths')
 
 AWS.config.update({ region: 'eu-west-2' })
 
@@ -82,24 +77,6 @@ const updateSecret = async secretName => {
     console.log('Something went wrong when updating configuration. Detailed error with stack trace is provided below:')
     return console.log(err, err.stack)
   }
-
-  // get remote config and write to remote-config.json. test case overwrite temp file. handle get secrey ok
-
-  // write local config to local-config.json. testcase over write tep ile
-  // display a prompt. test case invalid value
-  // prompt success update secrey. testcase upate ok
-  // secretsManager.updateSecret(
-  //   {
-  //     SecretId: secretName,
-  //     SecretString: JSON.stringify(require(REAPIT_CONFIG_IN_CWD_PATH)),
-  //   },
-  //   (err, data) => {
-  //     if (err) {
-  //       return console.error(err, err.stack)
-  //     }
-  //     return console.log('Successfully updated secret', data)
-  //   },
-  // )
 }
 
 const getSecret = (secretName, reapitEnv = 'LOCAL', isGenerateConfigTsDef = false) => {
@@ -109,25 +86,7 @@ const getSecret = (secretName, reapitEnv = 'LOCAL', isGenerateConfigTsDef = fals
     },
     (err, data) => {
       if (err) {
-        console.log('Something went wrong when fetching config. Detailed error with stack trace is provided below:')
-        console.error(err, err.stack)
-        console.log('A base configuration file will be provided')
-
-        let config = ''
-        try {
-          config = fs.readFileSync(REAPIT_BASE_CONFIG_PATH)
-        } catch (err) {
-          console.log(
-            'Something went wrong when reading base configuration. Detailed error with stack trace is provided below:',
-          )
-          return console.error(err, err.stack)
-        }
-
-        if (isGenerateConfigTsDef) {
-          generateConfigTsDef(config)
-        }
-
-        return writeConfigInCWD(config)
+        handleFetchingSecretFail(err, isGenerateConfigTsDef)
       }
 
       try {
@@ -162,25 +121,7 @@ const getAllSecrets = (secretName, isGenerateConfigTsDef = false) => {
     },
     (err, data) => {
       if (err) {
-        console.log('Something went wrong when fetching config. Detailed error with stack trace is provided below:')
-        console.error(err, err.stack)
-        console.log('A base configuration file will be provided')
-
-        let config = ''
-        try {
-          config = fs.readFileSync(REAPIT_BASE_CONFIG_PATH)
-        } catch (err) {
-          console.log(
-            'Something went wrong when reading base configuration. Detailed error with stack trace is provided below:',
-          )
-          return console.error(err, err.stack)
-        }
-
-        if (isGenerateConfigTsDef) {
-          generateConfigTsDef(config)
-        }
-
-        return writeConfigInCWD(config)
+        generateConfigTsDef(err, isGenerateConfigTsDef)
       }
 
       const config = data.SecretString

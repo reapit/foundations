@@ -4,7 +4,7 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron: '0 0 1-31 * *'
-  
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -33,10 +33,10 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-      
+
       - name: Fetch config
         run: |
-          yarn fetch-config
+          yarn fetch-config DEV
 
       - name: Fetch latest definition
         run: yarn workspace @reapit/foundations-ts-definitions fetch-definition

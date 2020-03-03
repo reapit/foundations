@@ -65,7 +65,7 @@ jobs:
 
       - name: Fetch config
         run: |
-          yarn fetch-config
+          yarn fetch-config PROD
 
       - name: Build
         run: |
