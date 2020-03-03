@@ -1,6 +1,6 @@
 {
   "name": "@reapit/config-manager",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Node package for managing configuration and environment variables in AWS Secrets Manager",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
