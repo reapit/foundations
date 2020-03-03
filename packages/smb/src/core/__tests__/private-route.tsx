@@ -2,7 +2,7 @@ import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { MemoryRouter, Route } from 'react-router'
-import { PrivateRoute } from './private-route'
+import { PrivateRoute } from '../private-route'
 
 describe('PrivateRouter', () => {
   it('should match a snapshot', () => {
