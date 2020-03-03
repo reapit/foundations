@@ -3,8 +3,13 @@
 #import Area, Areas from "./resolvers/area/types.graphql"
 #import NegotiatorModel, CreateNegotiatorModelInput, UpdateNegotiatorModelInput, PagedResult_NegotiatorModel_ from './resolvers/negotiators/types.graphql'
 #import * from "./resolvers/office/types.graphql"
+#import AppointmentModel, PagedResult_AppointmentModel_, CreateAppointmentModelInput, UpdateAppointmentModelInput from './resolvers/appointment/types.graphql'
 
 type Query {
+  # appoinments
+  GetAppointments(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], TypeId: [String!], NegotiatorId: [String!], OfficeId: [String!], PropertyId: [String!], Start: String, End: String, IncludeCancelled: Boolean, IncludeUnconfirmed: Boolean): PagedResult_AppointmentModel_
+  GetAppointmentById(id: String!): AppointmentModel!
+
   # contact
   GetContactById(id: String!): Contact!
 
@@ -71,7 +76,11 @@ type Query {
 }
 
 type Mutation {
-  # The response of createContact will temporarily be boolean type until BE team fixs the API
+  # appointments
+  CreateAppointment(model: CreateAppointmentModelInput): Boolean!
+  UpdateAppointment(id: String!, _eTag:String, model: UpdateAppointmentModelInput): AppointmentModel!
+
+  # contact
   CreateContact(
     title: String
     forename: String

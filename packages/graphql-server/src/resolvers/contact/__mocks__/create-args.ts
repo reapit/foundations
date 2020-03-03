@@ -1,4 +1,4 @@
-import { CreateContactArgs } from '../types';
+import { CreateContactArgs } from '../types'
 
 export const mockCreateArgs: CreateContactArgs = {
   title: 'Mr',
@@ -9,18 +9,14 @@ export const mockCreateArgs: CreateContactArgs = {
   marketingConsent: 'grant',
   source: {
     id: 'SOL',
-    type: 'office'
+    type: 'office',
   },
   homePhone: '01234 567890',
   workPhone: null,
   mobilePhone: '07890 123456',
   email: 'example@email.com',
-  officeIds: [
-    'OXF'
-  ],
-  negotiatorIds: [
-    'JAS'
-  ],
+  officeIds: ['OXF'],
+  negotiatorIds: ['JAS'],
   primaryAddress: {
     type: 'primary',
     buildingName: '',
@@ -30,7 +26,7 @@ export const mockCreateArgs: CreateContactArgs = {
     line3: 'West Midlands',
     line4: '',
     postcode: 'B91 2XX',
-    countryId: 'GB'
+    countryId: 'GB',
   },
   secondaryAddress: null,
   workAddress: {
@@ -42,10 +38,10 @@ export const mockCreateArgs: CreateContactArgs = {
     line3: 'West Midlands',
     line4: '',
     postcode: 'B90 1ZZ',
-    countryId: 'GB'
+    countryId: 'GB',
   },
   metadata: {
     CustomField1: 'CustomValue1',
-    CustomField2: 'CustomValue2'
-  }
+    CustomField2: 'CustomValue2',
+  },
 }

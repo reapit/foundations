@@ -2,13 +2,13 @@ import { RouteComponentProps } from 'react-router'
 import { UnregisterCallback, Href } from 'history'
 
 // This is to mock out the dependencies for react router
-export function getMockRouterProps<P>({ params, search  = ''}: { params: P, search: string }) {
+export function getMockRouterProps<P>({ params, search = '' }: { params: P; search: string }) {
   const location = {
     hash: 'mockHash',
     key: 'mockKey',
     pathname: 'mockPathname',
     search: search,
-    state: {}
+    state: {},
   }
 
   const props: RouteComponentProps<P | {}> = {
@@ -16,7 +16,7 @@ export function getMockRouterProps<P>({ params, search  = ''}: { params: P, sear
       isExact: true,
       params: params || {},
       path: '/mockPathname',
-      url: '/mockPathname'
+      url: '/mockPathname',
     },
     location: location,
     history: {
@@ -41,9 +41,9 @@ export function getMockRouterProps<P>({ params, search  = ''}: { params: P, sear
         // tslint:disable-next-line:no-empty
         const temp: UnregisterCallback = () => {}
         return temp
-      }
+      },
     },
-    staticContext: {}
+    staticContext: {},
   }
 
   return props
