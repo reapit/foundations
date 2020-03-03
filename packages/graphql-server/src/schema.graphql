@@ -2,7 +2,6 @@
 #import CreateIdentityCheckModelInput, CreateIdentityCheckModelInput_identityDocument1Input, CreateIdentityCheckModelInput_identityDocument2Input, IdentityCheckModel, IdentityCheckModel_identityDocument1, IdentityCheckModel_identityDocument2, PagedResult_IdentityCheckModel_, UpdateIdentityCheckModelInput, UpdateIdentityCheckModelInput_identityDocument1Input, UpdateIdentityCheckModelInput_identityDocument2Input from "./resolvers/identity-check/types.graphql"
 #import Area, Areas from "./resolvers/area/types.graphql"
 #import NegotiatorModel, CreateNegotiatorModelInput, UpdateNegotiatorModelInput, PagedResult_NegotiatorModel_ from './resolvers/negotiators/types.graphql'
-#import LoginIdentity, LoginMode, LoginType, Token from './resolvers/auth/types.graphql'
 #import * from "./resolvers/office/types.graphql"
 
 type Query {
@@ -68,7 +67,7 @@ type Query {
 
   GetOfficeById(id: String!): OfficeModel!
 
-  GetOffices(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], Address: String, Name: String): PagedResult_OfficeModel_!!
+  GetOffices(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], Address: String, Name: String): PagedResult_OfficeModel_!
 }
 
 type Mutation {
@@ -131,7 +130,6 @@ type Mutation {
   # negotiator
   CreateNegotiator(model: CreateNegotiatorModelInput): JSON!
   UpdateNegotiator(id: String!, model: UpdateNegotiatorModelInput): JSON!
-  login(userName: String!, password: String!, loginType: LoginType!, mode: LoginMode!): Token
 
   CreateOffice(model: CreateOfficeModelInput): JSON!
 
