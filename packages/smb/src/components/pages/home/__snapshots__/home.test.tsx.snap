@@ -1,17 +1,120 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home should match a snapshot 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "fetching": false,
-      "getLoginSession": [Function],
-      "loginSession": null,
-      "logout": [Function],
-      "setAuthState": [Function],
-    }
-  }
+exports[`Home Home should match a snapshot 1`] = `
+<Component
+  flexColumn={true}
+  hasBackground={true}
+  hasPadding={true}
 >
-  <Component />
-</ContextProvider>
+  <Component>
+    Welcome
+  </Component>
+  <Component>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos earum velit veniam enim deleniti fugit optio obcaecati, totam fuga molestias?
+  </Component>
+  <Component>
+    <Component
+      key="Get Started"
+    >
+      <Styled(Component)
+        centerContent={true}
+        flexColumn={true}
+        hasPadding={true}
+      >
+        <div>
+          <img
+            alt="Get Started"
+            src=""
+          />
+        </div>
+        <Component
+          isCentered={true}
+        >
+          Get Started
+        </Component>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima inventore quidem sequirerum
+     exercitationem quaerat consequuntur porro iure possimus.
+        </p>
+        <styled.div>
+          <Component
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            Read More
+          </Component>
+        </styled.div>
+      </Styled(Component)>
+    </Component>
+    <Component
+      key="Install Agency Cloud"
+    >
+      <Styled(Component)
+        centerContent={true}
+        flexColumn={true}
+        hasPadding={true}
+      >
+        <div>
+          <img
+            alt="Install Agency Cloud"
+            src=""
+          />
+        </div>
+        <Component
+          isCentered={true}
+        >
+          Install Agency Cloud
+        </Component>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima inventore quidem sequirerum
+     exercitationem quaerat consequuntur porro iure possimus.
+        </p>
+        <styled.div>
+          <Component
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            Install
+          </Component>
+        </styled.div>
+      </Styled(Component)>
+    </Component>
+    <Component
+      key="Support"
+    >
+      <Styled(Component)
+        centerContent={true}
+        flexColumn={true}
+        hasPadding={true}
+      >
+        <div>
+          <img
+            alt="Support"
+            src=""
+          />
+        </div>
+        <Component
+          isCentered={true}
+        >
+          Support
+        </Component>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima inventore quidem sequirerum
+     exercitationem quaerat consequuntur porro iure possimus.
+        </p>
+        <styled.div>
+          <Component
+            onClick={[Function]}
+            type="button"
+            variant="primary"
+          >
+            Contact
+          </Component>
+        </styled.div>
+      </Styled(Component)>
+    </Component>
+  </Component>
+</Component>
 `;

@@ -22,6 +22,78 @@ exports[`Menu should match a snapshot 1`] = `
         "type": "LOGO",
       },
       Object {
+        "icon": <FaHome
+          className="nav-item-icon"
+        />,
+        "key": "HOME",
+        "title": "Home",
+        "type": "PRIMARY",
+        "url": "/home",
+      },
+      Object {
+        "icon": <FaBuilding
+          className="nav-item-icon"
+        />,
+        "key": "OFFICES",
+        "title": "Offices",
+        "type": "PRIMARY",
+        "url": "/offices",
+      },
+      Object {
+        "icon": <IoIosPeople
+          className="nav-item-icon"
+        />,
+        "key": "USERS",
+        "title": "Users",
+        "type": "PRIMARY",
+        "url": "/users",
+      },
+      Object {
+        "icon": <FaClipboardList
+          className="nav-item-icon"
+        />,
+        "key": "SOURCES",
+        "title": "Sources",
+        "type": "PRIMARY",
+        "url": "/sources",
+      },
+      Object {
+        "icon": <MdWeb
+          className="nav-item-icon"
+        />,
+        "key": "MARKETING",
+        "title": "Marketing",
+        "type": "PRIMARY",
+        "url": "/marketing",
+      },
+      Object {
+        "icon": <MdLibraryBooks
+          className="nav-item-icon"
+        />,
+        "key": "LETTINGS",
+        "title": "Lettings",
+        "type": "PRIMARY",
+        "url": "/lettings",
+      },
+      Object {
+        "icon": <MdLiveHelp
+          className="nav-item-icon"
+        />,
+        "key": "SUPPORT",
+        "title": "Support",
+        "type": "PRIMARY",
+        "url": "/support",
+      },
+      Object {
+        "icon": <FaDownload
+          className="nav-item-icon"
+        />,
+        "key": "INSTALL",
+        "title": "Install",
+        "type": "PRIMARY",
+        "url": "/install",
+      },
+      Object {
         "callback": [Function],
         "icon": <FaCloud
           className="nav-item-icon"
@@ -65,6 +137,78 @@ exports[`Menu should match a snapshot 2`] = `
         />,
         "key": "LOGO",
         "type": "LOGO",
+      },
+      Object {
+        "icon": <FaHome
+          className="nav-item-icon"
+        />,
+        "key": "HOME",
+        "title": "Home",
+        "type": "PRIMARY",
+        "url": "/home",
+      },
+      Object {
+        "icon": <FaBuilding
+          className="nav-item-icon"
+        />,
+        "key": "OFFICES",
+        "title": "Offices",
+        "type": "PRIMARY",
+        "url": "/offices",
+      },
+      Object {
+        "icon": <IoIosPeople
+          className="nav-item-icon"
+        />,
+        "key": "USERS",
+        "title": "Users",
+        "type": "PRIMARY",
+        "url": "/users",
+      },
+      Object {
+        "icon": <FaClipboardList
+          className="nav-item-icon"
+        />,
+        "key": "SOURCES",
+        "title": "Sources",
+        "type": "PRIMARY",
+        "url": "/sources",
+      },
+      Object {
+        "icon": <MdWeb
+          className="nav-item-icon"
+        />,
+        "key": "MARKETING",
+        "title": "Marketing",
+        "type": "PRIMARY",
+        "url": "/marketing",
+      },
+      Object {
+        "icon": <MdLibraryBooks
+          className="nav-item-icon"
+        />,
+        "key": "LETTINGS",
+        "title": "Lettings",
+        "type": "PRIMARY",
+        "url": "/lettings",
+      },
+      Object {
+        "icon": <MdLiveHelp
+          className="nav-item-icon"
+        />,
+        "key": "SUPPORT",
+        "title": "Support",
+        "type": "PRIMARY",
+        "url": "/support",
+      },
+      Object {
+        "icon": <FaDownload
+          className="nav-item-icon"
+        />,
+        "key": "INSTALL",
+        "title": "Install",
+        "type": "PRIMARY",
+        "url": "/install",
       },
       Object {
         "callback": [Function],

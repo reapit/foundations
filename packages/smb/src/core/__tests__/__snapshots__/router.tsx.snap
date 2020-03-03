@@ -51,7 +51,7 @@ exports[`Router should match a snapshot 1`] = `
                 "_status": -1,
               }
             }
-            path="/"
+            path="/home"
           />
           <Component
             allow="CLIENT"

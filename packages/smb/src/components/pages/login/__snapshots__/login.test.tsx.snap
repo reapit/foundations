@@ -36,6 +36,6 @@ exports[`Login should match a snapshot 1`] = `
 
 exports[`Login should match a snapshot with loginSession 1`] = `
 <Redirect
-  to="/"
+  to="/home"
 />
 `;
