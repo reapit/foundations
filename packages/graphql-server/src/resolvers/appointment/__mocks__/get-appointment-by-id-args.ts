@@ -1,5 +1,5 @@
-import {GetAppointmentByIdArgs} from '../appointment'
+import { GetAppointmentByIdArgs } from '../appointment'
 
-export const getAppointmentByIdArgs:GetAppointmentByIdArgs =  {
-  id: 'test'
+export const getAppointmentByIdArgs: GetAppointmentByIdArgs = {
+  id: 'test',
 }

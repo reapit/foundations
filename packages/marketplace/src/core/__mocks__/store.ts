@@ -16,8 +16,8 @@ export const mockLoginSession: LoginSession = {
     clientId: 'SOME_CLIENT_ID',
     adminId: 'SOME_ADMIN_ID',
     name: 'SOME_NAME',
-    userCode: 'SOME_USER_CODE'
-  }
+    userCode: 'SOME_USER_CODE',
+  },
 }
 
 export const mockRefreshParams: RefreshParams = {
@@ -36,7 +36,7 @@ export default {
   state: {
     auth: {
       loginSession: mockLoginSession,
-      refreshSesion: mockRefreshParams
-    }
-  }
+      refreshSesion: mockRefreshParams,
+    },
+  },
 }

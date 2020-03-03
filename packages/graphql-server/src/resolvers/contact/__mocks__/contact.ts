@@ -1,8 +1,7 @@
-
 import { ContactModel } from '../../../types'
 
 export const contact: ContactModel = {
-  id: "RPT20000017",
+  id: 'RPT20000017',
   title: 'Mr',
   forename: 'John',
   surname: 'Smith',
@@ -11,18 +10,14 @@ export const contact: ContactModel = {
   marketingConsent: 'grant',
   source: {
     id: 'SOL',
-    type: 'office'
+    type: 'office',
   },
   homePhone: '01234 567890',
   workPhone: null,
   mobilePhone: '07890 123456',
   email: 'example@email.com',
-  officeIds: [
-    'OXF'
-  ],
-  negotiatorIds: [
-    'JAS'
-  ],
+  officeIds: ['OXF'],
+  negotiatorIds: ['JAS'],
   primaryAddress: {
     type: 'primary',
     buildingName: '',
@@ -32,7 +27,7 @@ export const contact: ContactModel = {
     line3: 'West Midlands',
     line4: '',
     postcode: 'B91 2XX',
-    countryId: 'GB'
+    countryId: 'GB',
   },
   secondaryAddress: null,
   workAddress: {
@@ -44,13 +39,13 @@ export const contact: ContactModel = {
     line3: 'West Midlands',
     line4: '',
     postcode: 'B90 1ZZ',
-    countryId: 'GB'
+    countryId: 'GB',
   },
   metadata: {
     CustomField1: 'CustomValue1',
-    CustomField2: 'CustomValue2'
+    CustomField2: 'CustomValue2',
   },
-  _eTag: "\"E9510E0E57BEECE1F14A0550DDA8116D\"",
+  _eTag: '"E9510E0E57BEECE1F14A0550DDA8116D"',
   _links: {
     self: {
       href: '/contacts/MKC16000098',

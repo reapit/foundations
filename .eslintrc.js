@@ -29,7 +29,6 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
   ignorePatterns: [
-    '__mocks__/',
     'node_modules/',
     'setup-tests.ts',
     'jest.config.js',

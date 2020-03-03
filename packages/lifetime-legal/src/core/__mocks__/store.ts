@@ -5,7 +5,7 @@ export default {
   state: {
     auth: {
       loginSession: mockLoginSession,
-      refreshSession: null
-    }
-  }
+      refreshSession: null,
+    },
+  },
 }
