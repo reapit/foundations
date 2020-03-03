@@ -81,7 +81,7 @@ type Mutation {
   UpdateAppointment(id: String!, _eTag:String, model: UpdateAppointmentModelInput): AppointmentModel!
 
   # contact
-  createContact(
+  CreateContact(
     title: String
     forename: String
     surname: String!

@@ -75,8 +75,6 @@ export const callUpdateAppointmentByIdAPI = async (
   const traceId = context.traceId
   logger.info('callUpdateAppointmentByIdAPI', { args, traceId })
   try {
-    console.log(args._eTag)
-
     await fetcher({
       url: `${URLS.appointments}/${args.id}`,
       api: process.env['PLATFORM_API_BASE_URL'],
@@ -102,8 +100,6 @@ export const callUpdateAppointmentByIdAPI = async (
     })
     return response
   } catch (error) {
-    console.log(error)
-
     logger.error('callUpdateAppointmentByIdAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
   }

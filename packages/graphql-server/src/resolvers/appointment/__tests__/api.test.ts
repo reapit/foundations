@@ -172,7 +172,6 @@ describe('appointment apis', () => {
             'Content-Type': 'application/json',
             'api-version': API_VERSION,
           },
-          body: updateAppointmentArgs.model,
         })
 
         expect(result).toEqual(appointment)
