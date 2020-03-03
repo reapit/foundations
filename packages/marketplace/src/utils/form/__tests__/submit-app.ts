@@ -60,8 +60,9 @@ describe('submitAppValidation', () => {
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
       homePage: 'http://localhost:8000',
-      // eslint-disable-next-line
-      description: 'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
       summary: 'Amazon.com, Inc., is an American multinational technology company based in Seattle',
       scopes: ['scope1'],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
@@ -86,8 +87,9 @@ describe('submitAppValidation', () => {
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
       homePage: 'http://localhost:8000',
-      // eslint-disable-next-line
-      description: 'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
       summary: 'Amazon.com, Inc., is an American multinational technology company based in Seattle',
       scopes: ['scope1'],
       redirectUris: 'http://google.com,https://twitter.com,http://localhost:8080',
@@ -112,12 +114,13 @@ describe('submitAppValidation', () => {
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
       homePage: 'http://localhost:8000',
-      // eslint-disable-next-line
-      description: 'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
       summary: 'Amazon.com, Inc., is an American multinational technology company based in Seattle',
       scopes: ['scope1'],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
-      signoutUris: 'https://localhost:8080',
+      signoutUris: 'app2:/invalid',
       authFlow: 'authorisationCode',
     }
 
@@ -138,8 +141,9 @@ describe('submitAppValidation', () => {
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
       homePage: 'test',
-      // eslint-disable-next-line
-      description: 'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
       summary: 'Amazon.com, Inc., is an American multinational technology company based in Seattle',
       scopes: [],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
@@ -164,8 +168,9 @@ describe('submitAppValidation', () => {
       launchUri: 'test',
       iconImageUrl: 'test',
       homePage: 'http://localhost:8000',
-      // eslint-disable-next-line
-      description: 'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
       summary: 'Amazon.com, Inc., is an American multinational technology company based in Seattle',
       scopes: [],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
@@ -190,8 +195,9 @@ describe('submitAppValidation', () => {
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
       homePage: 'http://localhost:8000',
-      // eslint-disable-next-line
-      description: 'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
       summary: 'Amazon.com, Inc., is an American multinational technology company based in Seattle',
       scopes: ['scope1'],
       redirectUris: 'https://google.com,https://twitter.com,http://localhost:8080',
@@ -214,8 +220,9 @@ describe('submitAppValidation', () => {
       launchUri: 'http://localhost:8000',
       iconImageUrl: 'test',
       homePage: 'http://localhost:8000',
-      // eslint-disable-next-line
-      description: 'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
       summary: 'Amazon.com, Inc., is an American multinational technology company based in Seattle',
       scopes: ['scope1'],
       redirectUris: 'not valid',
@@ -240,8 +247,9 @@ describe('submitAppValidation', () => {
       launchUri: 'test',
       iconImageUrl: 'test',
       homePage: 'test',
-      // eslint-disable-next-line
-      description: 'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
       summary: 'Amazon.com, Inc., is an American multinational technology company based in Seattle',
       scopes: ['scope1', 'scope2'],
       redirectUris: 'not valid',
@@ -268,8 +276,9 @@ describe('submitAppValidation', () => {
       launchUri: 'test',
       iconImageUrl: 'test',
       homePage: 'test',
-      // eslint-disable-next-line
-      description: 'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
       summary: 'Amazon.com, Inc., is an American multinational technology company based in Seattle',
       scopes: [],
       redirectUris: 'not valid',
@@ -328,8 +337,9 @@ describe('submitAppValidation', () => {
       launchUri: 'test',
       iconImageUrl: 'test',
       homePage: 'test',
-      // eslint-disable-next-line
-      description: 'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
+      description:
+        // eslint-disable-next-line
+        'Amazon.com, Inc., is an American multinational technology company based in Seattle that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is considered one of the Big Four tech companies, along with Google, Apple, and Facebook.',
       summary: '123',
       scopes: ['scope1', 'scope2'],
       redirectUris: 'not valid',

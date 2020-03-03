@@ -4,6 +4,8 @@ import {
   isValidRedirectUrls,
   whiteListLocalhostAndIsValidUrl,
   isValidHttpUrl,
+  checkValidCustomScheme,
+  isValidUrlWithCustomScheme,
 } from '../validate'
 
 describe('isEmail', () => {
@@ -83,5 +85,55 @@ describe('whiteListLocalhostAndIsValidUrl', () => {
     ;['invalid url test', 'htt://www.google.com'].forEach(url =>
       expect(whiteListLocalhostAndIsValidUrl(url)).toBeFalsy(),
     )
+  })
+})
+
+describe('checkValidCustomScheme', () => {
+  it('should return true with valid custom scheme', () => {
+    const url1 = 'myapp://link.com'
+    const url2 = 'myapp://link2'
+    expect(checkValidCustomScheme(url1)).toBe(true)
+    expect(checkValidCustomScheme(url2)).toBe(true)
+  })
+  it('should return true with localhost', () => {
+    const url1 = 'http://localhost'
+    const url2 = 'http://localhost:8080'
+    expect(checkValidCustomScheme(url1)).toBe(true)
+    expect(checkValidCustomScheme(url2)).toBe(true)
+  })
+  it('should return false with invalid url', () => {
+    const url1 = 'app:invalid'
+    const url2 = ''
+    const url3 = 'http://google.com'
+    const url4 = 'myapp:/link.com'
+    expect(checkValidCustomScheme(url1)).toBe(false)
+    expect(checkValidCustomScheme(url2)).toBe(false)
+    expect(checkValidCustomScheme(url3)).toBe(false)
+    expect(checkValidCustomScheme(url4)).toBe(false)
+  })
+})
+
+describe('isValidUrlWithCustomScheme', () => {
+  it('should return true with valid urls', () => {
+    const urls1 = 'myapp://link.com, myapp://link2'
+    const urls2 = 'myapp://link.com, http://localhost'
+    const urls3 = 'https://link.com, http://localhost:9090'
+    const urls4 = 'https://link.com,    https://localhost'
+    expect(isValidUrlWithCustomScheme(urls1)).toBe(true)
+    expect(isValidUrlWithCustomScheme(urls2)).toBe(true)
+    expect(isValidUrlWithCustomScheme(urls3)).toBe(true)
+    expect(isValidUrlWithCustomScheme(urls4)).toBe(true)
+  })
+  it('should return false with invalid urls', () => {
+    const urls1 = 'myapp:link.com, myapp://link2'
+    const urls2 = 'myapp:/link.com, http://localhost'
+    const urls3 = 'http://link.com, http://localhost:9090'
+    const urls4 = 'link-com,    https://localhost'
+    const urls5 = 'app2://link-com, https://localhost'
+    expect(isValidUrlWithCustomScheme(urls1)).toBe(false)
+    expect(isValidUrlWithCustomScheme(urls2)).toBe(false)
+    expect(isValidUrlWithCustomScheme(urls3)).toBe(false)
+    expect(isValidUrlWithCustomScheme(urls4)).toBe(false)
+    expect(isValidUrlWithCustomScheme(urls5)).toBe(false)
   })
 })
