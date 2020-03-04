@@ -74,6 +74,7 @@ module.exports = {
       cacheId: process.cwd(),
       cleanupOutdatedCaches: true,
     }),
+    // TODO: Reconfigure Sentry to support source map
     // new SentryWebpackPlugin({
     //   include: '.',
     //   ignoreFile: '.sentrycliignore',
