@@ -5,10 +5,9 @@
     "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/cognito-auth": ["../cognito-auth/src"],
       "@reapit/elements": ["../elements/src"],
       "@reapit/elements/*": ["../elements/*"],
-      "logger": ["../../scripts/logger/sentry-logger.ts"]
+      "@reapit/cognito-auth": ["../cognito-auth/src"]
     }
   },
   "include": ["src"],

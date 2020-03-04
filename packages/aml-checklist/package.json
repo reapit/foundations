@@ -22,6 +22,8 @@
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\""
   },
   "dependencies": {
+    "@reapit/elements": "^0.5.39",
+    "@reapit/cognito-auth": "^2.0.19",
     "react-to-print": "^2.4.0"
   },
   "devDependencies": {
