@@ -11,7 +11,7 @@ import { useAuthContext } from '@/context/auth-context'
 import { redirectToLogin } from '@reapit/cognito-auth'
 
 export const Login: React.FunctionComponent = () => {
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_APP_NAME as string
+  const cognitoClientId = process.env.COGNITO_CLIENT_ID_SMB as string
   const loginHandler = () => redirectToLogin(cognitoClientId, `${window.location.origin}`)
 
   const { loginSession } = useAuthContext()
