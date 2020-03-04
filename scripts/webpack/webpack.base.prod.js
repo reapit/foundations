@@ -4,7 +4,7 @@ const ResolveTSPathsToWebpackAlias = require('ts-paths-to-webpack-alias')
 const { GenerateSW } = require('workbox-webpack-plugin')
 const HashedModuleIdsPlugin = require('webpack').HashedModuleIdsPlugin
 const { EnvironmentPlugin } = require('webpack')
-const SentryWebpackPlugin = require('@sentry/webpack-plugin')
+// const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const { PATHS } = require('./constants')
 const { getVersionTag } = require('../release/utils')
 const config = require(PATHS.config)
@@ -74,12 +74,12 @@ module.exports = {
       cacheId: process.cwd(),
       cleanupOutdatedCaches: true,
     }),
-    new SentryWebpackPlugin({
-      include: '.',
-      ignoreFile: '.sentrycliignore',
-      ignore: ['node_modules', 'webpack.config.js'],
-      configFile: 'sentry.properties',
-    }),
+    // new SentryWebpackPlugin({
+    //   include: '.',
+    //   ignoreFile: '.sentrycliignore',
+    //   ignore: ['node_modules', 'webpack.config.js'],
+    //   configFile: 'sentry.properties',
+    // }),
     new HardSourceWebpackPlugin({
       // each package has its own .webpack-cache
       cacheDirectory: `${PATHS.cacheWebpackDir}/hard-source/[confighash]`,

@@ -1,12 +1,12 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "sourceRoot": "/",
     "paths": {
       "@/*": ["src/*"],
-      "@reapit/cognito-auth": ["../cognito-auth/src"],
       "@reapit/elements": ["../elements/src"],
+      "@reapit/cognito-auth": ["../cognito-auth/src"],
       "logger": ["../../scripts/logger/sentry-logger.ts"]
     }
   },

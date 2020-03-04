@@ -21,12 +21,17 @@ const compiler = webpack(buildConfiguration)
 
 compiler.run((err, stats) => {
   if (err) {
-    throw err
+    console.error(`FATAL ERROR CAUGHT:\n${err.details || err.stack || err}`)
+    process.exit(1)
   }
-
-  console.log(
-    stats.toString({
-      colors: true,
-    }),
-  )
+  const info = stats.toString({ colors: true })
+  if (stats.hasErrors()) {
+    console.error(`COMPILATION ERRORS CAUGHT:\n${info}`)
+    process.exit(1)
+  }
+  if (stats.hasWarnings()) {
+    console.warn(`COMPILED WITH WARNINGS:\n${info}`)
+    return
+  }
+  console.log(`COMPILED SUCCESSFULLY:\n${info}`)
 })
