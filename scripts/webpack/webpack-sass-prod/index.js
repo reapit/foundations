@@ -21,7 +21,7 @@ const compiler = webpack(buildConfiguration)
 
 compiler.run((err, stats) => {
   if (err) {
-    console.error(`FATAL ERROR CAUGHT:\n${err.details || err.stack || err}`)
+    console.error(`FATAL ERRORS CAUGHT:\n${err.details || err.stack || err}`)
     process.exit(1)
   }
   const info = stats.toString({ colors: true })

@@ -80,6 +80,7 @@ module.exports = {
     //   ignoreFile: '.sentrycliignore',
     //   ignore: ['node_modules', 'webpack.config.js'],
     //   configFile: 'sentry.properties',
+    //   debug: true,
     // }),
     new HardSourceWebpackPlugin({
       // each package has its own .webpack-cache

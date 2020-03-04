@@ -12,7 +12,6 @@ env:
   AWS_REGION: ${{secrets.AWS_REGION}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   SENTRY_AUTH_TOKEN: ${{secrets.SENTRY_AUTH_TOKEN}}
-  SENTRY_LOG_LEVEL: 'info'
   REAPIT_ENV: DEV
   CI: true
 
