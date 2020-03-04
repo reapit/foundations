@@ -23,4 +23,6 @@ export type HelpGuideContextValues = {
   isLoading: boolean
 }
 
-export const [useHelpGuideContext, HelpGuideContextProvider] = createContext<HelpGuideContextValues>()
+export const HelpGuideContext = createContext<HelpGuideContextValues>()
+
+export const [useHelpGuideContext, HelpGuideContextProvider] = HelpGuideContext

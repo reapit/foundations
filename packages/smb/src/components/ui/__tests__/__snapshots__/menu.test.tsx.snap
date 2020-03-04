@@ -113,7 +113,7 @@ exports[`Menu should match a snapshot 1`] = `
       },
     ]
   }
-  mode="DESKTOP"
+  mode="WEB"
 />
 `;
 
@@ -230,6 +230,6 @@ exports[`Menu should match a snapshot 2`] = `
       },
     ]
   }
-  mode="WEB"
+  mode="DESKTOP"
 />
 `;

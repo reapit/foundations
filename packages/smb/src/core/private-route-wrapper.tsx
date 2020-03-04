@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { withRouter, RouteComponentProps } from 'react-router-dom'
+import { withRouter, RouteComponentProps, Redirect } from 'react-router-dom'
 import Menu from '@/components/ui/menu'
 import { Loader, AppNavContainer, Section, FlexContainerBasic } from '@reapit/elements'
 import { redirectToOAuth } from '@reapit/cognito-auth'
 import useAuth from '@/hooks/use-auth'
+import Routes from '@/constants/routes'
 
 const { Suspense } = React
 
@@ -11,7 +12,7 @@ export type PrivateRouteWrapperProps = RouteComponentProps & {
   path: string
 }
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
+export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children, location }) => {
   const { loginSession, getLoginSession, refreshParams } = useAuth()
   if (!loginSession && !refreshParams) {
     redirectToOAuth(process.env.COGNITO_CLIENT_ID_SMB as string)
@@ -20,6 +21,11 @@ export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperPro
   if (!loginSession && refreshParams) {
     getLoginSession(refreshParams)
   }
+
+  if (location.pathname === '/') {
+    return <Redirect to={Routes.HOME} />
+  }
+
   if (!loginSession) {
     return null
   }
