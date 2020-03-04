@@ -1,6 +1,6 @@
 const path = require('path')
 
-const TEMP_FOLDER = path.resolve(__dirname, './.temp')
+const TEMP_FOLDER = path.resolve(process.cwd(), './.temp')
 const REAPIT_TS_DEF_NAME = 'reapit-config-types.ts'
 
 module.exports = {
