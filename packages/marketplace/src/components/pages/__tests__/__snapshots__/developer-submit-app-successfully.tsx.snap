@@ -12,6 +12,7 @@ exports[`DeveloperSubmitAppSuccessfully renders correctly 1`] = `
     hasPadding={true}
   >
     <CallToAction
+      className="container-footer"
       dataTest="submit-success-section"
       footerItems={
         <React.Fragment>

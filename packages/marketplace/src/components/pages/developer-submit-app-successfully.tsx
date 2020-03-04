@@ -16,6 +16,7 @@ export const DeveloperSubmitAppSuccessfully: React.FC<DeveloperSubmitAppSuccessf
   <FlexContainerResponsive hasPadding flexColumn centerContent className={styles.wrapDeveloperSuccess}>
     <FlexContainerResponsive flexColumn hasBackground hasPadding>
       <CallToAction
+        className="container-footer"
         isCard
         title="Success"
         dataTest="submit-success-section"

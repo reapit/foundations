@@ -85,9 +85,25 @@ module.exports = {
             },
           },
           {
-            loader: 'ts-loader',
-            options: { transpileOnly: true },
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    useBuiltIns: 'entry',
+                    corejs: '3',
+                    targets: {
+                      esmodules: true,
+                      chrome: '58',
+                      ie: '11',
+                    },
+                  },
+                ],
+              ],
+            },
           },
+          { loader: 'ts-loader', options: { happyPackMode: true, transpileOnly: true } },
         ],
       },
       {
