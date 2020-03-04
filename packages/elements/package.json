@@ -20,9 +20,10 @@
   "module": "dist/elements.esm.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build:prod": "concurrently \"rimraf dist && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c\" \"rimraf out && build-storybook -o out\"",
+    "build:prod": "concurrently \"rimraf dist && cross-env NODE_ENV=production tsdx build --format=cjs,esm,umd && rollup -c\" \"rimraf public/dist && build-storybook -o public/dist\"",
     "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
-    "release:prod": "node ../../scripts/release/release-npm.js elements",
+    "release:prod": "node ../../scripts/release/release-npm.js elements && node ../../scripts/release/release-prod.js elemements reapit-elements-prod",
+    "release:dev": "node ../../scripts/release/release-dev.js elemements reapit-elements-dev",
     "start:dev": "start-storybook -p 6006",
     "start:prod": "cross-env NODE_ENV=development tsdx watch",
     "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",

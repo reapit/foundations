@@ -19,10 +19,6 @@ const releaseNpm = async () => {
       execSync(`git config --global user.name "${process.env.GITHUB_ACTOR}"`)
       runCommand('yarn', ['publish'])
       const previousTag = getPreviousTag({ packageName: packageNameOnTag })
-      if (packageName === 'elements') {
-        runCommand('gh-pages', ['-d', 'out'])
-      }
-
       await editReleaseNote({ packageName: packageNameOnTag, version, previousTag })
     }
   } catch (err) {
