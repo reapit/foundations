@@ -7243,6 +7243,7 @@ export interface PropertyImages {
   SortBy?: string
   Id?: string[]
   PropertyId?: string[]
+  Embed?: 'property'[]
   Type?: ('photograph' | 'map' | 'floorPlan' | 'epc')[]
 }
 /**
