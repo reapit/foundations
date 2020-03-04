@@ -1,28 +1,22 @@
 import 'isomorphic-fetch'
-import { Context, APIGatewayProxyEvent } from 'aws-lambda'
-import serverless from 'serverless-http'
 import express, { Request, Response } from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import router from './router'
+import { Context, APIGatewayProxyEvent } from 'aws-lambda'
+import serverless from 'serverless-http'
+import { errorHandler } from '../../../common/utils/error-handler'
 
-const expressApp = express()
+const app = express()
 
-expressApp.use(cors())
-expressApp.use(bodyParser.urlencoded({ extended: true }))
-expressApp.use(bodyParser.json())
-expressApp.use('/', router)
-expressApp.use((err: Error, _req: Request, res: Response) => {
-  console.error(JSON.stringify(err))
-  res.json({
-    error: {
-      status,
-      message: `Bad request': ${res.status} ${JSON.stringify(err)}`,
-    },
-  })
-  res.end()
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use('/', router)
+app.use((err: Error, _req: Request, res: Response) => {
+  errorHandler(err, res)
 })
 
-const app = serverless(expressApp)
+const expressApp = serverless(app)
 
-export const searchWidgetHandler = async (event: APIGatewayProxyEvent, context: Context) => app(event, context)
+export const searchWidgetHandler = async (event: APIGatewayProxyEvent, context: Context) => expressApp(event, context)

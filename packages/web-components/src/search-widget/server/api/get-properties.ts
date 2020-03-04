@@ -1,11 +1,12 @@
-import { NextFunction, Request, Response } from 'express'
-import { fetcher } from '../../../common/utils/fetcher'
+import { Request, Response } from 'express'
+import { fetcher } from '../../../common/utils/fetcher-client'
 import { PagedResultPropertyModel_ } from '@reapit/foundations-ts-definitions'
+import { errorHandler } from '../../../common/utils/error-handler'
 
-const getProperties = async (req: Request, res: Response, next: NextFunction) => {
+const getProperties = async (_req: Request, res: Response) => {
   try {
     const refreshResponse = await fetcher<PagedResultPropertyModel_, undefined>({
-      url: '/properties',
+      url: `${process.env.PLATFORM_API_BASE_URL}/properties`,
     })
 
     if (refreshResponse) {
@@ -14,8 +15,7 @@ const getProperties = async (req: Request, res: Response, next: NextFunction) =>
       res.end()
     }
   } catch (err) {
-    res.status(400)
-    next(err)
+    errorHandler(err, res)
   }
 }
 

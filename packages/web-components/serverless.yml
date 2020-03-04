@@ -1,0 +1,58 @@
+service: web-components
+plugins:
+  - serverless-webpack
+  - serverless-offline
+custom:
+  env: ${file(../../reapit-config.json)}
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+    packagerOptions:
+      noFrozenLockFile: false
+    excludeFiles: src/**/*.test.ts
+    keepOutputDirectory: true
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-west-2
+  deploymentBucket:
+    name: web-components.${self:provider.stage}
+    blockPublicAccess: false
+  environment:
+    NODE_ENV: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.NODE_ENV}
+    REAPIT_ENV: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.REAPIT_ENV}
+    PLATFORM_API_BASE_URL: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.PLATFORM_API_BASE_URL}
+    DEVELOPER_ACCOUNT_EMAIL: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.DEVELOPER_ACCOUNT_EMAIL}
+    DEVELOPER_ACCOUNT_PASSWORD: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.DEVELOPER_ACCOUNT_PASSWORD}
+    COGNITO_CLIENT_ID_SEARCH_WIDGET: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_CLIENT_ID_SEARCH_WIDGET}
+
+package:
+  individually: true
+  include:
+    - dist/**
+  exclude:
+    - package.json
+    - node_modules/**
+    - error.log
+    - info.log
+    - jest.config.js
+    - serverless.yml
+    - src/**
+    - tsconfig.json
+    - yml-helpers.js
+
+functions:
+  searchWidgetHandler:
+    handler: src/search-widget/server/core/index.searchWidgetHandler
+    events:
+      - http:
+          path: properties
+          method: get
+          cors: true
+      - http:
+          path: propertyimages
+          method: get
+          cors: true

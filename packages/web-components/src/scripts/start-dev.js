@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+return (() => {
+  const { execSync } = require('child_process')
+  const [, , ...args] = process.argv
+
+  if (args.length === 1 && args[0]) {
+    try {
+      const packageName = args[0]
+      const clearPublic = 'rimraf ./public/dist'
+      const clientScript = `rollup -w -c './src/scripts/rollup.config.${packageName}.client.js'`
+      const serverScript = `rollup -w -c './src/scripts/rollup.config.${packageName}.server.js'`
+      const startClientServer = 'sirv public --dev --port 8080'
+      const startNodeServer = `nodemon ./public/dist/server/${packageName}.js`
+      const startDev = `
+        ${clearPublic} && 
+        concurrently "${startClientServer}" "${startNodeServer}" "${clientScript}" "${serverScript}"
+      `
+      const opts = {
+        stdio: 'inherit',
+      }
+      execSync(startDev, opts)
+    } catch (err) {
+      console.error('Error in dev server', err)
+      process.exit(1)
+    }
+  }
+
+  console.error('You need to specify the package name as an arg to yarn start:dev')
+  process.exit(1)
+})()

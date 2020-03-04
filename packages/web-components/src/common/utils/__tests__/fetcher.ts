@@ -1,4 +1,4 @@
-import { fetcher } from '../fetcher'
+import { fetcher } from '../fetcher-client'
 
 const stub = {
   name: 'bob',
@@ -13,8 +13,7 @@ describe('fetcher', () => {
     })
 
     const response = await fetcher({
-      api: 'http://some-api/',
-      url: 'some-url',
+      url: 'http://some-api/some-url',
       method: 'GET',
       headers: {},
     })
@@ -29,17 +28,15 @@ describe('fetcher', () => {
       ok: false,
     })
 
-    const url = '/some-url'
-    const api = 'http://some-api/'
+    const url = 'http://some-api/some-url'
 
     const response = await fetcher({
-      api,
       url,
       method: 'GET',
       headers: {},
     })
     expect(response).toBeUndefined()
 
-    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING GET ${api}${url} {"status":400,"ok":false}`)
+    expect(console.error).toHaveBeenCalledWith(`ERROR FETCHING GET ${url} {"status":400,"ok":false}`)
   })
 })

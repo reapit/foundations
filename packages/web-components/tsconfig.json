@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*", "rollup.config.base.js"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules/*"],
   "compilerOptions": {
     "target": "ESNEXT",

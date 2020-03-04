@@ -13,20 +13,28 @@
   "devDependencies": {
     "@reapit/foundations-ts-definitions": "2020-02-13",
     "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-replace": "^2.3.1",
+    "@rollup/plugin-run": "^1.2.0",
     "@testing-library/svelte": "^1.11.0",
     "@wessberg/rollup-plugin-ts": "^1.2.17",
+    "nodemon": "^2.0.2",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.32.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-live-server": "^1.0.3",
     "rollup-plugin-livereload": "^1.0.4",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-svelte": "^5.1.1",
     "rollup-plugin-terser": "^5.2.0",
+    "serverless-offline": "^5.12.1",
+    "serverless-webpack": "^5.3.1",
     "sirv-cli": "^0.4.5",
     "svelte-jester": "^1.0.4",
-    "svelte-preprocess": "^3.4.0"
+    "svelte-preprocess": "^3.4.0",
+    "ts-node": "^8.6.2"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -39,12 +47,14 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "build:prod:search-widget": "rollup -c './src/search-widget/rollup.config.js' --environment INCLUDE_DEPS",
-    "build:prod": "rimraf ./public/dist && build:prod:search-widget",
+    "build:prod:search-widget:client": "rollup -c './src/search-widget/rollup.config.client.js' --environment INCLUDE_DEPS",
+    "build:prod:search-widget:server": "rollup -c './src/search-widget/rollup.config.server.js' --environment INCLUDE_DEPS",
+    "build:dev:search-widget:client": "rimraf ./public/dist && rollup -w -c './src/search-widget/rollup.config.client.js'",
+    "build:dev:search-widget:server": "rimraf ./public/dist && rollup -w -c './src/search-widget/rollup.config.client.js'",
+    "start:dev:search-widget": "run-p start:dev build:dev:search-widget:client build:dev:search-widget:server",
+    "build:prod": "rimraf ./public/dist && build:prod:search-widget:client && build:prod:search-widget:server",
     "start:prod": "sirv public",
-    "start:dev": "sirv public --dev",
-    "build:dev:search-widget": "rimraf ./public/dist && rollup -w -c './src/search-widget/rollup.config.js'",
-    "start:dev:search-widget": "run-p start:dev build:dev:search-widget",
+    "start:dev": "node ./src/scripts/start-dev.js",
     "test:dev": "jest --watch --color",
     "test:ci": "jest --color"
   }

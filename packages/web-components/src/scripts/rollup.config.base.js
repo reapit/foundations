@@ -5,13 +5,14 @@ import { terser } from 'rollup-plugin-terser'
 import typescript from '@wessberg/rollup-plugin-ts'
 import babel from 'rollup-plugin-babel'
 import replace from '@rollup/plugin-replace'
+import { getEnv } from './get-env'
 
-const production = !process.env.ROLLUP_WATCH
+const env = getEnv()
 
 export default {
   plugins: [
     replace({
-      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV),
     }),
     resolve({
       browser: true,
@@ -41,8 +42,8 @@ export default {
         ],
       ],
     }),
-    !production && livereload('public'),
-    production && terser(),
+    !process.env.NODE_ENV === 'production' && livereload('public'),
+    process.env.NODE_ENV === 'production' && terser(),
   ],
   watch: {
     clearScreen: false,

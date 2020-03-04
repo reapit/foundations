@@ -1,3 +1,5 @@
+import { getClientHeaders } from './get-client-headers'
+
 export interface FetcherParams<T> {
   url: string
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
@@ -5,22 +7,14 @@ export interface FetcherParams<T> {
   body?: T
 }
 
-export const defaultHeaders = {
-  'api-version': '2020-02-18',
-  'Content-Type': 'application/json',
-  'x-api-key': '',
-}
-
 export const fetcher = async <T, B>({
   url,
   body,
   method = 'GET',
-  headers = defaultHeaders,
-}: FetcherParams<B>): Promise<T | boolean | undefined> => {
-  const path = `${process.env.PLATFORM_API_BASE_URL}${url}`
-
+  headers = getClientHeaders(),
+}: FetcherParams<B>): Promise<T | undefined> => {
   try {
-    const res = await fetch(path, {
+    const res = await fetch(url, {
       headers,
       method,
       body: JSON.stringify(body),
@@ -31,12 +25,12 @@ export const fetcher = async <T, B>({
         const jsonVal = await res.json()
         return jsonVal as T
       } catch (err) {
-        return res.ok
+        return {} as T
       }
     }
 
-    throw new Error(`${method} ${path} ${JSON.stringify(res)}`)
+    throw new Error(`${res.status} ${method} ${url} ${res.statusText}`)
   } catch (err) {
-    console.error(`ERROR FETCHING ${err.message}`)
+    console.error(err.message)
   }
 }
