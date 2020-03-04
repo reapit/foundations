@@ -1,4 +1,4 @@
-module.exports = loginIdentity => {
+module.exports = function(loginIdentity) {
   window._chatlio = window._chatlio || []
 
   !(function() {
@@ -26,17 +26,13 @@ module.exports = loginIdentity => {
     c.parentNode.insertBefore(n, c)
 
     if (loginIdentity) {
-      document.addEventListener(
-        'chatlio.ready',
-        function(e) {
-          _chatlio.identify(loginIdentity.developerId || '', {
-            name: loginIdentity.name || '',
-            email: loginIdentity.email || ''
-          })
-          _chatlio.show({ expanded: true })
-        },
-        false
-      )
+      document.addEventListener('chatlio.ready', function() {
+        _chatlio.identify(loginIdentity.developerId || '', {
+          name: loginIdentity.name || '',
+          email: loginIdentity.email || '',
+        })
+        _chatlio.show({ expanded: true })
+      })
     }
   })()
 }

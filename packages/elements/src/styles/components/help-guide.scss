@@ -102,6 +102,9 @@
     top: 50%;
     transform: translateX(-50%);
     z-index: -3;
+    @media all and (-ms-high-contrast:none) {
+      left: 50%;
+    }
   }
 
   li:last-child:after {
@@ -119,6 +122,9 @@
     background: white;
     transition: all 0.3s;
     text-align: center;
+    @media all and (-ms-high-contrast:none) {
+      transform: translate(-20px, 25px);
+    }
   }
 
   & .line-active {
@@ -129,6 +135,9 @@
     background-color: $reapit-mid-blue;
     transition: all 0.3s;
     z-index: -2;
+    @media all and (-ms-high-contrast:none) {
+      transform: translateX(-2px);
+    }
   }
 }
 

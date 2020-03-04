@@ -16,7 +16,7 @@ exports[`Elements should match a snapshot 1`] = `
         style={
           Object {
             "border": "none",
-            "height": "auto",
+            "height": "100%",
           }
         }
         width="100%"

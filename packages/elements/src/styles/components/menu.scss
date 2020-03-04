@@ -28,6 +28,7 @@ $nav-dimensions: 66px;
     overflow-x: scroll;
     overflow-y: hidden;
     height: $nav-dimensions;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 
     @media screen and (min-width: 768px) {
       height: 100%;
@@ -69,7 +70,7 @@ $nav-dimensions: 66px;
 
   .nav-item-link {
     cursor: pointer;
-
+    
     &.is-secondary {
       margin-left: auto;
 
@@ -83,10 +84,16 @@ $nav-dimensions: 66px;
   .nav-item-icon {
     width: 50%;
     height: 100%;
+    @media all and (-ms-high-contrast:none) {
+      height: 23px;
+    }
   }
 
   .is-logo .nav-item-icon {
     width: 75%;
+    @media all and (-ms-high-contrast:none) {
+      height: 42px;
+    }
   }
 
   &.is-desktop {
