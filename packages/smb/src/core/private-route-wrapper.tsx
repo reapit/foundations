@@ -13,7 +13,7 @@ export type PrivateRouteWrapperProps = RouteComponentProps & {
 }
 
 export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children, location }) => {
-  const cognitoClientId = process.env.COGNITO_CLIENT_ID_APP_NAME as string
+  const cognitoClientId = process.env.COGNITO_CLIENT_ID_SMB as string
   const cookieParams = getSessionCookie(COOKIE_SESSION_KEY)
   const urlParams: RefreshParams | null = getTokenFromQueryString(location.search, cognitoClientId)
   const refreshParams = cookieParams ? cookieParams : urlParams
