@@ -45,8 +45,8 @@ const updateSecret = async secretName => {
     console.log(`Your remote configuration have been saved to: ${TEMP_REMOTE_CONFIG_FILE}`)
 
     // write secret string from root directory's reapit-config.json to .temp/remote-config.json
-    const localConfig = require(REAPIT_CONFIG_IN_CWD_PATH)
-    fs.writeFileSync(TEMP_LOCAL_CONFIG_FILE, JSON.stringify(localConfig))
+    const localConfig = fs.readFileSync(REAPIT_CONFIG_IN_CWD_PATH).toString()
+    fs.writeFileSync(TEMP_LOCAL_CONFIG_FILE, localConfig)
     console.log(`Your local configuration have been saved to: ${TEMP_LOCAL_CONFIG_FILE}`)
 
     console.log(
