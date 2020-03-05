@@ -7,7 +7,6 @@ import { PACKAGE_SUFFIXES } from '../../../common/utils/constants'
 
 const getProperties = async (req: Request, res: Response) => {
   try {
-    console.log(`${process.env.PLATFORM_API_BASE_URL}/properties`)
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)
     const refreshResponse = await fetcher<PagedResultPropertyModel_, undefined>({
       url: `${process.env.PLATFORM_API_BASE_URL}/properties`,

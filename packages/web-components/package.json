@@ -39,12 +39,7 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "build:prod:search-widget:client": "rollup -c './src/search-widget/rollup.config.client.js' --environment INCLUDE_DEPS",
-    "build:prod:search-widget:server": "rollup -c './src/search-widget/rollup.config.server.js' --environment INCLUDE_DEPS",
-    "build:dev:search-widget:client": "rimraf ./public/dist && rollup -w -c './src/search-widget/rollup.config.client.js'",
-    "build:dev:search-widget:server": "rimraf ./public/dist && rollup -w -c './src/search-widget/rollup.config.client.js'",
-    "start:dev:search-widget": "run-p start:dev build:dev:search-widget:client build:dev:search-widget:server",
-    "build:prod": "rimraf ./public/dist && build:prod:search-widget:client && build:prod:search-widget:server",
+    "build:prod": "node ./src/scripts/build-prod.js",
     "start:prod": "sirv public",
     "start:dev": "node ./src/scripts/start-dev.js",
     "test:dev": "jest --watch --color",

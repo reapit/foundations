@@ -4,11 +4,7 @@ import getPropertyImages from '../api/get-property-images'
 
 const router = Express.Router()
 
-router.get('/properties', (req: Express.Request, res: Express.Response, next: Express.NextFunction) =>
-  getProperties(req, res, next),
-)
-router.get('/propertyimages', (req: Express.Request, res: Express.Response, next: Express.NextFunction) =>
-  getPropertyImages(req, res, next),
-)
+router.get('/properties', (req: Express.Request, res: Express.Response) => getProperties(req, res))
+router.get('/propertyimages', (req: Express.Request, res: Express.Response) => getPropertyImages(req, res))
 
 export default router

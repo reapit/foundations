@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte'
   import { simpleStore, initializers } from '../core/store'
-  import { generateGlobalTheme } from '../../common/styles/theme'
-  import * as Styles from '../../common/styles/index'
+  import { generateGlobalTheme } from '../../../common/styles/theme'
+  import * as Styles from '../../../common/styles/index'
 
   export let theme: Styles.InitializerTheme = {}
   export let apiKey: string = ''

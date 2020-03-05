@@ -6,7 +6,7 @@ const production = !process.env.ROLLUP_WATCH
 
 export default {
   ...baseConfig,
-  input: 'src/search-widget/core/index.ts',
+  input: 'src/search-widget/client/core/index.ts',
   output: {
     sourcemap: !production,
     format: 'iife',

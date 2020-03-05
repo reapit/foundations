@@ -5,9 +5,8 @@ import { terser } from 'rollup-plugin-terser'
 import typescript from '@wessberg/rollup-plugin-ts'
 import babel from 'rollup-plugin-babel'
 import replace from '@rollup/plugin-replace'
-import { getEnv } from './get-env'
 
-const env = getEnv()
+const env = require('./get-env')()
 
 export default {
   plugins: [

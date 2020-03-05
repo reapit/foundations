@@ -1,5 +1,5 @@
 import SearchWidget from '../components/search-widget.svelte'
-import { InitializerTheme } from '../../common/styles/index'
+import { InitializerTheme } from '../../../common/styles/index'
 
 export interface SearchWidgeInitializers {
   theme: InitializerTheme
