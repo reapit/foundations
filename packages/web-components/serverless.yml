@@ -16,7 +16,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs10.x
-  stage: ${opt:stage, 'dev'}
+  stage: ${opt:stage, 'local'}
   region: eu-west-2
   deploymentBucket:
     name: web-components.${self:provider.stage}
@@ -25,10 +25,9 @@ provider:
     NODE_ENV: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.NODE_ENV}
     REAPIT_ENV: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.REAPIT_ENV}
     PLATFORM_API_BASE_URL: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.PLATFORM_API_BASE_URL}
-    DEVELOPER_ACCOUNT_EMAIL: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.DEVELOPER_ACCOUNT_EMAIL}
-    DEVELOPER_ACCOUNT_PASSWORD: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.DEVELOPER_ACCOUNT_PASSWORD}
+    COGNITO_CLIENT_SECRET_SEARCH_WIDGET: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_CLIENT_SECRET_SEARCH_WIDGET}
     COGNITO_CLIENT_ID_SEARCH_WIDGET: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_CLIENT_ID_SEARCH_WIDGET}
-
+    COGNITO_OAUTH_URL: ${self:custom.env.${file(./yml-helpers.js):provider.stage.uppercase}.COGNITO_OAUTH_URL}
 package:
   individually: true
   include:

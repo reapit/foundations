@@ -1,6 +1,6 @@
 export interface FetcherParams<T> {
   url: string
-  headers: { [key: string]: string }
+  headers: Object
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
   body?: T
 }
@@ -26,5 +26,6 @@ export const fetcher = async <T, B>({
     }
   }
 
-  throw new Error(`${res.status} ${method} ${url} ${res.statusText}`)
+  const jsonVal = await res.json()
+  throw new Error(`${res.status} ${method} ${url} ${JSON.stringify(jsonVal)}`)
 }

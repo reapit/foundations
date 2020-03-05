@@ -1,5 +1,6 @@
 const path = require('path')
 const slsw = require('serverless-webpack')
+const { ContextReplacementPlugin } = require('webpack')
 
 module.exports = {
   entry: slsw.lib.entries,
@@ -16,6 +17,7 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: '[name].js',
   },
+  plugins: [new ContextReplacementPlugin(/express|encoding/)],
   module: {
     rules: [
       {

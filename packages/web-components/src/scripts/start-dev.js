@@ -7,14 +7,10 @@ return (() => {
     try {
       const packageName = args[0]
       const clearPublic = 'rimraf ./public/dist'
-      const clientScript = `rollup -w -c './src/scripts/rollup.config.${packageName}.client.js'`
-      const serverScript = `rollup -w -c './src/scripts/rollup.config.${packageName}.server.js'`
+      const clientScript = `rollup -w -c './src/scripts/rollup.config.${packageName}.js'`
+      const serverScript = 'serverless offline --stage local'
       const startClientServer = 'sirv public --dev --port 8080'
-      const startNodeServer = `nodemon ./public/dist/server/${packageName}.js`
-      const startDev = `
-        ${clearPublic} && 
-        concurrently "${startClientServer}" "${startNodeServer}" "${clientScript}" "${serverScript}"
-      `
+      const startDev = `${clearPublic} && concurrently "${startClientServer}" "${clientScript}" "${serverScript}"`
       const opts = {
         stdio: 'inherit',
       }

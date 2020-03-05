@@ -29,7 +29,7 @@ export const fetcher = async <T, B>({
       }
     }
 
-    throw new Error(`${res.status} ${method} ${url} ${res.statusText}`)
+    throw new Error(`${res.status} ${method} ${url} ${res}`)
   } catch (err) {
     console.error(err.message)
   }
