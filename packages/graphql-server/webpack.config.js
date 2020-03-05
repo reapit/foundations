@@ -1,6 +1,5 @@
 const path = require('path')
 const slsw = require('serverless-webpack')
-const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: slsw.lib.entries,
@@ -37,30 +36,14 @@ module.exports = {
         use: [{ loader: 'ts-loader', options: { transpileOnly: true } }],
       },
       {
-        test: /\.(graphql|gql)$/,
-        exclude: /node_modules/,
-        use: 'graphql-tag/loader',
-      },
-      {
         test: /\.mjs$/,
         include: /node_modules/,
         type: 'javascript/auto',
       },
     ],
   },
-  plugins: [
-    new CopyPlugin([
-      {
-        test: /\.(graphql|gql)$/,
-        ignore: ['*.ts', '*.test.ts', 'tests/**/*'],
-        from: 'src',
-        to: 'src',
-        force: true,
-      },
-    ]),
-  ],
   resolve: {
-    extensions: ['.ts', '.js', '.mjs', '.gql', '.graphql', '.json'],
+    extensions: ['.ts', '.js', '.mjs', '.json'],
     alias: {
       '@': path.resolve(__dirname, 'src/'),
     },

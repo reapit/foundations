@@ -1,12 +1,10 @@
 import { ApolloServer } from 'apollo-server-lambda'
-import { importSchema } from 'graphql-import'
 import uuidv4 from 'uuid/v4'
 import { formatError, formatResponse } from './app'
 import resolvers from './resolvers'
 import depthLimit from 'graphql-depth-limit'
 import logger from './logger'
-
-const typeDefs = importSchema('./src/schema.graphql')
+import typeDefs from './schema'
 
 const handleContext = ({ event, context }) => {
   const traceId = uuidv4()

@@ -1,5 +1,31 @@
-# Types
-type ContactAddress {
+type ContactModel {
+  id: String
+  created: String
+  modified: String
+  title: String
+  forename: String
+  surname: String
+  dateOfBirth: String
+  active: Boolean
+  marketingConsent: String
+  identityCheck: String
+  source: ContactModelSource
+  homePhone: String
+  workPhone: String
+  mobilePhone: String
+  email: String
+  primaryAddress: ContactModelAddress
+  secondaryAddress: ContactModelAddress
+  workAddress: ContactModelAddress
+  officeIds: [String!]
+  negotiatorIds: [String!]
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type ContactModelAddress {
   type: String
   buildingName: String
   buildingNumber: String
@@ -11,40 +37,32 @@ type ContactAddress {
   countryId: String
 }
 
-type ContactSource {
+type ContactModelSource {
   id: String
   type: String
 }
 
-type Contact {
-  id: String
-  created: String
-  modified: String
-  title: String
-  forename: String
-  surname: String!
-  dateOfBirth: String
-  active: Boolean
-  marketingConsent: String!
-  identityCheck: String
-  source: ContactSource
-  homePhone: String
-  workPhone: String
-  mobilePhone: String
-  email: String
-  primaryAddress: ContactAddress!
-  secondaryAddress: ContactAddress
-  workAddress: ContactAddress
-  officeIds: [String!]!
-  negotiatorIds: [String!]!
-  metadata: JSON
-  _eTag: String
-  _links: JSON
-  _embedded: JSON
+input CreateContactModelAddressInput {
+  type: String
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
 }
 
-type Contacts {
-  _embedded: [Contact!]
+input CreateContactModelSourceInput {
+  id: String
+  type: String
+}
+
+scalar JSON
+
+type PagedResult_ContactModel_ {
+  _embedded: [ContactModel!]
   pageNumber: Int
   pageSize: Int
   pageCount: Int
@@ -52,9 +70,7 @@ type Contacts {
   _links: JSON
 }
 
-# Input Types
-
-input ContactAddressInput {
+input UpdateContactModelAddressInput {
   type: String
   buildingName: String
   buildingNumber: String
@@ -66,7 +82,70 @@ input ContactAddressInput {
   countryId: String
 }
 
-input ContactSourceInput {
+input UpdateContactModelSourceInput {
   id: String
   type: String
+}
+
+type Query {
+  GetContacts(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    negotiatorId: [String!]
+    officeId: [String!]
+    address: String
+    identityCheck: String
+    name: String
+    marketingConsent: String
+    active: Boolean
+    createdFrom: String
+    createdTo: String
+  ): PagedResult_ContactModel_!
+
+  GetContactById(id: String!): ContactModel!
+}
+
+type Mutation {
+  CreateContact(
+    title: String
+    forename: String
+    surname: String
+    dateOfBirth: String
+    active: Boolean
+    marketingConsent: String
+    source: CreateContactModelSourceInput
+    homePhone: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    officeIds: [String!]
+    negotiatorIds: [String!]
+    primaryAddress: CreateContactModelAddressInput
+    secondaryAddress: CreateContactModelAddressInput
+    workAddress: CreateContactModelAddressInput
+    metadata: JSON
+  ): JSON!
+
+  UpdateContact(
+    id: String!
+    title: String
+    forename: String
+    surname: String
+    dateOfBirth: String
+    active: Boolean
+    marketingConsent: String
+    source: UpdateContactModelSourceInput
+    homePhone: String
+    workPhone: String
+    mobilePhone: String
+    email: String
+    officeIds: [String!]
+    negotiatorIds: [String!]
+    primaryAddress: UpdateContactModelAddressInput
+    secondaryAddress: UpdateContactModelAddressInput
+    workAddress: UpdateContactModelAddressInput
+    metadata: JSON
+  ): JSON!
 }

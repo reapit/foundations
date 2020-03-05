@@ -1,4 +1,5 @@
-import { fetcher, setQueryParams } from '@reapit/elements'
+import { fetcher } from '@reapit/elements'
+import qs from 'query-string'
 import logger from '../../logger'
 import { ServerContext } from '../../app'
 import {
@@ -10,11 +11,11 @@ import {
   GetContactsReturn,
   CreateContactReturn,
   UpdateContactReturn,
-} from './types'
+} from './contact'
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 
-export const CONTACTS_PER_PAGE = 10
+export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
 export const URLS = {
   contacts: '/contacts',
   identityChecks: '/identitychecks',
@@ -22,9 +23,9 @@ export const URLS = {
 
 export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: ServerContext): GetContactByIdReturn => {
   const traceId = context.traceId
+  logger.info('callGetContactByIdAPI', { traceId, args })
   try {
-    logger.info('callGetContactByIdAPI', { traceId, args })
-    const getResponse = await fetcher({
+    const response = await fetcher({
       url: `${URLS.contacts}/${args.id}`,
       api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
@@ -34,7 +35,7 @@ export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: S
         'api-version': API_VERSION,
       },
     })
-    return getResponse
+    return response
   } catch (error) {
     logger.error('callGetContactByIdAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
@@ -45,8 +46,9 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
   const traceId = context.traceId
   logger.info('callGetContactsAPI', { args, traceId })
   try {
+    const params = qs.stringify(args)
     const response = fetcher({
-      url: `${URLS.contacts}/?${setQueryParams({ ...args, pageSize: CONTACTS_PER_PAGE })}`,
+      url: `${URLS.contacts}/?${params}`,
       api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
       headers: {
@@ -64,21 +66,20 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
 
 export const callCreateContactAPI = async (args: CreateContactArgs, context: ServerContext): CreateContactReturn => {
   const traceId = context.traceId
+  logger.info('callCreateContactAPI', { traceId, args })
   try {
-    logger.info('callCreateContactAPI', { traceId, args })
-    const headers = {
-      Authorization: context.authorization,
-      'Content-Type': 'application/json',
-      'api-version': API_VERSION,
-    }
-    const createResponse = await fetcher({
+    const response = await fetcher({
       url: URLS.contacts,
       api: process.env['PLATFORM_API_BASE_URL'],
       method: 'POST',
-      headers,
+      headers: {
+        Authorization: context.authorization,
+        'Content-Type': 'application/json',
+        'api-version': API_VERSION,
+      },
       body: args,
     })
-    return createResponse
+    return response
   } catch (error) {
     logger.error('callCreateContactAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)
@@ -87,28 +88,22 @@ export const callCreateContactAPI = async (args: CreateContactArgs, context: Ser
 
 export const callUpdateContactAPI = async (args: UpdateContactArgs, context: ServerContext): UpdateContactReturn => {
   const traceId = context.traceId
+  logger.info('callUpdateContactAPI', { traceId, args })
   try {
-    logger.info('callUpdateContactAPI', { traceId, args })
-    const headers = {
-      Authorization: context.authorization,
-      'Content-Type': 'application/json',
-      'api-version': API_VERSION,
-      'If-Match': args._eTag,
-    }
-    await fetcher({
+    const { _eTag, ...payload } = args
+    const response = await fetcher({
       url: `${URLS.contacts}/${args.id}`,
       api: process.env['PLATFORM_API_BASE_URL'],
       method: 'PATCH',
-      headers,
-      body: args,
-    })
-    const contact = callGetContactByIdAPI(
-      {
-        id: args.id,
+      headers: {
+        Authorization: context.authorization,
+        'Content-Type': 'application/json',
+        'api-version': API_VERSION,
+        'If-Match': _eTag,
       },
-      context,
-    )
-    return contact
+      body: payload,
+    })
+    return response
   } catch (error) {
     logger.error('callUpdateContactAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)

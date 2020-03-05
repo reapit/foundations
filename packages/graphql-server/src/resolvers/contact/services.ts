@@ -9,7 +9,7 @@ import {
   GetContactsReturn,
   CreateContactReturn,
   UpdateContactReturn,
-} from './types'
+} from './contact'
 import { callGetContactByIdAPI, callGetContactsAPI, callCreateContactAPI, callUpdateContactAPI } from './api'
 
 export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'

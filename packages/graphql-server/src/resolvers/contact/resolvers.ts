@@ -12,7 +12,7 @@ import {
   QueryContactsReturn,
   MutationCreateContactReturn,
   MutationUpdateContactReturn,
-} from './types'
+} from './contact'
 
 export const queryContact = (_: any, args: GetContactByIdArgs, context: ServerContext): QueryContactReturn => {
   const traceId = context.traceId
@@ -52,4 +52,15 @@ export const updateContact = (_: any, args: UpdateContactArgs, context: ServerCo
     return errors.generateAuthenticationError(context.traceId)
   }
   return contactServices.updateContact(args, context)
+}
+
+export default {
+  Query: {
+    GetContactById: queryContact,
+    GetContacts: queryContacts,
+  },
+  Mutation: {
+    CreateContact: createContact,
+    UpdateContact: updateContact,
+  },
 }

@@ -14,16 +14,19 @@ export type GetContactByIdArgs = {
 }
 
 export type GetContactsArgs = {
-  name?: string
+  pageSize?: number
+  pageNumber?: number
+  sortBy?: string
+  id?: string[]
+  negotiatorId?: string[]
+  officeId?: string[]
   address?: string
-  negotiatorId: string[]
-  officeId: string[]
-  active: boolean
-  pageNumber: number
-  pageSize: number
-  sortBy: string
-  identityCheck: string[]
-  marketingConsent: string[]
+  identityCheck?: string
+  name?: string
+  marketingConsent?: string
+  active?: boolean
+  createdFrom?: string
+  createdTo?: string
 }
 
 /* return type */

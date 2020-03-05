@@ -7,26 +7,21 @@
 
 type Query {
   # appoinments
-  GetAppointments(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], TypeId: [String!], NegotiatorId: [String!], OfficeId: [String!], PropertyId: [String!], Start: String, End: String, IncludeCancelled: Boolean, IncludeUnconfirmed: Boolean): PagedResult_AppointmentModel_
+  GetAppointments(
+    PageSize: Int
+    PageNumber: Int
+    SortBy: String
+    Id: [String!]
+    TypeId: [String!]
+    NegotiatorId: [String!]
+    OfficeId: [String!]
+    PropertyId: [String!]
+    Start: String
+    End: String
+    IncludeCancelled: Boolean
+    IncludeUnconfirmed: Boolean
+  ): PagedResult_AppointmentModel_
   GetAppointmentById(id: String!): AppointmentModel!
-
-  # contact
-  GetContactById(id: String!): Contact!
-
-  GetContacts(
-    name: String
-    address: String
-    negotiatorId: [String!]
-    officeId: [String!]
-    active: Boolean
-    pageNumber: Int
-    pageSize: Int
-    sortBy: String
-    identityCheck: [String!]
-    marketingConsent: [String!]
-    createdFrom: String
-    createdTo: String
-  ): Contacts!
 
   # contact-identity-check
   GetIdChecks(
@@ -72,13 +67,20 @@ type Query {
 
   GetOfficeById(id: String!): OfficeModel!
 
-  GetOffices(PageSize: Int, PageNumber: Int, SortBy: String, Id: [String!], Address: String, Name: String): PagedResult_OfficeModel_!
+  GetOffices(
+    PageSize: Int
+    PageNumber: Int
+    SortBy: String
+    Id: [String!]
+    Address: String
+    Name: String
+  ): PagedResult_OfficeModel_!
 }
 
 type Mutation {
   # appointments
   CreateAppointment(model: CreateAppointmentModelInput): Boolean!
-  UpdateAppointment(id: String!, _eTag:String, model: UpdateAppointmentModelInput): AppointmentModel!
+  UpdateAppointment(id: String!, _eTag: String, model: UpdateAppointmentModelInput): AppointmentModel!
 
   # contact
   CreateContact(

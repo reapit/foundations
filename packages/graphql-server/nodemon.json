@@ -2,5 +2,5 @@
   "watch": ["src"],
   "ext": "ts,ejs,graphql",
   "ignore": ["src/**/*.test.ts"],
-  "exec": "ts-node -P tsconfig.json ./src/app.ts"
+  "exec": "ts-node -r tsconfig-paths/register -P tsconfig.json ./src/app.ts"
 }
