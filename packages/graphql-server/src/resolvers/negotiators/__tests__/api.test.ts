@@ -17,7 +17,6 @@ import {
   callCreateNegotiatorAPI,
   callUpdateNegotiatorAPI,
   URLS,
-  REAPIT_API_BASE_URL,
   NEGOTIATORS_PER_PAGE,
 } from '../api'
 
@@ -36,7 +35,7 @@ describe('negotiator apis', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.negotiators}/?${setQueryParams({ ...mockArg, pageSize: NEGOTIATORS_PER_PAGE })}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'GET',
         headers: {
           Authorization: mockContext.authorization,
@@ -64,7 +63,7 @@ describe('negotiator apis', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.negotiators}/?${setQueryParams(mockArg)}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'GET',
         headers: {
           Authorization: mockContext.authorization,
@@ -95,7 +94,7 @@ describe('negotiator apis', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.negotiators}/${mockArg.id}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'GET',
         headers: {
           Authorization: mockContext.authorization,
@@ -123,7 +122,7 @@ describe('negotiator apis', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.negotiators}/${mockArg.id}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'GET',
         headers: {
           Authorization: mockContext.authorization,
@@ -153,7 +152,7 @@ describe('negotiator apis', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.negotiators}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'POST',
         headers: {
           Authorization: mockContext.authorization,
@@ -181,7 +180,7 @@ describe('negotiator apis', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.negotiators}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'POST',
         headers: {
           Authorization: mockContext.authorization,
@@ -213,7 +212,7 @@ describe('negotiator apis', () => {
 
         expect(fetcher).nthCalledWith(1, {
           url: `${URLS.negotiators}/${updateArgStub.id}`,
-          api: REAPIT_API_BASE_URL,
+          api: process.env['PLATFORM_API_BASE_URL'],
           body: updateArgStub.model,
           method: 'PATCH',
           headers: {
@@ -226,7 +225,7 @@ describe('negotiator apis', () => {
 
         expect(fetcher).nthCalledWith(2, {
           url: `${URLS.negotiators}/${updateArgStub.id}`,
-          api: REAPIT_API_BASE_URL,
+          api: process.env['PLATFORM_API_BASE_URL'],
           method: 'GET',
           headers: {
             Authorization: mockContext.authorization,
@@ -253,7 +252,7 @@ describe('negotiator apis', () => {
 
         expect(fetcher).nthCalledWith(1, {
           url: `${URLS.negotiators}/${updateArgStub.id}`,
-          api: REAPIT_API_BASE_URL,
+          api: process.env['PLATFORM_API_BASE_URL'],
           body: updateArgStub.model,
           method: 'PATCH',
           headers: {

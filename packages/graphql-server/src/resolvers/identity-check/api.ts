@@ -16,8 +16,6 @@ import {
   UpdateIdentityCheckReturn,
 } from './identity-check'
 
-export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.cloud'
-
 export const URLS = {
   identityChecks: '/identityChecks',
 }
@@ -38,7 +36,7 @@ export const callGetIdentityChecksAPI = async (
     const url = `${URLS.identityChecks}?${paramsUrl}`
     const response = await fetcher({
       url,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
       headers,
       body: {},
@@ -64,7 +62,7 @@ export const callGetIdentityCheckByIdAPI = async (
     }
     const response = await fetcher({
       url: `${URLS.identityChecks}/${args.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
       headers,
       body: {},
@@ -90,7 +88,7 @@ export const callCreateIdentityCheckAPI = async (
     }
     const createResponse = await fetcher({
       url: `${URLS.identityChecks}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'POST',
       headers,
       body: args,
@@ -122,7 +120,7 @@ export const callUpdateIdentityCheckAPI = async (
     }
     const updateResponse = await fetcher({
       url: `${URLS.identityChecks}/${args.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'PATCH',
       headers,
       body: args,

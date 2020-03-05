@@ -14,7 +14,6 @@ import {
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 
-export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
 export const NEGOTIATORS_PER_PAGE = 10
 export const URLS = {
   negotiators: '/negotiators',
@@ -29,7 +28,7 @@ export const callGetNegotiatorByIdAPI = async (
     logger.info('callGetNegotiatorByIdAPI', { traceId, args })
     const getResponse = await fetcher({
       url: `${URLS.negotiators}/${args.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
       headers: {
         Authorization: context.authorization,
@@ -50,7 +49,7 @@ export const callGetNegotiatorsAPI = async (args: GetNegotiatorsArgs, context: S
   try {
     const response = fetcher({
       url: `${URLS.negotiators}/?${setQueryParams({ ...args, pageSize: NEGOTIATORS_PER_PAGE })}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
       headers: {
         Authorization: context.authorization,
@@ -79,7 +78,7 @@ export const callCreateNegotiatorAPI = async (
     }
     const createResponse = await fetcher({
       url: `${URLS.negotiators}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'POST',
       headers,
       body: args,
@@ -111,7 +110,7 @@ export const callUpdateNegotiatorAPI = async (
     }
     await fetcher({
       url: `${URLS.negotiators}/${args.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'PATCH',
       headers,
       body: args.model,
@@ -119,7 +118,7 @@ export const callUpdateNegotiatorAPI = async (
 
     const getResponse = await fetcher({
       url: `${URLS.negotiators}/${args.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
       headers: {
         Authorization: context.authorization,

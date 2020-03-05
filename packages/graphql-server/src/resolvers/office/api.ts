@@ -41,7 +41,6 @@ export const callGetOfficesAPI = async (args: GetOfficesArgs, context: ServerCon
 export const callGetOfficeByIdAPI = async (args: GetOfficeArgs, context: ServerContext): GetOfficeByIdReturn => {
   const traceId = context.traceId
   logger.info('callGetOfficeByIdAPI', { args, traceId })
-
   try {
     const response = await fetcher({
       url: `${URLS.offices}/${args.id}`,
