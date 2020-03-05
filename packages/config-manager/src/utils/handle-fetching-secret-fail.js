@@ -16,7 +16,8 @@ module.exports = (err, isGenerateConfigTsDef) => {
     console.log(
       'Something went wrong when reading base configuration. Detailed error with stack trace is provided below:',
     )
-    return console.error(err, err.stack)
+    console.error(err, err.stack)
+    process.exit(1)
   }
 
   if (isGenerateConfigTsDef) {

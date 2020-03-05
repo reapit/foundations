@@ -2,7 +2,7 @@ const AWS = require('aws-sdk')
 const fs = require('fs')
 
 const { generateConfigTsDef } = require('./utils/generate-config-ts-def')
-const { handleFetchingSecretFail } = require('./utils/handle-fetching-secret-fail')
+const handleFetchingSecretFail = require('./utils/handle-fetching-secret-fail')
 const { writeConfigInCWD } = require('./utils/write-config-in-cwd')
 
 const prompts = require('prompts')
@@ -21,7 +21,8 @@ const createSecret = secretName => {
     },
     (err, data) => {
       if (err) {
-        return console.error(err, err.stack)
+        console.error(err, err.stack)
+        process.exit(1)
       }
 
       return console.log('Successfully created secret', data)
@@ -54,13 +55,19 @@ const updateSecret = async secretName => {
       `Please review/update your changes in the local configuration files on the ".temp" folder located at ${TEMP_FOLDER}`,
     )
 
-    await prompts({
+    const response = await prompts({
       type: 'text',
       name: 'value',
       message: 'Type "update" and hit <RETURN/ENTER> to confirm and submit your changes:',
       // eslint-disable-next-line
       validate: value => (value !== 'update' ? 'Invalid phrase' : true),
     })
+
+    const isResponseEmpty = typeof response !== 'object' || Object.keys(response).length === 0
+    if (isResponseEmpty) {
+      console.error('Update secret process has been cancelled')
+      process.exit(1)
+    }
 
     // submit config
     const updatedConfig = require(TEMP_LOCAL_CONFIG_FILE)
@@ -75,7 +82,8 @@ const updateSecret = async secretName => {
     return console.log('Successfully updated secret', data)
   } catch (err) {
     console.log('Something went wrong when updating configuration. Detailed error with stack trace is provided below:')
-    return console.log(err, err.stack)
+    console.log(err, err.stack)
+    process.exit(1)
   }
 }
 
@@ -86,7 +94,7 @@ const getSecret = (secretName, reapitEnv = 'LOCAL', isGenerateConfigTsDef = fals
     },
     (err, data) => {
       if (err) {
-        handleFetchingSecretFail(err, isGenerateConfigTsDef)
+        return handleFetchingSecretFail(err, isGenerateConfigTsDef)
       }
 
       try {
@@ -96,7 +104,8 @@ const getSecret = (secretName, reapitEnv = 'LOCAL', isGenerateConfigTsDef = fals
         const configMatchEnv = parsedConfig[reapitEnv]
 
         if (!configMatchEnv) {
-          return console.log(`No config match ENV "${reapitEnv}"`)
+          console.error(`No config match ENV "${reapitEnv}"`)
+          process.exit(1)
         }
 
         if (isGenerateConfigTsDef) {
@@ -108,7 +117,8 @@ const getSecret = (secretName, reapitEnv = 'LOCAL', isGenerateConfigTsDef = fals
         console.log(
           'Something went wrong when parsing base configuration. Detailed error with stack trace is provided below:',
         )
-        return console.log(err, err.stack)
+        console.log(err, err.stack)
+        process.exit(1)
       }
     },
   )
@@ -143,7 +153,8 @@ const deleteSecret = secretName => {
     },
     (err, data) => {
       if (err) {
-        return console.error(err, err.stack)
+        console.error(err, err.stack)
+        process.exit(1)
       }
       return console.log('Successfully deleted secret', data)
     },
@@ -157,7 +168,8 @@ const setEnv = secretName => {
     },
     (err, data) => {
       if (err) {
-        return console.log(err, err.stack)
+        console.error(err, err.stack)
+        process.exit(1)
       }
 
       const env = process.env.REAPIT_ENV
