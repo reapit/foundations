@@ -948,16 +948,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={0}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Office Name"
                                     >
                                       <ValueViewer
@@ -1028,16 +1023,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={1}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Building Name"
                                     >
                                       <ValueViewer
@@ -1108,16 +1098,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={2}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Building No."
                                     >
                                       <ValueViewer
@@ -1188,16 +1173,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={3}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Address 1"
                                     >
                                       <ValueViewer
@@ -1268,16 +1248,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={4}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Address 2"
                                     >
                                       <ValueViewer
@@ -1348,16 +1323,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={5}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Address 3"
                                     >
                                       <ValueViewer
@@ -1428,16 +1398,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={6}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Address 4"
                                     >
                                       <ValueViewer
@@ -1508,16 +1473,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={7}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Post Code"
                                     >
                                       <ValueViewer
@@ -1588,16 +1548,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={8}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Telephone"
                                     >
                                       <ValueViewer
@@ -1668,16 +1623,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={9}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Fax"
                                     >
                                       <ValueViewer
@@ -1748,16 +1698,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell read-only  "
-                                      col={10}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={0}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Email"
                                     >
                                       <ValueViewer
@@ -1870,16 +1815,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={0}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="London"
                                     >
                                       <ValueViewer
@@ -1947,16 +1887,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={1}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="The White House"
                                     >
                                       <ValueViewer
@@ -2024,16 +1959,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={2}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="15"
                                     >
                                       <ValueViewer
@@ -2101,16 +2031,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={3}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="London 1"
                                     >
                                       <ValueViewer
@@ -2178,16 +2103,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={4}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -2253,16 +2173,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={5}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Londom 3"
                                     >
                                       <ValueViewer
@@ -2330,16 +2245,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={6}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -2405,16 +2315,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={7}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="EC12NH"
                                     >
                                       <ValueViewer
@@ -2482,16 +2387,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={8}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="0845 0000"
                                     >
                                       <ValueViewer
@@ -2559,16 +2459,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={9}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -2634,16 +2529,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={10}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={1}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="row1@gmail.com"
                                     >
                                       <ValueViewer
@@ -2755,16 +2645,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={0}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="London2"
                                     >
                                       <ValueViewer
@@ -2832,16 +2717,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={1}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="The Black House"
                                     >
                                       <ValueViewer
@@ -2909,16 +2789,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={2}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="11"
                                     >
                                       <ValueViewer
@@ -2986,16 +2861,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={3}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -3061,16 +2931,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={4}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -3136,16 +3001,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={5}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Adress 3"
                                     >
                                       <ValueViewer
@@ -3213,16 +3073,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={6}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -3288,16 +3143,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={7}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="EC12NH"
                                     >
                                       <ValueViewer
@@ -3365,16 +3215,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={8}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="087 471 929"
                                     >
                                       <ValueViewer
@@ -3442,16 +3287,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={9}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -3517,16 +3357,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={10}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={2}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="row2@gmail.com"
                                     >
                                       <ValueViewer
@@ -3638,16 +3473,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={0}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="New York"
                                     >
                                       <ValueViewer
@@ -3715,16 +3545,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={1}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="Building A"
                                     >
                                       <ValueViewer
@@ -3792,16 +3617,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={2}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="11"
                                     >
                                       <ValueViewer
@@ -3869,16 +3689,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={3}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -3944,16 +3759,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={4}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -4019,16 +3829,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={5}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="City Z"
                                     >
                                       <ValueViewer
@@ -4096,16 +3901,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={6}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -4171,16 +3971,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={7}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="AL7187"
                                     >
                                       <ValueViewer
@@ -4248,16 +4043,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={8}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="017 7162 9121"
                                     >
                                       <ValueViewer
@@ -4325,16 +4115,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={9}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value=""
                                     >
                                       <ValueViewer
@@ -4400,16 +4185,11 @@ exports[`Offices Offices should match a snapshot 1`] = `
                                   >
                                     <td
                                       className="cell  "
-                                      col={10}
-                                      editing={false}
                                       onContextMenu={[Function]}
                                       onDoubleClick={[Function]}
                                       onMouseDown={[Function]}
                                       onMouseOver={[Function]}
-                                      row={3}
-                                      selected={false}
                                       style={Object {}}
-                                      updated={false}
                                       value="row3@gmail.com"
                                     >
                                       <ValueViewer

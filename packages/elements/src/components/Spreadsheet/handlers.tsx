@@ -74,9 +74,33 @@ export const customCellRenderer = (data: Cell[][], setData: SetData, setSelected
     ...defaultStyle,
     ...customStyle,
   }
+
+  // those props cannot be passed to DOM elements, ignore it
+  const ignorePropKeys = [
+    'cell',
+    'row',
+    'col',
+    'columns',
+    'attributesRenderer',
+    'selected',
+    'editing',
+    'updated',
+    'style',
+  ]
+  // filter out all ignore props
+  const domProps = Object.keys(restProps)
+    .filter(key => !ignorePropKeys.includes(key))
+    .reduce(
+      (accumulator, key) => ({
+        ...accumulator,
+        [key]: restProps[key],
+      }),
+      {},
+    )
+
   return (
     <td
-      {...restProps}
+      {...domProps}
       {...restCell}
       className={`${props.className} ${!isValid ? 'error-cell' : ''} ${className}`}
       style={style}
@@ -174,4 +198,13 @@ export const handleDownload = (data: Cell[][], window, document: Document | unde
     return true
   }
   return false
+}
+
+export const handleAfterDataChanged = (
+  data: Cell[][],
+  afterDataChanged: ((data: Cell[][]) => any) | undefined,
+) => () => {
+  if (typeof afterDataChanged === 'function') {
+    afterDataChanged(data)
+  }
 }

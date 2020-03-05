@@ -10,6 +10,7 @@ import {
   handleOnChangeInput,
   handleDownload,
   handleContextMenu,
+  handleAfterDataChanged,
 } from './handlers'
 import { Button } from '../Button'
 import { ContextMenu } from './context-menu'
@@ -63,10 +64,13 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   hasDownloadButton = true,
   hasAddButton = true,
   validateUpload,
+  afterDataChanged,
 }) => {
   const [selected, setSelected] = React.useState<SelectedMatrix | null>(null)
 
   const [data, setData] = React.useState<Cell[][]>(initialData)
+
+  const setDataToInitial = setData.bind(null, initialData)
 
   const [contextMenuProp, setContextMenuProp] = React.useState<ContextMenuProp>({
     visible: false,
@@ -80,8 +84,12 @@ export const Spreadsheet: React.FC<SpreadsheetProps> = ({
   const addNewRow = React.useCallback(handleAddNewRow(data, setData), [data])
   const onChangeInput = React.useCallback(handleOnChangeInput(validateUpload, setData), [validateUpload])
   const onContextMenu = React.useCallback(handleContextMenu(setContextMenuProp), [])
-  /* call setContextMenuProp will hide context menu by default */
+  // call setContextMenuProp will hide context menu by default
   React.useEffect(handleEffect(setContextMenuProp.bind(null, hideContextMenu)), [])
+  // call setData when initialData changed
+  React.useEffect(setDataToInitial, [initialData])
+  // call after data changed
+  React.useEffect(handleAfterDataChanged(data, afterDataChanged), [data])
   return (
     <div className="spreadsheet">
       <div className="wrap-top">
