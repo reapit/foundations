@@ -1,10 +1,13 @@
 import * as React from 'react'
+import { withRouter, RouteComponentProps } from 'react-router'
+import queryString from 'query-string'
 import { ApolloError } from 'apollo-boost'
 import { useQuery } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
-import { Loader, Spreadsheet, Cell, Alert } from '@reapit/elements'
+import { Loader, Cell, Alert, Section, Pagination, Spreadsheet } from '@reapit/elements'
 import { Offices, PagedResultOfficeModel_, OfficeModel } from '@reapit/foundations-ts-definitions'
 import { OFFICES } from './offices-tab.graphql'
+import { OFFICES_PER_PAGE } from '@/constants/paginators'
 
 export const tableHeaders: DataTableRow[] = [
   { readOnly: true, value: 'Office Name' },
@@ -16,11 +19,10 @@ export const tableHeaders: DataTableRow[] = [
   { readOnly: true, value: 'Address 4' },
   { readOnly: true, value: 'Post Code' },
   { readOnly: true, value: 'Telephone' },
-  { readOnly: true, value: 'Fax' },
   { readOnly: true, value: 'Email' },
 ]
 
-export type OfficesTabProps = {}
+export type OfficesTabProps = RouteComponentProps & {}
 
 export type OfficesQueryResponse = {
   GetOffices?: PagedResultOfficeModel_
@@ -34,10 +36,22 @@ export type DataTableRow = {
 export type RenderContentParams = {
   loading: boolean
   error?: ApolloError
+  pageNumber?: number
+  pageSize?: number
+  totalCount?: number
   dataTable: DataTableRow[][]
+  handleChangePage: (page: number) => void
 }
 
-export const renderContent = ({ loading, error, dataTable }: RenderContentParams) => {
+export const renderContent = ({
+  loading,
+  error,
+  dataTable,
+  pageNumber = 0,
+  pageSize = 0,
+  totalCount = 0,
+  handleChangePage,
+}: RenderContentParams) => {
   if (loading) {
     return <Loader />
   }
@@ -45,29 +59,58 @@ export const renderContent = ({ loading, error, dataTable }: RenderContentParams
     return <Alert message={error.message} type="danger" />
   }
   return (
-    <Spreadsheet
-      data={dataTable as Cell[][]}
-      description={
-        <p>
+    <React.Fragment>
+      <Spreadsheet
+        data={dataTable as Cell[][]}
+        description={
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book.
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+              and scrambled it to make a type specimen book.
+            </p>
           </p>
-        </p>
-      }
-    />
+        }
+      />
+      <Section>
+        <Pagination pageNumber={pageNumber} pageSize={pageSize} totalCount={totalCount} onChange={handleChangePage} />
+      </Section>
+    </React.Fragment>
   )
 }
 
-export const OfficesTab: React.FC<OfficesTabProps> = () => {
+export const handleChangePage = ({ history }) => (pageNumber: number) => {
+  const searchParams = queryString.stringify({
+    page: pageNumber,
+  })
+  history.push({
+    search: searchParams,
+  })
+}
+
+export const OfficesTab: React.FC<OfficesTabProps> = ({ location, history }) => {
+  const params = queryString.parse(location?.search)
+  const page = Number(params?.page) || 1
   const { loading, error, data } = useQuery<OfficesQueryResponse, Offices>(OFFICES, {
-    variables: { PageSize: 100, PageNumber: 1 },
+    variables: { PageSize: OFFICES_PER_PAGE, PageNumber: page },
+    fetchPolicy: 'network-only',
   }) as QueryResult<OfficesQueryResponse, Offices>
 
   const dataTable = getDataTable(data || { GetOffices: { _embedded: [] } })
 
-  return <div>{renderContent({ loading, error, dataTable })}</div>
+  return (
+    <div>
+      {renderContent({
+        loading,
+        error,
+        dataTable,
+        pageNumber: data?.GetOffices?.pageNumber,
+        pageSize: data?.GetOffices?.pageSize,
+        totalCount: data?.GetOffices?.totalCount,
+        handleChangePage: handleChangePage({ history }),
+      })}
+    </div>
+  )
 }
 
 export function getDataTable(data: OfficesQueryResponse): DataTableRow[][] {
@@ -84,10 +127,9 @@ export function getDataTable(data: OfficesQueryResponse): DataTableRow[][] {
     { value: office.address?.postcode },
     { value: office.workPhone },
     { value: office.email },
-    { value: office.email },
   ])
   dataTable = [tableHeaders, ...dataRows]
   return dataTable
 }
 
-export default OfficesTab
+export default withRouter(OfficesTab)
