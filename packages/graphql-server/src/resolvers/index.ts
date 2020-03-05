@@ -8,6 +8,7 @@ import {
 } from './identity-check/resolvers'
 import { queryArea, queryAreas, mutationCreateArea, mutationUpdateArea } from './area/resolvers'
 import { queryNegotiatorById, queryNegotiators, createNegotiator, updateNegotiator } from './negotiators/resolvers'
+import { queryOffice, queryOffices, mutationCreateOffice, mutationUpdateOffice } from './office/resolvers'
 
 import {
   mutationCreateAppointment,
@@ -28,6 +29,8 @@ export const resolvers = {
     GetNegotiators: queryNegotiators,
     GetAppointments: queryAppointments,
     GetAppointmentById: queryAppointment,
+    GetOfficeById: queryOffice,
+    GetOffices: queryOffices,
   },
   Mutation: {
     CreateIdentityCheck: createIdentityCheck,
@@ -40,6 +43,8 @@ export const resolvers = {
     UpdateNegotiator: updateNegotiator,
     CreateAppointment: mutationCreateAppointment,
     UpdateAppointment: mutationUpdateAppointment,
+    CreateOffice: mutationCreateOffice,
+    UpdateOffice: mutationUpdateOffice,
   },
   JSON: GraphQLJSON,
 }

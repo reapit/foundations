@@ -14,7 +14,6 @@ import {
   callCreateIdentityCheckAPI,
   callUpdateIdentityCheckAPI,
   URLS,
-  REAPIT_API_BASE_URL,
 } from '../api'
 import { API_VERSION } from '../../../constants/api'
 import {
@@ -52,7 +51,7 @@ describe('appointment identity-check', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.identityChecks}?${qs.stringify(getIdentityChecksArgs)}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'GET',
         headers: {
           Authorization: mockContext.authorization,
@@ -89,7 +88,7 @@ describe('appointment identity-check', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.identityChecks}?${qs.stringify(getIdentityChecksArgs)}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'GET',
         headers: {
           Authorization: mockContext.authorization,
@@ -124,7 +123,7 @@ describe('appointment identity-check', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.identityChecks}/${getIdentityCheckByIdArgs.id}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'GET',
         headers: {
           Authorization: mockContext.authorization,
@@ -156,7 +155,7 @@ describe('appointment identity-check', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.identityChecks}/${getIdentityCheckByIdArgs.id}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'GET',
         headers: {
           Authorization: mockContext.authorization,
@@ -199,7 +198,7 @@ describe('appointment identity-check', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.identityChecks}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'POST',
         headers: {
           Authorization: mockContext.authorization,
@@ -239,7 +238,7 @@ describe('appointment identity-check', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.identityChecks}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'POST',
         headers: {
           Authorization: mockContext.authorization,
@@ -314,7 +313,7 @@ describe('appointment identity-check', () => {
 
       expect(fetcher).toHaveBeenCalledWith({
         url: `${URLS.identityChecks}/${updateIdentityCheckArgs.id}`,
-        api: REAPIT_API_BASE_URL,
+        api: process.env['PLATFORM_API_BASE_URL'],
         method: 'PATCH',
         headers: {
           Authorization: mockContext.authorization,
