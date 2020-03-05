@@ -15,8 +15,6 @@ import {
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 
-export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.cloud'
-
 export const URLS = {
   areas: '/areas',
 }
@@ -27,7 +25,7 @@ export const callGetAreaByIdAPI = async (args: GetAreaByIdArgs, context: ServerC
     logger.info('callGetAreaByIdAPI', { traceId, args })
     const area = await fetcher({
       url: `${URLS.areas}/${args.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
       headers: {
         Authorization: context.authorization,
@@ -49,7 +47,7 @@ export const callGetAreasAPI = async (args: GetAreasArgs, context: ServerContext
     const params = qs.stringify(args)
     const response = fetcher({
       url: `${URLS.areas}?${params}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
       headers: {
         Authorization: context.authorization,
@@ -70,7 +68,7 @@ export const callCreateAreaAPI = async (args: CreateAreaArgs, context: ServerCon
   try {
     const response = await fetcher({
       url: `${URLS.areas}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'POST',
       headers: {
         Authorization: context.authorization,
@@ -93,7 +91,7 @@ export const callUpdateArea = async (args: UpdateAreaArgs, context: ServerContex
     const { _eTag, ...payload } = args
     const response = await fetcher({
       url: `${URLS.areas}/${args.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'PATCH',
       headers: {
         Authorization: context.authorization,

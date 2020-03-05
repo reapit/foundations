@@ -14,7 +14,6 @@ import {
 import errors from '../../errors'
 import { API_VERSION } from '../../constants/api'
 
-export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
 export const CONTACTS_PER_PAGE = 10
 export const URLS = {
   contacts: '/contacts',
@@ -27,7 +26,7 @@ export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: S
     logger.info('callGetContactByIdAPI', { traceId, args })
     const getResponse = await fetcher({
       url: `${URLS.contacts}/${args.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
       headers: {
         Authorization: context.authorization,
@@ -48,7 +47,7 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
   try {
     const response = fetcher({
       url: `${URLS.contacts}/?${setQueryParams({ ...args, pageSize: CONTACTS_PER_PAGE })}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'GET',
       headers: {
         Authorization: context.authorization,
@@ -74,7 +73,7 @@ export const callCreateContactAPI = async (args: CreateContactArgs, context: Ser
     }
     const createResponse = await fetcher({
       url: URLS.contacts,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'POST',
       headers,
       body: args,
@@ -98,7 +97,7 @@ export const callUpdateContactAPI = async (args: UpdateContactArgs, context: Ser
     }
     await fetcher({
       url: `${URLS.contacts}/${args.id}`,
-      api: REAPIT_API_BASE_URL,
+      api: process.env['PLATFORM_API_BASE_URL'],
       method: 'PATCH',
       headers,
       body: args,
