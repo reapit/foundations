@@ -2,22 +2,16 @@
 
 exports[`customCellRenderer should match snapshot with CustomComponent 1`] = `
 <td
-  attributesRenderer={[MockFunction]}
   className="cell  "
-  col={10}
-  editing={false}
   onContextMenu={[MockFunction]}
   onDoubleClick={[Function]}
   onMouseDown={[MockFunction]}
   onMouseOver={[MockFunction]}
-  row={3}
-  selected={false}
   style={
     Object {
       "background": "red",
     }
   }
-  updated={false}
   value="row3@gmail.com"
 >
   <CustomComponent
@@ -198,22 +192,16 @@ exports[`customCellRenderer should match snapshot with CustomComponent 1`] = `
 
 exports[`customCellRenderer should match snapshot with invalid cell 1`] = `
 <td
-  attributesRenderer={[MockFunction]}
   className="cell error-cell "
-  col={10}
-  editing={false}
   onContextMenu={[MockFunction]}
   onDoubleClick={[Function]}
   onMouseDown={[MockFunction]}
   onMouseOver={[MockFunction]}
-  row={3}
-  selected={false}
   style={
     Object {
       "background": "red",
     }
   }
-  updated={false}
   value="11aa"
 >
   <div>
@@ -224,22 +212,16 @@ exports[`customCellRenderer should match snapshot with invalid cell 1`] = `
 
 exports[`customCellRenderer should match snapshot without CustomComponent 1`] = `
 <td
-  attributesRenderer={[MockFunction]}
   className="cell  "
-  col={10}
-  editing={false}
   onContextMenu={[MockFunction]}
   onDoubleClick={[Function]}
   onMouseDown={[MockFunction]}
   onMouseOver={[MockFunction]}
-  row={3}
-  selected={false}
   style={
     Object {
       "background": "red",
     }
   }
-  updated={false}
   value="row3@gmail.com"
 >
   <div>

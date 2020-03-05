@@ -45,6 +45,7 @@ export interface SpreadsheetProps {
   hasAddButton?: boolean
   /** This will run before data is set to table, must return data with validate function */
   validateUpload?: (data: Cell[][]) => CellWithValidate[][]
+  afterDataChanged?: (data: Cell[][]) => any
 }
 
 export type SelectedMatrix = {
