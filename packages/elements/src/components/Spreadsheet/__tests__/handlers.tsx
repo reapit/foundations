@@ -11,6 +11,7 @@ import {
   handleClickUpload,
   handleDownload,
   handleContextMenu,
+  handleAfterDataChanged,
 } from '../handlers'
 import {
   data,
@@ -399,5 +400,128 @@ describe('handleContextMenu', () => {
     fn(mockEvent)
     expect(spy).toHaveBeenCalled()
     expect(setContextMenuProp).toHaveBeenCalledWith({ visible: true, left: 20, top: 10 })
+  })
+})
+
+describe('handleAfterDataChanged', () => {
+  it('should call afterDataChanged if it is a function', () => {
+    const data = [
+      [
+        { value: 'Office name' },
+        { value: 'Building Name' },
+        { value: 'Building No.' },
+        { value: 'Address 1' },
+        { value: 'Address 2' },
+        { value: 'Address 3' },
+        { value: 'Address 4' },
+        { value: 'Post Code' },
+        { value: 'Telephone' },
+        { value: 'Fax' },
+        { value: 'Email' },
+      ],
+      [
+        { value: 'London' },
+        { value: 'The White House' },
+        { value: '15' },
+        { value: 'London 1' },
+        { value: '' },
+        { value: 'Londom 3' },
+        { value: '' },
+        { value: 'EC12NH' },
+        { value: '0845 0000' },
+        { value: '' },
+        { value: 'row1@gmail.com' },
+      ],
+      [
+        { value: 'London2' },
+        { value: 'The Black House' },
+        { value: '11' },
+        { value: 'Test Addres' },
+        { value: '' },
+        { value: 'Adress 3' },
+        { value: '' },
+        { value: 'EC12NH' },
+        { value: '087 471 929' },
+        { value: '' },
+        { value: 'row2@gmail.com' },
+      ],
+      [
+        { value: 'New York' },
+        { value: 'Building A' },
+        { value: '11' },
+        { value: '' },
+        { value: '' },
+        { value: 'City Z' },
+        { value: '' },
+        { value: 'AL7187' },
+        { value: '017 7162 9121' },
+        { value: '' },
+        { value: 'row3@gmail.com' },
+      ],
+    ]
+    const afterDataChanged = jest.fn()
+    const fn = handleAfterDataChanged(data, afterDataChanged)
+    fn()
+    expect(afterDataChanged).toHaveBeenCalledWith(data)
+  })
+  it('should not call afterDataChanged if it undefined', () => {
+    const data = [
+      [
+        { value: 'Office name' },
+        { value: 'Building Name' },
+        { value: 'Building No.' },
+        { value: 'Address 1' },
+        { value: 'Address 2' },
+        { value: 'Address 3' },
+        { value: 'Address 4' },
+        { value: 'Post Code' },
+        { value: 'Telephone' },
+        { value: 'Fax' },
+        { value: 'Email' },
+      ],
+      [
+        { value: 'London' },
+        { value: 'The White House' },
+        { value: '15' },
+        { value: 'London 1' },
+        { value: '' },
+        { value: 'Londom 3' },
+        { value: '' },
+        { value: 'EC12NH' },
+        { value: '0845 0000' },
+        { value: '' },
+        { value: 'row1@gmail.com' },
+      ],
+      [
+        { value: 'London2' },
+        { value: 'The Black House' },
+        { value: '11' },
+        { value: 'Test Addres' },
+        { value: '' },
+        { value: 'Adress 3' },
+        { value: '' },
+        { value: 'EC12NH' },
+        { value: '087 471 929' },
+        { value: '' },
+        { value: 'row2@gmail.com' },
+      ],
+      [
+        { value: 'New York' },
+        { value: 'Building A' },
+        { value: '11' },
+        { value: '' },
+        { value: '' },
+        { value: 'City Z' },
+        { value: '' },
+        { value: 'AL7187' },
+        { value: '017 7162 9121' },
+        { value: '' },
+        { value: 'row3@gmail.com' },
+      ],
+    ]
+    const afterDataChanged = undefined
+    const fn = handleAfterDataChanged(data, afterDataChanged)
+    const result = fn()
+    expect(result).toBeUndefined()
   })
 })
