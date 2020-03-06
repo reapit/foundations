@@ -27,13 +27,10 @@ export const getIdentityCheckById = (
   return identityCheck
 }
 
-export const getIdentityChecks = async (
-  args: GetIdentityChecksArgs,
-  context: ServerContext,
-): GetIdentityChecksReturn => {
+export const getIdentityChecks = (args: GetIdentityChecksArgs, context: ServerContext): GetIdentityChecksReturn => {
   const traceId = context.traceId
   logger.info('getIdentityChecks', { traceId, args })
-  const identityChecks = await callGetIdentityChecksAPI(args, context)
+  const identityChecks = callGetIdentityChecksAPI(args, context)
   return identityChecks
 }
 

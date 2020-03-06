@@ -19,10 +19,10 @@ export const getAreaById = (args: GetAreaByIdArgs, context: ServerContext): GetA
   return area
 }
 
-export const getAreas = async (args: GetAreasArgs, context: ServerContext): GetAreasReturn => {
+export const getAreas = (args: GetAreasArgs, context: ServerContext): GetAreasReturn => {
   const traceId = context.traceId
   logger.info('getAreas', { traceId, args })
-  const areas = await callGetAreasAPI(args, context)
+  const areas = callGetAreasAPI(args, context)
   return areas
 }
 

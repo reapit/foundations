@@ -24,10 +24,10 @@ export const getAppointmentById = (args: GetAppointmentByIdArgs, context: Server
   return appointment
 }
 
-export const getAppointments = async (args: GetAppointmentsArgs, context: ServerContext): GetAppointmentsReturn => {
+export const getAppointments = (args: GetAppointmentsArgs, context: ServerContext): GetAppointmentsReturn => {
   const traceId = context.traceId
   logger.info('getAppointments', { traceId, args })
-  const appointments = await callGetAppointmentsAPI(args, context)
+  const appointments = callGetAppointmentsAPI(args, context)
   return appointments
 }
 

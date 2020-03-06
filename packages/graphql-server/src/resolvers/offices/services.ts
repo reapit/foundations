@@ -19,10 +19,10 @@ export const getOfficeById = (args: GetOfficeByIdArgs, context: ServerContext): 
   return office
 }
 
-export const getOffices = async (args: GetOfficesArgs, context: ServerContext): GetOfficesReturn => {
+export const getOffices = (args: GetOfficesArgs, context: ServerContext): GetOfficesReturn => {
   const traceId = context.traceId
   logger.info('getOffices', { traceId, args })
-  const offices = await callGetOfficesAPI(args, context)
+  const offices = callGetOfficesAPI(args, context)
   return offices
 }
 

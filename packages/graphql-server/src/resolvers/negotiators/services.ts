@@ -24,10 +24,10 @@ export const getNegotiatorById = (args: GetNegotiatorByIdArgs, context: ServerCo
   return negotiator
 }
 
-export const getNegotiators = async (args: GetNegotiatorsArgs, context: ServerContext): GetNegotiatorsReturn => {
+export const getNegotiators = (args: GetNegotiatorsArgs, context: ServerContext): GetNegotiatorsReturn => {
   const traceId = context.traceId
   logger.info('getNegotiators', { traceId, args })
-  const negotiators = await callGetNegotiatorsAPI(args, context)
+  const negotiators = callGetNegotiatorsAPI(args, context)
   return negotiators
 }
 
