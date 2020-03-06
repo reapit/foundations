@@ -20,7 +20,7 @@ export const queryGetOfficeById = (
   context: ServerContext,
 ): QueryGetOfficeByIdReturn => {
   const traceId = context.traceId
-  logger.info('queryOffice', { traceId, args })
+  logger.info('queryGetOfficeById', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -30,7 +30,7 @@ export const queryGetOfficeById = (
 
 export const queryGetOffices = (_: any, args: GetOfficesArgs, context: ServerContext): QueryGetOfficesReturn => {
   const traceId = context.traceId
-  logger.info('offices', { traceId, args })
+  logger.info('queryGetOffices', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -44,7 +44,7 @@ export const mutationCreateOffice = (
   context: ServerContext,
 ): MutationCreateOfficeReturn => {
   const traceId = context.traceId
-  logger.info('createOffice', { traceId, args })
+  logger.info('mutationCreateOffice', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -58,7 +58,7 @@ export const mutationUpdateOffice = (
   context: ServerContext,
 ): MutationUpdateOfficeReturn => {
   const traceId = context.traceId
-  logger.info('updateOffice', { traceId, args })
+  logger.info('mutationUpdateOffice', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)

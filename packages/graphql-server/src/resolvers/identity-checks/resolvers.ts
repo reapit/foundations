@@ -20,7 +20,7 @@ export const queryGetIdentityCheckById = (
   context: ServerContext,
 ): QueryGetIdentityCheckByIdReturn => {
   const traceId = context.traceId
-  logger.info('queryIdentityCheck', { traceId, args })
+  logger.info('queryGetIdentityCheckById', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -34,7 +34,7 @@ export const queryGetIdentityChecks = (
   context: ServerContext,
 ): QueryGetIdentityChecksReturn => {
   const traceId = context.traceId
-  logger.info('identityChecks', { traceId, args })
+  logger.info('queryGetIdentityChecks', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -48,7 +48,7 @@ export const mutationCreateIdentityCheck = (
   context: ServerContext,
 ): MutationCreateIdentityCheckReturn => {
   const traceId = context.traceId
-  logger.info('createIdentityCheck', { traceId, args })
+  logger.info('mutationCreateIdentityCheck', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -62,7 +62,7 @@ export const mutationUpdateIdentityCheck = (
   context: ServerContext,
 ): MutationUpdateIdentityCheckReturn => {
   const traceId = context.traceId
-  logger.info('updateIdentityCheck', { traceId, args })
+  logger.info('mutationUpdateIdentityCheck', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)

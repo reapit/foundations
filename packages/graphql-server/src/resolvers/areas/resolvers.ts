@@ -16,7 +16,7 @@ import {
 
 export const queryGetAreaById = (_: any, args: GetAreaByIdArgs, context: ServerContext): QueryGetAreaByIdReturn => {
   const traceId = context.traceId
-  logger.info('queryArea', { traceId, args })
+  logger.info('queryGetAreaById', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -26,7 +26,7 @@ export const queryGetAreaById = (_: any, args: GetAreaByIdArgs, context: ServerC
 
 export const queryGetAreas = (_: any, args: GetAreasArgs, context: ServerContext): QueryGetAreasReturn => {
   const traceId = context.traceId
-  logger.info('areas', { traceId, args })
+  logger.info('queryGetAreas', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -36,7 +36,7 @@ export const queryGetAreas = (_: any, args: GetAreasArgs, context: ServerContext
 
 export const mutationCreateArea = (_: any, args: CreateAreaArgs, context: ServerContext): MutationCreateAreaReturn => {
   const traceId = context.traceId
-  logger.info('createArea', { traceId, args })
+  logger.info('mutationCreateArea', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -46,7 +46,7 @@ export const mutationCreateArea = (_: any, args: CreateAreaArgs, context: Server
 
 export const mutationUpdateArea = (_: any, args: UpdateAreaArgs, context: ServerContext): MutationUpdateAreaReturn => {
   const traceId = context.traceId
-  logger.info('updateArea', { traceId, args })
+  logger.info('mutationUpdateArea', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)

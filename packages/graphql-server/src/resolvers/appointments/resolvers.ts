@@ -20,7 +20,7 @@ export const queryGetAppointmentById = (
   context: ServerContext,
 ): QueryGetAppointmentByIdReturn => {
   const traceId = context.traceId
-  logger.info('queryAppointment', { traceId, args })
+  logger.info('queryGetAppointmentById', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -34,7 +34,7 @@ export const queryGetAppointments = (
   context: ServerContext,
 ): QueryGetAppointmentsReturn => {
   const traceId = context.traceId
-  logger.info('appointments', { traceId, args })
+  logger.info('queryGetAppointments', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -48,7 +48,7 @@ export const mutationCreateAppointment = (
   context: ServerContext,
 ): MutationCreateAppointmentReturn => {
   const traceId = context.traceId
-  logger.info('createAppointment', { traceId, args })
+  logger.info('mutationCreateAppointment', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -62,7 +62,7 @@ export const mutationUpdateAppointment = (
   context: ServerContext,
 ): MutationUpdateAppointmentReturn => {
   const traceId = context.traceId
-  logger.info('updateAppointment', { traceId, args })
+  logger.info('mutationUpdateAppointment', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)

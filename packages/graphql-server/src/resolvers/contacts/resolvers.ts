@@ -20,7 +20,7 @@ export const queryGetContactById = (
   context: ServerContext,
 ): QueryGetContactByIdReturn => {
   const traceId = context.traceId
-  logger.info('queryContact', { traceId, args })
+  logger.info('queryGetContactById', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -30,7 +30,7 @@ export const queryGetContactById = (
 
 export const queryGetContacts = (_: any, args: GetContactsArgs, context: ServerContext): QueryGetContactsReturn => {
   const traceId = context.traceId
-  logger.info('contacts', { traceId, args })
+  logger.info('queryGetContacts', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -44,7 +44,7 @@ export const mutationCreateContact = (
   context: ServerContext,
 ): MutationCreateContactReturn => {
   const traceId = context.traceId
-  logger.info('createContact', { traceId, args })
+  logger.info('mutationCreateContact', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -58,7 +58,7 @@ export const mutationUpdateContact = (
   context: ServerContext,
 ): MutationUpdateContactReturn => {
   const traceId = context.traceId
-  logger.info('updateContact', { traceId, args })
+  logger.info('mutationUpdateContact', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
