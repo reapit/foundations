@@ -1,18 +1,23 @@
-import areaServices from '../services'
+import appointmentServices from '../services'
 import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
-import { queryGetAreaById, queryGetAreas, mutationCreateArea, mutationUpdateArea } from '../resolvers'
-import { createAreaArgsMock } from '../__mocks__/create-area'
-import { updateAreaArgsMock } from '../__mocks__/update-area'
-import { areaMock } from '../__mocks__/area'
-import { areasMock } from '../__mocks__/areas'
+import {
+  queryGetAppointmentById,
+  queryGetAppointments,
+  mutationCreateAppointment,
+  mutationUpdateAppointment,
+} from '../resolvers'
+import { createAppointmentArgsMock } from '../__mocks__/create-appointment'
+import { updateAppointmentArgsMock } from '../__mocks__/update-appointment'
+import { appointmentMock } from '../__mocks__/appointment'
+import { appointmentsMock } from '../__mocks__/appointments'
 import { mockContext } from '../../../__mocks__/context'
 
 jest.mock('../services', () => ({
-  getAreaById: jest.fn(() => areaMock),
-  getAreas: jest.fn(() => areasMock),
-  createArea: jest.fn(() => true),
-  updateArea: jest.fn(() => true),
+  getAppointmentById: jest.fn(() => appointmentMock),
+  getAppointments: jest.fn(() => appointmentsMock),
+  createAppointment: jest.fn(() => true),
+  updateAppointment: jest.fn(() => true),
 }))
 jest.mock('../../../errors', () => ({
   generateAuthenticationError: jest.fn(() => 'authentication error'),
@@ -22,62 +27,62 @@ jest.mock('../../../utils/check-permission', () => ({
   checkPermission: jest.fn(() => true),
 }))
 
-describe('queryGetAreaById', () => {
+describe('queryGetAppointmentById', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
     const args = { id: 'id' }
-    const result = queryGetAreaById(null, args, mockContext)
-    expect(result).toEqual(areaServices.getAreaById(args, mockContext))
+    const result = queryGetAppointmentById(null, args, mockContext)
+    expect(result).toEqual(appointmentServices.getAppointmentById(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
     const args = { id: 'id' }
-    const result = queryGetAreaById(null, args, mockContext)
+    const result = queryGetAppointmentById(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('queryGetAreas', () => {
+describe('queryGetAppointments', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
-    const result = queryGetAreas(null, args, mockContext)
-    expect(result).toEqual(areaServices.getAreas(args, mockContext))
+    const result = queryGetAppointments(null, args, mockContext)
+    expect(result).toEqual(appointmentServices.getAppointments(args, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
     const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
-    const result = queryGetAreas(null, args, mockContext)
+    const result = queryGetAppointments(null, args, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('mutationCreateArea', () => {
+describe('mutationCreateAppointment', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationCreateArea(null, createAreaArgsMock, mockContext)
-    expect(result).toEqual(areaServices.createArea(createAreaArgsMock, mockContext))
+    const result = mutationCreateAppointment(null, createAppointmentArgsMock, mockContext)
+    expect(result).toEqual(appointmentServices.createAppointment(createAppointmentArgsMock, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationCreateArea(null, createAreaArgsMock, mockContext)
+    const result = mutationCreateAppointment(null, createAppointmentArgsMock, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })
 
-describe('mutationUpdateArea', () => {
+describe('mutationUpdateAppointment', () => {
   it('should return correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(true)
-    const result = mutationUpdateArea(null, updateAreaArgsMock, mockContext)
-    expect(result).toEqual(areaServices.updateArea(updateAreaArgsMock, mockContext))
+    const result = mutationUpdateAppointment(null, updateAppointmentArgsMock, mockContext)
+    expect(result).toEqual(appointmentServices.updateAppointment(updateAppointmentArgsMock, mockContext))
   })
 
   it('should return auth error correctly', () => {
     ;(checkPermission as jest.Mock).mockReturnValue(false)
-    const result = mutationUpdateArea(null, updateAreaArgsMock, mockContext)
+    const result = mutationUpdateAppointment(null, updateAppointmentArgsMock, mockContext)
     expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

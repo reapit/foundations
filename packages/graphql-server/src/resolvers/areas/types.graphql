@@ -15,7 +15,7 @@ type AreaModel {
   _embedded: JSON
 }
 
-type PagedResult_AreaModel_ {
+type PagedResultAreaModel {
   _embedded: [AreaModel!]
   pageNumber: Int
   pageSize: Int
@@ -34,7 +34,7 @@ type Query {
     officeId: [String!]
     name: String
     active: Boolean
-  ): PagedResult_AreaModel_!
+  ): PagedResultAreaModel!
   GetAreaById(id: String!): AreaModel!
 }
 

@@ -1,6 +1,17 @@
-import path from 'path'
-import { fileLoader, mergeResolvers } from 'merge-graphql-schemas'
+import merge from 'lodash.merge'
+import GraphQLJSON from 'graphql-type-json'
+import Contact from './contacts/resolvers'
+import Areas from './areas/resolvers'
+import Offices from './offices/resolvers'
+import Appointments from './appointments/resolvers'
 
-const resolversArray = fileLoader(path.join(__dirname, './**/*resolvers.ts'))
-
-export default mergeResolvers(resolversArray)
+export const resolvers = merge(
+  {
+    JSON: GraphQLJSON,
+  },
+  Contact,
+  Areas,
+  Offices,
+  Appointments,
+)
+export default resolvers

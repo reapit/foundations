@@ -4,6 +4,9 @@ export const URLS = {
   areas: '/areas',
   contacts: '/contacts',
   offices: '/offices',
+  appointments: '/appointments',
+  identityChecks: '/identityChecks',
+  negotiators: '/negotiators',
 }
 
 export const HEADERS = {

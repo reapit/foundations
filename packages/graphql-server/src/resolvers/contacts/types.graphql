@@ -42,7 +42,7 @@ type ContactModelSource {
   type: String
 }
 
-input CreateContactModelAddressInput {
+input ContactModelAddressInput {
   type: String
   buildingName: String
   buildingNumber: String
@@ -54,14 +54,14 @@ input CreateContactModelAddressInput {
   countryId: String
 }
 
-input CreateContactModelSourceInput {
+input ContactModelSourceInput {
   id: String
   type: String
 }
 
 scalar JSON
 
-type PagedResult_ContactModel_ {
+type PagedResultContactModel {
   _embedded: [ContactModel!]
   pageNumber: Int
   pageSize: Int
@@ -70,7 +70,7 @@ type PagedResult_ContactModel_ {
   _links: JSON
 }
 
-input UpdateContactModelAddressInput {
+input ContactModelAddressInput {
   type: String
   buildingName: String
   buildingNumber: String
@@ -80,11 +80,6 @@ input UpdateContactModelAddressInput {
   line4: String
   postcode: String
   countryId: String
-}
-
-input UpdateContactModelSourceInput {
-  id: String
-  type: String
 }
 
 type Query {
@@ -102,7 +97,7 @@ type Query {
     active: Boolean
     createdFrom: String
     createdTo: String
-  ): PagedResult_ContactModel_!
+  ): PagedResultContactModel!
 
   GetContactById(id: String!): ContactModel!
 }
@@ -115,16 +110,16 @@ type Mutation {
     dateOfBirth: String
     active: Boolean
     marketingConsent: String
-    source: CreateContactModelSourceInput
+    source: ContactModelSourceInput
     homePhone: String
     workPhone: String
     mobilePhone: String
     email: String
     officeIds: [String!]
     negotiatorIds: [String!]
-    primaryAddress: CreateContactModelAddressInput
-    secondaryAddress: CreateContactModelAddressInput
-    workAddress: CreateContactModelAddressInput
+    primaryAddress: ContactModelAddressInput
+    secondaryAddress: ContactModelAddressInput
+    workAddress: ContactModelAddressInput
     metadata: JSON
   ): JSON!
 
@@ -137,16 +132,16 @@ type Mutation {
     dateOfBirth: String
     active: Boolean
     marketingConsent: String
-    source: UpdateContactModelSourceInput
+    source: ContactModelSourceInput
     homePhone: String
     workPhone: String
     mobilePhone: String
     email: String
     officeIds: [String!]
     negotiatorIds: [String!]
-    primaryAddress: UpdateContactModelAddressInput
-    secondaryAddress: UpdateContactModelAddressInput
-    workAddress: UpdateContactModelAddressInput
+    primaryAddress: ContactModelAddressInput
+    secondaryAddress: ContactModelAddressInput
+    workAddress: ContactModelAddressInput
     metadata: JSON
   ): JSON!
 }

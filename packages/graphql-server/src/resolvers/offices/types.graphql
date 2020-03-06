@@ -15,7 +15,7 @@ type OfficeModel {
   _embedded: JSON
 }
 
-type PagedResult_OfficeModel_ {
+type PagedResultOfficeModel {
   _embedded: [OfficeModel!]
   pageNumber: Int
   pageSize: Int
@@ -55,7 +55,7 @@ type Query {
     address: String
     name: String
     embed: [String!]
-  ): PagedResult_OfficeModel_!
+  ): PagedResultOfficeModel!
 
   GetOfficeById(id: String!, embed: [String!]): OfficeModel!
 }

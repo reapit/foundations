@@ -6,10 +6,12 @@ import { ApolloServer, ServerInfo } from 'apollo-server'
 import { ContextFunction, Context, GraphQLResponse, GraphQLRequestContext } from 'apollo-server-core'
 import { ExecutionParams } from 'subscriptions-transport-ws'
 import { GraphQLError, GraphQLFormattedError } from 'graphql'
+import { importSchema } from 'graphql-import'
 import depthLimit from 'graphql-depth-limit'
 import logger from './logger'
 import resolvers from './resolvers'
-import typeDefs from './typeDefs'
+
+const typeDefs = importSchema('./src/schema.graphql')
 
 if (process.env.NODE_ENV === 'development') {
   const envConfig = require(path.resolve(__dirname, '../../..', 'reapit-config.json'))
