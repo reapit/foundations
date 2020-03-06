@@ -7,6 +7,7 @@ module.exports = {
   transform: {
     '^.+\\.graphql$': 'jest-transform-graphql',
   },
+  coveragePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|src/types|src/tests|src/scripts)[/\\\\]', 'index.ts'],
   moduleNameMapper: {
     ...baseConfig.moduleNameMapper,
     ...pathsToModuleNameMapper(compilerOptions.paths, {

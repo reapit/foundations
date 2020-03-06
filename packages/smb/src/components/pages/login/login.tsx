@@ -1,21 +1,18 @@
 import * as React from 'react'
 import { Redirect } from 'react-router-dom'
-
-import Routes from '@/constants/routes'
 import { Button, Level } from '@reapit/elements'
-
-import { Container, Wrapper, ImageContainer } from './style'
-import logoImage from '@/assets/images/reapit-graphic.jpg'
-import connectImage from '@/assets/images/reapit-connect.png'
-import { useAuthContext } from '@/context/auth-context'
 import { redirectToLogin } from '@reapit/cognito-auth'
+import useAuth from '@/hooks/use-auth'
+import Routes from '@/constants/routes'
+import connectImage from '@/assets/images/reapit-connect.png'
+import logoImage from '@/assets/images/reapit-graphic.jpg'
+import { Container, Wrapper, ImageContainer } from './__styles__/styles'
 
 export const Login: React.FunctionComponent = () => {
   const cognitoClientId = process.env.COGNITO_CLIENT_ID_SMB as string
   const loginHandler = () => redirectToLogin(cognitoClientId, `${window.location.origin}`)
 
-  const { loginSession } = useAuthContext()
-
+  const { loginSession } = useAuth()
   if (loginSession) {
     return <Redirect to={Routes.HOME} />
   }

@@ -7,6 +7,6 @@ export const CONTACTS_HEADERS = {
 
 export const API_VERSION = '2020-02-13'
 
-export const COOKIE_SESSION_KEY = `${COGNITIO_COOKIE_SESSION_KEY}-app-name`
+export const COOKIE_SESSION_KEY = `${COGNITIO_COOKIE_SESSION_KEY}-smb`
 
 export const URLS = {}

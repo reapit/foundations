@@ -35,6 +35,7 @@ exports[`Router should match a snapshot 1`] = `
             "_status": -1,
           }
         }
+        exact={true}
         path="/login"
       />
       <withRouter()

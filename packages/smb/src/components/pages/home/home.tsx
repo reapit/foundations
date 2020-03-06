@@ -3,7 +3,7 @@ import { H3, Button, GridFourCol, GridFourColItem, H4, FlexContainerResponsive, 
 import getStartedImg from '@/assets/images/get-started.png'
 import installImg from '@/assets/images/install.png'
 import supportImg from '@/assets/images/support.png'
-import { WrapperAction, WrapperContent } from './styles'
+import { WrapperAction, WrapperContent } from './__styles__/styles'
 
 export interface HelpItem {
   imgSrc: string
