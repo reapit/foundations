@@ -6,12 +6,13 @@ import typescript from '@wessberg/rollup-plugin-ts'
 import babel from 'rollup-plugin-babel'
 import replace from '@rollup/plugin-replace'
 
-const env = require('./get-env')()
+const env = require('./get-env').setEnv()
 
 export default {
   plugins: [
     replace({
       'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV),
+      'process.env.REAPIT_ENV': JSON.stringify(env.REAPIT_ENV),
     }),
     resolve({
       browser: true,
@@ -41,8 +42,8 @@ export default {
         ],
       ],
     }),
-    !process.env.NODE_ENV === 'production' && livereload('public'),
-    process.env.NODE_ENV === 'production' && terser(),
+    !env.NODE_ENV === 'production' && livereload('public'),
+    env.NODE_ENV === 'production' && terser(),
   ],
   watch: {
     clearScreen: false,

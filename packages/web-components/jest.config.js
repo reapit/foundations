@@ -1,6 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
-  testPathIgnorePatterns: [],
+  testPathIgnorePatterns: ['<rootDir>/src/scripts'],
   setupFiles: ['<rootDir>/../../scripts/jest/jest-setup.js'],
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '<rootDir>/src/**/*.svelte'],
   coverageDirectory: './src/tests/coverage',

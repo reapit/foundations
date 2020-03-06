@@ -1,10 +1,10 @@
-import Express from 'express'
+import { Router, Response, Request } from 'express'
 import getProperties from '../api/get-properties'
 import getPropertyImages from '../api/get-property-images'
 
-const router = Express.Router()
+const router = Router()
 
-router.get('/properties', (req: Express.Request, res: Express.Response) => getProperties(req, res))
-router.get('/propertyimages', (req: Express.Request, res: Express.Response) => getPropertyImages(req, res))
+router.get('/properties', (req: Request, res: Response) => getProperties(req, res))
+router.get('/propertyimages', (req: Request, res: Response) => getPropertyImages(req, res))
 
 export default router

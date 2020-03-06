@@ -7,7 +7,7 @@ return (() => {
     try {
       const packageName = args[0]
       const clearPublic = 'rimraf ./public/dist'
-      const clientScript = `rollup -w -c './src/scripts/rollup.config.${packageName}.js'`
+      const clientScript = `rollup -w -c './src/scripts/rollup.config.${packageName}.js' --environment REAPIT_ENV:LOCAL`
       const serverScript = 'serverless offline --out public/dist --stage local'
       const startClientServer = 'sirv public --dev --port 8080'
       const startDev = `${clearPublic} && concurrently "${startClientServer}" "${clientScript}" "${serverScript}"`

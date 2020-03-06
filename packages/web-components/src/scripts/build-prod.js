@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 return (() => {
   const { execSync } = require('child_process')
-  const getEnv = require('./get-env')
+  const { setEnv } = require('./get-env')
   const packages = ['search-widget']
   const opts = {
     stdio: 'inherit',
   }
-  getEnv()
+  setEnv()
 
   const serverScript = `serverless webpack --out public/dist --stage ${process.env.REAPIT_ENV.toLowerCase()}`
 
