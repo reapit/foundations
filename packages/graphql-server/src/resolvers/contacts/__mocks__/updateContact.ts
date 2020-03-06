@@ -1,6 +1,7 @@
-import { CreateContactArgs } from '../types'
+import { UpdateContactArgs } from '../contacts'
 
-export const mockCreateArgs: CreateContactArgs = {
+export const updateContactArgsMock: UpdateContactArgs = {
+  id: 'RPT20000017',
   title: 'Mr',
   forename: 'John',
   surname: 'Smith',
@@ -44,4 +45,5 @@ export const mockCreateArgs: CreateContactArgs = {
     CustomField1: 'CustomValue1',
     CustomField2: 'CustomValue2',
   },
+  _eTag: '"E9510E0E57BEECE1F14A0550DDA8116D"',
 }

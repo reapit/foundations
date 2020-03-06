@@ -1,0 +1,59 @@
+scalar JSON
+
+type AreaModel {
+  id: String
+  created: String
+  modified: String
+  name: String
+  active: Boolean
+  type: String
+  area: [String!]
+  departmentIds: [String!]
+  officeIds: [String!]
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResult_AreaModel_ {
+  _embedded: [AreaModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type Query {
+  GetAreas(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    departmentId: [String!]
+    officeId: [String!]
+    name: String
+    active: Boolean
+  ): PagedResult_AreaModel_!
+  GetAreaById(id: String!): AreaModel!
+}
+
+type Mutation {
+  CreateArea(
+    name: String
+    type: String
+    area: [String!]
+    departmentIds: [String!]
+    officeIds: [String!]
+    parentId: String
+  ): JSON!
+
+  UpdateArea(
+    name: String
+    area: [String!]
+    departmentIds: [String!]
+    officeIds: [String!]
+    id: String!
+    _eTag: String!
+  ): JSON!
+}

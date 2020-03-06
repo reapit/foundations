@@ -7,9 +7,9 @@ import { ContextFunction, Context, GraphQLResponse, GraphQLRequestContext } from
 import { ExecutionParams } from 'subscriptions-transport-ws'
 import { GraphQLError, GraphQLFormattedError } from 'graphql'
 import depthLimit from 'graphql-depth-limit'
-import resolvers from './resolvers'
 import logger from './logger'
-import typeDefs from './schema'
+import resolvers from './resolvers'
+import typeDefs from './typeDefs'
 
 if (process.env.NODE_ENV === 'development') {
   const envConfig = require(path.resolve(__dirname, '../../..', 'reapit-config.json'))
@@ -50,7 +50,7 @@ export const formatResponse = (
   response: GraphQLResponse | null,
   requestContext: GraphQLRequestContext<{ traceId?: string }>,
 ): GraphQLResponse => {
-  const traceId = requestContext?.context?.traceId
+  const traceId = requestContext.context?.traceId
   const isProductionEnv = process.env.NODE_ENV === 'production'
   if (isProductionEnv) {
     logger.info('formatResponse', { traceId, requestContext, response })

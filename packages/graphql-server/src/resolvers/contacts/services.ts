@@ -9,15 +9,8 @@ import {
   GetContactsReturn,
   CreateContactReturn,
   UpdateContactReturn,
-} from './contact'
+} from './contacts'
 import { callGetContactByIdAPI, callGetContactsAPI, callCreateContactAPI, callUpdateContactAPI } from './api'
-
-export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
-export const CONTACTS_PER_PAGE = 10
-export const URLS = {
-  contacts: '/contacts',
-  identityChecks: '/identitychecks',
-}
 
 export const getContactById = (args: GetContactByIdArgs, context: ServerContext): GetContactByIdReturn => {
   const traceId = context.traceId
@@ -29,22 +22,22 @@ export const getContactById = (args: GetContactByIdArgs, context: ServerContext)
 export const getContacts = (args: GetContactsArgs, context: ServerContext): GetContactsReturn => {
   const traceId = context.traceId
   logger.info('getContacts', { traceId, args })
-  const contact = callGetContactsAPI(args, context)
-  return contact
+  const contacts = callGetContactsAPI(args, context)
+  return contacts
 }
 
 export const createContact = (args: CreateContactArgs, context: ServerContext): CreateContactReturn => {
   const traceId = context.traceId
   logger.info('createContact', { traceId, args })
-  const contact = callCreateContactAPI(args, context)
-  return contact
+  const createResult = callCreateContactAPI(args, context)
+  return createResult
 }
 
 export const updateContact = (args: UpdateContactArgs, context: ServerContext): UpdateContactReturn => {
   const traceId = context.traceId
   logger.info('updateContact', { traceId, args })
-  const contact = callUpdateContactAPI(args, context)
-  return contact
+  const updateResult = callUpdateContactAPI({ ...args }, context)
+  return updateResult
 }
 
 const contactServices = {

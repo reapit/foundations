@@ -11,15 +11,9 @@ import {
   GetContactsReturn,
   CreateContactReturn,
   UpdateContactReturn,
-} from './contact'
+} from './contacts'
 import errors from '../../errors'
-import { API_VERSION } from '../../constants/api'
-
-export const REAPIT_API_BASE_URL = 'https://dev.platform.reapit.net'
-export const URLS = {
-  contacts: '/contacts',
-  identityChecks: '/identitychecks',
-}
+import { API_VERSION, URLS } from '../../constants/api'
 
 export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: ServerContext): GetContactByIdReturn => {
   const traceId = context.traceId
@@ -27,7 +21,7 @@ export const callGetContactByIdAPI = async (args: GetContactByIdArgs, context: S
   try {
     const response = await fetcher({
       url: `${URLS.contacts}/${args.id}`,
-      api: process.env['PLATFORM_API_BASE_URL'],
+      api: process.env.PLATFORM_API_BASE_URL,
       method: 'GET',
       headers: {
         Authorization: context.authorization,
@@ -49,7 +43,7 @@ export const callGetContactsAPI = async (args: GetContactsArgs, context: ServerC
     const params = qs.stringify(args)
     const response = fetcher({
       url: `${URLS.contacts}/?${params}`,
-      api: process.env['PLATFORM_API_BASE_URL'],
+      api: process.env.PLATFORM_API_BASE_URL,
       method: 'GET',
       headers: {
         Authorization: context.authorization,
@@ -70,7 +64,7 @@ export const callCreateContactAPI = async (args: CreateContactArgs, context: Ser
   try {
     const response = await fetcher({
       url: URLS.contacts,
-      api: process.env['PLATFORM_API_BASE_URL'],
+      api: process.env.PLATFORM_API_BASE_URL,
       method: 'POST',
       headers: {
         Authorization: context.authorization,
@@ -93,7 +87,7 @@ export const callUpdateContactAPI = async (args: UpdateContactArgs, context: Ser
     const { _eTag, ...payload } = args
     const response = await fetcher({
       url: `${URLS.contacts}/${args.id}`,
-      api: process.env['PLATFORM_API_BASE_URL'],
+      api: process.env.PLATFORM_API_BASE_URL,
       method: 'PATCH',
       headers: {
         Authorization: context.authorization,

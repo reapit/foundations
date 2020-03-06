@@ -130,6 +130,7 @@ type Mutation {
 
   UpdateContact(
     id: String!
+    _eTag: String!
     title: String
     forename: String
     surname: String

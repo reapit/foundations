@@ -1,13 +1,9 @@
 import { AuthenticationError, UserInputError } from 'apollo-server'
 import { ContactModel, PagedResultContactModel_, CreateContactModel, UpdateContactModel } from '../../types'
 
-export type MetaData = {
-  [key: string]: string
-}
-
 export type CreateContactArgs = CreateContactModel
 
-export type UpdateContactArgs = { id: string; _eTag?: string } & UpdateContactModel
+export type UpdateContactArgs = { id: string; _eTag: string } & UpdateContactModel
 
 export type GetContactByIdArgs = {
   id: string
@@ -29,16 +25,16 @@ export type GetContactsArgs = {
   createdTo?: string
 }
 
-/* return type */
+// api return type
 export type GetContactByIdReturn = Promise<ContactModel | UserInputError>
 export type GetContactsReturn = Promise<PagedResultContactModel_ | UserInputError>
 
-/* temporarily return boolean till BE fixes the response of create contact API */
+// temporarily return boolean, will change later
 export type CreateContactReturn = Promise<boolean | UserInputError>
-export type UpdateContactReturn = Promise<ContactModel | UserInputError>
+export type UpdateContactReturn = Promise<boolean | UserInputError>
 
-/* resolver type */
-export type QueryContactReturn = AuthenticationError | GetContactByIdReturn
-export type QueryContactsReturn = AuthenticationError | GetContactsReturn
+// resolver type
+export type QueryGetContactByIdReturn = AuthenticationError | GetContactByIdReturn
+export type QueryGetContactsReturn = AuthenticationError | GetContactsReturn
 export type MutationCreateContactReturn = AuthenticationError | CreateContactReturn
 export type MutationUpdateContactReturn = AuthenticationError | UpdateContactReturn

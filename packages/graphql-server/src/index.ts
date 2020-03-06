@@ -4,7 +4,7 @@ import { formatError, formatResponse } from './app'
 import resolvers from './resolvers'
 import depthLimit from 'graphql-depth-limit'
 import logger from './logger'
-import typeDefs from './schema'
+import typeDefs from './typeDefs'
 
 const handleContext = ({ event, context }) => {
   const traceId = uuidv4()

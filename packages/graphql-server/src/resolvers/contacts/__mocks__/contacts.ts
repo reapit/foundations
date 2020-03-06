@@ -1,6 +1,6 @@
 import { PagedResultContactModel_ } from '../../../types'
 
-export const contacts: PagedResultContactModel_ = {
+export const contactsMock: PagedResultContactModel_ = {
   pageNumber: 1,
   pageSize: 10,
   pageCount: 10,
