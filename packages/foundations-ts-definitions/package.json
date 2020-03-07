@@ -1,6 +1,6 @@
 {
   "name": "@reapit/foundations-ts-definitions",
-  "version": "0.0.59",
+  "version": "0.0.62",
   "license": "MIT",
   "files": [
     "types/*"
