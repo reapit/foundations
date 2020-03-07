@@ -1,0 +1,83 @@
+scalar JSON
+
+type OfficeModel {
+  id: String
+  created: String
+  modified: String
+  name: String
+  manager: String
+  address: OfficeModelAddress
+  workPhone: String
+  email: String
+  metadata: JSON
+  _eTag: String
+  _links: JSON
+  _embedded: JSON
+}
+
+type PagedResultOfficeModel {
+  _embedded: [OfficeModel!]
+  pageNumber: Int
+  pageSize: Int
+  pageCount: Int
+  totalCount: Int
+  _links: JSON
+}
+
+type OfficeModelAddress {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+input OfficeModelAddressInput {
+  buildingName: String
+  buildingNumber: String
+  line1: String
+  line2: String
+  line3: String
+  line4: String
+  postcode: String
+  countryId: String
+}
+
+type Query {
+  GetOffices(
+    pageSize: Int
+    pageNumber: Int
+    sortBy: String
+    id: [String!]
+    address: String
+    name: String
+    embed: [String!]
+  ): PagedResultOfficeModel!
+
+  GetOfficeById(id: String!, embed: [String!]): OfficeModel!
+}
+
+type Mutation {
+  CreateOffice(
+    name: String
+    manager: String
+    address: OfficeModelAddressInput
+    workPhone: String
+    email: String
+    metadata: JSON
+  ): JSON!
+
+  UpdateOffice(
+    id: String!
+    _eTag: String!
+    name: String
+    manager: String
+    address: OfficeModelAddressInput
+    workPhone: String
+    email: String
+    metadata: JSON
+  ): JSON!
+}

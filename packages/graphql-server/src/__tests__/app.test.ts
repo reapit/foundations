@@ -3,8 +3,29 @@ import { formatResponse, handleContext, ExpressContext, formatError, listenCallb
 import { GraphQLError } from 'graphql'
 import { ServerInfo } from 'apollo-server'
 
+jest.mock('../logger')
 jest.mock('uuid/v4', (): (() => string) => {
   return () => 'mockUUID'
+})
+jest.mock('apollo-server', () => {
+  return {
+    ApolloServer: function() {
+      return {
+        listen: jest.fn().mockResolvedValue({ url: 'serverUrl' }),
+      }
+    },
+  }
+})
+
+const OLD_NODE_ENV = process.env.NODE_ENV
+
+beforeAll(() => {
+  jest.resetModules()
+  process.env.NODE_ENV = 'production'
+})
+
+afterAll(() => {
+  process.env.NODE_ENV = OLD_NODE_ENV
 })
 
 describe('app.js', () => {

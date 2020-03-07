@@ -5,22 +5,22 @@ import errors from '../../errors'
 import { ServerContext } from '../../app'
 import {
   GetNegotiatorByIdArgs,
-  GetNegotiatorsArgs,
   CreateNegotiatorArgs,
+  GetNegotiatorsArgs,
   UpdateNegotiatorArgs,
-  QueryNegotiatorByIdReturn,
-  QueryNegotiatorsReturn,
+  QueryGetNegotiatorByIdReturn,
+  QueryGetNegotiatorsReturn,
   MutationCreateNegotiatorReturn,
   MutationUpdateNegotiatorReturn,
-} from './negotiator'
+} from './negotiators'
 
-export const queryNegotiatorById = (
+export const queryGetNegotiatorById = (
   _: any,
   args: GetNegotiatorByIdArgs,
   context: ServerContext,
-): QueryNegotiatorByIdReturn => {
+): QueryGetNegotiatorByIdReturn => {
   const traceId = context.traceId
-  logger.info('queryNegotiator', { traceId, args })
+  logger.info('queryGetNegotiatorById', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -28,9 +28,13 @@ export const queryNegotiatorById = (
   return negotiatorServices.getNegotiatorById(args, context)
 }
 
-export const queryNegotiators = (_: any, args: GetNegotiatorsArgs, context: ServerContext): QueryNegotiatorsReturn => {
+export const queryGetNegotiators = (
+  _: any,
+  args: GetNegotiatorsArgs,
+  context: ServerContext,
+): QueryGetNegotiatorsReturn => {
   const traceId = context.traceId
-  logger.info('queryNegotiators', { traceId, args })
+  logger.info('queryGetNegotiators', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -38,13 +42,13 @@ export const queryNegotiators = (_: any, args: GetNegotiatorsArgs, context: Serv
   return negotiatorServices.getNegotiators(args, context)
 }
 
-export const createNegotiator = (
+export const mutationCreateNegotiator = (
   _: any,
   args: CreateNegotiatorArgs,
   context: ServerContext,
 ): MutationCreateNegotiatorReturn => {
   const traceId = context.traceId
-  logger.info('createNegotiator', { traceId, args })
+  logger.info('mutationCreateNegotiator', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
@@ -52,16 +56,27 @@ export const createNegotiator = (
   return negotiatorServices.createNegotiator(args, context)
 }
 
-export const updateNegotiator = (
+export const mutationUpdateNegotiator = (
   _: any,
   args: UpdateNegotiatorArgs,
   context: ServerContext,
 ): MutationUpdateNegotiatorReturn => {
   const traceId = context.traceId
-  logger.info('updateNegotiator', { traceId, args })
+  logger.info('mutationUpdateNegotiator', { traceId, args })
   const isPermit = checkPermission(context)
   if (!isPermit) {
     return errors.generateAuthenticationError(context.traceId)
   }
   return negotiatorServices.updateNegotiator(args, context)
+}
+
+export default {
+  Query: {
+    GetNegotiatorById: queryGetNegotiatorById,
+    GetNegotiators: queryGetNegotiators,
+  },
+  Mutation: {
+    CreateNegotiator: mutationCreateNegotiator,
+    UpdateNegotiator: mutationUpdateNegotiator,
+  },
 }

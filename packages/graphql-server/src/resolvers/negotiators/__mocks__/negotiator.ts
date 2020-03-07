@@ -1,24 +1,24 @@
-import { NegotiatorModel } from '@reapit/foundations-ts-definitions'
+import { NegotiatorModel } from '../../../types'
 
-export const negotiatorStub: NegotiatorModel = {
-  id: 'MGL',
-  created: '2014-12-26T12:22:01.0000000Z',
-  modified: '2016-11-29T09:57:32.0000000Z',
-  name: 'Abel Robertson',
-  jobTitle: null,
+export const negotiatorMock: NegotiatorModel = {
+  id: 'HCJK',
+  created: '2020-03-06T10:01:43.0000000Z',
+  modified: '2020-03-06T10:01:43.0000000Z',
+  name: 'hcj67kdr4jfl7bg46gce8o',
+  jobTitle: 'Senior Sales Negotiator',
   active: true,
-  officeId: 'NPG',
-  workPhone: null,
-  mobilePhone: null,
-  email: 'abel.robertson@reapitestates.net',
+  officeId: 'OXF',
+  workPhone: '01234 567890',
+  mobilePhone: '07890 123456',
+  email: 'example@email.com',
   metadata: {},
-  _eTag: '"10109C0209C684789B72FFC53730E31C"',
+  _eTag: '"1BB55D4EE820DDF381996328B6950C13"',
   _links: {
     self: {
-      href: '/negotiators/MGL',
+      href: '/negotiators/HCJK',
     },
     office: {
-      href: '/offices/NPG',
+      href: '/offices/OXF',
     },
   },
   _embedded: null,
