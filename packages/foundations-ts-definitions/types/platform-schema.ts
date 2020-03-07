@@ -3433,6 +3433,7 @@ export interface Documents {
   Id?: string[]
   AssociatedId?: string[]
   TypeId?: string[]
+  Embed?: 'documentType'[]
   AssociatedType?: (
     | 'appliance'
     | 'applicant'
@@ -3596,8 +3597,6 @@ export interface IdentityChecks {
   CheckDateTo?: string
   CreatedFrom?: string
   CreatedTo?: string
-  pageNumber?: number
-  pageSize?: number
   Status?: ('unknown' | 'unchecked' | 'pending' | 'fail' | 'cancelled' | 'warnings' | 'pass')[]
 }
 /**
@@ -3993,6 +3992,7 @@ export interface Landlords {
   Name?: string
   CreatedFrom?: string
   CreatedTo?: string
+  Embed?: ('documents' | 'office' | 'solicitor' | 'source')[]
 }
 export interface LinkModel {
   href?: string
@@ -4361,6 +4361,7 @@ export interface Offers {
   AmountTo?: number
   DateFrom?: string
   DateTo?: string
+  Embed?: ('applicant' | 'property' | 'negotiator')[]
   Status?: ('pending' | 'withdrawn' | 'rejected' | 'accepted' | 'noteOfInterest' | 'noteOfInterestWithdrawn')[]
 }
 /**
