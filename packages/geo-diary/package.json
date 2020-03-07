@@ -19,7 +19,8 @@
     "release:dev": "node ../../scripts/release/release-dev.js geo-diary reapit-geo-diary-dev",
     "release:prod": "node ../../scripts/release/release-prod.js geo-diary reapit-geo-diary-prod",
     "test:update-badges": "yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges",
-    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\""
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
+    "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix"
   },
   "dependencies": {
     "@reapit/elements": "^0.5.39",

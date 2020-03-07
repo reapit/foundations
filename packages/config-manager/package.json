@@ -18,7 +18,8 @@
   },
   "scripts": {
     "release:prod": "node ../../scripts/release/release-npm.js config-manager",
-    "lint": "eslint --cache --ext=js src"
+    "lint": "eslint --cache --ext=js src",
+    "lint:fix": "eslint --cache --ext=js src --fix"
   },
   "dependencies": {
     "aws-sdk": "^2.582.0",

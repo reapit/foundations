@@ -7,7 +7,6 @@ import depthLimit from 'graphql-depth-limit'
 import logger from './logger'
 
 const typeDefs = importSchema('./src/schema.graphql')
-
 const handleContext = ({ event, context }) => {
   const traceId = uuidv4()
   const isProductionEnv = process.env.NODE_ENV === 'production'

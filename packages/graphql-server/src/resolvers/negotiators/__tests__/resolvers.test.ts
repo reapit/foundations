@@ -1,86 +1,88 @@
-import { queryNegotiators, queryNegotiatorById, createNegotiator, updateNegotiator } from '../resolvers'
-import { GetNegotiatorByIdArgs, GetNegotiatorsArgs } from '../negotiator'
-import { mockContext } from '../../../__mocks__/context'
-import { negotiatorStub } from '../__mocks__/negotiator'
-import { negotiatorsStub } from '../__mocks__/negotiators'
-import { createArgStub } from '../__mocks__/create-arg'
-import { updateArgStub } from '../__mocks__/update-arg'
-
+import negotiatorServices from '../services'
+import { checkPermission } from '../../../utils/check-permission'
 import errors from '../../../errors'
+import {
+  queryGetNegotiatorById,
+  queryGetNegotiators,
+  mutationCreateNegotiator,
+  mutationUpdateNegotiator,
+} from '../resolvers'
+import { createNegotiatorArgsMock } from '../__mocks__/create-negotiator'
+import { updateNegotiatorArgsMock } from '../__mocks__/update-negotiator'
+import { negotiatorMock } from '../__mocks__/negotiator'
+import { negotiatorsMock } from '../__mocks__/negotiators'
+import { mockContext } from '../../../__mocks__/context'
 
 jest.mock('../services', () => ({
-  getNegotiatorById: jest.fn(() => negotiatorStub),
-  getNegotiators: jest.fn(() => negotiatorsStub),
+  getNegotiatorById: jest.fn(() => negotiatorMock),
+  getNegotiators: jest.fn(() => negotiatorsMock),
   createNegotiator: jest.fn(() => true),
-  updateNegotiator: jest.fn(() => negotiatorStub),
+  updateNegotiator: jest.fn(() => true),
+}))
+jest.mock('../../../errors', () => ({
+  generateAuthenticationError: jest.fn(() => 'authentication error'),
+}))
+jest.mock('../../../logger')
+jest.mock('../../../utils/check-permission', () => ({
+  checkPermission: jest.fn(() => true),
 }))
 
-describe('negotiator resolvers', () => {
-  describe('queryNegotiatorById', () => {
-    it('should run correctly', () => {
-      const mockArgs = {
-        id: 'MGL',
-      } as GetNegotiatorByIdArgs
-      const output = negotiatorStub
-      const result = queryNegotiatorById({}, mockArgs, mockContext)
-      expect(result).toEqual(output)
-    })
-
-    it('should return errors', () => {
-      const mockArgs = {
-        id: 'MGL',
-      } as GetNegotiatorByIdArgs
-      const output = errors.generateAuthenticationError(mockContext.traceId)
-      const result = queryNegotiatorById({}, mockArgs, { ...mockContext, authorization: '' })
-      expect(result).toEqual(output)
-    })
+describe('queryGetNegotiatorById', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const args = { id: 'id' }
+    const result = queryGetNegotiatorById(null, args, mockContext)
+    expect(result).toEqual(negotiatorServices.getNegotiatorById(args, mockContext))
   })
 
-  describe('queryNegotiators', () => {
-    it('should run correctly', () => {
-      const mockArgs = {
-        name: 'Abel Robertson',
-      } as GetNegotiatorsArgs
-      const output = negotiatorsStub
-      const result = queryNegotiators({}, mockArgs, mockContext)
-      expect(result).toEqual(output)
-    })
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const args = { id: 'id' }
+    const result = queryGetNegotiatorById(null, args, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
 
-    it('should return errors', () => {
-      const mockArgs = {
-        name: 'Abel Robertson',
-      } as GetNegotiatorsArgs
-      const output = errors.generateAuthenticationError(mockContext.traceId)
-      const result = queryNegotiators({}, mockArgs, { ...mockContext, authorization: '' })
-      expect(result).toEqual(output)
-    })
+describe('queryGetNegotiators', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
+    const result = queryGetNegotiators(null, args, mockContext)
+    expect(result).toEqual(negotiatorServices.getNegotiators(args, mockContext))
   })
 
-  describe('createNegotiator', () => {
-    it('should run correctly', () => {
-      const output = true
-      const result = createNegotiator({}, createArgStub, mockContext)
-      expect(result).toEqual(output)
-    })
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const args = { id: ['id1', 'id2'], pageSize: 10, pageNumber: 1 }
+    const result = queryGetNegotiators(null, args, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
 
-    it('should return errors', () => {
-      const output = errors.generateAuthenticationError(mockContext.traceId)
-      const result = updateNegotiator({}, updateArgStub, { ...mockContext, authorization: '' })
-      expect(result).toEqual(output)
-    })
+describe('mutationCreateNegotiator', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = mutationCreateNegotiator(null, createNegotiatorArgsMock, mockContext)
+    expect(result).toEqual(negotiatorServices.createNegotiator(createNegotiatorArgsMock, mockContext))
   })
 
-  describe('updateNegotiator', () => {
-    it('should run correctly', () => {
-      const output = negotiatorStub
-      const result = updateNegotiator({}, updateArgStub, mockContext)
-      expect(result).toEqual(output)
-    })
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const result = mutationCreateNegotiator(null, createNegotiatorArgsMock, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
+  })
+})
 
-    it('should return errors', () => {
-      const output = errors.generateAuthenticationError(mockContext.traceId)
-      const result = updateNegotiator({}, updateArgStub, { ...mockContext, authorization: '' })
-      expect(result).toEqual(output)
-    })
+describe('mutationUpdateNegotiator', () => {
+  it('should return correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(true)
+    const result = mutationUpdateNegotiator(null, updateNegotiatorArgsMock, mockContext)
+    expect(result).toEqual(negotiatorServices.updateNegotiator(updateNegotiatorArgsMock, mockContext))
+  })
+
+  it('should return auth error correctly', () => {
+    ;(checkPermission as jest.Mock).mockReturnValue(false)
+    const result = mutationUpdateNegotiator(null, updateNegotiatorArgsMock, mockContext)
+    expect(result).toEqual(errors.generateAuthenticationError(mockContext.traceId))
   })
 })

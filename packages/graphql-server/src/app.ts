@@ -8,8 +8,9 @@ import { ExecutionParams } from 'subscriptions-transport-ws'
 import { GraphQLError, GraphQLFormattedError } from 'graphql'
 import { importSchema } from 'graphql-import'
 import depthLimit from 'graphql-depth-limit'
-import resolvers from './resolvers'
 import logger from './logger'
+import resolvers from './resolvers'
+
 const typeDefs = importSchema('./src/schema.graphql')
 
 if (process.env.NODE_ENV === 'development') {
@@ -51,7 +52,7 @@ export const formatResponse = (
   response: GraphQLResponse | null,
   requestContext: GraphQLRequestContext<{ traceId?: string }>,
 ): GraphQLResponse => {
-  const traceId = requestContext?.context?.traceId
+  const traceId = requestContext.context?.traceId
   const isProductionEnv = process.env.NODE_ENV === 'production'
   if (isProductionEnv) {
     logger.info('formatResponse', { traceId, requestContext, response })
