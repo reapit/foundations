@@ -1,4 +1,4 @@
-import sleep from './sleep'
+import sleep from '../sleep'
 
 describe('sleep', () => {
   it('should be promise', () => {

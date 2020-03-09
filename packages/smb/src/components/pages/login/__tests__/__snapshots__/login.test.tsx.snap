@@ -33,9 +33,3 @@ exports[`Login should match a snapshot 1`] = `
   </styled.div>
 </styled.div>
 `;
-
-exports[`Login should match a snapshot with loginSession 1`] = `
-<Redirect
-  to="/home"
-/>
-`;

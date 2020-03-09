@@ -1,16 +1,23 @@
 import { Operation, IdGetterObj } from 'apollo-boost'
 import { ErrorResponse } from 'apollo-link-error'
 import { GraphQLError } from 'graphql'
-import { request, onError, dataIdFromObject } from './client'
+import { getClient, generateRequest, onError, dataIdFromObject } from '@/graphql/client'
 
 describe('client', () => {
-  describe('request', () => {
+  describe('getClient', () => {
+    it('should run correctly', () => {
+      const mockAccessToken = 'mockAccessToken'
+      const result = getClient(mockAccessToken)
+      expect(result).toBeDefined()
+    })
+  })
+  describe('generateRequest', () => {
     it('should run correctly', done => {
       // @ts-ignore
       const mockOperation = {
         setContext: jest.fn(),
       } as Operation
-      request(mockOperation)
+      generateRequest('mockToken')(mockOperation)
       setTimeout(() => {
         expect(mockOperation.setContext).toBeCalled()
         done()

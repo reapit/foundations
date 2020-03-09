@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login styled Container should match Snapshot 1`] = `
+<StyledComponent
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "rules": Array [
+          "
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+  background-color: $white;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column-reverse;
+  }
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
+
+exports[`login styled ImageContainer should match Snapshot 1`] = `
+<StyledComponent
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-htpNat",
+        "isStatic": false,
+        "rules": Array [
+          "
+  background-color: #fff;
+  width: 66.66%;
+  height: 100vh;
+  font-size: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    height: 300px;
+  }
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-htpNat",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
+
+exports[`login styled Wrapper should match Snapshot 1`] = `
+<styled.div
+  disabled={false}
+>
+  <StyledComponent
+    disabled={false}
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bwzfXH",
+          "isStatic": false,
+          "lastClassName": "fHxuTu",
+          "rules": Array [
+            "
+  background-color: #fff;
+  width: 33.33%;
+  padding: 1rem;
+  pointer-events: ",
+            [Function],
+            ";
+
+  h1,
+  p,
+  img {
+    text-align: center;
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 200px;
+    display: block;
+  }
+
+  button {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 0 3rem;
+  }
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bwzfXH",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      }
+    }
+    forwardedRef={null}
+  >
+    <div
+      className="sc-bwzfXH fHxuTu"
+      disabled={false}
+    />
+  </StyledComponent>
+</styled.div>
+`;
+
+exports[`login styled Wrapper should match Snapshot 2`] = `
+<styled.div
+  disabled={true}
+>
+  <StyledComponent
+    disabled={true}
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bwzfXH",
+          "isStatic": false,
+          "lastClassName": "djUvXN",
+          "rules": Array [
+            "
+  background-color: #fff;
+  width: 33.33%;
+  padding: 1rem;
+  pointer-events: ",
+            [Function],
+            ";
+
+  h1,
+  p,
+  img {
+    text-align: center;
+  }
+
+  img {
+    margin: 0 auto;
+    max-width: 200px;
+    display: block;
+  }
+
+  button {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 0 3rem;
+  }
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bwzfXH",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      }
+    }
+    forwardedRef={null}
+  >
+    <div
+      className="sc-bwzfXH djUvXN"
+      disabled={true}
+    />
+  </StyledComponent>
+</styled.div>
+`;
