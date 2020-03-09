@@ -43,7 +43,7 @@ export const useAuth = (): AuthContext => {
 
   const logout = React.useCallback(() => {
     removeSession(COOKIE_SESSION_KEY)
-    redirectToLogout(process.env.COGNITO_CLIENT_ID_APP_NAME as string, `${window.location.origin}/login`)
+    redirectToLogout(process.env.COGNITO_CLIENT_ID_SMB as string, `${window.location.origin}/login`)
   }, [])
 
   return {

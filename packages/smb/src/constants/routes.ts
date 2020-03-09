@@ -8,6 +8,7 @@ const Routes = {
   LETTINGS: '/lettings',
   SUPPORT: '/support',
   INSTALL: '/install',
+  GET_STARTED: '/get-started',
 }
 
 export default Routes

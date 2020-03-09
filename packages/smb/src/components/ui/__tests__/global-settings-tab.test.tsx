@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import { GlobalSettingsTab, GlobalSettingsTabProps } from './global-settings-tab'
+import { GlobalSettingsTab, GlobalSettingsTabProps } from '../global-settings-tab'
 
 describe('GlobalSettingsTab', () => {
   describe('GlobalSettingsTab', () => {

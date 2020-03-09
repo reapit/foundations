@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GetStated AddingSourcesAndReferrals step should match a snapshot 1`] = `
+<styled.div>
+  <p
+    className="mb-5"
+  >
+    Configure your Lead Sources, Advertising Publishers and add third party Referrals from the ‘Sources’ tab. You can come back any time and add new sources when you need to.
+  </p>
+  <Component
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Prev
+  </Component>
+  <Component
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Next
+  </Component>
+</styled.div>
+`;
+
+exports[`GetStated AddingUsers step should match a snapshot 1`] = `
+<styled.div>
+  <p
+    className="mb-5"
+  >
+    Add your Negotiators, Property Managers and Admin access through ‘Users’. You can add, delete or transfer users between Offices. You’ll need to setup at least 1 admin user before installing the software.
+  </p>
+  <Component
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Prev
+  </Component>
+  <Component
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Next
+  </Component>
+</styled.div>
+`;
+
+exports[`GetStated Branding step should match a snapshot 1`] = `
+<styled.div>
+  <p
+    className="mb-5"
+  >
+    Personalise your templates & brand your brochures. From the ‘Marketing’ tab you can set your set your company colours, upload your logo and choose which Portals you want to send to.
+  </p>
+  <Component
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Prev
+  </Component>
+  <Component
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Next
+  </Component>
+</styled.div>
+`;
+
+exports[`GetStated LetGetStated step should match a snapshot 1`] = `
+<styled.div>
+  <p
+    className="mb-5"
+  >
+    You can now start the wizard by clicking on ‘Start Setup’ below. We will walk you through the steps and in no time at all, you’ll be ready to install the latest version of Agency Cloud.
+  </p>
+  <Component
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Prev
+  </Component>
+  <Component
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Start Setup
+  </Component>
+</styled.div>
+`;
+
+exports[`GetStated Setting step should match a snapshot 1`] = `
+<styled.div>
+  <p
+    className="mb-5"
+  >
+    Setup your office and additional offices in your company by accessing ‘Offices’. Here you can set your ‘Global Settings’, configure your ‘Areas’ and third-party software ‘Integrations’.
+  </p>
+  <Component
+    onClick={[Function]}
+    type="button"
+    variant="primary"
+  >
+    Next
+  </Component>
+</styled.div>
+`;
+
+exports[`GetStated should match a snapshot 1`] = `
+<styled.div
+  id="get-started"
+>
+  <Component
+    flexColumn={true}
+    hasBackground={true}
+    hasPadding={true}
+  >
+    <Component>
+      <HelpGuideStep
+        component={[Function]}
+        heading="Setting up your Office(s)."
+        id="step-1"
+      />
+      <HelpGuideStep
+        component={[Function]}
+        heading="Adding Users."
+        id="step-2"
+      />
+      <HelpGuideStep
+        component={[Function]}
+        heading="Adding Sources and Referrals."
+        id="step-3"
+      />
+      <HelpGuideStep
+        component={[Function]}
+        heading="Branding your Templates and selecting your Portals."
+        id="step-4"
+      />
+      <HelpGuideStep
+        component={[Function]}
+        heading="That’s it! Let’s get started."
+        id="step-5"
+      />
+    </Component>
+  </Component>
+</styled.div>
+`;

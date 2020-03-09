@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { mount } from 'enzyme'
-import { IntegrationsTab, IntegrationsTabProps } from './integration-tab'
+import { IntegrationsTab, IntegrationsTabProps } from '../integration-tab'
 
 describe('IntegrationsTab', () => {
   describe('IntegrationsTab', () => {

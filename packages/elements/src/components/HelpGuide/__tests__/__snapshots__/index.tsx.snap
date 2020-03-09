@@ -6,15 +6,15 @@ exports[`HelpGuide HelpGuide.Step should match a snapshot 1`] = `
 >
   <Component />
   <Component />
-  <Component
-    className="relative"
+  <div
+    className="is-flex relative"
   >
     <div
       className="helpguide-component"
     >
       <component />
     </div>
-  </Component>
+  </div>
 </div>
 `;
 

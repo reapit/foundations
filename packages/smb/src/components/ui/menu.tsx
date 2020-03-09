@@ -7,12 +7,9 @@ import { Location } from 'history'
 import { FaSignOutAlt, FaCloud, FaHome, FaBuilding, FaClipboardList, FaDownload } from 'react-icons/fa'
 import { MdWeb, MdLibraryBooks, MdLiveHelp } from 'react-icons/md'
 import { IoIosPeople } from 'react-icons/io'
+import useAuth from '@/hooks/use-auth'
 
-export const generateMenuConfig = (
-  logoutCallback: () => void,
-  location: Location<any>,
-  mode: LoginMode,
-): MenuConfig => {
+export const generateMenuConfig = (logout: () => void, location: Location<any>, mode: LoginMode): MenuConfig => {
   return {
     defaultActiveKey: 'LOGO',
     mode,
@@ -83,17 +80,13 @@ export const generateMenuConfig = (
         title: 'Apps',
         key: 'APPS',
         icon: <FaCloud className="nav-item-icon" />,
-        callback: () =>
-          (window.location.href =
-            window.location.href.includes('dev') || window.location.href.includes('localhost')
-              ? 'https://dev.marketplace.reapit.cloud/client/installed'
-              : 'https://marketplace.reapit.cloud/client/installed'),
+        callback: callbackAppClick,
         type: 'PRIMARY',
       },
       {
         title: 'Logout',
         key: 'LOGOUT',
-        callback: logoutCallback,
+        callback: logout.bind(null),
         icon: <FaSignOutAlt className="nav-item-icon" />,
         type: 'SECONDARY',
       },
@@ -101,20 +94,19 @@ export const generateMenuConfig = (
   }
 }
 
-export type DispatchProps = {
-  logout: () => void
-}
+export const callbackAppClick = () =>
+  (window.location.href =
+    window.location.href.includes('dev') || window.location.href.includes('localhost')
+      ? 'https://dev.marketplace.reapit.cloud/client/installed'
+      : 'https://marketplace.reapit.cloud/client/installed')
 
-export type StateProps = {
-  mode: LoginMode
-}
+export type MenuProps = RouteComponentProps
 
-export type MenuProps = DispatchProps & StateProps & RouteComponentProps & {}
+export const Menu: React.FC<MenuProps> = ({ location }: MenuProps) => {
+  const { logout, loginSession } = useAuth()
+  const mode = loginSession?.mode || 'WEB'
 
-export const logoutCallback = logout => () => logout()
-
-export const Menu: React.FC<MenuProps> = ({ logout, location, mode }: MenuProps) => {
-  const menuConfigs = generateMenuConfig(logoutCallback(logout), location, mode)
+  const menuConfigs = generateMenuConfig(logout, location, mode)
   return <Sidebar {...menuConfigs} location={location} />
 }
 

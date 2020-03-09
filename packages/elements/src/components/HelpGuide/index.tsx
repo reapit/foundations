@@ -158,14 +158,14 @@ function HelpGuideStep({ component: Component, render, heading, subHeading, grap
     <div className="helpguide-content">
       <H3>{heading}</H3>
       <SubTitleH6>{subHeading}</SubTitleH6>
-      <FlexContainerBasic className="relative">
+      <div className="is-flex relative">
         <div className="helpguide-component">{Component ? <Component /> : render ? render : null}</div>
         {!isMobile() && graphic && (
           <div className="helpguide-wrapper-graphic">
             <div className="helpguide-graphic">{graphic}</div>
           </div>
         )}
-      </FlexContainerBasic>
+      </div>
     </div>
   )
 }
