@@ -4,6 +4,8 @@ import getStartedImg from '@/assets/images/get-started.png'
 import installImg from '@/assets/images/install.png'
 import supportImg from '@/assets/images/support.png'
 import { WrapperAction, WrapperContent } from './__styles__/styles'
+import { history } from '@/core/router'
+import Routes from '@/constants/routes'
 
 export interface HelpItem {
   imgSrc: string
@@ -20,7 +22,7 @@ export const helpItems = (): HelpItem[] => [
     text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus minima inventore quidem sequirerum
      exercitationem quaerat consequuntur porro iure possimus.`,
     buttonText: 'Read More',
-    buttonOnClick: () => {},
+    buttonOnClick: () => history.push(Routes.GET_STARTED),
   },
   {
     imgSrc: installImg,
