@@ -34,6 +34,11 @@ const server = new ApolloServer({
   formatResponse,
 })
 
-export const graphqlHandler = server.createHandler()
+export const graphqlHandler = server.createHandler({
+  cors: {
+    origin: '*',
+    credentials: true,
+  },
+})
 
 export default graphqlHandler
