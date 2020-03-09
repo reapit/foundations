@@ -5,11 +5,16 @@ import { PACKAGE_SUFFIXES } from '../../../common/utils/constants'
 import { getServerHeaders } from '../../../common/utils/get-server-headers'
 import { errorHandler } from '../../../common/utils/error-handler'
 
-const getPropertyImages = async (req: Request, res: Response) => {
+export const getPropertyImages = async (req: Request, res: Response) => {
   try {
     const headers = await getServerHeaders(req, PACKAGE_SUFFIXES.SEARCH_WIDGET)
+    const propertyIds = req.body.propertyIds as string[]
+    const propertyImageQuery = propertyIds.reduce(
+      (prev, next, index) => `${prev}${index ? '&' : '?'}propertyId=${next}`,
+      '',
+    )
     const refreshResponse = await fetcher<PagedResultPropertyImageModel_, undefined>({
-      url: `${process.env.PLATFORM_API_BASE_URL}/propertyimages`,
+      url: `${process.env.PLATFORM_API_BASE_URL}/propertyimages/${propertyImageQuery}`,
       headers,
     })
 

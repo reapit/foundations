@@ -7,7 +7,7 @@ export interface SearchWidgeInitializers {
   target?: HTMLElement
 }
 
-const ReapitSearchWidgetComponent = ({ target = document.body, apiKey, theme }: SearchWidgeInitializers) =>
+export const ReapitSearchWidgetComponent = ({ target = document.body, apiKey, theme }: SearchWidgeInitializers) =>
   new SearchWidget({
     target,
     props: {

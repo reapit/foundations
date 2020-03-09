@@ -20,16 +20,13 @@ export const fetcher = async <T, B>({
       body: JSON.stringify(body),
     } as RequestInit)
 
+    const jsonRes = await res.json()
+
     if (res.ok) {
-      try {
-        const jsonVal = await res.json()
-        return jsonVal as T
-      } catch (err) {
-        return {} as T
-      }
+      return jsonRes as T
     }
 
-    throw new Error(`${res.status} ${method} ${url} ${res}`)
+    throw new Error(`${res.status} ${method} ${url} ${jsonRes}`)
   } catch (err) {
     console.error(err.message)
   }

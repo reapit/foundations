@@ -1,5 +1,7 @@
 import SearchWidget from '../search-widget.svelte'
-import { render, fireEvent } from '@testing-library/svelte'
+import { render } from '@testing-library/svelte'
+import searchWidgetStore from '../../core/store'
+import { get } from 'svelte/store'
 
 describe('search-widget', () => {
   it('it matches a snapshot', () => {
@@ -12,18 +14,16 @@ describe('search-widget', () => {
     expect(container).toMatchSnapshot()
   })
 
-  it('it triggers a store update', async () => {
-    const wrapper = render(SearchWidget, {
-      theme: {},
-      apiKey: '',
-    })
-    const { getByTestId } = wrapper
+  it('it updates the default store on mount', () => {
+    const props = {
+      theme: {
+        baseBackgroundColor: 'white',
+      },
+      apiKey: 'SOME_KEY',
+    }
+    render(SearchWidget, props)
+    const store = get(searchWidgetStore)
 
-    const count = getByTestId('count')
-    const button = getByTestId('button')
-
-    await fireEvent.click(button)
-
-    expect(count.textContent).toEqual('Count is 1')
+    expect(store.initializers).toEqual(props)
   })
 })

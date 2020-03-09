@@ -1,6 +1,6 @@
 <script lang="typescript">
   import { onDestroy } from 'svelte'
-  import { getPropertiesForSale, getPropertiesToRent } from '../api/properties'
+  import { getProperties } from '../api/properties'
   import searchWidgetStore from '../core/store'
 
   let inputValue: string = ''
@@ -14,19 +14,8 @@
     inputValue = (target as HTMLInputElement).value
   }
 
-  const handleToRent = async () => {
-    const properties = await getPropertiesToRent(inputValue, apiKey)
-
-    if (properties) {
-      searchWidgetStore.update(values => ({
-        ...values,
-        properties
-      }))
-    }
-  }
-
-  const handleToBuy = async () => {
-    const properties = await getPropertiesForSale(inputValue, apiKey)
+  const handleFetchProperties = async (isRental: boolean) => {
+    const properties = await getProperties(inputValue, isRental, apiKey)
 
     if (properties) {
       searchWidgetStore.update(values => ({
@@ -42,7 +31,7 @@
 </script>
 
 <form on:submit|preventDefault on:input|preventDefault={handleInput}>
-  <input type="text" id="search" />
-  <button on:click|preventDefault={handleToRent} type="button">For rent</button>
-  <button on:click|preventDefault={handleToBuy} type="button">For sale</button>
+  <input type="text" data-testid="search-input" id="search" />
+  <button on:click|preventDefault={() => handleFetchProperties(true)} data-testid="lettings" type="button">For rent</button>
+  <button on:click|preventDefault={() => handleFetchProperties(false)} data-testid="sales" type="button">For sale</button>
 </form>

@@ -10,6 +10,6 @@ const CONSTANTS: { [key: string]: { [key: string]: string } } = {
   },
 }
 
-export const API_BASE_URL = CONSTANTS[process.env.REAPIT_ENV as string].WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET
+export const API_BASE_URL = CONSTANTS[process.env.REAPIT_ENV || 'LOCAL'].WEB_COMPONENT_API_BASE_URL_SEARCH_WIDGET
 
 export default CONSTANTS
