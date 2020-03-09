@@ -48,13 +48,13 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                               "kind": "Argument",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "Id",
+                                "value": "id",
                               },
                               "value": Object {
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Id",
+                                  "value": "id",
                                 },
                               },
                             },
@@ -62,13 +62,13 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                               "kind": "Argument",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "Name",
+                                "value": "name",
                               },
                               "value": Object {
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Name",
+                                  "value": "name",
                                 },
                               },
                             },
@@ -76,13 +76,13 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                               "kind": "Argument",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "Address",
+                                "value": "address",
                               },
                               "value": Object {
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Address",
+                                  "value": "address",
                                 },
                               },
                             },
@@ -90,13 +90,13 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                               "kind": "Argument",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "SortBy",
+                                "value": "sortBy",
                               },
                               "value": Object {
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "SortBy",
+                                  "value": "sortBy",
                                 },
                               },
                             },
@@ -104,13 +104,13 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                               "kind": "Argument",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "PageSize",
+                                "value": "pageSize",
                               },
                               "value": Object {
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "PageSize",
+                                  "value": "pageSize",
                                 },
                               },
                             },
@@ -118,13 +118,13 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                               "kind": "Argument",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "PageNumber",
+                                "value": "pageNumber",
                               },
                               "value": Object {
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "PageNumber",
+                                  "value": "pageNumber",
                                 },
                               },
                             },
@@ -231,7 +231,7 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                           "kind": "Variable",
                           "name": Object {
                             "kind": "Name",
-                            "value": "Id",
+                            "value": "id",
                           },
                         },
                       },
@@ -249,7 +249,7 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                           "kind": "Variable",
                           "name": Object {
                             "kind": "Name",
-                            "value": "Name",
+                            "value": "name",
                           },
                         },
                       },
@@ -267,7 +267,7 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                           "kind": "Variable",
                           "name": Object {
                             "kind": "Name",
-                            "value": "Address",
+                            "value": "address",
                           },
                         },
                       },
@@ -288,7 +288,7 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                           "kind": "Variable",
                           "name": Object {
                             "kind": "Name",
-                            "value": "PageSize",
+                            "value": "pageSize",
                           },
                         },
                       },
@@ -309,7 +309,7 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                           "kind": "Variable",
                           "name": Object {
                             "kind": "Name",
-                            "value": "PageNumber",
+                            "value": "pageNumber",
                           },
                         },
                       },
@@ -327,7 +327,7 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                           "kind": "Variable",
                           "name": Object {
                             "kind": "Name",
-                            "value": "SortBy",
+                            "value": "sortBy",
                           },
                         },
                       },
@@ -562,7 +562,7 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                       "kind": "NamedType",
                       "name": Object {
                         "kind": "Name",
-                        "value": "OfficeModel_address",
+                        "value": "OfficeModelAddress",
                       },
                     },
                   },
@@ -574,14 +574,14 @@ exports[`OfficesTab OfficesTab should match a snapshot 1`] = `
                     "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -781,13 +781,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Id",
+                                    "value": "id",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Id",
+                                      "value": "id",
                                     },
                                   },
                                 },
@@ -795,13 +795,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Name",
+                                    "value": "name",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Name",
+                                      "value": "name",
                                     },
                                   },
                                 },
@@ -809,13 +809,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Address",
+                                    "value": "address",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Address",
+                                      "value": "address",
                                     },
                                   },
                                 },
@@ -823,13 +823,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "SortBy",
+                                    "value": "sortBy",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "SortBy",
+                                      "value": "sortBy",
                                     },
                                   },
                                 },
@@ -837,13 +837,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageSize",
+                                    "value": "pageSize",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageSize",
+                                      "value": "pageSize",
                                     },
                                   },
                                 },
@@ -851,13 +851,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageNumber",
+                                    "value": "pageNumber",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageNumber",
+                                      "value": "pageNumber",
                                     },
                                   },
                                 },
@@ -964,7 +964,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "Id",
+                                "value": "id",
                               },
                             },
                           },
@@ -982,7 +982,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "Name",
+                                "value": "name",
                               },
                             },
                           },
@@ -1000,7 +1000,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "Address",
+                                "value": "address",
                               },
                             },
                           },
@@ -1021,7 +1021,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "PageSize",
+                                "value": "pageSize",
                               },
                             },
                           },
@@ -1042,7 +1042,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "PageNumber",
+                                "value": "pageNumber",
                               },
                             },
                           },
@@ -1060,7 +1060,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "SortBy",
+                                "value": "sortBy",
                               },
                             },
                           },
@@ -1295,7 +1295,7 @@ query OFFICES(
                           "kind": "NamedType",
                           "name": Object {
                             "kind": "Name",
-                            "value": "OfficeModel_address",
+                            "value": "OfficeModelAddress",
                           },
                         },
                       },
@@ -1307,14 +1307,14 @@ query OFFICES(
                         "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -1336,8 +1336,8 @@ query OFFICES(
                     },
                   },
                   "variables": Object {
-                    "PageNumber": 1,
-                    "PageSize": 12,
+                    "pageNumber": 1,
+                    "pageSize": 12,
                   },
                 },
               },
@@ -1348,7 +1348,7 @@ query OFFICES(
             "link": MockLink {
               "addTypename": false,
               "mockedResponsesByKey": Object {
-                "{\\"query\\":\\"query OFFICES($Id: [String!], $Name: String, $Address: String, $PageSize: Int!, $PageNumber: Int!, $SortBy: String) {\\\\n  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModel_address {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                "{\\"query\\":\\"query OFFICES($id: [String!], $name: String, $address: String, $pageSize: Int!, $pageNumber: Int!, $sortBy: String) {\\\\n  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                   Object {
                     "request": Object {
                       "query": Object {
@@ -1370,13 +1370,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Id",
+                                        "value": "id",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Id",
+                                          "value": "id",
                                         },
                                       },
                                     },
@@ -1384,13 +1384,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Name",
+                                        "value": "name",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Name",
+                                          "value": "name",
                                         },
                                       },
                                     },
@@ -1398,13 +1398,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Address",
+                                        "value": "address",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Address",
+                                          "value": "address",
                                         },
                                       },
                                     },
@@ -1412,13 +1412,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "SortBy",
+                                        "value": "sortBy",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "SortBy",
+                                          "value": "sortBy",
                                         },
                                       },
                                     },
@@ -1426,13 +1426,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageSize",
+                                        "value": "pageSize",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "PageSize",
+                                          "value": "pageSize",
                                         },
                                       },
                                     },
@@ -1440,13 +1440,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageNumber",
+                                        "value": "pageNumber",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "PageNumber",
+                                          "value": "pageNumber",
                                         },
                                       },
                                     },
@@ -1553,7 +1553,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Id",
+                                    "value": "id",
                                   },
                                 },
                               },
@@ -1571,7 +1571,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Name",
+                                    "value": "name",
                                   },
                                 },
                               },
@@ -1589,7 +1589,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Address",
+                                    "value": "address",
                                   },
                                 },
                               },
@@ -1610,7 +1610,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageSize",
+                                    "value": "pageSize",
                                   },
                                 },
                               },
@@ -1631,7 +1631,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageNumber",
+                                    "value": "pageNumber",
                                   },
                                 },
                               },
@@ -1649,7 +1649,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "SortBy",
+                                    "value": "sortBy",
                                   },
                                 },
                               },
@@ -1884,7 +1884,7 @@ query OFFICES(
                               "kind": "NamedType",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "OfficeModel_address",
+                                "value": "OfficeModelAddress",
                               },
                             },
                           },
@@ -1896,14 +1896,14 @@ query OFFICES(
                             "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -2101,13 +2101,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Id",
+                                      "value": "id",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Id",
+                                        "value": "id",
                                       },
                                     },
                                   },
@@ -2115,13 +2115,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Name",
+                                      "value": "name",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Name",
+                                        "value": "name",
                                       },
                                     },
                                   },
@@ -2129,13 +2129,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Address",
+                                      "value": "address",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Address",
+                                        "value": "address",
                                       },
                                     },
                                   },
@@ -2143,13 +2143,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "SortBy",
+                                      "value": "sortBy",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "SortBy",
+                                        "value": "sortBy",
                                       },
                                     },
                                   },
@@ -2157,13 +2157,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageSize",
+                                      "value": "pageSize",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageSize",
+                                        "value": "pageSize",
                                       },
                                     },
                                   },
@@ -2171,13 +2171,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageNumber",
+                                      "value": "pageNumber",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageNumber",
+                                        "value": "pageNumber",
                                       },
                                     },
                                   },
@@ -2284,7 +2284,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Id",
+                                  "value": "id",
                                 },
                               },
                             },
@@ -2302,7 +2302,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Name",
+                                  "value": "name",
                                 },
                               },
                             },
@@ -2320,7 +2320,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Address",
+                                  "value": "address",
                                 },
                               },
                             },
@@ -2341,7 +2341,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "PageSize",
+                                  "value": "pageSize",
                                 },
                               },
                             },
@@ -2362,7 +2362,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "PageNumber",
+                                  "value": "pageNumber",
                                 },
                               },
                             },
@@ -2380,7 +2380,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "SortBy",
+                                  "value": "sortBy",
                                 },
                               },
                             },
@@ -2615,7 +2615,7 @@ query OFFICES(
                             "kind": "NamedType",
                             "name": Object {
                               "kind": "Name",
-                              "value": "OfficeModel_address",
+                              "value": "OfficeModelAddress",
                             },
                           },
                         },
@@ -2627,14 +2627,14 @@ query OFFICES(
                           "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -2656,8 +2656,8 @@ query OFFICES(
                       },
                     },
                     "variables": Object {
-                      "PageNumber": 1,
-                      "PageSize": 12,
+                      "pageNumber": 1,
+                      "pageSize": 12,
                     },
                   },
                 },
@@ -2728,13 +2728,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Id",
+                                        "value": "id",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Id",
+                                          "value": "id",
                                         },
                                       },
                                     },
@@ -2742,13 +2742,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Name",
+                                        "value": "name",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Name",
+                                          "value": "name",
                                         },
                                       },
                                     },
@@ -2756,13 +2756,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Address",
+                                        "value": "address",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Address",
+                                          "value": "address",
                                         },
                                       },
                                     },
@@ -2770,13 +2770,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "SortBy",
+                                        "value": "sortBy",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "SortBy",
+                                          "value": "sortBy",
                                         },
                                       },
                                     },
@@ -2784,13 +2784,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageSize",
+                                        "value": "pageSize",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "PageSize",
+                                          "value": "pageSize",
                                         },
                                       },
                                     },
@@ -2798,13 +2798,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageNumber",
+                                        "value": "pageNumber",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "PageNumber",
+                                          "value": "pageNumber",
                                         },
                                       },
                                     },
@@ -2911,7 +2911,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Id",
+                                    "value": "id",
                                   },
                                 },
                               },
@@ -2929,7 +2929,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Name",
+                                    "value": "name",
                                   },
                                 },
                               },
@@ -2947,7 +2947,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Address",
+                                    "value": "address",
                                   },
                                 },
                               },
@@ -2968,7 +2968,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageSize",
+                                    "value": "pageSize",
                                   },
                                 },
                               },
@@ -2989,7 +2989,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageNumber",
+                                    "value": "pageNumber",
                                   },
                                 },
                               },
@@ -3007,7 +3007,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "SortBy",
+                                    "value": "sortBy",
                                   },
                                 },
                               },
@@ -3242,7 +3242,7 @@ query OFFICES(
                               "kind": "NamedType",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "OfficeModel_address",
+                                "value": "OfficeModelAddress",
                               },
                             },
                           },
@@ -3254,14 +3254,14 @@ query OFFICES(
                             "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -3283,8 +3283,8 @@ query OFFICES(
                         },
                       },
                       "variables": Object {
-                        "PageNumber": 1,
-                        "PageSize": 12,
+                        "pageNumber": 1,
+                        "pageSize": 12,
                       },
                     },
                   },
@@ -3312,13 +3312,13 @@ query OFFICES(
                                 "kind": "Argument",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Id",
+                                  "value": "id",
                                 },
                                 "value": Object {
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Id",
+                                    "value": "id",
                                   },
                                 },
                               },
@@ -3326,13 +3326,13 @@ query OFFICES(
                                 "kind": "Argument",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Name",
+                                  "value": "name",
                                 },
                                 "value": Object {
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Name",
+                                    "value": "name",
                                   },
                                 },
                               },
@@ -3340,13 +3340,13 @@ query OFFICES(
                                 "kind": "Argument",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Address",
+                                  "value": "address",
                                 },
                                 "value": Object {
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Address",
+                                    "value": "address",
                                   },
                                 },
                               },
@@ -3354,13 +3354,13 @@ query OFFICES(
                                 "kind": "Argument",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "SortBy",
+                                  "value": "sortBy",
                                 },
                                 "value": Object {
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "SortBy",
+                                    "value": "sortBy",
                                   },
                                 },
                               },
@@ -3368,13 +3368,13 @@ query OFFICES(
                                 "kind": "Argument",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "PageSize",
+                                  "value": "pageSize",
                                 },
                                 "value": Object {
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageSize",
+                                    "value": "pageSize",
                                   },
                                 },
                               },
@@ -3382,13 +3382,13 @@ query OFFICES(
                                 "kind": "Argument",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "PageNumber",
+                                  "value": "pageNumber",
                                 },
                                 "value": Object {
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageNumber",
+                                    "value": "pageNumber",
                                   },
                                 },
                               },
@@ -3495,7 +3495,7 @@ query OFFICES(
                             "kind": "Variable",
                             "name": Object {
                               "kind": "Name",
-                              "value": "Id",
+                              "value": "id",
                             },
                           },
                         },
@@ -3513,7 +3513,7 @@ query OFFICES(
                             "kind": "Variable",
                             "name": Object {
                               "kind": "Name",
-                              "value": "Name",
+                              "value": "name",
                             },
                           },
                         },
@@ -3531,7 +3531,7 @@ query OFFICES(
                             "kind": "Variable",
                             "name": Object {
                               "kind": "Name",
-                              "value": "Address",
+                              "value": "address",
                             },
                           },
                         },
@@ -3552,7 +3552,7 @@ query OFFICES(
                             "kind": "Variable",
                             "name": Object {
                               "kind": "Name",
-                              "value": "PageSize",
+                              "value": "pageSize",
                             },
                           },
                         },
@@ -3573,7 +3573,7 @@ query OFFICES(
                             "kind": "Variable",
                             "name": Object {
                               "kind": "Name",
-                              "value": "PageNumber",
+                              "value": "pageNumber",
                             },
                           },
                         },
@@ -3591,7 +3591,7 @@ query OFFICES(
                             "kind": "Variable",
                             "name": Object {
                               "kind": "Name",
-                              "value": "SortBy",
+                              "value": "sortBy",
                             },
                           },
                         },
@@ -3826,7 +3826,7 @@ query OFFICES(
                         "kind": "NamedType",
                         "name": Object {
                           "kind": "Name",
-                          "value": "OfficeModel_address",
+                          "value": "OfficeModelAddress",
                         },
                       },
                     },
@@ -3838,14 +3838,14 @@ query OFFICES(
                       "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -3870,7 +3870,7 @@ query OFFICES(
               "link": MockLink {
                 "addTypename": false,
                 "mockedResponsesByKey": Object {
-                  "{\\"query\\":\\"query OFFICES($Id: [String!], $Name: String, $Address: String, $PageSize: Int!, $PageNumber: Int!, $SortBy: String) {\\\\n  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModel_address {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
+                  "{\\"query\\":\\"query OFFICES($id: [String!], $name: String, $address: String, $pageSize: Int!, $pageNumber: Int!, $sortBy: String) {\\\\n  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {\\\\n    _embedded {\\\\n      ...Office\\\\n    }\\\\n    pageNumber\\\\n    pageSize\\\\n    pageCount\\\\n    totalCount\\\\n    _links\\\\n  }\\\\n}\\\\n\\\\nfragment Office on OfficeModel {\\\\n  id\\\\n  created\\\\n  modified\\\\n  name\\\\n  manager\\\\n  address {\\\\n    ...OfficeAddress\\\\n  }\\\\n  workPhone\\\\n  email\\\\n  metadata\\\\n  _eTag\\\\n  _links\\\\n  _embedded\\\\n}\\\\n\\\\nfragment OfficeAddress on OfficeModelAddress {\\\\n  buildingName\\\\n  buildingNumber\\\\n  line1\\\\n  line2\\\\n  line3\\\\n  line4\\\\n  postcode\\\\n  countryId\\\\n}\\\\n\\"}": Array [
                     Object {
                       "request": Object {
                         "query": Object {
@@ -3892,13 +3892,13 @@ query OFFICES(
                                         "kind": "Argument",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Id",
+                                          "value": "id",
                                         },
                                         "value": Object {
                                           "kind": "Variable",
                                           "name": Object {
                                             "kind": "Name",
-                                            "value": "Id",
+                                            "value": "id",
                                           },
                                         },
                                       },
@@ -3906,13 +3906,13 @@ query OFFICES(
                                         "kind": "Argument",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Name",
+                                          "value": "name",
                                         },
                                         "value": Object {
                                           "kind": "Variable",
                                           "name": Object {
                                             "kind": "Name",
-                                            "value": "Name",
+                                            "value": "name",
                                           },
                                         },
                                       },
@@ -3920,13 +3920,13 @@ query OFFICES(
                                         "kind": "Argument",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Address",
+                                          "value": "address",
                                         },
                                         "value": Object {
                                           "kind": "Variable",
                                           "name": Object {
                                             "kind": "Name",
-                                            "value": "Address",
+                                            "value": "address",
                                           },
                                         },
                                       },
@@ -3934,13 +3934,13 @@ query OFFICES(
                                         "kind": "Argument",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "SortBy",
+                                          "value": "sortBy",
                                         },
                                         "value": Object {
                                           "kind": "Variable",
                                           "name": Object {
                                             "kind": "Name",
-                                            "value": "SortBy",
+                                            "value": "sortBy",
                                           },
                                         },
                                       },
@@ -3948,13 +3948,13 @@ query OFFICES(
                                         "kind": "Argument",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "PageSize",
+                                          "value": "pageSize",
                                         },
                                         "value": Object {
                                           "kind": "Variable",
                                           "name": Object {
                                             "kind": "Name",
-                                            "value": "PageSize",
+                                            "value": "pageSize",
                                           },
                                         },
                                       },
@@ -3962,13 +3962,13 @@ query OFFICES(
                                         "kind": "Argument",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "PageNumber",
+                                          "value": "pageNumber",
                                         },
                                         "value": Object {
                                           "kind": "Variable",
                                           "name": Object {
                                             "kind": "Name",
-                                            "value": "PageNumber",
+                                            "value": "pageNumber",
                                           },
                                         },
                                       },
@@ -4075,7 +4075,7 @@ query OFFICES(
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Id",
+                                      "value": "id",
                                     },
                                   },
                                 },
@@ -4093,7 +4093,7 @@ query OFFICES(
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Name",
+                                      "value": "name",
                                     },
                                   },
                                 },
@@ -4111,7 +4111,7 @@ query OFFICES(
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Address",
+                                      "value": "address",
                                     },
                                   },
                                 },
@@ -4132,7 +4132,7 @@ query OFFICES(
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageSize",
+                                      "value": "pageSize",
                                     },
                                   },
                                 },
@@ -4153,7 +4153,7 @@ query OFFICES(
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageNumber",
+                                      "value": "pageNumber",
                                     },
                                   },
                                 },
@@ -4171,7 +4171,7 @@ query OFFICES(
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "SortBy",
+                                      "value": "sortBy",
                                     },
                                   },
                                 },
@@ -4406,7 +4406,7 @@ query OFFICES(
                                 "kind": "NamedType",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "OfficeModel_address",
+                                  "value": "OfficeModelAddress",
                                 },
                               },
                             },
@@ -4418,14 +4418,14 @@ query OFFICES(
                               "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -4623,13 +4623,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Id",
+                                        "value": "id",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Id",
+                                          "value": "id",
                                         },
                                       },
                                     },
@@ -4637,13 +4637,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Name",
+                                        "value": "name",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Name",
+                                          "value": "name",
                                         },
                                       },
                                     },
@@ -4651,13 +4651,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Address",
+                                        "value": "address",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Address",
+                                          "value": "address",
                                         },
                                       },
                                     },
@@ -4665,13 +4665,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "SortBy",
+                                        "value": "sortBy",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "SortBy",
+                                          "value": "sortBy",
                                         },
                                       },
                                     },
@@ -4679,13 +4679,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageSize",
+                                        "value": "pageSize",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "PageSize",
+                                          "value": "pageSize",
                                         },
                                       },
                                     },
@@ -4693,13 +4693,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageNumber",
+                                        "value": "pageNumber",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "PageNumber",
+                                          "value": "pageNumber",
                                         },
                                       },
                                     },
@@ -4806,7 +4806,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Id",
+                                    "value": "id",
                                   },
                                 },
                               },
@@ -4824,7 +4824,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Name",
+                                    "value": "name",
                                   },
                                 },
                               },
@@ -4842,7 +4842,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Address",
+                                    "value": "address",
                                   },
                                 },
                               },
@@ -4863,7 +4863,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageSize",
+                                    "value": "pageSize",
                                   },
                                 },
                               },
@@ -4884,7 +4884,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageNumber",
+                                    "value": "pageNumber",
                                   },
                                 },
                               },
@@ -4902,7 +4902,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "SortBy",
+                                    "value": "sortBy",
                                   },
                                 },
                               },
@@ -5137,7 +5137,7 @@ query OFFICES(
                               "kind": "NamedType",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "OfficeModel_address",
+                                "value": "OfficeModelAddress",
                               },
                             },
                           },
@@ -5149,14 +5149,14 @@ query OFFICES(
                             "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -5178,8 +5178,8 @@ query OFFICES(
                         },
                       },
                       "variables": Object {
-                        "PageNumber": 1,
-                        "PageSize": 12,
+                        "pageNumber": 1,
+                        "pageSize": 12,
                       },
                     },
                   },
@@ -5213,13 +5213,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Id",
+                                    "value": "id",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Id",
+                                      "value": "id",
                                     },
                                   },
                                 },
@@ -5227,13 +5227,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Name",
+                                    "value": "name",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Name",
+                                      "value": "name",
                                     },
                                   },
                                 },
@@ -5241,13 +5241,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Address",
+                                    "value": "address",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Address",
+                                      "value": "address",
                                     },
                                   },
                                 },
@@ -5255,13 +5255,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "SortBy",
+                                    "value": "sortBy",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "SortBy",
+                                      "value": "sortBy",
                                     },
                                   },
                                 },
@@ -5269,13 +5269,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageSize",
+                                    "value": "pageSize",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageSize",
+                                      "value": "pageSize",
                                     },
                                   },
                                 },
@@ -5283,13 +5283,13 @@ query OFFICES(
                                   "kind": "Argument",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageNumber",
+                                    "value": "pageNumber",
                                   },
                                   "value": Object {
                                     "kind": "Variable",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageNumber",
+                                      "value": "pageNumber",
                                     },
                                   },
                                 },
@@ -5396,7 +5396,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "Id",
+                                "value": "id",
                               },
                             },
                           },
@@ -5414,7 +5414,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "Name",
+                                "value": "name",
                               },
                             },
                           },
@@ -5432,7 +5432,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "Address",
+                                "value": "address",
                               },
                             },
                           },
@@ -5453,7 +5453,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "PageSize",
+                                "value": "pageSize",
                               },
                             },
                           },
@@ -5474,7 +5474,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "PageNumber",
+                                "value": "pageNumber",
                               },
                             },
                           },
@@ -5492,7 +5492,7 @@ query OFFICES(
                               "kind": "Variable",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "SortBy",
+                                "value": "sortBy",
                               },
                             },
                           },
@@ -5727,7 +5727,7 @@ query OFFICES(
                           "kind": "NamedType",
                           "name": Object {
                             "kind": "Name",
-                            "value": "OfficeModel_address",
+                            "value": "OfficeModelAddress",
                           },
                         },
                       },
@@ -5739,14 +5739,14 @@ query OFFICES(
                         "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -5840,13 +5840,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Id",
+                                        "value": "id",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Id",
+                                          "value": "id",
                                         },
                                       },
                                     },
@@ -5854,13 +5854,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Name",
+                                        "value": "name",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Name",
+                                          "value": "name",
                                         },
                                       },
                                     },
@@ -5868,13 +5868,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Address",
+                                        "value": "address",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "Address",
+                                          "value": "address",
                                         },
                                       },
                                     },
@@ -5882,13 +5882,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "SortBy",
+                                        "value": "sortBy",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "SortBy",
+                                          "value": "sortBy",
                                         },
                                       },
                                     },
@@ -5896,13 +5896,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageSize",
+                                        "value": "pageSize",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "PageSize",
+                                          "value": "pageSize",
                                         },
                                       },
                                     },
@@ -5910,13 +5910,13 @@ query OFFICES(
                                       "kind": "Argument",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageNumber",
+                                        "value": "pageNumber",
                                       },
                                       "value": Object {
                                         "kind": "Variable",
                                         "name": Object {
                                           "kind": "Name",
-                                          "value": "PageNumber",
+                                          "value": "pageNumber",
                                         },
                                       },
                                     },
@@ -6023,7 +6023,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Id",
+                                    "value": "id",
                                   },
                                 },
                               },
@@ -6041,7 +6041,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Name",
+                                    "value": "name",
                                   },
                                 },
                               },
@@ -6059,7 +6059,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "Address",
+                                    "value": "address",
                                   },
                                 },
                               },
@@ -6080,7 +6080,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageSize",
+                                    "value": "pageSize",
                                   },
                                 },
                               },
@@ -6101,7 +6101,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "PageNumber",
+                                    "value": "pageNumber",
                                   },
                                 },
                               },
@@ -6119,7 +6119,7 @@ query OFFICES(
                                   "kind": "Variable",
                                   "name": Object {
                                     "kind": "Name",
-                                    "value": "SortBy",
+                                    "value": "sortBy",
                                   },
                                 },
                               },
@@ -6354,7 +6354,7 @@ query OFFICES(
                               "kind": "NamedType",
                               "name": Object {
                                 "kind": "Name",
-                                "value": "OfficeModel_address",
+                                "value": "OfficeModelAddress",
                               },
                             },
                           },
@@ -6366,14 +6366,14 @@ query OFFICES(
                             "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -6395,8 +6395,8 @@ query OFFICES(
                         },
                       },
                       "variables": Object {
-                        "PageNumber": 1,
-                        "PageSize": 12,
+                        "pageNumber": 1,
+                        "pageSize": 12,
                       },
                     },
                     "queryId": "1",
@@ -6405,8 +6405,8 @@ query OFFICES(
                     "shouldSubscribe": true,
                     "subscriptions": Set {},
                     "variables": Object {
-                      "PageNumber": 1,
-                      "PageSize": 12,
+                      "pageNumber": 1,
+                      "pageSize": 12,
                     },
                   },
                   "subscriptions": Set {},
@@ -6435,13 +6435,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Id",
+                                      "value": "id",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Id",
+                                        "value": "id",
                                       },
                                     },
                                   },
@@ -6449,13 +6449,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Name",
+                                      "value": "name",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Name",
+                                        "value": "name",
                                       },
                                     },
                                   },
@@ -6463,13 +6463,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Address",
+                                      "value": "address",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Address",
+                                        "value": "address",
                                       },
                                     },
                                   },
@@ -6477,13 +6477,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "SortBy",
+                                      "value": "sortBy",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "SortBy",
+                                        "value": "sortBy",
                                       },
                                     },
                                   },
@@ -6491,13 +6491,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageSize",
+                                      "value": "pageSize",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageSize",
+                                        "value": "pageSize",
                                       },
                                     },
                                   },
@@ -6505,13 +6505,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageNumber",
+                                      "value": "pageNumber",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageNumber",
+                                        "value": "pageNumber",
                                       },
                                     },
                                   },
@@ -6618,7 +6618,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Id",
+                                  "value": "id",
                                 },
                               },
                             },
@@ -6636,7 +6636,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Name",
+                                  "value": "name",
                                 },
                               },
                             },
@@ -6654,7 +6654,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Address",
+                                  "value": "address",
                                 },
                               },
                             },
@@ -6675,7 +6675,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "PageSize",
+                                  "value": "pageSize",
                                 },
                               },
                             },
@@ -6696,7 +6696,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "PageNumber",
+                                  "value": "pageNumber",
                                 },
                               },
                             },
@@ -6714,7 +6714,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "SortBy",
+                                  "value": "sortBy",
                                 },
                               },
                             },
@@ -6949,7 +6949,7 @@ query OFFICES(
                             "kind": "NamedType",
                             "name": Object {
                               "kind": "Name",
-                              "value": "OfficeModel_address",
+                              "value": "OfficeModelAddress",
                             },
                           },
                         },
@@ -6961,14 +6961,14 @@ query OFFICES(
                           "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -6999,8 +6999,8 @@ query OFFICES(
                     "networkStatus": 1,
                     "previousVariables": null,
                     "variables": Object {
-                      "PageNumber": 1,
-                      "PageSize": 12,
+                      "pageNumber": 1,
+                      "pageSize": 12,
                     },
                   },
                 },
@@ -7066,13 +7066,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Id",
+                                      "value": "id",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Id",
+                                        "value": "id",
                                       },
                                     },
                                   },
@@ -7080,13 +7080,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Name",
+                                      "value": "name",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Name",
+                                        "value": "name",
                                       },
                                     },
                                   },
@@ -7094,13 +7094,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "Address",
+                                      "value": "address",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "Address",
+                                        "value": "address",
                                       },
                                     },
                                   },
@@ -7108,13 +7108,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "SortBy",
+                                      "value": "sortBy",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "SortBy",
+                                        "value": "sortBy",
                                       },
                                     },
                                   },
@@ -7122,13 +7122,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageSize",
+                                      "value": "pageSize",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageSize",
+                                        "value": "pageSize",
                                       },
                                     },
                                   },
@@ -7136,13 +7136,13 @@ query OFFICES(
                                     "kind": "Argument",
                                     "name": Object {
                                       "kind": "Name",
-                                      "value": "PageNumber",
+                                      "value": "pageNumber",
                                     },
                                     "value": Object {
                                       "kind": "Variable",
                                       "name": Object {
                                         "kind": "Name",
-                                        "value": "PageNumber",
+                                        "value": "pageNumber",
                                       },
                                     },
                                   },
@@ -7249,7 +7249,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Id",
+                                  "value": "id",
                                 },
                               },
                             },
@@ -7267,7 +7267,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Name",
+                                  "value": "name",
                                 },
                               },
                             },
@@ -7285,7 +7285,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "Address",
+                                  "value": "address",
                                 },
                               },
                             },
@@ -7306,7 +7306,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "PageSize",
+                                  "value": "pageSize",
                                 },
                               },
                             },
@@ -7327,7 +7327,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "PageNumber",
+                                  "value": "pageNumber",
                                 },
                               },
                             },
@@ -7345,7 +7345,7 @@ query OFFICES(
                                 "kind": "Variable",
                                 "name": Object {
                                   "kind": "Name",
-                                  "value": "SortBy",
+                                  "value": "sortBy",
                                 },
                               },
                             },
@@ -7580,7 +7580,7 @@ query OFFICES(
                             "kind": "NamedType",
                             "name": Object {
                               "kind": "Name",
-                              "value": "OfficeModel_address",
+                              "value": "OfficeModelAddress",
                             },
                           },
                         },
@@ -7592,14 +7592,14 @@ query OFFICES(
                           "body": "#import \\"../../../graphql/fragments/office.graphql\\"
 
 query OFFICES(
-  $Id: [String!],
-  $Name: String,
-  $Address: String,
-  $PageSize: Int!,
-  $PageNumber: Int!,
-  $SortBy: String
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
   ) {
-  GetOffices(Id: $Id, Name: $Name, Address: $Address, SortBy: $SortBy, PageSize: $PageSize, PageNumber: $PageNumber) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
     _embedded {
       ...Office
     }
@@ -7621,8 +7621,8 @@ query OFFICES(
                       },
                     },
                     "variables": Object {
-                      "PageNumber": 1,
-                      "PageSize": 12,
+                      "pageNumber": 1,
+                      "pageSize": 12,
                     },
                   },
                 },

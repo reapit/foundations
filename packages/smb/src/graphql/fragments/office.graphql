@@ -15,7 +15,7 @@ fragment Office on OfficeModel {
   _embedded
 }
 
-fragment OfficeAddress on OfficeModel_address {
+fragment OfficeAddress on OfficeModelAddress {
   buildingName
   buildingNumber
   line1

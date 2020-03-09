@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { withRouter, RouteComponentProps } from 'react-router'
+import { useLocation, useHistory } from 'react-router-dom'
 import queryString from 'query-string'
 import { ApolloError } from 'apollo-boost'
 import { useQuery } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import { Loader, Cell, Alert, Section, Pagination, Spreadsheet } from '@reapit/elements'
-import { Offices, PagedResultOfficeModel_, OfficeModel } from '@reapit/foundations-ts-definitions'
+import { PagedResultOfficeModel_, OfficeModel } from '@reapit/foundations-ts-definitions'
 import { OFFICES } from './offices-tab.graphql'
 import { OFFICES_PER_PAGE } from '@/constants/paginators'
 
@@ -22,7 +22,16 @@ export const tableHeaders: DataTableRow[] = [
   { readOnly: true, value: 'Email' },
 ]
 
-export type OfficesTabProps = RouteComponentProps & {}
+export type OfficesTabProps = {}
+
+export interface OfficesQueryParams {
+  pageSize: number
+  pageNumber: number
+  sortBy?: string
+  id?: string[]
+  address?: string
+  name?: string
+}
 
 export type OfficesQueryResponse = {
   GetOffices?: PagedResultOfficeModel_
@@ -88,13 +97,15 @@ export const handleChangePage = ({ history }) => (pageNumber: number) => {
   })
 }
 
-export const OfficesTab: React.FC<OfficesTabProps> = ({ location, history }) => {
+export const OfficesTab: React.FC<OfficesTabProps> = () => {
+  const location = useLocation()
+  const history = useHistory()
   const params = queryString.parse(location?.search)
   const page = Number(params?.page) || 1
-  const { loading, error, data } = useQuery<OfficesQueryResponse, Offices>(OFFICES, {
-    variables: { PageSize: OFFICES_PER_PAGE, PageNumber: page },
+  const { loading, error, data } = useQuery<OfficesQueryResponse, OfficesQueryParams>(OFFICES, {
+    variables: { pageSize: OFFICES_PER_PAGE, pageNumber: page },
     fetchPolicy: 'network-only',
-  }) as QueryResult<OfficesQueryResponse, Offices>
+  }) as QueryResult<OfficesQueryResponse, OfficesQueryParams>
 
   const dataTable = getDataTable(data || { GetOffices: { _embedded: [] } })
 
@@ -132,4 +143,4 @@ export function getDataTable(data: OfficesQueryResponse): DataTableRow[][] {
   return dataTable
 }
 
-export default withRouter(OfficesTab)
+export default OfficesTab
