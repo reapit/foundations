@@ -44,19 +44,18 @@ const removeRefsPrefix = tagNameWithRef => {
 }
 
 const getVersionTag = () => {
-  const folderName = path.basename(path.dirname(`${process.cwd()}/package.json`))
-
+  const packageFolderName = path.basename(path.dirname(`${process.cwd()}/package.json`))
   try {
     const tagName = process.env.RELEASE_VERSION
     const tagNameArr = removeUnuseChar(tagName).split('_')
     const PACKAGE_NAME_INDEX = 0
     const VERSION_INDEX = 1
-    const packageName = tagNameArr[PACKAGE_NAME_INDEX] || folderName
+    const packageName = tagNameArr[PACKAGE_NAME_INDEX] || packageFolderName
     const version = tagNameArr[VERSION_INDEX] || getRef()
     return { packageName, version }
   } catch (error) {
     console.error(error)
-    return { packageName: folderName, version: getRef() }
+    return { packageName: packageFolderName, version: getRef() }
   }
 }
 
