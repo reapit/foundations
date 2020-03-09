@@ -2,8 +2,12 @@
 const spawn = require('child_process').spawnSync
 const execSync = require('child_process').execSync
 const Octokit = require('@octokit/rest')
+const path = require('path')
 
 const removeUnuseChar = value => {
+  if (!value) {
+    return ''
+  }
   return value.replace(/(\r\n\t|\n|\r\t)/gm, '')
 }
 
@@ -40,16 +44,19 @@ const removeRefsPrefix = tagNameWithRef => {
 }
 
 const getVersionTag = () => {
+  const folderName = path.basename(path.dirname(`${process.cwd()}/package.json`))
+
   try {
     const tagName = process.env.RELEASE_VERSION
     const tagNameArr = removeUnuseChar(tagName).split('_')
     const PACKAGE_NAME_INDEX = 0
     const VERSION_INDEX = 1
-    const packageName = tagNameArr[PACKAGE_NAME_INDEX]
-    const version = tagNameArr[VERSION_INDEX]
+    const packageName = tagNameArr[PACKAGE_NAME_INDEX] || folderName
+    const version = tagNameArr[VERSION_INDEX] || getRef()
     return { packageName, version }
-  } catch (e) {
-    return { packageName: '', version: getRef() }
+  } catch (error) {
+    console.error(error)
+    return { packageName: folderName, version: getRef() }
   }
 }
 

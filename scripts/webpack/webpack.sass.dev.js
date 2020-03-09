@@ -13,10 +13,8 @@ const webpackBase = require('./webpack.base.dev')
 const { PATHS } = require('./constants')
 
 module.exports = {
-  ...{
-    ...webpackBase,
-    entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', webpackBase.entry, PATHS.elementsIndexSass],
-  },
+  ...webpackBase,
+  entry: ['@babel/polyfill', 'core-js', 'isomorphic-fetch', webpackBase.entry, PATHS.elementsIndexSass],
   module: {
     rules: [
       ...webpackBase.module.rules,
@@ -73,7 +71,7 @@ module.exports = {
     ],
   },
   resolve: {
-    ...webpackBase.module.resolve,
+    ...webpackBase.resolve,
     extensions: [...webpackBase.resolve.extensions, '.css', '.scss', '.sass'],
   },
 }

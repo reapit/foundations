@@ -63,8 +63,7 @@ module.exports = {
     }),
     new EnvironmentPlugin({
       ...config[process.env.REAPIT_ENV || 'DEV'],
-      APP_VERSION:
-        process.env.REAPIT_ENV === 'LOCAL' ? JSON.stringify('LOCAL') : JSON.stringify(getVersionTag().version),
+      APP_VERSION: `${getVersionTag().packageName}_${getVersionTag().version}`,
     }),
     new HashedModuleIdsPlugin(),
     new GenerateSW({

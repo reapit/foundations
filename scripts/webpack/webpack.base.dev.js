@@ -11,6 +11,8 @@ const config = require(PATHS.config)
 const hashFiles = require('../utils/hash-files')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
+const tagName = getVersionTag()
+
 module.exports = {
   mode: 'development',
   context: process.cwd(),
@@ -32,8 +34,7 @@ module.exports = {
     }),
     new EnvironmentPlugin({
       ...config[process.env.REAPIT_ENV || 'LOCAL'],
-      APP_VERSION:
-        process.env.REAPIT_ENV === 'LOCAL' ? JSON.stringify('LOCAL') : JSON.stringify(getVersionTag().version),
+      APP_VERSION: `${tagName.packageName}_${tagName.version}`,
     }),
     new HtmlWebpackPlugin({
       inject: true,

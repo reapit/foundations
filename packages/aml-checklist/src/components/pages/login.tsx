@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { ReduxState } from '@/types/core'
 import Routes from '@/constants/routes'
-import { Button, Level } from '@reapit/elements'
+import { Button, Level, FlexContainerBasic } from '@reapit/elements'
 import { redirectToLogin } from '@reapit/cognito-auth'
 import loginStyles from '@/styles/pages/login.scss?mod'
 import logoImage from '@/assets/images/reapit-graphic.jpg'
@@ -32,6 +32,9 @@ export const Login: React.FunctionComponent<LoginProps> = (props: LoginProps) =>
             Login
           </Button>
         </Level>
+        <FlexContainerBasic className="pt-8" centerContent>
+          {process.env.APP_VERSION}
+        </FlexContainerBasic>
       </div>
 
       <div className={image}>

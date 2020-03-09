@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Redirect } from 'react-router-dom'
-import { Button, Level } from '@reapit/elements'
+import { Button, Level, FlexContainerBasic } from '@reapit/elements'
 import { redirectToLogin } from '@reapit/cognito-auth'
 import useAuth from '@/hooks/use-auth'
 import Routes from '@/constants/routes'
@@ -30,6 +30,9 @@ export const Login: React.FunctionComponent = () => {
             Login
           </Button>
         </Level>
+        <FlexContainerBasic className="pt-8" centerContent>
+          {process.env.APP_VERSION}
+        </FlexContainerBasic>
       </Wrapper>
 
       <ImageContainer>
