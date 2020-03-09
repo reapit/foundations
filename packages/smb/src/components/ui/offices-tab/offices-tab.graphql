@@ -1,0 +1,21 @@
+#import "../../../graphql/fragments/office.graphql"
+
+query OFFICES(
+  $id: [String!],
+  $name: String,
+  $address: String,
+  $pageSize: Int!,
+  $pageNumber: Int!,
+  $sortBy: String
+  ) {
+  GetOffices(id: $id, name: $name, address: $address, sortBy: $sortBy, pageSize: $pageSize, pageNumber: $pageNumber) {
+    _embedded {
+      ...Office
+    }
+    pageNumber
+    pageSize
+    pageCount
+    totalCount
+    _links
+  }
+}
