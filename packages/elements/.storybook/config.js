@@ -37,8 +37,8 @@ addParameters({
       inputTextColor: '#12263f',
       inputBorderRadius: 0,
 
-      brandTitle: 'Elements',
-      brandUrl: 'https://reapit.github.io/elements/',
+      brandTitle: `Elements ${process.env.APP_VERSION}`,
+      brandUrl: process.env.ELEMENTS_DOCUMENT_URL,
       brandImage: ''
     })
   }

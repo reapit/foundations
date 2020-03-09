@@ -26,6 +26,10 @@ exports[`Login should match a snapshot 1`] = `
         Login
       </Component>
     </Component>
+    <Component
+      centerContent={true}
+      className="pt-8"
+    />
   </div>
   <div>
     <img
