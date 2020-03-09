@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   margin: 0 auto;
   width: 100%;
-
   @media (min-width: 769px) {
     width: unset;
   }

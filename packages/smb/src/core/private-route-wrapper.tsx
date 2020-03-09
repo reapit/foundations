@@ -12,23 +12,26 @@ export type PrivateRouteWrapperProps = RouteComponentProps & {
   path: string
 }
 
-export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children, location }) => {
+export const PrivateRouteWrapper: React.FunctionComponent<PrivateRouteWrapperProps> = ({ children }) => {
   const { loginSession, getLoginSession, refreshParams } = useAuth()
+
   if (!loginSession && !refreshParams) {
     redirectToOAuth(process.env.COGNITO_CLIENT_ID_SMB as string)
     return null
   }
+
   if (!loginSession && refreshParams) {
     getLoginSession(refreshParams)
+  }
+
+  if (!loginSession) {
+    return null
   }
 
   if (location.pathname === '/') {
     return <Redirect to={Routes.HOME} />
   }
 
-  if (!loginSession) {
-    return null
-  }
   return (
     <AppNavContainer>
       <Menu />

@@ -44,7 +44,7 @@ const useAuth = (): AuthContext => {
     setAuthState({
       fetching: true
     })
-
+  
     const newSession = await getSession(
       loginSession,
       refreshParams,
@@ -57,13 +57,13 @@ const useAuth = (): AuthContext => {
         fetching: false,
         loginSession: newSession
       })
-
-    } else {
+  
+    } else { 
       setAuthState({
         fetching: false
       })
     }
-  }
+  } 
 
   const logout = React.useCallback(() => {
     removeSession(COOKIE_SESSION_KEY)

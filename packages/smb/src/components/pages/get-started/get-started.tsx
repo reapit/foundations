@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { FlexContainerResponsive, useHelpGuideContext, HelpGuide, Button } from '@reapit/elements'
-import { Container, WrapperStep } from './__styles__/get-started'
+import { Container, WrapperStep } from './__styles__/styles'
 
 export const Setting = () => {
   const { goNext } = useHelpGuideContext()

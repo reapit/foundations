@@ -5,7 +5,7 @@ import * as AuthContext from '@/context/auth-context'
 import { redirectToLogin } from '@reapit/cognito-auth'
 import { Button } from '@reapit/elements'
 
-jest.mock('@/context/auth-context.tsx')
+jest.mock('../../../context/auth-context.tsx')
 jest.mock('@reapit/cognito-auth', () => ({
   redirectToLogin: jest.fn(),
 }))

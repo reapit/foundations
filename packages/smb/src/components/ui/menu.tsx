@@ -7,7 +7,7 @@ import { Location } from 'history'
 import { FaSignOutAlt, FaCloud, FaHome, FaBuilding, FaClipboardList, FaDownload } from 'react-icons/fa'
 import { MdWeb, MdLibraryBooks, MdLiveHelp } from 'react-icons/md'
 import { IoIosPeople } from 'react-icons/io'
-import { useAuthContext } from '@/context/auth-context'
+import useAuth from '@/hooks/use-auth'
 
 export const generateMenuConfig = (logout: () => void, location: Location<any>, mode: LoginMode): MenuConfig => {
   return {
@@ -103,11 +103,10 @@ export const callbackAppClick = () =>
 export type MenuProps = RouteComponentProps
 
 export const Menu: React.FC<MenuProps> = ({ location }: MenuProps) => {
-  const { logout, loginSession } = useAuthContext()
+  const { logout, loginSession } = useAuth()
   const mode = loginSession?.mode || 'WEB'
 
   const menuConfigs = generateMenuConfig(logout, location, mode)
-
   return <Sidebar {...menuConfigs} location={location} />
 }
 
