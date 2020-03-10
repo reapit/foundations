@@ -51,7 +51,7 @@ export type RenderUserListParams = {
   handleChangePage: (page: number) => void
 }
 
-const CustomComponent = ({ cellRenderProps }) => {
+const UserStatusCheckbox = ({ cellRenderProps }) => {
   const {
     row,
     col,
@@ -68,7 +68,7 @@ const CustomComponent = ({ cellRenderProps }) => {
   )
 }
 
-export function getDataTable(data: UsersQueryResponse): DataTableRow[][] {
+export const getDataTable = (data: UsersQueryResponse): DataTableRow[][] => {
   let dataTable: DataTableRow[][] = [tableHeaders]
   const users: NegotiatorModel[] = data.GetNegotiators?._embedded || []
   const dataRows: DataTableRow[][] = users.map((user: NegotiatorModel) => [
@@ -77,7 +77,7 @@ export function getDataTable(data: UsersQueryResponse): DataTableRow[][] {
     { value: user.email },
     { value: user.mobilePhone },
     { value: user.officeId },
-    { value: user.active, CustomComponent },
+    { value: user.active, CustomComponent: UserStatusCheckbox },
   ])
   dataTable = [tableHeaders, ...dataRows]
   return dataTable
