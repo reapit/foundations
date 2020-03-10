@@ -140,7 +140,7 @@ storiesOf('Spreadsheet', module)
           data.map((row, rowIndex) =>
             row.map((cell, colIndex) => {
               if (colIndex === 10) {
-                if (emailRegex.test(data[rowIndex][colIndex].value)) {
+                if (emailRegex.test(data[rowIndex][colIndex].value as string)) {
                   return true
                 }
                 return false

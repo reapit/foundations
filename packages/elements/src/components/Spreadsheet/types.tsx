@@ -11,9 +11,7 @@ export type ChangedCells = { oldCell: Cell; row: number; col: number; newCell: C
 export type SetData = React.Dispatch<React.SetStateAction<Cell[][]>>
 export type SetSelected = React.Dispatch<React.SetStateAction<SelectedMatrix | null>>
 export interface Cell extends ReactDataSheet.Cell<Cell, string> {
-  /** The value of the cell, always a string */
   value: string | null
-  /** The validate function, receive Cell as param, must return boolean */
   isValidated?: boolean
   /** Additional className for styling cell */
   className?: string
@@ -42,9 +40,12 @@ export interface SpreadsheetProps {
   hasUploadButton?: boolean
   hasDownloadButton?: boolean
   hasAddButton?: boolean
-  /** This will run before data is set to table, must return data with validate function */
+  /**
+   * The validate function will be called everytime data changed, should return
+   * format like [[true, false], [true, true]] and have to match with spreadsheet data
+   */
   validate?: ValidateFunction
-  afterDataChanged?: (data: Cell[][]) => any
+  afterDataChanged?: (data: Cell[][], changedCells: ChangedCells) => any
 }
 
 export type SelectedMatrix = {
