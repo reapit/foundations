@@ -3,7 +3,7 @@ import { useLocation, useHistory } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'
 import { QueryResult } from '@apollo/react-common'
 import { ApolloError } from 'apollo-boost'
-import { Loader, Cell, Alert, Section, Pagination, Spreadsheet, Checkbox } from '@reapit/elements'
+import { Loader, Cell, Alert, Section, Pagination, Spreadsheet } from '@reapit/elements'
 import { getParamsFromPath, stringifyObjectIntoQueryString } from '@/utils/client-url-params'
 import { GetUsers } from './user-list.graphql'
 import {
