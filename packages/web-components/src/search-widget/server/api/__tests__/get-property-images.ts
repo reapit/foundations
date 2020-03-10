@@ -15,9 +15,7 @@ describe('property images server API', () => {
     ;(fetcher as jest.Mock).mockImplementation(() => propertyImagesStub)
 
     const req = {
-      body: {
-        propertyIds: ['SOME_ID', 'SOME_OTHER_ID'],
-      },
+      url: 'propertyimages?propertyId=SOME_ID&propertyId=SOME_OTHER_ID',
     } as Request
 
     const res = ({
@@ -31,7 +29,7 @@ describe('property images server API', () => {
     await getPropertyImages(req, res)
 
     expect(fetcher).toHaveBeenCalledWith({
-      url: 'http://localhost:3000/propertyimages/?propertyId=SOME_ID&propertyId=SOME_OTHER_ID',
+      url: `${process.env.PLATFORM_API_BASE_URL}${req.url}`,
       headers,
     })
     expect(res.status).toHaveBeenCalledWith(200)
@@ -47,9 +45,7 @@ describe('property images server API', () => {
     })
 
     const req = {
-      body: {
-        propertyIds: ['SOME_ID', 'SOME_OTHER_ID'],
-      },
+      url: 'propertyimages?propertyId=SOME_ID&propertyId=SOME_OTHER_ID',
     } as Request
 
     const res = ({

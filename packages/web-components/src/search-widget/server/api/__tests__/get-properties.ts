@@ -1,6 +1,6 @@
 import { fetcher } from '../../../../common/utils/fetcher-server'
 import { propertiesStub } from '../../../server/api/__stubs__/properties'
-import { getProperties, getUrlQuery } from '../get-properties'
+import { getProperties } from '../get-properties'
 import { getServerHeaders } from '../../../../common/utils/get-server-headers'
 import { Request, Response } from 'express'
 import { PACKAGE_SUFFIXES } from '../../../../common/utils/constants'
@@ -10,29 +10,12 @@ jest.mock('../../../../common/utils/fetcher-server')
 jest.mock('../../../../common/utils/error-handler')
 
 describe('properties server API', () => {
-  it('should correctly return a URL query for a rental', () => {
-    process.env.PLATFORM_API_BASE_URL = 'http://localhost:3000'
-    const expected =
-      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&Address=E2&marketingMode=letting%2CsellingAndLetting'
-    expect(getUrlQuery(true, 'E2')).toEqual(expected)
-  })
-
-  it('should correctly return a URL query for sales', () => {
-    process.env.PLATFORM_API_BASE_URL = 'http://localhost:3000'
-    const expected =
-      'http://localhost:3000/properties?SellingStatuses=forSale%2CunderOffer&InternetAdvertising=true&PageSize=8&Address=E2&marketingMode=selling%2CsellingAndLetting'
-    expect(getUrlQuery(false, 'E2')).toEqual(expected)
-  })
-
   it('should correctly call the fetcher for properties', async () => {
     process.env.PLATFORM_API_BASE_URL = 'http://localhost:3000'
     ;(fetcher as jest.Mock).mockImplementation(() => propertiesStub)
 
     const req = {
-      body: {
-        isRental: false,
-        keywords: 'SEARCH',
-      },
+      url: '/properties?someValue=foo&someOtherValue=bar',
     } as Request
 
     const res = ({
@@ -46,7 +29,7 @@ describe('properties server API', () => {
     await getProperties(req, res)
 
     expect(fetcher).toHaveBeenCalledWith({
-      url: getUrlQuery(req.body.isRental, req.body.keywords),
+      url: `${process.env.PLATFORM_API_BASE_URL}${req.url}`,
       headers,
     })
     expect(res.status).toHaveBeenCalledWith(200)
@@ -62,10 +45,7 @@ describe('properties server API', () => {
     })
 
     const req = {
-      body: {
-        isRental: false,
-        keywords: 'SEARCH',
-      },
+      url: '/properties?someValue=foo&someOtherValue=bar',
     } as Request
 
     const res = ({

@@ -8,14 +8,15 @@ return (() => {
   }
   setEnv()
 
-  const serverScript = `serverless webpack --out public/dist --stage ${process.env.REAPIT_ENV.toLowerCase()}`
+  const REAPIT_ENV = process.env.REAPIT_ENV || 'LOCAL'
+  const serverScript = `serverless webpack --out public/dist --stage ${REAPIT_ENV.toLowerCase()}`
 
   execSync(serverScript, opts)
 
   packages.forEach(package => {
     try {
       const clearPublic = 'rimraf ./public/dist'
-      const clientScript = `rollup -w -c './src/scripts/rollup.config.${package}.js'`
+      const clientScript = `rollup -c './src/scripts/rollup.config.${package}.js'`
       const startDev = `${clearPublic} && ${clientScript}`
 
       execSync(startDev, opts)
