@@ -97,7 +97,7 @@ export const callUpdateIdentityCheckAPI = async (
   logger.info('callUpdateIdentityCheckAPI', { traceId, args })
   try {
     const { _eTag, ...payload } = args
-    const response = await fetcher({
+    const updateResponse = await fetcher({
       url: `${URLS.identityChecks}/${args.id}`,
       api: process.env.PLATFORM_API_BASE_URL,
       method: 'PATCH',
@@ -109,7 +109,10 @@ export const callUpdateIdentityCheckAPI = async (
       },
       body: payload,
     })
-    return response
+    if (updateResponse) {
+      return callGetIdentityCheckByIdAPI({ id: args.id }, context)
+    }
+    return errors.generateUserInputError(traceId)
   } catch (error) {
     logger.error('callUpdateIdentityCheckAPI', { traceId, error: JSON.stringify(error) })
     return errors.generateUserInputError(traceId)

@@ -31,7 +31,7 @@ export type GetContactsReturn = Promise<PagedResultContactModel_ | UserInputErro
 
 // temporarily return boolean, will change later
 export type CreateContactReturn = Promise<boolean | UserInputError>
-export type UpdateContactReturn = Promise<boolean | UserInputError>
+export type UpdateContactReturn = Promise<ContactModel | UserInputError>
 
 // resolver type
 export type QueryGetContactByIdReturn = AuthenticationError | GetContactByIdReturn

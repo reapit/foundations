@@ -26,7 +26,7 @@ export type GetNegotiatorsReturn = Promise<PagedResultNegotiatorModel_ | UserInp
 
 // temporarily return boolean, will change later
 export type CreateNegotiatorReturn = Promise<boolean | UserInputError>
-export type UpdateNegotiatorReturn = Promise<boolean | UserInputError>
+export type UpdateNegotiatorReturn = Promise<NegotiatorModel | UserInputError>
 
 // resolver type
 export type QueryGetNegotiatorByIdReturn = AuthenticationError | GetNegotiatorByIdReturn
