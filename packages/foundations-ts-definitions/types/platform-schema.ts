@@ -856,6 +856,7 @@ export interface Appointments {
   End?: string
   IncludeCancelled?: boolean
   IncludeUnconfirmed?: boolean
+  Embed?: ('negotiators' | 'offices' | 'organiser' | 'property' | 'type')[]
 }
 /**
  * Representation of an area that properties reside in, or applicants are looking to buy/rent in
@@ -1367,6 +1368,49 @@ export interface ContactModel {
   }
 }
 /**
+ * Representation of the roles that an individual contacts possesses
+ * example:
+ * 2019-08-14T12:30:02.0000000Z
+ */
+export interface ContactRoleModel {
+  /**
+   * The unique identifier of the relationship
+   */
+  id?: string
+  /**
+   * The date and time when the relationship was created
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  created?: string // date-time
+  /**
+   * The date and time when the relationship was last modified
+   * example:
+   * 2019-08-14T12:30:02.0000000Z
+   */
+  modified?: string // date-time
+  /**
+   * The unique identifier of the related contact
+   */
+  contactId?: string
+  /**
+   * The type of related entity (applicant/vendor/landlord/tenancy)
+   */
+  associatedType?: string
+  /**
+   * The unique identifier of the related entity
+   */
+  associatedId?: string
+  readonly _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+  readonly _embedded?: {
+    [name: string]: any
+  }
+}
+/**
  * Representation of a contact's source
  */
 export interface ContactSourceModel {
@@ -1393,6 +1437,7 @@ export interface Contacts {
   Active?: boolean
   CreatedFrom?: string
   CreatedTo?: string
+  Embed?: ('documents' | 'identityChecks' | 'negotiators' | 'offices' | 'source')[]
 }
 /**
  * The details specific to applicants with a marketingMode of buying
@@ -3597,6 +3642,7 @@ export interface IdentityChecks {
   CheckDateTo?: string
   CreatedFrom?: string
   CreatedTo?: string
+  Embed?: ('contact' | 'document1' | 'document2' | 'documentType1' | 'documentType2')[]
   Status?: ('unknown' | 'unchecked' | 'pending' | 'fail' | 'cancelled' | 'warnings' | 'pass')[]
 }
 /**
@@ -5436,6 +5482,55 @@ export interface PagedResultContactModel_ {
      * The ETag for the current version of the contact. Used for managing update concurrency
      */
     readonly _eTag?: string
+    readonly _links?: {
+      [name: string]: {
+        href?: string
+      }
+    }
+    readonly _embedded?: {
+      [name: string]: any
+    }
+  }[]
+  pageNumber?: number // int32
+  pageSize?: number // int32
+  pageCount?: number // int32
+  totalCount?: number // int32
+  _links?: {
+    [name: string]: {
+      href?: string
+    }
+  }
+}
+export interface PagedResultContactRoleModel_ {
+  _embedded?: {
+    /**
+     * The unique identifier of the relationship
+     */
+    id?: string
+    /**
+     * The date and time when the relationship was created
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    created?: string // date-time
+    /**
+     * The date and time when the relationship was last modified
+     * example:
+     * 2019-08-14T12:30:02.0000000Z
+     */
+    modified?: string // date-time
+    /**
+     * The unique identifier of the related contact
+     */
+    contactId?: string
+    /**
+     * The type of related entity (applicant/vendor/landlord/tenancy)
+     */
+    associatedType?: string
+    /**
+     * The unique identifier of the related entity
+     */
+    associatedId?: string
     readonly _links?: {
       [name: string]: {
         href?: string
@@ -10110,4 +10205,5 @@ export interface Vendors {
   LastCallTo?: string
   NextCallFrom?: string
   NextCallTo?: string
+  Embed?: ('negotiator' | 'offices' | 'sellingReason' | 'solicitor' | 'source' | 'type')[]
 }
