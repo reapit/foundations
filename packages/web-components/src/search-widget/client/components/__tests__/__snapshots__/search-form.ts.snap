@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search-form it matches a snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="css-h4w50h"
+    >
+      <div
+        class="css-yau5c8"
+      >
+        <form>
+          <input
+            data-testid="search-input"
+            id="search"
+            type="text"
+          />
+           
+          <button
+            data-testid="lettings"
+            type="button"
+          >
+            For rent
+          </button>
+           
+          <button
+            data-testid="sales"
+            type="button"
+          >
+            For sale
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+`;

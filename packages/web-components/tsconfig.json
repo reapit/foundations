@@ -1,25 +1,14 @@
 {
-  "extends": "../../tsconfig.json",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*"],
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "dist-npm",
-    "declaration": true,
-    "sourceRoot": "/",
-    "declarationDir": "dist-npm",
+    "target": "ESNEXT",
+    "module": "ESNEXT",
+    "strict": true,
     "moduleResolution": "node",
-    "paths": {
-      "@/*": ["src/*"],
-      "@reapit/cognito-auth": ["../cognito-auth/src"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin",
-        "validate": false
-      }
-    ],
-    "resolveJsonModule": true,
-    "rootDirs": ["src"],
-    "skipLibCheck": true,
-    "target": "es5"
+    "types": ["svelte", "jest", "node"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   }
 }

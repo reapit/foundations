@@ -9,53 +9,43 @@
     "type": "git",
     "url": "git+https://github.com/reapit/foundations.git"
   },
-  "license": "MIT",
-  "files": [
-    "pidist-npm/**/*"
-  ],
-  "main": "dist-npm/index.js",
-  "types": "dist-npm/index.d.ts",
-  "typings": "dist-npm/index.d.ts",
-  "scripts": {
-    "build:cdn": "rimraf dist && rimraf dist-npm && webpack --color --mode production --config ../../scripts/webpack/webpack.cdn.js",
-    "build:npm": "rimraf dist-npm && webpack --color --mode production --config ../../scripts/webpack/webpack.basic.js && yarn build:tsc",
-    "build:prod-temporary-disable": "echo 'disabling for now yarn build:npm && yarn build:cdn'",
-    "build:tsc": "tsc -p './tsconfig.json'",
-    "check-version": "node ./scripts/check-version.js",
-    "release:dev-temporary-disable": "echo 'disabling for now node ../../scripts/release/release-dev.js web-components reapit-web-components-dev'",
-    "release:prod-temporary-disable": "echo 'disabling for now node ../../scripts/release/release-prod.js web-components reapit-web-components'",
-    "start:dev": "start-storybook -p 8080",
-    "test:ci-temporary-disable": "echo 'disabling for now cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit'",
-    "test:dev": "cross-env TZ=UTC jest --watch --verbose",
-    "test:update-badges-temporary-disable": "echo 'disabling for now yarn test:ci && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges'"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "private": true,
+  "devDependencies": {
+    "@reapit/foundations-ts-definitions": "2020-02-13",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-json": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-replace": "^2.3.1",
+    "@testing-library/svelte": "^1.11.0",
+    "@wessberg/rollup-plugin-ts": "^1.2.17",
+    "rollup": "^1.32.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-livereload": "^1.0.4",
+    "rollup-plugin-svelte": "^5.1.1",
+    "rollup-plugin-terser": "^5.2.0",
+    "serverless-offline": "^5.12.1",
+    "serverless-webpack": "^5.3.1",
+    "sirv-cli": "^0.4.5",
+    "svelte-jester": "^1.0.4",
+    "svelte-preprocess": "^3.4.0"
   },
   "dependencies": {
-    "little-loader": "^0.2.0",
-    "lodash.merge": "^4.6.2",
-    "react-icons": "^3.7.0",
-    "styled-components": "^4.4.0"
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "emotion": "^10.0.27",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1",
+    "serverless-http": "^2.3.2",
+    "svelte": "^3.19.0",
+    "typescript": "~3.7.2"
   },
-  "devDependencies": {
-    "@types/little-loader": "^0.2.0",
-    "@types/lodash.merge": "^4.6.6"
-  },
-  "peerDependencies": {
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2"
-  },
-  "alias": {
-    "@/*": "./src/*"
+  "scripts": {
+    "build:prod": "node ./src/scripts/build-prod.js",
+    "start:prod": "sirv public",
+    "start:dev": "node ./src/scripts/start-dev.js",
+    "test:dev": "jest --watch --color",
+    "test:ci": "cross-env TZ=UTC jest --ci --colors --coverage --silent --forceExit",
+    "lint": "concurrently \"tsc --noEmit\" \"eslint --cache --ext=ts,tsx,js src\"",
+    "lint:fix": "eslint --cache --ext=ts,tsx,js src --fix"
   }
 }

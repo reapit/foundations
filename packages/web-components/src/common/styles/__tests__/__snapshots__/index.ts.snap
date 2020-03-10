@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`styles should generate a global CSS theme 1`] = `"css-gnah7l"`;
+
+exports[`styles should generate a reset css class 1`] = `"css-h4w50h"`;
