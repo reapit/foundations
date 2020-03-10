@@ -79,7 +79,7 @@ describe('UserList', () => {
       it('should run correctly', () => {
         const dataTable = getDataTable(users)
         expect(Array.isArray(dataTable)).toBe(true)
-        expect(dataTable.length).toBe(3)
+        expect(dataTable.length).toBe(4)
         expect(dataTable[0]).toEqual(tableHeaders)
       })
     })
