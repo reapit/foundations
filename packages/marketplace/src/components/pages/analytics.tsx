@@ -205,7 +205,11 @@ export const handleFetchAppUsageStatsDataUseCallback = (
   return () => {
     const orderredDeveloperAppDataArray = orderBy(developerAppDataArray, ['created'], ['asc'])
     const firstCreatedApp = orderredDeveloperAppDataArray[0]
+    const appIds = orderredDeveloperAppDataArray.map((app: AppSummaryModel) => {
+      return app.id
+    })
     loadStats({
+      appId: appIds,
       dateFrom: firstCreatedApp?.created,
     })
   }
